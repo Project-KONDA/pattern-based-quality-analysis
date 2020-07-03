@@ -143,7 +143,7 @@ public class XmlReferenceItemProvider extends RelationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XmlReference)object).getId();
+		String label = ((XmlReference)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_XmlReference_type") :
 			getString("_UI_XmlReference_type") + " " + label;

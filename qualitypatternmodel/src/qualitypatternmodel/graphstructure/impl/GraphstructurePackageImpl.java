@@ -248,6 +248,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EAttribute getRelation_Name() {
+		return (EAttribute)relationEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getRelation__RemoveRelationFromPreviousGraphs() {
 		return relationEClass.getEOperations().get(0);
 	}
@@ -350,6 +360,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	@Override
 	public EReference getProperty_Match() {
 		return (EReference)propertyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getProperty_Name() {
+		return (EAttribute)propertyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -957,6 +977,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEReference(relationEClass, RELATION__GRAPH);
 		createEReference(relationEClass, RELATION__SOURCE);
 		createEReference(relationEClass, RELATION__TARGET);
+		createEAttribute(relationEClass, RELATION__NAME);
 		createEOperation(relationEClass, RELATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS);
 		createEOperation(relationEClass, RELATION___REMOVE_MAPPINGS_TO_NEXT);
 		createEOperation(relationEClass, RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT);
@@ -967,6 +988,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		propertyEClass = createEClass(PROPERTY);
 		createEReference(propertyEClass, PROPERTY__ELEMENT);
 		createEReference(propertyEClass, PROPERTY__MATCH);
+		createEAttribute(propertyEClass, PROPERTY__NAME);
 		createEOperation(propertyEClass, PROPERTY___COPY);
 		createEOperation(propertyEClass, PROPERTY___ADD_COMPARISON);
 
@@ -1087,6 +1109,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEReference(getRelation_Graph(), this.getGraph(), this.getGraph_Relations(), "graph", null, 1, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelation_Source(), this.getElement(), this.getElement_Outgoing(), "source", null, 1, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelation_Target(), this.getElement(), this.getElement_Incoming(), "target", null, 1, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRelation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getRelation__RemoveRelationFromPreviousGraphs(), null, "removeRelationFromPreviousGraphs", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1105,6 +1128,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProperty_Element(), this.getElement(), this.getElement_Properties(), "element", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProperty_Match(), theOperatorsPackage.getMatch(), theOperatorsPackage.getMatch_Property(), "match", null, 0, -1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getProperty__Copy(), this.getProperty(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
 

@@ -23,7 +23,6 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;

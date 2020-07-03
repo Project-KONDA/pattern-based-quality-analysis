@@ -702,6 +702,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION__TARGET = GraphstructurePackage.RELATION__TARGET;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION__NAME = GraphstructurePackage.RELATION__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Option</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1016,6 +1025,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_REFERENCE__TARGET = GraphstructurePackage.RELATION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE__NAME = GraphstructurePackage.RELATION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Source Property</b></em>' reference.
@@ -1350,6 +1368,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY__MATCH = GraphstructurePackage.PROPERTY__MATCH;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY__NAME = GraphstructurePackage.PROPERTY__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Option</b></em>' reference.

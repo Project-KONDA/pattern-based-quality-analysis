@@ -53,6 +53,7 @@ import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getSource <em>Source</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -95,6 +96,26 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @ordered
 	 */
 	protected Element target;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -481,6 +502,29 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__NAME, oldName, name));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -594,6 +638,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public XmlNavigation adaptAsXMLNavigation() {
 		if(!(this instanceof XmlNavigation)) {
 			XmlNavigation navigation = new XmlNavigationImpl();
+			navigation.setName(getName());
 			navigation.setGraphSimple(getGraph());
 			if(getIncomingMapping() == null) {
 				navigation.createParameters();
@@ -623,8 +668,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public XmlReference adaptAsXMLReference() {
 		if(!(this instanceof XmlReference)) {
-			XmlReference reference = new XmlReferenceImpl();
+			XmlReference reference = new XmlReferenceImpl();			
 			reference.setGraphSimple(getGraph());
+			reference.setName(getName());
 			reference.setSource(getSource());
 			reference.setTarget(getTarget());
 			setSource(null);
@@ -760,6 +806,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION__TARGET:
 				if (resolve) return getTarget();
 				return basicGetTarget();
+			case GraphstructurePackage.RELATION__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -788,6 +836,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION__TARGET:
 				setTarget((Element)newValue);
 				return;
+			case GraphstructurePackage.RELATION__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -814,6 +865,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION__TARGET:
 				setTarget((Element)null);
 				return;
+			case GraphstructurePackage.RELATION__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -835,6 +889,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return source != null;
 			case GraphstructurePackage.RELATION__TARGET:
 				return target != null;
+			case GraphstructurePackage.RELATION__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -887,6 +943,22 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 	@Override

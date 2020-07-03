@@ -179,6 +179,7 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/source"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/target"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Relation/name"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/removeRelationFromPreviousGraphs"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/removeMappingsToNext"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/copyToNewNextGraphs">
@@ -194,6 +195,7 @@
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Property/element"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Property/match"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Property/name"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/copy"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/addComparison"/>
       </genClasses>

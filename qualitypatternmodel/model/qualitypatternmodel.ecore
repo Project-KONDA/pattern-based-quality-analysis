@@ -211,6 +211,7 @@
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/outgoing"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/incoming"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="copy" eType="#//graphstructure/Property"/>
@@ -219,6 +220,7 @@
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="match" upperBound="-1"
           eType="#//operators/Match" eOpposite="#//operators/Match/property"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Element" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="copyNextElementsToNextGraphs" eExceptions="#//patternstructure/MissingPatternContainerException"/>

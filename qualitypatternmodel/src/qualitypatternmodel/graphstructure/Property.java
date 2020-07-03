@@ -19,6 +19,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty()
@@ -79,5 +80,27 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 	 * @generated
 	 */
 	EList<Match> getMatch();
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // Property

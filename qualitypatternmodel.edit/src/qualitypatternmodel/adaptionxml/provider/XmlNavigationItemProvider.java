@@ -95,7 +95,7 @@ public class XmlNavigationItemProvider extends RelationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XmlNavigation)object).getId();
+		String label = ((XmlNavigation)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_XmlNavigation_type") :
 			getString("_UI_XmlNavigation_type") + " " + label;

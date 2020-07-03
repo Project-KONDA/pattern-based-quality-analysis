@@ -118,7 +118,7 @@ public class XmlPropertyItemProvider extends PropertyItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XmlProperty)object).getId();
+		String label = ((XmlProperty)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_XmlProperty_type") :
 			getString("_UI_XmlProperty_type") + " " + label;
