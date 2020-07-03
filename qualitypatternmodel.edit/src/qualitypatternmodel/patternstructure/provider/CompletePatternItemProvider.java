@@ -47,7 +47,7 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 			super.getPropertyDescriptors(object);
 
 //			addCheckMorphismOfNextGraphPropertyDescriptor(object);
-			addElementCounterPropertyDescriptor(object);
+//			addElementCounterPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
