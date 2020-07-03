@@ -32,6 +32,8 @@ import qualitypatternmodel.execution.XmlDatabase;
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#checkDescendantInSchema(java.lang.String, java.lang.String) <em>Check Descendant In Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#checkAncestorInSchema(java.lang.String, java.lang.String) <em>Check Ancestor In Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#checkAttributeInSchema(java.lang.String, java.lang.String) <em>Check Attribute In Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#createSchemaDatabase() <em>Create Schema Database</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#openSchemaDatabase() <em>Open Schema Database</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -319,6 +321,32 @@ public class XmlDatabaseTest extends DatabaseTest {
 	 * @generated
 	 */
 	public void testCheckAttributeInSchema__String_String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#createSchemaDatabase() <em>Create Schema Database</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#createSchemaDatabase()
+	 * @generated
+	 */
+	public void testCreateSchemaDatabase() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#openSchemaDatabase() <em>Open Schema Database</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#openSchemaDatabase()
+	 * @generated
+	 */
+	public void testOpenSchemaDatabase() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

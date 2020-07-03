@@ -4,6 +4,8 @@ package qualitypatternmodel.execution;
 
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
+import org.basex.query.QueryException;
+import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.util.EMap;
 
 /**
@@ -20,6 +22,7 @@ import org.eclipse.emf.common.util.EMap;
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getAttributeNames <em>Attribute Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getRecordedAttributeValues <em>Recorded Attribute Values</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getRecordedDataValues <em>Recorded Data Values</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getSchemaContext <em>Schema Context</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.execution.ExecutionPackage#getXmlDatabase()
@@ -102,20 +105,42 @@ public interface XmlDatabase extends Database {
 	EMap<String, Integer> getRecordedDataValues();
 
 	/**
+	 * Returns the value of the '<em><b>Schema Context</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper"
+	 * @return the value of the '<em>Schema Context</em>' attribute.
+	 * @see #setSchemaContext(Context)
+	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlDatabase_SchemaContext()
+	 * @model dataType="qualitypatternmodel.execution.BaseXContextWrapper"
 	 * @generated
 	 */
-	void analyseDatabase() throws BaseXException;
+	Context getSchemaContext();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.execution.XmlDatabase#getSchemaContext <em>Schema Context</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Schema Context</em>' attribute.
+	 * @see #getSchemaContext()
+	 * @generated
+	 */
+	void setSchemaContext(Context value);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
 	 */
-	void analyseSchema() throws BaseXException;
+	void analyseDatabase() throws BaseXException, QueryException, QueryIOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @generated
+	 */
+	void analyseSchema() throws BaseXException, QueryException, QueryIOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -152,10 +177,10 @@ public interface XmlDatabase extends Database {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
 	 */
-	void init() throws BaseXException;
+	void init() throws BaseXException, QueryException, QueryIOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -200,49 +225,65 @@ public interface XmlDatabase extends Database {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
 	 */
-	void checkKeyRefInSchema(String elementName1, String elementName2);
+	void checkKeyRefInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
 	 */
-	boolean checkChildInSchema(String elementName1, String elementName2);
+	boolean checkChildInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
 	 */
-	boolean checkParentInSchema(String elementName1, String elementName2);
+	boolean checkParentInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
 	 */
-	boolean checkDescendantInSchema(String elementName1, String elementName2);
+	boolean checkDescendantInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
 	 */
-	boolean checkAncestorInSchema(String elementName1, String elementName2);
+	boolean checkAncestorInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
 	 */
-	boolean checkAttributeInSchema(String elementName, String attributeName);
+	boolean checkAttributeInSchema(String elementName, String attributeName) throws BaseXException, QueryException, QueryIOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper"
+	 * @generated
+	 */
+	void createSchemaDatabase() throws BaseXException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper"
+	 * @generated
+	 */
+	void openSchemaDatabase() throws BaseXException;
 
 } // XmlDatabase

@@ -559,6 +559,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/XmlDatabase/attributeNames"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/XmlDatabase/recordedAttributeValues"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/XmlDatabase/recordedDataValues"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/XmlDatabase/schemaContext"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/analyseDatabase"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/analyseSchema"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/recordAttributeValue">
@@ -611,6 +612,8 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkAttributeInSchema/elementName"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkAttributeInSchema/attributeName"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/createSchemaDatabase"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/openSchemaDatabase"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/LocalXmlDatabase">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/LocalXmlDatabase/dataPath"/>

@@ -468,13 +468,22 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATABASE__RECORDED_DATA_VALUES = DATABASE_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Schema Context</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE__SCHEMA_CONTEXT = DATABASE_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Xml Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATABASE_FEATURE_COUNT = DATABASE_FEATURE_COUNT + 5;
+	int XML_DATABASE_FEATURE_COUNT = DATABASE_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Execute</em>' operation.
@@ -657,13 +666,31 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING = DATABASE_OPERATION_COUNT + 17;
 
 	/**
+	 * The operation id for the '<em>Create Schema Database</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___CREATE_SCHEMA_DATABASE = DATABASE_OPERATION_COUNT + 18;
+
+	/**
+	 * The operation id for the '<em>Open Schema Database</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___OPEN_SCHEMA_DATABASE = DATABASE_OPERATION_COUNT + 19;
+
+	/**
 	 * The number of operations of the '<em>Xml Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATABASE_OPERATION_COUNT = DATABASE_OPERATION_COUNT + 18;
+	int XML_DATABASE_OPERATION_COUNT = DATABASE_OPERATION_COUNT + 20;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.LocalXmlDatabaseImpl <em>Local Xml Database</em>}' class.
@@ -746,6 +773,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOCAL_XML_DATABASE__RECORDED_DATA_VALUES = XML_DATABASE__RECORDED_DATA_VALUES;
+
+	/**
+	 * The feature id for the '<em><b>Schema Context</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE__SCHEMA_CONTEXT = XML_DATABASE__SCHEMA_CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>Data Path</b></em>' attribute.
@@ -955,6 +991,24 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING;
 
 	/**
+	 * The operation id for the '<em>Create Schema Database</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE___CREATE_SCHEMA_DATABASE = XML_DATABASE___CREATE_SCHEMA_DATABASE;
+
+	/**
+	 * The operation id for the '<em>Open Schema Database</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE___OPEN_SCHEMA_DATABASE = XML_DATABASE___OPEN_SCHEMA_DATABASE;
+
+	/**
 	 * The operation id for the '<em>Create</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1053,6 +1107,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_DATABASE__RECORDED_DATA_VALUES = XML_DATABASE__RECORDED_DATA_VALUES;
+
+	/**
+	 * The feature id for the '<em><b>Schema Context</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE__SCHEMA_CONTEXT = XML_DATABASE__SCHEMA_CONTEXT;
 
 	/**
 	 * The number of structural features of the '<em>Server Xml Database</em>' class.
@@ -1242,6 +1305,24 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING;
+
+	/**
+	 * The operation id for the '<em>Create Schema Database</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE___CREATE_SCHEMA_DATABASE = XML_DATABASE___CREATE_SCHEMA_DATABASE;
+
+	/**
+	 * The operation id for the '<em>Open Schema Database</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE___OPEN_SCHEMA_DATABASE = XML_DATABASE___OPEN_SCHEMA_DATABASE;
 
 	/**
 	 * The number of operations of the '<em>Server Xml Database</em>' class.
@@ -1647,6 +1728,17 @@ public interface ExecutionPackage extends EPackage {
 	EReference getXmlDatabase_RecordedDataValues();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.execution.XmlDatabase#getSchemaContext <em>Schema Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Schema Context</em>'.
+	 * @see qualitypatternmodel.execution.XmlDatabase#getSchemaContext()
+	 * @see #getXmlDatabase()
+	 * @generated
+	 */
+	EAttribute getXmlDatabase_SchemaContext();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#analyseDatabase() <em>Analyse Database</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1825,6 +1917,26 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getXmlDatabase__CheckAttributeInSchema__String_String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#createSchemaDatabase() <em>Create Schema Database</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Schema Database</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#createSchemaDatabase()
+	 * @generated
+	 */
+	EOperation getXmlDatabase__CreateSchemaDatabase();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#openSchemaDatabase() <em>Open Schema Database</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Open Schema Database</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#openSchemaDatabase()
+	 * @generated
+	 */
+	EOperation getXmlDatabase__OpenSchemaDatabase();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.LocalXmlDatabase <em>Local Xml Database</em>}'.
@@ -2209,6 +2321,14 @@ public interface ExecutionPackage extends EPackage {
 		EReference XML_DATABASE__RECORDED_DATA_VALUES = eINSTANCE.getXmlDatabase_RecordedDataValues();
 
 		/**
+		 * The meta object literal for the '<em><b>Schema Context</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XML_DATABASE__SCHEMA_CONTEXT = eINSTANCE.getXmlDatabase_SchemaContext();
+
+		/**
 		 * The meta object literal for the '<em><b>Analyse Database</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2351,6 +2471,22 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING = eINSTANCE.getXmlDatabase__CheckAttributeInSchema__String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Schema Database</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___CREATE_SCHEMA_DATABASE = eINSTANCE.getXmlDatabase__CreateSchemaDatabase();
+
+		/**
+		 * The meta object literal for the '<em><b>Open Schema Database</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___OPEN_SCHEMA_DATABASE = eINSTANCE.getXmlDatabase__OpenSchemaDatabase();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.LocalXmlDatabaseImpl <em>Local Xml Database</em>}' class.

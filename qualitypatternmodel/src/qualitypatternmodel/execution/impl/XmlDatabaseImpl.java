@@ -3,11 +3,16 @@
 package qualitypatternmodel.execution.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
-import org.basex.core.cmd.XQuery;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
+import org.basex.query.QueryProcessor;
+import org.basex.query.iter.Iter;
+import org.basex.query.value.item.Item;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -40,6 +45,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getAttributeNames <em>Attribute Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getRecordedAttributeValues <em>Recorded Attribute Values</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getRecordedDataValues <em>Recorded Data Values</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getSchemaContext <em>Schema Context</em>}</li>
  * </ul>
  *
  * @generated
@@ -104,6 +110,26 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 * @ordered
 	 */
 	protected EMap<String, Integer> recordedDataValues;
+
+	/**
+	 * The default value of the '{@link #getSchemaContext() <em>Schema Context</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSchemaContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Context SCHEMA_CONTEXT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSchemaContext() <em>Schema Context</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSchemaContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected Context schemaContext = SCHEMA_CONTEXT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -203,36 +229,60 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Context getSchemaContext() {
+		return schemaContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSchemaContext(Context newSchemaContext) {
+		Context oldSchemaContext = schemaContext;
+		schemaContext = newSchemaContext;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_DATABASE__SCHEMA_CONTEXT, oldSchemaContext, schemaContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws QueryException 
+	 * @throws QueryIOException 
 	 * @generated NOT
 	 */
 	@Override
-	public void analyseDatabase() throws BaseXException {
+	public void analyseDatabase() throws BaseXException, QueryIOException, QueryException {
 		open();				
-		executeAnalysis("distinct-values(//*/name())", "\n", getElementNames());
-		executeAnalysis("distinct-values(//*/@*/name()))", "\n", getAttributeNames());
+		executeAnalysis("distinct-values(//*/name())", getElementNames(), context);
+		executeAnalysis("distinct-values(//*/@*/name()))", getAttributeNames(), context);
 	}
 	
-	private void executeAnalysis(String query, String regex, EMap<String,Integer> valueStorage) throws BaseXException {
-		XQuery xquery = new XQuery(query);
-		String result = xquery.execute(context);
-		String[] split = result.split(regex);
-		for(int i = 0; i < split.length; i++) {
-			valueStorage.put(split[i],0);
+	private void executeAnalysis(String query, EMap<String,Integer> valueStorage, Context context) throws BaseXException, QueryIOException, QueryException {
+		List<String> result = executeQuery(query, context);
+		for(int i = 0; i < result.size(); i++) {
+			valueStorage.put(result.get(i),0);
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws QueryException 
+	 * @throws QueryIOException 
 	 * @generated NOT
 	 */
 	@Override
-	public void analyseSchema() throws BaseXException {
-		// TODO: create/open schema database
+	public void analyseSchema() throws BaseXException, QueryIOException, QueryException {
+		openSchemaDatabase();
+		executeAnalysis("//*[name()=\"xsd:element\"]/data(@name)", getElementNames(), schemaContext);
+		executeAnalysis("//*[name()=\"xsd:attribute\"]/data(@name)", getAttributeNames(), schemaContext);
 		// TODO: add namespace
-		executeAnalysis("//*[name()=\"xsd:element\"]/data(@name)", "\n", getElementNames());
-		executeAnalysis("//*[name()=\"xsd:attribute\"]/data(@name)", "\n", getAttributeNames());
-	
 	}
 
 	/**
@@ -314,7 +364,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 * @generated
 	 */
 	@Override
-	public void init() throws BaseXException {
+	public void init() throws BaseXException, QueryException, QueryIOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -375,11 +425,14 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws BaseXException 
+	 * @throws QueryException 
+	 * @throws QueryIOException 
 	 * @generated NOT
 	 */
 	@Override
-	public boolean checkChildInSchema(String elementName1, String elementName2) {
-		// TODO: create/open schema database
+	public boolean checkChildInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
+		openSchemaDatabase();
 		
 		String checkChildComplexType = "declare function local:checkChildComplexType($r as element(), $n2 as xs:string, $cT as element())\r\n" + 
 				"as xs:boolean\r\n" + 
@@ -409,33 +462,46 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		String call = "for $x in /xs:schema\r\n" + 
 				"return local:checkChild($x, \""+elementName1+"\", \""+elementName2+"\")";
 		
-		// TODO: execute query		
+		String query = checkChildComplexType + checkChild + call;
 		
-		throw new UnsupportedOperationException();
+		List<String> queryResult = executeQuery(query, schemaContext);
+		if(queryResult.size() == 1) {			
+			if(queryResult.get(0).equals("false")) {
+				return false;
+			}
+		}
+		
+		// TODO: else throw exception ?
+		
+		return true;
+		
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws QueryException 
+	 * @throws QueryIOException 
+	 * @throws BaseXException 
 	 * @generated NOT
 	 */
 	@Override
-	public boolean checkParentInSchema(String elementName1, String elementName2) {
+	public boolean checkParentInSchema(String elementName1, String elementName2) throws BaseXException, QueryIOException, QueryException {
 		return checkChildInSchema(elementName2, elementName1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws QueryException 
+	 * @throws BaseXException 
+	 * @throws QueryIOException 
 	 * @generated NOT
 	 */
 	@Override
-	public boolean checkDescendantInSchema(String elementName1, String elementName2) {
+	public boolean checkDescendantInSchema(String elementName1, String elementName2) throws QueryException, BaseXException, QueryIOException {
 		
-		// TODO: create/open schema database
-		
-		String namespace = "declare namespace xsd = \"http://www.w3.org/2001/XMLSchema\";\r\n" + 
-				"";
+		openSchemaDatabase();		
 		
 		String checkChildComplexType = "declare function local:checkChildComplexType($r as element(), $n2 as xs:string, $cT as element())\r\n" + 
 				"as xs:boolean\r\n" + 
@@ -500,28 +566,45 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		String call = "for $x in /xs:schema\r\n" + 
 				"return local:checkDescendant($x, \""+elementName1+"\", \""+elementName2+"\")";
 		
-		// TODO: execute query	
+		String query = checkChildComplexType + checkChild + checkDescendantComplexType + checkDescendant + call;
+		List<String> queryResult = executeQuery(query, schemaContext);
+		if(queryResult.size() == 1) {			
+			if(queryResult.get(0).equals("false")) {
+				return false;
+			}
+		}
 		
-		throw new UnsupportedOperationException();
+		// TODO: else throw exception ?
+		
+		return true;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws QueryException 
+	 * @throws QueryIOException 
+	 * @throws BaseXException 
 	 * @generated NOT
 	 */
 	@Override
-	public boolean checkAncestorInSchema(String elementName1, String elementName2) {
+	public boolean checkAncestorInSchema(String elementName1, String elementName2) throws BaseXException, QueryIOException, QueryException {
 		return checkDescendantInSchema(elementName2, elementName1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws QueryException 
+	 * @throws QueryIOException 
+	 * @throws BaseXException 
 	 * @generated NOT
 	 */
 	@Override
-	public boolean checkAttributeInSchema(String elementName, String attributeName) {
+	public boolean checkAttributeInSchema(String elementName, String attributeName) throws QueryException, QueryIOException, BaseXException {
+		
+		openSchemaDatabase();
+		
 		String checkAttributeComplexType = "declare function local:checkAttributeComplexType($r as element(), $attributeName as xs:string, $cT as element())\r\n" + 
 				"as xs:boolean\r\n" + 
 				"{\r\n" + 
@@ -551,10 +634,53 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		String call = "for $x in /xs:schema\r\n" + 
 				"return local:checkAttribute($x, \""+elementName+"\", \""+attributeName+"\")";
 		
-		// TODO: execute query	
+		String query = checkAttributeComplexType + checkAttribute + call;
+		List<String> queryResult = executeQuery(query, schemaContext);
+		if(queryResult.size() == 1) {			
+			if(queryResult.get(0).equals("false")) {
+				return false;
+			}
+		}
 		
+		// TODO: else throw exception ?
+		
+		return true;
+		
+	}
+
+	private List<String> executeQuery(String query, Context context) throws QueryException, QueryIOException {
+		List<String> queryResult = new ArrayList<String>();
+	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
+	      Iter iter = proc.iter();
+	      for(Item item; (item = iter.next()) != null;) {
+	    	  queryResult.add(item.serialize().toString());
+	        }
+	    }
+		return queryResult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void createSchemaDatabase() throws BaseXException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
-		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void openSchemaDatabase() throws BaseXException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -648,6 +774,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			case ExecutionPackage.XML_DATABASE__RECORDED_DATA_VALUES:
 				if (coreType) return getRecordedDataValues();
 				else return getRecordedDataValues().map();
+			case ExecutionPackage.XML_DATABASE__SCHEMA_CONTEXT:
+				return getSchemaContext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -676,6 +804,9 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			case ExecutionPackage.XML_DATABASE__RECORDED_DATA_VALUES:
 				((EStructuralFeature.Setting)getRecordedDataValues()).set(newValue);
 				return;
+			case ExecutionPackage.XML_DATABASE__SCHEMA_CONTEXT:
+				setSchemaContext((Context)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -703,6 +834,9 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			case ExecutionPackage.XML_DATABASE__RECORDED_DATA_VALUES:
 				getRecordedDataValues().clear();
 				return;
+			case ExecutionPackage.XML_DATABASE__SCHEMA_CONTEXT:
+				setSchemaContext(SCHEMA_CONTEXT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -725,6 +859,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				return recordedAttributeValues != null && !recordedAttributeValues.isEmpty();
 			case ExecutionPackage.XML_DATABASE__RECORDED_DATA_VALUES:
 				return recordedDataValues != null && !recordedDataValues.isEmpty();
+			case ExecutionPackage.XML_DATABASE__SCHEMA_CONTEXT:
+				return SCHEMA_CONTEXT_EDEFAULT == null ? schemaContext != null : !SCHEMA_CONTEXT_EDEFAULT.equals(schemaContext);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -794,18 +930,64 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				removeAttributeName((String)arguments.get(0));
 				return null;
 			case ExecutionPackage.XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA__STRING_STRING:
-				checkKeyRefInSchema((String)arguments.get(0), (String)arguments.get(1));
-				return null;
+				try {
+					checkKeyRefInSchema((String)arguments.get(0), (String)arguments.get(1));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case ExecutionPackage.XML_DATABASE___CHECK_CHILD_IN_SCHEMA__STRING_STRING:
-				return checkChildInSchema((String)arguments.get(0), (String)arguments.get(1));
+				try {
+					return checkChildInSchema((String)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case ExecutionPackage.XML_DATABASE___CHECK_PARENT_IN_SCHEMA__STRING_STRING:
-				return checkParentInSchema((String)arguments.get(0), (String)arguments.get(1));
+				try {
+					return checkParentInSchema((String)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case ExecutionPackage.XML_DATABASE___CHECK_DESCENDANT_IN_SCHEMA__STRING_STRING:
-				return checkDescendantInSchema((String)arguments.get(0), (String)arguments.get(1));
+				try {
+					return checkDescendantInSchema((String)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case ExecutionPackage.XML_DATABASE___CHECK_ANCESTOR_IN_SCHEMA__STRING_STRING:
-				return checkAncestorInSchema((String)arguments.get(0), (String)arguments.get(1));
+				try {
+					return checkAncestorInSchema((String)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case ExecutionPackage.XML_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING:
-				return checkAttributeInSchema((String)arguments.get(0), (String)arguments.get(1));
+				try {
+					return checkAttributeInSchema((String)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___CREATE_SCHEMA_DATABASE:
+				try {
+					createSchemaDatabase();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___OPEN_SCHEMA_DATABASE:
+				try {
+					openSchemaDatabase();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -822,6 +1004,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (context: ");
 		result.append(context);
+		result.append(", schemaContext: ");
+		result.append(schemaContext);
 		result.append(')');
 		return result.toString();
 	}
