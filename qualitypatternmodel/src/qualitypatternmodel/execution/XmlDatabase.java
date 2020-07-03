@@ -237,4 +237,12 @@ public interface XmlDatabase extends Database {
 	 */
 	boolean checkAncestorInSchema(String elementName1, String elementName2);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean checkAttributeInSchema(String elementName, String attributeName);
+
 } // XmlDatabase

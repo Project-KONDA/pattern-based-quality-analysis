@@ -647,6 +647,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getXmlDatabase__CheckAttributeInSchema__String_String() {
+		return xmlDatabaseEClass.getEOperations().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getLocalXmlDatabase() {
 		return localXmlDatabaseEClass;
 	}
@@ -855,6 +865,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___CHECK_PARENT_IN_SCHEMA__STRING_STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___CHECK_DESCENDANT_IN_SCHEMA__STRING_STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___CHECK_ANCESTOR_IN_SCHEMA__STRING_STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING);
 
 		localXmlDatabaseEClass = createEClass(LOCAL_XML_DATABASE);
 		createEAttribute(localXmlDatabaseEClass, LOCAL_XML_DATABASE__DATA_PATH);
@@ -1019,6 +1030,10 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		op = initEOperation(getXmlDatabase__CheckAncestorInSchema__String_String(), ecorePackage.getEBoolean(), "checkAncestorInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName1", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName2", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getXmlDatabase__CheckAttributeInSchema__String_String(), ecorePackage.getEBoolean(), "checkAttributeInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "attributeName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(localXmlDatabaseEClass, LocalXmlDatabase.class, "LocalXmlDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLocalXmlDatabase_DataPath(), ecorePackage.getEString(), "dataPath", null, 0, 1, LocalXmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

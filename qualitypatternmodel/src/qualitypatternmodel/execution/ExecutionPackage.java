@@ -648,13 +648,22 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATABASE___CHECK_ANCESTOR_IN_SCHEMA__STRING_STRING = DATABASE_OPERATION_COUNT + 16;
 
 	/**
+	 * The operation id for the '<em>Check Attribute In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING = DATABASE_OPERATION_COUNT + 17;
+
+	/**
 	 * The number of operations of the '<em>Xml Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATABASE_OPERATION_COUNT = DATABASE_OPERATION_COUNT + 17;
+	int XML_DATABASE_OPERATION_COUNT = DATABASE_OPERATION_COUNT + 18;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.LocalXmlDatabaseImpl <em>Local Xml Database</em>}' class.
@@ -937,6 +946,15 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATABASE___CHECK_ANCESTOR_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_ANCESTOR_IN_SCHEMA__STRING_STRING;
 
 	/**
+	 * The operation id for the '<em>Check Attribute In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING;
+
+	/**
 	 * The operation id for the '<em>Create</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1215,6 +1233,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_DATABASE___CHECK_ANCESTOR_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_ANCESTOR_IN_SCHEMA__STRING_STRING;
+
+	/**
+	 * The operation id for the '<em>Check Attribute In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING;
 
 	/**
 	 * The number of operations of the '<em>Server Xml Database</em>' class.
@@ -1790,6 +1817,16 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getXmlDatabase__CheckAncestorInSchema__String_String();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#checkAttributeInSchema(java.lang.String, java.lang.String) <em>Check Attribute In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Attribute In Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#checkAttributeInSchema(java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlDatabase__CheckAttributeInSchema__String_String();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.LocalXmlDatabase <em>Local Xml Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2306,6 +2343,14 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_DATABASE___CHECK_ANCESTOR_IN_SCHEMA__STRING_STRING = eINSTANCE.getXmlDatabase__CheckAncestorInSchema__String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Check Attribute In Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING = eINSTANCE.getXmlDatabase__CheckAttributeInSchema__String_String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.LocalXmlDatabaseImpl <em>Local Xml Database</em>}' class.

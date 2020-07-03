@@ -607,6 +607,10 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkAncestorInSchema/elementName1"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkAncestorInSchema/elementName2"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/checkAttributeInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkAttributeInSchema/elementName"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkAttributeInSchema/attributeName"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/LocalXmlDatabase">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/LocalXmlDatabase/dataPath"/>
