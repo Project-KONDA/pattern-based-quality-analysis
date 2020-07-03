@@ -26,7 +26,8 @@ import qualitypatternmodel.execution.XmlDatabase;
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#recordAttributeName(java.lang.String) <em>Record Attribute Name</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#removeElementName(java.lang.String) <em>Remove Element Name</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#removeAttributeName(java.lang.String) <em>Remove Attribute Name</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDatabase#checkKeyRefInSchema() <em>Check Key Ref In Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#checkKeyRefInSchema(java.lang.String, java.lang.String) <em>Check Key Ref In Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#checkChildInSchema(java.lang.String, java.lang.String) <em>Check Child In Schema</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -242,13 +243,26 @@ public class XmlDatabaseTest extends DatabaseTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#checkKeyRefInSchema() <em>Check Key Ref In Schema</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#checkKeyRefInSchema(java.lang.String, java.lang.String) <em>Check Key Ref In Schema</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDatabase#checkKeyRefInSchema()
+	 * @see qualitypatternmodel.execution.XmlDatabase#checkKeyRefInSchema(java.lang.String, java.lang.String)
 	 * @generated
 	 */
-	public void testCheckKeyRefInSchema() {
+	public void testCheckKeyRefInSchema__String_String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#checkChildInSchema(java.lang.String, java.lang.String) <em>Check Child In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#checkChildInSchema(java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	public void testCheckChildInSchema__String_String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

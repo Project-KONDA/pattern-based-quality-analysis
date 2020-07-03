@@ -228,7 +228,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 */
 	@Override
 	public void analyseSchema() throws BaseXException {
-		open();		
+		// TODO: create/open schema database
 		// TODO: add namespace
 		executeAnalysis("//*[name()=\"xsd:element\"]/data(@name)", "\n", getElementNames());
 		executeAnalysis("//*[name()=\"xsd:attribute\"]/data(@name)", "\n", getAttributeNames());
@@ -378,7 +378,62 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 * @generated NOT
 	 */
 	@Override
-	public void checkKeyRefInSchema() {
+	public void checkChildInSchema(String elementName1, String elementName2) {
+		// TODO: create/open schema database
+		
+		String namespace = "declare namespace xsd = \"http://www.w3.org/2001/XMLSchema\";\r\n" + 
+				"";
+		
+		String checkChildComplexType = "declare function local:checkChildComplexType($r as element(), $n1 as xs:string, $n2 as xs:string, $cT as element())\r\n" + 
+				"as xs:boolean?\r\n" + 
+				"{\r\n" + 
+				"   if($cT/xs:sequence or $cT/xs:choice or $cT/xs:all) then\r\n" + 
+				"    exists($cT/*/xs:element[@name = $n2] or $cT/*/xs:element[@ref = $n2])\r\n" + 
+				"  else\r\n" + 
+				"    for $ext in $cT/xs:complexContent/xs:extension\r\n" + 
+				"    return if($ext/*/xs:element[@name = $n2]) then \r\n" + 
+				"      true\r\n" + 
+				"    else if($r/xs:complexType) then\r\n" + 
+				"      for $cT2 in $r/xs:complexType[@name = $ext/@base]\r\n" + 
+				"      return local:checkChildComplexType($r, $n1, $n2, $cT2)         \r\n" + 
+				"};";
+		
+		String checkChild = "declare function local:checkChild($r as element(), $n1 as xs:string, $n2 as xs:string)\r\n" + 
+				"as xs:boolean?\r\n" + 
+				"{\r\n" + 
+				"for $e1 in $r//xs:element[@name=$n1]\r\n" + 
+				"return if($e1[@type]) then\r\n" + 
+				"  for $cT in $r/xs:complexType[@name = $e1/@type]\r\n" + 
+				"  return \r\n" + 
+				"      local:checkChildComplexType($r, $n1, $n2, $cT)      \r\n" + 
+				"else\r\n" + 
+				"  if ($e1/xs:complexType) then\r\n" + 
+				"    exists($e1/xs:complexType/*/xs:element[@name = $n2] or $e1/xs:complexType/*/xs:element[@ref = $n2])\r\n" + 
+				"  else\r\n" + 
+				"    false\r\n" + 
+				"};";
+		
+		String call = "for $x in /xs:schema\r\n" + 
+				"return local:checkChild($x, \""+elementName1+"\", \""+elementName2+"\")";
+		
+		
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void checkKeyRefInSchema(String elementName1, String elementName2) {
+		// TODO: create/open schema database
+
+		
+		String namespace = "declare namespace xsd = \"http://www.w3.org/2001/XMLSchema\";\r\n" + 
+				"";
 		
 		/* The following function checks whether there might exist a reference between an element named $n1 and an element named $n2 by analysing the XML schema.
 		 * However, there may be false positives.
@@ -404,6 +459,12 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				"where $key/xs:selector/@xpath = $n2 or matches($key/xs:selector/@xpath, \"/\" || $n2 || \"$\")\r\n" + 
 				"return ($ref/xs:field/@xpath, $key/xs:field/@xpath)\r\n" + 
 				"};";
+		
+		String callCheck = "for $x in /xs:schema\r\n" + 
+				"return local:checkRefId($x, \""+elementName1+"\",\""+elementName2+"\")";
+		
+		String callGet = "for $x in /xs:schema\r\n" + 
+				"return local:getRefId($x, \""+elementName1+"\",\""+elementName2+"\")";
 		
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -597,8 +658,11 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			case ExecutionPackage.XML_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING:
 				removeAttributeName((String)arguments.get(0));
 				return null;
-			case ExecutionPackage.XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA:
-				checkKeyRefInSchema();
+			case ExecutionPackage.XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA__STRING_STRING:
+				checkKeyRefInSchema((String)arguments.get(0), (String)arguments.get(1));
+				return null;
+			case ExecutionPackage.XML_DATABASE___CHECK_CHILD_IN_SCHEMA__STRING_STRING:
+				checkChildInSchema((String)arguments.get(0), (String)arguments.get(1));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

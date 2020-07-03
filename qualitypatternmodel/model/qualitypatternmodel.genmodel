@@ -587,7 +587,14 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/removeAttributeName">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/removeAttributeName/name"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/checkKeyRefInSchema"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/checkKeyRefInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkKeyRefInSchema/elementName1"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkKeyRefInSchema/elementName2"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/checkChildInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkChildInSchema/elementName1"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkChildInSchema/elementName2"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/LocalXmlDatabase">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/LocalXmlDatabase/dataPath"/>

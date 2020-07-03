@@ -609,7 +609,16 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA = DATABASE_OPERATION_COUNT + 12;
+	int XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA__STRING_STRING = DATABASE_OPERATION_COUNT + 12;
+
+	/**
+	 * The operation id for the '<em>Check Child In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___CHECK_CHILD_IN_SCHEMA__STRING_STRING = DATABASE_OPERATION_COUNT + 13;
 
 	/**
 	 * The number of operations of the '<em>Xml Database</em>' class.
@@ -618,7 +627,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATABASE_OPERATION_COUNT = DATABASE_OPERATION_COUNT + 13;
+	int XML_DATABASE_OPERATION_COUNT = DATABASE_OPERATION_COUNT + 14;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.LocalXmlDatabaseImpl <em>Local Xml Database</em>}' class.
@@ -862,7 +871,16 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOCAL_XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA = XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA;
+	int LOCAL_XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA__STRING_STRING;
+
+	/**
+	 * The operation id for the '<em>Check Child In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE___CHECK_CHILD_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_CHILD_IN_SCHEMA__STRING_STRING;
 
 	/**
 	 * The operation id for the '<em>Create</em>' operation.
@@ -1106,7 +1124,16 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVER_XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA = XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA;
+	int SERVER_XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA__STRING_STRING;
+
+	/**
+	 * The operation id for the '<em>Check Child In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE___CHECK_CHILD_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_CHILD_IN_SCHEMA__STRING_STRING;
 
 	/**
 	 * The number of operations of the '<em>Server Xml Database</em>' class.
@@ -1632,14 +1659,24 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getXmlDatabase__RemoveAttributeName__String();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#checkKeyRefInSchema() <em>Check Key Ref In Schema</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#checkKeyRefInSchema(java.lang.String, java.lang.String) <em>Check Key Ref In Schema</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Check Key Ref In Schema</em>' operation.
-	 * @see qualitypatternmodel.execution.XmlDatabase#checkKeyRefInSchema()
+	 * @see qualitypatternmodel.execution.XmlDatabase#checkKeyRefInSchema(java.lang.String, java.lang.String)
 	 * @generated
 	 */
-	EOperation getXmlDatabase__CheckKeyRefInSchema();
+	EOperation getXmlDatabase__CheckKeyRefInSchema__String_String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#checkChildInSchema(java.lang.String, java.lang.String) <em>Check Child In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Child In Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#checkChildInSchema(java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlDatabase__CheckChildInSchema__String_String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.LocalXmlDatabase <em>Local Xml Database</em>}'.
@@ -2125,7 +2162,15 @@ public interface ExecutionPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA = eINSTANCE.getXmlDatabase__CheckKeyRefInSchema();
+		EOperation XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA__STRING_STRING = eINSTANCE.getXmlDatabase__CheckKeyRefInSchema__String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Check Child In Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___CHECK_CHILD_IN_SCHEMA__STRING_STRING = eINSTANCE.getXmlDatabase__CheckChildInSchema__String_String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.LocalXmlDatabaseImpl <em>Local Xml Database</em>}' class.
