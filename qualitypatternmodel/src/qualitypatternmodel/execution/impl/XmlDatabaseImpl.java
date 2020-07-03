@@ -378,7 +378,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 * @generated NOT
 	 */
 	@Override
-	public void checkChildInSchema(String elementName1, String elementName2) {
+	public boolean checkChildInSchema(String elementName1, String elementName2) {
 		// TODO: create/open schema database
 		
 		String namespace = "declare namespace xsd = \"http://www.w3.org/2001/XMLSchema\";\r\n" + 
@@ -420,6 +420,16 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean checkParentInSchema(String elementName1, String elementName2) {
+		return checkChildInSchema(elementName2, elementName1);
 	}
 
 	/**
@@ -662,8 +672,9 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				checkKeyRefInSchema((String)arguments.get(0), (String)arguments.get(1));
 				return null;
 			case ExecutionPackage.XML_DATABASE___CHECK_CHILD_IN_SCHEMA__STRING_STRING:
-				checkChildInSchema((String)arguments.get(0), (String)arguments.get(1));
-				return null;
+				return checkChildInSchema((String)arguments.get(0), (String)arguments.get(1));
+			case ExecutionPackage.XML_DATABASE___CHECK_PARENT_IN_SCHEMA__STRING_STRING:
+				return checkParentInSchema((String)arguments.get(0), (String)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
