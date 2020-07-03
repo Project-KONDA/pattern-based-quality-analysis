@@ -348,29 +348,6 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.OptionParam} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OptionParamItemProvider optionParamItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.parameters.OptionParam}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createOptionParamAdapter() {
-		if (optionParamItemProvider == null) {
-			optionParamItemProvider = new OptionParamItemProvider(this);
-		}
-
-		return optionParamItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -487,7 +464,6 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 		if (unknownParameterValueItemProvider != null) unknownParameterValueItemProvider.dispose();
 		if (dateTimeParamItemProvider != null) dateTimeParamItemProvider.dispose();
 		if (relationOptionParamItemProvider != null) relationOptionParamItemProvider.dispose();
-		if (optionParamItemProvider != null) optionParamItemProvider.dispose();
 	}
 
 }

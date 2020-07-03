@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -160,6 +161,12 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		condition.prepareTranslation();
 	}
 	
+	@Override
+	public void recordValues(XmlDatabase database) {
+		getGraph().recordValues(database);
+		getCondition().recordValues(database);
+	}
+	
 	public EList<Parameter> getAllInputs() throws InvalidityException {
 		EList<Parameter> parameters = graph.getAllInputs();
 		if (condition != null)
@@ -212,7 +219,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
 		if(getGraph() != null) {
 			getGraph().setIncomingMorphism(null);
-			getGraph().getOutgoingMorphisms().clear();
+//			getGraph().getOutgoingMorphisms().clear();
 		}
 		
 		Graph oldGraph = graph;

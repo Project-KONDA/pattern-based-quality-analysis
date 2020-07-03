@@ -259,6 +259,15 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___FINALIZE_XML_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___RECORD_VALUES__XMLDATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -530,6 +539,15 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM___FINALIZE_XML_ADAPTION = PARAMETER___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -792,6 +810,15 @@ public interface ParametersPackage extends EPackage {
 	int PROPERTY_OPTION_PARAM___FINALIZE_XML_ADAPTION = PARAMETER___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1016,6 +1043,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_LIST___FINALIZE_XML_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST___RECORD_VALUES__XMLDATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Add</em>' operation.
@@ -1251,6 +1287,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_VALUE___FINALIZE_XML_ADAPTION = PARAMETER___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE = PARAMETER___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -1551,6 +1596,15 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___FINALIZE_XML_ADAPTION = PARAMETER_VALUE___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1838,6 +1892,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM___FINALIZE_XML_ADAPTION = PARAMETER_VALUE___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -2165,6 +2228,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___FINALIZE_XML_ADAPTION = PARAMETER_VALUE___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2463,6 +2535,15 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___FINALIZE_XML_ADAPTION = PARAMETER_VALUE___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2750,6 +2831,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_PARAM___FINALIZE_XML_ADAPTION = PARAMETER_VALUE___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -3041,6 +3131,15 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___FINALIZE_XML_ADAPTION = PARAMETER_VALUE___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3319,6 +3418,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNKNOWN_PARAMETER_VALUE___FINALIZE_XML_ADAPTION = PARAMETER___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE = PARAMETER___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -3628,6 +3736,15 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___FINALIZE_XML_ADAPTION = PARAMETER_VALUE___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3917,6 +4034,15 @@ public interface ParametersPackage extends EPackage {
 	int RELATION_OPTION_PARAM___FINALIZE_XML_ADAPTION = PARAMETER___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3951,295 +4077,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_OPTION_PARAM_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.OptionParamImpl <em>Option Param</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.impl.OptionParamImpl
-	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getOptionParam()
-	 * @generated
-	 */
-	int OPTION_PARAM = 14;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM__ID = PARAMETER__ID;
-
-	/**
-	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM__INTERNAL_ID = PARAMETER__INTERNAL_ID;
-
-	/**
-	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM__DESCRIPTION = PARAMETER__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
-
-	/**
-	 * The feature id for the '<em><b>Described</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM__DESCRIBED = PARAMETER__DESCRIBED;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM__VALUE = PARAMETER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Options</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM__OPTIONS = PARAMETER_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Property</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM__PROPERTY = PARAMETER_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Relation</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM__RELATION = PARAMETER_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Comparison</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM__COMPARISON = PARAMETER_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Count Condition</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM__COUNT_CONDITION = PARAMETER_FEATURE_COUNT + 5;
-
-	/**
-	 * The number of structural features of the '<em>Option Param</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 6;
-
-	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM___GENERATE_QUERY = PARAMETER___GENERATE_QUERY;
-
-	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
-
-	/**
-	 * The operation id for the '<em>Prepare Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
-
-	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM___IS_VALID__ABSTRACTIONLEVEL = PARAMETER___IS_VALID__ABSTRACTIONLEVEL;
-
-	/**
-	 * The operation id for the '<em>Is Valid Local</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
-
-	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM___GET_CONTAINER = PARAMETER___GET_CONTAINER;
-
-	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
-
-	/**
-	 * The operation id for the '<em>My To String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM___MY_TO_STRING = PARAMETER___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM___GET_PARAMETER_LIST = PARAMETER___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER___UPDATE_OPERATORS__OPERATORLIST;
-
-	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM___GET_OPERATOR_LIST = PARAMETER___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM___CREATE_XML_ADAPTION = PARAMETER___CREATE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM___FINALIZE_XML_ADAPTION = PARAMETER___FINALIZE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Input Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
-
-	/**
-	 * The operation id for the '<em>Generate Description</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM___GENERATE_DESCRIPTION = PARAMETER___GENERATE_DESCRIPTION;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The number of operations of the '<em>Option Param</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPTION_PARAM_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.Parameter <em>Parameter</em>}'.
@@ -4759,82 +4596,6 @@ public interface ParametersPackage extends EPackage {
 	EReference getRelationOptionParam_Relations();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.OptionParam <em>Option Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Option Param</em>'.
-	 * @see qualitypatternmodel.parameters.OptionParam
-	 * @generated
-	 */
-	EClass getOptionParam();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.OptionParam#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see qualitypatternmodel.parameters.OptionParam#getValue()
-	 * @see #getOptionParam()
-	 * @generated
-	 */
-	EAttribute getOptionParam_Value();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.parameters.OptionParam#getOptions <em>Options</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Options</em>'.
-	 * @see qualitypatternmodel.parameters.OptionParam#getOptions()
-	 * @see #getOptionParam()
-	 * @generated
-	 */
-	EAttribute getOptionParam_Options();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.OptionParam#getProperty <em>Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Property</em>'.
-	 * @see qualitypatternmodel.parameters.OptionParam#getProperty()
-	 * @see #getOptionParam()
-	 * @generated
-	 */
-	EReference getOptionParam_Property();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.OptionParam#getRelation <em>Relation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Relation</em>'.
-	 * @see qualitypatternmodel.parameters.OptionParam#getRelation()
-	 * @see #getOptionParam()
-	 * @generated
-	 */
-	EReference getOptionParam_Relation();
-
-	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.OptionParam#getComparison <em>Comparison</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Comparison</em>'.
-	 * @see qualitypatternmodel.parameters.OptionParam#getComparison()
-	 * @see #getOptionParam()
-	 * @generated
-	 */
-	EReference getOptionParam_Comparison();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.parameters.OptionParam#getCountCondition <em>Count Condition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Count Condition</em>'.
-	 * @see qualitypatternmodel.parameters.OptionParam#getCountCondition()
-	 * @see #getOptionParam()
-	 * @generated
-	 */
-	EReference getOptionParam_CountCondition();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5276,64 +5037,6 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RELATION_OPTION_PARAM__RELATIONS = eINSTANCE.getRelationOptionParam_Relations();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.OptionParamImpl <em>Option Param</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.parameters.impl.OptionParamImpl
-		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getOptionParam()
-		 * @generated
-		 */
-		EClass OPTION_PARAM = eINSTANCE.getOptionParam();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OPTION_PARAM__VALUE = eINSTANCE.getOptionParam_Value();
-
-		/**
-		 * The meta object literal for the '<em><b>Options</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OPTION_PARAM__OPTIONS = eINSTANCE.getOptionParam_Options();
-
-		/**
-		 * The meta object literal for the '<em><b>Property</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPTION_PARAM__PROPERTY = eINSTANCE.getOptionParam_Property();
-
-		/**
-		 * The meta object literal for the '<em><b>Relation</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPTION_PARAM__RELATION = eINSTANCE.getOptionParam_Relation();
-
-		/**
-		 * The meta object literal for the '<em><b>Comparison</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPTION_PARAM__COMPARISON = eINSTANCE.getOptionParam_Comparison();
-
-		/**
-		 * The meta object literal for the '<em><b>Count Condition</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPTION_PARAM__COUNT_CONDITION = eINSTANCE.getOptionParam_CountCondition();
 
 	}
 

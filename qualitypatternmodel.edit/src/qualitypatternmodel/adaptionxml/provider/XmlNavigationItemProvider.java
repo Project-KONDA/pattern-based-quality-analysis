@@ -50,7 +50,6 @@ public class XmlNavigationItemProvider extends RelationItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addOptionPropertyDescriptor(object);
-			addOptionParamPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -78,28 +77,6 @@ public class XmlNavigationItemProvider extends RelationItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Option Param feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOptionParamPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XmlNavigation_optionParam_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XmlNavigation_optionParam_feature", "_UI_XmlNavigation_type"),
-				 AdaptionxmlPackage.Literals.XML_NAVIGATION__OPTION_PARAM,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns XmlNavigation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,7 +95,7 @@ public class XmlNavigationItemProvider extends RelationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XmlNavigation)object).getId();
+		String label = ((XmlNavigation)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_XmlNavigation_type") :
 			getString("_UI_XmlNavigation_type") + " " + label;

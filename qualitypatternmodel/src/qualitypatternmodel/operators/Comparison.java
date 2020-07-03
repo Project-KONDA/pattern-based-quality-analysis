@@ -5,7 +5,6 @@ package qualitypatternmodel.operators;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
-import qualitypatternmodel.parameters.OptionParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +19,6 @@ import qualitypatternmodel.parameters.OptionParam;
  *   <li>{@link qualitypatternmodel.operators.Comparison#getArgument2 <em>Argument2</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.Comparison#getType <em>Type</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.Comparison#getOption <em>Option</em>}</li>
- *   <li>{@link qualitypatternmodel.operators.Comparison#getOptionParam <em>Option Param</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.operators.OperatorsPackage#getComparison()
@@ -75,30 +73,6 @@ public interface Comparison extends BooleanOperator {
 	 * @generated
 	 */
 	void setOption(ComparisonOptionParam value);
-
-	/**
-	 * Returns the value of the '<em><b>Option Param</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.OptionParam#getComparison <em>Comparison</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Option Param</em>' reference.
-	 * @see #setOptionParam(OptionParam)
-	 * @see qualitypatternmodel.operators.OperatorsPackage#getComparison_OptionParam()
-	 * @see qualitypatternmodel.parameters.OptionParam#getComparison
-	 * @model opposite="comparison" required="true"
-	 * @generated
-	 */
-	OptionParam<ComparisonOperator> getOptionParam();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.operators.Comparison#getOptionParam <em>Option Param</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Option Param</em>' reference.
-	 * @see #getOptionParam()
-	 * @generated
-	 */
-	void setOptionParam(OptionParam<ComparisonOperator> value);
 
 	/**
 	 * <!-- begin-user-doc -->

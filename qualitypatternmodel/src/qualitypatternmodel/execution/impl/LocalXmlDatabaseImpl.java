@@ -32,6 +32,7 @@ import qualitypatternmodel.execution.LocalXmlDatabase;
 import qualitypatternmodel.execution.Result;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utilityclasses.Constants;
 
 /**
  * <!-- begin-user-doc -->
@@ -111,7 +112,7 @@ public class LocalXmlDatabaseImpl extends XmlDatabaseImpl implements LocalXmlDat
 	}
 
 	@Override
-	public void init() throws BaseXException {
+	public void init() throws BaseXException, QueryIOException, QueryException {
 		try {
 			open();
 		} catch (BaseXException e) {
@@ -125,6 +126,12 @@ public class LocalXmlDatabaseImpl extends XmlDatabaseImpl implements LocalXmlDat
 	public void open() throws BaseXException {
 		context = new Context();
 		new Open(name).execute(context);
+	}
+	
+	@Override
+	public void openSchemaDatabase() throws BaseXException {
+		schemaContext = new Context();
+		new Open(name+Constants.SCHEMA).execute(schemaContext);
 	}
 	
 	@Override
@@ -172,6 +179,8 @@ public class LocalXmlDatabaseImpl extends XmlDatabaseImpl implements LocalXmlDat
 		result.setMatchNumber(matchNo);
 		result.getSplitResult().addAll(queryResult);
 		result.setProblemNumber(queryResult.size());
+		
+		results.add(result);
 				
 		return result;		
 	}
@@ -264,6 +273,11 @@ public class LocalXmlDatabaseImpl extends XmlDatabaseImpl implements LocalXmlDat
 	@Override
 	public void create() throws BaseXException {
 		new CreateDB(name, dataPath).execute(context);	
+	}
+	
+	@Override
+	public void createSchemaDatabase() throws BaseXException {
+		new CreateDB(name+Constants.SCHEMA, schemaPath).execute(schemaContext);	
 	}
 
 	/**

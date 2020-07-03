@@ -254,6 +254,15 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR___FINALIZE_XML_ADAPTION = GraphstructurePackage.COMPARABLE___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___RECORD_VALUES__XMLDATABASE = GraphstructurePackage.COMPARABLE___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -543,6 +552,15 @@ public interface OperatorsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___FINALIZE_XML_ADAPTION = OPERATOR___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___RECORD_VALUES__XMLDATABASE = OPERATOR___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -660,13 +678,22 @@ public interface OperatorsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = OPERATOR_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___RESET = OPERATOR_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Boolean Operator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 4;
+	int BOOLEAN_OPERATOR_OPERATION_COUNT = OPERATOR_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.impl.NumberOperatorImpl <em>Number Operator</em>}' class.
@@ -857,6 +884,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_OPERATOR___FINALIZE_XML_ADAPTION = OPERATOR___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___RECORD_VALUES__XMLDATABASE = OPERATOR___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1175,6 +1211,15 @@ public interface OperatorsPackage extends EPackage {
 	int MATCH___FINALIZE_XML_ADAPTION = BOOLEAN_OPERATOR___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___RECORD_VALUES__XMLDATABASE = BOOLEAN_OPERATOR___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1290,6 +1335,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = BOOLEAN_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___RESET = BOOLEAN_OPERATOR___RESET;
 
 	/**
 	 * The operation id for the '<em>Get Element</em>' operation.
@@ -1419,22 +1473,13 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON__OPTION = BOOLEAN_OPERATOR_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Option Param</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON__OPTION_PARAM = BOOLEAN_OPERATOR_FEATURE_COUNT + 4;
-
-	/**
 	 * The number of structural features of the '<em>Comparison</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 5;
+	int COMPARISON_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -1563,6 +1608,15 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON___FINALIZE_XML_ADAPTION = BOOLEAN_OPERATOR___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___RECORD_VALUES__XMLDATABASE = BOOLEAN_OPERATOR___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1678,6 +1732,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = BOOLEAN_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___RESET = BOOLEAN_OPERATOR___RESET;
 
 	/**
 	 * The operation id for the '<em>Is Primitive</em>' operation.
@@ -1906,6 +1969,15 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR_LIST___FINALIZE_XML_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___FINALIZE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___RECORD_VALUES__XMLDATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE;
+
+	/**
 	 * The operation id for the '<em>Add</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2004,6 +2076,16 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getBooleanOperator__RemoveParametersFromParameterList();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.operators.BooleanOperator#reset() <em>Reset</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Reset</em>' operation.
+	 * @see qualitypatternmodel.operators.BooleanOperator#reset()
+	 * @generated
+	 */
+	EOperation getBooleanOperator__Reset();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.operators.Operator <em>Operator</em>}'.
@@ -2214,17 +2296,6 @@ public interface OperatorsPackage extends EPackage {
 	EReference getComparison_Option();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.operators.Comparison#getOptionParam <em>Option Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Option Param</em>'.
-	 * @see qualitypatternmodel.operators.Comparison#getOptionParam()
-	 * @see #getComparison()
-	 * @generated
-	 */
-	EReference getComparison_OptionParam();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.operators.Comparison#isPrimitive() <em>Is Primitive</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2389,6 +2460,14 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation BOOLEAN_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = eINSTANCE.getBooleanOperator__RemoveParametersFromParameterList();
+
+		/**
+		 * The meta object literal for the '<em><b>Reset</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_OPERATOR___RESET = eINSTANCE.getBooleanOperator__Reset();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.operators.impl.OperatorImpl <em>Operator</em>}' class.
@@ -2557,14 +2636,6 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPARISON__OPTION = eINSTANCE.getComparison_Option();
-
-		/**
-		 * The meta object literal for the '<em><b>Option Param</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPARISON__OPTION_PARAM = eINSTANCE.getComparison_OptionParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Primitive</b></em>' operation.

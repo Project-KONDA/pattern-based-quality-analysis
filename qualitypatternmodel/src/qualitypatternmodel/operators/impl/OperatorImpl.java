@@ -98,11 +98,13 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 		EList<Comparable> arguments = new BasicEList<Comparable>();
 		arguments.addAll(getComparison1());
 		arguments.addAll(getComparison2());
-		for(Comparable graphElement : arguments) {
-			if(graphElement instanceof Operator) {
-				Operator op = (Operator) graphElement;
-				opList.addAll(op.getRootBooleanOperators());
-			}			
+		if(arguments.size() > 0) {
+			for(Comparable graphElement : arguments) {
+				if(graphElement instanceof Operator) {
+					Operator op = (Operator) graphElement;
+					opList.addAll(op.getRootBooleanOperators());
+				}			
+			}
 		}
 		return opList;
 	} 
@@ -159,38 +161,26 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public ReturnType getReturnType() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	abstract public ReturnType getReturnType();
 
 /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public boolean isTranslatable() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	abstract public boolean isTranslatable() throws InvalidityException;
 
 /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public EList<Element> getAllArgumentElements() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
+	abstract public EList<Element> getAllArgumentElements() throws InvalidityException;
 
 /**
 	 * <!-- begin-user-doc -->

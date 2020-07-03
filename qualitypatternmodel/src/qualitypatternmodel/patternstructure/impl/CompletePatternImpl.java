@@ -17,6 +17,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.ExecutionPackage;
+import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
@@ -169,6 +170,26 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	public int getNewRefNo() {
 		return elementCounter++;		
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws MissingPatternContainerException 
+	 * @throws OperatorCycleException 
+	 * @throws InvalidityException 
+	 * @generated NOT
+	 */
+	@Override
+	public void recordValues() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	
+		isValid(AbstractionLevel.CONCRETE);
+		
+		if(getDatabase() instanceof XmlDatabase) {			
+			recordValues((XmlDatabase) getDatabase());
+		}
+		// TODO: else throw exception?
+	}
+
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -478,6 +499,14 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		switch (operationID) {
 			case PatternstructurePackage.COMPLETE_PATTERN___GET_NEW_REF_NO:
 				return getNewRefNo();
+			case PatternstructurePackage.COMPLETE_PATTERN___RECORD_VALUES:
+				try {
+					recordValues();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

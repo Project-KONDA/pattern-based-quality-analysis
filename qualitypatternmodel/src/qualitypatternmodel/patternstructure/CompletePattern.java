@@ -3,6 +3,8 @@
 package qualitypatternmodel.patternstructure;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.parameters.ParameterList;
 
@@ -131,5 +133,13 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	int getNewRefNo() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper qualitypatternmodel.patternstructure.MissingPatternContainerException"
+	 * @generated
+	 */
+	void recordValues() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
 } // Pattern

@@ -24,6 +24,7 @@ public class Constants {
 	public static final String REGEX_DATE = "[0-9][0-9][0-9][0-9]-(0[1-9]|1[0-2])-([0-2][0-9]|3[0-1])";
 	public static final String REGEX_DATE_TIME = REGEX_DATE + "T" + REGEX_TIME_HOURS_MINUTES_SECONDS;
 	public static final String REGEX_POSITIVE_NEGATIVE = "(\\+|-)";
+	public static final String SCHEMA = "_schema";
 	
 	
 	

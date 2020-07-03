@@ -3,6 +3,8 @@
 package qualitypatternmodel.execution.impl;
 
 import org.basex.core.BaseXException;
+import org.basex.query.QueryException;
+import org.basex.query.QueryIOException;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.execution.ExecutionPackage;
@@ -26,7 +28,7 @@ public class ServerXmlDatabaseImpl extends XmlDatabaseImpl implements ServerXmlD
 	}
 	
 	@Override
-	public void init() throws BaseXException {
+	public void init() throws BaseXException, QueryIOException, QueryException {
 		open();
 		analyseDatabase();		
 	}

@@ -110,23 +110,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
           eType="#//adaptionxml/XmlNavigation" eOpposite="#//adaptionxml/XmlNavigation/option"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="OptionParam" eSuperTypes="#//parameters/Parameter">
-      <eTypeParameters name="T"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
-        <eGenericType eTypeParameter="#//parameters/OptionParam/T"/>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1">
-        <eGenericType eTypeParameter="#//parameters/OptionParam/T"/>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//adaptionxml/XmlProperty"
-          eOpposite="#//adaptionxml/XmlProperty/optionParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="relation" eType="#//adaptionxml/XmlNavigation"
-          eOpposite="#//adaptionxml/XmlNavigation/optionParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="comparison" upperBound="-1"
-          eType="#//operators/Comparison" eOpposite="#//operators/Comparison/optionParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="countCondition" eType="#//patternstructure/CountCondition"
-          eOpposite="#//patternstructure/CountCondition/optionParam"/>
-    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="operators" nsURI="operators" nsPrefix="operators">
     <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//operators/Operator">
@@ -138,6 +121,7 @@
       </eOperations>
       <eOperations name="createParameters"/>
       <eOperations name="removeParametersFromParameterList"/>
+      <eOperations name="reset"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/predicates"/>
     </eClassifiers>
@@ -184,12 +168,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
           eType="#//parameters/ComparisonOptionParam" eOpposite="#//parameters/ComparisonOptionParam/comparisons"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" lowerBound="1"
-          eOpposite="#//parameters/OptionParam/comparison">
-        <eGenericType eClassifier="#//parameters/OptionParam">
-          <eTypeArguments eClassifier="#//operators/ComparisonOperator"/>
-        </eGenericType>
-      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ComparisonOperator">
       <eLiterals name="EQUAL" literal="="/>
@@ -233,6 +211,7 @@
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/outgoing"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/incoming"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="copy" eType="#//graphstructure/Property"/>
@@ -241,6 +220,7 @@
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="match" upperBound="-1"
           eType="#//operators/Match" eOpposite="#//operators/Match/property"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Element" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="copyNextElementsToNextGraphs" eExceptions="#//patternstructure/MissingPatternContainerException"/>
@@ -418,6 +398,7 @@
         <eParameters name="from" eType="#//graphstructure/Relation"/>
         <eParameters name="to" eType="#//graphstructure/Relation"/>
       </eOperations>
+      <eOperations name="removeInconsistentMappings"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappings" upperBound="-1"
           eType="#//patternstructure/Mapping" containment="true" eOpposite="#//patternstructure/Mapping/morphism"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
@@ -459,6 +440,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CompletePattern" eSuperTypes="#//patternstructure/Pattern">
       <eOperations name="getNewRefNo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eOperations name="recordValues" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" lowerBound="1"
           eType="#//parameters/ParameterList" containment="true" eOpposite="#//parameters/ParameterList/pattern"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementCounter" lowerBound="1"
@@ -504,6 +486,9 @@
       <eOperations name="getOperatorList" eType="#//operators/OperatorList"/>
       <eOperations name="createXMLAdaption" eType="#//patternstructure/PatternElement"/>
       <eOperations name="finalizeXMLAdaption"/>
+      <eOperations name="recordValues">
+        <eParameters name="database" eType="#//execution/XmlDatabase"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalId" lowerBound="1"
@@ -528,8 +513,6 @@
           eType="#//patternstructure/CountPattern" containment="true" eOpposite="#//patternstructure/CountPattern/countCondition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
           eType="#//parameters/ComparisonOptionParam" eOpposite="#//parameters/ComparisonOptionParam/countCondition"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" lowerBound="1"
-          eType="#//parameters/OptionParam" eOpposite="#//parameters/OptionParam/countCondition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
           eType="#//patternstructure/CountConditionArgument" containment="true" eOpposite="#//patternstructure/CountConditionArgument/countCondition2"/>
     </eClassifiers>
@@ -579,8 +562,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="XmlNavigation" eSuperTypes="#//graphstructure/Relation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/RelationOptionParam"
           eOpposite="#//parameters/RelationOptionParam/relations"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" eType="#//parameters/OptionParam"
-          eOpposite="#//parameters/OptionParam/relation"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlReference" eSuperTypes="#//graphstructure/Relation">
       <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -592,8 +573,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlProperty" eSuperTypes="#//graphstructure/Property">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="optionParam" eType="#//parameters/OptionParam"
-          eOpposite="#//parameters/OptionParam/property"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/PropertyOptionParam"
           eOpposite="#//parameters/PropertyOptionParam/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" eType="#//parameters/TextLiteralParam"
@@ -664,23 +643,75 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlResult" eSuperTypes="#//execution/Result"/>
     <eClassifiers xsi:type="ecore:EClass" name="XmlDatabase" eSuperTypes="#//execution/Database">
-      <eOperations name="analyseDatabase" eExceptions="#//execution/BaseXExceptionWrapper"/>
-      <eOperations name="analyseSchema" eExceptions="#//execution/BaseXExceptionWrapper"/>
-      <eOperations name="recordAttributeValue"/>
-      <eOperations name="recordDataValue"/>
-      <eOperations name="removeAttributeValue"/>
-      <eOperations name="removeDataValue"/>
-      <eOperations name="init" eExceptions="#//execution/BaseXExceptionWrapper"/>
+      <eOperations name="analyseDatabase" eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper"/>
+      <eOperations name="analyseSchema" eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper"/>
+      <eOperations name="recordAttributeValue">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="recordDataValue">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="removeAttributeValue">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="removeDataValue">
+        <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="init" eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper"/>
       <eOperations name="open" eExceptions="#//execution/BaseXExceptionWrapper"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementNames" upperBound="-1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributeNames" upperBound="-1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordedAttributeValues"
-          upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="recordedDataValues" upperBound="-1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="recordElementName">
+        <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="recordAttributeName">
+        <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="removeElementName">
+        <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="removeAttributeName">
+        <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="checkKeyRefInSchema" eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper">
+        <eParameters name="elementName1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="elementName2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="checkChildInSchema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper">
+        <eParameters name="elementName1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="elementName2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="checkParentInSchema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper">
+        <eParameters name="elementName1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="elementName2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="checkDescendantInSchema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper">
+        <eParameters name="elementName1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="elementName2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="checkAncestorInSchema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper">
+        <eParameters name="elementName1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="elementName2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="checkAttributeInSchema" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper">
+        <eParameters name="elementName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="attributeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="createSchemaDatabase" eExceptions="#//execution/BaseXExceptionWrapper"/>
+      <eOperations name="openSchemaDatabase" eExceptions="#//execution/BaseXExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="context" eType="#//execution/BaseXContextWrapper"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="elementNames" upperBound="-1"
+          eType="#//execution/StringToIntMap" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attributeNames" upperBound="-1"
+          eType="#//execution/StringToIntMap" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="recordedAttributeValues"
+          upperBound="-1" eType="#//execution/StringToIntMap" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="recordedDataValues" upperBound="-1"
+          eType="#//execution/StringToIntMap" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemaContext" eType="#//execution/BaseXContextWrapper"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LocalXmlDatabase" eSuperTypes="#//execution/XmlDatabase">
       <eOperations name="create" eExceptions="#//execution/BaseXExceptionWrapper"/>
@@ -696,5 +727,9 @@
     <eClassifiers xsi:type="ecore:EDataType" name="BaseXContextWrapper" instanceClassName="org.basex.core.Context"/>
     <eClassifiers xsi:type="ecore:EDataType" name="QueryExceptionWrapper" instanceClassName="org.basex.query.QueryException"/>
     <eClassifiers xsi:type="ecore:EDataType" name="QueryIOExceptionWrapper" instanceClassName="org.basex.query.QueryIOException"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StringToIntMap" instanceClassName="java.util.Map$Entry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

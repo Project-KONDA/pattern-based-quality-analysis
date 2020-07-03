@@ -44,6 +44,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getComparison2 <em>Comparison2</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getElement <em>Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getMatch <em>Match</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.PropertyImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -80,6 +81,26 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	protected EList<Match> match;
 
 	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -102,18 +123,21 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		if(!(this instanceof XmlProperty)) {
 			XmlProperty xmlProperty = new XmlPropertyImpl();			 
 			xmlProperty.setElement(getElement());
+			xmlProperty.setName(getName());
 			xmlProperty.createParameters();
-			setElement(null);
 			xmlProperty.getMatch().addAll(getMatch());
 			getMatch().clear();			
 			xmlProperty.getComparison1().addAll(getComparison1());
 			getComparison1().clear();
 			xmlProperty.getComparison2().addAll(getComparison2());
 			getComparison2().clear();
+
+			setElement(null);
+			
 			return xmlProperty;
 		}
 		return this;
-	}
+	}	
 	
 	@Override
 	public ReturnType getReturnType() {
@@ -203,9 +227,29 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {
+		
+		if (newElement == null || getElement() != null && !newElement.equals(getElement())) {
+//			EList<Match> matches = new BasicEList<Match>();
+//			matches.addAll(getMatch());
+//			for(Match match : matches) {
+//				match.reset();
+//			}
+//			EList<Comparison> comparisons = new BasicEList<Comparison>();
+//			comparisons.addAll(getComparison1());
+//			comparisons.addAll(getComparison2());
+//			for(Comparison comp : comparisons) {
+//				comp.reset();
+//			}
+			
+//			getMatch().clear();
+//			getComparison1().clear();
+//			getComparison2().clear();
+			
+		}
+		
 		msgs = eBasicSetContainer((InternalEObject)newElement, GraphstructurePackage.PROPERTY__ELEMENT, msgs);
 		return msgs;
 	}
@@ -246,6 +290,29 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			match = new EObjectWithInverseResolvingEList<Match>(Match.class, this, GraphstructurePackage.PROPERTY__MATCH, OperatorsPackage.MATCH__PROPERTY);
 		}
 		return match;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.PROPERTY__NAME, oldName, name));
 	}
 
 	/**
@@ -320,6 +387,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return getElement();
 			case GraphstructurePackage.PROPERTY__MATCH:
 				return getMatch();
+			case GraphstructurePackage.PROPERTY__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -347,6 +416,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				getMatch().clear();
 				getMatch().addAll((Collection<? extends Match>)newValue);
 				return;
+			case GraphstructurePackage.PROPERTY__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -370,6 +442,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			case GraphstructurePackage.PROPERTY__MATCH:
 				getMatch().clear();
 				return;
+			case GraphstructurePackage.PROPERTY__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -389,6 +464,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return getElement() != null;
 			case GraphstructurePackage.PROPERTY__MATCH:
 				return match != null && !match.isEmpty();
+			case GraphstructurePackage.PROPERTY__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -448,6 +525,22 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		return super.eInvoke(operationID, arguments);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
+	}
+
 	@Override
 	public String myToString() {
 		String res = this.getClass().getSimpleName() + " [" + getInternalId() + "]";

@@ -143,10 +143,12 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	
 	@Override
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
-		getMorphism().setSource(null);
+//		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-		getMorphism().removeDanglingMappingReference();		
-		return super.basicSetGraph(newGraph, msgs);
+//		getMorphism().removeDanglingMappingReference();
+		NotificationChain ret = super.basicSetGraph(newGraph, msgs);
+		getMorphism().removeInconsistentMappings();
+		return ret;
 	}
 
 	/**
@@ -162,9 +164,18 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetMorphism(Morphism newMorphism, NotificationChain msgs) {
+		newMorphism.setTarget(getGraph());
+		
+		if (getMorphism() != null) {
+			getMorphism().setSource(null);
+			getMorphism().setTarget(null);
+			getMorphism().removeDanglingMappingReference();
+			getMorphism().getMappings().clear();
+		}
+		
 		Morphism oldMorphism = morphism;
 		morphism = newMorphism;
 		if (eNotificationRequired()) {
@@ -200,13 +211,15 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetCountCondition(CountCondition newCountCondition1, NotificationChain msgs) {
-		getMorphism().setSource(null);
+//		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-		getMorphism().removeDanglingMappingReference();		
+//		getMorphism().removeDanglingMappingReference();		
 
 		msgs = eBasicSetContainer((InternalEObject)newCountCondition1, PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION, msgs);
 		
-		if (newCountCondition1 != null) {
+		getMorphism().removeInconsistentMappings();
+		
+		if (newCountCondition1 != null) {			
 			try {
 				copyPreviousGraph();
 			} catch (MissingPatternContainerException e) {
@@ -235,11 +248,13 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetCountCondition2(CountCondition newCountCondition2, NotificationChain msgs) {
-		getMorphism().setSource(null);
+//		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-		getMorphism().removeDanglingMappingReference();		
+//		getMorphism().removeDanglingMappingReference();		
 		
 		msgs = eBasicSetContainer((InternalEObject)newCountCondition2, PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION2, msgs);
+		
+		getMorphism().removeInconsistentMappings();
 		
 		if (newCountCondition2 != null) {
 			try {

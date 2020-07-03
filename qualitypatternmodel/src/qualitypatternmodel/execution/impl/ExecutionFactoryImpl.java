@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.execution.impl;
 
+import java.util.Map;
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
 
@@ -67,6 +68,7 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 			case ExecutionPackage.LOCAL_XML_DATABASE: return createLocalXmlDatabase();
 			case ExecutionPackage.SERVER_XML_DATABASE: return createServerXmlDatabase();
 			case ExecutionPackage.DATABASES: return createDatabases();
+			case ExecutionPackage.STRING_TO_INT_MAP: return (EObject)createStringToIntMap();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -167,6 +169,16 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	public Databases createDatabases() {
 		DatabasesImpl databases = DatabasesImpl.getInstance();
 		return databases;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Map.Entry<String, Integer> createStringToIntMap() {
+		StringToIntMapImpl stringToIntMap = new StringToIntMapImpl();
+		return stringToIntMap;
 	}
 
 	/**

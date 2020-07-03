@@ -48,7 +48,6 @@ public class CountConditionItemProvider extends ConditionItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addOptionPropertyDescriptor(object);
-			addOptionParamPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -67,28 +66,6 @@ public class CountConditionItemProvider extends ConditionItemProvider {
 				 getString("_UI_CountCondition_option_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CountCondition_option_feature", "_UI_CountCondition_type"),
 				 PatternstructurePackage.Literals.COUNT_CONDITION__OPTION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Option Param feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOptionParamPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CountCondition_optionParam_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CountCondition_optionParam_feature", "_UI_CountCondition_type"),
-				 PatternstructurePackage.Literals.COUNT_CONDITION__OPTION_PARAM,
 				 true,
 				 false,
 				 true,

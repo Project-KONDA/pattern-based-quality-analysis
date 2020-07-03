@@ -15,6 +15,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo() <em>Get New Ref No</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#recordValues() <em>Record Values</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -81,6 +82,19 @@ public class CompletePatternTest extends PatternTest {
 	 * @generated
 	 */
 	public void testGetNewRefNo() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#recordValues() <em>Record Values</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#recordValues()
+	 * @generated
+	 */
+	public void testRecordValues() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

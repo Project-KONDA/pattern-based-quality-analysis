@@ -119,7 +119,7 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 		}
 		if(!getElements().contains(element)) {
 			getElements().add(element);
-			element.getPredicates().add(this);
+//			element.getPredicates().add(this);
 		}
 	}
 
@@ -133,7 +133,7 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 		if(getElementCount().containsKey(element)) {			
 			if(getElementCount().get(element) == 1) {
 				getElements().remove(element);
-				element.getPredicates().remove(this);
+//				element.getPredicates().remove(this);
 				getElementCount().removeKey(element);
 			} else {
 				getElementCount().put(element, getElementCount().get(element)-1);
@@ -148,10 +148,13 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 */
 	@Override
 	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
-		getElements().clear();
-		if(getOperatorList() != null) {
-			removeParametersFromParameterList();
+		if(getOperatorList() != null && !getOperatorList().equals(newOperatorList)) {			
+			reset();
+			getElements().clear();
 		}
+//		if(getOperatorList() != null) {
+//			removeParametersFromParameterList();
+//		}
 		msgs = super.basicSetOperatorList(newOperatorList, msgs);
 //		if(newOperatorList != null) {
 //			createParameters();
@@ -160,16 +163,18 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 		return msgs;
 	}
 
-	@Override
-	public void createParameters() {
-		// TODO Auto-generated method stub
-		
+	
+	public void reset() {
+		removeParametersFromParameterList();
 	}
+	
+	
 	@Override
-	public void removeParametersFromParameterList() {
-		// TODO Auto-generated method stub
-		
-	}
+	abstract public void createParameters();
+	
+	@Override
+	abstract public void removeParametersFromParameterList();
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -278,6 +283,9 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 				return null;
 			case OperatorsPackage.BOOLEAN_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
+				return null;
+			case OperatorsPackage.BOOLEAN_OPERATOR___RESET:
+				reset();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

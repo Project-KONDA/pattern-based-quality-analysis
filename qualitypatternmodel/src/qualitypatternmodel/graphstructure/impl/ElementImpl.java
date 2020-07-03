@@ -26,6 +26,7 @@ import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -485,6 +486,13 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	}
 	
 	@Override
+	public void recordValues(XmlDatabase database) {
+		for(Property p : getProperties()) {
+			p.recordValues(database);
+		}
+	}
+	
+	@Override
 	public boolean isTranslatable() {
 		return translated;
 	}
@@ -881,15 +889,17 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
-		if (getIncomingMapping() != null) {
+		if (newGraph == null || getGraph() != null && !newGraph.equals(getGraph())) {
 			removeElementFromPreviousGraphs();
+			removeMappingsToNext();
+			setResultOf(null);
+//			for(BooleanOperator boolOp : getPredicates()) {
+//				boolOp.reset();				
+//			}
+			getPredicates().clear();
 		}
 		
-		deleteRelations();
-		
-		removeMappingsToNext();
-		
-		setResultOf(null);
+		deleteRelations(newGraph);
 		
 		if(newGraph != null) {
 			for(Morphism morphism : newGraph.getOutgoingMorphisms()) {
@@ -909,12 +919,14 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		return msgs;
 	}
 	
-	private void deleteRelations() {
+	private void deleteRelations(Graph newGraph) {
 		EList<Relation> relations = new BasicEList<Relation>();
 		relations.addAll(getIncoming());
 		relations.addAll(getOutgoing());
 		for (Relation rel : relations) {
-			rel.setGraph(null);			
+			if(rel.getGraph() != null && !rel.getGraph().equals(newGraph)) {
+				rel.setGraph(null);			
+			}
 		}
 	}
 	

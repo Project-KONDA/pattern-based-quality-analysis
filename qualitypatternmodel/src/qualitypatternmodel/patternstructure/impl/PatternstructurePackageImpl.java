@@ -585,6 +585,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getMorphism__RemoveInconsistentMappings() {
+		return morphismEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getElementMapping() {
 		return elementMappingEClass;
 	}
@@ -745,6 +755,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getCompletePattern__RecordValues() {
+		return completePatternEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPatternElement() {
 		return patternElementEClass;
 	}
@@ -895,6 +915,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getPatternElement__RecordValues__XmlDatabase() {
+		return patternElementEClass.getEOperations().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNotCondition() {
 		return notConditionEClass;
 	}
@@ -945,18 +975,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EReference getCountCondition_OptionParam() {
-		return (EReference)countConditionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getCountCondition_Argument2() {
-		return (EReference)countConditionEClass.getEStructuralFeatures().get(3);
+		return (EReference)countConditionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1277,6 +1297,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(morphismEClass, MORPHISM___CHECK_ELEMENT_MAPPINGS_UNIQUENESS);
 		createEOperation(morphismEClass, MORPHISM___ADD_MAPPING__ELEMENT_ELEMENT);
 		createEOperation(morphismEClass, MORPHISM___ADD_MAPPING__RELATION_RELATION);
+		createEOperation(morphismEClass, MORPHISM___REMOVE_INCONSISTENT_MAPPINGS);
 
 		elementMappingEClass = createEClass(ELEMENT_MAPPING);
 		createEReference(elementMappingEClass, ELEMENT_MAPPING__SOURCE);
@@ -1298,6 +1319,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__NAME);
 		createEReference(completePatternEClass, COMPLETE_PATTERN__DATABASE);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GET_NEW_REF_NO);
+		createEOperation(completePatternEClass, COMPLETE_PATTERN___RECORD_VALUES);
 
 		patternElementEClass = createEClass(PATTERN_ELEMENT);
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__ID);
@@ -1317,6 +1339,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_OPERATOR_LIST);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___CREATE_XML_ADAPTION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___FINALIZE_XML_ADAPTION);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE);
 
 		notConditionEClass = createEClass(NOT_CONDITION);
 		createEReference(notConditionEClass, NOT_CONDITION__CONDITION);
@@ -1324,7 +1347,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		countConditionEClass = createEClass(COUNT_CONDITION);
 		createEReference(countConditionEClass, COUNT_CONDITION__COUNT_PATTERN);
 		createEReference(countConditionEClass, COUNT_CONDITION__OPTION);
-		createEReference(countConditionEClass, COUNT_CONDITION__OPTION_PARAM);
 		createEReference(countConditionEClass, COUNT_CONDITION__ARGUMENT2);
 
 		countConditionArgumentEClass = createEClass(COUNT_CONDITION_ARGUMENT);
@@ -1463,6 +1485,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEParameter(op, theGraphstructurePackage.getRelation(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theGraphstructurePackage.getRelation(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getMorphism__RemoveInconsistentMappings(), null, "removeInconsistentMappings", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(elementMappingEClass, ElementMapping.class, "ElementMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getElementMapping_Source(), theGraphstructurePackage.getElement(), theGraphstructurePackage.getElement_OutgoingMappings(), "source", null, 1, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getElementMapping_Target(), theGraphstructurePackage.getElement(), theGraphstructurePackage.getElement_IncomingMapping(), "target", null, 1, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1484,6 +1508,11 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEReference(getCompletePattern_Database(), theExecutionPackage.getDatabase(), theExecutionPackage.getDatabase_Patterns(), "database", null, 0, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getCompletePattern__GetNewRefNo(), ecorePackage.getEInt(), "getNewRefNo", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getCompletePattern__RecordValues(), null, "recordValues", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
+		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
+		addEException(op, this.getMissingPatternContainerException());
 
 		initEClass(patternElementEClass, PatternElement.class, "PatternElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPatternElement_Id(), ecorePackage.getEString(), "id", null, 1, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1539,13 +1568,15 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		initEOperation(getPatternElement__FinalizeXMLAdaption(), null, "finalizeXMLAdaption", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getPatternElement__RecordValues__XmlDatabase(), null, "recordValues", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theExecutionPackage.getXmlDatabase(), "database", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(notConditionEClass, NotCondition.class, "NotCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNotCondition_Condition(), this.getCondition(), this.getCondition_NotCondition(), "condition", null, 1, 1, NotCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(countConditionEClass, CountCondition.class, "CountCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCountCondition_CountPattern(), this.getCountPattern(), this.getCountPattern_CountCondition(), "countPattern", null, 1, 1, CountCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCountCondition_Option(), theParametersPackage.getComparisonOptionParam(), theParametersPackage.getComparisonOptionParam_CountCondition(), "option", null, 1, 1, CountCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCountCondition_OptionParam(), theParametersPackage.getOptionParam(), theParametersPackage.getOptionParam_CountCondition(), "optionParam", null, 1, 1, CountCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCountCondition_Argument2(), this.getCountConditionArgument(), this.getCountConditionArgument_CountCondition2(), "argument2", null, 1, 1, CountCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(countConditionArgumentEClass, CountConditionArgument.class, "CountConditionArgument", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

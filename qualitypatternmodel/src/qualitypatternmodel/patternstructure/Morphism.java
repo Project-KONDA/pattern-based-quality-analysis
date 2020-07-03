@@ -165,6 +165,14 @@ public interface Morphism extends PatternElement {
 	 */
 	RelationMapping addMapping(Relation from, Relation to);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void removeInconsistentMappings();
+
 	void removeDanglingMappingReference();
 
 	

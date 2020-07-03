@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_gA1iwLehEeqfCPpf6BLjYg" internalId="0" elementCounter="8">
+  <graph id="_gA1iwrehEeqfCPpf6BLjYg" internalId="1" returnElements="_gA1ixLehEeqfCPpf6BLjYg">
+    <elements id="_gA1ixLehEeqfCPpf6BLjYg" internalId="2" resultOf="_gA1iwrehEeqfCPpf6BLjYg" predicates="_gqQTMLehEeqfCPpf6BLjYg">
+      <properties id="_gYM54LehEeqfCPpf6BLjYg" internalId="3" match="_gqQTMLehEeqfCPpf6BLjYg"/>
+    </elements>
+    <operatorList id="_gA1iw7ehEeqfCPpf6BLjYg" internalId="4">
+      <operators xsi:type="operators:Match" id="_gqQTMLehEeqfCPpf6BLjYg" internalId="5" elements="_gA1ixLehEeqfCPpf6BLjYg" property="_gYM54LehEeqfCPpf6BLjYg" regularExpression="_g-QNRLehEeqfCPpf6BLjYg"/>
+    </operatorList>
+  </graph>
+  <parameterList id="_gA1iwbehEeqfCPpf6BLjYg" internalId="6">
+    <parameters xsi:type="parameters:TextLiteralParam" id="_g-QNRLehEeqfCPpf6BLjYg" internalId="7" description="Eingabe einer Liste von Strings" value="abc" matches="_gqQTMLehEeqfCPpf6BLjYg"/>
+  </parameterList>
+</patternstructure:CompletePattern>

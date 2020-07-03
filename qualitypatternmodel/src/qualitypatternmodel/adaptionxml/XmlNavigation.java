@@ -3,8 +3,6 @@
 package qualitypatternmodel.adaptionxml;
 
 import qualitypatternmodel.graphstructure.Relation;
-
-import qualitypatternmodel.parameters.OptionParam;
 import qualitypatternmodel.parameters.RelationOptionParam;
 
 /**
@@ -17,7 +15,6 @@ import qualitypatternmodel.parameters.RelationOptionParam;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlNavigation#getOption <em>Option</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlNavigation#getOptionParam <em>Option Param</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlNavigation()
@@ -48,29 +45,5 @@ public interface XmlNavigation extends Relation {
 	 * @generated
 	 */
 	void setOption(RelationOptionParam value);
-
-	/**
-	 * Returns the value of the '<em><b>Option Param</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.OptionParam#getRelation <em>Relation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Option Param</em>' reference.
-	 * @see #setOptionParam(OptionParam)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlNavigation_OptionParam()
-	 * @see qualitypatternmodel.parameters.OptionParam#getRelation
-	 * @model opposite="relation"
-	 * @generated
-	 */
-	OptionParam getOptionParam();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getOptionParam <em>Option Param</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Option Param</em>' reference.
-	 * @see #getOptionParam()
-	 * @generated
-	 */
-	void setOptionParam(OptionParam value);
 
 } // XMLNavigation

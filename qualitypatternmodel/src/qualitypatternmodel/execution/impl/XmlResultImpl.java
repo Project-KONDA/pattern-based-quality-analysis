@@ -2,6 +2,10 @@
  */
 package qualitypatternmodel.execution.impl;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.execution.ExecutionPackage;
@@ -32,6 +36,18 @@ public class XmlResultImpl extends ResultImpl implements XmlResult {
 	@Override
 	protected EClass eStaticClass() {
 		return ExecutionPackage.Literals.XML_RESULT;
+	}
+
+	@Override
+	public void export(String path) {		
+		try {
+			ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(path));
+			objectOutputStream.writeObject(this);
+			objectOutputStream.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 	}
 
 } //XmlResultImpl

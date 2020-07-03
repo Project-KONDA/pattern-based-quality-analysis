@@ -23,8 +23,6 @@ import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
-
-import qualitypatternmodel.parameters.OptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -43,7 +41,6 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl#getOption <em>Option</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl#getOptionParam <em>Option Param</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,16 +55,6 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	 * @ordered
 	 */
 	protected RelationOptionParam option;
-
-	/**
-	 * The cached value of the '{@link #getOptionParam() <em>Option Param</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOptionParam()
-	 * @generated
-	 * @ordered
-	 */
-	protected OptionParam optionParam;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -316,78 +303,12 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	 * @generated
 	 */
 	@Override
-	public OptionParam getOptionParam() {
-		if (optionParam != null && optionParam.eIsProxy()) {
-			InternalEObject oldOptionParam = (InternalEObject)optionParam;
-			optionParam = (OptionParam)eResolveProxy(oldOptionParam);
-			if (optionParam != oldOptionParam) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionxmlPackage.XML_NAVIGATION__OPTION_PARAM, oldOptionParam, optionParam));
-			}
-		}
-		return optionParam;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OptionParam basicGetOptionParam() {
-		return optionParam;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOptionParam(OptionParam newOptionParam, NotificationChain msgs) {
-		OptionParam oldOptionParam = optionParam;
-		optionParam = newOptionParam;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_NAVIGATION__OPTION_PARAM, oldOptionParam, newOptionParam);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setOptionParam(OptionParam newOptionParam) {
-		if (newOptionParam != optionParam) {
-			NotificationChain msgs = null;
-			if (optionParam != null)
-				msgs = ((InternalEObject)optionParam).eInverseRemove(this, ParametersPackage.OPTION_PARAM__RELATION, OptionParam.class, msgs);
-			if (newOptionParam != null)
-				msgs = ((InternalEObject)newOptionParam).eInverseAdd(this, ParametersPackage.OPTION_PARAM__RELATION, OptionParam.class, msgs);
-			msgs = basicSetOptionParam(newOptionParam, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_NAVIGATION__OPTION_PARAM, newOptionParam, newOptionParam));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AdaptionxmlPackage.XML_NAVIGATION__OPTION:
 				if (option != null)
 					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.RELATION_OPTION_PARAM__RELATIONS, RelationOptionParam.class, msgs);
 				return basicSetOption((RelationOptionParam)otherEnd, msgs);
-			case AdaptionxmlPackage.XML_NAVIGATION__OPTION_PARAM:
-				if (optionParam != null)
-					msgs = ((InternalEObject)optionParam).eInverseRemove(this, ParametersPackage.OPTION_PARAM__RELATION, OptionParam.class, msgs);
-				return basicSetOptionParam((OptionParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -402,8 +323,6 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		switch (featureID) {
 			case AdaptionxmlPackage.XML_NAVIGATION__OPTION:
 				return basicSetOption(null, msgs);
-			case AdaptionxmlPackage.XML_NAVIGATION__OPTION_PARAM:
-				return basicSetOptionParam(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -419,9 +338,6 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 			case AdaptionxmlPackage.XML_NAVIGATION__OPTION:
 				if (resolve) return getOption();
 				return basicGetOption();
-			case AdaptionxmlPackage.XML_NAVIGATION__OPTION_PARAM:
-				if (resolve) return getOptionParam();
-				return basicGetOptionParam();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -436,9 +352,6 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		switch (featureID) {
 			case AdaptionxmlPackage.XML_NAVIGATION__OPTION:
 				setOption((RelationOptionParam)newValue);
-				return;
-			case AdaptionxmlPackage.XML_NAVIGATION__OPTION_PARAM:
-				setOptionParam((OptionParam)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -455,9 +368,6 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 			case AdaptionxmlPackage.XML_NAVIGATION__OPTION:
 				setOption((RelationOptionParam)null);
 				return;
-			case AdaptionxmlPackage.XML_NAVIGATION__OPTION_PARAM:
-				setOptionParam((OptionParam)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -472,8 +382,6 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		switch (featureID) {
 			case AdaptionxmlPackage.XML_NAVIGATION__OPTION:
 				return option != null;
-			case AdaptionxmlPackage.XML_NAVIGATION__OPTION_PARAM:
-				return optionParam != null;
 		}
 		return super.eIsSet(featureID);
 	}
