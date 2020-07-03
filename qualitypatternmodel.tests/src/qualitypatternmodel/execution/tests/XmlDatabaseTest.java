@@ -26,6 +26,7 @@ import qualitypatternmodel.execution.XmlDatabase;
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#recordAttributeName(java.lang.String) <em>Record Attribute Name</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#removeElementName(java.lang.String) <em>Remove Element Name</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#removeAttributeName(java.lang.String) <em>Remove Attribute Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#checkKeyRefInSchema() <em>Check Key Ref In Schema</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -235,6 +236,19 @@ public class XmlDatabaseTest extends DatabaseTest {
 	 * @generated
 	 */
 	public void testRemoveAttributeName__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#checkKeyRefInSchema() <em>Check Key Ref In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#checkKeyRefInSchema()
+	 * @generated
+	 */
+	public void testCheckKeyRefInSchema() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

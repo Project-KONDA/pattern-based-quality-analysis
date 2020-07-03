@@ -197,4 +197,12 @@ public interface XmlDatabase extends Database {
 	 */
 	void removeAttributeName(String name);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void checkKeyRefInSchema();
+
 } // XmlDatabase

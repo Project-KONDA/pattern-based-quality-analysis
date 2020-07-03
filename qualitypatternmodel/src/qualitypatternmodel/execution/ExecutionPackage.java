@@ -603,13 +603,22 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING = DATABASE_OPERATION_COUNT + 11;
 
 	/**
+	 * The operation id for the '<em>Check Key Ref In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA = DATABASE_OPERATION_COUNT + 12;
+
+	/**
 	 * The number of operations of the '<em>Xml Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATABASE_OPERATION_COUNT = DATABASE_OPERATION_COUNT + 12;
+	int XML_DATABASE_OPERATION_COUNT = DATABASE_OPERATION_COUNT + 13;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.LocalXmlDatabaseImpl <em>Local Xml Database</em>}' class.
@@ -847,6 +856,15 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING = XML_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING;
 
 	/**
+	 * The operation id for the '<em>Check Key Ref In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA = XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA;
+
+	/**
 	 * The operation id for the '<em>Create</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1080,6 +1098,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING = XML_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING;
+
+	/**
+	 * The operation id for the '<em>Check Key Ref In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA = XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA;
 
 	/**
 	 * The number of operations of the '<em>Server Xml Database</em>' class.
@@ -1605,6 +1632,16 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getXmlDatabase__RemoveAttributeName__String();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#checkKeyRefInSchema() <em>Check Key Ref In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Key Ref In Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#checkKeyRefInSchema()
+	 * @generated
+	 */
+	EOperation getXmlDatabase__CheckKeyRefInSchema();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.LocalXmlDatabase <em>Local Xml Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2081,6 +2118,14 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING = eINSTANCE.getXmlDatabase__RemoveAttributeName__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Check Key Ref In Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA = eINSTANCE.getXmlDatabase__CheckKeyRefInSchema();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.LocalXmlDatabaseImpl <em>Local Xml Database</em>}' class.

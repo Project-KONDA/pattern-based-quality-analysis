@@ -597,6 +597,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getXmlDatabase__CheckKeyRefInSchema() {
+		return xmlDatabaseEClass.getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getLocalXmlDatabase() {
 		return localXmlDatabaseEClass;
 	}
@@ -800,6 +810,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___RECORD_ATTRIBUTE_NAME__STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___REMOVE_ELEMENT_NAME__STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA);
 
 		localXmlDatabaseEClass = createEClass(LOCAL_XML_DATABASE);
 		createEAttribute(localXmlDatabaseEClass, LOCAL_XML_DATABASE__DATA_PATH);
@@ -944,6 +955,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		op = initEOperation(getXmlDatabase__RemoveAttributeName__String(), null, "removeAttributeName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getXmlDatabase__CheckKeyRefInSchema(), null, "checkKeyRefInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(localXmlDatabaseEClass, LocalXmlDatabase.class, "LocalXmlDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLocalXmlDatabase_DataPath(), ecorePackage.getEString(), "dataPath", null, 0, 1, LocalXmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

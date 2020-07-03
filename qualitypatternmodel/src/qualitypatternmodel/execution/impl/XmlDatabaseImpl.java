@@ -375,6 +375,44 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void checkKeyRefInSchema() {
+		
+		/* The following function checks whether there might exist a reference between an element named $n1 and an element named $n2 by analysing the XML schema.
+		 * However, there may be false positives.
+		 * For reliably checking this, the structural context of both elements must be known.
+		 * This is not possible here.
+		 * Furthermore, for a precise check the schema analysis would be much more complex.
+		 * 
+		 */
+		
+		String checkRefId = "declare function local:checkRefId($r as element(), $n1 as xs:string, $n2 as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"some $ref in $r//xs:keyref[./xs:selector/@xpath = $n1 or matches(./xs:selector/@xpath, \"/\" || $n1 || \"$\")] \r\n" + 
+				"satisfies some $key in $r//xs:key[@name = $ref/@refer]\r\n" + 
+				"satisfies $key/xs:selector/@xpath = $n2 or matches($key/xs:selector/@xpath, \"/\" || $n2 || \"$\")\r\n" + 
+				"};";
+		
+		String getRefId = "declare function local:getRefId($r as element(), $n1 as xs:string, $n2 as xs:string)\r\n" + 
+				"as xs:string+\r\n" + 
+				"{\r\n" + 
+				"for $ref in $r//xs:keyref[./xs:selector/@xpath = $n1 or matches(./xs:selector/@xpath, \"/\" || $n1 || \"$\")] \r\n" + 
+				"for $key in $r//xs:key[@name = $ref/@refer]\r\n" + 
+				"where $key/xs:selector/@xpath = $n2 or matches($key/xs:selector/@xpath, \"/\" || $n2 || \"$\")\r\n" + 
+				"return ($ref/xs:field/@xpath, $key/xs:field/@xpath)\r\n" + 
+				"};";
+		
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -558,6 +596,9 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				return null;
 			case ExecutionPackage.XML_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING:
 				removeAttributeName((String)arguments.get(0));
+				return null;
+			case ExecutionPackage.XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA:
+				checkKeyRefInSchema();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
