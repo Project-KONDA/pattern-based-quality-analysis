@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EMap;
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getRecordedAttributeValues <em>Recorded Attribute Values</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getRecordedDataValues <em>Recorded Data Values</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getSchemaContext <em>Schema Context</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getNamespace <em>Namespace</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.execution.ExecutionPackage#getXmlDatabase()
@@ -125,6 +126,28 @@ public interface XmlDatabase extends Database {
 	 * @generated
 	 */
 	void setSchemaContext(Context value);
+
+	/**
+	 * Returns the value of the '<em><b>Namespace</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Namespace</em>' attribute.
+	 * @see #setNamespace(String)
+	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlDatabase_Namespace()
+	 * @model
+	 * @generated
+	 */
+	String getNamespace();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.execution.XmlDatabase#getNamespace <em>Namespace</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Namespace</em>' attribute.
+	 * @see #getNamespace()
+	 * @generated
+	 */
+	void setNamespace(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -560,6 +560,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/XmlDatabase/recordedAttributeValues"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/XmlDatabase/recordedDataValues"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/XmlDatabase/schemaContext"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/XmlDatabase/namespace"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/analyseDatabase"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/analyseSchema"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/recordAttributeValue">

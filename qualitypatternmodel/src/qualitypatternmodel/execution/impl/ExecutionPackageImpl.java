@@ -487,6 +487,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getXmlDatabase_Namespace() {
+		return (EAttribute)xmlDatabaseEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getXmlDatabase__AnalyseDatabase() {
 		return xmlDatabaseEClass.getEOperations().get(0);
 	}
@@ -879,6 +889,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEReference(xmlDatabaseEClass, XML_DATABASE__RECORDED_ATTRIBUTE_VALUES);
 		createEReference(xmlDatabaseEClass, XML_DATABASE__RECORDED_DATA_VALUES);
 		createEAttribute(xmlDatabaseEClass, XML_DATABASE__SCHEMA_CONTEXT);
+		createEAttribute(xmlDatabaseEClass, XML_DATABASE__NAMESPACE);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___ANALYSE_DATABASE);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___ANALYSE_SCHEMA);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING);
@@ -1008,6 +1019,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEReference(getXmlDatabase_RecordedAttributeValues(), this.getStringToIntMap(), null, "recordedAttributeValues", null, 0, -1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXmlDatabase_RecordedDataValues(), this.getStringToIntMap(), null, "recordedDataValues", null, 0, -1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getXmlDatabase_SchemaContext(), this.getBaseXContextWrapper(), "schemaContext", null, 0, 1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getXmlDatabase_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getXmlDatabase__AnalyseDatabase(), null, "analyseDatabase", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
