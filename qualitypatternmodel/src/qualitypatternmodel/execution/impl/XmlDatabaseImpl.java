@@ -486,8 +486,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				"  exists($orderContainer/*/xs:element[@ref = $namespace || $n2])\r\n" + 
 				"  or \r\n" + 
 				"  (some $groupRef in $orderContainer/*/xs:group satisfies\r\n" + 
-				"    some $group in $r/xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies\r\n" + 
-				"      exists($group/*/xs:element[@name = $n2]) or exists($group/*/xs:element[@ref = $namespace || $n2]))\r\n" + 
+				"    some $group in $r//xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies\r\n" + 
+				"      local:checkOrderContainer($r,$n2,$group,$namespace))      \r\n" + 
 				"};\r\n" + 
 				"\r\n" + 
 				"declare function local:checkChildComplexType($r as element(), $n2 as xs:string, $complexType as element(), $namespace as xs:string)\r\n" + 
@@ -567,8 +567,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				"  exists($orderContainer/*/xs:element[@ref = $namespace || $n2])\r\n" + 
 				"  or \r\n" + 
 				"  (some $groupRef in $orderContainer/*/xs:group satisfies\r\n" + 
-				"    some $group in $r/xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies\r\n" + 
-				"      exists($group/*/xs:element[@name = $n2]) or exists($group/*/xs:element[@ref = $namespace || $n2]))\r\n" + 
+				"    some $group in $r//xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies\r\n" + 
+				"      local:checkOrderContainer($r,$n2,$group,$namespace))      \r\n" + 
 				"};\r\n" + 
 				"\r\n" + 
 				"declare function local:checkChildComplexType($r as element(), $n2 as xs:string, $complexType as element(), $namespace as xs:string)\r\n" + 
@@ -605,11 +605,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				"    local:checkDescendant($r,substring-after($child/@ref, $namespace),$n2,$namespace))\r\n" + 
 				"    or \r\n" + 
 				"    (some $groupRef in $orderContainer/*/xs:group satisfies\r\n" + 
-				"      some $group in $r/xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies\r\n" + 
-				"        some $child in $group/*/xs:element satisfies      \r\n" + 
-				"          local:checkDescendant($r,$child/@name,$n2,$namespace)\r\n" + 
-				"          or\r\n" + 
-				"          local:checkDescendant($r,substring-after($child/@ref, $namespace),$n2,$namespace))\r\n" + 
+				"      some $group in $r/xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies        \r\n" + 
+				"        local:checkOrderContainerDescendant($r,$n2,$group,$namespace))             \r\n" + 
 				"};\r\n" + 
 				"\r\n" + 
 				"declare function local:checkDescendantComplexType($r as element(), $n2 as xs:string, $complexType as element(), $namespace as xs:string)\r\n" + 
@@ -690,7 +687,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				"  or\r\n" + 
 				"  (some $groupRef in $attributeContainer/xs:attributeGroup satisfies\r\n" + 
 				"    some $group in $r/xs:attributeGroup[@name = substring-after($groupRef/@ref, $namespace)] satisfies\r\n" + 
-				"      exists($group/xs:attribute[@name = $attributeName]) or exists($group/*/xs:attribute[@ref = $namespace || $attributeName]))\r\n" + 
+				"       local:checkAttributeContainer($r,$attributeName,$group,$namespace))      \r\n" + 
 				"};\r\n" + 
 				"\r\n" + 
 				"declare function local:checkAttributeComplexType($r as element(), $attributeName as xs:string, $complexType as element(), $namespace as xs:string)\r\n" + 
@@ -777,7 +774,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	@Override
 	public boolean checkFollowingSiblingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
 		openSchemaDatabase();
-		// TODO: rework query!
+		// TODO: rework query concerning groups!
 		String checkFollowingSibling = "declare function local:checkFollowingSibling($r as element(), $n1 as xs:string, $n2 as xs:string, $namespace as xs:string)\r\n" + 
 				"as xs:boolean\r\n" + 
 				"{\r\n" + 
