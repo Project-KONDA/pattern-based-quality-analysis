@@ -732,6 +732,66 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 * @generated NOT
 	 */
 	@Override
+	public boolean checkFollowingSiblingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
+		openSchemaDatabase();
+		
+		String checkFollowingSibling = "declare function local:checkFollowingSibling($r as element(), $n1 as xs:string, $n2 as xs:string, $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"some $e1 in $r//xs:element[@name=$n1] satisfies\r\n" + 
+				"  (exists($e1/parent::xs:sequence) \r\n" + 
+				"    and\r\n" + 
+				"    (some $followingSibling in $e1/following-sibling::xs:element satisfies\r\n" + 
+				"      $followingSibling/@name = $n2\r\n" + 
+				"      or\r\n" + 
+				"      $followingSibling/@ref = $namespace || $n2))\r\n" + 
+				"    or\r\n" + 
+				"   (exists($e1/parent::xs:all) \r\n" + 
+				"     and\r\n" + 
+				"    (some $sibling in $e1/parent::xs:all/xs:element satisfies\r\n" + 
+				"      $sibling/@name = $n2\r\n" + 
+				"      or\r\n" + 
+				"      $sibling/@ref = $namespace || $n2))\r\n" + 
+				"    or\r\n" + 
+				"    (some $complexType in $e1/parent::*/parent::xs:complexType satisfies\r\n" + 
+				"      some $extension in $r//xs:extension[substring-after(@base, $namespace) = $complexType/@name] satisfies\r\n" + 
+				"        exists($extension/*/xs:element[@name = $n2 or @ref = $namespace || $n2]))\r\n" + 
+				"\r\n" + 
+				"};";
+		
+		String call = "for $root in /xs:schema\r\n" + 
+				"return local:checkFollowingSibling($root, \""+elementName1+"\", \""+elementName2+"\", \""+getNamespace()+"\")";
+		
+		String query = checkFollowingSibling + call;
+		
+		List<String> queryResult = executeQuery(query, schemaContext);
+		if(queryResult.size() == 1) {			
+			if(queryResult.get(0).equals("false")) {
+				return false;
+			}
+		}
+		
+		// TODO: else throw exception ?
+		
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean checkPrecedingSiblingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
+		return checkFollowingSiblingInSchema(elementName2, elementName1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
 	public void checkKeyRefInSchema(String elementName1, String elementName2) {
 		// TODO: create/open schema database
 
@@ -1037,6 +1097,20 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				try {
 					openSchemaDatabase();
 					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___CHECK_FOLLOWING_SIBLING_IN_SCHEMA__STRING_STRING:
+				try {
+					return checkFollowingSiblingInSchema((String)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___CHECK_PRECEDING_SIBLING_IN_SCHEMA__STRING_STRING:
+				try {
+					return checkPrecedingSiblingInSchema((String)arguments.get(0), (String)arguments.get(1));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
