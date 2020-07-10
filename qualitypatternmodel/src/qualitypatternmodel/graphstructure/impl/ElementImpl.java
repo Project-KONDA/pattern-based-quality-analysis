@@ -459,7 +459,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			xmlElement.setIncomingMapping(getIncomingMapping());
 			setIncomingMapping(null);
 			setResultOf(null);
-			setGraph(null);
+			
 			EList<Relation> outgoingCopy = new BasicEList<Relation>();
 			outgoingCopy.addAll(getOutgoing());
 			for(Relation relation : outgoingCopy) {
@@ -479,6 +479,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			for(Property property : propertiesCopy2) {
 				property.setElement(xmlElement);
 			}		
+			setGraph(null);
 			return xmlElement;
 		}
 		return this;		
