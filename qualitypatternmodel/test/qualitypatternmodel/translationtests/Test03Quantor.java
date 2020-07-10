@@ -15,7 +15,7 @@ public class Test03Quantor {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternExistsWithRelationFinal());
 		completePatterns.add(getPatternExistsFinal());
-		completePatterns.add(getPatternExistsNavigation());
+//		completePatterns.add(getPatternExistsNavigation());
 		completePatterns.add(getPatternExistsCondFinal());
 		completePatterns.add(getPatternForall());
 		completePatterns.add(getPatternForallCond());
@@ -161,10 +161,12 @@ public class Test03Quantor {
 	
 	public static List<PatternTestPair> getTestPairs(){
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("EXISTS", 	getPatternExists(), 	""));
-		testPairs.add(new PatternTestPair("EXISTSCOND", getPatternExistsCond(), ""));
-		testPairs.add(new PatternTestPair("FORALL",		getPatternForall(), 	""));
-		testPairs.add(new PatternTestPair("FORALLCOND", getPatternForallCond(), ""));
+		testPairs.add(new PatternTestPair("EXISTSREL", getPatternExistsWithRelationFinal(), "/*[./*]"));
+		testPairs.add(new PatternTestPair("EXISTS", getPatternExistsFinal(), "/*[/*]"));
+//		testPairs.add(new PatternTestPair("EXISTSNAV", getPatternExistsNavigation(), ""));		
+		testPairs.add(new PatternTestPair("EXISTSCOND", getPatternExistsCondFinal(), "/*[/*[data()=\"myvalue\"]]"));
+		testPairs.add(new PatternTestPair("FORALL", getPatternForall(), "for $x1 in /* where every $x2 in /* satisfies true() return $x1"));
+		testPairs.add(new PatternTestPair("FORALLCOND", getPatternForallCond(), "for $x1 in /* where every $x2 in /*[data()=\"myvalue\"] satisfies true() return $x1"));
 		// TODO: complete test cases
 		return testPairs;		
 	}
