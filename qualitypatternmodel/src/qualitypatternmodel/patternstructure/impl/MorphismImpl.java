@@ -459,19 +459,25 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		for(Mapping mapping : mappings) {
 			if(mapping instanceof ElementMapping) {
 				ElementMapping elementMapping = (ElementMapping) mapping;
-				if(!elementMapping.getSource().getGraph().equals(getSource())) {
+				if(elementMapping.getSource().getGraph() == null && getSource() != null
+						|| elementMapping.getSource().getGraph() != null && getSource() == null
+						|| !elementMapping.getSource().getGraph().equals(getSource())) {
 					getMappings().remove(elementMapping);
-				}
-				if(!elementMapping.getTarget().getGraph().equals(getTarget())) {
+				} else if(elementMapping.getTarget().getGraph() == null && getTarget() != null
+						|| elementMapping.getTarget().getGraph() != null && getTarget() == null
+						|| !elementMapping.getTarget().getGraph().equals(getTarget())) {
 					getMappings().remove(elementMapping);
 				}
 				
 			} else {
 				RelationMapping relationMapping = (RelationMapping) mapping;
-				if(!relationMapping.getSource().getGraph().equals(getSource())) {
+				if(relationMapping.getSource().getGraph() == null && getSource() != null
+						|| relationMapping.getSource().getGraph() != null && getSource() == null
+						|| !relationMapping.getSource().getGraph().equals(getSource())) {
 					getMappings().remove(relationMapping);
-				}
-				if(!relationMapping.getTarget().getGraph().equals(getTarget())) {
+				} else if(relationMapping.getTarget().getGraph() == null && getTarget() != null
+						|| relationMapping.getTarget().getGraph() != null && getTarget() == null
+						|| !relationMapping.getTarget().getGraph().equals(getTarget())) {
 					getMappings().remove(relationMapping);
 				}
 			}
