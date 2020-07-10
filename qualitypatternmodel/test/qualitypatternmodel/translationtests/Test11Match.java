@@ -24,7 +24,6 @@ public class Test11Match {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternMatch(true, "a"));
 		completePatterns.add(getPatternMatch(false, "a"));
-		completePatterns.add(getPatternMatch(true, "^a$"));
 		completePatterns.add(getPatternMatch(true, "^a"));
 		completePatterns.add(getPatternMatch(true, "a$"));
 		completePatterns.add(getPatternMatch(true, "^a$"));
@@ -45,7 +44,16 @@ public class Test11Match {
 
 	public static List<PatternTestPair> getTestPairs() {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+		
+		testPairs.add(new PatternTestPair("MATCHCHARINV", getPatternMatch(true, "a"), ""));
+		testPairs.add(new PatternTestPair("MATCHCHAR", getPatternMatch(false, "a"), ""));
+		testPairs.add(new PatternTestPair("MATCHBEG", getPatternMatch(true, "^a"), ""));		
+		testPairs.add(new PatternTestPair("MATCHEND", getPatternMatch(true, "a$"), ""));
+		testPairs.add(new PatternTestPair("MATCHEXACTINV", getPatternMatch(true, "^a$"), ""));		
+		testPairs.add(new PatternTestPair("MATCHEXACT", getPatternMatch(false, "^a$"), ""));
 
+		// TODO: complete test cases
+		
 		return testPairs;
 	}
 

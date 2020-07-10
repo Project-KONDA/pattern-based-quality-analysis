@@ -81,6 +81,12 @@ public class Test07Formula {
 	
 	public static List<PatternTestPair> getTestPairs(){
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+
+		for (LogicalOperator lo: LogicalOperator.VALUES) {
+			testPairs.add(new PatternTestPair(lo.toString(), getFormulaPattern(lo), ""));
+		}		
+		
+		// TODO: complete test cases
 		
 		return testPairs;		
 	}

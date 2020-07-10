@@ -165,7 +165,7 @@ public class Test03Quantor {
 		testPairs.add(new PatternTestPair("EXISTSCOND", getPatternExistsCond(), ""));
 		testPairs.add(new PatternTestPair("FORALL",		getPatternForall(), 	""));
 		testPairs.add(new PatternTestPair("FORALLCOND", getPatternForallCond(), ""));
-		// ...
+		// TODO: complete test cases
 		return testPairs;		
 	}
 }

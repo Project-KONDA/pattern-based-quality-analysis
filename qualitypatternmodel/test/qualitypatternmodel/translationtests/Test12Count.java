@@ -1,6 +1,7 @@
 package qualitypatternmodel.translationtests;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -26,6 +27,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.TrueElement;
+import qualitypatternmodel.testutilityclasses.PatternTestPair;
 
 public class Test12Count {
 	public static void main(String[] args)
@@ -402,4 +404,22 @@ public class Test12Count {
 //		quantifiedCondition.setQuantifier(Quantifier.FORALL);
 //		return completePattern;		
 //	}
+	
+	public static List<PatternTestPair> getTestPairs() {
+		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+		
+		testPairs.add(new PatternTestPair("COUNTPAT", getPatternCountInPatternFinal(), ""));
+		testPairs.add(new PatternTestPair("COUNTEX", getPatternCountInExists(), ""));
+		testPairs.add(new PatternTestPair("COUNTFOR", getPatternCountInForall(), ""));
+		testPairs.add(new PatternTestPair("COUNTNEX", getPatternCountNextToExists(), ""));
+		testPairs.add(new PatternTestPair("COUNTNFOR", getPatternCountNextToForall(), ""));
+		testPairs.add(new PatternTestPair("COUNTNOT", getPatternCountInNot(), ""));
+		testPairs.add(new PatternTestPair("COUNTNEXNEST", getPatternCountNextToExistsNested(), ""));
+		testPairs.add(new PatternTestPair("COUNTNFORNEST", getPatternCountNextToForallNested(), ""));
+
+
+		// TODO: complete test cases
+		
+		return testPairs;
+	}
 }

@@ -71,7 +71,7 @@ public class Test02Return {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		testPairs.add(new PatternTestPair("MULRETNAV", 	getPatternMultipleReturnNavigation(), 		""));
 		testPairs.add(new PatternTestPair("MULRETREF", getPatternMultipleReturnReference(), 	""));
-		// ...
+		// TODO: complete test cases
 		return testPairs;		
 	}
 	

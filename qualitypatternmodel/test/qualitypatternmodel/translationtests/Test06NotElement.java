@@ -140,6 +140,8 @@ public class Test06NotElement {
 		testPairs.add(new PatternTestPair("EXNOTEX",	getPatternExistsNotExists(),""));
 		testPairs.add(new PatternTestPair("FANOTFA", 	getPatternForallNotForall(),""));
 		
+		// TODO: complete test cases
+		
 		return testPairs;		
 	}
 

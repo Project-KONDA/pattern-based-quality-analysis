@@ -189,7 +189,14 @@ public class Test10Reference {
 	
 	public static List<PatternTestPair> getTestPairs() {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-
+		
+		testPairs.add(new PatternTestPair("REF", getPatternReferenceSimple(), ""));
+		testPairs.add(new PatternTestPair("REFREF", getPatternReferenceTwoReference(), ""));
+		testPairs.add(new PatternTestPair("REFNAV", getPatternReferenceParallelNavigation(), ""));
+		testPairs.add(new PatternTestPair("REFPROP", getPatternReferencePropertyLocationsParallel(), ""));
+		
+		// TODO: complete test cases
+		
 		return testPairs;
 	}
 
