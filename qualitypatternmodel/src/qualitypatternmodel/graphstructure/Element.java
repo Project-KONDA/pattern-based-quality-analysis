@@ -254,8 +254,8 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Copies all contained <code>SingleElement</code> objects to the next graphs.
-	 * Corresponding <code>SingleElement</code> objects are created in these graphs and <code>SingleElementMapping</code> objects are added to the morphism.
+	 * Copies all contained <code>Element</code> objects to the next graphs.
+	 * Corresponding <code>Element</code> objects are created in these graphs and <code>ElementMapping</code> objects are added to the morphism.
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
@@ -264,9 +264,9 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Copies the contained <code>SingleElement</code> nextElement to the next graphs.
-	 * A corresponding <code>SingleElement</code> object is created in these graphs and a SingleElementMapping object is added to the morphism.
-	 * @param the <code>SingleElement</code> to be copied.
+	 * Copies the contained <code>Element</code> nextElement to the next graphs.
+	 * A corresponding <code>Element</code> object is created in these graphs and a ElementMapping object is added to the morphism.
+	 * @param the <code>Element</code> to be copied.
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
@@ -275,9 +275,9 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Copies the contained <code>SingleElement</code> nextElement to the previous graph or recursively all previous graphs in case recursive is true.
-	 * A corresponding <code>SingleElement</code> object is created in these graphs and a <code>SingleElementMapping</code> object is added to the morphism.
-	 * @param nextElement the <code>SingleElement</code> to be copied
+	 * Copies the contained <code>Element</code> nextElement to the previous graph or recursively all previous graphs in case recursive is true.
+	 * A corresponding <code>Element</code> object is created in these graphs and a <code>ElementMapping</code> object is added to the morphism.
+	 * @param nextElement the <code>Element</code> to be copied
 	 * @param recursive if true, the object is copied recursively to all previous graphs
 	 * <!-- end-user-doc -->
 	 * @model recursiveRequired="true"
@@ -287,8 +287,8 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Copies all contained <code>SingleElement</code> objects to the previous graph or recursively all previous graphs in case recursive is true.
-	 * Corresponding <code>SingleElement</code> objects are created in these graphs and <code>SingleElementMapping</code> objects are added to the morphism.
+	 * Copies all contained <code>Element</code> objects to the previous graph or recursively all previous graphs in case recursive is true.
+	 * Corresponding <code>Element</code> objects are created in these graphs and <code>ElementMapping</code> objects are added to the morphism.
 	 * @param recursive if true, the objects are copied recursively to all previous graphs
 	 * <!-- end-user-doc -->
 	 * @model recursiveRequired="true"
@@ -432,4 +432,4 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 */
 	void setGraphSimple(Graph newGraph);
 
-} // SingleElement
+} // Element
