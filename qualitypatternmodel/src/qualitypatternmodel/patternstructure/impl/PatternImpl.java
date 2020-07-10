@@ -145,7 +145,6 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 				returnClause += ", ";
 			returnClause += VARIABLE + returnElements.get(i).getOriginalID();
 		}
-		returnClause += returnClause;
 		returnClause += ")";	
 		
 		String query = forClauses + whereClause + returnClause;
