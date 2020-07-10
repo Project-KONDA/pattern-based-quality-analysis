@@ -116,29 +116,35 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	}
 	
 	public void removeDanglingMappingReference() {
-		for(Mapping mapping : getMappings()) {			
-			if(mapping instanceof ElementMapping) {
-				ElementMapping elementMapping = (ElementMapping) mapping;
-				if(elementMapping != null) {
-					if(elementMapping.getSource() != null && elementMapping.getSource().getOutgoingMappings() != null) {
-						elementMapping.setSource(null);
+		EList<Mapping> mappings = new BasicEList<Mapping>();
+		mappings.addAll(getMappings());
+		for(Mapping mapping : mappings) {	
+				if(mapping instanceof ElementMapping) {
+					ElementMapping elementMapping = (ElementMapping) mapping;
+					if(elementMapping != null) {
+						if(elementMapping.getSource() != null && elementMapping.getSource().getOutgoingMappings() != null) {
+//							elementMapping.setSource(null);
+							getMappings().remove(elementMapping);
+						}
+						if(elementMapping.getTarget() != null) {
+//							elementMapping.setTarget(null);
+							getMappings().remove(elementMapping);
+						}
 					}
-					if(elementMapping.getTarget() != null) {
-						elementMapping.setTarget(null);
+				} else if (mapping instanceof RelationMapping) {
+					RelationMapping relationMapping = (RelationMapping) mapping;
+					if(relationMapping != null) {
+						if(relationMapping.getSource() != null && relationMapping.getSource().getOutgoingMappings() != null) {
+//							relationMapping.setSource(null);
+							getMappings().remove(relationMapping);
+						}
+						if(relationMapping.getTarget() != null) {
+//							relationMapping.setTarget(null);
+							getMappings().remove(relationMapping);
+						}
 					}
 				}
-			} else if (mapping instanceof RelationMapping) {
-				RelationMapping relationMapping = (RelationMapping) mapping;
-				if(relationMapping != null) {
-					if(relationMapping.getSource() != null && relationMapping.getSource().getOutgoingMappings() != null) {
-						relationMapping.setSource(null);
-					}
-					if(relationMapping.getTarget() != null) {
-						relationMapping.setTarget(null);
-					}
-				}
-			}
-		}		
+			}		
 	}
 
 	/**
