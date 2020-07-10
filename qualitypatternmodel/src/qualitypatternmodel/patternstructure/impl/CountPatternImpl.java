@@ -217,6 +217,9 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 
 		msgs = eBasicSetContainer((InternalEObject)newCountCondition1, PatternstructurePackage.COUNT_PATTERN__COUNT_CONDITION, msgs);
 		
+		if(newCountCondition1 == null) {
+			getMorphism().setSource(null);
+		}
 		getMorphism().removeInconsistentMappings();
 		
 		if (newCountCondition1 != null) {			
