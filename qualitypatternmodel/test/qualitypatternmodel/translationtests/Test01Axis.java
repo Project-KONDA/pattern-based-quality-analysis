@@ -60,7 +60,8 @@ public class Test01Axis {
 		relation.setTarget(element2);		
 		
 		completePattern.createXMLAdaption();
-		XmlNavigation navigation = completePattern.getGraph().getElements().get(1).getIncoming().get(0).adaptAsXMLNavigation();		
+		System.out.println(graph.getRelations().size());
+		XmlNavigation navigation = graph.getElements().get(1).getIncoming().get(0).adaptAsXMLNavigation();		
 		completePattern.finalizeXMLAdaption();			
 		
 		RelationOptionParam axisOption = navigation.getOption();
