@@ -277,6 +277,8 @@ public class Eval07Unique {
 		QuantifiedCondition countQCond= patternStructureFactory.createQuantifiedCondition();
 		countPattern.setCondition(countQCond);
 		
+		TrueElement trueElement = patternStructureFactory.createTrueElement();
+		countQCond.setCondition(trueElement);
 		
 
 		

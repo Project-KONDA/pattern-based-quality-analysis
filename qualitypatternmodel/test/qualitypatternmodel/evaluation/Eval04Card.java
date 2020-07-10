@@ -31,6 +31,7 @@ import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test12Count;
 
@@ -185,6 +186,9 @@ public class Eval04Card {
 		QuantifiedCondition countQCon = patternStructureFactory.createQuantifiedCondition();
 		countPattern.setCondition(countQCon);
 		Graph graphCQCon = countQCon.getGraph();
+		
+		TrueElement trueElement = patternStructureFactory.createTrueElement();
+		countQCon.setCondition(trueElement);
 		
 		Element element4InC = graphstructureFactory.createElement();
 		element4InC.setGraph(graphCQCon);
