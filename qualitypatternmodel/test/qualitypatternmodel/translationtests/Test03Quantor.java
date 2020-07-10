@@ -11,15 +11,14 @@ import qualitypatternmodel.parameters.*;
 public class Test03Quantor {
 
 	public static void main(String[] args) {
-//		System.out.println(getPatternExists().myToString());
 		
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternExistsWithRelationFinal());
-//		completePatterns.add(getPatternExistsFinal());
-//		completePatterns.add(getPatternExistsNavigation());
-//		completePatterns.add(getPatternExistsCondFinal());
-//		completePatterns.add(getPatternForall());
-//		completePatterns.add(getPatternForallCond());
+		completePatterns.add(getPatternExistsFinal());
+		completePatterns.add(getPatternExistsNavigation());
+		completePatterns.add(getPatternExistsCondFinal());
+		completePatterns.add(getPatternForall());
+		completePatterns.add(getPatternForallCond());
 
 		Test00.test(completePatterns);
 	}
