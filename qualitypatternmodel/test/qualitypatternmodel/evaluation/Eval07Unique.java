@@ -26,10 +26,12 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountPattern;
+import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.translationtests.Test00;
 
 public class Eval07Unique {
@@ -246,7 +248,10 @@ public class Eval07Unique {
 		qCond.setCondition(countCondition); 
 		
 		CountPattern countPattern = patternStructureFactory.createCountPattern();
-
+		
+//		CountPattern countPattern = countCondition.getCountPattern();
+		
+		
 		NumberParam numberParam = parametersFactory.createNumberParam();
 		numberParam.setValue(1.0);
 		NumberElement numberElement = patternStructureFactory.createNumberElement();
@@ -280,8 +285,6 @@ public class Eval07Unique {
 		TrueElement trueElement = patternStructureFactory.createTrueElement();
 		countQCond.setCondition(trueElement);
 		
-
-		
 		Element nextToElement2 = graphFactory.createElement();
 		nextToElement2.setGraph(countQCond.getGraph());
 		Relation relation2 = graphFactory.createRelation();
@@ -303,11 +306,7 @@ public class Eval07Unique {
 		comparison.setArgument1(propertyNextToReturn);
 		comparison.setArgument2(propertyNextToElement2);	
 		comparison.getOption().setValue(ComparisonOperator.EQUAL);
-		
-		
-		
-		
-		
+	
 		completePattern.createXMLAdaption();
 		relation.adaptAsXMLNavigation();
 		relation2.adaptAsXMLNavigation();
@@ -459,10 +458,7 @@ public class Eval07Unique {
 		
 		QuantifiedCondition countQCond = (QuantifiedCondition) countPattern.getCondition();
 		Graph graphCountQCond = countQCond.getGraph();
-		
-		
-		
-		
+			
 		Element element2 = graphCountPattern.getElements().get(1);	
 		((XmlNavigation) countPattern.getGraph().getRelations().get(2)).getOption().setValue(RelationKind.THREECHILD);
 		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
