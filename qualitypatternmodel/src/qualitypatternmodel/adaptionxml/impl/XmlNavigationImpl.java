@@ -192,8 +192,10 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	 */
 	@Override
 	public void removeParametersFromParameterList() {
-		ParameterList parameterList = getParameterList();			
-		parameterList.getParameters().remove(getOption());		
+		ParameterList parameterList = getParameterList();	
+		if(parameterList != null) {
+			parameterList.getParameters().remove(getOption());
+		}
 	}
 	
 	@Override
