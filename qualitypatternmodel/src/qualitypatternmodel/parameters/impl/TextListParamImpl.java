@@ -39,9 +39,9 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected TextListParamImpl() {
+	public TextListParamImpl() {
 		super();
 	}
 	
