@@ -108,14 +108,13 @@ public class UnknownParameterValueItemProvider extends ParameterItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((UnknownParameterValue)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_UnknownParameterValue_type") :
-			getString("_UI_UnknownParameterValue_type") + " " + label;
+		UnknownParameterValue unknownParameterValue = (UnknownParameterValue) object;
+		String text = getString("_UI_UnknownParameterValue_type") + " " + unknownParameterValue.getInternalId();
+		return text;
 	}
 
 
