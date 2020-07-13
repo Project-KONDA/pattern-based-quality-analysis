@@ -46,6 +46,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getRecordedAttributeValues <em>Recorded Attribute Values</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getRecordedDataValues <em>Recorded Data Values</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getSchemaContext <em>Schema Context</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getNamespace <em>Namespace</em>}</li>
  * </ul>
  *
  * @generated
@@ -130,6 +131,26 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 * @ordered
 	 */
 	protected Context schemaContext = SCHEMA_CONTEXT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNamespace()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAMESPACE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNamespace()
+	 * @generated
+	 * @ordered
+	 */
+	protected String namespace = NAMESPACE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -247,6 +268,29 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		schemaContext = newSchemaContext;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_DATABASE__SCHEMA_CONTEXT, oldSchemaContext, schemaContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getNamespace() {
+		return namespace;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNamespace(String newNamespace) {
+		String oldNamespace = namespace;
+		namespace = newNamespace;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_DATABASE__NAMESPACE, oldNamespace, namespace));
 	}
 
 	/**
@@ -434,35 +478,47 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	public boolean checkChildInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
 		openSchemaDatabase();
 		
-		String checkChildComplexType = "declare function local:checkChildComplexType($r as element(), $n2 as xs:string, $cT as element())\r\n" + 
+		String checkChild = "declare function local:checkOrderContainer($r as element(), $n2 as xs:string, $orderContainer as element(), $namespace as xs:string)\r\n" + 
 				"as xs:boolean\r\n" + 
 				"{\r\n" + 
-				"  if($cT/xs:sequence or $cT/xs:choice or $cT/xs:all) then\r\n" + 
-				"    exists($cT/*/xs:element[@name = $n2]) or exists($cT/*/xs:element[@ref = $n2])\r\n" + 
+				"  exists($orderContainer/*/xs:element[@name = $n2]) \r\n" + 
+				"  or \r\n" + 
+				"  exists($orderContainer/*/xs:element[@ref = $namespace || $n2])\r\n" + 
+				"  or \r\n" + 
+				"  (some $groupRef in $orderContainer/*/xs:group satisfies\r\n" + 
+				"    some $group in $r//xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies\r\n" + 
+				"      local:checkOrderContainer($r,$n2,$group,$namespace))      \r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkChildComplexType($r as element(), $n2 as xs:string, $complexType as element(), $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"  if($complexType/xs:sequence or $complexType/xs:choice or $complexType/xs:all) then\r\n" + 
+				"    local:checkOrderContainer($r,$n2,$complexType,$namespace)\r\n" + 
 				"  else\r\n" + 
-				"    some $ext in $cT/xs:complexContent/xs:extension satisfies \r\n" + 
-				"      exists($ext/*/xs:element[@name = $n2]) \r\n" + 
+				"    some $extension in $complexType/xs:complexContent/xs:extension satisfies \r\n" + 
+				"      local:checkOrderContainer($r,$n2,$extension,$namespace)\r\n" + 
 				"      or      \r\n" + 
-				"      (some $cT2 in $r/xs:complexType[@name = $ext/@base] satisfies\r\n" + 
-				"        local:checkChildComplexType($r, $n2, $cT2))        \r\n" + 
-				"};";
-		
-		String checkChild = "declare function local:checkChild($r as element(), $n1 as xs:string, $n2 as xs:string)\r\n" + 
+				"      (some $extensionComplexType in $r/xs:complexType[@name = substring-after($extension/@base, $namespace)] satisfies\r\n" + 
+				"        local:checkChildComplexType($r, $n2, $extensionComplexType, $namespace))        \r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkChild($r as element(), $n1 as xs:string, $n2 as xs:string, $namespace as xs:string)\r\n" + 
 				"as xs:boolean\r\n" + 
 				"{\r\n" + 
 				"some $e1 in $r//xs:element[@name=$n1] satisfies\r\n" + 
 				"  if($e1[@type]) then\r\n" + 
-				"    some $cT in $r/xs:complexType[@name = $e1/@type] satisfies \r\n" + 
-				"        local:checkChildComplexType($r, $n2, $cT)      \r\n" + 
+				"    some $externalComplexType in $r/xs:complexType[@name = substring-after($e1/@type, $namespace)] satisfies \r\n" + 
+				"      local:checkChildComplexType($r, $n2, $externalComplexType, $namespace)      \r\n" + 
 				"  else\r\n" + 
-				"    exists($e1/xs:complexType/*/xs:element[@name = $n2]) or exists($e1/xs:complexType/*/xs:element[@ref = $n2])\r\n" + 
-				"  \r\n" + 
+				"    some $internalComplexType in $e1/xs:complexType satisfies\r\n" + 
+				"      local:checkChildComplexType($r, $n2, $internalComplexType, $namespace)  \r\n" + 
 				"};";
 		
-		String call = "for $x in /xs:schema\r\n" + 
-				"return local:checkChild($x, \""+elementName1+"\", \""+elementName2+"\")";
+		String call = "for $root in /xs:schema\r\n" + 
+				"return local:checkChild($root, \""+elementName1+"\", \""+elementName2+"\", \""+getNamespace()+"\")";
 		
-		String query = checkChildComplexType + checkChild + call;
+		String query = checkChild + call;
 		
 		List<String> queryResult = executeQuery(query, schemaContext);
 		if(queryResult.size() == 1) {			
@@ -501,72 +557,89 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	@Override
 	public boolean checkDescendantInSchema(String elementName1, String elementName2) throws QueryException, BaseXException, QueryIOException {
 		
-		openSchemaDatabase();		
+		openSchemaDatabase();	
 		
-		String checkChildComplexType = "declare function local:checkChildComplexType($r as element(), $n2 as xs:string, $cT as element())\r\n" + 
+		String checkDescendant = "declare function local:checkOrderContainer($r as element(), $n2 as xs:string, $orderContainer as element(), $namespace as xs:string)\r\n" + 
 				"as xs:boolean\r\n" + 
 				"{\r\n" + 
-				"  if($cT/xs:sequence or $cT/xs:choice or $cT/xs:all) then\r\n" + 
-				"    exists($cT/*/xs:element[@name = $n2]) or exists($cT/*/xs:element[@ref = $n2])\r\n" + 
+				"  exists($orderContainer/*/xs:element[@name = $n2]) \r\n" + 
+				"  or \r\n" + 
+				"  exists($orderContainer/*/xs:element[@ref = $namespace || $n2])\r\n" + 
+				"  or \r\n" + 
+				"  (some $groupRef in $orderContainer/*/xs:group satisfies\r\n" + 
+				"    some $group in $r//xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies\r\n" + 
+				"      local:checkOrderContainer($r,$n2,$group,$namespace))      \r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkChildComplexType($r as element(), $n2 as xs:string, $complexType as element(), $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"  if($complexType/xs:sequence or $complexType/xs:choice or $complexType/xs:all) then\r\n" + 
+				"    local:checkOrderContainer($r,$n2,$complexType,$namespace)\r\n" + 
 				"  else\r\n" + 
-				"    some $ext in $cT/xs:complexContent/xs:extension satisfies \r\n" + 
-				"      exists($ext/*/xs:element[@name = $n2]) \r\n" + 
+				"    some $extension in $complexType/xs:complexContent/xs:extension satisfies \r\n" + 
+				"      local:checkOrderContainer($r,$n2,$extension,$namespace)\r\n" + 
 				"      or      \r\n" + 
-				"      (some $cT2 in $r/xs:complexType[@name = $ext/@base] satisfies\r\n" + 
-				"        local:checkChildComplexType($r, $n2, $cT2))        \r\n" + 
-				"};";
-		
-		String checkChild = "declare function local:checkChild($r as element(), $n1 as xs:string, $n2 as xs:string)\r\n" + 
+				"      (some $extensionComplexType in $r/xs:complexType[@name = substring-after($extension/@base, $namespace)] satisfies\r\n" + 
+				"        local:checkChildComplexType($r, $n2, $extensionComplexType, $namespace))        \r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkChild($r as element(), $n1 as xs:string, $n2 as xs:string, $namespace as xs:string)\r\n" + 
 				"as xs:boolean\r\n" + 
 				"{\r\n" + 
 				"some $e1 in $r//xs:element[@name=$n1] satisfies\r\n" + 
 				"  if($e1[@type]) then\r\n" + 
-				"    some $cT in $r/xs:complexType[@name = $e1/@type] satisfies \r\n" + 
-				"        local:checkChildComplexType($r, $n2, $cT)      \r\n" + 
+				"    some $externalComplexType in $r/xs:complexType[@name = substring-after($e1/@type, $namespace)] satisfies \r\n" + 
+				"      local:checkChildComplexType($r, $n2, $externalComplexType, $namespace)      \r\n" + 
 				"  else\r\n" + 
-				"    exists($e1/xs:complexType/*/xs:element[@name = $n2]) or exists($e1/xs:complexType/*/xs:element[@ref = $n2])\r\n" + 
-				"  \r\n" + 
-				"};";
-		
-		
-		String checkDescendantComplexType = "declare function local:checkDescendantComplexType($r as element(), $n2 as xs:string, $cT as element())\r\n" + 
+				"    some $internalComplexType in $e1/xs:complexType satisfies\r\n" + 
+				"      local:checkChildComplexType($r, $n2, $internalComplexType, $namespace)  \r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkOrderContainerDescendant($r as element(), $n2 as xs:string, $orderContainer as element(), $namespace as xs:string)\r\n" + 
 				"as xs:boolean\r\n" + 
 				"{\r\n" + 
-				"   if($cT/xs:sequence or $cT/xs:choice or $cT/xs:all) then\r\n" + 
-				"     some $child in $cT/*/xs:element satisfies      \r\n" + 
-				"      if ($child[@name]) then        \r\n" + 
-				"        local:checkDescendant($r,$child/@name,$n2)\r\n" + 
-				"      else\r\n" + 
-				"        local:checkDescendant($r,$child/@ref,$n2)   \r\n" + 
+				"  (some $child in $orderContainer/*/xs:element satisfies      \r\n" + 
+				"    local:checkDescendant($r,$child/@name,$n2,$namespace)\r\n" + 
+				"    or\r\n" + 
+				"    local:checkDescendant($r,substring-after($child/@ref, $namespace),$n2,$namespace))\r\n" + 
+				"    or \r\n" + 
+				"    (some $groupRef in $orderContainer/*/xs:group satisfies\r\n" + 
+				"      some $group in $r/xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies        \r\n" + 
+				"        local:checkOrderContainerDescendant($r,$n2,$group,$namespace))             \r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkDescendantComplexType($r as element(), $n2 as xs:string, $complexType as element(), $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"  if($complexType/xs:sequence or $complexType/xs:choice or $complexType/xs:all) then\r\n" + 
+				"     local:checkOrderContainerDescendant($r,$n2,$complexType,$namespace)  \r\n" + 
 				"  else\r\n" + 
-				"    some $ext in $cT/xs:complexContent/xs:extension satisfies       \r\n" + 
-				"      (some $y in $ext/*/xs:element satisfies (local:checkDescendant($r,$y/@name,$n2) or local:checkDescendant($r,$y/@ref,$n2))) \r\n" + 
+				"    some $extension in $complexType/xs:complexContent/xs:extension satisfies       \r\n" + 
+				"      local:checkOrderContainerDescendant($r,$n2,$extension,$namespace)\r\n" + 
 				"      or        \r\n" + 
-				"      (some $cT2 in $r/xs:complexType[@name = $ext/@base]\r\n" + 
-				"        satisfies local:checkDescendantComplexType($r, $n2, $cT2))             \r\n" + 
-				"};";
-		
-		String checkDescendant = "declare function local:checkDescendant($r as element(), $n1 as xs:string, $n2 as xs:string)\r\n" + 
+				"      (some $extensionComplexType in $r/xs:complexType[@name = substring-after($extension/@base, $namespace)]\r\n" + 
+				"        satisfies local:checkDescendantComplexType($r, $n2, $extensionComplexType, $namespace))             \r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkDescendant($r as element(), $n1 as xs:string, $n2 as xs:string, $namespace as xs:string)\r\n" + 
 				"as xs:boolean\r\n" + 
 				"{  \r\n" + 
-				"  if(local:checkChild($r,$n1,$n2)) then true()\r\n" + 
-				"  else\r\n" + 
-				"    some $e1 in $r//xs:element[@name=$n1] satisfies    \r\n" + 
-				"      if($e1[@type]) then       \r\n" + 
-				"        some $cT in $r/xs:complexType[@name = $e1/@type] satisfies           \r\n" + 
-				"            local:checkDescendantComplexType($r, $n2, $cT)            \r\n" + 
-				"      else               \r\n" + 
-				"        some $child in $e1/xs:complexType/*/xs:element satisfies\r\n" + 
-				"          if ($child[@name]) then        \r\n" + 
-				"            local:checkDescendant($r,$child/@name,$n2)\r\n" + 
-				"          else\r\n" + 
-				"            local:checkDescendant($r,$child/@ref,$n2)                \r\n" + 
+				"  (local:checkChild($r,$n1,$n2,$namespace))\r\n" + 
+				"  or\r\n" + 
+				"  (some $e1 in $r//xs:element[@name=$n1] satisfies    \r\n" + 
+				"    if($e1[@type]) then       \r\n" + 
+				"      some $externalComplexType in $r/xs:complexType[@name = substring-after($e1/@type, $namespace)] satisfies           \r\n" + 
+				"        local:checkDescendantComplexType($r, $n2, $externalComplexType,$namespace)            \r\n" + 
+				"    else      \r\n" + 
+				"      some $internalComplexType in $e1/xs:complexType satisfies\r\n" + 
+				"        local:checkDescendantComplexType($r, $n2, $internalComplexType,$namespace))              \r\n" + 
 				"};";
 		
-		String call = "for $x in /xs:schema\r\n" + 
-				"return local:checkDescendant($x, \""+elementName1+"\", \""+elementName2+"\")";
-		
-		String query = checkChildComplexType + checkChild + checkDescendantComplexType + checkDescendant + call;
+		String call = "for $root in /xs:schema\r\n" + 
+				"return local:checkDescendant($root, \""+elementName1+"\", \""+elementName2+"\", \""+getNamespace()+"\")";
+			
+		String query = checkDescendant + call;
 		List<String> queryResult = executeQuery(query, schemaContext);
 		if(queryResult.size() == 1) {			
 			if(queryResult.get(0).equals("false")) {
@@ -603,38 +676,48 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	@Override
 	public boolean checkAttributeInSchema(String elementName, String attributeName) throws QueryException, QueryIOException, BaseXException {
 		
-		openSchemaDatabase();
+		openSchemaDatabase();		
 		
-		String checkAttributeComplexType = "declare function local:checkAttributeComplexType($r as element(), $attributeName as xs:string, $cT as element())\r\n" + 
+		String checkAttribute = "declare function local:checkAttributeContainer($r as element(), $attributeName as xs:string, $attributeContainer as element(), $namespace as xs:string)\r\n" + 
 				"as xs:boolean\r\n" + 
 				"{\r\n" + 
-				"  if($cT/xs:sequence or $cT/xs:choice or $cT/xs:all) then\r\n" + 
-				"    exists($cT/xs:attribute[@name = $attributeName])\r\n" + 
-				"    or exists($cT/xs:attribute[@ref = $attributeName])\r\n" + 
-				"  else\r\n" + 
-				"    some $ext in $cT/xs:complexContent/xs:extension satisfies \r\n" + 
-				"      exists($ext/xs:attribute[@name = $attributeName])\r\n" + 
-				"      or      \r\n" + 
-				"      (some $cT2 in $r/xs:complexType[@name = $ext/@base] satisfies\r\n" + 
-				"        local:checkAttributeComplexType($r, $attributeName, $cT2))         \r\n" + 
-				"};";
-		
-		String checkAttribute = "declare function local:checkAttribute($r as element(), $elementName as xs:string, $attributeName as xs:string)\r\n" + 
+				"  exists($attributeContainer/xs:attribute[@name = $attributeName])\r\n" + 
+				"  or \r\n" + 
+				"  exists($attributeContainer/xs:attribute[@ref = $namespace || $attributeName])\r\n" + 
+				"  or\r\n" + 
+				"  (some $groupRef in $attributeContainer/xs:attributeGroup satisfies\r\n" + 
+				"    some $group in $r/xs:attributeGroup[@name = substring-after($groupRef/@ref, $namespace)] satisfies\r\n" + 
+				"       local:checkAttributeContainer($r,$attributeName,$group,$namespace))      \r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkAttributeComplexType($r as element(), $attributeName as xs:string, $complexType as element(), $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"  local:checkAttributeContainer($r, $attributeName, $complexType, $namespace)\r\n" + 
+				"  or\r\n" + 
+				"  (some $extension in $complexType/*/xs:extension satisfies \r\n" + 
+				"    local:checkAttributeContainer($r, $attributeName, $extension, $namespace)\r\n" + 
+				"    or      \r\n" + 
+				"    (some $extensionComplexType in $r/xs:complexType[@name = substring-after($extension/@base, $namespace)] satisfies\r\n" + 
+				"      local:checkAttributeComplexType($r, $attributeName, $extensionComplexType, $namespace)))         \r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkAttribute($r as element(), $elementName as xs:string, $attributeName as xs:string, $namespace as xs:string)\r\n" + 
 				"as xs:boolean\r\n" + 
 				"{\r\n" + 
 				"some $e1 in $r//xs:element[@name=$elementName] satisfies\r\n" + 
 				"  if($e1[@type]) then\r\n" + 
-				"    some $cT in $r/xs:complexType[@name = $e1/@type] satisfies \r\n" + 
-				"        local:checkAttributeComplexType($r, $attributeName, $cT)      \r\n" + 
+				"    some $externalComplexType in $r/xs:complexType[@name = substring-after($e1/@type, $namespace)] satisfies \r\n" + 
+				"        local:checkAttributeComplexType($r, $attributeName, $externalComplexType, $namespace)      \r\n" + 
 				"  else   \r\n" + 
-				"      exists($e1/xs:complexType/xs:attribute[@name = $attributeName])  \r\n" + 
-				"      or exists($e1/xs:complexType/xs:attribute[@ref = $attributeName])\r\n" + 
+				"    some $internalComplexType in $e1/xs:complexType satisfies\r\n" + 
+				"      local:checkAttributeComplexType($r, $attributeName, $internalComplexType, $namespace)  \r\n" + 
 				"};";
 		
-		String call = "for $x in /xs:schema\r\n" + 
-				"return local:checkAttribute($x, \""+elementName+"\", \""+attributeName+"\")";
+		String call = "for $root in /xs:schema\r\n" + 
+				"return local:checkAttribute($root, \""+elementName+"\", \""+attributeName+"\", \""+getNamespace()+"\")";
 		
-		String query = checkAttributeComplexType + checkAttribute + call;
+		String query = checkAttribute + call;
 		List<String> queryResult = executeQuery(query, schemaContext);
 		if(queryResult.size() == 1) {			
 			if(queryResult.get(0).equals("false")) {
@@ -681,6 +764,66 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean checkFollowingSiblingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
+		openSchemaDatabase();
+		// TODO: rework query concerning groups!
+		String checkFollowingSibling = "declare function local:checkFollowingSibling($r as element(), $n1 as xs:string, $n2 as xs:string, $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"some $e1 in $r//xs:element[@name=$n1] satisfies\r\n" + 
+				"  (exists($e1/parent::xs:sequence) \r\n" + 
+				"    and\r\n" + 
+				"    (some $followingSibling in $e1/following-sibling::xs:element satisfies\r\n" + 
+				"      $followingSibling/@name = $n2\r\n" + 
+				"      or\r\n" + 
+				"      $followingSibling/@ref = $namespace || $n2))\r\n" + 
+				"    or\r\n" + 
+				"   (exists($e1/parent::xs:all) \r\n" + 
+				"     and\r\n" + 
+				"    (some $sibling in $e1/parent::xs:all/xs:element satisfies\r\n" + 
+				"      $sibling/@name = $n2\r\n" + 
+				"      or\r\n" + 
+				"      $sibling/@ref = $namespace || $n2))\r\n" + 
+				"    or\r\n" + 
+				"    (some $complexType in $e1/parent::*/parent::xs:complexType satisfies\r\n" + 
+				"      some $extension in $r//xs:extension[substring-after(@base, $namespace) = $complexType/@name] satisfies\r\n" + 
+				"        exists($extension/*/xs:element[@name = $n2 or @ref = $namespace || $n2]))\r\n" + 
+				"\r\n" + 
+				"};";
+		
+		String call = "for $root in /xs:schema\r\n" + 
+				"return local:checkFollowingSibling($root, \""+elementName1+"\", \""+elementName2+"\", \""+getNamespace()+"\")";
+		
+		String query = checkFollowingSibling + call;
+		
+		List<String> queryResult = executeQuery(query, schemaContext);
+		if(queryResult.size() == 1) {			
+			if(queryResult.get(0).equals("false")) {
+				return false;
+			}
+		}
+		
+		// TODO: else throw exception ?
+		
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean checkPrecedingSiblingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
+		return checkFollowingSiblingInSchema(elementName2, elementName1);
 	}
 
 	/**
@@ -776,6 +919,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				else return getRecordedDataValues().map();
 			case ExecutionPackage.XML_DATABASE__SCHEMA_CONTEXT:
 				return getSchemaContext();
+			case ExecutionPackage.XML_DATABASE__NAMESPACE:
+				return getNamespace();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -807,6 +952,9 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			case ExecutionPackage.XML_DATABASE__SCHEMA_CONTEXT:
 				setSchemaContext((Context)newValue);
 				return;
+			case ExecutionPackage.XML_DATABASE__NAMESPACE:
+				setNamespace((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -837,6 +985,9 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			case ExecutionPackage.XML_DATABASE__SCHEMA_CONTEXT:
 				setSchemaContext(SCHEMA_CONTEXT_EDEFAULT);
 				return;
+			case ExecutionPackage.XML_DATABASE__NAMESPACE:
+				setNamespace(NAMESPACE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -861,6 +1012,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				return recordedDataValues != null && !recordedDataValues.isEmpty();
 			case ExecutionPackage.XML_DATABASE__SCHEMA_CONTEXT:
 				return SCHEMA_CONTEXT_EDEFAULT == null ? schemaContext != null : !SCHEMA_CONTEXT_EDEFAULT.equals(schemaContext);
+			case ExecutionPackage.XML_DATABASE__NAMESPACE:
+				return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -988,6 +1141,20 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case ExecutionPackage.XML_DATABASE___CHECK_FOLLOWING_SIBLING_IN_SCHEMA__STRING_STRING:
+				try {
+					return checkFollowingSiblingInSchema((String)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___CHECK_PRECEDING_SIBLING_IN_SCHEMA__STRING_STRING:
+				try {
+					return checkPrecedingSiblingInSchema((String)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -1006,6 +1173,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		result.append(context);
 		result.append(", schemaContext: ");
 		result.append(schemaContext);
+		result.append(", namespace: ");
+		result.append(namespace);
 		result.append(')');
 		return result.toString();
 	}

@@ -48,9 +48,9 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected TimeParamImpl() {
+	public TimeParamImpl() {
 		super();
 	}
 	

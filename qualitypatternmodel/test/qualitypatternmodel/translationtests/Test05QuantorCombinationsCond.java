@@ -89,6 +89,8 @@ public class Test05QuantorCombinationsCond {
 		testPairs.add(new PatternTestPair("FAEXCON", 	getPatternExistsInForallCond(), ""));
 		testPairs.add(new PatternTestPair("FAFACON", 	getPatternForallInForallCond(), ""));
 	
+		// TODO: complete test cases
+		
 		return testPairs;		
 	}
 	

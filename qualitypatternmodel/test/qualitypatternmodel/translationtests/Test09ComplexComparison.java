@@ -192,7 +192,14 @@ public class Test09ComplexComparison {
 
 	public static List<PatternTestPair> getTestPairs() {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		// TODO
+		
+		testPairs.add(new PatternTestPair("COMPSELFPROPPROP", getPatternSelfTwoProperties(), ""));
+		testPairs.add(new PatternTestPair("COMPPROPPROP", getPatternTwoProperties(), ""));
+		testPairs.add(new PatternTestPair("COMPELEL", getPatternTwoElements(), ""));
+		testPairs.add(new PatternTestPair("COMPOPOP", getPatternTwoOperators(), ""));
+
+		// TODO: complete test cases
+		
 		return testPairs;
 	}
 

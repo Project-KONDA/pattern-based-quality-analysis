@@ -52,9 +52,9 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected DateTimeParamImpl() {
+	public DateTimeParamImpl() {
 		super();
 	}
 	

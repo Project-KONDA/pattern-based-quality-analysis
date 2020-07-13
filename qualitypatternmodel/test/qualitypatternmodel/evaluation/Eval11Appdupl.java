@@ -62,6 +62,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.patternstructure.impl.CountConditionImpl;
 import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test06NotElement;
@@ -108,6 +109,9 @@ public class Eval11Appdupl {
 		Graph cpqcg = cpqc.getGraph();		
 		Element e1 = cpqcg.getElements().get(0);
 		Element e2 = cpqcg.getElements().get(1);
+		
+		TrueElement trueElement = factory.createTrueElement();
+		cpqc.setCondition(trueElement);
 
 		Element e1a = graphfactory.createElement();
 		e1a.setGraph(cpqcg);

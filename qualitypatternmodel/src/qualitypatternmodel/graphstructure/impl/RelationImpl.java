@@ -645,13 +645,15 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			}
 			navigation.setSource(getSource());
 			navigation.setTarget(getTarget());
-			setSource(null);
-			setTarget(null);
+		
 			navigation.getOutgoingMappings().addAll(getOutgoingMappings());
 			getOutgoingMappings().clear();
 			for(RelationMapping mapping : navigation.getOutgoingMappings()) {
 				mapping.getTarget().adaptAsXMLNavigation();
 			}
+			setSource(null);
+			setTarget(null);
+			
 			navigation.setIncomingMapping(getIncomingMapping());
 			setIncomingMapping(null);
 			setGraph(null);

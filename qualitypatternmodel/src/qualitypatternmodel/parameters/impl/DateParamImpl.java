@@ -50,9 +50,9 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
-	protected DateParamImpl() {
+	public DateParamImpl() {
 		super();
 	}
 	

@@ -105,6 +105,8 @@ public class Test04QuantorCombinations {
 		testPairs.add(new PatternTestPair("FAEX", 	getPatternExistsInForall(), ""));
 		testPairs.add(new PatternTestPair("FAFA", 	getPatternForallInForall(), ""));
 		
+		// TODO: complete test cases
+		
 		return testPairs;		
 	}
 	

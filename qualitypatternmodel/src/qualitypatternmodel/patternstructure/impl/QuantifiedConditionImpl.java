@@ -223,7 +223,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 //		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetQuantifiedCondition(newQuantifiedcondition, msgs);
 		
+		if(newQuantifiedcondition == null) {
+			getMorphism().setSource(null);
+		}
 		getMorphism().removeInconsistentMappings();
+		
 		if (newQuantifiedcondition != null) {
 			try {
 				copyPreviousGraph();
@@ -243,7 +247,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 //		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetNotCondition(newNot, msgs);
 		
-		getMorphism().removeInconsistentMappings();		
+		if(newNot == null) {
+			getMorphism().setSource(null);
+		}
+		getMorphism().removeInconsistentMappings();	
+		
 		if (newNot != null) {
 			try {
 				copyPreviousGraph();
@@ -263,7 +271,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 //		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetFormula1(newFormula1, msgs);
 		
+		if(newFormula1 == null) {
+			getMorphism().setSource(null);
+		}
 		getMorphism().removeInconsistentMappings();
+		
 		if (newFormula1 != null) {
 			try {
 				copyPreviousGraph();
@@ -283,7 +295,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 //		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetFormula1(newFormula2, msgs);
 		
-		getMorphism().removeInconsistentMappings();		
+		if(newFormula2 == null) {
+			getMorphism().setSource(null);
+		}
+		getMorphism().removeInconsistentMappings();	
+		
 		if (newFormula2 != null) {
 			try {
 				copyPreviousGraph();
@@ -303,7 +319,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 //		getMorphism().removeDanglingMappingReference();
 		NotificationChain msg = super.basicSetPattern(newPattern, msgs);
 		
+		if(newPattern == null) {
+			getMorphism().setSource(null);
+		}
 		getMorphism().removeInconsistentMappings();		
+		
 		if (newPattern != null) {
 			try {
 				copyPreviousGraph();

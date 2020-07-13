@@ -98,7 +98,10 @@ public class Test08Comparison {
 
 	public static List<PatternTestPair> getTestPairs() {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+		
 
+		// TODO: add test cases
+		
 		return testPairs;
 	}
 

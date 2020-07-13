@@ -49,6 +49,7 @@ public class XmlDatabaseItemProvider extends DatabaseItemProvider {
 
 			addContextPropertyDescriptor(object);
 			addSchemaContextPropertyDescriptor(object);
+			addNamespacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -89,6 +90,28 @@ public class XmlDatabaseItemProvider extends DatabaseItemProvider {
 				 getString("_UI_XmlDatabase_schemaContext_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_XmlDatabase_schemaContext_feature", "_UI_XmlDatabase_type"),
 				 ExecutionPackage.Literals.XML_DATABASE__SCHEMA_CONTEXT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Namespace feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamespacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XmlDatabase_namespace_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlDatabase_namespace_feature", "_UI_XmlDatabase_type"),
+				 ExecutionPackage.Literals.XML_DATABASE__NAMESPACE,
 				 true,
 				 false,
 				 false,
@@ -170,6 +193,7 @@ public class XmlDatabaseItemProvider extends DatabaseItemProvider {
 		switch (notification.getFeatureID(XmlDatabase.class)) {
 			case ExecutionPackage.XML_DATABASE__CONTEXT:
 			case ExecutionPackage.XML_DATABASE__SCHEMA_CONTEXT:
+			case ExecutionPackage.XML_DATABASE__NAMESPACE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ExecutionPackage.XML_DATABASE__ELEMENT_NAMES:
