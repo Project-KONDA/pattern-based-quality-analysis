@@ -19,7 +19,6 @@ import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 
-import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Property;
@@ -27,31 +26,13 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
-import qualitypatternmodel.parameters.BooleanParam;
-import qualitypatternmodel.parameters.DateParam;
-import qualitypatternmodel.parameters.DateTimeParam;
-import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.TimeParam;
-import qualitypatternmodel.parameters.UnknownParameterValue;
-import qualitypatternmodel.parameters.impl.BooleanParamImpl;
-import qualitypatternmodel.parameters.impl.DateParamImpl;
-import qualitypatternmodel.parameters.impl.DateTimeParamImpl;
-import qualitypatternmodel.parameters.impl.NumberParamImpl;
-import qualitypatternmodel.parameters.impl.TextListParamImpl;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.parameters.impl.TimeParamImpl;
-import qualitypatternmodel.parameters.impl.UnknownParameterValueImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Condition;
-import qualitypatternmodel.patternstructure.CountPattern;
-import qualitypatternmodel.patternstructure.ElementMapping;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.NotCondition;
-import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -149,7 +130,17 @@ public class Services {
     		}else if(condition2 == null) {
     			returnCondition = "condition2";
     		}
-    		
+    		/*File file = new File("C:\\Users\\Lukas\\Desktop\\condition.txt");
+        	FileWriter writer = null;
+    		try {
+    			file.createNewFile();
+    			writer = new FileWriter(file);
+    			writer.write("Test"+returnCondition+"\n");
+    			writer.close();
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}*/
     	}else {
     		returnCondition = "condition";
     	}
@@ -207,7 +198,7 @@ public class Services {
     	EObject container = self.eContainer();
     	String graphName = "Graph";
     	if(container instanceof CompletePattern) {
-    		graphName = "KontextGraph";
+    		graphName = "ReturnGraph";
     	}
     	return graphName;
     }
@@ -300,7 +291,7 @@ public class Services {
     //HashMap<String, Integer> objectSizes = new HashMap<String, Integer>();
     //HashMap<String, PatternElement> objects = new HashMap<String, PatternElement>();
     public int getSizeAndAutosize(EObject self) {//autosize für jedes Element, wenn ein Element hinzugefügt wird
-    	//String id = ((PatternElement)self).getId();
+    	String id = ((PatternElement)self).getId();
     	/*File file = new File("C:\\Users\\Lukas\\Desktop\\NeuerOrdner\\"+id+".txt");
     	FileWriter writer = null;
 		try {
@@ -409,7 +400,7 @@ public class Services {
     	return ((Graph)self).getOperatorList();
     }
     
-    public ArrayList<EObject> semanticCandidatExpressionComparisonAlternative(EObject self) {//zeigt primitive vergleiche in elementen an, die anderen zwischen den elementen
+    public ArrayList<EObject> semanticCandidatExpressionComparison(EObject self) {//wird von container creation comparison im change context aufgerufen, um die operatorlist des graphen als eobject zu bekommen
     	/*System.out.println("SCE "+self.toString());
     	if(self instanceof Element) {
     		System.out.println("Ist Element");
@@ -423,7 +414,6 @@ public class Services {
     	if(self instanceof Element) {
     		contents = self.eContainer().eContents();
     		elementId = ((Element) self).getId();
-    		//System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"+elementId);
     	}else {//Graph
     		contents = self.eContents();
     	}
@@ -437,35 +427,27 @@ public class Services {
     	ArrayList<EObject> elements3 = new ArrayList<EObject>();//Comparisons zwischen zwei Elementen
     	for(EObject i:elements) {
     		if(i!= null && i instanceof Comparison) {
-    			//System.out.println("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqq"+(i!= null) +" "+ (i instanceof Comparison));
-    			Comparison comparison = (Comparison) i;
-    			EObject argument1 = comparison.getArgument1();
-				EObject argument2 = comparison.getArgument2();
-    			if(/*comparison.isPrimitive()*/!(argument1 instanceof Property && argument2 instanceof Property)) {//Comparisons, die Properties nur von einem Element und nicht von zwei Elementen vergleicht, sollen im Element angezeigt werden, die anderen im Graph
+    			if(((Comparison) i).isPrimitive()) {//Comparisons, die Properties nur von einem Element und nicht von zwei Elementen vergleicht, sollen im Element angezeigt werden, die anderen im Graph
     				//System.out.println("Comparison ist primitiv");
     				String argument1Id = "";
     				String argument2Id = "";
-    				
-    				
-    				
-    				//System.out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"+((Property) argument1).toString());
+    				Comparison comparison = (Comparison) i;
+    				EObject argument1 = comparison.getArgument1();
+    				EObject argument2 = comparison.getArgument2();
     				if(argument1 instanceof Property) {
-    					//System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"+((Property) argument1).toString());
     					argument1Id = ((Property) argument1).getElement().getId();
     					//System.out.println("Argument1 ist Property "+elementId+" / "+argument1Id);
     							if(argument1Id == elementId) {
     								//System.out.println("ID ist gleich");
     								elements2.add(i);
     							}
-    				}else if(argument2 instanceof Property){//Argument2 ist Property
+    				}else {//Argument2 ist Property
     					//System.out.println("Argument2 ist Property");
     					argument2Id = ((Property) argument2).getElement().getId();
     					if(argument2Id == elementId) {
     						//System.out.println("ID ist gleich");
 							elements2.add(i);
 						}
-    				}else {//keine Property als Argument
-    					elements3.add(i);
     				}
     				
     			}else {//Comparison zwischen zwei Elementen, nicht primitiv
@@ -475,7 +457,6 @@ public class Services {
     	}
     	
     	if(self instanceof Element) {
-    		//System.out.println(elements2);
     		return elements2;
     	}else {
     		//System.out.println(self.toString());
@@ -484,29 +465,8 @@ public class Services {
     	
     }
     
-    public EList<EObject> semanticCandidatExpressionComparison(EObject self) {
-    	EObject eo = null;
-    	EList<EObject> contents = self.eContents();
-    	for(EObject i:contents) {
-    		if(i!= null && i instanceof OperatorList) {
-    			eo = i;
-    		}
-    	}
-    	EList<EObject> elements = ((OperatorList)eo).eContents();
-    	return elements;
-    }
-    
     public EObject printSelf(EObject self) {
-    	/*EObject co = null;
-		try {
-			co = ((Comparison) self).getArgument1().getContainer();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	System.out.println("Self: "+co.toString());*/
-    	System.out.println(self.toString());
-    	
+    	System.out.println("Self: "+self.toString());
     	return self;
     }
     
@@ -572,73 +532,8 @@ public class Services {
     		}
     	}else if(self instanceof Comparison) {
     		//System.out.println("Comparison");
-    		//Property property = (Property) ((Comparison) self).getArgument1();
-    		//list.add((EObject) property);
-    		
-    		Comparison comparison = (Comparison) self;
-    		EObject argument1 = comparison.getArgument1();
-			EObject argument2 = comparison.getArgument2();
-    		if(!(argument1 instanceof Property && argument2 instanceof Property)) {
-    			Property property = (Property) comparison.getArgument1();
-    			list.add((EObject) property);
-    		}
-    	}
-    	return list;
-    }
-    
-    public ArrayList<EObject> semanticCandidateExpressionProperty2(EObject self) {//ist für properties, die in einem comparison nicht angezeigt werden solleen, sie sollen nur im namen angezeigt werden
-    	//System.out.println("Property: "+self.toString());
-    	EList<EObject> eo = null;
-    	ArrayList<EObject> list = new ArrayList<EObject>();
-    	if(self instanceof Element) {
-    		//System.out.println("Element");
-    		eo = self.eContents();
-    		for(EObject i:eo) {
-    			if(i instanceof Property) {
-    				Property property = (Property) i;
-    				EList<Comparison> comparison1 = property.getComparison1();
-    				EList<Comparison> comparison2 = property.getComparison2();
-    				if(comparison1.isEmpty() && comparison2.isEmpty()) {
-    					list.add(i);
-    				}
-    			}
-    		}
-    	}else if(self instanceof Comparison) {
-    		//System.out.println("Comparison");
-    		//Property property = (Property) ((Comparison) self).getArgument1();
-    		//list.add((EObject) property);
-    		
-    		/*Comparison comparison = (Comparison) self;
-    		EObject argument1 = comparison.getArgument1();
-			EObject argument2 = comparison.getArgument2();
-    		if(!(argument1 instanceof Property && argument2 instanceof Property)) {
-    			Property property = (Property) comparison.getArgument1();
-    			list.add((EObject) property);
-    		}*/
-    	}
-    	return list;
-    }
-    
-    public ArrayList<EObject> semanticCandidateExpressionProperty3(EObject self) {//zeigt properties in elementen und in comparisons an
-    	//System.out.println("Property: "+self.toString());
-    	ArrayList<EObject> list = new ArrayList<EObject>();
-    	if(self instanceof Element) {
-    		EList<EObject> eo = self.eContents();
-    		for(EObject i:eo) {
-    			if(i instanceof Property) {
-    				list.add(i);
-    			}
-    		}
-    	}else if(self instanceof Comparison) {
-    		Comparison comparison = (Comparison) self;
-    		EObject argument1 = comparison.getArgument1();
-			EObject argument2 = comparison.getArgument2();
-			if(argument1 instanceof Property) {
-				list.add(argument1);
-			}
-			if(argument2 instanceof Property) {
-				list.add(argument2);
-			}
+    		Property property = (Property) ((Comparison) self).getArgument1();
+    		list.add((EObject) property);
     	}
     	return list;
     }
@@ -669,13 +564,12 @@ public class Services {
     }
     
     public ArrayList<EObject> semanticCandidateExpressionTextliteral(EObject self) {
-    	System.out.println(self.toString()+"aaaaaaaaaaaaaaaaa");
-    	CompletePattern root = (CompletePattern) getWurzelContainer(self);System.out.println("1");
-    	ParameterList parameterlist = root.getParameterList();System.out.println("2");
-    	EList<Parameter> parameters = parameterlist.getParameters();System.out.println("3"+parameters.size());
-    	ArrayList<EObject> returnvalues = new ArrayList<EObject>();System.out.println("4");
+    	System.out.println(self.toString());
+    	CompletePattern root = (CompletePattern) getWurzelContainer(self);
+    	ParameterList parameterlist = root.getParameterList();
+    	EList<Parameter> parameters = parameterlist.getParameters();
+    	ArrayList<EObject> returnvalues = new ArrayList<EObject>();
     	for(Parameter parameter:parameters) {
-    		System.out.println("Schleife");
     		if(parameter instanceof TextLiteralParam) {
     			System.out.println("Textliteral");
     			if(self instanceof Comparison) {
@@ -692,268 +586,5 @@ public class Services {
     		}
     	}
     	return returnvalues;
-    }
-    
-    public ArrayList<EObject> semanticCandidateExpressionParameter(EObject self, String s) {
-    	HashMap<String, Class<?>> typen = new HashMap<String, Class<?>>();
-    	typen.put("Textliteral", TextLiteralParam.class);
-    	typen.put("Value", UnknownParameterValue.class);
-    	typen.put("Textlist", TextListParam.class);
-    	typen.put("Number", NumberParam.class);
-    	typen.put("Boolean", BooleanParam.class);
-    	typen.put("Date", DateParam.class);
-    	typen.put("Time", TimeParam.class);
-    	typen.put("DateTime", DateTimeParam.class);
-    	EObject rooteobject = getWurzelContainer(self);
-    	CompletePattern root = null;
-    	if(rooteobject instanceof CompletePattern) {
-    		root = (CompletePattern) rooteobject;
-    	}
-    	ParameterList parameterlist = root.getParameterList();
-    	EList<Parameter> parameters = parameterlist.getParameters();
-    	ArrayList<EObject> returnvalues = new ArrayList<EObject>();
-    	for(Parameter parameter:parameters) {
-    		Class<?> typ = typen.get(s);
-    		if(typ.isInstance(parameter)) {
-    			if(self instanceof Comparison) {
-    				EList<Comparison> comparison1 = ((Comparable) parameter).getComparison1();//((TextLiteralParam) parameter).getComparison1();
-    				EList<Comparison> comparison2 = ((Comparable) parameter).getComparison2();//((TextLiteralParam) parameter).getComparison2();
-    				boolean isSelfInComparison1 = comparison1.contains((Comparison) self);
-    				boolean isSelfInComparison2 = comparison2.contains((Comparison) self);
-    				if(isSelfInComparison1 || isSelfInComparison2) {
-    					returnvalues.add(parameter);
-    				}
-    			}else if(self instanceof NumberElement){
-    				NumberElement numberelement = (NumberElement) self;
-    				returnvalues.add(numberelement.getNumberParam());
-    			}
-    		}
-    	}
-    	return returnvalues;
-    }
-    
-    public void replacePropertyWithComparison(EObject self) {
-    	//System.out.println(self.toString());
-    	if(self instanceof Property) {
-    		//System.out.println("Propety");
-    		Property property = (Property) self;
-    		//System.out.println(property.getComparison1());
-    		if(property.getComparison1().isEmpty() && property.getComparison2().isEmpty()) {
-    			//System.out.println("Property ist in keinem Comparison");
-    			property.addComparison();
-    		}
-    	}
-    }
-    
-    //es soll nur das countpattern in argument2 gelöscht werden können
-    public boolean deleteCountPatternPrecondition(EObject self) {
-    	CountPattern countpattern = (CountPattern) self;
-    	boolean delete = false;
-    	if(countpattern.getCountCondition() == null) {
-    		delete = true;
-    	}
-    	return delete;
-    }
-    
-    public String comparisonName(EObject self) {
-    	String name = "";
-    	Comparison comparison = (Comparison) self;
-    	Comparable argument1 = comparison.getArgument1();
-    	Comparable argument2 = comparison.getArgument2();
-    	if(argument1 == null) {
-    		name = "... o";
-    	}else {
-    		name = "Property " + argument1.getInternalId()+" o";
-    	}
-    	if(argument2 == null) {
-    		name = name + " ...";
-    	}else {
-    		if(argument2 instanceof TextLiteralParam) {
-    			name = name + " TextLiteral " + argument2.getInternalId();
-    		}
-    		//name = name + " Property " + argument2.getInternalId();
-    	}
-    	return name;
-    }
-    
-    public void deleteArgument2Comparison(EObject self) {//löscht bei einem Comparison das zweite Argument
-    	Comparison comparison = (Comparison) self;
-    	comparison.setArgument2(null);
-    }
-    
-    public boolean selectPropertyPrecondition(EObject self) {
-    	boolean isComparison = false;
-    	if(self instanceof Comparison) {
-    		isComparison = true;
-    	}
-    	return isComparison;
-    }
-    
-    public ArrayList<Property> getProperties(EObject self) {
-    	Comparison comparison = null;
-    	OperatorList operatorList = null;
-    	Graph graph = null;
-    	EList<Element> elements = null;
-    	ArrayList<Property> properties = new ArrayList<Property>();
-    	if(self instanceof Comparison) {
-    		comparison = (Comparison) self;
-    		operatorList = comparison.getOperatorList();
-    		graph = operatorList.getGraph();
-    		elements = graph.getElements();
-    		for(Element element:elements) {
-    			properties.addAll(element.getProperties());
-    		}
-    	}
-    	return properties;
-    }
-    
-    public String featureNameSelectProperty(EObject self) {//hinzufügen einer Property zu einem Comparison, das gibt die kante zurück, in der die property gespeichert wird
-    	String feature = "";
-    	if(self instanceof Comparison) {
-    		Comparison comparison = (Comparison) self;
-    		if(comparison.getArgument1() == null) {
-    			feature = "argument1";
-    		}else {
-    			feature = "argument2";
-    		}
-    	}
-    	return feature;
-    }
-    
-    public Element targetFinderExpressionComparisonArgument1(EObject self) {
-    	Comparison comparison = (Comparison) self;
-    	Comparable argument1 = comparison.getArgument1();
-    	Element element = null;
-    	if(argument1 instanceof Property) {
-    		Property property = (Property) argument1;
-    		element = property.getElement();
-    	}
-		return element;
-    }
-    
-    public EObject addParameter(EObject self, String s) {
-    	CompletePattern root = (CompletePattern) getWurzelContainer(self);
-    	ParameterList parameterlist = root.getParameterList();
-    	Parameter parameter = null;
-    	if(s.equals("Textliteral")) {
-    		parameter = new TextLiteralParamImpl();
-    	}else if(s.equals("Value")) {
-    		parameter = new UnknownParameterValueImpl();
-    	}else if(s.equals("Textlist")) {
-    		//parameter = new TextListParamImpl();
-    	}else if(s.equals("Number")) {
-    		parameter = new NumberParamImpl();
-    	}else if(s.equals("Boolean")) {
-    		parameter = new BooleanParamImpl();
-    	}else if(s.equals("Date")) {
-    		//parameter = new DateParamImpl();
-    	}else if(s.equals("Time")) {
-    		//parameter = new TimeParamImpl();
-    	}else if(s.equals("DateTime")) {
-    		//parameter = new DateTimeParamImpl();
-    	}
-    	parameterlist.add(parameter);
-    	if(self instanceof NumberElement) {
-    		System.out.println("pppppppppppppppppppppppppppp");
-    		NumberElement numberelement = (NumberElement) self;
-    		numberelement.setNumberParam((NumberParam) parameter);
-    	}else {//Comparison
-    		Comparison comparison =(Comparison) self;
-        	comparison.setArgument2((Comparable) parameter);
-    	}
-    	
-    	
-    	/*TextLiteralParam textliteral = new TextLiteralParamImpl();
-    	parameterlist.add(textliteral);
-    	Comparison comparison =(Comparison) self;
-    	comparison.setArgument2(textliteral);*/
-    	return self;
-    }
-    
-    public EObject nametest(EObject self, EObject e) {//testet, ob bei einem doppelklick auf ein element der name geändert werden kann
-    	((Element) e).setName("Hallo");
-    	return self;
-    }
-    
-    static HashMap<Element, Boolean> elementMarks = new HashMap<Element, Boolean>();
-    static Element markedElement1 = null;
-    static Element markedElement2 = null;
-    public EObject changeColorOfElement(EObject self, EObject e) {//nach einem doppelklick auf element wird hier die markierung des element und seines mappingelements hinzugefügt
-    	boolean deleteMark = false;
-    	Element element = (Element) e;
-    	Boolean elementMark = elementMarks.get(element);
-    	
-    	EList<ElementMapping> elementmappings = element.getOutgoingMappings();
-    	ElementMapping mapping = null;
-    	Element target = null;
-    	if(!elementmappings.isEmpty()) {
-    		mapping = elementmappings.get(0);System.out.println("jjjjj"+mapping);
-    		target = mapping.getTarget();
-    	}else {//falls das element kein outgoingmapping hat, sondern ein incomingmapping
-    		mapping = element.getIncomingMapping();
-    		target = mapping.getSource();
-    		System.out.println("Test"+mapping.getSource());
-    	}
-    	
-    	Boolean targetMark = elementMarks.get(target);
-    	
-    	if(target != null) {//hat ein mapping
-    		if(elementMark == null) {//ist nicht in der liste
-    			elementMarks.put(element, true);
-    		}else {//ist in der liste
-    			if(elementMark == true) {//wird nur einmal benötigt, weil elementMark und targetMark immer gleich sein sollten
-    				deleteMark = true;
-    			}
-    			elementMarks.put(element, !elementMark);
-    		}
-    		
-    		if(targetMark == null) {//ist nicht in der liste
-    			elementMarks.put(target, true);
-    		}else {//ist in der liste
-    			elementMarks.put(target, !targetMark);
-    		}
-    		
-    		if(deleteMark) {
-    			elementMarks.put(markedElement1, false);//markierung aufheben
-    			elementMarks.put(markedElement2, false);//markierung aufheben
-    			markedElement1 = null;
-    			markedElement2 = null;
-    		}else {
-    			if(markedElement1 != null) {//prüfe nur eins, weil beide gesetzt sein sollten oder keins, hebt die vorherige markierung auf, bevor die neue geestzt wird
-    				elementMarks.put(markedElement1, false);//markierung aufheben
-        			elementMarks.put(markedElement2, false);//markierung aufheben
-    			}
-    			markedElement1 = element;
-    			markedElement2 = target;
-    		}
-    		
-    	}
-
-    	return self;
-    }
-    
-    public boolean getElementMark(EObject self) {
-    	Boolean mark = elementMarks.get(self);
-    	if(mark == null) {
-    		mark = false;
-    	}
-    	return mark;
-    }
-    
-    public void deleteQuantifiedCondition(EObject self) {
-    	EObject root = getWurzelContainer(self);
-    	if(root instanceof CompletePattern) {
-    		CompletePattern completePattern = (CompletePattern) root;
-    		completePattern.setCondition(null);
-    		System.out.println("qqqqqqqqqqqqqqqqqqqqqq");
-    	}else {
-    		System.out.println("wwwwwwwwwwwwwwwwwwwwww");
-    	}
-    }
-    
-    public boolean numberPrecondition(EObject self) {
-    	boolean add = false;
-    	
-    	return add;
     }
 }
