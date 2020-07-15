@@ -459,24 +459,28 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		for(Mapping mapping : mappings) {
 			if(mapping instanceof ElementMapping) {
 				ElementMapping elementMapping = (ElementMapping) mapping;
-				if(elementMapping.getSource().getGraph() == null && getSource() != null
-						|| elementMapping.getSource().getGraph() != null && getSource() == null
+				if(elementMapping.getSource() == null && getSource() != null
+						|| elementMapping.getSource() != null && getSource() == null
+						|| elementMapping.getSource().getGraph() == null
 						|| !elementMapping.getSource().getGraph().equals(getSource())) {
 					getMappings().remove(elementMapping);
-				} else if(elementMapping.getTarget().getGraph() == null && getTarget() != null
-						|| elementMapping.getTarget().getGraph() != null && getTarget() == null
+				} else if(elementMapping.getTarget() == null && getTarget() != null
+						|| elementMapping.getTarget() != null && getTarget() == null
+						|| elementMapping.getTarget().getGraph() == null
 						|| !elementMapping.getTarget().getGraph().equals(getTarget())) {
 					getMappings().remove(elementMapping);
 				}
 				
 			} else {
 				RelationMapping relationMapping = (RelationMapping) mapping;
-				if(relationMapping.getSource().getGraph() == null && getSource() != null
-						|| relationMapping.getSource().getGraph() != null && getSource() == null
+				if(relationMapping.getSource() == null && getSource() != null
+						|| relationMapping.getSource() != null && getSource() == null
+						|| relationMapping.getSource().getGraph() == null
 						|| !relationMapping.getSource().getGraph().equals(getSource())) {
 					getMappings().remove(relationMapping);
-				} else if(relationMapping.getTarget().getGraph() == null && getTarget() != null
-						|| relationMapping.getTarget().getGraph() != null && getTarget() == null
+				} else if(relationMapping.getTarget() == null && getTarget() != null
+						|| relationMapping.getTarget() != null && getTarget() == null
+						|| relationMapping.getTarget().getGraph() == null
 						|| !relationMapping.getTarget().getGraph().equals(getTarget())) {
 					getMappings().remove(relationMapping);
 				}
