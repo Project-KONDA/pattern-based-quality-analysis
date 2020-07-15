@@ -343,7 +343,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		if(map.containsKey(value)) {
 			map.put(value, map.get(value)+1);
 		} else {
-			map.put(value, 0);
+			map.put(value, 1);
 		}
 	}
 	

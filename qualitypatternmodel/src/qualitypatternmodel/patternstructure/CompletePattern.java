@@ -34,6 +34,7 @@ public interface CompletePattern extends Pattern {
 	 * Returns the value of the '<em><b>Parameter List</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.ParameterList#getPattern <em>Pattern</em>}'.
 	 * <!-- begin-user-doc -->
+	 * The ParameterList contains all Parameters, which are used in the CompletePattern.
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameter List</em>' containment reference.
 	 * @see #setParameterList(ParameterList)
@@ -136,6 +137,7 @@ public interface CompletePattern extends Pattern {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Records the specific values in the database that are used in a pattern.
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
