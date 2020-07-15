@@ -5,7 +5,7 @@ package qualitypatternmodel.patternstructure;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Not</b></em>'.
+ * A representation of the model object '<em><b>Not</b></em>', which represents the logical negation of a Condition. 
  * <!-- end-user-doc -->
  *
  * <p>

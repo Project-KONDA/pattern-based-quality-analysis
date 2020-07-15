@@ -7,6 +7,7 @@ import qualitypatternmodel.parameters.NumberParam;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Number Element</b></em>'.
+ * It is used as representation of a fixed number for a second argument in a CountCondition.
  * <!-- end-user-doc -->
  *
  * <p>

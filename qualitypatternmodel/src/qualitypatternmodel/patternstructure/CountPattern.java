@@ -8,7 +8,9 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Subpattern</b></em>'.
+ * A representation of the model object '<em><b>CountPattern</b></em>'.
+ * This model object is used to model a sup pattern, where only the number of findings is of further interest.
+ * In the contained Graph object the type of counted elements are specified.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -53,4 +55,4 @@ public interface CountPattern extends Pattern, MorphismContainer, CountCondition
 
 	void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
-} // Subpattern
+} // CountPattern

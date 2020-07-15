@@ -8,7 +8,7 @@ import qualitypatternmodel.graphstructure.Graph;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Quantified Condition</b></em>'.
- * This represents either an Exists or a Forall condition
+ * This Condition represents either an existential quantification (Exists) or a universal quantification (Forall) and is further specified by a Graph and further conditions.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -75,8 +75,10 @@ public interface QuantifiedCondition extends Condition, MorphismContainer {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * This methods evaluates the Morphism of the next Graph. In case the test fails, this methods throws an InvalidityException.
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @throws InvalidityException
 	 * @generated
 	 */
 	void checkMorphismOfNextGraph() throws InvalidityException;

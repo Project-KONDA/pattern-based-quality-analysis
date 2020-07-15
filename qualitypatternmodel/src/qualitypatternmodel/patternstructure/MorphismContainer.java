@@ -7,7 +7,8 @@ import qualitypatternmodel.graphstructure.Graph;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Graph Container</b></em>'.
+ * A representation of the model object '<em><b>Morphism Container</b></em>'.
+ * This is an abstract class to have common interfaces for CompletePattern and QuantifiedCondition, both of which need an accociated Graph and Morphism.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -32,6 +33,8 @@ public interface MorphismContainer extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * When another Graph is created in a subcondition, it needs to have representations of all previous defined elements as starting point for specifying additional conditions.
+	 * Therefore when adding a new subcondition, which contains a Graph a representation of all relevant elements of the previous Graph are created as well as the needed Mappings.
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
@@ -62,4 +65,4 @@ public interface MorphismContainer extends PatternElement {
 	 */
 	void setMorphism(Morphism value);
 
-} // GraphContainer
+} // Morphism Container
