@@ -23,7 +23,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test06NotElement;
 
-public class Eval12Exnex {
+public class EvalExnex {
 	// also called MANDSTRUC2
 	
 	public static void main(String[] args) {
@@ -103,7 +103,7 @@ public class Eval12Exnex {
 	}
 	
 	
-	private static CompletePattern getExNExMidas() {
+	static CompletePattern getExNExMidas() {
 		CompletePattern completePattern = getExNExAbstract();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 
@@ -122,7 +122,7 @@ public class Eval12Exnex {
 		return completePattern;
 	}
 	
-	private static CompletePattern getExNExLidoRoleActor() {
+	static CompletePattern getExNExLidoRoleActor() {
 		CompletePattern completePattern = getExNExAbstractWithComp();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 

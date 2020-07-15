@@ -32,7 +32,7 @@ import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test03Quantor;
 import qualitypatternmodel.translationtests.Test06NotElement;
 
-public class Eval02Mandstruc {
+public class EvalMandstruc {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getMandstrucThreeElementsMidas());

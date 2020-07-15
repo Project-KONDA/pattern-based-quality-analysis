@@ -29,7 +29,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test03Quantor;
 
-public class Eval06Func {
+public class EvalFunc {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getFuncRunningExample());
@@ -210,7 +210,7 @@ public class Eval06Func {
 		return completePattern;
 	}
 	
-	private static CompletePattern getFuncMidas() {
+	static CompletePattern getFuncMidas() {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -281,7 +281,7 @@ public class Eval06Func {
 		return completePattern;
 	}
 	
-	private static CompletePattern getFuncLido() {
+	static CompletePattern getFuncLido() {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		

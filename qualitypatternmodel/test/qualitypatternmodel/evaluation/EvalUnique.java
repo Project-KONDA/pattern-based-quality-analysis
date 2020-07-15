@@ -34,7 +34,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.translationtests.Test00;
 
-public class Eval07Unique {
+public class EvalUnique {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 //		completePatterns.add(getUniqueAbstract());
@@ -433,7 +433,7 @@ public class Eval07Unique {
 //		return completePattern;
 //	}
 	
-	private static CompletePattern getUniqueMidas() {
+	static CompletePattern getUniqueMidas() {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -617,16 +617,16 @@ public class Eval07Unique {
 	
 	
 	
-	private static CompletePattern getUniqueLidoLidoRecId() {		
+	static CompletePattern getUniqueLidoLidoRecId() {		
 		// not used for evaluation anymore
 		return getUniqueLidoConcrete(RelationKind.TWOCHILD, "lido:lido", "lido:lidoRecID");
 	}
 	
-	private static CompletePattern getUniqueLidoObjectPublishedId() {		
+	static CompletePattern getUniqueLidoObjectPublishedId() {		
 		return getUniqueLidoConcrete(RelationKind.TWOCHILD, "lido:lido", "lido:objectPublishedID");
 	}
 	
-	private static CompletePattern getUniqueComplexLidoNameActorSet() {		
+	static CompletePattern getUniqueComplexLidoNameActorSet() {		
 		return getUniqueComplexLidoConcrete(RelationKind.TWOCHILD, "lido:lido", RelationKind.SEVENCHILD, "lido:actor", "lido:nameActorSet", "lido:appellationValue");
 	}
 	

@@ -27,7 +27,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.translationtests.Test00;
 
-public class Eval08Mandatt {
+public class EvalMandatt {
 	
 	// also called MAND
 	
@@ -185,7 +185,7 @@ public class Eval08Mandatt {
 	}
 	
 	
-	private static CompletePattern getMandattMidas() {
+	static CompletePattern getMandattMidas() {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -287,7 +287,7 @@ public class Eval08Mandatt {
 		return completePattern;
 	}
 	
-	private static CompletePattern getMandattThreeElementsLido() {
+	static CompletePattern getMandattThreeElementsLido() {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		

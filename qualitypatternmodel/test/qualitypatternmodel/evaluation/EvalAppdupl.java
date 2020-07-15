@@ -67,7 +67,7 @@ import qualitypatternmodel.patternstructure.impl.CountConditionImpl;
 import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test06NotElement;
 
-public class Eval11Appdupl {
+public class EvalAppdupl {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getCARD3Midas());
@@ -75,7 +75,7 @@ public class Eval11Appdupl {
 		
 	}
 	
-	private static CompletePattern getCARD3Abstract() {
+	static CompletePattern getCARD3Abstract() {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -201,7 +201,7 @@ public class Eval11Appdupl {
 	}
 	
 	
-	private static CompletePattern getCARD3Midas() {
+	static CompletePattern getCARD3Midas() {
 		CompletePattern completePattern = getCARD3Abstract();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 

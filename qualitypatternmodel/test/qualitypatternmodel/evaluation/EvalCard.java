@@ -35,7 +35,7 @@ import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test12Count;
 
-public class Eval04Card {
+public class EvalCard {
 	public static void main(String[] args) {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 //		completePatterns.add(getCardAbstractThreeElements());
