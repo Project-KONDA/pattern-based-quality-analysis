@@ -33,7 +33,7 @@ public class PatternExecution {
 		execute(EvalCompval.getCompsetMIDAS3140(), databaseNameMidas); // 4.1.2 Domain Violation
 		execute(EvalMandatt.getMandattMidas(), databaseNameMidas); // 4.2.1 Missing Values
 		execute(EvalMandstruc.getMandstrucThreeElementsMidas(), databaseNameMidas); // 4.2.2 Missing References
-		// 4.2.3 Missing Records
+		// 4.2.3 Missing Records (not covered)
 		execute(EvalCompval.getCompvalSetMidas3270(), databaseNameMidas); // 4.2.4 Dummy Values
 		execute(EvalRefint.getRefintMidasWer(), databaseNameMidas); // 4.3 Referential Integrity Violation
 		execute(EvalUnique.getUniqueMidas(), databaseNameMidas); // 4.4 Unique Value Violation
@@ -52,9 +52,9 @@ public class PatternExecution {
 		execute(EvalMatch.getMatchMidas5360(), databaseNameMidas); // 4.10.1 Heterogeneous Measure Units
 		execute(EvalCompval.getCompvalMidas5230Print(), databaseNameMidas); // 4.10.2 Heterogeneous Value Representations
 		execute(EvalExnex.getExNExMidas(), databaseNameMidas); // 4.10.3 Heterogeneous Structural Representations
-		// 4.11 Misspellings
-		// 4.12.1 False Values
-		// 4.12.2 False References
+		// 4.11 Misspellings (not covered)
+		// 4.12.1 False Values (not covered)
+		// 4.12.2 False References (not covered)
 		execute(EvalMatch.getMatchMidas3270(), databaseNameMidas); // 4.12.3 Doubtful Data	
 		
 		
@@ -65,12 +65,12 @@ public class PatternExecution {
 		execute(EvalCompval.getCompsetLidoGenderActor(), databaseNameLido); // 4.1.2 Domain Violation
 		execute(EvalMandatt.getMandattThreeElementsLido(), databaseNameLido); // 4.2.1 Missing Values
 		execute(EvalExnex.getExNExLidoRoleActor(), databaseNameLido); // 4.2.2 Missing References
-		// 4.2.3 Missing Records
+		// 4.2.3 Missing Records (not covered)
 		execute(EvalCompval.getCompvalSetLidoAppellationValue(), databaseNameLido); // 4.2.4 Dummy Values
-		// 4.3 Referential Integity Violation
+		// 4.3 Referential Integity Violation (not applicable to LIDO)
 		execute(EvalUnique.getUniqueLidoLidoRecId(), databaseNameLido); // 4.4 Unique Value Violation
 		execute(EvalFunc.getFuncLido(), databaseNameLido); // 4.5 Violation of Functional Dependency
-		// 4.6 Contradictory Relationships
+		// 4.6 Contradictory Relationships (not applicable to LIDO)
 		execute(EvalCompval.getCompvalLidoEventPlace(), databaseNameLido); // 4.7.1 Alternative Possible Values
 		execute(EvalMatch.getMatchLidoEarliestDate(), databaseNameLido); // 4.7.2 Imprecise Numerical Values
 		execute(EvalCompval.getCompvalLidoObjectWorkTypeObjekt(), databaseNameLido); // 4.7.3 Abstract Terms
@@ -81,12 +81,12 @@ public class PatternExecution {
 		execute(EvalExdupl.getExactDuplicatesLido(), databaseNameLido); // 4.9.1 Exact Duplicate Records
 		execute(EvalUnique.getUniqueLidoObjectPublishedId(), databaseNameLido); // 4.9.2 Approximate Duplicate records
 		execute(EvalUnique.getUniqueComplexLidoNameActorSet(), databaseNameLido); // 4.9.3 Information Placed in Multiple Locations
-		// 4.10.1 Heterogeneous Measure Units
+		// 4.10.1 Heterogeneous Measure Units (not considered problematic in LIDO)
 		execute(EvalCompval.getCompvalLidoObjectWorkTypePrint(), databaseNameLido); // 4.10.2 Heterogeneous Value Representations
 		execute(EvalCard.getCardLidoActorName(), databaseNameLido); // 4.10.3 Heterogeneous Strucural Representations
-		// 4.11 Misspellings
-		// 4.12.1 False Values
-		// 4.12.2 False References
+		// 4.11 Misspellings (not covered)
+		// 4.12.1 False Values (not covered)
+		// 4.12.2 False References (not covered)
 		execute(EvalMatch.getMatchLidoAppellationValue(), databaseNameLido); // 4.12.3 Doubtful Data
 	}
 
