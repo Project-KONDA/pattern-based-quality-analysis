@@ -24,14 +24,9 @@ public class PatternExecution {
 	static Context context;
 	
 	public static void main(String[] args) {
-//		createDatabase("MidasTest", "C:\\Users\\Viola Wenz\\Documents\\Daten\\fme-private-20190522\\fme-private-OBJ20190521.xml");
-//		System.out.println("created");
-//		CompletePattern pattern = Eval00Match.getMatchMidas5064();
-//		execute(pattern, "MidasTest");
+		// application of all concrete patterns created for the evaluation on cultural heritage databases (BaseX) of the formats MIDAS and LIDO
 		
-		// TODO: add explanation?
-		
-		// MIDAS
+		// MIDAS database
 		String databaseNameMidas = "MIDAS";		
 		
 		execute(EvalMatch.getMatchMidasOb30Child(), databaseNameMidas); // 4.1.1 Wrong Datatype
@@ -62,7 +57,8 @@ public class PatternExecution {
 		// 4.12.2 False References
 		execute(EvalMatch.getMatchMidas3270(), databaseNameMidas); // 4.12.3 Doubtful Data	
 		
-		// LIDO
+		
+		// LIDO database
 		String databaseNameLido = "LIDO";	
 		
 		execute(EvalMatch.getMatchLidoMeasurementValue(), databaseNameLido); // 4.1.1 Wrong Datatype
@@ -92,10 +88,6 @@ public class PatternExecution {
 		// 4.12.1 False Values
 		// 4.12.2 False References
 		execute(EvalMatch.getMatchLidoAppellationValue(), databaseNameLido); // 4.12.3 Doubtful Data
-		
-		
-		
-		
 	}
 
 	/**
