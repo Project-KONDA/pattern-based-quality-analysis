@@ -485,7 +485,10 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				"  or \r\n" + 
 				"  exists($orderContainer/*/xs:element[@ref = $namespace || $n2])\r\n" + 
 				"  or \r\n" + 
-				"  (some $groupRef in $orderContainer/*/xs:group satisfies\r\n" + 
+				"  (some $nestedOrderContainer in $orderContainer/*[./*[name() = \"xs:sequence\" or name() = \"xs:choice\" or name() = \"xs:all\" or name() =\"xs:group\"]] satisfies\r\n" + 
+				"      local:checkOrderContainer($r,$n2,$nestedOrderContainer,$namespace))\r\n" + 
+				"  or\r\n" + 
+				"  (some $groupRef in $orderContainer/xs:group satisfies\r\n" + 
 				"    some $group in $r//xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies\r\n" + 
 				"      local:checkOrderContainer($r,$n2,$group,$namespace))      \r\n" + 
 				"};\r\n" + 
@@ -496,11 +499,18 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				"  if($complexType/xs:sequence or $complexType/xs:choice or $complexType/xs:all) then\r\n" + 
 				"    local:checkOrderContainer($r,$n2,$complexType,$namespace)\r\n" + 
 				"  else\r\n" + 
-				"    some $extension in $complexType/xs:complexContent/xs:extension satisfies \r\n" + 
+				"    (some $groupRef in $complexType/xs:group satisfies\r\n" + 
+				"      some $group in $r//xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies\r\n" + 
+				"        local:checkOrderContainer($r,$n2,$group,$namespace))\r\n" + 
+				"    or\r\n" + 
+				"    (some $extension in $complexType/xs:complexContent/xs:extension satisfies \r\n" + 
 				"      local:checkOrderContainer($r,$n2,$extension,$namespace)\r\n" + 
 				"      or      \r\n" + 
 				"      (some $extensionComplexType in $r/xs:complexType[@name = substring-after($extension/@base, $namespace)] satisfies\r\n" + 
-				"        local:checkChildComplexType($r, $n2, $extensionComplexType, $namespace))        \r\n" + 
+				"        local:checkChildComplexType($r, $n2, $extensionComplexType, $namespace)))      \r\n" + 
+				"    or\r\n" + 
+				"    (some $restriction in $complexType/xs:complexContent/xs:restriction satisfies \r\n" + 
+				"      local:checkOrderContainer($r,$n2,$restriction,$namespace))\r\n" + 
 				"};\r\n" + 
 				"\r\n" + 
 				"declare function local:checkChild($r as element(), $n1 as xs:string, $n2 as xs:string, $namespace as xs:string)\r\n" + 
@@ -566,7 +576,10 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				"  or \r\n" + 
 				"  exists($orderContainer/*/xs:element[@ref = $namespace || $n2])\r\n" + 
 				"  or \r\n" + 
-				"  (some $groupRef in $orderContainer/*/xs:group satisfies\r\n" + 
+				"  (some $nestedOrderContainer in $orderContainer/*[./*[name() = \"xs:sequence\" or name() = \"xs:choice\" or name() = \"xs:all\" or name() =\"xs:group\"]] satisfies\r\n" + 
+				"      local:checkOrderContainer($r,$n2,$nestedOrderContainer,$namespace))\r\n" + 
+				"  or\r\n" + 
+				"  (some $groupRef in $orderContainer/xs:group satisfies\r\n" + 
 				"    some $group in $r//xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies\r\n" + 
 				"      local:checkOrderContainer($r,$n2,$group,$namespace))      \r\n" + 
 				"};\r\n" + 
@@ -577,11 +590,18 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				"  if($complexType/xs:sequence or $complexType/xs:choice or $complexType/xs:all) then\r\n" + 
 				"    local:checkOrderContainer($r,$n2,$complexType,$namespace)\r\n" + 
 				"  else\r\n" + 
-				"    some $extension in $complexType/xs:complexContent/xs:extension satisfies \r\n" + 
+				"    (some $groupRef in $complexType/xs:group satisfies\r\n" + 
+				"      some $group in $r//xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies\r\n" + 
+				"        local:checkOrderContainer($r,$n2,$group,$namespace))\r\n" + 
+				"    or\r\n" + 
+				"    (some $extension in $complexType/xs:complexContent/xs:extension satisfies \r\n" + 
 				"      local:checkOrderContainer($r,$n2,$extension,$namespace)\r\n" + 
 				"      or      \r\n" + 
 				"      (some $extensionComplexType in $r/xs:complexType[@name = substring-after($extension/@base, $namespace)] satisfies\r\n" + 
-				"        local:checkChildComplexType($r, $n2, $extensionComplexType, $namespace))        \r\n" + 
+				"        local:checkChildComplexType($r, $n2, $extensionComplexType, $namespace)))      \r\n" + 
+				"    or\r\n" + 
+				"    (some $restriction in $complexType/xs:complexContent/xs:restriction satisfies \r\n" + 
+				"      local:checkOrderContainer($r,$n2,$restriction,$namespace))\r\n" + 
 				"};\r\n" + 
 				"\r\n" + 
 				"declare function local:checkChild($r as element(), $n1 as xs:string, $n2 as xs:string, $namespace as xs:string)\r\n" + 
@@ -600,13 +620,16 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				"as xs:boolean\r\n" + 
 				"{\r\n" + 
 				"  (some $child in $orderContainer/*/xs:element satisfies      \r\n" + 
-				"    local:checkDescendant($r,$child/@name,$n2,$namespace)\r\n" + 
+				"    (exists($child/@name) and local:checkDescendant($r,$child/@name,$n2,$namespace))\r\n" + 
 				"    or\r\n" + 
-				"    local:checkDescendant($r,substring-after($child/@ref, $namespace),$n2,$namespace))\r\n" + 
-				"    or \r\n" + 
-				"    (some $groupRef in $orderContainer/*/xs:group satisfies\r\n" + 
-				"      some $group in $r/xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies        \r\n" + 
-				"        local:checkOrderContainerDescendant($r,$n2,$group,$namespace))             \r\n" + 
+				"    (exists($child/@ref) and local:checkDescendant($r,substring-after($child/@ref, $namespace),$n2,$namespace)))\r\n" + 
+				"  or \r\n" + 
+				"  (some $nestedOrderContainer in $orderContainer/*[./*[name() = \"xs:sequence\" or name() = \"xs:choice\" or name() = \"xs:all\" or name() =\"xs:group\"]] satisfies\r\n" + 
+				"      local:checkOrderContainerDescendant($r,$n2,$nestedOrderContainer,$namespace))\r\n" + 
+				"  or\r\n" + 
+				"  (some $groupRef in $orderContainer/xs:group satisfies\r\n" + 
+				"    some $group in $r/xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies        \r\n" + 
+				"      local:checkOrderContainerDescendant($r,$n2,$group,$namespace))             \r\n" + 
 				"};\r\n" + 
 				"\r\n" + 
 				"declare function local:checkDescendantComplexType($r as element(), $n2 as xs:string, $complexType as element(), $namespace as xs:string)\r\n" + 
@@ -619,7 +642,10 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				"      local:checkOrderContainerDescendant($r,$n2,$extension,$namespace)\r\n" + 
 				"      or        \r\n" + 
 				"      (some $extensionComplexType in $r/xs:complexType[@name = substring-after($extension/@base, $namespace)]\r\n" + 
-				"        satisfies local:checkDescendantComplexType($r, $n2, $extensionComplexType, $namespace))             \r\n" + 
+				"        satisfies local:checkDescendantComplexType($r, $n2, $extensionComplexType, $namespace))\r\n" + 
+				"    or\r\n" + 
+				"    (some $restriction in $complexType/xs:complexContent/xs:restriction satisfies \r\n" + 
+				"      local:checkOrderContainerDescendant($r,$n2,$restriction,$namespace))             \r\n" + 
 				"};\r\n" + 
 				"\r\n" + 
 				"declare function local:checkDescendant($r as element(), $n1 as xs:string, $n2 as xs:string, $namespace as xs:string)\r\n" + 
@@ -633,7 +659,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				"        local:checkDescendantComplexType($r, $n2, $externalComplexType,$namespace)            \r\n" + 
 				"    else      \r\n" + 
 				"      some $internalComplexType in $e1/xs:complexType satisfies\r\n" + 
-				"        local:checkDescendantComplexType($r, $n2, $internalComplexType,$namespace))              \r\n" + 
+				"        local:checkDescendantComplexType($r, $n2, $internalComplexType,$namespace))             \r\n" + 
 				"};";
 		
 		String call = "for $root in /xs:schema\r\n" + 
@@ -699,7 +725,13 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				"    local:checkAttributeContainer($r, $attributeName, $extension, $namespace)\r\n" + 
 				"    or      \r\n" + 
 				"    (some $extensionComplexType in $r/xs:complexType[@name = substring-after($extension/@base, $namespace)] satisfies\r\n" + 
-				"      local:checkAttributeComplexType($r, $attributeName, $extensionComplexType, $namespace)))         \r\n" + 
+				"      local:checkAttributeComplexType($r, $attributeName, $extensionComplexType, $namespace)))\r\n" + 
+				"   or\r\n" + 
+				"   (some $restriction in $complexType/*/xs:restriction satisfies \r\n" + 
+				"    local:checkAttributeContainer($r, $attributeName, $restriction, $namespace)\r\n" + 
+				"    or      \r\n" + 
+				"      (some $restrictionComplexType in $r/xs:complexType[@name = substring-after($restriction/@base, $namespace)] satisfies\r\n" + 
+				"        local:checkAttributeComplexType($r, $attributeName, $restrictionComplexType, $namespace)))        \r\n" + 
 				"};\r\n" + 
 				"\r\n" + 
 				"declare function local:checkAttribute($r as element(), $elementName as xs:string, $attributeName as xs:string, $namespace as xs:string)\r\n" + 
@@ -774,29 +806,106 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	@Override
 	public boolean checkFollowingSiblingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
 		openSchemaDatabase();
-		// TODO: rework query concerning groups!
-		String checkFollowingSibling = "declare function local:checkFollowingSibling($r as element(), $n1 as xs:string, $n2 as xs:string, $namespace as xs:string)\r\n" + 
+
+		String checkFollowingSibling = "declare function local:checkFollowingSiblingInGroup($r as element(), $group as element(), $n2 as xs:string, $namespace as xs:string)\r\n" + 
 				"as xs:boolean\r\n" + 
 				"{\r\n" + 
-				"some $e1 in $r//xs:element[@name=$n1] satisfies\r\n" + 
+				"    (some $element in $group/xs:element satisfies\r\n" + 
+				"      $element/@name = $n2\r\n" + 
+				"      or\r\n" + 
+				"      $element/@ref = $namespace || $n2)\r\n" + 
+				"     or\r\n" + 
+				"     (some $groupRef in $group/xs:group satisfies\r\n" + 
+				"        some $group in $r//xs:group[substring-after($groupRef/@ref, $namespace) = @name] satisfies\r\n" + 
+				"          local:checkFollowingSiblingInGroup($r, $group, $n2, $namespace))   \r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkFollowingSiblingOfElementOrGroup($r as element(), $e1 as element(), $n2 as xs:string, $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
 				"  (exists($e1/parent::xs:sequence) \r\n" + 
 				"    and\r\n" + 
-				"    (some $followingSibling in $e1/following-sibling::xs:element satisfies\r\n" + 
+				"    ((some $followingSibling in $e1/following-sibling::xs:element satisfies\r\n" + 
 				"      $followingSibling/@name = $n2\r\n" + 
 				"      or\r\n" + 
 				"      $followingSibling/@ref = $namespace || $n2))\r\n" + 
+				"     or\r\n" + 
+				"     (some $followingSiblingGroupRef in $e1/following-sibling::xs:group satisfies\r\n" + 
+				"        some $group in $r//xs:group[substring-after($followingSiblingGroupRef/@ref, $namespace) = @name] satisfies\r\n" + 
+				"          local:checkFollowingSiblingInGroup($r, $group, $n2, $namespace)\r\n" + 
+				"        ))\r\n" + 
 				"    or\r\n" + 
-				"   (exists($e1/parent::xs:all) \r\n" + 
+				"    (exists($e1/parent::xs:all) \r\n" + 
 				"     and\r\n" + 
-				"    (some $sibling in $e1/parent::xs:all/xs:element satisfies\r\n" + 
+				"    ((some $sibling in $e1/parent::xs:all/xs:element satisfies\r\n" + 
 				"      $sibling/@name = $n2\r\n" + 
 				"      or\r\n" + 
 				"      $sibling/@ref = $namespace || $n2))\r\n" + 
+				"      (some $siblingGroupRef in $e1/parent::xs:all/xs:group satisfies\r\n" + 
+				"        some $group in $r//xs:group[substring-after($siblingGroupRef/@ref, $namespace) = @name] satisfies\r\n" + 
+				"          local:checkFollowingSiblingInGroup($r, $group, $n2, $namespace)\r\n" + 
+				"        ))\r\n" + 
 				"    or\r\n" + 
 				"    (some $complexType in $e1/parent::*/parent::xs:complexType satisfies\r\n" + 
-				"      some $extension in $r//xs:extension[substring-after(@base, $namespace) = $complexType/@name] satisfies\r\n" + 
-				"        exists($extension/*/xs:element[@name = $n2 or @ref = $namespace || $n2]))\r\n" + 
+				"      some $extension in $r//xs:extension[substring-after(@base, $namespace) = $complexType/@name] satisfies        \r\n" + 
+				"        exists($extension/*/xs:element[@name = $n2 or @ref = $namespace || $n2])\r\n" + 
+				"        or\r\n" + 
+				"        (some $followingSiblingGroupRef in $extension/*/xs:group satisfies\r\n" + 
+				"        some $group in $r//xs:group[substring-after($followingSiblingGroupRef/@ref, $namespace) = @name] satisfies\r\n" + 
+				"            local:checkFollowingSiblingInGroup($r, $group, $n2, $namespace)\r\n" + 
+				"        ))\r\n" + 
+				"    or\r\n" + 
+				"    (some $group in $e1/parent::*/parent::xs:group satisfies\r\n" + 
+				"      some $groupRef in $r//xs:group[substring-after(@ref, $namespace) = $group/@name] satisfies\r\n" + 
+				"        local:checkFollowingSiblingOfElementOrGroup($r, $groupRef, $n2, $namespace)\r\n" + 
+				"    )\r\n" + 
+				"};\r\n" + 
 				"\r\n" + 
+				"declare function local:checkContainerOccurence($r as element(), $container as element(), $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"  (some $group in $container/parent::*/parent::xs:group satisfies\r\n" + 
+				"    some $groupRef in $r//xs:group[substring-after(@ref, $namespace) = $group/@name] satisfies\r\n" + 
+				"      ((string(number($groupRef/@maxOccurs)) != 'NaN' and $groupRef/@maxOccurs > 1)\r\n" + 
+				"      or\r\n" + 
+				"      ($groupRef/@maxOccurs = \"unbounded\"))\r\n" + 
+				"  )\r\n" + 
+				"  or\r\n" + 
+				"  (some $orderContainer in $container/parent::*[@maxOccurs] satisfies        \r\n" + 
+				"      ((string(number($orderContainer/@maxOccurs)) != 'NaN' and $orderContainer/@maxOccurs > 1)\r\n" + 
+				"      or\r\n" + 
+				"      ($orderContainer/@maxOccurs = \"unbounded\"))\r\n" + 
+				"  )\r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkFollowingSibling($r as element(), $n1 as xs:string, $n2 as xs:string, $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"  some $e1 in $r//xs:element[@name=$n1 or @ref=$namespace || $n1] satisfies\r\n" + 
+				"    local:checkFollowingSiblingOfElementOrGroup($r, $e1, $n2, $namespace)\r\n" + 
+				"    or\r\n" + 
+				"    ($n1 = $n2\r\n" + 
+				"      and\r\n" + 
+				"      ((string(number($e1/@maxOccurs)) != 'NaN' and $e1/@maxOccurs > 1)\r\n" + 
+				"        or\r\n" + 
+				"        ($e1/@maxOccurs = \"unbounded\")\r\n" + 
+				"      or\r\n" + 
+				"      (some $group in $e1/parent::*/parent::xs:group satisfies\r\n" + 
+				"        some $groupRef in $r//xs:group[substring-after(@ref, $namespace) = $group/@name] satisfies\r\n" + 
+				"          ((string(number($groupRef/@maxOccurs)) != 'NaN' and $groupRef/@maxOccurs > 1)\r\n" + 
+				"          or\r\n" + 
+				"          ($groupRef/@maxOccurs = \"unbounded\"))\r\n" + 
+				"      )\r\n" + 
+				"      or\r\n" + 
+				"      (some $orderContainer in $e1/parent::*[@maxOccurs] satisfies        \r\n" + 
+				"          ((string(number($orderContainer/@maxOccurs)) != 'NaN' and $orderContainer/@maxOccurs > 1)\r\n" + 
+				"          or\r\n" + 
+				"          ($orderContainer/@maxOccurs = \"unbounded\"))\r\n" + 
+				"      )\r\n" + 
+				"      or\r\n" + 
+				"      (some $orderContainer in $e1/parent::* satisfies        \r\n" + 
+				"            local:checkContainerOccurence($r, $orderContainer, \"\")\r\n" + 
+				"        )))\r\n" + 
 				"};";
 		
 		String call = "for $root in /xs:schema\r\n" + 
@@ -824,6 +933,243 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	@Override
 	public boolean checkPrecedingSiblingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
 		return checkFollowingSiblingInSchema(elementName2, elementName1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean checkFollowingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
+		openSchemaDatabase();
+
+		String checkFollowing= "declare function local:checkOrderContainer($r as element(), $n2 as xs:string, $orderContainer as element(), $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"  exists($orderContainer/*/xs:element[@name = $n2]) \r\n" + 
+				"  or \r\n" + 
+				"  exists($orderContainer/*/xs:element[@ref = $namespace || $n2])\r\n" + 
+				"  or \r\n" + 
+				"  (some $nestedOrderContainer in $orderContainer/*[./*[name() = \"xs:sequence\" or name() = \"xs:choice\" or name() = \"xs:all\" or name() =\"xs:group\"]] satisfies\r\n" + 
+				"      local:checkOrderContainer($r,$n2,$nestedOrderContainer,$namespace))\r\n" + 
+				"  or\r\n" + 
+				"  (some $groupRef in $orderContainer/xs:group satisfies\r\n" + 
+				"    some $group in $r//xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies\r\n" + 
+				"      local:checkOrderContainer($r,$n2,$group,$namespace))      \r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkChildComplexType($r as element(), $n2 as xs:string, $complexType as element(), $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"  if($complexType/xs:sequence or $complexType/xs:choice or $complexType/xs:all) then\r\n" + 
+				"    local:checkOrderContainer($r,$n2,$complexType,$namespace)\r\n" + 
+				"  else\r\n" + 
+				"    (some $groupRef in $complexType/xs:group satisfies\r\n" + 
+				"      some $group in $r//xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies\r\n" + 
+				"        local:checkOrderContainer($r,$n2,$group,$namespace))\r\n" + 
+				"    or\r\n" + 
+				"    (some $extension in $complexType/xs:complexContent/xs:extension satisfies \r\n" + 
+				"      local:checkOrderContainer($r,$n2,$extension,$namespace)\r\n" + 
+				"      or      \r\n" + 
+				"      (some $extensionComplexType in $r/xs:complexType[@name = substring-after($extension/@base, $namespace)] satisfies\r\n" + 
+				"        local:checkChildComplexType($r, $n2, $extensionComplexType, $namespace)))      \r\n" + 
+				"    or\r\n" + 
+				"    (some $restriction in $complexType/xs:complexContent/xs:restriction satisfies \r\n" + 
+				"      local:checkOrderContainer($r,$n2,$restriction,$namespace))\r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkChild($r as element(), $n1 as xs:string, $n2 as xs:string, $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"some $e1 in $r//xs:element[@name=$n1] satisfies\r\n" + 
+				"  if($e1[@type]) then\r\n" + 
+				"    some $externalComplexType in $r/xs:complexType[@name = substring-after($e1/@type, $namespace)] satisfies \r\n" + 
+				"      local:checkChildComplexType($r, $n2, $externalComplexType, $namespace)      \r\n" + 
+				"  else\r\n" + 
+				"    some $internalComplexType in $e1/xs:complexType satisfies\r\n" + 
+				"      local:checkChildComplexType($r, $n2, $internalComplexType, $namespace)  \r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkOrderContainerDescendant($r as element(), $n2 as xs:string, $orderContainer as element(), $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"  (some $child in $orderContainer/*/xs:element satisfies      \r\n" + 
+				"    (exists($child/@name) and local:checkDescendant($r,$child/@name,$n2,$namespace))\r\n" + 
+				"    or\r\n" + 
+				"    (exists($child/@ref) and local:checkDescendant($r,substring-after($child/@ref, $namespace),$n2,$namespace)))\r\n" + 
+				"  or \r\n" + 
+				"  (some $nestedOrderContainer in $orderContainer/*[./*[name() = \"xs:sequence\" or name() = \"xs:choice\" or name() = \"xs:all\" or name() =\"xs:group\"]] satisfies\r\n" + 
+				"      local:checkOrderContainerDescendant($r,$n2,$nestedOrderContainer,$namespace))\r\n" + 
+				"  or\r\n" + 
+				"  (some $groupRef in $orderContainer/xs:group satisfies\r\n" + 
+				"    some $group in $r/xs:group[@name = substring-after($groupRef/@ref, $namespace)] satisfies        \r\n" + 
+				"      local:checkOrderContainerDescendant($r,$n2,$group,$namespace))             \r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkDescendantComplexType($r as element(), $n2 as xs:string, $complexType as element(), $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"  if($complexType/xs:sequence or $complexType/xs:choice or $complexType/xs:all) then\r\n" + 
+				"     local:checkOrderContainerDescendant($r,$n2,$complexType,$namespace)  \r\n" + 
+				"  else\r\n" + 
+				"    some $extension in $complexType/xs:complexContent/xs:extension satisfies       \r\n" + 
+				"      local:checkOrderContainerDescendant($r,$n2,$extension,$namespace)\r\n" + 
+				"      or        \r\n" + 
+				"      (some $extensionComplexType in $r/xs:complexType[@name = substring-after($extension/@base, $namespace)]\r\n" + 
+				"        satisfies local:checkDescendantComplexType($r, $n2, $extensionComplexType, $namespace))\r\n" + 
+				"    or\r\n" + 
+				"    (some $restriction in $complexType/xs:complexContent/xs:restriction satisfies \r\n" + 
+				"      local:checkOrderContainerDescendant($r,$n2,$restriction,$namespace))             \r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkDescendant($r as element(), $n1 as xs:string, $n2 as xs:string, $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{  \r\n" + 
+				"  (local:checkChild($r,$n1,$n2,$namespace))\r\n" + 
+				"  or\r\n" + 
+				"  (some $e1 in $r//xs:element[@name=$n1] satisfies    \r\n" + 
+				"    if($e1[@type]) then       \r\n" + 
+				"      some $externalComplexType in $r/xs:complexType[@name = substring-after($e1/@type, $namespace)] satisfies           \r\n" + 
+				"        local:checkDescendantComplexType($r, $n2, $externalComplexType,$namespace)            \r\n" + 
+				"    else      \r\n" + 
+				"      some $internalComplexType in $e1/xs:complexType satisfies\r\n" + 
+				"        local:checkDescendantComplexType($r, $n2, $internalComplexType,$namespace))             \r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"\r\n" + 
+				"\r\n" + 
+				"declare function local:checkFollowingInGroup($r as element(), $group as element(), $n2 as xs:string, $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"    (some $element in $group/xs:element satisfies\r\n" + 
+				"      exists($element/@name) and local:checkDescendant($r, $element/@name, $n2, $namespace)\r\n" + 
+				"      or\r\n" + 
+				"      exists($element/@ref) and local:checkDescendant($r, substring-after($element/@ref, $namespace), $n2, $namespace))     \r\n" + 
+				"     or\r\n" + 
+				"     (some $groupRef in $group/xs:group satisfies\r\n" + 
+				"        some $group in $r//xs:group[substring-after($groupRef/@ref, $namespace) = @name] satisfies\r\n" + 
+				"          local:checkFollowingInGroup($r, $group, $n2, $namespace))   \r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkFollowingOfElementOrGroup($r as element(), $e1 as element(), $n2 as xs:string, $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"  (exists($e1/parent::xs:sequence) \r\n" + 
+				"    and\r\n" + 
+				"    ((some $followingSibling in $e1/following-sibling::xs:element satisfies\r\n" + 
+				"      exists($followingSibling/@name) and local:checkDescendant($r, $followingSibling/@name, $n2, $namespace)\r\n" + 
+				"      or\r\n" + 
+				"      exists($followingSibling/@ref) and local:checkDescendant($r, substring-after($followingSibling/@ref, $namespace), $n2, $namespace))   \r\n" + 
+				"     or\r\n" + 
+				"     (some $followingSiblingGroupRef in $e1/following-sibling::xs:group satisfies\r\n" + 
+				"        some $group in $r//xs:group[substring-after($followingSiblingGroupRef/@ref, $namespace) = @name] satisfies\r\n" + 
+				"          local:checkFollowingInGroup($r, $group, $n2, $namespace)\r\n" + 
+				"        )))\r\n" + 
+				"    or\r\n" + 
+				"    (exists($e1/parent::xs:all) \r\n" + 
+				"     and\r\n" + 
+				"    ((some $sibling in $e1/parent::xs:all/xs:element satisfies\r\n" + 
+				"      exists($sibling/@name) and local:checkDescendant($r, $sibling/@name, $n2, $namespace)\r\n" + 
+				"      or\r\n" + 
+				"      exists($sibling/@ref) and local:checkDescendant($r, substring-after($sibling/@ref, $namespace), $n2, $namespace))   \r\n" + 
+				"      (some $siblingGroupRef in $e1/parent::xs:all/xs:group satisfies\r\n" + 
+				"        some $group in $r//xs:group[substring-after($siblingGroupRef/@ref, $namespace) = @name] satisfies\r\n" + 
+				"          local:checkFollowingInGroup($r, $group, $n2, $namespace)\r\n" + 
+				"        )))\r\n" + 
+				"    or\r\n" + 
+				"    (some $complexType in $e1/parent::*/parent::xs:complexType satisfies\r\n" + 
+				"      some $extension in $r//xs:extension[substring-after(@base, $namespace) = $complexType/@name] satisfies        \r\n" + 
+				"        (some $extensionElement in $extension/*/xs:element satisfies\r\n" + 
+				"          exists($extensionElement/@name) and local:checkDescendant($r, $extensionElement/@name, $n2, $namespace)\r\n" + 
+				"          or\r\n" + 
+				"          exists($extensionElement/@ref) and local:checkDescendant($r, substring-after($extensionElement/@ref, $namespace), $n2, $namespace))   \r\n" + 
+				"        or\r\n" + 
+				"        (some $followingSiblingGroupRef in $extension/*/xs:group satisfies\r\n" + 
+				"          some $group in $r//xs:group[substring-after($followingSiblingGroupRef/@ref, $namespace) = @name] satisfies\r\n" + 
+				"              local:checkFollowingInGroup($r, $group, $n2, $namespace)\r\n" + 
+				"        ))\r\n" + 
+				"    or\r\n" + 
+				"    (some $group in $e1/parent::*/parent::xs:group satisfies\r\n" + 
+				"      some $groupRef in $r//xs:group[substring-after(@ref, $namespace) = $group/@name] satisfies\r\n" + 
+				"        local:checkFollowingOfElementOrGroup($r, $groupRef, $n2, $namespace)\r\n" + 
+				"    )\r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkContainerOccurence($r as element(), $container as element(), $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"  (some $group in $container/parent::*/parent::xs:group satisfies\r\n" + 
+				"    some $groupRef in $r//xs:group[substring-after(@ref, $namespace) = $group/@name] satisfies\r\n" + 
+				"      ((string(number($groupRef/@maxOccurs)) != 'NaN' and $groupRef/@maxOccurs > 1)\r\n" + 
+				"      or\r\n" + 
+				"      ($groupRef/@maxOccurs = \"unbounded\"))\r\n" + 
+				"  )\r\n" + 
+				"  or\r\n" + 
+				"  (some $orderContainer in $container/parent::*[@maxOccurs] satisfies        \r\n" + 
+				"      ((string(number($orderContainer/@maxOccurs)) != 'NaN' and $orderContainer/@maxOccurs > 1)\r\n" + 
+				"      or\r\n" + 
+				"      ($orderContainer/@maxOccurs = \"unbounded\"))\r\n" + 
+				"  )\r\n" + 
+				"};\r\n" + 
+				"\r\n" + 
+				"declare function local:checkFollowing($r as element(), $n1 as xs:string, $n2 as xs:string, $namespace as xs:string)\r\n" + 
+				"as xs:boolean\r\n" + 
+				"{\r\n" + 
+				"  some $e1 in $r//xs:element[@name=$n1 or @ref=$namespace || $n1] satisfies\r\n" + 
+				"    local:checkFollowingOfElementOrGroup($r, $e1, $n2, $namespace)\r\n" + 
+				"    or\r\n" + 
+				"    ((string(number($e1/@maxOccurs)) != 'NaN' and $e1/@maxOccurs > 1\r\n" + 
+				"        or\r\n" + 
+				"        ($e1/@maxOccurs = \"unbounded\")\r\n" + 
+				"      or\r\n" + 
+				"      (some $group in $e1/parent::*/parent::xs:group satisfies\r\n" + 
+				"        some $groupRef in $r//xs:group[substring-after(@ref, $namespace) = $group/@name] satisfies\r\n" + 
+				"          ((string(number($groupRef/@maxOccurs)) != 'NaN' and $groupRef/@maxOccurs > 1)\r\n" + 
+				"          or\r\n" + 
+				"          ($groupRef/@maxOccurs = \"unbounded\"))\r\n" + 
+				"      )\r\n" + 
+				"      or\r\n" + 
+				"      (some $orderContainer in $e1/parent::*[@maxOccurs] satisfies        \r\n" + 
+				"          ((string(number($orderContainer/@maxOccurs)) != 'NaN' and $orderContainer/@maxOccurs > 1)\r\n" + 
+				"          or\r\n" + 
+				"          ($orderContainer/@maxOccurs = \"unbounded\"))\r\n" + 
+				"      )\r\n" + 
+				"      or\r\n" + 
+				"      (some $orderContainer in $e1/parent::* satisfies        \r\n" + 
+				"            local:checkContainerOccurence($r, $orderContainer, \"\")\r\n" + 
+				"        ))\r\n" + 
+				"      and \r\n" + 
+				"      local:checkDescendant($r, $n1, $n2, $namespace))\r\n" + 
+				"};";
+		
+		String call = "for $root in /xs:schema\r\n" + 
+				"return local:checkFollowing($root, \""+elementName1+"\", \""+elementName2+"\", \""+getNamespace()+"\")";
+		
+		String query = checkFollowing+ call;
+		
+		List<String> queryResult = executeQuery(query, schemaContext);
+		if(queryResult.size() == 1) {			
+			if(queryResult.get(0).equals("false")) {
+				return false;
+			}
+		}
+		
+		// TODO: else throw exception ?
+		
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean checkPrecedingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -1151,6 +1497,20 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			case ExecutionPackage.XML_DATABASE___CHECK_PRECEDING_SIBLING_IN_SCHEMA__STRING_STRING:
 				try {
 					return checkPrecedingSiblingInSchema((String)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___CHECK_FOLLOWING_IN_SCHEMA__STRING_STRING:
+				try {
+					return checkFollowingInSchema((String)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING:
+				try {
+					return checkPrecedingInSchema((String)arguments.get(0), (String)arguments.get(1));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
