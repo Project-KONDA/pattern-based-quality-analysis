@@ -9,7 +9,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Variable List</b></em>'.
+ * A representation of the model object '<em><b>Parameter List</b></em>'.
+ * The ParameterList builds the container for all Parameters in a CompletePattern.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -65,10 +66,11 @@ public interface ParameterList extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Method to add a new Parameter into ParameterList.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
 	void add(Parameter Input);
 
-} // VariableList
+} // ParameterList
