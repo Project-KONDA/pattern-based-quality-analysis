@@ -46,10 +46,10 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-//			addComparison1PropertyDescriptor(object);
-//			addComparison2PropertyDescriptor(object);
-//			addMatchPropertyDescriptor(object);
-//			addNamePropertyDescriptor(object);
+			addComparison1PropertyDescriptor(object);
+			addComparison2PropertyDescriptor(object);
+			addMatchPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
