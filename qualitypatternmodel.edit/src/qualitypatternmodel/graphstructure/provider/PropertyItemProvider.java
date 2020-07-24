@@ -162,7 +162,17 @@ public class PropertyItemProvider extends PatternElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		Property property = (Property) object;
-		return getString("_UI_Property_type") + " " + property.getInternalId();			
+		
+		String elementName = getString("_UI_Element_type") + " " + property.getElement().getInternalId();
+		if(property.getElement().getName() != null && !property.getElement().getName().equals("")) {
+			elementName = getString("_UI_Element_type") + " " + property.getElement().getName();
+		}
+		
+		if(property.getName() != null && !property.getName().equals("")) {
+			return getString("_UI_Property_type") + " " + property.getName() + " (" + elementName + ")";
+		} else {
+			return getString("_UI_Property_type") + " " + property.getInternalId() + " (" + elementName + ")";	
+		}
 	}
 
 

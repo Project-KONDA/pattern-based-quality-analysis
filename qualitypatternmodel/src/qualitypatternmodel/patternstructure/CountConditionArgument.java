@@ -4,7 +4,8 @@ package qualitypatternmodel.patternstructure;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Count Comparison Argument</b></em>'.
+ * A representation of the model object '<em><b>Count Condition Argument</b></em>'.
+ * This abstract class enables a CountCondition to compare the number of findings with a fixed number or another number of findings.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -43,4 +44,4 @@ public interface CountConditionArgument extends PatternElement {
 	 * @generated
 	 */
 	void setCountCondition2(CountCondition value);
-} // CountComparisonArgument
+} // CountConditionArgument

@@ -10,8 +10,8 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Quantifier</b></em>',
- * and utility methods for working with them.
+ * A representation of the literals of the enumeration '<em><b>Quantifier</b></em>', and utility methods for working with them.
+ * This enumeration is used in the model object QuantifiedCondition.
  * <!-- end-user-doc -->
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getQuantifier()
  * @model

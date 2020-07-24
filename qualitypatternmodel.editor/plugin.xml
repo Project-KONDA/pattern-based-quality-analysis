@@ -173,5 +173,4 @@
             contributorClass="qualitypatternmodel.execution.presentation.ExecutionActionBarContributor">
       </editor>
    </extension>
-
 </plugin>

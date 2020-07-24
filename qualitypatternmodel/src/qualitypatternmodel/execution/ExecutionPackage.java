@@ -711,13 +711,31 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATABASE___CHECK_PRECEDING_SIBLING_IN_SCHEMA__STRING_STRING = DATABASE_OPERATION_COUNT + 21;
 
 	/**
+	 * The operation id for the '<em>Check Following In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___CHECK_FOLLOWING_IN_SCHEMA__STRING_STRING = DATABASE_OPERATION_COUNT + 22;
+
+	/**
+	 * The operation id for the '<em>Check Preceding In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING = DATABASE_OPERATION_COUNT + 23;
+
+	/**
 	 * The number of operations of the '<em>Xml Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATABASE_OPERATION_COUNT = DATABASE_OPERATION_COUNT + 22;
+	int XML_DATABASE_OPERATION_COUNT = DATABASE_OPERATION_COUNT + 24;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.LocalXmlDatabaseImpl <em>Local Xml Database</em>}' class.
@@ -1063,6 +1081,24 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATABASE___CHECK_PRECEDING_SIBLING_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_PRECEDING_SIBLING_IN_SCHEMA__STRING_STRING;
 
 	/**
+	 * The operation id for the '<em>Check Following In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE___CHECK_FOLLOWING_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_FOLLOWING_IN_SCHEMA__STRING_STRING;
+
+	/**
+	 * The operation id for the '<em>Check Preceding In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING;
+
+	/**
 	 * The operation id for the '<em>Create</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1404,6 +1440,24 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_DATABASE___CHECK_PRECEDING_SIBLING_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_PRECEDING_SIBLING_IN_SCHEMA__STRING_STRING;
+
+	/**
+	 * The operation id for the '<em>Check Following In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE___CHECK_FOLLOWING_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_FOLLOWING_IN_SCHEMA__STRING_STRING;
+
+	/**
+	 * The operation id for the '<em>Check Preceding In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING;
 
 	/**
 	 * The number of operations of the '<em>Server Xml Database</em>' class.
@@ -2051,6 +2105,26 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getXmlDatabase__CheckPrecedingSiblingInSchema__String_String();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#checkFollowingInSchema(java.lang.String, java.lang.String) <em>Check Following In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Following In Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#checkFollowingInSchema(java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlDatabase__CheckFollowingInSchema__String_String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#checkPrecedingInSchema(java.lang.String, java.lang.String) <em>Check Preceding In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Preceding In Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#checkPrecedingInSchema(java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlDatabase__CheckPrecedingInSchema__String_String();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.LocalXmlDatabase <em>Local Xml Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2623,6 +2697,22 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_DATABASE___CHECK_PRECEDING_SIBLING_IN_SCHEMA__STRING_STRING = eINSTANCE.getXmlDatabase__CheckPrecedingSiblingInSchema__String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Check Following In Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___CHECK_FOLLOWING_IN_SCHEMA__STRING_STRING = eINSTANCE.getXmlDatabase__CheckFollowingInSchema__String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Check Preceding In Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING = eINSTANCE.getXmlDatabase__CheckPrecedingInSchema__String_String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.LocalXmlDatabaseImpl <em>Local Xml Database</em>}' class.
