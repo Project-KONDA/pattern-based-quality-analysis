@@ -115,22 +115,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER__IS_PREDEFINED = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Described</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER__DESCRIBED = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
+	int PARAMETER_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -357,15 +348,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON_OPTION_PARAM__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
-
-	/**
-	 * The feature id for the '<em><b>Described</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON_OPTION_PARAM__DESCRIBED = PARAMETER__DESCRIBED;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -637,15 +619,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY_OPTION_PARAM__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
-
-	/**
-	 * The feature id for the '<em><b>Described</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY_OPTION_PARAM__DESCRIBED = PARAMETER__DESCRIBED;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -1127,15 +1100,6 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Described</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_VALUE__DESCRIBED = PARAMETER__DESCRIBED;
-
-	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1414,15 +1378,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
-
-	/**
-	 * The feature id for the '<em><b>Described</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_PARAM__DESCRIBED = PARAMETER_VALUE__DESCRIBED;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1721,15 +1676,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
-
-	/**
-	 * The feature id for the '<em><b>Described</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LIST_PARAM__DESCRIBED = PARAMETER_VALUE__DESCRIBED;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2039,15 +1985,6 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Described</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LITERAL_PARAM__DESCRIBED = PARAMETER_VALUE__DESCRIBED;
-
-	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2355,15 +2292,6 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Described</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_PARAM__DESCRIBED = PARAMETER_VALUE__DESCRIBED;
-
-	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2662,15 +2590,6 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Described</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_PARAM__DESCRIBED = PARAMETER_VALUE__DESCRIBED;
-
-	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2960,15 +2879,6 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Described</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_PARAM__DESCRIBED = PARAMETER_VALUE__DESCRIBED;
-
-	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3256,15 +3166,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNKNOWN_PARAMETER_VALUE__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
-
-	/**
-	 * The feature id for the '<em><b>Described</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNKNOWN_PARAMETER_VALUE__DESCRIBED = PARAMETER__DESCRIBED;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -3565,15 +3466,6 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Described</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_TIME_PARAM__DESCRIBED = PARAMETER_VALUE__DESCRIBED;
-
-	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3863,15 +3755,6 @@ public interface ParametersPackage extends EPackage {
 	int RELATION_OPTION_PARAM__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Described</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_OPTION_PARAM__DESCRIBED = PARAMETER__DESCRIBED;
-
-	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4120,17 +4003,6 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getParameter_IsPredefined();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.Parameter#isDescribed <em>Described</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Described</em>'.
-	 * @see qualitypatternmodel.parameters.Parameter#isDescribed()
-	 * @see #getParameter()
-	 * @generated
-	 */
-	EAttribute getParameter_Described();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#inputIsValid() <em>Input Is Valid</em>}' operation.
@@ -4651,14 +4523,6 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PARAMETER__IS_PREDEFINED = eINSTANCE.getParameter_IsPredefined();
-
-		/**
-		 * The meta object literal for the '<em><b>Described</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PARAMETER__DESCRIBED = eINSTANCE.getParameter_Described();
 
 		/**
 		 * The meta object literal for the '<em><b>Input Is Valid</b></em>' operation.
