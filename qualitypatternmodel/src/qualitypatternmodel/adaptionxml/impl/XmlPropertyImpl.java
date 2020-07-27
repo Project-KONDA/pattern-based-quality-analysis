@@ -299,7 +299,7 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
-			if(oldOption != null) {				
+			if(oldOption != null && oldOption.getProperties().size() == 0) {				
 				varlist.getParameters().remove(oldOption);
 			}
 			if(newOption != null) {
@@ -375,7 +375,7 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
-			if(oldAttributeName != null) {				
+			if(oldAttributeName != null && oldAttributeName.getProperties().size() == 0) {				
 				varlist.getParameters().remove(oldAttributeName);
 			}
 			if(newAttributeName != null) {

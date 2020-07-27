@@ -550,7 +550,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
-			if (oldOption != null) {
+			if (oldOption != null && oldOption.getComparisons().size() == 0) {
 				varlist.getParameters().remove(oldOption);
 			}
 			if (newOption != null) {
