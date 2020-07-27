@@ -428,7 +428,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
-			if(oldOption != null && oldOption.getCountCondition().size() == 0) {				
+			if(oldOption != null && oldOption.getCountConditions().size() == 0) {				
 				varlist.getParameters().remove(oldOption);
 			}
 			if(newOption != null) {
@@ -455,9 +455,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		if (newOption != option) {
 			NotificationChain msgs = null;
 			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION, ComparisonOptionParam.class, msgs);
+				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITIONS, ComparisonOptionParam.class, msgs);
 			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION, ComparisonOptionParam.class, msgs);
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITIONS, ComparisonOptionParam.class, msgs);
 			msgs = basicSetOption(newOption, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -533,7 +533,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 				return basicSetCountPattern((CountPattern)otherEnd, msgs);
 			case PatternstructurePackage.COUNT_CONDITION__OPTION:
 				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION, ComparisonOptionParam.class, msgs);
+					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITIONS, ComparisonOptionParam.class, msgs);
 				return basicSetOption((ComparisonOptionParam)otherEnd, msgs);
 			case PatternstructurePackage.COUNT_CONDITION__ARGUMENT2:
 				if (argument2 != null)
