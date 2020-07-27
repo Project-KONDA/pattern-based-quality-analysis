@@ -96,13 +96,12 @@ public interface Parameter extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Described</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Described</em>' attribute.
 	 * @see #setDescribed(boolean)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getParameter_Described()
-	 * @model default="false" required="true" transient="true"
+	 * @model
 	 * @generated
 	 */
 	boolean isDescribed();

@@ -200,7 +200,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
-		if (oldDescription != newDescription && newDescription != "")
+		if (!oldDescription.equals(newDescription) && !newDescription.equals(""))
 			setDescribed(true);
 		description = newDescription;
 		if (eNotificationRequired())
