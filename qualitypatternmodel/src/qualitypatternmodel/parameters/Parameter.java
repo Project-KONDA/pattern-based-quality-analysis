@@ -18,7 +18,6 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#isIsPredefined <em>Is Predefined</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.Parameter#isDescribed <em>Described</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getParameter()
@@ -93,28 +92,6 @@ public interface Parameter extends PatternElement {
 	 * @generated
 	 */
 	void setIsPredefined(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Described</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Described</em>' attribute.
-	 * @see #setDescribed(boolean)
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getParameter_Described()
-	 * @model
-	 * @generated
-	 */
-	boolean isDescribed();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.Parameter#isDescribed <em>Described</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Described</em>' attribute.
-	 * @see #isDescribed()
-	 * @generated
-	 */
-	void setDescribed(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->
