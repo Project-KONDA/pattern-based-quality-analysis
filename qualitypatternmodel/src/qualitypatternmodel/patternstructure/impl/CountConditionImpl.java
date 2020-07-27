@@ -18,9 +18,11 @@ import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.CountPattern;
@@ -421,6 +423,21 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			option.getOptions().clear();
 			option.getOptions().addAll(ComparisonOperator.VALUES);
 		}
+		
+		try {
+			CompletePattern completePattern;
+			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+			ParameterList varlist = completePattern.getParameterList();
+			if(oldOption != null && oldOption.getCountCondition().size() == 0) {				
+				varlist.getParameters().remove(oldOption);
+			}
+			if(newOption != null) {
+				varlist.add(newOption);
+			}
+		} catch (MissingPatternContainerException e) {
+			// do nothing
+		}	
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__OPTION, oldOption, newOption);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
