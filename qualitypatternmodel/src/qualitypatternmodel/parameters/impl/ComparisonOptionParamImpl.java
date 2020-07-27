@@ -40,7 +40,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  *   <li>{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl#getOptions <em>Options</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl#getComparisons <em>Comparisons</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl#getCountCondition <em>Count Condition</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl#getCountConditions <em>Count Conditions</em>}</li>
  * </ul>
  *
  * @generated
@@ -87,14 +87,14 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	protected EList<Comparison> comparisons;
 
 	/**
-	 * The cached value of the '{@link #getCountCondition() <em>Count Condition</em>}' reference list.
+	 * The cached value of the '{@link #getCountConditions() <em>Count Conditions</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCountCondition()
+	 * @see #getCountConditions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CountCondition> countCondition;
+	protected EList<CountCondition> countConditions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -205,11 +205,11 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	 * @generated
 	 */
 	@Override
-	public EList<CountCondition> getCountCondition() {
-		if (countCondition == null) {
-			countCondition = new EObjectWithInverseResolvingEList<CountCondition>(CountCondition.class, this, ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION, PatternstructurePackage.COUNT_CONDITION__OPTION);
+	public EList<CountCondition> getCountConditions() {
+		if (countConditions == null) {
+			countConditions = new EObjectWithInverseResolvingEList<CountCondition>(CountCondition.class, this, ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITIONS, PatternstructurePackage.COUNT_CONDITION__OPTION);
 		}
-		return countCondition;
+		return countConditions;
 	}
 
 	/**
@@ -223,8 +223,8 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 		switch (featureID) {
 			case ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComparisons()).basicAdd(otherEnd, msgs);
-			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCountCondition()).basicAdd(otherEnd, msgs);
+			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCountConditions()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -239,8 +239,8 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 		switch (featureID) {
 			case ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS:
 				return ((InternalEList<?>)getComparisons()).basicRemove(otherEnd, msgs);
-			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION:
-				return ((InternalEList<?>)getCountCondition()).basicRemove(otherEnd, msgs);
+			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITIONS:
+				return ((InternalEList<?>)getCountConditions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -259,8 +259,8 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 				return getValue();
 			case ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS:
 				return getComparisons();
-			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION:
-				return getCountCondition();
+			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITIONS:
+				return getCountConditions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -285,9 +285,9 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 				getComparisons().clear();
 				getComparisons().addAll((Collection<? extends Comparison>)newValue);
 				return;
-			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION:
-				getCountCondition().clear();
-				getCountCondition().addAll((Collection<? extends CountCondition>)newValue);
+			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITIONS:
+				getCountConditions().clear();
+				getCountConditions().addAll((Collection<? extends CountCondition>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -310,8 +310,8 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 			case ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS:
 				getComparisons().clear();
 				return;
-			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION:
-				getCountCondition().clear();
+			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITIONS:
+				getCountConditions().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -331,8 +331,8 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 				return value != VALUE_EDEFAULT;
 			case ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS:
 				return comparisons != null && !comparisons.isEmpty();
-			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITION:
-				return countCondition != null && !countCondition.isEmpty();
+			case ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITIONS:
+				return countConditions != null && !countConditions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

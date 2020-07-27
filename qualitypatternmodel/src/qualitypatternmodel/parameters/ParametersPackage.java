@@ -395,13 +395,13 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM__COMPARISONS = PARAMETER_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Count Condition</b></em>' reference list.
+	 * The feature id for the '<em><b>Count Conditions</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION_PARAM__COUNT_CONDITION = PARAMETER_FEATURE_COUNT + 3;
+	int COMPARISON_OPTION_PARAM__COUNT_CONDITIONS = PARAMETER_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Comparison Option Param</em>' class.
@@ -4206,15 +4206,15 @@ public interface ParametersPackage extends EPackage {
 	EReference getComparisonOptionParam_Comparisons();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getCountCondition <em>Count Condition</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getCountConditions <em>Count Conditions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Count Condition</em>'.
-	 * @see qualitypatternmodel.parameters.ComparisonOptionParam#getCountCondition()
+	 * @return the meta object for the reference list '<em>Count Conditions</em>'.
+	 * @see qualitypatternmodel.parameters.ComparisonOptionParam#getCountConditions()
 	 * @see #getComparisonOptionParam()
 	 * @generated
 	 */
-	EReference getComparisonOptionParam_CountCondition();
+	EReference getComparisonOptionParam_CountConditions();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.PropertyOptionParam <em>Property Option Param</em>}'.
@@ -4719,12 +4719,12 @@ public interface ParametersPackage extends EPackage {
 		EReference COMPARISON_OPTION_PARAM__COMPARISONS = eINSTANCE.getComparisonOptionParam_Comparisons();
 
 		/**
-		 * The meta object literal for the '<em><b>Count Condition</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Count Conditions</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPARISON_OPTION_PARAM__COUNT_CONDITION = eINSTANCE.getComparisonOptionParam_CountCondition();
+		EReference COMPARISON_OPTION_PARAM__COUNT_CONDITIONS = eINSTANCE.getComparisonOptionParam_CountConditions();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.PropertyOptionParamImpl <em>Property Option Param</em>}' class.

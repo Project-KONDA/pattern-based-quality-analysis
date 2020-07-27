@@ -53,15 +53,15 @@ public interface CountCondition extends Condition {
 
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getCountCondition <em>Count Condition</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.ComparisonOptionParam#getCountConditions <em>Count Conditions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * Getter for the Parameter, where the Comparison Operator shall be specified.
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option</em>' reference.
 	 * @see #setOption(ComparisonOptionParam)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCountCondition_Option()
-	 * @see qualitypatternmodel.parameters.ComparisonOptionParam#getCountCondition
-	 * @model opposite="countCondition" required="true"
+	 * @see qualitypatternmodel.parameters.ComparisonOptionParam#getCountConditions
+	 * @model opposite="countConditions" required="true"
 	 * @generated
 	 */
 	ComparisonOptionParam getOption();

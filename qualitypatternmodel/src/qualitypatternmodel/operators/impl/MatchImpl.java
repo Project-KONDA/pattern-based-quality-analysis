@@ -303,7 +303,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
-			if(oldRegularExpression != null) {				
+			if(oldRegularExpression != null && oldRegularExpression.getMatches().size() == 0) {				
 				varlist.getParameters().remove(oldRegularExpression);
 			}
 			if(newRegularExpression != null) {
@@ -454,7 +454,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
-			if(oldOption != null) {				
+			if(oldOption != null && oldOption.getMatches().size() == 0) {				
 				varlist.getParameters().remove(oldOption);
 			}
 			if(newOption != null) {

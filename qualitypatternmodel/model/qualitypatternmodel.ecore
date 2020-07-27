@@ -33,7 +33,7 @@
           eType="#//operators/ComparisonOperator"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="comparisons" upperBound="-1"
           eType="#//operators/Comparison" eOpposite="#//operators/Comparison/option"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="countCondition" upperBound="-1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="countConditions" upperBound="-1"
           eType="#//patternstructure/CountCondition" eOpposite="#//patternstructure/CountCondition/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PropertyOptionParam" eSuperTypes="#//parameters/Parameter">
@@ -512,7 +512,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="countPattern" lowerBound="1"
           eType="#//patternstructure/CountPattern" containment="true" eOpposite="#//patternstructure/CountPattern/countCondition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
-          eType="#//parameters/ComparisonOptionParam" eOpposite="#//parameters/ComparisonOptionParam/countCondition"/>
+          eType="#//parameters/ComparisonOptionParam" eOpposite="#//parameters/ComparisonOptionParam/countConditions"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument2" lowerBound="1"
           eType="#//patternstructure/CountConditionArgument" containment="true" eOpposite="#//patternstructure/CountConditionArgument/countCondition2"/>
     </eClassifiers>
