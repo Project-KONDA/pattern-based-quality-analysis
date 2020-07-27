@@ -23,7 +23,6 @@ import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 
-import jdk.nashorn.internal.runtime.regexp.joni.constants.Arguments;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
