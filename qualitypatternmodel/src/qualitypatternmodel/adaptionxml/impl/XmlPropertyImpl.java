@@ -174,8 +174,12 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	 */
 	public EList<Parameter> getAllInputs() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();	
-		res.add(getAttributeName());
-		res.add(getOption());
+		if(getAttributeName() != null) {
+			res.add(getAttributeName());
+		}
+		if(getOption() != null) {
+			res.add(getOption());
+		}
 		return res;
 	}
 	
