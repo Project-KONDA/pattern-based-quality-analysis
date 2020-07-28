@@ -327,10 +327,11 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	}
 	
 	@Override
-	public void generateDescription() {
-		String res = "Eingabe einer Liste von Strings";
-		try {} catch (Exception e) {}
-		setDescription(res);
+	public String generateDescription() {
+		String res = "Textfeld";
+		return res;
+//		try {} catch (Exception e) {}
+//		setDescription(res);
 	}
 
 } //TextLiteralImpl

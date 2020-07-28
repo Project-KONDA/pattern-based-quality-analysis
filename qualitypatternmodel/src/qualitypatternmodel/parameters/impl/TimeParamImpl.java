@@ -187,10 +187,11 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 	}
 	
 	@Override
-	public void generateDescription() {
+	public String generateDescription() {
 		String res = "Eingabe der Zeitangabe";
-		try {} catch (Exception e) {}
-		setDescription(res);
+		return res;
+//		try {} catch (Exception e) {}
+//		setDescription(res);
 	}
 	
 

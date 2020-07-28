@@ -324,7 +324,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	}
 
 	@Override
-	public void generateDescription() {
+	public String generateDescription() {
 		String res = "Angabe des Eigenschaft-Types";
 		try {
 			for(Property property : getProperties()) {
@@ -334,7 +334,8 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 			}
 			
 		} catch (Exception e) {}
-		setDescription(res);
+		return res;
+//		setDescription(res);
 	}
 
 } //PropertyOptionImpl

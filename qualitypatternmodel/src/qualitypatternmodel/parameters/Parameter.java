@@ -123,6 +123,6 @@ public interface Parameter extends PatternElement {
 	 * @model
 	 * @generated
 	 */
-	void generateDescription();
+	String generateDescription();
 
 } // Input

@@ -312,7 +312,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	}
 
 	@Override
-	public void generateDescription() {
+	public String generateDescription() {
 		String res = "Beziehung: XPath-Achse";
 		try {			
 			for(Relation relation : getRelations()) {
@@ -322,7 +322,8 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 			}
 					
 		} catch (Exception e) {}
-		setDescription(res);
+		return res;
+//		setDescription(res);
 	}
 
 } // AxisOptionImpl

@@ -192,10 +192,11 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 
 	
 	@Override
-	public void generateDescription() {
+	public String generateDescription() {
 		String res = "Eingabe des Datums mit Zeitangabe";
-		try {} catch (Exception e) {}
-		setDescription(res);
+		return res;
+//		try {} catch (Exception e) {}
+//		setDescription(res);
 	}
 
 } //DateTimeImpl

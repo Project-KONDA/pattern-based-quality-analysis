@@ -373,10 +373,11 @@ public class UnknownParameterValueImpl extends ParameterImpl implements UnknownP
 	}
 	
 	@Override
-	public void generateDescription() {
+	public String generateDescription() {
 		String res = "Eingabe eines unspezifizierten Datentypes";
-		try {} catch (Exception e) {}
-		setDescription(res);
+		return res;
+//		try {} catch (Exception e) {}
+//		setDescription(res);
 	}
 
 } //UnknownInputValueImpl

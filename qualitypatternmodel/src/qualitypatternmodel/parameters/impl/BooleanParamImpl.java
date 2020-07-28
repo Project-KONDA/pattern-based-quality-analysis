@@ -279,10 +279,11 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	}
 	
 	@Override
-	public void generateDescription() {
+	public String generateDescription() {
 		String res = "Eingabe des boolschen Wertes";
-		try {} catch (Exception e) {}
-		setDescription(res);
+		return res;
+//		try {} catch (Exception e) {}
+//		setDescription(res);
 	}
 
 } //BooleanImpl
