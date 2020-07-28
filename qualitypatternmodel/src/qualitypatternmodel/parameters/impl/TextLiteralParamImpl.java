@@ -4,6 +4,10 @@ package qualitypatternmodel.parameters.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+
+import org.basex.core.BaseXException;
+import org.basex.query.QueryException;
+import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -266,13 +270,48 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 											
 											
 											if(incomingNavigation.getOption().getValue() == RelationKind.CHILD) {
-												// TODO: suggest all get children
+												suggestions.addAll(xmlDatabase.getChildrenInSchema(tag));
+											}
+											if(incomingNavigation.getOption().getValue() == RelationKind.DESCENDANT) {
+												suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
 											}
 											
-											// TODO: other axes
+											if(incomingNavigation.getOption().getValue() == RelationKind.PARENT) {
+												suggestions.addAll(xmlDatabase.getParentInSchema(tag));
+											}
+											if(incomingNavigation.getOption().getValue() == RelationKind.ANCESTOR) {
+												suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
+											}
 											
+											if(incomingNavigation.getOption().getValue() == RelationKind.FOLLOWING_SIBLING) {
+												suggestions.addAll(xmlDatabase.getFollowingSiblingsInSchema(tag));
+											}
+											if(incomingNavigation.getOption().getValue() == RelationKind.FOLLOWING) {
+												suggestions.addAll(xmlDatabase.getFollowingInSchema(tag));
+											}
+											
+											if(incomingNavigation.getOption().getValue() == RelationKind.PRECEDING) {
+												suggestions.addAll(xmlDatabase.getPrecedingInSchema(tag));
+											}
+											if(incomingNavigation.getOption().getValue() == RelationKind.PRECEDING_SIBLING) {
+												suggestions.addAll(xmlDatabase.getPrecedingSiblingsInSchema(tag));
+											}
+											
+											if(incomingNavigation.getOption().getValue() == RelationKind.SELF) {
+												suggestions.add(tag);
+											}
+											
+											if(incomingNavigation.getOption().getValue() == RelationKind.DESCENDANT_OR_SELF) {
+												suggestions.add(tag);
+												suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
+											}
+											
+											if(incomingNavigation.getOption().getValue() == RelationKind.ANCESTOR_OR_SELF) {
+												suggestions.add(tag);
+												suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
+											}																						
 										}
-									} catch (MissingPatternContainerException e) {
+									} catch (MissingPatternContainerException | BaseXException | QueryIOException | QueryException e) {
 										// TODO Auto-generated catch block
 										e.printStackTrace();
 									}

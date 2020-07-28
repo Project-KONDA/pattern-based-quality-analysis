@@ -832,7 +832,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 * @generated
 	 */
 	@Override
-	public EList<String> getFollowingSiblingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+	public EList<String> getFollowingSiblingsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -844,7 +844,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 * @generated
 	 */
 	@Override
-	public EList<String> getPrecedingSiblingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+	public EList<String> getPrecedingSiblingsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -1260,16 +1260,16 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case ExecutionPackage.XML_DATABASE___GET_FOLLOWING_SIBLING_IN_SCHEMA__STRING:
+			case ExecutionPackage.XML_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING:
 				try {
-					return getFollowingSiblingInSchema((String)arguments.get(0));
+					return getFollowingSiblingsInSchema((String)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case ExecutionPackage.XML_DATABASE___GET_PRECEDING_SIBLING_IN_SCHEMA__STRING:
+			case ExecutionPackage.XML_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING:
 				try {
-					return getPrecedingSiblingInSchema((String)arguments.get(0));
+					return getPrecedingSiblingsInSchema((String)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

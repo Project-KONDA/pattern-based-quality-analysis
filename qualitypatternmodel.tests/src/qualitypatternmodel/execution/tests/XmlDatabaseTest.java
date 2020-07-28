@@ -44,8 +44,8 @@ import qualitypatternmodel.execution.XmlDatabase;
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getParentInSchema(java.lang.String) <em>Get Parent In Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getAncestorsInSchema(java.lang.String) <em>Get Ancestors In Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getAttributesInSchema(java.lang.String) <em>Get Attributes In Schema</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getFollowingSiblingInSchema(java.lang.String) <em>Get Following Sibling In Schema</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getPrecedingSiblingInSchema(java.lang.String) <em>Get Preceding Sibling In Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getFollowingSiblingsInSchema(java.lang.String) <em>Get Following Siblings In Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getPrecedingSiblingsInSchema(java.lang.String) <em>Get Preceding Siblings In Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getFollowingInSchema(java.lang.String) <em>Get Following In Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getPrecedingInSchema(java.lang.String) <em>Get Preceding In Schema</em>}</li>
  * </ul>
@@ -497,26 +497,26 @@ public class XmlDatabaseTest extends DatabaseTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#getFollowingSiblingInSchema(java.lang.String) <em>Get Following Sibling In Schema</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#getFollowingSiblingsInSchema(java.lang.String) <em>Get Following Siblings In Schema</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDatabase#getFollowingSiblingInSchema(java.lang.String)
+	 * @see qualitypatternmodel.execution.XmlDatabase#getFollowingSiblingsInSchema(java.lang.String)
 	 * @generated
 	 */
-	public void testGetFollowingSiblingInSchema__String() {
+	public void testGetFollowingSiblingsInSchema__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#getPrecedingSiblingInSchema(java.lang.String) <em>Get Preceding Sibling In Schema</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#getPrecedingSiblingsInSchema(java.lang.String) <em>Get Preceding Siblings In Schema</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDatabase#getPrecedingSiblingInSchema(java.lang.String)
+	 * @see qualitypatternmodel.execution.XmlDatabase#getPrecedingSiblingsInSchema(java.lang.String)
 	 * @generated
 	 */
-	public void testGetPrecedingSiblingInSchema__String() {
+	public void testGetPrecedingSiblingsInSchema__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

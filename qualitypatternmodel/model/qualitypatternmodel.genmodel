@@ -655,11 +655,11 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getAttributesInSchema">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getAttributesInSchema/elementName"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getFollowingSiblingInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getFollowingSiblingInSchema/elementName"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getFollowingSiblingsInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getFollowingSiblingsInSchema/elementName"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getPrecedingSiblingInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getPrecedingSiblingInSchema/elementName"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getPrecedingSiblingsInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getPrecedingSiblingsInSchema/elementName"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getFollowingInSchema">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getFollowingInSchema/elementName"/>

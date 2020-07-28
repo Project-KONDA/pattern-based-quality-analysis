@@ -797,7 +797,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__GetFollowingSiblingInSchema__String() {
+	public EOperation getXmlDatabase__GetFollowingSiblingsInSchema__String() {
 		return xmlDatabaseEClass.getEOperations().get(30);
 	}
 
@@ -807,7 +807,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__GetPrecedingSiblingInSchema__String() {
+	public EOperation getXmlDatabase__GetPrecedingSiblingsInSchema__String() {
 		return xmlDatabaseEClass.getEOperations().get(31);
 	}
 
@@ -1060,8 +1060,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_PARENT_IN_SCHEMA__STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_ANCESTORS_IN_SCHEMA__STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_FOLLOWING_SIBLING_IN_SCHEMA__STRING);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_PRECEDING_SIBLING_IN_SCHEMA__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_FOLLOWING_IN_SCHEMA__STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_PRECEDING_IN_SCHEMA__STRING);
 
@@ -1328,13 +1328,13 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlDatabase__GetFollowingSiblingInSchema__String(), ecorePackage.getEString(), "getFollowingSiblingInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDatabase__GetFollowingSiblingsInSchema__String(), ecorePackage.getEString(), "getFollowingSiblingsInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlDatabase__GetPrecedingSiblingInSchema__String(), ecorePackage.getEString(), "getPrecedingSiblingInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDatabase__GetPrecedingSiblingsInSchema__String(), ecorePackage.getEString(), "getPrecedingSiblingsInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());

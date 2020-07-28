@@ -396,7 +396,7 @@ public interface XmlDatabase extends Database {
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
 	 */
-	EList<String> getFollowingSiblingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
+	EList<String> getFollowingSiblingsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -404,7 +404,7 @@ public interface XmlDatabase extends Database {
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
 	 */
-	EList<String> getPrecedingSiblingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
+	EList<String> getPrecedingSiblingsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
 
 	/**
 	 * <!-- begin-user-doc -->

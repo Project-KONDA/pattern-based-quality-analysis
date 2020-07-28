@@ -783,22 +783,22 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING = DATABASE_OPERATION_COUNT + 29;
 
 	/**
-	 * The operation id for the '<em>Get Following Sibling In Schema</em>' operation.
+	 * The operation id for the '<em>Get Following Siblings In Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATABASE___GET_FOLLOWING_SIBLING_IN_SCHEMA__STRING = DATABASE_OPERATION_COUNT + 30;
+	int XML_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING = DATABASE_OPERATION_COUNT + 30;
 
 	/**
-	 * The operation id for the '<em>Get Preceding Sibling In Schema</em>' operation.
+	 * The operation id for the '<em>Get Preceding Siblings In Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATABASE___GET_PRECEDING_SIBLING_IN_SCHEMA__STRING = DATABASE_OPERATION_COUNT + 31;
+	int XML_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING = DATABASE_OPERATION_COUNT + 31;
 
 	/**
 	 * The operation id for the '<em>Get Following In Schema</em>' operation.
@@ -1243,22 +1243,22 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING = XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING;
 
 	/**
-	 * The operation id for the '<em>Get Following Sibling In Schema</em>' operation.
+	 * The operation id for the '<em>Get Following Siblings In Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOCAL_XML_DATABASE___GET_FOLLOWING_SIBLING_IN_SCHEMA__STRING = XML_DATABASE___GET_FOLLOWING_SIBLING_IN_SCHEMA__STRING;
+	int LOCAL_XML_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING = XML_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING;
 
 	/**
-	 * The operation id for the '<em>Get Preceding Sibling In Schema</em>' operation.
+	 * The operation id for the '<em>Get Preceding Siblings In Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOCAL_XML_DATABASE___GET_PRECEDING_SIBLING_IN_SCHEMA__STRING = XML_DATABASE___GET_PRECEDING_SIBLING_IN_SCHEMA__STRING;
+	int LOCAL_XML_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING = XML_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Following In Schema</em>' operation.
@@ -1694,22 +1694,22 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING = XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING;
 
 	/**
-	 * The operation id for the '<em>Get Following Sibling In Schema</em>' operation.
+	 * The operation id for the '<em>Get Following Siblings In Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVER_XML_DATABASE___GET_FOLLOWING_SIBLING_IN_SCHEMA__STRING = XML_DATABASE___GET_FOLLOWING_SIBLING_IN_SCHEMA__STRING;
+	int SERVER_XML_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING = XML_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING;
 
 	/**
-	 * The operation id for the '<em>Get Preceding Sibling In Schema</em>' operation.
+	 * The operation id for the '<em>Get Preceding Siblings In Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVER_XML_DATABASE___GET_PRECEDING_SIBLING_IN_SCHEMA__STRING = XML_DATABASE___GET_PRECEDING_SIBLING_IN_SCHEMA__STRING;
+	int SERVER_XML_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING = XML_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Following In Schema</em>' operation.
@@ -2455,24 +2455,24 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getXmlDatabase__GetAttributesInSchema__String();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#getFollowingSiblingInSchema(java.lang.String) <em>Get Following Sibling In Schema</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#getFollowingSiblingsInSchema(java.lang.String) <em>Get Following Siblings In Schema</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Following Sibling In Schema</em>' operation.
-	 * @see qualitypatternmodel.execution.XmlDatabase#getFollowingSiblingInSchema(java.lang.String)
+	 * @return the meta object for the '<em>Get Following Siblings In Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#getFollowingSiblingsInSchema(java.lang.String)
 	 * @generated
 	 */
-	EOperation getXmlDatabase__GetFollowingSiblingInSchema__String();
+	EOperation getXmlDatabase__GetFollowingSiblingsInSchema__String();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#getPrecedingSiblingInSchema(java.lang.String) <em>Get Preceding Sibling In Schema</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#getPrecedingSiblingsInSchema(java.lang.String) <em>Get Preceding Siblings In Schema</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Preceding Sibling In Schema</em>' operation.
-	 * @see qualitypatternmodel.execution.XmlDatabase#getPrecedingSiblingInSchema(java.lang.String)
+	 * @return the meta object for the '<em>Get Preceding Siblings In Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#getPrecedingSiblingsInSchema(java.lang.String)
 	 * @generated
 	 */
-	EOperation getXmlDatabase__GetPrecedingSiblingInSchema__String();
+	EOperation getXmlDatabase__GetPrecedingSiblingsInSchema__String();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#getFollowingInSchema(java.lang.String) <em>Get Following In Schema</em>}' operation.
@@ -3133,20 +3133,20 @@ public interface ExecutionPackage extends EPackage {
 		EOperation XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING = eINSTANCE.getXmlDatabase__GetAttributesInSchema__String();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Following Sibling In Schema</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Following Siblings In Schema</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation XML_DATABASE___GET_FOLLOWING_SIBLING_IN_SCHEMA__STRING = eINSTANCE.getXmlDatabase__GetFollowingSiblingInSchema__String();
+		EOperation XML_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING = eINSTANCE.getXmlDatabase__GetFollowingSiblingsInSchema__String();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Preceding Sibling In Schema</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Preceding Siblings In Schema</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation XML_DATABASE___GET_PRECEDING_SIBLING_IN_SCHEMA__STRING = eINSTANCE.getXmlDatabase__GetPrecedingSiblingInSchema__String();
+		EOperation XML_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING = eINSTANCE.getXmlDatabase__GetPrecedingSiblingsInSchema__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Following In Schema</b></em>' operation.
