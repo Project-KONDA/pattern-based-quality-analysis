@@ -279,12 +279,8 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
-			if(oldOption != null && oldOption.getRelations().size() == 0) {				
-				varlist.getParameters().remove(oldOption);
-			}
-			if(newOption != null) {
-				varlist.add(newOption);
-			}
+			varlist.remove(oldOption);			
+			varlist.add(newOption);			
 		} catch (MissingPatternContainerException e) {
 			// do nothing
 		}	

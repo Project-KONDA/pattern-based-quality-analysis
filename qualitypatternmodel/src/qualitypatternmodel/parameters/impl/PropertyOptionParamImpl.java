@@ -115,6 +115,11 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	public boolean inputIsValid() {
 		return getValue() != null && getOptions().contains(getValue());
 	}
+	
+	@Override
+	public boolean isUsed() {
+		return !getProperties().isEmpty();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -319,7 +324,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	}
 
 	@Override
-	public void generateDescription() {
+	public String generateDescription() {
 		String res = "Angabe des Eigenschaft-Types";
 		try {
 			for(Property property : getProperties()) {
@@ -329,7 +334,8 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 			}
 			
 		} catch (Exception e) {}
-		setDescription(res);
+		return res;
+//		setDescription(res);
 	}
 
 } //PropertyOptionImpl

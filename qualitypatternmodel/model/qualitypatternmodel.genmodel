@@ -18,6 +18,7 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/Parameter/validate/diagnostics"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/Parameter/validate/context"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/isUsed"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/ComparisonOptionParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/ComparisonOptionParam/options"/>
@@ -37,7 +38,10 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/ParameterList/parameters"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/ParameterList/pattern"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterList/add">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/ParameterList/add/Input"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/ParameterList/add/parameter"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterList/remove">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/ParameterList/remove/parameter"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/BooleanParam">
@@ -56,6 +60,7 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/matches"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/properties"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/TextLiteralParam/getTagComparisonElements"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/NumberParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/NumberParam/value"/>
@@ -197,6 +202,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Property/name"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/copy"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/addComparison"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/isOperatorArgument"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Element">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -494,6 +500,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/getXQueryRepresentation"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/getXQueryVariable"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/translatePredicates"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/getTagComparisons"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

@@ -44,6 +44,14 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 	Comparison addComparison();
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isOperatorArgument();
+
+	/**
 	 * Returns the value of the '<em><b>Element</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->

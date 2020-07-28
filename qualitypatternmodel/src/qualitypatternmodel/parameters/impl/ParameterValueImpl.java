@@ -121,6 +121,11 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	public boolean isTranslatable() throws InvalidityException {
 		return true;
 	}
+	
+	@Override
+	public boolean isUsed() {
+		return !getComparison1().isEmpty() || !getComparison2().isEmpty();
+	}
 
 
 	/**

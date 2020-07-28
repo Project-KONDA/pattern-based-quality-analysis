@@ -248,54 +248,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__COUNT_PATTERN, newCountPattern, newCountPattern));
 	}
-
-//	/**
-//	 * <!-- begin-user-doc -->
-//	 * <!-- end-user-doc -->
-//	 * @generated NOT
-//	 */
-//	public NotificationChain basicSetNumberParam(NumberParam newNumberParam, NotificationChain msgs) {
-//		NumberParam oldNumberParam = numberParam;
-//		numberParam = newNumberParam;
-//		
-//		try {
-//			CompletePattern completePattern;
-//			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-//			ParameterList varlist = completePattern.getParameterList();
-//			if(oldNumberParam != null) {				
-//				varlist.getParameters().remove(oldNumberParam);
-//			}
-//			if(newNumberParam != null) {
-//				varlist.add(newNumberParam);
-//			}
-//		} catch (MissingPatternContainerException e) {
-//			// do nothing
-//		}	
-//		
-//		if (eNotificationRequired()) {
-//			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__NUMBER_PARAM, oldNumberParam, newNumberParam);
-//			if (msgs == null) msgs = notification; else msgs.add(notification);
-//		}
-//		return msgs;
-//	}
-
-//	/**
-//	 * <!-- begin-user-doc -->
-//	 * <!-- end-user-doc -->
-//	 * @generated NOT
-//	 */
-//	public NotificationChain basicSetQuantifiedConditionCount(QuantifiedCondition newQuantifiedConditionCount, NotificationChain msgs) {		
-//		if(getOption() != null) {
-//			getOption().setParameterList(null);
-//		}
-//		
-//		msgs = eBasicSetContainer((InternalEObject)newQuantifiedConditionCount, PatternstructurePackage.COUNT_CONDITION__QUANTIFIED_CONDITION_COUNT, msgs);
-//		
-//		setOption(new ComparisonOptionParamImpl());
-//		getParameterList().add(getOption());
-//		
-//		return msgs;
-//	}
 	
 	@Override
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
@@ -428,12 +380,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
-			if(oldOption != null && oldOption.getCountConditions().size() == 0) {				
-				varlist.getParameters().remove(oldOption);
-			}
-			if(newOption != null) {
-				varlist.add(newOption);
-			}
+			varlist.remove(oldOption);			
+			varlist.add(newOption);			
 		} catch (MissingPatternContainerException e) {
 			// do nothing
 		}	

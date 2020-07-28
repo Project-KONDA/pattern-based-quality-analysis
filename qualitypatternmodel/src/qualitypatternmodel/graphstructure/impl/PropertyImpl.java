@@ -282,6 +282,16 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isOperatorArgument() {
+		return !getComparison1().isEmpty() || !getComparison2().isEmpty() || !getMatch().isEmpty();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -499,6 +509,8 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				return copy();
 			case GraphstructurePackage.PROPERTY___ADD_COMPARISON:
 				return addComparison();
+			case GraphstructurePackage.PROPERTY___IS_OPERATOR_ARGUMENT:
+				return isOperatorArgument();
 			case GraphstructurePackage.PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;

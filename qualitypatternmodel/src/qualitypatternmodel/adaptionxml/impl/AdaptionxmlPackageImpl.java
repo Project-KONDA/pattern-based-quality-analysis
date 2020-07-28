@@ -224,6 +224,16 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EOperation getXmlElement__GetTagComparisons() {
+		return xmlElementEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getXmlNavigation() {
 		return xmlNavigationEClass;
 	}
@@ -381,6 +391,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		createEOperation(xmlElementEClass, XML_ELEMENT___GET_XQUERY_REPRESENTATION);
 		createEOperation(xmlElementEClass, XML_ELEMENT___GET_XQUERY_VARIABLE);
 		createEOperation(xmlElementEClass, XML_ELEMENT___TRANSLATE_PREDICATES);
+		createEOperation(xmlElementEClass, XML_ELEMENT___GET_TAG_COMPARISONS);
 
 		xmlNavigationEClass = createEClass(XML_NAVIGATION);
 		createEReference(xmlNavigationEClass, XML_NAVIGATION__OPTION);
@@ -428,6 +439,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		// Obtain other dependent packages
 		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
 		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
+		OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
 
 		// Create type parameters
@@ -451,6 +463,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		op = initEOperation(getXmlElement__TranslatePredicates(), ecorePackage.getEString(), "translatePredicates", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		initEOperation(getXmlElement__GetTagComparisons(), theOperatorsPackage.getComparison(), "getTagComparisons", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(xmlNavigationEClass, XmlNavigation.class, "XmlNavigation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getXmlNavigation_Option(), theParametersPackage.getRelationOptionParam(), theParametersPackage.getRelationOptionParam_Relations(), "option", null, 0, 1, XmlNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -129,6 +129,11 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	public boolean inputIsValid() {
 		return getValue() != null && options.contains(getValue());
 	}
+	
+	@Override
+	public boolean isUsed() {
+		return !getComparisons().isEmpty() || !getCountConditions().isEmpty();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -361,7 +366,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	}
 	
 	@Override
-	public void generateDescription() {
+	public String generateDescription() {
 		String res = "Angabe des Vergleichsoperators";
 		try {
 			for(Comparison comp : getComparisons()) {
@@ -372,7 +377,8 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 				res += " zum Vergleich von " + argument1 + " und " + argument2;
 			}
 		} catch (Exception e) {}
-		setDescription(res);
+		return res;
+//		setDescription(res);
 	}
 
 } //CompOptionImpl

@@ -305,6 +305,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getParameter__IsUsed() {
+		return parameterEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getParameter__GenerateDescription() {
 		return parameterEClass.getEOperations().get(1);
 	}
@@ -445,6 +455,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getParameterList__Remove__Parameter() {
+		return parameterListEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getBooleanParam() {
 		return booleanParamEClass;
 	}
@@ -547,6 +567,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	@Override
 	public EReference getTextLiteralParam_Properties() {
 		return (EReference)textLiteralParamEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getTextLiteralParam__GetTagComparisonElements() {
+		return textLiteralParamEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -755,6 +785,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(parameterEClass, PARAMETER___INPUT_IS_VALID);
 		createEOperation(parameterEClass, PARAMETER___GENERATE_DESCRIPTION);
 		createEOperation(parameterEClass, PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP);
+		createEOperation(parameterEClass, PARAMETER___IS_USED);
 
 		comparisonOptionParamEClass = createEClass(COMPARISON_OPTION_PARAM);
 		createEAttribute(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__OPTIONS);
@@ -771,6 +802,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEReference(parameterListEClass, PARAMETER_LIST__PARAMETERS);
 		createEReference(parameterListEClass, PARAMETER_LIST__PATTERN);
 		createEOperation(parameterListEClass, PARAMETER_LIST___ADD__PARAMETER);
+		createEOperation(parameterListEClass, PARAMETER_LIST___REMOVE__PARAMETER);
 
 		booleanParamEClass = createEClass(BOOLEAN_PARAM);
 		createEAttribute(booleanParamEClass, BOOLEAN_PARAM__VALUE);
@@ -785,6 +817,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEAttribute(textLiteralParamEClass, TEXT_LITERAL_PARAM__VALUE);
 		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__MATCHES);
 		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__PROPERTIES);
+		createEOperation(textLiteralParamEClass, TEXT_LITERAL_PARAM___GET_TAG_COMPARISON_ELEMENTS);
 
 		numberParamEClass = createEClass(NUMBER_PARAM);
 		createEAttribute(numberParamEClass, NUMBER_PARAM__VALUE);
@@ -870,7 +903,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEOperation(getParameter__InputIsValid(), ecorePackage.getEBoolean(), "inputIsValid", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getParameter__GenerateDescription(), null, "generateDescription", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getParameter__GenerateDescription(), ecorePackage.getEString(), "generateDescription", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		EOperation op = initEOperation(getParameter__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -880,6 +913,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getParameter__IsUsed(), ecorePackage.getEBoolean(), "isUsed", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(comparisonOptionParamEClass, ComparisonOptionParam.class, "ComparisonOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComparisonOptionParam_Options(), theOperatorsPackage.getComparisonOperator(), "options", null, 0, -1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -897,7 +932,10 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEReference(getParameterList_Pattern(), thePatternstructurePackage.getCompletePattern(), thePatternstructurePackage.getCompletePattern_ParameterList(), "pattern", null, 1, 1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getParameterList__Add__Parameter(), null, "add", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getParameter(), "Input", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getParameter(), "parameter", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getParameterList__Remove__Parameter(), null, "remove", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getParameter(), "parameter", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(booleanParamEClass, BooleanParam.class, "BooleanParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBooleanParam_Value(), ecorePackage.getEBooleanObject(), "value", "true", 1, 1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -914,6 +952,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEAttribute(getTextLiteralParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTextLiteralParam_Matches(), theOperatorsPackage.getMatch(), theOperatorsPackage.getMatch_RegularExpression(), "matches", null, 0, -1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTextLiteralParam_Properties(), theAdaptionxmlPackage.getXmlProperty(), theAdaptionxmlPackage.getXmlProperty_AttributeName(), "properties", null, 0, -1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getTextLiteralParam__GetTagComparisonElements(), theAdaptionxmlPackage.getXmlElement(), "getTagComparisonElements", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(numberParamEClass, NumberParam.class, "NumberParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumberParam_Value(), ecorePackage.getEDoubleObject(), "value", "0.0", 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -12,6 +12,7 @@ import static qualitypatternmodel.utilityclasses.Constants.VARIABLE;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -29,11 +30,13 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.ElementImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.impl.ComparisonImpl;
 import qualitypatternmodel.operators.impl.MatchImpl;
 import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UnknownParameterValue;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.UnknownParameterValueImpl;
@@ -176,6 +179,12 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 			}
 		}
 		
+		for(Property property : getProperties()) {
+			if(!property.isOperatorArgument()) {
+				xPredicates += "[" + "exists(" + property.generateQuery() + ")" + "]";
+			}
+		}
+		
 		// translate XMLReferences:
 		for (Relation relation : getIncoming()) {
 			if(relation instanceof XmlReference) {
@@ -199,6 +208,40 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 	}
 
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Comparison> getTagComparisons() {
+		EList<Comparison> tagComparisons = new BasicEList<Comparison>();
+		for(BooleanOperator predicate : getPredicates()) {
+			if(predicate instanceof Comparison) {
+				Comparison comparison = (Comparison) predicate;
+				if(comparison.isPrimitive() && comparison.getOption() != null && comparison.getOption().getValue() == ComparisonOperator.EQUAL) {
+					if(comparison.getArgument1() instanceof XmlProperty) {
+						XmlProperty property = (XmlProperty) comparison.getArgument1();
+						if(property.getOption().getValue() == PropertyKind.TAG) {
+							if(comparison.getArgument2() instanceof TextLiteralParam) {
+								tagComparisons.add(comparison);
+							}
+						}
+					}
+					if(comparison.getArgument2() instanceof XmlProperty) {
+						XmlProperty property = (XmlProperty) comparison.getArgument2();
+						if(property.getOption().getValue() == PropertyKind.TAG) {
+							if(comparison.getArgument1() instanceof TextLiteralParam) {
+								tagComparisons.add(comparison);
+							}
+						}
+					}
+				}
+			}
+		}
+		return tagComparisons;
+	}
+
 	@Override
 	public String getXQueryVariable() {
 		return VARIABLE + getOriginalID();
@@ -329,6 +372,8 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case AdaptionxmlPackage.XML_ELEMENT___GET_TAG_COMPARISONS:
+				return getTagComparisons();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

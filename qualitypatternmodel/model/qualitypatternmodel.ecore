@@ -7,7 +7,7 @@
   <eSubpackages name="parameters" nsURI="parameters" nsPrefix="parameters">
     <eClassifiers xsi:type="ecore:EClass" name="Parameter" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="inputIsValid" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eOperations name="generateDescription"/>
+      <eOperations name="generateDescription" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
         <eParameters name="context">
@@ -17,6 +17,7 @@
           </eGenericType>
         </eParameters>
       </eOperations>
+      <eOperations name="isUsed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" lowerBound="1"
           eType="#//parameters/ParameterList" eOpposite="#//parameters/ParameterList/parameters"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -43,7 +44,10 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterList" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="add">
-        <eParameters name="Input" eType="#//parameters/Parameter"/>
+        <eParameters name="parameter" eType="#//parameters/Parameter"/>
+      </eOperations>
+      <eOperations name="remove">
+        <eParameters name="parameter" eType="#//parameters/Parameter"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
           eType="#//parameters/Parameter" containment="true" eOpposite="#//parameters/Parameter/parameterList"/>
@@ -65,6 +69,7 @@
           defaultValueLiteral=""/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TextLiteralParam" eSuperTypes="#//parameters/ParameterValue">
+      <eOperations name="getTagComparisonElements" upperBound="-1" eType="#//adaptionxml/XmlElement"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="matches" upperBound="-1"
@@ -213,6 +218,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="copy" eType="#//graphstructure/Property"/>
       <eOperations name="addComparison" eType="#//operators/Comparison"/>
+      <eOperations name="isOperatorArgument" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="match" upperBound="-1"
@@ -555,6 +561,7 @@
       <eOperations name="getXQueryVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="translatePredicates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="getTagComparisons" upperBound="-1" eType="#//operators/Comparison"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlNavigation" eSuperTypes="#//graphstructure/Relation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/RelationOptionParam"

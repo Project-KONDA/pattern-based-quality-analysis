@@ -189,10 +189,11 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 	}
 	
 	@Override
-	public void generateDescription() {
+	public String generateDescription() {
 		String res = "Eingabe des Datums";
-		try {} catch (Exception e) {}
-		setDescription(res);
+		return res;
+//		try {} catch (Exception e) {}
+//		setDescription(res);
 	}
 
 	

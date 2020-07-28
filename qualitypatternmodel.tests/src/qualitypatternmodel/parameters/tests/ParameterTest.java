@@ -14,6 +14,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#inputIsValid() <em>Input Is Valid</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#isUsed() <em>Is Used</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -62,6 +63,19 @@ public abstract class ParameterTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGenerateDescription() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#isUsed() <em>Is Used</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.Parameter#isUsed()
+	 * @generated
+	 */
+	public void testIsUsed() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

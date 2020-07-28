@@ -88,6 +88,11 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	public boolean inputIsValid() {
 		return getValue() != null;
 	}
+	
+	@Override
+	public boolean isUsed() {		
+		return super.isUsed() || getNumberArgument() != null;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -307,10 +312,11 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	}
 	
 	@Override
-	public void generateDescription() {
+	public String generateDescription() {
 		String res = "Eingabe der Nummer";
-		try {} catch (Exception e) {}
-		setDescription(res);
+		return res;
+//		try {} catch (Exception e) {}
+//		setDescription(res);
 	}
 
 } //NumberImpl

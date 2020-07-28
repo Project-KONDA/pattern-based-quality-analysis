@@ -220,10 +220,11 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	}
 	
 	@Override
-	public void generateDescription() {
-		String res = "Textfeld";
-		try {} catch (Exception e) {}
-		setDescription(res);
+	public String generateDescription() {
+		String res = "Eingabe einer Liste von Strings";
+		return res;
+//		try {} catch (Exception e) {}
+//		setDescription(res);
 	}
 
 } // TextListImpl

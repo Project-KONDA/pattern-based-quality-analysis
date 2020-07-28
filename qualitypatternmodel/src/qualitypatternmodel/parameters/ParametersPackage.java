@@ -286,13 +286,22 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___IS_USED = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl <em>Comparison Option Param</em>}' class.
@@ -557,6 +566,15 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___IS_USED = PARAMETER___IS_USED;
+
+	/**
 	 * The number of operations of the '<em>Comparison Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -819,6 +837,15 @@ public interface ParametersPackage extends EPackage {
 	int PROPERTY_OPTION_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___IS_USED = PARAMETER___IS_USED;
+
+	/**
 	 * The number of operations of the '<em>Property Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1036,13 +1063,22 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_LIST___ADD__PARAMETER = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Remove</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST___REMOVE__PARAMETER = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Parameter List</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+	int PARAMETER_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ParameterValueImpl <em>Parameter Value</em>}' class.
@@ -1278,6 +1314,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_VALUE___GENERATE_DESCRIPTION = PARAMETER___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___IS_USED = PARAMETER___IS_USED;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1578,6 +1623,15 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___IS_USED = PARAMETER_VALUE___IS_USED;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1865,6 +1919,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___IS_USED = PARAMETER_VALUE___IS_USED;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2192,6 +2255,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___IS_USED = PARAMETER_VALUE___IS_USED;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2228,13 +2300,22 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Get Tag Comparison Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___GET_TAG_COMPARISON_ELEMENTS = PARAMETER_VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Text Literal Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int TEXT_LITERAL_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.NumberParamImpl <em>Number Param</em>}' class.
@@ -2488,6 +2569,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___IS_USED = PARAMETER_VALUE___IS_USED;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2779,6 +2869,15 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___IS_USED = PARAMETER_VALUE___IS_USED;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3068,6 +3167,15 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___IS_USED = PARAMETER_VALUE___IS_USED;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3346,6 +3454,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNKNOWN_PARAMETER_VALUE___GENERATE_DESCRIPTION = PARAMETER___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_PARAMETER_VALUE___IS_USED = PARAMETER___IS_USED;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -3655,6 +3772,15 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___IS_USED = PARAMETER_VALUE___IS_USED;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3953,6 +4079,15 @@ public interface ParametersPackage extends EPackage {
 	int RELATION_OPTION_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___IS_USED = PARAMETER___IS_USED;
+
+	/**
 	 * The number of operations of the '<em>Relation Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4023,6 +4158,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getParameter__Validate__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#isUsed() <em>Is Used</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Used</em>' operation.
+	 * @see qualitypatternmodel.parameters.Parameter#isUsed()
+	 * @generated
+	 */
+	EOperation getParameter__IsUsed();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}' operation.
@@ -4174,6 +4319,16 @@ public interface ParametersPackage extends EPackage {
 	EOperation getParameterList__Add__Parameter();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterList#remove(qualitypatternmodel.parameters.Parameter) <em>Remove</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove</em>' operation.
+	 * @see qualitypatternmodel.parameters.ParameterList#remove(qualitypatternmodel.parameters.Parameter)
+	 * @generated
+	 */
+	EOperation getParameterList__Remove__Parameter();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.BooleanParam <em>Boolean Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4288,6 +4443,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTextLiteralParam_Properties();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextLiteralParam#getTagComparisonElements() <em>Get Tag Comparison Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Tag Comparison Elements</em>' operation.
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getTagComparisonElements()
+	 * @generated
+	 */
+	EOperation getTextLiteralParam__GetTagComparisonElements();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.NumberParam <em>Number Param</em>}'.
@@ -4541,6 +4706,14 @@ public interface ParametersPackage extends EPackage {
 		EOperation PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getParameter__Validate__DiagnosticChain_Map();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Used</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER___IS_USED = eINSTANCE.getParameter__IsUsed();
+
+		/**
 		 * The meta object literal for the '<em><b>Generate Description</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4659,6 +4832,14 @@ public interface ParametersPackage extends EPackage {
 		EOperation PARAMETER_LIST___ADD__PARAMETER = eINSTANCE.getParameterList__Add__Parameter();
 
 		/**
+		 * The meta object literal for the '<em><b>Remove</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_LIST___REMOVE__PARAMETER = eINSTANCE.getParameterList__Remove__Parameter();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.BooleanParamImpl <em>Boolean Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4751,6 +4932,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TEXT_LITERAL_PARAM__PROPERTIES = eINSTANCE.getTextLiteralParam_Properties();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Tag Comparison Elements</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TEXT_LITERAL_PARAM___GET_TAG_COMPARISON_ELEMENTS = eINSTANCE.getTextLiteralParam__GetTagComparisonElements();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.NumberParamImpl <em>Number Param</em>}' class.

@@ -620,13 +620,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___TRANSLATE_PREDICATES = GraphstructurePackage.ELEMENT_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Get Tag Comparisons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___GET_TAG_COMPARISONS = GraphstructurePackage.ELEMENT_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Xml Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_OPERATION_COUNT = GraphstructurePackage.ELEMENT_OPERATION_COUNT + 3;
+	int XML_ELEMENT_OPERATION_COUNT = GraphstructurePackage.ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl <em>Xml Navigation</em>}' class.
@@ -1613,6 +1622,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___ADD_COMPARISON = GraphstructurePackage.PROPERTY___ADD_COMPARISON;
 
 	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___IS_OPERATOR_ARGUMENT = GraphstructurePackage.PROPERTY___IS_OPERATOR_ARGUMENT;
+
+	/**
 	 * The number of operations of the '<em>Xml Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2223,6 +2241,16 @@ public interface AdaptionxmlPackage extends EPackage {
 	EOperation getXmlElement__TranslatePredicates();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlElement#getTagComparisons() <em>Get Tag Comparisons</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Tag Comparisons</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#getTagComparisons()
+	 * @generated
+	 */
+	EOperation getXmlElement__GetTagComparisons();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlNavigation <em>Xml Navigation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2414,6 +2442,14 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_ELEMENT___TRANSLATE_PREDICATES = eINSTANCE.getXmlElement__TranslatePredicates();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Tag Comparisons</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_ELEMENT___GET_TAG_COMPARISONS = eINSTANCE.getXmlElement__GetTagComparisons();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl <em>Xml Navigation</em>}' class.

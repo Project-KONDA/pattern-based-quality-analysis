@@ -164,13 +164,10 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public String getDescription() {
-		if (description == null || description.equals(""))
-			generateDescription();
 		return description;
 	}
 
@@ -228,7 +225,19 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @generated NOT
 	 */
 	@Override
-	public abstract void generateDescription();
+	public abstract String generateDescription();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isUsed() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -357,8 +366,9 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			case ParametersPackage.PARAMETER___INPUT_IS_VALID:
 				return inputIsValid();
 			case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION:
-				generateDescription();
-				return null;
+				return generateDescription();
+			case ParametersPackage.PARAMETER___IS_USED:
+				return isUsed();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

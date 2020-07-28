@@ -303,12 +303,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
-			if(oldRegularExpression != null && oldRegularExpression.getMatches().size() == 0) {				
-				varlist.getParameters().remove(oldRegularExpression);
-			}
-			if(newRegularExpression != null) {
-				varlist.add(newRegularExpression);
-			}
+			varlist.remove(oldRegularExpression);
+			varlist.add(newRegularExpression);			
 		} catch (MissingPatternContainerException e) {
 			// do nothing
 		}	
@@ -453,13 +449,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		try {
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-			ParameterList varlist = completePattern.getParameterList();
-			if(oldOption != null && oldOption.getMatches().size() == 0) {				
-				varlist.getParameters().remove(oldOption);
-			}
-			if(newOption != null) {
-				varlist.add(newOption);
-			}
+			ParameterList varlist = completePattern.getParameterList();				
+			varlist.remove(oldOption);					
+			varlist.add(newOption);			
 		} catch (MissingPatternContainerException e) {
 			// do nothing
 		}	

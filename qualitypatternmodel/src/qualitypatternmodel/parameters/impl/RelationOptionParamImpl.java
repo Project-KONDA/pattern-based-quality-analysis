@@ -114,6 +114,11 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	public boolean inputIsValid() {
 		return getValue() != null && options.contains(getValue());
 	}
+	
+	@Override
+	public boolean isUsed() {
+		return !getRelations().isEmpty();
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -307,7 +312,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	}
 
 	@Override
-	public void generateDescription() {
+	public String generateDescription() {
 		String res = "Beziehung: XPath-Achse";
 		try {			
 			for(Relation relation : getRelations()) {
@@ -317,7 +322,8 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 			}
 					
 		} catch (Exception e) {}
-		setDescription(res);
+		return res;
+//		setDescription(res);
 	}
 
 } // AxisOptionImpl

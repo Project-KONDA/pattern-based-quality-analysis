@@ -15,6 +15,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.ParameterList#add(qualitypatternmodel.parameters.Parameter) <em>Add</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterList#remove(qualitypatternmodel.parameters.Parameter) <em>Remove</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -81,6 +82,19 @@ public class ParameterListTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testAdd__Parameter() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.ParameterList#remove(qualitypatternmodel.parameters.Parameter) <em>Remove</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.ParameterList#remove(qualitypatternmodel.parameters.Parameter)
+	 * @generated
+	 */
+	public void testRemove__Parameter() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

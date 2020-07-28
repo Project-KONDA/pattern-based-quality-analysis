@@ -299,12 +299,8 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
-			if(oldOption != null && oldOption.getProperties().size() == 0) {				
-				varlist.getParameters().remove(oldOption);
-			}
-			if(newOption != null) {
-				varlist.add(newOption);
-			}
+			varlist.remove(oldOption);
+			varlist.add(newOption);			
 		} catch (MissingPatternContainerException e) {
 			// do nothing
 		}	
@@ -375,12 +371,8 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
-			if(oldAttributeName != null && oldAttributeName.getProperties().size() == 0) {				
-				varlist.getParameters().remove(oldAttributeName);
-			}
-			if(newAttributeName != null) {
-				varlist.add(newAttributeName);
-			}
+			varlist.remove(oldAttributeName);
+			varlist.add(newAttributeName);			
 		} catch (MissingPatternContainerException e) {
 			// do nothing
 		}	
