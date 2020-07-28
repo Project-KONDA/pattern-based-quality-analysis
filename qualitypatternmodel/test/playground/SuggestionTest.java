@@ -23,6 +23,7 @@ import qualitypatternmodel.execution.LocalXmlDatabase;
 import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.execution.impl.LocalXmlDatabaseImpl;
 import qualitypatternmodel.execution.impl.XmlDatabaseImpl;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.testutilityclasses.EMFModelLoad;
@@ -35,7 +36,7 @@ public class SuggestionTest {
 		
 		 // Loading the existing model
         EMFModelLoad loader = new EMFModelLoad();
-        CompletePattern completePattern = loader.load("instances/playground/My1.patternstructure");
+        CompletePattern completePattern = loader.load("instances/playground/My2.patternstructure");
         
         LocalXmlDatabase db = new LocalXmlDatabaseImpl("test", "", "C:/Users/Viola Wenz/Documents/Daten/1.1_lido-v1.1-draft.xsd");
         db.setNamespace("lido:");
@@ -53,14 +54,19 @@ public class SuggestionTest {
 		}
         completePattern.setDatabase(db);
         
-        XmlNavigation nav = (XmlNavigation) completePattern.getGraph().getRelations().get(1);
-        for(RelationKind rel : nav.getOption().generateSuggestions()) {
-        	System.out.println(rel);
-        }
-        
-        for(String s : db.getElementNames().keySet()) {
+        TextLiteralParam text = (TextLiteralParam) completePattern.getParameterList().getParameters().get(1);
+        for(String s : text.generateSuggestions()) {
         	System.out.println(s);
         }
+        
+//        XmlNavigation nav = (XmlNavigation) completePattern.getGraph().getRelations().get(1);
+//        for(RelationKind rel : nav.getOption().generateSuggestions()) {
+//        	System.out.println(rel);
+//        }
+        
+//        for(String s : db.getElementNames().keySet()) {
+//        	System.out.println(s);
+//        }
 		
 //		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(completePattern);			
 //		
