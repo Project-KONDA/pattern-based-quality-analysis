@@ -39,6 +39,15 @@ import qualitypatternmodel.execution.XmlDatabase;
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#checkFollowingInSchema(java.lang.String, java.lang.String) <em>Check Following In Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#checkPrecedingInSchema(java.lang.String, java.lang.String) <em>Check Preceding In Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#initSchemaDatabase() <em>Init Schema Database</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getChildrenInSchema(java.lang.String) <em>Get Children In Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getDescendantsInSchema(java.lang.String) <em>Get Descendants In Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getParentInSchema(java.lang.String) <em>Get Parent In Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getAncestorsInSchema(java.lang.String) <em>Get Ancestors In Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getAttributesInSchema(java.lang.String) <em>Get Attributes In Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getFollowingSiblingInSchema(java.lang.String) <em>Get Following Sibling In Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getPrecedingSiblingInSchema(java.lang.String) <em>Get Preceding Sibling In Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getFollowingInSchema(java.lang.String) <em>Get Following In Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getPrecedingInSchema(java.lang.String) <em>Get Preceding In Schema</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -417,6 +426,123 @@ public class XmlDatabaseTest extends DatabaseTest {
 	 * @generated
 	 */
 	public void testInitSchemaDatabase() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#getChildrenInSchema(java.lang.String) <em>Get Children In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#getChildrenInSchema(java.lang.String)
+	 * @generated
+	 */
+	public void testGetChildrenInSchema__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#getDescendantsInSchema(java.lang.String) <em>Get Descendants In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#getDescendantsInSchema(java.lang.String)
+	 * @generated
+	 */
+	public void testGetDescendantsInSchema__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#getParentInSchema(java.lang.String) <em>Get Parent In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#getParentInSchema(java.lang.String)
+	 * @generated
+	 */
+	public void testGetParentInSchema__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#getAncestorsInSchema(java.lang.String) <em>Get Ancestors In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#getAncestorsInSchema(java.lang.String)
+	 * @generated
+	 */
+	public void testGetAncestorsInSchema__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#getAttributesInSchema(java.lang.String) <em>Get Attributes In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#getAttributesInSchema(java.lang.String)
+	 * @generated
+	 */
+	public void testGetAttributesInSchema__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#getFollowingSiblingInSchema(java.lang.String) <em>Get Following Sibling In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#getFollowingSiblingInSchema(java.lang.String)
+	 * @generated
+	 */
+	public void testGetFollowingSiblingInSchema__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#getPrecedingSiblingInSchema(java.lang.String) <em>Get Preceding Sibling In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#getPrecedingSiblingInSchema(java.lang.String)
+	 * @generated
+	 */
+	public void testGetPrecedingSiblingInSchema__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#getFollowingInSchema(java.lang.String) <em>Get Following In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#getFollowingInSchema(java.lang.String)
+	 * @generated
+	 */
+	public void testGetFollowingInSchema__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#getPrecedingInSchema(java.lang.String) <em>Get Preceding In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#getPrecedingInSchema(java.lang.String)
+	 * @generated
+	 */
+	public void testGetPrecedingInSchema__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

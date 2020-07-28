@@ -87,4 +87,12 @@ public interface TextLiteralParam extends ParameterValue {
 	 */
 	EList<XmlElement> getTagComparisonElements();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<String> generateSuggestions();
+
 } // TextLiteral

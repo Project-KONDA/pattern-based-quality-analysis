@@ -6,6 +6,7 @@ import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 
 /**
@@ -348,5 +349,77 @@ public interface XmlDatabase extends Database {
 	 * @generated
 	 */
 	void initSchemaDatabase() throws BaseXException, QueryException, QueryIOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @generated
+	 */
+	EList<String> getChildrenInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @generated
+	 */
+	EList<String> getDescendantsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @generated
+	 */
+	EList<String> getParentInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @generated
+	 */
+	EList<String> getAncestorsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @generated
+	 */
+	EList<String> getAttributesInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @generated
+	 */
+	EList<String> getFollowingSiblingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @generated
+	 */
+	EList<String> getPrecedingSiblingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @generated
+	 */
+	EList<String> getFollowingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @generated
+	 */
+	EList<String> getPrecedingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
 
 } // XmlDatabase

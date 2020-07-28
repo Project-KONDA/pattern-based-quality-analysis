@@ -747,6 +747,96 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getXmlDatabase__GetChildrenInSchema__String() {
+		return xmlDatabaseEClass.getEOperations().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDatabase__GetDescendantsInSchema__String() {
+		return xmlDatabaseEClass.getEOperations().get(26);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDatabase__GetParentInSchema__String() {
+		return xmlDatabaseEClass.getEOperations().get(27);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDatabase__GetAncestorsInSchema__String() {
+		return xmlDatabaseEClass.getEOperations().get(28);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDatabase__GetAttributesInSchema__String() {
+		return xmlDatabaseEClass.getEOperations().get(29);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDatabase__GetFollowingSiblingInSchema__String() {
+		return xmlDatabaseEClass.getEOperations().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDatabase__GetPrecedingSiblingInSchema__String() {
+		return xmlDatabaseEClass.getEOperations().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDatabase__GetFollowingInSchema__String() {
+		return xmlDatabaseEClass.getEOperations().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDatabase__GetPrecedingInSchema__String() {
+		return xmlDatabaseEClass.getEOperations().get(33);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getLocalXmlDatabase() {
 		return localXmlDatabaseEClass;
 	}
@@ -965,6 +1055,15 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___CHECK_FOLLOWING_IN_SCHEMA__STRING_STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___INIT_SCHEMA_DATABASE);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_CHILDREN_IN_SCHEMA__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_PARENT_IN_SCHEMA__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_ANCESTORS_IN_SCHEMA__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_FOLLOWING_SIBLING_IN_SCHEMA__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_PRECEDING_SIBLING_IN_SCHEMA__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_FOLLOWING_IN_SCHEMA__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_PRECEDING_IN_SCHEMA__STRING);
 
 		localXmlDatabaseEClass = createEClass(LOCAL_XML_DATABASE);
 		createEAttribute(localXmlDatabaseEClass, LOCAL_XML_DATABASE__DATA_PATH);
@@ -1195,6 +1294,60 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		addEException(op, this.getQueryIOExceptionWrapper());
 
 		op = initEOperation(getXmlDatabase__InitSchemaDatabase(), null, "initSchemaDatabase", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getBaseXExceptionWrapper());
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
+
+		op = initEOperation(getXmlDatabase__GetChildrenInSchema__String(), ecorePackage.getEString(), "getChildrenInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getBaseXExceptionWrapper());
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
+
+		op = initEOperation(getXmlDatabase__GetDescendantsInSchema__String(), ecorePackage.getEString(), "getDescendantsInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getBaseXExceptionWrapper());
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
+
+		op = initEOperation(getXmlDatabase__GetParentInSchema__String(), ecorePackage.getEString(), "getParentInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getBaseXExceptionWrapper());
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
+
+		op = initEOperation(getXmlDatabase__GetAncestorsInSchema__String(), ecorePackage.getEString(), "getAncestorsInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getBaseXExceptionWrapper());
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
+
+		op = initEOperation(getXmlDatabase__GetAttributesInSchema__String(), ecorePackage.getEString(), "getAttributesInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getBaseXExceptionWrapper());
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
+
+		op = initEOperation(getXmlDatabase__GetFollowingSiblingInSchema__String(), ecorePackage.getEString(), "getFollowingSiblingInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getBaseXExceptionWrapper());
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
+
+		op = initEOperation(getXmlDatabase__GetPrecedingSiblingInSchema__String(), ecorePackage.getEString(), "getPrecedingSiblingInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getBaseXExceptionWrapper());
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
+
+		op = initEOperation(getXmlDatabase__GetFollowingInSchema__String(), ecorePackage.getEString(), "getFollowingInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getBaseXExceptionWrapper());
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
+
+		op = initEOperation(getXmlDatabase__GetPrecedingInSchema__String(), ecorePackage.getEString(), "getPrecedingInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());

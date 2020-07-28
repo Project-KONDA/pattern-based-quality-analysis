@@ -18,10 +18,15 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.execution.Database;
+import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
@@ -30,6 +35,8 @@ import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -234,6 +241,59 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<String> generateSuggestions() {
+		EList<String> suggestions = new BasicEList<String>();
+		for(XmlElement element : getTagComparisonElements()) {
+			for(Relation incomingRelation : element.getIncoming()) {
+				if(incomingRelation instanceof XmlNavigation) {
+					XmlNavigation incomingNavigation = (XmlNavigation) incomingRelation;					
+					if(incomingNavigation.getOption() != null && incomingNavigation.getSource() instanceof XmlElement) {
+						XmlElement source = (XmlElement) incomingNavigation.getSource();
+						for(Comparison tagComparison : source.getTagComparisons()) {
+							if(tagComparison.getArgument1() instanceof TextLiteralParam){
+								TextLiteralParam text = (TextLiteralParam) tagComparison.getArgument1();
+								if(text.getValue() != null) {
+									String tag = text.getValue();
+									
+									Database db;
+									try {
+										db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
+										if(db instanceof XmlDatabase) {
+											XmlDatabase xmlDatabase = (XmlDatabase) db;
+											
+											
+											if(incomingNavigation.getOption().getValue() == RelationKind.CHILD) {
+												// TODO: suggest all get children
+											}
+											
+											// TODO: other axes
+											
+										}
+									} catch (MissingPatternContainerException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									
+									
+									
+								}
+								
+							}
+						}
+					}
+					
+				}
+			}
+		}
+		return suggestions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -355,6 +415,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		switch (operationID) {
 			case ParametersPackage.TEXT_LITERAL_PARAM___GET_TAG_COMPARISON_ELEMENTS:
 				return getTagComparisonElements();
+			case ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_SUGGESTIONS:
+				return generateSuggestions();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

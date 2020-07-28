@@ -769,6 +769,114 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getChildrenInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getDescendantsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getParentInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getAncestorsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getAttributesInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getFollowingSiblingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getPrecedingSiblingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getFollowingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getPrecedingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -1113,6 +1221,69 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				try {
 					initSchemaDatabase();
 					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_CHILDREN_IN_SCHEMA__STRING:
+				try {
+					return getChildrenInSchema((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING:
+				try {
+					return getDescendantsInSchema((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_PARENT_IN_SCHEMA__STRING:
+				try {
+					return getParentInSchema((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_ANCESTORS_IN_SCHEMA__STRING:
+				try {
+					return getAncestorsInSchema((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING:
+				try {
+					return getAttributesInSchema((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_FOLLOWING_SIBLING_IN_SCHEMA__STRING:
+				try {
+					return getFollowingSiblingInSchema((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_PRECEDING_SIBLING_IN_SCHEMA__STRING:
+				try {
+					return getPrecedingSiblingInSchema((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_FOLLOWING_IN_SCHEMA__STRING:
+				try {
+					return getFollowingInSchema((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_PRECEDING_IN_SCHEMA__STRING:
+				try {
+					return getPrecedingInSchema((String)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
