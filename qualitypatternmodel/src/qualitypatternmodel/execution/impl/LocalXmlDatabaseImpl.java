@@ -104,7 +104,7 @@ public class LocalXmlDatabaseImpl extends XmlDatabaseImpl implements LocalXmlDat
 		this.dataPath = dataPath;		
 	}
 	
-	protected LocalXmlDatabaseImpl(String name, String dataPath, String schemaPath) {
+	public LocalXmlDatabaseImpl(String name, String dataPath, String schemaPath) {
 		super();
 		this.name = name;
 		this.dataPath = dataPath;	
@@ -113,24 +113,25 @@ public class LocalXmlDatabaseImpl extends XmlDatabaseImpl implements LocalXmlDat
 
 	@Override
 	public void init() throws BaseXException, QueryIOException, QueryException {
-		try {
-			open();
-		} catch (BaseXException e) {
-			create();
-			analyseDatabase();
-		}
-		
+		context = new Context();
+		create();
+		analyseDatabase();
+	}
+	
+	@Override
+	public void initSchemaDatabase() throws BaseXException, QueryException, QueryIOException {
+		schemaContext = new Context();
+		createSchemaDatabase();
+		analyseSchema();
 	}
 	
 	@Override
 	public void open() throws BaseXException {
-		context = new Context();
 		new Open(name).execute(context);
 	}
 	
 	@Override
 	public void openSchemaDatabase() throws BaseXException {
-		schemaContext = new Context();
 		new Open(name+Constants.SCHEMA).execute(schemaContext);
 	}
 	
