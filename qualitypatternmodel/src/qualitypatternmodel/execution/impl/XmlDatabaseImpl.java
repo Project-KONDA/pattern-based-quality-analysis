@@ -728,7 +728,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 * @generated
 	 */
 	@Override
-	public EList<String> getParentInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+	public EList<String> getParentsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -1171,9 +1171,9 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case ExecutionPackage.XML_DATABASE___GET_PARENT_IN_SCHEMA__STRING:
+			case ExecutionPackage.XML_DATABASE___GET_PARENTS_IN_SCHEMA__STRING:
 				try {
-					return getParentInSchema((String)arguments.get(0));
+					return getParentsInSchema((String)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

@@ -41,7 +41,7 @@ import qualitypatternmodel.execution.XmlDatabase;
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#initSchemaDatabase() <em>Init Schema Database</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getChildrenInSchema(java.lang.String) <em>Get Children In Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getDescendantsInSchema(java.lang.String) <em>Get Descendants In Schema</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getParentInSchema(java.lang.String) <em>Get Parent In Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getParentsInSchema(java.lang.String) <em>Get Parents In Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getAncestorsInSchema(java.lang.String) <em>Get Ancestors In Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getAttributesInSchema(java.lang.String) <em>Get Attributes In Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getFollowingSiblingsInSchema(java.lang.String) <em>Get Following Siblings In Schema</em>}</li>
@@ -458,13 +458,13 @@ public class XmlDatabaseTest extends DatabaseTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#getParentInSchema(java.lang.String) <em>Get Parent In Schema</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#getParentsInSchema(java.lang.String) <em>Get Parents In Schema</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDatabase#getParentInSchema(java.lang.String)
+	 * @see qualitypatternmodel.execution.XmlDatabase#getParentsInSchema(java.lang.String)
 	 * @generated
 	 */
-	public void testGetParentInSchema__String() {
+	public void testGetParentsInSchema__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

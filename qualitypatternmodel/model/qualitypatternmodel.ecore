@@ -737,7 +737,7 @@
           eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper">
         <eParameters name="elementName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eOperations name="getParentInSchema" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+      <eOperations name="getParentsInSchema" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper">
         <eParameters name="elementName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>

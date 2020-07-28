@@ -280,7 +280,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 									XmlDatabase xmlDatabase = (XmlDatabase) db;
 
 									if (outgoingNavigation.getOption().getValue() == RelationKind.CHILD) {
-										suggestions.addAll(xmlDatabase.getParentInSchema(tag));
+										suggestions.addAll(xmlDatabase.getParentsInSchema(tag));
 									}
 									if (outgoingNavigation.getOption().getValue() == RelationKind.DESCENDANT) {
 										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
@@ -367,7 +367,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 									}
 
 									if (incomingNavigation.getOption().getValue() == RelationKind.PARENT) {
-										suggestions.addAll(xmlDatabase.getParentInSchema(tag));
+										suggestions.addAll(xmlDatabase.getParentsInSchema(tag));
 									}
 									if (incomingNavigation.getOption().getValue() == RelationKind.ANCESTOR) {
 										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));

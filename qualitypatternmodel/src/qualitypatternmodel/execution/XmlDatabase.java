@@ -372,7 +372,7 @@ public interface XmlDatabase extends Database {
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
 	 */
-	EList<String> getParentInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
+	EList<String> getParentsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
 
 	/**
 	 * <!-- begin-user-doc -->

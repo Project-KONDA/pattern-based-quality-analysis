@@ -646,8 +646,8 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getDescendantsInSchema">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getDescendantsInSchema/elementName"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getParentInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getParentInSchema/elementName"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getParentsInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getParentsInSchema/elementName"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getAncestorsInSchema">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getAncestorsInSchema/elementName"/>

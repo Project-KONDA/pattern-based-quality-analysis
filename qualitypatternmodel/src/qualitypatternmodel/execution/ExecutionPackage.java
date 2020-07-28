@@ -756,13 +756,13 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING = DATABASE_OPERATION_COUNT + 26;
 
 	/**
-	 * The operation id for the '<em>Get Parent In Schema</em>' operation.
+	 * The operation id for the '<em>Get Parents In Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATABASE___GET_PARENT_IN_SCHEMA__STRING = DATABASE_OPERATION_COUNT + 27;
+	int XML_DATABASE___GET_PARENTS_IN_SCHEMA__STRING = DATABASE_OPERATION_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Get Ancestors In Schema</em>' operation.
@@ -1216,13 +1216,13 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING = XML_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING;
 
 	/**
-	 * The operation id for the '<em>Get Parent In Schema</em>' operation.
+	 * The operation id for the '<em>Get Parents In Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOCAL_XML_DATABASE___GET_PARENT_IN_SCHEMA__STRING = XML_DATABASE___GET_PARENT_IN_SCHEMA__STRING;
+	int LOCAL_XML_DATABASE___GET_PARENTS_IN_SCHEMA__STRING = XML_DATABASE___GET_PARENTS_IN_SCHEMA__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Ancestors In Schema</em>' operation.
@@ -1667,13 +1667,13 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING = XML_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING;
 
 	/**
-	 * The operation id for the '<em>Get Parent In Schema</em>' operation.
+	 * The operation id for the '<em>Get Parents In Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVER_XML_DATABASE___GET_PARENT_IN_SCHEMA__STRING = XML_DATABASE___GET_PARENT_IN_SCHEMA__STRING;
+	int SERVER_XML_DATABASE___GET_PARENTS_IN_SCHEMA__STRING = XML_DATABASE___GET_PARENTS_IN_SCHEMA__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Ancestors In Schema</em>' operation.
@@ -2425,14 +2425,14 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getXmlDatabase__GetDescendantsInSchema__String();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#getParentInSchema(java.lang.String) <em>Get Parent In Schema</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#getParentsInSchema(java.lang.String) <em>Get Parents In Schema</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Parent In Schema</em>' operation.
-	 * @see qualitypatternmodel.execution.XmlDatabase#getParentInSchema(java.lang.String)
+	 * @return the meta object for the '<em>Get Parents In Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#getParentsInSchema(java.lang.String)
 	 * @generated
 	 */
-	EOperation getXmlDatabase__GetParentInSchema__String();
+	EOperation getXmlDatabase__GetParentsInSchema__String();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#getAncestorsInSchema(java.lang.String) <em>Get Ancestors In Schema</em>}' operation.
@@ -3109,12 +3109,12 @@ public interface ExecutionPackage extends EPackage {
 		EOperation XML_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING = eINSTANCE.getXmlDatabase__GetDescendantsInSchema__String();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Parent In Schema</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Parents In Schema</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation XML_DATABASE___GET_PARENT_IN_SCHEMA__STRING = eINSTANCE.getXmlDatabase__GetParentInSchema__String();
+		EOperation XML_DATABASE___GET_PARENTS_IN_SCHEMA__STRING = eINSTANCE.getXmlDatabase__GetParentsInSchema__String();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Ancestors In Schema</b></em>' operation.

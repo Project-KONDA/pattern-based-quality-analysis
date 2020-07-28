@@ -767,7 +767,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__GetParentInSchema__String() {
+	public EOperation getXmlDatabase__GetParentsInSchema__String() {
 		return xmlDatabaseEClass.getEOperations().get(27);
 	}
 
@@ -1057,7 +1057,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___INIT_SCHEMA_DATABASE);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_CHILDREN_IN_SCHEMA__STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_PARENT_IN_SCHEMA__STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_PARENTS_IN_SCHEMA__STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_ANCESTORS_IN_SCHEMA__STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING);
@@ -1310,7 +1310,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlDatabase__GetParentInSchema__String(), ecorePackage.getEString(), "getParentInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDatabase__GetParentsInSchema__String(), ecorePackage.getEString(), "getParentsInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
