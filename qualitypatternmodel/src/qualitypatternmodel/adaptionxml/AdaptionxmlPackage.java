@@ -1613,6 +1613,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___ADD_COMPARISON = GraphstructurePackage.PROPERTY___ADD_COMPARISON;
 
 	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___IS_OPERATOR_ARGUMENT = GraphstructurePackage.PROPERTY___IS_OPERATOR_ARGUMENT;
+
+	/**
 	 * The number of operations of the '<em>Xml Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -49,9 +49,9 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
-	 * @ordered NOT
+	 * @ordered
 	 */
-	protected String description = generateDescription();
+	protected String description = DESCRIPTION_EDEFAULT;
 	/**
 	 * The default value of the '{@link #isIsPredefined() <em>Is Predefined</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

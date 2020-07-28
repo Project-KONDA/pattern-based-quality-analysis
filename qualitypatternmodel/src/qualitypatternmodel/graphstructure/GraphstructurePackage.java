@@ -900,13 +900,22 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___ADD_COMPARISON = COMPARABLE_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_OPERATOR_ARGUMENT = COMPARABLE_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 4;
+	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.ElementImpl <em>Element</em>}' class.
@@ -2144,6 +2153,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getProperty__AddComparison();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#isOperatorArgument() <em>Is Operator Argument</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Operator Argument</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Property#isOperatorArgument()
+	 * @generated
+	 */
+	EOperation getProperty__IsOperatorArgument();
+
+	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2918,6 +2937,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PROPERTY___ADD_COMPARISON = eINSTANCE.getProperty__AddComparison();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Operator Argument</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPERTY___IS_OPERATOR_ARGUMENT = eINSTANCE.getProperty__IsOperatorArgument();
 
 		/**
 		 * The meta object literal for the '<em><b>Match</b></em>' reference list feature.
