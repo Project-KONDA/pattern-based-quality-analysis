@@ -176,6 +176,12 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 			}
 		}
 		
+		for(Property property : getProperties()) {
+			if(!property.isOperatorArgument()) {
+				xPredicates += "[" + "exists(" + property.generateQuery() + ")" + "]";
+			}
+		}
+		
 		// translate XMLReferences:
 		for (Relation relation : getIncoming()) {
 			if(relation instanceof XmlReference) {
