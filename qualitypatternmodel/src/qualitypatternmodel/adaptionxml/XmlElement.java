@@ -2,9 +2,11 @@
  */
 package qualitypatternmodel.adaptionxml;
 
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.operators.Comparison;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,5 +42,13 @@ public interface XmlElement extends Element {
 	 * @generated
 	 */
 	String translatePredicates() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Comparison> getTagComparisons();
 
 } // XMLElement

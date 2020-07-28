@@ -1,40 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<patternstructure:Pattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:functions="functions" xmlns:inputfields="inputfields" xmlns:patternstructure="patternstructure" id="_POFQMFcKEeqi6Ieqguaa4w" refNo="0" elementCounter="25">
-  <variableList id="_POFQNVcKEeqi6Ieqguaa4w" refNo="8">
-    <variables xsi:type="inputfields:CompOption" id="_fo4OsFcKEeqi6Ieqguaa4w" refNo="19" value="&lt;">
-      <options>&lt;</options>
-    </variables>
-    <variables xsi:type="inputfields:PropertyOption" id="_gyhXUVcKEeqi6Ieqguaa4w" refNo="21" value="TAG">
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_XC6UUNChEeqXuKphjom2IA" internalId="0" elementCounter="12">
+  <graph id="_XC6UUtChEeqXuKphjom2IA" internalId="1" returnElements="_amjaMdChEeqXuKphjom2IA">
+    <elements xsi:type="adaptionxml:XmlElement" id="_amjaMdChEeqXuKphjom2IA" internalId="3" resultOf="_XC6UUtChEeqXuKphjom2IA" incoming="_0A-mJdChEeqXuKphjom2IA">
+      <properties xsi:type="adaptionxml:XmlProperty" id="_a3MeQdChEeqXuKphjom2IA" internalId="4" option="_eE37MdChEeqXuKphjom2IA" attributeName="_cDIF4NChEeqXuKphjom2IA"/>
+    </elements>
+    <elements xsi:type="adaptionxml:XmlRoot" id="_zV1-ctChEeqXuKphjom2IA" internalId="9" name="Root" outgoing="_0A-mJdChEeqXuKphjom2IA"/>
+    <operatorList id="_XC6UU9ChEeqXuKphjom2IA"/>
+    <relations xsi:type="adaptionxml:XmlNavigation" id="_0A-mJdChEeqXuKphjom2IA" internalId="10" source="_zV1-ctChEeqXuKphjom2IA" target="_amjaMdChEeqXuKphjom2IA" option="_0UZ4cNChEeqXuKphjom2IA"/>
+  </graph>
+  <condition xsi:type="patternstructure:TrueElement" id="_mgNIx9ChEeqXuKphjom2IA" internalId="8"/>
+  <parameterList id="_XC6UUdChEeqXuKphjom2IA" internalId="5">
+    <parameters xsi:type="parameters:TextLiteralParam" id="_cDIF4NChEeqXuKphjom2IA" internalId="6" value="test" properties="_a3MeQdChEeqXuKphjom2IA"/>
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_eE37MdChEeqXuKphjom2IA" internalId="7" value="ATTRIBUTE" properties="_a3MeQdChEeqXuKphjom2IA">
       <options>TAG</options>
-    </variables>
-    <variables xsi:type="inputfields:Date" id="_qDa691cKEeqi6Ieqguaa4w" refNo="22" comparison2="_efZeIFcKEeqi6Ieqguaa4w" value="2020-02-24"/>
-    <variables xsi:type="inputfields:TextLiteral" id="_shjKRVcKEeqi6Ieqguaa4w" refNo="23" value="type"/>
-  </variableList>
-  <returnGraph id="_POFQMVcKEeqi6Ieqguaa4w" refNo="1" returnElements="_Y6Td4VcKEeqi6Ieqguaa4w" graphDepth="0" returnGraph="true">
-    <rootElement id="_POFQM1cKEeqi6Ieqguaa4w" refNo="2" mappingTo="_QLFrAFcKEeqi6Ieqguaa4w">
-      <nextSingle id="_Y6Td4VcKEeqi6Ieqguaa4w" refNo="14" mappingTo="_ZJSVFFcKEeqi6Ieqguaa4w">
-        <relationFromPrevious id="_Y6Td4lcKEeqi6Ieqguaa4w" refNo="15" mappingTo="_ZJX0oFcKEeqi6Ieqguaa4w"/>
-      </nextSingle>
-    </rootElement>
-    <operatorList id="_POFQMlcKEeqi6Ieqguaa4w" refNo="9"/>
-  </returnGraph>
-  <condition xsi:type="patternstructure:QuantifiedCondition" id="_P5tnJVcKEeqi6Ieqguaa4w" refNo="3" condDepth="1">
-    <graph id="_P5tnJlcKEeqi6Ieqguaa4w" refNo="4" returnElements="_ZJSVEFcKEeqi6Ieqguaa4w" graphDepth="1">
-      <rootElement id="_P5tnKFcKEeqi6Ieqguaa4w" refNo="6" mappingFrom="_QLFrAFcKEeqi6Ieqguaa4w">
-        <nextSingle id="_ZJSVEFcKEeqi6Ieqguaa4w" refNo="16" predicates="_efZeIFcKEeqi6Ieqguaa4w" mappingFrom="_ZJSVFFcKEeqi6Ieqguaa4w">
-          <relationFromPrevious id="_ZJSVEVcKEeqi6Ieqguaa4w" refNo="17" mappingFrom="_ZJX0oFcKEeqi6Ieqguaa4w"/>
-          <properties id="_gLTmUVcKEeqi6Ieqguaa4w" refNo="20" comparison1="_efZeIFcKEeqi6Ieqguaa4w" propertyOption="_gyhXUVcKEeqi6Ieqguaa4w" attributeName="_shjKRVcKEeqi6Ieqguaa4w"/>
-        </nextSingle>
-      </rootElement>
-      <operatorList id="_P5tnJ1cKEeqi6Ieqguaa4w" refNo="10">
-        <operators xsi:type="functions:Comparison" id="_efZeIFcKEeqi6Ieqguaa4w" refNo="18" elements="_ZJSVEFcKEeqi6Ieqguaa4w" argument1="_gLTmUVcKEeqi6Ieqguaa4w" option="_fo4OsFcKEeqi6Ieqguaa4w" argument2="_qDa691cKEeqi6Ieqguaa4w" type="DATE"/>
-      </operatorList>
-    </graph>
-    <condition xsi:type="patternstructure:True" id="_WXFTO1cKEeqi6Ieqguaa4w" refNo="11"/>
-    <morphism id="_P5tnKlcKEeqi6Ieqguaa4w" refNo="5" from="_POFQMVcKEeqi6Ieqguaa4w" to="_P5tnJlcKEeqi6Ieqguaa4w" morphDepth="1">
-      <mappings xsi:type="patternstructure:SingleElementMapping" id="_QLFrAFcKEeqi6Ieqguaa4w" refNo="7" from="_POFQM1cKEeqi6Ieqguaa4w" to="_P5tnKFcKEeqi6Ieqguaa4w"/>
-      <mappings xsi:type="patternstructure:SingleElementMapping" id="_ZJSVFFcKEeqi6Ieqguaa4w" refNo="12" from="_Y6Td4VcKEeqi6Ieqguaa4w" to="_ZJSVEFcKEeqi6Ieqguaa4w"/>
-      <mappings xsi:type="patternstructure:RelationMapping" id="_ZJX0oFcKEeqi6Ieqguaa4w" refNo="13" to="_ZJSVEVcKEeqi6Ieqguaa4w" from="_Y6Td4lcKEeqi6Ieqguaa4w"/>
-    </morphism>
-  </condition>
-</patternstructure:Pattern>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+    </parameters>
+    <parameters xsi:type="parameters:RelationOptionParam" id="_0UZ4cNChEeqXuKphjom2IA" internalId="11" relations="_0A-mJdChEeqXuKphjom2IA">
+      <options>/child::*</options>
+      <options>/descendant::*</options>
+    </parameters>
+  </parameterList>
+</patternstructure:CompletePattern>
