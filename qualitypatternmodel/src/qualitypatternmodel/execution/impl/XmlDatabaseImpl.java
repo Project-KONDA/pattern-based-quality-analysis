@@ -315,7 +315,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	private void executeAnalysis(String query, EMap<String,Integer> valueStorage, Context context) throws BaseXException, QueryIOException, QueryException {
 		List<String> result = executeQuery(query, context);
 		for(int i = 0; i < result.size(); i++) {
-			valueStorage.put(result.get(i),0);
+			valueStorage.put(getNamespace() + result.get(i),0);
 		}
 	}
 
@@ -329,8 +329,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	@Override
 	public void analyseSchema() throws BaseXException, QueryIOException, QueryException {
 		openSchemaDatabase();
-		executeAnalysis("//*[name()=\"xsd:element\"]/data(@name)", getElementNames(), schemaContext);
-		executeAnalysis("//*[name()=\"xsd:attribute\"]/data(@name)", getAttributeNames(), schemaContext);
+		executeAnalysis("//*[name()=\"xs:element\"]/data(@name)", getElementNames(), schemaContext);
+		executeAnalysis("//*[name()=\"xs:attribute\"]/data(@name)", getAttributeNames(), schemaContext);
 		// TODO: add namespace
 	}
 
@@ -498,8 +498,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			return true;
 		}
 		
-		String call = "for $root in /xs:schema\r\n" + 
-				"return local:checkChild($root, \""+elementName1+"\", \""+elementName2+"\", \""+getNamespace()+"\")";
+		String call = "\nfor $root in /xs:schema\r\n" + 
+				"return local:checkChild($root, \""+elementName1.replace(getNamespace(), "")+"\", \""+elementName2.replace(getNamespace(), "")+"\", \""+getNamespace()+"\")";
 		
 		String query = checkChild + call;
 		
@@ -545,7 +545,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		String checkDescendant; 
 		
 		try {
-			checkDescendant = readFile("queries/CheckChild.xq",StandardCharsets.US_ASCII);
+			checkDescendant = readFile("queries/CheckDescendant.xq",StandardCharsets.US_ASCII);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -553,8 +553,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			return true;
 		}
 		
-		String call = "for $root in /xs:schema\r\n" + 
-				"return local:checkDescendant($root, \""+elementName1+"\", \""+elementName2+"\", \""+getNamespace()+"\")";
+		String call = "\nfor $root in /xs:schema\r\n" + 
+				"return local:checkDescendant($root, \""+elementName1.replace(getNamespace(), "")+"\", \""+elementName2.replace(getNamespace(), "")+"\", \""+getNamespace()+"\")";
 			
 		String query = checkDescendant + call;
 		List<String> queryResult = executeQuery(query, schemaContext);
@@ -598,7 +598,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		String checkAttribute; 
 		
 		try {
-			checkAttribute = readFile("queries/CheckChild.xq",StandardCharsets.US_ASCII);
+			checkAttribute = readFile("queries/CheckAttribute.xq",StandardCharsets.US_ASCII);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -606,8 +606,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			return true;
 		}
 		
-		String call = "for $root in /xs:schema\r\n" + 
-				"return local:checkAttribute($root, \""+elementName+"\", \""+attributeName+"\", \""+getNamespace()+"\")";
+		String call = "\nfor $root in /xs:schema\r\n" + 
+				"return local:checkAttribute($root, \""+elementName.replace(getNamespace(), "")+"\", \""+attributeName.replace(getNamespace(), "")+"\", \""+getNamespace()+"\")";
 		
 		String query = checkAttribute + call;
 		List<String> queryResult = executeQuery(query, schemaContext);
@@ -624,7 +624,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	}
 
 	private List<String> executeQuery(String query, Context context) throws QueryException, QueryIOException {
-		List<String> queryResult = new ArrayList<String>();
+		List<String> queryResult = new ArrayList<String>();		
 	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
 	      Iter iter = proc.iter();
 	      for(Item item; (item = iter.next()) != null;) {
@@ -670,7 +670,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		String checkFollowingSibling; 
 		
 		try {
-			checkFollowingSibling = readFile("queries/CheckChild.xq",StandardCharsets.US_ASCII);
+			checkFollowingSibling = readFile("queries/CheckFollowingSibling.xq",StandardCharsets.US_ASCII);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -678,8 +678,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			return true;
 		}
 		
-		String call = "for $root in /xs:schema\r\n" + 
-				"return local:checkFollowingSibling($root, \""+elementName1+"\", \""+elementName2+"\", \""+getNamespace()+"\")";
+		String call = "\nfor $root in /xs:schema\r\n" + 
+				"return local:checkFollowingSibling($root, \""+elementName1.replace(getNamespace(), "")+"\", \""+elementName2.replace(getNamespace(), "")+"\", \""+getNamespace()+"\")";
 		
 		String query = checkFollowingSibling + call;
 		
@@ -717,7 +717,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		String checkFollowing; 
 		
 		try {
-			checkFollowing = readFile("queries/CheckChild.xq",StandardCharsets.US_ASCII);
+			checkFollowing = readFile("queries/CheckFollowing.xq",StandardCharsets.US_ASCII);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -725,8 +725,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			return true;
 		}
 		
-		String call = "for $root in /xs:schema\r\n" + 
-				"return local:checkFollowing($root, \""+elementName1+"\", \""+elementName2+"\", \""+getNamespace()+"\")";
+		String call = "\nfor $root in /xs:schema\r\n" + 
+				"return local:checkFollowing($root, \""+elementName1.replace(getNamespace(), "")+"\", \""+elementName2.replace(getNamespace(), "")+"\", \""+getNamespace()+"\")";
 		
 		String query = checkFollowing+ call;
 		
@@ -749,6 +749,18 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 */
 	@Override
 	public boolean checkPrecedingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void initSchemaDatabase() throws BaseXException, QueryException, QueryIOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -1093,6 +1105,14 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			case ExecutionPackage.XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING:
 				try {
 					return checkPrecedingInSchema((String)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___INIT_SCHEMA_DATABASE:
+				try {
+					initSchemaDatabase();
+					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
