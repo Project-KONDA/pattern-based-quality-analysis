@@ -666,8 +666,8 @@ public class Services {
     }
     
     public boolean creationPropertyPrecondition(EObject self) {
-    	boolean returnvalue = true;
-    	if(self instanceof Comparison) {
+    	boolean returnvalue = false;
+    	/*if(self instanceof Comparison) {
     		Comparison comparison =(Comparison) self;
     		EObject argument1 = comparison.getArgument1();
 			EObject argument2 = comparison.getArgument2();
@@ -676,6 +676,9 @@ public class Services {
 			}else if(argument1 instanceof Property || argument1 instanceof Property){
 				returnvalue = false;
 			}
+    	}*/
+    	if(self instanceof Element) {
+    		returnvalue = true;
     	}
     	return returnvalue;
     }
@@ -826,14 +829,6 @@ public class Services {
     	comparison.setArgument2(null);
     }
     
-    public boolean selectPropertyPrecondition(EObject self) {
-    	boolean isComparison = false;
-    	if(self instanceof Comparison) {
-    		isComparison = true;
-    	}
-    	return isComparison;
-    }
-    
     public ArrayList<Property> getProperties(EObject self) {
     	Comparison comparison = null;
     	OperatorList operatorList = null;
@@ -856,6 +851,14 @@ public class Services {
     		for(Element element:elements) {
     			properties.addAll(element.getProperties());
     		}
+    	}
+    	Comparable argument1 = comparison.getArgument1();
+    	Comparable argument2 = comparison.getArgument2();
+    	if(argument1 instanceof Property) {
+    		properties.remove(argument1);
+    	}
+    	if(argument2 instanceof Property) {
+    		properties.remove(argument2);
     	}
     	return properties;
     }
@@ -886,6 +889,8 @@ public class Services {
     	if(argument instanceof Property) {
     		Property property = (Property) argument;
     		element = property.getElement();
+    	}else if (argument instanceof Element) {
+    		element = (Element) argument;
     	}
 		return element;
     }
@@ -1262,7 +1267,7 @@ public class Services {
     		//löschen aus der parameterliste implementieren
     	}else if(self instanceof Comparison) {
     		Comparison comparison = (Comparison) self;
-    		Comparable argument2 = comparison.getArgument2();
+    		//Comparable argument2 = comparison.getArgument2();
     		comparison.setArgument2(null);
     		/*System.out.println("öööööö"+argument2);
 			if(argument2.getComparison2().size() == 0) {
@@ -1360,11 +1365,11 @@ public class Services {
     			comparison.setArgument1(null);
     		}else {
     			comparison.setArgument2(null);
-    			Comparable argument2 = (Comparable) element;
+    			/*Comparable argument2 = (Comparable) element;
     			if(argument2.getComparison2().size() == 0) {
     				ParameterList parameterlist = argument2.getParameterList();
     				parameterlist.getParameters().remove(argument2);
-    			}
+    			}*/
     		}
     		
     	}
@@ -1421,11 +1426,18 @@ public class Services {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    	Comparable argument1 = comparison.getArgument1();
+    	Comparable argument2 = comparison.getArgument2();
+    	if(argument1 instanceof Element) {
+    		elements.remove(argument1);
+    	}
+    	if(argument2 instanceof Element) {
+    		elements.remove(argument2);
+    	}
     	return elements;
     }
     
-    public void setElementToComparison(EObject self, EObject element) {//setzt elemente als argumente von comparison
-    	System.out.println("zzzzzzzzzzzzzzzz"+self);
+    public void setElementToComparison(EObject self, EObject element) {//setzt elemente als argumente von comparisonSystem.out.println("zzzzzzzzzzzzzzzz"+self);
     	Comparison comparison = (Comparison) self;
     	Comparable comparable = (Comparable) element;
     	if(comparison.getArgument1() == null) {
@@ -1434,4 +1446,21 @@ public class Services {
     		comparison.setArgument2(comparable);
     	}
     }
+    
+    public boolean selectElementPrecondition(EObject self) {//kann auch für selectproperty verwendet werden
+    	boolean open = false;
+    	if(self instanceof Comparison) {
+    		Comparison comparison = (Comparison) self;
+        	Comparable argument1 = comparison.getArgument1();
+        	Comparable argument2 = comparison.getArgument2();
+        	if(argument1 == null) {
+        		open = true;
+        	}else if (argument2 == null) {
+        		open = true;
+        	}
+    	}
+    	return open;
+    }
+    
+    
 }
