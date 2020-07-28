@@ -90,6 +90,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/RelationOptionParam/value"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/RelationOptionParam/relations"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/RelationOptionParam/generateSuggestions"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Operators" basePackage="qualitypatternmodel" disposableProviderFactory="true"
@@ -637,6 +638,7 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkPrecedingInSchema/elementName1"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkPrecedingInSchema/elementName2"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/initSchemaDatabase"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/LocalXmlDatabase">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/LocalXmlDatabase/dataPath"/>

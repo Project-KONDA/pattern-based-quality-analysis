@@ -2,11 +2,15 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
+import org.basex.core.BaseXException;
+import org.basex.query.QueryException;
+import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -20,14 +24,22 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.execution.Database;
+import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.RelationOptionParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Axis
@@ -91,8 +103,15 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 		super();
 		getOptions().add(RelationKind.CHILD);
 		getOptions().add(RelationKind.DESCENDANT);
-//		getOptions().add(Axis.PARENT);
-//		getOptions().add(Axis.ANCESTOR);
+		getOptions().add(RelationKind.PARENT);
+		getOptions().add(RelationKind.ANCESTOR);		
+		getOptions().add(RelationKind.FOLLOWING);
+		getOptions().add(RelationKind.FOLLOWING_SIBLING);
+		getOptions().add(RelationKind.PRECEDING);
+		getOptions().add(RelationKind.PRECEDING_SIBLING);		
+		getOptions().add(RelationKind.ANCESTOR_OR_SELF);
+		getOptions().add(RelationKind.DESCENDANT_OR_SELF);
+		getOptions().add(RelationKind.SELF);
 	}
 
 	@Override
@@ -183,6 +202,102 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 			relations = new EObjectWithInverseResolvingEList<XmlNavigation>(XmlNavigation.class, this, ParametersPackage.RELATION_OPTION_PARAM__RELATIONS, AdaptionxmlPackage.XML_NAVIGATION__OPTION);
 		}
 		return relations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<RelationKind> generateSuggestions() {
+		EList<RelationKind> suggestions = new BasicEList<RelationKind>();		
+		for(XmlNavigation xmlNavigation : getRelations()) {
+			String sourceTag = getTag(xmlNavigation.getSource());	
+			String targetTag = getTag(xmlNavigation.getTarget());
+			if(sourceTag != null && targetTag != null) {
+				try {
+					Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
+					if(db instanceof XmlDatabase) {
+						XmlDatabase xmlDatabase = (XmlDatabase) db;
+						
+						try {
+							
+							if(xmlDatabase.checkChildInSchema(sourceTag, targetTag)) {
+								suggestions.add(RelationKind.CHILD);
+								suggestions.add(RelationKind.DESCENDANT);
+							} else if(xmlDatabase.checkDescendantInSchema(sourceTag, targetTag)) {
+								suggestions.add(RelationKind.DESCENDANT);
+							}
+							
+							if(xmlDatabase.checkParentInSchema(sourceTag, targetTag)) {
+								suggestions.add(RelationKind.PARENT);
+								suggestions.add(RelationKind.ANCESTOR);
+							} else if(xmlDatabase.checkAncestorInSchema(sourceTag, targetTag)) {
+								suggestions.add(RelationKind.ANCESTOR);
+							}
+							
+							if(xmlDatabase.checkFollowingSiblingInSchema(sourceTag, targetTag)) {
+								suggestions.add(RelationKind.FOLLOWING_SIBLING);
+								suggestions.add(RelationKind.FOLLOWING);
+							} else if(xmlDatabase.checkFollowingInSchema(sourceTag, targetTag)) {
+								suggestions.add(RelationKind.FOLLOWING);
+							}
+							
+							// TODO:
+//							if(xmlDatabase.checkPrecedingSiblingInSchema(sourceTag, targetTag)) {
+//								suggestions.add(RelationKind.PRECEDING_SIBLING);
+//								suggestions.add(RelationKind.PRECEDING);
+//							} else if(xmlDatabase.checkPrecedingInSchema(sourceTag, targetTag)) {
+//								suggestions.add(RelationKind.PRECEDING);
+//							}
+							
+							suggestions.add(RelationKind.SELF);
+							suggestions.add(RelationKind.DESCENDANT_OR_SELF);
+							suggestions.add(RelationKind.ANCESTOR_OR_SELF);
+														
+						} catch (BaseXException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (QueryIOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (QueryException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}						
+					}
+				} catch (MissingPatternContainerException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+			}
+		}		
+		return suggestions;
+	}
+
+	private String getTag(Element element) {
+		if(element instanceof XmlElement) {
+			XmlElement xmlElement = (XmlElement) element;
+			if(xmlElement.getTagComparisons().size() == 1) {
+				Comparison tagComparison = xmlElement.getTagComparisons().get(0);
+				if(tagComparison.getArgument1() instanceof TextLiteralParam) {
+					TextLiteralParam text = (TextLiteralParam) tagComparison.getArgument1();
+					if(text != null && text.getValue() != null && !text.getValue().equals("")) {
+						return text.getValue();
+					}
+				}
+				if(tagComparison.getArgument2() instanceof TextLiteralParam) {
+					TextLiteralParam text = (TextLiteralParam) tagComparison.getArgument2();
+					if(text != null && text.getValue() != null && !text.getValue().equals("")) {
+						return text.getValue();
+					}
+				}
+			}				
+		}
+		return null;
 	}
 
 	/**
@@ -287,6 +402,20 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 				return relations != null && !relations.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ParametersPackage.RELATION_OPTION_PARAM___GENERATE_SUGGESTIONS:
+				return generateSuggestions();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
