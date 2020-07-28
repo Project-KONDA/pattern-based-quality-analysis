@@ -250,84 +250,171 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	@Override
 	public EList<String> generateSuggestions() {
 		EList<String> suggestions = new BasicEList<String>();
-		for(XmlElement element : getTagComparisonElements()) {
-			for(Relation incomingRelation : element.getIncoming()) {
-				if(incomingRelation instanceof XmlNavigation) {
-					XmlNavigation incomingNavigation = (XmlNavigation) incomingRelation;					
-					if(incomingNavigation.getOption() != null && incomingNavigation.getSource() instanceof XmlElement) {
-						XmlElement source = (XmlElement) incomingNavigation.getSource();
-						for(Comparison tagComparison : source.getTagComparisons()) {
-							if(tagComparison.getArgument1() instanceof TextLiteralParam){
-								TextLiteralParam text = (TextLiteralParam) tagComparison.getArgument1();
-								if(text.getValue() != null) {
-									String tag = text.getValue();
-									
-									Database db;
-									try {
-										db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-										if(db instanceof XmlDatabase) {
-											XmlDatabase xmlDatabase = (XmlDatabase) db;
-											
-											
-											if(incomingNavigation.getOption().getValue() == RelationKind.CHILD) {
-												suggestions.addAll(xmlDatabase.getChildrenInSchema(tag));
-											}
-											if(incomingNavigation.getOption().getValue() == RelationKind.DESCENDANT) {
-												suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
-											}
-											
-											if(incomingNavigation.getOption().getValue() == RelationKind.PARENT) {
-												suggestions.addAll(xmlDatabase.getParentInSchema(tag));
-											}
-											if(incomingNavigation.getOption().getValue() == RelationKind.ANCESTOR) {
-												suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
-											}
-											
-											if(incomingNavigation.getOption().getValue() == RelationKind.FOLLOWING_SIBLING) {
-												suggestions.addAll(xmlDatabase.getFollowingSiblingsInSchema(tag));
-											}
-											if(incomingNavigation.getOption().getValue() == RelationKind.FOLLOWING) {
-												suggestions.addAll(xmlDatabase.getFollowingInSchema(tag));
-											}
-											
-											if(incomingNavigation.getOption().getValue() == RelationKind.PRECEDING) {
-												suggestions.addAll(xmlDatabase.getPrecedingInSchema(tag));
-											}
-											if(incomingNavigation.getOption().getValue() == RelationKind.PRECEDING_SIBLING) {
-												suggestions.addAll(xmlDatabase.getPrecedingSiblingsInSchema(tag));
-											}
-											
-											if(incomingNavigation.getOption().getValue() == RelationKind.SELF) {
-												suggestions.add(tag);
-											}
-											
-											if(incomingNavigation.getOption().getValue() == RelationKind.DESCENDANT_OR_SELF) {
-												suggestions.add(tag);
-												suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
-											}
-											
-											if(incomingNavigation.getOption().getValue() == RelationKind.ANCESTOR_OR_SELF) {
-												suggestions.add(tag);
-												suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
-											}																						
-										}
-									} catch (MissingPatternContainerException | BaseXException | QueryIOException | QueryException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									
-									
-									
-								}
-								
-							}
-						}
-					}
-					
-				}
-			}
+		for(XmlElement element : getTagComparisonElements()) {			
+			analyseIncomingRelations(suggestions, element);			
+			analyseOutgoingRelations(suggestions, element);			
 		}
 		return suggestions;
+	}
+	
+	private void analyseOutgoingRelations(EList<String> suggestions, XmlElement element) {
+		for(Relation outgoingRelation : element.getOutgoing()) {
+			if(outgoingRelation instanceof XmlNavigation) {
+				XmlNavigation outgoingNavigation = (XmlNavigation) outgoingRelation;					
+				if(outgoingNavigation.getOption() != null && outgoingNavigation.getTarget() instanceof XmlElement) {
+					XmlElement target = (XmlElement) outgoingNavigation.getTarget();
+					for(Comparison tagComparison : target.getTagComparisons()) {
+						TextLiteralParam text = null;
+						if(tagComparison.getArgument1() instanceof TextLiteralParam){
+							text = (TextLiteralParam) tagComparison.getArgument1();								
+						}
+						if(tagComparison.getArgument2() instanceof TextLiteralParam){
+							text = (TextLiteralParam) tagComparison.getArgument2();								
+						}
+						if(text != null && text.getValue() != null && !text.getValue().equals("")) {
+							String tag = text.getValue();										
+							Database db;
+							try {
+								db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
+								if (db instanceof XmlDatabase) {
+									XmlDatabase xmlDatabase = (XmlDatabase) db;
+
+									if (outgoingNavigation.getOption().getValue() == RelationKind.CHILD) {
+										suggestions.addAll(xmlDatabase.getParentInSchema(tag));
+									}
+									if (outgoingNavigation.getOption().getValue() == RelationKind.DESCENDANT) {
+										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
+									}
+
+									if (outgoingNavigation.getOption().getValue() == RelationKind.PARENT) {
+										suggestions.addAll(xmlDatabase.getChildrenInSchema(tag));
+									}
+									if (outgoingNavigation.getOption().getValue() == RelationKind.ANCESTOR) {
+										suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
+									}
+
+									if (outgoingNavigation.getOption()
+											.getValue() == RelationKind.FOLLOWING_SIBLING) {
+										suggestions.addAll(xmlDatabase.getPrecedingSiblingsInSchema(tag));
+									}
+									if (outgoingNavigation.getOption().getValue() == RelationKind.FOLLOWING) {
+										// TODO
+									}
+
+									if (outgoingNavigation.getOption().getValue() == RelationKind.PRECEDING) {
+										// TODO
+									}
+									if (outgoingNavigation.getOption()
+											.getValue() == RelationKind.PRECEDING_SIBLING) {
+										suggestions.addAll(xmlDatabase.getFollowingSiblingsInSchema(tag));
+									}
+
+									if (outgoingNavigation.getOption().getValue() == RelationKind.SELF) {
+										suggestions.add(tag);
+									}
+
+									if (outgoingNavigation.getOption()
+											.getValue() == RelationKind.DESCENDANT_OR_SELF) {
+										suggestions.add(tag);
+										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
+									}
+
+									if (outgoingNavigation.getOption()
+											.getValue() == RelationKind.ANCESTOR_OR_SELF) {
+										suggestions.add(tag);
+										suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
+									}
+								}
+							} catch (MissingPatternContainerException | BaseXException | QueryIOException
+									| QueryException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}								
+						}
+					}
+				}					
+			}
+		}
+	}
+
+	private void analyseIncomingRelations(EList<String> suggestions, XmlElement element) {
+		for(Relation incomingRelation : element.getIncoming()) {
+			if(incomingRelation instanceof XmlNavigation) {
+				XmlNavigation incomingNavigation = (XmlNavigation) incomingRelation;					
+				if(incomingNavigation.getOption() != null && incomingNavigation.getSource() instanceof XmlElement) {
+					XmlElement source = (XmlElement) incomingNavigation.getSource();
+					for(Comparison tagComparison : source.getTagComparisons()) {
+						TextLiteralParam text = null;
+						if(tagComparison.getArgument1() instanceof TextLiteralParam){
+							text = (TextLiteralParam) tagComparison.getArgument1();								
+						}
+						if(tagComparison.getArgument2() instanceof TextLiteralParam){
+							text = (TextLiteralParam) tagComparison.getArgument2();								
+						}
+						if(text != null && text.getValue() != null && !text.getValue().equals("")) {
+							String tag = text.getValue();										
+							Database db;
+							try {
+								db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
+								if (db instanceof XmlDatabase) {
+									XmlDatabase xmlDatabase = (XmlDatabase) db;
+
+									if (incomingNavigation.getOption().getValue() == RelationKind.CHILD) {
+										suggestions.addAll(xmlDatabase.getChildrenInSchema(tag));
+									}
+									if (incomingNavigation.getOption().getValue() == RelationKind.DESCENDANT) {
+										suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
+									}
+
+									if (incomingNavigation.getOption().getValue() == RelationKind.PARENT) {
+										suggestions.addAll(xmlDatabase.getParentInSchema(tag));
+									}
+									if (incomingNavigation.getOption().getValue() == RelationKind.ANCESTOR) {
+										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
+									}
+
+									if (incomingNavigation.getOption()
+											.getValue() == RelationKind.FOLLOWING_SIBLING) {
+										suggestions.addAll(xmlDatabase.getFollowingSiblingsInSchema(tag));
+									}
+									if (incomingNavigation.getOption().getValue() == RelationKind.FOLLOWING) {
+										suggestions.addAll(xmlDatabase.getFollowingInSchema(tag));
+									}
+
+									if (incomingNavigation.getOption().getValue() == RelationKind.PRECEDING) {
+										suggestions.addAll(xmlDatabase.getPrecedingInSchema(tag));
+									}
+									if (incomingNavigation.getOption()
+											.getValue() == RelationKind.PRECEDING_SIBLING) {
+										suggestions.addAll(xmlDatabase.getPrecedingSiblingsInSchema(tag));
+									}
+
+									if (incomingNavigation.getOption().getValue() == RelationKind.SELF) {
+										suggestions.add(tag);
+									}
+
+									if (incomingNavigation.getOption()
+											.getValue() == RelationKind.DESCENDANT_OR_SELF) {
+										suggestions.add(tag);
+										suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
+									}
+
+									if (incomingNavigation.getOption()
+											.getValue() == RelationKind.ANCESTOR_OR_SELF) {
+										suggestions.add(tag);
+										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
+									}
+								}
+							} catch (MissingPatternContainerException | BaseXException | QueryIOException
+									| QueryException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}								
+						}
+					}
+				}					
+			}
+		}
 	}
 
 	/**
