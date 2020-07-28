@@ -2300,13 +2300,22 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Get Tag Comparison Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___GET_TAG_COMPARISON_ELEMENTS = PARAMETER_VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Text Literal Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int TEXT_LITERAL_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.NumberParamImpl <em>Number Param</em>}' class.
@@ -4436,6 +4445,16 @@ public interface ParametersPackage extends EPackage {
 	EReference getTextLiteralParam_Properties();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextLiteralParam#getTagComparisonElements() <em>Get Tag Comparison Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Tag Comparison Elements</em>' operation.
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getTagComparisonElements()
+	 * @generated
+	 */
+	EOperation getTextLiteralParam__GetTagComparisonElements();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.NumberParam <em>Number Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4913,6 +4932,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TEXT_LITERAL_PARAM__PROPERTIES = eINSTANCE.getTextLiteralParam_Properties();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Tag Comparison Elements</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TEXT_LITERAL_PARAM___GET_TAG_COMPARISON_ELEMENTS = eINSTANCE.getTextLiteralParam__GetTagComparisonElements();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.NumberParamImpl <em>Number Param</em>}' class.

@@ -2,10 +2,12 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
@@ -15,9 +17,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -193,6 +200,40 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<XmlElement> getTagComparisonElements() {
+		EList<XmlElement> tagComparisonElements = new BasicEList<XmlElement>();
+		EList<Comparison> comparisons = new BasicEList<Comparison>();
+		comparisons.addAll(getComparison1());
+		comparisons.addAll(getComparison2());
+		for(Comparison comparison : comparisons) {
+			if(comparison.getOption() != null && comparison.getOption().getValue() == ComparisonOperator.EQUAL && comparison.isPrimitive()) {
+				boolean isTagProperty = false;
+				if(comparison.getArgument1() instanceof XmlProperty) {
+					XmlProperty property = (XmlProperty) comparison.getArgument1();
+					if(property.getOption().getValue() == PropertyKind.TAG) {
+						isTagProperty = true;
+					}
+				}
+				if(comparison.getArgument2() instanceof XmlProperty) {
+					XmlProperty property = (XmlProperty) comparison.getArgument2();
+					if(property.getOption().getValue() == PropertyKind.TAG) {
+						isTagProperty = true;
+					}
+				}
+				if(isTagProperty && comparison.getElements().size() == 1 && comparison.getElements().get(0) instanceof XmlElement) {
+					tagComparisonElements.add((XmlElement) comparison.getElements().get(0));
+				}
+			}
+		}
+		return tagComparisonElements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -302,6 +343,20 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return properties != null && !properties.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ParametersPackage.TEXT_LITERAL_PARAM___GET_TAG_COMPARISON_ELEMENTS:
+				return getTagComparisonElements();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
