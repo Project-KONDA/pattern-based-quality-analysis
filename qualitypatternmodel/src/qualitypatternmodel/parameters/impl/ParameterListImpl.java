@@ -203,8 +203,21 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	 */
 	@Override
 	public void add(Parameter parameter) {
-		if (!getParameters().contains(parameter))
+		if (parameter != null && !getParameters().contains(parameter)) {
 			getParameters().add(parameter);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void remove(Parameter parameter) {
+		if(parameter != null && !parameter.isUsed()) {
+			getParameters().remove(parameter);
+		}
 	}
 
 	/**
@@ -328,6 +341,9 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 		switch (operationID) {
 			case ParametersPackage.PARAMETER_LIST___ADD__PARAMETER:
 				add((Parameter)arguments.get(0));
+				return null;
+			case ParametersPackage.PARAMETER_LIST___REMOVE__PARAMETER:
+				remove((Parameter)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

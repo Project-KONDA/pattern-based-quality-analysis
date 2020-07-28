@@ -114,6 +114,11 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		return ReturnType.STRING;
 	}
 	
+	@Override
+	public boolean isUsed() {		
+		return super.isUsed() || !getMatches().isEmpty() || !getProperties().isEmpty();
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

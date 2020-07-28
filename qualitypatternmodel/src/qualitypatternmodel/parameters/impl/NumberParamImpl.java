@@ -88,6 +88,11 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	public boolean inputIsValid() {
 		return getValue() != null;
 	}
+	
+	@Override
+	public boolean isUsed() {		
+		return super.isUsed() || getNumberArgument() != null;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

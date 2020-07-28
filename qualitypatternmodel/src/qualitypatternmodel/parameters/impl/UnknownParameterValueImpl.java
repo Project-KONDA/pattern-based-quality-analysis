@@ -70,6 +70,11 @@ public class UnknownParameterValueImpl extends ParameterImpl implements UnknownP
 		return ReturnType.UNSPECIFIED;
 	}
 	
+	@Override
+	public boolean isUsed() {
+		return !getComparison1().isEmpty() || !getComparison2().isEmpty();
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

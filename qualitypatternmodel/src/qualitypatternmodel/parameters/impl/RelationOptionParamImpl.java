@@ -114,6 +114,11 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	public boolean inputIsValid() {
 		return getValue() != null && options.contains(getValue());
 	}
+	
+	@Override
+	public boolean isUsed() {
+		return !getRelations().isEmpty();
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

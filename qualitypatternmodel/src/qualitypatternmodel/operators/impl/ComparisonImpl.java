@@ -376,6 +376,24 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 
 		adaptOperatorElementAssociation(newArgument1, oldArgument1);
+		
+		
+		try {
+			CompletePattern completePattern;
+			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+			ParameterList varlist = completePattern.getParameterList();			
+			if(oldArgument1 instanceof Parameter) {
+				Parameter oldParameter = (Parameter) oldArgument1;					
+				varlist.remove(oldParameter);				
+			}				
+			if(newArgument1 instanceof Parameter) {
+				Parameter newParameter = (Parameter) newArgument1;
+				varlist.add(newParameter);				
+			}
+		} catch (MissingPatternContainerException e) {
+			// do nothing
+		}	
+		
 
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
@@ -550,12 +568,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
-			if (oldOption != null && oldOption.getComparisons().size() == 0) {
-				varlist.getParameters().remove(oldOption);
-			}
-			if (newOption != null) {
-				varlist.add(newOption);
-			}
+			varlist.remove(oldOption);
+			varlist.add(newOption);
 		} catch (MissingPatternContainerException e) {
 			// do nothing
 		}
@@ -757,6 +771,22 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 
 		adaptOperatorElementAssociation(newArgument2, oldArgument2);
+		
+		try {
+			CompletePattern completePattern;
+			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+			ParameterList varlist = completePattern.getParameterList();			
+			if(oldArgument2 instanceof Parameter) {
+				Parameter oldParameter = (Parameter) oldArgument2;					
+				varlist.remove(oldParameter);				
+			}				
+			if(newArgument2 instanceof Parameter) {
+				Parameter newParameter = (Parameter) newArgument2;
+				varlist.add(newParameter);				
+			}
+		} catch (MissingPatternContainerException e) {
+			// do nothing
+		}	
 
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,

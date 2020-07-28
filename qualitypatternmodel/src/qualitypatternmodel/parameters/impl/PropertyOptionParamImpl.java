@@ -115,6 +115,11 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	public boolean inputIsValid() {
 		return getValue() != null && getOptions().contains(getValue());
 	}
+	
+	@Override
+	public boolean isUsed() {
+		return !getProperties().isEmpty();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

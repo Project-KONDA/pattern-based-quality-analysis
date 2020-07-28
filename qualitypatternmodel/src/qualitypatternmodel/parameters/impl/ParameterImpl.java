@@ -231,6 +231,18 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	public abstract void generateDescription();
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isUsed() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -359,6 +371,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION:
 				generateDescription();
 				return null;
+			case ParametersPackage.PARAMETER___IS_USED:
+				return isUsed();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

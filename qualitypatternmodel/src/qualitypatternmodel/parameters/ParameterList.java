@@ -71,6 +71,14 @@ public interface ParameterList extends PatternElement {
 	 * @model
 	 * @generated
 	 */
-	void add(Parameter Input);
+	void add(Parameter parameter);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void remove(Parameter parameter);
 
 } // ParameterList

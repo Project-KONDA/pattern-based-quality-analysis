@@ -129,6 +129,11 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	public boolean inputIsValid() {
 		return getValue() != null && options.contains(getValue());
 	}
+	
+	@Override
+	public boolean isUsed() {
+		return !getComparisons().isEmpty() || !getCountConditions().isEmpty();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -428,12 +428,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
-			if(oldOption != null && oldOption.getCountConditions().size() == 0) {				
-				varlist.getParameters().remove(oldOption);
-			}
-			if(newOption != null) {
-				varlist.add(newOption);
-			}
+			varlist.remove(oldOption);			
+			varlist.add(newOption);			
 		} catch (MissingPatternContainerException e) {
 			// do nothing
 		}	

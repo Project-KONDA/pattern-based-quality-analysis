@@ -305,6 +305,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getParameter__IsUsed() {
+		return parameterEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getParameter__GenerateDescription() {
 		return parameterEClass.getEOperations().get(1);
 	}
@@ -437,6 +447,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	@Override
 	public EOperation getParameterList__Add__Parameter() {
 		return parameterListEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterList__Remove__Parameter() {
+		return parameterListEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -755,6 +775,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(parameterEClass, PARAMETER___INPUT_IS_VALID);
 		createEOperation(parameterEClass, PARAMETER___GENERATE_DESCRIPTION);
 		createEOperation(parameterEClass, PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP);
+		createEOperation(parameterEClass, PARAMETER___IS_USED);
 
 		comparisonOptionParamEClass = createEClass(COMPARISON_OPTION_PARAM);
 		createEAttribute(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__OPTIONS);
@@ -771,6 +792,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEReference(parameterListEClass, PARAMETER_LIST__PARAMETERS);
 		createEReference(parameterListEClass, PARAMETER_LIST__PATTERN);
 		createEOperation(parameterListEClass, PARAMETER_LIST___ADD__PARAMETER);
+		createEOperation(parameterListEClass, PARAMETER_LIST___REMOVE__PARAMETER);
 
 		booleanParamEClass = createEClass(BOOLEAN_PARAM);
 		createEAttribute(booleanParamEClass, BOOLEAN_PARAM__VALUE);
@@ -881,6 +903,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getParameter__IsUsed(), ecorePackage.getEBoolean(), "isUsed", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(comparisonOptionParamEClass, ComparisonOptionParam.class, "ComparisonOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComparisonOptionParam_Options(), theOperatorsPackage.getComparisonOperator(), "options", null, 0, -1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComparisonOptionParam_Value(), theOperatorsPackage.getComparisonOperator(), "value", null, 1, 1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -897,7 +921,10 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEReference(getParameterList_Pattern(), thePatternstructurePackage.getCompletePattern(), thePatternstructurePackage.getCompletePattern_ParameterList(), "pattern", null, 1, 1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getParameterList__Add__Parameter(), null, "add", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getParameter(), "Input", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getParameter(), "parameter", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getParameterList__Remove__Parameter(), null, "remove", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getParameter(), "parameter", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(booleanParamEClass, BooleanParam.class, "BooleanParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBooleanParam_Value(), ecorePackage.getEBooleanObject(), "value", "true", 1, 1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

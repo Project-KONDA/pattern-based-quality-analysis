@@ -97,7 +97,10 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 		return (getValue() instanceof Boolean);
 	}
 	
-
+	@Override
+	public boolean isUsed() {		
+		return super.isUsed() || !getMatches().isEmpty();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
