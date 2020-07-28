@@ -20,6 +20,7 @@ import org.basex.query.iter.Iter;
 import org.basex.query.value.item.Item;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.common.util.EMap;
@@ -486,11 +487,16 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 */
 	@Override
 	public boolean checkChildInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
+		return checkAxis(elementName1, elementName2, "queries/CheckChild.xq", "checkChild");		
+	}
+
+	private boolean checkAxis(String elementName1, String elementName2, String path, String methodName)
+			throws BaseXException, QueryException, QueryIOException {
 		openSchemaDatabase();
 		
-		String checkChild;
+		String checkQuery;
 		try {
-			checkChild = readFile("queries/CheckChild.xq",StandardCharsets.US_ASCII);
+			checkQuery = readFile(path, StandardCharsets.US_ASCII);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -499,9 +505,9 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		}
 		
 		String call = "\nfor $root in /xs:schema\r\n" + 
-				"return local:checkChild($root, \""+elementName1.replace(getNamespace(), "")+"\", \""+elementName2.replace(getNamespace(), "")+"\", \""+getNamespace()+"\")";
+				"return local:"+methodName+"($root, \""+elementName1.replace(getNamespace(), "")+"\", \""+elementName2.replace(getNamespace(), "")+"\", \""+getNamespace()+"\")";
 		
-		String query = checkChild + call;
+		String query = checkQuery + call;
 		
 		List<String> queryResult = executeQuery(query, schemaContext);
 		if(queryResult.size() == 1) {			
@@ -513,7 +519,6 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		// TODO: else throw exception ?
 		
 		return true;
-		
 	}
 
 	/**
@@ -538,35 +543,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 * @generated NOT
 	 */
 	@Override
-	public boolean checkDescendantInSchema(String elementName1, String elementName2) throws QueryException, BaseXException, QueryIOException {
-		
-		openSchemaDatabase();	
-		
-		String checkDescendant; 
-		
-		try {
-			checkDescendant = readFile("queries/CheckDescendant.xq",StandardCharsets.US_ASCII);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-			return true;
-		}
-		
-		String call = "\nfor $root in /xs:schema\r\n" + 
-				"return local:checkDescendant($root, \""+elementName1.replace(getNamespace(), "")+"\", \""+elementName2.replace(getNamespace(), "")+"\", \""+getNamespace()+"\")";
-			
-		String query = checkDescendant + call;
-		List<String> queryResult = executeQuery(query, schemaContext);
-		if(queryResult.size() == 1) {			
-			if(queryResult.get(0).equals("false")) {
-				return false;
-			}
-		}
-		
-		// TODO: else throw exception ?
-		
-		return true;
+	public boolean checkDescendantInSchema(String elementName1, String elementName2) throws QueryException, BaseXException, QueryIOException {		
+		return checkAxis(elementName1, elementName2, "queries/CheckDescendant.xq", "checkDescendant");			
 	}
 
 	/**
@@ -592,35 +570,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 */
 	@Override
 	public boolean checkAttributeInSchema(String elementName, String attributeName) throws QueryException, QueryIOException, BaseXException {
-		
-		openSchemaDatabase();		
-		
-		String checkAttribute; 
-		
-		try {
-			checkAttribute = readFile("queries/CheckAttribute.xq",StandardCharsets.US_ASCII);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-			return true;
-		}
-		
-		String call = "\nfor $root in /xs:schema\r\n" + 
-				"return local:checkAttribute($root, \""+elementName.replace(getNamespace(), "")+"\", \""+attributeName.replace(getNamespace(), "")+"\", \""+getNamespace()+"\")";
-		
-		String query = checkAttribute + call;
-		List<String> queryResult = executeQuery(query, schemaContext);
-		if(queryResult.size() == 1) {			
-			if(queryResult.get(0).equals("false")) {
-				return false;
-			}
-		}
-		
-		// TODO: else throw exception ?
-		
-		return true;
-		
+		return checkAxis(elementName, attributeName, "queries/CheckAttribute.xq", "checkAttribute");		
 	}
 
 	private List<String> executeQuery(String query, Context context) throws QueryException, QueryIOException {
@@ -665,34 +615,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 */
 	@Override
 	public boolean checkFollowingSiblingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
-		openSchemaDatabase();
-
-		String checkFollowingSibling; 
-		
-		try {
-			checkFollowingSibling = readFile("queries/CheckFollowingSibling.xq",StandardCharsets.US_ASCII);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-			return true;
-		}
-		
-		String call = "\nfor $root in /xs:schema\r\n" + 
-				"return local:checkFollowingSibling($root, \""+elementName1.replace(getNamespace(), "")+"\", \""+elementName2.replace(getNamespace(), "")+"\", \""+getNamespace()+"\")";
-		
-		String query = checkFollowingSibling + call;
-		
-		List<String> queryResult = executeQuery(query, schemaContext);
-		if(queryResult.size() == 1) {			
-			if(queryResult.get(0).equals("false")) {
-				return false;
-			}
-		}
-		
-		// TODO: else throw exception ?
-		
-		return true;
+		return checkAxis(elementName1, elementName2, "queries/CheckFollowingSibling.xq", "checkFollowingSibling");		
 	}
 
 	/**
@@ -712,36 +635,10 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 */
 	@Override
 	public boolean checkFollowingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
-		openSchemaDatabase();
-
-		String checkFollowing; 
-		
-		try {
-			checkFollowing = readFile("queries/CheckFollowing.xq",StandardCharsets.US_ASCII);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-			return true;
-		}
-		
-		String call = "\nfor $root in /xs:schema\r\n" + 
-				"return local:checkFollowing($root, \""+elementName1.replace(getNamespace(), "")+"\", \""+elementName2.replace(getNamespace(), "")+"\", \""+getNamespace()+"\")";
-		
-		String query = checkFollowing+ call;
-		
-		List<String> queryResult = executeQuery(query, schemaContext);
-		if(queryResult.size() == 1) {			
-			if(queryResult.get(0).equals("false")) {
-				return false;
-			}
-		}
-		
-		// TODO: else throw exception ?
-		
-		return true;
+		return checkAxis(elementName1, elementName2, "queries/CheckFollowing.xq", "checkFollowing");			
 	}
-
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -765,29 +662,64 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
+	
+	private String distinctNamesQuery (String methodName, String elementName) {
+		return "distinct-values(\r\n" + 
+				"  let $elements := (\r\n" + 
+				"    for $root in /xs:schema\r\n" + 
+				"    return local:"+methodName+"($root, \""+elementName.replace(getNamespace(), "")+"\", \""+getNamespace()+"\"))\r\n" + 
+				"  for $element in $elements\r\n" + 
+				"  return\r\n" + 
+				"    if(exists($element/@name)) then $element/@name/data()\r\n" + 
+				"    else $element/@ref/data()\r\n" + 
+				")";
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public EList<String> getChildrenInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getElementNames(elementName, "queries/GetChildren.xq", "getChildren");
+	}
+
+	private EList<String> getElementNames(String elementName, String path, String methodName) throws BaseXException, QueryException, QueryIOException {
+		openSchemaDatabase();
+
+		String checkQuery; 
+		
+		try {
+			checkQuery = readFile(path, StandardCharsets.US_ASCII);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();		
+			
+			return new BasicEList<String>();
+		}
+		
+		String call = distinctNamesQuery(methodName, elementName);
+		
+		String query = checkQuery + call;
+		
+		List<String> queryResult = executeQuery(query, schemaContext);
+		
+		EList<String> result = new BasicEList<String>();
+		result.addAll(queryResult);	
+		
+		return result;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public EList<String> getDescendantsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getElementNames(elementName, "queries/GetDescendants.xq", "getDescendants");
 	}
 
 	/**
