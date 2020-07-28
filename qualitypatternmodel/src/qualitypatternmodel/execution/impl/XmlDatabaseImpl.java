@@ -664,13 +664,14 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	}
 	
 	private String distinctNamesQuery (String methodName, String elementName) {
-		return "distinct-values(\r\n" + 
+		return "distinct-values(\r\n" +
+				"  let $ns := \""+getNamespace()+"\"" + 
 				"  let $elements := (\r\n" + 
 				"    for $root in /xs:schema\r\n" + 
-				"    return local:"+methodName+"($root, \""+elementName.replace(getNamespace(), "")+"\", \""+getNamespace()+"\"))\r\n" + 
+				"    return local:"+methodName+"($root, \""+elementName.replace(getNamespace(), "")+"\", $ns))\r\n" + 
 				"  for $element in $elements\r\n" + 
 				"  return\r\n" + 
-				"    if(exists($element/@name)) then $element/@name/data()\r\n" + 
+				"    if(exists($element/@name)) then $ns || $element/@name/data()\r\n" + 
 				"    else $element/@ref/data()\r\n" + 
 				")";
 	}
