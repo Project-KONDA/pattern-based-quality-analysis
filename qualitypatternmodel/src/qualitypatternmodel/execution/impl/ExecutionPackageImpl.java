@@ -737,6 +737,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getXmlDatabase__InitSchemaDatabase() {
+		return xmlDatabaseEClass.getEOperations().get(24);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getLocalXmlDatabase() {
 		return localXmlDatabaseEClass;
 	}
@@ -954,6 +964,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___CHECK_PRECEDING_SIBLING_IN_SCHEMA__STRING_STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___CHECK_FOLLOWING_IN_SCHEMA__STRING_STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___INIT_SCHEMA_DATABASE);
 
 		localXmlDatabaseEClass = createEClass(LOCAL_XML_DATABASE);
 		createEAttribute(localXmlDatabaseEClass, LOCAL_XML_DATABASE__DATA_PATH);
@@ -1179,6 +1190,11 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		op = initEOperation(getXmlDatabase__CheckPrecedingInSchema__String_String(), ecorePackage.getEBoolean(), "checkPrecedingInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName1", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName2", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getBaseXExceptionWrapper());
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
+
+		op = initEOperation(getXmlDatabase__InitSchemaDatabase(), null, "initSchemaDatabase", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
