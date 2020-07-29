@@ -149,3 +149,126 @@ as element()*
    for $result in (($children, $nonChildren))
    return $result             
 };
+
+
+
+declare function local:getFollowingInGroup($r as element(), $group as element(), $namespace as xs:string)
+as element()*
+{
+    let $element :=
+    (for $element in $group/xs:element
+      return if(exists($element/@name)) then local:getDescendants($r, $element/@name, $namespace)
+      else if (exists($element/@ref)) then local:getDescendants($r, substring-after($element/@ref, $namespace), $namespace))     
+     
+     let $group :=
+     (for $groupRef in $group/xs:group
+      for $group in $r//xs:group[substring-after($groupRef/@ref, $namespace) = @name]
+      return local:getFollowingInGroup($r, $group, $namespace))   
+      
+     for $result in (($element, $group))
+     return $result
+};
+
+declare function local:getFollowingOfElementOrGroup($r as element(), $e1 as element(), $namespace as xs:string)
+as element()*
+{
+  let $sequence := (
+  if (exists($e1/parent::xs:sequence))
+  then     
+    ((for $followingSibling in $e1/following-sibling::xs:element
+      return 
+      if (exists($followingSibling/@name)) then ($followingSibling, local:getDescendants($r, $followingSibling/@name, $namespace))
+      else if (exists($followingSibling/@ref)) then ($followingSibling, local:getDescendants($r, substring-after($followingSibling/@ref, $namespace), $namespace)))     
+     ,
+     (for $followingSiblingGroupRef in $e1/following-sibling::xs:group
+      for $group in $r//xs:group[substring-after($followingSiblingGroupRef/@ref, $namespace) = @name]
+      return local:getFollowingInGroup($r, $group, $namespace))))
+    
+    let $all := (
+    if(exists($e1/parent::xs:all)) 
+    then     
+    ((for $sibling in $e1/parent::xs:all/xs:element
+      return
+      if (exists($sibling/@name)) then ($sibling, local:getDescendants($r, $sibling/@name, $namespace))
+      else if (exists($sibling/@ref)) then ($sibling, local:getDescendants($r, substring-after($sibling/@ref, $namespace), $namespace)))   
+      ,
+      (for $siblingGroupRef in $e1/parent::xs:all/xs:group
+       for $group in $r//xs:group[substring-after($siblingGroupRef/@ref, $namespace) = @name]
+       return local:getFollowingInGroup($r, $group, $namespace)
+        )))
+    
+    let $complex :=
+    (for $complexType in $e1/parent::*/parent::xs:complexType
+      for $extension in $r//xs:extension[substring-after(@base, $namespace) = $complexType/@name]        
+        return 
+        ((for $extensionElement in $extension/*/xs:element
+          return if (exists($extensionElement/@name)) then ($extensionElement, local:getDescendants($r, $extensionElement/@name, $namespace))
+          else if (exists($extensionElement/@ref)) then ($extensionElement, local:getDescendants($r, substring-after($extensionElement/@ref, $namespace), $namespace)))   
+        ,
+        (for $followingSiblingGroupRef in $extension/*/xs:group
+         for $group in $r//xs:group[substring-after($followingSiblingGroupRef/@ref, $namespace) = @name]
+         return local:getFollowingInGroup($r, $group, $namespace)
+        )))
+    
+    let $group :=
+    (for $group in $e1/parent::*/parent::xs:group
+     for $groupRef in $r//xs:group[substring-after(@ref, $namespace) = $group/@name]
+     return local:getFollowingOfElementOrGroup($r, $groupRef, $namespace)
+    )
+    
+    for $result in (($sequence, $all, $complex, $group))
+    return $result
+};
+
+declare function local:getContainerOccurence($r as element(), $container as element(), $namespace as xs:string)
+as xs:boolean
+{
+  (some $group in $container/parent::*/parent::xs:group satisfies
+    some $groupRef in $r//xs:group[substring-after(@ref, $namespace) = $group/@name] satisfies
+      ((string(number($groupRef/@maxOccurs)) != 'NaN' and $groupRef/@maxOccurs > 1)
+      or
+      ($groupRef/@maxOccurs = "unbounded"))
+  )
+  or
+  (some $orderContainer in $container/parent::*[@maxOccurs] satisfies        
+      ((string(number($orderContainer/@maxOccurs)) != 'NaN' and $orderContainer/@maxOccurs > 1)
+      or
+      ($orderContainer/@maxOccurs = "unbounded"))
+  )
+};
+
+declare function local:getFollowing($r as element(), $n1 as xs:string, $namespace as xs:string)
+as element()*
+{
+  for $e1 in $r//xs:element[@name=$n1 or @ref=$namespace || $n1]
+  
+    let $elementOrGroup := local:getFollowingOfElementOrGroup($r, $e1, $namespace)
+    
+    let $descendants := (
+    if
+    (string(number($e1/@maxOccurs)) != 'NaN' and $e1/@maxOccurs > 1
+        or
+        ($e1/@maxOccurs = "unbounded")
+      or
+      (some $group in $e1/parent::*/parent::xs:group satisfies
+        some $groupRef in $r//xs:group[substring-after(@ref, $namespace) = $group/@name] satisfies
+          ((string(number($groupRef/@maxOccurs)) != 'NaN' and $groupRef/@maxOccurs > 1)
+          or
+          ($groupRef/@maxOccurs = "unbounded"))
+      )
+      or
+      (some $orderContainer in $e1/parent::*[@maxOccurs] satisfies        
+          ((string(number($orderContainer/@maxOccurs)) != 'NaN' and $orderContainer/@maxOccurs > 1)
+          or
+          ($orderContainer/@maxOccurs = "unbounded"))
+      )
+      or
+      (some $orderContainer in $e1/parent::* satisfies        
+            local:getContainerOccurence($r, $orderContainer, "")
+        )) 
+      then       
+      (local:getDescendants($r, $n1, $namespace), $e1))
+      
+      for $result in (($elementOrGroup, $descendants))
+      return $result
+};
