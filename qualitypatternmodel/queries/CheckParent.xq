@@ -14,8 +14,8 @@ declare function local:checkParentGroup($r as element(), $group as element(), $n
 as xs:boolean
 {
    if($group[@name]) then
-     for $groupRef in $r//xs:group[@ref = $namespace || $group/@name]
-     return local:checkParentIndicator($r, $groupRef, $n2, $namespace)
+     some $groupRef in $r//xs:group[@ref = $namespace || $group/@name]
+     satisfies local:checkParentIndicator($r, $groupRef, $n2, $namespace)
    else if ($group[@ref]) then
      local:checkParentIndicator($r, $group, $n2, $namespace)
 };
@@ -43,8 +43,7 @@ as xs:boolean
 declare function local:checkParent($r as element(), $n1 as xs:string, $n2 as xs:string, $namespace as xs:string)
 as xs:boolean
 {
-for $e1 in $r//xs:element[@name=$n1 or @ref=$n1]
-return
+some $e1 in $r//xs:element[@name=$n1 or @ref=$n1] satisfies
   if(exists($e1/parent::xs:sequence) or exists($e1/parent::xs:choice) or exists($e1/parent::xs:all)) then
     local:checkParentIndicator($r, $e1/parent::*, $n2, $namespace)
 };
