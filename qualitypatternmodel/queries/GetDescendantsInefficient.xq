@@ -65,8 +65,8 @@ as element()*
   let $nameOrRef :=
   (for $child in $orderContainer/*/xs:element       
    return 
-     if (exists($child/@name)) then local:getDescendants($r,$child/@name, $visited, $namespace)
-     else local:getDescendants($r,substring-after($child/@ref, $namespace), $visited, $namespace))
+     if (exists($child/@name)) then local:getDescendantsNotVisited($r,$child/@name, $visited, $namespace)
+     else local:getDescendantsNotVisited($r,substring-after($child/@ref, $namespace), $visited, $namespace))
   
   let $nested := 
   (for $nestedOrderContainer in $orderContainer/*[./*[name() = "xs:sequence" or name() = "xs:choice" or name() = "xs:all" or name() ="xs:group"]]
@@ -111,18 +111,17 @@ as element()*
     return $result             
 };
 
-declare function local:getDescendants($r as element(), $n1 as xs:string, $visited as xs:string*, $namespace as xs:string)
+declare function local:getDescendantsNotVisited($r as element(), $n1 as xs:string, $visited as xs:string*, $namespace as xs:string)
 as element()*
 { 
   let $children := 
   (local:getChildren($r, $n1, $namespace))
   
   let $nonChildren :=
-  (for $e1 in $r//xs:element[@name=$n1]    
-   return if($e1[@type]) then
-     if (not(substring-after($e1/@type, $namespace) = $visited)) then       
+  (for $e1 in $r//xs:element[@name=$n1 and not($n1 = $visited)]    
+   return if($e1[@type and not(substring-after(@type, $namespace) = $visited)]) then
       for $externalComplexType in $r/xs:complexType[@name = substring-after($e1/@type, $namespace)]           
-      return local:getDescendantsComplexType($r, $externalComplexType, ($visited, substring-after($e1/@type, $namespace)), $namespace)            
+      return local:getDescendantsComplexType($r, $externalComplexType, ($visited, substring-after($e1/@type, $namespace), $n1), $namespace)            
     else      
       for $internalComplexType in $e1/xs:complexType
       return local:getDescendantsComplexType($r, $internalComplexType, ($visited, $n1), $namespace))
@@ -141,7 +140,7 @@ as element()*
   (for $e1 in $r//xs:element[@name=$n1]    
    return if($e1[@type]) then       
       for $externalComplexType in $r/xs:complexType[@name = substring-after($e1/@type, $namespace)]           
-      return local:getDescendantsComplexType($r, $externalComplexType, substring-after($e1/@type, $namespace), $namespace)            
+      return local:getDescendantsComplexType($r, $externalComplexType, (substring-after($e1/@type, $namespace), $n1), $namespace)            
     else      
       for $internalComplexType in $e1/xs:complexType
       return local:getDescendantsComplexType($r, $internalComplexType, $n1, $namespace))
