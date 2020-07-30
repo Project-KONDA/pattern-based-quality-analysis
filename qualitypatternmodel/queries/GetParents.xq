@@ -3,7 +3,10 @@ declare function local:getParentsComplexType($r as element(), $complexType as el
 as element()*
 {
   if($complexType[@name]) then
-    $r//xs:element[@type = $namespace || $complexType/@name]    
+    ($r//xs:element[@type = $namespace || $complexType/@name]
+    ,
+     for $extension in $r//xs:extension[@base = $namespace || $complexType/@name]
+     return local:getParentsExtension($r, $extension, $namespace))    
   else
     $complexType/parent::xs:element 
 };
@@ -41,8 +44,11 @@ as element()*
 declare function local:getParents($r as element(), $n1 as xs:string, $namespace as xs:string)
 as element()*
 {
-for $e1 in $r//xs:element[@name=$n1 or @ref=$n1]
+for $e1 in $r//xs:element[@name=$n1 or @ref= $namespace || $n1]
 return
   if(exists($e1/parent::xs:sequence) or exists($e1/parent::xs:choice) or exists($e1/parent::xs:all)) then
     local:getParentsIndicator($r, $e1/parent::*, $namespace)
 };
+
+for $root in /xs:schema
+return local:getParents($root, "event", "lido:")
