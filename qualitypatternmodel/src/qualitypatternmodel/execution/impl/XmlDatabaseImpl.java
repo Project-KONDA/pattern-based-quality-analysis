@@ -720,31 +720,27 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 */
 	@Override
 	public EList<String> getDescendantsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		return getElementNames(elementName, "queries/GetDescendants.xq", "getDescendants");
+		return getElementNames(elementName, "queries/GetDescendantsEfficient.xq", "getDescendants");
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public EList<String> getParentsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getElementNames(elementName, "queries/GetParents.xq", "getDescendants");
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public EList<String> getAncestorsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getElementNames(elementName, "queries/GetAncestorsEfficient.xq", "getDescendants");
 	}
 
 	/**
@@ -762,13 +758,11 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public EList<String> getFollowingSiblingsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getElementNames(elementName, "queries/GetFollowingSibling.xq", "getDescendants");
 	}
 
 	/**
@@ -786,13 +780,11 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public EList<String> getFollowingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getElementNames(elementName, "queries/GetFollowing2.xq", "getDescendants");
 	}
 
 	/**
