@@ -47,6 +47,3 @@ some $e1 in $r//xs:element[@name=$n1 or @ref=$n1] satisfies
   if(exists($e1/parent::xs:sequence) or exists($e1/parent::xs:choice) or exists($e1/parent::xs:all)) then
     local:checkParentIndicator($r, $e1/parent::*, $n2, $namespace)
 };
-
-for $root in /xs:schema
-return local:checkParent($root, "orderperson", "shiporder", "")

@@ -46,6 +46,3 @@ return
   if(exists($e1/parent::xs:sequence) or exists($e1/parent::xs:choice) or exists($e1/parent::xs:all)) then
     local:getParentsIndicator($r, $e1/parent::*, $namespace)
 };
-
-for $root in /xs:schema
-return local:getParents($root, "orderperson", "lido:")
