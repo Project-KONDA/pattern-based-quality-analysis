@@ -38,6 +38,7 @@ import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
@@ -56,12 +57,17 @@ import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.ElementMapping;
 import qualitypatternmodel.patternstructure.Formula;
+import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.TrueElement;
+import qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl;
+import qualitypatternmodel.patternstructure.provider.QuantifiedConditionItemProvider;
 
 /**
  * The services class used by VSM.
@@ -916,7 +922,7 @@ public class Services {
     	}else if(s.equals("DateTime")) {
     		parameter = new DateTimeParamImpl();
     	}
-    	parameterlist.add(parameter);
+    	//parameterlist.add(parameter);
     	if(self instanceof NumberElement) {
     		System.out.println("pppppppppppppppppppppppppppp");
     		NumberElement numberelement = (NumberElement) self;
@@ -1407,12 +1413,20 @@ public class Services {
     	return decoration;
     }
     
-    public boolean setReturnelement(EObject self) {//setzt ein element als returnelement
-    	boolean decoration = false;
+    public void setReturnelement(EObject self) {//setzt ein element als returnelement
     	Element element = (Element) self;
-    	Graph graph = element.getGraph();
-    	graph.getReturnElements().add(element);
-    	return decoration;
+    	//Graph graph = element.getGraph();
+    	//graph.getReturnElements().add(element);
+    	
+    	element.setResultOf(element.getGraph());
+    }
+    
+    public void deleteReturnelement(EObject self) {//löscht ein element als returnelement
+    	Element element = (Element) self;
+    	//Graph graph = element.getGraph();
+    	//graph.getReturnElements().add(element);
+    	
+    	element.setResultOf(null);
     }
     
     public ArrayList<Element> getElements(EObject self){//sucht für die selection von elementen die elemente
@@ -1462,5 +1476,113 @@ public class Services {
     	return open;
     }
     
+    public boolean returnelementmarkPrecondition(EObject self) {
+    	boolean open = false;
+    	if(self instanceof Element) {
+    		Element element = (Element) self;
+    		if(element.getResultOf() == null) {
+    			open = true;
+    		}
+    	}
+    	return open;
+    }
     
+    public boolean deleteReturnelementmarkPrecondition(EObject self) {
+    	boolean open = false;
+    	if(self instanceof Element) {
+    		Element element = (Element) self;
+    		if(element.getResultOf() != null) {
+    			open = true;
+    		}
+    	}
+    	return open;
+    }
+    
+    public boolean isContextgraph(EObject self) {//condition für den conditionalstyle von graph
+    	boolean isContextgraph = false;
+    	if(self instanceof Graph) {
+    		Graph graph = (Graph) self;
+    		isContextgraph = graph.isReturnGraph();
+    	}
+    	return isContextgraph;
+    }
+    
+    public ArrayList<LogicalOperator> getOperators(EObject self){
+    	ArrayList<LogicalOperator> operators = new ArrayList<LogicalOperator>();
+    	operators.add(LogicalOperator.AND);
+    	operators.add(LogicalOperator.OR);
+    	operators.add(LogicalOperator.IMPLIES);
+    	operators.add(LogicalOperator.XOR);
+    	operators.add(LogicalOperator.EQUAL);
+    	return operators;
+    }
+    
+    public boolean changeOperatorPrecondition(EObject self) {
+    	boolean open = false;
+    	if(self instanceof Formula) {
+    		open = true;
+    	}
+    	return open;
+    }
+    
+    public void setOperator(EObject self, EObject element, LogicalOperator operator) {
+    	if(element instanceof Formula) {
+    		Formula formula = (Formula) element;
+    		formula.setOperator(operator);
+    	}
+    }
+    
+    public LogicalOperator changeOperatorValueExpression(EObject self, EObject element) {//guckt welcher operator gerade gewählt ist, das returnelement muss in getOperators vorkommen
+    	LogicalOperator operator = null;
+    	if(element instanceof Formula) {
+    		Formula formula = (Formula) element;
+    		operator = formula.getOperator();
+    	}
+    	return operator;
+    }
+    
+    public ArrayList<Quantifier> getQuantifiers(EObject self){
+    	ArrayList<Quantifier> quantifiers = new ArrayList<Quantifier>();
+    	quantifiers.add(Quantifier.EXISTS);
+    	quantifiers.add(Quantifier.FORALL);
+    	return quantifiers;
+    }
+    
+    public boolean changeQuantifierPrecondition(EObject self) {
+    	boolean open = false;
+    	if(self instanceof QuantifiedCondition) {
+    		open = true;
+    	}
+    	return open;
+    }
+    
+    public void setQuantifier(EObject self, EObject element, Quantifier quantifier) {
+    	if(element instanceof QuantifiedCondition) {
+    		QuantifiedCondition quantifiedcondition = (QuantifiedCondition) element;
+    		quantifiedcondition.setQuantifier(quantifier);
+    	}
+    }
+    
+    public Quantifier changeQuantifierValueExpression(EObject self, EObject element) {//guckt welcher quantifier gerade gewählt ist, das returnelement muss in getQuantifier vorkommen
+    	Quantifier quantifier = null;
+    	if(element instanceof QuantifiedCondition) {
+    		QuantifiedCondition quantifiedcondition = (QuantifiedCondition) element;
+    		quantifier = quantifiedcondition.getQuantifier();
+    	}
+    	return quantifier;
+    }
+    
+    static Quantifier radioq = Quantifier.EXISTS;
+    public void storeQuantifier(EObject self, Quantifier q) {
+    	//System.out.println(q);
+    	radioq = q;
+    }
+    
+    public Quantifier getQuantifier(EObject self) {
+    	return radioq;
+    }
+    
+    public void printQ(EObject self) {
+    	System.out.println(radioq);
+    }
 }
