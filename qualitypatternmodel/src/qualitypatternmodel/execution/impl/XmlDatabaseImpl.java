@@ -20,6 +20,7 @@ import org.basex.query.iter.Iter;
 import org.basex.query.value.item.Item;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.common.util.EMap;
@@ -315,7 +316,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	private void executeAnalysis(String query, EMap<String,Integer> valueStorage, Context context) throws BaseXException, QueryIOException, QueryException {
 		List<String> result = executeQuery(query, context);
 		for(int i = 0; i < result.size(); i++) {
-			valueStorage.put(result.get(i),0);
+			valueStorage.put(getNamespace() + result.get(i),0);
 		}
 	}
 
@@ -329,8 +330,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	@Override
 	public void analyseSchema() throws BaseXException, QueryIOException, QueryException {
 		openSchemaDatabase();
-		executeAnalysis("//*[name()=\"xsd:element\"]/data(@name)", getElementNames(), schemaContext);
-		executeAnalysis("//*[name()=\"xsd:attribute\"]/data(@name)", getAttributeNames(), schemaContext);
+		executeAnalysis("//*[name()=\"xs:element\"]/data(@name)", getElementNames(), schemaContext);
+		executeAnalysis("//*[name()=\"xs:attribute\"]/data(@name)", getAttributeNames(), schemaContext);
 		// TODO: add namespace
 	}
 
@@ -486,11 +487,16 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 */
 	@Override
 	public boolean checkChildInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
+		return checkAxis(elementName1, elementName2, "queries/CheckChild.xq", "checkChild");		
+	}
+
+	private boolean checkAxis(String elementName1, String elementName2, String path, String methodName)
+			throws BaseXException, QueryException, QueryIOException {
 		openSchemaDatabase();
 		
-		String checkChild;
+		String checkQuery;
 		try {
-			checkChild = readFile("queries/CheckChild.xq",StandardCharsets.US_ASCII);
+			checkQuery = readFile(path, StandardCharsets.US_ASCII);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -498,10 +504,10 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			return true;
 		}
 		
-		String call = "for $root in /xs:schema\r\n" + 
-				"return local:checkChild($root, \""+elementName1+"\", \""+elementName2+"\", \""+getNamespace()+"\")";
+		String call = "\nfor $root in /xs:schema\r\n" + 
+				"return local:"+methodName+"($root, \""+elementName1.replace(getNamespace(), "")+"\", \""+elementName2.replace(getNamespace(), "")+"\", \""+getNamespace()+"\")";
 		
-		String query = checkChild + call;
+		String query = checkQuery + call;
 		
 		List<String> queryResult = executeQuery(query, schemaContext);
 		if(queryResult.size() == 1) {			
@@ -513,7 +519,6 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		// TODO: else throw exception ?
 		
 		return true;
-		
 	}
 
 	/**
@@ -538,35 +543,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 * @generated NOT
 	 */
 	@Override
-	public boolean checkDescendantInSchema(String elementName1, String elementName2) throws QueryException, BaseXException, QueryIOException {
-		
-		openSchemaDatabase();	
-		
-		String checkDescendant; 
-		
-		try {
-			checkDescendant = readFile("queries/CheckChild.xq",StandardCharsets.US_ASCII);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-			return true;
-		}
-		
-		String call = "for $root in /xs:schema\r\n" + 
-				"return local:checkDescendant($root, \""+elementName1+"\", \""+elementName2+"\", \""+getNamespace()+"\")";
-			
-		String query = checkDescendant + call;
-		List<String> queryResult = executeQuery(query, schemaContext);
-		if(queryResult.size() == 1) {			
-			if(queryResult.get(0).equals("false")) {
-				return false;
-			}
-		}
-		
-		// TODO: else throw exception ?
-		
-		return true;
+	public boolean checkDescendantInSchema(String elementName1, String elementName2) throws QueryException, BaseXException, QueryIOException {		
+		return checkAxis(elementName1, elementName2, "queries/CheckDescendant.xq", "checkDescendant");			
 	}
 
 	/**
@@ -592,39 +570,11 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 */
 	@Override
 	public boolean checkAttributeInSchema(String elementName, String attributeName) throws QueryException, QueryIOException, BaseXException {
-		
-		openSchemaDatabase();		
-		
-		String checkAttribute; 
-		
-		try {
-			checkAttribute = readFile("queries/CheckChild.xq",StandardCharsets.US_ASCII);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-			return true;
-		}
-		
-		String call = "for $root in /xs:schema\r\n" + 
-				"return local:checkAttribute($root, \""+elementName+"\", \""+attributeName+"\", \""+getNamespace()+"\")";
-		
-		String query = checkAttribute + call;
-		List<String> queryResult = executeQuery(query, schemaContext);
-		if(queryResult.size() == 1) {			
-			if(queryResult.get(0).equals("false")) {
-				return false;
-			}
-		}
-		
-		// TODO: else throw exception ?
-		
-		return true;
-		
+		return checkAxis(elementName, attributeName, "queries/CheckAttribute.xq", "checkAttribute");		
 	}
 
 	private List<String> executeQuery(String query, Context context) throws QueryException, QueryIOException {
-		List<String> queryResult = new ArrayList<String>();
+		List<String> queryResult = new ArrayList<String>();		
 	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
 	      Iter iter = proc.iter();
 	      for(Item item; (item = iter.next()) != null;) {
@@ -665,34 +615,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 */
 	@Override
 	public boolean checkFollowingSiblingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
-		openSchemaDatabase();
-
-		String checkFollowingSibling; 
-		
-		try {
-			checkFollowingSibling = readFile("queries/CheckChild.xq",StandardCharsets.US_ASCII);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-			return true;
-		}
-		
-		String call = "for $root in /xs:schema\r\n" + 
-				"return local:checkFollowingSibling($root, \""+elementName1+"\", \""+elementName2+"\", \""+getNamespace()+"\")";
-		
-		String query = checkFollowingSibling + call;
-		
-		List<String> queryResult = executeQuery(query, schemaContext);
-		if(queryResult.size() == 1) {			
-			if(queryResult.get(0).equals("false")) {
-				return false;
-			}
-		}
-		
-		// TODO: else throw exception ?
-		
-		return true;
+		return checkAxis(elementName1, elementName2, "queries/CheckFollowingSibling.xq", "checkFollowingSibling");		
 	}
 
 	/**
@@ -712,34 +635,20 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 */
 	@Override
 	public boolean checkFollowingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
-		openSchemaDatabase();
-
-		String checkFollowing; 
-		
-		try {
-			checkFollowing = readFile("queries/CheckChild.xq",StandardCharsets.US_ASCII);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-			return true;
-		}
-		
-		String call = "for $root in /xs:schema\r\n" + 
-				"return local:checkFollowing($root, \""+elementName1+"\", \""+elementName2+"\", \""+getNamespace()+"\")";
-		
-		String query = checkFollowing+ call;
-		
-		List<String> queryResult = executeQuery(query, schemaContext);
-		if(queryResult.size() == 1) {			
-			if(queryResult.get(0).equals("false")) {
-				return false;
-			}
-		}
-		
-		// TODO: else throw exception ?
-		
-		return true;
+		return checkAxis(elementName1, elementName2, "queries/CheckFollowing.xq", "checkFollowing");			
+	}
+	
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean checkPrecedingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -748,7 +657,143 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 * @generated
 	 */
 	@Override
-	public boolean checkPrecedingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
+	public void initSchemaDatabase() throws BaseXException, QueryException, QueryIOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+	
+	private String distinctNamesQuery (String methodName, String elementName) {
+		return "distinct-values(\r\n" +
+				"  let $ns := \""+getNamespace()+"\"" + 
+				"  let $elements := (\r\n" + 
+				"    for $root in /xs:schema\r\n" + 
+				"    return local:"+methodName+"($root, \""+elementName.replace(getNamespace(), "")+"\", $ns))\r\n" + 
+				"  for $element in $elements\r\n" + 
+				"  return\r\n" + 
+				"    if(exists($element/@name)) then $ns || $element/@name/data()\r\n" + 
+				"    else $element/@ref/data()\r\n" + 
+				")";
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<String> getChildrenInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+		return getElementNames(elementName, "queries/GetChildren.xq", "getChildren");
+	}
+
+	private EList<String> getElementNames(String elementName, String path, String methodName) throws BaseXException, QueryException, QueryIOException {
+		openSchemaDatabase();
+
+		String checkQuery; 
+		
+		try {
+			checkQuery = readFile(path, StandardCharsets.US_ASCII);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();		
+			
+			return new BasicEList<String>();
+		}
+		
+		String call = distinctNamesQuery(methodName, elementName);
+		
+		String query = checkQuery + call;
+		
+		List<String> queryResult = executeQuery(query, schemaContext);
+		
+		EList<String> result = new BasicEList<String>();
+		result.addAll(queryResult);	
+		
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<String> getDescendantsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+		return getElementNames(elementName, "queries/GetDescendantsEfficient.xq", "getDescendants");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<String> getParentsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+		return getElementNames(elementName, "queries/GetParents.xq", "getDescendants");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<String> getAncestorsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+		return getElementNames(elementName, "queries/GetAncestorsEfficient.xq", "getDescendants");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getAttributesInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<String> getFollowingSiblingsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+		return getElementNames(elementName, "queries/GetFollowingSibling.xq", "getDescendants");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getPrecedingSiblingsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<String> getFollowingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+		return getElementNames(elementName, "queries/GetFollowing2.xq", "getDescendants");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getPrecedingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -1093,6 +1138,77 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			case ExecutionPackage.XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING:
 				try {
 					return checkPrecedingInSchema((String)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___INIT_SCHEMA_DATABASE:
+				try {
+					initSchemaDatabase();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_CHILDREN_IN_SCHEMA__STRING:
+				try {
+					return getChildrenInSchema((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING:
+				try {
+					return getDescendantsInSchema((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_PARENTS_IN_SCHEMA__STRING:
+				try {
+					return getParentsInSchema((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_ANCESTORS_IN_SCHEMA__STRING:
+				try {
+					return getAncestorsInSchema((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING:
+				try {
+					return getAttributesInSchema((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING:
+				try {
+					return getFollowingSiblingsInSchema((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING:
+				try {
+					return getPrecedingSiblingsInSchema((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_FOLLOWING_IN_SCHEMA__STRING:
+				try {
+					return getFollowingInSchema((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATABASE___GET_PRECEDING_IN_SCHEMA__STRING:
+				try {
+					return getPrecedingInSchema((String)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

@@ -585,6 +585,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getTextLiteralParam__GenerateSuggestions() {
+		return textLiteralParamEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNumberParam() {
 		return numberParamEClass;
 	}
@@ -755,6 +765,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getRelationOptionParam__GenerateSuggestions() {
+		return relationOptionParamEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ParametersFactory getParametersFactory() {
 		return (ParametersFactory)getEFactoryInstance();
 	}
@@ -818,6 +838,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__MATCHES);
 		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__PROPERTIES);
 		createEOperation(textLiteralParamEClass, TEXT_LITERAL_PARAM___GET_TAG_COMPARISON_ELEMENTS);
+		createEOperation(textLiteralParamEClass, TEXT_LITERAL_PARAM___GENERATE_SUGGESTIONS);
 
 		numberParamEClass = createEClass(NUMBER_PARAM);
 		createEAttribute(numberParamEClass, NUMBER_PARAM__VALUE);
@@ -842,6 +863,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEAttribute(relationOptionParamEClass, RELATION_OPTION_PARAM__OPTIONS);
 		createEAttribute(relationOptionParamEClass, RELATION_OPTION_PARAM__VALUE);
 		createEReference(relationOptionParamEClass, RELATION_OPTION_PARAM__RELATIONS);
+		createEOperation(relationOptionParamEClass, RELATION_OPTION_PARAM___GENERATE_SUGGESTIONS);
 	}
 
 	/**
@@ -955,6 +977,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEOperation(getTextLiteralParam__GetTagComparisonElements(), theAdaptionxmlPackage.getXmlElement(), "getTagComparisonElements", 0, -1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getTextLiteralParam__GenerateSuggestions(), ecorePackage.getEString(), "generateSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(numberParamEClass, NumberParam.class, "NumberParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumberParam_Value(), ecorePackage.getEDoubleObject(), "value", "0.0", 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNumberParam_NumberArgument(), thePatternstructurePackage.getNumberElement(), thePatternstructurePackage.getNumberElement_NumberParam(), "numberArgument", null, 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -982,6 +1006,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEAttribute(getRelationOptionParam_Options(), theAdaptionxmlPackage.getRelationKind(), "options", null, 0, -1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRelationOptionParam_Value(), theAdaptionxmlPackage.getRelationKind(), "value", null, 1, 1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelationOptionParam_Relations(), theAdaptionxmlPackage.getXmlNavigation(), theAdaptionxmlPackage.getXmlNavigation_Option(), "relations", null, 0, -1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getRelationOptionParam__GenerateSuggestions(), theAdaptionxmlPackage.getRelationKind(), "generateSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -729,13 +729,103 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING = DATABASE_OPERATION_COUNT + 23;
 
 	/**
+	 * The operation id for the '<em>Init Schema Database</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___INIT_SCHEMA_DATABASE = DATABASE_OPERATION_COUNT + 24;
+
+	/**
+	 * The operation id for the '<em>Get Children In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___GET_CHILDREN_IN_SCHEMA__STRING = DATABASE_OPERATION_COUNT + 25;
+
+	/**
+	 * The operation id for the '<em>Get Descendants In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING = DATABASE_OPERATION_COUNT + 26;
+
+	/**
+	 * The operation id for the '<em>Get Parents In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___GET_PARENTS_IN_SCHEMA__STRING = DATABASE_OPERATION_COUNT + 27;
+
+	/**
+	 * The operation id for the '<em>Get Ancestors In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___GET_ANCESTORS_IN_SCHEMA__STRING = DATABASE_OPERATION_COUNT + 28;
+
+	/**
+	 * The operation id for the '<em>Get Attributes In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING = DATABASE_OPERATION_COUNT + 29;
+
+	/**
+	 * The operation id for the '<em>Get Following Siblings In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING = DATABASE_OPERATION_COUNT + 30;
+
+	/**
+	 * The operation id for the '<em>Get Preceding Siblings In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING = DATABASE_OPERATION_COUNT + 31;
+
+	/**
+	 * The operation id for the '<em>Get Following In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___GET_FOLLOWING_IN_SCHEMA__STRING = DATABASE_OPERATION_COUNT + 32;
+
+	/**
+	 * The operation id for the '<em>Get Preceding In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___GET_PRECEDING_IN_SCHEMA__STRING = DATABASE_OPERATION_COUNT + 33;
+
+	/**
 	 * The number of operations of the '<em>Xml Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATABASE_OPERATION_COUNT = DATABASE_OPERATION_COUNT + 24;
+	int XML_DATABASE_OPERATION_COUNT = DATABASE_OPERATION_COUNT + 34;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.LocalXmlDatabaseImpl <em>Local Xml Database</em>}' class.
@@ -1099,6 +1189,96 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING;
 
 	/**
+	 * The operation id for the '<em>Init Schema Database</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE___INIT_SCHEMA_DATABASE = XML_DATABASE___INIT_SCHEMA_DATABASE;
+
+	/**
+	 * The operation id for the '<em>Get Children In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE___GET_CHILDREN_IN_SCHEMA__STRING = XML_DATABASE___GET_CHILDREN_IN_SCHEMA__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Descendants In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING = XML_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Parents In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE___GET_PARENTS_IN_SCHEMA__STRING = XML_DATABASE___GET_PARENTS_IN_SCHEMA__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Ancestors In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE___GET_ANCESTORS_IN_SCHEMA__STRING = XML_DATABASE___GET_ANCESTORS_IN_SCHEMA__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Attributes In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING = XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Following Siblings In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING = XML_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Preceding Siblings In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING = XML_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Following In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE___GET_FOLLOWING_IN_SCHEMA__STRING = XML_DATABASE___GET_FOLLOWING_IN_SCHEMA__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Preceding In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE___GET_PRECEDING_IN_SCHEMA__STRING = XML_DATABASE___GET_PRECEDING_IN_SCHEMA__STRING;
+
+	/**
 	 * The operation id for the '<em>Create</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1458,6 +1638,96 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING = XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING;
+
+	/**
+	 * The operation id for the '<em>Init Schema Database</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE___INIT_SCHEMA_DATABASE = XML_DATABASE___INIT_SCHEMA_DATABASE;
+
+	/**
+	 * The operation id for the '<em>Get Children In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE___GET_CHILDREN_IN_SCHEMA__STRING = XML_DATABASE___GET_CHILDREN_IN_SCHEMA__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Descendants In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING = XML_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Parents In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE___GET_PARENTS_IN_SCHEMA__STRING = XML_DATABASE___GET_PARENTS_IN_SCHEMA__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Ancestors In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE___GET_ANCESTORS_IN_SCHEMA__STRING = XML_DATABASE___GET_ANCESTORS_IN_SCHEMA__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Attributes In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING = XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Following Siblings In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING = XML_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Preceding Siblings In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING = XML_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Following In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE___GET_FOLLOWING_IN_SCHEMA__STRING = XML_DATABASE___GET_FOLLOWING_IN_SCHEMA__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Preceding In Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE___GET_PRECEDING_IN_SCHEMA__STRING = XML_DATABASE___GET_PRECEDING_IN_SCHEMA__STRING;
 
 	/**
 	 * The number of operations of the '<em>Server Xml Database</em>' class.
@@ -2125,6 +2395,106 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getXmlDatabase__CheckPrecedingInSchema__String_String();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#initSchemaDatabase() <em>Init Schema Database</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Init Schema Database</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#initSchemaDatabase()
+	 * @generated
+	 */
+	EOperation getXmlDatabase__InitSchemaDatabase();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#getChildrenInSchema(java.lang.String) <em>Get Children In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Children In Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#getChildrenInSchema(java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlDatabase__GetChildrenInSchema__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#getDescendantsInSchema(java.lang.String) <em>Get Descendants In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Descendants In Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#getDescendantsInSchema(java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlDatabase__GetDescendantsInSchema__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#getParentsInSchema(java.lang.String) <em>Get Parents In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Parents In Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#getParentsInSchema(java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlDatabase__GetParentsInSchema__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#getAncestorsInSchema(java.lang.String) <em>Get Ancestors In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Ancestors In Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#getAncestorsInSchema(java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlDatabase__GetAncestorsInSchema__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#getAttributesInSchema(java.lang.String) <em>Get Attributes In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Attributes In Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#getAttributesInSchema(java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlDatabase__GetAttributesInSchema__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#getFollowingSiblingsInSchema(java.lang.String) <em>Get Following Siblings In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Following Siblings In Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#getFollowingSiblingsInSchema(java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlDatabase__GetFollowingSiblingsInSchema__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#getPrecedingSiblingsInSchema(java.lang.String) <em>Get Preceding Siblings In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Preceding Siblings In Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#getPrecedingSiblingsInSchema(java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlDatabase__GetPrecedingSiblingsInSchema__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#getFollowingInSchema(java.lang.String) <em>Get Following In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Following In Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#getFollowingInSchema(java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlDatabase__GetFollowingInSchema__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#getPrecedingInSchema(java.lang.String) <em>Get Preceding In Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Preceding In Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#getPrecedingInSchema(java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlDatabase__GetPrecedingInSchema__String();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.LocalXmlDatabase <em>Local Xml Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2713,6 +3083,86 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING = eINSTANCE.getXmlDatabase__CheckPrecedingInSchema__String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Init Schema Database</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___INIT_SCHEMA_DATABASE = eINSTANCE.getXmlDatabase__InitSchemaDatabase();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Children In Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___GET_CHILDREN_IN_SCHEMA__STRING = eINSTANCE.getXmlDatabase__GetChildrenInSchema__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Descendants In Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING = eINSTANCE.getXmlDatabase__GetDescendantsInSchema__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Parents In Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___GET_PARENTS_IN_SCHEMA__STRING = eINSTANCE.getXmlDatabase__GetParentsInSchema__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Ancestors In Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___GET_ANCESTORS_IN_SCHEMA__STRING = eINSTANCE.getXmlDatabase__GetAncestorsInSchema__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Attributes In Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING = eINSTANCE.getXmlDatabase__GetAttributesInSchema__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Following Siblings In Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING = eINSTANCE.getXmlDatabase__GetFollowingSiblingsInSchema__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Preceding Siblings In Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING = eINSTANCE.getXmlDatabase__GetPrecedingSiblingsInSchema__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Following In Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___GET_FOLLOWING_IN_SCHEMA__STRING = eINSTANCE.getXmlDatabase__GetFollowingInSchema__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Preceding In Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___GET_PRECEDING_IN_SCHEMA__STRING = eINSTANCE.getXmlDatabase__GetPrecedingInSchema__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.LocalXmlDatabaseImpl <em>Local Xml Database</em>}' class.

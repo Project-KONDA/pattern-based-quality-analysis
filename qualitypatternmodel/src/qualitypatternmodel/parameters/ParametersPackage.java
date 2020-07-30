@@ -2309,13 +2309,22 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___GET_TAG_COMPARISON_ELEMENTS = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Generate Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___GENERATE_SUGGESTIONS = PARAMETER_VALUE_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Text Literal Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 1;
+	int TEXT_LITERAL_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.NumberParamImpl <em>Number Param</em>}' class.
@@ -4088,13 +4097,22 @@ public interface ParametersPackage extends EPackage {
 	int RELATION_OPTION_PARAM___IS_USED = PARAMETER___IS_USED;
 
 	/**
+	 * The operation id for the '<em>Generate Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___GENERATE_SUGGESTIONS = PARAMETER_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Relation Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPTION_PARAM_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
+	int RELATION_OPTION_PARAM_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 1;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.Parameter <em>Parameter</em>}'.
@@ -4455,6 +4473,16 @@ public interface ParametersPackage extends EPackage {
 	EOperation getTextLiteralParam__GetTagComparisonElements();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextLiteralParam#generateSuggestions() <em>Generate Suggestions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Suggestions</em>' operation.
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#generateSuggestions()
+	 * @generated
+	 */
+	EOperation getTextLiteralParam__GenerateSuggestions();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.NumberParam <em>Number Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4631,6 +4659,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRelationOptionParam_Relations();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.RelationOptionParam#generateSuggestions() <em>Generate Suggestions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Suggestions</em>' operation.
+	 * @see qualitypatternmodel.parameters.RelationOptionParam#generateSuggestions()
+	 * @generated
+	 */
+	EOperation getRelationOptionParam__GenerateSuggestions();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -4942,6 +4980,14 @@ public interface ParametersPackage extends EPackage {
 		EOperation TEXT_LITERAL_PARAM___GET_TAG_COMPARISON_ELEMENTS = eINSTANCE.getTextLiteralParam__GetTagComparisonElements();
 
 		/**
+		 * The meta object literal for the '<em><b>Generate Suggestions</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TEXT_LITERAL_PARAM___GENERATE_SUGGESTIONS = eINSTANCE.getTextLiteralParam__GenerateSuggestions();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.NumberParamImpl <em>Number Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5090,6 +5136,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RELATION_OPTION_PARAM__RELATIONS = eINSTANCE.getRelationOptionParam_Relations();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Suggestions</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RELATION_OPTION_PARAM___GENERATE_SUGGESTIONS = eINSTANCE.getRelationOptionParam__GenerateSuggestions();
 
 	}
 

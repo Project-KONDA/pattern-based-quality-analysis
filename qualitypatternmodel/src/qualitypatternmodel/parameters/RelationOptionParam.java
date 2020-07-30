@@ -78,4 +78,12 @@ public interface RelationOptionParam extends Parameter {
 	 */
 	EList<XmlNavigation> getRelations();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<RelationKind> generateSuggestions();
+
 } // AxisOption
