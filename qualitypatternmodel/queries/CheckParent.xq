@@ -3,8 +3,11 @@ declare function local:checkParentComplexType($r as element(), $complexType as e
 as xs:boolean
 {
   if($complexType[@name]) then
-    some $e in $r//xs:element[@type = $namespace || $complexType/@name] satisfies
-      $e[@name = $n2]   
+    (some $e in $r//xs:element[@type = $namespace || $complexType/@name] satisfies
+      $e[@name = $n2])
+    or
+    (some $extension in $r//xs:extension[@base = $namespace || $complexType/@name] satisfies
+     local:checkParentExtension($r, $extension, $n2, $namespace))   
   else
     some $e in $complexType/parent::xs:element satisfies
       $e[@name = $n2]  
@@ -43,7 +46,7 @@ as xs:boolean
 declare function local:checkParent($r as element(), $n1 as xs:string, $n2 as xs:string, $namespace as xs:string)
 as xs:boolean
 {
-some $e1 in $r//xs:element[@name=$n1 or @ref=$n1] satisfies
+some $e1 in $r//xs:element[@name=$n1 or @ref= $namespace || $n1] satisfies
   if(exists($e1/parent::xs:sequence) or exists($e1/parent::xs:choice) or exists($e1/parent::xs:all)) then
     local:checkParentIndicator($r, $e1/parent::*, $n2, $namespace)
 };
