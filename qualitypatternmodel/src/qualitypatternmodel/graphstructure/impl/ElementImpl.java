@@ -1112,7 +1112,8 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	public String getName() {
 		if(name == null) {
 			if(getOriginalID() > -1) {
-				return "Element " + getOriginalID();
+				name = "Element " + getOriginalID();
+				return name;
 			}
 		}
 		return name;
