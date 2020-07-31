@@ -2,8 +2,10 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -145,6 +147,13 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	private EClass relationOptionParamEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType stringToIntEMapEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -585,8 +594,18 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getTextLiteralParam__GenerateSuggestions() {
+	public EOperation getTextLiteralParam__InferElementTagSuggestions() {
 		return textLiteralParamEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getTextLiteralParam__GetElementTags() {
+		return textLiteralParamEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -627,6 +646,36 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	@Override
 	public EClass getParameterValue() {
 		return parameterValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterValue__IsInTagComparison() {
+		return parameterValueEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterValue__IsInAttributeComparison() {
+		return parameterValueEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterValue__IsInDataComparison() {
+		return parameterValueEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -775,6 +824,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EDataType getStringToIntEMap() {
+		return stringToIntEMapEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ParametersFactory getParametersFactory() {
 		return (ParametersFactory)getEFactoryInstance();
 	}
@@ -838,13 +897,17 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__MATCHES);
 		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__PROPERTIES);
 		createEOperation(textLiteralParamEClass, TEXT_LITERAL_PARAM___GET_TAG_COMPARISON_ELEMENTS);
-		createEOperation(textLiteralParamEClass, TEXT_LITERAL_PARAM___GENERATE_SUGGESTIONS);
+		createEOperation(textLiteralParamEClass, TEXT_LITERAL_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS);
+		createEOperation(textLiteralParamEClass, TEXT_LITERAL_PARAM___GET_ELEMENT_TAGS);
 
 		numberParamEClass = createEClass(NUMBER_PARAM);
 		createEAttribute(numberParamEClass, NUMBER_PARAM__VALUE);
 		createEReference(numberParamEClass, NUMBER_PARAM__NUMBER_ARGUMENT);
 
 		parameterValueEClass = createEClass(PARAMETER_VALUE);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_TAG_COMPARISON);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_DATA_COMPARISON);
 
 		dateParamEClass = createEClass(DATE_PARAM);
 		createEAttribute(dateParamEClass, DATE_PARAM__VALUE);
@@ -864,6 +927,9 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEAttribute(relationOptionParamEClass, RELATION_OPTION_PARAM__VALUE);
 		createEReference(relationOptionParamEClass, RELATION_OPTION_PARAM__RELATIONS);
 		createEOperation(relationOptionParamEClass, RELATION_OPTION_PARAM___GENERATE_SUGGESTIONS);
+
+		// Create data types
+		stringToIntEMapEDataType = createEDataType(STRING_TO_INT_EMAP);
 	}
 
 	/**
@@ -896,6 +962,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
 
 		// Create type parameters
+		addETypeParameter(stringToIntEMapEDataType, "K");
+		addETypeParameter(stringToIntEMapEDataType, "V");
 
 		// Set bounds for type parameters
 
@@ -977,13 +1045,27 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEOperation(getTextLiteralParam__GetTagComparisonElements(), theAdaptionxmlPackage.getXmlElement(), "getTagComparisonElements", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getTextLiteralParam__GenerateSuggestions(), ecorePackage.getEString(), "generateSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getTextLiteralParam__InferElementTagSuggestions(), ecorePackage.getEString(), "inferElementTagSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTextLiteralParam__GetElementTags(), null, "getElementTags", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getStringToIntEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEIntegerObject());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 
 		initEClass(numberParamEClass, NumberParam.class, "NumberParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumberParam_Value(), ecorePackage.getEDoubleObject(), "value", "0.0", 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNumberParam_NumberArgument(), thePatternstructurePackage.getNumberElement(), thePatternstructurePackage.getNumberElement_NumberParam(), "numberArgument", null, 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterValueEClass, ParameterValue.class, "ParameterValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getParameterValue__IsInTagComparison(), ecorePackage.getEBoolean(), "isInTagComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getParameterValue__IsInAttributeComparison(), ecorePackage.getEBoolean(), "isInAttributeComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getParameterValue__IsInDataComparison(), ecorePackage.getEBoolean(), "isInDataComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dateParamEClass, DateParam.class, "DateParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1008,6 +1090,9 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEReference(getRelationOptionParam_Relations(), theAdaptionxmlPackage.getXmlNavigation(), theAdaptionxmlPackage.getXmlNavigation_Option(), "relations", null, 0, -1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getRelationOptionParam__GenerateSuggestions(), theAdaptionxmlPackage.getRelationKind(), "generateSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		// Initialize data types
+		initEDataType(stringToIntEMapEDataType, EMap.class, "StringToIntEMap", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

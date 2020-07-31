@@ -14,4 +14,28 @@ package qualitypatternmodel.parameters;
  * @generated
  */
 public interface ParameterValue extends Parameter, qualitypatternmodel.graphstructure.Comparable {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isInTagComparison();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isInAttributeComparison();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isInDataComparison();
 } // XSType

@@ -55,7 +55,7 @@ public class SuggestionTest {
         completePattern.setDatabase(db);
         
         TextLiteralParam text = (TextLiteralParam) completePattern.getParameterList().getParameters().get(1);
-        for(String s : text.generateSuggestions()) {
+        for(String s : text.inferElementTagSuggestions()) {
         	System.out.println(s);
         }
         

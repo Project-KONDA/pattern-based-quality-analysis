@@ -14,7 +14,8 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getTagComparisonElements() <em>Get Tag Comparison Elements</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#generateSuggestions() <em>Generate Suggestions</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getElementTags() <em>Get Element Tags</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -87,13 +88,26 @@ public class TextLiteralParamTest extends ParameterValueTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.TextLiteralParam#generateSuggestions() <em>Generate Suggestions</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.parameters.TextLiteralParam#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#generateSuggestions()
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#inferElementTagSuggestions()
 	 * @generated
 	 */
-	public void testGenerateSuggestions() {
+	public void testInferElementTagSuggestions() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.TextLiteralParam#getElementTags() <em>Get Element Tags</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getElementTags()
+	 * @generated
+	 */
+	public void testGetElementTags() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

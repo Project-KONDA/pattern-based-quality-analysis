@@ -8,6 +8,10 @@
   <genPackages prefix="Qualitypatternmodel" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#/">
     <nestedGenPackages prefix="Parameters" basePackage="qualitypatternmodel" disposableProviderFactory="true"
         ecorePackage="qualitypatternmodel.ecore#//parameters">
+      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//parameters/StringToIntEMap">
+        <genTypeParameters ecoreTypeParameter="qualitypatternmodel.ecore#//parameters/StringToIntEMap/K"/>
+        <genTypeParameters ecoreTypeParameter="qualitypatternmodel.ecore#//parameters/StringToIntEMap/V"/>
+      </genDataTypes>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//parameters/Parameter">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/Parameter/parameterList"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/Parameter/description"/>
@@ -61,14 +65,19 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/properties"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/TextLiteralParam/getTagComparisonElements"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/TextLiteralParam/generateSuggestions"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/TextLiteralParam/inferElementTagSuggestions"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/TextLiteralParam/getElementTags"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/NumberParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/NumberParam/value"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/NumberParam/numberArgument"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//parameters/ParameterValue"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//parameters/ParameterValue">
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/isInTagComparison"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/isInAttributeComparison"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/isInDataComparison"/>
+      </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/DateParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/DateParam/value"/>
       </genClasses>

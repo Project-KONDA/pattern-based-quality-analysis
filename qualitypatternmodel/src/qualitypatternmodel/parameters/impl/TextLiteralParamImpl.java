@@ -4,7 +4,6 @@ package qualitypatternmodel.parameters.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
@@ -13,6 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -248,7 +248,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * @generated NOT
 	 */
 	@Override
-	public EList<String> generateSuggestions() {
+	public EList<String> inferElementTagSuggestions() {
 		EList<String> suggestions = new BasicEList<String>();
 		for(XmlElement element : getTagComparisonElements()) {			
 			analyseIncomingRelations(suggestions, element);			
@@ -257,6 +257,29 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		return suggestions;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EMap<String, Integer> getElementTags() {
+		if(!isInTagComparison()) {
+			Database db;
+			try {
+				db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
+				if(db instanceof XmlDatabase) {
+					XmlDatabase xmlDb = (XmlDatabase) db;
+					return xmlDb.getElementNames();
+				}
+			} catch (MissingPatternContainerException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}			
+		} 
+		return null;
+	}
+
 	private void analyseOutgoingRelations(EList<String> suggestions, XmlElement element) {
 		for(Relation outgoingRelation : element.getOutgoing()) {
 			if(outgoingRelation instanceof XmlNavigation) {
@@ -541,8 +564,10 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		switch (operationID) {
 			case ParametersPackage.TEXT_LITERAL_PARAM___GET_TAG_COMPARISON_ELEMENTS:
 				return getTagComparisonElements();
-			case ParametersPackage.TEXT_LITERAL_PARAM___GENERATE_SUGGESTIONS:
-				return generateSuggestions();
+			case ParametersPackage.TEXT_LITERAL_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS:
+				return inferElementTagSuggestions();
+			case ParametersPackage.TEXT_LITERAL_PARAM___GET_ELEMENT_TAGS:
+				return getElementTags();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

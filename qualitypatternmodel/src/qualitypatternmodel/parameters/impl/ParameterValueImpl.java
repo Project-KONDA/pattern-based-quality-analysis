@@ -11,11 +11,16 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.XmlElement;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterValue;
@@ -98,6 +103,60 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, ParametersPackage.PARAMETER_VALUE__COMPARISON2, OperatorsPackage.COMPARISON__ARGUMENT2);
 		}
 		return comparison2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isInTagComparison() {
+		return getPrimitiveComparisonPropertyKinds().contains(PropertyKind.TAG);
+	}
+
+	private EList<PropertyKind> getPrimitiveComparisonPropertyKinds() {
+		EList<PropertyKind> propertyKinds = new BasicEList<PropertyKind>();
+		EList<Comparison> comparisons = new BasicEList<Comparison>();
+		comparisons.addAll(getComparison1());
+		comparisons.addAll(getComparison2());
+		for(Comparison comparison : comparisons) {
+			if(comparison.isPrimitive()) {
+				if(comparison.getArgument1() instanceof XmlProperty) {
+					XmlProperty property = (XmlProperty) comparison.getArgument1();
+					if(property.getOption() != null) {
+						propertyKinds.add(property.getOption().getValue());				
+					}
+				}
+				if(comparison.getArgument2() instanceof XmlProperty) {
+					XmlProperty property = (XmlProperty) comparison.getArgument2();
+					if(property.getOption() != null) {
+						propertyKinds.add(property.getOption().getValue());
+					}
+				}				
+			}
+		}
+		return propertyKinds;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isInAttributeComparison() {
+		return getPrimitiveComparisonPropertyKinds().contains(PropertyKind.ATTRIBUTE);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isInDataComparison() {
+		return getPrimitiveComparisonPropertyKinds().contains(PropertyKind.DATA);
 	}
 
 	/**
@@ -303,6 +362,12 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case ParametersPackage.PARAMETER_VALUE___IS_IN_TAG_COMPARISON:
+				return isInTagComparison();
+			case ParametersPackage.PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON:
+				return isInAttributeComparison();
+			case ParametersPackage.PARAMETER_VALUE___IS_IN_DATA_COMPARISON:
+				return isInDataComparison();
 			case ParametersPackage.PARAMETER_VALUE___GET_RETURN_TYPE:
 				return getReturnType();
 			case ParametersPackage.PARAMETER_VALUE___IS_TRANSLATABLE:
