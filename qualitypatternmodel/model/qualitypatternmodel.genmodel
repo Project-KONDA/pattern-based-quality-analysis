@@ -64,9 +64,6 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/matches"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/properties"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/TextLiteralParam/getTagComparisonElements"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/TextLiteralParam/inferElementTagSuggestions"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/TextLiteralParam/getElementTags"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/NumberParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/NumberParam/value"/>
@@ -77,6 +74,13 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/isInTagComparison"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/isInAttributeComparison"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/isInDataComparison"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/getTagComparisonElements"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/inferElementTagSuggestions"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/getElementTags"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/getAttributeNames"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/getDataValues"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/getAttributeValues"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/getSuggestions"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/DateParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/DateParam/value"/>

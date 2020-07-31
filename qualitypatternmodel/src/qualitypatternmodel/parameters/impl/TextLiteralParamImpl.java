@@ -2,17 +2,12 @@
  */
 package qualitypatternmodel.parameters.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import org.basex.core.BaseXException;
-import org.basex.query.QueryException;
-import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -21,26 +16,15 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.RelationKind;
-import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.execution.Database;
-import qualitypatternmodel.execution.XmlDatabase;
-import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
+import qualitypatternmodel.utilityclasses.Constants;
 
 /**
  * <!-- begin-user-doc -->
@@ -137,6 +121,15 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		return super.isUsed() || !getMatches().isEmpty() || !getProperties().isEmpty();
 	}
 	
+	@Override
+	public EList<String> getSuggestions() {
+		EList<String> suggestions = super.getSuggestions();		
+		if(!getProperties().isEmpty()) {
+			suggestions.addAll(Constants.sortByValue(getAttributeNames()).keySet());
+		}			
+		return suggestions;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -206,239 +199,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			properties = new EObjectWithInverseResolvingEList<XmlProperty>(XmlProperty.class, this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME);
 		}
 		return properties;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<XmlElement> getTagComparisonElements() {
-		EList<XmlElement> tagComparisonElements = new BasicEList<XmlElement>();
-		EList<Comparison> comparisons = new BasicEList<Comparison>();
-		comparisons.addAll(getComparison1());
-		comparisons.addAll(getComparison2());
-		for(Comparison comparison : comparisons) {
-			if(comparison.getOption() != null && comparison.getOption().getValue() == ComparisonOperator.EQUAL && comparison.isPrimitive()) {
-				boolean isTagProperty = false;
-				if(comparison.getArgument1() instanceof XmlProperty) {
-					XmlProperty property = (XmlProperty) comparison.getArgument1();
-					if(property.getOption().getValue() == PropertyKind.TAG) {
-						isTagProperty = true;
-					}
-				}
-				if(comparison.getArgument2() instanceof XmlProperty) {
-					XmlProperty property = (XmlProperty) comparison.getArgument2();
-					if(property.getOption().getValue() == PropertyKind.TAG) {
-						isTagProperty = true;
-					}
-				}
-				if(isTagProperty && comparison.getElements().size() == 1 && comparison.getElements().get(0) instanceof XmlElement) {
-					tagComparisonElements.add((XmlElement) comparison.getElements().get(0));
-				}
-			}
-		}
-		return tagComparisonElements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<String> inferElementTagSuggestions() {
-		EList<String> suggestions = new BasicEList<String>();
-		for(XmlElement element : getTagComparisonElements()) {			
-			analyseIncomingRelations(suggestions, element);			
-			analyseOutgoingRelations(suggestions, element);			
-		}
-		return suggestions;
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EMap<String, Integer> getElementTags() {
-		if(!isInTagComparison()) {
-			Database db;
-			try {
-				db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-				if(db instanceof XmlDatabase) {
-					XmlDatabase xmlDb = (XmlDatabase) db;
-					return xmlDb.getElementNames();
-				}
-			} catch (MissingPatternContainerException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}			
-		} 
-		return null;
-	}
-
-	private void analyseOutgoingRelations(EList<String> suggestions, XmlElement element) {
-		for(Relation outgoingRelation : element.getOutgoing()) {
-			if(outgoingRelation instanceof XmlNavigation) {
-				XmlNavigation outgoingNavigation = (XmlNavigation) outgoingRelation;					
-				if(outgoingNavigation.getOption() != null && outgoingNavigation.getTarget() instanceof XmlElement) {
-					XmlElement target = (XmlElement) outgoingNavigation.getTarget();
-					for(Comparison tagComparison : target.getTagComparisons()) {
-						TextLiteralParam text = null;
-						if(tagComparison.getArgument1() instanceof TextLiteralParam){
-							text = (TextLiteralParam) tagComparison.getArgument1();								
-						}
-						if(tagComparison.getArgument2() instanceof TextLiteralParam){
-							text = (TextLiteralParam) tagComparison.getArgument2();								
-						}
-						if(text != null && text.getValue() != null && !text.getValue().equals("")) {
-							String tag = text.getValue();										
-							Database db;
-							try {
-								db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-								if (db instanceof XmlDatabase) {
-									XmlDatabase xmlDatabase = (XmlDatabase) db;
-
-									if (outgoingNavigation.getOption().getValue() == RelationKind.CHILD) {
-										suggestions.addAll(xmlDatabase.getParentsInSchema(tag));
-									}
-									if (outgoingNavigation.getOption().getValue() == RelationKind.DESCENDANT) {
-										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
-									}
-
-									if (outgoingNavigation.getOption().getValue() == RelationKind.PARENT) {
-										suggestions.addAll(xmlDatabase.getChildrenInSchema(tag));
-									}
-									if (outgoingNavigation.getOption().getValue() == RelationKind.ANCESTOR) {
-										suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
-									}
-
-									if (outgoingNavigation.getOption()
-											.getValue() == RelationKind.FOLLOWING_SIBLING) {
-										suggestions.addAll(xmlDatabase.getPrecedingSiblingsInSchema(tag));
-									}
-									if (outgoingNavigation.getOption().getValue() == RelationKind.FOLLOWING) {
-										// TODO
-									}
-
-									if (outgoingNavigation.getOption().getValue() == RelationKind.PRECEDING) {
-										// TODO
-									}
-									if (outgoingNavigation.getOption()
-											.getValue() == RelationKind.PRECEDING_SIBLING) {
-										suggestions.addAll(xmlDatabase.getFollowingSiblingsInSchema(tag));
-									}
-
-									if (outgoingNavigation.getOption().getValue() == RelationKind.SELF) {
-										suggestions.add(tag);
-									}
-
-									if (outgoingNavigation.getOption()
-											.getValue() == RelationKind.DESCENDANT_OR_SELF) {
-										suggestions.add(tag);
-										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
-									}
-
-									if (outgoingNavigation.getOption()
-											.getValue() == RelationKind.ANCESTOR_OR_SELF) {
-										suggestions.add(tag);
-										suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
-									}
-								}
-							} catch (MissingPatternContainerException | BaseXException | QueryIOException
-									| QueryException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}								
-						}
-					}
-				}					
-			}
-		}
-	}
-
-	private void analyseIncomingRelations(EList<String> suggestions, XmlElement element) {
-		for(Relation incomingRelation : element.getIncoming()) {
-			if(incomingRelation instanceof XmlNavigation) {
-				XmlNavigation incomingNavigation = (XmlNavigation) incomingRelation;					
-				if(incomingNavigation.getOption() != null && incomingNavigation.getSource() instanceof XmlElement) {
-					XmlElement source = (XmlElement) incomingNavigation.getSource();
-					for(Comparison tagComparison : source.getTagComparisons()) {
-						TextLiteralParam text = null;
-						if(tagComparison.getArgument1() instanceof TextLiteralParam){
-							text = (TextLiteralParam) tagComparison.getArgument1();								
-						}
-						if(tagComparison.getArgument2() instanceof TextLiteralParam){
-							text = (TextLiteralParam) tagComparison.getArgument2();								
-						}
-						if(text != null && text.getValue() != null && !text.getValue().equals("")) {
-							String tag = text.getValue();										
-							Database db;
-							try {
-								db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-								if (db instanceof XmlDatabase) {
-									XmlDatabase xmlDatabase = (XmlDatabase) db;
-
-									if (incomingNavigation.getOption().getValue() == RelationKind.CHILD) {
-										suggestions.addAll(xmlDatabase.getChildrenInSchema(tag));
-									}
-									if (incomingNavigation.getOption().getValue() == RelationKind.DESCENDANT) {
-										suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
-									}
-
-									if (incomingNavigation.getOption().getValue() == RelationKind.PARENT) {
-										suggestions.addAll(xmlDatabase.getParentsInSchema(tag));
-									}
-									if (incomingNavigation.getOption().getValue() == RelationKind.ANCESTOR) {
-										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
-									}
-
-									if (incomingNavigation.getOption()
-											.getValue() == RelationKind.FOLLOWING_SIBLING) {
-										suggestions.addAll(xmlDatabase.getFollowingSiblingsInSchema(tag));
-									}
-									if (incomingNavigation.getOption().getValue() == RelationKind.FOLLOWING) {
-										suggestions.addAll(xmlDatabase.getFollowingInSchema(tag));
-									}
-
-									if (incomingNavigation.getOption().getValue() == RelationKind.PRECEDING) {
-										suggestions.addAll(xmlDatabase.getPrecedingInSchema(tag));
-									}
-									if (incomingNavigation.getOption()
-											.getValue() == RelationKind.PRECEDING_SIBLING) {
-										suggestions.addAll(xmlDatabase.getPrecedingSiblingsInSchema(tag));
-									}
-
-									if (incomingNavigation.getOption().getValue() == RelationKind.SELF) {
-										suggestions.add(tag);
-									}
-
-									if (incomingNavigation.getOption()
-											.getValue() == RelationKind.DESCENDANT_OR_SELF) {
-										suggestions.add(tag);
-										suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
-									}
-
-									if (incomingNavigation.getOption()
-											.getValue() == RelationKind.ANCESTOR_OR_SELF) {
-										suggestions.add(tag);
-										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
-									}
-								}
-							} catch (MissingPatternContainerException | BaseXException | QueryIOException
-									| QueryException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}								
-						}
-					}
-				}					
-			}
-		}
-	}
+	}	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -552,24 +313,6 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return properties != null && !properties.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ParametersPackage.TEXT_LITERAL_PARAM___GET_TAG_COMPARISON_ELEMENTS:
-				return getTagComparisonElements();
-			case ParametersPackage.TEXT_LITERAL_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS:
-				return inferElementTagSuggestions();
-			case ParametersPackage.TEXT_LITERAL_PARAM___GET_ELEMENT_TAGS:
-				return getElementTags();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

@@ -1,5 +1,12 @@
 package qualitypatternmodel.utilityclasses;
 
+import java.util.Map.Entry;
+
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.BasicEMap;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.EMap;
+
 public class Constants {
 	public static final String VARIABLE = "$var";
 	public static final String LISTVARIABLE = "$list";
@@ -42,5 +49,18 @@ public class Constants {
 		}
 		return str;
 	}
+	
+	public static <K, V extends Comparable<? super V>> EMap<K, V> sortByValue(EMap<K, V> map) {
+        EList<Entry<K, V>> list = new BasicEList<>();
+        list.addAll(map.entrySet());
+        list.sort(Entry.comparingByValue());
+
+        EMap<K, V> result = new BasicEMap<>();
+        for (Entry<K, V> entry : list) {
+            result.put(entry.getKey(), entry.getValue());
+        }
+
+        return result;
+    }
 
 }

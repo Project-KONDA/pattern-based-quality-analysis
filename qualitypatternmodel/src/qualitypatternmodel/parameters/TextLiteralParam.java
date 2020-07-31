@@ -3,9 +3,6 @@
 package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.common.util.EMap;
-import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.operators.Match;
 
@@ -79,29 +76,5 @@ public interface TextLiteralParam extends ParameterValue {
 	 * @generated
 	 */
 	EList<XmlProperty> getProperties();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<XmlElement> getTagComparisonElements();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EList<String> inferElementTagSuggestions();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="qualitypatternmodel.parameters.StringToIntEMap&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EIntegerObject&gt;"
-	 * @generated
-	 */
-	EMap<String, Integer> getElementTags();
 
 } // TextLiteral

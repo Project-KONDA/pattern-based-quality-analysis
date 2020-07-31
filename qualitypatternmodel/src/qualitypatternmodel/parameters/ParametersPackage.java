@@ -1389,13 +1389,76 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE___IS_IN_DATA_COMPARISON = PARAMETER_OPERATION_COUNT + 6;
 
 	/**
+	 * The operation id for the '<em>Get Tag Comparison Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___GET_TAG_COMPARISON_ELEMENTS = PARAMETER_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_OPERATION_COUNT + 8;
+
+	/**
+	 * The operation id for the '<em>Get Element Tags</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___GET_ELEMENT_TAGS = PARAMETER_OPERATION_COUNT + 9;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___GET_ATTRIBUTE_NAMES = PARAMETER_OPERATION_COUNT + 10;
+
+	/**
+	 * The operation id for the '<em>Get Data Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___GET_DATA_VALUES = PARAMETER_OPERATION_COUNT + 11;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___GET_ATTRIBUTE_VALUES = PARAMETER_OPERATION_COUNT + 12;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___GET_SUGGESTIONS = PARAMETER_OPERATION_COUNT + 13;
+
+	/**
 	 * The number of operations of the '<em>Parameter Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 7;
+	int PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 14;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.BooleanParamImpl <em>Boolean Param</em>}' class.
@@ -1723,6 +1786,69 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___IS_IN_DATA_COMPARISON = PARAMETER_VALUE___IS_IN_DATA_COMPARISON;
 
 	/**
+	 * The operation id for the '<em>Get Tag Comparison Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___GET_TAG_COMPARISON_ELEMENTS = PARAMETER_VALUE___GET_TAG_COMPARISON_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+
+	/**
+	 * The operation id for the '<em>Get Element Tags</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Data Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
+
+	/**
 	 * The number of operations of the '<em>Boolean Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2046,6 +2172,69 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM___IS_IN_DATA_COMPARISON = PARAMETER_VALUE___IS_IN_DATA_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Tag Comparison Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___GET_TAG_COMPARISON_ELEMENTS = PARAMETER_VALUE___GET_TAG_COMPARISON_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+
+	/**
+	 * The operation id for the '<em>Get Element Tags</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Data Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Get List Declaration</em>' operation.
@@ -2415,7 +2604,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM___GET_TAG_COMPARISON_ELEMENTS = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int TEXT_LITERAL_PARAM___GET_TAG_COMPARISON_ELEMENTS = PARAMETER_VALUE___GET_TAG_COMPARISON_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
@@ -2424,7 +2613,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_VALUE_OPERATION_COUNT + 1;
+	int TEXT_LITERAL_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Get Element Tags</em>' operation.
@@ -2433,7 +2622,43 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE_OPERATION_COUNT + 2;
+	int TEXT_LITERAL_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Data Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
 	 * The number of operations of the '<em>Text Literal Param</em>' class.
@@ -2442,7 +2667,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 3;
+	int TEXT_LITERAL_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.NumberParamImpl <em>Number Param</em>}' class.
@@ -2770,6 +2995,69 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___IS_IN_DATA_COMPARISON = PARAMETER_VALUE___IS_IN_DATA_COMPARISON;
 
 	/**
+	 * The operation id for the '<em>Get Tag Comparison Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___GET_TAG_COMPARISON_ELEMENTS = PARAMETER_VALUE___GET_TAG_COMPARISON_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+
+	/**
+	 * The operation id for the '<em>Get Element Tags</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Data Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
+
+	/**
 	 * The number of operations of the '<em>Number Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3095,6 +3383,69 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM___IS_IN_DATA_COMPARISON = PARAMETER_VALUE___IS_IN_DATA_COMPARISON;
 
 	/**
+	 * The operation id for the '<em>Get Tag Comparison Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___GET_TAG_COMPARISON_ELEMENTS = PARAMETER_VALUE___GET_TAG_COMPARISON_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+
+	/**
+	 * The operation id for the '<em>Get Element Tags</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Data Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
+
+	/**
 	 * The number of operations of the '<em>Date Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3418,6 +3769,69 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TIME_PARAM___IS_IN_DATA_COMPARISON = PARAMETER_VALUE___IS_IN_DATA_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Tag Comparison Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___GET_TAG_COMPARISON_ELEMENTS = PARAMETER_VALUE___GET_TAG_COMPARISON_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+
+	/**
+	 * The operation id for the '<em>Get Element Tags</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Data Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
 	 * The number of operations of the '<em>Time Param</em>' class.
@@ -4050,6 +4464,69 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_TIME_PARAM___IS_IN_DATA_COMPARISON = PARAMETER_VALUE___IS_IN_DATA_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Tag Comparison Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___GET_TAG_COMPARISON_ELEMENTS = PARAMETER_VALUE___GET_TAG_COMPARISON_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+
+	/**
+	 * The operation id for the '<em>Get Element Tags</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Data Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
 	 * The number of operations of the '<em>Date Time Param</em>' class.
@@ -4699,36 +5176,6 @@ public interface ParametersPackage extends EPackage {
 	EReference getTextLiteralParam_Properties();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextLiteralParam#getTagComparisonElements() <em>Get Tag Comparison Elements</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Tag Comparison Elements</em>' operation.
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getTagComparisonElements()
-	 * @generated
-	 */
-	EOperation getTextLiteralParam__GetTagComparisonElements();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextLiteralParam#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Infer Element Tag Suggestions</em>' operation.
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#inferElementTagSuggestions()
-	 * @generated
-	 */
-	EOperation getTextLiteralParam__InferElementTagSuggestions();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextLiteralParam#getElementTags() <em>Get Element Tags</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Element Tags</em>' operation.
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getElementTags()
-	 * @generated
-	 */
-	EOperation getTextLiteralParam__GetElementTags();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.NumberParam <em>Number Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4799,6 +5246,76 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getParameterValue__IsInDataComparison();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#getTagComparisonElements() <em>Get Tag Comparison Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Tag Comparison Elements</em>' operation.
+	 * @see qualitypatternmodel.parameters.ParameterValue#getTagComparisonElements()
+	 * @generated
+	 */
+	EOperation getParameterValue__GetTagComparisonElements();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * @see qualitypatternmodel.parameters.ParameterValue#inferElementTagSuggestions()
+	 * @generated
+	 */
+	EOperation getParameterValue__InferElementTagSuggestions();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#getElementTags() <em>Get Element Tags</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Element Tags</em>' operation.
+	 * @see qualitypatternmodel.parameters.ParameterValue#getElementTags()
+	 * @generated
+	 */
+	EOperation getParameterValue__GetElementTags();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#getAttributeNames() <em>Get Attribute Names</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Attribute Names</em>' operation.
+	 * @see qualitypatternmodel.parameters.ParameterValue#getAttributeNames()
+	 * @generated
+	 */
+	EOperation getParameterValue__GetAttributeNames();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#getDataValues() <em>Get Data Values</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Data Values</em>' operation.
+	 * @see qualitypatternmodel.parameters.ParameterValue#getDataValues()
+	 * @generated
+	 */
+	EOperation getParameterValue__GetDataValues();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#getAttributeValues() <em>Get Attribute Values</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Attribute Values</em>' operation.
+	 * @see qualitypatternmodel.parameters.ParameterValue#getAttributeValues()
+	 * @generated
+	 */
+	EOperation getParameterValue__GetAttributeValues();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#getSuggestions() <em>Get Suggestions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Suggestions</em>' operation.
+	 * @see qualitypatternmodel.parameters.ParameterValue#getSuggestions()
+	 * @generated
+	 */
+	EOperation getParameterValue__GetSuggestions();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.DateParam <em>Date Param</em>}'.
@@ -5259,30 +5776,6 @@ public interface ParametersPackage extends EPackage {
 		EReference TEXT_LITERAL_PARAM__PROPERTIES = eINSTANCE.getTextLiteralParam_Properties();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Tag Comparison Elements</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TEXT_LITERAL_PARAM___GET_TAG_COMPARISON_ELEMENTS = eINSTANCE.getTextLiteralParam__GetTagComparisonElements();
-
-		/**
-		 * The meta object literal for the '<em><b>Infer Element Tag Suggestions</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TEXT_LITERAL_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = eINSTANCE.getTextLiteralParam__InferElementTagSuggestions();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Element Tags</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TEXT_LITERAL_PARAM___GET_ELEMENT_TAGS = eINSTANCE.getTextLiteralParam__GetElementTags();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.NumberParamImpl <em>Number Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5341,6 +5834,62 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PARAMETER_VALUE___IS_IN_DATA_COMPARISON = eINSTANCE.getParameterValue__IsInDataComparison();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Tag Comparison Elements</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_VALUE___GET_TAG_COMPARISON_ELEMENTS = eINSTANCE.getParameterValue__GetTagComparisonElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Infer Element Tag Suggestions</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS = eINSTANCE.getParameterValue__InferElementTagSuggestions();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Element Tags</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_VALUE___GET_ELEMENT_TAGS = eINSTANCE.getParameterValue__GetElementTags();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Attribute Names</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_VALUE___GET_ATTRIBUTE_NAMES = eINSTANCE.getParameterValue__GetAttributeNames();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Data Values</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_VALUE___GET_DATA_VALUES = eINSTANCE.getParameterValue__GetDataValues();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Attribute Values</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_VALUE___GET_ATTRIBUTE_VALUES = eINSTANCE.getParameterValue__GetAttributeValues();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Suggestions</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_VALUE___GET_SUGGESTIONS = eINSTANCE.getParameterValue__GetSuggestions();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.DateParamImpl <em>Date Param</em>}' class.

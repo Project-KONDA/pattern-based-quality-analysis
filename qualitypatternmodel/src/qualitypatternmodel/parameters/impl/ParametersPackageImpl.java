@@ -584,36 +584,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getTextLiteralParam__GetTagComparisonElements() {
-		return textLiteralParamEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getTextLiteralParam__InferElementTagSuggestions() {
-		return textLiteralParamEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getTextLiteralParam__GetElementTags() {
-		return textLiteralParamEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getNumberParam() {
 		return numberParamEClass;
 	}
@@ -676,6 +646,76 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	@Override
 	public EOperation getParameterValue__IsInDataComparison() {
 		return parameterValueEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterValue__GetTagComparisonElements() {
+		return parameterValueEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterValue__InferElementTagSuggestions() {
+		return parameterValueEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterValue__GetElementTags() {
+		return parameterValueEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterValue__GetAttributeNames() {
+		return parameterValueEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterValue__GetDataValues() {
+		return parameterValueEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterValue__GetAttributeValues() {
+		return parameterValueEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterValue__GetSuggestions() {
+		return parameterValueEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -896,9 +936,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEAttribute(textLiteralParamEClass, TEXT_LITERAL_PARAM__VALUE);
 		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__MATCHES);
 		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__PROPERTIES);
-		createEOperation(textLiteralParamEClass, TEXT_LITERAL_PARAM___GET_TAG_COMPARISON_ELEMENTS);
-		createEOperation(textLiteralParamEClass, TEXT_LITERAL_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS);
-		createEOperation(textLiteralParamEClass, TEXT_LITERAL_PARAM___GET_ELEMENT_TAGS);
 
 		numberParamEClass = createEClass(NUMBER_PARAM);
 		createEAttribute(numberParamEClass, NUMBER_PARAM__VALUE);
@@ -908,6 +945,13 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_TAG_COMPARISON);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_DATA_COMPARISON);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_TAG_COMPARISON_ELEMENTS);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_ELEMENT_TAGS);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_ATTRIBUTE_NAMES);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_DATA_VALUES);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_ATTRIBUTE_VALUES);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_SUGGESTIONS);
 
 		dateParamEClass = createEClass(DATE_PARAM);
 		createEAttribute(dateParamEClass, DATE_PARAM__VALUE);
@@ -1043,18 +1087,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEReference(getTextLiteralParam_Matches(), theOperatorsPackage.getMatch(), theOperatorsPackage.getMatch_RegularExpression(), "matches", null, 0, -1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTextLiteralParam_Properties(), theAdaptionxmlPackage.getXmlProperty(), theAdaptionxmlPackage.getXmlProperty_AttributeName(), "properties", null, 0, -1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getTextLiteralParam__GetTagComparisonElements(), theAdaptionxmlPackage.getXmlElement(), "getTagComparisonElements", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getTextLiteralParam__InferElementTagSuggestions(), ecorePackage.getEString(), "inferElementTagSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getTextLiteralParam__GetElementTags(), null, "getElementTags", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getStringToIntEMap());
-		g2 = createEGenericType(ecorePackage.getEString());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEIntegerObject());
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
-
 		initEClass(numberParamEClass, NumberParam.class, "NumberParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumberParam_Value(), ecorePackage.getEDoubleObject(), "value", "0.0", 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNumberParam_NumberArgument(), thePatternstructurePackage.getNumberElement(), thePatternstructurePackage.getNumberElement_NumberParam(), "numberArgument", null, 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1066,6 +1098,44 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEOperation(getParameterValue__IsInAttributeComparison(), ecorePackage.getEBoolean(), "isInAttributeComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getParameterValue__IsInDataComparison(), ecorePackage.getEBoolean(), "isInDataComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getParameterValue__GetTagComparisonElements(), theAdaptionxmlPackage.getXmlElement(), "getTagComparisonElements", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getParameterValue__InferElementTagSuggestions(), ecorePackage.getEString(), "inferElementTagSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getParameterValue__GetElementTags(), null, "getElementTags", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getStringToIntEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEIntegerObject());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = initEOperation(getParameterValue__GetAttributeNames(), null, "getAttributeNames", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getStringToIntEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEIntegerObject());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = initEOperation(getParameterValue__GetDataValues(), null, "getDataValues", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getStringToIntEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEIntegerObject());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = initEOperation(getParameterValue__GetAttributeValues(), null, "getAttributeValues", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getStringToIntEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEIntegerObject());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		initEOperation(getParameterValue__GetSuggestions(), ecorePackage.getEString(), "getSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dateParamEClass, DateParam.class, "DateParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
