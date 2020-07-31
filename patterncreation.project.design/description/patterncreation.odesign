@@ -1057,7 +1057,7 @@
           <ownedTools xsi:type="tool:DirectEditLabel" name="editlabel">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'jfk'"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:ToolDescription" name="changeQuantifier" precondition="aql:self.changeQuantifierPrecondition()">
