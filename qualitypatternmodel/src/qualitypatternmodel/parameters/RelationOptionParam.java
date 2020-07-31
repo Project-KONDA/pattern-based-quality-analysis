@@ -84,6 +84,6 @@ public interface RelationOptionParam extends Parameter {
 	 * @model
 	 * @generated
 	 */
-	EList<RelationKind> generateSuggestions();
+	EList<RelationKind> inferSuggestions();
 
 } // AxisOption

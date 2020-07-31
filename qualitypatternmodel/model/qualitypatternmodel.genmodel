@@ -104,7 +104,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/RelationOptionParam/value"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/RelationOptionParam/relations"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/RelationOptionParam/generateSuggestions"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/RelationOptionParam/inferSuggestions"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Operators" basePackage="qualitypatternmodel" disposableProviderFactory="true"

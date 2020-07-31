@@ -854,7 +854,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getRelationOptionParam__GenerateSuggestions() {
+	public EOperation getRelationOptionParam__InferSuggestions() {
 		return relationOptionParamEClass.getEOperations().get(0);
 	}
 
@@ -970,7 +970,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEAttribute(relationOptionParamEClass, RELATION_OPTION_PARAM__OPTIONS);
 		createEAttribute(relationOptionParamEClass, RELATION_OPTION_PARAM__VALUE);
 		createEReference(relationOptionParamEClass, RELATION_OPTION_PARAM__RELATIONS);
-		createEOperation(relationOptionParamEClass, RELATION_OPTION_PARAM___GENERATE_SUGGESTIONS);
+		createEOperation(relationOptionParamEClass, RELATION_OPTION_PARAM___INFER_SUGGESTIONS);
 
 		// Create data types
 		stringToIntEMapEDataType = createEDataType(STRING_TO_INT_EMAP);
@@ -1159,7 +1159,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEAttribute(getRelationOptionParam_Value(), theAdaptionxmlPackage.getRelationKind(), "value", null, 1, 1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelationOptionParam_Relations(), theAdaptionxmlPackage.getXmlNavigation(), theAdaptionxmlPackage.getXmlNavigation_Option(), "relations", null, 0, -1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getRelationOptionParam__GenerateSuggestions(), theAdaptionxmlPackage.getRelationKind(), "generateSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRelationOptionParam__InferSuggestions(), theAdaptionxmlPackage.getRelationKind(), "inferSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(stringToIntEMapEDataType, EMap.class, "StringToIntEMap", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

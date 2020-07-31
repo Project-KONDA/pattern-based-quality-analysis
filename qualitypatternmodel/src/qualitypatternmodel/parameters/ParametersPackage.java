@@ -4800,13 +4800,13 @@ public interface ParametersPackage extends EPackage {
 	int RELATION_OPTION_PARAM___IS_USED = PARAMETER___IS_USED;
 
 	/**
-	 * The operation id for the '<em>Generate Suggestions</em>' operation.
+	 * The operation id for the '<em>Infer Suggestions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPTION_PARAM___GENERATE_SUGGESTIONS = PARAMETER_OPERATION_COUNT + 0;
+	int RELATION_OPTION_PARAM___INFER_SUGGESTIONS = PARAMETER_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Relation Option Param</em>' class.
@@ -5454,14 +5454,14 @@ public interface ParametersPackage extends EPackage {
 	EReference getRelationOptionParam_Relations();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.RelationOptionParam#generateSuggestions() <em>Generate Suggestions</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.RelationOptionParam#inferSuggestions() <em>Infer Suggestions</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Generate Suggestions</em>' operation.
-	 * @see qualitypatternmodel.parameters.RelationOptionParam#generateSuggestions()
+	 * @return the meta object for the '<em>Infer Suggestions</em>' operation.
+	 * @see qualitypatternmodel.parameters.RelationOptionParam#inferSuggestions()
 	 * @generated
 	 */
-	EOperation getRelationOptionParam__GenerateSuggestions();
+	EOperation getRelationOptionParam__InferSuggestions();
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.emf.common.util.EMap <em>String To Int EMap</em>}'.
@@ -6006,12 +6006,12 @@ public interface ParametersPackage extends EPackage {
 		EReference RELATION_OPTION_PARAM__RELATIONS = eINSTANCE.getRelationOptionParam_Relations();
 
 		/**
-		 * The meta object literal for the '<em><b>Generate Suggestions</b></em>' operation.
+		 * The meta object literal for the '<em><b>Infer Suggestions</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RELATION_OPTION_PARAM___GENERATE_SUGGESTIONS = eINSTANCE.getRelationOptionParam__GenerateSuggestions();
+		EOperation RELATION_OPTION_PARAM___INFER_SUGGESTIONS = eINSTANCE.getRelationOptionParam__InferSuggestions();
 
 		/**
 		 * The meta object literal for the '<em>String To Int EMap</em>' data type.

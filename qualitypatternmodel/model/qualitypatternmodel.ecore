@@ -135,7 +135,7 @@
           defaultValueLiteral=""/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RelationOptionParam" eSuperTypes="#//parameters/Parameter">
-      <eOperations name="generateSuggestions" upperBound="-1" eType="#//adaptionxml/RelationKind"/>
+      <eOperations name="inferSuggestions" upperBound="-1" eType="#//adaptionxml/RelationKind"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
           eType="#//adaptionxml/RelationKind"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
