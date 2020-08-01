@@ -5,6 +5,7 @@ package qualitypatternmodel.parameters.util;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EPackage;
@@ -141,6 +142,8 @@ public class ParametersValidator extends EObjectValidator {
 				return validateDateTimeParam((DateTimeParam)value, diagnostics, context);
 			case ParametersPackage.RELATION_OPTION_PARAM:
 				return validateRelationOptionParam((RelationOptionParam)value, diagnostics, context);
+			case ParametersPackage.STRING_TO_INT_EMAP:
+				return validateStringToIntEMap((EMap<?, ?>)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -420,6 +423,15 @@ public class ParametersValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(relationOptionParam, diagnostics, context);
 		if (result || diagnostics != null) result &= validateParameter_validate(relationOptionParam, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStringToIntEMap(EMap<?, ?> stringToIntEMap, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
 	}
 
 	/**

@@ -13,7 +13,7 @@ import qualitypatternmodel.parameters.ParametersFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.parameters.RelationOptionParam#generateSuggestions() <em>Generate Suggestions</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.RelationOptionParam#inferSuggestions() <em>Infer Suggestions</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -73,13 +73,13 @@ public class RelationOptionParamTest extends ParameterTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.RelationOptionParam#generateSuggestions() <em>Generate Suggestions</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.parameters.RelationOptionParam#inferSuggestions() <em>Infer Suggestions</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.RelationOptionParam#generateSuggestions()
+	 * @see qualitypatternmodel.parameters.RelationOptionParam#inferSuggestions()
 	 * @generated
 	 */
-	public void testGenerateSuggestions() {
+	public void testInferSuggestions() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

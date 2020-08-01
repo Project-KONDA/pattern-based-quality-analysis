@@ -210,7 +210,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	 * @generated NOT
 	 */
 	@Override
-	public EList<RelationKind> generateSuggestions() {
+	public EList<RelationKind> inferSuggestions() {
 		EList<RelationKind> suggestions = new BasicEList<RelationKind>();		
 		for(XmlNavigation xmlNavigation : getRelations()) {
 			String sourceTag = getTag(xmlNavigation.getSource());	
@@ -412,8 +412,8 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ParametersPackage.RELATION_OPTION_PARAM___GENERATE_SUGGESTIONS:
-				return generateSuggestions();
+			case ParametersPackage.RELATION_OPTION_PARAM___INFER_SUGGESTIONS:
+				return inferSuggestions();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

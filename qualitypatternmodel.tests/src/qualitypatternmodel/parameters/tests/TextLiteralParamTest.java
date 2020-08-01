@@ -10,13 +10,6 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Text Literal</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following operations are tested:
- * <ul>
- *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getTagComparisonElements() <em>Get Tag Comparison Elements</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#generateSuggestions() <em>Generate Suggestions</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 public class TextLiteralParamTest extends ParameterValueTest {
@@ -71,32 +64,6 @@ public class TextLiteralParamTest extends ParameterValueTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.TextLiteralParam#getTagComparisonElements() <em>Get Tag Comparison Elements</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getTagComparisonElements()
-	 * @generated
-	 */
-	public void testGetTagComparisonElements() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.TextLiteralParam#generateSuggestions() <em>Generate Suggestions</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#generateSuggestions()
-	 * @generated
-	 */
-	public void testGenerateSuggestions() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 } //TextLiteralTest

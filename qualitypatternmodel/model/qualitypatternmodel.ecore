@@ -69,8 +69,6 @@
           defaultValueLiteral=""/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TextLiteralParam" eSuperTypes="#//parameters/ParameterValue">
-      <eOperations name="getTagComparisonElements" upperBound="-1" eType="#//adaptionxml/XmlElement"/>
-      <eOperations name="generateSuggestions" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="matches" upperBound="-1"
@@ -84,7 +82,38 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="numberArgument" eType="#//patternstructure/NumberElement"
           eOpposite="#//patternstructure/NumberElement/numberParam"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ParameterValue" abstract="true" eSuperTypes="#//parameters/Parameter #//graphstructure/Comparable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterValue" abstract="true" eSuperTypes="#//parameters/Parameter #//graphstructure/Comparable">
+      <eOperations name="isInTagComparison" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="isInAttributeComparison" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="isInDataComparison" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="getTagComparisonElements" upperBound="-1" eType="#//adaptionxml/XmlElement"/>
+      <eOperations name="inferElementTagSuggestions" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="getElementTags">
+        <eGenericType eClassifier="#//parameters/StringToIntEMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+        </eGenericType>
+      </eOperations>
+      <eOperations name="getAttributeNames">
+        <eGenericType eClassifier="#//parameters/StringToIntEMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+        </eGenericType>
+      </eOperations>
+      <eOperations name="getDataValues">
+        <eGenericType eClassifier="#//parameters/StringToIntEMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+        </eGenericType>
+      </eOperations>
+      <eOperations name="getAttributeValues">
+        <eGenericType eClassifier="#//parameters/StringToIntEMap">
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+        </eGenericType>
+      </eOperations>
+      <eOperations name="getSuggestions" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DateParam" eSuperTypes="#//parameters/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
@@ -106,13 +135,17 @@
           defaultValueLiteral=""/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RelationOptionParam" eSuperTypes="#//parameters/Parameter">
-      <eOperations name="generateSuggestions" upperBound="-1" eType="#//adaptionxml/RelationKind"/>
+      <eOperations name="inferSuggestions" upperBound="-1" eType="#//adaptionxml/RelationKind"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
           eType="#//adaptionxml/RelationKind"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
           eType="#//adaptionxml/RelationKind"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
           eType="#//adaptionxml/XmlNavigation" eOpposite="#//adaptionxml/XmlNavigation/option"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="StringToIntEMap" instanceClassName="org.eclipse.emf.common.util.EMap">
+      <eTypeParameters name="K"/>
+      <eTypeParameters name="V"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="operators" nsURI="operators" nsPrefix="operators">

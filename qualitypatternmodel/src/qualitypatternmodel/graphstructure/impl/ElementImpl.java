@@ -1106,10 +1106,16 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getName() {
+		if(name == null || name == "") {
+			if(getOriginalID() > -1) {
+				name = "Element " + getOriginalID();
+				return name;
+			}
+		}
 		return name;
 	}
 
