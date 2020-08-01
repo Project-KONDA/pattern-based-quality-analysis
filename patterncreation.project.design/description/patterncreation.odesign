@@ -692,15 +692,15 @@
         <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='match'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='comparison']"/>
       </filters>
       <defaultLayer name="Default">
-        <edgeMappings name="relationElement" sourceMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="graphstructure::Relation" useDomainElement="true">
+        <edgeMappings name="relationElement" labelDirectEdit="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@toolSections.0/@ownedTools[name='editlabel']" sourceMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="graphstructure::Relation" useDomainElement="true">
           <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelSize="12" labelExpression="aql:'oihj'">
+            <centerLabelStyleDescription labelSize="12" labelExpression="feature:name">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="comparisonArgument1" sourceMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='comparison']" targetMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetFinderExpression="aql:self.targetFinderExpressionComparisonArgument1and2('argument1')">
+        <edgeMappings name="comparisonArgument1" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteComparisonArgument1']" sourceMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='comparison']" targetMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetFinderExpression="aql:self.targetFinderExpressionComparisonArgument1and2('argument1')">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -708,7 +708,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="comparisonArgument2" sourceMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='comparison']" targetMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetFinderExpression="aql:self.targetFinderExpressionComparisonArgument1and2('argument2')">
+        <edgeMappings name="comparisonArgument2" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteComparisonArgument2']" sourceMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='comparison']" targetMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetFinderExpression="aql:self.targetFinderExpressionComparisonArgument1and2('argument2')">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -724,9 +724,9 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="completePattern" semanticCandidatesExpression="aql:self.printSelf()" domainClass="patternstructure::CompletePattern" childrenPresentation="HorizontalStack">
+        <containerMappings name="completePattern" labelDirectEdit="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@toolSections.0/@ownedTools[name='editlabel']" semanticCandidatesExpression="aql:self.printSelf()" domainClass="patternstructure::CompletePattern" childrenPresentation="HorizontalStack">
           <subContainerMappings name="graph" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteGraph']" semanticCandidatesExpression="feature:eContents" domainClass="graphstructure::Graph" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='comparison']">
-            <subContainerMappings name="element" semanticCandidatesExpression="feature:eContents" doubleClickDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@toolSections.0/@ownedTools[name='ShowMapping']" domainClass="graphstructure::Element" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='property']" childrenPresentation="VerticalStack">
+            <subContainerMappings name="element" labelDirectEdit="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@toolSections.0/@ownedTools[name='editlabel']" semanticCandidatesExpression="feature:eContents" doubleClickDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@toolSections.0/@ownedTools[name='ShowMapping']" domainClass="graphstructure::Element" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='property']" childrenPresentation="VerticalStack">
               <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Element '+self.internalId">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -909,14 +909,57 @@
           </style>
         </containerMappings>
         <toolSections name="Conditions">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="QuantifiedCondition" precondition="aql:self.conditionPrecondition()" containerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='quantifiedCondition']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="patternstructure::QuantifiedCondition" referenceName="aql:self.referenceName()"/>
-              </firstModelOperations>
-            </initialOperation>
+          <ownedTools xsi:type="tool:ToolGroup" name="QuantifiedCondition">
+            <tools xsi:type="tool:ContainerCreationDescription" name="QuantifiedCondition" precondition="aql:self.conditionPrecondition()" containerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='quantifiedCondition']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext">
+                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Change quantifier of quantifiedcondition">
+                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                      <initialOperation/>
+                    </buttons>
+                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                          <subModelOperations xsi:type="tool_1:CreateInstance" typeName="patternstructure::QuantifiedCondition" referenceName="aql:self.referenceName()">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="quantifier" valueExpression="aql:self.getQuantifier()"/>
+                          </subModelOperations>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </buttons>
+                    <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@toolSections.0/@ownedTools[name='QuantifiedCondition']/@tools.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@groups.0"/>
+                    <groups name="Default Group" labelExpression="Quantifiers" semanticCandidateExpression="var:self">
+                      <controls xsi:type="properties:RadioDescription" name="quantifiers" labelExpression="aql:'Quantifier'" valueExpression="aql:self.getQuantifier()" candidatesExpression="aql:self.getQuantifiers()" candidateDisplayExpression="aql:candidate.toString()" numberOfColumns="2">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.storeQuantifier(newValue)"/>
+                        </initialOperation>
+                      </controls>
+                    </groups>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:ContainerCreationDescription" name="Exists" precondition="aql:self.conditionPrecondition()" containerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='quantifiedCondition']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="patternstructure::QuantifiedCondition" referenceName="aql:self.referenceName()"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:ContainerCreationDescription" name="Forall" precondition="aql:self.conditionPrecondition()" containerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='quantifiedCondition']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="patternstructure::QuantifiedCondition" referenceName="aql:self.referenceName()">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="quantifier" valueExpression="aql:self.getForall()"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
           </ownedTools>
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="Formula" precondition="aql:self.conditionPrecondition()" containerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='formula']">
             <variable name="container"/>
@@ -1020,6 +1063,26 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteComparisonArgument1">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="argument1" valueExpression="aql:null"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteComparisonArgument2">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="argument2" valueExpression="aql:null"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
           <ownedTools xsi:type="tool:EdgeCreationDescription" name="ComparisonArgument" edgeMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@edgeMappings[name='comparisonArgument1']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
@@ -1108,36 +1171,6 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="x" precondition="aql:self.conditionPrecondition()" containerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='quantifiedCondition']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext">
-                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Change quantifier of quantifiedcondition">
-                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                    <initialOperation/>
-                  </buttons>
-                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                    <initialOperation>
-                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="patternstructure::QuantifiedCondition" referenceName="aql:self.referenceName()">
-                          <subModelOperations xsi:type="tool_1:SetValue" featureName="quantifier" valueExpression="aql:self.getQuantifier()"/>
-                        </subModelOperations>
-                      </firstModelOperations>
-                    </initialOperation>
-                  </buttons>
-                  <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@toolSections.0/@ownedTools[name='x']/@initialOperation/@firstModelOperations/@subModelOperations.0/@groups.0"/>
-                  <groups name="Default Group" labelExpression="Quantifiers" semanticCandidateExpression="var:self">
-                    <controls xsi:type="properties:RadioDescription" name="quantifiers" labelExpression="aql:'Quantifier'" valueExpression="aql:self.getQuantifier()" candidatesExpression="aql:self.getQuantifiers()" candidateDisplayExpression="aql:candidate.toString()" numberOfColumns="2">
-                      <initialOperation>
-                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.storeQuantifier(newValue)"/>
-                      </initialOperation>
-                    </controls>
-                  </groups>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
         </toolSections>
         <toolSections name="Graphelements">
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="Element" containerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']">
@@ -1196,7 +1229,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Paramters">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Value" precondition="aql:self.parameterPrecondition('Value')" containerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='unknownParameterValue']">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="untypedValue" precondition="aql:self.parameterPrecondition('Value')" containerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='unknownParameterValue']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -1254,7 +1287,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Reusing/Discard">
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="selectProperty" precondition="aql:self.selectElementPrecondition()" candidatesExpression="aql:self.getProperties()" message="Select Property to use">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="selectProperty" precondition="aql:self.selectElementPrecondition()" candidatesExpression="aql:self.getProperties()" message="Select a property to use as an argument of a match or comparison. If there is no property to choose, you must add a property to an element." windowTitle="Selection of a property">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -1264,7 +1297,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="selectParameter" precondition="aql:self.selectParameterPrecondition()" candidatesExpression="aql:self.getParameter()">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="selectParameter" precondition="aql:self.selectParameterPrecondition()" candidatesExpression="aql:self.getParameter()" message="Select a parameter to use as an argument of a match or comparison. If there is no parameter to choose, you must add a parameter to a match or a comparison." windowTitle="Selection of a parameter">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -1274,7 +1307,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="selectElement" precondition="aql:self.selectElementPrecondition()" candidatesExpression="aql:self.getElements()">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="selectElement" precondition="aql:self.selectElementPrecondition()" candidatesExpression="aql:self.getElements()" message="Select an element to use as an argument of a comparison. If there is no element to choose, you must add an element to a graph." windowTitle="Selection of an element">
             <element name="element"/>
             <containerView name="containerView"/>
             <container name="container"/>
@@ -1283,7 +1316,7 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:ToolGroup" name="DiscardArguments">
-            <tools xsi:type="tool_1:SelectionWizardDescription" name="DiscardArgument" candidatesExpression="aql:self.candidatesExpressionDiscardArgument()">
+            <tools xsi:type="tool_1:SelectionWizardDescription" name="DiscardArgument" candidatesExpression="aql:self.candidatesExpressionDiscardArgument()" message="Select an argument to discard it as an argument of a match or comparison." iconPath="/patterncreation.project.design/images/rotesx.png">
               <element name="element"/>
               <containerView name="containerView"/>
               <container name="container"/>
@@ -1291,14 +1324,14 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.discardArgument(element, container)"/>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:ToolDescription" name="DiscardArgument1" precondition="aql:self.discardArgument1Precondition()">
+            <tools xsi:type="tool_1:ToolDescription" name="DiscardArgument1" precondition="aql:self.discardArgument1Precondition()" iconPath="/patterncreation.project.design/images/rotesx.png">
               <element name="element"/>
               <elementView name="elementView"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.discardArgument1()"/>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:ToolDescription" name="DiscardArgument2" precondition="aql:self.discardArgument2Precondition()">
+            <tools xsi:type="tool_1:ToolDescription" name="DiscardArgument2" precondition="aql:self.discardArgument2Precondition()" iconPath="/patterncreation.project.design/images/rotesx.png">
               <element name="element"/>
               <elementView name="elementView"/>
               <initialOperation>
@@ -1326,7 +1359,7 @@
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="NoIncominMapping" position="NORTH_WEST" preconditionExpression="aql:self.elementIncomingmappingPrecondition()" imageExpression="/patterncreation.project.design/images/noincomingmapping.png" tooltipExpression="aql:'No incoming mapping'" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']"/>
           <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="NoReturnelement" position="NORTH_WEST" preconditionExpression="aql:self.hasReturnelementGraph()" imageExpression="/patterncreation.project.design/images/noreturnelement.png" tooltipExpression="It is no returnelement in this graph specified" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']"/>
-          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Returnelement" position="NORTH_WEST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.isReturnelement()" imageExpression="/patterncreation.project.design/images/returnelement.png" tooltipExpression="This is a returnelement" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Returnelement" position="NORTH_WEST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.isReturnelement()" imageExpression="/patterncreation.project.design/images/returnelementr.png" tooltipExpression="This is a returnelement" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']"/>
         </decorationDescriptionsSet>
       </defaultLayer>
     </ownedRepresentations>

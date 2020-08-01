@@ -1384,7 +1384,8 @@ public class Services {
     public boolean elementIncomingmappingPrecondition(EObject self) {//decoration kein incomingmapping
     	boolean decoration = false;
     	Element element = (Element) self;
-    	if(element.getIncomingMapping() == null) {
+    	Graph graph = element.getGraph();
+    	if(element.getIncomingMapping() == null && !graph.isReturnGraph()) {
     		decoration = true;
     	}
     	return decoration;
@@ -1407,7 +1408,7 @@ public class Services {
     	boolean decoration = false;
     	Element element = (Element) self;
     	Graph graph = element.getGraph();
-    	if(graph.getReturnElements().contains(element)) {
+    	if(element.getResultOf() != null && graph.isReturnGraph()/*graph.getReturnElements().contains(element)*/) {
     		decoration = true;
     	}
     	return decoration;
@@ -1584,5 +1585,9 @@ public class Services {
     
     public void printQ(EObject self) {
     	System.out.println(radioq);
+    }
+    
+    public Quantifier getForall(EObject self) {
+    	return Quantifier.FORALL;
     }
 }
