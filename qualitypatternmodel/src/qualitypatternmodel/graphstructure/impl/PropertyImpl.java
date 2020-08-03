@@ -305,10 +305,16 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getName() {
+		if(name == null || name.equals("")) {
+			if(getInternalId() > -1) {
+				name = "Property " + getInternalId();
+				return name;
+			}
+		}
 		return name;
 	}
 

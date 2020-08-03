@@ -504,11 +504,25 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getName() {
+		if(name == null || name.equals("")) {
+			if(getOriginalID() > -1) {
+				name = "Relation " + getOriginalID();
+				return name;
+			}
+		}
 		return name;
+	}
+	
+	@Override
+	public int getOriginalID() {
+		if (incomingMapping == null)
+			return this.getInternalId();
+		else
+			return incomingMapping.getSource().getOriginalID();
 	}
 
 	/**
@@ -937,6 +951,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION___SET_GRAPH_SIMPLE__GRAPH:
 				setGraphSimple((Graph)arguments.get(0));
 				return null;
+			case GraphstructurePackage.RELATION___GET_ORIGINAL_ID:
+				return getOriginalID();
 			case GraphstructurePackage.RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;
