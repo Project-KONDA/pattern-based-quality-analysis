@@ -528,7 +528,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setName(String newName) {
@@ -536,6 +536,21 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__NAME, oldName, name));
+	
+		if (getIncomingMapping() != null) {
+			Relation source = getIncomingMapping().getSource();
+			boolean namesDifferent = (newName != null && !newName.equals(source.getName())) || (newName == null && source.getName() != null);
+			if (source != null && namesDifferent) {
+				source.setName(newName);
+			}				
+		}
+		for (RelationMapping m : getOutgoingMappings()) {
+			Relation target = m.getTarget();
+			boolean namesDifferent = (newName != null && !newName.equals(target.getName())) || (newName == null && target.getName() != null);
+			if (target != null && namesDifferent) {
+				target.setName(newName);
+			}			
+		}
 	}
 
 	/**
