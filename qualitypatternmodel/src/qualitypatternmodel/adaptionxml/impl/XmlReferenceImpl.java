@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -147,7 +148,27 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 //		}
 	}
 	
-
+	@Override
+	public XmlReference adaptAsXMLReference() {
+		return this;
+	}
+	
+	@Override
+	public XmlNavigation adaptAsXMLNavigation() {
+		getSourceProperty().removeParametersFromParameterList();
+		getSourceProperty().setOption(null);
+		getSourceProperty().setAttributeName(null);
+		getSourceProperty().setElement(null);
+		setSourceProperty(null);
+		
+		getTargetProperty().removeParametersFromParameterList();
+		getTargetProperty().setOption(null);
+		getTargetProperty().setAttributeName(null);
+		getTargetProperty().setElement(null);
+		setTargetProperty(null);
+		
+		return super.adaptAsXMLNavigation();		
+	}
 	
 	@Override
 	public boolean isTranslatable() throws InvalidityException {

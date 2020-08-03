@@ -706,6 +706,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			reference.setTarget(getTarget());
 			setSource(null);
 			setTarget(null);
+			
 			XmlProperty sourceProperty = new XmlPropertyImpl();
 			sourceProperty.setElement(reference.getSource());
 			sourceProperty.createParameters();
@@ -714,11 +715,13 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			targetProperty.createParameters();
 			reference.setSourceProperty(sourceProperty);			
 			reference.setTargetProperty(targetProperty);
+			
 			reference.getOutgoingMappings().addAll(getOutgoingMappings());
 			getOutgoingMappings().clear();
 			for(RelationMapping mapping : reference.getOutgoingMappings()) {
 				mapping.getTarget().adaptAsXMLReference();
 			}
+			
 			reference.setIncomingMapping(getIncomingMapping());
 			setIncomingMapping(null);
 			setGraph(null);

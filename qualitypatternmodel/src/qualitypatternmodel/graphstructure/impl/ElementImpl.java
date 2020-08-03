@@ -53,7 +53,6 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.RelationMapping;
 import qualitypatternmodel.patternstructure.ElementMapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
