@@ -1110,7 +1110,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public String getName() {
-		if(name == null || name == "") {
+		if(name == null || name.equals("")) {
 			if(getOriginalID() > -1) {
 				name = "Element " + getOriginalID();
 				return name;
