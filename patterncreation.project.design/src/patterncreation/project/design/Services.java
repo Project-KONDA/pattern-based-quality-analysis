@@ -522,9 +522,9 @@ public class Services {
     	return self;
     }
     
-    public EObject browseExpressionProperty(EObject self) {
+    /*public EObject browseExpressionProperty(EObject self) {
     	//System.out.println("Self: "+self.toString());
-    	comparisonProperty = self;
+    	//comparisonProperty = self;
     	EObject eo = self;
     	if(self instanceof Comparison) {
     		Comparison comparison = (Comparison) self;
@@ -539,7 +539,7 @@ public class Services {
 			}
     	}
     	return eo;
-    }
+    }*/
     
     /*public EList<Operator> semanticCandidateExpressionComparison(EObject self) {
     	System.out.println("Comparison Self: "+self.toString());
@@ -661,15 +661,15 @@ public class Services {
     	return list;
     }
     
-    public boolean creationPropertyIf(EObject self) {
+    /*public boolean creationPropertyIf(EObject self) {
     	//System.out.println(comparisonProperty instanceof Comparison);
     	return comparisonProperty instanceof Comparison;
-    }
+    }*/
     
-    public EObject getComparisonProperty(EObject self) {
+    /*public EObject getComparisonProperty(EObject self) {
     	//System.out.println(comparisonProperty.toString());
     	return comparisonProperty;
-    }
+    }*/
     
     public boolean creationPropertyPrecondition(EObject self) {
     	boolean returnvalue = false;
@@ -786,7 +786,7 @@ public class Services {
     	return returnvalues;
     }
     
-    public void replacePropertyWithComparison(EObject self) {
+    /*public void replacePropertyWithComparison(EObject self) {
     	//System.out.println(self.toString());
     	if(self instanceof Property) {
     		//System.out.println("Propety");
@@ -797,7 +797,7 @@ public class Services {
     			property.addComparison();
     		}
     	}
-    }
+    }*/
     
     //es soll nur das countpattern in argument2 gelöscht werden können
     public boolean deleteCountPatternPrecondition(EObject self) {
@@ -1186,21 +1186,27 @@ public class Services {
     		}
     	}else {
     		Condition condition = null;
+    		boolean isCondition = false;//ohne das würde das popup von quantifiedcondition bei element auftauchen im kontextmenü
     		if(self instanceof CompletePattern) {
         		CompletePattern completePattern = (CompletePattern) self;
         		condition = completePattern.getCondition();
+        		isCondition = true;
     		}else if(self instanceof QuantifiedCondition) {
     			QuantifiedCondition quantifiedCondition = (QuantifiedCondition) self;
     			condition = quantifiedCondition.getCondition();
+    			isCondition = true;
     		}else if(self instanceof CountCondition) {
     			hasCondition = false;
+    			isCondition = true;
     		}else if(self instanceof NotCondition) {
     			NotCondition notCondition = (NotCondition) self;
     			condition = notCondition.getCondition();
+    			isCondition = true;
     		}else if(self instanceof TrueElement) {
     			hasCondition = false;
+    			isCondition = true;
     		}
-    		if(hasCondition && condition == null) {
+    		if(isCondition && hasCondition && condition == null) {
     			add = true;
     		}
     	}
@@ -1589,5 +1595,49 @@ public class Services {
     
     public Quantifier getForall(EObject self) {
     	return Quantifier.FORALL;
+    }
+    
+    static LogicalOperator radioo = LogicalOperator.AND;
+    public void storeOperator(EObject self, LogicalOperator o) {
+    	radioo = o;
+    }
+    
+    public LogicalOperator getOperator(EObject self) {
+    	return radioo;
+    }
+    
+    public LogicalOperator getSpecificOperator(EObject self, String s) {
+    	LogicalOperator operator = null;
+    	if(s.equals("and")) {
+    		operator = LogicalOperator.AND;
+    	}else if(s.equals("or")) {
+    		operator = LogicalOperator.OR;
+    	}else if(s.equals("implies")) {
+    		operator = LogicalOperator.IMPLIES;
+    	}else if(s.equals("xor")) {
+    		operator = LogicalOperator.XOR;
+    	}else if(s.equals("equal")) {
+    		operator = LogicalOperator.EQUAL;
+    	}
+    	return operator;
+    }
+    
+    public boolean countpatternPreconditionPopup(EObject self) {//geht auch bei numberelement
+    	boolean open = false;
+    	if(self instanceof CountCondition) {
+    		CountCondition condition = (CountCondition) self;
+    		if(condition.getArgument2() == null) {
+    			open = true;
+    		}
+    	}
+    	return open;
+    }
+    
+    public boolean elementPreconditionPopup(EObject self) {
+    	boolean open = false;
+    	if(self instanceof Graph) {
+    		open = true;
+    	}
+    	return open;
     }
 }
