@@ -210,4 +210,12 @@ public interface Relation extends PatternElement, Adaptable {
 	 */
 	void setGraphSimple(Graph newGraph);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 * @generated
+	 */
+	int getOriginalID();
+
 } // Relation

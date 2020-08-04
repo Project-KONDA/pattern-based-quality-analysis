@@ -763,17 +763,18 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.ELEMENT__NAME, oldName, name));
 	
 		if (getIncomingMapping() != null) {
-			Element se = getIncomingMapping().getSource();
-			if (newName != null && !newName.equals(se.getName()))
-				se.setName(newName);
+			Element source = getIncomingMapping().getSource();
+			boolean namesDifferent = (newName != null && !newName.equals(source.getName())) || (newName == null && source.getName() != null);
+			if (source != null && namesDifferent) {
+				source.setName(newName);
+			}				
 		}
 		for (ElementMapping m : getOutgoingMappings()) {
-			if (m.getTarget() != null) {
-				Element se = m.getTarget();
-				if (newName != null && !newName.equals(se.getName())) {
-					se.setName(newName);
-				}
-			}
+			Element target = m.getTarget();
+			boolean namesDifferent = (newName != null && !newName.equals(target.getName())) || (newName == null && target.getName() != null);
+			if (target != null && namesDifferent) {
+				target.setName(newName);
+			}			
 		}
 	}
 
@@ -1110,7 +1111,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public String getName() {
-		if(name == null || name == "") {
+		if(name == null || name.equals("")) {
 			if(getOriginalID() > -1) {
 				name = "Element " + getOriginalID();
 				return name;

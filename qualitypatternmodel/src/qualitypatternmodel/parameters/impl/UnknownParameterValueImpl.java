@@ -311,8 +311,8 @@ public class UnknownParameterValueImpl extends ParameterImpl implements UnknownP
 		for(Comparison comparison : comparison2Copy) {
 			comparison.setArgument2(concreteValue);	
 		}
-		
-		getParameterList().getParameters().remove(this);
+
+//		getParameterList().getParameters().remove(this);
 	}
 
 	/**

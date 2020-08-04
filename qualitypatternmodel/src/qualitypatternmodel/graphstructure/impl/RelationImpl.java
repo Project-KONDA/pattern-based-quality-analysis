@@ -504,17 +504,31 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getName() {
+		if(name == null || name.equals("")) {
+			if(getOriginalID() > -1) {
+				name = "Relation " + getOriginalID();
+				return name;
+			}
+		}
 		return name;
+	}
+	
+	@Override
+	public int getOriginalID() {
+		if (incomingMapping == null)
+			return this.getInternalId();
+		else
+			return incomingMapping.getSource().getOriginalID();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setName(String newName) {
@@ -522,6 +536,21 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__NAME, oldName, name));
+	
+		if (getIncomingMapping() != null) {
+			Relation source = getIncomingMapping().getSource();
+			boolean namesDifferent = (newName != null && !newName.equals(source.getName())) || (newName == null && source.getName() != null);
+			if (source != null && namesDifferent) {
+				source.setName(newName);
+			}				
+		}
+		for (RelationMapping m : getOutgoingMappings()) {
+			Relation target = m.getTarget();
+			boolean namesDifferent = (newName != null && !newName.equals(target.getName())) || (newName == null && target.getName() != null);
+			if (target != null && namesDifferent) {
+				target.setName(newName);
+			}			
+		}
 	}
 
 	/**
@@ -677,6 +706,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			reference.setTarget(getTarget());
 			setSource(null);
 			setTarget(null);
+			
 			XmlProperty sourceProperty = new XmlPropertyImpl();
 			sourceProperty.setElement(reference.getSource());
 			sourceProperty.createParameters();
@@ -685,11 +715,13 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			targetProperty.createParameters();
 			reference.setSourceProperty(sourceProperty);			
 			reference.setTargetProperty(targetProperty);
+			
 			reference.getOutgoingMappings().addAll(getOutgoingMappings());
 			getOutgoingMappings().clear();
 			for(RelationMapping mapping : reference.getOutgoingMappings()) {
 				mapping.getTarget().adaptAsXMLReference();
 			}
+			
 			reference.setIncomingMapping(getIncomingMapping());
 			setIncomingMapping(null);
 			setGraph(null);
@@ -937,6 +969,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION___SET_GRAPH_SIMPLE__GRAPH:
 				setGraphSimple((Graph)arguments.get(0));
 				return null;
+			case GraphstructurePackage.RELATION___GET_ORIGINAL_ID:
+				return getOriginalID();
 			case GraphstructurePackage.RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.graphstructure.Graph;
@@ -152,6 +153,18 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 				throw new InvalidityException("mapping different relations");
 			}			
 		}		
+	}	
+	
+	@Override
+	public XmlReference adaptAsXMLReference() {
+		removeParametersFromParameterList();
+		setOption(null);
+		return super.adaptAsXMLReference();
+	}
+	
+	@Override
+	public XmlNavigation adaptAsXMLNavigation() {
+		return this;
 	}
 	
 	/**
