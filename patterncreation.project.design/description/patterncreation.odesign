@@ -1257,7 +1257,7 @@
                   </firstModelOperations>
                 </initialOperation>
               </itemDescriptions>
-              <itemDescriptions xsi:type="tool_1:OperationAction" name="PropertyPopup" label="Property">
+              <itemDescriptions xsi:type="tool_1:OperationAction" name="PropertyPopup" label="Property" precondition="aql:self.creationPropertyPrecondition()">
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext">
@@ -1351,6 +1351,136 @@
                 <view name="views"/>
                 <initialOperation>
                   <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.addParameter('DateTime')"/>
+                </initialOperation>
+              </itemDescriptions>
+              <itemDescriptions xsi:type="tool_1:OperationAction" name="RelationPopup" label="Relation" precondition="aql:self.relationPreconditionPopup()">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setE1E2ToNull()">
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Relation creation">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.createRelation()"/>
+                        </initialOperation>
+                      </buttons>
+                      <page name="Default Page" labelExpression="Select elements to  create a relation between them" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@toolSections.0/@ownedTools[name='Pattern%20tools']/@menuItemDescription.0/@itemDescriptions.23/@initialOperation/@firstModelOperations/@subModelOperations.0/@groups.0"/>
+                      <groups name="Default Group" labelExpression="Element selection" semanticCandidateExpression="var:self">
+                        <controls xsi:type="properties:SelectDescription" name="select1" labelExpression="Element1" valueExpression="aql:self.getElement1Relation()" candidatesExpression="aql:self.getElementsForRelationCreation()" candidateDisplayExpression="aql:candidate.toString()">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.storeElement1Relation(newValue)"/>
+                          </initialOperation>
+                        </controls>
+                        <controls xsi:type="properties:SelectDescription" name="select2" labelExpression="Element2" valueExpression="aql:self.getElement2Relation()" candidatesExpression="aql:self.getElementsForRelationCreation2()" candidateDisplayExpression="aql:candidate.toString()">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.storeElement2Relation(newValue)"/>
+                          </initialOperation>
+                        </controls>
+                      </groups>
+                    </subModelOperations>
+                  </firstModelOperations>
+                </initialOperation>
+              </itemDescriptions>
+              <itemDescriptions xsi:type="tool_1:OperationAction" name="changeQuantifierPopup" label="changeQuantifier" precondition="aql:self.changeQuantifierPrecondition()">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext">
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Change quantifier of quantifiedcondition">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation/>
+                      </buttons>
+                      <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@toolSections.0/@ownedTools[name='Pattern%20tools']/@menuItemDescription.0/@itemDescriptions.24/@initialOperation/@firstModelOperations/@subModelOperations.0/@groups.0"/>
+                      <groups name="Default Group" labelExpression="Quantifiers" semanticCandidateExpression="var:self">
+                        <controls xsi:type="properties:RadioDescription" name="quantifiers" labelExpression="aql:'Quantifier'" valueExpression="aql:self.changeQuantifierValueExpression(self)" candidatesExpression="aql:self.getQuantifiers()" candidateDisplayExpression="aql:candidate.toString()" numberOfColumns="2">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setQuantifier(self,newValue)"/>
+                          </initialOperation>
+                        </controls>
+                      </groups>
+                    </subModelOperations>
+                  </firstModelOperations>
+                </initialOperation>
+              </itemDescriptions>
+              <itemDescriptions xsi:type="tool_1:OperationAction" name="changeOperatorPopup" label="changeOperator" precondition="aql:self.changeOperatorPrecondition()">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext">
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Change operator of formula">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation/>
+                      </buttons>
+                      <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@toolSections.0/@ownedTools[name='Pattern%20tools']/@menuItemDescription.0/@itemDescriptions.25/@initialOperation/@firstModelOperations/@subModelOperations.0/@groups.0"/>
+                      <groups name="Default Group" labelExpression="Operators" semanticCandidateExpression="var:self">
+                        <controls xsi:type="properties:RadioDescription" name="operators" labelExpression="aql:'Operator'" valueExpression="aql:self.changeOperatorValueExpression(self)" candidatesExpression="aql:self.getOperators()" candidateDisplayExpression="aql:candidate.toString()" numberOfColumns="5">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setOperator(self,newValue)"/>
+                          </initialOperation>
+                        </controls>
+                      </groups>
+                    </subModelOperations>
+                  </firstModelOperations>
+                </initialOperation>
+              </itemDescriptions>
+              <itemDescriptions xsi:type="tool_1:OperationAction" name="selectPropertyPopup" label="select property as argument" precondition="aql:self.selectElementPrecondition()">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setPropertyToNull()">
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Relation creation">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="aql:self.featureNameSelectProperty()" valueExpression="aql:self.getProperty()"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </buttons>
+                      <page name="Default Page" labelExpression="Select elements to  create a relation between them" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@toolSections.0/@ownedTools[name='Pattern%20tools']/@menuItemDescription.0/@itemDescriptions.26/@initialOperation/@firstModelOperations/@subModelOperations.0/@groups.0"/>
+                      <groups name="Default Group" labelExpression="Element selection" semanticCandidateExpression="var:self">
+                        <controls xsi:type="properties:SelectDescription" name="select1" labelExpression="Property" valueExpression="aql:self.getProperty()" candidatesExpression="aql:self.getProperties()" candidateDisplayExpression="aql:candidate.toString()">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.storeProperty(newValue)"/>
+                          </initialOperation>
+                        </controls>
+                      </groups>
+                    </subModelOperations>
+                  </firstModelOperations>
+                </initialOperation>
+              </itemDescriptions>
+              <itemDescriptions xsi:type="tool_1:OperationAction" name="selectParameterPopup" label="select parameter as argument" precondition="aql:self.selectParameterPrecondition()">
+                <view name="views"/>
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setParameterToNull()">
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Relation creation">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="aql:self.featureNameSelectParameter()" valueExpression="aql:self.getParameterPopup()"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </buttons>
+                      <page name="Default Page" labelExpression="Select elements to  create a relation between them" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@toolSections.0/@ownedTools[name='Pattern%20tools']/@menuItemDescription.0/@itemDescriptions.27/@initialOperation/@firstModelOperations/@subModelOperations.0/@groups.0"/>
+                      <groups name="Default Group" labelExpression="Element selection" semanticCandidateExpression="var:self">
+                        <controls xsi:type="properties:SelectDescription" name="select1" labelExpression="Parameter" valueExpression="aql:self.getParameterPopup()" candidatesExpression="aql:self.getParameter()" candidateDisplayExpression="aql:candidate.toString()">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.storeParameter(newValue)"/>
+                          </initialOperation>
+                        </controls>
+                      </groups>
+                    </subModelOperations>
+                  </firstModelOperations>
                 </initialOperation>
               </itemDescriptions>
               <itemDescriptions xsi:type="tool_1:OperationAction" name="Delete Argument2 Comparison">
@@ -1600,7 +1730,7 @@
           </ownedTools>
         </toolSections>
         <decorationDescriptionsSet>
-          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="NoIncominMapping" position="NORTH_WEST" preconditionExpression="aql:self.elementIncomingmappingPrecondition()" imageExpression="/patterncreation.project.design/images/noincomingmapping.png" tooltipExpression="aql:'No incoming mapping'" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="NoIncominMapping" position="NORTH_WEST" preconditionExpression="aql:self.elementIncomingmappingPrecondition()" imageExpression="/patterncreation.project.design/images/A.png" tooltipExpression="aql:'No incoming mapping'" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']"/>
           <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="NoReturnelement" position="NORTH_WEST" preconditionExpression="aql:self.hasReturnelementGraph()" imageExpression="/patterncreation.project.design/images/noreturnelement.png" tooltipExpression="It is no returnelement in this graph specified" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']"/>
           <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Returnelement" position="NORTH_WEST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.isReturnelement()" imageExpression="/patterncreation.project.design/images/returnelementr.png" tooltipExpression="This is a returnelement" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='Test']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']"/>
         </decorationDescriptionsSet>

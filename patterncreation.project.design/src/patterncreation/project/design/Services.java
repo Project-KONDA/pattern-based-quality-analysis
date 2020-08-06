@@ -28,6 +28,7 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.Operator;
@@ -870,7 +871,7 @@ public class Services {
     }
     
     public String featureNameSelectProperty(EObject self) {//hinzufügen einer Property zu einem Comparison, das gibt die kante zurück, in der die property gespeichert wird, auch hinzufügen von property zu match
-    	String feature = "property";//Wert für Match
+    	System.out.println("wwwwwwwwwwwwwwwwwwwwwww"+self);String feature = "property";//Wert für Match
     	if(self instanceof Comparison) {
     		Comparison comparison = (Comparison) self;
     		if(comparison.getArgument1() == null) {
@@ -1487,7 +1488,8 @@ public class Services {
     	boolean open = false;
     	if(self instanceof Element) {
     		Element element = (Element) self;
-    		if(element.getResultOf() == null) {
+    		Graph graph = element.getGraph();
+    		if(graph.isReturnGraph() && element.getResultOf() == null) {
     			open = true;
     		}
     	}
@@ -1498,7 +1500,8 @@ public class Services {
     	boolean open = false;
     	if(self instanceof Element) {
     		Element element = (Element) self;
-    		if(element.getResultOf() != null) {
+    		Graph graph = element.getGraph();
+    		if(graph.isReturnGraph() && element.getResultOf() != null) {
     			open = true;
     		}
     	}
@@ -1639,5 +1642,91 @@ public class Services {
     		open = true;
     	}
     	return open;
+    }
+    
+    static ArrayList<Element> elementsRelation = null;
+    public ArrayList<Element> getElementsForRelationCreation(EObject self){//sucht für die erstellung von relation über das kontextmenü die elemente
+    	ArrayList<Element> elements = new ArrayList<Element>();
+    	if(self instanceof Graph) {
+    		Graph graph = (Graph) self;
+    		elements.addAll(graph.getElements());
+    	}
+    	elementsRelation = elements;
+    	return elements;
+    }
+    
+    static EObject selectedElement1 = null;
+    public void storeElement1Relation(EObject self, EObject e1){//speichert element1 von relation über kontextmenü von select
+    	selectedElement1 = e1;
+    }
+    
+    public EObject getElement1Relation(EObject self){
+    	return selectedElement1;
+    }
+    
+    static EObject selectedElement2 = null;
+    public void storeElement2Relation(EObject self, EObject e2){//speichert element2 von relation über kontextmenü von select
+    	selectedElement2 = e2;
+    }
+    
+    public EObject getElement2Relation(EObject self){
+    	return selectedElement2;
+    }
+    
+    public ArrayList<Element> getElementsForRelationCreation2(EObject self){//sucht für die erstellung von relation über das kontextmenü die elemente für das zweite select
+    	elementsRelation.remove(selectedElement1);
+    	return elementsRelation;
+    }
+    
+    public void createRelation(EObject self) {//erstellt relation über kontextmenü
+    	if(selectedElement1 != null && selectedElement2 != null) {
+    		Element e1 = (Element) selectedElement1;
+    		Element e2 = (Element) selectedElement2;
+    		if(self instanceof Graph) {
+    			Graph graph = (Graph) self;
+    			graph.addRelation(e1, e2);
+    		}
+    	}
+    }
+    
+    public void setE1E2ToNull(EObject self) {//setzt selectetElement1 und selectedElement2 auf null, damit bei erneutem aufruf des dialogs die select objecte nichts anzeigen
+    	selectedElement1 = null;
+    	selectedElement2 = null;
+    }
+    
+    public boolean relationPreconditionPopup(EObject self) {
+    	boolean open = false;
+    	if(self instanceof Graph) {
+    		open = true;
+    	}
+    	return open;
+    }
+    
+    static EObject selectedProperty = null;
+    
+    public void storeProperty(EObject self, EObject p) {//speichert die property, die im select von select property as argument über das kontextmenü ausgewählt wurde
+    	selectedProperty = p;
+    }
+    
+    public EObject getProperty(EObject self) {//gibt die property, die im select von select property as argument über das kontextmenü ausgewählt wurde, zurück
+    	return selectedProperty;
+    }
+    
+    public void setPropertyToNull(EObject self) {//setzt selectedProperty auf null, damit bei erneutem aufruf des dialogs die select objecte nichts anzeigen
+    	selectedProperty = null;
+    }
+    
+    static EObject selectedParameter = null;
+    
+    public void storeParameter(EObject self, EObject p) {//speichert die property, die im select von select property as argument über das kontextmenü ausgewählt wurde
+    	selectedParameter = p;
+    }
+    
+    public EObject getParameterPopup(EObject self) {//gibt die property, die im select von select property as argument über das kontextmenü ausgewählt wurde, zurück
+    	return selectedParameter;
+    }
+    
+    public void setParameterToNull(EObject self) {//setzt selectedProperty auf null, damit bei erneutem aufruf des dialogs die select objecte nichts anzeigen
+    	selectedParameter = null;
     }
 }
