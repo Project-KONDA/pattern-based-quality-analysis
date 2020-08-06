@@ -764,17 +764,19 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	
 		if (getIncomingMapping() != null) {
 			Element source = getIncomingMapping().getSource();
-			boolean namesDifferent = (newName != null && !newName.equals(source.getName())) || (newName == null && source.getName() != null);
-			if (source != null && namesDifferent) {
-				source.setName(newName);
-			}				
+			if (source != null) {
+				if ((newName != null && !newName.equals(source.getName())) || (newName == null && source.getName() != null)) {
+					source.setName(newName);
+				}			
+			}
 		}
 		for (ElementMapping m : getOutgoingMappings()) {
 			Element target = m.getTarget();
-			boolean namesDifferent = (newName != null && !newName.equals(target.getName())) || (newName == null && target.getName() != null);
-			if (target != null && namesDifferent) {
-				target.setName(newName);
-			}			
+			if (target != null) {
+				if ((newName != null && !newName.equals(target.getName())) || (newName == null && target.getName() != null)) {
+					target.setName(newName);
+				}			
+			}
 		}
 	}
 

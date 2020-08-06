@@ -539,17 +539,19 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	
 		if (getIncomingMapping() != null) {
 			Relation source = getIncomingMapping().getSource();
-			boolean namesDifferent = (newName != null && !newName.equals(source.getName())) || (newName == null && source.getName() != null);
-			if (source != null && namesDifferent) {
-				source.setName(newName);
-			}				
+			if (source != null) {
+				if ((newName != null && !newName.equals(source.getName())) || (newName == null && source.getName() != null)) {
+					source.setName(newName);
+				}			
+			}
 		}
 		for (RelationMapping m : getOutgoingMappings()) {
 			Relation target = m.getTarget();
-			boolean namesDifferent = (newName != null && !newName.equals(target.getName())) || (newName == null && target.getName() != null);
-			if (target != null && namesDifferent) {
-				target.setName(newName);
-			}			
+			if (target != null) {
+				if ((newName != null && !newName.equals(target.getName())) || (newName == null && target.getName() != null)) {
+					target.setName(newName);
+				}			
+			}
 		}
 	}
 
