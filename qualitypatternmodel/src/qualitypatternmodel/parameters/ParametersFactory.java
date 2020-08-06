@@ -103,13 +103,13 @@ public interface ParametersFactory extends EFactory {
 	TimeParam createTimeParam();
 
 	/**
-	 * Returns a new object of class '<em>Unknown Parameter Value</em>'.
+	 * Returns a new object of class '<em>Untyped Parameter Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unknown Parameter Value</em>'.
+	 * @return a new object of class '<em>Untyped Parameter Value</em>'.
 	 * @generated
 	 */
-	UnknownParameterValue createUnknownParameterValue();
+	UntypedParameterValue createUntypedParameterValue();
 
 	/**
 	 * Returns a new object of class '<em>Date Time Param</em>'.

@@ -71,6 +71,7 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/NumberParam/numberArgument"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//parameters/ParameterValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/ParameterValue/typeModifiable"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/isInTagComparison"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/isInAttributeComparison"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/isInDataComparison"/>
@@ -81,6 +82,9 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/getDataValues"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/getAttributeValues"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/getSuggestions"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/replace">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/ParameterValue/replace/concreteValue"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/DateParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/DateParam/value"/>
@@ -88,12 +92,9 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/TimeParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/TimeParam/value"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/UnknownParameterValue">
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/concretize">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/concretize/concreteValue"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/setValue">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/UnknownParameterValue/setValue/val"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/UntypedParameterValue">
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/UntypedParameterValue/setValue">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/UntypedParameterValue/setValue/val"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/DateTimeParam">

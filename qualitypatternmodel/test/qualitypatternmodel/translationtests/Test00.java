@@ -13,13 +13,13 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 
 public class Test00 {
 	
 	public static void test(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
-			concretize(completePattern);
+			replace(completePattern);
 			try {
 				completePattern.isValid(AbstractionLevel.CONCRETE);
 				System.out.println("\n\n___PATTERN_(VALID)___");
@@ -39,7 +39,7 @@ public class Test00 {
 	
 	public static void getQueries(ArrayList<CompletePattern> completePatterns) {
 		for (CompletePattern completePattern : completePatterns) {
-			concretize(completePattern);
+			replace(completePattern);
 			try {
 				completePattern.isValid(AbstractionLevel.CONCRETE);
 //				System.out.println("\n\n___PATTERN_(VALID)___");
@@ -107,17 +107,17 @@ public class Test00 {
 		return testPairs;		
 	}
 	
-	public static CompletePattern concretize(CompletePattern pattern) {
+	public static CompletePattern replace(CompletePattern pattern) {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		EList<Parameter> params = pattern.getParameterList().getParameters();
 		for (int i = params.size()-1; i > -1; i--) {
 			Parameter param = pattern.getParameterList().getParameters().get(i);
-			if (param instanceof UnknownParameterValue) {
+			if (param instanceof UntypedParameterValue) {
 				TextLiteralParam text = parametersFactory.createTextLiteralParam();
 				text.setValue("unknown");
-				((UnknownParameterValue) param).concretize(text);
+				((UntypedParameterValue) param).replace(text);
 			}
 		}
 		return pattern;

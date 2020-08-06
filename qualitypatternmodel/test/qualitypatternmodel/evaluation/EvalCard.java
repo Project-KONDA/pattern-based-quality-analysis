@@ -22,7 +22,7 @@ import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.CountCondition;
@@ -131,7 +131,7 @@ public class EvalCard {
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementName);
-		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
+		((UntypedParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
 		
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();	
 		Graph graph1 = quantifiedCondition.getGraph();
@@ -141,7 +141,7 @@ public class EvalCard {
 		((XmlProperty) e1G1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue1G1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1G1.setValue(e1Name);
-		((UnknownParameterValue) ((Comparison) e1G1.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue1G1);
+		((UntypedParameterValue) ((Comparison) e1G1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue1G1);
 				
 		CountCondition countCondition = (CountCondition) quantifiedCondition.getCondition();		
 		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
@@ -152,7 +152,7 @@ public class EvalCard {
 		((XmlProperty) e4G2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue4G2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4G2.setValue(e2Name);
-		((UnknownParameterValue) ((Comparison) e4G2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue4G2);
+		((UntypedParameterValue) ((Comparison) e4G2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue4G2);
 		
 		return completePattern;
 	}
@@ -224,7 +224,7 @@ public class EvalCard {
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
-		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
+		((UntypedParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).replace(concreteInputValue);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
@@ -241,21 +241,21 @@ public class EvalCard {
 		Comparison comparisonNextToReturnElementInGraph1 = (Comparison) nextToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("h1:Block");
-		((UnknownParameterValue) comparisonNextToReturnElementInGraph1.getArguments().get(1)).concretize(concreteInputValue2);
+		((UntypedParameterValue) comparisonNextToReturnElementInGraph1.getArguments().get(1)).replace(concreteInputValue2);
 		((XmlProperty) nextToReturnElementInGraph1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 
 		XmlElement setElement1InGraph1 = (XmlElement) graph1.getElements().get(2);			
 		Comparison comparison1Set1 = (Comparison) setElement1InGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("ob30");
-		((UnknownParameterValue) comparison1Set1.getArguments().get(1)).concretize(concreteInputValue4);
+		((UntypedParameterValue) comparison1Set1.getArguments().get(1)).replace(concreteInputValue4);
 		((XmlProperty) setElement1InGraph1.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) setElement1InGraph1.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 				
 		Comparison comparison2Set1 = (Comparison) setElement1InGraph1.getPredicates().get(1);
 		TextLiteralParam concreteInputValue5 = parametersFactory.createTextLiteralParam();
 		concreteInputValue5.setValue("Herstellung");
-		((UnknownParameterValue) comparison2Set1.getArguments().get(1)).concretize(concreteInputValue5);
+		((UntypedParameterValue) comparison2Set1.getArguments().get(1)).replace(concreteInputValue5);
 		((XmlProperty) setElement1InGraph1.getProperties().get(1)).getAttributeName().setValue("Value");
 		((XmlProperty) setElement1InGraph1.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
@@ -266,7 +266,7 @@ public class EvalCard {
 		Comparison comparison1Set2 = (Comparison) setElement2InGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue6 = parametersFactory.createTextLiteralParam();
 		concreteInputValue6.setValue("ob30rl");
-		((UnknownParameterValue) comparison1Set2.getArguments().get(1)).concretize(concreteInputValue6);
+		((UntypedParameterValue) comparison1Set2.getArguments().get(1)).replace(concreteInputValue6);
 		((XmlProperty) setElement2InGraph1.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) setElement2InGraph1.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		

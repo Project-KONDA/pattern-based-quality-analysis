@@ -4,7 +4,7 @@ package qualitypatternmodel.parameters.tests;
 
 import junit.textui.TestRunner;
 import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,8 +13,8 @@ import qualitypatternmodel.parameters.UnknownParameterValue;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.parameters.UnknownParameterValue#concretize(qualitypatternmodel.parameters.ParameterValue) <em>Concretize</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.UnknownParameterValue#setValue(java.lang.String) <em>Set Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.UntypedParameterValue#concretize(qualitypatternmodel.parameters.ParameterValue) <em>Concretize</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.UntypedParameterValue#setValue(java.lang.String) <em>Set Value</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}</li>
@@ -50,8 +50,8 @@ public class UnknownParameterValueTest extends ParameterTest {
 	 * @generated
 	 */
 	@Override
-	protected UnknownParameterValue getFixture() {
-		return (UnknownParameterValue)fixture;
+	protected UntypedParameterValue getFixture() {
+		return (UntypedParameterValue)fixture;
 	}
 
 	/**
@@ -77,10 +77,10 @@ public class UnknownParameterValueTest extends ParameterTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.UnknownParameterValue#concretize(qualitypatternmodel.parameters.ParameterValue) <em>Concretize</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.parameters.UntypedParameterValue#concretize(qualitypatternmodel.parameters.ParameterValue) <em>Concretize</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.UnknownParameterValue#concretize(qualitypatternmodel.parameters.ParameterValue)
+	 * @see qualitypatternmodel.parameters.UntypedParameterValue#concretize(qualitypatternmodel.parameters.ParameterValue)
 	 * @generated
 	 */
 	public void testConcretize__ParameterValue() {
@@ -90,10 +90,10 @@ public class UnknownParameterValueTest extends ParameterTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.UnknownParameterValue#setValue(java.lang.String) <em>Set Value</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.parameters.UntypedParameterValue#setValue(java.lang.String) <em>Set Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.UnknownParameterValue#setValue(java.lang.String)
+	 * @see qualitypatternmodel.parameters.UntypedParameterValue#setValue(java.lang.String)
 	 * @generated
 	 */
 	public void testSetValue__String() {

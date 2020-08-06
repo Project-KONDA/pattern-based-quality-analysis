@@ -279,26 +279,26 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.UnknownParameterValue} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.UntypedParameterValue} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected UnknownParameterValueItemProvider unknownParameterValueItemProvider;
+	protected UntypedParameterValueItemProvider untypedParameterValueItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.parameters.UnknownParameterValue}.
+	 * This creates an adapter for a {@link qualitypatternmodel.parameters.UntypedParameterValue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createUnknownParameterValueAdapter() {
-		if (unknownParameterValueItemProvider == null) {
-			unknownParameterValueItemProvider = new UnknownParameterValueItemProvider(this);
+	public Adapter createUntypedParameterValueAdapter() {
+		if (untypedParameterValueItemProvider == null) {
+			untypedParameterValueItemProvider = new UntypedParameterValueItemProvider(this);
 		}
 
-		return unknownParameterValueItemProvider;
+		return untypedParameterValueItemProvider;
 	}
 
 	/**
@@ -461,7 +461,7 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 		if (numberParamItemProvider != null) numberParamItemProvider.dispose();
 		if (dateParamItemProvider != null) dateParamItemProvider.dispose();
 		if (timeParamItemProvider != null) timeParamItemProvider.dispose();
-		if (unknownParameterValueItemProvider != null) unknownParameterValueItemProvider.dispose();
+		if (untypedParameterValueItemProvider != null) untypedParameterValueItemProvider.dispose();
 		if (dateTimeParamItemProvider != null) dateTimeParamItemProvider.dispose();
 		if (relationOptionParamItemProvider != null) relationOptionParamItemProvider.dispose();
 	}

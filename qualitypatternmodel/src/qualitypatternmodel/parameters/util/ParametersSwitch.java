@@ -166,12 +166,13 @@ public class ParametersSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ParametersPackage.UNKNOWN_PARAMETER_VALUE: {
-				UnknownParameterValue unknownParameterValue = (UnknownParameterValue)theEObject;
-				T result = caseUnknownParameterValue(unknownParameterValue);
-				if (result == null) result = caseParameter(unknownParameterValue);
-				if (result == null) result = caseComparable(unknownParameterValue);
-				if (result == null) result = casePatternElement(unknownParameterValue);
+			case ParametersPackage.UNTYPED_PARAMETER_VALUE: {
+				UntypedParameterValue untypedParameterValue = (UntypedParameterValue)theEObject;
+				T result = caseUntypedParameterValue(untypedParameterValue);
+				if (result == null) result = caseParameterValue(untypedParameterValue);
+				if (result == null) result = caseParameter(untypedParameterValue);
+				if (result == null) result = caseComparable(untypedParameterValue);
+				if (result == null) result = casePatternElement(untypedParameterValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -363,17 +364,17 @@ public class ParametersSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Unknown Parameter Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Untyped Parameter Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Unknown Parameter Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Untyped Parameter Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseUnknownParameterValue(UnknownParameterValue object) {
+	public T caseUntypedParameterValue(UntypedParameterValue object) {
 		return null;
 	}
 

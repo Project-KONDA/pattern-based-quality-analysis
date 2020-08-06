@@ -25,7 +25,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -117,17 +117,17 @@ public class EvalComp {
 //			System.out.println(params.get(i).myToString());			
 //		}
 
-		((UnknownParameterValue) params.get(17)).concretize(new TextLiteralParamImpl("3105"));
+		((UntypedParameterValue) params.get(17)).replace(new TextLiteralParamImpl("3105"));
 		((TextLiteralParam) params.get(16)).setValue("Type");
 		((PropertyOptionParam) params.get(15)).setValue(PropertyKind.ATTRIBUTE);		
 		((TextLiteralParam) params.get(13)).setValue("Value");
 		((PropertyOptionParam) params.get(12)).setValue(PropertyKind.ATTRIBUTE);
 		((TextLiteralParam) params.get(11)).setValue("Value");
 		((PropertyOptionParam) params.get(10)).setValue(PropertyKind.ATTRIBUTE);
-		((UnknownParameterValue) params.get(8)).concretize(new TextLiteralParamImpl("3100"));
+		((UntypedParameterValue) params.get(8)).replace(new TextLiteralParamImpl("3100"));
 		((TextLiteralParam) params.get(7)).setValue("Type");
 		((PropertyOptionParam) params.get(6)).setValue(PropertyKind.ATTRIBUTE);
-		((UnknownParameterValue) params.get(4)).concretize(new TextLiteralParamImpl("kue"));
+		((UntypedParameterValue) params.get(4)).replace(new TextLiteralParamImpl("kue"));
 		((TextLiteralParam) params.get(3)).setValue("Type");
 		((PropertyOptionParam) params.get(2)).setValue(PropertyKind.ATTRIBUTE);
 		((RelationOptionParam) params.get(1)).setValue(RelationKind.THREECHILD);

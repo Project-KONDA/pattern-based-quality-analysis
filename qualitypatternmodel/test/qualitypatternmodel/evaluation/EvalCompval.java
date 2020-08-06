@@ -18,7 +18,7 @@ import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -117,8 +117,8 @@ public class EvalCompval {
 				.get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementType);
-		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1))
-				.concretize(concreteInputValue);
+		((UntypedParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1))
+				.replace(concreteInputValue);
 		if (attribute1Kind == PropertyKind.ATTRIBUTE) {
 			((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName()
 					.setValue(attribute1Name);
@@ -133,7 +133,7 @@ public class EvalCompval {
 		Comparison comp1 = (Comparison) element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue(element2Type);
-		((UnknownParameterValue) comp1.getArguments().get(1)).concretize(concreteInputValue2);
+		((UntypedParameterValue) comp1.getArguments().get(1)).replace(concreteInputValue2);
 		if (attribute2Kind == PropertyKind.ATTRIBUTE) {
 			((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue(attribute2Name);
 		}
@@ -145,7 +145,7 @@ public class EvalCompval {
 		Comparison comp2 = (Comparison) element3.getPredicates().get(0);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue(element3Type);
-		((UnknownParameterValue) comp2.getArguments().get(1)).concretize(concreteInputValue3);
+		((UntypedParameterValue) comp2.getArguments().get(1)).replace(concreteInputValue3);
 		if (attribute3Kind == PropertyKind.ATTRIBUTE) {
 			((XmlProperty) element3.getProperties().get(0)).getAttributeName().setValue(attribute3Name);
 		}
@@ -154,7 +154,7 @@ public class EvalCompval {
 		Comparison comp3 = (Comparison) element3.getPredicates().get(1);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue(value);
-		((UnknownParameterValue) comp3.getArguments().get(1)).concretize(concreteInputValue4);
+		((UntypedParameterValue) comp3.getArguments().get(1)).replace(concreteInputValue4);
 		if (attribute3Kind == PropertyKind.ATTRIBUTE) {
 			((XmlProperty) element3.getProperties().get(1)).getAttributeName().setValue(attribute4Name);
 		}
@@ -180,7 +180,7 @@ public class EvalCompval {
 
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue(value);
-		((UnknownParameterValue) comp2.getArguments().get(1)).concretize(concreteInputValue3);
+		((UntypedParameterValue) comp2.getArguments().get(1)).replace(concreteInputValue3);
 
 		return completePattern;
 	}
@@ -205,7 +205,7 @@ public class EvalCompval {
 		for (String str : values) {
 			concreteInputValue3.getValues().add(str);
 		}
-		((UnknownParameterValue) comp2.getArguments().get(1)).concretize(concreteInputValue3);
+		((UntypedParameterValue) comp2.getArguments().get(1)).replace(concreteInputValue3);
 
 		return completePattern;
 	}
@@ -222,8 +222,8 @@ public class EvalCompval {
 				.get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementType);
-		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1))
-				.concretize(concreteInputValue);
+		((UntypedParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1))
+				.replace(concreteInputValue);
 		if (attribute1Kind == PropertyKind.ATTRIBUTE) {
 			((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName()
 					.setValue(attribute1Name);
@@ -238,7 +238,7 @@ public class EvalCompval {
 		Comparison comp1 = (Comparison) element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue(element2Type);
-		((UnknownParameterValue) comp1.getArguments().get(1)).concretize(concreteInputValue2);
+		((UntypedParameterValue) comp1.getArguments().get(1)).replace(concreteInputValue2);
 		if (attribute2Kind == PropertyKind.ATTRIBUTE) {
 			((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue(attribute2Name);
 		}
@@ -356,7 +356,7 @@ public class EvalCompval {
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementType);
-		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
+		((UntypedParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).replace(concreteInputValue);
 		if (attribute1Kind == PropertyKind.ATTRIBUTE) {
 			((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue(attribute1Name);
 		}
@@ -370,7 +370,7 @@ public class EvalCompval {
 		Comparison comparison1 = (Comparison) nextToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1.setValue(element2Type);
-		((UnknownParameterValue) comparison1.getArguments().get(1)).concretize(concreteInputValue1);
+		((UntypedParameterValue) comparison1.getArguments().get(1)).replace(concreteInputValue1);
 		if (attribute2Kind == PropertyKind.ATTRIBUTE) {
 			((XmlProperty) nextToReturnElementInGraph1.getProperties().get(0)).getAttributeName().setValue(attribute2Name);
 		}
@@ -387,7 +387,7 @@ public class EvalCompval {
 			concreteInputValue2.getValues().add(str);
 		}
 
-		((UnknownParameterValue) comparison2.getArguments().get(1)).concretize(concreteInputValue2);
+		((UntypedParameterValue) comparison2.getArguments().get(1)).replace(concreteInputValue2);
 		if (attribute3Kind == PropertyKind.ATTRIBUTE) {
 			((XmlProperty) nextToReturnElementInGraph2.getProperties().get(0)).getAttributeName().setValue(attribute3Name);
 		}

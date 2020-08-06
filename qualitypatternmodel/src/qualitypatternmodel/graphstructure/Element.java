@@ -12,7 +12,7 @@ import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.ParameterValue;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.ElementMapping;
 
@@ -350,7 +350,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @model
 	 * @generated
 	 */
-	UnknownParameterValue addPrimitiveComparison();
+	UntypedParameterValue addPrimitiveComparison();
 
 	/**
 	 * <!-- begin-user-doc -->

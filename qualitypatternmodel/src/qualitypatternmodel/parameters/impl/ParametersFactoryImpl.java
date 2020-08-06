@@ -24,7 +24,7 @@ import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -79,7 +79,7 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 			case ParametersPackage.NUMBER_PARAM: return createNumberParam();
 			case ParametersPackage.DATE_PARAM: return createDateParam();
 			case ParametersPackage.TIME_PARAM: return createTimeParam();
-			case ParametersPackage.UNKNOWN_PARAMETER_VALUE: return createUnknownParameterValue();
+			case ParametersPackage.UNTYPED_PARAMETER_VALUE: return createUntypedParameterValue();
 			case ParametersPackage.DATE_TIME_PARAM: return createDateTimeParam();
 			case ParametersPackage.RELATION_OPTION_PARAM: return createRelationOptionParam();
 			default:
@@ -222,9 +222,9 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	 * @generated
 	 */
 	@Override
-	public UnknownParameterValue createUnknownParameterValue() {
-		UnknownParameterValueImpl unknownParameterValue = new UnknownParameterValueImpl();
-		return unknownParameterValue;
+	public UntypedParameterValue createUntypedParameterValue() {
+		UntypedParameterValueImpl untypedParameterValue = new UntypedParameterValueImpl();
+		return untypedParameterValue;
 	}
 
 	/**

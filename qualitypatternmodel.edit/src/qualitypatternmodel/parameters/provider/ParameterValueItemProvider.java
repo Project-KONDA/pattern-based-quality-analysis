@@ -12,8 +12,11 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.ParameterValue;
+import qualitypatternmodel.parameters.ParametersPackage;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.parameters.ParameterValue} object.
@@ -45,6 +48,7 @@ public class ParameterValueItemProvider extends ParameterItemProvider {
 
 			addComparison1PropertyDescriptor(object);
 			addComparison2PropertyDescriptor(object);
+			addTypeModifiablePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -94,6 +98,28 @@ public class ParameterValueItemProvider extends ParameterItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Type Modifiable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypeModifiablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ParameterValue_typeModifiable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterValue_typeModifiable_feature", "_UI_ParameterValue_type"),
+				 ParametersPackage.Literals.PARAMETER_VALUE__TYPE_MODIFIABLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,6 +144,13 @@ public class ParameterValueItemProvider extends ParameterItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(ParameterValue.class)) {
+			case ParametersPackage.PARAMETER_VALUE__TYPE_MODIFIABLE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 	/**
