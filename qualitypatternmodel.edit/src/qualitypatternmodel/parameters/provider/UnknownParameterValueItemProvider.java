@@ -13,10 +13,10 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.parameters.UnknownParameterValue} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.parameters.UntypedParameterValue} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -112,8 +112,8 @@ public class UnknownParameterValueItemProvider extends ParameterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		UnknownParameterValue unknownParameterValue = (UnknownParameterValue) object;
-		String text = getString("_UI_UnknownParameterValue_type") + " " + unknownParameterValue.getInternalId();
+		UntypedParameterValue untypedParameterValue = (UntypedParameterValue) object;
+		String text = getString("_UI_UnknownParameterValue_type") + " " + untypedParameterValue.getInternalId();
 		return text;
 	}
 

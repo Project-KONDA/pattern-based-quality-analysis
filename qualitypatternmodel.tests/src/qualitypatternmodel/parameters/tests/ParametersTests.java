@@ -40,7 +40,7 @@ public class ParametersTests extends TestSuite {
 		suite.addTestSuite(NumberParamTest.class);
 		suite.addTestSuite(DateParamTest.class);
 		suite.addTestSuite(TimeParamTest.class);
-		suite.addTestSuite(UnknownParameterValueTest.class);
+		suite.addTestSuite(UntypedParameterValueTest.class);
 		suite.addTestSuite(DateTimeParamTest.class);
 		suite.addTestSuite(RelationOptionParamTest.class);
 		return suite;

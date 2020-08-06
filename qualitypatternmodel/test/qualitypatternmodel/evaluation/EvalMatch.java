@@ -15,7 +15,7 @@ import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
@@ -117,7 +117,7 @@ public class EvalMatch {
 //		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 //		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 //		concreteInputValue.setValue("kue");
-//		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
+//		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).replace(concreteInputValue);
 //		returnElementInReturnGraph.getProperties().get(0).getAttributeName().setValue("Type");
 //		returnElementInReturnGraph.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 //		
@@ -126,7 +126,7 @@ public class EvalMatch {
 //		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 //		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 //		concreteInputValue2.setValue("3162");
-//		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
+//		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).replace(concreteInputValue2);
 //		element2.getProperties().get(0).getAttributeName().setValue("Type");
 //		element2.getProperties().get(0).getOption().setValue(PropertyKind.ATTRIBUTE);
 //		
@@ -154,8 +154,8 @@ public class EvalMatch {
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementType);
-		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1))
-				.concretize(concreteInputValue);
+		((UntypedParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1))
+				.replace(concreteInputValue);
 		if (attribute1Kind == PropertyKind.ATTRIBUTE) {
 			((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue(attribute1Name);
 		}
@@ -167,7 +167,7 @@ public class EvalMatch {
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue(element2Type);
-		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
+		((UntypedParameterValue) comparisonElement2.getArguments().get(1)).replace(concreteInputValue2);
 		if (attribute2Kind == PropertyKind.ATTRIBUTE) {
 			((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue(attribute2Name);
 		}
@@ -202,8 +202,8 @@ public class EvalMatch {
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementType);
-		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1))
-				.concretize(concreteInputValue);
+		((UntypedParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1))
+				.replace(concreteInputValue);
 		if (attribute1Kind == PropertyKind.ATTRIBUTE) {
 			((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue(attribute1Name);
 		}
@@ -215,7 +215,7 @@ public class EvalMatch {
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue(element2Type);
-		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
+		((UntypedParameterValue) comparisonElement2.getArguments().get(1)).replace(concreteInputValue2);
 		if (attribute2Kind == PropertyKind.ATTRIBUTE) {
 			((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue(attribute2Name);
 		}
@@ -227,7 +227,7 @@ public class EvalMatch {
 		BooleanOperator comparisonElement3 = element3.getPredicates().get(1);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue(element3Type);
-		((UnknownParameterValue) comparisonElement3.getArguments().get(1)).concretize(concreteInputValue3);
+		((UntypedParameterValue) comparisonElement3.getArguments().get(1)).replace(concreteInputValue3);
 		if (attribute3Kind == PropertyKind.ATTRIBUTE) {
 			((XmlProperty) element3.getProperties().get(1)).getAttributeName().setValue(attribute3Name);
 		}
@@ -257,8 +257,8 @@ public class EvalMatch {
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementType);
-		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1))
-				.concretize(concreteInputValue);
+		((UntypedParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1))
+				.replace(concreteInputValue);
 		if (attribute1Kind == PropertyKind.ATTRIBUTE) {
 			((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName()
 					.setValue(attribute1Name);
@@ -271,7 +271,7 @@ public class EvalMatch {
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue(element2Type);
-		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
+		((UntypedParameterValue) comparisonElement2.getArguments().get(1)).replace(concreteInputValue2);
 		if (attribute2Kind == PropertyKind.ATTRIBUTE) {
 			((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue(attribute2Name);
 		}

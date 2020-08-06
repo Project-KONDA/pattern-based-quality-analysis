@@ -113,8 +113,8 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 				return createTimeParamAdapter();
 			}
 			@Override
-			public Adapter caseUnknownParameterValue(UnknownParameterValue object) {
-				return createUnknownParameterValueAdapter();
+			public Adapter caseUntypedParameterValue(UntypedParameterValue object) {
+				return createUntypedParameterValueAdapter();
 			}
 			@Override
 			public Adapter caseDateTimeParam(DateTimeParam object) {
@@ -307,16 +307,16 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.UnknownParameterValue <em>Unknown Parameter Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.UntypedParameterValue <em>Untyped Parameter Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.UnknownParameterValue
+	 * @see qualitypatternmodel.parameters.UntypedParameterValue
 	 * @generated
 	 */
-	public Adapter createUnknownParameterValueAdapter() {
+	public Adapter createUntypedParameterValueAdapter() {
 		return null;
 	}
 

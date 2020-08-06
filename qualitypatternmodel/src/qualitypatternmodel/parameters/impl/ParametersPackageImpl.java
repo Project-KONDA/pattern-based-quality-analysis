@@ -37,7 +37,7 @@ import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.util.ParametersValidator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
@@ -132,7 +132,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass unknownParameterValueEClass = null;
+	private EClass untypedParameterValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -624,6 +624,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EAttribute getParameterValue_TypeModifiable() {
+		return (EAttribute)parameterValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getParameterValue__IsInTagComparison() {
 		return parameterValueEClass.getEOperations().get(0);
 	}
@@ -724,6 +734,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getParameterValue__Replace__ParameterValue() {
+		return parameterValueEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDateParam() {
 		return dateParamEClass;
 	}
@@ -764,8 +784,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EClass getUnknownParameterValue() {
-		return unknownParameterValueEClass;
+	public EClass getUntypedParameterValue() {
+		return untypedParameterValueEClass;
 	}
 
 	/**
@@ -774,18 +794,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getUnknownParameterValue__Concretize__ParameterValue() {
-		return unknownParameterValueEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getUnknownParameterValue__SetValue__String() {
-		return unknownParameterValueEClass.getEOperations().get(1);
+	public EOperation getUntypedParameterValue__SetValue__String() {
+		return untypedParameterValueEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -942,6 +952,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEReference(numberParamEClass, NUMBER_PARAM__NUMBER_ARGUMENT);
 
 		parameterValueEClass = createEClass(PARAMETER_VALUE);
+		createEAttribute(parameterValueEClass, PARAMETER_VALUE__TYPE_MODIFIABLE);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_TAG_COMPARISON);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_DATA_COMPARISON);
@@ -952,6 +963,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_DATA_VALUES);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_ATTRIBUTE_VALUES);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_SUGGESTIONS);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___REPLACE__PARAMETERVALUE);
 
 		dateParamEClass = createEClass(DATE_PARAM);
 		createEAttribute(dateParamEClass, DATE_PARAM__VALUE);
@@ -959,9 +971,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		timeParamEClass = createEClass(TIME_PARAM);
 		createEAttribute(timeParamEClass, TIME_PARAM__VALUE);
 
-		unknownParameterValueEClass = createEClass(UNKNOWN_PARAMETER_VALUE);
-		createEOperation(unknownParameterValueEClass, UNKNOWN_PARAMETER_VALUE___CONCRETIZE__PARAMETERVALUE);
-		createEOperation(unknownParameterValueEClass, UNKNOWN_PARAMETER_VALUE___SET_VALUE__STRING);
+		untypedParameterValueEClass = createEClass(UNTYPED_PARAMETER_VALUE);
+		createEOperation(untypedParameterValueEClass, UNTYPED_PARAMETER_VALUE___SET_VALUE__STRING);
 
 		dateTimeParamEClass = createEClass(DATE_TIME_PARAM);
 		createEAttribute(dateTimeParamEClass, DATE_TIME_PARAM__VALUE);
@@ -1024,8 +1035,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		parameterValueEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
 		dateParamEClass.getESuperTypes().add(this.getParameterValue());
 		timeParamEClass.getESuperTypes().add(this.getParameterValue());
-		unknownParameterValueEClass.getESuperTypes().add(this.getParameter());
-		unknownParameterValueEClass.getESuperTypes().add(theGraphstructurePackage.getComparable());
+		untypedParameterValueEClass.getESuperTypes().add(this.getParameterValue());
 		dateTimeParamEClass.getESuperTypes().add(this.getParameterValue());
 		relationOptionParamEClass.getESuperTypes().add(this.getParameter());
 
@@ -1092,6 +1102,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEReference(getNumberParam_NumberArgument(), thePatternstructurePackage.getNumberElement(), thePatternstructurePackage.getNumberElement_NumberParam(), "numberArgument", null, 0, 1, NumberParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterValueEClass, ParameterValue.class, "ParameterValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameterValue_TypeModifiable(), ecorePackage.getEBoolean(), "typeModifiable", null, 0, 1, ParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getParameterValue__IsInTagComparison(), ecorePackage.getEBoolean(), "isInTagComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1137,18 +1148,18 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEOperation(getParameterValue__GetSuggestions(), ecorePackage.getEString(), "getSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getParameterValue__Replace__ParameterValue(), null, "replace", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getParameterValue(), "concreteValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(dateParamEClass, DateParam.class, "DateParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(timeParamEClass, TimeParam.class, "TimeParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTimeParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, TimeParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(unknownParameterValueEClass, UnknownParameterValue.class, "UnknownParameterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(untypedParameterValueEClass, UntypedParameterValue.class, "UntypedParameterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getUnknownParameterValue__Concretize__ParameterValue(), null, "concretize", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getParameterValue(), "concreteValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getUnknownParameterValue__SetValue__String(), null, "setValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getUntypedParameterValue__SetValue__String(), null, "setValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "val", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dateTimeParamEClass, DateTimeParam.class, "DateTimeParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

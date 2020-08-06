@@ -18,7 +18,7 @@ import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
@@ -84,8 +84,8 @@ public class EvalMandstruc {
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
-		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1))
-				.concretize(concreteInputValue);
+		((UntypedParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1))
+				.replace(concreteInputValue);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
 		
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
@@ -99,7 +99,7 @@ public class EvalMandstruc {
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("ob30");
-		((UnknownParameterValue) comparisonElement2.getArguments().get(1)).concretize(concreteInputValue2);
+		((UntypedParameterValue) comparisonElement2.getArguments().get(1)).replace(concreteInputValue2);
 		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");		
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
@@ -108,7 +108,7 @@ public class EvalMandstruc {
 		BooleanOperator comparisonElement3 = element3.getPredicates().get(0);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("3100");
-		((UnknownParameterValue) comparisonElement3.getArguments().get(1)).concretize(concreteInputValue3);
+		((UntypedParameterValue) comparisonElement3.getArguments().get(1)).replace(concreteInputValue3);
 		((XmlProperty) element3.getProperties().get(0)).getAttributeName().setValue("Type");		
 		((XmlProperty) element3.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		

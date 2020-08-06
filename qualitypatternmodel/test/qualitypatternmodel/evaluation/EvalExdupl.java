@@ -19,7 +19,7 @@ import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.CountCondition;
@@ -186,7 +186,7 @@ public class EvalExdupl {
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("wer");
-		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
+		((UntypedParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
 		
 		CountCondition countCondition = (CountCondition) completePattern.getCondition();
 		CountPattern countPattern = countCondition.getCountPattern();
@@ -198,7 +198,7 @@ public class EvalExdupl {
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("wer");
-		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
+		((UntypedParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2);
 		
 		return completePattern;
 	}
@@ -218,7 +218,7 @@ public class EvalExdupl {
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("lido:lido");
-		((UnknownParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
+		((UntypedParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
 		
 		CountCondition countCondition = (CountCondition) completePattern.getCondition();
 		CountPattern countPattern = countCondition.getCountPattern();
@@ -230,7 +230,7 @@ public class EvalExdupl {
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("lido:lido");
-		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
+		((UntypedParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2);
 		
 		return completePattern;
 	}
@@ -250,7 +250,7 @@ public class EvalExdupl {
 //		((XmlProperty) retInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 //		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 //		concreteInputValue.setValue("lido:lido");
-//		((UnknownParameterValue) ((Comparison) retInReturnGraph.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue);
+//		((UnknownParameterValue) ((Comparison) retInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
 //		
 //		CountCondition countCondition = (CountCondition) completePattern.getCondition();
 //		CountPattern countPattern = countCondition.getCountPattern();
@@ -265,7 +265,7 @@ public class EvalExdupl {
 //		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 //		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 //		concreteInputValue2.setValue("lido:lido");
-//		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).concretize(concreteInputValue2);
+//		((UnknownParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2);
 //		
 //		return completePattern;
 //	}

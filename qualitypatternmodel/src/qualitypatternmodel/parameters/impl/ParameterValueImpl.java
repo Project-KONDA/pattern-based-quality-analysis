@@ -8,6 +8,7 @@ import java.util.Collection;
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.BasicEMap;
@@ -15,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -51,6 +53,7 @@ import qualitypatternmodel.parameters.ParameterValue;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterValueImpl#getComparison1 <em>Comparison1</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterValueImpl#getComparison2 <em>Comparison2</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.ParameterValueImpl#isTypeModifiable <em>Type Modifiable</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,6 +77,26 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 * @ordered
 	 */
 	protected EList<Comparison> comparison2;
+
+
+	/**
+	 * The default value of the '{@link #isTypeModifiable() <em>Type Modifiable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTypeModifiable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean TYPE_MODIFIABLE_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isTypeModifiable() <em>Type Modifiable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTypeModifiable()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean typeModifiable = TYPE_MODIFIABLE_EDEFAULT;
 
 
 	/**
@@ -119,6 +142,29 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			comparison2 = new EObjectWithInverseResolvingEList<Comparison>(Comparison.class, this, ParametersPackage.PARAMETER_VALUE__COMPARISON2, OperatorsPackage.COMPARISON__ARGUMENT2);
 		}
 		return comparison2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isTypeModifiable() {
+		return typeModifiable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTypeModifiable(boolean newTypeModifiable) {
+		boolean oldTypeModifiable = typeModifiable;
+		typeModifiable = newTypeModifiable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PARAMETER_VALUE__TYPE_MODIFIABLE, oldTypeModifiable, typeModifiable));
 	}
 
 	/**
@@ -258,6 +304,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				return getComparison1();
 			case ParametersPackage.PARAMETER_VALUE__COMPARISON2:
 				return getComparison2();
+			case ParametersPackage.PARAMETER_VALUE__TYPE_MODIFIABLE:
+				return isTypeModifiable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -279,6 +327,9 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				getComparison2().clear();
 				getComparison2().addAll((Collection<? extends Comparison>)newValue);
 				return;
+			case ParametersPackage.PARAMETER_VALUE__TYPE_MODIFIABLE:
+				setTypeModifiable((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -297,6 +348,9 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			case ParametersPackage.PARAMETER_VALUE__COMPARISON2:
 				getComparison2().clear();
 				return;
+			case ParametersPackage.PARAMETER_VALUE__TYPE_MODIFIABLE:
+				setTypeModifiable(TYPE_MODIFIABLE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -313,6 +367,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				return comparison1 != null && !comparison1.isEmpty();
 			case ParametersPackage.PARAMETER_VALUE__COMPARISON2:
 				return comparison2 != null && !comparison2.isEmpty();
+			case ParametersPackage.PARAMETER_VALUE__TYPE_MODIFIABLE:
+				return typeModifiable != TYPE_MODIFIABLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -398,6 +454,9 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				return getAttributeValues();
 			case ParametersPackage.PARAMETER_VALUE___GET_SUGGESTIONS:
 				return getSuggestions();
+			case ParametersPackage.PARAMETER_VALUE___REPLACE__PARAMETERVALUE:
+				replace((ParameterValue)arguments.get(0));
+				return null;
 			case ParametersPackage.PARAMETER_VALUE___GET_RETURN_TYPE:
 				return getReturnType();
 			case ParametersPackage.PARAMETER_VALUE___IS_TRANSLATABLE:
@@ -419,6 +478,22 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	}
 
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (typeModifiable: ");
+		result.append(typeModifiable);
+		result.append(')');
+		return result.toString();
+	}
+
 	@Override
 	public boolean inputIsValid() {
 		// TODO Auto-generated method stub
@@ -527,6 +602,32 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			suggestions.addAll(Constants.sortByValue(getDataValues()).keySet());
 		}		
 		return suggestions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void replace(ParameterValue concreteValue) {
+		
+		if(isTypeModifiable()) {
+			concreteValue.setParameterList(getParameterList());
+			
+			EList<Comparison> comparison1Copy = new BasicEList<Comparison>();
+			comparison1Copy.addAll(getComparison1());
+			for(Comparison comparison : comparison1Copy) {
+				comparison.setArgument1(concreteValue);
+			}
+			EList<Comparison> comparison2Copy = new BasicEList<Comparison>();
+			comparison2Copy.addAll(getComparison2());
+			for(Comparison comparison : comparison2Copy) {
+				comparison.setArgument2(concreteValue);	
+			}
+			
+			concreteValue.setTypeModifiable(true);
+		}
 	}
 
 	/**

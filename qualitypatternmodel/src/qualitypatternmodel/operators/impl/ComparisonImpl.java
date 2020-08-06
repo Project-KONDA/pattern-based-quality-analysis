@@ -35,7 +35,7 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -415,7 +415,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			if (otherArgument instanceof Property) {
 				setType(ReturnType.UNSPECIFIED);
 			}
-			if (otherArgument instanceof UnknownParameterValue) {
+			if (otherArgument instanceof UntypedParameterValue) {
 				setType(ReturnType.UNSPECIFIED);
 			}
 		} else {
@@ -432,7 +432,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				ParameterValue xsType = (ParameterValue) newArgument;
 				setType(xsType.getReturnType());
 			}
-			if (newArgument instanceof UnknownParameterValue) {
+			if (newArgument instanceof UntypedParameterValue) {
 				setType(ReturnType.UNSPECIFIED);
 			}
 		}

@@ -1155,13 +1155,22 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE__COMPARISON2 = PARAMETER_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE__TYPE_MODIFIABLE = PARAMETER_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Parameter Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 2;
+	int PARAMETER_VALUE_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -1452,13 +1461,22 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE___GET_SUGGESTIONS = PARAMETER_OPERATION_COUNT + 13;
 
 	/**
+	 * The operation id for the '<em>Replace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___REPLACE__PARAMETERVALUE = PARAMETER_OPERATION_COUNT + 14;
+
+	/**
 	 * The number of operations of the '<em>Parameter Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 14;
+	int PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 15;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.BooleanParamImpl <em>Boolean Param</em>}' class.
@@ -1532,6 +1550,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_PARAM__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM__TYPE_MODIFIABLE = PARAMETER_VALUE__TYPE_MODIFIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1849,6 +1876,15 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
+	 * The operation id for the '<em>Replace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
+
+	/**
 	 * The number of operations of the '<em>Boolean Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1929,6 +1965,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM__TYPE_MODIFIABLE = PARAMETER_VALUE__TYPE_MODIFIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Values</b></em>' attribute list.
@@ -2237,6 +2282,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
+	 * The operation id for the '<em>Replace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
+
+	/**
 	 * The operation id for the '<em>Get List Declaration</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2335,6 +2389,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LITERAL_PARAM__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM__TYPE_MODIFIABLE = PARAMETER_VALUE__TYPE_MODIFIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2661,6 +2724,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
+	 * The operation id for the '<em>Replace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
+
+	/**
 	 * The number of operations of the '<em>Text Literal Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2741,6 +2813,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_PARAM__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM__TYPE_MODIFIABLE = PARAMETER_VALUE__TYPE_MODIFIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3058,6 +3139,15 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
+	 * The operation id for the '<em>Replace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
+
+	/**
 	 * The number of operations of the '<em>Number Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3138,6 +3228,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_PARAM__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM__TYPE_MODIFIABLE = PARAMETER_VALUE__TYPE_MODIFIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3446,6 +3545,15 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
+	 * The operation id for the '<em>Replace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
+
+	/**
 	 * The number of operations of the '<em>Date Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3526,6 +3634,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TIME_PARAM__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM__TYPE_MODIFIABLE = PARAMETER_VALUE__TYPE_MODIFIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -3834,6 +3951,15 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
+	 * The operation id for the '<em>Replace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
+
+	/**
 	 * The number of operations of the '<em>Time Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3843,14 +3969,14 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.UnknownParameterValueImpl <em>Unknown Parameter Value</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.UntypedParameterValueImpl <em>Untyped Parameter Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.impl.UnknownParameterValueImpl
-	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getUnknownParameterValue()
+	 * @see qualitypatternmodel.parameters.impl.UntypedParameterValueImpl
+	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getUntypedParameterValue()
 	 * @generated
 	 */
-	int UNKNOWN_PARAMETER_VALUE = 11;
+	int UNTYPED_PARAMETER_VALUE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3859,7 +3985,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE__ID = PARAMETER__ID;
+	int UNTYPED_PARAMETER_VALUE__ID = PARAMETER_VALUE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -3868,7 +3994,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE__INTERNAL_ID = PARAMETER__INTERNAL_ID;
+	int UNTYPED_PARAMETER_VALUE__INTERNAL_ID = PARAMETER_VALUE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -3877,7 +4003,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE__PARAMETER_LIST = PARAMETER__PARAMETER_LIST;
+	int UNTYPED_PARAMETER_VALUE__PARAMETER_LIST = PARAMETER_VALUE__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -3886,7 +4012,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE__DESCRIPTION = PARAMETER__DESCRIPTION;
+	int UNTYPED_PARAMETER_VALUE__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
@@ -3895,7 +4021,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
+	int UNTYPED_PARAMETER_VALUE__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -3904,7 +4030,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE__COMPARISON1 = PARAMETER_FEATURE_COUNT + 0;
+	int UNTYPED_PARAMETER_VALUE__COMPARISON1 = PARAMETER_VALUE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -3913,16 +4039,25 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE__COMPARISON2 = PARAMETER_FEATURE_COUNT + 1;
+	int UNTYPED_PARAMETER_VALUE__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
 
 	/**
-	 * The number of structural features of the '<em>Unknown Parameter Value</em>' class.
+	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 2;
+	int UNTYPED_PARAMETER_VALUE__TYPE_MODIFIABLE = PARAMETER_VALUE__TYPE_MODIFIABLE;
+
+	/**
+	 * The number of structural features of the '<em>Untyped Parameter Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -3931,7 +4066,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___GENERATE_QUERY = PARAMETER___GENERATE_QUERY;
+	int UNTYPED_PARAMETER_VALUE___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Inputs</em>' operation.
@@ -3940,7 +4075,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
+	int UNTYPED_PARAMETER_VALUE___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3949,7 +4084,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___PREPARE_TRANSLATION = PARAMETER___PREPARE_TRANSLATION;
+	int UNTYPED_PARAMETER_VALUE___PREPARE_TRANSLATION = PARAMETER_VALUE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -3958,7 +4093,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL = PARAMETER___IS_VALID__ABSTRACTIONLEVEL;
+	int UNTYPED_PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -3967,7 +4102,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int UNTYPED_PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3976,7 +4111,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___GET_CONTAINER = PARAMETER___GET_CONTAINER;
+	int UNTYPED_PARAMETER_VALUE___GET_CONTAINER = PARAMETER_VALUE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -3985,7 +4120,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___GET_ANCESTOR__CLASS = PARAMETER___GET_ANCESTOR__CLASS;
+	int UNTYPED_PARAMETER_VALUE___GET_ANCESTOR__CLASS = PARAMETER_VALUE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -3994,7 +4129,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___MY_TO_STRING = PARAMETER___MY_TO_STRING;
+	int UNTYPED_PARAMETER_VALUE___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -4003,7 +4138,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
+	int UNTYPED_PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -4012,7 +4147,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___GET_PARAMETER_LIST = PARAMETER___GET_PARAMETER_LIST;
+	int UNTYPED_PARAMETER_VALUE___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Update Operators</em>' operation.
@@ -4021,7 +4156,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST = PARAMETER___UPDATE_OPERATORS__OPERATORLIST;
+	int UNTYPED_PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST = PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -4030,7 +4165,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___GET_OPERATOR_LIST = PARAMETER___GET_OPERATOR_LIST;
+	int UNTYPED_PARAMETER_VALUE___GET_OPERATOR_LIST = PARAMETER_VALUE___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Create XML Adaption</em>' operation.
@@ -4039,7 +4174,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___CREATE_XML_ADAPTION = PARAMETER___CREATE_XML_ADAPTION;
+	int UNTYPED_PARAMETER_VALUE___CREATE_XML_ADAPTION = PARAMETER_VALUE___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
@@ -4048,7 +4183,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___FINALIZE_XML_ADAPTION = PARAMETER___FINALIZE_XML_ADAPTION;
+	int UNTYPED_PARAMETER_VALUE___FINALIZE_XML_ADAPTION = PARAMETER_VALUE___FINALIZE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -4057,7 +4192,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE = PARAMETER___RECORD_VALUES__XMLDATABASE;
+	int UNTYPED_PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -4066,7 +4201,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___INPUT_IS_VALID = PARAMETER___INPUT_IS_VALID;
+	int UNTYPED_PARAMETER_VALUE___INPUT_IS_VALID = PARAMETER_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -4075,7 +4210,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___GENERATE_DESCRIPTION = PARAMETER___GENERATE_DESCRIPTION;
+	int UNTYPED_PARAMETER_VALUE___GENERATE_DESCRIPTION = PARAMETER_VALUE___GENERATE_DESCRIPTION;
 
 	/**
 	 * The operation id for the '<em>Is Used</em>' operation.
@@ -4084,7 +4219,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___IS_USED = PARAMETER___IS_USED;
+	int UNTYPED_PARAMETER_VALUE___IS_USED = PARAMETER_VALUE___IS_USED;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -4093,7 +4228,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___GET_RETURN_TYPE = PARAMETER_OPERATION_COUNT + 0;
+	int UNTYPED_PARAMETER_VALUE___GET_RETURN_TYPE = PARAMETER_VALUE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -4102,7 +4237,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___IS_TRANSLATABLE = PARAMETER_OPERATION_COUNT + 1;
+	int UNTYPED_PARAMETER_VALUE___IS_TRANSLATABLE = PARAMETER_VALUE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -4111,7 +4246,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER_OPERATION_COUNT + 2;
+	int UNTYPED_PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS = PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4120,16 +4255,106 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_OPERATION_COUNT + 3;
+	int UNTYPED_PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP = PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Concretize</em>' operation.
+	 * The operation id for the '<em>Is In Tag Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___CONCRETIZE__PARAMETERVALUE = PARAMETER_OPERATION_COUNT + 4;
+	int UNTYPED_PARAMETER_VALUE___IS_IN_TAG_COMPARISON = PARAMETER_VALUE___IS_IN_TAG_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON = PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___IS_IN_DATA_COMPARISON = PARAMETER_VALUE___IS_IN_DATA_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Tag Comparison Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___GET_TAG_COMPARISON_ELEMENTS = PARAMETER_VALUE___GET_TAG_COMPARISON_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+
+	/**
+	 * The operation id for the '<em>Get Element Tags</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___GET_ELEMENT_TAGS = PARAMETER_VALUE___GET_ELEMENT_TAGS;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___GET_ATTRIBUTE_NAMES = PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Data Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___GET_DATA_VALUES = PARAMETER_VALUE___GET_DATA_VALUES;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___GET_ATTRIBUTE_VALUES = PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
+
+	/**
+	 * The operation id for the '<em>Replace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
 
 	/**
 	 * The operation id for the '<em>Set Value</em>' operation.
@@ -4138,16 +4363,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE___SET_VALUE__STRING = PARAMETER_OPERATION_COUNT + 5;
+	int UNTYPED_PARAMETER_VALUE___SET_VALUE__STRING = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Unknown Parameter Value</em>' class.
+	 * The number of operations of the '<em>Untyped Parameter Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNKNOWN_PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 6;
+	int UNTYPED_PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.DateTimeParamImpl <em>Date Time Param</em>}' class.
@@ -4221,6 +4446,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_TIME_PARAM__COMPARISON2 = PARAMETER_VALUE__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM__TYPE_MODIFIABLE = PARAMETER_VALUE__TYPE_MODIFIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -4527,6 +4761,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_TIME_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
+
+	/**
+	 * The operation id for the '<em>Replace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
 
 	/**
 	 * The number of operations of the '<em>Date Time Param</em>' class.
@@ -5218,6 +5461,17 @@ public interface ParametersPackage extends EPackage {
 	EClass getParameterValue();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.ParameterValue#isTypeModifiable <em>Type Modifiable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type Modifiable</em>'.
+	 * @see qualitypatternmodel.parameters.ParameterValue#isTypeModifiable()
+	 * @see #getParameterValue()
+	 * @generated
+	 */
+	EAttribute getParameterValue_TypeModifiable();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#isInTagComparison() <em>Is In Tag Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5318,6 +5572,16 @@ public interface ParametersPackage extends EPackage {
 	EOperation getParameterValue__GetSuggestions();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#replace(qualitypatternmodel.parameters.ParameterValue) <em>Replace</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Replace</em>' operation.
+	 * @see qualitypatternmodel.parameters.ParameterValue#replace(qualitypatternmodel.parameters.ParameterValue)
+	 * @generated
+	 */
+	EOperation getParameterValue__Replace__ParameterValue();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.DateParam <em>Date Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5360,34 +5624,24 @@ public interface ParametersPackage extends EPackage {
 	EAttribute getTimeParam_Value();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.UnknownParameterValue <em>Unknown Parameter Value</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.UntypedParameterValue <em>Untyped Parameter Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Unknown Parameter Value</em>'.
-	 * @see qualitypatternmodel.parameters.UnknownParameterValue
+	 * @return the meta object for class '<em>Untyped Parameter Value</em>'.
+	 * @see qualitypatternmodel.parameters.UntypedParameterValue
 	 * @generated
 	 */
-	EClass getUnknownParameterValue();
+	EClass getUntypedParameterValue();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.UnknownParameterValue#concretize(qualitypatternmodel.parameters.ParameterValue) <em>Concretize</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Concretize</em>' operation.
-	 * @see qualitypatternmodel.parameters.UnknownParameterValue#concretize(qualitypatternmodel.parameters.ParameterValue)
-	 * @generated
-	 */
-	EOperation getUnknownParameterValue__Concretize__ParameterValue();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.UnknownParameterValue#setValue(java.lang.String) <em>Set Value</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.UntypedParameterValue#setValue(java.lang.String) <em>Set Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Set Value</em>' operation.
-	 * @see qualitypatternmodel.parameters.UnknownParameterValue#setValue(java.lang.String)
+	 * @see qualitypatternmodel.parameters.UntypedParameterValue#setValue(java.lang.String)
 	 * @generated
 	 */
-	EOperation getUnknownParameterValue__SetValue__String();
+	EOperation getUntypedParameterValue__SetValue__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.DateTimeParam <em>Date Time Param</em>}'.
@@ -5812,6 +6066,14 @@ public interface ParametersPackage extends EPackage {
 		EClass PARAMETER_VALUE = eINSTANCE.getParameterValue();
 
 		/**
+		 * The meta object literal for the '<em><b>Type Modifiable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_VALUE__TYPE_MODIFIABLE = eINSTANCE.getParameterValue_TypeModifiable();
+
+		/**
 		 * The meta object literal for the '<em><b>Is In Tag Comparison</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5892,6 +6154,14 @@ public interface ParametersPackage extends EPackage {
 		EOperation PARAMETER_VALUE___GET_SUGGESTIONS = eINSTANCE.getParameterValue__GetSuggestions();
 
 		/**
+		 * The meta object literal for the '<em><b>Replace</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_VALUE___REPLACE__PARAMETERVALUE = eINSTANCE.getParameterValue__Replace__ParameterValue();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.DateParamImpl <em>Date Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5928,22 +6198,14 @@ public interface ParametersPackage extends EPackage {
 		EAttribute TIME_PARAM__VALUE = eINSTANCE.getTimeParam_Value();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.UnknownParameterValueImpl <em>Unknown Parameter Value</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.UntypedParameterValueImpl <em>Untyped Parameter Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.parameters.impl.UnknownParameterValueImpl
-		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getUnknownParameterValue()
+		 * @see qualitypatternmodel.parameters.impl.UntypedParameterValueImpl
+		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getUntypedParameterValue()
 		 * @generated
 		 */
-		EClass UNKNOWN_PARAMETER_VALUE = eINSTANCE.getUnknownParameterValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Concretize</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation UNKNOWN_PARAMETER_VALUE___CONCRETIZE__PARAMETERVALUE = eINSTANCE.getUnknownParameterValue__Concretize__ParameterValue();
+		EClass UNTYPED_PARAMETER_VALUE = eINSTANCE.getUntypedParameterValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Value</b></em>' operation.
@@ -5951,7 +6213,7 @@ public interface ParametersPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation UNKNOWN_PARAMETER_VALUE___SET_VALUE__STRING = eINSTANCE.getUnknownParameterValue__SetValue__String();
+		EOperation UNTYPED_PARAMETER_VALUE___SET_VALUE__STRING = eINSTANCE.getUntypedParameterValue__SetValue__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.DateTimeParamImpl <em>Date Time Param</em>}' class.

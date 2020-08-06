@@ -113,6 +113,10 @@
         </eGenericType>
       </eOperations>
       <eOperations name="getSuggestions" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="replace">
+        <eParameters name="concreteValue" eType="#//parameters/ParameterValue"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeModifiable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DateParam" eSuperTypes="#//parameters/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -122,10 +126,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UnknownParameterValue" eSuperTypes="#//parameters/Parameter #//graphstructure/Comparable">
-      <eOperations name="concretize">
-        <eParameters name="concreteValue" eType="#//parameters/ParameterValue"/>
-      </eOperations>
+    <eClassifiers xsi:type="ecore:EClass" name="UntypedParameterValue" eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="setValue">
         <eParameters name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
@@ -283,7 +284,7 @@
         <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eOperations name="addPrimitiveMatch"/>
-      <eOperations name="addPrimitiveComparison" eType="#//parameters/UnknownParameterValue"/>
+      <eOperations name="addPrimitiveComparison" eType="#//parameters/UntypedParameterValue"/>
       <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="addPrimitiveComparison">

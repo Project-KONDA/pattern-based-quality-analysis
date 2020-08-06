@@ -20,7 +20,7 @@ import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -170,7 +170,7 @@ public class EvalContrel {
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("kue");
-		((UnknownParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).concretize(concreteInputValue);
+		((UntypedParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).replace(concreteInputValue);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
@@ -182,7 +182,7 @@ public class EvalContrel {
 		Comparison id1Comp1 = (Comparison) id1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1.setValue("3100");
-		((UnknownParameterValue) id1Comp1.getArguments().get(1)).concretize(concreteInputValue1);
+		((UntypedParameterValue) id1Comp1.getArguments().get(1)).replace(concreteInputValue1);
 		((XmlProperty) id1.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) id1.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		((XmlProperty) id1.getProperties().get(1)).getAttributeName().setValue("Value");
@@ -192,7 +192,7 @@ public class EvalContrel {
 		Comparison ref1Comp1 = (Comparison) ref1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("ku35");
-		((UnknownParameterValue) ref1Comp1.getArguments().get(1)).concretize(concreteInputValue2);
+		((UntypedParameterValue) ref1Comp1.getArguments().get(1)).replace(concreteInputValue2);
 		((XmlProperty) ref1.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) ref1.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		((XmlProperty) ref1.getProperties().get(1)).getAttributeName().setValue("Value");
@@ -202,7 +202,7 @@ public class EvalContrel {
 		Comparison val1Comp1 = (Comparison) val1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("3600");
-		((UnknownParameterValue) val1Comp1.getArguments().get(1)).concretize(concreteInputValue3);
+		((UntypedParameterValue) val1Comp1.getArguments().get(1)).replace(concreteInputValue3);
 		((XmlProperty) val1.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) val1.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		((XmlProperty) val1.getProperties().get(1)).getAttributeName().setValue("Value");
@@ -213,7 +213,7 @@ public class EvalContrel {
 		Comparison element2Comp1 = (Comparison) element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("wer");
-		((UnknownParameterValue) element2Comp1.getArguments().get(1)).concretize(concreteInputValue4);
+		((UntypedParameterValue) element2Comp1.getArguments().get(1)).replace(concreteInputValue4);
 		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
@@ -221,7 +221,7 @@ public class EvalContrel {
 		Comparison id2Comp1 = (Comparison) id2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue5 = parametersFactory.createTextLiteralParam();
 		concreteInputValue5.setValue("3600");
-		((UnknownParameterValue) id2Comp1.getArguments().get(1)).concretize(concreteInputValue5);
+		((UntypedParameterValue) id2Comp1.getArguments().get(1)).replace(concreteInputValue5);
 		((XmlProperty) id2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) id2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		((XmlProperty) id2.getProperties().get(1)).getAttributeName().setValue("Value");
@@ -231,7 +231,7 @@ public class EvalContrel {
 		Comparison ref2Comp1 = (Comparison) ref2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue6 = parametersFactory.createTextLiteralParam();
 		concreteInputValue6.setValue("we30");
-		((UnknownParameterValue) ref2Comp1.getArguments().get(1)).concretize(concreteInputValue6);
+		((UntypedParameterValue) ref2Comp1.getArguments().get(1)).replace(concreteInputValue6);
 		((XmlProperty) ref2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) ref2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		((XmlProperty) ref2.getProperties().get(1)).getAttributeName().setValue("Value");
@@ -241,7 +241,7 @@ public class EvalContrel {
 		Comparison val2Comp1 = (Comparison) val2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue7 = parametersFactory.createTextLiteralParam();
 		concreteInputValue7.setValue("3100");
-		((UnknownParameterValue) val2Comp1.getArguments().get(1)).concretize(concreteInputValue7);
+		((UntypedParameterValue) val2Comp1.getArguments().get(1)).replace(concreteInputValue7);
 		((XmlProperty) val2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) val2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		((XmlProperty) val2.getProperties().get(1)).getAttributeName().setValue("Value");

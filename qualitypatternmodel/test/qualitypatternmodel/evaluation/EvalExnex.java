@@ -15,7 +15,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.NotCondition;
@@ -115,9 +115,9 @@ public class EvalExnex {
 		((TextLiteralParam) params.get(5)).setValue("Type");
 		((PropertyOptionParam) params.get(4)).setValue(PropertyKind.ATTRIBUTE);
 		((ComparisonOptionParam) params.get(3)).setValue(ComparisonOperator.EQUAL);
-		((UnknownParameterValue) params.get(2)).concretize(new TextLiteralParamImpl("ob30"));
+		((UntypedParameterValue) params.get(2)).replace(new TextLiteralParamImpl("ob30"));
 		((ComparisonOptionParam) params.get(1)).setValue(ComparisonOperator.EQUAL);
-		((UnknownParameterValue) params.get(0)).concretize(new TextLiteralParamImpl("obj"));
+		((UntypedParameterValue) params.get(0)).replace(new TextLiteralParamImpl("obj"));
 		
 		return completePattern;
 	}
@@ -136,11 +136,11 @@ public class EvalExnex {
 //		((TextLiteralParam) params.get(7)).setValue("Type");
 		((PropertyOptionParam) params.get(6)).setValue(PropertyKind.TAG);
 		((ComparisonOptionParam) params.get(5)).setValue(ComparisonOperator.EQUAL);
-		((UnknownParameterValue) params.get(4)).concretize(new TextLiteralParamImpl("lido:conceptID"));
+		((UntypedParameterValue) params.get(4)).replace(new TextLiteralParamImpl("lido:conceptID"));
 		((ComparisonOptionParam) params.get(3)).setValue(ComparisonOperator.EQUAL);
-		((UnknownParameterValue) params.get(2)).concretize(new TextLiteralParamImpl("lido:roleActor"));
+		((UntypedParameterValue) params.get(2)).replace(new TextLiteralParamImpl("lido:roleActor"));
 		((ComparisonOptionParam) params.get(1)).setValue(ComparisonOperator.EQUAL);
-		((UnknownParameterValue) params.get(0)).concretize(new TextLiteralParamImpl("lido:lido"));
+		((UntypedParameterValue) params.get(0)).replace(new TextLiteralParamImpl("lido:lido"));
 		
 		return completePattern;
 	}

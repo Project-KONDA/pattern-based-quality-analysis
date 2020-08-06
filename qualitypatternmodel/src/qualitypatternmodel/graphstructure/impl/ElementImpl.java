@@ -43,9 +43,9 @@ import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.impl.ComparisonImpl;
 import qualitypatternmodel.operators.impl.MatchImpl;
 import qualitypatternmodel.graphstructure.Element;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.parameters.impl.UnknownParameterValueImpl;
+import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
@@ -1590,7 +1590,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 * @generated NOT
 	 */
 	@Override
-	public UnknownParameterValue addPrimitiveComparison() {
+	public UntypedParameterValue addPrimitiveComparison() {
 		try {
 			Comparison comparison = new ComparisonImpl();
 			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
@@ -1602,15 +1602,15 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			getProperties().add(property);
 			property.createParameters();
 	
-			UnknownParameterValue unknownParameterValue = new UnknownParameterValueImpl();
-			varlist.add(unknownParameterValue);
+			UntypedParameterValue untypedParameterValue = new UntypedParameterValueImpl();
+			varlist.add(untypedParameterValue);
 	
 			oplist.add(comparison);	
 			comparison.createParameters();
 			comparison.setArgument1(property);
-			comparison.setArgument2(unknownParameterValue);						
+			comparison.setArgument2(untypedParameterValue);						
 			
-			return unknownParameterValue;
+			return untypedParameterValue;
 			
 		} catch (Exception e) {			
 			System.out.println("Adding Condition Failed: " + e.getMessage());		
@@ -1662,7 +1662,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	public void addPrimitiveComparison(ParameterValue parameter) {
 		// TODO: move to XMLElement ?
 		
-		addPrimitiveComparison().concretize(parameter);
+		addPrimitiveComparison().replace(parameter);
 	}
 
 	/**
