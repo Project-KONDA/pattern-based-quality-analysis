@@ -149,6 +149,17 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	}
 	
 	@Override
+	public String getName() {
+		if(name == null || name.equals("")) {
+			if(getOriginalID() > -1) {
+				name = "XmlReference " + getOriginalID();
+				return name;
+			}
+		}
+		return name;
+	}
+	
+	@Override
 	public XmlReference adaptAsXMLReference() {
 		return this;
 	}
