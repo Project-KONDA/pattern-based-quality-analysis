@@ -75,6 +75,11 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	}
 	
 	@Override
+	public boolean relationsXmlAdapted() {
+		return getCondition().relationsXmlAdapted();
+	}
+	
+	@Override
 	public PatternElement createXMLAdaption() {
 		getCondition().createXMLAdaption();
 		return this;

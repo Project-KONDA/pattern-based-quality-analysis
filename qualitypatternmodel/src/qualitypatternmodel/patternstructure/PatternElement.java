@@ -173,6 +173,14 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean relationsXmlAdapted();
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * get element, which directly contain the current element
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"

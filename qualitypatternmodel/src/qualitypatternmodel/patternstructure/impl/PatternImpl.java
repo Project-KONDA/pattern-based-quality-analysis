@@ -27,6 +27,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Pattern;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
@@ -152,6 +153,24 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		setPartialQuery(forClauses + returnClause);
 		
 		return query;
+	}
+	
+	@Override
+	public boolean relationsXmlAdapted() {
+		return getGraph().relationsXmlAdapted() && getCondition().relationsXmlAdapted();
+	}
+	
+	@Override
+	public PatternElement createXMLAdaption() {
+		getGraph().createXMLAdaption();
+		getCondition().createXMLAdaption();
+		return this;
+	}
+	
+	@Override
+	public void finalizeXMLAdaption() {
+		getGraph().finalizeXMLAdaption();
+		getCondition().finalizeXMLAdaption();
 	}
 	
 	@Override

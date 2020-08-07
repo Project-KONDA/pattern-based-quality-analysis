@@ -350,6 +350,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___RECORD_VALUES__XMLDATABASE = GraphstructurePackage.ELEMENT___RECORD_VALUES__XMLDATABASE;
 
 	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___RELATIONS_XML_ADAPTED = GraphstructurePackage.ELEMENT___RELATIONS_XML_ADAPTED;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -882,6 +891,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___RECORD_VALUES__XMLDATABASE = GraphstructurePackage.RELATION___RECORD_VALUES__XMLDATABASE;
 
 	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___RELATIONS_XML_ADAPTED = GraphstructurePackage.RELATION___RELATIONS_XML_ADAPTED;
+
+	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1234,6 +1252,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___RECORD_VALUES__XMLDATABASE = GraphstructurePackage.RELATION___RECORD_VALUES__XMLDATABASE;
 
 	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___RELATIONS_XML_ADAPTED = GraphstructurePackage.RELATION___RELATIONS_XML_ADAPTED;
+
+	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1566,6 +1593,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___RECORD_VALUES__XMLDATABASE = GraphstructurePackage.PROPERTY___RECORD_VALUES__XMLDATABASE;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___RELATIONS_XML_ADAPTED = GraphstructurePackage.PROPERTY___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1945,6 +1981,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___RECORD_VALUES__XMLDATABASE = GraphstructurePackage.ELEMENT___RECORD_VALUES__XMLDATABASE;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___RELATIONS_XML_ADAPTED = GraphstructurePackage.ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.

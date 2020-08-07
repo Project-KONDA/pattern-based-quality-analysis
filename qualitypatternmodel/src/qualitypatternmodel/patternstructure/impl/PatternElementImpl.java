@@ -235,6 +235,16 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean relationsXmlAdapted() {
+		return true;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @throws MissingPatternContainerException 
 	 * @throws Exception 
@@ -488,6 +498,8 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			case PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE:
 				recordValues((XmlDatabase)arguments.get(0));
 				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED:
+				return relationsXmlAdapted();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

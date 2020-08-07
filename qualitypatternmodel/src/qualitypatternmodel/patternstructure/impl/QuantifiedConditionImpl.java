@@ -161,6 +161,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 	
 	@Override
+	public boolean relationsXmlAdapted() {
+		return getGraph().relationsXmlAdapted() && getCondition().relationsXmlAdapted();
+	}
+	
+	@Override
 	public PatternElement createXMLAdaption() {		
 		getGraph().createXMLAdaption();		
 		getCondition().createXMLAdaption();

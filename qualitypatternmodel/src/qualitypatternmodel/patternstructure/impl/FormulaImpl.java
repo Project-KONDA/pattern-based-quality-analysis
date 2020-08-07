@@ -178,6 +178,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 	
 	@Override
+	public boolean relationsXmlAdapted() {
+		return getCondition1().relationsXmlAdapted() && getCondition2().relationsXmlAdapted();
+	}
+	
+	@Override
 	public PatternElement createXMLAdaption() {
 		getCondition1().createXMLAdaption();
 		getCondition2().createXMLAdaption();

@@ -147,18 +147,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return res;
 	}
 
-	@Override
-	public PatternElement createXMLAdaption() {
-		getGraph().createXMLAdaption();
-		getCondition().createXMLAdaption();
-		return this;
-	}
-	
-	@Override
-	public void finalizeXMLAdaption() {
-		getGraph().finalizeXMLAdaption();
-		getCondition().finalizeXMLAdaption();
-	}
+
 
 	
 	/**

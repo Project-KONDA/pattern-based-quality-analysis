@@ -452,6 +452,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/recordValues">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/recordValues/database"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/relationsXmlAdapted"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/NotCondition">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/NotCondition/condition"/>

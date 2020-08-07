@@ -127,6 +127,11 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	@Override
+	public boolean relationsXmlAdapted() {
+		return getCountPattern().relationsXmlAdapted() && getArgument2().relationsXmlAdapted();
+	}
+	
+	@Override
 	public PatternElement createXMLAdaption() {
 		getCountPattern().createXMLAdaption();
 		getArgument2().createXMLAdaption();

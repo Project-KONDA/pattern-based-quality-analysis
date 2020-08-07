@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlRootImpl;
@@ -212,6 +213,16 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			}
 		}
 		
+	}
+	
+	@Override
+	public boolean relationsXmlAdapted() {
+		for(Relation relation : getRelations()) {
+			if(!(relation instanceof XmlReference) && !(relation instanceof XmlNavigation)) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	@Override

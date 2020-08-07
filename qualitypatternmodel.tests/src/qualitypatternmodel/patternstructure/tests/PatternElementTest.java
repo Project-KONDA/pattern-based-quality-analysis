@@ -28,6 +28,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#createXMLAdaption() <em>Create XML Adaption</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#finalizeXMLAdaption() <em>Finalize XML Adaption</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#recordValues(qualitypatternmodel.execution.XmlDatabase) <em>Record Values</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#relationsXmlAdapted() <em>Relations Xml Adapted</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -236,6 +237,19 @@ public abstract class PatternElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testRecordValues__XmlDatabase() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#relationsXmlAdapted() <em>Relations Xml Adapted</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#relationsXmlAdapted()
+	 * @generated
+	 */
+	public void testRelationsXmlAdapted() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
