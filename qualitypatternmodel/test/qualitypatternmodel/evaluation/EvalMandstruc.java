@@ -8,6 +8,8 @@ import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -33,7 +35,7 @@ import qualitypatternmodel.translationtests.Test03Quantor;
 import qualitypatternmodel.translationtests.Test06NotElement;
 
 public class EvalMandstruc {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getMandstrucThreeElementsMidas());
 		
@@ -41,7 +43,7 @@ public class EvalMandstruc {
 //		Test00.test(completePatterns);				
 	}
 	
-	public static CompletePattern getMandstrucThreeElementsAbstract() {
+	public static CompletePattern getMandstrucThreeElementsAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
@@ -73,7 +75,7 @@ public class EvalMandstruc {
 		return completePattern;
 	}
 	
-	public static CompletePattern getMandstrucThreeElementsMidas() {
+	public static CompletePattern getMandstrucThreeElementsMidas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		

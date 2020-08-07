@@ -28,7 +28,7 @@ public class Test10Reference {
 	}
 
 	
-	public static CompletePattern getPatternReferenceSimple() {
+	public static CompletePattern getPatternReferenceSimple() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;	
 		
@@ -51,7 +51,7 @@ public class Test10Reference {
 		return completePattern;		
 	}
 	
-	public static CompletePattern getPatternReferenceTwoReference() {
+	public static CompletePattern getPatternReferenceTwoReference() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;	
 		
@@ -83,7 +83,7 @@ public class Test10Reference {
 		return completePattern;		
 	}
 	
-	public static CompletePattern getPatternReferenceParallelNavigation() {
+	public static CompletePattern getPatternReferenceParallelNavigation() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;	
 		
@@ -112,7 +112,7 @@ public class Test10Reference {
 		return completePattern;		
 	}
 	
-	public static CompletePattern getPatternReferencePropertyLocationsParallel() {
+	public static CompletePattern getPatternReferencePropertyLocationsParallel() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;	
 		
@@ -187,7 +187,7 @@ public class Test10Reference {
 //		return pattern;		
 //	}
 	
-	public static List<PatternTestPair> getTestPairs() {
+	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		
 		testPairs.add(new PatternTestPair("REF", getPatternReferenceSimple(), ""));

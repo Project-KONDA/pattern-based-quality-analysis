@@ -524,11 +524,13 @@
         <eParameters name="newOperatorList" eType="#//operators/OperatorList"/>
       </eOperations>
       <eOperations name="getOperatorList" eType="#//operators/OperatorList"/>
-      <eOperations name="createXMLAdaption" eType="#//patternstructure/PatternElement"/>
-      <eOperations name="finalizeXMLAdaption"/>
+      <eOperations name="createXMLAdaption" eType="#//patternstructure/PatternElement"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
+      <eOperations name="finalizeXMLAdaption" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="recordValues">
         <eParameters name="database" eType="#//execution/XmlDatabase"/>
       </eOperations>
+      <eOperations name="relationsXmlAdapted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalId" lowerBound="1"

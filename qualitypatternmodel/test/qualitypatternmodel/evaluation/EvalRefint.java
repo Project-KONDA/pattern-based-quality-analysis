@@ -21,6 +21,9 @@ import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -33,7 +36,7 @@ import qualitypatternmodel.translationtests.Test03Quantor;
 import qualitypatternmodel.translationtests.Test06NotElement;
 
 public class EvalRefint {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 //		completePatterns.add(getRefintAbstractMidas());
 		completePatterns.add(getRefintMidasWer());
@@ -44,7 +47,7 @@ public class EvalRefint {
 //		Test00.test(completePatterns);	
 	}
 	
-	public static CompletePattern getRefintAbstractMidas() {
+	public static CompletePattern getRefintAbstractMidas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 
@@ -104,7 +107,7 @@ public class EvalRefint {
 		return completePattern; 
 	}
 	
-	public static CompletePattern getRefintMidasWer() {
+	public static CompletePattern getRefintMidasWer() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -153,7 +156,7 @@ public class EvalRefint {
 		return completePattern;		
 	}
 	
-	public static CompletePattern getRefintAbstractRunningExample() {
+	public static CompletePattern getRefintAbstractRunningExample() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 
@@ -203,7 +206,7 @@ public class EvalRefint {
 		return completePattern; 
 	}
 	
-	public static CompletePattern getRefintRunningExample() {
+	public static CompletePattern getRefintRunningExample() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		

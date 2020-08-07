@@ -6,6 +6,9 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
@@ -30,7 +33,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.translationtests.Test00;
 
 public class EvalExdupl {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getExactDuplicatesMidasWer());
 		completePatterns.add(getExactDuplicatesLido());
@@ -40,7 +43,7 @@ public class EvalExdupl {
 //		Test00.test(completePatterns);	
 	}
 	
-	public static CompletePattern getExactDuplicatesAbstract() {	
+	public static CompletePattern getExactDuplicatesAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
@@ -174,7 +177,7 @@ public class EvalExdupl {
 //		
 //	}
 	
-	public static CompletePattern getExactDuplicatesMidasWer() {	
+	public static CompletePattern getExactDuplicatesMidasWer() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -203,7 +206,7 @@ public class EvalExdupl {
 		return completePattern;
 	}
 	
-	public static CompletePattern getExactDuplicatesLido() {
+	public static CompletePattern getExactDuplicatesLido() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
 		// not used for evaluation anymore
 		

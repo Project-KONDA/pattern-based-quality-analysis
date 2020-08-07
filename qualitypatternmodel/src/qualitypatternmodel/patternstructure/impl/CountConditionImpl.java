@@ -127,14 +127,19 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	@Override
-	public PatternElement createXMLAdaption() {
+	public boolean relationsXmlAdapted() {
+		return getCountPattern().relationsXmlAdapted() && getArgument2().relationsXmlAdapted();
+	}
+	
+	@Override
+	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getCountPattern().createXMLAdaption();
 		getArgument2().createXMLAdaption();
 		return this;
 	}
 	
 	@Override
-	public void finalizeXMLAdaption() {
+	public void finalizeXMLAdaption() throws InvalidityException {
 		getCountPattern().finalizeXMLAdaption();
 		getArgument2().finalizeXMLAdaption();
 	}

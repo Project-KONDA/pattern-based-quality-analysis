@@ -167,6 +167,17 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		return this;
 	}
 	
+	@Override
+	public String getName() {
+		if(name == null || name.equals("")) {
+			if(getOriginalID() > -1) {
+				name = "XmlNavigation " + getOriginalID();
+				return name;
+			}
+		}
+		return name;
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */

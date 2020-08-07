@@ -6,6 +6,9 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
@@ -31,7 +34,7 @@ public class EvalMandatt {
 	
 	// also called MAND
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getMandattMidas());
 		completePatterns.add(getMandattLido());
@@ -41,7 +44,7 @@ public class EvalMandatt {
 //		Test00.test(completePatterns);		
 	}
 	
-	private static CompletePattern getMandattAbstract() {
+	private static CompletePattern getMandattAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -94,7 +97,7 @@ public class EvalMandatt {
 		return completePattern;		
 	}
 	
-	private static CompletePattern getMandattAbstractThreeElements() {
+	private static CompletePattern getMandattAbstractThreeElements() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -185,7 +188,7 @@ public class EvalMandatt {
 	}
 	
 	
-	static CompletePattern getMandattMidas() {
+	static CompletePattern getMandattMidas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -235,7 +238,7 @@ public class EvalMandatt {
 		return completePattern;
 	}
 	
-	private static CompletePattern getMandattLido() {
+	private static CompletePattern getMandattLido() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -287,7 +290,7 @@ public class EvalMandatt {
 		return completePattern;
 	}
 	
-	static CompletePattern getMandattThreeElementsLido() {
+	static CompletePattern getMandattThreeElementsLido() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		

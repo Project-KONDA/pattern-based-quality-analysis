@@ -59,6 +59,17 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 	public XmlElementImpl() {
 		super();
 	}
+	
+	@Override
+	public String getName() {
+		if(name == null || name.equals("")) {
+			if(getOriginalID() > -1) {
+				name = "XmlElement " + getOriginalID();
+				return name;
+			}
+		}
+		return name;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

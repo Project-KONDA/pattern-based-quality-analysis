@@ -22,6 +22,8 @@ import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -34,7 +36,7 @@ import qualitypatternmodel.translationtests.Test03Quantor;
 import qualitypatternmodel.translationtests.Test06NotElement;
 
 public class RelationSwitchTest {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws OperatorCycleException, MissingPatternContainerException {
 		try {
 			System.out.println(getRefintRunningExample().generateQuery());
 		} catch (InvalidityException e) {
@@ -44,7 +46,7 @@ public class RelationSwitchTest {
 	}
 	
 
-	public static CompletePattern getRefintAbstractRunningExample() {
+	public static CompletePattern getRefintAbstractRunningExample() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 
@@ -98,7 +100,7 @@ public class RelationSwitchTest {
 		return completePattern; 
 	}
 	
-	public static CompletePattern getRefintRunningExample() {
+	public static CompletePattern getRefintRunningExample() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		

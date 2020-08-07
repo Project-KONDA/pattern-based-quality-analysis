@@ -7,6 +7,9 @@ import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -36,7 +39,7 @@ import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test12Count;
 
 public class EvalCard {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 //		completePatterns.add(getCardAbstractThreeElements());
 //		completePatterns.add(getCardAbstractMidas());
@@ -47,7 +50,7 @@ public class EvalCard {
 //		Test00.test(completePatterns);		
 	}
 	
-	public static CompletePattern getCardAbstractThreeElements() {	
+	public static CompletePattern getCardAbstractThreeElements() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
@@ -121,7 +124,7 @@ public class EvalCard {
 	}
 	
 	private static CompletePattern getCardThreeElementsLidoConcrete(RelationKind returnRelation, String returnElementName, 
-			RelationKind returnToE1Rel, String e1Name, RelationKind e1ToE2Rel, String e2Name) {
+			RelationKind returnToE1Rel, String e1Name, RelationKind e1ToE2Rel, String e2Name) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -157,7 +160,7 @@ public class EvalCard {
 		return completePattern;
 	}
 	
-	public static CompletePattern getCardAbstractMidas() {	
+	public static CompletePattern getCardAbstractMidas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory patternStructureFactory = PatternstructureFactory.eINSTANCE;		
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -213,7 +216,7 @@ public class EvalCard {
 		return completePattern;
 	}
 	
-	public static CompletePattern getCardMidasOb30() {
+	public static CompletePattern getCardMidasOb30() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -273,7 +276,7 @@ public class EvalCard {
 		return pattern;		
 	}
 	
-	public static CompletePattern getCardLidoActorName(){
+	public static CompletePattern getCardLidoActorName() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		return getCardThreeElementsLidoConcrete(RelationKind.TWOCHILD, "lido:lido", RelationKind.EIGHTCHILD, "lido:nameActorSet", RelationKind.CHILD, "lido:appellationValue");
 	}
 }

@@ -30,7 +30,7 @@ public class Test07Formula {
 		Test00.test(completePatterns);
 	}
 	
-	public static CompletePattern getFormulaPattern(LogicalOperator op) {
+	public static CompletePattern getFormulaPattern(LogicalOperator op) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -79,7 +79,7 @@ public class Test07Formula {
 	}
 	
 	
-	public static List<PatternTestPair> getTestPairs(){
+	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
 		for (LogicalOperator lo: LogicalOperator.VALUES) {

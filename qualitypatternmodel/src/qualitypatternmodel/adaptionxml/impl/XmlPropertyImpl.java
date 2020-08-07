@@ -124,7 +124,17 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 		if (option.getValue() != null && option.getValue() == PropertyKind.ATTRIBUTE && attributeName == null)
 			throw new InvalidityException("attributeName null");		
 	}
-
+	
+	@Override
+	public String getName() {
+		if(name == null || name.equals("")) {
+			if(getInternalId() > -1) {
+				name = "XmlProperty " + getInternalId();
+				return name;
+			}
+		}
+		return name;
+	}
 	
 	@Override
 	public void recordValues(XmlDatabase database) {

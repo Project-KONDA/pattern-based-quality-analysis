@@ -23,7 +23,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 public class PatternExecution {
 	static Context context;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		// application of all concrete patterns created for the evaluation on cultural heritage databases (BaseX) of the formats MIDAS and LIDO
 		
 		// MIDAS database

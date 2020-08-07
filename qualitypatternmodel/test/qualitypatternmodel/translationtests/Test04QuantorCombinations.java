@@ -23,7 +23,7 @@ public class Test04QuantorCombinations {
 		Test00.test(completePatterns);
 	}
 	
-	public static CompletePattern getPatternExistsInExistsFinal() {
+	public static CompletePattern getPatternExistsInExistsFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternExistsInExists();
 		QuantifiedCondition qcond = (QuantifiedCondition) completePattern.getCondition();
 		QuantifiedCondition qcond2 = (QuantifiedCondition) qcond.getCondition();
@@ -81,23 +81,23 @@ public class Test04QuantorCombinations {
 		return completePattern;
 	}
 	
-	public static CompletePattern getPatternForallInExists() {
+	public static CompletePattern getPatternForallInExists() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternExistsInExistsFinal();
 		((QuantifiedCondition)((QuantifiedCondition) completePattern.getCondition()).getCondition()).setQuantifier(Quantifier.FORALL);
 		return completePattern;		
 	}
 
-	public static CompletePattern getPatternExistsInForall() {
+	public static CompletePattern getPatternExistsInForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternExistsInExistsFinal();
 		((QuantifiedCondition) completePattern.getCondition()).setQuantifier(Quantifier.FORALL);
 		return completePattern;
 	}
-	public static CompletePattern getPatternForallInForall() {
+	public static CompletePattern getPatternForallInForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternForallInExists();
 		((QuantifiedCondition) completePattern.getCondition()).setQuantifier(Quantifier.FORALL);
 		return completePattern;
 	}
-	public static List<PatternTestPair> getTestPairs(){
+	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
 		testPairs.add(new PatternTestPair("EXEX", 	getPatternExistsInExistsFinal(), ""));

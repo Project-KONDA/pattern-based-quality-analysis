@@ -32,7 +32,7 @@ public class Test11Match {
 	}
 
 	
-	public static CompletePattern getPatternMatch(Boolean invert, String str) {
+	public static CompletePattern getPatternMatch(Boolean invert, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = Test00.getBasePattern();
 		pattern.getGraph().getElements().get(0).addPrimitiveMatch(str);
 		Match match = ((Match) pattern.getGraph().getOperatorList().getOperators().get(0));
@@ -42,7 +42,7 @@ public class Test11Match {
 		return pattern;		
 	}
 
-	public static List<PatternTestPair> getTestPairs() {
+	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		
 		testPairs.add(new PatternTestPair("MATCHCHARINV", getPatternMatch(true, "a"), ""));

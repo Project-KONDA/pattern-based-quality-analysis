@@ -18,6 +18,9 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
@@ -33,7 +36,7 @@ import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test03Quantor;
 
 public class EvalComp {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 //		completePatterns.add(getCompAbstract());
 		completePatterns.add(getCompMidas());
@@ -41,7 +44,7 @@ public class EvalComp {
 //		Test00.test(completePatterns);
 		
 	}
-	public static CompletePattern getCompAbstract() {
+	public static CompletePattern getCompAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
@@ -104,7 +107,7 @@ public class EvalComp {
 		return completePattern;		
 	}
 	
-	public static CompletePattern getCompMidas() {
+	public static CompletePattern getCompMidas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 //		ParametersPackage.eINSTANCE.eClass();
 //		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		

@@ -435,7 +435,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	}
 
 	@Override
-	public PatternElement createXMLAdaption() {
+	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		EList<Property> propertiesCopy = new BasicEList<Property>();
 		propertiesCopy.addAll(getProperties());
 		for(Property property : propertiesCopy) {

@@ -6,6 +6,9 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
@@ -26,7 +29,7 @@ import qualitypatternmodel.translationtests.Test06NotElement;
 public class EvalExnex {
 	// also called MANDSTRUC2
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getExNExMidas());
 		completePatterns.add(getExNExLidoRoleActor());
@@ -34,7 +37,7 @@ public class EvalExnex {
 		
 	}
 	
-	private static CompletePattern getExNExAbstract() {
+	private static CompletePattern getExNExAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
 		CompletePattern completePattern = Test06NotElement.getPatternExistsNotExistsAbstract();
 		
@@ -68,7 +71,7 @@ public class EvalExnex {
 		return completePattern;		
 	}
 	
-	private static CompletePattern getExNExAbstractWithComp() {
+	private static CompletePattern getExNExAbstractWithComp() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = Test06NotElement.getPatternExistsNotExistsAbstract();
 		
 		QuantifiedCondition qc1 = ((QuantifiedCondition) completePattern.getCondition());
@@ -103,7 +106,7 @@ public class EvalExnex {
 	}
 	
 	
-	static CompletePattern getExNExMidas() {
+	static CompletePattern getExNExMidas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getExNExAbstract();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 
@@ -122,7 +125,7 @@ public class EvalExnex {
 		return completePattern;
 	}
 	
-	static CompletePattern getExNExLidoRoleActor() {
+	static CompletePattern getExNExLidoRoleActor() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getExNExAbstractWithComp();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 

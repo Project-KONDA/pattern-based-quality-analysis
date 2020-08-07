@@ -60,6 +60,17 @@ public class XmlRootImpl extends ElementImpl implements XmlRoot {
 		}
 	}
 	
+	@Override
+	public String getName() {
+		if(name == null || name.equals("")) {
+			if(getOriginalID() > -1) {
+				name = "XmlRoot " + getOriginalID();
+				return name;
+			}
+		}
+		return name;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

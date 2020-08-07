@@ -30,7 +30,6 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
-import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,18 +81,6 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		super.isValid(abstractionLevel);
 	}
 	
-	@Override
-	public PatternElement createXMLAdaption() {
-		getGraph().createXMLAdaption();
-		getCondition().createXMLAdaption();
-		return this;
-	}
-	
-	@Override
-	public void finalizeXMLAdaption() {
-		getGraph().finalizeXMLAdaption();
-		getCondition().finalizeXMLAdaption();
-	}
 	
 //	@Override	
 //	public void updateParameters(ParameterList newParameterList) {

@@ -150,18 +150,18 @@ public interface PatternElement extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
 	 */
-	PatternElement createXMLAdaption();
+	PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void finalizeXMLAdaption();
+	void finalizeXMLAdaption() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -170,6 +170,14 @@ public interface PatternElement extends EObject {
 	 * @generated
 	 */
 	void recordValues(XmlDatabase database);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean relationsXmlAdapted();
 
 	/**
 	 * <!-- begin-user-doc -->

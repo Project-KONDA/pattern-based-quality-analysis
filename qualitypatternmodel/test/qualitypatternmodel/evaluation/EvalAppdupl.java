@@ -68,14 +68,14 @@ import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test06NotElement;
 
 public class EvalAppdupl {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getCARD3Midas());
 		Test00.test(completePatterns);
 		
 	}
 	
-	static CompletePattern getCARD3Abstract() {
+	static CompletePattern getCARD3Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -201,7 +201,7 @@ public class EvalAppdupl {
 	}
 	
 	
-	static CompletePattern getCARD3Midas() {
+	static CompletePattern getCARD3Midas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getCARD3Abstract();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 

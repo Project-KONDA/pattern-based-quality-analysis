@@ -24,7 +24,7 @@ import qualitypatternmodel.testutilityclasses.PatternTestPair;
 public class TranslationTests {
 	private static Context context;
 	
-	public static void main(String[] args) {		
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		
 		EMFValidationPreparation.registerDelegates();
 		createContext();

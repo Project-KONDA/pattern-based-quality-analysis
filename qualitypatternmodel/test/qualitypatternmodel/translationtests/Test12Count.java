@@ -46,7 +46,7 @@ public class Test12Count {
 		Test00.test(completePatterns);
 	}
 	
-	public static CompletePattern getPatternCountInPatternFinal() {
+	public static CompletePattern getPatternCountInPatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternCountInPattern();
 		completePattern.createXMLAdaption();
 		CountPattern countPattern = ((CountCondition) completePattern.getCondition()).getCountPattern();
@@ -96,7 +96,7 @@ public class Test12Count {
 		return completePattern;
 	}
 	
-	public static CompletePattern getPatternCountInExists() {
+	public static CompletePattern getPatternCountInExists() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		ParametersPackage.eINSTANCE.eClass();
@@ -143,14 +143,14 @@ public class Test12Count {
 		return completePattern;
 	}
 	
-	public static CompletePattern getPatternCountInForall() {
+	public static CompletePattern getPatternCountInForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternCountInExists();
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		quantifiedCondition.setQuantifier(Quantifier.FORALL);
 		return completePattern;		
 	}
 	
-	public static CompletePattern getPatternCountInNot() {
+	public static CompletePattern getPatternCountInNot() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		ParametersPackage.eINSTANCE.eClass();
@@ -198,7 +198,7 @@ public class Test12Count {
 	}
 	
 
-	public static CompletePattern getPatternCountNextToExists() {
+	public static CompletePattern getPatternCountNextToExists() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -273,14 +273,14 @@ public class Test12Count {
 		return completePattern;
 	}
 	
-	public static CompletePattern getPatternCountNextToForall() {
+	public static CompletePattern getPatternCountNextToForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = getPatternCountNextToExists();
 		((QuantifiedCondition) ((Formula) pattern.getCondition()).getCondition2()).setQuantifier(Quantifier.FORALL);		
 		return pattern;
 	}
 	
 	
-	public static CompletePattern getPatternCountNextToExistsNested() {
+	public static CompletePattern getPatternCountNextToExistsNested() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -368,7 +368,7 @@ public class Test12Count {
 		return completePattern;
 	}
 	
-	public static CompletePattern getPatternCountNextToForallNested() {
+	public static CompletePattern getPatternCountNextToForallNested() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternCountNextToExistsNested();
 		((QuantifiedCondition) completePattern.getCondition()).setQuantifier(Quantifier.FORALL);
 		((QuantifiedCondition) ((Formula) ((QuantifiedCondition) completePattern.getCondition()).getCondition()).getCondition2()).setQuantifier(Quantifier.FORALL);
@@ -405,7 +405,7 @@ public class Test12Count {
 //		return completePattern;		
 //	}
 	
-	public static List<PatternTestPair> getTestPairs() {
+	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		
 		testPairs.add(new PatternTestPair("COUNTPAT", getPatternCountInPatternFinal(), ""));

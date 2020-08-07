@@ -4,13 +4,16 @@ import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.parameters.*;
 
 public class Test03Quantor {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternExistsWithRelationFinal());
@@ -23,7 +26,7 @@ public class Test03Quantor {
 		Test00.test(completePatterns);
 	}
 	
-	public static CompletePattern getPatternExistsFinal() {
+	public static CompletePattern getPatternExistsFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -38,7 +41,7 @@ public class Test03Quantor {
 		return completePattern;
 	}
 	
-	public static CompletePattern getPatternExistsNavigation() {
+	public static CompletePattern getPatternExistsNavigation() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -109,7 +112,7 @@ public class Test03Quantor {
 		return completePattern;
 	}
 
-	public static CompletePattern getPatternExistsWithRelationFinal() {
+	public static CompletePattern getPatternExistsWithRelationFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
 		CompletePattern completePattern = getPatternExistsWithRelation();
 		QuantifiedCondition cond = (QuantifiedCondition) completePattern.getCondition();
@@ -121,7 +124,7 @@ public class Test03Quantor {
 		return completePattern;
 	}
 	
-	public static CompletePattern getPatternExistsCondFinal() {
+	public static CompletePattern getPatternExistsCondFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
 		CompletePattern completePattern = getPatternExistsCond();		
 		
@@ -141,7 +144,7 @@ public class Test03Quantor {
 		return completePattern;
 	}
 
-	public static CompletePattern getPatternForall() {		
+	public static CompletePattern getPatternForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		CompletePattern completePattern = getPatternExists();
 		QuantifiedCondition cond1 = (QuantifiedCondition) completePattern.getCondition();
 		cond1.setQuantifier(Quantifier.FORALL);
@@ -150,7 +153,7 @@ public class Test03Quantor {
 		return completePattern;
 	}
 
-	public static CompletePattern getPatternForallCond() {		
+	public static CompletePattern getPatternForallCond() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		CompletePattern completePattern = getPatternExistsCond();
 		QuantifiedCondition cond1 = (QuantifiedCondition) completePattern.getCondition();
 		cond1.setQuantifier(Quantifier.FORALL);		
@@ -159,7 +162,7 @@ public class Test03Quantor {
 		return completePattern;
 	}
 	
-	public static List<PatternTestPair> getTestPairs(){
+	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		testPairs.add(new PatternTestPair("EXISTSREL", getPatternExistsWithRelationFinal(), "/*[./*]"));
 		testPairs.add(new PatternTestPair("EXISTS", getPatternExistsFinal(), "/*[/*]"));
