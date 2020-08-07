@@ -43,7 +43,7 @@ import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
-import qualitypatternmodel.parameters.UnknownParameterValue;
+import qualitypatternmodel.parameters.
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
 import qualitypatternmodel.parameters.impl.DateTimeParamImpl;
@@ -51,7 +51,7 @@ import qualitypatternmodel.parameters.impl.NumberParamImpl;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.TimeParamImpl;
-import qualitypatternmodel.parameters.impl.UnknownParameterValueImpl;
+import qualitypatternmodel.parameters.impl.
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.CountCondition;
@@ -909,7 +909,7 @@ public class Services {
     	if(s.equals("Textliteral")) {
     		parameter = new TextLiteralParamImpl();
     	}else if(s.equals("Value")) {
-    		parameter = new UnknownParameterValueImpl();
+    		parameter = new UntypedParameterValueImpl();
     	}else if(s.equals("Textlist")) {
     		parameter = new TextListParamImpl();
     	}else if(s.equals("Number")) {
