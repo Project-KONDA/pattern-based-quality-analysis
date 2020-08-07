@@ -31,7 +31,7 @@ public class Test06NotElement {
 		Test00.test(completePatterns);
 	}
 	
-	public static CompletePattern getPatternNotTrue() {
+	public static CompletePattern getPatternNotTrue() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		CompletePattern completePattern = Test00.getBasePattern();
@@ -71,7 +71,7 @@ public class Test06NotElement {
 		
 		return completePattern;
 	}
-	public static CompletePattern getPatternNotExists() {		
+	public static CompletePattern getPatternNotExists() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		
 		CompletePattern completePattern = getPatternNotExistsAbstract();		
 		
@@ -81,7 +81,7 @@ public class Test06NotElement {
 		
 		return completePattern;
 	}
-	public static CompletePattern getPatternNotForall() {
+	public static CompletePattern getPatternNotForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternNotExists();
 		QuantifiedCondition qc = ((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition());
 		qc.setQuantifier(Quantifier.FORALL);
@@ -113,14 +113,14 @@ public class Test06NotElement {
 	}
 	
 	
-	public static CompletePattern getPatternExistsNotExists() {
+	public static CompletePattern getPatternExistsNotExists() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternExistsNotExistsAbstract();
 		completePattern.createXMLAdaption();
 		completePattern.finalizeXMLAdaption();	
 		
 		return completePattern; 
 	}
-	public static CompletePattern getPatternForallNotForall() {	
+	public static CompletePattern getPatternForallNotForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		CompletePattern completePattern = getPatternExistsNotExists();
 		
 		QuantifiedCondition qc1 = (QuantifiedCondition) completePattern.getCondition();
@@ -132,7 +132,7 @@ public class Test06NotElement {
 		return completePattern;
 	}
 	
-	public static List<PatternTestPair> getTestPairs(){
+	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
 		testPairs.add(new PatternTestPair("NOTEX", 		getPatternNotExists(), 		""));

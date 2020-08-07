@@ -6,6 +6,9 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
@@ -35,7 +38,7 @@ import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.translationtests.Test00;
 
 public class EvalUnique {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 //		completePatterns.add(getUniqueAbstract());
 		completePatterns.add(getUniqueMidas());
@@ -107,7 +110,7 @@ public class EvalUnique {
 //		
 //		return completePattern;
 //	}
-	private static CompletePattern getUniqueComplexAbstract() {
+	private static CompletePattern getUniqueComplexAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
@@ -223,7 +226,7 @@ public class EvalUnique {
 		return completePattern;
 	}
 	
-	private static CompletePattern getUniqueAbstract() {
+	private static CompletePattern getUniqueAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
@@ -433,7 +436,7 @@ public class EvalUnique {
 //		return completePattern;
 //	}
 	
-	static CompletePattern getUniqueMidas() {
+	static CompletePattern getUniqueMidas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -497,7 +500,7 @@ public class EvalUnique {
 		return completePattern;
 	}
 	
-	private static CompletePattern getUniqueComplexLidoConcrete(RelationKind returnRel, String returnElementName, RelationKind retToE1Rel, String e1Name, String e2Name, String e3Name) {
+	private static CompletePattern getUniqueComplexLidoConcrete(RelationKind returnRel, String returnElementName, RelationKind retToE1Rel, String e1Name, String e2Name, String e3Name) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -569,7 +572,7 @@ public class EvalUnique {
 		return completePattern;
 	}
 	
-	private static CompletePattern getUniqueLidoConcrete(RelationKind returnRel, String returnElementName, String elementName) {
+	private static CompletePattern getUniqueLidoConcrete(RelationKind returnRel, String returnElementName, String elementName) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -617,16 +620,16 @@ public class EvalUnique {
 	
 	
 	
-	static CompletePattern getUniqueLidoLidoRecId() {		
+	static CompletePattern getUniqueLidoLidoRecId() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		// not used for evaluation anymore
 		return getUniqueLidoConcrete(RelationKind.TWOCHILD, "lido:lido", "lido:lidoRecID");
 	}
 	
-	static CompletePattern getUniqueLidoObjectPublishedId() {		
+	static CompletePattern getUniqueLidoObjectPublishedId() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		return getUniqueLidoConcrete(RelationKind.TWOCHILD, "lido:lido", "lido:objectPublishedID");
 	}
 	
-	static CompletePattern getUniqueComplexLidoNameActorSet() {		
+	static CompletePattern getUniqueComplexLidoNameActorSet() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		return getUniqueComplexLidoConcrete(RelationKind.TWOCHILD, "lido:lido", RelationKind.SEVENCHILD, "lido:actor", "lido:nameActorSet", "lido:appellationValue");
 	}
 	

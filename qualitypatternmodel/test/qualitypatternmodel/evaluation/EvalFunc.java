@@ -12,6 +12,9 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.operators.Comparison;
@@ -30,7 +33,7 @@ import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test03Quantor;
 
 public class EvalFunc {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getFuncRunningExample());
 		completePatterns.add(getFuncMidas());
@@ -40,7 +43,7 @@ public class EvalFunc {
 //		Test00.test(completePatterns);	
 	}
 	
-	private static CompletePattern getFuncAbstract() {
+	private static CompletePattern getFuncAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
@@ -121,7 +124,7 @@ public class EvalFunc {
 		return completePattern;
 	}
 	
-	private static CompletePattern getFuncAbstractLido() {
+	private static CompletePattern getFuncAbstractLido() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
@@ -210,7 +213,7 @@ public class EvalFunc {
 		return completePattern;
 	}
 	
-	static CompletePattern getFuncMidas() {
+	static CompletePattern getFuncMidas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -281,7 +284,7 @@ public class EvalFunc {
 		return completePattern;
 	}
 	
-	static CompletePattern getFuncLido() {
+	static CompletePattern getFuncLido() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -352,7 +355,7 @@ public class EvalFunc {
 		return completePattern;
 	}
 	
-	private static CompletePattern getFuncRunningExample() {
+	private static CompletePattern getFuncRunningExample() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		

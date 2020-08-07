@@ -183,14 +183,14 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 	
 	@Override
-	public PatternElement createXMLAdaption() {
+	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		getCondition1().createXMLAdaption();
 		getCondition2().createXMLAdaption();
 		return this;
 	}
 	
 	@Override
-	public void finalizeXMLAdaption() {
+	public void finalizeXMLAdaption() throws InvalidityException {
 		getCondition1().finalizeXMLAdaption();
 		getCondition2().finalizeXMLAdaption();
 	}

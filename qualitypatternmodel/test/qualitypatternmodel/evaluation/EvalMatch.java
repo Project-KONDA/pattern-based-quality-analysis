@@ -10,6 +10,9 @@ import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.parameters.ParametersFactory;
@@ -23,7 +26,7 @@ import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test03Quantor;
 
 public class EvalMatch {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getMatchLidoNameActorSetAbbreviation());
 		completePatterns.add(getMatchMidas5064());
@@ -44,7 +47,7 @@ public class EvalMatch {
 //		Test00.test(completePatterns);
 	}
 
-	public static CompletePattern getMatchAbstract() {
+	public static CompletePattern getMatchAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 
 		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelationFinal();
@@ -60,7 +63,7 @@ public class EvalMatch {
 		return completePattern;
 	}
 
-	public static CompletePattern getMatchAbstractThreeElements() {
+	public static CompletePattern getMatchAbstractThreeElements() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 
@@ -91,7 +94,7 @@ public class EvalMatch {
 		return completePattern;
 	}
 	
-	public static CompletePattern getMatchAbstractThreeElementsTwoConditions() {
+	public static CompletePattern getMatchAbstractThreeElementsTwoConditions() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 //		GraphstructurePackage.eINSTANCE.eClass();
 //		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 
@@ -143,7 +146,7 @@ public class EvalMatch {
 			RelationKind returnElementAxis, String attribute1Name, PropertyKind attribute1Kind, 
 			String element2Type, RelationKind element2Axis, String attribute2Name, PropertyKind attribute2Kind, 
 			RelationKind element3Axis, 
-			String attributeMatchName, PropertyKind attributeMatchKind, String regex) {
+			String attributeMatchName, PropertyKind attributeMatchKind, String regex) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
@@ -191,7 +194,7 @@ public class EvalMatch {
 			RelationKind returnElementAxis, String attribute1Name, PropertyKind attribute1Kind, 
 			String element2Type, RelationKind element2Axis, String attribute2Name, PropertyKind attribute2Kind, 
 			String element3Type, RelationKind element3Axis, String attribute3Name, PropertyKind attribute3Kind, 			
-			String attributeMatchName, PropertyKind attributeMatchKind, String regex) {
+			String attributeMatchName, PropertyKind attributeMatchKind, String regex) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
@@ -247,7 +250,7 @@ public class EvalMatch {
 	public static CompletePattern getMatchConcrete(String returnElementType, RelationKind returnElementAxis,
 			String attribute1Name, PropertyKind attribute1Kind, String element2Type, RelationKind element2Axis,
 			String attribute2Name, PropertyKind attribute2Kind, String attribute3Name, PropertyKind attribute3Kind,
-			String regex) {
+			String regex) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 
@@ -288,70 +291,70 @@ public class EvalMatch {
 		return completePattern;
 	}
 
-	public static CompletePattern getMatchMidas5064() {
+	public static CompletePattern getMatchMidas5064() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getMatchConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5064",
 				RelationKind.TWOCHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE,
 				".*[a-zA-Z ]{10}.*");
 	}
 
-	public static CompletePattern getMatchMidas5360() {
+	public static CompletePattern getMatchMidas5360() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getMatchConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5360",
 				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE,
 				"^[0-9]+(,[0-9]+)?( x [0-9]+(,[0-9]+)?)? (m|mm)( \\([a-zA-Z‰¸ˆƒ‹÷ ]+\\))?$");
 	}
 
-	public static CompletePattern getMatchMidas3270() {
+	public static CompletePattern getMatchMidas3270() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getMatchConcrete("kue", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3270",
 				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "\\?$");
 	}
 
-	public static CompletePattern getMatchMidas3270Imprecise() {
+	public static CompletePattern getMatchMidas3270Imprecise() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getMatchConcrete("kue", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3270",
 				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "[0-9]/[0-9]");
 	}
 
-	public static CompletePattern getMatchMidas3100Abbreviation() {
+	public static CompletePattern getMatchMidas3100Abbreviation() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getMatchConcrete("kue", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3100",
 				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "\\.");
 	}
 
-	public static CompletePattern getMatchMidas5060() {
+	public static CompletePattern getMatchMidas5060() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getMatchConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5060",
 				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "^[0-9/]+$");
 	}
 
-	public static CompletePattern getMatchMidasOb30Child() {
+	public static CompletePattern getMatchMidasOb30Child() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getMatchThreeElementsConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE,
 				"ob30", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, RelationKind.CHILD, "Type",
 				PropertyKind.ATTRIBUTE, "^[12456789]");
 	}
 
-	public static CompletePattern getMatchLidoMeasurementValue() {
+	public static CompletePattern getMatchLidoMeasurementValue() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getMatchConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:measurementValue",
 				RelationKind.SEVENCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, "[a-zA-Z¸ˆ‰‹÷ƒ]");
 	}
 
-	public static CompletePattern getMatchLidoMeasurementUnit() {
+	public static CompletePattern getMatchLidoMeasurementUnit() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getMatchConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:measurementUnit",
 				RelationKind.SEVENCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, "[0-9]");
 	}
 
-	public static CompletePattern getMatchLidoEarliestDate() {
+	public static CompletePattern getMatchLidoEarliestDate() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getMatchConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:earliestDate",
 				RelationKind.SEVENCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, "^[0-9]{4}$");
 	}
 
-	public static CompletePattern getMatchLidoNamePlaceSet() {
+	public static CompletePattern getMatchLidoNamePlaceSet() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getMatchConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:namePlaceSet",
 				RelationKind.SEVENCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, ",");
 	}
 
-	public static CompletePattern getMatchLidoAppellationValue() {
+	public static CompletePattern getMatchLidoAppellationValue() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getMatchConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:appellationValue",
 				RelationKind.DESCENDANT, null, PropertyKind.TAG, null, PropertyKind.DATA, "\\?$");
 	}
 	
-	public static CompletePattern getMatchLidoNameActorSetAbbreviation() {
+	public static CompletePattern getMatchLidoNameActorSetAbbreviation() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getMatchThreeElementsTwoConditionsConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, 
 				"lido:nameActorSet", RelationKind.EIGHTCHILD, null, PropertyKind.TAG, 
 				"lido:appellationValue", RelationKind.CHILD, null, PropertyKind.TAG, 

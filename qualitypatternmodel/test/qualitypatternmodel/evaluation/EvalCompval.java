@@ -8,6 +8,9 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
@@ -29,7 +32,7 @@ import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test03Quantor;
 
 public class EvalCompval {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getCompvalMidas5230Objekt());
 		completePatterns.add(getCompvalMidas5230Schloss());
@@ -48,7 +51,7 @@ public class EvalCompval {
 //		Test00.test(completePatterns);		
 	}
 
-	public static CompletePattern getCompvalAbstract() {
+	public static CompletePattern getCompvalAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelation();
 		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);
@@ -67,7 +70,7 @@ public class EvalCompval {
 		return completePattern;
 	}
 
-	public static CompletePattern getCompvalThreeElementsAbstract() {
+	public static CompletePattern getCompvalThreeElementsAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
@@ -104,7 +107,7 @@ public class EvalCompval {
 			RelationKind returnElementAxis, String attribute1Name, PropertyKind attribute1Kind, String element2Type,
 			RelationKind element2Axis, String attribute2Name, PropertyKind attribute2Kind, String element3Type,
 			RelationKind element3Axis, String attribute3Name, PropertyKind attribute3Kind, String attribute4Name,
-			PropertyKind attribute4Kind, String value) {
+			PropertyKind attribute4Kind, String value) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 
@@ -166,7 +169,7 @@ public class EvalCompval {
 	public static CompletePattern getCompvalConcrete(String returnElementType, RelationKind returnElementAxis,
 			String attribute1Name, PropertyKind attribute1Kind, String element2Type, RelationKind element2Axis,
 			String attribute2Name, PropertyKind attribute2Kind, String attribute3Name, PropertyKind attribute3Kind,
-			String value) {
+			String value) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 
@@ -188,7 +191,7 @@ public class EvalCompval {
 	public static CompletePattern getCompvalSetConcrete(String returnElementType, RelationKind returnElementAxis,
 			String attribute1Name, PropertyKind attribute1Kind, String element2Type, RelationKind element2Axis,
 			String attribute2Name, PropertyKind attribute2Kind, String attribute3Name, PropertyKind attribute3Kind,
-			List<String> values) {
+			List<String> values) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
@@ -251,60 +254,60 @@ public class EvalCompval {
 		return element2;
 	}
 
-	public static CompletePattern getCompvalMidas5230Objekt() {
+	public static CompletePattern getCompvalMidas5230Objekt() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getCompvalConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5230",
 				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "Objekt");
 	}
 
-	public static CompletePattern getCompvalMidas5230Schloss() {
+	public static CompletePattern getCompvalMidas5230Schloss() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getCompvalConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5230",
 				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "Schloss");
 	}
 
-	public static CompletePattern getCompvalMidas5230Print() {
+	public static CompletePattern getCompvalMidas5230Print() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getCompvalConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5230",
 				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "Print");
 	}
 
-	public static CompletePattern getCompvalSetMidas3270() {
+	public static CompletePattern getCompvalSetMidas3270() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<String> values = Arrays.asList("unbekannt", "x", "y", "?");
 		return getCompvalSetConcrete("kue", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3270",
 				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, values);
 	}
 
-	public static CompletePattern getCompvalLidoEventPlace() {
+	public static CompletePattern getCompvalLidoEventPlace() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getCompvalConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:eventPlace",
 				RelationKind.FIVECHILD, null, PropertyKind.TAG, "lido:type", PropertyKind.ATTRIBUTE, "alternative");
 	}
 
-	public static CompletePattern getCompvalLidoObjectWorkTypeObjekt() {
+	public static CompletePattern getCompvalLidoObjectWorkTypeObjekt() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getCompvalThreeElementsConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG,
 				"lido:objectWorkType", RelationKind.FOURCHILD, null, PropertyKind.TAG,
 				"lido:term", RelationKind.CHILD, null, PropertyKind.TAG, 
 				null, PropertyKind.DATA, "Objekt");
 	}
 	
-	public static CompletePattern getCompvalLidoObjectWorkTypeSchloss() {
+	public static CompletePattern getCompvalLidoObjectWorkTypeSchloss() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getCompvalThreeElementsConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG,
 				"lido:objectWorkType", RelationKind.FOURCHILD, null, PropertyKind.TAG,
 				"lido:term", RelationKind.CHILD, null, PropertyKind.TAG, 
 				null, PropertyKind.DATA, "Schloss");
 	}
 	
-	public static CompletePattern getCompvalLidoObjectWorkTypePrint() {
+	public static CompletePattern getCompvalLidoObjectWorkTypePrint() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return getCompvalThreeElementsConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG,
 				"lido:objectWorkType", RelationKind.FOURCHILD, null, PropertyKind.TAG,
 				"lido:term", RelationKind.CHILD, null, PropertyKind.TAG, 
 				null, PropertyKind.DATA, "Print");
 	}
 	
-	public static CompletePattern getCompvalSetLidoAppellationValue() {
+	public static CompletePattern getCompvalSetLidoAppellationValue() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<String> values = Arrays.asList("unbekannt", "x", "unknown", "?");
 		return getCompvalSetConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, 
 				"lido:appellationValue", RelationKind.FIVECHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, values);
 	}
 	
-	public static CompletePattern getCompsetAbstract() {	
+	public static CompletePattern getCompsetAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 
@@ -345,7 +348,7 @@ public class EvalCompval {
 	}
 	
 	public static CompletePattern getCompsetConcrete(String returnElementType, RelationKind returnElementAxis, String attribute1Name, PropertyKind attribute1Kind,
-			String element2Type, RelationKind element2Axis, String attribute2Name, PropertyKind attribute2Kind, String attribute3Name, PropertyKind attribute3Kind, List<String> values) {	
+			String element2Type, RelationKind element2Axis, String attribute2Name, PropertyKind attribute2Kind, String attribute3Name, PropertyKind attribute3Kind, List<String> values) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -396,12 +399,12 @@ public class EvalCompval {
 		return completePattern;
 	}
 	
-	public static CompletePattern getCompsetMIDAS3140() {			
+	public static CompletePattern getCompsetMIDAS3140() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {			
 		List<String> values = Arrays.asList("m","f","unbekannt","m?","f?","?");		
 		return getCompsetConcrete("kue", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3140", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, values);
 	}
 	
-	public static CompletePattern getCompsetLidoGenderActor() {			
+	public static CompletePattern getCompsetLidoGenderActor() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {			
 		List<String> values = Arrays.asList("male","männlich","weiblich","female","unknown","not applicable");		
 		return getCompsetConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:genderActor", RelationKind.EIGHTCHILD, 
 				null, PropertyKind.TAG, null, PropertyKind.DATA, values);

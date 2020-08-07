@@ -25,7 +25,7 @@ public class Test05QuantorCombinationsCond {
 		Test00.test(completePatterns);
 	}
 
-	public static CompletePattern getPatternExistsInExistsCond() {		
+	public static CompletePattern getPatternExistsInExistsCond() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		// PatternStructure
 		CompletePattern completePattern = Test04QuantorCombinations.getPatternExistsInExists();
 		Graph graph0 = completePattern.getGraph();
@@ -65,23 +65,23 @@ public class Test05QuantorCombinationsCond {
 		return completePattern;
 	}
 	
-	public static CompletePattern getPatternForallInExistsCond() {
+	public static CompletePattern getPatternForallInExistsCond() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternExistsInExistsCond();
 		((QuantifiedCondition)((QuantifiedCondition) completePattern.getCondition()).getCondition()).setQuantifier(Quantifier.FORALL);
 		return completePattern;		
 	}
 
-	public static CompletePattern getPatternExistsInForallCond() {
+	public static CompletePattern getPatternExistsInForallCond() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternExistsInExistsCond();
 		((QuantifiedCondition) completePattern.getCondition()).setQuantifier(Quantifier.FORALL);
 		return completePattern;
 	}
-	public static CompletePattern getPatternForallInForallCond() {
+	public static CompletePattern getPatternForallInForallCond() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternForallInExistsCond();
 		((QuantifiedCondition) completePattern.getCondition()).setQuantifier(Quantifier.FORALL);
 		return completePattern;
 	}
-	public static List<PatternTestPair> getTestPairs(){
+	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		
 		testPairs.add(new PatternTestPair("EXEXCON", 	getPatternExistsInExistsCond(), ""));

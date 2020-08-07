@@ -31,7 +31,7 @@ public class Test09ComplexComparison {
 		Test00.test(completePatterns);
 	}
 	
-	public static CompletePattern getPatternSelfTwoProperties() {
+	public static CompletePattern getPatternSelfTwoProperties() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		OperatorsPackage.eINSTANCE.eClass();
@@ -60,7 +60,7 @@ public class Test09ComplexComparison {
 		return completePattern;
 	}
 
-	public static CompletePattern getPatternTwoProperties() {
+	public static CompletePattern getPatternTwoProperties() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		OperatorsPackage.eINSTANCE.eClass();
@@ -105,7 +105,7 @@ public class Test09ComplexComparison {
 		return completePattern;
 	}
 
-	public static CompletePattern getPatternTwoElements() {
+	public static CompletePattern getPatternTwoElements() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		OperatorsPackage.eINSTANCE.eClass();
@@ -143,7 +143,7 @@ public class Test09ComplexComparison {
 		return completePattern;
 	}	
 
-	public static CompletePattern getPatternTwoOperators() {
+	public static CompletePattern getPatternTwoOperators() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		OperatorsPackage.eINSTANCE.eClass();
 		OperatorsFactory functionFactory = OperatorsFactory.eINSTANCE;
 		ParametersPackage.eINSTANCE.eClass();
@@ -190,7 +190,7 @@ public class Test09ComplexComparison {
 		return completePattern;		
 	}	
 
-	public static List<PatternTestPair> getTestPairs() {
+	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		
 		testPairs.add(new PatternTestPair("COMPSELFPROPPROP", getPatternSelfTwoProperties(), ""));

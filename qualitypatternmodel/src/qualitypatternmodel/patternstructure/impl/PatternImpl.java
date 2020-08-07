@@ -161,14 +161,18 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	}
 	
 	@Override
-	public PatternElement createXMLAdaption() {
+	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		isValid(AbstractionLevel.GENERIC);			
 		getGraph().createXMLAdaption();
 		getCondition().createXMLAdaption();
 		return this;
 	}
 	
 	@Override
-	public void finalizeXMLAdaption() {
+	public void finalizeXMLAdaption() throws InvalidityException {
+		if(!relationsXmlAdapted()) {
+			throw new InvalidityException("not all Relations replaced by XmlNavigation or XmlReference");
+		}
 		getGraph().finalizeXMLAdaption();
 		getCondition().finalizeXMLAdaption();
 	}

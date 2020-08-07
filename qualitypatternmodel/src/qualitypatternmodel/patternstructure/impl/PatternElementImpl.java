@@ -204,10 +204,12 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws MissingPatternContainerException 
+	 * @throws OperatorCycleException 
 	 * @generated NOT
 	 */
 	@Override
-	public PatternElement createXMLAdaption() {
+	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return this;
 		
 	}
@@ -218,7 +220,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated NOT
 	 */
 	@Override
-	public void finalizeXMLAdaption() {
+	public void finalizeXMLAdaption() throws InvalidityException {
 		
 	}
 
@@ -491,10 +493,20 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			case PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST:
 				return getOperatorList();
 			case PatternstructurePackage.PATTERN_ELEMENT___CREATE_XML_ADAPTION:
-				return createXMLAdaption();
+				try {
+					return createXMLAdaption();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case PatternstructurePackage.PATTERN_ELEMENT___FINALIZE_XML_ADAPTION:
-				finalizeXMLAdaption();
-				return null;
+				try {
+					finalizeXMLAdaption();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE:
 				recordValues((XmlDatabase)arguments.get(0));
 				return null;

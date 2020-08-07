@@ -226,7 +226,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 	
 	@Override
-	public PatternElement createXMLAdaption() {
+	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		EList<Element> elementsCopy = new BasicEList<Element>();
 		elementsCopy.addAll(getElements());
 		for(Element element : elementsCopy) {

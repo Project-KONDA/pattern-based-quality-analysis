@@ -25,7 +25,6 @@ import qualitypatternmodel.graphstructure.impl.ElementImpl;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ParameterListImpl;
-import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;

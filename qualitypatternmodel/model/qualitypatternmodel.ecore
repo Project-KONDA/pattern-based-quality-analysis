@@ -524,8 +524,9 @@
         <eParameters name="newOperatorList" eType="#//operators/OperatorList"/>
       </eOperations>
       <eOperations name="getOperatorList" eType="#//operators/OperatorList"/>
-      <eOperations name="createXMLAdaption" eType="#//patternstructure/PatternElement"/>
-      <eOperations name="finalizeXMLAdaption"/>
+      <eOperations name="createXMLAdaption" eType="#//patternstructure/PatternElement"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
+      <eOperations name="finalizeXMLAdaption" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="recordValues">
         <eParameters name="database" eType="#//execution/XmlDatabase"/>
       </eOperations>

@@ -7,11 +7,14 @@ import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutilityclasses.PatternTestPair;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.*;
 
 public class Test02Return {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternMultipleReturnNavigation());
@@ -20,7 +23,7 @@ public class Test02Return {
 		Test00.test(completePatterns);
 	}
 
-	public static CompletePattern getPatternMultipleReturnNavigation() {
+	public static CompletePattern getPatternMultipleReturnNavigation() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 			
@@ -43,7 +46,7 @@ public class Test02Return {
 		return completePattern;
 	}
 
-	public static CompletePattern getPatternMultipleReturnReference() {
+	public static CompletePattern getPatternMultipleReturnReference() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 			
@@ -67,7 +70,7 @@ public class Test02Return {
 		return completePattern;
 	}
 	
-	public static List<PatternTestPair> getTestPairs(){
+	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		testPairs.add(new PatternTestPair("MULRETNAV", getPatternMultipleReturnNavigation(), "for $x1 in /* for $x2 in $x1/* return ($x1, $x2)"));
 		testPairs.add(new PatternTestPair("MULRETREF", getPatternMultipleReturnReference(), "for $x1 in /* for $x2 in /*[data()=$x1/data()] return ($x1, $x2)"));

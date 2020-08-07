@@ -61,7 +61,7 @@ public class Test00 {
 		Test00.test(completePatterns);
 	}
 
-	public static CompletePattern getBasePatternFinal() {
+	public static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		completePattern.createXMLAdaption();
 		completePattern.finalizeXMLAdaption();
@@ -83,7 +83,7 @@ public class Test00 {
 		return completePattern;
 	}
 	
-	public static CompletePattern getBasePatternCond(String comp) {
+	public static CompletePattern getBasePatternCond(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		Element se = completePattern.getGraph().getReturnElements().get(0);
 		se.addPrimitiveComparison(comp);
@@ -92,7 +92,7 @@ public class Test00 {
 		return completePattern;
 	}
 	
-	public static CompletePattern getBasePatternMatch(String regex) {
+	public static CompletePattern getBasePatternMatch(String regex) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		Element se = completePattern.getGraph().getReturnElements().get(0);
 		se.addPrimitiveMatch(regex);

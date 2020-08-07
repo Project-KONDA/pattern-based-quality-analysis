@@ -33,7 +33,7 @@ public class Test01Axis {
 		Test00.test(completePatterns);
 	}
 
-	public static CompletePattern getBasePatternAxisRoot(RelationKind relationKind) {		
+	public static CompletePattern getBasePatternAxisRoot(RelationKind relationKind) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		CompletePattern completePattern = Test00.getBasePattern();
 		completePattern.createXMLAdaption();
 		completePattern.finalizeXMLAdaption();
@@ -45,7 +45,7 @@ public class Test01Axis {
 		return completePattern;
 	}
 	
-	public static CompletePattern getBasePatternAxisNotRoot(RelationKind relationKind) {		
+	public static CompletePattern getBasePatternAxisNotRoot(RelationKind relationKind) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
@@ -70,7 +70,7 @@ public class Test01Axis {
 		return completePattern;
 	}
 
-	public static List<PatternTestPair> getTestPairs() {
+	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
 		for (RelationKind ax : RelationKind.VALUES) {
