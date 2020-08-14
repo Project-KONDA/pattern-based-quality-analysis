@@ -18,11 +18,17 @@ import org.eclipse.gmf.runtime.diagram.ui.actions.ActionIds;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.diagram.ui.requests.ArrangeRequest;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
@@ -43,7 +49,7 @@ import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
-import qualitypatternmodel.parameters.
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
 import qualitypatternmodel.parameters.impl.DateTimeParamImpl;
@@ -51,7 +57,8 @@ import qualitypatternmodel.parameters.impl.NumberParamImpl;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.TimeParamImpl;
-import qualitypatternmodel.parameters.impl.
+import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.CountCondition;
@@ -72,6 +79,14 @@ import qualitypatternmodel.patternstructure.provider.QuantifiedConditionItemProv
 
 /**
  * The services class used by VSM.
+ */
+/**
+ * @author Lukas
+ *
+ */
+/**
+ * @author Lukas
+ *
  */
 public class Services {
     
@@ -719,7 +734,7 @@ public class Services {
     public ArrayList<EObject> semanticCandidateExpressionParameterAlt(EObject self, String s) {
     	HashMap<String, Class<?>> typen = new HashMap<String, Class<?>>();
     	typen.put("Textliteral", TextLiteralParam.class);
-    	typen.put("Value", UnknownParameterValue.class);
+    	typen.put("Value", UntypedParameterValue.class);
     	typen.put("Textlist", TextListParam.class);
     	typen.put("Number", NumberParam.class);
     	typen.put("Boolean", BooleanParam.class);
@@ -757,7 +772,7 @@ public class Services {
     public ArrayList<EObject> semanticCandidateExpressionParameter(EObject self, String s) {
     	HashMap<String, Class<?>> typen = new HashMap<String, Class<?>>();
     	typen.put("Textliteral", TextLiteralParam.class);
-    	typen.put("Value", UnknownParameterValue.class);
+    	typen.put("Value", UntypedParameterValue.class);
     	typen.put("Textlist", TextListParam.class);
     	typen.put("Number", NumberParam.class);
     	typen.put("Boolean", BooleanParam.class);
@@ -1398,6 +1413,30 @@ public class Services {
     	return decoration;
     }
     
+    public boolean elementExistDecorationPrecondition(EObject self) {//decoration Quantor Exist
+    	boolean decoration = false;
+    	Element element = (Element) self;
+    	Graph graph = element.getGraph();
+    	QuantifiedCondition condition = graph.getQuantifiedCondition();
+    	Quantifier quantifier = condition.getQuantifier();
+    	if(element.getIncomingMapping() == null && !graph.isReturnGraph() && quantifier == Quantifier.EXISTS) {
+    		decoration = true;
+    	}
+    	return decoration;
+    }
+    
+    public boolean elementForallDecorationPrecondition(EObject self) {//decoration Quantor Forall
+    	boolean decoration = false;
+    	Element element = (Element) self;
+    	Graph graph = element.getGraph();
+    	QuantifiedCondition condition = graph.getQuantifiedCondition();
+    	Quantifier quantifier = condition.getQuantifier();
+    	if(element.getIncomingMapping() == null && !graph.isReturnGraph() && quantifier == Quantifier.FORALL) {
+    		decoration = true;
+    	}
+    	return decoration;
+    }
+    
     public boolean hasReturnelementGraph(EObject self) {//decoration graph hat kein returnelement
     	boolean decoration = false;
     	Graph graph = (Graph) self;
@@ -1573,7 +1612,7 @@ public class Services {
     	}
     }
     
-    public Quantifier changeQuantifierValueExpression(EObject self, EObject element) {//guckt welcher quantifier gerade gewählt ist, das returnelement muss in getQuantifier vorkommen
+    public Quantifier changeQuantifierValueExpression(EObject self, EObject element) {//guckt welcher quantifier gerade gewählt ist, das returnelement muss in getQuantifiers vorkommen
     	Quantifier quantifier = null;
     	if(element instanceof QuantifiedCondition) {
     		QuantifiedCondition quantifiedcondition = (QuantifiedCondition) element;
@@ -1728,5 +1767,262 @@ public class Services {
     
     public void setParameterToNull(EObject self) {//setzt selectedProperty auf null, damit bei erneutem aufruf des dialogs die select objecte nichts anzeigen
     	selectedParameter = null;
+    }
+    
+    static EObject selectedElement = null;
+    
+    public void storeElement(EObject self, EObject e) {//speichert die property, die im select von select property as argument über das kontextmenü ausgewählt wurde
+    	selectedElement = e;
+    }
+    
+    public EObject getElementPopup(EObject self) {//gibt die property, die im select von select property as argument über das kontextmenü ausgewählt wurde, zurück
+    	return selectedElement;
+    }
+    
+    public void setElementToNull(EObject self) {//setzt selectedProperty auf null, damit bei erneutem aufruf des dialogs die select objecte nichts anzeigen
+    	selectedElement = null;
+    }
+    
+    public void setElementToComparisonPopup(EObject self) {//setzt selectedProperty auf null, damit bei erneutem aufruf des dialogs die select objecte nichts anzeigen
+    	setElementToComparison(self, selectedElement);
+    }
+    
+    public boolean discardArgumentPrecondition(EObject self) {
+    	boolean open = false;
+    	if(self instanceof Comparison) {
+    		Comparison comparison = (Comparison) self;
+    		Comparable argument1 = comparison.getArgument1();
+    		Comparable argument2 = comparison.getArgument2();
+    		if(argument1 != null || argument2 != null) {
+    			open = true;
+    		}
+    	}else if(self instanceof Match) {
+    		Match match = (Match) self;
+    		Property argument1 = match.getProperty();
+    		TextLiteralParam argument2 = match.getRegularExpression();
+    		if(argument1 != null || argument2 != null) {
+    			open = true;
+    		}
+    	}
+    	return open;
+    }
+    
+    static boolean isAbstract = false;
+    /**
+     * Returns its parameter without change. Shows a message dialog on the first opening of an abstract pattern.
+     * @param self the complete pattern
+     * @return the parameter of this method
+     */
+    public EObject abstractPatternStart(EObject self) {//soll beim ersten Öffnen eines abstrakten Musters ein Dialog zeigen, vielleicht abhängig von der Methode, die genutzt wird, um ein abstraktes Muster von einem generischen Muster zu erstellen
+    	System.out.println("vvvvvvvvvvvvvvvvvvvvvvvvvvv"+self+isAbstract);
+    	if(self instanceof CompletePattern && !isAbstract) {
+			System.out.println("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+			CompletePattern pattern = (CompletePattern) self;
+			
+			
+			
+			try {
+				System.out.println("lllllllllllllllllllllllllllllllll");
+				pattern.isValid(AbstractionLevel.GENERIC);
+				System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+				pattern.createXMLAdaption();
+				System.out.println("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
+				Display.getDefault().syncExec(new Runnable() {
+				    public void run() {
+				    	MessageDialog dialog = new MessageDialog(new Shell(), "New abstract pattern", null, "This is an abstract pattern and it is from now on immutable", MessageDialog.INFORMATION, new String[] { "Ok" }, 0);
+						int result = dialog.open();
+						System.out.println(result+" "+isAbstract);
+				    }
+				});
+				isAbstract = true;
+				System.out.println("oooooooooooooooooooooooooooooooooo");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println("wurde abgefangen abstractPatternStart");
+				isAbstract = true;
+			}
+		}
+    	return self;
+    }
+    
+    public void printisabstract(EObject self) {
+    	System.out.println("hhhhhhhhhhhhhhhhhhhhh "+isAbstract);
+    }
+    
+    public boolean isRelationPrecondition(EObject self) {//Precondition, ob eine Relation durcch xml ersetzt werden darf, deshalb wir auch finalized abgefragt
+    	boolean open = false;
+    	if(self instanceof Relation && !finalized) {
+    		open = true;
+    	}
+    	return open;
+    }
+    
+    public void setRelationToXmlnavigation(EObject self) {
+    	if(self instanceof Relation) {
+    		Relation relation = (Relation) self;
+    		relation.adaptAsXMLNavigation();
+    	}
+    }
+    
+    public void setRelationToXmlreference(EObject self) {
+    	if(self instanceof Relation) {
+    		Relation relation = (Relation) self;
+    		relation.adaptAsXMLReference();
+    	}/*else if(self instanceof XmlNavigation) {
+    		System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
+    		XmlNavigation xmlnavigation = (XmlNavigation) self;
+    		xmlnavigation.adaptAsXMLReference();
+    	}*/
+    }
+    
+    public boolean isXmlnavigation(EObject self) {
+    	boolean isXmlnavigation = false;
+    	if(self instanceof XmlNavigation) {
+    		isXmlnavigation = true;
+    	}
+    	return isXmlnavigation;
+    }
+    
+    public boolean isXmlreference(EObject self) {
+    	boolean isXmlreference = false;
+    	if(self instanceof XmlReference) {
+    		isXmlreference = true;
+    	}
+    	return isXmlreference;
+    }
+    
+    public boolean isXmlrelation(EObject self, EObject e) {
+    	boolean isXmlrelation = false;
+    	if(isXmlnavigation(e) || isXmlreference(e)) {
+    		isXmlrelation = true;
+    	}
+    	return isXmlrelation;
+    }
+    
+    public boolean isNotXmlrelation(EObject self, EObject e) {
+    	return !isXmlrelation(self, e);
+    }
+    
+    public boolean finalizeXmladaptionPrecondition(EObject self) {
+    	boolean open = false;
+    	if(self instanceof CompletePattern && !finalized) {
+    		CompletePattern pattern = (CompletePattern) self;
+    		if(pattern.relationsXmlAdapted()){
+    			open = true;
+    		}
+    	}
+    	return open;
+    }
+    
+    public boolean finalizeDoubleClick(EObject self, EObject e) {
+    	boolean open = false;
+    	if(e instanceof CompletePattern && !finalized) {
+    		open = true;
+    	}
+    	return open;
+    }
+    
+    public boolean notFinalizeDoubleClick(EObject self, EObject e) {
+    	return !finalizeDoubleClick(self, e);
+    }
+    
+    static boolean finalized = false;
+    public void finalizeXmladaption(EObject self, EObject e) {//finalisiert das muster
+    	System.out.println("1");
+    	if(e instanceof CompletePattern) {
+    		CompletePattern pattern = (CompletePattern) e;
+    		System.out.println("2");
+    		try {
+				pattern.finalizeXMLAdaption();
+				finalized = true;
+				System.out.println("3");
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+				System.out.println("wurde abgefangen finalizeXmladaption");
+			}
+    	}
+    }
+    
+    public boolean isXmlroot(EObject self) {
+    	boolean isXmlroot = false;
+    	if(self instanceof XmlRoot) {
+    		isXmlroot = true;
+    	}
+    	return isXmlroot;
+    }
+    
+    public ArrayList<String> getRelations(EObject self){//für wizard, um relation durch xml zu erstetzen
+    	ArrayList<String> relations = new ArrayList<String>();
+    	relations.add("relation");
+    	relations.add("xmlnavigation");
+    	relations.add("xmlreference");
+    	return relations;
+    }
+    
+    public ArrayList<String> getXmlRelations(EObject self){//für wizard, um zwischen xmlrelationen zu wechseln
+    	ArrayList<String> relations = new ArrayList<String>();
+    	relations.add("xmlnavigation");
+    	relations.add("xmlreference");
+    	return relations;
+    }
+    
+    static String selectedRelation = "relation";
+    public void storeRelation(EObject self, String s) {
+    	//System.out.println(q);
+    	selectedRelation = s;
+    }
+    
+    public String getRelation(EObject self9) {
+    	return selectedRelation;
+    }
+    
+    public void changeRelation(EObject self, EObject e) {
+    	System.out.println("22222222222222222222"+e);
+    	if(e instanceof Relation) {
+    		System.out.println("333333333333333333"+selectedRelation);
+    		Relation relation = (Relation) e;
+    		if(selectedRelation.equals("relation")) {
+    			
+    		}else if(selectedRelation.equals("xmlnavigation")) {
+    			System.out.println("6666666666666666666666666"+selectedRelation);
+    			relation.adaptAsXMLNavigation();
+    			System.out.println("11111111111111111111111"+selectedRelation);
+    		}else if(selectedRelation.equals("xmlreference")) {
+    			System.out.println("44444444444444444444444444444"+selectedRelation);
+    			relation.adaptAsXMLReference();
+    			System.out.println("5555555555555555555555"+selectedRelation);
+    		}
+    	}
+    }
+    
+    public void setRelationToDefault(EObject self) {
+    	selectedRelation = "relation";
+    }
+    
+    public void setSelectedRelation(EObject self, EObject e){
+    	if(e instanceof XmlNavigation) {
+    		selectedRelation = "xmlnavigation";
+    	}else if(e instanceof XmlReference) {
+    		selectedRelation = "xmlreference";
+    	}
+    }
+    
+    public boolean isFinalized(EObject self, EObject e) {
+    	boolean isFinalized = false;
+    	if(e instanceof CompletePattern) {
+    		CompletePattern pattern = (CompletePattern) e;
+    		try {
+				pattern.isValid(AbstractionLevel.ABSTRACT);
+				isFinalized = true;
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+				System.out.println("wurde abgefangen isFinalized");
+			}
+    		
+    	}
+    	return isFinalized;
     }
 }
