@@ -2663,13 +2663,31 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__DATABASE = PATTERN_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Adaption Started</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__ADAPTION_STARTED = PATTERN_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Adaption Finalized</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__ADAPTION_FINALIZED = PATTERN_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 4;
+	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -4857,6 +4875,28 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getCompletePattern_Database();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#isAdaptionStarted <em>Adaption Started</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Adaption Started</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#isAdaptionStarted()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_AdaptionStarted();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#isAdaptionFinalized <em>Adaption Finalized</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Adaption Finalized</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#isAdaptionFinalized()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_AdaptionFinalized();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo() <em>Get New Ref No</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5759,6 +5799,22 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPLETE_PATTERN__DATABASE = eINSTANCE.getCompletePattern_Database();
+
+		/**
+		 * The meta object literal for the '<em><b>Adaption Started</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__ADAPTION_STARTED = eINSTANCE.getCompletePattern_AdaptionStarted();
+
+		/**
+		 * The meta object literal for the '<em><b>Adaption Finalized</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__ADAPTION_FINALIZED = eINSTANCE.getCompletePattern_AdaptionFinalized();
 
 		/**
 		 * The meta object literal for the '<em><b>Get New Ref No</b></em>' operation.

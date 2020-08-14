@@ -23,6 +23,8 @@ import qualitypatternmodel.parameters.ParameterList;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabase <em>Database</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#isAdaptionStarted <em>Adaption Started</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#isAdaptionFinalized <em>Adaption Finalized</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern()
@@ -123,6 +125,52 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	void setDatabase(Database value);
+
+	/**
+	 * Returns the value of the '<em><b>Adaption Started</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Adaption Started</em>' attribute.
+	 * @see #setAdaptionStarted(boolean)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_AdaptionStarted()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isAdaptionStarted();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#isAdaptionStarted <em>Adaption Started</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Adaption Started</em>' attribute.
+	 * @see #isAdaptionStarted()
+	 * @generated
+	 */
+	void setAdaptionStarted(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Adaption Finalized</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Adaption Finalized</em>' attribute.
+	 * @see #setAdaptionFinalized(boolean)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_AdaptionFinalized()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isAdaptionFinalized();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#isAdaptionFinalized <em>Adaption Finalized</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Adaption Finalized</em>' attribute.
+	 * @see #isAdaptionFinalized()
+	 * @generated
+	 */
+	void setAdaptionFinalized(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->
