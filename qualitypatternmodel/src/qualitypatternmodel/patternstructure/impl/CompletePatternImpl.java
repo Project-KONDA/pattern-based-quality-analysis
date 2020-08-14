@@ -27,6 +27,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ParameterListImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
@@ -40,6 +41,8 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDatabase <em>Database</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#isAdaptionStarted <em>Adaption Started</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#isAdaptionFinalized <em>Adaption Finalized</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,6 +104,46 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @ordered
 	 */
 	protected Database database;
+
+	/**
+	 * The default value of the '{@link #isAdaptionStarted() <em>Adaption Started</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAdaptionStarted()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ADAPTION_STARTED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isAdaptionStarted() <em>Adaption Started</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAdaptionStarted()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean adaptionStarted = ADAPTION_STARTED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isAdaptionFinalized() <em>Adaption Finalized</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAdaptionFinalized()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ADAPTION_FINALIZED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isAdaptionFinalized() <em>Adaption Finalized</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAdaptionFinalized()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean adaptionFinalized = ADAPTION_FINALIZED_EDEFAULT;
 
 	protected CompletePatternImpl() {
 		super();
@@ -360,6 +403,68 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isAdaptionStarted() {
+		return adaptionStarted;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAdaptionStarted(boolean newAdaptionStarted) {
+		boolean oldAdaptionStarted = adaptionStarted;
+		adaptionStarted = newAdaptionStarted;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_STARTED, oldAdaptionStarted, adaptionStarted));
+	}
+
+	@Override
+	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		setAdaptionStarted(true);
+		return super.createXMLAdaption();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isAdaptionFinalized() {
+		return adaptionFinalized;
+	}
+	
+
+	@Override
+	public void finalizeXMLAdaption() throws InvalidityException {
+		setAdaptionFinalized(true);
+		super.finalizeXMLAdaption();
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAdaptionFinalized(boolean newAdaptionFinalized) {
+		boolean oldAdaptionFinalized = adaptionFinalized;
+		adaptionFinalized = newAdaptionFinalized;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_FINALIZED, oldAdaptionFinalized, adaptionFinalized));
+	}
+
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -409,6 +514,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				if (resolve) return getDatabase();
 				return basicGetDatabase();
+			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_STARTED:
+				return isAdaptionStarted();
+			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_FINALIZED:
+				return isAdaptionFinalized();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -431,6 +540,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				setDatabase((Database)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_STARTED:
+				setAdaptionStarted((Boolean)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_FINALIZED:
+				setAdaptionFinalized((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -455,6 +570,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				setDatabase((Database)null);
 				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_STARTED:
+				setAdaptionStarted(ADAPTION_STARTED_EDEFAULT);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_FINALIZED:
+				setAdaptionFinalized(ADAPTION_FINALIZED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -474,6 +595,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				return database != null;
+			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_STARTED:
+				return adaptionStarted != ADAPTION_STARTED_EDEFAULT;
+			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_FINALIZED:
+				return adaptionFinalized != ADAPTION_FINALIZED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -512,6 +637,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		result.append(elementCounter);
 		result.append(", name: ");
 		result.append(name);
+		result.append(", adaptionStarted: ");
+		result.append(adaptionStarted);
+		result.append(", adaptionFinalized: ");
+		result.append(adaptionFinalized);
 		result.append(')');
 		return result.toString();
 	}
