@@ -39,7 +39,10 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
+import qualitypatternmodel.operators.impl.ComparisonImpl;
+import qualitypatternmodel.operators.impl.MatchImpl;
 import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.NumberParam;
@@ -51,6 +54,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
+import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
 import qualitypatternmodel.parameters.impl.DateTimeParamImpl;
 import qualitypatternmodel.parameters.impl.NumberParamImpl;
@@ -861,27 +865,29 @@ public class Services {
     		comparison = (Comparison) self;
     		operatorList = comparison.getOperatorList();
     		graph = operatorList.getGraph();
-    		elements = graph.getElements();
+    		elements = graph.getElements();System.out.println(elements.size()+"llll");
     		for(Element element:elements) {
     			properties.addAll(element.getProperties());
     		}
+    		
+    		Comparable argument1 = comparison.getArgument1();
+        	Comparable argument2 = comparison.getArgument2();
+        	if(argument1 instanceof Property) {
+        		properties.remove(argument1);
+        	}
+        	if(argument2 instanceof Property) {
+        		properties.remove(argument2);
+        	}
     	}else if(self instanceof Match) {
     		Match match = (Match) self;
     		operatorList = match.getOperatorList();
     		graph = operatorList.getGraph();
-    		elements = graph.getElements();
+    		elements = graph.getElements();System.out.println(elements.size()+"uuuu");
     		for(Element element:elements) {
     			properties.addAll(element.getProperties());
     		}
     	}
-    	Comparable argument1 = comparison.getArgument1();
-    	Comparable argument2 = comparison.getArgument2();
-    	if(argument1 instanceof Property) {
-    		properties.remove(argument1);
-    	}
-    	if(argument2 instanceof Property) {
-    		properties.remove(argument2);
-    	}
+    	
     	return properties;
     }
     
@@ -964,7 +970,7 @@ public class Services {
     	return self;
     }
     
-    static HashMap<Element, Boolean> elementMarks = new HashMap<Element, Boolean>();
+    static HashMap<Element, Boolean> elementMarks = new HashMap<Element, Boolean>();//speichert elemente und ob sie markiert sind
     static Element markedElement1 = null;
     static Element markedElement2 = null;
     public EObject changeColorOfElement(EObject self, EObject e) {//nach einem doppelklick auf element wird hier die markierung des elements und seines mappingelements hinzugefügt
@@ -1202,7 +1208,7 @@ public class Services {
     		}
     	}else {
     		Condition condition = null;
-    		boolean isCondition = false;//ohne das würde das popup von quantifiedcondition bei element auftauchen im kontextmenü
+    		boolean isCondition = false;//ohne das würde das popup von quantifiedcondition bei element auftauchen im kontextmenü, das Objekt unter dem Mauspfeil ist eine Condition, wenn diese Variable true ist, bzw darf eine Condition hinzugefügt bekommen
     		if(self instanceof CompletePattern) {
         		CompletePattern completePattern = (CompletePattern) self;
         		condition = completePattern.getCondition();
@@ -1220,6 +1226,10 @@ public class Services {
     			isCondition = true;
     		}else if(self instanceof TrueElement) {
     			hasCondition = false;
+    			isCondition = true;
+    		}else if(self instanceof CountPattern) {
+    			CountPattern countpattern = (CountPattern) self;
+    			condition = countpattern.getCondition();
     			isCondition = true;
     		}
     		if(isCondition && hasCondition && condition == null) {
@@ -1519,6 +1529,12 @@ public class Services {
         	}else if (argument2 == null) {
         		open = true;
         	}
+    	}else if(self instanceof Match){
+    		Match match = (Match) self;
+    		Comparable property = match.getProperty();
+        	if(property == null) {
+        		open = true;
+        	}
     	}
     	return open;
     }
@@ -1815,45 +1831,54 @@ public class Services {
      */
     public EObject abstractPatternStart(EObject self) {//soll beim ersten Öffnen eines abstrakten Musters ein Dialog zeigen, vielleicht abhängig von der Methode, die genutzt wird, um ein abstraktes Muster von einem generischen Muster zu erstellen
     	System.out.println("vvvvvvvvvvvvvvvvvvvvvvvvvvv"+self+isAbstract);
-    	if(self instanceof CompletePattern && !isAbstract) {
+		if (self instanceof CompletePattern) {
 			System.out.println("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
 			CompletePattern pattern = (CompletePattern) self;
-			
-			
-			
-			try {
-				System.out.println("lllllllllllllllllllllllllllllllll");
-				pattern.isValid(AbstractionLevel.GENERIC);
-				System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
-				pattern.createXMLAdaption();
-				System.out.println("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
-				Display.getDefault().syncExec(new Runnable() {
-				    public void run() {
-				    	MessageDialog dialog = new MessageDialog(new Shell(), "New abstract pattern", null, "This is an abstract pattern and it is from now on immutable", MessageDialog.INFORMATION, new String[] { "Ok" }, 0);
-						int result = dialog.open();
-						System.out.println(result+" "+isAbstract);
-				    }
-				});
-				isAbstract = true;
-				System.out.println("oooooooooooooooooooooooooooooooooo");
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				System.out.println("wurde abgefangen abstractPatternStart");
-				isAbstract = true;
+			if (!pattern.isAdaptionStarted()) {
+
+				try {
+					System.out.println("lllllllllllllllllllllllllllllllll");
+					pattern.isValid(AbstractionLevel.GENERIC);
+					System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+					pattern.createXMLAdaption();
+					System.out.println("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
+					Display.getDefault().syncExec(new Runnable() {
+						public void run() {
+							MessageDialog dialog = new MessageDialog(new Shell(), "New abstract pattern", null, "This is an abstract pattern and it is from now on immutable", MessageDialog.INFORMATION, new String[] { "Ok" }, 0);
+							int result = dialog.open();
+							System.out.println(result + " " + isAbstract);
+						}
+					});
+					//isAbstract = true;
+					System.out.println("oooooooooooooooooooooooooooooooooo");
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					System.out.println("wurde abgefangen abstractPatternStart");
+					//isAbstract = true;
+				}
 			}
 		}
-    	return self;
+		return self;
     }
     
     public void printisabstract(EObject self) {
     	System.out.println("hhhhhhhhhhhhhhhhhhhhh "+isAbstract);
     }
     
-    public boolean isRelationPrecondition(EObject self) {//Precondition, ob eine Relation durcch xml ersetzt werden darf, deshalb wir auch finalized abgefragt
+    public boolean isRelationPrecondition(EObject self) {//Precondition, ob eine Relation durch xml ersetzt werden darf, deshalb wird auch finalized abgefragt
     	boolean open = false;
-    	if(self instanceof Relation && !finalized) {
-    		open = true;
+    	System.out.println("1");
+    	if(self instanceof Relation) {// && !finalized
+    		System.out.println("2");
+    		Relation relation = (Relation) self;
+    		System.out.println("3");
+    		CompletePattern pattern = (CompletePattern) getWurzelContainer(self);//(CompletePattern) relation.eContainer().eContainer();
+    		System.out.println("4");
+    		if(!pattern.isAdaptionFinalized()) {
+    			System.out.println("5");
+    			open = true;
+    		}
     	}
     	return open;
     }
@@ -1906,28 +1931,38 @@ public class Services {
     
     public boolean finalizeXmladaptionPrecondition(EObject self) {
     	boolean open = false;
-    	if(self instanceof CompletePattern && !finalized) {
+    	if(self instanceof CompletePattern) {// && !finalized
     		CompletePattern pattern = (CompletePattern) self;
-    		if(pattern.relationsXmlAdapted()){
+    		if(pattern.relationsXmlAdapted() && !pattern.isAdaptionFinalized()){
     			open = true;
     		}
     	}
     	return open;
     }
     
-    public boolean finalizeDoubleClick(EObject self, EObject e) {
+    public boolean finalizeDoubleClick(EObject self, EObject e) {//prüft, ob alle relationen ersetzt wurden und das muster noch nicht finalisiert wurde
     	boolean open = false;
-    	if(e instanceof CompletePattern && !finalized) {
-    		open = true;
+    	if(e instanceof CompletePattern) {// && !finalized
+    		CompletePattern pattern = (CompletePattern) e;
+    		if(pattern.relationsXmlAdapted() && !pattern.isAdaptionFinalized()) {
+        		open = true;
+        	}
     	}
     	return open;
     }
     
     public boolean notFinalizeDoubleClick(EObject self, EObject e) {
-    	return !finalizeDoubleClick(self, e);
+    	boolean open = false;
+    	if(e instanceof CompletePattern) {// && !finalized
+    		CompletePattern pattern = (CompletePattern) e;
+    		if(!pattern.relationsXmlAdapted() && !pattern.isAdaptionFinalized()) {
+        		open = true;
+        	}
+    	}
+    	return open;
     }
     
-    static boolean finalized = false;
+    //static boolean finalized = false;
     public void finalizeXmladaption(EObject self, EObject e) {//finalisiert das muster
     	System.out.println("1");
     	if(e instanceof CompletePattern) {
@@ -1935,7 +1970,7 @@ public class Services {
     		System.out.println("2");
     		try {
 				pattern.finalizeXMLAdaption();
-				finalized = true;
+				//finalized = true;
 				System.out.println("3");
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
@@ -2010,7 +2045,7 @@ public class Services {
     }
     
     public boolean isFinalized(EObject self, EObject e) {
-    	boolean isFinalized = false;
+    	/*boolean isFinalized = false;
     	if(e instanceof CompletePattern) {
     		CompletePattern pattern = (CompletePattern) e;
     		try {
@@ -2023,6 +2058,121 @@ public class Services {
 			}
     		
     	}
+    	return isFinalized;*/
+    	boolean isFinalized = false;
+    	if(e instanceof CompletePattern) {
+    		CompletePattern pattern = (CompletePattern) e;
+    		if(pattern.isAdaptionFinalized()) {
+        		isFinalized = true;
+        	}
+    	}
     	return isFinalized;
+    }
+    
+    public void addComparison(EObject self) {
+    	if(self instanceof Graph) {
+    		Graph graph = (Graph) self;
+    		OperatorList operatorlist = graph.getOperatorList();
+    		CompletePattern pattern = null;
+			try {
+				pattern = (CompletePattern) getWurzelContainer(self);//graph.getContainer(); geht nicht, falls der graph in einer quantifiedcondition ist
+				//EObject cool = getWurzelContainer(self);
+				//System.out.println("////////////////////////////////////////////////"+cool);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		ParameterList parameterlist = pattern.getParameterList();
+    		Comparison comparison = new ComparisonImpl();
+    		ComparisonOptionParam comparisonoptionparam = new ComparisonOptionParamImpl();
+    		comparison.setOption(comparisonoptionparam);
+    		parameterlist.add(comparisonoptionparam);
+    		operatorlist.add(comparison);
+    		
+    	}
+    }
+    
+    public void addMatch(EObject self) {
+    	if(self instanceof Graph) {
+    		Graph graph = (Graph) self;
+    		OperatorList operatorlist = graph.getOperatorList();
+    		CompletePattern pattern = null;
+			try {
+				pattern = (CompletePattern) getWurzelContainer(self);//pattern = (CompletePattern) graph.getContainer();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		ParameterList parameterlist = pattern.getParameterList();
+    		Match match = new MatchImpl();
+    		BooleanParam booleanparam = new BooleanParamImpl();
+    		match.setOption(booleanparam);
+    		parameterlist.add(booleanparam);
+    		operatorlist.add(match);
+    		
+    	}
+    }
+    //ab hier Konkretisierungsview
+    public ArrayList<EObject> getParameterlistElements(EObject self) {//sucht alle Objekte in der Parameterliste, diese müssen konkretisiert werden
+    	ArrayList<EObject> elements = new ArrayList<EObject>();
+    	if(self instanceof CompletePattern) {
+    		CompletePattern pattern = (CompletePattern) self;
+    		ParameterList parameterlist = pattern.getParameterList();
+    		elements.addAll(parameterlist.getParameters());
+    	}
+    	return elements;
+    }
+    
+    public String getParameterlistElementsIteratorName(EObject self, EObject iterator) {//Namen zu einem Element der Parameterliste, Iterator der Forschleife ist eine Element der Parameterliste
+    	String name = "";
+    	if(iterator instanceof BooleanParam) {
+    		BooleanParam booleanparam = (BooleanParam) iterator;
+    		name = "Boolean " + booleanparam.getInternalId();
+    	}
+    	return name;
+    }
+    
+    public boolean parameterlistElementsIfBooleanParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein booleanparam ist
+    	boolean isBooleanParam = false;
+    	if(iterator instanceof BooleanParam) {
+    		isBooleanParam = true;
+    	}
+    	return isBooleanParam;
+    }
+    
+    public ArrayList<EObject> getRelatedElements(EObject object){//sucht die Elemente heraus, die markiert werden müssen, wenn ein Objekt in der View mit der Checkbox ausgewählt wird
+    	ArrayList<EObject> returnlist = new ArrayList<EObject>();//die gesuchten Elemente
+    	
+    	if(object instanceof BooleanParam) {
+    		BooleanParam booleanparam = (BooleanParam) object;
+    		
+    		EList<Comparison> comparisonArgument1 = booleanparam.getComparison1();
+    		EList<Comparison> comparisonArgument2 = booleanparam.getComparison2();
+    		EList<Match> matches = booleanparam.getMatches();
+    		
+    		returnlist.addAll(comparisonArgument1);
+    		returnlist.addAll(comparisonArgument2);
+    		returnlist.addAll(matches);
+    	}
+    	
+    	return returnlist;
+    }
+    
+    //HashMap<String, EObject> checkboxElements = new HashMap<String, EObject>();//in dieser 
+    ArrayList<String> checkboxElements = new ArrayList<String>();//die ids, der markierten Elemente
+    HashMap<String, ArrayList<EObject>> elementElements = new HashMap<String, ArrayList<EObject>>();//das sind die Elemente eines Elements, die markiert werden, sie werden gespeichert, damit sie bei der Entfernung der Markierung nicht neu ermittelt werden müssen
+    public void iteratorCheckbox(EObject self, EObject iterator, boolean checkboxValue) {
+    	ArrayList<EObject> elements = getRelatedElements(iterator);
+    		
+    	ArrayList<EObject> relatedElements = new ArrayList<EObject>();//die Elemente, die durch iterator markiert werden müssen
+    	String elementId = "";
+    	for(EObject eo:elements) {
+    		PatternElement patternElement = (PatternElement) eo;
+    		//checkboxElements.put(patternElement.getId(), eo);
+    		elementId = patternElement.getId();
+    		checkboxElements.add(elementId);
+    		relatedElements.add(eo);
+    	}
+    	//elementElements
     }
 }
