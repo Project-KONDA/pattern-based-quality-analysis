@@ -221,7 +221,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		countPattern = newCountPattern;
 		
 		if(newCountPattern != null) {
-			newCountPattern.updateParameters(newCountPattern.getParameterList());
+			newCountPattern.updateParameters(getParameterList());
 		}
 		if(oldCountPattern != null) {
 			oldCountPattern.updateParameters(null);
@@ -454,7 +454,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		argument2 = newArgument2;
 		
 		if(newArgument2 != null) {
-			newArgument2.updateParameters(newArgument2.getParameterList());
+			newArgument2.updateParameters(getParameterList());
 		}
 		if(oldArgument2 != null) {
 			oldArgument2.updateParameters(null);
