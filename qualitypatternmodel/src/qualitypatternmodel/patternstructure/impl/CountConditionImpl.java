@@ -256,101 +256,142 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	
 	@Override
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
-		if(getOption() != null) {
-			getOption().setParameterList(null);
-		}
-
+		
+		triggerParameterUpdates(newPattern);
+		
 		msgs = super.basicSetPattern(newPattern, msgs);
 		
-		if(newPattern != null) {
-			setCountPattern(new CountPatternImpl());
-			setOption(new ComparisonOptionParamImpl());
-			getParameterList().add(getOption());
-		}			
+		createMissingContents(newPattern);			
 		
 		return msgs;
+	}
+
+	private void createMissingContents(PatternElement newContainer) {
+		if(newContainer != null) {
+			if(getOption() == null) {				
+				setOption(new ComparisonOptionParamImpl());
+				getParameterList().add(getOption());
+			}
+			if(getCountPattern() == null) {
+				setCountPattern(new CountPatternImpl());
+			}
+		}
+	}
+
+	private void triggerParameterUpdates(PatternElement newContainer) {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		patternElements.add(getOption());
+		patternElements.add(getCountPattern());
+		patternElements.add(getArgument2());
+		
+		ParameterList parameterList = null;
+		if(newContainer != null) {
+			parameterList = newContainer.getParameterList();
+		}
+		
+		for(PatternElement patternElement : patternElements) {
+			if(patternElement != null) {						
+				patternElement.updateParameters(parameterList);			
+			}	
+		}
 	}
 	
 	@Override
 	public NotificationChain basicSetFormula1(Formula newFormula, NotificationChain msgs) {
-		if(getOption() != null) {
-//			getOption().setParameterList(null);
-			ParameterList parameterList = getParameterList();
-			if(parameterList != null) {
-				parameterList.remove(getOption());
-			}
-		}
+//		if(getOption() != null) {
+////			getOption().setParameterList(null);
+//			ParameterList parameterList = getParameterList();
+//			if(parameterList != null) {
+//				parameterList.remove(getOption());
+//			}
+//		}
+		
+		triggerParameterUpdates(newFormula);
 
 		msgs = super.basicSetFormula1(newFormula, msgs);
 		
-		if(newFormula != null) {
-			setCountPattern(new CountPatternImpl());
-			setOption(new ComparisonOptionParamImpl());
-			getParameterList().add(getOption());
-		}			
+		createMissingContents(newFormula);		
+		
+//		if(newFormula != null) {
+//			setCountPattern(new CountPatternImpl());
+//			setOption(new ComparisonOptionParamImpl());
+//			getParameterList().add(getOption());
+//		}			
 
 		return msgs;
 	}
 	
 	@Override
 	public NotificationChain basicSetFormula2(Formula newFormula, NotificationChain msgs) {
-		if(getOption() != null) {
-//			getOption().setParameterList(null);
-			ParameterList parameterList = getParameterList();
-			if(parameterList != null) {
-				parameterList.remove(getOption());
-			}
-		}
+//		if(getOption() != null) {
+////			getOption().setParameterList(null);
+//			ParameterList parameterList = getParameterList();
+//			if(parameterList != null) {
+//				parameterList.remove(getOption());
+//			}
+//		}
+		
+		triggerParameterUpdates(newFormula);
 
 		msgs = super.basicSetFormula2(newFormula, msgs);
 		
-		if(newFormula != null) {
-			setCountPattern(new CountPatternImpl());
-			setOption(new ComparisonOptionParamImpl());
-			getParameterList().add(getOption());
-		}			
+		createMissingContents(newFormula);
+		
+//		if(newFormula != null) {
+//			setCountPattern(new CountPatternImpl());
+//			setOption(new ComparisonOptionParamImpl());
+//			getParameterList().add(getOption());
+//		}			
 
 		return msgs;
 	}
 	
 	@Override
 	public NotificationChain basicSetNotCondition(NotCondition newNotCondition, NotificationChain msgs) {
-		if(getOption() != null) {
-//			getOption().setParameterList(null);
-			ParameterList parameterList = getParameterList();
-			if(parameterList != null) {
-				parameterList.remove(getOption());
-			}
-		}
+//		if(getOption() != null) {
+////			getOption().setParameterList(null);
+//			ParameterList parameterList = getParameterList();
+//			if(parameterList != null) {
+//				parameterList.remove(getOption());
+//			}
+//		}
+		
+		triggerParameterUpdates(newNotCondition);
 
 		msgs = super.basicSetNotCondition(newNotCondition, msgs);
 		
-		if(newNotCondition != null) {
-			setCountPattern(new CountPatternImpl());
-			setOption(new ComparisonOptionParamImpl());
-			getParameterList().add(getOption());
-		}			
+		createMissingContents(newNotCondition);
+		
+//		if(newNotCondition != null) {
+//			setCountPattern(new CountPatternImpl());
+//			setOption(new ComparisonOptionParamImpl());
+//			getParameterList().add(getOption());
+//		}			
 
 		return msgs;
 	}
 	
 	@Override 
 	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedCondition, NotificationChain msgs) {
-		if(getOption() != null) {
-//			getOption().setParameterList(null);
-			ParameterList parameterList = getParameterList();
-			if(parameterList != null) {
-				parameterList.remove(getOption());
-			}
-		}
+//		if(getOption() != null) {
+////			getOption().setParameterList(null);
+//			ParameterList parameterList = getParameterList();
+//			if(parameterList != null) {
+//				parameterList.remove(getOption());
+//			}
+//		}
+		
+		triggerParameterUpdates(newQuantifiedCondition);
 		
 		msgs = super.basicSetQuantifiedCondition(newQuantifiedCondition, msgs);
 		
-		if(newQuantifiedCondition != null) {
-			setCountPattern(new CountPatternImpl());
-			setOption(new ComparisonOptionParamImpl());
-			getParameterList().add(getOption());
-		}			
+		createMissingContents(newQuantifiedCondition);
+		
+//		if(newQuantifiedCondition != null) {
+//			setCountPattern(new CountPatternImpl());
+//			setOption(new ComparisonOptionParamImpl());
+//			getParameterList().add(getOption());
+//		}			
 		
 		
 		return msgs;
@@ -396,16 +437,10 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 			option.getOptions().clear();
 			option.getOptions().addAll(ComparisonOperator.VALUES);
 		}
-		
-		try {
-			CompletePattern completePattern;
-			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-			ParameterList varlist = completePattern.getParameterList();
-			varlist.remove(oldOption);			
-			varlist.add(newOption);			
-		} catch (MissingPatternContainerException e) {
-			// do nothing
-		}	
+
+		ParameterList varlist = getParameterList();
+		varlist.remove(oldOption);			
+		varlist.add(newOption);				
 		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__OPTION, oldOption, newOption);
