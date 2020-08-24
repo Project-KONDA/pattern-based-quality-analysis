@@ -382,11 +382,11 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();			
-			if(oldArgument1 instanceof Parameter) {
+			if(oldArgument1 instanceof Parameter && varlist != null) {
 				Parameter oldParameter = (Parameter) oldArgument1;					
 				varlist.remove(oldParameter);				
 			}				
-			if(newArgument1 instanceof Parameter) {
+			if(newArgument1 instanceof Parameter && varlist != null) {
 				Parameter newParameter = (Parameter) newArgument1;
 				varlist.add(newParameter);				
 			}
@@ -568,8 +568,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();
-			varlist.remove(oldOption);
-			varlist.add(newOption);
+			if(varlist != null) {
+				varlist.remove(oldOption);
+				varlist.add(newOption);
+			}
 		} catch (MissingPatternContainerException e) {
 			// do nothing
 		}
@@ -776,11 +778,11 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();			
-			if(oldArgument2 instanceof Parameter) {
+			if(oldArgument2 instanceof Parameter && varlist != null) {
 				Parameter oldParameter = (Parameter) oldArgument2;					
 				varlist.remove(oldParameter);				
 			}				
-			if(newArgument2 instanceof Parameter) {
+			if(newArgument2 instanceof Parameter && varlist != null) {
 				Parameter newParameter = (Parameter) newArgument2;
 				varlist.add(newParameter);				
 			}
