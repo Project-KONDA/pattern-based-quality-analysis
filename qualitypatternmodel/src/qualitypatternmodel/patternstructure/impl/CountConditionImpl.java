@@ -429,8 +429,10 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		}
 
 		ParameterList varlist = getParameterList();
-		varlist.remove(oldOption);			
-		varlist.add(newOption);				
+		if(varlist != null) {
+			varlist.remove(oldOption);			
+			varlist.add(newOption);
+		}
 		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__OPTION, oldOption, newOption);
