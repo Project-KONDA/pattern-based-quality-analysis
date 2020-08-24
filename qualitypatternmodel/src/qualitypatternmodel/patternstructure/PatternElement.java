@@ -181,6 +181,22 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model patternElementsMany="true"
+	 * @generated
+	 */
+	void triggerParameterUpdates(PatternElement newContainer, EList<PatternElement> patternElements);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void triggerParameterUpdates(PatternElement newContainer);
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * get element, which directly contain the current element
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"

@@ -22,7 +22,6 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.CountPattern;
@@ -278,22 +277,13 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		}
 	}
 
-	private void triggerParameterUpdates(PatternElement newContainer) {
+	@Override
+	public void triggerParameterUpdates(PatternElement newContainer) {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
 		patternElements.add(getOption());
 		patternElements.add(getCountPattern());
-		patternElements.add(getArgument2());
-		
-		ParameterList parameterList = null;
-		if(newContainer != null) {
-			parameterList = newContainer.getParameterList();
-		}
-		
-		for(PatternElement patternElement : patternElements) {
-			if(patternElement != null) {						
-				patternElement.updateParameters(parameterList);			
-			}	
-		}
+		patternElements.add(getArgument2());		
+		super.triggerParameterUpdates(newContainer, patternElements);
 	}
 	
 	@Override

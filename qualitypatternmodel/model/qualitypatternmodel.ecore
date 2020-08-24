@@ -535,6 +535,13 @@
         <eParameters name="database" eType="#//execution/XmlDatabase"/>
       </eOperations>
       <eOperations name="relationsXmlAdapted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="triggerParameterUpdates">
+        <eParameters name="newContainer" eType="#//patternstructure/PatternElement"/>
+        <eParameters name="patternElements" upperBound="-1" eType="#//patternstructure/PatternElement"/>
+      </eOperations>
+      <eOperations name="triggerParameterUpdates">
+        <eParameters name="newContainer" eType="#//patternstructure/PatternElement"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalId" lowerBound="1"

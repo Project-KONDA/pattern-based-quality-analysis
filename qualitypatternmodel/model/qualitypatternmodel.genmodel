@@ -455,6 +455,13 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/recordValues/database"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/relationsXmlAdapted"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates/newContainer"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates/patternElements"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates.1">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates.1/newContainer"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/NotCondition">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/NotCondition/condition"/>

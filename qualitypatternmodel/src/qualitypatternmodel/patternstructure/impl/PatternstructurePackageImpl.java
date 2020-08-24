@@ -955,6 +955,26 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getPatternElement__TriggerParameterUpdates__PatternElement_EList() {
+		return patternElementEClass.getEOperations().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternElement__TriggerParameterUpdates__PatternElement() {
+		return patternElementEClass.getEOperations().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNotCondition() {
 		return notConditionEClass;
 	}
@@ -1373,6 +1393,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___FINALIZE_XML_ADAPTION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___RELATIONS_XML_ADAPTED);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT);
 
 		notConditionEClass = createEClass(NOT_CONDITION);
 		createEReference(notConditionEClass, NOT_CONDITION__CONDITION);
@@ -1611,6 +1633,13 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEParameter(op, theExecutionPackage.getXmlDatabase(), "database", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPatternElement__RelationsXmlAdapted(), ecorePackage.getEBoolean(), "relationsXmlAdapted", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getPatternElement__TriggerParameterUpdates__PatternElement_EList(), null, "triggerParameterUpdates", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getPatternElement(), "newContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getPatternElement(), "patternElements", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getPatternElement__TriggerParameterUpdates__PatternElement(), null, "triggerParameterUpdates", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getPatternElement(), "newContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(notConditionEClass, NotCondition.class, "NotCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNotCondition_Condition(), this.getCondition(), this.getCondition_NotCondition(), "condition", null, 1, 1, NotCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

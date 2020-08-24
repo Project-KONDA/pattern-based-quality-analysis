@@ -250,13 +250,31 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___RELATIONS_XML_ADAPTED = 16;
 
 	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = 17;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = 18;
+
+	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 17;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 19;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.MappingImpl <em>Mapping</em>}' class.
@@ -456,6 +474,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MAPPING___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The number of operations of the '<em>Mapping</em>' class.
@@ -682,6 +718,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_MAPPING___RELATIONS_XML_ADAPTED = MAPPING___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The number of operations of the '<em>Relation Mapping</em>' class.
@@ -926,6 +980,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -1217,6 +1289,24 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
 
 	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1486,6 +1576,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Check Element Mappings</em>' operation.
@@ -1777,6 +1885,24 @@ public interface PatternstructurePackage extends EPackage {
 	int ELEMENT_MAPPING___RELATIONS_XML_ADAPTED = MAPPING___RELATIONS_XML_ADAPTED;
 
 	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = MAPPING___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
 	 * The number of operations of the '<em>Element Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2048,6 +2174,24 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
 
 	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2301,6 +2445,24 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
 
 	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2543,6 +2705,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PATTERN___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
@@ -2843,6 +3023,24 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___RELATIONS_XML_ADAPTED = PATTERN___RELATIONS_XML_ADAPTED;
 
 	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PATTERN___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PATTERN___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3121,6 +3319,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int NOT_CONDITION___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -3403,6 +3619,24 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
 
 	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = CONDITION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3620,6 +3854,24 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
 	 * The number of operations of the '<em>Count Condition Argument</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3826,6 +4078,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM_CONTAINER___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Get Graph</em>' operation.
@@ -4108,6 +4378,24 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN___RELATIONS_XML_ADAPTED = PATTERN___RELATIONS_XML_ADAPTED;
 
 	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PATTERN___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PATTERN___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4350,6 +4638,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_ELEMENT___RELATIONS_XML_ADAPTED = COUNT_CONDITION_ARGUMENT___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = COUNT_CONDITION_ARGUMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = COUNT_CONDITION_ARGUMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The number of operations of the '<em>Number Element</em>' class.
@@ -5087,6 +5393,26 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__RelationsXmlAdapted();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement, org.eclipse.emf.common.util.EList) <em>Trigger Parameter Updates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Trigger Parameter Updates</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement, org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	EOperation getPatternElement__TriggerParameterUpdates__PatternElement_EList();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement) <em>Trigger Parameter Updates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Trigger Parameter Updates</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement)
+	 * @generated
+	 */
+	EOperation getPatternElement__TriggerParameterUpdates__PatternElement();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.NotCondition <em>Not Condition</em>}'.
@@ -5969,6 +6295,22 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___RELATIONS_XML_ADAPTED = eINSTANCE.getPatternElement__RelationsXmlAdapted();
+
+		/**
+		 * The meta object literal for the '<em><b>Trigger Parameter Updates</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = eINSTANCE.getPatternElement__TriggerParameterUpdates__PatternElement_EList();
+
+		/**
+		 * The meta object literal for the '<em><b>Trigger Parameter Updates</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = eINSTANCE.getPatternElement__TriggerParameterUpdates__PatternElement();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.

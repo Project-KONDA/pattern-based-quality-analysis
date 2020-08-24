@@ -247,6 +247,36 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void triggerParameterUpdates(PatternElement newContainer, EList<PatternElement> patternElements) {
+		ParameterList parameterList = null;
+		if(newContainer != null) {
+			parameterList = newContainer.getParameterList();
+		}		
+		for(PatternElement patternElement : patternElements) {
+			if(patternElement != null) {						
+				patternElement.updateParameters(parameterList);			
+			}	
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void triggerParameterUpdates(PatternElement newContainer) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @throws MissingPatternContainerException 
 	 * @throws Exception 
@@ -512,6 +542,12 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				return null;
 			case PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED:
 				return relationsXmlAdapted();
+			case PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST:
+				triggerParameterUpdates((PatternElement)arguments.get(0), (EList<PatternElement>)arguments.get(1));
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT:
+				triggerParameterUpdates((PatternElement)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -25,6 +25,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.MorphismContainer;
@@ -226,6 +227,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 //		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
 //		getMorphism().removeDanglingMappingReference();
+		
+		triggerParameterUpdates(newQuantifiedcondition);
+		
 		NotificationChain msg = super.basicSetQuantifiedCondition(newQuantifiedcondition, msgs);
 		
 		if(newQuantifiedcondition == null) {
@@ -246,10 +250,22 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 	
 	@Override
+	public void triggerParameterUpdates(PatternElement newContainer) {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		patternElements.add(getGraph());
+		patternElements.add(getCondition());
+		
+		super.triggerParameterUpdates(newContainer, patternElements);
+	}
+	
+	@Override
 	public NotificationChain basicSetNotCondition(NotCondition newNot, NotificationChain msgs) {
 //		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
 //		getMorphism().removeDanglingMappingReference();
+		
+		triggerParameterUpdates(newNot);
+		
 		NotificationChain msg = super.basicSetNotCondition(newNot, msgs);
 		
 		if(newNot == null) {
@@ -274,6 +290,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 //		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
 //		getMorphism().removeDanglingMappingReference();
+		
+		triggerParameterUpdates(newFormula1);
+		
 		NotificationChain msg = super.basicSetFormula1(newFormula1, msgs);
 		
 		if(newFormula1 == null) {
@@ -298,6 +317,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 //		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
 //		getMorphism().removeDanglingMappingReference();
+		
+		triggerParameterUpdates(newFormula2);
+		
 		NotificationChain msg = super.basicSetFormula1(newFormula2, msgs);
 		
 		if(newFormula2 == null) {
@@ -322,6 +344,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 //		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
 //		getMorphism().removeDanglingMappingReference();
+		
+		triggerParameterUpdates(newPattern);
+		
 		NotificationChain msg = super.basicSetPattern(newPattern, msgs);
 		
 		if(newPattern == null) {
