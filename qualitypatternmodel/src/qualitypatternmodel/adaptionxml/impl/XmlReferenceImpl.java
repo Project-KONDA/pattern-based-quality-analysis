@@ -167,14 +167,14 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	@Override
 	public XmlNavigation adaptAsXMLNavigation() {
 		getSourceProperty().removeParametersFromParameterList();
-		getSourceProperty().setOption(null);
-		getSourceProperty().setAttributeName(null);
+//		getSourceProperty().setOption(null);
+//		getSourceProperty().setAttributeName(null);
 		getSourceProperty().setElement(null);
 		setSourceProperty(null);
 		
 		getTargetProperty().removeParametersFromParameterList();
-		getTargetProperty().setOption(null);
-		getTargetProperty().setAttributeName(null);
+//		getTargetProperty().setOption(null);
+//		getTargetProperty().setAttributeName(null);
 		getTargetProperty().setElement(null);
 		setTargetProperty(null);
 		

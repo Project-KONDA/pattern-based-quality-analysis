@@ -34,6 +34,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
@@ -293,8 +294,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	@Override
 	public void removeParametersFromParameterList() {
+		ComparisonOptionParam option = getOption();
+		setOption(null);
 		ParameterList parameterList = getParameterList();			
-		parameterList.remove(getOption());		
+		parameterList.remove(option);		
 	}
 
 	/**

@@ -158,7 +158,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	@Override
 	public XmlReference adaptAsXMLReference() {
 		removeParametersFromParameterList();
-		setOption(null);
+//		setOption(null);
 		return super.adaptAsXMLReference();
 	}
 	
@@ -218,9 +218,11 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	 */
 	@Override
 	public void removeParametersFromParameterList() {
+		RelationOptionParam option = getOption();
+		setOption(null);
 		ParameterList parameterList = getParameterList();	
 		if(parameterList != null) {
-			parameterList.remove(getOption());
+			parameterList.remove(option);
 		}
 	}
 	
@@ -245,9 +247,9 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	
 	@Override
 	public NotificationChain basicSetIncomingMapping(RelationMapping newMappingFrom, NotificationChain msgs) {
-		if (newMappingFrom != null) { // TODO: remove?
+		if (newMappingFrom != null) { // TODO: remove?			
 			removeParametersFromParameterList();
-			setOption(null);
+			
 		}
 		NotificationChain res = super.basicSetIncomingMapping(newMappingFrom, msgs);
 		return res;

@@ -27,6 +27,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.PropertyOptionParam;
+import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.PropertyOptionParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
@@ -251,9 +252,13 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	
 	@Override
 	public void removeParametersFromParameterList() {
+		PropertyOptionParam option = getOption();
+		setOption(null);
+		TextLiteralParam attributeName = getAttributeName();
+		setAttributeName(null);
 		ParameterList parameterList = getParameterList();		
-		parameterList.remove(getOption());		
-		parameterList.remove(getAttributeName());		
+		parameterList.remove(option);		
+		parameterList.remove(attributeName);		
 	}
 
 	@Override

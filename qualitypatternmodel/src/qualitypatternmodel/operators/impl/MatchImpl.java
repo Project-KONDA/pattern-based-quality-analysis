@@ -25,6 +25,7 @@ import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
@@ -176,9 +177,13 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 
 	@Override
 	public void removeParametersFromParameterList() {
+		BooleanParam option = getOption();
+		setOption(null);
+		TextLiteralParam regex = getRegularExpression();
+		setRegularExpression(null);
 		ParameterList parameterList = getParameterList();			
-		parameterList.remove(getOption());		
-		parameterList.remove(getRegularExpression());		
+		parameterList.remove(option);		
+		parameterList.remove(regex);		
 	}
 	
 	/**
