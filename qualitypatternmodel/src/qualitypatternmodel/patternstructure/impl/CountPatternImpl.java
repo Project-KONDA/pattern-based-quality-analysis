@@ -22,6 +22,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
@@ -82,13 +83,13 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	}
 	
 	
-//	@Override	
-//	public void updateParameters(ParameterList newParameterList) {
-//		getGraph().updateParameters(newParameterList);
-//		if(getCondition() != null) {
-//			getCondition().updateParameters(newParameterList);
-//		}
-//	}
+	@Override	
+	public void updateParameters(ParameterList newParameterList) {
+		getGraph().updateParameters(newParameterList);
+		if(getCondition() != null) {
+			getCondition().updateParameters(newParameterList);
+		}
+	}
 	
 	@Override
 	public void copyPreviousGraph() throws MissingPatternContainerException {
