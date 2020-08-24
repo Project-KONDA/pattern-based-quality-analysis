@@ -252,8 +252,8 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	@Override
 	public void removeParametersFromParameterList() {
 		ParameterList parameterList = getParameterList();		
-		parameterList.getParameters().remove(getOption());		
-		parameterList.getParameters().remove(getAttributeName());		
+		parameterList.remove(getOption());		
+		parameterList.remove(getAttributeName());		
 	}
 
 	@Override

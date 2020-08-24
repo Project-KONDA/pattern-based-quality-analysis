@@ -177,8 +177,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	@Override
 	public void removeParametersFromParameterList() {
 		ParameterList parameterList = getParameterList();			
-		parameterList.getParameters().remove(getOption());		
-		parameterList.getParameters().remove(getRegularExpression());		
+		parameterList.remove(getOption());		
+		parameterList.remove(getRegularExpression());		
 	}
 	
 	/**

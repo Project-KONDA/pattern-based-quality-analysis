@@ -294,7 +294,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	@Override
 	public void removeParametersFromParameterList() {
 		ParameterList parameterList = getParameterList();			
-		parameterList.getParameters().remove(getOption());		
+		parameterList.remove(getOption());		
 	}
 
 	/**

@@ -274,7 +274,11 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	@Override
 	public NotificationChain basicSetFormula1(Formula newFormula, NotificationChain msgs) {
 		if(getOption() != null) {
-			getOption().setParameterList(null);
+//			getOption().setParameterList(null);
+			ParameterList parameterList = getParameterList();
+			if(parameterList != null) {
+				parameterList.remove(getOption());
+			}
 		}
 
 		msgs = super.basicSetFormula1(newFormula, msgs);
@@ -291,7 +295,11 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	@Override
 	public NotificationChain basicSetFormula2(Formula newFormula, NotificationChain msgs) {
 		if(getOption() != null) {
-			getOption().setParameterList(null);
+//			getOption().setParameterList(null);
+			ParameterList parameterList = getParameterList();
+			if(parameterList != null) {
+				parameterList.remove(getOption());
+			}
 		}
 
 		msgs = super.basicSetFormula2(newFormula, msgs);
@@ -308,7 +316,11 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	@Override
 	public NotificationChain basicSetNotCondition(NotCondition newNotCondition, NotificationChain msgs) {
 		if(getOption() != null) {
-			getOption().setParameterList(null);
+//			getOption().setParameterList(null);
+			ParameterList parameterList = getParameterList();
+			if(parameterList != null) {
+				parameterList.remove(getOption());
+			}
 		}
 
 		msgs = super.basicSetNotCondition(newNotCondition, msgs);
@@ -325,7 +337,11 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	@Override 
 	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedCondition, NotificationChain msgs) {
 		if(getOption() != null) {
-			getOption().setParameterList(null);
+//			getOption().setParameterList(null);
+			ParameterList parameterList = getParameterList();
+			if(parameterList != null) {
+				parameterList.remove(getOption());
+			}
 		}
 		
 		msgs = super.basicSetQuantifiedCondition(newQuantifiedCondition, msgs);

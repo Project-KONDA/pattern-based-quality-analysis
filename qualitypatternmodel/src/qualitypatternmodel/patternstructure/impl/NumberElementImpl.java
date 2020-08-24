@@ -129,7 +129,11 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 			}
 		} else {
 			if(getNumberParam() != null) {
-				getNumberParam().setParameterList(null);
+//				getNumberParam().setParameterList(null);
+				ParameterList parameterList = getParameterList();
+				if(parameterList != null) {
+					parameterList.remove(getNumberParam());
+				}
 			}
 		}
 		
