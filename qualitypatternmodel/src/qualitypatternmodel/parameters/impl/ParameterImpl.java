@@ -95,8 +95,15 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 
 	@Override
 	public void updateParameters(ParameterList newParameterList) {
-//		getParameterList().remove(this);
-		setParameterList(newParameterList);
+		
+		if(newParameterList == null) {
+			getParameterList().remove(this);
+		} else {
+			// move this to newParameterList
+			// attention: 
+			setParameterList(newParameterList);
+		}
+		
 //		Pattern oldPattern = null;
 //		try {
 //			oldPattern = (Pattern) getAncestor(PatternImpl.class);			

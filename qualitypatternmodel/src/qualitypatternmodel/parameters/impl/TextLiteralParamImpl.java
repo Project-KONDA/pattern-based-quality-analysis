@@ -144,7 +144,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetVariableList(ParameterList newVariableList, NotificationChain msgs) {
+	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {
 		getMatches().clear();
 		getProperties().clear();
 		return super.basicSetParameterList(newVariableList, msgs);
