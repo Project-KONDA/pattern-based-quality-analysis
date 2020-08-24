@@ -100,7 +100,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			getParameterList().remove(this);
 		} else {
 			// move this to newParameterList
-			// attention: 
+			// attention: all references are deleted automatically
 			setParameterList(newParameterList);
 		}
 		
