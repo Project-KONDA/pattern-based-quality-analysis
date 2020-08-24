@@ -754,6 +754,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			if(parameterList != null) {
 				updateParameters(parameterList);
 			}
+		} else {
+			updateParameters(null);
 		}
 		msgs = eBasicSetContainer((InternalEObject)newQuantifiedCondition, GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION, msgs);
 		return msgs;
@@ -801,7 +803,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			if(parameterList != null) {
 				updateParameters(parameterList);
 			}	
-		}	
+		} else {
+			updateParameters(null);
+		}
 		msgs = eBasicSetContainer((InternalEObject)newPattern, GraphstructurePackage.GRAPH__PATTERN, msgs);
 		return msgs;
 	}
