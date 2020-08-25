@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -258,20 +259,40 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 				
 		msgs = super.basicSetPattern(newPattern, msgs);
 		
-		createMissingContents(newPattern);			
+		createParameters();
+		createCountPattern();
 		
 		return msgs;
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void createParameters() {
+		ParameterList parameterList = getParameterList();
+		if(parameterList != null) {
+			if(getOption() == null) {
+				ComparisonOptionParam comparisonOption = new ComparisonOptionParamImpl();
+				setOption(comparisonOption);
+//				parameterList.add(comparisonOption);
+			} else {
+				parameterList.add(getOption());
+			}		
+		}
+	}
 
-	private void createMissingContents(PatternElement newContainer) {
-		if(newContainer != null) {
-			if(getOption() == null) {				
-				setOption(new ComparisonOptionParamImpl());
-				getParameterList().add(getOption());
-			}
-			if(getCountPattern() == null) {
-				setCountPattern(new CountPatternImpl());
-			}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void createCountPattern() {
+		if(getCountPattern() == null) {
+			setCountPattern(new CountPatternImpl());
 		}
 	}
 
@@ -298,7 +319,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		
 		msgs = super.basicSetFormula1(newFormula, msgs);
 		
-		createMissingContents(newFormula);		
+		createParameters();
+		createCountPattern();	
 		
 //		if(newFormula != null) {
 //			setCountPattern(new CountPatternImpl());
@@ -321,7 +343,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		
 		msgs = super.basicSetFormula2(newFormula, msgs);
 		
-		createMissingContents(newFormula);
+		createParameters();
+		createCountPattern();
 		
 //		if(newFormula != null) {
 //			setCountPattern(new CountPatternImpl());
@@ -344,7 +367,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		
 		msgs = super.basicSetNotCondition(newNotCondition, msgs);
 		
-		createMissingContents(newNotCondition);
+		createParameters();
+		createCountPattern();
 		
 //		if(newNotCondition != null) {
 //			setCountPattern(new CountPatternImpl());
@@ -367,7 +391,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 				
 		msgs = super.basicSetQuantifiedCondition(newQuantifiedCondition, msgs);
 		
-		createMissingContents(newQuantifiedCondition);
+		createParameters();
+		createCountPattern();
 		
 //		if(newQuantifiedCondition != null) {
 //			setCountPattern(new CountPatternImpl());
@@ -414,16 +439,18 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 */
 	public NotificationChain basicSetOption(ComparisonOptionParam newOption, NotificationChain msgs) {
 		ComparisonOptionParam oldOption = option;
-		option = newOption;
-		if(option != null) {
-			option.getOptions().clear();
-			option.getOptions().addAll(ComparisonOperator.VALUES);
-		}
-
+		
 		ParameterList varlist = getParameterList();
 		if(varlist != null) {
 			varlist.remove(oldOption);			
 			varlist.add(newOption);
+		}
+		
+		option = newOption;
+		
+		if(option != null) {
+			option.getOptions().clear();
+			option.getOptions().addAll(ComparisonOperator.VALUES);
 		}
 		
 		if (eNotificationRequired()) {
@@ -505,6 +532,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__ARGUMENT2, newArgument2, newArgument2));
 	}
+
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -627,6 +656,24 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 				return argument2 != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case PatternstructurePackage.COUNT_CONDITION___CREATE_PARAMETERS:
+				createParameters();
+				return null;
+			case PatternstructurePackage.COUNT_CONDITION___CREATE_COUNT_PATTERN:
+				createCountPattern();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	@Override

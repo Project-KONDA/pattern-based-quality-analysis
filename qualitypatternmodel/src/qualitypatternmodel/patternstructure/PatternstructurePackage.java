@@ -3646,13 +3646,31 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___GET_NEXT_MORPHISM_CONTAINERS = CONDITION___GET_NEXT_MORPHISM_CONTAINERS;
 
 	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___CREATE_PARAMETERS = CONDITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Create Count Pattern</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___CREATE_COUNT_PATTERN = CONDITION_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Count Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+	int COUNT_CONDITION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.CountConditionArgument <em>Count Condition Argument</em>}' class.
@@ -4658,13 +4676,22 @@ public interface PatternstructurePackage extends EPackage {
 	int NUMBER_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = COUNT_CONDITION_ARGUMENT___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___CREATE_PARAMETERS = COUNT_CONDITION_ARGUMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Number Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT_OPERATION_COUNT = COUNT_CONDITION_ARGUMENT_OPERATION_COUNT + 0;
+	int NUMBER_ELEMENT_OPERATION_COUNT = COUNT_CONDITION_ARGUMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.LogicalOperator <em>Logical Operator</em>}' enum.
@@ -5479,6 +5506,26 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getCountCondition_Argument2();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CountCondition#createParameters() <em>Create Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Parameters</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.CountCondition#createParameters()
+	 * @generated
+	 */
+	EOperation getCountCondition__CreateParameters();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CountCondition#createCountPattern() <em>Create Count Pattern</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Count Pattern</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.CountCondition#createCountPattern()
+	 * @generated
+	 */
+	EOperation getCountCondition__CreateCountPattern();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.CountConditionArgument <em>Count Condition Argument</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5645,6 +5692,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNumberElement_NumberParam();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.NumberElement#createParameters() <em>Create Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Parameters</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.NumberElement#createParameters()
+	 * @generated
+	 */
+	EOperation getNumberElement__CreateParameters();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getContainer() <em>Get Container</em>}' operation.
@@ -6365,6 +6422,22 @@ public interface PatternstructurePackage extends EPackage {
 		EReference COUNT_CONDITION__ARGUMENT2 = eINSTANCE.getCountCondition_Argument2();
 
 		/**
+		 * The meta object literal for the '<em><b>Create Parameters</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COUNT_CONDITION___CREATE_PARAMETERS = eINSTANCE.getCountCondition__CreateParameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Count Pattern</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COUNT_CONDITION___CREATE_COUNT_PATTERN = eINSTANCE.getCountCondition__CreateCountPattern();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.CountConditionArgument <em>Count Condition Argument</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6501,6 +6574,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference NUMBER_ELEMENT__NUMBER_PARAM = eINSTANCE.getNumberElement_NumberParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Parameters</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NUMBER_ELEMENT___CREATE_PARAMETERS = eINSTANCE.getNumberElement__CreateParameters();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Container</b></em>' operation.

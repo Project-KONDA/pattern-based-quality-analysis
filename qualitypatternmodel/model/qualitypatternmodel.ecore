@@ -560,6 +560,8 @@
           eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/notCondition"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CountCondition" eSuperTypes="#//patternstructure/Condition">
+      <eOperations name="createParameters"/>
+      <eOperations name="createCountPattern"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="countPattern" lowerBound="1"
           eType="#//patternstructure/CountPattern" containment="true" eOpposite="#//patternstructure/CountPattern/countCondition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
@@ -593,6 +595,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="query" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumberElement" eSuperTypes="#//patternstructure/CountConditionArgument">
+      <eOperations name="createParameters"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="numberParam" lowerBound="1"
           eType="#//parameters/NumberParam" eOpposite="#//parameters/NumberParam/numberArgument"/>
     </eClassifiers>

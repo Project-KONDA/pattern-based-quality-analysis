@@ -157,20 +157,22 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	
 	@Override
 	public void createParameters() {		
-		ParameterList parameterList = getParameterList();		
-		if(getOption() == null) {
-			BooleanParam bool = new BooleanParamImpl();			
-			parameterList.add(bool);
-			setOption(bool);
-		} else {
-			parameterList.add(getOption());
-		}
-		if(getRegularExpression() == null) {
-			TextLiteralParam textLiteral = new TextLiteralParamImpl();
-			parameterList.add(textLiteral);
-			setRegularExpression(textLiteral);
-		} else {
-			parameterList.add(getRegularExpression());
+		ParameterList parameterList = getParameterList();	
+		if(parameterList != null) {
+			if(getOption() == null) {
+				BooleanParam bool = new BooleanParamImpl();				
+				setOption(bool);
+//				parameterList.add(bool);
+			} else {
+				parameterList.add(getOption());
+			}
+			if(getRegularExpression() == null) {
+				TextLiteralParam textLiteral = new TextLiteralParamImpl();				
+				setRegularExpression(textLiteral);
+//				parameterList.add(textLiteral);
+			} else {
+				parameterList.add(getRegularExpression());
+			}
 		}
 		
 	}	
@@ -302,18 +304,14 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 */
 	public NotificationChain basicSetRegularExpression(TextLiteralParam newRegularExpression, NotificationChain msgs) {
 		TextLiteralParam oldRegularExpression = regularExpression;
+		
+		ParameterList varlist = getParameterList();
+		varlist.remove(oldRegularExpression);
+		varlist.add(newRegularExpression);			
+	
 		regularExpression = newRegularExpression;
-		
-		try {
-			CompletePattern completePattern;
-			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-			ParameterList varlist = completePattern.getParameterList();
-			varlist.remove(oldRegularExpression);
-			varlist.add(newRegularExpression);			
-		} catch (MissingPatternContainerException e) {
-			// do nothing
-		}	
-		
+
+			
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__REGULAR_EXPRESSION, oldRegularExpression, newRegularExpression);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -452,18 +450,13 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetOption(BooleanParam newOption, NotificationChain msgs) {
-		qualitypatternmodel.parameters.BooleanParam oldOption = option;
-		option = newOption;
+		BooleanParam oldOption = option;		
+
+		ParameterList varlist = getParameterList();				
+		varlist.remove(oldOption);					
+		varlist.add(newOption);				
 		
-		try {
-			CompletePattern completePattern;
-			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-			ParameterList varlist = completePattern.getParameterList();				
-			varlist.remove(oldOption);					
-			varlist.add(newOption);			
-		} catch (MissingPatternContainerException e) {
-			// do nothing
-		}	
+		option = newOption;
 		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__OPTION, oldOption, newOption);

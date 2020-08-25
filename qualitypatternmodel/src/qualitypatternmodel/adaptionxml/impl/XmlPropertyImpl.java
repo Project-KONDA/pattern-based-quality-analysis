@@ -197,20 +197,22 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	@Override
 	public void createParameters() {	
 		ParameterList parameterList = getParameterList();		
-		if(getOption() == null) {
-			PropertyOptionParam option = new PropertyOptionParamImpl();	
-			parameterList.add(option);
-			setOption(option);
-		} else {
-			parameterList.add(getOption());
+		if(parameterList != null) {
+			if(getOption() == null) {
+				PropertyOptionParam option = new PropertyOptionParamImpl();	
+//				parameterList.add(option);
+				setOption(option);
+			} else {
+				parameterList.add(getOption());
+			}
+			if(getAttributeName() == null) {
+				TextLiteralParam textLiteral = new TextLiteralParamImpl();
+//				parameterList.add(textLiteral);
+				setAttributeName(textLiteral);
+			} else {
+				parameterList.add(getAttributeName());
+			}	
 		}
-		if(getAttributeName() == null) {
-			TextLiteralParam textLiteral = new TextLiteralParamImpl();
-			parameterList.add(textLiteral);
-			setAttributeName(textLiteral);
-		} else {
-			parameterList.add(getAttributeName());
-		}			
 	}
 	
 	@Override
@@ -226,6 +228,9 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 //		}
 //		reset();
 		NotificationChain res = super.basicSetElement(newElement, msgs);
+		
+		createParameters();
+		
 //		if(newElement != null) {
 //		createInputs();
 //	} 
@@ -311,16 +316,12 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	 */
 	public NotificationChain basicSetOption(PropertyOptionParam newOption, NotificationChain msgs) {
 		PropertyOptionParam oldOption = option;
+		
+		ParameterList varlist = getParameterList();
+		varlist.remove(oldOption);
+		varlist.add(newOption);			
+		
 		option = newOption;
-		try {
-			CompletePattern completePattern;
-			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-			ParameterList varlist = completePattern.getParameterList();
-			varlist.remove(oldOption);
-			varlist.add(newOption);			
-		} catch (MissingPatternContainerException e) {
-			// do nothing
-		}	
 		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PROPERTY__OPTION, oldOption, newOption);
@@ -383,16 +384,13 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	 */
 	public NotificationChain basicSetAttributeName(TextLiteralParam newAttributeName, NotificationChain msgs) {
 		TextLiteralParam oldAttributeName = attributeName;
+		
+		ParameterList varlist = getParameterList();
+		varlist.remove(oldAttributeName);
+		varlist.add(newAttributeName);			
+
 		attributeName = newAttributeName;
-		try {
-			CompletePattern completePattern;
-			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-			ParameterList varlist = completePattern.getParameterList();
-			varlist.remove(oldAttributeName);
-			varlist.add(newAttributeName);			
-		} catch (MissingPatternContainerException e) {
-			// do nothing
-		}	
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME, oldAttributeName, newAttributeName);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

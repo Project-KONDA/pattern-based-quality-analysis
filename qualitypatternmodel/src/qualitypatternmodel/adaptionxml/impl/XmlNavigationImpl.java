@@ -199,17 +199,19 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	 * @generated NOT
 	 */
 	@Override
-	public void createParameters() {		
-		ParameterList parameterList = getParameterList();
-		if (getOption() == null) {
-			RelationOptionParam relationOptionParam = new RelationOptionParamImpl();
+	public void createParameters() {	
+		if (getIncomingMapping() == null) {		
+			ParameterList parameterList = getParameterList();
 			if(parameterList != null) {
-				parameterList.add(relationOptionParam);
+				if (getOption() == null) {
+					RelationOptionParam relationOptionParam = new RelationOptionParamImpl();
+//					parameterList.add(relationOptionParam);				
+					setOption(relationOptionParam);
+				} else {
+					parameterList.add(getOption());
+				}		
 			}
-			setOption(relationOptionParam);
-		} else {
-			parameterList.add(getOption());
-		}		
+		}
 	}
 
 	/**
@@ -240,9 +242,12 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 //		triggerParameterUpdates(newGraph);
 		
 		NotificationChain res = super.basicSetGraph(newGraph, msgs);
-		if (newGraph != null && getIncomingMapping() == null) {
-			createParameters();
-		}
+		
+		createParameters();
+		
+//		if (newGraph != null && getIncomingMapping() == null) {
+//			createParameters();
+//		}
 		return res;
 	}
 	
@@ -300,17 +305,12 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	 */
 	public NotificationChain basicSetOption(RelationOptionParam newOption, NotificationChain msgs) {
 		RelationOptionParam oldOption = option;
-		option = newOption;
+				
+		ParameterList varlist = getParameterList();
+		varlist.remove(oldOption);			
+		varlist.add(newOption);				
 		
-		try {
-			CompletePattern completePattern;
-			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-			ParameterList varlist = completePattern.getParameterList();
-			varlist.remove(oldOption);			
-			varlist.add(newOption);			
-		} catch (MissingPatternContainerException e) {
-			// do nothing
-		}	
+		option = newOption;
 		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_NAVIGATION__OPTION, oldOption, newOption);

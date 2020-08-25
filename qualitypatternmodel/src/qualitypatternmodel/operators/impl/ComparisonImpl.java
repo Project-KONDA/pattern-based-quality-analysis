@@ -27,7 +27,6 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.NumberOperator;
 import qualitypatternmodel.operators.Operator;
-import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
@@ -282,14 +281,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	@Override
 	public void createParameters() {	
 		ParameterList parameterList = getParameterList();
-		if (getOption() == null) {
-			ComparisonOptionParam comparisonOption = new ComparisonOptionParamImpl();
-			parameterList.add(comparisonOption);
-			setOption(comparisonOption);
-		} else {
-			parameterList.add(getOption());
-		}
-		
+		if(parameterList != null) {
+			if (getOption() == null) {
+				ComparisonOptionParam comparisonOption = new ComparisonOptionParamImpl();
+				setOption(comparisonOption);
+			} else {
+				parameterList.add(getOption());
+			}
+		}		
 	}
 
 	@Override
@@ -565,20 +564,15 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 */
 	public NotificationChain basicSetOption(ComparisonOptionParam newOption, NotificationChain msgs) {
 		ComparisonOptionParam oldOption = option;
+				
+		ParameterList varlist = getParameterList();
+		if(varlist != null) {
+			varlist.remove(oldOption);
+			varlist.add(newOption);
+		}	
+		
 		option = newOption;
-
-		try {
-			CompletePattern completePattern;
-			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-			ParameterList varlist = completePattern.getParameterList();
-			if(varlist != null) {
-				varlist.remove(oldOption);
-				varlist.add(newOption);
-			}
-		} catch (MissingPatternContainerException e) {
-			// do nothing
-		}
-
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					OperatorsPackage.COMPARISON__OPTION, oldOption, newOption);
@@ -587,6 +581,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			else
 				msgs.add(notification);
 		}
+				
 		return msgs;
 	}
 

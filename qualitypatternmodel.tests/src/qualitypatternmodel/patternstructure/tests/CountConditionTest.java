@@ -11,6 +11,13 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Count Comparison</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#createParameters() <em>Create Parameters</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CountCondition#createCountPattern() <em>Create Count Pattern</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class CountConditionTest extends ConditionTest {
@@ -65,6 +72,32 @@ public class CountConditionTest extends ConditionTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.CountCondition#createParameters() <em>Create Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.CountCondition#createParameters()
+	 * @generated
+	 */
+	public void testCreateParameters() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.CountCondition#createCountPattern() <em>Create Count Pattern</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.CountCondition#createCountPattern()
+	 * @generated
+	 */
+	public void testCreateCountPattern() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //CountComparisonTest

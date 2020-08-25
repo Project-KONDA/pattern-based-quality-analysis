@@ -1035,6 +1035,26 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getCountCondition__CreateParameters() {
+		return countConditionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getCountCondition__CreateCountPattern() {
+		return countConditionEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getCountConditionArgument() {
 		return countConditionArgumentEClass;
 	}
@@ -1187,6 +1207,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	@Override
 	public EReference getNumberElement_NumberParam() {
 		return (EReference)numberElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNumberElement__CreateParameters() {
+		return numberElementEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1403,6 +1433,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEReference(countConditionEClass, COUNT_CONDITION__COUNT_PATTERN);
 		createEReference(countConditionEClass, COUNT_CONDITION__OPTION);
 		createEReference(countConditionEClass, COUNT_CONDITION__ARGUMENT2);
+		createEOperation(countConditionEClass, COUNT_CONDITION___CREATE_PARAMETERS);
+		createEOperation(countConditionEClass, COUNT_CONDITION___CREATE_COUNT_PATTERN);
 
 		countConditionArgumentEClass = createEClass(COUNT_CONDITION_ARGUMENT);
 		createEReference(countConditionArgumentEClass, COUNT_CONDITION_ARGUMENT__COUNT_CONDITION2);
@@ -1424,6 +1456,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		numberElementEClass = createEClass(NUMBER_ELEMENT);
 		createEReference(numberElementEClass, NUMBER_ELEMENT__NUMBER_PARAM);
+		createEOperation(numberElementEClass, NUMBER_ELEMENT___CREATE_PARAMETERS);
 
 		// Create enums
 		logicalOperatorEEnum = createEEnum(LOGICAL_OPERATOR);
@@ -1648,6 +1681,10 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEReference(getCountCondition_Option(), theParametersPackage.getComparisonOptionParam(), theParametersPackage.getComparisonOptionParam_CountConditions(), "option", null, 1, 1, CountCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCountCondition_Argument2(), this.getCountConditionArgument(), this.getCountConditionArgument_CountCondition2(), "argument2", null, 1, 1, CountCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getCountCondition__CreateParameters(), null, "createParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getCountCondition__CreateCountPattern(), null, "createCountPattern", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(countConditionArgumentEClass, CountConditionArgument.class, "CountConditionArgument", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCountConditionArgument_CountCondition2(), this.getCountCondition(), this.getCountCondition_Argument2(), "countCondition2", null, 0, 1, CountConditionArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1673,6 +1710,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		initEClass(numberElementEClass, NumberElement.class, "NumberElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNumberElement_NumberParam(), theParametersPackage.getNumberParam(), theParametersPackage.getNumberParam_NumberArgument(), "numberParam", null, 1, 1, NumberElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getNumberElement__CreateParameters(), null, "createParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(logicalOperatorEEnum, LogicalOperator.class, "LogicalOperator");

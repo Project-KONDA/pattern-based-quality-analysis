@@ -469,6 +469,8 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountCondition/option"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountCondition/argument2"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CountCondition/createParameters"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CountCondition/createCountPattern"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/CountConditionArgument">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountConditionArgument/countCondition2"/>
@@ -491,6 +493,7 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/NumberElement">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/NumberElement/numberParam"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/NumberElement/createParameters"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Adaptionxml" basePackage="qualitypatternmodel" disposableProviderFactory="true"

@@ -11,6 +11,12 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Number Element</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.patternstructure.NumberElement#createParameters() <em>Create Parameters</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class NumberElementTest extends PatternElementTest {
@@ -65,6 +71,19 @@ public class NumberElementTest extends PatternElementTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.NumberElement#createParameters() <em>Create Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.NumberElement#createParameters()
+	 * @generated
+	 */
+	public void testCreateParameters() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //NumberElementTest
