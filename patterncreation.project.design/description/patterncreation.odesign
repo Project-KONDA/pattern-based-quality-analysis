@@ -3343,7 +3343,7 @@
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <categories name="Default Category">
       <pages name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
-      <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self">
+      <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self" preconditionExpression="aql:self.start()">
         <controls xsi:type="properties:DynamicMappingForDescription" name="parameterlistelements" iterator="iterator" iterableExpression="aql:self.getParameterlistElements()">
           <ifs name="parameterlistelementsifbooleancheckbox" predicateExpression="aql:self.parameterlistElementsIfBooleanParam(iterator)">
             <widget xsi:type="properties:CheckboxDescription" name="booleancheckbox" labelExpression="aql:self.getParameterlistElementsIteratorName(iterator)">

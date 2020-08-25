@@ -2175,4 +2175,13 @@ public class Services {
     	}
     	//elementElements
     }
+    
+    /*static ArrayList<EObject> objecttestlist = new ArrayList<EObject>();
+    public boolean objecttest(EObject self) {
+    	objecttestlist.add(self);
+    	if(objecttestlist.size() == 2) {
+    		System.out.println(objecttestlist.get(0).equals(objecttestlist.get(0))+"777777777777777");
+    	}
+    	return true;
+    }*/
 }
