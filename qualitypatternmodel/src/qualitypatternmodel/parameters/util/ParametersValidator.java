@@ -142,6 +142,8 @@ public class ParametersValidator extends EObjectValidator {
 				return validateDateTimeParam((DateTimeParam)value, diagnostics, context);
 			case ParametersPackage.RELATION_OPTION_PARAM:
 				return validateRelationOptionParam((RelationOptionParam)value, diagnostics, context);
+			case ParametersPackage.TYPE_OPTION_PARAM:
+				return validateTypeOptionParam((TypeOptionParam)value, diagnostics, context);
 			case ParametersPackage.STRING_TO_INT_EMAP:
 				return validateStringToIntEMap((EMap<?, ?>)value, diagnostics, context);
 			default:
@@ -423,6 +425,15 @@ public class ParametersValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(relationOptionParam, diagnostics, context);
 		if (result || diagnostics != null) result &= validateParameter_validate(relationOptionParam, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTypeOptionParam(TypeOptionParam typeOptionParam, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(typeOptionParam, diagnostics, context);
 	}
 
 	/**

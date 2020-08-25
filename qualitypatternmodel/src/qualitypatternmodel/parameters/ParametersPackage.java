@@ -5439,6 +5439,61 @@ public interface ParametersPackage extends EPackage {
 	int RELATION_OPTION_PARAM_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.TypeOptionParamImpl <em>Type Option Param</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.impl.TypeOptionParamImpl
+	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getTypeOptionParam()
+	 * @generated
+	 */
+	int TYPE_OPTION_PARAM = 14;
+
+	/**
+	 * The feature id for the '<em><b>Options</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPTION_PARAM__OPTIONS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPTION_PARAM__VALUE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Type Comparisons</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPTION_PARAM__TYPE_COMPARISONS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Type Option Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPTION_PARAM_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Type Option Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPTION_PARAM_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '<em>String To Int EMap</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5446,7 +5501,7 @@ public interface ParametersPackage extends EPackage {
 	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getStringToIntEMap()
 	 * @generated
 	 */
-	int STRING_TO_INT_EMAP = 14;
+	int STRING_TO_INT_EMAP = 15;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.Parameter <em>Parameter</em>}'.
@@ -6096,6 +6151,49 @@ public interface ParametersPackage extends EPackage {
 	EOperation getRelationOptionParam__InferSuggestions();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.TypeOptionParam <em>Type Option Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Type Option Param</em>'.
+	 * @see qualitypatternmodel.parameters.TypeOptionParam
+	 * @generated
+	 */
+	EClass getTypeOptionParam();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.parameters.TypeOptionParam#getOptions <em>Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Options</em>'.
+	 * @see qualitypatternmodel.parameters.TypeOptionParam#getOptions()
+	 * @see #getTypeOptionParam()
+	 * @generated
+	 */
+	EAttribute getTypeOptionParam_Options();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.TypeOptionParam#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see qualitypatternmodel.parameters.TypeOptionParam#getValue()
+	 * @see #getTypeOptionParam()
+	 * @generated
+	 */
+	EAttribute getTypeOptionParam_Value();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.TypeOptionParam#getTypeComparisons <em>Type Comparisons</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Type Comparisons</em>'.
+	 * @see qualitypatternmodel.parameters.TypeOptionParam#getTypeComparisons()
+	 * @see #getTypeOptionParam()
+	 * @generated
+	 */
+	EReference getTypeOptionParam_TypeComparisons();
+
+	/**
 	 * Returns the meta object for data type '{@link org.eclipse.emf.common.util.EMap <em>String To Int EMap</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6652,6 +6750,40 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RELATION_OPTION_PARAM___INFER_SUGGESTIONS = eINSTANCE.getRelationOptionParam__InferSuggestions();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.TypeOptionParamImpl <em>Type Option Param</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.parameters.impl.TypeOptionParamImpl
+		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getTypeOptionParam()
+		 * @generated
+		 */
+		EClass TYPE_OPTION_PARAM = eINSTANCE.getTypeOptionParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Options</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TYPE_OPTION_PARAM__OPTIONS = eINSTANCE.getTypeOptionParam_Options();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TYPE_OPTION_PARAM__VALUE = eINSTANCE.getTypeOptionParam_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Comparisons</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPE_OPTION_PARAM__TYPE_COMPARISONS = eINSTANCE.getTypeOptionParam_TypeComparisons();
 
 		/**
 		 * The meta object literal for the '<em>String To Int EMap</em>' data type.

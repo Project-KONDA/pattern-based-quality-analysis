@@ -14,7 +14,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.adaptionxml.XmlRoot;
-import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.provider.ElementItemProvider;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
@@ -70,13 +69,10 @@ public class XmlRootItemProvider extends ElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-//		String label = ((XmlRoot)object).getName();
-//		return label == null || label.length() == 0 ?
-//			getString("_UI_XmlRoot_type") :
-//			getString("_UI_XmlRoot_type") + " " + label;
-		
-		XmlRoot element = (XmlRoot) object;
-		return getString("_UI_XmlRoot_type") + " " + element.getInternalId();
+		String label = ((XmlRoot)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_XmlRoot_type") :
+			getString("_UI_XmlRoot_type") + " " + label;
 	}
 
 

@@ -1581,13 +1581,22 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON__OPTION = BOOLEAN_OPERATOR_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Type Option</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON__TYPE_OPTION = BOOLEAN_OPERATOR_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Comparison</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 4;
+	int COMPARISON_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -2458,6 +2467,17 @@ public interface OperatorsPackage extends EPackage {
 	EReference getComparison_Option();
 
 	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.operators.Comparison#getTypeOption <em>Type Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type Option</em>'.
+	 * @see qualitypatternmodel.operators.Comparison#getTypeOption()
+	 * @see #getComparison()
+	 * @generated
+	 */
+	EReference getComparison_TypeOption();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.operators.Comparison#isPrimitive() <em>Is Primitive</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2798,6 +2818,14 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPARISON__OPTION = eINSTANCE.getComparison_Option();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Option</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPARISON__TYPE_OPTION = eINSTANCE.getComparison_TypeOption();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Primitive</b></em>' operation.

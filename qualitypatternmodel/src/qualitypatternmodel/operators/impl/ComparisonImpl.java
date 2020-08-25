@@ -34,6 +34,7 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
@@ -52,6 +53,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.operators.impl.ComparisonImpl#getArgument2 <em>Argument2</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.impl.ComparisonImpl#getType <em>Type</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.impl.ComparisonImpl#getOption <em>Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.impl.ComparisonImpl#getTypeOption <em>Type Option</em>}</li>
  * </ul>
  *
  * @generated
@@ -103,6 +105,16 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @ordered
 	 */
 	protected ComparisonOptionParam option;
+
+	/**
+	 * The cached value of the '{@link #getTypeOption() <em>Type Option</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTypeOption()
+	 * @generated
+	 * @ordered
+	 */
+	protected TypeOptionParam typeOption;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -436,7 +448,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}
 			if (newArgument instanceof UntypedParameterValue) {
 				setType(ReturnType.UNSPECIFIED);
-			}
+			}			
 		}
 
 	}	
@@ -603,6 +615,68 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.COMPARISON__OPTION, newOption, newOption));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TypeOptionParam getTypeOption() {
+		if (typeOption != null && typeOption.eIsProxy()) {
+			InternalEObject oldTypeOption = (InternalEObject)typeOption;
+			typeOption = (TypeOptionParam)eResolveProxy(oldTypeOption);
+			if (typeOption != oldTypeOption) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OperatorsPackage.COMPARISON__TYPE_OPTION, oldTypeOption, typeOption));
+			}
+		}
+		return typeOption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TypeOptionParam basicGetTypeOption() {
+		return typeOption;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTypeOption(TypeOptionParam newTypeOption, NotificationChain msgs) {
+		TypeOptionParam oldTypeOption = typeOption;
+		typeOption = newTypeOption;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.COMPARISON__TYPE_OPTION, oldTypeOption, newTypeOption);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTypeOption(TypeOptionParam newTypeOption) {
+		if (newTypeOption != typeOption) {
+			NotificationChain msgs = null;
+			if (typeOption != null)
+				msgs = ((InternalEObject)typeOption).eInverseRemove(this, ParametersPackage.TYPE_OPTION_PARAM__TYPE_COMPARISONS, TypeOptionParam.class, msgs);
+			if (newTypeOption != null)
+				msgs = ((InternalEObject)newTypeOption).eInverseAdd(this, ParametersPackage.TYPE_OPTION_PARAM__TYPE_COMPARISONS, TypeOptionParam.class, msgs);
+			msgs = basicSetTypeOption(newTypeOption, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.COMPARISON__TYPE_OPTION, newTypeOption, newTypeOption));
 	}
 
 	/**
@@ -816,6 +890,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				if (option != null)
 					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.COMPARISON_OPTION_PARAM__COMPARISONS, ComparisonOptionParam.class, msgs);
 				return basicSetOption((ComparisonOptionParam)otherEnd, msgs);
+			case OperatorsPackage.COMPARISON__TYPE_OPTION:
+				if (typeOption != null)
+					msgs = ((InternalEObject)typeOption).eInverseRemove(this, ParametersPackage.TYPE_OPTION_PARAM__TYPE_COMPARISONS, TypeOptionParam.class, msgs);
+				return basicSetTypeOption((TypeOptionParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -833,6 +911,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				return basicSetArgument2(null, msgs);
 			case OperatorsPackage.COMPARISON__OPTION:
 				return basicSetOption(null, msgs);
+			case OperatorsPackage.COMPARISON__TYPE_OPTION:
+				return basicSetTypeOption(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -855,6 +935,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			case OperatorsPackage.COMPARISON__OPTION:
 				if (resolve) return getOption();
 				return basicGetOption();
+			case OperatorsPackage.COMPARISON__TYPE_OPTION:
+				if (resolve) return getTypeOption();
+				return basicGetTypeOption();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -879,6 +962,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			case OperatorsPackage.COMPARISON__OPTION:
 				setOption((ComparisonOptionParam)newValue);
 				return;
+			case OperatorsPackage.COMPARISON__TYPE_OPTION:
+				setTypeOption((TypeOptionParam)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -902,6 +988,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			case OperatorsPackage.COMPARISON__OPTION:
 				setOption((ComparisonOptionParam)null);
 				return;
+			case OperatorsPackage.COMPARISON__TYPE_OPTION:
+				setTypeOption((TypeOptionParam)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -921,6 +1010,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				return type != TYPE_EDEFAULT;
 			case OperatorsPackage.COMPARISON__OPTION:
 				return option != null;
+			case OperatorsPackage.COMPARISON__TYPE_OPTION:
+				return typeOption != null;
 		}
 		return super.eIsSet(featureID);
 	}

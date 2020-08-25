@@ -475,6 +475,16 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getComparison_TypeOption() {
+		return (EReference)comparisonEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getComparison__IsPrimitive() {
 		return comparisonEClass.getEOperations().get(0);
 	}
@@ -619,6 +629,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		createEReference(comparisonEClass, COMPARISON__ARGUMENT2);
 		createEAttribute(comparisonEClass, COMPARISON__TYPE);
 		createEReference(comparisonEClass, COMPARISON__OPTION);
+		createEReference(comparisonEClass, COMPARISON__TYPE_OPTION);
 		createEOperation(comparisonEClass, COMPARISON___IS_PRIMITIVE);
 		createEOperation(comparisonEClass, COMPARISON___GET_ELEMENT);
 		createEOperation(comparisonEClass, COMPARISON___COPY);
@@ -734,6 +745,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		initEReference(getComparison_Argument2(), theGraphstructurePackage.getComparable(), theGraphstructurePackage.getComparable_Comparison2(), "argument2", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComparison_Type(), theGraphstructurePackage.getReturnType(), "type", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComparison_Option(), theParametersPackage.getComparisonOptionParam(), theParametersPackage.getComparisonOptionParam_Comparisons(), "option", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComparison_TypeOption(), theParametersPackage.getTypeOptionParam(), theParametersPackage.getTypeOptionParam_TypeComparisons(), "typeOption", null, 1, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getComparison__IsPrimitive(), ecorePackage.getEBoolean(), "isPrimitive", 0, 1, IS_UNIQUE, IS_ORDERED);
 

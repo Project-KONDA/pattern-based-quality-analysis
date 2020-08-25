@@ -48,6 +48,7 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 			addArgument2PropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 			addOptionPropertyDescriptor(object);
+			addTypeOptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -88,6 +89,28 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 				 getString("_UI_Comparison_option_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Comparison_option_feature", "_UI_Comparison_type"),
 				 OperatorsPackage.Literals.COMPARISON__OPTION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Type Option feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypeOptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Comparison_typeOption_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Comparison_typeOption_feature", "_UI_Comparison_type"),
+				 OperatorsPackage.Literals.COMPARISON__TYPE_OPTION,
 				 true,
 				 false,
 				 true,

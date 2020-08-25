@@ -130,6 +130,15 @@ public interface ParametersFactory extends EFactory {
 	RelationOptionParam createRelationOptionParam();
 
 	/**
+	 * Returns a new object of class '<em>Type Option Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Type Option Param</em>'.
+	 * @generated
+	 */
+	TypeOptionParam createTypeOptionParam();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -148,6 +148,14 @@
       <eTypeParameters name="K"/>
       <eTypeParameters name="V"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TypeOptionParam">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
+          eType="#//graphstructure/ReturnType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="#//graphstructure/ReturnType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typeComparisons" upperBound="-1"
+          eType="#//operators/Comparison" eOpposite="#//operators/Comparison/typeOption"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="operators" nsURI="operators" nsPrefix="operators">
     <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//operators/Operator">
@@ -206,6 +214,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
           eType="#//parameters/ComparisonOptionParam" eOpposite="#//parameters/ComparisonOptionParam/comparisons"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typeOption" lowerBound="1"
+          eType="#//parameters/TypeOptionParam" eOpposite="#//parameters/TypeOptionParam/typeComparisons"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ComparisonOperator">
       <eLiterals name="EQUAL" literal="="/>
