@@ -18,7 +18,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlReference;
-
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.provider.RelationItemProvider;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
@@ -143,10 +143,13 @@ public class XmlReferenceItemProvider extends RelationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XmlReference)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_XmlReference_type") :
-			getString("_UI_XmlReference_type") + " " + label;
+//		String label = ((XmlReference)object).getName();
+//		return label == null || label.length() == 0 ?
+//			getString("_UI_XmlReference_type") :
+//			getString("_UI_XmlReference_type") + " " + label;
+		
+		XmlReference relation = (XmlReference) object;
+		return getString("_UI_XmlReference_type") + " " + relation.getInternalId();
 	}
 
 

@@ -16,7 +16,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlProperty;
-
+import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.provider.PropertyItemProvider;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
@@ -160,14 +160,18 @@ public class XmlPropertyItemProvider extends PropertyItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XmlProperty)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_XmlProperty_type") :
-			getString("_UI_XmlProperty_type") + " " + label;
+//		String label = ((XmlProperty)object).getName();
+//		return label == null || label.length() == 0 ?
+//			getString("_UI_XmlProperty_type") :
+//			getString("_UI_XmlProperty_type") + " " + label;
+		
+		XmlProperty property = (XmlProperty) object;
+		String elementName = getString("_UI_XmlElement_type") + " \"" + property.getElement().getName()+"\"";
+		return getString("_UI_XmlProperty_type") + " \"" + property.getName() + "\" (of " + elementName + ")";
 	}
 
 

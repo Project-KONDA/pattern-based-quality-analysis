@@ -378,7 +378,6 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	@Override
 	public String getText(Object object) {
 		Element element = (Element) object;
-//		System.out.println(element.getId());
 		return getString("_UI_Element_type") + " " + element.getInternalId();
 		
 //		String label = ((Element)object).getId();
