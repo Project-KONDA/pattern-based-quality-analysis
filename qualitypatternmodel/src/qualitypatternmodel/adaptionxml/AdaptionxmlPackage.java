@@ -305,15 +305,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___GET_PARAMETER_LIST = GraphstructurePackage.ELEMENT___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___UPDATE_OPERATORS__OPERATORLIST = GraphstructurePackage.ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
-
-	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -873,15 +864,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___GET_PARAMETER_LIST = GraphstructurePackage.RELATION___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_NAVIGATION___UPDATE_OPERATORS__OPERATORLIST = GraphstructurePackage.RELATION___UPDATE_OPERATORS__OPERATORLIST;
-
-	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1261,15 +1243,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___GET_PARAMETER_LIST = GraphstructurePackage.RELATION___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_REFERENCE___UPDATE_OPERATORS__OPERATORLIST = GraphstructurePackage.RELATION___UPDATE_OPERATORS__OPERATORLIST;
-
-	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1629,15 +1602,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___GET_PARAMETER_LIST = GraphstructurePackage.PROPERTY___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY___UPDATE_OPERATORS__OPERATORLIST = GraphstructurePackage.PROPERTY___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -2044,15 +2008,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___GET_PARAMETER_LIST = GraphstructurePackage.ELEMENT___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___UPDATE_OPERATORS__OPERATORLIST = GraphstructurePackage.ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.

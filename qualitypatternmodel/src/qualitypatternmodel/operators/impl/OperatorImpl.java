@@ -153,10 +153,6 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	@Override
 	public abstract EList<Comparable> getArguments();
 	
-	@Override
-	public void updateOperators(OperatorList newOperatorList) {
-		setOperatorList(newOperatorList);		
-	}
 	
 	/**
 	 * <!-- begin-user-doc -->

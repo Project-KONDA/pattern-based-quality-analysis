@@ -443,9 +443,6 @@
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/prepareParameterUpdates"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/getParameterList"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/updateOperators">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/updateOperators/newOperatorList"/>
-        </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/getOperatorList"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/createXMLAdaption"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/finalizeXMLAdaption"/>

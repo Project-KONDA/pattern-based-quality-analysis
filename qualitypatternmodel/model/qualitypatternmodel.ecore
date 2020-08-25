@@ -522,9 +522,6 @@
       </eOperations>
       <eOperations name="prepareParameterUpdates" upperBound="-1" eType="#//patternstructure/PatternElement"/>
       <eOperations name="getParameterList" eType="#//parameters/ParameterList"/>
-      <eOperations name="updateOperators">
-        <eParameters name="newOperatorList" eType="#//operators/OperatorList"/>
-      </eOperations>
       <eOperations name="getOperatorList" eType="#//operators/OperatorList"/>
       <eOperations name="createXMLAdaption" eType="#//patternstructure/PatternElement"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>

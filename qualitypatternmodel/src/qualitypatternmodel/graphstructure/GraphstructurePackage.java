@@ -250,15 +250,6 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION___UPDATE_OPERATORS__OPERATORLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
-
-	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -566,15 +557,6 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPARABLE___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARABLE___UPDATE_OPERATORS__OPERATORLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
-
-	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -862,15 +844,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY___GET_PARAMETER_LIST = COMPARABLE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___UPDATE_OPERATORS__OPERATORLIST = COMPARABLE___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -1277,15 +1250,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int ELEMENT___GET_PARAMETER_LIST = COMPARABLE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___UPDATE_OPERATORS__OPERATORLIST = COMPARABLE___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -1820,15 +1784,6 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH___UPDATE_OPERATORS__OPERATORLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
-
-	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2080,15 +2035,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int ADAPTABLE___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ADAPTABLE___UPDATE_OPERATORS__OPERATORLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.

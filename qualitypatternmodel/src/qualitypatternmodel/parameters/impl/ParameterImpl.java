@@ -19,7 +19,6 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**

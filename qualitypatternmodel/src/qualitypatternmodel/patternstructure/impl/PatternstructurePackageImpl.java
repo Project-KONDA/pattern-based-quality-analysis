@@ -895,7 +895,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__UpdateOperators__OperatorList() {
+	public EOperation getPatternElement__GetOperatorList() {
 		return patternElementEClass.getEOperations().get(11);
 	}
 
@@ -905,7 +905,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__GetOperatorList() {
+	public EOperation getPatternElement__CreateXMLAdaption() {
 		return patternElementEClass.getEOperations().get(12);
 	}
 
@@ -915,7 +915,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__CreateXMLAdaption() {
+	public EOperation getPatternElement__FinalizeXMLAdaption() {
 		return patternElementEClass.getEOperations().get(13);
 	}
 
@@ -925,7 +925,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__FinalizeXMLAdaption() {
+	public EOperation getPatternElement__RecordValues__XmlDatabase() {
 		return patternElementEClass.getEOperations().get(14);
 	}
 
@@ -935,7 +935,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__RecordValues__XmlDatabase() {
+	public EOperation getPatternElement__RelationsXmlAdapted() {
 		return patternElementEClass.getEOperations().get(15);
 	}
 
@@ -945,7 +945,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__RelationsXmlAdapted() {
+	public EOperation getPatternElement__TriggerParameterUpdates__PatternElement_EList() {
 		return patternElementEClass.getEOperations().get(16);
 	}
 
@@ -955,7 +955,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__TriggerParameterUpdates__PatternElement_EList() {
+	public EOperation getPatternElement__TriggerParameterUpdates__PatternElement() {
 		return patternElementEClass.getEOperations().get(17);
 	}
 
@@ -965,18 +965,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__TriggerParameterUpdates__PatternElement() {
-		return patternElementEClass.getEOperations().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getPatternElement__UpdateParameters__ParameterList() {
-		return patternElementEClass.getEOperations().get(19);
+		return patternElementEClass.getEOperations().get(18);
 	}
 
 	/**
@@ -1397,7 +1387,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_PARAMETER_LIST);
-		createEOperation(patternElementEClass, PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_OPERATOR_LIST);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___CREATE_XML_ADAPTION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___FINALIZE_XML_ADAPTION);
@@ -1625,9 +1614,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEOperation(getPatternElement__PrepareParameterUpdates(), this.getPatternElement(), "prepareParameterUpdates", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPatternElement__GetParameterList(), theParametersPackage.getParameterList(), "getParameterList", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getPatternElement__UpdateOperators__OperatorList(), null, "updateOperators", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theOperatorsPackage.getOperatorList(), "newOperatorList", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPatternElement__GetOperatorList(), theOperatorsPackage.getOperatorList(), "getOperatorList", 0, 1, IS_UNIQUE, IS_ORDERED);
 

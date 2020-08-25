@@ -218,15 +218,6 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR___GET_PARAMETER_LIST = GraphstructurePackage.COMPARABLE___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR___UPDATE_OPERATORS__OPERATORLIST = GraphstructurePackage.COMPARABLE___UPDATE_OPERATORS__OPERATORLIST;
-
-	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -550,15 +541,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR___GET_PARAMETER_LIST = OPERATOR___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_OPERATOR___UPDATE_OPERATORS__OPERATORLIST = OPERATOR___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -922,15 +904,6 @@ public interface OperatorsPackage extends EPackage {
 	int NUMBER_OPERATOR___GET_PARAMETER_LIST = OPERATOR___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_OPERATOR___UPDATE_OPERATORS__OPERATORLIST = OPERATOR___UPDATE_OPERATORS__OPERATORLIST;
-
-	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1281,15 +1254,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH___GET_PARAMETER_LIST = BOOLEAN_OPERATOR___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCH___UPDATE_OPERATORS__OPERATORLIST = BOOLEAN_OPERATOR___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -1716,15 +1680,6 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON___GET_PARAMETER_LIST = BOOLEAN_OPERATOR___GET_PARAMETER_LIST;
 
 	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___UPDATE_OPERATORS__OPERATORLIST = BOOLEAN_OPERATOR___UPDATE_OPERATORS__OPERATORLIST;
-
-	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2111,15 +2066,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR_LIST___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST___UPDATE_OPERATORS__OPERATORLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.

@@ -680,17 +680,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		
 		return patternElements;
 	}
-	
-	@Override
-	public void updateOperators(OperatorList newOperatorList) {
-		if(getArgument1() instanceof Operator) {
-			getArgument1().updateOperators(newOperatorList);
-		}
-		if(getArgument2() instanceof Operator) {
-			getArgument2().updateOperators(newOperatorList);
-		}
-		super.updateOperators(newOperatorList);
-	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

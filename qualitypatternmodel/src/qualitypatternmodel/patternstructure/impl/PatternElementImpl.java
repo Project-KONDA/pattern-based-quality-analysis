@@ -185,16 +185,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated NOT
 	 */
 	@Override
-	public void updateOperators(OperatorList newOperatorList) {
-		
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
 	public OperatorList getOperatorList() {
 		OperatorList newOperatorList = null;
 		try {
@@ -561,9 +551,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				return prepareParameterUpdates();
 			case PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST:
 				return getParameterList();
-			case PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST:
-				updateOperators((OperatorList)arguments.get(0));
-				return null;
 			case PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST:
 				return getOperatorList();
 			case PatternstructurePackage.PATTERN_ELEMENT___CREATE_XML_ADAPTION:

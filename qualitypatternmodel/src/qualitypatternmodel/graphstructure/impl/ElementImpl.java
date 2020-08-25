@@ -1820,16 +1820,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 //		}
 		return patternElements;
 	}
-	
-	@Override
-	public void updateOperators(OperatorList newOperatorList) {
-//		for(Element child : getNextElements()) {
-//			child.updateOperators(newOperatorList);
-//		}
-		for(BooleanOperator predicate : getPredicates()) {
-			predicate.updateOperators(newOperatorList);
-		}
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
