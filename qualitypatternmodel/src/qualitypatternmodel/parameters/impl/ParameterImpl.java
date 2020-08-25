@@ -19,6 +19,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -93,21 +94,39 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 //		return true;
 //	}
 
+//	/**
+//	 * <!-- begin-user-doc -->
+//	 * <!-- end-user-doc -->
+//	 * @generated NOT
+//	 */
+//	@Override
+//	public void triggerParameterUpdates(PatternElement newContainer) {
+//		
+//	}
+	
 	@Override
 	public void updateParameters(ParameterList newParameterList) {
-		setParameterList(newParameterList);
-		// attention: all references to this are deleted automatically when moved to newParameterList
-		// TODO: OK?
-		
-//		if(newParameterList == null) {
-//			getParameterList().remove(this);
-//		} else {
-//			// move this to newParameterList
-//			// attention: all references are deleted automatically
-//			setParameterList(newParameterList);
-//		}
-		
+//		setParameterList(newParameterList);
+		if(getParameterList() != null) {
+			getParameterList().remove(this);
+		}
 	}
+	
+//	@Override
+//	public void prepareParameterUpdates(ParameterList newParameterList) {
+//		setParameterList(newParameterList);
+//		// attention: all references to this are deleted automatically when moved to newParameterList
+//		// TODO: OK?
+//		
+////		if(newParameterList == null) {
+////			getParameterList().remove(this);
+////		} else {
+////			// move this to newParameterList
+////			// attention: all references are deleted automatically
+////			setParameterList(newParameterList);
+////		}
+//		
+//	}
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

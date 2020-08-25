@@ -34,13 +34,13 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -657,20 +657,28 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 	
 	@Override
-	public void updateParameters(ParameterList newParameterList) {
-		getOption().updateParameters(newParameterList);
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		
+		patternElements.add(getOption());
+		setOption(null);
+		
 		if(getArgument1() instanceof Operator) {
-			getArgument1().updateParameters(newParameterList);
+			patternElements.add(getArgument1());
 		}
 		if(getArgument1() instanceof Parameter) {
-			getArgument1().updateParameters(newParameterList);
+			patternElements.add(getArgument1());
+			setArgument1(null);
 		}
 		if(getArgument2() instanceof Operator) {
-			getArgument2().updateParameters(newParameterList);
+			patternElements.add(getArgument2());
 		}
 		if(getArgument2() instanceof Parameter) {
-			getArgument2().updateParameters(newParameterList);
+			patternElements.add(getArgument2());
+			setArgument2(null);
 		}
+		
+		return patternElements;
 	}
 	
 	@Override

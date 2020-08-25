@@ -233,6 +233,14 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		return parameters;
 	}
 
+	@Override
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		patternElements.add(getCondition1());
+		patternElements.add(getCondition2());
+		return patternElements;
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

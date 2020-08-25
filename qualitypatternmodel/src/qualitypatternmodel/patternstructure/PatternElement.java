@@ -121,7 +121,7 @@ public interface PatternElement extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void updateParameters(ParameterList newParameterList);
+	EList<PatternElement> prepareParameterUpdates();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,6 +194,14 @@ public interface PatternElement extends EObject {
 	 * @generated
 	 */
 	void triggerParameterUpdates(PatternElement newContainer);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void updateParameters(ParameterList newParameterList);
 
 	/**
 	 * <!-- begin-user-doc -->

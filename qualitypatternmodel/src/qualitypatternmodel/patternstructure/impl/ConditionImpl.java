@@ -70,9 +70,10 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
+		triggerParameterUpdates(newPattern);
 		msgs = eBasicSetContainer((InternalEObject)newPattern, PatternstructurePackage.CONDITION__PATTERN, msgs);
 		return msgs;
 	}
@@ -113,9 +114,10 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedCondition, NotificationChain msgs) {
+		triggerParameterUpdates(newQuantifiedCondition);
 		msgs = eBasicSetContainer((InternalEObject)newQuantifiedCondition, PatternstructurePackage.CONDITION__QUANTIFIED_CONDITION, msgs);
 		return msgs;
 	}
@@ -156,9 +158,10 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetFormula1(Formula newFormula1, NotificationChain msgs) {
+		triggerParameterUpdates(newFormula1);
 		msgs = eBasicSetContainer((InternalEObject)newFormula1, PatternstructurePackage.CONDITION__FORMULA1, msgs);
 		return msgs;
 	}
@@ -199,9 +202,10 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetFormula2(Formula newFormula2, NotificationChain msgs) {
+		triggerParameterUpdates(newFormula2);
 		msgs = eBasicSetContainer((InternalEObject)newFormula2, PatternstructurePackage.CONDITION__FORMULA2, msgs);
 		return msgs;
 	}
@@ -242,9 +246,10 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetNotCondition(NotCondition newNotCondition, NotificationChain msgs) {
+		triggerParameterUpdates(newNotCondition);
 		msgs = eBasicSetContainer((InternalEObject)newNotCondition, PatternstructurePackage.CONDITION__NOT_CONDITION, msgs);
 		return msgs;
 	}

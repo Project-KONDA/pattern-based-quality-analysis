@@ -366,9 +366,10 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
+		triggerParameterUpdates(newOperatorList);
 		msgs = eBasicSetContainer((InternalEObject)newOperatorList, OperatorsPackage.OPERATOR__OPERATOR_LIST, msgs);
 		return msgs;
 	}

@@ -25,7 +25,6 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.MorphismContainer;
@@ -250,12 +249,11 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 	
 	@Override
-	public void triggerParameterUpdates(PatternElement newContainer) {
+	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
 		patternElements.add(getGraph());
-		patternElements.add(getCondition());
-		
-		super.triggerParameterUpdates(newContainer, patternElements);
+		patternElements.add(getCondition());		
+		return patternElements;
 	}
 	
 	@Override

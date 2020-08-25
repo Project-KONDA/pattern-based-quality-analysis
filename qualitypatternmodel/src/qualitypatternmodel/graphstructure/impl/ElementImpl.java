@@ -893,6 +893,9 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
+		
+		triggerParameterUpdates(newGraph);
+		
 		if (newGraph == null || getGraph() != null && !newGraph.equals(getGraph())) {
 			removeElementFromPreviousGraphs();
 			removeMappingsToNext();
@@ -1807,19 +1810,15 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	}
 	
 	@Override
-	public void updateParameters(ParameterList newParameterList) {
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
 		for(Property p : getProperties()) {
-			p.updateParameters(newParameterList);			
+			patternElements.add(p);			
 		}
-//		for(Element child : getNextElements()) {
-//			child.updateParameters(newParameterList);
+//		for(BooleanOperator predicate : getPredicates()) {
+//			patternElements.add(predicate);
 //		}
-		for(BooleanOperator predicate : getPredicates()) {
-			predicate.updateParameters(newParameterList);
-		}
-//		if(getRelationFromPrevious() != null) {
-//			getRelationFromPrevious().updateParameters(newParameterList);
-//		}
+		return patternElements;
 	}
 	
 	@Override

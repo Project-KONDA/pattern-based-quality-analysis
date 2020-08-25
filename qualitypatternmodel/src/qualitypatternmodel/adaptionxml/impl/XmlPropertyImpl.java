@@ -27,12 +27,12 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.PropertyOptionParam;
-import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.PropertyOptionParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -219,9 +219,7 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 //		getComparison2().clear();	
 //		getMatch().clear();			
 			
-		if(newElement != null) {
-			updateParameters(newElement.getParameterList());	
-		}
+//		triggerParameterUpdates(newElement);		
 		
 //		if(newElement == null) {
 //			removeParametersFromParameterList();		
@@ -236,13 +234,13 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	}
 	
 	@Override
-	public void updateParameters(ParameterList newParameterList) {
-		if(getAttributeName() != null) {
-			getAttributeName().updateParameters(newParameterList);
-		}
-		if(getOption() != null) {
-			getOption().updateParameters(newParameterList);		
-		}
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		patternElements.add(getAttributeName());
+		patternElements.add(getOption());
+		setAttributeName(null);
+		setOption(null);
+		return patternElements;		
 	}	
 
 	public void reset() {

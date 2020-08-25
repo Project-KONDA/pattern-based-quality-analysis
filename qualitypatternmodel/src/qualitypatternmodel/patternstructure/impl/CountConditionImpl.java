@@ -219,12 +219,12 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		CountPattern oldCountPattern = countPattern;
 		countPattern = newCountPattern;
 		
-		if(newCountPattern != null) {
-			newCountPattern.updateParameters(getParameterList());
-		}
-		if(oldCountPattern != null) {
-			oldCountPattern.updateParameters(null);
-		}
+//		if(newCountPattern != null) {
+//			newCountPattern.prepareParameterUpdates(getParameterList());
+//		}
+//		if(oldCountPattern != null) {
+//			oldCountPattern.prepareParameterUpdates(null);
+//		}
 		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__COUNT_PATTERN, oldCountPattern, newCountPattern);
@@ -255,9 +255,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	
 	@Override
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
-		
-		triggerParameterUpdates(newPattern);
-		
+				
 		msgs = super.basicSetPattern(newPattern, msgs);
 		
 		createMissingContents(newPattern);			
@@ -278,12 +276,14 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 
 	@Override
-	public void triggerParameterUpdates(PatternElement newContainer) {
+	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
 		patternElements.add(getOption());
 		patternElements.add(getCountPattern());
 		patternElements.add(getArgument2());		
-		super.triggerParameterUpdates(newContainer, patternElements);
+//		super.triggerParameterUpdates(newContainer, patternElements);
+		setOption(null);
+		return patternElements;
 	}
 	
 	@Override
@@ -296,8 +296,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 //			}
 //		}
 		
-		triggerParameterUpdates(newFormula);
-
 		msgs = super.basicSetFormula1(newFormula, msgs);
 		
 		createMissingContents(newFormula);		
@@ -321,8 +319,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 //			}
 //		}
 		
-		triggerParameterUpdates(newFormula);
-
 		msgs = super.basicSetFormula2(newFormula, msgs);
 		
 		createMissingContents(newFormula);
@@ -346,8 +342,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 //			}
 //		}
 		
-		triggerParameterUpdates(newNotCondition);
-
 		msgs = super.basicSetNotCondition(newNotCondition, msgs);
 		
 		createMissingContents(newNotCondition);
@@ -370,9 +364,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 //				parameterList.remove(getOption());
 //			}
 //		}
-		
-		triggerParameterUpdates(newQuantifiedCondition);
-		
+				
 		msgs = super.basicSetQuantifiedCondition(newQuantifiedCondition, msgs);
 		
 		createMissingContents(newQuantifiedCondition);
@@ -480,12 +472,12 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		CountConditionArgument oldArgument2 = argument2;
 		argument2 = newArgument2;
 		
-		if(newArgument2 != null) {
-			newArgument2.updateParameters(getParameterList());
-		}
-		if(oldArgument2 != null) {
-			oldArgument2.updateParameters(null);
-		}
+//		if(newArgument2 != null) {
+//			newArgument2.prepareParameterUpdates(getParameterList());
+//		}
+//		if(oldArgument2 != null) {
+//			oldArgument2.prepareParameterUpdates(null);
+//		}
 		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__ARGUMENT2, oldArgument2, newArgument2);

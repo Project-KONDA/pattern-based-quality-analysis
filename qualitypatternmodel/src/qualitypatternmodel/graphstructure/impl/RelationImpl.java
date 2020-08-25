@@ -173,6 +173,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
+	public EList<PatternElement> prepareParameterUpdates() {
+		return new BasicEList<PatternElement>();
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -252,6 +257,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
+		triggerParameterUpdates(newGraph);
+		
 		if (newGraph == null || getGraph() != null && !newGraph.equals(getGraph())) {
 			removeRelationFromPreviousGraphs();
 			removeMappingsToNext();

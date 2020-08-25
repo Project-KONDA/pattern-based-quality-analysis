@@ -25,6 +25,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.NumberElement;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
@@ -78,8 +79,11 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	}
 	
 	@Override
-	public void updateParameters(ParameterList newParameterList) {
-		getNumberParam().updateParameters(newParameterList);
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		patternElements.add(getNumberParam());
+		setNumberParam(null);
+		return patternElements;
 	}
 	
 	@Override
@@ -196,17 +200,11 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	 */
 	public NotificationChain basicSetNumberParam(NumberParam newNumberParam, NotificationChain msgs) {
 		NumberParam oldNumberParam = numberParam;
-		numberParam = newNumberParam;
-		
-		try {
-			CompletePattern completePattern;
-			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-			ParameterList varlist = completePattern.getParameterList();
-			varlist.remove(oldNumberParam);			
-			varlist.add(newNumberParam);			
-		} catch (MissingPatternContainerException e) {
-			// do nothing
-		}	
+		numberParam = newNumberParam;		
+			
+		ParameterList varlist = getParameterList();
+		varlist.remove(oldNumberParam);			
+		varlist.add(newNumberParam);					
 		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.NUMBER_ELEMENT__NUMBER_PARAM, oldNumberParam, newNumberParam);

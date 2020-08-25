@@ -32,6 +32,7 @@ import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.impl.RelationOptionParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
@@ -227,17 +228,17 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	}
 	
 	@Override
-	public void updateParameters(ParameterList newParameterList) {
-		if(getOption() != null) {
-			getOption().updateParameters(newParameterList);		
-		}
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		patternElements.add(getOption());
+		setOption(null);
+		return patternElements;		
 	}
 	
 	@Override
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
-		if(newGraph != null) {
-			updateParameters(newGraph.getParameterList());
-		}
+//		triggerParameterUpdates(newGraph);
+		
 		NotificationChain res = super.basicSetGraph(newGraph, msgs);
 		if (newGraph != null && getIncomingMapping() == null) {
 			createParameters();

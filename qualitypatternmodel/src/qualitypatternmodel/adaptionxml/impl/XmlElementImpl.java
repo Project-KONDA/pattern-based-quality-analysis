@@ -42,6 +42,7 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -351,10 +352,10 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 
 	@Override
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
-		if(newGraph != null) {
-			updateParameters(newGraph.getParameterList());
-			updateOperators(newGraph.getOperatorList());
-		}
+//		if(newGraph != null) {
+////			prepareParameterUpdates(newGraph.getParameterList());
+//			updateOperators(newGraph.getOperatorList());
+//		}
 		NotificationChain res = super.basicSetGraph(newGraph, msgs);
 		return res;
 	}

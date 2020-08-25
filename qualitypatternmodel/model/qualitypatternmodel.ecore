@@ -520,9 +520,7 @@
           </eGenericType>
         </eParameters>
       </eOperations>
-      <eOperations name="updateParameters">
-        <eParameters name="newParameterList" eType="#//parameters/ParameterList"/>
-      </eOperations>
+      <eOperations name="prepareParameterUpdates" upperBound="-1" eType="#//patternstructure/PatternElement"/>
       <eOperations name="getParameterList" eType="#//parameters/ParameterList"/>
       <eOperations name="updateOperators">
         <eParameters name="newOperatorList" eType="#//operators/OperatorList"/>
@@ -541,6 +539,9 @@
       </eOperations>
       <eOperations name="triggerParameterUpdates">
         <eParameters name="newContainer" eType="#//patternstructure/PatternElement"/>
+      </eOperations>
+      <eOperations name="updateParameters">
+        <eParameters name="newParameterList" eType="#//parameters/ParameterList"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>

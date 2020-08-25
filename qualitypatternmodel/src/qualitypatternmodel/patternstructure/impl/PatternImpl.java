@@ -9,6 +9,7 @@ import static qualitypatternmodel.utilityclasses.Constants.WHERE;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
@@ -212,6 +213,14 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 				throw new InvalidityException("wrong mapping to [" + getInternalId() + "]");
 			}
 		}
+	}
+	
+	@Override
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		patternElements.add(getCondition());
+		patternElements.add(getGraph());
+		return patternElements;
 	}
 	
 	/**
