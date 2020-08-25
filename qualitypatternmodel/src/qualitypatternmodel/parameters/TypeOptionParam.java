@@ -3,9 +3,6 @@
 package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
-
 import qualitypatternmodel.graphstructure.ReturnType;
 
 import qualitypatternmodel.operators.Comparison;
@@ -28,7 +25,7 @@ import qualitypatternmodel.operators.Comparison;
  * @model
  * @generated
  */
-public interface TypeOptionParam extends EObject {
+public interface TypeOptionParam extends Parameter {
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' attribute list.
 	 * The list contents are of type {@link qualitypatternmodel.graphstructure.ReturnType}.

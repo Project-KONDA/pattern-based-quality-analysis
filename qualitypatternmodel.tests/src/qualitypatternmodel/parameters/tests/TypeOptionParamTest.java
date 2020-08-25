@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.parameters.tests;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.parameters.ParametersFactory;
@@ -15,15 +13,7 @@ import qualitypatternmodel.parameters.TypeOptionParam;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TypeOptionParamTest extends TestCase {
-
-	/**
-	 * The fixture for this Type Option Param test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TypeOptionParam fixture = null;
+public class TypeOptionParamTest extends ParameterTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +35,14 @@ public class TypeOptionParamTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Type Option Param test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(TypeOptionParam fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Type Option Param test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected TypeOptionParam getFixture() {
-		return fixture;
+		return (TypeOptionParam)fixture;
 	}
 
 	/**

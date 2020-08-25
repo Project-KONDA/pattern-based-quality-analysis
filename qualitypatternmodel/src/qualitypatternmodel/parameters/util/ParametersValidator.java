@@ -433,7 +433,17 @@ public class ParametersValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateTypeOptionParam(TypeOptionParam typeOptionParam, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(typeOptionParam, diagnostics, context);
+		if (!validate_NoCircularContainment(typeOptionParam, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(typeOptionParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(typeOptionParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(typeOptionParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(typeOptionParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(typeOptionParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(typeOptionParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(typeOptionParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(typeOptionParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(typeOptionParam, diagnostics, context);
+		return result;
 	}
 
 	/**

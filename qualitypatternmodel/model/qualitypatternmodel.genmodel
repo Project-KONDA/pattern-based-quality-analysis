@@ -168,7 +168,6 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Comparison/argument1"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Comparison/argument2"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//operators/Comparison/type"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Comparison/option"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

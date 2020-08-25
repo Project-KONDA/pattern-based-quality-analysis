@@ -133,21 +133,21 @@ public class EvalContrel {
 		compId1Val2.createParameters();
 		compId1Val2.setArgument1(id1Prop);
 		compId1Val2.setArgument2(val2Prop);
-		compId1Val2.setType(ReturnType.STRING);
+		compId1Val2.getTypeOption().setValue(ReturnType.STRING);
 		
 		Comparison compId2Val1 = operatorsFactory.createComparison();
 		graph.getOperatorList().add(compId2Val1);
 		compId2Val1.createParameters();
 		compId2Val1.setArgument1(id2Prop);
 		compId2Val1.setArgument2(val1Prop);
-		compId2Val1.setType(ReturnType.STRING);
+		compId2Val1.getTypeOption().setValue(ReturnType.STRING);
 		
 		Comparison compRefValue = operatorsFactory.createComparison();
 		graph.getOperatorList().add(compRefValue);
 		compRefValue.createParameters();
 		compRefValue.setArgument1(ref1Prop);
 		compRefValue.setArgument2(ref2Prop);
-		compRefValue.setType(ReturnType.STRING);	
+		compRefValue.getTypeOption().setValue(ReturnType.STRING);	
 		compRefValue.getOption().setValue(ComparisonOperator.NOTEQUAL);		
 		
 		pattern.createXMLAdaption();
@@ -251,13 +251,13 @@ public class EvalContrel {
 		((XmlProperty) val2.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Comparison comparison1 = (Comparison) id1.getPredicates().get(1);
-		comparison1.setType(ReturnType.STRING);
+		comparison1.getTypeOption().setValue(ReturnType.STRING);
 		
 		Comparison comparison2 = (Comparison) val1.getPredicates().get(1);
-		comparison2.setType(ReturnType.STRING);
+		comparison2.getTypeOption().setValue(ReturnType.STRING);
 		
 		Comparison comparison3 = (Comparison) ref1.getPredicates().get(1);
-		comparison3.setType(ReturnType.STRING);
+		comparison3.getTypeOption().setValue(ReturnType.STRING);
 				
 		return completePattern;
 	}

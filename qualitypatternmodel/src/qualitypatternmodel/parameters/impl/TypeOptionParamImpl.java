@@ -13,19 +13,19 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.OperatorsPackage;
-
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TypeOptionParam;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,7 +42,7 @@ import qualitypatternmodel.parameters.TypeOptionParam;
  *
  * @generated
  */
-public class TypeOptionParamImpl extends MinimalEObjectImpl.Container implements TypeOptionParam {
+public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionParam {
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' attribute list.
 	 * <!-- begin-user-doc -->
@@ -86,12 +86,38 @@ public class TypeOptionParamImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected TypeOptionParamImpl() {
+	public TypeOptionParamImpl() {
 		super();
+		getOptions().add(ReturnType.UNSPECIFIED);
 	}
-
+	
+	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
+		if (getOptions() == null) 
+			throw new InvalidityException("options null");
+		if (getOptions().size() < 1) 
+			throw new InvalidityException("not enough options");
+		super.isValidLocal(abstractionLevel);
+	}
+	
+	@Override
+	public boolean inputIsValid() {
+		return getValue() != null && options.contains(getValue());
+	}
+	
+	@Override
+	public boolean isUsed() {
+		return !getTypeComparisons().isEmpty();
+	}
+	
+	@Override
+	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {
+		getTypeComparisons().clear();
+		return super.basicSetParameterList(newVariableList, msgs);
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -277,6 +303,18 @@ public class TypeOptionParamImpl extends MinimalEObjectImpl.Container implements
 		result.append(value);
 		result.append(')');
 		return result.toString();
+	}
+
+	@Override
+	public String generateDescription() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String myToString() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 } //TypeOptionParamImpl

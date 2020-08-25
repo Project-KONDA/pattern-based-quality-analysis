@@ -1091,6 +1091,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		untypedParameterValueEClass.getESuperTypes().add(this.getParameterValue());
 		dateTimeParamEClass.getESuperTypes().add(this.getParameterValue());
 		relationOptionParamEClass.getESuperTypes().add(this.getParameter());
+		typeOptionParamEClass.getESuperTypes().add(this.getParameter());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(parameterEClass, Parameter.class, "Parameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

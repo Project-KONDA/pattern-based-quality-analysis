@@ -205,7 +205,7 @@ public class EvalUnique {
 		other.setElement(e5G2);
 			
 		Comparison comparison = operatorsFactory.createComparison();
-		comparison.setType(ReturnType.STRING);
+		comparison.getTypeOption().setValue(ReturnType.STRING);
 		countPattern.getGraph().getOperatorList().add(comparison);		
 		comparison.createParameters();
 		comparison.setArgument1(previous);
@@ -303,7 +303,7 @@ public class EvalUnique {
 		propertyNextToElement2.setElement(nextToElement2);
 			
 		Comparison comparison = operatorsFactory.createComparison();
-		comparison.setType(ReturnType.STRING);
+		comparison.getTypeOption().setValue(ReturnType.STRING);
 		countQCond.getGraph().getOperatorList().add(comparison);		
 		comparison.createParameters();
 		comparison.setArgument1(propertyNextToReturn);
@@ -495,7 +495,7 @@ public class EvalUnique {
 		propNextToElement2.getOption().setValue(PropertyKind.ATTRIBUTE);
 		propNextToElement2.getAttributeName().setValue("Value");
 		
-		((Comparison) nextToElement2.getPredicates().get(1)).setType(ReturnType.STRING);
+		((Comparison) nextToElement2.getPredicates().get(1)).getTypeOption().setValue(ReturnType.STRING);
 		
 		return completePattern;
 	}
@@ -567,7 +567,7 @@ public class EvalUnique {
 		
 		((XmlProperty) e3G2.getProperties().get(0)).getOption().setValue(PropertyKind.DATA);
 		
-		((Comparison) e5G2.getPredicates().get(1)).setType(ReturnType.STRING);
+		((Comparison) e5G2.getPredicates().get(1)).getTypeOption().setValue(ReturnType.STRING);
 		
 		return completePattern;
 	}
@@ -613,7 +613,7 @@ public class EvalUnique {
 		
 		((XmlProperty) nextToElement2.getProperties().get(1)).getOption().setValue(PropertyKind.DATA);
 		
-		((Comparison) nextToElement2.getPredicates().get(1)).setType(ReturnType.STRING);
+		((Comparison) nextToElement2.getPredicates().get(1)).getTypeOption().setValue(ReturnType.STRING);
 		
 		return completePattern;
 	}

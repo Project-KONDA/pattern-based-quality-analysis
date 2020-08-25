@@ -197,6 +197,8 @@ public class ParametersSwitch<T> extends Switch<T> {
 			case ParametersPackage.TYPE_OPTION_PARAM: {
 				TypeOptionParam typeOptionParam = (TypeOptionParam)theEObject;
 				T result = caseTypeOptionParam(typeOptionParam);
+				if (result == null) result = caseParameter(typeOptionParam);
+				if (result == null) result = casePatternElement(typeOptionParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

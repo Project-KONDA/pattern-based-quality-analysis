@@ -38,6 +38,7 @@ import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
+import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -51,7 +52,6 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * <ul>
  *   <li>{@link qualitypatternmodel.operators.impl.ComparisonImpl#getArgument1 <em>Argument1</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.impl.ComparisonImpl#getArgument2 <em>Argument2</em>}</li>
- *   <li>{@link qualitypatternmodel.operators.impl.ComparisonImpl#getType <em>Type</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.impl.ComparisonImpl#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.impl.ComparisonImpl#getTypeOption <em>Type Option</em>}</li>
  * </ul>
@@ -76,26 +76,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @ordered
 	 */
 	protected qualitypatternmodel.graphstructure.Comparable argument2;
-
-	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final ReturnType TYPE_EDEFAULT = ReturnType.UNSPECIFIED;
-
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected ReturnType type = TYPE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
@@ -129,6 +109,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	public String generateQuery() throws InvalidityException {
 		if (option != null && option.getValue() != null && argument1 != null && argument2 != null) {
 			ComparisonOperator operator = option.getValue();
+			
+			ReturnType type = getTypeOption().getValue();
+			
 			String conversionStartArgument1 = type.getConversion();
 			String conversionEndArgument1 = type.getConversionEnd();
 			String argument1Translated = "";
@@ -194,14 +177,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}
 		}
 
-		if (argument1.getReturnType() != ReturnType.UNSPECIFIED && argument1.getReturnType() != type) {
+		if (argument1.getReturnType() != ReturnType.UNSPECIFIED && argument1.getReturnType() != getTypeOption().getValue()) {
 			throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");
 		}
-		if (argument2.getReturnType() != ReturnType.UNSPECIFIED && argument2.getReturnType() != type) {
+		if (argument2.getReturnType() != ReturnType.UNSPECIFIED && argument2.getReturnType() != getTypeOption().getValue()) {
 			throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");
 		}
 
-		if (abstractionLevel == AbstractionLevel.CONCRETE && type == ReturnType.UNSPECIFIED) {
+		if (abstractionLevel == AbstractionLevel.CONCRETE && getTypeOption().getValue() == ReturnType.UNSPECIFIED) {
 			throw new InvalidityException("input value type unspecified" + " (" + getInternalId() + ")");
 		}
 
@@ -299,6 +282,12 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				setOption(comparisonOption);
 			} else {
 				parameterList.add(getOption());
+			}
+			if (getTypeOption() == null) {
+				TypeOptionParam typeOption = new TypeOptionParamImpl();
+				setTypeOption(typeOption);
+			} else {
+				parameterList.add(getTypeOption());
 			}
 		}		
 	}
@@ -424,30 +413,38 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			qualitypatternmodel.graphstructure.Comparable otherArgument) {
 		if (newArgument == null) {
 			if (otherArgument == null) {
-				setType(ReturnType.UNSPECIFIED);
+				getTypeOption().setValue(ReturnType.UNSPECIFIED);
+				getTypeOption().setIsPredefined(false);
 			}
 			if (otherArgument instanceof Property) {
-				setType(ReturnType.UNSPECIFIED);
+				getTypeOption().setValue(ReturnType.UNSPECIFIED);
+				getTypeOption().setIsPredefined(false);
 			}
 			if (otherArgument instanceof UntypedParameterValue) {
-				setType(ReturnType.UNSPECIFIED);
+				getTypeOption().setValue(ReturnType.UNSPECIFIED);
+				getTypeOption().setIsPredefined(false);
 			}
 		} else {
 			if (newArgument instanceof Element) {
-				setType(ReturnType.ELEMENT);
+				getTypeOption().setValue(ReturnType.ELEMENT);
+				getTypeOption().setIsPredefined(true);
 			}
 			if (newArgument instanceof BooleanOperator) {
-				setType(ReturnType.BOOLEAN);
+				getTypeOption().setValue(ReturnType.BOOLEAN);
+				getTypeOption().setIsPredefined(true);
 			}
 			if (newArgument instanceof NumberOperator) {
-				setType(ReturnType.NUMBER);
+				getTypeOption().setValue(ReturnType.NUMBER);
+				getTypeOption().setIsPredefined(true);
 			}
 			if (newArgument instanceof ParameterValue) {
 				ParameterValue xsType = (ParameterValue) newArgument;
-				setType(xsType.getReturnType());
+				getTypeOption().setValue(xsType.getReturnType());
+				getTypeOption().setIsPredefined(true);
 			}
 			if (newArgument instanceof UntypedParameterValue) {
-				setType(ReturnType.UNSPECIFIED);
+				getTypeOption().setValue(ReturnType.UNSPECIFIED);
+				getTypeOption().setIsPredefined(false);
 			}			
 		}
 
@@ -732,6 +729,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		patternElements.add(getOption());
 		setOption(null);
 		
+		patternElements.add(getTypeOption());
+		setTypeOption(null);
+		
 		if(getArgument1() instanceof Operator) {
 			patternElements.add(getArgument1());
 		}
@@ -792,28 +792,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.COMPARISON__ARGUMENT2, newArgument2, newArgument2));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ReturnType getType() {
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public void setType(ReturnType newType) {
-		ReturnType oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.COMPARISON__TYPE, oldType, type));
 	}
 
 	/**
@@ -930,8 +908,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			case OperatorsPackage.COMPARISON__ARGUMENT2:
 				if (resolve) return getArgument2();
 				return basicGetArgument2();
-			case OperatorsPackage.COMPARISON__TYPE:
-				return getType();
 			case OperatorsPackage.COMPARISON__OPTION:
 				if (resolve) return getOption();
 				return basicGetOption();
@@ -956,9 +932,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			case OperatorsPackage.COMPARISON__ARGUMENT2:
 				setArgument2((qualitypatternmodel.graphstructure.Comparable)newValue);
 				return;
-			case OperatorsPackage.COMPARISON__TYPE:
-				setType((ReturnType)newValue);
-				return;
 			case OperatorsPackage.COMPARISON__OPTION:
 				setOption((ComparisonOptionParam)newValue);
 				return;
@@ -982,9 +955,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			case OperatorsPackage.COMPARISON__ARGUMENT2:
 				setArgument2((qualitypatternmodel.graphstructure.Comparable)null);
 				return;
-			case OperatorsPackage.COMPARISON__TYPE:
-				setType(TYPE_EDEFAULT);
-				return;
 			case OperatorsPackage.COMPARISON__OPTION:
 				setOption((ComparisonOptionParam)null);
 				return;
@@ -1006,8 +976,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				return argument1 != null;
 			case OperatorsPackage.COMPARISON__ARGUMENT2:
 				return argument2 != null;
-			case OperatorsPackage.COMPARISON__TYPE:
-				return type != TYPE_EDEFAULT;
 			case OperatorsPackage.COMPARISON__OPTION:
 				return option != null;
 			case OperatorsPackage.COMPARISON__TYPE_OPTION:
@@ -1032,21 +1000,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				return copy();
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (type: ");
-		result.append(type);
-		result.append(')');
-		return result.toString();
 	}
 
 	@Override

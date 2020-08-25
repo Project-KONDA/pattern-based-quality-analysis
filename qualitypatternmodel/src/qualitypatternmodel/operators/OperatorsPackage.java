@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.operators;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
@@ -1563,22 +1562,13 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON__ARGUMENT2 = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON__TYPE = BOOLEAN_OPERATOR_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Option</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON__OPTION = BOOLEAN_OPERATOR_FEATURE_COUNT + 3;
+	int COMPARISON__OPTION = BOOLEAN_OPERATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Type Option</b></em>' reference.
@@ -1587,7 +1577,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON__TYPE_OPTION = BOOLEAN_OPERATOR_FEATURE_COUNT + 4;
+	int COMPARISON__TYPE_OPTION = BOOLEAN_OPERATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Comparison</em>' class.
@@ -1596,7 +1586,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 5;
+	int COMPARISON_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -2445,17 +2435,6 @@ public interface OperatorsPackage extends EPackage {
 	EReference getComparison_Argument2();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.operators.Comparison#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see qualitypatternmodel.operators.Comparison#getType()
-	 * @see #getComparison()
-	 * @generated
-	 */
-	EAttribute getComparison_Type();
-
-	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.operators.Comparison#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2802,14 +2781,6 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPARISON__ARGUMENT2 = eINSTANCE.getComparison_Argument2();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMPARISON__TYPE = eINSTANCE.getComparison_Type();
 
 		/**
 		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.

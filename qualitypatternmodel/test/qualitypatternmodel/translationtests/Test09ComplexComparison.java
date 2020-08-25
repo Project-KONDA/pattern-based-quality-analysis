@@ -52,7 +52,7 @@ public class Test09ComplexComparison {
 			
 		comp.setArgument1(p1);
 		comp.setArgument2(p2);
-		comp.setType(ReturnType.STRING);
+		comp.getTypeOption().setValue(ReturnType.STRING);
 		
 		completePattern.createXMLAdaption();
 		completePattern.finalizeXMLAdaption();
@@ -95,7 +95,7 @@ public class Test09ComplexComparison {
 				
 		comp.setArgument1(p1);
 		comp.setArgument2(p2);
-		comp.setType(ReturnType.STRING);
+		comp.getTypeOption().setValue(ReturnType.STRING);
 		
 		completePattern.createXMLAdaption();
 		completePattern.getGraph().getRelations().get(0).adaptAsXMLNavigation();
