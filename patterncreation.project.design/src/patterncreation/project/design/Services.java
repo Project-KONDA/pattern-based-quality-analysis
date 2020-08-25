@@ -1844,7 +1844,8 @@ public class Services {
 					System.out.println("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
 					Display.getDefault().syncExec(new Runnable() {
 						public void run() {
-							MessageDialog dialog = new MessageDialog(new Shell(), "New abstract pattern", null, "This is an abstract pattern and it is from now on immutable", MessageDialog.INFORMATION, new String[] { "Ok" }, 0);
+							String message = "This is an abstract pattern. It was adapted to use with a xml-database. It is from now on immutable, only relations should be changed to xml relations. After the exchange this pattern should be finalized.";
+							MessageDialog dialog = new MessageDialog(new Shell(), "New abstract pattern", null, message, MessageDialog.INFORMATION, new String[] { "Ok" }, 0);
 							int result = dialog.open();
 							System.out.println(result + " " + isAbstract);
 						}
@@ -2073,7 +2074,7 @@ public class Services {
     	if(self instanceof Graph) {
     		Graph graph = (Graph) self;
     		OperatorList operatorlist = graph.getOperatorList();
-    		CompletePattern pattern = null;
+    		/*CompletePattern pattern = null;
 			try {
 				pattern = (CompletePattern) getWurzelContainer(self);//graph.getContainer(); geht nicht, falls der graph in einer quantifiedcondition ist
 				//EObject cool = getWurzelContainer(self);
@@ -2081,12 +2082,12 @@ public class Services {
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-    		ParameterList parameterlist = pattern.getParameterList();
+			}*/
+    		//ParameterList parameterlist = pattern.getParameterList();
     		Comparison comparison = new ComparisonImpl();
-    		ComparisonOptionParam comparisonoptionparam = new ComparisonOptionParamImpl();
-    		comparison.setOption(comparisonoptionparam);
-    		parameterlist.add(comparisonoptionparam);
+    		//ComparisonOptionParam comparisonoptionparam = new ComparisonOptionParamImpl();
+    		//comparison.setOption(comparisonoptionparam);
+    		//parameterlist.add(comparisonoptionparam);
     		operatorlist.add(comparison);
     		
     	}
@@ -2096,18 +2097,18 @@ public class Services {
     	if(self instanceof Graph) {
     		Graph graph = (Graph) self;
     		OperatorList operatorlist = graph.getOperatorList();
-    		CompletePattern pattern = null;
+    		/*CompletePattern pattern = null;
 			try {
 				pattern = (CompletePattern) getWurzelContainer(self);//pattern = (CompletePattern) graph.getContainer();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-    		ParameterList parameterlist = pattern.getParameterList();
+			}*/
+    		//ParameterList parameterlist = pattern.getParameterList();
     		Match match = new MatchImpl();
-    		BooleanParam booleanparam = new BooleanParamImpl();
-    		match.setOption(booleanparam);
-    		parameterlist.add(booleanparam);
+    		//BooleanParam booleanparam = new BooleanParamImpl();
+    		//match.setOption(booleanparam);
+    		//parameterlist.add(booleanparam);
     		operatorlist.add(match);
     		
     	}
@@ -2144,6 +2145,7 @@ public class Services {
     	ArrayList<EObject> returnlist = new ArrayList<EObject>();//die gesuchten Elemente
     	
     	if(object instanceof BooleanParam) {
+    		System.out.println("object ist Boolean");
     		BooleanParam booleanparam = (BooleanParam) object;
     		
     		EList<Comparison> comparisonArgument1 = booleanparam.getComparison1();
@@ -2153,35 +2155,52 @@ public class Services {
     		returnlist.addAll(comparisonArgument1);
     		returnlist.addAll(comparisonArgument2);
     		returnlist.addAll(matches);
+    		
+    		System.out.println(comparisonArgument1);
+    		System.out.println(comparisonArgument2);
+    		System.out.println(matches);
     	}
     	
     	return returnlist;
     }
     
-    //HashMap<String, EObject> checkboxElements = new HashMap<String, EObject>();//in dieser 
-    ArrayList<String> checkboxElements = new ArrayList<String>();//die ids, der markierten Elemente
-    HashMap<String, ArrayList<EObject>> elementElements = new HashMap<String, ArrayList<EObject>>();//das sind die Elemente eines Elements, die markiert werden, sie werden gespeichert, damit sie bei der Entfernung der Markierung nicht neu ermittelt werden müssen
+    HashMap<CompletePattern, ArrayList<EObject>> patternRelatedElements = new HashMap<CompletePattern, ArrayList<EObject>>();//Schlüssel ist ein CompletePattern, der Wert sind die Elemente, die in diesem CompletePattern markiert sind
     public void iteratorCheckbox(EObject self, EObject iterator, boolean checkboxValue) {
-    	ArrayList<EObject> elements = getRelatedElements(iterator);
-    		
-    	ArrayList<EObject> relatedElements = new ArrayList<EObject>();//die Elemente, die durch iterator markiert werden müssen
-    	String elementId = "";
-    	for(EObject eo:elements) {
-    		PatternElement patternElement = (PatternElement) eo;
-    		//checkboxElements.put(patternElement.getId(), eo);
-    		elementId = patternElement.getId();
-    		checkboxElements.add(elementId);
-    		relatedElements.add(eo);
+    	/*Fälle:
+    		1. Element wird markiert und kein anderes Element ist markiert
+    		2. Element wird markiert und ein anderes Element ist markiert
+    		3. Elementmarkierung wird aufgehoben*/
+
+    	System.out.println(self);
+    	ArrayList<EObject> thisPatternRelatedElements = patternRelatedElements.get((CompletePattern) self);
+    	ArrayList<EObject> elements = getRelatedElements(iterator);//die Elemente, die wegen iterator markiert werden müssen
+    	
+    	if(thisPatternRelatedElements == null) {//das Muster wurde nocht nicht der Map hinzugefügt, also wurde noch kein Element des Musters markiert
+    		thisPatternRelatedElements = new ArrayList<EObject>();
+    		patternRelatedElements.put((CompletePattern) self, thisPatternRelatedElements);
     	}
-    	//elementElements
+    	
+    	if(thisPatternRelatedElements.isEmpty()) {//gerade sind keine Elemente markiert, es kann also nur markiert werden
+    		thisPatternRelatedElements.addAll(elements);
+    	}else {
+    		thisPatternRelatedElements.clear();
+    		if(checkboxValue) {
+    			thisPatternRelatedElements.addAll(elements);
+    		}
+    	}
+    	System.out.println(patternRelatedElements.get((CompletePattern) self));
+    	System.out.println(elements);
     }
     
     /*static ArrayList<EObject> objecttestlist = new ArrayList<EObject>();
-    public boolean objecttest(EObject self) {
-    	objecttestlist.add(self);
-    	if(objecttestlist.size() == 2) {
-    		System.out.println(objecttestlist.get(0).equals(objecttestlist.get(0))+"777777777777777");
+    public EObject objecttest(EObject self) {
+    	if(!objecttestlist.contains(self)) {
+    		objecttestlist.add(self);
     	}
-    	return true;
+    	if(objecttestlist.size() == 2) {
+    		System.out.println(objecttestlist.get(0).equals(objecttestlist.get(1))+"777777777777777"+objecttestlist.get(0)+" "+objecttestlist.get(1));
+    	}
+    	System.out.println("ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß"+objecttestlist.size());
+    	return self;
     }*/
 }

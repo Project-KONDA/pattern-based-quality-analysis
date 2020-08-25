@@ -3348,7 +3348,7 @@
           <ifs name="parameterlistelementsifbooleancheckbox" predicateExpression="aql:self.parameterlistElementsIfBooleanParam(iterator)">
             <widget xsi:type="properties:CheckboxDescription" name="booleancheckbox" labelExpression="aql:self.getParameterlistElementsIteratorName(iterator)">
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.iteratorCheckbox(iterator,newValue)"/>
               </initialOperation>
             </widget>
           </ifs>
