@@ -44,10 +44,10 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getType()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final ReturnType TYPE_EDEFAULT = ReturnType.UNSPECIFIED;
+	protected static final ReturnType TYPE_EDEFAULT = ReturnType.STRING;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
