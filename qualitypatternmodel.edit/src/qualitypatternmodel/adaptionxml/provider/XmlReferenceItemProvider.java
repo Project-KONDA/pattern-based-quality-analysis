@@ -51,9 +51,9 @@ public class XmlReferenceItemProvider extends RelationItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSourcePropertyPropertyDescriptor(object);
-			addTargetPropertyPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
+			addTargetPropertyPropertyDescriptor(object);
+			addSourcePropertyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

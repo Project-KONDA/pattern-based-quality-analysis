@@ -1108,13 +1108,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE__NAME = GraphstructurePackage.RELATION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Source Property</b></em>' reference.
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE__SOURCE_PROPERTY = GraphstructurePackage.RELATION_FEATURE_COUNT + 0;
+	int XML_REFERENCE__TYPE = GraphstructurePackage.RELATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Target Property</b></em>' reference.
@@ -1126,13 +1126,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE__TARGET_PROPERTY = GraphstructurePackage.RELATION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Source Property</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE__TYPE = GraphstructurePackage.RELATION_FEATURE_COUNT + 2;
+	int XML_REFERENCE__SOURCE_PROPERTY = GraphstructurePackage.RELATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Xml Reference</em>' class.
@@ -1505,13 +1505,31 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY__ATTRIBUTE_NAME = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Incoming References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY__INCOMING_REFERENCES = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY__OUTGOING_REFERENCES = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Xml Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_FEATURE_COUNT = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 2;
+	int XML_PROPERTY_FEATURE_COUNT = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -2510,6 +2528,28 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlProperty_AttributeName();
 
 	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionxml.XmlProperty#getIncomingReferences <em>Incoming References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Incoming References</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getIncomingReferences()
+	 * @see #getXmlProperty()
+	 * @generated
+	 */
+	EReference getXmlProperty_IncomingReferences();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionxml.XmlProperty#getOutgoingReferences <em>Outgoing References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Outgoing References</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getOutgoingReferences()
+	 * @see #getXmlProperty()
+	 * @generated
+	 */
+	EReference getXmlProperty_OutgoingReferences();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlRoot <em>Xml Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2689,6 +2729,22 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference XML_PROPERTY__ATTRIBUTE_NAME = eINSTANCE.getXmlProperty_AttributeName();
+
+		/**
+		 * The meta object literal for the '<em><b>Incoming References</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XML_PROPERTY__INCOMING_REFERENCES = eINSTANCE.getXmlProperty_IncomingReferences();
+
+		/**
+		 * The meta object literal for the '<em><b>Outgoing References</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XML_PROPERTY__OUTGOING_REFERENCES = eINSTANCE.getXmlProperty_OutgoingReferences();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlRootImpl <em>Xml Root</em>}' class.

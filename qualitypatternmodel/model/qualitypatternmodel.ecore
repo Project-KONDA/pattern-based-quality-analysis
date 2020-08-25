@@ -621,17 +621,21 @@
     <eClassifiers xsi:type="ecore:EClass" name="XmlReference" eSuperTypes="#//graphstructure/Relation">
       <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceProperty" lowerBound="1"
-          eType="#//adaptionxml/XmlProperty"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="targetProperty" lowerBound="1"
-          eType="#//adaptionxml/XmlProperty"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetProperty" lowerBound="1"
+          eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/incomingReferences"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceProperty" lowerBound="1"
+          eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/outgoingReferences"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlProperty" eSuperTypes="#//graphstructure/Property">
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/PropertyOptionParam"
           eOpposite="#//parameters/PropertyOptionParam/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" eType="#//parameters/TextLiteralParam"
           eOpposite="#//parameters/TextLiteralParam/properties"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="incomingReferences" upperBound="-1"
+          eType="#//adaptionxml/XmlReference" eOpposite="#//adaptionxml/XmlReference/targetProperty"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingReferences" upperBound="-1"
+          eType="#//adaptionxml/XmlReference" eOpposite="#//adaptionxml/XmlReference/sourceProperty"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="PropertyKind">
       <eLiterals name="DATA" literal="DATA"/>
