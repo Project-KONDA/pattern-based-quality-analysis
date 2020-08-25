@@ -444,7 +444,12 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		if(!(this instanceof XmlElement) && !(this instanceof XmlRoot)) {
 			XmlElement xmlElement = new XmlElementImpl();
 			xmlElement.setGraphSimple(getGraph());	
-			xmlElement.setName(getName());
+//			xmlElement.setName(getName());
+			if(getName().matches("Element [0-9]+")) {
+				xmlElement.setName(getName().replace("Element", "XmlElement"));
+			} else {
+				xmlElement.setName(getName());
+			}
 			
 //			for(ElementMapping mapping : xmlElement.getMappingTo()) {
 //				mapping.getTo().setGraph(null);
