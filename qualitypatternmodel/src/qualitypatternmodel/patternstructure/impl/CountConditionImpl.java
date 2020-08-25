@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -22,7 +23,6 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.CountPattern;
@@ -220,12 +220,12 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		CountPattern oldCountPattern = countPattern;
 		countPattern = newCountPattern;
 		
-		if(newCountPattern != null) {
-			newCountPattern.updateParameters(newCountPattern.getParameterList());
-		}
-		if(oldCountPattern != null) {
-			oldCountPattern.updateParameters(null);
-		}
+//		if(newCountPattern != null) {
+//			newCountPattern.prepareParameterUpdates(getParameterList());
+//		}
+//		if(oldCountPattern != null) {
+//			oldCountPattern.prepareParameterUpdates(null);
+//		}
 		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__COUNT_PATTERN, oldCountPattern, newCountPattern);
@@ -256,85 +256,149 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	
 	@Override
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
-		if(getOption() != null) {
-			getOption().setParameterList(null);
-		}
-
+				
 		msgs = super.basicSetPattern(newPattern, msgs);
 		
-		if(newPattern != null) {
-			setCountPattern(new CountPatternImpl());
-			setOption(new ComparisonOptionParamImpl());
-			getParameterList().add(getOption());
-		}			
+		createParameters();
+		createCountPattern();
 		
 		return msgs;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void createParameters() {
+		ParameterList parameterList = getParameterList();
+		if(parameterList != null) {
+			if(getOption() == null) {
+				ComparisonOptionParam comparisonOption = new ComparisonOptionParamImpl();
+				setOption(comparisonOption);
+//				parameterList.add(comparisonOption);
+			} else {
+				parameterList.add(getOption());
+			}		
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void createCountPattern() {
+		if(getCountPattern() == null) {
+			setCountPattern(new CountPatternImpl());
+		}
+	}
+
+	@Override
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		patternElements.add(getOption());
+		patternElements.add(getCountPattern());
+		patternElements.add(getArgument2());		
+//		super.triggerParameterUpdates(newContainer, patternElements);
+		setOption(null);
+		return patternElements;
+	}
+	
 	@Override
 	public NotificationChain basicSetFormula1(Formula newFormula, NotificationChain msgs) {
-		if(getOption() != null) {
-			getOption().setParameterList(null);
-		}
-
+//		if(getOption() != null) {
+////			getOption().setParameterList(null);
+//			ParameterList parameterList = getParameterList();
+//			if(parameterList != null) {
+//				parameterList.remove(getOption());
+//			}
+//		}
+		
 		msgs = super.basicSetFormula1(newFormula, msgs);
 		
-		if(newFormula != null) {
-			setCountPattern(new CountPatternImpl());
-			setOption(new ComparisonOptionParamImpl());
-			getParameterList().add(getOption());
-		}			
+		createParameters();
+		createCountPattern();	
+		
+//		if(newFormula != null) {
+//			setCountPattern(new CountPatternImpl());
+//			setOption(new ComparisonOptionParamImpl());
+//			getParameterList().add(getOption());
+//		}			
 
 		return msgs;
 	}
 	
 	@Override
 	public NotificationChain basicSetFormula2(Formula newFormula, NotificationChain msgs) {
-		if(getOption() != null) {
-			getOption().setParameterList(null);
-		}
-
+//		if(getOption() != null) {
+////			getOption().setParameterList(null);
+//			ParameterList parameterList = getParameterList();
+//			if(parameterList != null) {
+//				parameterList.remove(getOption());
+//			}
+//		}
+		
 		msgs = super.basicSetFormula2(newFormula, msgs);
 		
-		if(newFormula != null) {
-			setCountPattern(new CountPatternImpl());
-			setOption(new ComparisonOptionParamImpl());
-			getParameterList().add(getOption());
-		}			
+		createParameters();
+		createCountPattern();
+		
+//		if(newFormula != null) {
+//			setCountPattern(new CountPatternImpl());
+//			setOption(new ComparisonOptionParamImpl());
+//			getParameterList().add(getOption());
+//		}			
 
 		return msgs;
 	}
 	
 	@Override
 	public NotificationChain basicSetNotCondition(NotCondition newNotCondition, NotificationChain msgs) {
-		if(getOption() != null) {
-			getOption().setParameterList(null);
-		}
-
+//		if(getOption() != null) {
+////			getOption().setParameterList(null);
+//			ParameterList parameterList = getParameterList();
+//			if(parameterList != null) {
+//				parameterList.remove(getOption());
+//			}
+//		}
+		
 		msgs = super.basicSetNotCondition(newNotCondition, msgs);
 		
-		if(newNotCondition != null) {
-			setCountPattern(new CountPatternImpl());
-			setOption(new ComparisonOptionParamImpl());
-			getParameterList().add(getOption());
-		}			
+		createParameters();
+		createCountPattern();
+		
+//		if(newNotCondition != null) {
+//			setCountPattern(new CountPatternImpl());
+//			setOption(new ComparisonOptionParamImpl());
+//			getParameterList().add(getOption());
+//		}			
 
 		return msgs;
 	}
 	
 	@Override 
 	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedCondition, NotificationChain msgs) {
-		if(getOption() != null) {
-			getOption().setParameterList(null);
-		}
-		
+//		if(getOption() != null) {
+////			getOption().setParameterList(null);
+//			ParameterList parameterList = getParameterList();
+//			if(parameterList != null) {
+//				parameterList.remove(getOption());
+//			}
+//		}
+				
 		msgs = super.basicSetQuantifiedCondition(newQuantifiedCondition, msgs);
 		
-		if(newQuantifiedCondition != null) {
-			setCountPattern(new CountPatternImpl());
-			setOption(new ComparisonOptionParamImpl());
-			getParameterList().add(getOption());
-		}			
+		createParameters();
+		createCountPattern();
+		
+//		if(newQuantifiedCondition != null) {
+//			setCountPattern(new CountPatternImpl());
+//			setOption(new ComparisonOptionParamImpl());
+//			getParameterList().add(getOption());
+//		}			
 		
 		
 		return msgs;
@@ -375,21 +439,19 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	 */
 	public NotificationChain basicSetOption(ComparisonOptionParam newOption, NotificationChain msgs) {
 		ComparisonOptionParam oldOption = option;
+		
+		ParameterList varlist = getParameterList();
+		if(varlist != null) {
+			varlist.remove(oldOption);			
+			varlist.add(newOption);
+		}
+		
 		option = newOption;
+		
 		if(option != null) {
 			option.getOptions().clear();
 			option.getOptions().addAll(ComparisonOperator.VALUES);
 		}
-		
-		try {
-			CompletePattern completePattern;
-			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-			ParameterList varlist = completePattern.getParameterList();
-			varlist.remove(oldOption);			
-			varlist.add(newOption);			
-		} catch (MissingPatternContainerException e) {
-			// do nothing
-		}	
 		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__OPTION, oldOption, newOption);
@@ -437,12 +499,12 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		CountConditionArgument oldArgument2 = argument2;
 		argument2 = newArgument2;
 		
-		if(newArgument2 != null) {
-			newArgument2.updateParameters(newArgument2.getParameterList());
-		}
-		if(oldArgument2 != null) {
-			oldArgument2.updateParameters(null);
-		}
+//		if(newArgument2 != null) {
+//			newArgument2.prepareParameterUpdates(getParameterList());
+//		}
+//		if(oldArgument2 != null) {
+//			oldArgument2.prepareParameterUpdates(null);
+//		}
 		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__ARGUMENT2, oldArgument2, newArgument2);
@@ -470,6 +532,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COUNT_CONDITION__ARGUMENT2, newArgument2, newArgument2));
 	}
+
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -592,6 +656,24 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 				return argument2 != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case PatternstructurePackage.COUNT_CONDITION___CREATE_PARAMETERS:
+				createParameters();
+				return null;
+			case PatternstructurePackage.COUNT_CONDITION___CREATE_COUNT_PATTERN:
+				createCountPattern();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	@Override

@@ -173,6 +173,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
+	public EList<PatternElement> prepareParameterUpdates() {
+		return new BasicEList<PatternElement>();
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -252,6 +257,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
+		triggerParameterUpdates(newGraph);
+		
 		if (newGraph == null || getGraph() != null && !newGraph.equals(getGraph())) {
 			removeRelationFromPreviousGraphs();
 			removeMappingsToNext();
@@ -669,7 +676,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public XmlNavigation adaptAsXMLNavigation() {
 		if(!(this instanceof XmlNavigation)) {
 			XmlNavigation navigation = new XmlNavigationImpl();
-			navigation.setName(getName());
+//			navigation.setName(getName());
+			if(getName().matches("Relation [0-9]+")) {
+				navigation.setName(getName().replace("Relation", "XmlNavigation"));
+			} else if(getName().matches("XmlReference [0-9]+")) {
+				navigation.setName(getName().replace("XmlReference", "XmlNavigation"));
+			} else {
+				navigation.setName(getName());
+			}
 			navigation.setGraphSimple(getGraph());
 			if(getIncomingMapping() == null) {
 				navigation.createParameters();
@@ -703,7 +717,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if(!(this instanceof XmlReference)) {
 			XmlReference reference = new XmlReferenceImpl();			
 			reference.setGraphSimple(getGraph());
-			reference.setName(getName());
+//			reference.setName(getName());
+			if(getName().matches("Relation [0-9]+")) {
+				reference.setName(getName().replace("Relation", "XmlReference"));
+			} else if(getName().matches("XmlNavigation [0-9]+")) {
+				reference.setName(getName().replace("XmlNavigation", "XmlReference"));
+			} else {
+				reference.setName(getName());
+			}
 			reference.setSource(getSource());
 			reference.setTarget(getTarget());
 			setSource(null);

@@ -46,4 +46,12 @@ public interface NumberElement extends CountConditionArgument {
 	 */
 	void setNumberParam(NumberParam value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void createParameters();
+
 } // NumberElement

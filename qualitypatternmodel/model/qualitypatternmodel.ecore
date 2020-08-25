@@ -520,13 +520,8 @@
           </eGenericType>
         </eParameters>
       </eOperations>
-      <eOperations name="updateParameters">
-        <eParameters name="newParameterList" eType="#//parameters/ParameterList"/>
-      </eOperations>
+      <eOperations name="prepareParameterUpdates" upperBound="-1" eType="#//patternstructure/PatternElement"/>
       <eOperations name="getParameterList" eType="#//parameters/ParameterList"/>
-      <eOperations name="updateOperators">
-        <eParameters name="newOperatorList" eType="#//operators/OperatorList"/>
-      </eOperations>
       <eOperations name="getOperatorList" eType="#//operators/OperatorList"/>
       <eOperations name="createXMLAdaption" eType="#//patternstructure/PatternElement"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
@@ -535,6 +530,16 @@
         <eParameters name="database" eType="#//execution/XmlDatabase"/>
       </eOperations>
       <eOperations name="relationsXmlAdapted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="triggerParameterUpdates">
+        <eParameters name="newContainer" eType="#//patternstructure/PatternElement"/>
+        <eParameters name="patternElements" upperBound="-1" eType="#//patternstructure/PatternElement"/>
+      </eOperations>
+      <eOperations name="triggerParameterUpdates">
+        <eParameters name="newContainer" eType="#//patternstructure/PatternElement"/>
+      </eOperations>
+      <eOperations name="updateParameters">
+        <eParameters name="newParameterList" eType="#//parameters/ParameterList"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalId" lowerBound="1"
@@ -555,6 +560,8 @@
           eType="#//patternstructure/Condition" containment="true" eOpposite="#//patternstructure/Condition/notCondition"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CountCondition" eSuperTypes="#//patternstructure/Condition">
+      <eOperations name="createParameters"/>
+      <eOperations name="createCountPattern"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="countPattern" lowerBound="1"
           eType="#//patternstructure/CountPattern" containment="true" eOpposite="#//patternstructure/CountPattern/countCondition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
@@ -588,6 +595,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="query" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumberElement" eSuperTypes="#//patternstructure/CountConditionArgument">
+      <eOperations name="createParameters"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="numberParam" lowerBound="1"
           eType="#//parameters/NumberParam" eOpposite="#//parameters/NumberParam/numberArgument"/>
     </eClassifiers>
@@ -613,17 +621,21 @@
     <eClassifiers xsi:type="ecore:EClass" name="XmlReference" eSuperTypes="#//graphstructure/Relation">
       <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceProperty" lowerBound="1"
-          eType="#//adaptionxml/XmlProperty"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="targetProperty" lowerBound="1"
-          eType="#//adaptionxml/XmlProperty"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetProperty" lowerBound="1"
+          eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/incomingReferences"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceProperty" lowerBound="1"
+          eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/outgoingReferences"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlProperty" eSuperTypes="#//graphstructure/Property">
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/PropertyOptionParam"
           eOpposite="#//parameters/PropertyOptionParam/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" eType="#//parameters/TextLiteralParam"
           eOpposite="#//parameters/TextLiteralParam/properties"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="incomingReferences" upperBound="-1"
+          eType="#//adaptionxml/XmlReference" eOpposite="#//adaptionxml/XmlReference/targetProperty"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingReferences" upperBound="-1"
+          eType="#//adaptionxml/XmlReference" eOpposite="#//adaptionxml/XmlReference/sourceProperty"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="PropertyKind">
       <eLiterals name="DATA" literal="DATA"/>

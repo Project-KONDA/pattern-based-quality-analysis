@@ -200,13 +200,13 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR___MY_TO_STRING = GraphstructurePackage.COMPARABLE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.COMPARABLE___UPDATE_PARAMETERS__PARAMETERLIST;
+	int OPERATOR___PREPARE_PARAMETER_UPDATES = GraphstructurePackage.COMPARABLE___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -216,15 +216,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR___GET_PARAMETER_LIST = GraphstructurePackage.COMPARABLE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR___UPDATE_OPERATORS__OPERATORLIST = GraphstructurePackage.COMPARABLE___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -270,6 +261,33 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR___RELATIONS_XML_ADAPTED = GraphstructurePackage.COMPARABLE___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = GraphstructurePackage.COMPARABLE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.COMPARABLE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.COMPARABLE___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -507,13 +525,13 @@ public interface OperatorsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___MY_TO_STRING = OPERATOR___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+	int BOOLEAN_OPERATOR___PREPARE_PARAMETER_UPDATES = OPERATOR___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -523,15 +541,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR___GET_PARAMETER_LIST = OPERATOR___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_OPERATOR___UPDATE_OPERATORS__OPERATORLIST = OPERATOR___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -577,6 +586,33 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR___RELATIONS_XML_ADAPTED = OPERATOR___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -850,13 +886,13 @@ public interface OperatorsPackage extends EPackage {
 	int NUMBER_OPERATOR___MY_TO_STRING = OPERATOR___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+	int NUMBER_OPERATOR___PREPARE_PARAMETER_UPDATES = OPERATOR___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -866,15 +902,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_OPERATOR___GET_PARAMETER_LIST = OPERATOR___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_OPERATOR___UPDATE_OPERATORS__OPERATORLIST = OPERATOR___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -920,6 +947,33 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_OPERATOR___RELATIONS_XML_ADAPTED = OPERATOR___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1184,13 +1238,13 @@ public interface OperatorsPackage extends EPackage {
 	int MATCH___MY_TO_STRING = BOOLEAN_OPERATOR___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH___UPDATE_PARAMETERS__PARAMETERLIST = BOOLEAN_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+	int MATCH___PREPARE_PARAMETER_UPDATES = BOOLEAN_OPERATOR___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -1200,15 +1254,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH___GET_PARAMETER_LIST = BOOLEAN_OPERATOR___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCH___UPDATE_OPERATORS__OPERATORLIST = BOOLEAN_OPERATOR___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -1254,6 +1299,33 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH___RELATIONS_XML_ADAPTED = BOOLEAN_OPERATOR___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = BOOLEAN_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = BOOLEAN_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___UPDATE_PARAMETERS__PARAMETERLIST = BOOLEAN_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1590,13 +1662,13 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON___MY_TO_STRING = BOOLEAN_OPERATOR___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON___UPDATE_PARAMETERS__PARAMETERLIST = BOOLEAN_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+	int COMPARISON___PREPARE_PARAMETER_UPDATES = BOOLEAN_OPERATOR___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -1606,15 +1678,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON___GET_PARAMETER_LIST = BOOLEAN_OPERATOR___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON___UPDATE_OPERATORS__OPERATORLIST = BOOLEAN_OPERATOR___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -1660,6 +1723,33 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON___RELATIONS_XML_ADAPTED = BOOLEAN_OPERATOR___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = BOOLEAN_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = BOOLEAN_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___UPDATE_PARAMETERS__PARAMETERLIST = BOOLEAN_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1960,13 +2050,13 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_LIST___UPDATE_PARAMETERS__PARAMETERLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+	int OPERATOR_LIST___PREPARE_PARAMETER_UPDATES = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -1976,15 +2066,6 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR_LIST___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATOR_LIST___UPDATE_OPERATORS__OPERATORLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -2030,6 +2111,33 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR_LIST___RELATIONS_XML_ADAPTED = PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___UPDATE_PARAMETERS__PARAMETERLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Add</em>' operation.

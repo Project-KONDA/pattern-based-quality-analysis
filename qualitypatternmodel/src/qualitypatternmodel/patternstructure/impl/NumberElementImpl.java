@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -22,9 +23,9 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.NumberParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.NumberElement;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
@@ -78,8 +79,11 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	}
 	
 	@Override
-	public void updateParameters(ParameterList newParameterList) {
-		getNumberParam().updateParameters(newParameterList);
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		patternElements.add(getNumberParam());
+		setNumberParam(null);
+		return patternElements;
 	}
 	
 	@Override
@@ -117,23 +121,32 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	 */
 	public NotificationChain basicSetCountCondition2(CountCondition newCountCondition2, NotificationChain msgs) {
 		
+		triggerParameterUpdates(newCountCondition2);
+		
 		msgs = eBasicSetContainer((InternalEObject)newCountCondition2, PatternstructurePackage.NUMBER_ELEMENT__COUNT_CONDITION2, msgs);
 		
-		if(newCountCondition2 != null) {
-			if(getNumberParam() != null) {
-				getNumberParam().setParameterList(getParameterList());
-			} else {			
-				NumberParam newNumberParam = new NumberParamImpl();
-				getParameterList().add(newNumberParam);
-				setNumberParam(newNumberParam);
-			}
-		} else {
-			if(getNumberParam() != null) {
-				getNumberParam().setParameterList(null);
-			}
-		}
+		createParameters();
 		
 		return msgs;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void createParameters() {
+		ParameterList parameterList = getParameterList();
+		if(parameterList != null) {
+			if(getNumberParam() == null) {
+				NumberParam newNumberParam = new NumberParamImpl();
+				setNumberParam(newNumberParam);
+//				parameterList.add(newNumberParam);
+			} else {			
+				parameterList.add(getNumberParam());
+			}
+		}
 	}
 
 	/**
@@ -192,17 +205,12 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	 */
 	public NotificationChain basicSetNumberParam(NumberParam newNumberParam, NotificationChain msgs) {
 		NumberParam oldNumberParam = numberParam;
-		numberParam = newNumberParam;
+			
+		ParameterList varlist = getParameterList();
+		varlist.remove(oldNumberParam);			
+		varlist.add(newNumberParam);
 		
-		try {
-			CompletePattern completePattern;
-			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-			ParameterList varlist = completePattern.getParameterList();
-			varlist.remove(oldNumberParam);			
-			varlist.add(newNumberParam);			
-		} catch (MissingPatternContainerException e) {
-			// do nothing
-		}	
+		numberParam = newNumberParam;		
 		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PatternstructurePackage.NUMBER_ELEMENT__NUMBER_PARAM, oldNumberParam, newNumberParam);
@@ -230,6 +238,8 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.NUMBER_ELEMENT__NUMBER_PARAM, newNumberParam, newNumberParam));
 	}
+
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -350,6 +360,21 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 		return super.eIsSet(featureID);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case PatternstructurePackage.NUMBER_ELEMENT___CREATE_PARAMETERS:
+				createParameters();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
 	@Override
 	public String myToString() {
 		return "NumberElement " + getInternalId() + " (" + getNumberParam().getInternalId() + ")";

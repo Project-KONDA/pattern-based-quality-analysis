@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.patternstructure.MorphismContainer;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.TrueElement;
@@ -45,6 +46,11 @@ public class TrueElementImpl extends ConditionImpl implements TrueElement {
 	public EList<MorphismContainer> getNextMorphismContainers() {
 		return new BasicEList<MorphismContainer>();
 	}	
+	
+	@Override
+	public EList<PatternElement> prepareParameterUpdates() {
+		return new BasicEList<PatternElement>();
+	}
 	
 	/**
 	 * <!-- begin-user-doc -->

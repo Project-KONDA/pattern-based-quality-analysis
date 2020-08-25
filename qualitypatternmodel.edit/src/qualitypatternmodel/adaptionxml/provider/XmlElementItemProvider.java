@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.adaptionxml.XmlElement;
-
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.provider.ElementItemProvider;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
@@ -66,14 +66,18 @@ public class XmlElementItemProvider extends ElementItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XmlElement)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_XmlElement_type") :
-			getString("_UI_XmlElement_type") + " " + label;
+//		String label = ((XmlElement)object).getName();
+//		return label == null || label.length() == 0 ?
+//			getString("_UI_XmlElement_type") :
+//			getString("_UI_XmlElement_type") + " " + label;
+		
+		XmlElement element = (XmlElement) object;
+		return getString("_UI_XmlElement_type") + " " + element.getInternalId();
+
 	}
 
 

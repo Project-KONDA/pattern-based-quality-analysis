@@ -36,7 +36,6 @@ import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.impl.OperatorListImpl;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.ElementMapping;
@@ -537,13 +536,16 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 //	}
 	
 	@Override
-	public void updateParameters(ParameterList newParameterList) {
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
 		for(Element element : getElements()) {
-			element.updateParameters(newParameterList);
+			patternElements.add(element);
 		}
 		for(Relation relation: getRelations()) {
-			relation.updateParameters(newParameterList);
+			patternElements.add(relation);
 		}
+		patternElements.add(getOperatorList());
+		return patternElements;
 	}
 
 	/**
@@ -749,12 +751,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedCondition,
 			NotificationChain msgs) {
-		if(newQuantifiedCondition != null) {
-			ParameterList parameterList = newQuantifiedCondition.getParameterList();
-			if(parameterList != null) {
-				updateParameters(parameterList);
-			}
-		}
+		triggerParameterUpdates(newQuantifiedCondition);
+//		if(newQuantifiedCondition != null) {
+//			ParameterList parameterList = newQuantifiedCondition.getParameterList();
+//			if(parameterList != null) {
+//				prepareParameterUpdates(parameterList);
+//			}
+//		} else {
+//			prepareParameterUpdates(null);
+//		}
 		msgs = eBasicSetContainer((InternalEObject)newQuantifiedCondition, GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION, msgs);
 		return msgs;
 	}
@@ -796,12 +801,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
-		if(newPattern != null) {
-			ParameterList parameterList = newPattern.getParameterList();
-			if(parameterList != null) {
-				updateParameters(parameterList);
-			}	
-		}	
+		triggerParameterUpdates(newPattern);
+//		if(newPattern != null) {
+//			ParameterList parameterList = newPattern.getParameterList();
+//			if(parameterList != null) {
+//				prepareParameterUpdates(parameterList);
+//			}	
+//		} else {
+//			prepareParameterUpdates(null);
+//		}
 		msgs = eBasicSetContainer((InternalEObject)newPattern, GraphstructurePackage.GRAPH__PATTERN, msgs);
 		return msgs;
 	}

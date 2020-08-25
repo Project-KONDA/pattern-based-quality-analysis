@@ -153,7 +153,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	 * 
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetVariableList(ParameterList newVariableList, NotificationChain msgs) {
+	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {
 		getRelations().clear();
 		return super.basicSetParameterList(newVariableList, msgs);
 	}

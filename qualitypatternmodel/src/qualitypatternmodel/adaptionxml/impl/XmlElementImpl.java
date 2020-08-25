@@ -351,10 +351,10 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 
 	@Override
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
-		if(newGraph != null) {
-			updateParameters(newGraph.getParameterList());
-			updateOperators(newGraph.getOperatorList());
-		}
+//		if(newGraph != null) {
+////			prepareParameterUpdates(newGraph.getParameterList());
+//			updateOperators(newGraph.getOperatorList());
+//		}
 		NotificationChain res = super.basicSetGraph(newGraph, msgs);
 		return res;
 	}

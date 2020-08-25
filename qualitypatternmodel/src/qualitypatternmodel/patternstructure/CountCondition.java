@@ -101,6 +101,22 @@ public interface CountCondition extends Condition {
 	 * @see #getArgument2()
 	 * @generated
 	 */
-	void setArgument2(CountConditionArgument value);	
+	void setArgument2(CountConditionArgument value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void createParameters();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void createCountPattern();	
 
 } // CountCondition

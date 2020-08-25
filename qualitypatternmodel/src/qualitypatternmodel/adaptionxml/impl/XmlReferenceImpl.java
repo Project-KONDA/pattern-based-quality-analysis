@@ -4,6 +4,7 @@ package qualitypatternmodel.adaptionxml.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -30,34 +31,14 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl#getSourceProperty <em>Source Property</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl#getTargetProperty <em>Target Property</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl#getType <em>Type</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl#getTargetProperty <em>Target Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl#getSourceProperty <em>Source Property</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class XmlReferenceImpl extends RelationImpl implements XmlReference {
-	/**
-	 * The cached value of the '{@link #getSourceProperty() <em>Source Property</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSourceProperty()
-	 * @generated
-	 * @ordered
-	 */
-	protected XmlProperty sourceProperty;
-
-	/**
-	 * The cached value of the '{@link #getTargetProperty() <em>Target Property</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetProperty()
-	 * @generated
-	 * @ordered
-	 */
-	protected XmlProperty targetProperty;
-
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -77,6 +58,26 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	 * @ordered
 	 */
 	protected ReturnType type = TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTargetProperty() <em>Target Property</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected XmlProperty targetProperty;
+
+	/**
+	 * The cached value of the '{@link #getSourceProperty() <em>Source Property</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected XmlProperty sourceProperty;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -167,14 +168,14 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	@Override
 	public XmlNavigation adaptAsXMLNavigation() {
 		getSourceProperty().removeParametersFromParameterList();
-		getSourceProperty().setOption(null);
-		getSourceProperty().setAttributeName(null);
+//		getSourceProperty().setOption(null);
+//		getSourceProperty().setAttributeName(null);
 		getSourceProperty().setElement(null);
 		setSourceProperty(null);
 		
 		getTargetProperty().removeParametersFromParameterList();
-		getTargetProperty().setOption(null);
-		getTargetProperty().setAttributeName(null);
+//		getTargetProperty().setOption(null);
+//		getTargetProperty().setAttributeName(null);
 		getTargetProperty().setElement(null);
 		setTargetProperty(null);
 		
@@ -186,6 +187,42 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 		return getSourceProperty().isTranslatable() && getTargetProperty().isTranslatable();
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AdaptionxmlPackage.XML_REFERENCE__TARGET_PROPERTY:
+				if (targetProperty != null)
+					msgs = ((InternalEObject)targetProperty).eInverseRemove(this, AdaptionxmlPackage.XML_PROPERTY__INCOMING_REFERENCES, XmlProperty.class, msgs);
+				return basicSetTargetProperty((XmlProperty)otherEnd, msgs);
+			case AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY:
+				if (sourceProperty != null)
+					msgs = ((InternalEObject)sourceProperty).eInverseRemove(this, AdaptionxmlPackage.XML_PROPERTY__OUTGOING_REFERENCES, XmlProperty.class, msgs);
+				return basicSetSourceProperty((XmlProperty)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AdaptionxmlPackage.XML_REFERENCE__TARGET_PROPERTY:
+				return basicSetTargetProperty(null, msgs);
+			case AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY:
+				return basicSetSourceProperty(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
 	// TODO: adapt copy
 //	/**
 //	 * <!-- begin-user-doc -->
@@ -265,12 +302,34 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setSourceProperty(XmlProperty newSourceProperty) {
+	public NotificationChain basicSetSourceProperty(XmlProperty newSourceProperty, NotificationChain msgs) {
 		XmlProperty oldSourceProperty = sourceProperty;
 		sourceProperty = newSourceProperty;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY, oldSourceProperty, sourceProperty));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY, oldSourceProperty, newSourceProperty);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSourceProperty(XmlProperty newSourceProperty) {
+		if (newSourceProperty != sourceProperty) {
+			NotificationChain msgs = null;
+			if (sourceProperty != null)
+				msgs = ((InternalEObject)sourceProperty).eInverseRemove(this, AdaptionxmlPackage.XML_PROPERTY__OUTGOING_REFERENCES, XmlProperty.class, msgs);
+			if (newSourceProperty != null)
+				msgs = ((InternalEObject)newSourceProperty).eInverseAdd(this, AdaptionxmlPackage.XML_PROPERTY__OUTGOING_REFERENCES, XmlProperty.class, msgs);
+			msgs = basicSetSourceProperty(newSourceProperty, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY, newSourceProperty, newSourceProperty));
 	}
 
 	/**
@@ -305,12 +364,34 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setTargetProperty(XmlProperty newTargetProperty) {
+	public NotificationChain basicSetTargetProperty(XmlProperty newTargetProperty, NotificationChain msgs) {
 		XmlProperty oldTargetProperty = targetProperty;
 		targetProperty = newTargetProperty;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_REFERENCE__TARGET_PROPERTY, oldTargetProperty, targetProperty));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_REFERENCE__TARGET_PROPERTY, oldTargetProperty, newTargetProperty);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTargetProperty(XmlProperty newTargetProperty) {
+		if (newTargetProperty != targetProperty) {
+			NotificationChain msgs = null;
+			if (targetProperty != null)
+				msgs = ((InternalEObject)targetProperty).eInverseRemove(this, AdaptionxmlPackage.XML_PROPERTY__INCOMING_REFERENCES, XmlProperty.class, msgs);
+			if (newTargetProperty != null)
+				msgs = ((InternalEObject)newTargetProperty).eInverseAdd(this, AdaptionxmlPackage.XML_PROPERTY__INCOMING_REFERENCES, XmlProperty.class, msgs);
+			msgs = basicSetTargetProperty(newTargetProperty, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_REFERENCE__TARGET_PROPERTY, newTargetProperty, newTargetProperty));
 	}
 
 	/**
@@ -344,14 +425,14 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY:
-				if (resolve) return getSourceProperty();
-				return basicGetSourceProperty();
+			case AdaptionxmlPackage.XML_REFERENCE__TYPE:
+				return getType();
 			case AdaptionxmlPackage.XML_REFERENCE__TARGET_PROPERTY:
 				if (resolve) return getTargetProperty();
 				return basicGetTargetProperty();
-			case AdaptionxmlPackage.XML_REFERENCE__TYPE:
-				return getType();
+			case AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY:
+				if (resolve) return getSourceProperty();
+				return basicGetSourceProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -364,14 +445,14 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY:
-				setSourceProperty((XmlProperty)newValue);
+			case AdaptionxmlPackage.XML_REFERENCE__TYPE:
+				setType((ReturnType)newValue);
 				return;
 			case AdaptionxmlPackage.XML_REFERENCE__TARGET_PROPERTY:
 				setTargetProperty((XmlProperty)newValue);
 				return;
-			case AdaptionxmlPackage.XML_REFERENCE__TYPE:
-				setType((ReturnType)newValue);
+			case AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY:
+				setSourceProperty((XmlProperty)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -385,14 +466,14 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY:
-				setSourceProperty((XmlProperty)null);
+			case AdaptionxmlPackage.XML_REFERENCE__TYPE:
+				setType(TYPE_EDEFAULT);
 				return;
 			case AdaptionxmlPackage.XML_REFERENCE__TARGET_PROPERTY:
 				setTargetProperty((XmlProperty)null);
 				return;
-			case AdaptionxmlPackage.XML_REFERENCE__TYPE:
-				setType(TYPE_EDEFAULT);
+			case AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY:
+				setSourceProperty((XmlProperty)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -406,12 +487,12 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY:
-				return sourceProperty != null;
-			case AdaptionxmlPackage.XML_REFERENCE__TARGET_PROPERTY:
-				return targetProperty != null;
 			case AdaptionxmlPackage.XML_REFERENCE__TYPE:
 				return type != TYPE_EDEFAULT;
+			case AdaptionxmlPackage.XML_REFERENCE__TARGET_PROPERTY:
+				return targetProperty != null;
+			case AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY:
+				return sourceProperty != null;
 		}
 		return super.eIsSet(featureID);
 	}

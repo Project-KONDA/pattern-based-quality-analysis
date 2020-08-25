@@ -16,7 +16,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlProperty;
-
+import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.provider.PropertyItemProvider;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
@@ -51,6 +51,8 @@ public class XmlPropertyItemProvider extends PropertyItemProvider {
 
 			addOptionPropertyDescriptor(object);
 			addAttributeNamePropertyDescriptor(object);
+			addIncomingReferencesPropertyDescriptor(object);
+			addOutgoingReferencesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -100,6 +102,50 @@ public class XmlPropertyItemProvider extends PropertyItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Incoming References feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIncomingReferencesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XmlProperty_incomingReferences_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlProperty_incomingReferences_feature", "_UI_XmlProperty_type"),
+				 AdaptionxmlPackage.Literals.XML_PROPERTY__INCOMING_REFERENCES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Outgoing References feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOutgoingReferencesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XmlProperty_outgoingReferences_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlProperty_outgoingReferences_feature", "_UI_XmlProperty_type"),
+				 AdaptionxmlPackage.Literals.XML_PROPERTY__OUTGOING_REFERENCES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns XmlProperty.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,14 +160,18 @@ public class XmlPropertyItemProvider extends PropertyItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((XmlProperty)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_XmlProperty_type") :
-			getString("_UI_XmlProperty_type") + " " + label;
+//		String label = ((XmlProperty)object).getName();
+//		return label == null || label.length() == 0 ?
+//			getString("_UI_XmlProperty_type") :
+//			getString("_UI_XmlProperty_type") + " " + label;
+		
+		XmlProperty property = (XmlProperty) object;
+		String elementName = getString("_UI_XmlElement_type") + " \"" + property.getElement().getName()+"\"";
+		return getString("_UI_XmlProperty_type") + " \"" + property.getName() + "\" (of " + elementName + ")";
 	}
 
 

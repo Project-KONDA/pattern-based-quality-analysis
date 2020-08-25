@@ -7,6 +7,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -123,7 +124,12 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		if(!(this instanceof XmlProperty)) {
 			XmlProperty xmlProperty = new XmlPropertyImpl();			 
 			xmlProperty.setElement(getElement());
-			xmlProperty.setName(getName());
+//			xmlProperty.setName(getName());
+			if(getName().matches("Property [0-9]+")) {
+				xmlProperty.setName(getName().replace("Property", "XmlProperty"));
+			} else {
+				xmlProperty.setName(getName());
+			}
 			xmlProperty.createParameters();
 			xmlProperty.getMatch().addAll(getMatch());
 			getMatch().clear();			
@@ -153,6 +159,11 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	@Override
 	public EList<Element> getAllArgumentElements() throws InvalidityException {		
 		return getElement().getAllArgumentElements();
+	}
+	
+	@Override
+	public EList<PatternElement> prepareParameterUpdates() {
+		return new BasicEList<PatternElement>();
 	}
 	
 	/**
@@ -230,6 +241,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {
+		triggerParameterUpdates(newElement);
 		
 		if (newElement == null || getElement() != null && !newElement.equals(getElement())) {
 //			EList<Match> matches = new BasicEList<Match>();

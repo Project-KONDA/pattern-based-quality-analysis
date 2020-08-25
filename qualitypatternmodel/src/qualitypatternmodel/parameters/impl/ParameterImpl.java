@@ -93,25 +93,39 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 //		return true;
 //	}
 
+//	/**
+//	 * <!-- begin-user-doc -->
+//	 * <!-- end-user-doc -->
+//	 * @generated NOT
+//	 */
+//	@Override
+//	public void triggerParameterUpdates(PatternElement newContainer) {
+//		
+//	}
+	
 	@Override
 	public void updateParameters(ParameterList newParameterList) {
-		setParameterList(newParameterList);
-//		Pattern oldPattern = null;
-//		try {
-//			oldPattern = (Pattern) getAncestor(PatternImpl.class);			
-//			if(!oldPattern.equals(newParameterList)) {
-//				oldPattern.getParameterList().getParameters().removeAll(parameters);
-//				newParameterList.getParameterList().getParameters().addAll(parameters);
-//			} else if(newParameterList == null) {
-//				oldPattern.getParameterList().getParameters().removeAll(parameters);
-//			}
-//			
-//		} catch (MissingPatternContainerException e) {
-//			if(newParameterList != null) {					
-//				newParameterList.getParameterList().getParameters().addAll(parameters);
-//			} 
-//		}
+//		setParameterList(newParameterList);
+		if(getParameterList() != null) {
+			getParameterList().remove(this);
+		}
 	}
+	
+//	@Override
+//	public void prepareParameterUpdates(ParameterList newParameterList) {
+//		setParameterList(newParameterList);
+//		// attention: all references to this are deleted automatically when moved to newParameterList
+//		// TODO: OK?
+//		
+////		if(newParameterList == null) {
+////			getParameterList().remove(this);
+////		} else {
+////			// move this to newParameterList
+////			// attention: all references are deleted automatically
+////			setParameterList(newParameterList);
+////		}
+//		
+//	}
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

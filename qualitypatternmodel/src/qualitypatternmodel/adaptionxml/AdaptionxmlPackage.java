@@ -287,13 +287,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___MY_TO_STRING = GraphstructurePackage.ELEMENT___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+	int XML_ELEMENT___PREPARE_PARAMETER_UPDATES = GraphstructurePackage.ELEMENT___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -303,15 +303,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ELEMENT___GET_PARAMETER_LIST = GraphstructurePackage.ELEMENT___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___UPDATE_OPERATORS__OPERATORLIST = GraphstructurePackage.ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -357,6 +348,33 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ELEMENT___RELATIONS_XML_ADAPTED = GraphstructurePackage.ELEMENT___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = GraphstructurePackage.ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -828,13 +846,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.RELATION___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.RELATION___UPDATE_PARAMETERS__PARAMETERLIST;
+	int XML_NAVIGATION___PREPARE_PARAMETER_UPDATES = GraphstructurePackage.RELATION___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -844,15 +862,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_NAVIGATION___GET_PARAMETER_LIST = GraphstructurePackage.RELATION___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_NAVIGATION___UPDATE_OPERATORS__OPERATORLIST = GraphstructurePackage.RELATION___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -898,6 +907,33 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_NAVIGATION___RELATIONS_XML_ADAPTED = GraphstructurePackage.RELATION___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = GraphstructurePackage.RELATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.RELATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.RELATION___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
@@ -1072,13 +1108,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE__NAME = GraphstructurePackage.RELATION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Source Property</b></em>' reference.
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE__SOURCE_PROPERTY = GraphstructurePackage.RELATION_FEATURE_COUNT + 0;
+	int XML_REFERENCE__TYPE = GraphstructurePackage.RELATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Target Property</b></em>' reference.
@@ -1090,13 +1126,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE__TARGET_PROPERTY = GraphstructurePackage.RELATION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Source Property</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE__TYPE = GraphstructurePackage.RELATION_FEATURE_COUNT + 2;
+	int XML_REFERENCE__SOURCE_PROPERTY = GraphstructurePackage.RELATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Xml Reference</em>' class.
@@ -1189,13 +1225,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.RELATION___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.RELATION___UPDATE_PARAMETERS__PARAMETERLIST;
+	int XML_REFERENCE___PREPARE_PARAMETER_UPDATES = GraphstructurePackage.RELATION___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -1205,15 +1241,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_REFERENCE___GET_PARAMETER_LIST = GraphstructurePackage.RELATION___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_REFERENCE___UPDATE_OPERATORS__OPERATORLIST = GraphstructurePackage.RELATION___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -1259,6 +1286,33 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_REFERENCE___RELATIONS_XML_ADAPTED = GraphstructurePackage.RELATION___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = GraphstructurePackage.RELATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.RELATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.RELATION___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
@@ -1451,13 +1505,31 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY__ATTRIBUTE_NAME = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Incoming References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY__INCOMING_REFERENCES = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY__OUTGOING_REFERENCES = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Xml Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_FEATURE_COUNT = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 2;
+	int XML_PROPERTY_FEATURE_COUNT = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -1532,13 +1604,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___MY_TO_STRING = GraphstructurePackage.PROPERTY___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.PROPERTY___UPDATE_PARAMETERS__PARAMETERLIST;
+	int XML_PROPERTY___PREPARE_PARAMETER_UPDATES = GraphstructurePackage.PROPERTY___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -1548,15 +1620,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___GET_PARAMETER_LIST = GraphstructurePackage.PROPERTY___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY___UPDATE_OPERATORS__OPERATORLIST = GraphstructurePackage.PROPERTY___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -1602,6 +1665,33 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___RELATIONS_XML_ADAPTED = GraphstructurePackage.PROPERTY___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = GraphstructurePackage.PROPERTY___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.PROPERTY___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.PROPERTY___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1920,13 +2010,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___MY_TO_STRING = GraphstructurePackage.ELEMENT___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+	int XML_ROOT___PREPARE_PARAMETER_UPDATES = GraphstructurePackage.ELEMENT___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -1936,15 +2026,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___GET_PARAMETER_LIST = GraphstructurePackage.ELEMENT___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___UPDATE_OPERATORS__OPERATORLIST = GraphstructurePackage.ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -1990,6 +2071,33 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___RELATIONS_XML_ADAPTED = GraphstructurePackage.ELEMENT___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = GraphstructurePackage.ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2420,6 +2528,28 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlProperty_AttributeName();
 
 	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionxml.XmlProperty#getIncomingReferences <em>Incoming References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Incoming References</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getIncomingReferences()
+	 * @see #getXmlProperty()
+	 * @generated
+	 */
+	EReference getXmlProperty_IncomingReferences();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionxml.XmlProperty#getOutgoingReferences <em>Outgoing References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Outgoing References</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getOutgoingReferences()
+	 * @see #getXmlProperty()
+	 * @generated
+	 */
+	EReference getXmlProperty_OutgoingReferences();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlRoot <em>Xml Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2599,6 +2729,22 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference XML_PROPERTY__ATTRIBUTE_NAME = eINSTANCE.getXmlProperty_AttributeName();
+
+		/**
+		 * The meta object literal for the '<em><b>Incoming References</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XML_PROPERTY__INCOMING_REFERENCES = eINSTANCE.getXmlProperty_IncomingReferences();
+
+		/**
+		 * The meta object literal for the '<em><b>Outgoing References</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XML_PROPERTY__OUTGOING_REFERENCES = eINSTANCE.getXmlProperty_OutgoingReferences();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlRootImpl <em>Xml Root</em>}' class.

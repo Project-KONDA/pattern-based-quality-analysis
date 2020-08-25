@@ -15,9 +15,9 @@ import qualitypatternmodel.graphstructure.ReturnType;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlReference#getSourceProperty <em>Source Property</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlReference#getTargetProperty <em>Target Property</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlReference#getType <em>Type</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlReference#getTargetProperty <em>Target Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlReference#getSourceProperty <em>Source Property</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlReference()
@@ -27,12 +27,14 @@ import qualitypatternmodel.graphstructure.ReturnType;
 public interface XmlReference extends Relation {
 	/**
 	 * Returns the value of the '<em><b>Source Property</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlProperty#getOutgoingReferences <em>Outgoing References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source Property</em>' reference.
 	 * @see #setSourceProperty(XmlProperty)
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlReference_SourceProperty()
-	 * @model required="true"
+	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getOutgoingReferences
+	 * @model opposite="outgoingReferences" required="true"
 	 * @generated
 	 */
 	XmlProperty getSourceProperty();
@@ -49,12 +51,14 @@ public interface XmlReference extends Relation {
 
 	/**
 	 * Returns the value of the '<em><b>Target Property</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlProperty#getIncomingReferences <em>Incoming References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target Property</em>' reference.
 	 * @see #setTargetProperty(XmlProperty)
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlReference_TargetProperty()
-	 * @model required="true"
+	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getIncomingReferences
+	 * @model opposite="incomingReferences" required="true"
 	 * @generated
 	 */
 	XmlProperty getTargetProperty();

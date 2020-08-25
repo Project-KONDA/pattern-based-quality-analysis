@@ -156,6 +156,9 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 //			removeParametersFromParameterList();
 //		}
 		msgs = super.basicSetOperatorList(newOperatorList, msgs);
+		
+		createParameters();
+		
 //		if(newOperatorList != null) {
 //			createParameters();
 //		}

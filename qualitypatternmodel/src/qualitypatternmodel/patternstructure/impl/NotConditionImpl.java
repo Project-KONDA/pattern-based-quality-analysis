@@ -119,6 +119,13 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 		parameters.addAll(condition.getAllInputs());		
 		return parameters;
 	}
+	
+	@Override
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		patternElements.add(getCondition());
+		return patternElements;
+	}
 		
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

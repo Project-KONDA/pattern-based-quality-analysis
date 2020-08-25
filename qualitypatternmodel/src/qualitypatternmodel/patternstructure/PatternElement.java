@@ -121,7 +121,7 @@ public interface PatternElement extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void updateParameters(ParameterList newParameterList);
+	EList<PatternElement> prepareParameterUpdates();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,14 +130,6 @@ public interface PatternElement extends EObject {
 	 * @generated
 	 */
 	ParameterList getParameterList();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void updateOperators(OperatorList newOperatorList);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -178,6 +170,30 @@ public interface PatternElement extends EObject {
 	 * @generated
 	 */
 	boolean relationsXmlAdapted();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model patternElementsMany="true"
+	 * @generated
+	 */
+	void triggerParameterUpdates(PatternElement newContainer, EList<PatternElement> patternElements);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void triggerParameterUpdates(PatternElement newContainer);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void updateParameters(ParameterList newParameterList);
 
 	/**
 	 * <!-- begin-user-doc -->

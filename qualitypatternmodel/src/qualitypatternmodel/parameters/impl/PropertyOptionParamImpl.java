@@ -126,7 +126,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetVariableList(ParameterList newVariableList, NotificationChain msgs) {		
+	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {		
 		getProperties().clear();
 		return super.basicSetParameterList(newVariableList, msgs);
 	}

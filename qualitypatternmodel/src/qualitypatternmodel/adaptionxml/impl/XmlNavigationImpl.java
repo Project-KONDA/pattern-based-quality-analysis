@@ -22,7 +22,6 @@ import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.parameters.Parameter;
@@ -31,7 +30,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.impl.RelationOptionParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
@@ -158,7 +157,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	@Override
 	public XmlReference adaptAsXMLReference() {
 		removeParametersFromParameterList();
-		setOption(null);
+//		setOption(null);
 		return super.adaptAsXMLReference();
 	}
 	
@@ -198,17 +197,19 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	 * @generated NOT
 	 */
 	@Override
-	public void createParameters() {		
-		ParameterList parameterList = getParameterList();
-		if (getOption() == null) {
-			RelationOptionParam relationOptionParam = new RelationOptionParamImpl();
+	public void createParameters() {	
+		if (getIncomingMapping() == null) {		
+			ParameterList parameterList = getParameterList();
 			if(parameterList != null) {
-				parameterList.add(relationOptionParam);
+				if (getOption() == null) {
+					RelationOptionParam relationOptionParam = new RelationOptionParamImpl();
+//					parameterList.add(relationOptionParam);				
+					setOption(relationOptionParam);
+				} else {
+					parameterList.add(getOption());
+				}		
 			}
-			setOption(relationOptionParam);
-		} else {
-			parameterList.add(getOption());
-		}		
+		}
 	}
 
 	/**
@@ -218,36 +219,41 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	 */
 	@Override
 	public void removeParametersFromParameterList() {
+		RelationOptionParam option = getOption();
+		setOption(null);
 		ParameterList parameterList = getParameterList();	
 		if(parameterList != null) {
-			parameterList.getParameters().remove(getOption());
+			parameterList.remove(option);
 		}
 	}
 	
 	@Override
-	public void updateParameters(ParameterList newParameterList) {
-		if(getOption() != null) {
-			getOption().updateParameters(newParameterList);		
-		}
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		patternElements.add(getOption());
+		setOption(null);
+		return patternElements;		
 	}
 	
 	@Override
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
-		if(newGraph != null) {
-			updateParameters(newGraph.getParameterList());
-		}
+//		triggerParameterUpdates(newGraph);
+		
 		NotificationChain res = super.basicSetGraph(newGraph, msgs);
-		if (newGraph != null && getIncomingMapping() == null) {
-			createParameters();
-		}
+		
+		createParameters();
+		
+//		if (newGraph != null && getIncomingMapping() == null) {
+//			createParameters();
+//		}
 		return res;
 	}
 	
 	@Override
 	public NotificationChain basicSetIncomingMapping(RelationMapping newMappingFrom, NotificationChain msgs) {
-		if (newMappingFrom != null) { // TODO: remove?
+		if (newMappingFrom != null) { // TODO: remove?			
 			removeParametersFromParameterList();
-			setOption(null);
+			
 		}
 		NotificationChain res = super.basicSetIncomingMapping(newMappingFrom, msgs);
 		return res;
@@ -297,17 +303,12 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	 */
 	public NotificationChain basicSetOption(RelationOptionParam newOption, NotificationChain msgs) {
 		RelationOptionParam oldOption = option;
-		option = newOption;
+				
+		ParameterList varlist = getParameterList();
+		varlist.remove(oldOption);			
+		varlist.add(newOption);				
 		
-		try {
-			CompletePattern completePattern;
-			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-			ParameterList varlist = completePattern.getParameterList();
-			varlist.remove(oldOption);			
-			varlist.add(newOption);			
-		} catch (MissingPatternContainerException e) {
-			// do nothing
-		}	
+		option = newOption;
 		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_NAVIGATION__OPTION, oldOption, newOption);

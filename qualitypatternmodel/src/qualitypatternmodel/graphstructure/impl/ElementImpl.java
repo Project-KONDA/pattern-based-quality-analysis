@@ -444,7 +444,12 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		if(!(this instanceof XmlElement) && !(this instanceof XmlRoot)) {
 			XmlElement xmlElement = new XmlElementImpl();
 			xmlElement.setGraphSimple(getGraph());	
-			xmlElement.setName(getName());
+//			xmlElement.setName(getName());
+			if(getName().matches("Element [0-9]+")) {
+				xmlElement.setName(getName().replace("Element", "XmlElement"));
+			} else {
+				xmlElement.setName(getName());
+			}
 			
 //			for(ElementMapping mapping : xmlElement.getMappingTo()) {
 //				mapping.getTo().setGraph(null);
@@ -893,6 +898,9 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
+		
+		triggerParameterUpdates(newGraph);
+		
 		if (newGraph == null || getGraph() != null && !newGraph.equals(getGraph())) {
 			removeElementFromPreviousGraphs();
 			removeMappingsToNext();
@@ -1807,29 +1815,15 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	}
 	
 	@Override
-	public void updateParameters(ParameterList newParameterList) {
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
 		for(Property p : getProperties()) {
-			p.updateParameters(newParameterList);			
+			patternElements.add(p);			
 		}
-//		for(Element child : getNextElements()) {
-//			child.updateParameters(newParameterList);
+//		for(BooleanOperator predicate : getPredicates()) {
+//			patternElements.add(predicate);
 //		}
-		for(BooleanOperator predicate : getPredicates()) {
-			predicate.updateParameters(newParameterList);
-		}
-//		if(getRelationFromPrevious() != null) {
-//			getRelationFromPrevious().updateParameters(newParameterList);
-//		}
-	}
-	
-	@Override
-	public void updateOperators(OperatorList newOperatorList) {
-//		for(Element child : getNextElements()) {
-//			child.updateOperators(newOperatorList);
-//		}
-		for(BooleanOperator predicate : getPredicates()) {
-			predicate.updateOperators(newOperatorList);
-		}
+		return patternElements;
 	}
 
 	/**

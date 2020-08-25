@@ -875,7 +875,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__UpdateParameters__ParameterList() {
+	public EOperation getPatternElement__PrepareParameterUpdates() {
 		return patternElementEClass.getEOperations().get(9);
 	}
 
@@ -895,7 +895,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__UpdateOperators__OperatorList() {
+	public EOperation getPatternElement__GetOperatorList() {
 		return patternElementEClass.getEOperations().get(11);
 	}
 
@@ -905,7 +905,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__GetOperatorList() {
+	public EOperation getPatternElement__CreateXMLAdaption() {
 		return patternElementEClass.getEOperations().get(12);
 	}
 
@@ -915,7 +915,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__CreateXMLAdaption() {
+	public EOperation getPatternElement__FinalizeXMLAdaption() {
 		return patternElementEClass.getEOperations().get(13);
 	}
 
@@ -925,7 +925,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__FinalizeXMLAdaption() {
+	public EOperation getPatternElement__RecordValues__XmlDatabase() {
 		return patternElementEClass.getEOperations().get(14);
 	}
 
@@ -935,7 +935,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__RecordValues__XmlDatabase() {
+	public EOperation getPatternElement__RelationsXmlAdapted() {
 		return patternElementEClass.getEOperations().get(15);
 	}
 
@@ -945,8 +945,28 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__RelationsXmlAdapted() {
+	public EOperation getPatternElement__TriggerParameterUpdates__PatternElement_EList() {
 		return patternElementEClass.getEOperations().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternElement__TriggerParameterUpdates__PatternElement() {
+		return patternElementEClass.getEOperations().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternElement__UpdateParameters__ParameterList() {
+		return patternElementEClass.getEOperations().get(18);
 	}
 
 	/**
@@ -1007,6 +1027,26 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	@Override
 	public EReference getCountCondition_Argument2() {
 		return (EReference)countConditionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getCountCondition__CreateParameters() {
+		return countConditionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getCountCondition__CreateCountPattern() {
+		return countConditionEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1167,6 +1207,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	@Override
 	public EReference getNumberElement_NumberParam() {
 		return (EReference)numberElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNumberElement__CreateParameters() {
+		return numberElementEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1365,14 +1415,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ANCESTOR__CLASS);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___MY_TO_STRING);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP);
-		createEOperation(patternElementEClass, PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_PARAMETER_LIST);
-		createEOperation(patternElementEClass, PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_OPERATOR_LIST);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___CREATE_XML_ADAPTION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___FINALIZE_XML_ADAPTION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___RELATIONS_XML_ADAPTED);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST);
 
 		notConditionEClass = createEClass(NOT_CONDITION);
 		createEReference(notConditionEClass, NOT_CONDITION__CONDITION);
@@ -1381,6 +1433,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEReference(countConditionEClass, COUNT_CONDITION__COUNT_PATTERN);
 		createEReference(countConditionEClass, COUNT_CONDITION__OPTION);
 		createEReference(countConditionEClass, COUNT_CONDITION__ARGUMENT2);
+		createEOperation(countConditionEClass, COUNT_CONDITION___CREATE_PARAMETERS);
+		createEOperation(countConditionEClass, COUNT_CONDITION___CREATE_COUNT_PATTERN);
 
 		countConditionArgumentEClass = createEClass(COUNT_CONDITION_ARGUMENT);
 		createEReference(countConditionArgumentEClass, COUNT_CONDITION_ARGUMENT__COUNT_CONDITION2);
@@ -1402,6 +1456,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		numberElementEClass = createEClass(NUMBER_ELEMENT);
 		createEReference(numberElementEClass, NUMBER_ELEMENT__NUMBER_PARAM);
+		createEOperation(numberElementEClass, NUMBER_ELEMENT___CREATE_PARAMETERS);
 
 		// Create enums
 		logicalOperatorEEnum = createEEnum(LOGICAL_OPERATOR);
@@ -1589,13 +1644,9 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getPatternElement__UpdateParameters__ParameterList(), null, "updateParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theParametersPackage.getParameterList(), "newParameterList", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getPatternElement__PrepareParameterUpdates(), this.getPatternElement(), "prepareParameterUpdates", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPatternElement__GetParameterList(), theParametersPackage.getParameterList(), "getParameterList", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getPatternElement__UpdateOperators__OperatorList(), null, "updateOperators", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theOperatorsPackage.getOperatorList(), "newOperatorList", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPatternElement__GetOperatorList(), theOperatorsPackage.getOperatorList(), "getOperatorList", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1612,6 +1663,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		initEOperation(getPatternElement__RelationsXmlAdapted(), ecorePackage.getEBoolean(), "relationsXmlAdapted", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getPatternElement__TriggerParameterUpdates__PatternElement_EList(), null, "triggerParameterUpdates", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getPatternElement(), "newContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getPatternElement(), "patternElements", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getPatternElement__TriggerParameterUpdates__PatternElement(), null, "triggerParameterUpdates", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getPatternElement(), "newContainer", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getPatternElement__UpdateParameters__ParameterList(), null, "updateParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theParametersPackage.getParameterList(), "newParameterList", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(notConditionEClass, NotCondition.class, "NotCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNotCondition_Condition(), this.getCondition(), this.getCondition_NotCondition(), "condition", null, 1, 1, NotCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1619,6 +1680,10 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEReference(getCountCondition_CountPattern(), this.getCountPattern(), this.getCountPattern_CountCondition(), "countPattern", null, 1, 1, CountCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCountCondition_Option(), theParametersPackage.getComparisonOptionParam(), theParametersPackage.getComparisonOptionParam_CountConditions(), "option", null, 1, 1, CountCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCountCondition_Argument2(), this.getCountConditionArgument(), this.getCountConditionArgument_CountCondition2(), "argument2", null, 1, 1, CountCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getCountCondition__CreateParameters(), null, "createParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getCountCondition__CreateCountPattern(), null, "createCountPattern", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(countConditionArgumentEClass, CountConditionArgument.class, "CountConditionArgument", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCountConditionArgument_CountCondition2(), this.getCountCondition(), this.getCountCondition_Argument2(), "countCondition2", null, 0, 1, CountConditionArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1645,6 +1710,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		initEClass(numberElementEClass, NumberElement.class, "NumberElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNumberElement_NumberParam(), theParametersPackage.getNumberParam(), theParametersPackage.getNumberParam_NumberArgument(), "numberParam", null, 1, 1, NumberElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getNumberElement__CreateParameters(), null, "createParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(logicalOperatorEEnum, LogicalOperator.class, "LogicalOperator");

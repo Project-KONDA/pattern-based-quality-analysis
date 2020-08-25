@@ -145,17 +145,21 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 		return true;
 	}
 
+
+
+	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
-	public void updateParameters(ParameterList newParameterList) {
-		
+	public EList<PatternElement> prepareParameterUpdates() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
-
-	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,16 +177,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			
 		}	
 		return newParameterList;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void updateOperators(OperatorList newOperatorList) {
-		
 	}
 
 	/**
@@ -244,6 +238,77 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public boolean relationsXmlAdapted() {
 		return true;
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void triggerParameterUpdates(PatternElement newContainer, EList<PatternElement> patternElements) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	//	/**
+//	 * <!-- begin-user-doc -->
+//	 * <!-- end-user-doc -->
+//	 * @generated NOT
+//	 */
+//	@Override
+//	public void triggerParameterUpdates(PatternElement newContainer, EList<PatternElement> patternElements) {
+//		ParameterList parameterList = null;
+//		if(newContainer != null) {
+//			parameterList = newContainer.getParameterList();
+//		}		
+//		for(PatternElement patternElement : patternElements) {
+//			if(patternElement != null) {						
+//				patternElement.prepareParameterUpdates(parameterList);			
+//			}	
+//		}
+//	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void triggerParameterUpdates(PatternElement newContainer) {
+		ParameterList oldParameterList = getParameterList();		
+		
+		ParameterList newParameterList = null;
+		if(newContainer != null) {
+			newParameterList = newContainer.getParameterList();
+		}		
+		
+		if(oldParameterList == null) {
+			// TODO
+		} else if(newParameterList == null) {
+			// TODO
+		} else if(oldParameterList.equals(newParameterList)) {
+			// TODO
+		}
+		
+		updateParameters(newParameterList);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void updateParameters(ParameterList newParameterList) {
+		EList<PatternElement> patternElements = prepareParameterUpdates();
+		
+		for(PatternElement patternElement : patternElements) {
+			if(patternElement != null) {						
+				patternElement.updateParameters(newParameterList);			
+			}	
+		}
 	}
 
 	/**
@@ -482,14 +547,10 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				return myToString();
 			case PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP:
 				return validate((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
-			case PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST:
-				updateParameters((ParameterList)arguments.get(0));
-				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES:
+				return prepareParameterUpdates();
 			case PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST:
 				return getParameterList();
-			case PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST:
-				updateOperators((OperatorList)arguments.get(0));
-				return null;
 			case PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST:
 				return getOperatorList();
 			case PatternstructurePackage.PATTERN_ELEMENT___CREATE_XML_ADAPTION:
@@ -512,6 +573,15 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				return null;
 			case PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED:
 				return relationsXmlAdapted();
+			case PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST:
+				triggerParameterUpdates((PatternElement)arguments.get(0), (EList<PatternElement>)arguments.get(1));
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT:
+				triggerParameterUpdates((PatternElement)arguments.get(0));
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST:
+				updateParameters((ParameterList)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

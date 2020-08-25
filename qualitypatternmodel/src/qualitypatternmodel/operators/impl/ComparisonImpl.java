@@ -27,7 +27,6 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.NumberOperator;
 import qualitypatternmodel.operators.Operator;
-import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
@@ -40,6 +39,7 @@ import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -281,20 +281,22 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	@Override
 	public void createParameters() {	
 		ParameterList parameterList = getParameterList();
-		if (getOption() == null) {
-			ComparisonOptionParam comparisonOption = new ComparisonOptionParamImpl();
-			parameterList.add(comparisonOption);
-			setOption(comparisonOption);
-		} else {
-			parameterList.add(getOption());
-		}
-		
+		if(parameterList != null) {
+			if (getOption() == null) {
+				ComparisonOptionParam comparisonOption = new ComparisonOptionParamImpl();
+				setOption(comparisonOption);
+			} else {
+				parameterList.add(getOption());
+			}
+		}		
 	}
 
 	@Override
 	public void removeParametersFromParameterList() {
+		ComparisonOptionParam option = getOption();
+		setOption(null);
 		ParameterList parameterList = getParameterList();			
-		parameterList.getParameters().remove(getOption());		
+		parameterList.remove(option);		
 	}
 
 	/**
@@ -382,11 +384,11 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();			
-			if(oldArgument1 instanceof Parameter) {
+			if(oldArgument1 instanceof Parameter && varlist != null) {
 				Parameter oldParameter = (Parameter) oldArgument1;					
 				varlist.remove(oldParameter);				
 			}				
-			if(newArgument1 instanceof Parameter) {
+			if(newArgument1 instanceof Parameter && varlist != null) {
 				Parameter newParameter = (Parameter) newArgument1;
 				varlist.add(newParameter);				
 			}
@@ -562,18 +564,15 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 */
 	public NotificationChain basicSetOption(ComparisonOptionParam newOption, NotificationChain msgs) {
 		ComparisonOptionParam oldOption = option;
-		option = newOption;
-
-		try {
-			CompletePattern completePattern;
-			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-			ParameterList varlist = completePattern.getParameterList();
+				
+		ParameterList varlist = getParameterList();
+		if(varlist != null) {
 			varlist.remove(oldOption);
 			varlist.add(newOption);
-		} catch (MissingPatternContainerException e) {
-			// do nothing
-		}
-
+		}	
+		
+		option = newOption;
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					OperatorsPackage.COMPARISON__OPTION, oldOption, newOption);
@@ -582,6 +581,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			else
 				msgs.add(notification);
 		}
+				
 		return msgs;
 	}
 
@@ -652,31 +652,28 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 	
 	@Override
-	public void updateParameters(ParameterList newParameterList) {
-		getOption().updateParameters(newParameterList);
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		
+		patternElements.add(getOption());
+		setOption(null);
+		
 		if(getArgument1() instanceof Operator) {
-			getArgument1().updateParameters(newParameterList);
+			patternElements.add(getArgument1());
 		}
 		if(getArgument1() instanceof Parameter) {
-			getArgument1().updateParameters(newParameterList);
+			patternElements.add(getArgument1());
+			setArgument1(null);
 		}
 		if(getArgument2() instanceof Operator) {
-			getArgument2().updateParameters(newParameterList);
+			patternElements.add(getArgument2());
 		}
 		if(getArgument2() instanceof Parameter) {
-			getArgument2().updateParameters(newParameterList);
+			patternElements.add(getArgument2());
+			setArgument2(null);
 		}
-	}
-	
-	@Override
-	public void updateOperators(OperatorList newOperatorList) {
-		if(getArgument1() instanceof Operator) {
-			getArgument1().updateOperators(newOperatorList);
-		}
-		if(getArgument2() instanceof Operator) {
-			getArgument2().updateOperators(newOperatorList);
-		}
-		super.updateOperators(newOperatorList);
+		
+		return patternElements;
 	}
 
 	/**
@@ -776,11 +773,11 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			CompletePattern completePattern;
 			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			ParameterList varlist = completePattern.getParameterList();			
-			if(oldArgument2 instanceof Parameter) {
+			if(oldArgument2 instanceof Parameter && varlist != null) {
 				Parameter oldParameter = (Parameter) oldArgument2;					
 				varlist.remove(oldParameter);				
 			}				
-			if(newArgument2 instanceof Parameter) {
+			if(newArgument2 instanceof Parameter && varlist != null) {
 				Parameter newParameter = (Parameter) newArgument2;
 				varlist.add(newParameter);				
 			}

@@ -441,13 +441,8 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/validate/diagnostics"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/validate/context"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/updateParameters">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/updateParameters/newParameterList"/>
-        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/prepareParameterUpdates"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/getParameterList"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/updateOperators">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/updateOperators/newOperatorList"/>
-        </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/getOperatorList"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/createXMLAdaption"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/finalizeXMLAdaption"/>
@@ -455,6 +450,16 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/recordValues/database"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/relationsXmlAdapted"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates/newContainer"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates/patternElements"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates.1">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates.1/newContainer"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/updateParameters">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/updateParameters/newParameterList"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/NotCondition">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/NotCondition/condition"/>
@@ -464,6 +469,8 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountCondition/option"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountCondition/argument2"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CountCondition/createParameters"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CountCondition/createCountPattern"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//patternstructure/CountConditionArgument">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountConditionArgument/countCondition2"/>
@@ -486,6 +493,7 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/NumberElement">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/NumberElement/numberParam"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/NumberElement/createParameters"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Adaptionxml" basePackage="qualitypatternmodel" disposableProviderFactory="true"
@@ -527,11 +535,11 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/option"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlReference">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlReference/sourceProperty"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlReference/type"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlReference/targetProperty"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlReference/type"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlReference/sourceProperty"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlReference/isTranslatable"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlProperty">
@@ -539,6 +547,10 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlProperty/option"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlProperty/attributeName"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlProperty/incomingReferences"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlProperty/outgoingReferences"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlRoot"/>
     </nestedGenPackages>

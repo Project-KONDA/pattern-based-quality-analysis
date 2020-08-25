@@ -197,13 +197,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___MY_TO_STRING = PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+	int PARAMETER___PREPARE_PARAMETER_UPDATES = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -213,15 +213,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER___UPDATE_OPERATORS__OPERATORLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -267,6 +258,33 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER___RELATIONS_XML_ADAPTED = PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -486,13 +504,13 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM___MY_TO_STRING = PARAMETER___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
+	int COMPARISON_OPTION_PARAM___PREPARE_PARAMETER_UPDATES = PARAMETER___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -502,15 +520,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON_OPTION_PARAM___GET_PARAMETER_LIST = PARAMETER___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPARISON_OPTION_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -556,6 +565,33 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON_OPTION_PARAM___RELATIONS_XML_ADAPTED = PARAMETER___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -766,13 +802,13 @@ public interface ParametersPackage extends EPackage {
 	int PROPERTY_OPTION_PARAM___MY_TO_STRING = PARAMETER___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
+	int PROPERTY_OPTION_PARAM___PREPARE_PARAMETER_UPDATES = PARAMETER___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -782,15 +818,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY_OPTION_PARAM___GET_PARAMETER_LIST = PARAMETER___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY_OPTION_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -836,6 +863,33 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY_OPTION_PARAM___RELATIONS_XML_ADAPTED = PARAMETER___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -1019,13 +1073,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_LIST___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_LIST___UPDATE_PARAMETERS__PARAMETERLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+	int PARAMETER_LIST___PREPARE_PARAMETER_UPDATES = PatternstructurePackage.PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -1035,15 +1089,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_LIST___GET_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_LIST___UPDATE_OPERATORS__OPERATORLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -1089,6 +1134,33 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_LIST___RELATIONS_XML_ADAPTED = PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST___UPDATE_PARAMETERS__PARAMETERLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Add</em>' operation.
@@ -1281,13 +1353,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE___MY_TO_STRING = PARAMETER___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
+	int PARAMETER_VALUE___PREPARE_PARAMETER_UPDATES = PARAMETER___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -1297,15 +1369,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_VALUE___GET_PARAMETER_LIST = PARAMETER___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST = PARAMETER___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -1351,6 +1414,33 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_VALUE___RELATIONS_XML_ADAPTED = PARAMETER___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -1705,13 +1795,13 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+	int BOOLEAN_PARAM___PREPARE_PARAMETER_UPDATES = PARAMETER_VALUE___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -1721,15 +1811,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_PARAM___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -1775,6 +1856,33 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_PARAM___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -2120,13 +2228,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+	int TEXT_LIST_PARAM___PREPARE_PARAMETER_UPDATES = PARAMETER_VALUE___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -2136,15 +2244,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LIST_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -2190,6 +2289,33 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -2571,13 +2697,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+	int TEXT_LITERAL_PARAM___PREPARE_PARAMETER_UPDATES = PARAMETER_VALUE___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -2587,15 +2713,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LITERAL_PARAM___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_LITERAL_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -2641,6 +2758,33 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LITERAL_PARAM___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -2995,13 +3139,13 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+	int NUMBER_PARAM___PREPARE_PARAMETER_UPDATES = PARAMETER_VALUE___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -3011,15 +3155,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_PARAM___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -3065,6 +3200,33 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_PARAM___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -3410,13 +3572,13 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+	int DATE_PARAM___PREPARE_PARAMETER_UPDATES = PARAMETER_VALUE___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -3426,15 +3588,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_PARAM___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -3480,6 +3633,33 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_PARAM___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -3825,13 +4005,13 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+	int TIME_PARAM___PREPARE_PARAMETER_UPDATES = PARAMETER_VALUE___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -3841,15 +4021,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TIME_PARAM___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -3895,6 +4066,33 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TIME_PARAM___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -4231,13 +4429,13 @@ public interface ParametersPackage extends EPackage {
 	int UNTYPED_PARAMETER_VALUE___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNTYPED_PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+	int UNTYPED_PARAMETER_VALUE___PREPARE_PARAMETER_UPDATES = PARAMETER_VALUE___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -4247,15 +4445,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNTYPED_PARAMETER_VALUE___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNTYPED_PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST = PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -4301,6 +4490,33 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNTYPED_PARAMETER_VALUE___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -4655,13 +4871,13 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___MY_TO_STRING = PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+	int DATE_TIME_PARAM___PREPARE_PARAMETER_UPDATES = PARAMETER_VALUE___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -4671,15 +4887,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_TIME_PARAM___GET_PARAMETER_LIST = PARAMETER_VALUE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE_TIME_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER_VALUE___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -4725,6 +4932,33 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_TIME_PARAM___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -5061,13 +5295,13 @@ public interface ParametersPackage extends EPackage {
 	int RELATION_OPTION_PARAM___MY_TO_STRING = PARAMETER___MY_TO_STRING;
 
 	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPTION_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
+	int RELATION_OPTION_PARAM___PREPARE_PARAMETER_UPDATES = PARAMETER___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -5077,15 +5311,6 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_OPTION_PARAM___GET_PARAMETER_LIST = PARAMETER___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Update Operators</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_OPTION_PARAM___UPDATE_OPERATORS__OPERATORLIST = PARAMETER___UPDATE_OPERATORS__OPERATORLIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -5131,6 +5356,33 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_OPTION_PARAM___RELATIONS_XML_ADAPTED = PARAMETER___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
