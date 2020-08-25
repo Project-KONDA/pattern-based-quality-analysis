@@ -179,7 +179,7 @@ public class EvalFunc {
 		fieldBOtherRecord.addPrimitiveComparison(); 
 		
 		Comparison comparisonA = operatorsFactory.createComparison();
-		comparisonA.setType(ReturnType.STRING);
+		comparisonA.getTypeOption().setValue(ReturnType.STRING);
 		graph1.getOperatorList().add(comparisonA);
 		comparisonA.createParameters();
 		Property propertyAReturn = graphFactory.createProperty();
@@ -191,7 +191,7 @@ public class EvalFunc {
 		comparisonA.setArgument2(propertyAOtherRecord);		
 		
 		Comparison comparisonB = operatorsFactory.createComparison(); 
-		comparisonB.setType(ReturnType.STRING);
+		comparisonB.getTypeOption().setValue(ReturnType.STRING);
 		graph1.getOperatorList().add(comparisonB);
 		comparisonB.createParameters();
 		Property propertyBReturn = graphFactory.createProperty();
@@ -278,8 +278,8 @@ public class EvalFunc {
 		
 		((Comparison) elementB1.getPredicates().get(1)).getOption().setValue(ComparisonOperator.NOTEQUAL);
 		
-		((Comparison) elementA1.getPredicates().get(1)).setType(ReturnType.STRING);
-		((Comparison) elementB1.getPredicates().get(1)).setType(ReturnType.STRING);
+		((Comparison) elementA1.getPredicates().get(1)).getTypeOption().setValue(ReturnType.STRING);
+		((Comparison) elementB1.getPredicates().get(1)).getTypeOption().setValue(ReturnType.STRING);
 		
 		return completePattern;
 	}
@@ -349,8 +349,8 @@ public class EvalFunc {
 		
 		((Comparison) elementB1.getPredicates().get(1)).getOption().setValue(ComparisonOperator.NOTEQUAL);
 		
-		((Comparison) elementA1.getPredicates().get(1)).setType(ReturnType.STRING);
-		((Comparison) elementB1.getPredicates().get(1)).setType(ReturnType.STRING);
+		((Comparison) elementA1.getPredicates().get(1)).getTypeOption().setValue(ReturnType.STRING);
+		((Comparison) elementB1.getPredicates().get(1)).getTypeOption().setValue(ReturnType.STRING);
 		
 		return completePattern;
 	}
@@ -400,8 +400,8 @@ public class EvalFunc {
 		
 		((Comparison) elementB1.getPredicates().get(1)).getOption().setValue(ComparisonOperator.NOTEQUAL);
 		
-		((Comparison) elementA1.getPredicates().get(1)).setType(ReturnType.STRING);
-		((Comparison) elementB1.getPredicates().get(1)).setType(ReturnType.STRING);
+		((Comparison) elementA1.getPredicates().get(1)).getTypeOption().setValue(ReturnType.STRING);
+		((Comparison) elementB1.getPredicates().get(1)).getTypeOption().setValue(ReturnType.STRING);
 		
 		return completePattern;
 	}

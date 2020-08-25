@@ -16,7 +16,6 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlProperty;
-import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.provider.PropertyItemProvider;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;

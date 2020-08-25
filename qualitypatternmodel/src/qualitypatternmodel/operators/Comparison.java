@@ -3,8 +3,8 @@
 package qualitypatternmodel.operators;
 
 import qualitypatternmodel.graphstructure.Element;
-import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,8 +17,8 @@ import qualitypatternmodel.parameters.ComparisonOptionParam;
  * <ul>
  *   <li>{@link qualitypatternmodel.operators.Comparison#getArgument1 <em>Argument1</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.Comparison#getArgument2 <em>Argument2</em>}</li>
- *   <li>{@link qualitypatternmodel.operators.Comparison#getType <em>Type</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.Comparison#getOption <em>Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.Comparison#getTypeOption <em>Type Option</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.operators.OperatorsPackage#getComparison()
@@ -75,6 +75,30 @@ public interface Comparison extends BooleanOperator {
 	void setOption(ComparisonOptionParam value);
 
 	/**
+	 * Returns the value of the '<em><b>Type Option</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TypeOptionParam#getTypeComparisons <em>Type Comparisons</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type Option</em>' reference.
+	 * @see #setTypeOption(TypeOptionParam)
+	 * @see qualitypatternmodel.operators.OperatorsPackage#getComparison_TypeOption()
+	 * @see qualitypatternmodel.parameters.TypeOptionParam#getTypeComparisons
+	 * @model opposite="typeComparisons" required="true"
+	 * @generated
+	 */
+	TypeOptionParam getTypeOption();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.operators.Comparison#getTypeOption <em>Type Option</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type Option</em>' reference.
+	 * @see #getTypeOption()
+	 * @generated
+	 */
+	void setTypeOption(TypeOptionParam value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
@@ -121,30 +145,5 @@ public interface Comparison extends BooleanOperator {
 	 * @generated
 	 */
 	void setArgument2(qualitypatternmodel.graphstructure.Comparable value);
-
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link qualitypatternmodel.graphstructure.ReturnType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see qualitypatternmodel.graphstructure.ReturnType
-	 * @see #setType(ReturnType)
-	 * @see qualitypatternmodel.operators.OperatorsPackage#getComparison_Type()
-	 * @model
-	 * @generated
-	 */
-	ReturnType getType();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.operators.Comparison#getType <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' attribute.
-	 * @see qualitypatternmodel.graphstructure.ReturnType
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(ReturnType value);
 
 } // Comparison

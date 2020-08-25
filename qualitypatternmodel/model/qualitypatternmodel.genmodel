@@ -107,6 +107,12 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/RelationOptionParam/relations"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/RelationOptionParam/inferSuggestions"/>
       </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/TypeOptionParam">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/TypeOptionParam/options"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/TypeOptionParam/value"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TypeOptionParam/typeComparisons"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Operators" basePackage="qualitypatternmodel" disposableProviderFactory="true"
         ecorePackage="qualitypatternmodel.ecore#//operators">
@@ -162,9 +168,10 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Comparison/argument1"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Comparison/argument2"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//operators/Comparison/type"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Comparison/option"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Comparison/typeOption"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/Comparison/isPrimitive"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/Comparison/getElement"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/Comparison/copy"/>

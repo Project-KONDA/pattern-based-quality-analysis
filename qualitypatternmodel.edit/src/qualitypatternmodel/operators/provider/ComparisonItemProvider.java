@@ -10,9 +10,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.OperatorsPackage;
 
@@ -46,8 +43,8 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 
 			addArgument1PropertyDescriptor(object);
 			addArgument2PropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
 			addOptionPropertyDescriptor(object);
+			addTypeOptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,6 +94,28 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Type Option feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypeOptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Comparison_typeOption_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Comparison_typeOption_feature", "_UI_Comparison_type"),
+				 OperatorsPackage.Literals.COMPARISON__TYPE_OPTION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Argument2 feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,28 +133,6 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Comparison_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Comparison_type_feature", "_UI_Comparison_type"),
-				 OperatorsPackage.Literals.COMPARISON__TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -178,13 +175,6 @@ public class ComparisonItemProvider extends BooleanOperatorItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(Comparison.class)) {
-			case OperatorsPackage.COMPARISON__TYPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
-		super.notifyChanged(notification);
 	}
 
 	/**

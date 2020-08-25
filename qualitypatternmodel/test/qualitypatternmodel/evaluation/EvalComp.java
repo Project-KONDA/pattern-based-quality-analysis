@@ -74,7 +74,7 @@ public class EvalComp {
 		Comparison c = new ComparisonImpl();
 		o.add(c);
 		c.createParameters();
-		c.setType(ReturnType.STRING);
+		c.getTypeOption().setValue(ReturnType.STRING);
 		c.setArgument1(p);
 		c.setArgument2(p2);
 		

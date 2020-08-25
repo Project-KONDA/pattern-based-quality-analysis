@@ -37,6 +37,7 @@ import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.util.ParametersValidator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -147,6 +148,13 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	private EClass relationOptionParamEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass typeOptionParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -874,6 +882,46 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EClass getTypeOptionParam() {
+		return typeOptionParamEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTypeOptionParam_Options() {
+		return (EAttribute)typeOptionParamEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTypeOptionParam_Value() {
+		return (EAttribute)typeOptionParamEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTypeOptionParam_TypeComparisons() {
+		return (EReference)typeOptionParamEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getStringToIntEMap() {
 		return stringToIntEMapEDataType;
 	}
@@ -983,6 +1031,11 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEReference(relationOptionParamEClass, RELATION_OPTION_PARAM__RELATIONS);
 		createEOperation(relationOptionParamEClass, RELATION_OPTION_PARAM___INFER_SUGGESTIONS);
 
+		typeOptionParamEClass = createEClass(TYPE_OPTION_PARAM);
+		createEAttribute(typeOptionParamEClass, TYPE_OPTION_PARAM__OPTIONS);
+		createEAttribute(typeOptionParamEClass, TYPE_OPTION_PARAM__VALUE);
+		createEReference(typeOptionParamEClass, TYPE_OPTION_PARAM__TYPE_COMPARISONS);
+
 		// Create data types
 		stringToIntEMapEDataType = createEDataType(STRING_TO_INT_EMAP);
 	}
@@ -1038,6 +1091,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		untypedParameterValueEClass.getESuperTypes().add(this.getParameterValue());
 		dateTimeParamEClass.getESuperTypes().add(this.getParameterValue());
 		relationOptionParamEClass.getESuperTypes().add(this.getParameter());
+		typeOptionParamEClass.getESuperTypes().add(this.getParameter());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(parameterEClass, Parameter.class, "Parameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1171,6 +1225,11 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEReference(getRelationOptionParam_Relations(), theAdaptionxmlPackage.getXmlNavigation(), theAdaptionxmlPackage.getXmlNavigation_Option(), "relations", null, 0, -1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getRelationOptionParam__InferSuggestions(), theAdaptionxmlPackage.getRelationKind(), "inferSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(typeOptionParamEClass, TypeOptionParam.class, "TypeOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTypeOptionParam_Options(), theGraphstructurePackage.getReturnType(), "options", null, 0, -1, TypeOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTypeOptionParam_Value(), theGraphstructurePackage.getReturnType(), "value", null, 1, 1, TypeOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTypeOptionParam_TypeComparisons(), theOperatorsPackage.getComparison(), theOperatorsPackage.getComparison_TypeOption(), "typeComparisons", null, 0, -1, TypeOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(stringToIntEMapEDataType, EMap.class, "StringToIntEMap", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

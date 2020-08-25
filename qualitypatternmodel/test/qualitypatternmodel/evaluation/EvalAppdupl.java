@@ -157,19 +157,19 @@ public class EvalAppdupl {
 		cea.createParameters();
 		cea.setArgument1(e1ap);
 		cea.setArgument2(e2ap);
-		cea.setType(ReturnType.STRING);
+		cea.getTypeOption().setValue(ReturnType.STRING);
 		Comparison ceb = new ComparisonImpl();
 		ol.add(ceb);
 		ceb.createParameters();
 		ceb.setArgument1(e1bp);
 		ceb.setArgument2(e2bp);
-		ceb.setType(ReturnType.STRING);
+		ceb.getTypeOption().setValue(ReturnType.STRING);
 		Comparison cec = new ComparisonImpl();
 		ol.add(cec);
 		cec.createParameters();
 		cec.setArgument1(e1cp);
 		cec.setArgument2(e2cp);
-		cec.setType(ReturnType.STRING);
+		cec.getTypeOption().setValue(ReturnType.STRING);
 		
 		
 //		System.out.println(completePattern.myToString());
