@@ -892,7 +892,8 @@ public class Services {
     }
     
     public String featureNameSelectProperty(EObject self) {//hinzufügen einer Property zu einem Comparison, das gibt die kante zurück, in der die property gespeichert wird, auch hinzufügen von property zu match
-    	System.out.println("wwwwwwwwwwwwwwwwwwwwwww"+self);String feature = "property";//Wert für Match
+    	System.out.println("wwwwwwwwwwwwwwwwwwwwwww"+self);
+    	String feature = "property";//Wert für Match
     	if(self instanceof Comparison) {
     		Comparison comparison = (Comparison) self;
     		if(comparison.getArgument1() == null) {
@@ -2165,7 +2166,7 @@ public class Services {
     }
     
     static HashMap<CompletePattern, ArrayList<EObject>> patternRelatedElements = new HashMap<CompletePattern, ArrayList<EObject>>();//Schlüssel ist ein CompletePattern, der Wert sind die Elemente, die in diesem CompletePattern markiert sind
-    public void iteratorCheckbox(EObject self, EObject iterator, boolean checkboxValue) {
+    public void iteratorCheckbox(EObject self, EObject iterator, boolean checkboxValue) {//wird aufgerufen, wenn eine checkbox aktiviert wird
     	/*Fälle:
     		1. Element wird markiert und kein anderes Element ist markiert
     		2. Element wird markiert und ein anderes Element ist markiert
@@ -2185,19 +2186,19 @@ public class Services {
     		thisPatternRelatedElements.addAll(elements);
     		markCheckbox(iterator);
     		
-    	}else {
+    	}else {//es sind elemente markiert
     		thisPatternRelatedElements.clear();
     		if(checkboxValue) {
     			thisPatternRelatedElements.addAll(elements);
-    			markCheckbox(iterator);
+    			markCheckbox(iterator);System.out.println("Gerade hier"+iterator);
     		}else {
-    			markCheckbox(null);
+    			deleteCheckbox(self);
     			System.out.println("markCheckbox null");
     		}
     	}
-    	System.out.println(patternRelatedElements.get((CompletePattern) self));
-    	System.out.println(elements);
-    	System.out.println("Checkbox: "+checkboxElements.get((CompletePattern) self));
+    	System.out.println("Diese Elemente sind markiert: "+patternRelatedElements.get((CompletePattern) self));
+    	System.out.println("Diese Elemente wurden wegen der Checkbox markiert: "+elements);
+    	System.out.println("Dieses Element gehört zur Chechbox: : "+checkboxElements.get((CompletePattern) self));
     }
     
     /*static ArrayList<EObject> objecttestlist = new ArrayList<EObject>();
@@ -2213,7 +2214,7 @@ public class Services {
     }*/
     
     public boolean isElementMarked(EObject self) {//self ist das Element, in dem das conditional style liegt
-    	boolean isMarked = false;
+    	boolean isMarked = false;System.out.println(")))))))))))))))))))))))))))))))))))))))");
     	
     	CompletePattern pattern = (CompletePattern) getWurzelContainer(self);
     	ArrayList<EObject> markedElements = patternRelatedElements.get(pattern);
@@ -2241,8 +2242,14 @@ public class Services {
     public void markCheckbox(EObject eo) {//Speichert die markierte Checkbox, damit nur eine aktiviert sein kann
     	CompletePattern pattern = (CompletePattern) getWurzelContainer(eo);
     	EObject checkboxElement = checkboxElements.get(pattern);
-    	if(checkboxElement == null) {
+    	//if(checkboxElement == null) {
+    		System.out.println("[[[[[[[[[[[[[[[[[[[[[[[[[["+eo);
     		checkboxElements.put(pattern, eo);
-    	}
+    	//}
+    }
+    
+    public void deleteCheckbox(EObject eo) {//
+    	CompletePattern pattern = (CompletePattern) getWurzelContainer(eo);
+    	checkboxElements.put(pattern, null);
     }
 }
