@@ -569,7 +569,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated NOT
+	 * @generated
 	 */
 	public NotificationChain basicSetOption(ComparisonOptionParam newOption, NotificationChain msgs) {
 		ComparisonOptionParam oldOption = option;
@@ -644,11 +644,19 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetTypeOption(TypeOptionParam newTypeOption, NotificationChain msgs) {
 		TypeOptionParam oldTypeOption = typeOption;
+		
+		ParameterList varlist = getParameterList();
+		if(varlist != null) {
+			varlist.remove(oldTypeOption);
+			varlist.add(newTypeOption);
+		}
+		
 		typeOption = newTypeOption;
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.COMPARISON__TYPE_OPTION, oldTypeOption, newTypeOption);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

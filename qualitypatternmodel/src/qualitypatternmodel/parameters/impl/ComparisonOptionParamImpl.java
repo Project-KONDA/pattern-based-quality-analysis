@@ -151,7 +151,10 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {
-		getComparisons().clear();
+		if(newVariableList == null) {
+			getComparisons().clear();
+		}
+		
 		return super.basicSetParameterList(newVariableList, msgs);
 	}
 
