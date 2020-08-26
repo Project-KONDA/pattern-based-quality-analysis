@@ -152,25 +152,7 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetPattern(CompletePattern newPattern, NotificationChain msgs) {
-		for (Parameter parameter : getParameters()) {
-			if (parameter instanceof BooleanParam) {
-				((BooleanParam) parameter).getMatches().clear();;
-			}
-			if (parameter instanceof TextLiteralParam) {
-				((TextLiteralParam) parameter).getMatches().clear();;
-				((TextLiteralParam) parameter).getProperties().clear();
-			}
-			if (parameter instanceof ComparisonOptionParam) {
-				((ComparisonOptionParam) parameter).getComparisons().clear();
-			}
-			if (parameter instanceof PropertyOptionParam) {
-				((PropertyOptionParam) parameter).getProperties().clear();
-			}
-			if (parameter instanceof Comparable) {
-				((Comparable) parameter).getComparison1().clear();
-				((Comparable) parameter).getComparison2().clear();
-			}
-		}
+		getParameters().clear();
 		msgs = eBasicSetContainer((InternalEObject) newPattern, ParametersPackage.PARAMETER_LIST__PATTERN, msgs);
 		return msgs;
 	}
