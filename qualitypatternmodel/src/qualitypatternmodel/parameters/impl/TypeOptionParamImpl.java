@@ -114,7 +114,9 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	
 	@Override
 	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {
-		getTypeComparisons().clear();
+		if(newVariableList == null) {
+			getTypeComparisons().clear();
+		}
 		return super.basicSetParameterList(newVariableList, msgs);
 	}
 	

@@ -128,7 +128,9 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {
-		getMatches().clear();
+		if(newVariableList == null) {
+			getMatches().clear();
+		}
 		return super.basicSetParameterList(newVariableList, msgs);
 	}
 
