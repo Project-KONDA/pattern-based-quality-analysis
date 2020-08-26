@@ -2441,6 +2441,14 @@
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
               </style>
+              <conditionnalStyles predicateExpression="aql:self.isElementMarked()">
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Hier'">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                </style>
+              </conditionnalStyles>
             </subContainerMappings>
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:self.graphName()" widthComputationExpression="40" heightComputationExpression="40">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -3346,7 +3354,7 @@
       <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self" preconditionExpression="aql:self.start()">
         <controls xsi:type="properties:DynamicMappingForDescription" name="parameterlistelements" iterator="iterator" iterableExpression="aql:self.getParameterlistElements()">
           <ifs name="parameterlistelementsifbooleancheckbox" predicateExpression="aql:self.parameterlistElementsIfBooleanParam(iterator)">
-            <widget xsi:type="properties:CheckboxDescription" name="booleancheckbox" labelExpression="aql:self.getParameterlistElementsIteratorName(iterator)">
+            <widget xsi:type="properties:CheckboxDescription" name="booleancheckbox" labelExpression="aql:self.getParameterlistElementsIteratorName(iterator)" valueExpression="aql:self.isCheckboxActivated(iterator)">
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.iteratorCheckbox(iterator,newValue)"/>
               </initialOperation>

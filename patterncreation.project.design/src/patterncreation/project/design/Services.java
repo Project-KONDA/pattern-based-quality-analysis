@@ -2164,7 +2164,7 @@ public class Services {
     	return returnlist;
     }
     
-    HashMap<CompletePattern, ArrayList<EObject>> patternRelatedElements = new HashMap<CompletePattern, ArrayList<EObject>>();//Schlüssel ist ein CompletePattern, der Wert sind die Elemente, die in diesem CompletePattern markiert sind
+    static HashMap<CompletePattern, ArrayList<EObject>> patternRelatedElements = new HashMap<CompletePattern, ArrayList<EObject>>();//Schlüssel ist ein CompletePattern, der Wert sind die Elemente, die in diesem CompletePattern markiert sind
     public void iteratorCheckbox(EObject self, EObject iterator, boolean checkboxValue) {
     	/*Fälle:
     		1. Element wird markiert und kein anderes Element ist markiert
@@ -2181,15 +2181,23 @@ public class Services {
     	}
     	
     	if(thisPatternRelatedElements.isEmpty()) {//gerade sind keine Elemente markiert, es kann also nur markiert werden
+    		System.out.println("Es sind keine Elemente markiert");
     		thisPatternRelatedElements.addAll(elements);
+    		markCheckbox(iterator);
+    		
     	}else {
     		thisPatternRelatedElements.clear();
     		if(checkboxValue) {
     			thisPatternRelatedElements.addAll(elements);
+    			markCheckbox(iterator);
+    		}else {
+    			markCheckbox(null);
+    			System.out.println("markCheckbox null");
     		}
     	}
     	System.out.println(patternRelatedElements.get((CompletePattern) self));
     	System.out.println(elements);
+    	System.out.println("Checkbox: "+checkboxElements.get((CompletePattern) self));
     }
     
     /*static ArrayList<EObject> objecttestlist = new ArrayList<EObject>();
@@ -2203,4 +2211,38 @@ public class Services {
     	System.out.println("ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß"+objecttestlist.size());
     	return self;
     }*/
+    
+    public boolean isElementMarked(EObject self) {//self ist das Element, in dem das conditional style liegt
+    	boolean isMarked = false;
+    	
+    	CompletePattern pattern = (CompletePattern) getWurzelContainer(self);
+    	ArrayList<EObject> markedElements = patternRelatedElements.get(pattern);
+    	if(markedElements.contains(self)) {
+    		isMarked = true;
+    	}
+    	
+    	return isMarked;
+    }
+    
+    static HashMap<CompletePattern, EObject> checkboxElements = new HashMap<CompletePattern, EObject>();//hier wird zu dem jeweiligen Muster das EObject zur markierten Checkbox gespeichert
+    public boolean isCheckboxActivated(EObject self, EObject o) {
+    	System.out.println("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
+    	boolean isActivated = false;
+    	
+    	EObject checkboxElement = checkboxElements.get((CompletePattern) self);
+    	System.out.println("Sind checkbox und self gleich: "+(checkboxElement != null && checkboxElement.equals(o)));
+    	if(checkboxElement != null && checkboxElement.equals(o)) {
+    		isActivated = true;
+    	}
+    	
+    	return isActivated;
+    }
+    
+    public void markCheckbox(EObject eo) {//Speichert die markierte Checkbox, damit nur eine aktiviert sein kann
+    	CompletePattern pattern = (CompletePattern) getWurzelContainer(eo);
+    	EObject checkboxElement = checkboxElements.get(pattern);
+    	if(checkboxElement == null) {
+    		checkboxElements.put(pattern, eo);
+    	}
+    }
 }
