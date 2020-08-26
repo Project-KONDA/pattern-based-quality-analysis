@@ -631,10 +631,10 @@
       <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="targetProperty" lowerBound="1"
-          eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/incomingReferences"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceProperty" lowerBound="1"
-          eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/outgoingReferences"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetProperty" eType="#//adaptionxml/XmlProperty"
+          eOpposite="#//adaptionxml/XmlProperty/incomingReferences"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceProperty" eType="#//adaptionxml/XmlProperty"
+          eOpposite="#//adaptionxml/XmlProperty/outgoingReferences"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlProperty" eSuperTypes="#//graphstructure/Property">
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/PropertyOptionParam"

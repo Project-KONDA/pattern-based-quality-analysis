@@ -34,7 +34,7 @@ public interface XmlReference extends Relation {
 	 * @see #setSourceProperty(XmlProperty)
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlReference_SourceProperty()
 	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getOutgoingReferences
-	 * @model opposite="outgoingReferences" required="true"
+	 * @model opposite="outgoingReferences"
 	 * @generated
 	 */
 	XmlProperty getSourceProperty();
@@ -58,7 +58,7 @@ public interface XmlReference extends Relation {
 	 * @see #setTargetProperty(XmlProperty)
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlReference_TargetProperty()
 	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getIncomingReferences
-	 * @model opposite="incomingReferences" required="true"
+	 * @model opposite="incomingReferences"
 	 * @generated
 	 */
 	XmlProperty getTargetProperty();

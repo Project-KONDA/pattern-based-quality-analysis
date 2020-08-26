@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_XC6UUNChEeqXuKphjom2IA" internalId="0" elementCounter="12">
-  <graph id="_XC6UUtChEeqXuKphjom2IA" internalId="1" returnElements="_amjaMdChEeqXuKphjom2IA">
-    <elements xsi:type="adaptionxml:XmlElement" id="_amjaMdChEeqXuKphjom2IA" internalId="3" resultOf="_XC6UUtChEeqXuKphjom2IA" incoming="_0A-mJdChEeqXuKphjom2IA">
-      <properties xsi:type="adaptionxml:XmlProperty" id="_a3MeQdChEeqXuKphjom2IA" internalId="4" option="_eE37MdChEeqXuKphjom2IA" attributeName="_cDIF4NChEeqXuKphjom2IA"/>
-    </elements>
-    <elements xsi:type="adaptionxml:XmlRoot" id="_zV1-ctChEeqXuKphjom2IA" internalId="9" name="Root" outgoing="_0A-mJdChEeqXuKphjom2IA"/>
-    <operatorList id="_XC6UU9ChEeqXuKphjom2IA"/>
-    <relations xsi:type="adaptionxml:XmlNavigation" id="_0A-mJdChEeqXuKphjom2IA" internalId="10" source="_zV1-ctChEeqXuKphjom2IA" target="_amjaMdChEeqXuKphjom2IA" option="_0UZ4cNChEeqXuKphjom2IA"/>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:patternstructure="patternstructure" id="_uhStoOeHEeqva_1dQuNtdw" internalId="0" elementCounter="6">
+  <graph id="_uhTUsOeHEeqva_1dQuNtdw" internalId="3" returnElements="_uhVJ4OeHEeqva_1dQuNtdw" outgoingMorphisms="_zGWNM-eHEeqva_1dQuNtdw">
+    <elements id="_uhVJ4OeHEeqva_1dQuNtdw" internalId="1" outgoingMappings="_zGeJAOeHEeqva_1dQuNtdw" resultOf="_uhTUsOeHEeqva_1dQuNtdw" name="Element 1" outgoing="_yVq-MOeHEeqva_1dQuNtdw"/>
+    <elements id="_xQRcYOeHEeqva_1dQuNtdw" internalId="2" outgoingMappings="_zGeJAueHEeqva_1dQuNtdw" name="Element 2" incoming="_yVq-MOeHEeqva_1dQuNtdw"/>
+    <operatorList id="_uhT7wOeHEeqva_1dQuNtdw"/>
+    <relations id="_yVq-MOeHEeqva_1dQuNtdw" internalId="4" outgoingMappings="_zGfXIOeHEeqva_1dQuNtdw" source="_uhVJ4OeHEeqva_1dQuNtdw" target="_xQRcYOeHEeqva_1dQuNtdw" name="Relation 4"/>
   </graph>
-  <condition xsi:type="patternstructure:TrueElement" id="_mgNIx9ChEeqXuKphjom2IA" internalId="8"/>
-  <parameterList id="_XC6UUdChEeqXuKphjom2IA" internalId="5">
-    <parameters xsi:type="parameters:TextLiteralParam" id="_cDIF4NChEeqXuKphjom2IA" internalId="6" value="test" properties="_a3MeQdChEeqXuKphjom2IA"/>
-    <parameters xsi:type="parameters:PropertyOptionParam" id="_eE37MdChEeqXuKphjom2IA" internalId="7" value="ATTRIBUTE" properties="_a3MeQdChEeqXuKphjom2IA">
-      <options>TAG</options>
-      <options>DATA</options>
-      <options>ATTRIBUTE</options>
-    </parameters>
-    <parameters xsi:type="parameters:RelationOptionParam" id="_0UZ4cNChEeqXuKphjom2IA" internalId="11" relations="_0A-mJdChEeqXuKphjom2IA">
-      <options>/child::*</options>
-      <options>/descendant::*</options>
-    </parameters>
-  </parameterList>
+  <condition xsi:type="patternstructure:QuantifiedCondition" id="_zGWNMOeHEeqva_1dQuNtdw">
+    <morphism id="_zGWNM-eHEeqva_1dQuNtdw" source="_uhTUsOeHEeqva_1dQuNtdw" target="_zGWNMeeHEeqva_1dQuNtdw">
+      <mappings xsi:type="patternstructure:ElementMapping" id="_zGeJAOeHEeqva_1dQuNtdw" source="_uhVJ4OeHEeqva_1dQuNtdw" target="_zGW0QOeHEeqva_1dQuNtdw"/>
+      <mappings xsi:type="patternstructure:ElementMapping" id="_zGeJAueHEeqva_1dQuNtdw" source="_xQRcYOeHEeqva_1dQuNtdw" target="_zGeJAeeHEeqva_1dQuNtdw"/>
+      <mappings xsi:type="patternstructure:RelationMapping" id="_zGfXIOeHEeqva_1dQuNtdw" target="_zGeJA-eHEeqva_1dQuNtdw" source="_yVq-MOeHEeqva_1dQuNtdw"/>
+    </morphism>
+    <graph id="_zGWNMeeHEeqva_1dQuNtdw" returnElements="_zGW0QOeHEeqva_1dQuNtdw" incomingMorphism="_zGWNM-eHEeqva_1dQuNtdw">
+      <elements id="_zGW0QOeHEeqva_1dQuNtdw" incomingMapping="_zGeJAOeHEeqva_1dQuNtdw" resultOf="_zGWNMeeHEeqva_1dQuNtdw" name="Element 1" outgoing="_zGeJA-eHEeqva_1dQuNtdw"/>
+      <elements id="_zGeJAeeHEeqva_1dQuNtdw" internalId="5" incomingMapping="_zGeJAueHEeqva_1dQuNtdw" name="Element 2" incoming="_zGeJA-eHEeqva_1dQuNtdw"/>
+      <operatorList id="_zGWNMueHEeqva_1dQuNtdw"/>
+      <relations id="_zGeJA-eHEeqva_1dQuNtdw" incomingMapping="_zGfXIOeHEeqva_1dQuNtdw" source="_zGW0QOeHEeqva_1dQuNtdw" target="_zGeJAeeHEeqva_1dQuNtdw" name="Relation 4"/>
+    </graph>
+    <condition xsi:type="patternstructure:TrueElement" id="_09eG4OeHEeqva_1dQuNtdw"/>
+  </condition>
+  <parameterList id="_uhStoeeHEeqva_1dQuNtdw"/>
 </patternstructure:CompletePattern>

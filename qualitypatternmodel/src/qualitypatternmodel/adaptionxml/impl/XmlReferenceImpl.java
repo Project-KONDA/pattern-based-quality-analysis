@@ -106,8 +106,23 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(abstractionLevel);
-		getSourceProperty().isValid(abstractionLevel);
-		getTargetProperty().isValid(abstractionLevel);
+		if(getIncomingMapping() == null) {
+			if(getSourceProperty() == null) {
+				throw new InvalidityException("source property null");
+			}
+			if(getTargetProperty() == null) {
+				throw new InvalidityException("target property null");
+			}
+			getSourceProperty().isValid(abstractionLevel);
+			getTargetProperty().isValid(abstractionLevel);
+		} else {
+			if(getSourceProperty() != null) {
+				throw new InvalidityException("source property not null");
+			}
+			if(getTargetProperty() != null) {
+				throw new InvalidityException("target property not null");
+			}
+		}
 	}
 	
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
@@ -167,24 +182,24 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	
 	@Override
 	public XmlNavigation adaptAsXMLNavigation() {
-		getSourceProperty().removeParametersFromParameterList();
-//		getSourceProperty().setOption(null);
-//		getSourceProperty().setAttributeName(null);
-		getSourceProperty().setElement(null);
-		setSourceProperty(null);
+		if(getSourceProperty() != null) {
+			getSourceProperty().removeParametersFromParameterList();
+			getSourceProperty().setElement(null);
+			setSourceProperty(null);
+		}
 		
-		getTargetProperty().removeParametersFromParameterList();
-//		getTargetProperty().setOption(null);
-//		getTargetProperty().setAttributeName(null);
-		getTargetProperty().setElement(null);
-		setTargetProperty(null);
+		if(getTargetProperty() != null) {
+			getTargetProperty().removeParametersFromParameterList();
+			getTargetProperty().setElement(null);
+			setTargetProperty(null);
+		}
 		
 		return super.adaptAsXMLNavigation();		
 	}
 	
 	@Override
 	public boolean isTranslatable() throws InvalidityException {
-		return getSourceProperty().isTranslatable() && getTargetProperty().isTranslatable();
+		return getSourceProperty() != null && getSourceProperty().isTranslatable() && getTargetProperty() != null && getTargetProperty().isTranslatable();
 	}
 	
 	/**

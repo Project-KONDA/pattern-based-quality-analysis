@@ -19,19 +19,14 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.parameters.BooleanParam;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.parameters.PropertyOptionParam;
-import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
-import qualitypatternmodel.graphstructure.Comparable;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
