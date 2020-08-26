@@ -731,14 +731,16 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			reference.setSource(getSource());
 			reference.setTarget(getTarget());			
 			
-			XmlProperty sourceProperty = new XmlPropertyImpl();
-			sourceProperty.setElement(reference.getSource());
-			sourceProperty.createParameters();
-			XmlProperty targetProperty = new XmlPropertyImpl();
-			targetProperty.setElement(reference.getTarget());
-			targetProperty.createParameters();
-			reference.setSourceProperty(sourceProperty);			
-			reference.setTargetProperty(targetProperty);
+			if(getIncomingMapping() == null) {
+				XmlProperty sourceProperty = new XmlPropertyImpl();
+				sourceProperty.setElement(reference.getSource());
+				sourceProperty.createParameters();
+				XmlProperty targetProperty = new XmlPropertyImpl();
+				targetProperty.setElement(reference.getTarget());
+				targetProperty.createParameters();
+				reference.setSourceProperty(sourceProperty);			
+				reference.setTargetProperty(targetProperty);
+			}
 			
 			reference.getOutgoingMappings().addAll(getOutgoingMappings());
 			

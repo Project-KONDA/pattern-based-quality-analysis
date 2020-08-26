@@ -568,29 +568,15 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetOption(ComparisonOptionParam newOption, NotificationChain msgs) {
 		ComparisonOptionParam oldOption = option;
-				
-		ParameterList varlist = getParameterList();
-		if(varlist != null) {
-			varlist.remove(oldOption);
-			varlist.add(newOption);
-		}	
-		
 		option = newOption;
-		
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					OperatorsPackage.COMPARISON__OPTION, oldOption, newOption);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.COMPARISON__OPTION, oldOption, newOption);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-				
 		return msgs;
 	}
 

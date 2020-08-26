@@ -56,11 +56,13 @@ public class AdaptionTest {
 			System.out.println(xmlReference);
 			System.out.println(xmlReference.getSource());
 			System.out.println(xmlReference.getTarget());
+			System.out.println(xmlReference.getSource().getProperties().size());
 			QuantifiedCondition qc = (QuantifiedCondition) completePattern.getCondition();
 			XmlReference xmlReference2 = (XmlReference) qc.getGraph().getRelations().get(0);
 			System.out.println(xmlReference2);
 			System.out.println(xmlReference2.getSource());
 			System.out.println(xmlReference2.getTarget());
+			System.out.println(xmlReference2.getSource().getProperties().size());
 			
 		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
 			// TODO Auto-generated catch block
