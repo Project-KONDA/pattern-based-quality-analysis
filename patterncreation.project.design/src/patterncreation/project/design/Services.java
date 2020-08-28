@@ -62,6 +62,7 @@ import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.TimeParamImpl;
 import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
+import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Condition;
@@ -1429,9 +1430,11 @@ public class Services {
     	Element element = (Element) self;
     	Graph graph = element.getGraph();
     	QuantifiedCondition condition = graph.getQuantifiedCondition();
-    	Quantifier quantifier = condition.getQuantifier();
-    	if(element.getIncomingMapping() == null && !graph.isReturnGraph() && quantifier == Quantifier.EXISTS) {
-    		decoration = true;
+    	if(condition != null) {
+    		Quantifier quantifier = condition.getQuantifier();
+    		if(element.getIncomingMapping() == null && !graph.isReturnGraph() && quantifier == Quantifier.EXISTS) {
+    			decoration = true;
+    		}
     	}
     	return decoration;
     }
@@ -1441,9 +1444,11 @@ public class Services {
     	Element element = (Element) self;
     	Graph graph = element.getGraph();
     	QuantifiedCondition condition = graph.getQuantifiedCondition();
-    	Quantifier quantifier = condition.getQuantifier();
-    	if(element.getIncomingMapping() == null && !graph.isReturnGraph() && quantifier == Quantifier.FORALL) {
-    		decoration = true;
+    	if(condition != null) {
+    		Quantifier quantifier = condition.getQuantifier();
+    		if(element.getIncomingMapping() == null && !graph.isReturnGraph() && quantifier == Quantifier.FORALL) {
+    			decoration = true;
+    		}
     	}
     	return decoration;
     }
@@ -1904,6 +1909,7 @@ public class Services {
     }
     
     public boolean isXmlnavigation(EObject self) {
+    	System.out.println("pokpjozkujpokpojkuokjpuok");
     	boolean isXmlnavigation = false;
     	if(self instanceof XmlNavigation) {
     		isXmlnavigation = true;
@@ -1912,6 +1918,7 @@ public class Services {
     }
     
     public boolean isXmlreference(EObject self) {
+    	System.out.println("2lydughöpsioghösiotjäsioetj");
     	boolean isXmlreference = false;
     	if(self instanceof XmlReference) {
     		isXmlreference = true;
@@ -2127,14 +2134,33 @@ public class Services {
     
     public String getParameterlistElementsIteratorName(EObject self, EObject iterator) {//Namen zu einem Element der Parameterliste, Iterator der Forschleife ist eine Element der Parameterliste
     	String name = "";
+    	PatternElement patternelement = (PatternElement) iterator;
     	if(iterator instanceof BooleanParam) {
     		BooleanParam booleanparam = (BooleanParam) iterator;
     		name = "Boolean " + booleanparam.getInternalId();
+    	}else if(iterator instanceof TextLiteralParam) {
+    		name = "Textliteral " + patternelement.getInternalId();
+    	}else if(iterator instanceof TextListParam) {
+    		name = "Textlist " + patternelement.getInternalId();
+    	}else if(iterator instanceof NumberParam) {
+    		name = "Number " + patternelement.getInternalId();
+    	}else if(iterator instanceof DateParam) {
+    		name = "Date " + patternelement.getInternalId();
+    	}else if(iterator instanceof TimeParam) {
+    		name = "Time " + patternelement.getInternalId();
+    	}else if(iterator instanceof DateTimeParam) {
+    		name = "DateTime " + patternelement.getInternalId();
+    	}else if(iterator instanceof DateTimeParam) {
+    		name = "DateTime " + patternelement.getInternalId();
+    	}else if(iterator instanceof ComparisonOptionParam) {
+    		name = "ComparisonOption " + patternelement.getInternalId();
+    	}else if(iterator instanceof ComparisonOptionParam) {
+    		name = "TypeOption " + patternelement.getInternalId();
     	}
     	return name;
     }
     
-    public boolean parameterlistElementsIfBooleanParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein booleanparam ist
+    public boolean isBooleanParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein booleanparam ist
     	boolean isBooleanParam = false;
     	if(iterator instanceof BooleanParam) {
     		isBooleanParam = true;
@@ -2142,11 +2168,75 @@ public class Services {
     	return isBooleanParam;
     }
     
+    public boolean isTextliteralParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein textliteralparam ist
+    	boolean isTextliteralParam = false;
+    	if(iterator instanceof TextLiteralParam) {
+    		isTextliteralParam = true;
+    	}
+    	return isTextliteralParam;
+    }
+    
+    public boolean isTextlistParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein textlistparam ist
+    	boolean isTextlistParam = false;
+    	if(iterator instanceof TextListParam) {
+    		isTextlistParam = true;
+    	}
+    	return isTextlistParam;
+    }
+    
+    public boolean isNumberParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein number ist
+    	boolean isNumberParam = false;
+    	if(iterator instanceof NumberParam) {
+    		isNumberParam = true;
+    	}
+    	return isNumberParam;
+    }
+    
+    public boolean isDateParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein date ist
+    	boolean isDateParam = false;
+    	if(iterator instanceof DateParam) {
+    		isDateParam = true;
+    	}
+    	return isDateParam;
+    }
+    
+    public boolean isTimeParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein time ist
+    	boolean isTimeParam = false;
+    	if(iterator instanceof TimeParam) {
+    		isTimeParam = true;
+    	}
+    	return isTimeParam;
+    }
+    
+    public boolean isDateTimeParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein datetime ist
+    	boolean isDateTimeParam = false;
+    	if(iterator instanceof DateTimeParam) {
+    		isDateTimeParam = true;
+    	}
+    	return isDateTimeParam;
+    }
+    
+    public boolean isComparisonOptionParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein comparisonoption ist
+    	boolean isComparisonOptionParam = false;
+    	if(iterator instanceof ComparisonOptionParam) {
+    		isComparisonOptionParam = true;
+    	}
+    	return isComparisonOptionParam;
+    }
+    
+    /*public boolean isTypeOptionParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein comparisonoption ist
+    	boolean isTypeOptionParam = false;
+    	if(iterator instanceof TypeOptionParam) {
+    		isTypeOptionParam = true;
+    	}
+    	return isTypeOptionParam;
+    }*/
+    
     public ArrayList<EObject> getRelatedElements(EObject object){//sucht die Elemente heraus, die markiert werden müssen, wenn ein Objekt in der View mit der Checkbox ausgewählt wird
     	ArrayList<EObject> returnlist = new ArrayList<EObject>();//die gesuchten Elemente
     	
-    	if(object instanceof BooleanParam) {
-    		System.out.println("object ist Boolean");
+    	if(object instanceof BooleanParam) {//noch nicht fertig
+    		//System.out.println("object ist Boolean");
     		BooleanParam booleanparam = (BooleanParam) object;
     		
     		EList<Comparison> comparisonArgument1 = booleanparam.getComparison1();
@@ -2156,10 +2246,24 @@ public class Services {
     		returnlist.addAll(comparisonArgument1);
     		returnlist.addAll(comparisonArgument2);
     		returnlist.addAll(matches);
+    		returnlist.add(object);
     		
-    		System.out.println(comparisonArgument1);
+    		/*System.out.println(comparisonArgument1);
     		System.out.println(comparisonArgument2);
-    		System.out.println(matches);
+    		System.out.println(matches);*/
+    	}else if(object instanceof NumberParam){
+    		NumberParam number = (NumberParam) object;
+    		NumberElement numberelement = number.getNumberArgument();
+    		
+    		returnlist.add(numberelement);
+    		returnlist.add(object);
+    	}else if(object instanceof ComparisonOptionParam) {
+    		ComparisonOptionParam comparisonoption = (ComparisonOptionParam) object;
+    		EList<Comparison> comparisons = comparisonoption.getComparisons();
+    		
+    		returnlist.addAll(comparisons);
+    	}else {
+    		returnlist.add(object);
     	}
     	
     	return returnlist;
@@ -2172,7 +2276,7 @@ public class Services {
     		2. Element wird markiert und ein anderes Element ist markiert
     		3. Elementmarkierung wird aufgehoben*/
 
-    	System.out.println(self);
+    	//System.out.println(self);
     	ArrayList<EObject> thisPatternRelatedElements = patternRelatedElements.get((CompletePattern) self);
     	ArrayList<EObject> elements = getRelatedElements(iterator);//die Elemente, die wegen iterator markiert werden müssen
     	
@@ -2182,7 +2286,7 @@ public class Services {
     	}
     	
     	if(thisPatternRelatedElements.isEmpty()) {//gerade sind keine Elemente markiert, es kann also nur markiert werden
-    		System.out.println("Es sind keine Elemente markiert");
+    		//System.out.println("Es sind keine Elemente markiert");
     		thisPatternRelatedElements.addAll(elements);
     		markCheckbox(iterator);
     		
@@ -2196,9 +2300,15 @@ public class Services {
     			System.out.println("markCheckbox null");
     		}
     	}
-    	System.out.println("Diese Elemente sind markiert: "+patternRelatedElements.get((CompletePattern) self));
+    	/*System.out.println("Diese Elemente sind markiert: "+patternRelatedElements.get((CompletePattern) self));
     	System.out.println("Diese Elemente wurden wegen der Checkbox markiert: "+elements);
-    	System.out.println("Dieses Element gehört zur Chechbox: : "+checkboxElements.get((CompletePattern) self));
+    	System.out.println("Dieses Element gehört zur Chechbox: : "+checkboxElements.get((CompletePattern) self));*/
+    	
+    	//damit die Anzeige in Sirius aktualisiert wird
+    	CompletePattern pattern = (CompletePattern) self;
+    	String name =pattern.getName();
+    	pattern.setName("Hallo");
+    	pattern.setName(name);
     }
     
     /*static ArrayList<EObject> objecttestlist = new ArrayList<EObject>();
@@ -2214,7 +2324,7 @@ public class Services {
     }*/
     
     public boolean isElementMarked(EObject self) {//self ist das Element, in dem das conditional style liegt
-    	boolean isMarked = false;System.out.println(")))))))))))))))))))))))))))))))))))))))");
+    	boolean isMarked = false;//System.out.println(")))))))))))))))))))))))))))))))))))))))");
     	
     	CompletePattern pattern = (CompletePattern) getWurzelContainer(self);
     	ArrayList<EObject> markedElements = patternRelatedElements.get(pattern);
@@ -2227,11 +2337,11 @@ public class Services {
     
     static HashMap<CompletePattern, EObject> checkboxElements = new HashMap<CompletePattern, EObject>();//hier wird zu dem jeweiligen Muster das EObject zur markierten Checkbox gespeichert
     public boolean isCheckboxActivated(EObject self, EObject o) {
-    	System.out.println("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
+    	//System.out.println("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
     	boolean isActivated = false;
     	
     	EObject checkboxElement = checkboxElements.get((CompletePattern) self);
-    	System.out.println("Sind checkbox und self gleich: "+(checkboxElement != null && checkboxElement.equals(o)));
+    	//System.out.println("Sind checkbox und self gleich: "+(checkboxElement != null && checkboxElement.equals(o)));
     	if(checkboxElement != null && checkboxElement.equals(o)) {
     		isActivated = true;
     	}
@@ -2243,7 +2353,7 @@ public class Services {
     	CompletePattern pattern = (CompletePattern) getWurzelContainer(eo);
     	EObject checkboxElement = checkboxElements.get(pattern);
     	//if(checkboxElement == null) {
-    		System.out.println("[[[[[[[[[[[[[[[[[[[[[[[[[["+eo);
+    		//System.out.println("[[[[[[[[[[[[[[[[[[[[[[[[[["+eo);
     		checkboxElements.put(pattern, eo);
     	//}
     }
@@ -2251,5 +2361,124 @@ public class Services {
     public void deleteCheckbox(EObject eo) {//
     	CompletePattern pattern = (CompletePattern) getWurzelContainer(eo);
     	checkboxElements.put(pattern, null);
+    }
+    
+    public boolean isCompletePattern(EObject self) {
+    	boolean isCompletePattern = false;
+    	if(self instanceof CompletePattern) {
+    		isCompletePattern = true;
+    	}
+    	return isCompletePattern;
+    }
+    
+    public void setTextliteralValue(EObject self, EObject iterator, String s) {//wird bei text von textliteral in view 3 aufgerufen
+    	if(iterator instanceof TextLiteralParam) {
+    		TextLiteralParam textliteral = (TextLiteralParam) iterator;
+    		textliteral.setValue(s);
+    	}
+    }
+    
+    public String getTextliteralValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
+    	String s = "";
+    	if(iterator instanceof TextLiteralParam) {
+    		TextLiteralParam textliteral = (TextLiteralParam) iterator;
+    		s = textliteral.getValue();
+    	}
+    	return s;
+    }
+    
+    public void setBooleanValue(EObject self, EObject iterator, Boolean b) {//wird bei text von textliteral in view 3 aufgerufen
+    	if(iterator instanceof BooleanParam) {
+    		BooleanParam booleanparam = (BooleanParam) iterator;
+    		booleanparam.setValue(b);
+    	}
+    }
+    
+    public boolean getBooleanValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
+    	boolean b = false;
+    	if(iterator instanceof BooleanParam) {
+    		BooleanParam booleanparam = (BooleanParam) iterator;
+    		b = booleanparam.getValue();
+    	}
+    	return b;
+    }
+    
+    public void setNumberValue(EObject self, EObject iterator, String s) {//wird bei text von textliteral in view 3 aufgerufen
+    	if(iterator instanceof NumberParam) {
+    		NumberParam numberparam = (NumberParam) iterator;
+    		numberparam.setValue(Double.parseDouble(s));
+    	}
+    }
+    
+    public double getNumberValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
+    	double d = 0.0;
+    	if(iterator instanceof NumberParam) {
+    		NumberParam numberparam = (NumberParam) iterator;
+    		d = numberparam.getValue();
+    	}
+    	return d;
+    }
+    
+    public void setDateValue(EObject self, EObject iterator, String s) {//wird bei text von textliteral in view 3 aufgerufen
+    	if(iterator instanceof DateParam) {
+    		DateParam dateparam = (DateParam) iterator;
+    		dateparam.setValue(s);
+    	}
+    }
+    
+    public String getDateValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
+    	String s = "";
+    	if(iterator instanceof DateParam) {
+    		DateParam dateparam = (DateParam) iterator;
+    		s = dateparam.getValue();
+    	}
+    	return s;
+    }
+    
+    public void setDateTimeValue(EObject self, EObject iterator, String s) {//wird bei text von textliteral in view 3 aufgerufen
+    	if(iterator instanceof DateTimeParam) {
+    		DateTimeParam datetimeparam = (DateTimeParam) iterator;
+    		datetimeparam.setValue(s);
+    	}
+    }
+    
+    public String getDateTimeValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
+    	String s = "";
+    	if(iterator instanceof DateTimeParam) {
+    		DateTimeParam datetimeparam = (DateTimeParam) iterator;
+    		s = datetimeparam.getValue();
+    	}
+    	return s;
+    }
+    
+    public void setTimeValue(EObject self, EObject iterator, String s) {//wird bei text von textliteral in view 3 aufgerufen
+    	if(iterator instanceof TimeParam) {
+    		TimeParam timeparam = (TimeParam) iterator;
+    		timeparam.setValue(s);
+    	}
+    }
+    
+    public String getTimeValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
+    	String s = "";
+    	if(iterator instanceof TimeParam) {
+    		TimeParam timeparam = (TimeParam) iterator;
+    		s = timeparam.getValue();
+    	}
+    	return s;
+    }
+    
+    public ArrayList<Boolean> getBooleanSelectCandidates(EObject self){
+    	ArrayList<Boolean> candidates = new ArrayList<Boolean>();
+    	candidates.add(true);
+    	candidates.add(false);
+    	return candidates;
+    }
+    
+    public String getBooleanSelectCandidatesDisplay(EObject self, Boolean b){
+    	String s = "false";
+    	if(b) {
+    		s = "true";
+    	}
+    	return s;
     }
 }

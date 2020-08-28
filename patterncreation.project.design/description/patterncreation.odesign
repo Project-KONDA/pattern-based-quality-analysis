@@ -2442,11 +2442,11 @@
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
               </style>
               <conditionnalStyles predicateExpression="aql:self.isElementMarked()">
-                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'match'" roundedCorner="true">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
                 </style>
               </conditionnalStyles>
             </subContainerMappings>
@@ -2489,6 +2489,14 @@
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
               </style>
+              <conditionnalStyles predicateExpression="aql:self.isElementMarked()">
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Number'" widthComputationExpression="40" heightComputationExpression="40">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+                </style>
+              </conditionnalStyles>
             </subContainerMappings>
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'CountCondition'" widthComputationExpression="40" heightComputationExpression="40">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -2536,6 +2544,14 @@
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
+            <conditionnalStyles predicateExpression="aql:self.isElementMarked()">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Textliteral'">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              </style>
+            </conditionnalStyles>
           </subContainerMappings>
           <subContainerMappings name="textList" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='ConcretPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteTextlist']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Textlist')" domainClass="parameters::TextListParam">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Textlist'">
@@ -2544,6 +2560,14 @@
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
+            <conditionnalStyles predicateExpression="aql:self.isElementMarked()">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Textlist'">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              </style>
+            </conditionnalStyles>
           </subContainerMappings>
           <subContainerMappings name="number" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='ConcretPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteNumber']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Number')" domainClass="parameters::NumberParam">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Number'">
@@ -2552,6 +2576,14 @@
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
+            <conditionnalStyles predicateExpression="aql:self.isElementMarked()">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Number'">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              </style>
+            </conditionnalStyles>
           </subContainerMappings>
           <subContainerMappings name="boolean" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='ConcretPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteBoolean']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Boolean')" domainClass="parameters::BooleanParam">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Boolean'+self.internalId">
@@ -2560,6 +2592,14 @@
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
+            <conditionnalStyles predicateExpression="aql:self.isElementMarked()">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Boolean'+self.internalId">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              </style>
+            </conditionnalStyles>
           </subContainerMappings>
           <subContainerMappings name="date" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='ConcretPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteDate']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Date')" domainClass="parameters::DateParam">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Date'+self.internalId">
@@ -2568,6 +2608,14 @@
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
+            <conditionnalStyles predicateExpression="aql:self.isElementMarked()">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Date'+self.internalId">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              </style>
+            </conditionnalStyles>
           </subContainerMappings>
           <subContainerMappings name="time" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='ConcretPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteTime']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Time')" domainClass="parameters::TimeParam">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Time'+self.internalId">
@@ -2576,6 +2624,14 @@
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
+            <conditionnalStyles predicateExpression="aql:self.isElementMarked()">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Time'+self.internalId">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              </style>
+            </conditionnalStyles>
           </subContainerMappings>
           <subContainerMappings name="dateTime" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='ConcretPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteDateTime']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('DateTime')" domainClass="parameters::DateTimeParam">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'DateTime'+self.internalId">
@@ -2584,6 +2640,14 @@
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
+            <conditionnalStyles predicateExpression="aql:self.isElementMarked()">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'DateTime'+self.internalId">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              </style>
+            </conditionnalStyles>
           </subContainerMappings>
           <subContainerMappings name="untypedParameterValue" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='ConcretPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteUntypedParameterValue']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Value')" domainClass="parameters::UntypedParameterValue">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:'Value'+self.internalId">
@@ -3350,22 +3414,150 @@
   </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <categories name="Default Category">
-      <pages name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
-      <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self" preconditionExpression="aql:self.start()">
+      <pages name="Default Page" labelExpression="Concretization" semanticCandidateExpression="var:self" preconditionExpression="aql:self.isCompletePattern()" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <groups name="Default Group" labelExpression="Parameters and options" semanticCandidateExpression="var:self" preconditionExpression="aql:self.start()">
         <controls xsi:type="properties:DynamicMappingForDescription" name="parameterlistelements" iterator="iterator" iterableExpression="aql:self.getParameterlistElements()">
-          <ifs name="parameterlistelementsifbooleancheckbox" predicateExpression="aql:self.parameterlistElementsIfBooleanParam(iterator)">
+          <ifs name="parameterlistelementsifbooleancheckbox" predicateExpression="aql:self.isBooleanParam(iterator)">
             <widget xsi:type="properties:CheckboxDescription" name="booleancheckbox" labelExpression="aql:self.getParameterlistElementsIteratorName(iterator)" valueExpression="aql:self.isCheckboxActivated(iterator)">
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.iteratorCheckbox(iterator,newValue)">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:iterator">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'l'"/>
-                  </subModelOperations>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.iteratorCheckbox(iterator,newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="parameterlistelementsifbooleanselect" predicateExpression="aql:self.isBooleanParam(iterator)">
+            <widget xsi:type="properties:SelectDescription" name="booleanselect" valueExpression="aql:self.getBooleanValue(iterator)" candidatesExpression="aql:self.getBooleanSelectCandidates()" candidateDisplayExpression="aql:self.getBooleanSelectCandidatesDisplay(candidate)">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setBooleanValue(iterator, newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="parameterlistelementsiftextliteralcheckbox" predicateExpression="aql:self.isTextliteralParam(iterator)">
+            <widget xsi:type="properties:CheckboxDescription" name="textliteralcheckbox" labelExpression="aql:self.getParameterlistElementsIteratorName(iterator)" valueExpression="aql:self.isCheckboxActivated(iterator)">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.iteratorCheckbox(iterator,newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="parameterlistelementsiftextliteraltext" predicateExpression="aql:self.isTextliteralParam(iterator)">
+            <widget xsi:type="properties:TextDescription" name="textliteraltext" valueExpression="aql:self.getTextliteralValue(iterator)">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setTextliteralValue(iterator, newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="parameterlistelementsiftextlistcheckbox" predicateExpression="aql:self.isTextlistParam(iterator)">
+            <widget xsi:type="properties:CheckboxDescription" name="textlistcheckbox" labelExpression="aql:self.getParameterlistElementsIteratorName(iterator)" valueExpression="aql:self.isCheckboxActivated(iterator)">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.iteratorCheckbox(iterator,newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="parameterlistelementsiftextlist" predicateExpression="aql:self.isTextlistParam(iterator)">
+            <widget xsi:type="properties:ButtonDescription">
+              <initialOperation>
+                <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0/@controls.0/@ifs.5/@widget/@initialOperation/@firstModelOperations/@groups.0"/>
+                  <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:TextAreaDescription">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+                      </initialOperation>
+                    </controls>
+                    <controls xsi:type="properties:SelectDescription">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+                      </initialOperation>
+                    </controls>
+                    <controls xsi:type="properties:ButtonDescription">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+                      </initialOperation>
+                    </controls>
+                    <controls xsi:type="properties:ButtonDescription">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+                      </initialOperation>
+                    </controls>
+                  </groups>
                 </firstModelOperations>
               </initialOperation>
             </widget>
           </ifs>
-          <ifs name="parameterlistelementsifbooleanlabel" predicateExpression="aql:self.parameterlistElementsIfBooleanParam(iterator)">
-            <widget xsi:type="properties:SelectDescription"/>
+          <ifs name="parameterlistelementsifnumbercheckbox" predicateExpression="aql:self.isNumberParam(iterator)">
+            <widget xsi:type="properties:CheckboxDescription" name="numbercheckbox" labelExpression="aql:self.getParameterlistElementsIteratorName(iterator)" valueExpression="aql:self.isCheckboxActivated(iterator)">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.iteratorCheckbox(iterator,newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="parameterlistelementsifnumbertext" predicateExpression="aql:self.isNumberParam(iterator)">
+            <widget xsi:type="properties:TextDescription" name="numbertext" valueExpression="aql:self.getNumberValue(iterator)">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setNumberValue(iterator, newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="parameterlistelementsifdatecheckbox" predicateExpression="aql:self.isDateParam(iterator)">
+            <widget xsi:type="properties:CheckboxDescription" name="datecheckbox" labelExpression="aql:self.getParameterlistElementsIteratorName(iterator)" valueExpression="aql:self.isCheckboxActivated(iterator)">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.iteratorCheckbox(iterator,newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="parameterlistelementsifdatetext" predicateExpression="aql:self.isDateParam(iterator)">
+            <widget xsi:type="properties:TextDescription" name="datetext" valueExpression="aql:self.getDateValue(iterator)">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setDateValue(iterator, newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="parameterlistelementsiftimecheckbox" predicateExpression="aql:self.isTimeParam(iterator)">
+            <widget xsi:type="properties:CheckboxDescription" name="timecheckbox" labelExpression="aql:self.getParameterlistElementsIteratorName(iterator)" valueExpression="aql:self.isCheckboxActivated(iterator)">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.iteratorCheckbox(iterator,newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="parameterlistelementsiftimetext" predicateExpression="aql:self.isTimeParam(iterator)">
+            <widget xsi:type="properties:TextDescription" name="timetext" valueExpression="aql:self.getTimeValue(iterator)">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setTimeValue(iterator, newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="parameterlistelementsifdatetimecheckbox" predicateExpression="aql:self.isDateTimeParam(iterator)">
+            <widget xsi:type="properties:CheckboxDescription" name="datetimecheckbox" labelExpression="aql:self.getParameterlistElementsIteratorName(iterator)" valueExpression="aql:self.isCheckboxActivated(iterator)">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.iteratorCheckbox(iterator,newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="parameterlistelementsifdatetimetext" predicateExpression="aql:self.isDateTimeParam(iterator)">
+            <widget xsi:type="properties:TextDescription" name="datetimetext" valueExpression="aql:self.getDateTimeValue(iterator)">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setDateTimeValue(iterator, newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="parameterlistelementsifcomparisonoptioncheckbox" predicateExpression="aql:self.isComparisonOptionParam(iterator)">
+            <widget xsi:type="properties:CheckboxDescription" name="comparisonoptioncheckbox" labelExpression="aql:self.getParameterlistElementsIteratorName(iterator)" valueExpression="aql:self.isCheckboxActivated(iterator)">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.iteratorCheckbox(iterator,newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="parameterlistelementsiftypeoptioncheckbox" predicateExpression="aql:self.isTypeOptionParam(iterator)">
+            <widget xsi:type="properties:CheckboxDescription" name="typeoptioncheckbox" labelExpression="aql:self.getParameterlistElementsIteratorName(iterator)" valueExpression="aql:self.isCheckboxActivated(iterator)">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.iteratorCheckbox(iterator,newValue)"/>
+              </initialOperation>
+            </widget>
           </ifs>
         </controls>
       </groups>
