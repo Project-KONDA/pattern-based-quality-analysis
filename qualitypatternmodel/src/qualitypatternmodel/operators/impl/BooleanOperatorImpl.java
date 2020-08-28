@@ -164,19 +164,10 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 //		}
 		
 		return msgs;
-	}
-
-	
-	public void reset() {
-		removeParametersFromParameterList();
-	}
-	
+	}	
 	
 	@Override
-	abstract public void createParameters();
-	
-	@Override
-	abstract public void removeParametersFromParameterList();
+	abstract public void createParameters();	
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -283,12 +274,6 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 				return null;
 			case OperatorsPackage.BOOLEAN_OPERATOR___CREATE_PARAMETERS:
 				createParameters();
-				return null;
-			case OperatorsPackage.BOOLEAN_OPERATOR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
-				removeParametersFromParameterList();
-				return null;
-			case OperatorsPackage.BOOLEAN_OPERATOR___RESET:
-				reset();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
