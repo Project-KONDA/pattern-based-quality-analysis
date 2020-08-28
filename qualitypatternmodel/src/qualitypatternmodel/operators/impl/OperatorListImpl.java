@@ -21,9 +21,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
-import qualitypatternmodel.operators.BooleanOperator;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
@@ -152,17 +149,18 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
-		for(Operator op : getOperators()) {
-			if(op instanceof BooleanOperator) {
-				((BooleanOperator) op).getElements().clear();
-			}
-			if(op instanceof Match) {
-				((Match) op).reset();
-			}
-			if(op instanceof Comparison) {
-				((Comparison) op).reset();		
-			}
-		}
+		triggerParameterUpdates(newGraph);
+//		for(Operator op : getOperators()) {
+//			if(op instanceof BooleanOperator) {
+//				((BooleanOperator) op).getElements().clear();
+//			}
+//			if(op instanceof Match) {
+//				((Match) op).reset();
+//			}
+//			if(op instanceof Comparison) {
+//				((Comparison) op).reset();		
+//			}
+//		}
 		msgs = eBasicSetContainer((InternalEObject)newGraph, OperatorsPackage.OPERATOR_LIST__GRAPH, msgs);
 		return msgs;
 	}

@@ -175,17 +175,6 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		}
 		
 	}	
-
-	@Override
-	public void removeParametersFromParameterList() {
-		BooleanParam option = getOption();
-		setOption(null);
-		TextLiteralParam regex = getRegularExpression();
-		setRegularExpression(null);
-		ParameterList parameterList = getParameterList();			
-		parameterList.remove(option);		
-		parameterList.remove(regex);		
-	}
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -482,14 +471,6 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__OPTION, newOption, newOption));
-	}
-
-	@Override
-	public void reset() {
-		super.reset();
-		setProperty(null);
-		setOption(null);
-		setRegularExpression(null);
 	}
 
 	/**

@@ -292,14 +292,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}		
 	}
 
-	@Override
-	public void removeParametersFromParameterList() {
-		ComparisonOptionParam option = getOption();
-		setOption(null);
-		ParameterList parameterList = getParameterList();			
-		parameterList.remove(option);		
-	}
-
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -359,7 +351,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetArgument1(qualitypatternmodel.graphstructure.Comparable newArgument1,
-			NotificationChain msgs) {
+			NotificationChain msgs) {		
 		Comparable oldArgument1 = argument1;
 		argument1 = newArgument1;
 
@@ -411,41 +403,43 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	private void setTypeAccordingToArgument(qualitypatternmodel.graphstructure.Comparable newArgument,
 			qualitypatternmodel.graphstructure.Comparable otherArgument) {
-		if (newArgument == null) {
-			if (otherArgument == null) {
-				getTypeOption().setValue(ReturnType.UNSPECIFIED);
-				getTypeOption().setIsPredefined(false);
+		if(getTypeOption() != null) {
+			if (newArgument == null) {
+				if (otherArgument == null) {
+					getTypeOption().setValue(ReturnType.UNSPECIFIED);
+					getTypeOption().setIsPredefined(false);
+				}
+				if (otherArgument instanceof Property) {
+					getTypeOption().setValue(ReturnType.UNSPECIFIED);
+					getTypeOption().setIsPredefined(false);
+				}
+				if (otherArgument instanceof UntypedParameterValue) {
+					getTypeOption().setValue(ReturnType.UNSPECIFIED);
+					getTypeOption().setIsPredefined(false);
+				}
+			} else {
+				if (newArgument instanceof Element) {
+					getTypeOption().setValue(ReturnType.ELEMENT);
+					getTypeOption().setIsPredefined(true);
+				}
+				if (newArgument instanceof BooleanOperator) {
+					getTypeOption().setValue(ReturnType.BOOLEAN);
+					getTypeOption().setIsPredefined(true);
+				}
+				if (newArgument instanceof NumberOperator) {
+					getTypeOption().setValue(ReturnType.NUMBER);
+					getTypeOption().setIsPredefined(true);
+				}
+				if (newArgument instanceof ParameterValue) {
+					ParameterValue xsType = (ParameterValue) newArgument;
+					getTypeOption().setValue(xsType.getReturnType());
+					getTypeOption().setIsPredefined(true);
+				}
+				if (newArgument instanceof UntypedParameterValue) {
+					getTypeOption().setValue(ReturnType.UNSPECIFIED);
+					getTypeOption().setIsPredefined(false);
+				}			
 			}
-			if (otherArgument instanceof Property) {
-				getTypeOption().setValue(ReturnType.UNSPECIFIED);
-				getTypeOption().setIsPredefined(false);
-			}
-			if (otherArgument instanceof UntypedParameterValue) {
-				getTypeOption().setValue(ReturnType.UNSPECIFIED);
-				getTypeOption().setIsPredefined(false);
-			}
-		} else {
-			if (newArgument instanceof Element) {
-				getTypeOption().setValue(ReturnType.ELEMENT);
-				getTypeOption().setIsPredefined(true);
-			}
-			if (newArgument instanceof BooleanOperator) {
-				getTypeOption().setValue(ReturnType.BOOLEAN);
-				getTypeOption().setIsPredefined(true);
-			}
-			if (newArgument instanceof NumberOperator) {
-				getTypeOption().setValue(ReturnType.NUMBER);
-				getTypeOption().setIsPredefined(true);
-			}
-			if (newArgument instanceof ParameterValue) {
-				ParameterValue xsType = (ParameterValue) newArgument;
-				getTypeOption().setValue(xsType.getReturnType());
-				getTypeOption().setIsPredefined(true);
-			}
-			if (newArgument instanceof UntypedParameterValue) {
-				getTypeOption().setValue(ReturnType.UNSPECIFIED);
-				getTypeOption().setIsPredefined(false);
-			}			
 		}
 
 	}	
@@ -548,15 +542,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}
 		}
 		return option;
-	}
-
-	@Override
-	public void reset() {
-		super.reset();
-		setArgument1(null);
-		setArgument2(null);
-		setOption(null);		
-	}
+	}	
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -568,11 +554,19 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetOption(ComparisonOptionParam newOption, NotificationChain msgs) {
 		ComparisonOptionParam oldOption = option;
+		
+		ParameterList varlist = getParameterList();
+		if(varlist != null) {
+			varlist.remove(oldOption);
+			varlist.add(newOption);
+		}
+		
 		option = newOption;
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.COMPARISON__OPTION, oldOption, newOption);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

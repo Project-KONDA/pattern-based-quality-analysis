@@ -114,6 +114,6 @@ public interface Match extends BooleanOperator {
 	 */
 	void setOption(BooleanParam value);
 
-	void reset();
+	
 
 } // Match

@@ -61,20 +61,4 @@ public interface BooleanOperator extends Operator {
 	 * @generated
 	 */
 	void createParameters();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void removeParametersFromParameterList();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void reset();
 } // BooleanOperator
