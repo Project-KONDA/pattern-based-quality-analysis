@@ -94,10 +94,6 @@ public class XmlNavigationItemProvider extends RelationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-//		String label = ((XmlNavigation)object).getName();
-//		return label == null || label.length() == 0 ?
-//			getString("_UI_XmlNavigation_type") :
-//			getString("_UI_XmlNavigation_type") + " " + label;
 		XmlNavigation relation = (XmlNavigation) object;
 		return getString("_UI_XmlNavigation_type") + " " + relation.getInternalId();
 	}
@@ -113,6 +109,7 @@ public class XmlNavigationItemProvider extends RelationItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

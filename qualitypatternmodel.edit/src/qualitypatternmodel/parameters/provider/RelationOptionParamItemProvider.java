@@ -16,6 +16,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.PropertyOptionParam;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.parameters.RelationOptionParam} object.
@@ -133,16 +134,13 @@ public class RelationOptionParamItemProvider extends ParameterItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((RelationOptionParam)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_RelationOptionParam_type") :
-			getString("_UI_RelationOptionParam_type") + " " + label;
+		RelationOptionParam relationOption = (RelationOptionParam)object;
+		return "Relation Option " + relationOption.getInternalId() + " " + relationOption.getValue().getName();
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

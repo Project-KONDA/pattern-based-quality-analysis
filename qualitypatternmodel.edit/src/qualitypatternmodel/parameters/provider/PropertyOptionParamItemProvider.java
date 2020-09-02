@@ -137,7 +137,7 @@ public class PropertyOptionParamItemProvider extends ParameterItemProvider {
 	@Override
 	public String getText(Object object) {
 		PropertyOptionParam propertyOption = (PropertyOptionParam)object;
-		return getString("_UI_PropertyOption_type") + " " + propertyOption.getInternalId() + " " + propertyOption.getValue().getName();
+		return "Property Option " + propertyOption.getInternalId() + " " + propertyOption.getValue().getName();
 	}
 
 

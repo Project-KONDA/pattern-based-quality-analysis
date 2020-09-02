@@ -113,7 +113,7 @@ public class BooleanParamItemProvider extends ParameterValueItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		qualitypatternmodel.parameters.BooleanParam bool = (qualitypatternmodel.parameters.BooleanParam) object;
+		BooleanParam bool = (BooleanParam) object;
 		String text = getString("_UI_Boolean_type") + " " + bool.getInternalId();
 		if(bool.getValue() != null) {
 			text += " " + bool.getValue();
