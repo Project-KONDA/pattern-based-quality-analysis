@@ -14,7 +14,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo() <em>Get New Ref No</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo(java.lang.Class) <em>Get New Ref No</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#recordValues() <em>Record Values</em>}</li>
  * </ul>
  * </p>
@@ -75,13 +75,13 @@ public class CompletePatternTest extends PatternTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo() <em>Get New Ref No</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo(java.lang.Class) <em>Get New Ref No</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo()
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo(java.lang.Class)
 	 * @generated
 	 */
-	public void testGetNewRefNo() {
+	public void testGetNewRefNo__Class() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
