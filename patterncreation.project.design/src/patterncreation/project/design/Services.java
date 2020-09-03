@@ -34,8 +34,10 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
@@ -49,9 +51,11 @@ import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
+import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
@@ -2135,9 +2139,10 @@ public class Services {
     public String getParameterlistElementsIteratorName(EObject self, EObject iterator) {//Namen zu einem Element der Parameterliste, Iterator der Forschleife ist eine Element der Parameterliste
     	String name = "";
     	PatternElement patternelement = (PatternElement) iterator;
-    	if(iterator instanceof BooleanParam) {
-    		BooleanParam booleanparam = (BooleanParam) iterator;
-    		name = "Boolean " + booleanparam.getInternalId();
+    	if(isModifiable(iterator)) {
+    		name = getModifiableName(iterator);
+    	}else if(iterator instanceof BooleanParam) {
+    		name = "Boolean " + patternelement.getInternalId();
     	}else if(iterator instanceof TextLiteralParam) {
     		name = "Textliteral " + patternelement.getInternalId();
     	}else if(iterator instanceof TextListParam) {
@@ -2150,20 +2155,48 @@ public class Services {
     		name = "Time " + patternelement.getInternalId();
     	}else if(iterator instanceof DateTimeParam) {
     		name = "DateTime " + patternelement.getInternalId();
-    	}else if(iterator instanceof DateTimeParam) {
-    		name = "DateTime " + patternelement.getInternalId();
     	}else if(iterator instanceof ComparisonOptionParam) {
     		name = "ComparisonOption " + patternelement.getInternalId();
-    	}else if(iterator instanceof ComparisonOptionParam) {
+    	}else if(iterator instanceof TypeOptionParam) {
     		name = "TypeOption " + patternelement.getInternalId();
+    	}else if(iterator instanceof RelationOptionParam) {
+    		name = "RelationOption " + patternelement.getInternalId();
     	}
     	return name;
+    }
+    
+    public String getModifiableName(EObject iterator) {
+    	String name = "";
+    	PatternElement patternelement = (PatternElement) iterator;
+    	if(iterator instanceof UntypedParameterValue) {
+    		name = "UntypedParameterValue (modifiable) " + patternelement.getInternalId();
+    	}else if(iterator instanceof BooleanParam) {
+    		name = "Boolean (modifiable) " + patternelement.getInternalId();
+    	}else if(iterator instanceof TextLiteralParam) {
+    		name = "Textliteral (modifiable) " + patternelement.getInternalId();
+    	}else if(iterator instanceof TextListParam) {
+    		name = "Textlist (modifiable) " + patternelement.getInternalId();
+    	}else if(iterator instanceof NumberParam) {
+    		name = "Number (modifiable) " + patternelement.getInternalId();
+    	}else if(iterator instanceof DateParam) {
+    		name = "Date (modifiable) " + patternelement.getInternalId();
+    	}else if(iterator instanceof TimeParam) {
+    		name = "Time (modifiable) " + patternelement.getInternalId();
+    	}else if(iterator instanceof DateTimeParam) {
+    		name = "DateTime (modifiable) " + patternelement.getInternalId();
+    	}
+    	return name;
+    }
+    
+    public boolean isModifiable(EObject object) {
+    	ParameterValue value = (ParameterValue) object;
+    	return value.isTypeModifiable();
     }
     
     public boolean isBooleanParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein booleanparam ist
     	boolean isBooleanParam = false;
     	if(iterator instanceof BooleanParam) {
-    		isBooleanParam = true;
+    		isBooleanParam = !isModifiable(iterator);
     	}
     	return isBooleanParam;
     }
@@ -2224,13 +2257,34 @@ public class Services {
     	return isComparisonOptionParam;
     }
     
-    /*public boolean isTypeOptionParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein comparisonoption ist
+    public boolean isTypeOptionParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein typeoption ist
     	boolean isTypeOptionParam = false;
     	if(iterator instanceof TypeOptionParam) {
     		isTypeOptionParam = true;
     	}
     	return isTypeOptionParam;
-    }*/
+    }
+    
+    public boolean isRelationOptionParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein typeoption ist
+    	boolean isRelationOptionParam = false;
+    	if(iterator instanceof RelationOptionParam) {
+    		isRelationOptionParam = true;
+    	}
+    	return isRelationOptionParam;
+    }
+    
+    public boolean isUntypedParameterValue(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein untypedparametervalue ist
+    	boolean isUntypedParameterValue = false;
+    	if(iterator instanceof UntypedParameterValue) {
+    		isUntypedParameterValue = true;
+    	}else if(iterator instanceof ParameterValue) {
+    		ParameterValue parametervalue = (ParameterValue) iterator;
+    		if(parametervalue.isTypeModifiable()) {
+    			isUntypedParameterValue = true;
+    		}
+    	}
+    	return isUntypedParameterValue;
+    }
     
     public ArrayList<EObject> getRelatedElements(EObject object){//sucht die Elemente heraus, die markiert werden müssen, wenn ein Objekt in der View mit der Checkbox ausgewählt wird
     	ArrayList<EObject> returnlist = new ArrayList<EObject>();//die gesuchten Elemente
@@ -2262,6 +2316,11 @@ public class Services {
     		EList<Comparison> comparisons = comparisonoption.getComparisons();
     		
     		returnlist.addAll(comparisons);
+    	}else if(object instanceof TypeOptionParam) {
+    		TypeOptionParam typeoptionparam = (TypeOptionParam) object;
+    		EList<Comparison> comparisons = typeoptionparam.getTypeComparisons();
+    		
+    		returnlist.addAll(comparisons);
     	}else {
     		returnlist.add(object);
     	}
@@ -2277,6 +2336,7 @@ public class Services {
     		3. Elementmarkierung wird aufgehoben*/
 
     	//System.out.println(self);
+    	System.out.println("uiuiui"+iterator);
     	ArrayList<EObject> thisPatternRelatedElements = patternRelatedElements.get((CompletePattern) self);
     	ArrayList<EObject> elements = getRelatedElements(iterator);//die Elemente, die wegen iterator markiert werden müssen
     	
@@ -2300,9 +2360,9 @@ public class Services {
     			System.out.println("markCheckbox null");
     		}
     	}
-    	/*System.out.println("Diese Elemente sind markiert: "+patternRelatedElements.get((CompletePattern) self));
-    	System.out.println("Diese Elemente wurden wegen der Checkbox markiert: "+elements);
-    	System.out.println("Dieses Element gehört zur Chechbox: : "+checkboxElements.get((CompletePattern) self));*/
+    	//System.out.println("Diese Elemente sind markiert: "+patternRelatedElements.get((CompletePattern) self));
+    	//System.out.println("Diese Elemente wurden wegen der Checkbox markiert: "+elements);
+    	//System.out.println("Dieses Element gehört zur Chechbox: : "+checkboxElements.get((CompletePattern) self));
     	
     	//damit die Anzeige in Sirius aktualisiert wird
     	CompletePattern pattern = (CompletePattern) self;
@@ -2358,7 +2418,7 @@ public class Services {
     	//}
     }
     
-    public void deleteCheckbox(EObject eo) {//
+    public void deleteCheckbox(EObject eo) {//löscht den speicher, in dem die aktuell angewählte chechbox gespeichert ist
     	CompletePattern pattern = (CompletePattern) getWurzelContainer(eo);
     	checkboxElements.put(pattern, null);
     }
@@ -2467,6 +2527,38 @@ public class Services {
     	return s;
     }
     
+    public void setTypeOptionValue(EObject self, EObject iterator, ReturnType r) {//wird bei text von textliteral in view 3 aufgerufen
+    	if(iterator instanceof TypeOptionParam) {
+    		TypeOptionParam typeoptionparam = (TypeOptionParam) iterator;
+    		typeoptionparam.setValue(r);
+    	}
+    }
+    
+    public ReturnType getTypeOptionValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
+    	ReturnType r = null;
+    	if(iterator instanceof TypeOptionParam) {
+    		TypeOptionParam typeoptionparam = (TypeOptionParam) iterator;
+    		r = typeoptionparam.getValue();
+    	}
+    	return r;
+    }
+    
+    public void setComparisonOptionValue(EObject self, EObject iterator, ComparisonOperator c) {//wird bei text von textliteral in view 3 aufgerufen
+    	if(iterator instanceof ComparisonOptionParam) {
+    		ComparisonOptionParam comparisonoptionparam = (ComparisonOptionParam) iterator;
+    		comparisonoptionparam.setValue(c);
+    	}
+    }
+    
+    public ComparisonOperator getComparisonOptionValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
+    	ComparisonOperator c = null;
+    	if(iterator instanceof ComparisonOptionParam) {
+    		ComparisonOptionParam comparisonoptionparam = (ComparisonOptionParam) iterator;
+    		c = comparisonoptionparam.getValue();
+    	}
+    	return c;
+    }
+    
     public ArrayList<Boolean> getBooleanSelectCandidates(EObject self){
     	ArrayList<Boolean> candidates = new ArrayList<Boolean>();
     	candidates.add(true);
@@ -2480,5 +2572,244 @@ public class Services {
     		s = "true";
     	}
     	return s;
+    }
+    
+    //Textlist
+    public EList<String> getTextListValue(EObject self, EObject object){
+    	EList<String> listvalues = null;
+    	if(object instanceof TextListParam) {
+    		TextListParam textlistparam = (TextListParam) object;
+    		listvalues = textlistparam.getValues();
+    	}
+    	System.out.println("kzfkzgfl"+listvalues);
+    	return listvalues;
+    }
+    
+    public String getTextListListDisplay(EObject self, String s){
+    	String returns = "";
+    	if(s.equals("")) {
+    		returns = "empty";
+    	}else if(s.length() < 21) {
+    		returns = s;
+    	}else {
+    		returns = s.substring(0, 19)+"...";
+    	}
+    	return returns;
+    }
+    
+    public void addTextListElement(EObject self, EObject object) {
+    	/*if(object instanceof TextListParam) {
+    		TextListParam textlistparam = (TextListParam) object;
+    		EList<String> values = textlistparam.getValues();
+    		values.add("empty");
+    	}*/
+    	
+    	if(object instanceof TextListParam) {
+    		TextListParam textlistparam = (TextListParam) object;
+    		EList<String> values = textlistparam.getValues();
+    		System.out.println("trtrtrtrt"+textString.get((CompletePattern) self));
+    		String s= textString.get((CompletePattern) self);
+    		if(s != null) {
+    			values.add(s);
+    		}
+    	}
+    }
+    
+    public void deleteTextListElement(EObject self, String s, EObject textlist) {
+    	EList<String> list = getTextListValue(self, textlist);
+    	list.remove(s);
+    }
+    
+    public void changeTextListElement(EObject self, String s, EObject textlist) {
+    	System.out.println("00000000000000000"+s);
+    	EList<String> list = getTextListValue(self, textlist);
+    	CompletePattern pattern = (CompletePattern) self;
+    	list.remove(loadedString.get(pattern));
+    	list.add(s);
+    	loadedString.put(pattern, s);
+    }
+    
+    static HashMap<CompletePattern, String> textString = new HashMap<CompletePattern, String>();//String im Textfeld in der Listenmanipulation
+    public void storeTextListText(EObject self, String s) {
+    	textString.put((CompletePattern) self, s);
+    }
+    
+    public void saveChangedText(EObject self, EObject textlist) {
+    	System.out.println("00000000000000000");
+    	EList<String> list = getTextListValue(self, textlist);
+    	CompletePattern pattern = (CompletePattern) self;
+    	list.remove(loadedString.get(pattern));
+    	list.add(textString.get((CompletePattern) self));
+    	loadedString.put(pattern, "");
+    }
+    
+    static HashMap<CompletePattern, String> loadedString = new HashMap<CompletePattern, String>();
+    public void loadTextListElement(EObject self, String s) {
+    	System.out.println("Selection: "+s);
+    	loadedString.put((CompletePattern) self, s);
+    }
+    
+    public String getLoadedString(EObject self) {
+    	System.out.println("Gelandener String: "+loadedString.get((CompletePattern) self));
+    	return loadedString.get((CompletePattern) self);
+    }
+    
+    public void closeTextListElement(EObject self) {//das geladene TextListelement soll jetzt leer sein
+    	loadedString.put((CompletePattern) self, "");
+    }
+    
+    static HashMap<CompletePattern, EObject> oldTextList = new HashMap<CompletePattern, EObject>();
+    public void storeOldTextList(EObject self, EObject textlist) {//speichert zu Beginn des Dialogs zum bearbeiten der Textlist die aktuelle Textlist, um sie bei cancel wiederherzustellen
+    	oldTextList.put((CompletePattern) self, textlist);
+    }
+    
+    public void restoreOldTextList(EObject self, EObject textlist) {
+    	if(textlist instanceof TextListParam) {
+    		TextListParam textlistparam = (TextListParam) textlist;
+    		EList<String> values = textlistparam.getValues();
+    		values.clear();
+    		TextListParam oldTextlistparam = ((TextListParam) (oldTextList.get((CompletePattern) self)));
+    		values.addAll(oldTextlistparam.getValues());
+    	}
+    }
+    //Ende Textlist
+    
+    public ArrayList<ReturnType> getTypeOptionSelectCandidates(EObject self){
+    	ArrayList<ReturnType> candidates = new ArrayList<ReturnType>();
+    	candidates.add(ReturnType.STRING);
+    	candidates.add(ReturnType.BOOLEAN);
+    	candidates.add(ReturnType.ELEMENT);
+    	candidates.add(ReturnType.DATE);
+    	candidates.add(ReturnType.TIME);
+    	candidates.add(ReturnType.NUMBER);
+    	candidates.add(ReturnType.DATETIME);
+    	return candidates;
+    }
+    
+    public String getTypeOptionSelectCandidatesDisplay(EObject self, ReturnType r){
+    	String s = r.toString();
+    	return s;
+    }
+    
+    public ArrayList<ComparisonOperator> getComparisonOptionSelectCandidates(EObject self){
+    	ArrayList<ComparisonOperator> candidates = new ArrayList<ComparisonOperator>();
+    	candidates.add(ComparisonOperator.EQUAL);
+    	candidates.add(ComparisonOperator.GREATER);
+    	candidates.add(ComparisonOperator.LESS);
+    	candidates.add(ComparisonOperator.GREATEROREQUAL);
+    	candidates.add(ComparisonOperator.LESSOREQUAL);
+    	candidates.add(ComparisonOperator.NOTEQUAL);
+    	return candidates;
+    }
+    
+    public ArrayList<String> getTypeSelectCandidates(EObject self){
+    	ArrayList<String> candidates = new ArrayList<String>();
+    	candidates.add("TextLiteral");
+    	candidates.add("TextList");
+    	candidates.add("Number");
+    	candidates.add("Boolean");
+    	candidates.add("Date");
+    	candidates.add("Time");
+    	candidates.add("DateTime");
+    	return candidates;
+    }
+    
+    public String getComparisonOptionSelectCandidatesDisplay(EObject self, ComparisonOperator c){
+    	String s = c.toString();
+    	return s;
+    }
+    
+    public String getPropertyName(Property property) {
+    	return "Property" + " \"" + property.getName() + "\" (of " + "Element" + " \"" + property.getElement().getName()+"\"" + ")";
+    }
+    
+    public boolean deleteMatchPrecondition(EObject self) {
+    	boolean delete = true;System.out.println("3");
+    	if(self instanceof TextLiteralParam) {
+    		System.out.println("1");
+    		TextLiteralParam textliteral = (TextLiteralParam) self;
+    		EList<Match> matches = textliteral.getMatches();
+    		if(!matches.isEmpty()) {
+    			System.out.println("2");
+    			delete = false;
+    		}
+    	}
+    	return delete;
+    }
+    
+    //untypedparametervalue
+    HashMap<CompletePattern, String> newType = new HashMap<CompletePattern, String>();
+    public void storeUntypedparametervalueSelect(EObject self, String s) {//speichert den ausgewählten Wert von select
+    	newType.put((CompletePattern) self, s);
+    }
+    
+    public void deleteUntypedparametervalueSelect(EObject self) {//speichert den ausgewählten Wert von select
+    	newType.remove((CompletePattern) self);
+    }
+    
+    HashMap<CompletePattern, HashMap<EObject, EObject>> newTypeAfterTypeChange = new HashMap<CompletePattern, HashMap<EObject, EObject>>();
+    /*public void changeTypeUntypedparametervalue(EObject self, EObject object) {
+    	String type = newType.get((CompletePattern) self);
+    	UntypedParameterValue untypedparametervalue = (UntypedParameterValue) object;
+    	if(type.equals("TextLiteral")) {
+    		untypedparametervalue.replace(new TextLiteralParamImpl());
+    	}else if(type.equals("TextList")) {
+    		untypedparametervalue.replace(new TextListParamImpl());
+    	}else if(type.equals("Number")){
+    		untypedparametervalue.replace(new NumberParamImpl());
+    	}else if(type.equals("Boolean")){
+    		untypedparametervalue.replace(new BooleanParamImpl());
+    	}else if(type.equals("Date")){
+    		untypedparametervalue.replace(new DateParamImpl());
+    	}else if(type.equals("Time")){
+    		untypedparametervalue.replace(new TimeParamImpl());
+    	}else if(type.equals("DateTime")){
+    		untypedparametervalue.replace(new DateTimeParamImpl());
+    	}
+    	deleteUntypedparametervalueSelect(self);
+    }*/
+    public void changeTypeUntypedparametervalue(EObject self, EObject object) {
+    	String type = newType.get((CompletePattern) self);
+    	UntypedParameterValue untypedparametervalue = (UntypedParameterValue) object;
+    	ParameterValue newParameter = null;
+    	if(type.equals("TextLiteral")) {
+    		newParameter = new TextLiteralParamImpl();
+    		untypedparametervalue.replace(newParameter);
+    	}else if(type.equals("TextList")) {
+    		newParameter = new TextListParamImpl();
+    		untypedparametervalue.replace(newParameter);
+    	}else if(type.equals("Number")){
+    		newParameter = new NumberParamImpl();
+    		untypedparametervalue.replace(newParameter);
+    	}else if(type.equals("Boolean")){
+    		newParameter = new BooleanParamImpl();
+    		untypedparametervalue.replace(newParameter);
+    	}else if(type.equals("Date")){
+    		newParameter = new DateParamImpl();
+    		untypedparametervalue.replace(newParameter);
+    	}else if(type.equals("Time")){
+    		newParameter = new TimeParamImpl();
+    		untypedparametervalue.replace(newParameter);
+    	}else if(type.equals("DateTime")){
+    		newParameter = new DateTimeParamImpl();
+    		untypedparametervalue.replace(newParameter);
+    	}
+    	deleteUntypedparametervalueSelect(self);
+    	HashMap<EObject, EObject> newTypeAllocation = newTypeAfterTypeChange.get((CompletePattern) self);
+    	if(newTypeAllocation == null) {
+    		newTypeAfterTypeChange.put((CompletePattern) self, new HashMap<EObject, EObject>());
+    		newTypeAllocation = newTypeAfterTypeChange.get((CompletePattern) self);
+    	}
+    	newTypeAllocation.put(untypedparametervalue, newParameter);System.out.println("Untyped wurde ersetzt durch: "+newTypeAllocation.get(untypedparametervalue));
+    }
+    
+    public String untypedparametervalueSelectValueExpression(EObject self) {//speichert den ausgewählten Wert von select
+    	return newType.get((CompletePattern) self);
+    }
+    
+    public boolean isPageCompleteUntypedparametervalueWizard(EObject self) {
+    	boolean isComplete = false;
+    	
+    	return isComplete;
     }
 }
