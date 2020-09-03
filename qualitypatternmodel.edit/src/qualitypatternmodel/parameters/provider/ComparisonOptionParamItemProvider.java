@@ -160,7 +160,7 @@ public class ComparisonOptionParamItemProvider extends ParameterItemProvider {
 	@Override
 	public String getText(Object object) {
 		ComparisonOptionParam comparisonOption = (ComparisonOptionParam) object;
-		return getString("_UI_CompOption_type") + " " + comparisonOption.getInternalId() + " " + comparisonOption.getValue().getName();
+		return "Comparison Option " + comparisonOption.getInternalId() + " " + comparisonOption.getValue().getName();
 	}
 
 

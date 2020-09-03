@@ -2816,22 +2816,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__PARAMETER_LIST = PATTERN_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Element Counter</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN__ELEMENT_COUNTER = PATTERN_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__NAME = PATTERN_FEATURE_COUNT + 2;
+	int COMPLETE_PATTERN__NAME = PATTERN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Database</b></em>' reference.
@@ -2840,7 +2831,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__DATABASE = PATTERN_FEATURE_COUNT + 3;
+	int COMPLETE_PATTERN__DATABASE = PATTERN_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Adaption Started</b></em>' attribute.
@@ -2849,7 +2840,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__ADAPTION_STARTED = PATTERN_FEATURE_COUNT + 4;
+	int COMPLETE_PATTERN__ADAPTION_STARTED = PATTERN_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Adaption Finalized</b></em>' attribute.
@@ -2858,7 +2849,61 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__ADAPTION_FINALIZED = PATTERN_FEATURE_COUNT + 5;
+	int COMPLETE_PATTERN__ADAPTION_FINALIZED = PATTERN_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Element Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__ELEMENT_COUNTER = PATTERN_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Property Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__PROPERTY_COUNTER = PATTERN_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Relation Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__RELATION_COUNTER = PATTERN_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__PARAMETER_COUNTER = PATTERN_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Operator Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__OPERATOR_COUNTER = PATTERN_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__COUNTER = PATTERN_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of structural features of the '<em>Complete Pattern</em>' class.
@@ -2867,7 +2912,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 6;
+	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -3056,7 +3101,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GET_NEW_REF_NO = PATTERN_OPERATION_COUNT + 0;
+	int COMPLETE_PATTERN___GET_NEW_REF_NO__CLASS = PATTERN_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -5175,17 +5220,6 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getCompletePattern_ParameterList();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getElementCounter <em>Element Counter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Element Counter</em>'.
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#getElementCounter()
-	 * @see #getCompletePattern()
-	 * @generated
-	 */
-	EAttribute getCompletePattern_ElementCounter();
-
-	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5230,14 +5264,80 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getCompletePattern_AdaptionFinalized();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo() <em>Get New Ref No</em>}' operation.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getElementCounter <em>Element Counter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Element Counter</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getElementCounter()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_ElementCounter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getPropertyCounter <em>Property Counter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Property Counter</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getPropertyCounter()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_PropertyCounter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getRelationCounter <em>Relation Counter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Relation Counter</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getRelationCounter()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_RelationCounter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getParameterCounter <em>Parameter Counter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Parameter Counter</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getParameterCounter()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_ParameterCounter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getOperatorCounter <em>Operator Counter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operator Counter</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getOperatorCounter()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_OperatorCounter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getCounter <em>Counter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Counter</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getCounter()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_Counter();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo(java.lang.Class) <em>Get New Ref No</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get New Ref No</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo()
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo(java.lang.Class)
 	 * @generated
 	 */
-	EOperation getCompletePattern__GetNewRefNo();
+	EOperation getCompletePattern__GetNewRefNo__Class();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#recordValues() <em>Record Values</em>}' operation.
@@ -6160,14 +6260,6 @@ public interface PatternstructurePackage extends EPackage {
 		EReference COMPLETE_PATTERN__PARAMETER_LIST = eINSTANCE.getCompletePattern_ParameterList();
 
 		/**
-		 * The meta object literal for the '<em><b>Element Counter</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMPLETE_PATTERN__ELEMENT_COUNTER = eINSTANCE.getCompletePattern_ElementCounter();
-
-		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6200,12 +6292,60 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute COMPLETE_PATTERN__ADAPTION_FINALIZED = eINSTANCE.getCompletePattern_AdaptionFinalized();
 
 		/**
+		 * The meta object literal for the '<em><b>Element Counter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__ELEMENT_COUNTER = eINSTANCE.getCompletePattern_ElementCounter();
+
+		/**
+		 * The meta object literal for the '<em><b>Property Counter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__PROPERTY_COUNTER = eINSTANCE.getCompletePattern_PropertyCounter();
+
+		/**
+		 * The meta object literal for the '<em><b>Relation Counter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__RELATION_COUNTER = eINSTANCE.getCompletePattern_RelationCounter();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter Counter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__PARAMETER_COUNTER = eINSTANCE.getCompletePattern_ParameterCounter();
+
+		/**
+		 * The meta object literal for the '<em><b>Operator Counter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__OPERATOR_COUNTER = eINSTANCE.getCompletePattern_OperatorCounter();
+
+		/**
+		 * The meta object literal for the '<em><b>Counter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__COUNTER = eINSTANCE.getCompletePattern_Counter();
+
+		/**
 		 * The meta object literal for the '<em><b>Get New Ref No</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation COMPLETE_PATTERN___GET_NEW_REF_NO = eINSTANCE.getCompletePattern__GetNewRefNo();
+		EOperation COMPLETE_PATTERN___GET_NEW_REF_NO__CLASS = eINSTANCE.getCompletePattern__GetNewRefNo__Class();
 
 		/**
 		 * The meta object literal for the '<em><b>Record Values</b></em>' operation.

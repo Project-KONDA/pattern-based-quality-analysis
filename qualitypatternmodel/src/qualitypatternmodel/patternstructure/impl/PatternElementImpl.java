@@ -408,7 +408,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	public int getInternalId() {
 		if (internalId == -1) {
 			try {
-				internalId = ((CompletePatternImpl) this.getAncestor(CompletePatternImpl.class)).getNewRefNo();
+				internalId = ((CompletePatternImpl) this.getAncestor(CompletePatternImpl.class)).getNewRefNo(this.getClass());
 			} catch (MissingPatternContainerException e) {
 				// TODO Auto-generated catch block
 //				e.printStackTrace();

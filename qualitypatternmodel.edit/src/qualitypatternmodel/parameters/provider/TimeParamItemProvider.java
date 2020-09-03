@@ -13,6 +13,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TimeParam;
 
@@ -86,14 +87,16 @@ public class TimeParamItemProvider extends ParameterValueItemProvider {
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TimeParam)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_TimeParam_type") :
-			getString("_UI_TimeParam_type") + " " + label;
+		TimeParam time = (TimeParam) object;
+		String text = getString("_UI_TimeParam_type") + " " + time.getInternalId();
+		if(time.getValue() != null) {
+			text += " " + time.getValue();
+		}
+		return text;
 	}
 
 

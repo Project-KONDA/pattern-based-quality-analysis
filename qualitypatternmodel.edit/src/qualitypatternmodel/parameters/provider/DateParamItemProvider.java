@@ -15,6 +15,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TimeParam;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.parameters.DateParam} object.
@@ -90,10 +91,12 @@ public class DateParamItemProvider extends ParameterValueItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DateParam)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_DateParam_type") :
-			getString("_UI_DateParam_type") + " " + label;
+		DateParam date = (DateParam) object;
+		String text = getString("_UI_DateParam_type") + " " + date.getInternalId();
+		if(date.getValue() != null) {
+			text += " " + date.getValue();
+		}
+		return text;
 	}
 
 

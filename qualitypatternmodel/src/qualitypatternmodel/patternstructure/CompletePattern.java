@@ -20,11 +20,16 @@ import qualitypatternmodel.parameters.ParameterList;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getParameterList <em>Parameter List</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabase <em>Database</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#isAdaptionStarted <em>Adaption Started</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#isAdaptionFinalized <em>Adaption Finalized</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getElementCounter <em>Element Counter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getPropertyCounter <em>Property Counter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getRelationCounter <em>Relation Counter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getParameterCounter <em>Parameter Counter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getOperatorCounter <em>Operator Counter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getCounter <em>Counter</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern()
@@ -56,29 +61,6 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	void setParameterList(ParameterList value);
-
-	/**
-	 * Returns the value of the '<em><b>Element Counter</b></em>' attribute.
-	 * The default value is <code>"0"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element Counter</em>' attribute.
-	 * @see #setElementCounter(int)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_ElementCounter()
-	 * @model default="0" required="true"
-	 * @generated
-	 */
-	int getElementCounter();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getElementCounter <em>Element Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Element Counter</em>' attribute.
-	 * @see #getElementCounter()
-	 * @generated
-	 */
-	void setElementCounter(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -173,15 +155,150 @@ public interface CompletePattern extends Pattern {
 	void setAdaptionFinalized(boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Element Counter</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
-	 * Basic Element counter: generates smallest locally unique (inside of patter) integer id
-	 * secures small representation variables for the translation to XQuery     
-	 * @return next Integer Value, which was not returned in the lifetime of the pattern before
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true"
+	 * @return the value of the '<em>Element Counter</em>' attribute.
+	 * @see #setElementCounter(Integer)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_ElementCounter()
+	 * @model default="1" required="true"
 	 * @generated
 	 */
-	int getNewRefNo() throws InvalidityException;
+	Integer getElementCounter();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getElementCounter <em>Element Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Element Counter</em>' attribute.
+	 * @see #getElementCounter()
+	 * @generated
+	 */
+	void setElementCounter(Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Property Counter</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Property Counter</em>' attribute.
+	 * @see #setPropertyCounter(Integer)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_PropertyCounter()
+	 * @model default="1" required="true"
+	 * @generated
+	 */
+	Integer getPropertyCounter();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getPropertyCounter <em>Property Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Property Counter</em>' attribute.
+	 * @see #getPropertyCounter()
+	 * @generated
+	 */
+	void setPropertyCounter(Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Relation Counter</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Relation Counter</em>' attribute.
+	 * @see #setRelationCounter(Integer)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_RelationCounter()
+	 * @model default="1" required="true"
+	 * @generated
+	 */
+	Integer getRelationCounter();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getRelationCounter <em>Relation Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Relation Counter</em>' attribute.
+	 * @see #getRelationCounter()
+	 * @generated
+	 */
+	void setRelationCounter(Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Parameter Counter</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameter Counter</em>' attribute.
+	 * @see #setParameterCounter(Integer)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_ParameterCounter()
+	 * @model default="1" required="true"
+	 * @generated
+	 */
+	Integer getParameterCounter();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getParameterCounter <em>Parameter Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parameter Counter</em>' attribute.
+	 * @see #getParameterCounter()
+	 * @generated
+	 */
+	void setParameterCounter(Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Operator Counter</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Operator Counter</em>' attribute.
+	 * @see #setOperatorCounter(Integer)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_OperatorCounter()
+	 * @model default="1" required="true"
+	 * @generated
+	 */
+	Integer getOperatorCounter();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getOperatorCounter <em>Operator Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Operator Counter</em>' attribute.
+	 * @see #getOperatorCounter()
+	 * @generated
+	 */
+	void setOperatorCounter(Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Counter</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Counter</em>' attribute.
+	 * @see #setCounter(Integer)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_Counter()
+	 * @model default="1" required="true"
+	 * @generated
+	 */
+	Integer getCounter();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getCounter <em>Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Counter</em>' attribute.
+	 * @see #getCounter()
+	 * @generated
+	 */
+	void setCounter(Integer value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" typeDataType="qualitypatternmodel.patternstructure.ClassWrapper"
+	 * @generated
+	 */
+	int getNewRefNo(Class type);
 
 	/**
 	 * <!-- begin-user-doc -->

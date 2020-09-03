@@ -13,6 +13,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
 
 /**
@@ -132,16 +133,13 @@ public class TypeOptionParamItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TypeOptionParam)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_TypeOptionParam_type") :
-			getString("_UI_TypeOptionParam_type") + " " + label;
+		TypeOptionParam typeOption = (TypeOptionParam)object;
+		return "Type Option " + typeOption.getInternalId() + " " + typeOption.getValue().getName();
 	}
-
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
