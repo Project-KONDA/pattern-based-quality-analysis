@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.parameters;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Time</b></em>'.
@@ -42,5 +44,13 @@ public interface TimeParam extends ParameterValue {
 	 * @generated
 	 */
 	void setValue(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void specifyValue(String newValue) throws InvalidityException;
 
 } // Time

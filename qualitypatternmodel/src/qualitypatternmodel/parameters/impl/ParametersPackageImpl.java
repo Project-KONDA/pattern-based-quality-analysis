@@ -772,6 +772,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getDateParam__SpecifyValue__String() {
+		return dateParamEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTimeParam() {
 		return timeParamEClass;
 	}
@@ -784,6 +794,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	@Override
 	public EAttribute getTimeParam_Value() {
 		return (EAttribute)timeParamEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getTimeParam__SpecifyValue__String() {
+		return timeParamEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -824,6 +844,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	@Override
 	public EAttribute getDateTimeParam_Value() {
 		return (EAttribute)dateTimeParamEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getDateTimeParam__SpecifyValue__String() {
+		return dateTimeParamEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1015,15 +1045,18 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		dateParamEClass = createEClass(DATE_PARAM);
 		createEAttribute(dateParamEClass, DATE_PARAM__VALUE);
+		createEOperation(dateParamEClass, DATE_PARAM___SPECIFY_VALUE__STRING);
 
 		timeParamEClass = createEClass(TIME_PARAM);
 		createEAttribute(timeParamEClass, TIME_PARAM__VALUE);
+		createEOperation(timeParamEClass, TIME_PARAM___SPECIFY_VALUE__STRING);
 
 		untypedParameterValueEClass = createEClass(UNTYPED_PARAMETER_VALUE);
 		createEOperation(untypedParameterValueEClass, UNTYPED_PARAMETER_VALUE___SET_VALUE__STRING);
 
 		dateTimeParamEClass = createEClass(DATE_TIME_PARAM);
 		createEAttribute(dateTimeParamEClass, DATE_TIME_PARAM__VALUE);
+		createEOperation(dateTimeParamEClass, DATE_TIME_PARAM___SPECIFY_VALUE__STRING);
 
 		relationOptionParamEClass = createEClass(RELATION_OPTION_PARAM);
 		createEAttribute(relationOptionParamEClass, RELATION_OPTION_PARAM__OPTIONS);
@@ -1208,8 +1241,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEClass(dateParamEClass, DateParam.class, "DateParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = initEOperation(getDateParam__SpecifyValue__String(), null, "specifyValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
 		initEClass(timeParamEClass, TimeParam.class, "TimeParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTimeParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, TimeParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getTimeParam__SpecifyValue__String(), null, "specifyValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(untypedParameterValueEClass, UntypedParameterValue.class, "UntypedParameterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1218,6 +1259,10 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEClass(dateTimeParamEClass, DateTimeParam.class, "DateTimeParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateTimeParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateTimeParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getDateTimeParam__SpecifyValue__String(), null, "specifyValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(relationOptionParamEClass, RelationOptionParam.class, "RelationOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRelationOptionParam_Options(), theAdaptionxmlPackage.getRelationKind(), "options", null, 0, -1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

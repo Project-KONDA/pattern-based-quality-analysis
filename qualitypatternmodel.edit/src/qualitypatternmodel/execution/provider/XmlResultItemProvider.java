@@ -81,7 +81,6 @@ public class XmlResultItemProvider extends ResultItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**
