@@ -129,7 +129,6 @@ public class RelationMappingItemProvider extends MappingItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

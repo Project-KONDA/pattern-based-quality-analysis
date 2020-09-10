@@ -3824,13 +3824,22 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
 
 	/**
+	 * The operation id for the '<em>Specify Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___SPECIFY_VALUE__STRING = PARAMETER_VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Date Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int DATE_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.TimeParamImpl <em>Time Param</em>}' class.
@@ -4257,13 +4266,22 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
 
 	/**
+	 * The operation id for the '<em>Specify Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___SPECIFY_VALUE__STRING = PARAMETER_VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Time Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int TIME_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.UntypedParameterValueImpl <em>Untyped Parameter Value</em>}' class.
@@ -5123,13 +5141,22 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
 
 	/**
+	 * The operation id for the '<em>Specify Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___SPECIFY_VALUE__STRING = PARAMETER_VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Date Time Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int DATE_TIME_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.RelationOptionParamImpl <em>Relation Option Param</em>}' class.
@@ -6279,6 +6306,16 @@ public interface ParametersPackage extends EPackage {
 	EAttribute getDateParam_Value();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.DateParam#specifyValue(java.lang.String) <em>Specify Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Specify Value</em>' operation.
+	 * @see qualitypatternmodel.parameters.DateParam#specifyValue(java.lang.String)
+	 * @generated
+	 */
+	EOperation getDateParam__SpecifyValue__String();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.TimeParam <em>Time Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6298,6 +6335,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTimeParam_Value();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TimeParam#specifyValue(java.lang.String) <em>Specify Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Specify Value</em>' operation.
+	 * @see qualitypatternmodel.parameters.TimeParam#specifyValue(java.lang.String)
+	 * @generated
+	 */
+	EOperation getTimeParam__SpecifyValue__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.UntypedParameterValue <em>Untyped Parameter Value</em>}'.
@@ -6339,6 +6386,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDateTimeParam_Value();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.DateTimeParam#specifyValue(java.lang.String) <em>Specify Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Specify Value</em>' operation.
+	 * @see qualitypatternmodel.parameters.DateTimeParam#specifyValue(java.lang.String)
+	 * @generated
+	 */
+	EOperation getDateTimeParam__SpecifyValue__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.RelationOptionParam <em>Relation Option Param</em>}'.
@@ -6899,6 +6956,14 @@ public interface ParametersPackage extends EPackage {
 		EAttribute DATE_PARAM__VALUE = eINSTANCE.getDateParam_Value();
 
 		/**
+		 * The meta object literal for the '<em><b>Specify Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATE_PARAM___SPECIFY_VALUE__STRING = eINSTANCE.getDateParam__SpecifyValue__String();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.TimeParamImpl <em>Time Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6915,6 +6980,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TIME_PARAM__VALUE = eINSTANCE.getTimeParam_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Specify Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TIME_PARAM___SPECIFY_VALUE__STRING = eINSTANCE.getTimeParam__SpecifyValue__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.UntypedParameterValueImpl <em>Untyped Parameter Value</em>}' class.
@@ -6951,6 +7024,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DATE_TIME_PARAM__VALUE = eINSTANCE.getDateTimeParam_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Specify Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATE_TIME_PARAM___SPECIFY_VALUE__STRING = eINSTANCE.getDateTimeParam__SpecifyValue__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.RelationOptionParamImpl <em>Relation Option Param</em>}' class.

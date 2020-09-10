@@ -2,7 +2,9 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -110,6 +112,53 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void specifyValue(String newValue) throws InvalidityException {
+		if(isFormatValid(newValue)) {
+			setValue(newValue);
+		} else {
+			throw new InvalidityException("Time format invalid");
+		}
+	}
+
+	static boolean isFormatValid(String newValue) {
+		// hh:mm:ss[Z|(+|-)hh:mm]
+		
+		if(newValue.length() < 8 || newValue.length() > 14) {
+			return false;
+		}
+		
+		String hours = newValue.substring(0, 2);
+		String firstColon = newValue.substring(2, 3);
+		String minutes = newValue.substring(3, 5);
+		String secondColon = newValue.substring(5, 6);
+		String seconds = newValue.substring(6, 8);
+		
+		if(!firstColon.equals(":")) {
+			return false;
+		}  
+		if(!secondColon.equals(":")) {
+			return false;
+		}
+		if(!hours.matches("0[0-9]|1[0-9]|2[0-4]")) {
+			return false;
+		}
+		if(!minutes.matches("[0-5][0-9]|60") || !seconds.matches("[0-5][0-9]|60")) {
+			return false;
+		}
+		
+		if(newValue.length() > 8) {
+			return DateParamImpl.validateTimeZone(newValue, 8); 
+		}
+		
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -163,6 +212,26 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ParametersPackage.TIME_PARAM___SPECIFY_VALUE__STRING:
+				try {
+					specifyValue((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

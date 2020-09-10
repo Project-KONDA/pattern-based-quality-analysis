@@ -88,9 +88,15 @@
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/DateParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/DateParam/value"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/DateParam/specifyValue">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/DateParam/specifyValue/newValue"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/TimeParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/TimeParam/value"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/TimeParam/specifyValue">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/TimeParam/specifyValue/newValue"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/UntypedParameterValue">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/UntypedParameterValue/setValue">
@@ -99,6 +105,9 @@
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/DateTimeParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/DateTimeParam/value"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/DateTimeParam/specifyValue">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/DateTimeParam/specifyValue/newValue"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/RelationOptionParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/RelationOptionParam/options"/>

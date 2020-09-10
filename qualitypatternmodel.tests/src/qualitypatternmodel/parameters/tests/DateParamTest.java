@@ -10,6 +10,12 @@ import qualitypatternmodel.parameters.ParametersFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Date</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.parameters.DateParam#specifyValue(java.lang.String) <em>Specify Value</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class DateParamTest extends ParameterValueTest {
@@ -64,6 +70,19 @@ public class DateParamTest extends ParameterValueTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.DateParam#specifyValue(java.lang.String) <em>Specify Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.DateParam#specifyValue(java.lang.String)
+	 * @generated
+	 */
+	public void testSpecifyValue__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //DateTest

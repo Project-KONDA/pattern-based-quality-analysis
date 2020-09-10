@@ -16,7 +16,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TimeParam;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.parameters.DateTimeParam} object.

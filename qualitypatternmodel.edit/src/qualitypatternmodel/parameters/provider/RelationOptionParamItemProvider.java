@@ -16,7 +16,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.PropertyOptionParam;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.parameters.RelationOptionParam} object.

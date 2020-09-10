@@ -2,11 +2,13 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import static qualitypatternmodel.utilityclasses.Constants.REGEX_DATE_TIME;
 import static qualitypatternmodel.utilityclasses.Constants.REGEX_POSITIVE_NEGATIVE;
 import static qualitypatternmodel.utilityclasses.Constants.REGEX_TIME_HOURS_MINUTES;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -114,6 +116,46 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void specifyValue(String newValue) throws InvalidityException {
+		if(isFormatValid(newValue)) {
+			setValue(newValue);
+		} else {
+			throw new InvalidityException("DateTime format invalid");
+		}
+	}
+
+	private static boolean isFormatValid(String newValue) {
+		// [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]
+		
+		int offset = 0;
+		if(newValue.substring(0, 1).equals("-")) {
+			offset = 1;
+		}
+		
+		if(newValue.length() < offset + 19 || newValue.length() > offset + 25) {
+			return false;
+		}
+		
+		String date = newValue.substring(0, offset + 10);
+		String t = newValue.substring(offset + 10, offset + 11);
+		String time = newValue.substring(offset + 11, offset + 19);
+		
+		
+		if(!DateParamImpl.validateDate(date, offset)) {
+			return false;
+		}
+		if(!t.equals("T")) {
+			return false;
+		}
+		return TimeParamImpl.isFormatValid(time);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -167,6 +209,26 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ParametersPackage.DATE_TIME_PARAM___SPECIFY_VALUE__STRING:
+				try {
+					specifyValue((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

@@ -9,8 +9,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
-import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 
 /**
@@ -78,7 +76,6 @@ public class UntypedParameterValueItemProvider extends ParameterValueItemProvide
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**
