@@ -239,6 +239,11 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		} else {
 			throw new InvalidityException("option null" + " (" + getInternalId() + ")");
 		}
+		if (getTypeOption() != null) {
+			res.add(typeOption);
+		} else {
+			throw new InvalidityException("typeOption null" + " (" + getInternalId() + ")");
+		}
 		return res;
 	}
 
