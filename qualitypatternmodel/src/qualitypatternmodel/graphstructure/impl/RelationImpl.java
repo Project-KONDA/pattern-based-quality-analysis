@@ -268,10 +268,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		}
 		
 		if(getGraph() == null && newGraph != null) {
-			if(getSource().getGraph() != null && !getSource().getGraph().equals(newGraph)) {
+			if(getSource() != null && getSource().getGraph() != null && !getSource().getGraph().equals(newGraph)) {
 				setSource(null);
 			}
-			if(getTarget().getGraph() != null && !getTarget().getGraph().equals(newGraph)) {
+			if(getTarget() != null && getTarget().getGraph() != null && !getTarget().getGraph().equals(newGraph)) {
 				setTarget(null);
 			}
 		}
