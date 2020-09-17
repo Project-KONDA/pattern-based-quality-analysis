@@ -208,7 +208,7 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Parameter> getAllInputs() throws InvalidityException {
+	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();	
 		if(getAttributeName() != null) {
 			res.add(getAttributeName());
@@ -272,11 +272,6 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 		setOption(null);
 		return patternElements;		
 	}	
-
-	public void reset() {
-		setAttributeName(null);
-		setOption(null);		
-	}
 	
 	@Override
 	public void removeParametersFromParameterList() {

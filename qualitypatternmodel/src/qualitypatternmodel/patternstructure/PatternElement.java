@@ -81,7 +81,9 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Translates the structure of the model instance into an XQuery expression
+	 * Recursively translates <code>this</code> and all contained <code>PatternElements</code> into an XQuery snippet.
+	 * 
+	 * @return the generated XQuery snippet
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -90,16 +92,18 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * iterates over all contained elements and returns all contained model elements, that extend the Input class 
+	 * Returns all <code>Parameters</code> referenced by <code>this</code> or a contained <code>PatternElement</code>.
+	 * 
+	 *  @return a list of all parameters referenced by <code>this</code> or a contained <code>PatternElement</code>
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	EList<Parameter> getAllInputs() throws InvalidityException;
+	EList<Parameter> getAllParameters() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Initialization of the translation to XQuery of the model instance 
+	 * Prepares the translation to XQuery. 
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -108,7 +112,9 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * calls isValid to check model constraints for current element
+	 * Validates <code>this</code> against the constraints specified in <code>isValid</code>.
+	 * 
+	 * @return true if <code>this</code> is valid
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -117,6 +123,9 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a list of contained or referenced <code>PatternElements</code> that are <code>Parameters</code> or (in-)directly contain <code>Parameters</code>.
+	 * 
+	 * @return a list of contained or referenced <code>PatternElements</code> that are <code>Parameters</code> or (in-)directly contain <code>Parameters</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -125,6 +134,9 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the <code>ParameterList</code> of the <code>Pattern</code> <code>this</code> is directly or indirectly contained in.
+	 * 
+	 * @return the <code>ParameterList</code> of the <code>Pattern</code> <code>this</code> is directly or indirectly contained in or null if <code>this</code> is not contained in a <code>Pattern</code>
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -133,6 +145,10 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the <code>OperatorList</code> of the <code>Graph</code> <code>this</code> is directly or indirectly contained in.
+	 * 
+	 * @return the <code>OperatorList</code> of the <code>Graph</code> <code>this</code> is directly or indirectly contained in or null if <code>this</code> is not contained in a <code>Graph</code>
+	 * 
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -141,6 +157,14 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Recursively replaces <code>this</code> and its contents by their XML-specific equivalent.
+	 * 
+	 * An instance of the corresponding XML-specific subclass in the <code>package</code> <code>adaptionxml</code> is created.
+	 * Attributes, references and contents of <code>this</code> are transfered to the new object.
+	 * <code>This</code> is removed from its container.
+	 * The new object is inserted into the container.
+	 * 
+	 * @return the XML-specific equivalent of <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
@@ -149,6 +173,7 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Finalizes the adaption to XML after all necessary user inputs have been made.
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -157,6 +182,9 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Recursively records all values of contained or referenced <code>Parameters</code> in the <code>XmlDatabase</code>.
+	 * 
+	 * @param database the <code>XmlDatabase</code> in which the values of <code>Parameters</code> are recorded
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -165,6 +193,9 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Recursively checks if all directly or indirectly contained <code>Relations</code> have been adapted to XML, thus are of type <code>XmlReference</code> or <code>XmlNavigation</code>.
+	 * 
+	 * @return true if all contained <code>Relations</code> have been adapted to XML
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -173,6 +204,7 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * 
 	 * <!-- end-user-doc -->
 	 * @model patternElementsMany="true"
 	 * @generated
@@ -181,6 +213,9 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Calls <code>updateParameters</code> with the <code>ParameterList</code> of <code>newContainer</code> passed as <code>newParameterList</code>.
+	 * 
+	 * @param newContainer the new container <code>this</code> will be moved to
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -189,6 +224,9 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Recursively moves all directly or indirectly contained or referenced <code>Parameters</code> to <code>newParameterList</code>.
+	 * 
+	 * @param newParameterList the <code>ParameterList</code> that all contained or referenced <code>Parameters</code> are moved to
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -197,7 +235,9 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * get element, which directly contain the current element
+	 * Returns the <code>PatternElement</code> which directly contains <code>this</code>.
+	 * 
+	 * @return the <code>PatternElement</code> which directly contains <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
@@ -206,9 +246,12 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * call isValidLocal and isValid of all contained elements
-	 * @param abstractionLevel true, if all input elements shall have assigned a concrete value
-	 * @throws InvalidityException when the current or one contained model element is invalid
+	 * Recursively validates <code>this</code> and contained <code>PatternElements</code>.
+	 * 
+	 * @param abstractionLevel the level of abstraction of the <code>CompletePattern</code> <code>this</code> is contained in directly or indirectly
+	 * @throws InvalidityException if <code>this</code> or a contained <code>PatternElement</code> is invalid
+	 * @throws OperatorCycleException if <code>this</code> or a contained <code>PatternElement</code> is an <code>Operator</code> that references itself as an argument
+	 * @throws MissingPatternContainerException <code>this</code> is not contained in a <code>CompletePattern</code> directly or indirectly
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper" abstractionLevelRequired="true"
 	 * @generated
@@ -217,10 +260,12 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * check validity of the variables of the current model element. Does not check contained elements 
-	 * @param abstractionLevel true, if the current element extends Input and shall have assigned a concrete value
-	 * if the current element does not extend Input, the parameter does not have an impact
-	 * @throws InvalidityException when the current model element is invalid
+	 * Validates <code>this</code> concerning constraints.
+	 * 
+	 * @param abstractionLevel the level of abstraction of the <code>CompletePattern</code> <code>this</code> is contained in directly or indirectly
+	 * @throws InvalidityException if <code>this</code> is invalid
+	 * @throws OperatorCycleException if <code>this</code> is an <code>Operator</code> that references itself as an argument
+	 * @throws MissingPatternContainerException <code>this</code> is not contained in a <code>CompletePattern</code> directly or indirectly
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper" abstractionLevelRequired="true"
 	 * @generated
@@ -229,17 +274,20 @@ public interface PatternElement extends EObject {
 	
 	/**
 	 * <!-- begin-user-doc -->
-	 * Iterates up through the model instance hierarchy and returns the first element of the desired class.  
-	 * @param type of expected element to return
-	 * @return Model Element of type cls
-	 * @throws MissingPatternContainerException if no element of the expected type is in the model hierarchy above the current element 
-	 * or one container element does not extend the type PatternElement. 
+	 * Returns the first ancestor of type <code>cls</code> in the containment hierarchy.
+	 * 
+	 * @param the type of the desired ancestor
+	 * @return the first ancestor of type <code>cls</code>
+	 * @throws MissingPatternContainerException if no ancestor of type <code>cls</code> exists
 	 * <!-- end-user-doc -->
 	 */
 	PatternElement getAncestor(Class<?> cls) throws MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a textual representation of <code>this</code>.
+	 * 
+	 * @return the textual representation of <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

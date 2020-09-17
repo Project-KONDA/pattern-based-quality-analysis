@@ -181,7 +181,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	@Override
-	public EList<Parameter> getAllInputs() throws InvalidityException {
+	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		if (getOption() != null) {
 			res.add(option);

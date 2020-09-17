@@ -106,13 +106,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___GENERATE_QUERY = 0;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GET_ALL_INPUTS = 1;
+	int PATTERN_ELEMENT___GET_ALL_PARAMETERS = 1;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -332,13 +332,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MAPPING___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING___GET_ALL_INPUTS = PATTERN_ELEMENT___GET_ALL_INPUTS;
+	int MAPPING___GET_ALL_PARAMETERS = PATTERN_ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -576,13 +576,13 @@ public interface PatternstructurePackage extends EPackage {
 	int RELATION_MAPPING___GENERATE_QUERY = MAPPING___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPING___GET_ALL_INPUTS = MAPPING___GET_ALL_INPUTS;
+	int RELATION_MAPPING___GET_ALL_PARAMETERS = MAPPING___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -838,13 +838,13 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___GET_ALL_INPUTS = PATTERN_ELEMENT___GET_ALL_INPUTS;
+	int CONDITION___GET_ALL_PARAMETERS = PATTERN_ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1145,13 +1145,13 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___GENERATE_QUERY = CONDITION___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___GET_ALL_INPUTS = CONDITION___GET_ALL_INPUTS;
+	int QUANTIFIED_CONDITION___GET_ALL_PARAMETERS = CONDITION___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1434,13 +1434,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___GET_ALL_INPUTS = PATTERN_ELEMENT___GET_ALL_INPUTS;
+	int MORPHISM___GET_ALL_PARAMETERS = PATTERN_ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1741,13 +1741,13 @@ public interface PatternstructurePackage extends EPackage {
 	int ELEMENT_MAPPING___GENERATE_QUERY = MAPPING___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___GET_ALL_INPUTS = MAPPING___GET_ALL_INPUTS;
+	int ELEMENT_MAPPING___GET_ALL_PARAMETERS = MAPPING___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2030,13 +2030,13 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___GENERATE_QUERY = CONDITION___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___GET_ALL_INPUTS = CONDITION___GET_ALL_INPUTS;
+	int FORMULA___GET_ALL_PARAMETERS = CONDITION___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2301,13 +2301,13 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT___GENERATE_QUERY = CONDITION___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___GET_ALL_INPUTS = CONDITION___GET_ALL_INPUTS;
+	int TRUE_ELEMENT___GET_ALL_PARAMETERS = CONDITION___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2563,13 +2563,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___GET_ALL_INPUTS = PATTERN_ELEMENT___GET_ALL_INPUTS;
+	int PATTERN___GET_ALL_PARAMETERS = PATTERN_ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2924,13 +2924,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___GENERATE_QUERY = PATTERN___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GET_ALL_INPUTS = PATTERN___GET_ALL_INPUTS;
+	int COMPLETE_PATTERN___GET_ALL_PARAMETERS = PATTERN___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3222,13 +3222,13 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION___GENERATE_QUERY = CONDITION___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___GET_ALL_INPUTS = CONDITION___GET_ALL_INPUTS;
+	int NOT_CONDITION___GET_ALL_PARAMETERS = CONDITION___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3520,13 +3520,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___GENERATE_QUERY = CONDITION___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___GET_ALL_INPUTS = CONDITION___GET_ALL_INPUTS;
+	int COUNT_CONDITION___GET_ALL_PARAMETERS = CONDITION___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3773,13 +3773,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___GET_ALL_INPUTS = PATTERN_ELEMENT___GET_ALL_INPUTS;
+	int COUNT_CONDITION_ARGUMENT___GET_ALL_PARAMETERS = PATTERN_ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3999,13 +3999,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_CONTAINER___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___GET_ALL_INPUTS = PATTERN_ELEMENT___GET_ALL_INPUTS;
+	int MORPHISM_CONTAINER___GET_ALL_PARAMETERS = PATTERN_ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -4297,13 +4297,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN___GENERATE_QUERY = PATTERN___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___GET_ALL_INPUTS = PATTERN___GET_ALL_INPUTS;
+	int COUNT_PATTERN___GET_ALL_PARAMETERS = PATTERN___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -4559,13 +4559,13 @@ public interface PatternstructurePackage extends EPackage {
 	int NUMBER_ELEMENT___GENERATE_QUERY = COUNT_CONDITION_ARGUMENT___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___GET_ALL_INPUTS = COUNT_CONDITION_ARGUMENT___GET_ALL_INPUTS;
+	int NUMBER_ELEMENT___GET_ALL_PARAMETERS = COUNT_CONDITION_ARGUMENT___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -5392,14 +5392,14 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPatternElement__GenerateQuery();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getAllInputs() <em>Get All Inputs</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getAllParameters() <em>Get All Parameters</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get All Inputs</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#getAllInputs()
+	 * @return the meta object for the '<em>Get All Parameters</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#getAllParameters()
 	 * @generated
 	 */
-	EOperation getPatternElement__GetAllInputs();
+	EOperation getPatternElement__GetAllParameters();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#prepareTranslation() <em>Prepare Translation</em>}' operation.
@@ -6390,12 +6390,12 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation PATTERN_ELEMENT___GENERATE_QUERY = eINSTANCE.getPatternElement__GenerateQuery();
 
 		/**
-		 * The meta object literal for the '<em><b>Get All Inputs</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get All Parameters</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATTERN_ELEMENT___GET_ALL_INPUTS = eINSTANCE.getPatternElement__GetAllInputs();
+		EOperation PATTERN_ELEMENT___GET_ALL_PARAMETERS = eINSTANCE.getPatternElement__GetAllParameters();
 
 		/**
 		 * The meta object literal for the '<em><b>Prepare Translation</b></em>' operation.

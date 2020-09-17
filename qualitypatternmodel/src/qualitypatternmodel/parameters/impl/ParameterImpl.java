@@ -82,7 +82,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 //	}
 
 	@Override
-	public EList<Parameter> getAllInputs() throws InvalidityException {
+	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		res.add(this);
 		return res;

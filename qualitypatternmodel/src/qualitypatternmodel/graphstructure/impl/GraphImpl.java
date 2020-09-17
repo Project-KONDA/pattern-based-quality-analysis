@@ -320,13 +320,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	@Override
-	public EList<Parameter> getAllInputs() throws InvalidityException {
+	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		for(Element element : getElements()) {
-			res.addAll(element.getAllInputs());
+			res.addAll(element.getAllParameters());
 		}
 		for(Relation relation: getRelations()) {
-			res.addAll(relation.getAllInputs());
+			res.addAll(relation.getAllParameters());
 		}
 		return res;
 	}

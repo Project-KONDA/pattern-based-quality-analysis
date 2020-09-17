@@ -224,13 +224,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___GENERATE_QUERY = GraphstructurePackage.ELEMENT___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___GET_ALL_INPUTS = GraphstructurePackage.ELEMENT___GET_ALL_INPUTS;
+	int XML_ELEMENT___GET_ALL_PARAMETERS = GraphstructurePackage.ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -702,13 +702,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___GENERATE_QUERY = GraphstructurePackage.RELATION___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___GET_ALL_INPUTS = GraphstructurePackage.RELATION___GET_ALL_INPUTS;
+	int XML_NAVIGATION___GET_ALL_PARAMETERS = GraphstructurePackage.RELATION___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1072,13 +1072,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___GENERATE_QUERY = GraphstructurePackage.RELATION___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___GET_ALL_INPUTS = GraphstructurePackage.RELATION___GET_ALL_INPUTS;
+	int XML_REFERENCE___GET_ALL_PARAMETERS = GraphstructurePackage.RELATION___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1451,13 +1451,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___GENERATE_QUERY = GraphstructurePackage.PROPERTY___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_ALL_INPUTS = GraphstructurePackage.PROPERTY___GET_ALL_INPUTS;
+	int XML_PROPERTY___GET_ALL_PARAMETERS = GraphstructurePackage.PROPERTY___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1857,13 +1857,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___GENERATE_QUERY = GraphstructurePackage.ELEMENT___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___GET_ALL_INPUTS = GraphstructurePackage.ELEMENT___GET_ALL_INPUTS;
+	int XML_ROOT___GET_ALL_PARAMETERS = GraphstructurePackage.ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.

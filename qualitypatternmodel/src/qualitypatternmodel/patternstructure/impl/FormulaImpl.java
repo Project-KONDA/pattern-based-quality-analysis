@@ -224,11 +224,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	@Override
-	public EList<Parameter> getAllInputs() throws InvalidityException {
+	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> parameters = new BasicEList<Parameter>();
-		parameters.addAll(condition1.getAllInputs());
+		parameters.addAll(condition1.getAllParameters());
 		if(condition2 != null) {
-			parameters.addAll(condition2.getAllInputs());
+			parameters.addAll(condition2.getAllParameters());
 		}	
 		return parameters;
 	}

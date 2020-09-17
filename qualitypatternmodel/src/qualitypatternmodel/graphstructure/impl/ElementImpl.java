@@ -1296,20 +1296,13 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public EList<Parameter> getAllInputs() throws InvalidityException {
+	public EList<Parameter> getAllParameters() throws InvalidityException {
 			EList<Parameter> res = new BasicEList<Parameter>();
-//			if(getRelationFromPrevious() != null) {
-//				res.addAll(getRelationFromPrevious().getAllInputs());
-//			}
-//			for (Element element : getNextElements()) {
-//				res.addAll(element.getAllInputs());
-//			}
-	//		res.addAll(getRelationFromPrevious().getAllVariables());
 			for (Property p : getProperties()) {
-				res.addAll(p.getAllInputs());
+				res.addAll(p.getAllParameters());
 			}
 			for (Operator op : getPredicates()) {
-				res.addAll(op.getAllInputs());
+				res.addAll(op.getAllParameters());
 			}
 			return res;
 		}

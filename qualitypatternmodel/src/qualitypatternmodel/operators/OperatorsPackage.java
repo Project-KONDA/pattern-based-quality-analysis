@@ -136,13 +136,13 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR___GENERATE_QUERY = GraphstructurePackage.COMPARABLE___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___GET_ALL_INPUTS = GraphstructurePackage.COMPARABLE___GET_ALL_INPUTS;
+	int OPERATOR___GET_ALL_PARAMETERS = GraphstructurePackage.COMPARABLE___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -461,13 +461,13 @@ public interface OperatorsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___GENERATE_QUERY = OPERATOR___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR___GET_ALL_INPUTS = OPERATOR___GET_ALL_INPUTS;
+	int BOOLEAN_OPERATOR___GET_ALL_PARAMETERS = OPERATOR___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -804,13 +804,13 @@ public interface OperatorsPackage extends EPackage {
 	int NUMBER_OPERATOR___GENERATE_QUERY = OPERATOR___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATOR___GET_ALL_INPUTS = OPERATOR___GET_ALL_INPUTS;
+	int NUMBER_OPERATOR___GET_ALL_PARAMETERS = OPERATOR___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1156,13 +1156,13 @@ public interface OperatorsPackage extends EPackage {
 	int MATCH___GENERATE_QUERY = BOOLEAN_OPERATOR___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH___GET_ALL_INPUTS = BOOLEAN_OPERATOR___GET_ALL_INPUTS;
+	int MATCH___GET_ALL_PARAMETERS = BOOLEAN_OPERATOR___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1562,13 +1562,13 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON___GENERATE_QUERY = BOOLEAN_OPERATOR___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON___GET_ALL_INPUTS = BOOLEAN_OPERATOR___GET_ALL_INPUTS;
+	int COMPARISON___GET_ALL_PARAMETERS = BOOLEAN_OPERATOR___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1923,13 +1923,13 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR_LIST___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_LIST___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
+	int OPERATOR_LIST___GET_ALL_PARAMETERS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.

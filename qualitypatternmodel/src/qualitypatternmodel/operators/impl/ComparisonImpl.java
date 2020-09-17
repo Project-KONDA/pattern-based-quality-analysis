@@ -217,22 +217,22 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	@Override
-	public EList<Parameter> getAllInputs() throws InvalidityException {
+	public EList<Parameter> getAllParameters() throws InvalidityException {
 //		System.out.println(argument1 + " " + argument2);
 		EList<Parameter> res = new BasicEList<Parameter>();
 		if (argument1 instanceof Parameter) {
 			res.add((Parameter) argument1);
 		} else if (argument1 instanceof Operator) {
-			res.addAll(((Operator) argument1).getAllInputs());
+			res.addAll(((Operator) argument1).getAllParameters());
 		} else if (argument1 instanceof Property) {
-			res.addAll(((Property) argument1).getAllInputs());
+			res.addAll(((Property) argument1).getAllParameters());
 		}
 		if (argument2 instanceof Parameter) {
 			res.add((Parameter) argument2);
 		} else if (argument2 instanceof Operator) {
-			res.addAll(((Operator) argument2).getAllInputs());
+			res.addAll(((Operator) argument2).getAllParameters());
 		} else if (argument2 instanceof Property) {
-			res.addAll(((Property) argument2).getAllInputs());
+			res.addAll(((Property) argument2).getAllParameters());
 		}
 		if (getOption() != null) {
 			res.add(option);

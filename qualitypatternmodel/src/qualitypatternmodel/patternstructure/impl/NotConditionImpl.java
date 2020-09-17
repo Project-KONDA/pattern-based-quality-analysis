@@ -114,9 +114,9 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	}
 
 	@Override
-	public EList<Parameter> getAllInputs() throws InvalidityException {
+	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> parameters = new BasicEList<Parameter>();
-		parameters.addAll(condition.getAllInputs());		
+		parameters.addAll(condition.getAllParameters());		
 		return parameters;
 	}
 	

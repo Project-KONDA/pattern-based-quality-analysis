@@ -122,7 +122,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Parameter> getAllInputs() throws InvalidityException {
+	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		res.add(regularExpression);
 		res.add(option);
