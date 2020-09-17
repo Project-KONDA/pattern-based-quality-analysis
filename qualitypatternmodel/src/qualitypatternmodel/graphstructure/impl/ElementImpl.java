@@ -1196,12 +1196,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case GraphstructurePackage.ELEMENT___CLEAR_MATCH_RECURSIVELY:
-				clearMatchRecursively();
-				return null;
-			case GraphstructurePackage.ELEMENT___CLEAR_PREDICATES_RECURSIVELY:
-				clearPredicatesRecursively();
-				return null;
 			case GraphstructurePackage.ELEMENT___GET_ORIGINAL_ID:
 				return getOriginalID();
 			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_MATCH__STRING:
@@ -1227,12 +1221,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				return null;
 			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE:
 				addPrimitiveComparison((ParameterValue)arguments.get(0));
-				return null;
-			case GraphstructurePackage.ELEMENT___CLEAR_COMPARISON_RECURSIVELY:
-				clearComparisonRecursively();
-				return null;
-			case GraphstructurePackage.ELEMENT___CLEAR_PROPERTY_RECURSIVELY:
-				clearPropertyRecursively();
 				return null;
 			case GraphstructurePackage.ELEMENT___COPY_PROPERTY__PROPERTY:
 				return copyProperty((Property)arguments.get(0));
@@ -1523,40 +1511,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		result.append(predicatesAreBeingTranslated);
 		result.append(')');
 		return result.toString();
-	}
-
-	public void clearComparisonRecursively() {
-		getComparison1().clear();
-		getComparison2().clear();
-		for(Property p : getProperties()) {
-			p.getComparison1().clear();
-			p.getComparison2().clear();
-		}
-//		for(Element child : getNextElements()) {
-//			child.clearComparisonRecursively();
-//		}
-	}
-
-	@Override
-	public void clearMatchRecursively() {
-		for(Property p : getProperties()) {
-			p.getMatch().clear();
-		}
-//		for(Element child : getNextElements()) {
-//			child.clearMatchRecursively();
-//		}
-		
-	}
-
-	public void clearPropertyRecursively() {
-		// TODO
-//		for(Property p : getProperties()) {
-//			p.reset();			
-//		}
-		
-//		for(Element child : getNextElements()) {
-//			child.clearPropertyRecursively();
-//		}
 	}
 	
 	@Override

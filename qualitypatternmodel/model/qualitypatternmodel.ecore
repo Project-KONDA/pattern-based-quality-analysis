@@ -279,8 +279,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Element" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
-      <eOperations name="clearMatchRecursively"/>
-      <eOperations name="clearPredicatesRecursively"/>
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eOperations name="addPrimitiveMatch">
         <eParameters name="regex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -299,8 +297,6 @@
       <eOperations name="addPrimitiveComparison">
         <eParameters name="input" eType="#//parameters/ParameterValue"/>
       </eOperations>
-      <eOperations name="clearComparisonRecursively"/>
-      <eOperations name="clearPropertyRecursively"/>
       <eOperations name="copyProperty" eType="#//graphstructure/Property">
         <eParameters name="property" eType="#//graphstructure/Property"/>
       </eOperations>

@@ -431,24 +431,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___CREATE_PARAMETERS = GraphstructurePackage.ELEMENT___CREATE_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Clear Match Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___CLEAR_MATCH_RECURSIVELY = GraphstructurePackage.ELEMENT___CLEAR_MATCH_RECURSIVELY;
-
-	/**
-	 * The operation id for the '<em>Clear Predicates Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___CLEAR_PREDICATES_RECURSIVELY = GraphstructurePackage.ELEMENT___CLEAR_PREDICATES_RECURSIVELY;
-
-	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -519,24 +501,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE;
-
-	/**
-	 * The operation id for the '<em>Clear Comparison Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___CLEAR_COMPARISON_RECURSIVELY = GraphstructurePackage.ELEMENT___CLEAR_COMPARISON_RECURSIVELY;
-
-	/**
-	 * The operation id for the '<em>Clear Property Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___CLEAR_PROPERTY_RECURSIVELY = GraphstructurePackage.ELEMENT___CLEAR_PROPERTY_RECURSIVELY;
 
 	/**
 	 * The operation id for the '<em>Copy Property</em>' operation.
@@ -2118,24 +2082,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___CREATE_PARAMETERS = GraphstructurePackage.ELEMENT___CREATE_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Clear Match Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___CLEAR_MATCH_RECURSIVELY = GraphstructurePackage.ELEMENT___CLEAR_MATCH_RECURSIVELY;
-
-	/**
-	 * The operation id for the '<em>Clear Predicates Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___CLEAR_PREDICATES_RECURSIVELY = GraphstructurePackage.ELEMENT___CLEAR_PREDICATES_RECURSIVELY;
-
-	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2206,24 +2152,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE;
-
-	/**
-	 * The operation id for the '<em>Clear Comparison Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___CLEAR_COMPARISON_RECURSIVELY = GraphstructurePackage.ELEMENT___CLEAR_COMPARISON_RECURSIVELY;
-
-	/**
-	 * The operation id for the '<em>Clear Property Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___CLEAR_PROPERTY_RECURSIVELY = GraphstructurePackage.ELEMENT___CLEAR_PROPERTY_RECURSIVELY;
 
 	/**
 	 * The operation id for the '<em>Copy Property</em>' operation.
