@@ -79,6 +79,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	/**
 	 * The cached value of the '{@link #getPartialQuery() <em>Partial Query</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The last generated XQuery expression without its where clause. Is set automatically each time the XQuery is generated.
 	 * <!-- end-user-doc -->
 	 * @see #getPartialQuery()
 	 * @generated
@@ -97,6 +98,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	/**
 	 * The cached value of the '{@link #getQuery() <em>Query</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The last generated XQuery expression. Is set automatically each time the XQuery is generated.
 	 * <!-- end-user-doc -->
 	 * @see #getQuery()
 	 * @generated
