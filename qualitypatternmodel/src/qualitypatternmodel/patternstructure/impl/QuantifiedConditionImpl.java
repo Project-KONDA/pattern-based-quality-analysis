@@ -74,7 +74,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * The cached value of the '{@link #getQuantifier() <em>Quantifier</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The <code>Quantifier</code> that defines <code>this</code> <code>QuantifiedCondition</code>.
+	 * <!-- end-user-doc -->
 	 * @see #getQuantifier()
 	 * @generated
 	 * @ordered

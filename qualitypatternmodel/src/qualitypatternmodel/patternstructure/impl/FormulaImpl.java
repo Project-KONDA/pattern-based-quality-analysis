@@ -54,7 +54,9 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 	/**
 	 * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The <code>LogicalOperator</code> that defines <code>this</code> <code>Formula</code>.
+	 * <!-- end-user-doc -->
 	 * @see #getOperator()
 	 * @generated
 	 * @ordered

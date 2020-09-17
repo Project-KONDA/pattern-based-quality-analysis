@@ -121,7 +121,7 @@ public interface Pattern extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Validates the <code>source</code> and <code>target</code> attributes of the next <code>MorphismContainer</code>.
+	 * Validates the <code>source</code> and <code>target</code> attributes of the next <code>MorphismContainer</code>  in the hierarchy of <code>Conditions</code>.
 	 * 
 	 * @throws InvalidityException if <code>source</code> or <code>target</code> of the next <code>MorphismContainer</code> is invalid
 	 * <!-- end-user-doc -->

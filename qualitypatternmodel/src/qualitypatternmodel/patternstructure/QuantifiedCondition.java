@@ -75,7 +75,9 @@ public interface QuantifiedCondition extends Condition, MorphismContainer {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * This methods evaluates the Morphism of the next Graph. In case the test fails, this methods throws an InvalidityException.
+	 * Validates the <code>source</code> and <code>target</code> attributes of the next <code>MorphismContainer</code> in the hierarchy of <code>Conditions</code>.
+	 * 
+	 * @throws InvalidityException if <code>source</code> or <code>target</code> of the next <code>MorphismContainer</code> is invalid
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
