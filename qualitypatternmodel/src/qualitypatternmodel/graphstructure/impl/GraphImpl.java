@@ -348,7 +348,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	@Override
 	public void copyGraph(Graph graph) throws MissingPatternContainerException {
-		// TODO: copy this to graph: copy all elements and relations! + return elements
+		// copy this to graph: copy all elements and relations + return elements
 		
 		for(Element element : getElements()) {
 			Element newElement = new ElementImpl();		
@@ -426,28 +426,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 //		rootElement.copyNextElementsToNextGraphs();
 	}
 
-	private void addRootMapping(Graph graph) {
-//		ElementMappingImpl mapping = new ElementMappingImpl();
-//		graph.getQuantifiedCondition().getMorphism().getMappings()
-//				.add(mapping);
-//		mapping.setFrom(rootElement);
-//		mapping.setTo(graph.getRootElement());
-	}
-
-	private boolean updateRootMapping(Graph graph) {
-//		for (Mapping mapping : graph.getQuantifiedCondition().getMorphism().getMappings()) {
-//			if (mapping instanceof ElementMapping) {
-//				ElementMapping elementMapping = (ElementMapping) mapping;
-//				if (elementMapping.getTo().equals(graph.getRootElement())) {
-//					elementMapping.getFrom().getMappingTo().remove(elementMapping);
-//					elementMapping.setFrom(rootElement);
-//					return true;
-//				}
-//			}
-//		}
-		return false;
-	}
-
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -505,35 +483,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		return elements;
 	}
-
-//	/**
-//	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-//	 * 
-//	 * @generated NOT
-//	 */
-//	public NotificationChain basicSetRootElement(Element newRootElement, NotificationChain msgs) {
-//		getReturnElements().clear();
-////		if(getRootElement() != null) {
-////			ElementImpl root = (ElementImpl) getRootElement();
-//////			root.clearPredicatesRecursively();
-//////			root.clearMatchRecursively();
-//////			root.clearPropertyRecursively();	
-////		}
-//		
-//		Element oldRootElement = rootElement;
-//		rootElement = newRootElement;
-//		
-//		if (eNotificationRequired()) {
-//			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-//					GraphstructurePackage.GRAPH__ROOT_ELEMENT, oldRootElement, newRootElement);
-//			if (msgs == null)
-//				msgs = notification;
-//			else
-//				msgs.add(notification);
-//		}
-//			
-//		return msgs;
-//	}
 	
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
@@ -647,27 +596,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		return relations;
 	}
-
-	// /**
-//	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-//	 * 
-//	 */
-//	public NotificationChain basicSetRootElement(SingleElement newRootElement, NotificationChain msgs) {
-//		SingleElement oldRootElement = rootElements;
-//		rootElements = newRootElement;
-//		if (rootElements != null) {
-//			rootElements.setRelationFromPrevious(null);
-//		}
-//		if (eNotificationRequired()) {
-//			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-//					GraphstructurePackage.GRAPH__ROOT_ELEMENT, oldRootElement, newRootElement);
-//			if (msgs == null)
-//				msgs = notification;
-//			else
-//				msgs.add(notification);
-//		}
-//		return msgs;
-//	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1050,9 +978,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		for (Relation r : getRelations()) {
 			res += "\n| ~ " + r.myToString().replace("\n", "\n|   ");
 		}
-		// TODO: call Element.myToString()
-//		if ( getRootElement() != null)
-//		res += "\n| " + getRootElement().myToString().replace("\n", "\n| ");
 		res += getOperatorList().myToString().replace("\n", "\n| ");
 		return res;
 	}

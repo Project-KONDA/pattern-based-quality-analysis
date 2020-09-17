@@ -363,7 +363,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated
 	 */
 	@Override
-	public Element getSource() {		
+	public Element getSource() {
 		if (source != null && source.eIsProxy()) {
 			InternalEObject oldSource = (InternalEObject)source;
 			source = (Element)eResolveProxy(oldSource);
@@ -371,7 +371,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.RELATION__SOURCE, oldSource, source));
 			}
-		}				
+		}
 		return source;
 	}
 

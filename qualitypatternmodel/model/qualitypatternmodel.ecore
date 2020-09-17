@@ -279,17 +279,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Element" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
-      <eOperations name="copyNextElementsToNextGraphs" eExceptions="#//patternstructure/MissingPatternContainerException"/>
-      <eOperations name="copyNextElementToNextGraphs" eExceptions="#//patternstructure/MissingPatternContainerException">
-        <eParameters name="nextElement" eType="#//graphstructure/Element"/>
-      </eOperations>
-      <eOperations name="copyNextElementToPreviousGraphs">
-        <eParameters name="nextElement" eType="#//graphstructure/Element"/>
-        <eParameters name="recursive" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      </eOperations>
-      <eOperations name="copyNextElementsToPreviousGraphs">
-        <eParameters name="recursive" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      </eOperations>
       <eOperations name="clearMatchRecursively"/>
       <eOperations name="clearPredicatesRecursively"/>
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

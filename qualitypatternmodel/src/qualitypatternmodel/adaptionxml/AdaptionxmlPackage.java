@@ -431,42 +431,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___CREATE_PARAMETERS = GraphstructurePackage.ELEMENT___CREATE_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Copy Next Elements To Next Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS;
-
-	/**
-	 * The operation id for the '<em>Copy Next Element To Next Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__ELEMENT = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__ELEMENT;
-
-	/**
-	 * The operation id for the '<em>Copy Next Element To Previous Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__ELEMENT_BOOLEAN = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__ELEMENT_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Copy Next Elements To Previous Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN;
-
-	/**
 	 * The operation id for the '<em>Clear Match Recursively</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2152,42 +2116,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___CREATE_PARAMETERS = GraphstructurePackage.ELEMENT___CREATE_PARAMETERS;
-
-	/**
-	 * The operation id for the '<em>Copy Next Elements To Next Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS;
-
-	/**
-	 * The operation id for the '<em>Copy Next Element To Next Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__ELEMENT = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__ELEMENT;
-
-	/**
-	 * The operation id for the '<em>Copy Next Element To Previous Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__ELEMENT_BOOLEAN = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__ELEMENT_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Copy Next Elements To Previous Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Clear Match Recursively</em>' operation.

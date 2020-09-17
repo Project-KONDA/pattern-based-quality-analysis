@@ -254,17 +254,6 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Element/outgoing"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Element/incoming"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/copyNextElementsToNextGraphs"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/copyNextElementToNextGraphs">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/copyNextElementToNextGraphs/nextElement"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/copyNextElementToPreviousGraphs">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/copyNextElementToPreviousGraphs/nextElement"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/copyNextElementToPreviousGraphs/recursive"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/copyNextElementsToPreviousGraphs">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/copyNextElementsToPreviousGraphs/recursive"/>
-        </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/clearMatchRecursively"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/clearPredicatesRecursively"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getOriginalID"/>

@@ -1378,49 +1378,13 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___CREATE_PARAMETERS = COMPARABLE_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Copy Next Elements To Next Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS = COMPARABLE_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Copy Next Element To Next Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__ELEMENT = COMPARABLE_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Copy Next Element To Previous Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__ELEMENT_BOOLEAN = COMPARABLE_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Copy Next Elements To Previous Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = COMPARABLE_OPERATION_COUNT + 5;
-
-	/**
 	 * The operation id for the '<em>Clear Match Recursively</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___CLEAR_MATCH_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 6;
+	int ELEMENT___CLEAR_MATCH_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Clear Predicates Recursively</em>' operation.
@@ -1429,7 +1393,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___CLEAR_PREDICATES_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 7;
+	int ELEMENT___CLEAR_PREDICATES_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
@@ -1438,7 +1402,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_ORIGINAL_ID = COMPARABLE_OPERATION_COUNT + 8;
+	int ELEMENT___GET_ORIGINAL_ID = COMPARABLE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
@@ -1447,7 +1411,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_MATCH__STRING = COMPARABLE_OPERATION_COUNT + 9;
+	int ELEMENT___ADD_PRIMITIVE_MATCH__STRING = COMPARABLE_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1456,7 +1420,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING = COMPARABLE_OPERATION_COUNT + 10;
+	int ELEMENT___ADD_PRIMITIVE_COMPARISON__STRING = COMPARABLE_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
@@ -1465,7 +1429,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 11;
+	int ELEMENT___ADD_PRIMITIVE_MATCH = COMPARABLE_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1474,7 +1438,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_COMPARISON = COMPARABLE_OPERATION_COUNT + 12;
+	int ELEMENT___ADD_PRIMITIVE_COMPARISON = COMPARABLE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -1483,7 +1447,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___GET_ALL_OPERATORS = COMPARABLE_OPERATION_COUNT + 13;
+	int ELEMENT___GET_ALL_OPERATORS = COMPARABLE_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1492,7 +1456,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 14;
+	int ELEMENT___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1501,7 +1465,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 15;
+	int ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Clear Comparison Recursively</em>' operation.
@@ -1510,7 +1474,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___CLEAR_COMPARISON_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 16;
+	int ELEMENT___CLEAR_COMPARISON_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Clear Property Recursively</em>' operation.
@@ -1519,7 +1483,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___CLEAR_PROPERTY_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 17;
+	int ELEMENT___CLEAR_PROPERTY_RECURSIVELY = COMPARABLE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Copy Property</em>' operation.
@@ -1528,7 +1492,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___COPY_PROPERTY__PROPERTY = COMPARABLE_OPERATION_COUNT + 18;
+	int ELEMENT___COPY_PROPERTY__PROPERTY = COMPARABLE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Copy Primitive Comparison</em>' operation.
@@ -1537,7 +1501,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___COPY_PRIMITIVE_COMPARISON__COMPARISON = COMPARABLE_OPERATION_COUNT + 19;
+	int ELEMENT___COPY_PRIMITIVE_COMPARISON__COMPARISON = COMPARABLE_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Copy Match</em>' operation.
@@ -1546,7 +1510,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___COPY_MATCH__MATCH = COMPARABLE_OPERATION_COUNT + 20;
+	int ELEMENT___COPY_MATCH__MATCH = COMPARABLE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Add New Property</em>' operation.
@@ -1555,7 +1519,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___ADD_NEW_PROPERTY = COMPARABLE_OPERATION_COUNT + 21;
+	int ELEMENT___ADD_NEW_PROPERTY = COMPARABLE_OPERATION_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Set Graph Simple</em>' operation.
@@ -1564,7 +1528,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT___SET_GRAPH_SIMPLE__GRAPH = COMPARABLE_OPERATION_COUNT + 22;
+	int ELEMENT___SET_GRAPH_SIMPLE__GRAPH = COMPARABLE_OPERATION_COUNT + 18;
 
 	/**
 	 * The number of operations of the '<em>Element</em>' class.
@@ -1573,7 +1537,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 23;
+	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 19;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -2497,46 +2461,6 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getElement_Incoming();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#copyNextElementsToNextGraphs() <em>Copy Next Elements To Next Graphs</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Copy Next Elements To Next Graphs</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#copyNextElementsToNextGraphs()
-	 * @generated
-	 */
-	EOperation getElement__CopyNextElementsToNextGraphs();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#copyNextElementToNextGraphs(qualitypatternmodel.graphstructure.Element) <em>Copy Next Element To Next Graphs</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Copy Next Element To Next Graphs</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#copyNextElementToNextGraphs(qualitypatternmodel.graphstructure.Element)
-	 * @generated
-	 */
-	EOperation getElement__CopyNextElementToNextGraphs__Element();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#copyNextElementToPreviousGraphs(qualitypatternmodel.graphstructure.Element, boolean) <em>Copy Next Element To Previous Graphs</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Copy Next Element To Previous Graphs</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#copyNextElementToPreviousGraphs(qualitypatternmodel.graphstructure.Element, boolean)
-	 * @generated
-	 */
-	EOperation getElement__CopyNextElementToPreviousGraphs__Element_boolean();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#copyNextElementsToPreviousGraphs(boolean) <em>Copy Next Elements To Previous Graphs</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Copy Next Elements To Previous Graphs</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Element#copyNextElementsToPreviousGraphs(boolean)
-	 * @generated
-	 */
-	EOperation getElement__CopyNextElementsToPreviousGraphs__boolean();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#clearMatchRecursively() <em>Clear Match Recursively</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3248,38 +3172,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference ELEMENT__INCOMING = eINSTANCE.getElement_Incoming();
-
-		/**
-		 * The meta object literal for the '<em><b>Copy Next Elements To Next Graphs</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS = eINSTANCE.getElement__CopyNextElementsToNextGraphs();
-
-		/**
-		 * The meta object literal for the '<em><b>Copy Next Element To Next Graphs</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__ELEMENT = eINSTANCE.getElement__CopyNextElementToNextGraphs__Element();
-
-		/**
-		 * The meta object literal for the '<em><b>Copy Next Element To Previous Graphs</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__ELEMENT_BOOLEAN = eINSTANCE.getElement__CopyNextElementToPreviousGraphs__Element_boolean();
-
-		/**
-		 * The meta object literal for the '<em><b>Copy Next Elements To Previous Graphs</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = eINSTANCE.getElement__CopyNextElementsToPreviousGraphs__boolean();
 
 		/**
 		 * The meta object literal for the '<em><b>Clear Match Recursively</b></em>' operation.

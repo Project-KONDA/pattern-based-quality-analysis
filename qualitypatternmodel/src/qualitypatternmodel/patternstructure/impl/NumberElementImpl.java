@@ -207,8 +207,10 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 		NumberParam oldNumberParam = numberParam;
 			
 		ParameterList varlist = getParameterList();
-		varlist.remove(oldNumberParam);			
-		varlist.add(newNumberParam);
+		if(varlist != null) {
+			varlist.remove(oldNumberParam);			
+			varlist.add(newNumberParam);
+		}
 		
 		numberParam = newNumberParam;		
 		
