@@ -638,53 +638,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__INCOMING_MAPPING, newIncomingMapping, newIncomingMapping));
 	}
 
-//	/**
-//	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-//	 * @generated NOT
-//	 */
-//	@Override
-//	public void setAxis(Axis newAxis) {
-//		Axis oldAxis = axis;
-//		axis = newAxis == null ? AXIS_EDEFAULT : newAxis;
-//		
-//		for(RelationMapping mapping : getMappingTo()) {
-//			Relation relation = mapping.getTo();
-//			if(relation.getAxis() != axis) {
-//				relation.setAxis(newAxis);
-//			}
-//		}
-//		if(getMappingFrom() != null) {
-//			Relation relation = getMappingFrom().getFrom();
-//			if(relation.getAxis() != axis) {
-//				relation.setAxis(newAxis);	
-//			}
-//		}
-//		
-//		if (eNotificationRequired())
-//			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__AXIS, oldAxis, axis));
-//	}
-
-
-
-	@Override
-	public void copyToNewNextGraphs(Element element) {
-		// TODO: not needed anymore
-//		if (element.getMappingFrom() != null) {
-//			Element correspondingElement = element.getMappingFrom().getFrom();
-//			Relation newCorrespondingRelation;
-//			if (correspondingElement.getRelationFromPrevious() != null) {
-//				newCorrespondingRelation = correspondingElement.getRelationFromPrevious();
-//			} else {
-//				newCorrespondingRelation = new RelationImpl();
-//			}
-////				newCorrespondingRelation.setAxis(getAxis());
-//			RelationMapping mapping = new RelationMappingImpl();
-//			element.getMappingFrom().getMorphism().getMappings().add(mapping);
-//			mapping.setFrom(newCorrespondingRelation);
-//			mapping.setTo(this);
-//		}		
-	}	
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1007,9 +960,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return null;
 			case GraphstructurePackage.RELATION___REMOVE_MAPPINGS_TO_NEXT:
 				removeMappingsToNext();
-				return null;
-			case GraphstructurePackage.RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT:
-				copyToNewNextGraphs((Element)arguments.get(0));
 				return null;
 			case GraphstructurePackage.RELATION___ADAPT_AS_XML_NAVIGATION:
 				return adaptAsXMLNavigation();

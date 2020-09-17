@@ -216,9 +216,6 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Relation/name"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/removeRelationFromPreviousGraphs"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/removeMappingsToNext"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/copyToNewNextGraphs">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Relation/copyToNewNextGraphs/newRelationTo"/>
-        </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXMLNavigation"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXMLReference"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/setGraphSimple">

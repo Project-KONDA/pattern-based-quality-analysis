@@ -278,7 +278,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getRelation__CopyToNewNextGraphs__Element() {
+	public EOperation getRelation__AdaptAsXMLNavigation() {
 		return relationEClass.getEOperations().get(2);
 	}
 
@@ -288,7 +288,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getRelation__AdaptAsXMLNavigation() {
+	public EOperation getRelation__AdaptAsXMLReference() {
 		return relationEClass.getEOperations().get(3);
 	}
 
@@ -298,7 +298,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getRelation__AdaptAsXMLReference() {
+	public EOperation getRelation__SetGraphSimple__Graph() {
 		return relationEClass.getEOperations().get(4);
 	}
 
@@ -308,18 +308,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getRelation__SetGraphSimple__Graph() {
-		return relationEClass.getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getRelation__GetOriginalID() {
-		return relationEClass.getEOperations().get(6);
+		return relationEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -920,7 +910,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEAttribute(relationEClass, RELATION__NAME);
 		createEOperation(relationEClass, RELATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS);
 		createEOperation(relationEClass, RELATION___REMOVE_MAPPINGS_TO_NEXT);
-		createEOperation(relationEClass, RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_NAVIGATION);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_REFERENCE);
 		createEOperation(relationEClass, RELATION___SET_GRAPH_SIMPLE__GRAPH);
@@ -1049,14 +1038,11 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		initEOperation(getRelation__RemoveMappingsToNext(), null, "removeMappingsToNext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getRelation__CopyToNewNextGraphs__Element(), null, "copyToNewNextGraphs", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getElement(), "newRelationTo", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEOperation(getRelation__AdaptAsXMLNavigation(), theAdaptionxmlPackage.getXmlNavigation(), "adaptAsXMLNavigation", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRelation__AdaptAsXMLReference(), theAdaptionxmlPackage.getXmlReference(), "adaptAsXMLReference", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getRelation__SetGraphSimple__Graph(), null, "setGraphSimple", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getRelation__SetGraphSimple__Graph(), null, "setGraphSimple", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGraph(), "newGraph", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRelation__GetOriginalID(), ecorePackage.getEInt(), "getOriginalID", 1, 1, IS_UNIQUE, IS_ORDERED);

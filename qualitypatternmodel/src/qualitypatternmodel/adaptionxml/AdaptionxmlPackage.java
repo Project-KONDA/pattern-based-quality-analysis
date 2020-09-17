@@ -900,15 +900,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___REMOVE_MAPPINGS_TO_NEXT = GraphstructurePackage.RELATION___REMOVE_MAPPINGS_TO_NEXT;
 
 	/**
-	 * The operation id for the '<em>Copy To New Next Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_NAVIGATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT = GraphstructurePackage.RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT;
-
-	/**
 	 * The operation id for the '<em>Adapt As XML Navigation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1277,15 +1268,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_REFERENCE___REMOVE_MAPPINGS_TO_NEXT = GraphstructurePackage.RELATION___REMOVE_MAPPINGS_TO_NEXT;
-
-	/**
-	 * The operation id for the '<em>Copy To New Next Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_REFERENCE___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT = GraphstructurePackage.RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT;
 
 	/**
 	 * The operation id for the '<em>Adapt As XML Navigation</em>' operation.

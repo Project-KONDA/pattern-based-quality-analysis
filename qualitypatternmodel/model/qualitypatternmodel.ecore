@@ -247,9 +247,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="removeRelationFromPreviousGraphs"/>
       <eOperations name="removeMappingsToNext"/>
-      <eOperations name="copyToNewNextGraphs">
-        <eParameters name="newRelationTo" eType="#//graphstructure/Element"/>
-      </eOperations>
       <eOperations name="adaptAsXMLNavigation" eType="#//adaptionxml/XmlNavigation"/>
       <eOperations name="adaptAsXMLReference" eType="#//adaptionxml/XmlReference"/>
       <eOperations name="setGraphSimple">
