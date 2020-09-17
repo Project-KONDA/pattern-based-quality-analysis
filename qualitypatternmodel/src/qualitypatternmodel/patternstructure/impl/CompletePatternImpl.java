@@ -90,6 +90,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	/**
 	 * The cached value of the '{@link #getDatabase() <em>Database</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The <code>Database</code> <code>this</code> was concretised for. Only relevant for concrete patterns.
 	 * <!-- end-user-doc -->
 	 * @see #getDatabase()
 	 * @generated
@@ -110,6 +111,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	/**
 	 * The cached value of the '{@link #isAdaptionStarted() <em>Adaption Started</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * True if the XML adaption of <code>this</code> has been initiated by calling <code>createXMLAdaption</code>.
 	 * <!-- end-user-doc -->
 	 * @see #isAdaptionStarted()
 	 * @generated
@@ -130,6 +132,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	/**
 	 * The cached value of the '{@link #isAdaptionFinalized() <em>Adaption Finalized</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * True if the XML adaption of <code>this</code> has been finalized by calling <code>finalizeXMLAdaption</code>.
 	 * <!-- end-user-doc -->
 	 * @see #isAdaptionFinalized()
 	 * @generated
@@ -150,6 +153,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 /**
 	 * The cached value of the '{@link #getElementCounter() <em>Element Counter</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Elements</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getElementCounter()
 	 * @generated
@@ -170,6 +174,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 /**
 	 * The cached value of the '{@link #getPropertyCounter() <em>Property Counter</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Properties</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getPropertyCounter()
 	 * @generated
@@ -190,6 +195,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 /**
 	 * The cached value of the '{@link #getRelationCounter() <em>Relation Counter</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Relations</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getRelationCounter()
 	 * @generated
@@ -210,6 +216,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 /**
 	 * The cached value of the '{@link #getParameterCounter() <em>Parameter Counter</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Parameters</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getParameterCounter()
 	 * @generated
@@ -230,6 +237,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 /**
 	 * The cached value of the '{@link #getOperatorCounter() <em>Operator Counter</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Operators</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getOperatorCounter()
 	 * @generated
@@ -250,6 +258,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 /**
 	 * The cached value of the '{@link #getCounter() <em>Counter</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of classes other than <code>Element</code>, <code>Relation</code>,
+	 * <code>Property</code>, <code>Parameter</code> and <code>Operator</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getCounter()
 	 * @generated
