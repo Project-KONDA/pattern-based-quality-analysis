@@ -25,6 +25,11 @@ import qualitypatternmodel.graphstructure.Graph;
 public interface MorphismContainer extends PatternElement {
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the graph contained in <code>this</code>, thus the target of the <code>Morphism</code>.
+	 * 
+	 * @return the graph contained in <code>this</code>
+	 * @see QuantifiedCondition#getGraph()
+	 * @see CountPattern#getGraph()
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -33,8 +38,12 @@ public interface MorphismContainer extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * When another Graph is created in a subcondition, it needs to have representations of all previous defined elements as starting point for specifying additional conditions.
-	 * Therefore when adding a new subcondition, which contains a Graph a representation of all relevant elements of the previous Graph are created as well as the needed Mappings.
+	 * Copies the <code>Graph</code> that directly precedes <code>this</code> in the condition hierarchy to the <code>Graph</code> contained in <code>this</code>.
+	 * 
+	 * All <code>Elements</code> and <code>Relations</code> are copied by creating new instances and inserting them into the <code>Graph</code> contained in <code>this</code>.
+	 * Corresponding mappings are inserted into the contained <code>Morphism</code>.
+	 * @throws MissingPatternContainerException if <code>this</code> is not contained in a <code>CompletePattern</code> directly or indirectly
+	 * 
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated

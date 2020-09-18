@@ -105,6 +105,8 @@ public interface CountCondition extends Condition {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * If this is directly or indirectly contained in <code>CompletePattern</code>, creates a <code>ComparisonOptionParam</code> if non existent, assigns it to the attribute <code>option</code> and adds <code>option</code> to the <code>ParameterList</code> of the enclosing <code>CompletePattern</code>.
+	 * 
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -113,6 +115,8 @@ public interface CountCondition extends Condition {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates and sets <code>countPattern</code> if non existent.
+	 * 
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
