@@ -54,7 +54,9 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 	/**
 	 * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The <code>LogicalOperator</code> that defines <code>this</code> <code>Formula</code>.
+	 * <!-- end-user-doc -->
 	 * @see #getOperator()
 	 * @generated
 	 * @ordered
@@ -224,11 +226,11 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	@Override
-	public EList<Parameter> getAllInputs() throws InvalidityException {
+	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> parameters = new BasicEList<Parameter>();
-		parameters.addAll(condition1.getAllInputs());
+		parameters.addAll(condition1.getAllParameters());
 		if(condition2 != null) {
-			parameters.addAll(condition2.getAllInputs());
+			parameters.addAll(condition2.getAllParameters());
 		}	
 		return parameters;
 	}

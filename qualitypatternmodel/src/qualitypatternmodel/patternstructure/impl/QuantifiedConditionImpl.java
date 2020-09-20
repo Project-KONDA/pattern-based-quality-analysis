@@ -74,7 +74,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * The cached value of the '{@link #getQuantifier() <em>Quantifier</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The <code>Quantifier</code> that defines <code>this</code> <code>QuantifiedCondition</code>.
+	 * <!-- end-user-doc -->
 	 * @see #getQuantifier()
 	 * @generated
 	 * @ordered
@@ -209,10 +211,10 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	@Override
-	public EList<Parameter> getAllInputs() throws InvalidityException {
-		EList<Parameter> parameters = graph.getAllInputs();
+	public EList<Parameter> getAllParameters() throws InvalidityException {
+		EList<Parameter> parameters = graph.getAllParameters();
 		if (condition != null) {
-			parameters.addAll(condition.getAllInputs());
+			parameters.addAll(condition.getAllParameters());
 		}
 //		if(getCountCondition() != null) {
 //			parameters.addAll(getCountCondition().getAllInputs());

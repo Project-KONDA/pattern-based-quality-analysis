@@ -134,13 +134,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
+	int PARAMETER___GET_ALL_PARAMETERS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -441,13 +441,13 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM___GENERATE_QUERY = PARAMETER___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION_PARAM___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
+	int COMPARISON_OPTION_PARAM___GET_ALL_PARAMETERS = PARAMETER___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -739,13 +739,13 @@ public interface ParametersPackage extends EPackage {
 	int PROPERTY_OPTION_PARAM___GENERATE_QUERY = PARAMETER___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_PARAM___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
+	int PROPERTY_OPTION_PARAM___GET_ALL_PARAMETERS = PARAMETER___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1001,13 +1001,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_LIST___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_LIST___GET_ALL_INPUTS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS;
+	int PARAMETER_LIST___GET_ALL_PARAMETERS = PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1290,13 +1290,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE___GENERATE_QUERY = PARAMETER___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
+	int PARAMETER_VALUE___GET_ALL_PARAMETERS = PARAMETER___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1732,13 +1732,13 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_PARAM___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
+	int BOOLEAN_PARAM___GET_ALL_PARAMETERS = PARAMETER_VALUE___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2165,13 +2165,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
+	int TEXT_LIST_PARAM___GET_ALL_PARAMETERS = PARAMETER_VALUE___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2634,13 +2634,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
+	int TEXT_LITERAL_PARAM___GET_ALL_PARAMETERS = PARAMETER_VALUE___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3076,13 +3076,13 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_PARAM___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
+	int NUMBER_PARAM___GET_ALL_PARAMETERS = PARAMETER_VALUE___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3509,13 +3509,13 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_PARAM___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
+	int DATE_PARAM___GET_ALL_PARAMETERS = PARAMETER_VALUE___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -3951,13 +3951,13 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_PARAM___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
+	int TIME_PARAM___GET_ALL_PARAMETERS = PARAMETER_VALUE___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -4384,13 +4384,13 @@ public interface ParametersPackage extends EPackage {
 	int UNTYPED_PARAMETER_VALUE___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNTYPED_PARAMETER_VALUE___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
+	int UNTYPED_PARAMETER_VALUE___GET_ALL_PARAMETERS = PARAMETER_VALUE___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -4826,13 +4826,13 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME_PARAM___GET_ALL_INPUTS = PARAMETER_VALUE___GET_ALL_INPUTS;
+	int DATE_TIME_PARAM___GET_ALL_PARAMETERS = PARAMETER_VALUE___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -5259,13 +5259,13 @@ public interface ParametersPackage extends EPackage {
 	int RELATION_OPTION_PARAM___GENERATE_QUERY = PARAMETER___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPTION_PARAM___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
+	int RELATION_OPTION_PARAM___GET_ALL_PARAMETERS = PARAMETER___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -5566,13 +5566,13 @@ public interface ParametersPackage extends EPackage {
 	int TYPE_OPTION_PARAM___GENERATE_QUERY = PARAMETER___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_OPTION_PARAM___GET_ALL_INPUTS = PARAMETER___GET_ALL_INPUTS;
+	int TYPE_OPTION_PARAM___GET_ALL_PARAMETERS = PARAMETER___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.

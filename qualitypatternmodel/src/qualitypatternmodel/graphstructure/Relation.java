@@ -184,14 +184,6 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @model
 	 * @generated
 	 */
-	void copyToNewNextGraphs(Element newRelationTo);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	XmlNavigation adaptAsXMLNavigation();
 
 	/**

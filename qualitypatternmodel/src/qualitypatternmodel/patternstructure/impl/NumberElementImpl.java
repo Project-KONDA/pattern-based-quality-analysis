@@ -87,7 +87,7 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	}
 	
 	@Override
-	public EList<Parameter> getAllInputs() throws InvalidityException {
+	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();		
 		res.add(getNumberParam());		
 		return res;
@@ -207,8 +207,10 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 		NumberParam oldNumberParam = numberParam;
 			
 		ParameterList varlist = getParameterList();
-		varlist.remove(oldNumberParam);			
-		varlist.add(newNumberParam);
+		if(varlist != null) {
+			varlist.remove(oldNumberParam);			
+			varlist.add(newNumberParam);
+		}
 		
 		numberParam = newNumberParam;		
 		

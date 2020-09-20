@@ -875,7 +875,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__GetAllInputs() {
+	public EOperation getPatternElement__GetAllParameters() {
 		return patternElementEClass.getEOperations().get(1);
 	}
 
@@ -1462,7 +1462,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__ID);
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__INTERNAL_ID);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GENERATE_QUERY);
-		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ALL_INPUTS);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ALL_PARAMETERS);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___PREPARE_TRANSLATION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID_LOCAL__ABSTRACTIONLEVEL);
@@ -1672,7 +1672,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		op = initEOperation(getPatternElement__GenerateQuery(), ecorePackage.getEString(), "generateQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getPatternElement__GetAllInputs(), theParametersPackage.getParameter(), "getAllInputs", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternElement__GetAllParameters(), theParametersPackage.getParameter(), "getAllParameters", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEOperation(getPatternElement__PrepareTranslation(), null, "prepareTranslation", 0, 1, IS_UNIQUE, IS_ORDERED);

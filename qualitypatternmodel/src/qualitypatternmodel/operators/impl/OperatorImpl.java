@@ -396,7 +396,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Parameter> getAllInputs() throws InvalidityException {
+	public EList<Parameter> getAllParameters() throws InvalidityException {
 		return new BasicEList<Parameter>();
 	}
 

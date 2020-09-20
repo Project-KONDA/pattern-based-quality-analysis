@@ -5,7 +5,6 @@ package qualitypatternmodel.graphstructure;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
@@ -254,66 +253,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Copies all contained <code>Element</code> objects to the next graphs.
-	 * Corresponding <code>Element</code> objects are created in these graphs and <code>ElementMapping</code> objects are added to the morphism.
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
-	 * @generated
-	 */
-	void copyNextElementsToNextGraphs() throws MissingPatternContainerException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Copies the contained <code>Element</code> nextElement to the next graphs.
-	 * A corresponding <code>Element</code> object is created in these graphs and a ElementMapping object is added to the morphism.
-	 * @param the <code>Element</code> to be copied.
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
-	 * @generated
-	 */
-	void copyNextElementToNextGraphs(Element nextElement) throws MissingPatternContainerException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Copies the contained <code>Element</code> nextElement to the previous graph or recursively all previous graphs in case recursive is true.
-	 * A corresponding <code>Element</code> object is created in these graphs and a <code>ElementMapping</code> object is added to the morphism.
-	 * @param nextElement the <code>Element</code> to be copied
-	 * @param recursive if true, the object is copied recursively to all previous graphs
-	 * <!-- end-user-doc -->
-	 * @model recursiveRequired="true"
-	 * @generated
-	 */
-	void copyNextElementToPreviousGraphs(Element nextElement, boolean recursive);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Copies all contained <code>Element</code> objects to the previous graph or recursively all previous graphs in case recursive is true.
-	 * Corresponding <code>Element</code> objects are created in these graphs and <code>ElementMapping</code> objects are added to the morphism.
-	 * @param recursive if true, the objects are copied recursively to all previous graphs
-	 * <!-- end-user-doc -->
-	 * @model recursiveRequired="true"
-	 * @generated
-	 */
-	void copyNextElementsToPreviousGraphs(boolean recursive);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void clearMatchRecursively();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void clearPredicatesRecursively();
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
 	 * @generated
@@ -375,22 +314,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @generated
 	 */
 	void addPrimitiveComparison(ParameterValue input);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void clearComparisonRecursively();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void clearPropertyRecursively();
 
 	/**
 	 * <!-- begin-user-doc -->

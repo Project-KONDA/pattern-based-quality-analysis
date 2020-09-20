@@ -247,9 +247,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="removeRelationFromPreviousGraphs"/>
       <eOperations name="removeMappingsToNext"/>
-      <eOperations name="copyToNewNextGraphs">
-        <eParameters name="newRelationTo" eType="#//graphstructure/Element"/>
-      </eOperations>
       <eOperations name="adaptAsXMLNavigation" eType="#//adaptionxml/XmlNavigation"/>
       <eOperations name="adaptAsXMLReference" eType="#//adaptionxml/XmlReference"/>
       <eOperations name="setGraphSimple">
@@ -279,19 +276,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Element" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
-      <eOperations name="copyNextElementsToNextGraphs" eExceptions="#//patternstructure/MissingPatternContainerException"/>
-      <eOperations name="copyNextElementToNextGraphs" eExceptions="#//patternstructure/MissingPatternContainerException">
-        <eParameters name="nextElement" eType="#//graphstructure/Element"/>
-      </eOperations>
-      <eOperations name="copyNextElementToPreviousGraphs">
-        <eParameters name="nextElement" eType="#//graphstructure/Element"/>
-        <eParameters name="recursive" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      </eOperations>
-      <eOperations name="copyNextElementsToPreviousGraphs">
-        <eParameters name="recursive" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      </eOperations>
-      <eOperations name="clearMatchRecursively"/>
-      <eOperations name="clearPredicatesRecursively"/>
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eOperations name="addPrimitiveMatch">
         <eParameters name="regex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -310,8 +294,6 @@
       <eOperations name="addPrimitiveComparison">
         <eParameters name="input" eType="#//parameters/ParameterValue"/>
       </eOperations>
-      <eOperations name="clearComparisonRecursively"/>
-      <eOperations name="clearPropertyRecursively"/>
       <eOperations name="copyProperty" eType="#//graphstructure/Property">
         <eParameters name="property" eType="#//graphstructure/Property"/>
       </eOperations>
@@ -530,7 +512,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="PatternElement" abstract="true">
       <eOperations name="generateQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getAllInputs" upperBound="-1" eType="#//parameters/Parameter"
+      <eOperations name="getAllParameters" upperBound="-1" eType="#//parameters/Parameter"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="prepareTranslation"/>
       <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper">

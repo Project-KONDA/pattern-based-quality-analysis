@@ -181,13 +181,13 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	@Override
-	public EList<Parameter> getAllInputs() throws InvalidityException {
+	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		if(getOption() != null) {
 			res.add(getOption());
 		}		
-		res.addAll(getCountPattern().getAllInputs());
-		res.addAll(getArgument2().getAllInputs());		
+		res.addAll(getCountPattern().getAllParameters());
+		res.addAll(getArgument2().getAllParameters());		
 		return res;
 	}
 

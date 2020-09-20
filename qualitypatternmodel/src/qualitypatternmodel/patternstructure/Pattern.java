@@ -3,8 +3,6 @@
 package qualitypatternmodel.patternstructure;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 
 
@@ -121,11 +119,16 @@ public interface Pattern extends PatternElement {
 	 */
 	void setQuery(String value);
 
-	String generateQuery() throws InvalidityException;
-
-	void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException;
-
-	void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
-
+	/**
+	 * <!-- begin-user-doc -->
+	 * Validates the <code>source</code> and <code>target</code> attributes of the next <code>MorphismContainer</code>  in the hierarchy of <code>Conditions</code>.
+	 * 
+	 * @throws InvalidityException if <code>source</code> or <code>target</code> of the next <code>MorphismContainer</code> is invalid
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
 	void checkMorphismOfNextGraph() throws InvalidityException;
+
+	
 } // Pattern

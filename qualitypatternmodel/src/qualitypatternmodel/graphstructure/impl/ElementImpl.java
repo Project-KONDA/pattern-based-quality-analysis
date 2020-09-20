@@ -242,62 +242,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		super();
 	}	
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @throws MissingPatternContainerException
-	 * @generated NOT
-	 */
-	@Override
-	public void copyNextElementsToNextGraphs() throws MissingPatternContainerException {
-		// TODO: not needed anymore
-//		for (Element nextSingleElement : getNextElements()) {
-//			copyNextElementToNextGraphs(nextSingleElement);
-//		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @throws MissingPatternContainerException
-	 * @generated NOT
-	 */
-	@Override
-	public void copyNextElementToNextGraphs(Element nextElement) throws MissingPatternContainerException {
-		// TODO: not needed anymore
-//		for (ElementMapping mapping : getMappingTo()) {
-//			boolean mappingExistsAlready = false;
-//			for (ElementMapping nextElementMappingTo : nextElement.getMappingTo()) {
-//				if (nextElementMappingTo.getMorphism().equals(mapping.getMorphism())) {
-//					mappingExistsAlready = true;
-//				}
-//			}
-//			if (!mappingExistsAlready) {
-//				Element newElementInNextGraph = new ElementImpl();
-//				mapping.getTo().getNextElements().add(newElementInNextGraph);
-//
-//				if (nextElement.getGraph() != null) {
-//					Graph nextGraph = mapping.getMorphism().getTo();
-//					nextGraph.getReturnElements().add(newElementInNextGraph);
-//				}
-//
-//				ElementMapping newNextElementMapping = new ElementMappingImpl();
-//				mapping.getMorphism().getMappings().add(newNextElementMapping);
-//				newNextElementMapping.setFrom(nextElement);
-//				newNextElementMapping.setTo(newElementInNextGraph);
-//
-//				if (nextElement.getRelationFromPrevious() != null) {
-//					RelationMapping newRelationMapping = new RelationMappingImpl();
-//					mapping.getMorphism().getMappings().add(newRelationMapping);
-//					newRelationMapping.setFrom(nextElement.getRelationFromPrevious());
-//					newRelationMapping.setTo(newElementInNextGraph.getRelationFromPrevious());
-//				}
-//
-//			}
-//			nextElement.copyNextElementsToNextGraphs();
-//		}
-	}
-	
 	private void removeElementFromPreviousGraphs() {
 
 		if (getIncomingMapping() != null && getIncomingMapping().getSource() != null) {
@@ -320,58 +264,13 @@ public class ElementImpl extends PatternElementImpl implements Element {
 //		}
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public void copyNextElementToPreviousGraphs(Element nextElement, boolean recursive) {
-		// TODO: still needed?
-//		Element newElementInPreviousGraph = new ElementImpl();
-//		ElementMapping mapping = getMappingFrom();
-//		Element sourceElement = mapping.getFrom();
-//		sourceElement.getNextElements().add(newElementInPreviousGraph);
-//		ElementMapping newNextElementMapping = new ElementMappingImpl();
-//		mapping.getMorphism().getMappings().add(newNextElementMapping);
-//		newNextElementMapping.setFrom(newElementInPreviousGraph);
-//		newNextElementMapping.setTo(nextElement);
-//		if (nextElement.getRelationFromPrevious() != null) {
-//			RelationMapping newRelationMapping = new RelationMappingImpl();
-//			mapping.getMorphism().getMappings().add(newRelationMapping);
-//			newRelationMapping.setFrom(newElementInPreviousGraph.getRelationFromPrevious());
-//			newRelationMapping.setTo(nextElement.getRelationFromPrevious());
-//		}
-//		nextElement.copyNextElementsToPreviousGraphs(recursive);
-//		if (recursive) {
-//			sourceElement.copyNextElementToPreviousGraphs(newElementInPreviousGraph, recursive);
-//		}
-
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	@Override
-	public void copyNextElementsToPreviousGraphs(boolean recursive) {
-		// TODO: still needed?
-//		for (Element nextSingleElement : getNextElements()) {
-//			copyNextElementToPreviousGraphs(nextSingleElement, recursive);
-//		}
-	}
-
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(abstractionLevel);
-//		for (Element next : getNextElements())
-//			next.isValid(isDefinedPattern);
+
 		for (BooleanOperator predicate : getPredicates())
 			predicate.isValid(abstractionLevel);
-//		if (!eIsSet(GraphstructurePackage.ELEMENT__ROOT))
-//			relationFromPrevious.isValid(isDefinedPattern);
 		
 	}
 
@@ -407,12 +306,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 //			throw new InvalidityException("root has predicate");
 //		}
 		
-//		for (Element next : getNextElements()) {
-//			if (next == null)
-//				throw new InvalidityException("nextElement null (" + next + ")");
-//			if (next.getPreviousElement() == null || !next.getPreviousElement().equals(this))
-//				throw new InvalidityException("nextElement not valid (" + next + ")");
-//		}
 		for (BooleanOperator predicate : getPredicates())
 			if (predicate == null)
 				throw new InvalidityException("predicate null (" + predicate + ")");
@@ -618,132 +511,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		}
 		return outgoingMappings;
 	}
-
-//	/**
-//	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-//	 * 
-//	 * @generated NOT
-//	 */
-//	public NotificationChain basicSetRoot(Graph newRoot, NotificationChain msgs) {
-//		if(newRoot != null) {
-//			for(Morphism morphism : newRoot.getMorphismTo()) {
-//				Graph nextGraph = morphism.getTo();
-//				Element newElementInNextGraph = new ElementImpl();
-//				nextGraph.setRootElement(newElementInNextGraph);
-//				if(this.getGraph() != null) {
-//					nextGraph.getReturnElements().add(newElementInNextGraph);
-//				}
-//				ElementMapping newNextElementMapping = new ElementMappingImpl();	
-//				newNextElementMapping.setFrom(this);
-//				newNextElementMapping.setTo(newElementInNextGraph);
-//				morphism.getMappings().add(newNextElementMapping);				
-//					
-//				try {
-//					copyNextElementsToNextGraphs();
-//				} catch (MissingPatternContainerException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				} 
-//			}
-//		}
-//		
-//		updateParameters(newRoot.getParameterList());
-//		updateOperators(newRoot.getOperatorList());
-//		
-//		if (getRelationFromPrevious() != null) {
-//			setRelationFromPrevious(null);
-//		}
-//		
-//		if(getMappingFrom() != null) {
-//			removeElementFromPreviousGraphs();
-//		}
-//
-//		msgs = eBasicSetContainer((InternalEObject) newRoot, GraphstructurePackage.ELEMENT__ROOT, msgs);
-//		return msgs;
-//	}
-
-//	/**
-//	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-//	 * 
-//	 * @generated NOT
-//	 */
-//	public NotificationChain basicSetPreviousElement(Element newPrevious, NotificationChain msgs) {
-////		clearComparisonRecursively();
-////		clearPropertyRecursively();		
-//		
-//		if(newPrevious != null) {
-//			updateParameters(newPrevious.getParameterList());
-//			updateOperators(newPrevious.getOperatorList());
-//		}
-//		
-////		clearMatchRecursively();
-//		removeFromReturnElementsRecursively();
-////		clearPredicatesRecursively();
-//		if (getRelationFromPrevious() != null) {
-//			getRelationFromPrevious().removeRelationFromPreviousGraphs();
-//			getRelationFromPrevious().removeMappingsToNext();
-//			getRelationFromPrevious().removeParametersFromParameterList();
-//			setRelationFromPrevious(null);
-//		}
-//		removeMappingsToNext();
-//		if (newPrevious != null) {
-//			try {
-//				newPrevious.copyNextElementToNextGraphs(this);
-//			} catch (MissingPatternContainerException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
-//		if (getMappingFrom() != null) {
-//			removeElementFromPreviousGraphs();
-//		}		
-//		msgs = eBasicSetContainer((InternalEObject) newPrevious, GraphstructurePackage.ELEMENT__PREVIOUS_ELEMENT, msgs);
-//		if(newPrevious != null) {
-//			setRelationFromPrevious(new RelationImpl());
-//		}
-//		return msgs;
-//	}
-
-//	/**
-//	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-//	 * 
-//	 * @generated NOT
-//	 */
-//	@Override
-//	public void addCountOperation() {
-//
-//		try {
-//			GraphstructurePackage.eINSTANCE.eClass();
-//			GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-//			FunctionsPackage.eINSTANCE.eClass();
-//			FunctionsFactory functionFactory = FunctionsFactory.eINSTANCE;
-//			ParametersPackage.eINSTANCE.eClass();
-//			ParametersFactory inputsFactory = ParametersFactory.eINSTANCE;
-//			
-//			OperatorList oplist = ((Graph) getAncestor(Graph.class)).getOperatorList();
-//			ParameterList varlist = ((Pattern) getAncestor(Pattern.class)).getParameterList();
-//
-//			SetElement set = graphFactory.createSetElement();
-//			this.getNextSet().add(set);
-//
-//			Count count = functionFactory.createCount();
-//			Comparison comp = functionFactory.createComparison();
-//
-//			oplist.add(comp);
-//			oplist.add(count);
-//
-//			getPredicates().add(comp);
-//			qualitypatternmodel.parameters.NumberParam number = inputsFactory.createNumberParam();
-//			varlist.add(number);
-//
-//			comp.setArgument1(count);
-//			comp.setArgument2(number);
-//			
-//			count.setArgument(set);
-//		} catch (MissingPatternContainerException e) {
-//			e.printStackTrace();
-//		}
-//	}
 
 	private void removeMappingsToNext() {
 		EList<ElementMapping> mappingToCopy = new BasicEList<ElementMapping>();
@@ -1429,34 +1196,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS:
-				try {
-					copyNextElementsToNextGraphs();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__ELEMENT:
-				try {
-					copyNextElementToNextGraphs((Element)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__ELEMENT_BOOLEAN:
-				copyNextElementToPreviousGraphs((Element)arguments.get(0), (Boolean)arguments.get(1));
-				return null;
-			case GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN:
-				copyNextElementsToPreviousGraphs((Boolean)arguments.get(0));
-				return null;
-			case GraphstructurePackage.ELEMENT___CLEAR_MATCH_RECURSIVELY:
-				clearMatchRecursively();
-				return null;
-			case GraphstructurePackage.ELEMENT___CLEAR_PREDICATES_RECURSIVELY:
-				clearPredicatesRecursively();
-				return null;
 			case GraphstructurePackage.ELEMENT___GET_ORIGINAL_ID:
 				return getOriginalID();
 			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_MATCH__STRING:
@@ -1482,12 +1221,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				return null;
 			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE:
 				addPrimitiveComparison((ParameterValue)arguments.get(0));
-				return null;
-			case GraphstructurePackage.ELEMENT___CLEAR_COMPARISON_RECURSIVELY:
-				clearComparisonRecursively();
-				return null;
-			case GraphstructurePackage.ELEMENT___CLEAR_PROPERTY_RECURSIVELY:
-				clearPropertyRecursively();
 				return null;
 			case GraphstructurePackage.ELEMENT___COPY_PROPERTY__PROPERTY:
 				return copyProperty((Property)arguments.get(0));
@@ -1563,20 +1296,13 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public EList<Parameter> getAllInputs() throws InvalidityException {
+	public EList<Parameter> getAllParameters() throws InvalidityException {
 			EList<Parameter> res = new BasicEList<Parameter>();
-//			if(getRelationFromPrevious() != null) {
-//				res.addAll(getRelationFromPrevious().getAllInputs());
-//			}
-//			for (Element element : getNextElements()) {
-//				res.addAll(element.getAllInputs());
-//			}
-	//		res.addAll(getRelationFromPrevious().getAllVariables());
 			for (Property p : getProperties()) {
-				res.addAll(p.getAllInputs());
+				res.addAll(p.getAllParameters());
 			}
 			for (Operator op : getPredicates()) {
-				res.addAll(op.getAllInputs());
+				res.addAll(op.getAllParameters());
 			}
 			return res;
 		}
@@ -1778,40 +1504,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		result.append(predicatesAreBeingTranslated);
 		result.append(')');
 		return result.toString();
-	}
-
-	public void clearComparisonRecursively() {
-		getComparison1().clear();
-		getComparison2().clear();
-		for(Property p : getProperties()) {
-			p.getComparison1().clear();
-			p.getComparison2().clear();
-		}
-//		for(Element child : getNextElements()) {
-//			child.clearComparisonRecursively();
-//		}
-	}
-
-	@Override
-	public void clearMatchRecursively() {
-		for(Property p : getProperties()) {
-			p.getMatch().clear();
-		}
-//		for(Element child : getNextElements()) {
-//			child.clearMatchRecursively();
-//		}
-		
-	}
-
-	public void clearPropertyRecursively() {
-		// TODO
-//		for(Property p : getProperties()) {
-//			p.reset();			
-//		}
-		
-//		for(Element child : getNextElements()) {
-//			child.clearPropertyRecursively();
-//		}
 	}
 	
 	@Override

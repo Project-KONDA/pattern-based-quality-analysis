@@ -59,8 +59,10 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 */
 	protected static final String ID_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute. 
+	 * <!--* begin-user-doc -->
+	 * A generated UUID.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getId()
 	 * @ordered
@@ -77,8 +79,12 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 */
 	protected static final int INTERNAL_ID_EDEFAULT = -1;
 	/**
-	 * The cached value of the '{@link #getInternalId() <em>Ref No</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * The cached value of the '{@link #getInternalId() <em>Ref No</em>}' attribute.
+	 * <!--* begin-user-doc -->
+	 * A simple numerical identifier. 
+	 * It is automatically set when a <code>PatternElement</code> is inserted into a <code>CompletePattern</code>. 
+	 * It is unique at least within all instances of the same class.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getInternalId()
 	 * @generated
@@ -97,7 +103,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public EList<Parameter> getAllInputs() throws InvalidityException {
+	public EList<Parameter> getAllParameters() throws InvalidityException {
 		return new BasicEList<Parameter>();
 	}
 
@@ -503,9 +509,9 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_INPUTS:
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_PARAMETERS:
 				try {
-					return getAllInputs();
+					return getAllParameters();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

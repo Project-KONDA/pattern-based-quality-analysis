@@ -124,7 +124,6 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		if(!(this instanceof XmlProperty)) {
 			XmlProperty xmlProperty = new XmlPropertyImpl();			 
 			xmlProperty.setElement(getElement());
-//			xmlProperty.setName(getName());
 			if(getName().matches("Property [0-9]+")) {
 				xmlProperty.setName(getName().replace("Property", "XmlProperty"));
 			} else {

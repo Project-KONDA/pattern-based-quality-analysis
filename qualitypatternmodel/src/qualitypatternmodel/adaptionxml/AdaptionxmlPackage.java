@@ -224,13 +224,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___GENERATE_QUERY = GraphstructurePackage.ELEMENT___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___GET_ALL_INPUTS = GraphstructurePackage.ELEMENT___GET_ALL_INPUTS;
+	int XML_ELEMENT___GET_ALL_PARAMETERS = GraphstructurePackage.ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -431,60 +431,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___CREATE_PARAMETERS = GraphstructurePackage.ELEMENT___CREATE_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Copy Next Elements To Next Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS;
-
-	/**
-	 * The operation id for the '<em>Copy Next Element To Next Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__ELEMENT = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__ELEMENT;
-
-	/**
-	 * The operation id for the '<em>Copy Next Element To Previous Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__ELEMENT_BOOLEAN = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__ELEMENT_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Copy Next Elements To Previous Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Clear Match Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___CLEAR_MATCH_RECURSIVELY = GraphstructurePackage.ELEMENT___CLEAR_MATCH_RECURSIVELY;
-
-	/**
-	 * The operation id for the '<em>Clear Predicates Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___CLEAR_PREDICATES_RECURSIVELY = GraphstructurePackage.ELEMENT___CLEAR_PREDICATES_RECURSIVELY;
-
-	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -555,24 +501,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE;
-
-	/**
-	 * The operation id for the '<em>Clear Comparison Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___CLEAR_COMPARISON_RECURSIVELY = GraphstructurePackage.ELEMENT___CLEAR_COMPARISON_RECURSIVELY;
-
-	/**
-	 * The operation id for the '<em>Clear Property Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___CLEAR_PROPERTY_RECURSIVELY = GraphstructurePackage.ELEMENT___CLEAR_PROPERTY_RECURSIVELY;
 
 	/**
 	 * The operation id for the '<em>Copy Property</em>' operation.
@@ -774,13 +702,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___GENERATE_QUERY = GraphstructurePackage.RELATION___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___GET_ALL_INPUTS = GraphstructurePackage.RELATION___GET_ALL_INPUTS;
+	int XML_NAVIGATION___GET_ALL_PARAMETERS = GraphstructurePackage.RELATION___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -972,15 +900,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___REMOVE_MAPPINGS_TO_NEXT = GraphstructurePackage.RELATION___REMOVE_MAPPINGS_TO_NEXT;
 
 	/**
-	 * The operation id for the '<em>Copy To New Next Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_NAVIGATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT = GraphstructurePackage.RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT;
-
-	/**
 	 * The operation id for the '<em>Adapt As XML Navigation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1153,13 +1072,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___GENERATE_QUERY = GraphstructurePackage.RELATION___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___GET_ALL_INPUTS = GraphstructurePackage.RELATION___GET_ALL_INPUTS;
+	int XML_REFERENCE___GET_ALL_PARAMETERS = GraphstructurePackage.RELATION___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1351,15 +1270,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___REMOVE_MAPPINGS_TO_NEXT = GraphstructurePackage.RELATION___REMOVE_MAPPINGS_TO_NEXT;
 
 	/**
-	 * The operation id for the '<em>Copy To New Next Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_REFERENCE___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT = GraphstructurePackage.RELATION___COPY_TO_NEW_NEXT_GRAPHS__ELEMENT;
-
-	/**
 	 * The operation id for the '<em>Adapt As XML Navigation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1541,13 +1451,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___GENERATE_QUERY = GraphstructurePackage.PROPERTY___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_ALL_INPUTS = GraphstructurePackage.PROPERTY___GET_ALL_INPUTS;
+	int XML_PROPERTY___GET_ALL_PARAMETERS = GraphstructurePackage.PROPERTY___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1947,13 +1857,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___GENERATE_QUERY = GraphstructurePackage.ELEMENT___GENERATE_QUERY;
 
 	/**
-	 * The operation id for the '<em>Get All Inputs</em>' operation.
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___GET_ALL_INPUTS = GraphstructurePackage.ELEMENT___GET_ALL_INPUTS;
+	int XML_ROOT___GET_ALL_PARAMETERS = GraphstructurePackage.ELEMENT___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2154,60 +2064,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___CREATE_PARAMETERS = GraphstructurePackage.ELEMENT___CREATE_PARAMETERS;
 
 	/**
-	 * The operation id for the '<em>Copy Next Elements To Next Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENTS_TO_NEXT_GRAPHS;
-
-	/**
-	 * The operation id for the '<em>Copy Next Element To Next Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__ELEMENT = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENT_TO_NEXT_GRAPHS__ELEMENT;
-
-	/**
-	 * The operation id for the '<em>Copy Next Element To Previous Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__ELEMENT_BOOLEAN = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENT_TO_PREVIOUS_GRAPHS__ELEMENT_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Copy Next Elements To Previous Graphs</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN = GraphstructurePackage.ELEMENT___COPY_NEXT_ELEMENTS_TO_PREVIOUS_GRAPHS__BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Clear Match Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___CLEAR_MATCH_RECURSIVELY = GraphstructurePackage.ELEMENT___CLEAR_MATCH_RECURSIVELY;
-
-	/**
-	 * The operation id for the '<em>Clear Predicates Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___CLEAR_PREDICATES_RECURSIVELY = GraphstructurePackage.ELEMENT___CLEAR_PREDICATES_RECURSIVELY;
-
-	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2278,24 +2134,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE;
-
-	/**
-	 * The operation id for the '<em>Clear Comparison Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___CLEAR_COMPARISON_RECURSIVELY = GraphstructurePackage.ELEMENT___CLEAR_COMPARISON_RECURSIVELY;
-
-	/**
-	 * The operation id for the '<em>Clear Property Recursively</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___CLEAR_PROPERTY_RECURSIVELY = GraphstructurePackage.ELEMENT___CLEAR_PROPERTY_RECURSIVELY;
 
 	/**
 	 * The operation id for the '<em>Copy Property</em>' operation.

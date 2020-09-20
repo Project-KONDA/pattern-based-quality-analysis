@@ -74,7 +74,7 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 		if (getPattern() == null)
 			throw new InvalidityException("ParameterList not in Pattern" + " (" + getInternalId() + ")");
 
-		EList<Parameter> patternVars = getPattern().getAllInputs();
+		EList<Parameter> patternVars = getPattern().getAllParameters();
 		if (patternVars == null)
 			throw new InvalidityException("invalid Operators of Graph" + " (" + getInternalId() + ")");
 

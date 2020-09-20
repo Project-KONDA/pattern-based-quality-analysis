@@ -294,6 +294,12 @@ public interface CompletePattern extends Pattern {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Increases the internal id counter for the <code>class</code> of the given <code>type</code> 
+	 * (i.e. {@link #getElementCounter elementCounter}, {@link #getRelationCounter relationCounter}, {@link #getPropertyCounter propertyCounter}, {@link #getParameterCounter parameterCounter},
+	 * {@link #getOperatorCounter operatorCounter} or {@link #getCounter counter}) by one and returns it.
+	 * 
+	 * @param type the class for which the corresponding internal id counter is increased and returned
+	 * @return the new value of the internal id counter for the <code>class</code> of the given <code>type</code>
 	 * <!-- end-user-doc -->
 	 * @model required="true" typeDataType="qualitypatternmodel.patternstructure.ClassWrapper"
 	 * @generated
@@ -302,7 +308,12 @@ public interface CompletePattern extends Pattern {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Records the specific values in the database that are used in a pattern.
+	 * Records all values of <code>Parameters</code> contained in the valid concrete pattern in the <code>database</code>.
+	 * 
+	 * @throws InvalidityException if <code>this</code> is not a valid concrete pattern
+	 * @throws OperatorCycleException if <code>this</code> contains an operator that references itself as an argument
+	 * @throws MissingPatternContainerException if <code>this</code> directly or indirectly references <code>PatternElements</code>
+	 * that are not directly or indirectly contained in <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
