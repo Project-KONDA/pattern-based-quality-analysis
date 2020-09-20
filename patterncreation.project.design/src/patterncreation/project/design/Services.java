@@ -980,12 +980,13 @@ public class Services {
     	return self;
     }
     
-    static HashMap<Element, Boolean> elementMarks = new HashMap<Element, Boolean>();//speichert elemente und ob sie markiert sind
+    static HashMap<CompletePattern, HashMap<Element, Boolean>> elementMarks = new HashMap<CompletePattern, HashMap<Element, Boolean>>();//speichert elemente und ob sie markiert sind
     static Element markedElement1 = null;
     static Element markedElement2 = null;
     public EObject changeColorOfElement(EObject self, EObject e) {//nach einem doppelklick auf element wird hier die markierung des elements und seines mappingelements hinzugefügt
     	boolean deleteMark = false;
     	Element element = (Element) e;
+    	HashMap<Element, Boolean> elementMarks = this.elementMarks.get((CompletePattern) self);
     	Boolean elementMark = elementMarks.get(element);
     	
     	EList<ElementMapping> elementmappings = element.getOutgoingMappings();
@@ -1037,23 +1038,47 @@ public class Services {
     	return self;
     }
     
-    HashSet<Element> markedElements = new HashSet<Element>();//merkt sich die markierten elemente, um später die markierungen zu entfernen
-    HashSet<Element> visitedElements = new HashSet<Element>();// elemente, die beim sammeln der elemente, die markiert werden sollen, abgearbeitet wurden
+    static HashMap<CompletePattern, HashSet<Element>> markedElements = new HashMap<CompletePattern, HashSet<Element>>();//merkt sich die markierten elemente, um später die markierungen zu entfernen
+    static HashMap<CompletePattern, HashSet<Element>> visitedElements = new HashMap<CompletePattern, HashSet<Element>>();// elemente, die beim sammeln der elemente, die markiert werden sollen, abgearbeitet wurden
     public EObject changeColorOfElement2(EObject self, EObject e) {//nach einem doppelklick auf element wird hier die markierung des elements und seines mappingelements hinzugefügt
-    	System.out.println("Anfang");
+    	//System.out.println("Anfang");
     	Element element = (Element) e;
     	ArrayList<Element> elementsToVisit = new ArrayList<Element>();
     	boolean firstRun = true;
+    	CompletePattern pattern = (CompletePattern) getWurzelContainer(e);
+    	
+    	HashSet<Element> markedElements = this.markedElements.get(pattern);
+    	if(markedElements == null) {
+    		//System.out.println("markedElement ist null");
+    		markedElements = new HashSet<Element>();
+    		this.markedElements.put(pattern, markedElements);
+    	}
+    	
+    	HashSet<Element> visitedElements = this.visitedElements.get(pattern);
+    	if(visitedElements == null) {
+    		//System.out.println("visitedElements ist null");
+    		visitedElements = new HashSet<Element>();
+    		this.visitedElements.put(pattern, visitedElements);
+    	}
+    	
+    	HashMap<Element, Boolean> elementMarks = this.elementMarks.get(pattern);
+    	//System.out.println("elementMarks ist nicht null"+elementMarks);
+    	if(elementMarks == null) {
+    		//System.out.println("elementMarks ist null");
+    		elementMarks = new HashMap<Element, Boolean>();
+    		this.elementMarks.put(pattern, elementMarks);
+    	}
+    	
     	
     	if(markedElements.contains(element)) {//Doppelklick auf ein Element, das markiert ist, Markierungen werden aufgehoben
-    		System.out.println("Element ist markiert");
+    		//System.out.println("Element ist markiert");
     		for(Element me:markedElements) {
     			elementMarks.put(me, false);
     		}
     		markedElements.clear();
-    		System.out.println("Element ist markiert2");
+    		//System.out.println("Element ist markiert2");
     	}else {//Doppelklick auf ein Element, das nicht markiert ist
-    		System.out.println("Element ist nicht markiert");
+    		//System.out.println("Element ist nicht markiert");
     		if(markedElements.size() != 0) {//klick auf element, das nicht markiert ist, aber andere elemente sind markiert, die nicht markiert sein sollen
     			for(Element el:markedElements) {
     				elementMarks.put(el, false);
@@ -1061,9 +1086,9 @@ public class Services {
     			markedElements.clear();//hier werden, nachdem die markierungen aufgehoben wurden, die elemente aus der merkliste der markierten elemente gelöscht
     		}
     		while(firstRun || elementsToVisit.size() != 0) {//suche nach allen elemente, die über mappings verbunden sind und markiert werden müssen
-    			System.out.println("while durchlauf");
+    			//System.out.println("while durchlauf");
         		if(firstRun) {
-        			System.out.println("FirstRun");
+        			//System.out.println("FirstRun");
         			firstRun = false;
         			ElementMapping incomingMapping = element.getIncomingMapping();
         			if(incomingMapping != null) {
@@ -1080,17 +1105,17 @@ public class Services {
         				markedElements.add(element);
         			}
         			visitedElements.add(element);
-        			System.out.println("Element zum abarbeiten: "+elementsToVisit);
+        			//System.out.println("Element zum abarbeiten: "+elementsToVisit);
         		}else {
-        			System.out.println("nicht FirstRun");
+        			//System.out.println("nicht FirstRun");
         			int etvnumber = elementsToVisit.size();
         			while(etvnumber != 0) {//Element etv:elementsToVisit
         				Element etv = elementsToVisit.get(0);//element aus elementtovisit, i ist immer 0, weil durch das löschen dieses elements im nächsten schleifendurchlauf am index 0 ein anderes element ist
-        				System.out.println("Etv Durchlauf: "+etv);
+        				//System.out.println("Etv Durchlauf: "+etv);
         				if(visitedElements.contains(etv)) {//element wurde schon abgearbeitet
-        					System.out.println("element wurde schon abgearbeitet");
+        					//System.out.println("element wurde schon abgearbeitet");
         				}else {
-        					System.out.println("element wurde noch nicht abgearbeitet");
+        					//System.out.println("element wurde noch nicht abgearbeitet");
         					visitedElements.add(etv);//element wird gerade abgearbeitet und so gekennzeichnet, dass es dann abgearbeitet wurde
         					ElementMapping incomingMapping = etv.getIncomingMapping();
         					if(incomingMapping != null) {
@@ -1098,27 +1123,27 @@ public class Services {
         					}
         					EList<ElementMapping> outgoingmappings = etv.getOutgoingMappings();
         	    			for(ElementMapping em:outgoingmappings) {
-        	    				elementsToVisit.add(em.getTarget());System.out.println(em.getTarget()+"qqqqqqqqqqqqq");//hier
+        	    				elementsToVisit.add(em.getTarget());//System.out.println(em.getTarget()+"qqqqqqqqqqqqq");//hier
         	            	}
         	    			
         	    			Boolean elementMark = elementMarks.get(etv);
         	    			if(elementMark == null || elementMark == false) {//Falls es nicht markiert ist oder noch nie markiert wurde
         	    				elementMarks.put(etv, true);
         	    				markedElements.add(etv);
-        	    				System.out.println("etv markiert");
+        	    				//System.out.println("etv markiert");
         	    			}else if(elementMark == true) {//Falls es markiert ist
         	    				elementMarks.put(etv, false);
         	    				markedElements.remove(etv);
-        	    				System.out.println("etv markierung weg");
+        	    				//System.out.println("etv markierung weg");
         	    			}
         				}
         				elementsToVisit.remove(etv);
         				etvnumber = elementsToVisit.size();//die bedingung der whileschleife wird neu berechnet, weil elementtovisit verändert wurde
-        				System.out.println("etv schleife ende");
+        				//System.out.println("etv schleife ende");
         			}
-        			System.out.println("nicht firstrun ende");
+        			//System.out.println("nicht firstrun ende");
         		}
-        		System.out.println("while ende "+(firstRun || elementsToVisit.size() != 0));
+        		//System.out.println("while ende "+(firstRun || elementsToVisit.size() != 0));
         	}
     	}
     	visitedElements.clear();
@@ -1126,6 +1151,8 @@ public class Services {
     }
     
     public boolean getElementMark(EObject self) {
+    	CompletePattern pattern = (CompletePattern) getWurzelContainer(self);
+    	HashMap<Element, Boolean> elementMarks = this.elementMarks.get(pattern);
     	Boolean mark = elementMarks.get(self);
     	if(mark == null) {
     		mark = false;
@@ -1256,18 +1283,26 @@ public class Services {
 		return element;
     }
     
-    public EList<Parameter> getParameter(EObject self) {//sucht alle Parameter, um sie wiederverwenden zu können
+    public ArrayList<Parameter> getParameter(EObject self) {//sucht alle Parameter, um sie wiederverwenden zu können
     	EObject root = getWurzelContainer(self);
     	CompletePattern completePattern = (CompletePattern) root;
     	ParameterList parameterList = completePattern.getParameterList();
     	EList<Parameter> parameter = parameterList.getParameters();
+    	ArrayList<Parameter> parameter2 = new ArrayList<Parameter>(parameter);
     	ArrayList<Parameter> removeParameter = new ArrayList<Parameter>();
     	for(Parameter p:parameter) {
     		if(p instanceof RelationOptionParam || p instanceof ComparisonOptionParam || p instanceof PropertyOptionParam || p instanceof TypeOptionParam) {
     			removeParameter.add(p);
     		}
+    		
+    		if(p instanceof BooleanParam) {
+    			BooleanParam booleanparam = (BooleanParam) p;
+    			if(!booleanparam.getMatches().isEmpty()) {
+    				removeParameter.add(p);
+    			}
+    		}
     	}
-    	parameter.removeAll(removeParameter);
+    	parameter2.removeAll(removeParameter);
     	if(self instanceof Match) {
     		removeParameter.clear();
     		for(Parameter p:parameter) {
@@ -1275,9 +1310,9 @@ public class Services {
     				removeParameter.add(p);
     			}
     		}
-    		parameter.removeAll(removeParameter);
+    		parameter2.removeAll(removeParameter);
     	}
-    	return parameter;
+    	return parameter2;
     }
     
     public boolean selectParameterPrecondition(EObject self) {//wann soll das Fenster zur Auswahl von Parametern geöffnet werden können
@@ -1303,8 +1338,14 @@ public class Services {
     	if(self instanceof Comparison) {
     			feature = "argument2";
     	}
-
     	return feature;
+    }
+    
+    public void setParameterAsArgument(EObject self, EObject selectedElement) {
+    	if(self instanceof Comparison) {
+			Comparison comparison = (Comparison) self;
+			comparison.setArgument2((Comparable) selectedElement);
+    	}
     }
     
     public void discardArgument1(EObject self) {//entfernt argument1 von comparison und match, dort werden immer properties gespeichert
@@ -1355,13 +1396,13 @@ public class Services {
     
     public boolean discardArgument2Precondition(EObject self) {
     	boolean discard = false;
-    	if(self instanceof Match) {
+    	/*if(self instanceof Match) {
     		Match match = (Match) self;
     		TextLiteralParam regex = match.getRegularExpression();
     		if(regex != null) {
     			discard = true;
     		}
-    	}else if(self instanceof Comparison) {
+    	}else */if(self instanceof Comparison) {
     		Comparison comparison = (Comparison) self;
     		Comparable argument2 = comparison.getArgument2();
     		if(argument2 != null) {
@@ -1376,13 +1417,13 @@ public class Services {
     	if(self instanceof Match) {
     		Match match = (Match) self;
     		Property property = match.getProperty();
-    		TextLiteralParam regex = match.getRegularExpression();
+    		//TextLiteralParam regex = match.getRegularExpression();
     		if(property != null) {
     			arguments.add(property);
     		}
-    		if(regex != null) {
+    		/*if(regex != null) {
     			arguments.add(regex);
-    		}
+    		}*/
     	}else if(self instanceof Comparison) {
     		Comparison comparison = (Comparison) self;
     		Comparable argument1 = comparison.getArgument1();
@@ -1642,6 +1683,7 @@ public class Services {
     		operator = formula.getOperator();
     	}
     	return operator;
+    	
     }
     
     public ArrayList<Quantifier> getQuantifiers(EObject self){
@@ -1649,6 +1691,14 @@ public class Services {
     	quantifiers.add(Quantifier.EXISTS);
     	quantifiers.add(Quantifier.FORALL);
     	return quantifiers;
+    }
+    
+    public String getQuantifierString(EObject self, Quantifier q) {
+    	String name = "forall";
+    	if(q == Quantifier.EXISTS) {
+    		name = "exists";
+    	}
+    	return name;
     }
     
     public boolean changeQuantifierPrecondition(EObject self) {
@@ -1853,8 +1903,8 @@ public class Services {
     	}else if(self instanceof Match) {
     		Match match = (Match) self;
     		Property argument1 = match.getProperty();
-    		TextLiteralParam argument2 = match.getRegularExpression();
-    		if(argument1 != null || argument2 != null) {
+    		//TextLiteralParam argument2 = match.getRegularExpression();
+    		if(argument1 != null /*|| argument2 != null*/) {
     			open = true;
     		}
     	}
@@ -2092,13 +2142,14 @@ public class Services {
     		
     	}
     	return isFinalized;*/
-    	boolean isFinalized = false;
+    	boolean isFinalized = false;System.out.println("Finalisiert: "+isFinalized);
     	if(e instanceof CompletePattern) {
     		CompletePattern pattern = (CompletePattern) e;
     		if(pattern.isAdaptionFinalized()) {
         		isFinalized = true;
         	}
     	}
+    	System.out.println("Finalisiert: "+isFinalized);
     	return isFinalized;
     }
     
@@ -2122,6 +2173,11 @@ public class Services {
     		//parameterlist.add(comparisonoptionparam);
     		operatorlist.add(comparison);
     		
+    		CompletePattern pattern = (CompletePattern) getWurzelContainer(self);
+    		ParameterList parameterlist = pattern.getParameterList();
+    		EList<Parameter> parameters = parameterlist.getParameters();
+    		System.out.println("Size "+parameters.size());
+    		parameters.remove(null);
     	}
     }
     
@@ -2196,7 +2252,7 @@ public class Services {
     	}else if(iterator instanceof TimeParam) {
     		name = "Time " + patternelement.getInternalId();
     	}else if(iterator instanceof DateTimeParam) {
-    		name = "DateTime " + patternelement.getInternalId();
+    		name = "Date and time " + patternelement.getInternalId();
     	}else if(iterator instanceof ComparisonOptionParam) {
     		name = "ComparisonOption " + patternelement.getInternalId();
     		ComparisonOptionParam comparisonoption = (ComparisonOptionParam) iterator;
@@ -2280,7 +2336,7 @@ public class Services {
     	}else if(iterator instanceof TimeParam) {
     		name = "Time " + patternelement.getInternalId() + " (modifiable)";
     	}else if(iterator instanceof DateTimeParam) {
-    		name = "DateTime " + patternelement.getInternalId() + " (modifiable)";
+    		name = "Date and time " + patternelement.getInternalId() + " (modifiable)";
     	}
     	return name;
     }
@@ -2427,8 +2483,12 @@ public class Services {
     	}else if(object instanceof ComparisonOptionParam) {
     		ComparisonOptionParam comparisonoption = (ComparisonOptionParam) object;
     		EList<Comparison> comparisons = comparisonoption.getComparisons();
-    		
-    		returnlist.addAll(comparisons);
+    		EList<CountCondition> countconditions = comparisonoption.getCountConditions();
+    		if(!countconditions.isEmpty()) {
+    			returnlist.addAll(countconditions);
+    		}else {
+    			returnlist.addAll(comparisons);
+    		}
     	}else if(object instanceof TypeOptionParam) {
     		TypeOptionParam typeoptionparam = (TypeOptionParam) object;
     		EList<Comparison> comparisons = typeoptionparam.getTypeComparisons();
@@ -2458,6 +2518,18 @@ public class Services {
     		PropertyOptionParam propertyoption = (PropertyOptionParam) object;
     		EList<XmlProperty> properties = propertyoption.getProperties();
     		returnlist.addAll(properties);
+    		if(properties == null) {
+    			returnlist.addAll(properties);
+    		}else {
+    			//returnlist.addAll(properties);
+    			for(XmlProperty p:properties) {
+    				EList<XmlReference> ireferences = p.getIncomingReferences();
+    				EList<XmlReference> oreferences = p.getOutgoingReferences();
+    				returnlist.addAll(ireferences);//System.out.println("deru8hzösoti"+references.get(0));
+    				returnlist.addAll(oreferences);
+    				returnlist.add(p);
+    			}
+    		}
     	}else {
     		returnlist.add(object);
     	}
@@ -2681,15 +2753,18 @@ public class Services {
     	EObject newParameter = hasNewParameter(self, iterator);
     	if(iterator instanceof DateParam) {
     		DateParam dateparam = (DateParam) iterator;
-    		if(validateDate(s)) {
-    			dateparam.setValue(s);
-    		}else {
+    		try {
+    			dateparam.specifyValue(s);
+    		}catch(Exception e) {
     			openMessageDialog("The format of the entered date is invalid: " + s +"\nValid formats:\nYYYY-MM-DD\nYYYY-MM-DD+hh:mm\nYYYY-MM-DD-hh:mm\nYYYY-MM-DD\"Z\"", "Concretization date error");
     		}
-    		
     	}else if(newParameter != null && newParameter instanceof DateParam) {
     		DateParam dateparam = (DateParam) newParameter;
-    		dateparam.setValue(s);
+    		try {
+    			dateparam.specifyValue(s);
+    		}catch(Exception e) {
+    			openMessageDialog("The format of the entered date is invalid: " + s +"\nValid formats:\nYYYY-MM-DD\nYYYY-MM-DD+hh:mm\nYYYY-MM-DD-hh:mm\nYYYY-MM-DD\"Z\"", "Concretization date error");
+    		}
     	}
     }
     
@@ -2710,11 +2785,18 @@ public class Services {
     	EObject newParameter = hasNewParameter(self, iterator);
     	if(iterator instanceof DateTimeParam) {
     		DateTimeParam datetimeparam = (DateTimeParam) iterator;
-    		datetimeparam.setValue(s);
-    		//openMessageDialog("The format of the entered date and time is invalid: " + s +"\nValid formats:\nYYYY-MM-DDThh:mm:ss\nYYYY-MM-DDThh:mm:ss+hh:mm\nYYYY-MM-DDThh:mm:ss-hh:mm\nYYYY-MM-DDThh:mm:ss\"Z\"", "Concretization date and time error");
+    		try {
+    			datetimeparam.specifyValue(s);
+    		}catch(Exception e) {
+    			openMessageDialog("The format of the entered date and time is invalid: " + s +"\nValid formats:\nYYYY-MM-DDThh:mm:ss\nYYYY-MM-DDThh:mm:ss+hh:mm\nYYYY-MM-DDThh:mm:ss-hh:mm\nYYYY-MM-DDThh:mm:ss\"Z\"", "Concretization date and time error");
+    		}
     	}else if(newParameter != null && newParameter instanceof DateTimeParam) {
     		DateTimeParam datetimeparam = (DateTimeParam) newParameter;
-    		datetimeparam.setValue(s);
+    		try {
+    			datetimeparam.specifyValue(s);
+    		}catch(Exception e) {
+    			openMessageDialog("The format of the entered date and time is invalid: " + s +"\nValid formats:\nYYYY-MM-DDThh:mm:ss\nYYYY-MM-DDThh:mm:ss+hh:mm\nYYYY-MM-DDThh:mm:ss-hh:mm\nYYYY-MM-DDThh:mm:ss\"Z\"", "Concretization date and time error");
+    		}
     	}
     }
     
@@ -2735,11 +2817,18 @@ public class Services {
     	EObject newParameter = hasNewParameter(self, iterator);
     	if(iterator instanceof TimeParam) {
     		TimeParam timeparam = (TimeParam) iterator;
-    		timeparam.setValue(s);
-    		//openMessageDialog("The format of the entered time is invalid: " + s +"\nValid formats:\nhh:mm:ss\nhh:mm:ss+hh:mm\nhh:mm:ss-hh:mm\nhh:mm:ss\"Z\"", "Concretization time error");
+    		try {
+    			timeparam.specifyValue(s);
+    		}catch(Exception e) {
+    			openMessageDialog("The format of the entered time is invalid: " + s +"\nValid formats:\nhh:mm:ss\nhh:mm:ss+hh:mm\nhh:mm:ss-hh:mm\nhh:mm:ss\"Z\"", "Concretization time error");
+    		}
     	}else if(newParameter != null && newParameter instanceof TimeParam) {
     		TimeParam timeparam = (TimeParam) newParameter;
-    		timeparam.setValue(s);
+    		try {
+    			timeparam.specifyValue(s);
+    		}catch(Exception e) {
+    			openMessageDialog("The format of the entered time is invalid: " + s +"\nValid formats:\nhh:mm:ss\nhh:mm:ss+hh:mm\nhh:mm:ss-hh:mm\nhh:mm:ss\"Z\"", "Concretization time error");
+    		}
     	}
     }
     
@@ -3602,5 +3691,28 @@ public class Services {
 		setSuggestionsNote(self, "");
 		setSuggestionSelection(self, s);
 		setSuggestionToText(self, iterator);
+	}
+	
+	HashMap<CompletePattern, Element> relationFirstElement = new HashMap<CompletePattern, Element>();
+	public boolean relationStartPrecondition(EObject self, EObject source) {
+		boolean isElement = false;
+		if(source instanceof Element) {
+			CompletePattern pattern = (CompletePattern) getWurzelContainer(source);
+			relationFirstElement.put(pattern, (Element) source);
+			isElement = true;
+		}
+		return isElement;
+	}
+	
+	public boolean relationCompletePrecondition(EObject self, EObject target) {
+		boolean sameGraph = false;
+		if(target instanceof Element) {
+			CompletePattern pattern = (CompletePattern) getWurzelContainer(self);
+			Element firstElement = relationFirstElement.get(pattern);
+			if(firstElement.getGraph() == ((Element) target).getGraph()) {
+				sameGraph = true;
+			}
+		}
+		return sameGraph;
 	}
 }
