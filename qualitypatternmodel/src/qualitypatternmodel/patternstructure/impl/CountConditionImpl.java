@@ -53,6 +53,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	/**
 	 * The cached value of the '{@link #getCountPattern() <em>Count Pattern</em>}' containment reference.
 	 * <!-- begin-user-doc -->
+	 * The first argument of the comparison.
 	 * <!-- end-user-doc -->
 	 * @see #getCountPattern()
 	 * @generated
@@ -63,6 +64,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The comparison operator.
 	 * <!-- end-user-doc -->
 	 * @see #getOption()
 	 * @generated
@@ -73,6 +75,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	/**
 	 * The cached value of the '{@link #getArgument2() <em>Argument2</em>}' containment reference.
 	 * <!-- begin-user-doc -->
+	 * The second argument of the comparison.
 	 * <!-- end-user-doc -->
 	 * @see #getArgument2()
 	 * @generated

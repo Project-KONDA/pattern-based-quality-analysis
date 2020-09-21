@@ -60,7 +60,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	
 	/**
 	 * The cached value of the '{@link #getParameterList() <em>Parameter List</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The list of all <code>Parameters</code> referenced from components of <code>Graphs</code> directly or indirectly contained in this <code>CompletePattern</code>.
+	 * <!-- end-user-doc -->
 	 * @see #getParameterList()
 	 * @generated
 	 * @ordered
@@ -79,7 +81,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * begin-user-doc -->
+	 * The user defined name of this pattern. It should describe roughly the pattern's purpose.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getName()
 	 * @generated

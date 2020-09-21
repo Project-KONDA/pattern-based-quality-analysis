@@ -66,6 +66,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	/**
 	 * The cached value of the '{@link #getCondition1() <em>Condition1</em>}' containment reference.
 	 * <!-- begin-user-doc -->
+	 * The first argument.
 	 * <!-- end-user-doc -->
 	 * @see #getCondition1()
 	 * @generated
@@ -76,6 +77,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	/**
 	 * The cached value of the '{@link #getCondition2() <em>Condition2</em>}' containment reference.
 	 * <!-- begin-user-doc -->
+	 * The second argument.
 	 * <!-- end-user-doc -->
 	 * @see #getCondition2()
 	 * @generated

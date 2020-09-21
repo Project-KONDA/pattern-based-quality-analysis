@@ -55,7 +55,9 @@ import qualitypatternmodel.patternstructure.ElementMapping;
 public class MorphismImpl extends PatternElementImpl implements Morphism {
 	/**
 	 * The cached value of the '{@link #getMappings() <em>Mappings</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The <code>Mappings</code> between components of <code>source</code> and <code>target</code> <code>Graph</code>. 
+	 * <!-- end-user-doc -->
 	 * @see #getMappings()
 	 * @generated
 	 * @ordered
@@ -64,7 +66,9 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>From</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * begin-user-doc -->
+	 * The container of the <code>source</code> of contained <code>mappings</code> and the previous <code>Graph</code> in the condition hierarchy.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getSource()
 	 * @generated
@@ -74,7 +78,9 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>To</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * begin-user-doc -->
+	 * The container of the <code>target</code> of contained <code>mappings</code> and the <code>Graph</code> contained in the same container.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getTarget()
 	 * @generated

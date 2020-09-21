@@ -39,6 +39,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
+	 * The argument, thus the <code>Condition</code> that is negated by <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getCondition()
 	 * @generated

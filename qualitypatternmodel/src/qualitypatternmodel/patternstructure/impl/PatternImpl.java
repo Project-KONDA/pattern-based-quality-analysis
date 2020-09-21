@@ -51,6 +51,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	/**
 	 * The cached value of the '{@link #getGraph() <em>Graph</em>}' containment reference.
 	 * <!-- begin-user-doc -->
+	 * The context <code>Graph</code> of this <code>Pattern</code>, which specifies the pattern's application context and potential output.
 	 * <!-- end-user-doc -->
 	 * @see #getGraph()
 	 * @generated
@@ -60,6 +61,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
+	 * The first-order logic <code>Condition</code> of this <code>Pattern</code>, which limits the pattern's output.
 	 * <!-- end-user-doc -->
 	 * @see #getCondition()
 	 * @generated

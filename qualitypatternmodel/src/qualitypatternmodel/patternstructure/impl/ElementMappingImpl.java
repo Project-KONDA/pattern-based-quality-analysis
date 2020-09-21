@@ -33,7 +33,9 @@ import qualitypatternmodel.patternstructure.ElementMapping;
 public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	/**
 	 * The cached value of the '{@link #getSource() <em>From</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * begin-user-doc -->
+	 * The source <code>Element</code> of this <code>Mapping</code> in the previous <code>Graph</code> in the condition hierarchy.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getSource()
 	 * @generated
@@ -43,7 +45,9 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>To</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * begin-user-doc -->
+	 * The target <code>Element</code> of this <code>Mapping</code> in the <code>Graph</code> contained in the container of <code>morphism</code>.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getTarget()
 	 * @generated

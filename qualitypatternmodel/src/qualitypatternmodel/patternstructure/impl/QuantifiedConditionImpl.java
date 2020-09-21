@@ -56,7 +56,9 @@ import qualitypatternmodel.patternstructure.Quantifier;
 public class QuantifiedConditionImpl extends ConditionImpl implements QuantifiedCondition {
 	/**
 	 * The cached value of the '{@link #getMorphism() <em>Morphism</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The <code>Morphism</code> which specifies the correspondence between components of <code>graph</code> and the previous <code>Graph</code> in the condition hierarchy.
+	 * <!-- end-user-doc -->
 	 * @see #getMorphism()
 	 * @generated
 	 * @ordered
@@ -85,7 +87,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * The cached value of the '{@link #getGraph() <em>Graph</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The <code>Graph</code> which specifies the domain of discourse of the <code>quantifier</code>.
+	 * <!-- end-user-doc -->
 	 * @see #getGraph()
 	 * @generated
 	 * @ordered
@@ -94,7 +98,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The <code>Condition</code> that is evaluated for the graph structures in the domain of discourse.
+	 * <!-- end-user-doc -->
 	 * @see #getCondition()
 	 * @generated
 	 * @ordered
