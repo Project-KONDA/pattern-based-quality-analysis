@@ -11,6 +11,7 @@ import qualitypatternmodel.patternstructure.RelationMapping;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Relation</b></em>'.
+ * The representation of a relation between two data units (represented by <code>Element</code>) within <code>Graphs</code>.
  * <!-- end-user-doc -->
  *
  * <p>

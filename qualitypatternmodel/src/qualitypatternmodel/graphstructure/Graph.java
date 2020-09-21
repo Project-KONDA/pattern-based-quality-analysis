@@ -16,6 +16,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Graph</b></em>'.
+ * Abstract representation of data of interest by means of <code>Elements</code>, <code>Relations</code> and <code>Properties</code>.
  * <!-- end-user-doc -->
  *
  * <p>

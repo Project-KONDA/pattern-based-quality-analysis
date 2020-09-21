@@ -18,7 +18,7 @@ import qualitypatternmodel.patternstructure.ElementMapping;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Single Element</b></em>'.
- * This represents a single data element.
+ * Representation of data units in <code>Graphs</code>. They may encompass multiple <code>Properties</code> and be related to other <code>Elements<code> via <code>Relations</code>.
  * <!-- end-user-doc -->
  *
  * <p>

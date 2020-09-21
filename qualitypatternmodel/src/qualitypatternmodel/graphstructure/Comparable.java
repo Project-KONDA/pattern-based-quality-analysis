@@ -13,6 +13,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Graph Element</b></em>'.
+ * An argument of a <code>Comparison</code>.
  * <!-- end-user-doc -->
  *
  * <p>

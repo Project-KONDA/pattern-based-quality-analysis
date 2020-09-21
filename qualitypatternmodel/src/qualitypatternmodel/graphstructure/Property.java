@@ -11,6 +11,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Property</b></em>'.
+ * The representation of primitive data values contained in data units (represented by <code>Elements</code>).
  * <!-- end-user-doc -->
  *
  * <p>
