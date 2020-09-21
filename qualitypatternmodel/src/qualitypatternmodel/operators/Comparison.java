@@ -9,6 +9,7 @@ import qualitypatternmodel.parameters.TypeOptionParam;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Comparison</b></em>'.
+ * Representation of a comparison within a pattern between two <code>Element</code>s, two <code>Property</code>s or one <code>Property</code> and one <code>Parameter</code>.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -100,6 +101,7 @@ public interface Comparison extends BooleanOperator {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns true if <code>this</code> does compare a <code>Property</code> with a <code>Parameter</code>.
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -116,6 +118,7 @@ public interface Comparison extends BooleanOperator {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a clone of <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

@@ -12,7 +12,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Operator</b></em>'.
+ * A representation of the model object '<em><b>Operator</b></em>', which does define a function on <code>PatternElement</code>s that produces a return value.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -32,6 +32,7 @@ public interface Operator extends qualitypatternmodel.graphstructure.Comparable,
 	 * Returns the value of the '<em><b>Operator List</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.OperatorList#getOperators <em>Operators</em>}'.
 	 * <!-- begin-user-doc -->
+	 * Get the container 
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operator List</em>' container reference.
 	 * @see #setOperatorList(OperatorList)
@@ -62,6 +63,7 @@ public interface Operator extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns true, if the Operator is valid.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

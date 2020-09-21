@@ -9,6 +9,7 @@ import qualitypatternmodel.graphstructure.Element;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Boolean Operator</b></em>'.
+ * <code>Operator</code> with return values of type Boolean.
  * <!-- end-user-doc -->
  *
  * <p>
