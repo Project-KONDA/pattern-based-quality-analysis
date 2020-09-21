@@ -73,6 +73,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
 	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
+	 * The nodes of this <code>Graph</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getElements()
 	 * @generated
@@ -82,7 +83,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * The cached value of the '{@link #getOperatorList() <em>Operator List</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The list of all <code>Operators</code> defined for this <code>Graph</code>.
+	 * <!-- end-user-doc -->
 	 * @see #getOperatorList()
 	 * @generated
 	 * @ordered
@@ -91,7 +94,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	/**
 	 * The cached value of the '{@link #getReturnElements() <em>Return Elements</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * A list of all <code>Elements</code> that the pattern returns if its first-order logic condition is satisfied.
+	 * <!-- end-user-doc -->
 	 * @see #getReturnElements()
 	 * @generated
 	 * @ordered
@@ -101,6 +106,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
 	 * The cached value of the '{@link #getOutgoingMorphisms() <em>Outgoing Morphisms</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of all <code>Morphisms</code> that have this <code>Graph</code> as their <code>source</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getOutgoingMorphisms()
 	 * @generated
@@ -111,6 +117,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
 	 * The cached value of the '{@link #getIncomingMorphism() <em>Incoming Morphism</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * A list of all <code>Morphisms</code> that have this <code>Graph</code> as their <code>target</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getIncomingMorphism()
 	 * @generated
@@ -121,6 +128,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
 	 * The cached value of the '{@link #getRelations() <em>Relations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
+	 * The edges of this <code>Graph</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getRelations()
 	 * @generated

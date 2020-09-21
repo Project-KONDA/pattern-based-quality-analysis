@@ -61,7 +61,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	/**
 	 * The cached value of the '{@link #getParameterList() <em>Parameter List</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-	 * The list of all <code>Parameters</code> referenced from components of <code>Graphs</code> directly or indirectly contained in this <code>CompletePattern</code>.
+	 * The list of all <code>Parameters</code> in this <code>CompletePattern</code>
+	 * They can be referenced from components of <code>Graphs</code> directly or indirectly contained in this <code>CompletePattern</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getParameterList()
 	 * @generated
