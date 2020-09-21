@@ -120,16 +120,16 @@ public class EvalComp {
 //			System.out.println(params.get(i).myToString());			
 //		}
 
-		((UntypedParameterValue) params.get(17)).replace(new TextLiteralParamImpl("3105"));
-		((TextLiteralParam) params.get(16)).setValue("Type");
-		((PropertyOptionParam) params.get(15)).setValue(PropertyKind.ATTRIBUTE);		
+		((UntypedParameterValue) params.get(19)).replace(new TextLiteralParamImpl("3105"));
+		((TextLiteralParam) params.get(18)).setValue("Type");
+		((PropertyOptionParam) params.get(17)).setValue(PropertyKind.ATTRIBUTE);		
+		((TextLiteralParam) params.get(15)).setValue("Value");
+		((PropertyOptionParam) params.get(14)).setValue(PropertyKind.ATTRIBUTE);
 		((TextLiteralParam) params.get(13)).setValue("Value");
 		((PropertyOptionParam) params.get(12)).setValue(PropertyKind.ATTRIBUTE);
-		((TextLiteralParam) params.get(11)).setValue("Value");
-		((PropertyOptionParam) params.get(10)).setValue(PropertyKind.ATTRIBUTE);
-		((UntypedParameterValue) params.get(8)).replace(new TextLiteralParamImpl("3100"));
-		((TextLiteralParam) params.get(7)).setValue("Type");
-		((PropertyOptionParam) params.get(6)).setValue(PropertyKind.ATTRIBUTE);
+		((UntypedParameterValue) params.get(9)).replace(new TextLiteralParamImpl("3100"));
+		((TextLiteralParam) params.get(8)).setValue("Type");
+		((PropertyOptionParam) params.get(7)).setValue(PropertyKind.ATTRIBUTE);
 		((UntypedParameterValue) params.get(4)).replace(new TextLiteralParamImpl("kue"));
 		((TextLiteralParam) params.get(3)).setValue("Type");
 		((PropertyOptionParam) params.get(2)).setValue(PropertyKind.ATTRIBUTE);
