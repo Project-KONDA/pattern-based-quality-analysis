@@ -11,6 +11,7 @@ import qualitypatternmodel.patternstructure.CountCondition;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Comp Option</b></em>'.
+ * Defines input parameter of type <code>ComparisonOperator</code> to define a <code>Comparison</code>.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -33,6 +34,7 @@ public interface ComparisonOptionParam extends Parameter {
 	 * The list contents are of type {@link qualitypatternmodel.operators.ComparisonOperator}.
 	 * The literals are from the enumeration {@link qualitypatternmodel.operators.ComparisonOperator}.
 	 * <!-- begin-user-doc -->
+	 * Returns all allowed choices of type <code>ComparisonOperator</code>.
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Options</em>' attribute list.
 	 * @see qualitypatternmodel.operators.ComparisonOperator

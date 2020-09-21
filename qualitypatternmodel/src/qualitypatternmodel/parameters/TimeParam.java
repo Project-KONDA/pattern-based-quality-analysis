@@ -7,6 +7,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Time</b></em>'.
+ * Defines input parameter of type Time (in data type String).
  * <!-- end-user-doc -->
  *
  * <p>

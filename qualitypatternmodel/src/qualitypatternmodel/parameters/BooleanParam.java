@@ -10,6 +10,7 @@ import qualitypatternmodel.operators.Match;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Boolean</b></em>'.
+ * Defines input parameter of type Boolean.
  * <!-- end-user-doc -->
  *
  * <p>

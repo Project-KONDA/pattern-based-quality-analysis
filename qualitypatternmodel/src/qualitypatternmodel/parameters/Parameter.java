@@ -8,7 +8,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Input</b></em>'.
+ * A representation of the model object '<em><b>Parameter</b></em>'.
+ * Does define a variable input parameter in a <code>CompletePattern</code>.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -95,6 +96,7 @@ public interface Parameter extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns true, if the input value is valid.
 	 * <!-- end-user-doc -->
 	 * @model required="true"
 	 * @generated
@@ -103,6 +105,7 @@ public interface Parameter extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns true, if <code>this</code> is correctly specified.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -111,6 +114,7 @@ public interface Parameter extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns true, if <code>this</code> is referenced somewhere within the pattern.
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -119,6 +123,7 @@ public interface Parameter extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates a simple textual description for <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

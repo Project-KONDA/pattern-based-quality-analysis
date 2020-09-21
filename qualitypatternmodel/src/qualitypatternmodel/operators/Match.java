@@ -10,7 +10,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Match</b></em>', that does match the value of a <code>Property</code> with a regular expression.
- * The expression is saved in a <code>TextLiteralParam</code> * 
+ * The expression is saved in a <code>TextLiteralParam</code>.
  * <!-- end-user-doc -->
  *
  * <p>

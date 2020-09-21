@@ -10,6 +10,7 @@ import qualitypatternmodel.adaptionxml.XmlElement;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>XS Type</b></em>'.
+ * Does define a variable input parameter in a Pattern.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -49,6 +50,7 @@ public interface ParameterValue extends Parameter, qualitypatternmodel.graphstru
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns true, if <code>this</code> is used in a comparison to an <code>XMLProperty</code> with type TAG.
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -57,6 +59,7 @@ public interface ParameterValue extends Parameter, qualitypatternmodel.graphstru
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns true, if <code>this</code> is used in a comparison to an <code>XMLProperty</code> with type ATTRIBUTE.
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -65,12 +68,18 @@ public interface ParameterValue extends Parameter, qualitypatternmodel.graphstru
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns true, if <code>this</code> is used in a comparison to an <code>XMLProperty</code> with type DATA.
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
 	boolean isInDataComparison();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	
 	EMap<String, Integer> getElementTags();
 
 	/**
@@ -99,6 +108,7 @@ public interface ParameterValue extends Parameter, qualitypatternmodel.graphstru
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns an ordered List of suggested Values to help during the Pattern concretisation.
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -107,6 +117,7 @@ public interface ParameterValue extends Parameter, qualitypatternmodel.graphstru
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Replace current <code>ParameterValue</code> with another instance of <code>ParameterValue</code>.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

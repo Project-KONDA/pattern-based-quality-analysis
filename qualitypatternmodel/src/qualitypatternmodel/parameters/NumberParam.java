@@ -8,6 +8,7 @@ import qualitypatternmodel.patternstructure.NumberElement;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Number</b></em>'.
+ * Defines input parameter of type Number.
  * <!-- end-user-doc -->
  *
  * <p>

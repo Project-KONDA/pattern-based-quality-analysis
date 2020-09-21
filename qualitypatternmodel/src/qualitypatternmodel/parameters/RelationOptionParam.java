@@ -8,7 +8,8 @@ import qualitypatternmodel.adaptionxml.XmlNavigation;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Axis Option</b></em>'.
+ * A representation of the model object '<em><b>RelationOptionParam</b></em>'.
+ * Defines input parameter of type <code>RelationKind</code> to define an <code>XmlRelation</code>.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -30,6 +31,7 @@ public interface RelationOptionParam extends Parameter {
 	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.RelationKind}.
 	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionxml.RelationKind}.
 	 * <!-- begin-user-doc -->
+	 * Returns all allowed choices of type <code>RelationKind</code>.
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Options</em>' attribute list.
 	 * @see qualitypatternmodel.adaptionxml.RelationKind
@@ -80,6 +82,7 @@ public interface RelationOptionParam extends Parameter {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Generate suggestions for the choice of <code>RelationKind</code>.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

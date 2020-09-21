@@ -12,6 +12,7 @@ import qualitypatternmodel.patternstructure.CountCondition;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Option Param</b></em>'.
+ * Defines input parameter specified by an enumeration <code>T</code>.
  * <!-- end-user-doc -->
  *
  * <p>
