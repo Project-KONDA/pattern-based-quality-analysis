@@ -10,9 +10,8 @@ import qualitypatternmodel.parameters.ParameterList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Pattern</b></em>'.
- * Root class for Pattern. Contains the general UI Interfaces for external use.
- * Basic container class for all model elements for the structural representation of a Pattern. 
+ * A representation of the model object '<em><b>Complete Pattern</b></em>'.
+ * A pattern defined by a name. Serves as the root container of model instances.
  * <!-- end-user-doc -->
  *
  * <p>

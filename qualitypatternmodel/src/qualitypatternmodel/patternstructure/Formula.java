@@ -5,7 +5,7 @@ package qualitypatternmodel.patternstructure;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Formula</b></em>'.
- * Represents boolean operators
+ * A logical operator specified by <code>operator</code> with two <code>Conditions</code> as arguments.
  * <!-- end-user-doc -->
  *
  * <p>

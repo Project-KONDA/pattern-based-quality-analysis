@@ -8,7 +8,7 @@ import qualitypatternmodel.graphstructure.Graph;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Quantified Condition</b></em>'.
- * This Condition represents either an existential quantification (Exists) or a universal quantification (Forall) and is further specified by a Graph and further conditions.
+ * An existentially or universally quantified condition, which contains a <code>Graph</code> and a <code>Condition</code>.
  * <!-- end-user-doc -->
  *
  * <p>

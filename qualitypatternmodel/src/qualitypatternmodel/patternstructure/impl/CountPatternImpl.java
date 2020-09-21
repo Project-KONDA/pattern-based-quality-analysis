@@ -161,7 +161,6 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		if (getMorphism() != null) {
 			getMorphism().setSource(null);
 			getMorphism().setTarget(null);
-			getMorphism().removeDanglingMappingReference();
 			getMorphism().getMappings().clear();
 		}
 		

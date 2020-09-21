@@ -115,38 +115,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		checkRelationMappingsUniqueness();
 	}
 	
-	public void removeDanglingMappingReference() {
-		EList<Mapping> mappings = new BasicEList<Mapping>();
-		mappings.addAll(getMappings());
-		for(Mapping mapping : mappings) {	
-				if(mapping instanceof ElementMapping) {
-					ElementMapping elementMapping = (ElementMapping) mapping;
-					if(elementMapping != null) {
-						if(elementMapping.getSource() != null && elementMapping.getSource().getOutgoingMappings() != null) {
-//							elementMapping.setSource(null);
-							getMappings().remove(elementMapping);
-						}
-						if(elementMapping.getTarget() != null) {
-//							elementMapping.setTarget(null);
-							getMappings().remove(elementMapping);
-						}
-					}
-				} else if (mapping instanceof RelationMapping) {
-					RelationMapping relationMapping = (RelationMapping) mapping;
-					if(relationMapping != null) {
-						if(relationMapping.getSource() != null && relationMapping.getSource().getOutgoingMappings() != null) {
-//							relationMapping.setSource(null);
-							getMappings().remove(relationMapping);
-						}
-						if(relationMapping.getTarget() != null) {
-//							relationMapping.setTarget(null);
-							getMappings().remove(relationMapping);
-						}
-					}
-				}
-			}		
-	}
-
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -415,7 +383,11 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		}
 		Set<Element> set = new HashSet<Element>(elements);
 		if(elements.size() != set.size()) {
-			throw new InvalidityException("mappings not unique");
+			throw new InvalidityException("mapping source not unique");
+		}
+		
+		if(elements.size() != getSource().getElements().size()) {
+			throw new InvalidityException("mappings not complete");
 		}
 	}
 
@@ -499,8 +471,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		List<Relation> relations = new ArrayList<Relation>();
 		for(Mapping mapping : getMappings()) {
 			if(mapping instanceof RelationMapping) {
-				RelationMapping elementMapping = (RelationMapping) mapping;
-				relations.add(elementMapping.getSource());
+				RelationMapping relationMapping = (RelationMapping) mapping;
+				relations.add(relationMapping.getSource());
 			}
 		}
 		Set<Relation> set = new HashSet<Relation>(relations);

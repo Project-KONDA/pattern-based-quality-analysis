@@ -6,7 +6,7 @@ package qualitypatternmodel.patternstructure;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Mapping</b></em>'.
- * This is an abstract class for marking corresponding elements between two graphs.
+ * A correspondence between two <code>Graph</code> components contained in different <code>Graphs</code>.
  * <!-- end-user-doc -->
  *
  * <p>

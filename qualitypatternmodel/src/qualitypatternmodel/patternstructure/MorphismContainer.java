@@ -8,7 +8,7 @@ import qualitypatternmodel.graphstructure.Graph;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Morphism Container</b></em>'.
- * This is an abstract class to have common interfaces for CompletePattern and QuantifiedCondition, both of which need an accociated Graph and Morphism.
+ * A pattern component that directly contains a <code>Graph</code> and a <code>Morphism</code>.
  * <!-- end-user-doc -->
  *
  * <p>

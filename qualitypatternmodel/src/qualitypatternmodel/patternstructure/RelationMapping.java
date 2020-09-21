@@ -7,7 +7,7 @@ import qualitypatternmodel.graphstructure.Relation;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Relation Mapping</b></em>'.
- * This object connects an Relation between Elements of one Graph with the corresponding representation in another Graph.
+ * A correspondence between two <code>Relationss</code> contained in different <code>Graphs</code>.
  * <!-- end-user-doc -->
  *
  * <p>

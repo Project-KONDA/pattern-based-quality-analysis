@@ -5,6 +5,7 @@ package qualitypatternmodel.patternstructure;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Count Condition Argument</b></em>'.
+ * An argument for a <code>CountCondition</code>.
  * This abstract class enables a CountCondition to compare the number of findings with a fixed number or another number of findings.
  * <!-- end-user-doc -->
  *

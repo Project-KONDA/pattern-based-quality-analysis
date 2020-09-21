@@ -7,7 +7,7 @@ import qualitypatternmodel.graphstructure.Element;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Single Element Mapping</b></em>'.
- * This object connects an Element of one Graph with the corresponding representation in another Graph.
+ * A correspondence between two <code>Elements</code> contained in different <code>Graphs</code>.
  * <!-- end-user-doc -->
  *
  * <p>

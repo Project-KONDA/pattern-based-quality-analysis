@@ -9,6 +9,7 @@ import qualitypatternmodel.graphstructure.Graph;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Pattern</b></em>'.
+ * A pattern, which contains a <code>Graph</code> and a <code>Condition</code>.
  * <!-- end-user-doc -->
  *
  * <p>

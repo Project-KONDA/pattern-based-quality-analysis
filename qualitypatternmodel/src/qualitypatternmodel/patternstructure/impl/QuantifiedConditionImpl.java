@@ -516,7 +516,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (getMorphism() != null) {
 			getMorphism().setSource(null);
 			getMorphism().setTarget(null);
-			getMorphism().removeDanglingMappingReference();
 			getMorphism().getMappings().clear();
 		}
 		

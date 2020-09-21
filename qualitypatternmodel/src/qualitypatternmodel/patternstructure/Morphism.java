@@ -12,8 +12,7 @@ import qualitypatternmodel.graphstructure.Relation;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Morphism</b></em>'.
- * Describes the connections and correspondences between two graphes.
- * Contains mappings, which each does connect two graph elements. 
+ * A map from the <code>source</code> to the <code>target</code> <code>Graph</code>, which is specified through the contained <code>mappings</code>. 
  * <!-- end-user-doc -->
  *
  * <p>
@@ -119,6 +118,10 @@ public interface Morphism extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Checks for all contained <code>ElementMappings</code> whether their <code>source</code> of type <code>Element</code>
+	 * is contained in the <code>source</code> <code>Graph</code> and their <code>target</code> is contained in the <code>target</code> <code>Graph</code>.
+	 * 
+	 * @throws InvalidityException if constraint is not fulfilled
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -127,6 +130,10 @@ public interface Morphism extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Checks for all contained <code>RelationMappings</code> whether their <code>source</code> of type <code>Relation</code>
+	 * is contained in the <code>source</code> <code>Graph</code> and their <code>target</code> is contained in the <code>target</code> <code>Graph</code>.
+	 * 
+	 * @throws InvalidityException if constraint is not fulfilled
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -135,6 +142,10 @@ public interface Morphism extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Checks if each <code>Relation</code> of the <code>source</code> <code>Graph</code>
+	 * is involved in exactly one of the contained <code>RelationMappings</code>.
+	 * 
+	 * @throws InvalidityException if constraint is not fulfilled
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -143,6 +154,10 @@ public interface Morphism extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Checks if each <code>Element</code> of the <code>source</code> <code>Graph</code>
+	 * is involved in exactly one of the contained <code>ElementMappings</code>.
+	 * 
+	 * @throws InvalidityException if constraint is not fulfilled
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -151,6 +166,10 @@ public interface Morphism extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates a new <code>ElementMapping</code> with <code>from</code> as <code>source</code> and <code>to</code>
+	 * as <code>target</code> and adds it to <code>mappings</code>. 
+	 * 
+	 * @return the created <code>ElementMapping</code> with <code>from</code> as <code>source</code> and <code>to</code> as <code>target</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -159,6 +178,10 @@ public interface Morphism extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates a new <code>RelationMapping</code> with <code>from</code> as <code>source</code> and <code>to</code>
+	 * as <code>target</code> and adds it to <code>mappings</code>. 
+	 * 
+	 * @return the created <code>RelationMapping</code> with <code>from</code> as <code>source</code> and <code>to</code> as <code>target</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -167,14 +190,16 @@ public interface Morphism extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Removes <code>Mappings</code> that have a <code>source</code> or <code>target</code> 
+	 * that is not contained in the <code>source</code> or <code>target</code> <code>Graph</code> 
+	 * of <code>this</code> from <code>mappings</code>.
+	 * 
+	 * <code>Mappings</code> are not removed if their <code>source</code> or <code>target</code> is null and the <code>source</code> or <code>target</code> <code>Graph</code> of <code>this</code>
+	 * is null as well.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	void removeInconsistentMappings();
-
-	void removeDanglingMappingReference();
-
-	
+	void removeInconsistentMappings();	
 
 } // Morphism

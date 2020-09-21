@@ -18,7 +18,7 @@ import qualitypatternmodel.parameters.ParameterList;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Pattern Element</b></em>'.
- * Abstract Class, which implements all basic methods needed by all classes, which are part of the structure of the Pattern.
+ * Any component of a pattern.
  * <!-- end-user-doc -->
  *
  * <p>
