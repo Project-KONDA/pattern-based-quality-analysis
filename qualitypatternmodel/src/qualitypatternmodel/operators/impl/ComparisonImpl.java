@@ -281,7 +281,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	@Override
-	public boolean isTranslatable() throws InvalidityException {		
+	public boolean isTranslatable() {		
 		return argument1.isTranslatable() && argument2.isTranslatable();
 	}
 
@@ -293,7 +293,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * 
 	 */
 	@Override
-	public EList<Element> getAllArgumentElements() throws InvalidityException {
+	public EList<Element> getAllArgumentElements() {
 		EList<Element> arguments = new BasicEList<Element>();
 		if(argument1 != null) {
 			arguments.addAll(argument1.getAllArgumentElements());
@@ -507,18 +507,15 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		EList<Element> rootOperatorElements = new BasicEList<Element>();
 		rootOperatorElements.addAll(rootOperator.getElements()); // rootOperator.getElements() is already empty at this point in
 																// case THIS gets DELETED!
-		try {
-			EList<Element> argumentElements = oldArgumentOperator.getAllArgumentElements();
-			if(argumentElements.size() > 0) {
-				for (Element argumentElement : argumentElements) {
-						oldArgumentOperator.addElement(argumentElement);
-						rootOperator.removeElement(argumentElement);
-				}
+		
+		EList<Element> argumentElements = oldArgumentOperator.getAllArgumentElements();
+		if(argumentElements.size() > 0) {
+			for (Element argumentElement : argumentElements) {
+					oldArgumentOperator.addElement(argumentElement);
+					rootOperator.removeElement(argumentElement);
 			}
-		} catch (InvalidityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
+		
 	}
 
 	private void removeOldArgumentElementsFromRootOperator(qualitypatternmodel.graphstructure.Comparable oldArgument, BooleanOperator rootOperator) {

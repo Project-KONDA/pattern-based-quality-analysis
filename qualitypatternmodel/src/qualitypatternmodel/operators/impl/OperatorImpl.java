@@ -178,7 +178,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	 * @generated NOT
 	 */
 	@Override
-	abstract public boolean isTranslatable() throws InvalidityException;
+	abstract public boolean isTranslatable();
 
 /**
 	 * <!-- begin-user-doc -->
@@ -187,7 +187,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	 * @generated NOT
 	 */
 	@Override
-	abstract public EList<Element> getAllArgumentElements() throws InvalidityException;
+	abstract public EList<Element> getAllArgumentElements();
 
 /**
 	 * <!-- begin-user-doc -->
@@ -450,19 +450,9 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 			case OperatorsPackage.OPERATOR___GET_RETURN_TYPE:
 				return getReturnType();
 			case OperatorsPackage.OPERATOR___IS_TRANSLATABLE:
-				try {
-					return isTranslatable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return isTranslatable();
 			case OperatorsPackage.OPERATOR___GET_ALL_ARGUMENT_ELEMENTS:
-				try {
-					return getAllArgumentElements();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return getAllArgumentElements();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -253,6 +253,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the <code>internalId</code> of the first correspondence of <code>this</code> in the pattern.
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
 	 * @generated
@@ -261,6 +262,11 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates a <code>Property</code> and
+	 * a <code>Match</code>
+	 * that references the new <code>Property</code> and has <code>regex</code> as its regular expression.
+	 * 
+	 * @param regex the regular expression for the new <code>Match</code> operator
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -269,6 +275,11 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates a <code>Property</code> and
+	 * a <code>Comparison</code> that compares the new <code>Property</code>
+	 * with a newly created <code>TextLiteralParam</code> based on <code>value</code>.
+	 * 
+	 * @param the value that the newly created <code>Property</code> is compared with by the newly created <code>Comparison</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -277,6 +288,8 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates a <code>Property</code> and a <code>Match</code> operator
+	 * that references the new <code>Property</code>.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -285,6 +298,12 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates a <code>Property</code> and
+	 * a <code>Comparison</code> that compares the new <code>Property</code>
+	 * with a newly created <code>UntypedParameterValue</code>.
+	 * 
+	 * @return the <code>UntypedParameterValue</code> that the newly
+	 * created <code>Property</code> is compared with by the newly created <code>Comparison</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -293,6 +312,10 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a list of all <code>Operators</code> referenced by <code>this</code>.
+	 * 
+	 * @return a list of all <code>Operators</code> referenced by <code>this</code>
+	 * @throws InvalidityException // TODO comment
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -301,6 +324,12 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates a <code>Property</code> and
+	 * a <code>Comparison</code> based on <code>operator</code> that compares the new <code>Property</code>
+	 * with <code>input</code>.
+	 * 
+	 * @param operator the <code>ComparisonOperator</code> udnerlying the newly created <code>Comparison</code>
+	 * @param input the <code>ParameterValue</code> that is compared to the new <code>Property</code> by the new <code>Comparison</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -309,6 +338,9 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates a <code>Property</code> and
+	 * a <code>Comparison</code> that compares the new <code>Property</code>
+	 * with <code>input</code>.	
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -317,6 +349,9 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Copies <code>property</code> and adds it to <code>properties</code>.
+	 * 
+	 * @return the copy of <code>property</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -324,7 +359,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	Property copyProperty(Property property);
 
 	/**
-	 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc --> 
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated

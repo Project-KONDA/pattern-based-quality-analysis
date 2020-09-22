@@ -61,7 +61,10 @@ import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
 public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * The cached value of the '{@link #getIncomingMapping() <em>Incoming Mapping</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The <code>RelationMapping</code> that has <code>this</code> as its <code>target</code>.
+	 * It declares the equivalence between <code>this</code> and another <code>Relation</code> contained in the previous <code>Graph</code> in the condition hierarchy.
+	 * <!-- end-user-doc -->
 	 * @see #getIncomingMapping()
 	 * @generated
 	 * @ordered
@@ -70,7 +73,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	/**
 	 * The cached value of the '{@link #getOutgoingMappings() <em>Outgoing Mappings</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * A list of <code>RelationMapping</code> that have <code>this</code> as their <code>source</code>.
+	 * They declare the equivalence between <code>this</code> and other <code>Relations</code> contained in <code>Graphs</code> that directly follow in the condition hierarchy.
+	 * <!-- end-user-doc -->
 	 * @see #getOutgoingMappings()
 	 * @generated
 	 * @ordered
@@ -110,6 +116,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The name of <code>this</code> <code>Relation</code>.
+	 * Is only used for the visualization, not for internal purposes.
+	 * Has default value but can be modified by users.
 	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated

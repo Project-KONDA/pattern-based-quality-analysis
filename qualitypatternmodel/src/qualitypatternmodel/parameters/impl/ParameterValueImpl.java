@@ -243,7 +243,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 * @generated NOT
 	 */
 	@Override
-	public boolean isTranslatable() throws InvalidityException {
+	public boolean isTranslatable() {
 		return true;
 	}
 	
@@ -259,7 +259,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 * @generated NOT
 	 */
 	@Override
-	public EList<Element> getAllArgumentElements() throws InvalidityException {
+	public EList<Element> getAllArgumentElements() {
 		return new BasicEList<Element>();
 	}
 
@@ -464,19 +464,9 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			case ParametersPackage.PARAMETER_VALUE___GET_RETURN_TYPE:
 				return getReturnType();
 			case ParametersPackage.PARAMETER_VALUE___IS_TRANSLATABLE:
-				try {
-					return isTranslatable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return isTranslatable();
 			case ParametersPackage.PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS:
-				try {
-					return getAllArgumentElements();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return getAllArgumentElements();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

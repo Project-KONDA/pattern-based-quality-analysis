@@ -360,10 +360,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="Comparable" abstract="true" interface="true"
         eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getReturnType" eType="#//graphstructure/ReturnType"/>
-      <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getAllArgumentElements" upperBound="-1" eType="#//graphstructure/Element"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="getAllArgumentElements" upperBound="-1" eType="#//graphstructure/Element"/>
       <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
         <eParameters name="context">

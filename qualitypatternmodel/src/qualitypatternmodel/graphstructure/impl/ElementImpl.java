@@ -88,6 +88,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>Comparisons</code> that have <code>this</code> as their first argument.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison1()
 	 * @generated
@@ -98,6 +99,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getComparison2() <em>Comparison2</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>Comparisons</code> that have <code>this</code> as their second argument.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison2()
 	 * @generated
@@ -107,7 +109,10 @@ public class ElementImpl extends PatternElementImpl implements Element {
 
 	/**
 	 * The cached value of the '{@link #getOutgoingMappings() <em>Outgoing Mappings</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * A list of <code>ElementMappings</code> that have <code>this</code> as their <code>source</code>.
+	 * They declare the equivalence between <code>this</code> and other <code>Elements</code> contained in <code>Graphs</code> that directly follow in the condition hierarchy.
+	 * <!-- end-user-doc -->
 	 * @see #getOutgoingMappings()
 	 * @generated
 	 * @ordered
@@ -116,7 +121,10 @@ public class ElementImpl extends PatternElementImpl implements Element {
 
 	/**
 	 * The cached value of the '{@link #getIncomingMapping() <em>Incoming Mapping</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The <code>ElementMapping</code> that has <code>this</code> as its <code>target</code>.
+	 * It declares the equivalence between <code>this</code> and another <code>Element</code> contained in the previous <code>Graph</code> in the condition hierarchy.
+	 * <!-- end-user-doc -->
 	 * @see #getIncomingMapping()
 	 * @generated
 	 * @ordered
@@ -126,6 +134,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getResultOf() <em>Result Of</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The container <code>graph</code> if <code>this</code> should be returned by the pattern, else null.
 	 * <!-- end-user-doc -->
 	 * @see #getResultOf()
 	 * @generated
@@ -146,6 +155,9 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The name of <code>this</code> <code>Element</code>.
+	 * Is only used for the visualization, not for internal purposes.
+	 * Has default value but can be modified by users.
 	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
@@ -166,6 +178,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #isTranslated() <em>Translated</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * <code>True</code> if <code>this</code> was already translated into a query during a run of a translation algorithm.
 	 * <!-- end-user-doc -->
 	 * @see #isTranslated()
 	 * @generated
@@ -186,6 +199,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #isPredicatesAreBeingTranslated() <em>Predicates Are Being Translated</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * <code>True</code> while the <code>predicates</code> are being translated into a query language.
 	 * <!-- end-user-doc -->
 	 * @see #isPredicatesAreBeingTranslated()
 	 * @generated
@@ -196,6 +210,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>Properties</code> of <code>this</code> that are expected to exist and may serve as an argument to an <code>Operator</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getProperties()
 	 * @generated
@@ -206,6 +221,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getPredicates() <em>Predicates</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>BooleanOperators</code> that have <code>this</code> or one of its <code>properties</code> as a direct or indirect argument.
 	 * <!-- end-user-doc -->
 	 * @see #getPredicates()
 	 * @generated
@@ -216,6 +232,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getOutgoing() <em>Outgoing</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of outgoing <code>Relations</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getOutgoing()
 	 * @generated
@@ -226,6 +243,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getIncoming() <em>Incoming</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of incoming <code>Relations</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getIncoming()
 	 * @generated
@@ -1249,19 +1267,9 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();
 			case GraphstructurePackage.ELEMENT___IS_TRANSLATABLE:
-				try {
-					return isTranslatable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return isTranslatable();
 			case GraphstructurePackage.ELEMENT___GET_ALL_ARGUMENT_ELEMENTS:
-				try {
-					return getAllArgumentElements();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return getAllArgumentElements();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

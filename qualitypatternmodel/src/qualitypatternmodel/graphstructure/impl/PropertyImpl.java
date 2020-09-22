@@ -94,6 +94,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The name of <code>this</code> <code>Property</code>.
+	 * Is only used for the visualization, not for internal purposes.
+	 * Has default value but can be modified by users.
 	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
@@ -156,7 +159,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * 
 	 */
 	@Override
-	public EList<Element> getAllArgumentElements() throws InvalidityException {		
+	public EList<Element> getAllArgumentElements() {		
 		return getElement().getAllArgumentElements();
 	}
 	
@@ -537,19 +540,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			case GraphstructurePackage.PROPERTY___GET_RETURN_TYPE:
 				return getReturnType();
 			case GraphstructurePackage.PROPERTY___IS_TRANSLATABLE:
-				try {
-					return isTranslatable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return isTranslatable();
 			case GraphstructurePackage.PROPERTY___GET_ALL_ARGUMENT_ELEMENTS:
-				try {
-					return getAllArgumentElements();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return getAllArgumentElements();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -577,7 +570,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	}
 
 	@Override
-	public boolean isTranslatable() throws InvalidityException {
+	public boolean isTranslatable() {
 		return false;
 	}
 

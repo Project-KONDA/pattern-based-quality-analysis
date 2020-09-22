@@ -134,7 +134,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	}
 
 	@Override
-	public boolean isTranslatable() throws InvalidityException {
+	public boolean isTranslatable() {
 		return property.isTranslatable();
 	}
 	
@@ -145,7 +145,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * 
 	 */
 	@Override
-	public EList<Element> getAllArgumentElements() throws InvalidityException {		
+	public EList<Element> getAllArgumentElements() {		
 		return property.getAllArgumentElements();
 	}
 	

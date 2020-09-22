@@ -200,7 +200,7 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	}
 	
 	@Override
-	public boolean isTranslatable() throws InvalidityException {
+	public boolean isTranslatable() {
 		return getElement().isTranslatable();
 	}
 	
