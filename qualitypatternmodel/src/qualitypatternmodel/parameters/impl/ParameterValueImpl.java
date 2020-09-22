@@ -61,7 +61,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	/**
 	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
 	 * <!-- begin-user-doc -->
-	 * <code>Comparison</code> objects, that reference <code>this</code> as <code>argument1</code>.
+	 * A list of <code>Comparisons</code> that reference <code>this</code> as <code>argument1</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison1()
 	 * @generated
@@ -71,7 +71,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	/**
 	 * The cached value of the '{@link #getComparison2() <em>Comparison2</em>}' reference list.
 	 * <!-- begin-user-doc -->
-	 * <code>Comparison</code> objects, that reference <code>this</code> as <code>argument2</code>.
+	 * A list of <code>Comparisons</code> that reference <code>this</code> as <code>argument2</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison2()
 	 * @generated

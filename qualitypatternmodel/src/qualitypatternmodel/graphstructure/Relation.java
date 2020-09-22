@@ -165,6 +165,7 @@ public interface Relation extends PatternElement, Adaptable {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Removes all corresponding <code>Relations</code> in previous <code>Graphs</code> from their container.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -173,6 +174,8 @@ public interface Relation extends PatternElement, Adaptable {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Removes all <code>RelationMappings</code> that have <code>this</code> 
+	 * as their <code>source</code> from their container.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -181,6 +184,10 @@ public interface Relation extends PatternElement, Adaptable {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Replaces <code>this</code> and corresponding <code>Relations</code> in the previous and 
+	 * following <code>Graphs</code> by <code>XmlNavigations</code>.
+	 * 
+	 * @return the <code>XmlNavigation</code> that replaces <code>this</code> in the pattern
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -189,6 +196,10 @@ public interface Relation extends PatternElement, Adaptable {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Replaces <code>this</code> and corresponding <code>Relations</code> in the previous and 
+	 * following <code>Graphs</code> by <code>XmlReferences</code>.
+	 * 
+	 * @return the <code>XmlReference</code> that replaces <code>this</code> in the pattern
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -197,6 +208,11 @@ public interface Relation extends PatternElement, Adaptable {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Sets <code>graph</code> of <code>this</code> to <code>newGraph</code> 
+	 * without updating corresponding <code>Relations</code> in previous and following <code>Graphs</code>,
+	 * updating referenced <code>Parameters</code> and resetting <code>source</code> and <code>target</code>.
+	 * 
+	 * @param newGraph the new container of <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -205,6 +221,7 @@ public interface Relation extends PatternElement, Adaptable {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the <code>internalId</code> of the first correspondence of <code>this</code> in the pattern.
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
 	 * @generated

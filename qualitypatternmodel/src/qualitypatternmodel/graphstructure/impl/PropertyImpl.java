@@ -54,6 +54,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>Comparisons</code> that have <code>this</code> as their first argument.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison1()
 	 * @generated
@@ -64,6 +65,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * The cached value of the '{@link #getComparison2() <em>Comparison2</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>Comparisons</code> that have <code>this</code> as their second argument.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison2()
 	 * @generated
@@ -74,6 +76,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * The cached value of the '{@link #getMatch() <em>Match</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>Matches</code> that have <code>this</code> as their argument.
 	 * <!-- end-user-doc -->
 	 * @see #getMatch()
 	 * @generated

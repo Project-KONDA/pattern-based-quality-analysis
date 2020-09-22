@@ -57,6 +57,7 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * A <code>PropertyOption</code> that specifies the type of <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getOption()
 	 * @generated
@@ -67,6 +68,8 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	/**
 	 * The cached value of the '{@link #getAttributeName() <em>Attribute Name</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * A <code>TextLiteralParam</code> that specifies the attribute name in case 
+	 * <code>this</code> is of type <code>PropertyKind.ATTRIBUTE</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getAttributeName()
 	 * @generated
@@ -77,6 +80,7 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	/**
 	 * The cached value of the '{@link #getIncomingReferences() <em>Incoming References</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>XmlReferences</code> that have <code>this</code> as their <code>target</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getIncomingReferences()
 	 * @generated
@@ -87,6 +91,7 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	/**
 	 * The cached value of the '{@link #getOutgoingReferences() <em>Outgoing References</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>XmlReferences</code> that have <code>this</code> as their <code>source</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getOutgoingReferences()
 	 * @generated

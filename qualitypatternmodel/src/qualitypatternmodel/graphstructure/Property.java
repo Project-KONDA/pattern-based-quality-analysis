@@ -30,6 +30,9 @@ import qualitypatternmodel.patternstructure.PatternElement;
 public interface Property extends qualitypatternmodel.graphstructure.Comparable, PatternElement, Adaptable {
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a copy of <code>this</code> that references the same <code>Parameters</code> as <code>this</code>.
+	 * 
+	 * @return the copy of <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -38,6 +41,10 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a new <code>Comparison</code> that has <code>this</code> as an argument and
+	 * is added to the <code>predicates</code> of <code>element</code>.
+	 * 
+	 * @return the new <code>Comparison</code> that has <code>this</code> as an argument
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -46,6 +53,9 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns <code>true</code> if <code>this</code> serves as an argument of a <code>Operator</code>.
+	 * 
+	 * @return <code>true</code> if <code>this</code> serves as an argument of a <code>Operator</code>
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
