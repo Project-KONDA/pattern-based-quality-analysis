@@ -216,10 +216,10 @@ public interface Graph extends PatternElement {
 	 * @return a list of all <code>Operators</code> referenced by the contained graph components
 	 * @throws InvalidityException // TODO comment
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<Operator> getAllOperators() throws InvalidityException;
+	EList<Operator> getAllOperators();
 
 	/**
 	 * <!-- begin-user-doc -->

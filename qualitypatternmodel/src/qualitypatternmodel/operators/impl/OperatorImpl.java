@@ -81,7 +81,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	 * Returns all contained <code>Operator</code>s
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Operator> getAllOperators() throws InvalidityException {
+	public EList<Operator> getAllOperators() {
 		BasicEList<Operator> operators = new BasicEList<Operator>();
 		operators.add(this);
 		return operators;
@@ -421,12 +421,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case OperatorsPackage.OPERATOR___GET_ALL_OPERATORS:
-				try {
-					return getAllOperators();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return getAllOperators();
 			case OperatorsPackage.OPERATOR___GET_ROOT_BOOLEAN_OPERATORS:
 				return getRootBooleanOperators();
 			case OperatorsPackage.OPERATOR___IS_CYCLE_FREE__ELIST:

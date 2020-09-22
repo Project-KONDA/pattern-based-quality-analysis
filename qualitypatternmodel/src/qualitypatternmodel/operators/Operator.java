@@ -5,8 +5,6 @@ package qualitypatternmodel.operators;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
-import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -56,10 +54,10 @@ public interface Operator extends qualitypatternmodel.graphstructure.Comparable,
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<Operator> getAllOperators() throws InvalidityException;
+	EList<Operator> getAllOperators();
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -179,8 +179,7 @@
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/predicates"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Operator" abstract="true" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement">
-      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"/>
       <eOperations name="getRootBooleanOperators" upperBound="-1" eType="#//operators/BooleanOperator"/>
       <eOperations name="isCycleFree" eExceptions="#//operators/OperatorCycleExceptionWrapper">
         <eParameters name="visitedOperators" upperBound="-1" eType="#//operators/Operator"/>
@@ -285,8 +284,7 @@
       </eOperations>
       <eOperations name="addPrimitiveMatch"/>
       <eOperations name="addPrimitiveComparison" eType="#//parameters/UntypedParameterValue"/>
-      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"/>
       <eOperations name="addPrimitiveComparison">
         <eParameters name="operator" eType="#//operators/ComparisonOperator"/>
         <eParameters name="input" eType="#//parameters/ParameterValue"/>
@@ -330,8 +328,7 @@
           eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/target"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Graph" eSuperTypes="#//patternstructure/PatternElement">
-      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"/>
       <eOperations name="copyGraph" eExceptions="#//patternstructure/MissingPatternContainerException">
         <eParameters name="graph" eType="#//graphstructure/Graph"/>
       </eOperations>

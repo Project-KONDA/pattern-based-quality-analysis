@@ -317,10 +317,10 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @return a list of all <code>Operators</code> referenced by <code>this</code>
 	 * @throws InvalidityException // TODO comment
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<Operator> getAllOperators() throws InvalidityException;
+	EList<Operator> getAllOperators();
 
 	/**
 	 * <!-- begin-user-doc -->

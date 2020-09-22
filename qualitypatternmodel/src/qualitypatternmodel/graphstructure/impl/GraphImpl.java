@@ -340,7 +340,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	@Override
-	public EList<Operator> getAllOperators() throws InvalidityException {
+	public EList<Operator> getAllOperators() {
 		EList<Operator> res = new BasicEList<Operator>();
 		for(Element element : getElements()) {
 			res.addAll(element.getAllOperators());
@@ -952,12 +952,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case GraphstructurePackage.GRAPH___GET_ALL_OPERATORS:
-				try {
-					return getAllOperators();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return getAllOperators();
 			case GraphstructurePackage.GRAPH___COPY_GRAPH__GRAPH:
 				try {
 					copyGraph((Graph)arguments.get(0));

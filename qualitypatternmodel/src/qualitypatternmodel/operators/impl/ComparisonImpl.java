@@ -232,7 +232,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * Returns this and all contained <code>Operator</code>s.
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Operator> getAllOperators() throws InvalidityException {
+	public EList<Operator> getAllOperators() {
 		EList<Operator> res = new BasicEList<Operator>();
 		res.add(this);
 		if (argument1 instanceof Operator) {
