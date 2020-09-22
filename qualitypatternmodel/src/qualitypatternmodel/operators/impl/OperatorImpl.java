@@ -48,6 +48,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	/**
 	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * Comparisons, that reference <code>this</code> as <code>argument1</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison1()
 	 * @generated
@@ -57,6 +58,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	/**
 	 * The cached value of the '{@link #getComparison2() <em>Comparison2</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * Comparisons, that reference <code>this</code> as <code>argument2</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison2()
 	 * @generated
@@ -66,6 +68,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -75,6 +78,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns all contained <code>Operator</code>s
 	 * <!-- end-user-doc -->
 	 */
 	public EList<Operator> getAllOperators() throws InvalidityException {
@@ -85,6 +89,8 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	
 	/**
 	 * <!-- begin-user-doc -->
+	 * TODO comment
+	 * Returns all <code>BooleanOperator</code>s, that do not nest other <code>Operator</code>s.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -111,6 +117,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Throws error when <code>Operator</code>s contain itself.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -147,6 +154,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 
 /**
 	 * <!-- begin-user-doc -->
+	 * Arguments of <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -156,6 +164,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	
 	/**
 	 * <!-- begin-user-doc -->
+	 * Type of the return value.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -164,6 +173,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 
 /**
 	 * <!-- begin-user-doc -->
+	 * Returns true, if <code>this</code> is ready to be translated.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -172,6 +182,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 
 /**
 	 * <!-- begin-user-doc -->
+	 * Returns all <code>Element</code>s that are arguments of an <code>Operator</code>
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */

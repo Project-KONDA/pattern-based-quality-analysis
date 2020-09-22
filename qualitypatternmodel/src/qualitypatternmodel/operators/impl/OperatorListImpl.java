@@ -29,8 +29,10 @@ import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object
- * '<em><b>Operator List</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> 
+ * An implementation of the model object '<em><b>Operator List</b></em>'. 
+ * Container to all Operators in a Graph. * 
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -44,7 +46,9 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 public class OperatorListImpl extends PatternElementImpl implements OperatorList {
 	/**
 	 * The cached value of the '{@link #getOperators() <em>Operators</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * List of all <code>Operator</code>s in the <code>Graph</code>.
+	 * <!-- end-user-doc -->
 	 * @see #getOperators()
 	 * @generated
 	 * @ordered
@@ -52,7 +56,9 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	protected EList<Operator> operators;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * Constructor.
+	 * <!-- end-user-doc -->
 	 */
 	public OperatorListImpl() {
 		super();

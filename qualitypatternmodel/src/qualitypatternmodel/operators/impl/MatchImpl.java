@@ -50,6 +50,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	/**
 	 * The cached value of the '{@link #getProperty() <em>Property</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * <code>Property</code> that is matched to a regular expression.
 	 * <!-- end-user-doc -->
 	 * @see #getProperty()
 	 * @generated
@@ -60,6 +61,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * Boolean parameter to decide, if the result is negated.
 	 * <!-- end-user-doc -->
 	 * @see #getOption()
 	 * @generated
@@ -70,6 +72,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	/**
 	 * The cached value of the '{@link #getRegularExpression() <em>Regular Expression</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * Parameter to determine the regular expression.
 	 * <!-- end-user-doc -->
 	 * @see #getRegularExpression()
 	 * @generated
@@ -79,6 +82,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */

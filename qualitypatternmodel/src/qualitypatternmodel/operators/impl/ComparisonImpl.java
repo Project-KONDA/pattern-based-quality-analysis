@@ -44,8 +44,10 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object
- * '<em><b>Comparison</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> 
+ * An implementation of the model object '<em><b>Comparison</b></em>'. 
+ * Compariso between two <code>PatternElement</code>s.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -61,7 +63,9 @@ import qualitypatternmodel.patternstructure.PatternElement;
 public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	/**
 	 * The cached value of the '{@link #getArgument1() <em>Argument1</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The first argument of the comparison.
+	 * <!-- end-user-doc -->
 	 * @see #getArgument1()
 	 * @generated
 	 * @ordered
@@ -70,7 +74,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	/**
 	 * The cached value of the '{@link #getArgument2() <em>Argument2</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The second argument of the comparison.
+	 * <!-- end-user-doc -->
 	 * @see #getArgument2()
 	 * @generated
 	 * @ordered
@@ -79,7 +85,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * Boolean operator that defines the result of the comparison.
+	 * <!-- end-user-doc -->
 	 * @see #getOption()
 	 * @generated
 	 * @ordered
@@ -89,6 +97,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	/**
 	 * The cached value of the '{@link #getTypeOption() <em>Type Option</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * Base type of the comparison.
 	 * <!-- end-user-doc -->
 	 * @see #getTypeOption()
 	 * @generated
@@ -97,13 +106,21 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	protected TypeOptionParam typeOption;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> 
+	 * Constructor. 
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
 	public ComparisonImpl() {
 		super();
 	}
+	
+	/**
+	 * <!-- begin-user-doc --> 
+	 * Translation into XQuery. 
+	 * <!-- end-user-doc -->
+	 */
 
 	@Override
 	public String generateQuery() throws InvalidityException {
@@ -149,6 +166,12 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 
+	/**
+	 * <!-- begin-user-doc --> 
+	 * Validation of <code>this</code>. 
+	 * <!-- end-user-doc -->
+	 */
+	
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -161,6 +184,12 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		option.isValid(abstractionLevel);
 
 	}
+
+	/**
+	 * <!-- begin-user-doc --> 
+	 * Validation of internal values. 
+	 * <!-- end-user-doc -->
+	 */
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
 		if (argument1 == null)
@@ -199,7 +228,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> 
+	 * Returns this and all contained <code>Operator</code>s.
+	 * <!-- end-user-doc -->
 	 */
 	public EList<Operator> getAllOperators() throws InvalidityException {
 		EList<Operator> res = new BasicEList<Operator>();
@@ -214,7 +245,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * Returns all <code>Parameter</code>s referenced by this or a contained Operator.
+	 * <!-- end-user-doc -->
 	 */
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
@@ -253,7 +286,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 * @throws InvalidityException
 	 * 
