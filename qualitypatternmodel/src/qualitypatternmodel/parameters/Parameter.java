@@ -18,7 +18,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getDescription <em>Description</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.Parameter#isIsPredefined <em>Is Predefined</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#isPredefined <em>Predefined</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getParameter()
@@ -73,26 +73,26 @@ public interface Parameter extends PatternElement {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Predefined</b></em>' attribute.
+	 * Returns the value of the '<em><b>Predefined</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Predefined</em>' attribute.
-	 * @see #setIsPredefined(boolean)
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getParameter_IsPredefined()
+	 * @return the value of the '<em>Predefined</em>' attribute.
+	 * @see #setPredefined(boolean)
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getParameter_Predefined()
 	 * @model required="true"
 	 * @generated
 	 */
-	boolean isIsPredefined();
+	boolean isPredefined();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.Parameter#isIsPredefined <em>Is Predefined</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.parameters.Parameter#isPredefined <em>Predefined</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Predefined</em>' attribute.
-	 * @see #isIsPredefined()
+	 * @param value the new value of the '<em>Predefined</em>' attribute.
+	 * @see #isPredefined()
 	 * @generated
 	 */
-	void setIsPredefined(boolean value);
+	void setPredefined(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -412,37 +412,37 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			if (newArgument == null) {
 				if (otherArgument == null) {
 					getTypeOption().setValue(ReturnType.UNSPECIFIED);
-					getTypeOption().setIsPredefined(false);
+					getTypeOption().setPredefined(false);
 				}
 				if (otherArgument instanceof Property) {
 					getTypeOption().setValue(ReturnType.UNSPECIFIED);
-					getTypeOption().setIsPredefined(false);
+					getTypeOption().setPredefined(false);
 				}
 				if (otherArgument instanceof UntypedParameterValue) {
 					getTypeOption().setValue(ReturnType.UNSPECIFIED);
-					getTypeOption().setIsPredefined(false);
+					getTypeOption().setPredefined(false);
 				}
 			} else {
 				if (newArgument instanceof Element) {
 					getTypeOption().setValue(ReturnType.ELEMENT);
-					getTypeOption().setIsPredefined(true);
+					getTypeOption().setPredefined(true);
 				}
 				if (newArgument instanceof BooleanOperator) {
 					getTypeOption().setValue(ReturnType.BOOLEAN);
-					getTypeOption().setIsPredefined(true);
+					getTypeOption().setPredefined(true);
 				}
 				if (newArgument instanceof NumberOperator) {
 					getTypeOption().setValue(ReturnType.NUMBER);
-					getTypeOption().setIsPredefined(true);
+					getTypeOption().setPredefined(true);
 				}
 				if (newArgument instanceof ParameterValue) {
 					ParameterValue xsType = (ParameterValue) newArgument;
 					getTypeOption().setValue(xsType.getReturnType());
-					getTypeOption().setIsPredefined(true);
+					getTypeOption().setPredefined(true);
 				}
 				if (newArgument instanceof UntypedParameterValue) {
 					getTypeOption().setValue(ReturnType.UNSPECIFIED);
-					getTypeOption().setIsPredefined(false);
+					getTypeOption().setPredefined(false);
 				}			
 			}
 		}

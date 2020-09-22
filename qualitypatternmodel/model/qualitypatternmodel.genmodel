@@ -15,7 +15,7 @@
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//parameters/Parameter">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/Parameter/parameterList"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/Parameter/description"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/Parameter/isPredefined"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/Parameter/predefined"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/inputIsValid"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/generateDescription"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/validate">

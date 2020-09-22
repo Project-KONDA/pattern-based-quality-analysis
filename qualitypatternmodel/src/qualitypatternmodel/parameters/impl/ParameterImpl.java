@@ -30,7 +30,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#isIsPredefined <em>Is Predefined</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#isPredefined <em>Predefined</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,21 +53,22 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
 	/**
-	 * The default value of the '{@link #isIsPredefined() <em>Is Predefined</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #isIsPredefined()
+	 * The default value of the '{@link #isPredefined() <em>Predefined</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPredefined()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_PREDEFINED_EDEFAULT = false;
+	protected static final boolean PREDEFINED_EDEFAULT = false;
 	/**
-	 * The cached value of the '{@link #isIsPredefined() <em>Is Predefined</em>}' attribute.
+	 * The cached value of the '{@link #isPredefined() <em>Predefined</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #isIsPredefined()
+	 * @see #isPredefined()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isPredefined = IS_PREDEFINED_EDEFAULT;
+	protected boolean predefined = PREDEFINED_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -203,8 +204,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @generated
 	 */
 	@Override
-	public boolean isIsPredefined() {
-		return isPredefined;
+	public boolean isPredefined() {
+		return predefined;
 	}
 
 	/**
@@ -212,11 +213,11 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @generated
 	 */
 	@Override
-	public void setIsPredefined(boolean newIsPredefined) {
-		boolean oldIsPredefined = isPredefined;
-		isPredefined = newIsPredefined;
+	public void setPredefined(boolean newPredefined) {
+		boolean oldPredefined = predefined;
+		predefined = newPredefined;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PARAMETER__IS_PREDEFINED, oldIsPredefined, isPredefined));
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PARAMETER__PREDEFINED, oldPredefined, predefined));
 	}
 
 	@Override
@@ -306,8 +307,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				return getParameterList();
 			case ParametersPackage.PARAMETER__DESCRIPTION:
 				return getDescription();
-			case ParametersPackage.PARAMETER__IS_PREDEFINED:
-				return isIsPredefined();
+			case ParametersPackage.PARAMETER__PREDEFINED:
+				return isPredefined();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -326,8 +327,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			case ParametersPackage.PARAMETER__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case ParametersPackage.PARAMETER__IS_PREDEFINED:
-				setIsPredefined((Boolean)newValue);
+			case ParametersPackage.PARAMETER__PREDEFINED:
+				setPredefined((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -346,8 +347,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			case ParametersPackage.PARAMETER__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case ParametersPackage.PARAMETER__IS_PREDEFINED:
-				setIsPredefined(IS_PREDEFINED_EDEFAULT);
+			case ParametersPackage.PARAMETER__PREDEFINED:
+				setPredefined(PREDEFINED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -364,8 +365,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				return getParameterList() != null;
 			case ParametersPackage.PARAMETER__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case ParametersPackage.PARAMETER__IS_PREDEFINED:
-				return isPredefined != IS_PREDEFINED_EDEFAULT;
+			case ParametersPackage.PARAMETER__PREDEFINED:
+				return predefined != PREDEFINED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -398,8 +399,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (description: ");
 		result.append(description);
-		result.append(", isPredefined: ");
-		result.append(isPredefined);
+		result.append(", predefined: ");
+		result.append(predefined);
 		result.append(')');
 		return result.toString();
 	}
