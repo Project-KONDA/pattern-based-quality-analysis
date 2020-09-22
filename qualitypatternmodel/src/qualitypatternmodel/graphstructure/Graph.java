@@ -214,7 +214,6 @@ public interface Graph extends PatternElement {
 	 * Returns a list of all <code>Operators</code> referenced by the contained graph components.
 	 * 
 	 * @return a list of all <code>Operators</code> referenced by the contained graph components
-	 * @throws InvalidityException // TODO comment
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated

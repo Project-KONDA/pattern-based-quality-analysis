@@ -315,7 +315,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * Returns a list of all <code>Operators</code> referenced by <code>this</code>.
 	 * 
 	 * @return a list of all <code>Operators</code> referenced by <code>this</code>
-	 * @throws InvalidityException // TODO comment
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
