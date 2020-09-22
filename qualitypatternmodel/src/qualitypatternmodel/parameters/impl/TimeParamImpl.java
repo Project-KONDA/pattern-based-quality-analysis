@@ -40,6 +40,7 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Input value.
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
@@ -49,6 +50,7 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */

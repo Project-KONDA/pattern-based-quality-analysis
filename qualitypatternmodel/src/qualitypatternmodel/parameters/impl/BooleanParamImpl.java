@@ -52,6 +52,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Input value.
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
@@ -62,6 +63,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	/**
 	 * The cached value of the '{@link #getMatches() <em>Matches</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * Returns all <code>Match</code>, that use <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getMatches()
 	 * @generated
@@ -71,6 +73,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */

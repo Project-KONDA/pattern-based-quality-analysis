@@ -11,7 +11,7 @@ import qualitypatternmodel.parameters.UntypedParameterValue;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Unknown Input Value</b></em>'.
+ * An implementation of the model object '<em><b>UntypedParameterValue</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
@@ -19,6 +19,7 @@ import qualitypatternmodel.parameters.UntypedParameterValue;
 public class UntypedParameterValueImpl extends ParameterValueImpl implements UntypedParameterValue {
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */

@@ -49,6 +49,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' attribute list.
 	 * <!-- begin-user-doc -->
+	 * Available options to choose from.
 	 * <!-- end-user-doc -->
 	 * @see #getOptions()
 	 * @generated
@@ -59,6 +60,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * 
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
@@ -69,6 +71,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Input value.
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated

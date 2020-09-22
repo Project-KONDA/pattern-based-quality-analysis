@@ -30,7 +30,9 @@ import static qualitypatternmodel.utilityclasses.Constants.*;
 public class TextListParamImpl extends ParameterValueImpl implements TextListParam {
 	/**
 	 * The cached value of the '{@link #getValues() <em>Values</em>}' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * List of input values.
+	 * <!-- end-user-doc -->
 	 * @see #getValues()
 	 * @generated
 	 * @ordered
@@ -38,7 +40,9 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	protected EList<String> values;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * Constructor.
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public TextListParamImpl() {
@@ -67,7 +71,8 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -76,7 +81,8 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -133,7 +139,8 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -149,7 +156,8 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -163,7 +171,8 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -195,7 +204,8 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

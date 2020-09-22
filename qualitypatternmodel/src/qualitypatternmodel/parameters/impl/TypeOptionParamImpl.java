@@ -46,6 +46,7 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' attribute list.
 	 * <!-- begin-user-doc -->
+	 * Options to choose from.
 	 * <!-- end-user-doc -->
 	 * @see #getOptions()
 	 * @generated
@@ -66,6 +67,7 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Input value.
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
@@ -76,6 +78,7 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	/**
 	 * The cached value of the '{@link #getTypeComparisons() <em>Type Comparisons</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * <code>Comparison</code>s that reference <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getTypeComparisons()
 	 * @generated
@@ -85,6 +88,7 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */

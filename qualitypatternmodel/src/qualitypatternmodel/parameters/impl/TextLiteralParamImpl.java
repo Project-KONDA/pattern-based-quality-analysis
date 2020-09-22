@@ -54,6 +54,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Input value.
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
@@ -64,6 +65,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	/**
 	 * The cached value of the '{@link #getMatches() <em>Matches</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * <code>Match</code> objects that reference <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getMatches()
 	 * @generated
@@ -74,6 +76,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	/**
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * <code>XmlProperty</code>s that reference <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getProperties()
 	 * @generated
@@ -83,6 +86,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */

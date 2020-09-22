@@ -18,7 +18,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Number</b></em>'.
+ * An implementation of the model object '<em><b>NumberParam</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -44,6 +44,7 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Input value.
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
@@ -54,6 +55,7 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	/**
 	 * The cached value of the '{@link #getNumberArgument() <em>Number Argument</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * Reverse reference to <code>NumberElement</code> (in a <code>CountPattern</code>).
 	 * <!-- end-user-doc -->
 	 * @see #getNumberArgument()
 	 * @generated
@@ -63,6 +65,7 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */

@@ -19,7 +19,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Date Time</b></em>'.
+ * An implementation of the model object '<em><b>DateTimeParam</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -44,6 +44,7 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Input value.
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
@@ -53,6 +54,7 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */

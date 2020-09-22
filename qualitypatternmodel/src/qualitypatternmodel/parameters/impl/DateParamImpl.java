@@ -18,7 +18,7 @@ import static qualitypatternmodel.utilityclasses.Constants.*;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Date</b></em>'.
+ * An implementation of the model object '<em><b>DateParam</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -42,6 +42,7 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Input value.
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
@@ -51,6 +52,7 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated not
 	 */

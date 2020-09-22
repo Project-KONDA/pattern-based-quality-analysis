@@ -45,7 +45,7 @@ import qualitypatternmodel.parameters.ParameterValue;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>XS Type</b></em>'.
+ * An implementation of the model object '<em><b>ParameterValue</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -62,6 +62,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	/**
 	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * <code>Comparison</code> objects, that reference <code>this</code> as <code>argument1</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison1()
 	 * @generated
@@ -71,6 +72,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	/**
 	 * The cached value of the '{@link #getComparison2() <em>Comparison2</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * <code>Comparison</code> objects, that reference <code>this</code> as <code>argument2</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison2()
 	 * @generated
@@ -91,6 +93,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	/**
 	 * The cached value of the '{@link #isTypeModifiable() <em>Type Modifiable</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * True if user is allowed to replace <code>this</code> with a different <code>ParameterValue</0code> instance
 	 * <!-- end-user-doc -->
 	 * @see #isTypeModifiable()
 	 * @generated
@@ -101,6 +104,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */

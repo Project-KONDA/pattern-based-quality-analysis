@@ -58,7 +58,9 @@ import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 public class RelationOptionParamImpl extends ParameterImpl implements RelationOptionParam {
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * Options to choose from.
+	 * <!-- end-user-doc -->
 	 * @see #getOptions()
 	 * @generated
 	 * @ordered
@@ -77,7 +79,9 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * begin-user-doc -->
+	 * Input value.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getValue()
 	 * @generated
@@ -87,7 +91,9 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 
 	/**
 	 * The cached value of the '{@link #getRelations() <em>Relations</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <code>XmlNavigation</code>s that reference <code>this</code>.
+	 * <!-- end-user-doc -->
 	 * @see #getRelations()
 	 * @generated
 	 * @ordered
@@ -95,7 +101,9 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	protected EList<XmlNavigation> relations;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * Constructor.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
