@@ -328,7 +328,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * a <code>Comparison</code> based on <code>operator</code> that compares the new <code>Property</code>
 	 * with <code>input</code>.
 	 * 
-	 * @param operator the <code>ComparisonOperator</code> udnerlying the newly created <code>Comparison</code>
+	 * @param operator the <code>ComparisonOperator</code> underlying the newly created <code>Comparison</code>
 	 * @param input the <code>ParameterValue</code> that is compared to the new <code>Property</code> by the new <code>Comparison</code>
 	 * <!-- end-user-doc -->
 	 * @model
@@ -360,6 +360,13 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc --> 
+	 * Copies <code>comparison</code>.
+	 * 
+	 * Creates a new <code>Comparison</code> that has the same <code>Parameter</code> as an argument and
+	 * a copy of the original <code>Property</code> argument as an argument.
+	 * 
+	 * @param comparison the <code>Comparison</code> to be copied
+	 * @throws InvalidityException if <code>comparison</code> does not compare a <code>Property</code> and a <code>Parameter</code>
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -368,6 +375,12 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Copies <code>match</code>.
+	 * 
+	 * Creates a new <code>Match</code> that references a copy of the originally referenced <code>Property</code>
+	 * and inserts this <code>Property</code> into <code>properties</code>.
+	 * 
+	 * @param match the <code>Match</code> to be copied
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -376,6 +389,9 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a new <code>Property</code> inserted into <code>properties</code> of <code>this</code>.
+	 * 
+	 * @return the newly created <code>Property</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -384,6 +400,12 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Sets <code>graph</code> of <code>this</code> to <code>newGraph</code> 
+	 * without updating corresponding <code>Elements</code> in previous and following <code>Graphs</code>,
+	 * updating referenced <code>Parameters</code>,
+	 * clearing <code>predicates</code> and deleting <code>Relations</code>.
+	 * 
+	 * @param newGraph the new container of <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
