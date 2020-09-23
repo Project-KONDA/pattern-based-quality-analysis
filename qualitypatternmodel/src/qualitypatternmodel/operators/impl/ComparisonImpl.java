@@ -86,7 +86,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->
-	 * Boolean operator that defines the result of the comparison.
+	 * The concrete comparison operator of <code>this</code> in form of a parameter.
 	 * <!-- end-user-doc -->
 	 * @see #getOption()
 	 * @generated
@@ -97,7 +97,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	/**
 	 * The cached value of the '{@link #getTypeOption() <em>Type Option</em>}' reference.
 	 * <!-- begin-user-doc -->
-	 * Base type of the comparison.
+	 * The type of the arguments of <code>this</code> <code>Comparison</code> in form of a parameter.
 	 * <!-- end-user-doc -->
 	 * @see #getTypeOption()
 	 * @generated

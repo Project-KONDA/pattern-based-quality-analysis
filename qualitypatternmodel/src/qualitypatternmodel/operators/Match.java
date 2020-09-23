@@ -77,6 +77,7 @@ public interface Match extends BooleanOperator {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the <code>Element</code> that contains the <code>property</code> that is matched against the regular expression.
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -85,7 +86,11 @@ public interface Match extends BooleanOperator {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Returns a clone of <code>this</code>
+	 * Returns a copy of <code>this</code> that references the same <code>option</code> and
+	 * <code>regularExpression</code> as well as a copy of <code>property</code>.
+	 * 
+	 * @return a copy of <code>this</code> that references the same <code>option</code> and
+	 * <code>regularExpression</code> as well as a copy of <code>property</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

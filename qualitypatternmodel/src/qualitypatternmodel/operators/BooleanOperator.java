@@ -9,7 +9,7 @@ import qualitypatternmodel.graphstructure.Element;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Boolean Operator</b></em>'.
- * <code>Operator</code> with return values of type Boolean.
+ * <code>Operator</code> with return type boolean.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -57,6 +57,8 @@ public interface BooleanOperator extends Operator {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates associated <code>Parameters</code> if non-existent and adds them to the
+	 * pattern's <code>ParameterList</code>.	 * 
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
