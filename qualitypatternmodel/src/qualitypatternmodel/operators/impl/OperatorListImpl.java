@@ -47,7 +47,7 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 	/**
 	 * The cached value of the '{@link #getOperators() <em>Operators</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-	 * List of all <code>Operator</code>s in the <code>Graph</code>.
+	 * List of all <code>Operator</code>s referenced from within the container <code>graph</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getOperators()
 	 * @generated

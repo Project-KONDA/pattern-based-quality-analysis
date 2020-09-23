@@ -78,7 +78,6 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Returns all contained <code>Operator</code>s
 	 * <!-- end-user-doc -->
 	 */
 	public EList<Operator> getAllOperators() {
@@ -89,8 +88,6 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	
 	/**
 	 * <!-- begin-user-doc -->
-	 * TODO comment
-	 * Returns all <code>BooleanOperator</code>s, that do not nest other <code>Operator</code>s.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -117,7 +114,6 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Throws error when <code>Operator</code>s contain itself.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -152,9 +148,8 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 		isCycleFree(list);		
 	}
 
-/**
-	 * <!-- begin-user-doc -->
-	 * Arguments of <code>this</code>
+	/**
+	 * <!-- begin-user-doc -->	
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -171,18 +166,16 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	@Override
 	abstract public ReturnType getReturnType();
 
-/**
+	/**
 	 * <!-- begin-user-doc -->
-	 * Returns true, if <code>this</code> is ready to be translated.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
 	abstract public boolean isTranslatable();
 
-/**
+	/**
 	 * <!-- begin-user-doc -->
-	 * Returns all <code>Element</code>s that are arguments of an <code>Operator</code>
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -210,7 +203,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -228,7 +221,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -242,7 +235,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
-/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -260,7 +253,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -284,7 +277,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 		super.eSet(featureID, newValue);
 	}
 
-/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -305,7 +298,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 		super.eUnset(featureID);
 	}
 
-/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

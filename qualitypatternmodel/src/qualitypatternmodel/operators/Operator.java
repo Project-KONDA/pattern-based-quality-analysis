@@ -30,7 +30,7 @@ public interface Operator extends qualitypatternmodel.graphstructure.Comparable,
 	 * Returns the value of the '<em><b>Operator List</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.OperatorList#getOperators <em>Operators</em>}'.
 	 * <!-- begin-user-doc -->
-	 * Get the container 
+	 * Gets the container.
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operator List</em>' container reference.
 	 * @see #setOperatorList(OperatorList)
@@ -53,6 +53,9 @@ public interface Operator extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a list containing <code>this</code>.
+	 * 
+	 * @return a list containing <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -61,7 +64,9 @@ public interface Operator extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Returns true, if the Operator is valid.
+	 * Returns true if <code>this</code> is valid.
+	 * 
+	 * @return true if <code>this</code> is valid
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -70,6 +75,11 @@ public interface Operator extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * In case <code>this</code> is included in nesting(s) of <code>Operators</code>
+	 * returns a list of <code>BooleanOperators</code> that are the roots of
+	 * these nestings, else returns a list containing only <code>this</code>
+	 * 
+	 * @return
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -78,6 +88,11 @@ public interface Operator extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Recursively checks if <code>this</code> or descendants of <code>this</code> in the hierarchy of nested <code>Operators</code>
+	 * are contained in <code>visitedOperators</code>.
+	 * 
+	 * @throws OperatorCycleException if <code>this</code> or descendants of <code>this</code> in the hierarchy of nested <code>Operators</code>
+	 * are contained in <code>visitedOperators</code>
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.operators.OperatorCycleExceptionWrapper" visitedOperatorsMany="true"
 	 * @generated
@@ -86,6 +101,11 @@ public interface Operator extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Checks if descendants of <code>this</code> in the hierarchy of nested <code>Operators</code>
+	 * directly or indirectly have themselves as arguments.
+	 * 
+	 * @throws OperatorCycleException if descendants of <code>this</code> in the hierarchy of nested <code>Operators</code>
+	 * directly or indirectly have themselves as arguments
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" exceptions="qualitypatternmodel.operators.OperatorCycleExceptionWrapper"
 	 * @generated
@@ -94,6 +114,9 @@ public interface Operator extends qualitypatternmodel.graphstructure.Comparable,
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * A list of arguments of <code>this</code>.
+	 * 
+	 * @return a list of arguments of <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
