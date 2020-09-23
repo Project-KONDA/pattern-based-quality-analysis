@@ -86,6 +86,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The source of <code>this</code> <code>Relation</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getSource()
 	 * @generated
@@ -96,6 +97,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The target of <code>this</code> <code>Relation</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getTarget()
 	 * @generated

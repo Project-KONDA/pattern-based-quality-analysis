@@ -8,6 +8,7 @@ import qualitypatternmodel.parameters.RelationOptionParam;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>XML Navigation</b></em>'.
+ * A relation between two XML elements in the hierarchically structured XML data that corresponds to an XPath axis.
  * <!-- end-user-doc -->
  *
  * <p>

@@ -52,6 +52,7 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The type of the identifier in the XML data that is used to reference an XML element.
 	 * <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
@@ -62,6 +63,7 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	/**
 	 * The cached value of the '{@link #getTargetProperty() <em>Target Property</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The <code>XmlProperty</code> (i.e. identifier) that is referenced from another XML element through <code>this</code> reference.
 	 * <!-- end-user-doc -->
 	 * @see #getTargetProperty()
 	 * @generated
@@ -72,6 +74,7 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	/**
 	 * The cached value of the '{@link #getSourceProperty() <em>Source Property</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The <code>XmlProperty</code> that contains a reference to another XML element. 
 	 * <!-- end-user-doc -->
 	 * @see #getSourceProperty()
 	 * @generated

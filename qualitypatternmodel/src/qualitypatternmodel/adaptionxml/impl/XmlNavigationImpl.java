@@ -51,6 +51,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * A <code>RelationOptionParam</code> that specifies the type of <code>this</code>, thus the corresponding XPath axis.
 	 * <!-- end-user-doc -->
 	 * @see #getOption()
 	 * @generated

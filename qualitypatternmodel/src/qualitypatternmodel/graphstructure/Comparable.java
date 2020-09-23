@@ -68,7 +68,7 @@ public interface Comparable extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Returns <code>true</code> if <code>this</code> comparison argument can be translated to XQuery
+	 * Returns <code>true</code> if <code>this</code> comparison argument can be translated to XQuery.
 	 * 
 	 * @return <code>true</code> if <code>this</code> comparison argument can be translated to XQuery
 	 * <!-- end-user-doc -->

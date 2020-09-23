@@ -57,7 +57,7 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->
-	 * A <code>PropertyOption</code> that specifies the type of <code>this</code>.
+	 * A <code>PropertyOptionParam</code> that specifies the type of <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getOption()
 	 * @generated
