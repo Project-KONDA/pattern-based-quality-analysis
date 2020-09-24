@@ -12,6 +12,7 @@ import qualitypatternmodel.parameters.UntypedParameterValue;
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>UntypedParameterValue</b></em>'.
+ * A parameter of unknown type.
  * <!-- end-user-doc -->
  *
  * @generated

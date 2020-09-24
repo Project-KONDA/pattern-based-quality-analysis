@@ -59,7 +59,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' attribute list.
 	 * <!-- begin-user-doc -->
-	 * Options to choose from.
+	 * A subset of all XPath axes to choose from during the concretization.
 	 * <!-- end-user-doc -->
 	 * @see #getOptions()
 	 * @generated
@@ -80,7 +80,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute. <!--
 	 * begin-user-doc -->
-	 * Input value.
+	 * The chosen <code>RelationKind</code> (i.e. XPath axis).
 	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getValue()
@@ -92,7 +92,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	/**
 	 * The cached value of the '{@link #getRelations() <em>Relations</em>}' reference list.
 	 * <!-- begin-user-doc -->
-	 * <code>XmlNavigation</code>s that reference <code>this</code>.
+	 * <code>XmlNavigation</code>s that are specified through <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getRelations()
 	 * @generated

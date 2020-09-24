@@ -46,7 +46,9 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	protected static final String DESCRIPTION_EDEFAULT = null;
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * A textual description for <code>this</code> that guides the concretization of the pattern.
+	 * <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -63,7 +65,10 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	protected static final boolean PREDEFINED_EDEFAULT = false;
 	/**
 	 * The cached value of the '{@link #isPredefined() <em>Predefined</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <code>True</code> if <code>this</code> <code>Parameter</code> is predefined in a generic or
+	 * abstract pattern and hence does not have to be specified during concretization.
+	 * <!-- end-user-doc -->
 	 * @see #isPredefined()
 	 * @generated
 	 * @ordered

@@ -9,7 +9,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Parameter</b></em>'.
- * Does define a variable input parameter in a <code>CompletePattern</code>.
+ * A parameter of a <code>CompletePattern</code>.
+ * Its value is not further specified in generic and abstract patterns, but in concrete patterns.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -96,7 +97,9 @@ public interface Parameter extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Returns true, if the input value is valid.
+	 * Returns true if the parameter value is valid.
+	 * 
+	 * @return true if the parameter value is valid
 	 * <!-- end-user-doc -->
 	 * @model required="true"
 	 * @generated
@@ -105,7 +108,9 @@ public interface Parameter extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Returns true, if <code>this</code> is correctly specified.
+	 * Returns true if <code>this</code> is valid.
+	 * 
+	 * @return true if <code>this</code> is valid
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -114,7 +119,9 @@ public interface Parameter extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Returns true, if <code>this</code> is referenced somewhere within the pattern.
+	 * Returns true if <code>this</code> is referenced somewhere within the pattern.
+	 * 
+	 * @return true if <code>this</code> is referenced somewhere within the pattern
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -123,7 +130,9 @@ public interface Parameter extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Creates a simple textual description for <code>this</code>.
+	 * Returns a simple textual description for <code>this</code>.
+	 * 
+	 * @return a simple textual description for <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

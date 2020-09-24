@@ -17,7 +17,10 @@ package qualitypatternmodel.parameters;
 public interface UntypedParameterValue extends ParameterValue {
 
 	/**
-	 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc --> 
+	 * Replaces <code>this</code> with a new <code>TextLiteralParam</code> with value <code>val</code>.
+	 * 
+	 * @param val the value of the new <code>TextLiteralParam</code> that replaces <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

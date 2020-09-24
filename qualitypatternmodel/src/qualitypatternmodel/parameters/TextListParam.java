@@ -38,6 +38,9 @@ public interface TextListParam extends ParameterValue {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns an XQuery LET clause representing the list <code>values</code>.
+	 * 
+	 * @return an XQuery LET clause representing the list <code>values</code>
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -46,6 +49,9 @@ public interface TextListParam extends ParameterValue {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the XQuery variable representing the list <code>values</code>.
+	 * 
+	 * @return the XQuery variable representing the list <code>values</code>
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated

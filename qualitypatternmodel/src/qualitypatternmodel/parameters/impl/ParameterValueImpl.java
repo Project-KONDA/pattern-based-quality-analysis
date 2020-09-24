@@ -92,7 +92,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	/**
 	 * The cached value of the '{@link #isTypeModifiable() <em>Type Modifiable</em>}' attribute.
 	 * <!-- begin-user-doc -->
-	 * True if user is allowed to replace <code>this</code> with a different <code>ParameterValue</0code> instance
+	 * True if user is allowed to replace <code>this</code> with another <code>ParameterValue</code>.
 	 * <!-- end-user-doc -->
 	 * @see #isTypeModifiable()
 	 * @generated
@@ -638,6 +638,14 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		return suggestions;
 	}
 	
+	/**
+	 * Calculates suggestions for the tag name of <code>element</code> based on
+	 * specified outgoing <code>XmlNavigations</code> to <code>XmlElements</code>
+	 * with an already specified tag name  via the XML schema of the database associated with the pattern.
+	 * 
+	 * @param suggestions a list of suggestions to which newly calculated suggestions are appended
+	 * @param element the <code>XmlElement</code> for which tag suggestions are calculated
+	 */
 	private void analyseOutgoingRelations(EList<String> suggestions, XmlElement element) {
 		for(Relation outgoingRelation : element.getOutgoing()) {
 			if(outgoingRelation instanceof XmlNavigation) {
@@ -718,6 +726,14 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		}
 	}
 
+	/**
+	 * Calculates suggestions for the tag name of <code>element</code> based on
+	 * specified incoming <code>XmlNavigations</code> from <code>XmlElements</code>
+	 * with an already specified tag name via the XML schema of the database associated with the pattern.
+	 * 
+	 * @param suggestions a list of suggestions to which newly calculated suggestions are appended
+	 * @param element the <code>XmlElement</code> for which tag suggestions are calculated
+	 */
 	private void analyseIncomingRelations(EList<String> suggestions, XmlElement element) {
 		for(Relation incomingRelation : element.getIncoming()) {
 			if(incomingRelation instanceof XmlNavigation) {

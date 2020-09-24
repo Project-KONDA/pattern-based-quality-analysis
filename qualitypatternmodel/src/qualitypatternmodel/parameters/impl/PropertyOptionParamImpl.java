@@ -48,7 +48,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' attribute list.
 	 * <!-- begin-user-doc -->
-	 * Available options to choose from.
+	 * A subset of all XML property types to choose from during the concretization.
 	 * <!-- end-user-doc -->
 	 * @see #getOptions()
 	 * @generated
@@ -69,7 +69,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
-	 * Input value.
+	 * The chosen concrete property type.
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
@@ -80,7 +80,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	/**
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' reference list.
 	 * <!-- begin-user-doc -->
-	 * <code>Property</code>s that reference <code>this</code>.
+	 * <code>XmlProperties</code> that are specified through <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getProperties()
 	 * @generated

@@ -45,7 +45,9 @@ import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 public class ParameterListImpl extends PatternElementImpl implements ParameterList {
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * A list of all <code>Parameters</code> of the <code>CompletePattern</code>.
+	 * <!-- end-user-doc -->
 	 * @see #getParameters()
 	 * @generated
 	 * @ordered

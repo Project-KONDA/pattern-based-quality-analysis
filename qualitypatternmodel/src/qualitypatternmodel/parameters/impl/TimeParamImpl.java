@@ -17,6 +17,7 @@ import static qualitypatternmodel.utilityclasses.Constants.*;
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Time</b></em>'.
+ * A parameter of type time.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -40,7 +41,7 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
-	 * Input value.
+	 * Concrete value of this parameter specified during concretization.
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated

@@ -17,7 +17,9 @@ import static qualitypatternmodel.utilityclasses.Constants.*;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Text
- * List</b></em>'. <!-- end-user-doc -->
+ * List</b></em>'.
+ * A parameter consisting of a list of <code>Strings</code>.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -31,7 +33,7 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	/**
 	 * The cached value of the '{@link #getValues() <em>Values</em>}' attribute list.
 	 * <!-- begin-user-doc -->
-	 * List of input values.
+	 * Concrete values of this parameter specified during concretization.
 	 * <!-- end-user-doc -->
 	 * @see #getValues()
 	 * @generated
