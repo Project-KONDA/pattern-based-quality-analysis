@@ -2,19 +2,12 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
-import static qualitypatternmodel.utilityclasses.Constants.EVERY;
-import static qualitypatternmodel.utilityclasses.Constants.FOR;
-import static qualitypatternmodel.utilityclasses.Constants.IN;
-import static qualitypatternmodel.utilityclasses.Constants.SATISFIES;
-import static qualitypatternmodel.utilityclasses.Constants.SOME;
 import static qualitypatternmodel.utilityclasses.Constants.VARIABLE;
 
 import java.lang.reflect.InvocationTargetException;
 
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
@@ -90,46 +83,7 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 				query += relation.generateQuery();
 			}
 		}		
-		return query;
-		
-//		if(!isRootElement()) {
-//			String xPredicates = translatePredicates(location);
-//			if (location == Location.RETURN) {
-//				query = FOR + getXQueryVariable() + IN; 			
-//				if (mappingFrom == null) {
-//					String xPathExpression = translatePathFromPrevious();
-//					query += xPathExpression + xPredicates;
-//				} else if (!xPredicates.equals("")) {
-//					query += getXQueryVariable() + xPredicates;
-//				} else {
-//					query = "";
-//				}
-//				
-//			} else {
-//				if (location == Location.EXISTS) {
-//					query += SOME;
-//				} else if (location == Location.FORALL) {
-//					query += EVERY;
-//				} else {
-//					throw new InvalidityException("invalid location");
-//				}
-//				query += getXQueryVariable() + IN;
-//				if (mappingFrom == null) {
-//					String xPathExpression = translatePathFromPrevious();
-//					query += xPathExpression + xPredicates + SATISFIES;
-//				} else if (!xPredicates.equals("")) {
-//					query += getXQueryVariable() + xPredicates + SATISFIES;
-//				} else {
-//					query = "";
-//				}
-//			}
-//		}
-//		String following = "";
-//		for (Element nextElement : getNextElements()) {
-//			following += nextElement.generateQuery(location);
-//		}
-//		if (!isRootElement()) following = following.replace("\n", "\n  ");
-					
+		return query;					
 	}
 	
 	@Override
@@ -153,18 +107,6 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 		}
 		
 	}
-	
-//	private String translatePathFromPrevious() throws InvalidityException {
-//		if(relationFromPrevious.getOption() != null) {
-//			if (getPreviousElement().isRootElement()) {
-//				return "/" + relationFromPrevious.getOption().getValue() + "::*";
-//			} else {
-//				return ((Element) getPreviousElement()).getXQueryVariable() + "/" + relationFromPrevious.getOption().getValue() + "::*";
-//			}
-//		} else {
-//			throw new InvalidityException("relation option null");
-//		}
-//	}
 	
 	@Override
 	public String getXQueryRepresentation() throws InvalidityException {
@@ -320,7 +262,6 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 	public void addPrimitiveMatch(String regex) {
 		Match match = new MatchImpl();
 		try {			
-			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
 			
@@ -346,17 +287,6 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 		getProperties().add(prop);
 		prop.createParameters();
 		return prop;
-	}
-
-
-	@Override
-	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
-//		if(newGraph != null) {
-////			prepareParameterUpdates(newGraph.getParameterList());
-//			updateOperators(newGraph.getOperatorList());
-//		}
-		NotificationChain res = super.basicSetGraph(newGraph, msgs);
-		return res;
 	}
 	
 	/**

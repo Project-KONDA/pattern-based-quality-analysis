@@ -101,7 +101,8 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 			String conversionEndArgument2 = getType().getConversionEnd();
 					
 			ComparisonOperator operator = ComparisonOperator.EQUAL;				
-			return conversionStartArgument1 + getSourceProperty().generateQuery() + conversionEndArgument1 + operator.getLiteral() + conversionStartArgument2 +  getTargetProperty().generateQuery() + conversionEndArgument2;
+			return conversionStartArgument1 + getSourceProperty().generateQuery() + conversionEndArgument1 + operator.getLiteral() 
+			+ conversionStartArgument2 +  getTargetProperty().generateQuery() + conversionEndArgument2;
 		} else {
 			throw new InvalidityException("invalid arguments for Reference" + " (" + getInternalId() + ")");
 		}		
@@ -146,7 +147,7 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 			throw new InvalidityException("target and targetProperty not conform (" + getInternalId() + ")" );
 		}
 		
-		// TODO: decided to not allow ReferenceOperator to be an argument of Comparison
+		// decided to not allow XmlReference to be an argument of Comparison
 		// ensure "predicate owner must be argument" constraint: 		
 //		if(getComparison1().isEmpty() && getComparison2().isEmpty()) {
 //			// this is root operator
@@ -240,20 +241,6 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
-
-	// TODO: adapt copy
-//	/**
-//	 * <!-- begin-user-doc -->
-//	 * <!-- end-user-doc -->
-//	 * @generated NOT
-//	 */
-//	@Override
-//	public ReferenceOperator copy() {
-//		ReferenceOperator newReferenceOperator = new ReferenceOperatorImpl();
-//		newReferenceOperator.setProperty1(getProperty1().copy());
-//		newReferenceOperator.setProperty2(getProperty2().copy());
-//		return newReferenceOperator;
-//	}
 	
 	// TODO: not needed anymore
 //	/**

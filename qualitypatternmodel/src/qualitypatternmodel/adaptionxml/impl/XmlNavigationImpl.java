@@ -70,8 +70,6 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	
 	@Override
 	public String generateQuery() throws InvalidityException {
-//		translated = true;
-
 		String query = "";
 		
 		String source = "";
@@ -158,7 +156,6 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	@Override
 	public XmlReference adaptAsXMLReference() {
 		removeParametersFromParameterList();
-//		setOption(null);
 		return super.adaptAsXMLReference();
 	}
 	
@@ -204,7 +201,6 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 			if(parameterList != null) {
 				if (getOption() == null) {
 					RelationOptionParam relationOptionParam = new RelationOptionParamImpl();
-//					parameterList.add(relationOptionParam);				
 					setOption(relationOptionParam);
 				} else {
 					parameterList.add(getOption());
@@ -237,24 +233,16 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	}
 	
 	@Override
-	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
-//		triggerParameterUpdates(newGraph);
-		
-		NotificationChain res = super.basicSetGraph(newGraph, msgs);
-		
+	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {		
+		NotificationChain res = super.basicSetGraph(newGraph, msgs);		
 		createParameters();
-		
-//		if (newGraph != null && getIncomingMapping() == null) {
-//			createParameters();
-//		}
 		return res;
 	}
 	
 	@Override
 	public NotificationChain basicSetIncomingMapping(RelationMapping newMappingFrom, NotificationChain msgs) {
-		if (newMappingFrom != null) { // TODO: remove?			
-			removeParametersFromParameterList();
-			
+		if (newMappingFrom != null) {		
+			removeParametersFromParameterList();			
 		}
 		NotificationChain res = super.basicSetIncomingMapping(newMappingFrom, msgs);
 		return res;
