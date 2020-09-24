@@ -10,7 +10,8 @@ import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Operator</b></em>', which does define a function on <code>PatternElement</code>s that produces a return value.
+ * A representation of the model object '<em><b>Operator</b></em>'.
+ * A function on <code>PatternElement</code>s that produces a return value.
  * <!-- end-user-doc -->
  *
  * <p>

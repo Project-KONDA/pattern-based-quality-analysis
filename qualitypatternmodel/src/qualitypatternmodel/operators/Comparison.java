@@ -9,7 +9,7 @@ import qualitypatternmodel.parameters.TypeOptionParam;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Comparison</b></em>'.
- * Representation of a comparison within a pattern between two <code>Element</code>s, two <code>Property</code>s or one <code>Property</code> and one <code>Parameter</code>.
+ * A comparison within a pattern between two <code>Element</code>s, two <code>Property</code>s or one <code>Property</code> and one <code>Parameter</code>.
  * <!-- end-user-doc -->
  *
  * <p>
