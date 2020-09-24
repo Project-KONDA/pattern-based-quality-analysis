@@ -41,6 +41,9 @@ public interface BooleanOperator extends Operator {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Adds <code>element</code> to <code>elements</code> if not already contained.
+	 * 
+	 * @param element the <code>Element</code> to add to <code>elements</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -49,6 +52,10 @@ public interface BooleanOperator extends Operator {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Removes <code>element</code> from <code>elements</code> if <code>this</code> has not more than
+	 * one direct or indirect argument that is related to <code>element</code>.
+	 * 
+	 * @param element the <code>Element</code> to remove from <code>elements</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -58,7 +65,7 @@ public interface BooleanOperator extends Operator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Creates associated <code>Parameters</code> if non-existent and adds them to the
-	 * pattern's <code>ParameterList</code>.	 * 
+	 * pattern's <code>ParameterList</code>.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

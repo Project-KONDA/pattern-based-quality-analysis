@@ -41,6 +41,8 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	/**
 	 * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of all <code>Elements</code> that are direct or indirect arguments of <code>this</code> or
+	 * contain <code>Properties</code> that serve as direct or indirect arguments.
 	 * <!-- end-user-doc -->
 	 * @see #getElements()
 	 * @generated
@@ -48,7 +50,7 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 */
 	protected EList<Element> elements;
 	
-	protected EMap<Element,Integer> elementCount;
+	private EMap<Element,Integer> elementCount;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -279,15 +281,11 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 		return super.eInvoke(operationID, arguments);
 	}
 
-	public EMap<Element, Integer> getElementCount() {
+	private EMap<Element, Integer> getElementCount() {
 		if(elementCount == null) {
 			elementCount = new BasicEMap<Element, Integer>();
 		}
 		return elementCount;
-	}
-
-	public void setElementCount(EMap<Element, Integer> elementCount) {
-		this.elementCount = elementCount;
 	}
 
 } //BooleanOperatorImpl
