@@ -294,8 +294,10 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		RelationOptionParam oldOption = option;
 				
 		ParameterList varlist = getParameterList();
-		varlist.remove(oldOption);			
-		varlist.add(newOption);				
+		if(varlist != null) {
+			varlist.remove(oldOption);			
+			varlist.add(newOption);				
+		}
 		
 		option = newOption;
 		

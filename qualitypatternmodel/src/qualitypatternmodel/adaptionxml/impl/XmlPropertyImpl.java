@@ -180,8 +180,8 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 				} else if (comp.getArgument2() instanceof TextLiteralParam) {
 					value = ((TextLiteralParam) comp.getArgument2()).getValue(); 
 				}
-				// TODO: support other Param types as well
-				if(value != null && comp.getOption() != null && comp.getOption().getValue() != null) {	//  && comp.getOption().getValue() == ComparisonOperator.EQUAL		
+				// TODO: support other parameter types as well
+				if(value != null && comp.getOption() != null && comp.getOption().getValue() != null) {
 					switch (getOption().getValue()) {
 					case ATTRIBUTE:
 						if(getAttributeName() != null && getAttributeName().getValue() != null) {
@@ -230,14 +230,12 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 		if(parameterList != null) {
 			if(getOption() == null) {
 				PropertyOptionParam option = new PropertyOptionParamImpl();	
-//				parameterList.add(option);
 				setOption(option);
 			} else {
 				parameterList.add(getOption());
 			}
 			if(getAttributeName() == null) {
 				TextLiteralParam textLiteral = new TextLiteralParamImpl();
-//				parameterList.add(textLiteral);
 				setAttributeName(textLiteral);
 			} else {
 				parameterList.add(getAttributeName());
@@ -246,24 +244,9 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	}
 	
 	@Override
-	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {
-//		getComparison1().clear();
-//		getComparison2().clear();	
-//		getMatch().clear();			
-			
-//		triggerParameterUpdates(newElement);		
-		
-//		if(newElement == null) {
-//			removeParametersFromParameterList();		
-//		}
-//		reset();
-		NotificationChain res = super.basicSetElement(newElement, msgs);
-		
+	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {			
+		NotificationChain res = super.basicSetElement(newElement, msgs);		
 		createParameters();
-		
-//		if(newElement != null) {
-//		createInputs();
-//	} 
 		return res;
 		
 	}
@@ -343,8 +326,10 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 		PropertyOptionParam oldOption = option;
 		
 		ParameterList varlist = getParameterList();
-		varlist.remove(oldOption);
-		varlist.add(newOption);			
+		if(varlist != null) {
+			varlist.remove(oldOption);
+			varlist.add(newOption);			
+		}
 		
 		option = newOption;
 		
