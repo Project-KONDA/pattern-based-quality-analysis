@@ -556,12 +556,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalId" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="-1"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="Location">
-      <eLiterals name="RETURN" value="1" literal="RETURN"/>
-      <eLiterals name="OUTSIDE"/>
-      <eLiterals name="EXISTS" value="2" literal="EXISTS"/>
-      <eLiterals name="FORALL" value="3" literal="FORALL"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="InvalidityExceptionWrapper" instanceClassName="qualitypatternmodel.exceptions.InvalidityException"/>
     <eClassifiers xsi:type="ecore:EDataType" name="ClassWrapper" instanceClassName="java.lang.Class"/>
     <eClassifiers xsi:type="ecore:EDataType" name="MissingPatternContainerException"

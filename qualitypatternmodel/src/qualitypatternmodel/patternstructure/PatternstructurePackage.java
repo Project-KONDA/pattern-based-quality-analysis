@@ -4759,16 +4759,6 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIER = 18;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.Location <em>Location</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.Location
-	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getLocation()
-	 * @generated
-	 */
-	int LOCATION = 19;
-
-	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.AbstractionLevel <em>Abstraction Level</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4776,7 +4766,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getAbstractionLevel()
 	 * @generated
 	 */
-	int ABSTRACTION_LEVEL = 20;
+	int ABSTRACTION_LEVEL = 19;
 
 	/**
 	 * The meta object id for the '<em>Invalidity Exception Wrapper</em>' data type.
@@ -4786,7 +4776,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getInvalidityExceptionWrapper()
 	 * @generated
 	 */
-	int INVALIDITY_EXCEPTION_WRAPPER = 21;
+	int INVALIDITY_EXCEPTION_WRAPPER = 20;
 
 	/**
 	 * The meta object id for the '<em>Class Wrapper</em>' data type.
@@ -4796,7 +4786,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getClassWrapper()
 	 * @generated
 	 */
-	int CLASS_WRAPPER = 22;
+	int CLASS_WRAPPER = 21;
 
 	/**
 	 * The meta object id for the '<em>Missing Pattern Container Exception</em>' data type.
@@ -4806,7 +4796,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getMissingPatternContainerException()
 	 * @generated
 	 */
-	int MISSING_PATTERN_CONTAINER_EXCEPTION = 23;
+	int MISSING_PATTERN_CONTAINER_EXCEPTION = 22;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.RelationMapping <em>Relation Mapping</em>}'.
@@ -5854,16 +5844,6 @@ public interface PatternstructurePackage extends EPackage {
 	EEnum getQuantifier();
 
 	/**
-	 * Returns the meta object for enum '{@link qualitypatternmodel.patternstructure.Location <em>Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Location</em>'.
-	 * @see qualitypatternmodel.patternstructure.Location
-	 * @generated
-	 */
-	EEnum getLocation();
-
-	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.patternstructure.AbstractionLevel <em>Abstraction Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6766,16 +6746,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum QUANTIFIER = eINSTANCE.getQuantifier();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.Location <em>Location</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.Location
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getLocation()
-		 * @generated
-		 */
-		EEnum LOCATION = eINSTANCE.getLocation();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.AbstractionLevel <em>Abstraction Level</em>}' enum.

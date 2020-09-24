@@ -335,12 +335,6 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Quantifier/EXISTS"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Quantifier/FORALL"/>
       </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//patternstructure/Location">
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Location/RETURN"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Location/OUTSIDE"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Location/EXISTS"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Location/FORALL"/>
-      </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//patternstructure/AbstractionLevel">
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/AbstractionLevel/GENERIC"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/AbstractionLevel/ABSTRACT"/>

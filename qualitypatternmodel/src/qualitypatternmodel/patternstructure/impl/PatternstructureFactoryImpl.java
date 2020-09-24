@@ -87,8 +87,6 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 				return createLogicalOperatorFromString(eDataType, initialValue);
 			case PatternstructurePackage.QUANTIFIER:
 				return createQuantifierFromString(eDataType, initialValue);
-			case PatternstructurePackage.LOCATION:
-				return createLocationFromString(eDataType, initialValue);
 			case PatternstructurePackage.ABSTRACTION_LEVEL:
 				return createAbstractionLevelFromString(eDataType, initialValue);
 			case PatternstructurePackage.INVALIDITY_EXCEPTION_WRAPPER:
@@ -114,8 +112,6 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 				return convertLogicalOperatorToString(eDataType, instanceValue);
 			case PatternstructurePackage.QUANTIFIER:
 				return convertQuantifierToString(eDataType, instanceValue);
-			case PatternstructurePackage.LOCATION:
-				return convertLocationToString(eDataType, instanceValue);
 			case PatternstructurePackage.ABSTRACTION_LEVEL:
 				return convertAbstractionLevelToString(eDataType, instanceValue);
 			case PatternstructurePackage.INVALIDITY_EXCEPTION_WRAPPER:
@@ -287,26 +283,6 @@ public class PatternstructureFactoryImpl extends EFactoryImpl implements Pattern
 	 * @generated
 	 */
 	public String convertQuantifierToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Location createLocationFromString(EDataType eDataType, String initialValue) {
-		Location result = Location.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertLocationToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -32,7 +32,6 @@ import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.Mapping;
@@ -190,13 +189,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	private EEnum quantifierEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum locationEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1325,16 +1317,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EEnum getLocation() {
-		return locationEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EEnum getAbstractionLevel() {
 		return abstractionLevelEEnum;
 	}
@@ -1516,7 +1498,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		// Create enums
 		logicalOperatorEEnum = createEEnum(LOGICAL_OPERATOR);
 		quantifierEEnum = createEEnum(QUANTIFIER);
-		locationEEnum = createEEnum(LOCATION);
 		abstractionLevelEEnum = createEEnum(ABSTRACTION_LEVEL);
 
 		// Create data types
@@ -1785,12 +1766,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEEnum(quantifierEEnum, Quantifier.class, "Quantifier");
 		addEEnumLiteral(quantifierEEnum, Quantifier.EXISTS);
 		addEEnumLiteral(quantifierEEnum, Quantifier.FORALL);
-
-		initEEnum(locationEEnum, Location.class, "Location");
-		addEEnumLiteral(locationEEnum, Location.RETURN);
-		addEEnumLiteral(locationEEnum, Location.OUTSIDE);
-		addEEnumLiteral(locationEEnum, Location.EXISTS);
-		addEEnumLiteral(locationEEnum, Location.FORALL);
 
 		initEEnum(abstractionLevelEEnum, AbstractionLevel.class, "AbstractionLevel");
 		addEEnumLiteral(abstractionLevelEEnum, AbstractionLevel.GENERIC);

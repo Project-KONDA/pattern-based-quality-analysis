@@ -175,7 +175,7 @@ public interface ParameterValue extends Parameter, qualitypatternmodel.graphstru
 	 * @return a list of <code>XmlElements</code> that contain an <code>XmlProperty</code> of type TAG
 	 * that is compared with <code>this</code>
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model kind="operation"
 	 * @generated
 	 */
 	EList<XmlElement> getTagComparisonElements();
