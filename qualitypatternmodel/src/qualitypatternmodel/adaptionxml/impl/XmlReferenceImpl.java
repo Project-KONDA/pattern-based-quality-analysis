@@ -146,26 +146,7 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 		if(!getTargetProperty().getElement().equals(getTarget())) {
 			throw new InvalidityException("target and targetProperty not conform (" + getInternalId() + ")" );
 		}
-		
-		// decided to not allow XmlReference to be an argument of Comparison
-		// ensure "predicate owner must be argument" constraint: 		
-//		if(getComparison1().isEmpty() && getComparison2().isEmpty()) {
-//			// this is root operator
-//
-//			if(!getElements().contains(getProperty1().getElement()) || !getElements().contains(getProperty2().getElement())) {
-//				throw new InvalidityException("invalid predicate argument" + " (" + getInternalId() + ")" );
-//			}			
-//		}		
-//		
-//		for(Element element : getElements()) {
-//			if(!element.equals(getProperty1().getElement()) && !element.equals(getProperty2().getElement())) {
-//				throw new InvalidityException("too many predicate owners" + " (" + getInternalId() + ")" );
-//			}
-//		}
-//
-//		if(getElements().size() > 2) {
-//			throw new InvalidityException("invalid predicate argument" + " (" + getInternalId() + ")" );
-//		}
+	
 	}
 	
 	@Override
@@ -241,29 +222,6 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
-	
-	// TODO: not needed anymore
-//	/**
-//	 * <!-- begin-user-doc -->
-//	 * <!-- end-user-doc -->
-//	 * @throws InvalidityException 
-//	 * 
-//	 */
-//	@Override
-//	public EList<Element> getAllArgumentElements() throws InvalidityException {				
-//		EList<Element> arguments = getSourceProperty().getAllArgumentElements();
-//		arguments.addAll(getTargetProperty().getAllArgumentElements());
-//		return arguments;
-//	}
-	
-	// TODO: not needed anymore
-//	@Override
-//	public EList<Comparable> getArguments() {
-//		EList<Comparable> list = new BasicEList<Comparable>();
-//		list.add(property1);
-//		list.add(property2);
-//		return list;
-//	}
 	
 	/**
 	 * <!-- begin-user-doc -->
