@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * <!-- begin-user-doc -->
  * A representation of the literals of the enumeration '<em><b>Comparison Operator</b></em>',
  * and utility methods for working with them.
+ * Concrete comparison operators that can be used to specify a <code>Comparison</code>.
  * <!-- end-user-doc -->
  * @see qualitypatternmodel.operators.OperatorsPackage#getComparisonOperator()
  * @model
