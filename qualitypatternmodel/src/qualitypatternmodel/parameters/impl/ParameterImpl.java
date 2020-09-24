@@ -82,32 +82,12 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		super();
 	}
 
-//	@Override
-//	public String toXQuery(Location location, int depth) throws InvalidityException {
-//		return toXQuery(location);
-//	}
-
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		res.add(this);
 		return res;
 	}
-
-//	@Override
-//	public boolean isTranslatable() throws InvalidityException {
-//		return true;
-//	}
-
-//	/**
-//	 * <!-- begin-user-doc -->
-//	 * <!-- end-user-doc -->
-//	 * @generated NOT
-//	 */
-//	@Override
-//	public void triggerParameterUpdates(PatternElement newContainer) {
-//		
-//	}
 	
 	@Override
 	public void updateParameters(ParameterList newParameterList) {
@@ -116,22 +96,6 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			getParameterList().remove(this);
 		}
 	}
-	
-//	@Override
-//	public void prepareParameterUpdates(ParameterList newParameterList) {
-//		setParameterList(newParameterList);
-//		// attention: all references to this are deleted automatically when moved to newParameterList
-//		// TODO: OK?
-//		
-////		if(newParameterList == null) {
-////			getParameterList().remove(this);
-////		} else {
-////			// move this to newParameterList
-////			// attention: all references are deleted automatically
-////			setParameterList(newParameterList);
-////		}
-//		
-//	}
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

@@ -143,7 +143,6 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 			if(getNumberParam() == null) {
 				NumberParam newNumberParam = new NumberParamImpl();
 				setNumberParam(newNumberParam);
-//				parameterList.add(newNumberParam);
 			} else {			
 				parameterList.add(getNumberParam());
 			}

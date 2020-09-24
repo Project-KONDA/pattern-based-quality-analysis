@@ -52,7 +52,6 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	 */
 	protected NotConditionImpl() {
 		super();
-//		setCondition(new TrueElementImpl());
 	}
 
 	@Override
@@ -90,11 +89,6 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	public void finalizeXMLAdaption() throws InvalidityException {
 		getCondition().finalizeXMLAdaption();
 	}
-	
-//	@Override	
-//	public void updateParameters(ParameterList newParameterList) {
-//		getCondition().updateParameters(newParameterList);		
-//	}
 	
 	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {

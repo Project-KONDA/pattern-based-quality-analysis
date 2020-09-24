@@ -165,14 +165,12 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			if(getOption() == null) {
 				BooleanParam bool = new BooleanParamImpl();				
 				setOption(bool);
-//				parameterList.add(bool);
 			} else {
 				parameterList.add(getOption());
 			}
 			if(getRegularExpression() == null) {
 				TextLiteralParam textLiteral = new TextLiteralParamImpl();				
 				setRegularExpression(textLiteral);
-//				parameterList.add(textLiteral);
 			} else {
 				parameterList.add(getRegularExpression());
 			}

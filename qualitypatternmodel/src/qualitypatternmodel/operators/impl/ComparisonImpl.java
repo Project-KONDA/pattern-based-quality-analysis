@@ -137,6 +137,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			} else {
 				argument1Translated = argument1.generateQuery();
 			}
+			
 			String conversionStartArgument2 = type.getConversion();
 			String conversionEndArgument2 = type.getConversionEnd();
 			String argument2Translated = "";
@@ -145,6 +146,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			} else {
 				argument2Translated = argument2.generateQuery();
 			}			
+			
 			if( argument1 instanceof XmlElement && argument2 instanceof XmlElement ) {
 				String res = "fn:deep-equal ( " + argument1Translated + ", " + argument2Translated + " )";
 				if (operator == ComparisonOperator.EQUAL) {
@@ -251,7 +253,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 */
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
-//		System.out.println(argument1 + " " + argument2);
 		EList<Parameter> res = new BasicEList<Parameter>();
 		if (argument1 instanceof Parameter) {
 			res.add((Parameter) argument1);
@@ -260,6 +261,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		} else if (argument1 instanceof Property) {
 			res.addAll(((Property) argument1).getAllParameters());
 		}
+		
 		if (argument2 instanceof Parameter) {
 			res.add((Parameter) argument2);
 		} else if (argument2 instanceof Operator) {
@@ -267,16 +269,19 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		} else if (argument2 instanceof Property) {
 			res.addAll(((Property) argument2).getAllParameters());
 		}
+		
 		if (getOption() != null) {
 			res.add(option);
 		} else {
 			throw new InvalidityException("option null" + " (" + getInternalId() + ")");
 		}
+		
 		if (getTypeOption() != null) {
 			res.add(typeOption);
 		} else {
 			throw new InvalidityException("typeOption null" + " (" + getInternalId() + ")");
 		}
+		
 		return res;
 	}
 
@@ -409,24 +414,17 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			return msgs;
 		}
 
-		adaptOperatorElementAssociation(newArgument1, oldArgument1);
-		
-		
-		try {
-			CompletePattern completePattern;
-			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-			ParameterList varlist = completePattern.getParameterList();			
-			if(oldArgument1 instanceof Parameter && varlist != null) {
-				Parameter oldParameter = (Parameter) oldArgument1;					
-				varlist.remove(oldParameter);				
-			}				
-			if(newArgument1 instanceof Parameter && varlist != null) {
-				Parameter newParameter = (Parameter) newArgument1;
-				varlist.add(newParameter);				
-			}
-		} catch (MissingPatternContainerException e) {
-			// do nothing
-		}	
+		adaptOperatorElementAssociation(newArgument1, oldArgument1);		
+					
+		ParameterList varlist = getParameterList();			
+		if(oldArgument1 instanceof Parameter && varlist != null) {
+			Parameter oldParameter = (Parameter) oldArgument1;					
+			varlist.remove(oldParameter);				
+		}				
+		if(newArgument1 instanceof Parameter && varlist != null) {
+			Parameter newParameter = (Parameter) newArgument1;
+			varlist.add(newParameter);				
+		}
 		
 
 		if (eNotificationRequired()) {
@@ -505,8 +503,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	private void moveElementsFromRootOperatorToOldArgument(qualitypatternmodel.graphstructure.Comparable oldArgument, BooleanOperator rootOperator) {
 		BooleanOperator oldArgumentOperator = (BooleanOperator) oldArgument;
 		EList<Element> rootOperatorElements = new BasicEList<Element>();
-		rootOperatorElements.addAll(rootOperator.getElements()); // rootOperator.getElements() is already empty at this point in
-																// case THIS gets DELETED!
+		rootOperatorElements.addAll(rootOperator.getElements());
+		// rootOperator.getElements() is already empty at this point in case THIS gets DELETED!
 		
 		EList<Element> argumentElements = oldArgumentOperator.getAllArgumentElements();
 		if(argumentElements.size() > 0) {
@@ -843,23 +841,17 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			return msgs;
 		}
 
-		adaptOperatorElementAssociation(newArgument2, oldArgument2);
+		adaptOperatorElementAssociation(newArgument2, oldArgument2);		
 		
-		try {
-			CompletePattern completePattern;
-			completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-			ParameterList varlist = completePattern.getParameterList();			
-			if(oldArgument2 instanceof Parameter && varlist != null) {
-				Parameter oldParameter = (Parameter) oldArgument2;					
-				varlist.remove(oldParameter);				
-			}				
-			if(newArgument2 instanceof Parameter && varlist != null) {
-				Parameter newParameter = (Parameter) newArgument2;
-				varlist.add(newParameter);				
-			}
-		} catch (MissingPatternContainerException e) {
-			// do nothing
-		}	
+		ParameterList varlist = getParameterList();			
+		if(oldArgument2 instanceof Parameter && varlist != null) {
+			Parameter oldParameter = (Parameter) oldArgument2;					
+			varlist.remove(oldParameter);				
+		}				
+		if(newArgument2 instanceof Parameter && varlist != null) {
+			Parameter newParameter = (Parameter) newArgument2;
+			varlist.add(newParameter);				
+		}		
 
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,

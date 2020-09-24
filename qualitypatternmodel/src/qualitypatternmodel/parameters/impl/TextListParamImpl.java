@@ -61,9 +61,7 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	public boolean inputIsValid() {
 		if (getValues() == null || getValues().isEmpty())
 			return false;
-//		for (String val : getValues())
-//			if (val.equals(""))
-//				return false;
+
 		return true;
 	}
 	
@@ -108,11 +106,7 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 			res += "'" + getValues().get(i) + "'";
 		}
 		return res + ")";
-		//let $sequence := ("apple", 'banana', "carrot", 'dog', "egg", 'fig')
 	}
-
-
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,9 +117,6 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	public String getListVar() {
 		return LISTVARIABLE + getInternalId();
 	}
-
-
-
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

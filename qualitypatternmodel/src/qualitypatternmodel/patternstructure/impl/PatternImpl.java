@@ -115,7 +115,6 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 */
 	protected PatternImpl() {
 		super();
-//		setCondition(new TrueElementImpl());
 	}
 
 	@Override
@@ -142,7 +141,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			throw new InvalidityException("return elements missing");
 		}
 		String forClauses = graph.generateQuery();
-		String whereClause = WHERE + condition.generateQuery().replace("\n", "\n  "); // TODO: schachteln!
+		String whereClause = WHERE + condition.generateQuery().replace("\n", "\n  ");
 
 		String returnClause = RETURN + "(";
 		EList<Element> returnElements = graph.getReturnElements();
@@ -211,7 +210,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		EList<MorphismContainer> nextQuantifiedConditions = getCondition().getNextMorphismContainers();
 		for(MorphismContainer next : nextQuantifiedConditions) {
 			if(!getGraph().equals(next.getMorphism().getSource())) {
-				throw new InvalidityException("[" + getInternalId() + "] wrong morphism source in " + next.getInternalId() + ": " + next.getMorphism().getSource().getInternalId() + " instead of " + getGraph().getInternalId());
+				throw new InvalidityException("[" + getInternalId() + "] wrong morphism source in " + next.getInternalId() + ": " 
+					+ next.getMorphism().getSource().getInternalId() + " instead of " + getGraph().getInternalId());
 			}
 			if(!next.getGraph().equals(next.getMorphism().getTarget())) {
 				throw new InvalidityException("wrong mapping to [" + getInternalId() + "]");

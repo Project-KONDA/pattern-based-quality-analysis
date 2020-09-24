@@ -258,24 +258,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 		throw new UnsupportedOperationException();
 	}
 
-	//	/**
-//	 * <!-- begin-user-doc -->
-//	 * <!-- end-user-doc -->
-//	 * @generated NOT
-//	 */
-//	@Override
-//	public void triggerParameterUpdates(PatternElement newContainer, EList<PatternElement> patternElements) {
-//		ParameterList parameterList = null;
-//		if(newContainer != null) {
-//			parameterList = newContainer.getParameterList();
-//		}		
-//		for(PatternElement patternElement : patternElements) {
-//			if(patternElement != null) {						
-//				patternElement.prepareParameterUpdates(parameterList);			
-//			}	
-//		}
-//	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -416,7 +398,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			try {
 				internalId = ((CompletePatternImpl) this.getAncestor(CompletePatternImpl.class)).getNewRefNo(this.getClass());
 			} catch (MissingPatternContainerException e) {
-				// TODO Auto-generated catch block
+				// do nothing
 //				e.printStackTrace();
 			}
 		}

@@ -133,7 +133,6 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 
 	@Override
 	public String generateQuery() throws InvalidityException {
-//		return "/" + value.getLiteral() + "::*";
 		return value.getLiteral();
 	}
 

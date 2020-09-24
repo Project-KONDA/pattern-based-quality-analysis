@@ -130,14 +130,18 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		if(!(this instanceof XmlProperty)) {
 			XmlProperty xmlProperty = new XmlPropertyImpl();			 
 			xmlProperty.setElement(getElement());
+			
 			if(getName().matches("Property [0-9]+")) {
 				xmlProperty.setName(getName().replace("Property", "XmlProperty"));
 			} else {
 				xmlProperty.setName(getName());
 			}
+			
 			xmlProperty.createParameters();
+			
 			xmlProperty.getMatch().addAll(getMatch());
 			getMatch().clear();			
+			
 			xmlProperty.getComparison1().addAll(getComparison1());
 			getComparison1().clear();
 			xmlProperty.getComparison2().addAll(getComparison2());

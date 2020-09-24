@@ -142,11 +142,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public GraphImpl() {
 		super();
 		setOperatorList(new OperatorListImpl());
-//		setRootElement(new SingleElementImpl());
-//		SingleElementImpl returnElement = new SingleElementImpl();
-////		getRootElement().getNextSingle().add(returnElement); 
-//		returnElement.setPrevious(getRootElement());
-//		getReturnElements().add(returnElement);
 	}
 
 	@Override
@@ -178,11 +173,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			throw new InvalidityException("returnElement empty (" + getInternalId() + ")");
 		if (operatorList == null)
 			throw new InvalidityException("operatorList null (" + getInternalId() + ")");
-//		boolean rootExists = false;
 		int noRoot = 0;
 		for(Element element : getElements()) {
 			if(element instanceof XmlRoot) {
-//				rootExists = true;
 				noRoot++;
 			}
 		}
@@ -255,37 +248,30 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			root.setGraphSimple(this);	
 			try {
 				if (getContainer() instanceof MorphismContainer) {
-//			if (getQuantifiedCondition() != null || getPattern() instanceof MorphismContainer) {
-//				Morphism morph = getQuantifiedCondition().getMorphism();
-//				if (morph == null) morph = ((MorphismContainer) getPattern()).getMorphism();
 					Morphism morph = ((MorphismContainer) getContainer()).getMorphism();
-					Graph graph2 = morph.getSource();
-					XmlRoot root2 = null;
-					for(Element element : graph2.getElements()) {
+					Graph previousGraph = morph.getSource();
+					XmlRoot previousRoot = null;
+					for(Element element : previousGraph.getElements()) {
 						if(element instanceof XmlRoot) {
-							root2 = (XmlRoot) element;
+							previousRoot = (XmlRoot) element;
 						}
 					}
-					morph.addMapping(root2, root);
-//				}
-//		
-//				if (getQuantifiedCondition() != null) {
-//					Morphism morph = getQuantifiedCondition().getMorphism();
-//					Graph graph2 = morph.getFrom();
-					root2 = (XmlRoot) root.getIncomingMapping().getSource();
-					for (Relation re : graph2.getRelations()) {
-						if (re.getSource().equals(root2)) {
-							Relation rel = new XmlNavigationImpl();
-							rel.setGraphSimple(this);
-							rel.createParameters();	
-							rel.setSource(root);
-							EList<ElementMapping> emaps = re.getTarget().getOutgoingMappings();
+					morph.addMapping(previousRoot, root);
+					
+					previousRoot = (XmlRoot) root.getIncomingMapping().getSource();
+					for (Relation previousRelation : previousGraph.getRelations()) {
+						if (previousRelation.getSource().equals(previousRoot)) {
+							Relation previousXmlNavigation = new XmlNavigationImpl();
+							previousXmlNavigation.setGraphSimple(this);
+							previousXmlNavigation.createParameters();	
+							previousXmlNavigation.setSource(root);
+							EList<ElementMapping> emaps = previousRelation.getTarget().getOutgoingMappings();
 							for (ElementMapping em : emaps) {
 								if (getElements().contains(em.getTarget())) {
-									rel.setTarget(em.getTarget());	
+									previousXmlNavigation.setTarget(em.getTarget());	
 								}
 							}					
-							morph.addMapping(re, rel);
+							morph.addMapping(previousRelation, previousXmlNavigation);
 						}
 					}
 				}
@@ -356,44 +342,28 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	@Override
 	public void copyGraph(Graph graph) throws MissingPatternContainerException {
-		// copy this to graph: copy all elements and relations + return elements
-		
-		for(Element element : getElements()) {
-			Element newElement = new ElementImpl();		
-			newElement.setGraph(graph);
-			if(element.getResultOf() != null) {
-				newElement.setResultOf(graph);
-			}
-			ElementMapping newMapping = new ElementMappingImpl();
-			if(graph.getQuantifiedCondition() != null) {
-				graph.getQuantifiedCondition().getMorphism().getMappings().add(newMapping);
-			} else if(graph.getPattern() instanceof CountPattern) {
-				((CountPattern) graph.getPattern()).getMorphism().getMappings().add(newMapping);
-			}
-			
-			newMapping.setSource(element);
-			newMapping.setTarget(newElement);
-			
-		}
-		
+		// copy this to graph		
+		copyElements(graph);		
+		copyRelations(graph);
+	}
+
+	private void copyRelations(Graph targetGraph) {
 		for(Relation relation : getRelations()) {
 			Relation newRelation = new RelationImpl();
-			newRelation.setGraph(graph);		
-			
+			newRelation.setGraph(targetGraph);					
 			
 			RelationMapping newMapping = new RelationMappingImpl();
 			Morphism morphism = null;
-			if(graph.getQuantifiedCondition() != null) {
-				morphism = graph.getQuantifiedCondition().getMorphism();
+			if(targetGraph.getQuantifiedCondition() != null) {
+				morphism = targetGraph.getQuantifiedCondition().getMorphism();
 				morphism.getMappings().add(newMapping);
-			} else if(graph.getPattern() instanceof CountPattern) {
-				morphism = ((CountPattern) graph.getPattern()).getMorphism();
+			} else if(targetGraph.getPattern() instanceof CountPattern) {
+				morphism = ((CountPattern) targetGraph.getPattern()).getMorphism();
 				morphism.getMappings().add(newMapping);
 			}
 			
 			newMapping.setSource(relation);
-			newMapping.setTarget(newRelation);
-			
+			newMapping.setTarget(newRelation);			
 			
 			Element source = relation.getSource();
 			Element target = relation.getTarget();
@@ -418,20 +388,25 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}
 			}
 		}
-		
-		
-//		Element newRootElement = new ElementImpl();		
-//		newRootElement.setRoot(graph);		
-//		ElementMapping newMapping = new ElementMappingImpl();
-//		if(graph.getQuantifiedCondition() != null) {
-//			graph.getQuantifiedCondition().getMorphism().getMappings().add(newMapping);
-//		} else if(graph.getPattern() instanceof CountPattern) {
-//			((CountPattern) graph.getPattern()).getMorphism().getMappings().add(newMapping);
-//		}
-//		
-//		newMapping.setFrom(rootElement);
-//		newMapping.setTo(newRootElement);
-//		rootElement.copyNextElementsToNextGraphs();
+	}
+
+	private void copyElements(Graph targetGraph) {
+		for(Element element : getElements()) {
+			Element newElement = new ElementImpl();		
+			newElement.setGraph(targetGraph);
+			if(element.getResultOf() != null) {
+				newElement.setResultOf(targetGraph);
+			}
+			ElementMapping newMapping = new ElementMappingImpl();
+			if(targetGraph.getQuantifiedCondition() != null) {
+				targetGraph.getQuantifiedCondition().getMorphism().getMappings().add(newMapping);
+			} else if(targetGraph.getPattern() instanceof CountPattern) {
+				((CountPattern) targetGraph.getPattern()).getMorphism().getMappings().add(newMapping);
+			}
+			
+			newMapping.setSource(element);
+			newMapping.setTarget(newElement);			
+		}
 	}
 
 	/**
@@ -688,14 +663,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedCondition,
 			NotificationChain msgs) {
 		triggerParameterUpdates(newQuantifiedCondition);
-//		if(newQuantifiedCondition != null) {
-//			ParameterList parameterList = newQuantifiedCondition.getParameterList();
-//			if(parameterList != null) {
-//				prepareParameterUpdates(parameterList);
-//			}
-//		} else {
-//			prepareParameterUpdates(null);
-//		}
 		msgs = eBasicSetContainer((InternalEObject)newQuantifiedCondition, GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION, msgs);
 		return msgs;
 	}
@@ -738,14 +705,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
 		triggerParameterUpdates(newPattern);
-//		if(newPattern != null) {
-//			ParameterList parameterList = newPattern.getParameterList();
-//			if(parameterList != null) {
-//				prepareParameterUpdates(parameterList);
-//			}	
-//		} else {
-//			prepareParameterUpdates(null);
-//		}
 		msgs = eBasicSetContainer((InternalEObject)newPattern, GraphstructurePackage.GRAPH__PATTERN, msgs);
 		return msgs;
 	}

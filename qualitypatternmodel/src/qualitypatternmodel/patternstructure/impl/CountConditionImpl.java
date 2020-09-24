@@ -158,24 +158,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		}
 		return result;
 	}	
-
-//	public CountConditionArgument getArgument2() throws InvalidityException {		
-//		if(getCount2() != null) {
-//			return getCount2();
-//		} else if(getNumberParam() != null){
-//			return getNumberParam();
-//		} else {
-//			throw new InvalidityException("argument2 missing");
-//		}		
-//	}
-//
-//	public CountConditionArgument getArgument1() throws InvalidityException {		
-//		if(getCount1() != null) {
-//			return getCount1();
-//		} else {
-//			throw new InvalidityException("argument1 missing");
-//		}		
-//	}
 	
 	@Override
 	public void recordValues(XmlDatabase database) {
@@ -311,99 +293,34 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	@Override
-	public NotificationChain basicSetFormula1(Formula newFormula, NotificationChain msgs) {
-//		if(getOption() != null) {
-////			getOption().setParameterList(null);
-//			ParameterList parameterList = getParameterList();
-//			if(parameterList != null) {
-//				parameterList.remove(getOption());
-//			}
-//		}
-		
-		msgs = super.basicSetFormula1(newFormula, msgs);
-		
+	public NotificationChain basicSetFormula1(Formula newFormula, NotificationChain msgs) {		
+		msgs = super.basicSetFormula1(newFormula, msgs);		
 		createParameters();
-		createCountPattern();	
-		
-//		if(newFormula != null) {
-//			setCountPattern(new CountPatternImpl());
-//			setOption(new ComparisonOptionParamImpl());
-//			getParameterList().add(getOption());
-//		}			
-
+		createCountPattern();			
 		return msgs;
 	}
 	
 	@Override
-	public NotificationChain basicSetFormula2(Formula newFormula, NotificationChain msgs) {
-//		if(getOption() != null) {
-////			getOption().setParameterList(null);
-//			ParameterList parameterList = getParameterList();
-//			if(parameterList != null) {
-//				parameterList.remove(getOption());
-//			}
-//		}
-		
-		msgs = super.basicSetFormula2(newFormula, msgs);
-		
+	public NotificationChain basicSetFormula2(Formula newFormula, NotificationChain msgs) {		
+		msgs = super.basicSetFormula2(newFormula, msgs);		
 		createParameters();
-		createCountPattern();
-		
-//		if(newFormula != null) {
-//			setCountPattern(new CountPatternImpl());
-//			setOption(new ComparisonOptionParamImpl());
-//			getParameterList().add(getOption());
-//		}			
-
+		createCountPattern();		
 		return msgs;
 	}
 	
 	@Override
 	public NotificationChain basicSetNotCondition(NotCondition newNotCondition, NotificationChain msgs) {
-//		if(getOption() != null) {
-////			getOption().setParameterList(null);
-//			ParameterList parameterList = getParameterList();
-//			if(parameterList != null) {
-//				parameterList.remove(getOption());
-//			}
-//		}
-		
-		msgs = super.basicSetNotCondition(newNotCondition, msgs);
-		
+		msgs = super.basicSetNotCondition(newNotCondition, msgs);		
 		createParameters();
-		createCountPattern();
-		
-//		if(newNotCondition != null) {
-//			setCountPattern(new CountPatternImpl());
-//			setOption(new ComparisonOptionParamImpl());
-//			getParameterList().add(getOption());
-//		}			
-
+		createCountPattern();	
 		return msgs;
 	}
 	
 	@Override 
-	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedCondition, NotificationChain msgs) {
-//		if(getOption() != null) {
-////			getOption().setParameterList(null);
-//			ParameterList parameterList = getParameterList();
-//			if(parameterList != null) {
-//				parameterList.remove(getOption());
-//			}
-//		}
-				
-		msgs = super.basicSetQuantifiedCondition(newQuantifiedCondition, msgs);
-		
+	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedCondition, NotificationChain msgs) {	
+		msgs = super.basicSetQuantifiedCondition(newQuantifiedCondition, msgs);		
 		createParameters();
-		createCountPattern();
-		
-//		if(newQuantifiedCondition != null) {
-//			setCountPattern(new CountPatternImpl());
-//			setOption(new ComparisonOptionParamImpl());
-//			getParameterList().add(getOption());
-//		}			
-		
-		
+		createCountPattern();		
 		return msgs;
 	}
 	

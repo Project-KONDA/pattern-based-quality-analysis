@@ -68,10 +68,6 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 			throw new InvalidityException("ElementMapping " + getInternalId() + ": from-element null");
 		if (target == null)
 			throw new InvalidityException("ElementMapping " + getInternalId() + ": to null");
-//		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth()) {
-//			throw new InvalidityException("ElementMapping " + getInternalId() + ": invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
-//					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")" + " map: " + getMappingDepth());
-//		}
 	}
 
 	/**

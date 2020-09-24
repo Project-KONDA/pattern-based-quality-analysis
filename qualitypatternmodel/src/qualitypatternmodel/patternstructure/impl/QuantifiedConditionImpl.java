@@ -114,7 +114,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		super();
 		setGraph(new GraphImpl());
 		setMorphism(new MorphismImpl());
-//		setCondition(new TrueElementImpl());
 	}
 
 	@Override
@@ -127,14 +126,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		} else {
 			throw new InvalidityException("invalid quantifier");
 		}
-//		result = addMissingBrackets(result);
-//		if(getCountCondition() != null) {
-//			if (quantifier == Quantifier.EXISTS) {
-//				result += getCountCondition().generateQuery(location) + AND;
-//			} else if (quantifier == Quantifier.FORALL) {
-//				result += NOT + "(" + getCountCondition().generateQuery(location) + ")" + OR;
-//			}
-//		}
 		result += "(" + condition.generateQuery() + ")";
 		return result;
 
@@ -186,17 +177,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		getCondition().finalizeXMLAdaption();
 	}
 	
-//	@Override	
-//	public void updateParameters(ParameterList newParameterList) {
-//		getGraph().updateParameters(newParameterList);
-//		if(getCondition() != null) {
-//			getCondition().updateParameters(newParameterList);
-//		}		
-//		if(getCountCondition() != null) {
-//			getCountCondition().updateParameters(newParameterList);
-//		}
-//	}
-	
 	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
@@ -222,9 +202,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		if (condition != null) {
 			parameters.addAll(condition.getAllParameters());
 		}
-//		if(getCountCondition() != null) {
-//			parameters.addAll(getCountCondition().getAllInputs());
-//		}
 		return parameters;
 	}
 
@@ -233,7 +210,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			NotificationChain msgs) {
 //		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-//		getMorphism().removeDanglingMappingReference();
 		
 		triggerParameterUpdates(newQuantifiedcondition);
 		
@@ -268,7 +244,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public NotificationChain basicSetNotCondition(NotCondition newNot, NotificationChain msgs) {
 //		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-//		getMorphism().removeDanglingMappingReference();
 		
 		triggerParameterUpdates(newNot);
 		
@@ -295,7 +270,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public NotificationChain basicSetFormula1(Formula newFormula1, NotificationChain msgs) {
 //		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-//		getMorphism().removeDanglingMappingReference();
 		
 		triggerParameterUpdates(newFormula1);
 		
@@ -322,7 +296,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public NotificationChain basicSetFormula2(Formula newFormula2, NotificationChain msgs) {
 //		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-//		getMorphism().removeDanglingMappingReference();
 		
 		triggerParameterUpdates(newFormula2);
 		
@@ -349,7 +322,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public NotificationChain basicSetPattern(Pattern newPattern, NotificationChain msgs) {
 //		getMorphism().setSource(null);
 		getMorphism().setTarget(getGraph());
-//		getMorphism().removeDanglingMappingReference();
 		
 		triggerParameterUpdates(newPattern);
 		
@@ -528,9 +500,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		Morphism oldMorphism = morphism;
 		morphism = newMorphism;
 
-//		if (oldMorphism != null)
-//			oldMorphism.removeDanglingMappingReference();
-
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
 					PatternstructurePackage.QUANTIFIED_CONDITION__MORPHISM, oldMorphism, newMorphism);
@@ -597,14 +566,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public void checkMorphismOfNextGraph() throws InvalidityException  {
 		EList<MorphismContainer> nextGraphContainers = getCondition().getNextMorphismContainers();
-//		if(getCountCondition() != null) {
-//			if(getCountCondition().getArgument1() instanceof Count) {
-//				nextGraphContainers.add((MorphismContainer) getCountCondition().getArgument1());
-//			}
-//			if(getCountCondition().getArgument2() instanceof Count) {
-//				nextGraphContainers.add((MorphismContainer) getCountCondition().getArgument2());
-//			}
-//		}
 		for(MorphismContainer next : nextGraphContainers) {
 			if(!getGraph().equals(next.getMorphism().getSource())) {
 				throw new InvalidityException("wrong mapping from");
@@ -833,9 +794,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		String res = getQuantifier().getLiteral() + " [" + getInternalId() + "]";
 		res += "\n  : " + getGraph().myToString().replace("\n", "\n  | ");
 		res += "\n  : " + getMorphism().myToString().replace("\n", "\n  | ");
-//		if(getCountCondition() != null) {
-//			res += "\n: included " + getCountCondition().myToString().replace("\n", "\n: ");
-//		}
 		res += "\n  : " + getCondition().myToString().replace("\n", "\n  | ");
 		return res;
 	}

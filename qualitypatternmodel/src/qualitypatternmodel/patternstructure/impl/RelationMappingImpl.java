@@ -74,10 +74,6 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 			throw new InvalidityException("RelationMapping " + getInternalId() + ": from-element null");
 		if (target == null)
 			throw new InvalidityException("RelationMapping " + getInternalId() + ": to null");
-//		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth()) {
-//			throw new InvalidityException("RelationMapping " + getInternalId() + ": invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
-//					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")" + " map: " + getMappingDepth());
-//		}
 	}
 
 	/**
@@ -319,13 +315,6 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 		}
 		return super.eIsSet(featureID);
 	}
-	
-//	@Override
-//	public String myToString() {
-//		String res = "RelationMapping (" + getShortPatternInternalId() + ") ";
-//		res += "[" +getFrom().getShortPatternInternalId() + ", " + getTo().getShortPatternInternalId() + "]";		
-//		return res;
-//	}
 
 	@Override
 	public String myToString() {

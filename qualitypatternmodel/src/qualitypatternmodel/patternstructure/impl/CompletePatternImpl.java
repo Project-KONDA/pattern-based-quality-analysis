@@ -281,18 +281,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		
 		ElementImpl element = new ElementImpl();
 		element.setGraph(getGraph());
-//		getGraph().setRootElement(rootElement);
-//		ElementImpl returnElement = new ElementImpl();
-//		returnElement.setGraph(getGraph());
-////		returnElement.setPreviousElement(getGraph().getRootElement());
+
 		getGraph().getReturnElements().add(element);
-//		element.setName("First");
-//		returnElement.setName("Return");
-//		
-//		Relation relation = new RelationImpl();
-//		relation.setGraph(getGraph());
-//		relation.setSource(rootElement);
-//		relation.setTarget(returnElement);
 		
 		getInternalId();
 	}	
@@ -317,9 +307,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		res += super.generateQuery();
 		return res;
 	}
-
-
-
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -359,7 +346,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if(getDatabase() instanceof XmlDatabase) {			
 			recordValues((XmlDatabase) getDatabase());
 		}
-		// TODO: else throw exception?
+		// TODO: else throw exception
 	}
 
 
