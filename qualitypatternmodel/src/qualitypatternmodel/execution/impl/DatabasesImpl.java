@@ -37,6 +37,7 @@ public class DatabasesImpl extends MinimalEObjectImpl.Container implements Datab
 	/**
 	 * The cached value of the '{@link #getXmlDatabases() <em>Xml Databases</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of all defined <code>XmlDatabases</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getXmlDatabases()
 	 * @generated

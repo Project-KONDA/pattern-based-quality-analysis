@@ -19,6 +19,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Database</b></em>'.
+ * A database identified through its <code>name</code>.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -87,6 +88,18 @@ public interface Database extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the <code>Result</code> of the application of <code>pattern</code> to <code>this</code> <code>Database</code>.
+	 * 
+	 * @param pattern the <code>CompletePattern</code> to be executed
+	 * @param name the name of the pattern application
+	 * @param person the name of the person launching the pattern execution
+	 * @return the <code>Result</code> of the application of <code>pattern</code> to <code>this</code> <code>Database</code>
+	 * @throws InvalidityException if the <code>pattern</code> is invalid
+	 * @throws OperatorCycleException if the <code>pattern</code> contains <code>Operators</code> that have themselves as direct or indirect arguments
+	 * @throws MissingPatternContainerException if a component referenced from with the <code>pattern</code> is not contained in the <code>pattern</code> directly or indirectly
+	 * @throws BaseXException
+	 * @throws QueryException
+	 * @throws QueryIOException
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper qualitypatternmodel.patternstructure.MissingPatternContainerException qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
@@ -95,6 +108,15 @@ public interface Database extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the number of matches of <code>pattern</code> in <code>this</code> <code>Database</code>.
+	 * 
+	 * @param pattern the pattern whose number of matches in <code>this</code> <code>Database</code> is returned
+	 * @throws InvalidityException if the <code>pattern</code> is invalid
+	 * @throws OperatorCycleException if the <code>pattern</code> contains <code>Operators</code> that have themselves as direct or indirect arguments
+	 * @throws MissingPatternContainerException if a component referenced from with the <code>pattern</code> is not contained in the <code>pattern</code> directly or indirectly
+	 * @throws BaseXException
+	 * @throws QueryException
+	 * @throws QueryIOException
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper qualitypatternmodel.patternstructure.MissingPatternContainerException qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated

@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Databases</b></em>'.
+ * A singleton that contains all defined databases.
  * <!-- end-user-doc -->
  *
  * <p>

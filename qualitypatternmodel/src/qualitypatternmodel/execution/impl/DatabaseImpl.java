@@ -85,6 +85,8 @@ public abstract class DatabaseImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The name of <code>this</code> database.
+	 * Used for identification.
 	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
