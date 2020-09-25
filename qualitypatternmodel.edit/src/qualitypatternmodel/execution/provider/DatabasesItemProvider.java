@@ -171,6 +171,16 @@ public class DatabasesItemProvider
 			(createChildParameter
 				(ExecutionPackage.Literals.DATABASES__XML_SCHEMATA,
 				 ExecutionFactory.eINSTANCE.createXmlSchema()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExecutionPackage.Literals.DATABASES__XML_SCHEMATA,
+				 ExecutionFactory.eINSTANCE.createLocalXmlSchema()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExecutionPackage.Literals.DATABASES__XML_SCHEMATA,
+				 ExecutionFactory.eINSTANCE.createServerXmlSchema()));
 	}
 
 	/**

@@ -105,6 +105,14 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 				return createXmlSchemaAdapter();
 			}
 			@Override
+			public Adapter caseLocalXmlSchema(LocalXmlSchema object) {
+				return createLocalXmlSchemaAdapter();
+			}
+			@Override
+			public Adapter caseServerXmlSchema(ServerXmlSchema object) {
+				return createServerXmlSchemaAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -247,6 +255,34 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createXmlSchemaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.LocalXmlSchema <em>Local Xml Schema</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.execution.LocalXmlSchema
+	 * @generated
+	 */
+	public Adapter createLocalXmlSchemaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.ServerXmlSchema <em>Server Xml Schema</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.execution.ServerXmlSchema
+	 * @generated
+	 */
+	public Adapter createServerXmlSchemaAdapter() {
 		return null;
 	}
 

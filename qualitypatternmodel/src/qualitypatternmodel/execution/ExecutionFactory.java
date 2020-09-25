@@ -76,6 +76,24 @@ public interface ExecutionFactory extends EFactory {
 	XmlSchema createXmlSchema();
 
 	/**
+	 * Returns a new object of class '<em>Local Xml Schema</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Local Xml Schema</em>'.
+	 * @generated
+	 */
+	LocalXmlSchema createLocalXmlSchema();
+
+	/**
+	 * Returns a new object of class '<em>Server Xml Schema</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Server Xml Schema</em>'.
+	 * @generated
+	 */
+	ServerXmlSchema createServerXmlSchema();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -669,22 +669,22 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 									XmlDatabase xmlDatabase = (XmlDatabase) db;
 
 									if (outgoingNavigation.getOption().getValue() == RelationKind.CHILD) {
-										suggestions.addAll(xmlDatabase.getParentsInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getParentsInSchema(tag));
 									}
 									if (outgoingNavigation.getOption().getValue() == RelationKind.DESCENDANT) {
-										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getAncestorsInSchema(tag));
 									}
 
 									if (outgoingNavigation.getOption().getValue() == RelationKind.PARENT) {
-										suggestions.addAll(xmlDatabase.getChildrenInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getChildrenInSchema(tag));
 									}
 									if (outgoingNavigation.getOption().getValue() == RelationKind.ANCESTOR) {
-										suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getDescendantsInSchema(tag));
 									}
 
 									if (outgoingNavigation.getOption()
 											.getValue() == RelationKind.FOLLOWING_SIBLING) {
-										suggestions.addAll(xmlDatabase.getPrecedingSiblingsInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getPrecedingSiblingsInSchema(tag));
 									}
 									if (outgoingNavigation.getOption().getValue() == RelationKind.FOLLOWING) {
 										// TODO
@@ -695,7 +695,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 									}
 									if (outgoingNavigation.getOption()
 											.getValue() == RelationKind.PRECEDING_SIBLING) {
-										suggestions.addAll(xmlDatabase.getFollowingSiblingsInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getFollowingSiblingsInSchema(tag));
 									}
 
 									if (outgoingNavigation.getOption().getValue() == RelationKind.SELF) {
@@ -705,13 +705,13 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 									if (outgoingNavigation.getOption()
 											.getValue() == RelationKind.DESCENDANT_OR_SELF) {
 										suggestions.add(tag);
-										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getAncestorsInSchema(tag));
 									}
 
 									if (outgoingNavigation.getOption()
 											.getValue() == RelationKind.ANCESTOR_OR_SELF) {
 										suggestions.add(tag);
-										suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getDescendantsInSchema(tag));
 									}
 								}
 							} catch (MissingPatternContainerException | BaseXException | QueryIOException
@@ -757,33 +757,33 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 									XmlDatabase xmlDatabase = (XmlDatabase) db;
 
 									if (incomingNavigation.getOption().getValue() == RelationKind.CHILD) {
-										suggestions.addAll(xmlDatabase.getChildrenInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getChildrenInSchema(tag));
 									}
 									if (incomingNavigation.getOption().getValue() == RelationKind.DESCENDANT) {
-										suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getDescendantsInSchema(tag));
 									}
 
 									if (incomingNavigation.getOption().getValue() == RelationKind.PARENT) {
-										suggestions.addAll(xmlDatabase.getParentsInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getParentsInSchema(tag));
 									}
 									if (incomingNavigation.getOption().getValue() == RelationKind.ANCESTOR) {
-										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getAncestorsInSchema(tag));
 									}
 
 									if (incomingNavigation.getOption()
 											.getValue() == RelationKind.FOLLOWING_SIBLING) {
-										suggestions.addAll(xmlDatabase.getFollowingSiblingsInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getFollowingSiblingsInSchema(tag));
 									}
 									if (incomingNavigation.getOption().getValue() == RelationKind.FOLLOWING) {
-										suggestions.addAll(xmlDatabase.getFollowingInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getFollowingInSchema(tag));
 									}
 
 									if (incomingNavigation.getOption().getValue() == RelationKind.PRECEDING) {
-										suggestions.addAll(xmlDatabase.getPrecedingInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getPrecedingInSchema(tag));
 									}
 									if (incomingNavigation.getOption()
 											.getValue() == RelationKind.PRECEDING_SIBLING) {
-										suggestions.addAll(xmlDatabase.getPrecedingSiblingsInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getPrecedingSiblingsInSchema(tag));
 									}
 
 									if (incomingNavigation.getOption().getValue() == RelationKind.SELF) {
@@ -793,13 +793,13 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 									if (incomingNavigation.getOption()
 											.getValue() == RelationKind.DESCENDANT_OR_SELF) {
 										suggestions.add(tag);
-										suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getDescendantsInSchema(tag));
 									}
 
 									if (incomingNavigation.getOption()
 											.getValue() == RelationKind.ANCESTOR_OR_SELF) {
 										suggestions.add(tag);
-										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
+										suggestions.addAll(xmlDatabase.getXmlSchema().getAncestorsInSchema(tag));
 									}
 								}
 							} catch (MissingPatternContainerException | BaseXException | QueryIOException

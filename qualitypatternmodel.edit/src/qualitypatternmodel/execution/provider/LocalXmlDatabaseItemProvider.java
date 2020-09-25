@@ -46,7 +46,6 @@ public class LocalXmlDatabaseItemProvider extends XmlDatabaseItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addDataPathPropertyDescriptor(object);
-			addSchemaPathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -65,28 +64,6 @@ public class LocalXmlDatabaseItemProvider extends XmlDatabaseItemProvider {
 				 getString("_UI_LocalXmlDatabase_dataPath_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocalXmlDatabase_dataPath_feature", "_UI_LocalXmlDatabase_type"),
 				 ExecutionPackage.Literals.LOCAL_XML_DATABASE__DATA_PATH,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Schema Path feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSchemaPathPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_LocalXmlDatabase_schemaPath_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LocalXmlDatabase_schemaPath_feature", "_UI_LocalXmlDatabase_type"),
-				 ExecutionPackage.Literals.LOCAL_XML_DATABASE__SCHEMA_PATH,
 				 true,
 				 false,
 				 false,
@@ -134,7 +111,6 @@ public class LocalXmlDatabaseItemProvider extends XmlDatabaseItemProvider {
 
 		switch (notification.getFeatureID(LocalXmlDatabase.class)) {
 			case ExecutionPackage.LOCAL_XML_DATABASE__DATA_PATH:
-			case ExecutionPackage.LOCAL_XML_DATABASE__SCHEMA_PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -165,10 +141,10 @@ public class LocalXmlDatabaseItemProvider extends XmlDatabaseItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == ExecutionPackage.Literals.XML_DATABASE__ELEMENT_NAMES ||
-			childFeature == ExecutionPackage.Literals.XML_DATABASE__ATTRIBUTE_NAMES ||
 			childFeature == ExecutionPackage.Literals.XML_DATABASE__RECORDED_ATTRIBUTE_VALUES ||
-			childFeature == ExecutionPackage.Literals.XML_DATABASE__RECORDED_DATA_VALUES;
+			childFeature == ExecutionPackage.Literals.XML_DATABASE__RECORDED_DATA_VALUES ||
+			childFeature == ExecutionPackage.Literals.XML_DATABASE__ELEMENT_NAMES ||
+			childFeature == ExecutionPackage.Literals.XML_DATABASE__ATTRIBUTE_NAMES;
 
 		if (qualify) {
 			return getString

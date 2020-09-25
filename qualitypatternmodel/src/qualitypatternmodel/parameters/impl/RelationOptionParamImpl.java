@@ -232,32 +232,32 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 						
 						try {
 							
-							if(xmlDatabase.checkChildInSchema(sourceTag, targetTag)) {
+							if(xmlDatabase.getXmlSchema().checkChildInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.CHILD);
 								suggestions.add(RelationKind.DESCENDANT);
-							} else if(xmlDatabase.checkDescendantInSchema(sourceTag, targetTag)) {
+							} else if(xmlDatabase.getXmlSchema().checkDescendantInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.DESCENDANT);
 							}
 							
-							if(xmlDatabase.checkParentInSchema(sourceTag, targetTag)) {
+							if(xmlDatabase.getXmlSchema().checkParentInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.PARENT);
 								suggestions.add(RelationKind.ANCESTOR);
-							} else if(xmlDatabase.checkAncestorInSchema(sourceTag, targetTag)) {
+							} else if(xmlDatabase.getXmlSchema().checkAncestorInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.ANCESTOR);
 							}
 							
-							if(xmlDatabase.checkFollowingSiblingInSchema(sourceTag, targetTag)) {
+							if(xmlDatabase.getXmlSchema().checkFollowingSiblingInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.FOLLOWING_SIBLING);
 								suggestions.add(RelationKind.FOLLOWING);
-							} else if(xmlDatabase.checkFollowingInSchema(sourceTag, targetTag)) {
+							} else if(xmlDatabase.getXmlSchema().checkFollowingInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.FOLLOWING);
 							}
 							
 							// TODO:
-//							if(xmlDatabase.checkPrecedingSiblingInSchema(sourceTag, targetTag)) {
+//							if(xmlDatabase.getXmlSchema().checkPrecedingSiblingInSchema(sourceTag, targetTag)) {
 //								suggestions.add(RelationKind.PRECEDING_SIBLING);
 //								suggestions.add(RelationKind.PRECEDING);
-//							} else if(xmlDatabase.checkPrecedingInSchema(sourceTag, targetTag)) {
+//							} else if(xmlDatabase.getXmlSchema().checkPrecedingInSchema(sourceTag, targetTag)) {
 //								suggestions.add(RelationKind.PRECEDING);
 //							}
 							

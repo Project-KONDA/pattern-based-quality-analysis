@@ -70,6 +70,8 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 			case ExecutionPackage.DATABASES: return createDatabases();
 			case ExecutionPackage.STRING_TO_INT_MAP: return (EObject)createStringToIntMap();
 			case ExecutionPackage.XML_SCHEMA: return createXmlSchema();
+			case ExecutionPackage.LOCAL_XML_SCHEMA: return createLocalXmlSchema();
+			case ExecutionPackage.SERVER_XML_SCHEMA: return createServerXmlSchema();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -191,6 +193,28 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	public XmlSchema createXmlSchema() {
 		XmlSchemaImpl xmlSchema = new XmlSchemaImpl();
 		return xmlSchema;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public LocalXmlSchema createLocalXmlSchema() {
+		LocalXmlSchemaImpl localXmlSchema = new LocalXmlSchemaImpl();
+		return localXmlSchema;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ServerXmlSchema createServerXmlSchema() {
+		ServerXmlSchemaImpl serverXmlSchema = new ServerXmlSchemaImpl();
+		return serverXmlSchema;
 	}
 
 	/**

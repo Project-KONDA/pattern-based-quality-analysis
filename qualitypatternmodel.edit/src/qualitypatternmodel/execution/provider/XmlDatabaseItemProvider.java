@@ -48,7 +48,6 @@ public class XmlDatabaseItemProvider extends DatabaseItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addContextPropertyDescriptor(object);
-			addSchemaContextPropertyDescriptor(object);
 			addNamespacePropertyDescriptor(object);
 			addXmlSchemaPropertyDescriptor(object);
 		}
@@ -69,28 +68,6 @@ public class XmlDatabaseItemProvider extends DatabaseItemProvider {
 				 getString("_UI_XmlDatabase_context_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_XmlDatabase_context_feature", "_UI_XmlDatabase_type"),
 				 ExecutionPackage.Literals.XML_DATABASE__CONTEXT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Schema Context feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSchemaContextPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XmlDatabase_schemaContext_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XmlDatabase_schemaContext_feature", "_UI_XmlDatabase_type"),
-				 ExecutionPackage.Literals.XML_DATABASE__SCHEMA_CONTEXT,
 				 true,
 				 false,
 				 false,
@@ -155,10 +132,10 @@ public class XmlDatabaseItemProvider extends DatabaseItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ExecutionPackage.Literals.XML_DATABASE__ELEMENT_NAMES);
-			childrenFeatures.add(ExecutionPackage.Literals.XML_DATABASE__ATTRIBUTE_NAMES);
 			childrenFeatures.add(ExecutionPackage.Literals.XML_DATABASE__RECORDED_ATTRIBUTE_VALUES);
 			childrenFeatures.add(ExecutionPackage.Literals.XML_DATABASE__RECORDED_DATA_VALUES);
+			childrenFeatures.add(ExecutionPackage.Literals.XML_DATABASE__ELEMENT_NAMES);
+			childrenFeatures.add(ExecutionPackage.Literals.XML_DATABASE__ATTRIBUTE_NAMES);
 		}
 		return childrenFeatures;
 	}
@@ -215,14 +192,13 @@ public class XmlDatabaseItemProvider extends DatabaseItemProvider {
 
 		switch (notification.getFeatureID(XmlDatabase.class)) {
 			case ExecutionPackage.XML_DATABASE__CONTEXT:
-			case ExecutionPackage.XML_DATABASE__SCHEMA_CONTEXT:
 			case ExecutionPackage.XML_DATABASE__NAMESPACE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ExecutionPackage.XML_DATABASE__ELEMENT_NAMES:
-			case ExecutionPackage.XML_DATABASE__ATTRIBUTE_NAMES:
 			case ExecutionPackage.XML_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 			case ExecutionPackage.XML_DATABASE__RECORDED_DATA_VALUES:
+			case ExecutionPackage.XML_DATABASE__ELEMENT_NAMES:
+			case ExecutionPackage.XML_DATABASE__ATTRIBUTE_NAMES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -242,22 +218,22 @@ public class XmlDatabaseItemProvider extends DatabaseItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ExecutionPackage.Literals.XML_DATABASE__ELEMENT_NAMES,
-				 ExecutionFactory.eINSTANCE.create(ExecutionPackage.Literals.STRING_TO_INT_MAP)));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ExecutionPackage.Literals.XML_DATABASE__ATTRIBUTE_NAMES,
-				 ExecutionFactory.eINSTANCE.create(ExecutionPackage.Literals.STRING_TO_INT_MAP)));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(ExecutionPackage.Literals.XML_DATABASE__RECORDED_ATTRIBUTE_VALUES,
 				 ExecutionFactory.eINSTANCE.create(ExecutionPackage.Literals.STRING_TO_INT_MAP)));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ExecutionPackage.Literals.XML_DATABASE__RECORDED_DATA_VALUES,
+				 ExecutionFactory.eINSTANCE.create(ExecutionPackage.Literals.STRING_TO_INT_MAP)));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExecutionPackage.Literals.XML_DATABASE__ELEMENT_NAMES,
+				 ExecutionFactory.eINSTANCE.create(ExecutionPackage.Literals.STRING_TO_INT_MAP)));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExecutionPackage.Literals.XML_DATABASE__ATTRIBUTE_NAMES,
 				 ExecutionFactory.eINSTANCE.create(ExecutionPackage.Literals.STRING_TO_INT_MAP)));
 	}
 
@@ -273,10 +249,10 @@ public class XmlDatabaseItemProvider extends DatabaseItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == ExecutionPackage.Literals.XML_DATABASE__ELEMENT_NAMES ||
-			childFeature == ExecutionPackage.Literals.XML_DATABASE__ATTRIBUTE_NAMES ||
 			childFeature == ExecutionPackage.Literals.XML_DATABASE__RECORDED_ATTRIBUTE_VALUES ||
-			childFeature == ExecutionPackage.Literals.XML_DATABASE__RECORDED_DATA_VALUES;
+			childFeature == ExecutionPackage.Literals.XML_DATABASE__RECORDED_DATA_VALUES ||
+			childFeature == ExecutionPackage.Literals.XML_DATABASE__ELEMENT_NAMES ||
+			childFeature == ExecutionPackage.Literals.XML_DATABASE__ATTRIBUTE_NAMES;
 
 		if (qualify) {
 			return getString

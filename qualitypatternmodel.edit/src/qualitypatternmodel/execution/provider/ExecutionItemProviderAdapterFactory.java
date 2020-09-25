@@ -233,6 +233,52 @@ public class ExecutionItemProviderAdapterFactory extends ExecutionAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.execution.LocalXmlSchema} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LocalXmlSchemaItemProvider localXmlSchemaItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.execution.LocalXmlSchema}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLocalXmlSchemaAdapter() {
+		if (localXmlSchemaItemProvider == null) {
+			localXmlSchemaItemProvider = new LocalXmlSchemaItemProvider(this);
+		}
+
+		return localXmlSchemaItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.execution.ServerXmlSchema} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ServerXmlSchemaItemProvider serverXmlSchemaItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.execution.ServerXmlSchema}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createServerXmlSchemaAdapter() {
+		if (serverXmlSchemaItemProvider == null) {
+			serverXmlSchemaItemProvider = new ServerXmlSchemaItemProvider(this);
+		}
+
+		return serverXmlSchemaItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -344,6 +390,8 @@ public class ExecutionItemProviderAdapterFactory extends ExecutionAdapterFactory
 		if (databasesItemProvider != null) databasesItemProvider.dispose();
 		if (stringToIntMapItemProvider != null) stringToIntMapItemProvider.dispose();
 		if (xmlSchemaItemProvider != null) xmlSchemaItemProvider.dispose();
+		if (localXmlSchemaItemProvider != null) localXmlSchemaItemProvider.dispose();
+		if (serverXmlSchemaItemProvider != null) serverXmlSchemaItemProvider.dispose();
 	}
 
 }

@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -18,10 +19,14 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import qualitypatternmodel.execution.ExecutionFactory;
 import qualitypatternmodel.execution.ExecutionPackage;
 
+import qualitypatternmodel.execution.XmlSchema;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
@@ -60,6 +65,9 @@ public class XmlSchemaItemProvider
 			super.getPropertyDescriptors(object);
 
 			addXmlDatabasesPropertyDescriptor(object);
+			addSchemaContextPropertyDescriptor(object);
+			addNamespacePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,6 +95,103 @@ public class XmlSchemaItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Schema Context feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSchemaContextPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XmlSchema_schemaContext_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlSchema_schemaContext_feature", "_UI_XmlSchema_type"),
+				 ExecutionPackage.Literals.XML_SCHEMA__SCHEMA_CONTEXT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Namespace feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamespacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XmlSchema_namespace_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlSchema_namespace_feature", "_UI_XmlSchema_type"),
+				 ExecutionPackage.Literals.XML_SCHEMA__NAMESPACE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XmlSchema_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlSchema_name_feature", "_UI_XmlSchema_type"),
+				 ExecutionPackage.Literals.XML_SCHEMA__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(ExecutionPackage.Literals.XML_SCHEMA__ATTRIBUTE_NAMES);
+			childrenFeatures.add(ExecutionPackage.Literals.XML_SCHEMA__ELEMENT_NAMES);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This returns XmlSchema.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -105,7 +210,10 @@ public class XmlSchemaItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_XmlSchema_type");
+		String label = ((XmlSchema)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_XmlSchema_type") :
+			getString("_UI_XmlSchema_type") + " " + label;
 	}
 
 
@@ -119,6 +227,19 @@ public class XmlSchemaItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(XmlSchema.class)) {
+			case ExecutionPackage.XML_SCHEMA__SCHEMA_CONTEXT:
+			case ExecutionPackage.XML_SCHEMA__NAMESPACE:
+			case ExecutionPackage.XML_SCHEMA__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case ExecutionPackage.XML_SCHEMA__ATTRIBUTE_NAMES:
+			case ExecutionPackage.XML_SCHEMA__ELEMENT_NAMES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 	/**
@@ -131,6 +252,39 @@ public class XmlSchemaItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExecutionPackage.Literals.XML_SCHEMA__ATTRIBUTE_NAMES,
+				 ExecutionFactory.eINSTANCE.create(ExecutionPackage.Literals.STRING_TO_INT_MAP)));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExecutionPackage.Literals.XML_SCHEMA__ELEMENT_NAMES,
+				 ExecutionFactory.eINSTANCE.create(ExecutionPackage.Literals.STRING_TO_INT_MAP)));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == ExecutionPackage.Literals.XML_SCHEMA__ATTRIBUTE_NAMES ||
+			childFeature == ExecutionPackage.Literals.XML_SCHEMA__ELEMENT_NAMES;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

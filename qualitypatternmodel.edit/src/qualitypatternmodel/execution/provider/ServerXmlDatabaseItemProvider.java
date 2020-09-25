@@ -108,10 +108,10 @@ public class ServerXmlDatabaseItemProvider extends XmlDatabaseItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == ExecutionPackage.Literals.XML_DATABASE__ELEMENT_NAMES ||
-			childFeature == ExecutionPackage.Literals.XML_DATABASE__ATTRIBUTE_NAMES ||
 			childFeature == ExecutionPackage.Literals.XML_DATABASE__RECORDED_ATTRIBUTE_VALUES ||
-			childFeature == ExecutionPackage.Literals.XML_DATABASE__RECORDED_DATA_VALUES;
+			childFeature == ExecutionPackage.Literals.XML_DATABASE__RECORDED_DATA_VALUES ||
+			childFeature == ExecutionPackage.Literals.XML_DATABASE__ELEMENT_NAMES ||
+			childFeature == ExecutionPackage.Literals.XML_DATABASE__ATTRIBUTE_NAMES;
 
 		if (qualify) {
 			return getString

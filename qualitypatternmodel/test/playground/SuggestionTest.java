@@ -20,8 +20,10 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.LocalXmlDatabase;
+import qualitypatternmodel.execution.LocalXmlSchema;
 import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.execution.impl.LocalXmlDatabaseImpl;
+import qualitypatternmodel.execution.impl.LocalXmlSchemaImpl;
 import qualitypatternmodel.execution.impl.XmlDatabaseImpl;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -38,10 +40,12 @@ public class SuggestionTest {
         EMFModelLoad loader = new EMFModelLoad();
         CompletePattern completePattern = loader.load("instances/playground/My2.patternstructure");
         
-        LocalXmlDatabase db = new LocalXmlDatabaseImpl("test", "", "C:/Users/Viola Wenz/Documents/Daten/1.1_lido-v1.1-draft.xsd");
+        LocalXmlDatabase db = new LocalXmlDatabaseImpl("test", "");        
+        LocalXmlSchema schema = new LocalXmlSchemaImpl("C:/Users/Viola Wenz/Documents/Daten/1.1_lido-v1.1-draft.xsd");
+        db.setXmlSchema(schema);
         db.setNamespace("lido:");
         try {
-			db.initSchemaDatabase();
+			schema.initSchemaDatabase();
 		} catch (BaseXException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

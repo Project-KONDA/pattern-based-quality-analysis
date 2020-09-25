@@ -2,12 +2,7 @@
  */
 package qualitypatternmodel.execution.impl;
 
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +15,6 @@ import org.basex.query.iter.Iter;
 import org.basex.query.value.item.Item;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.common.util.EMap;
@@ -48,13 +42,12 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getContext <em>Context</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getElementNames <em>Element Names</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getAttributeNames <em>Attribute Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getRecordedAttributeValues <em>Recorded Attribute Values</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getRecordedDataValues <em>Recorded Data Values</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getSchemaContext <em>Schema Context</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getXmlSchema <em>Xml Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getElementNames <em>Element Names</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getAttributeNames <em>Attribute Names</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,26 +74,6 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	protected Context context = CONTEXT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getElementNames() <em>Element Names</em>}' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getElementNames()
-	 * @generated
-	 * @ordered
-	 */
-	protected EMap<String, Integer> elementNames;
-
-	/**
-	 * The cached value of the '{@link #getAttributeNames() <em>Attribute Names</em>}' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAttributeNames()
-	 * @generated
-	 * @ordered
-	 */
-	protected EMap<String, Integer> attributeNames;
-
-	/**
 	 * The cached value of the '{@link #getRecordedAttributeValues() <em>Recorded Attribute Values</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,26 +92,6 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 * @ordered
 	 */
 	protected EMap<String, Integer> recordedDataValues;
-
-	/**
-	 * The default value of the '{@link #getSchemaContext() <em>Schema Context</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSchemaContext()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Context SCHEMA_CONTEXT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSchemaContext() <em>Schema Context</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSchemaContext()
-	 * @generated
-	 * @ordered
-	 */
-	protected Context schemaContext = SCHEMA_CONTEXT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
@@ -169,6 +122,26 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 * @ordered
 	 */
 	protected XmlSchema xmlSchema;
+
+	/**
+	 * The cached value of the '{@link #getElementNames() <em>Element Names</em>}' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElementNames()
+	 * @generated
+	 * @ordered
+	 */
+	protected EMap<String, Integer> elementNames;
+
+	/**
+	 * The cached value of the '{@link #getAttributeNames() <em>Attribute Names</em>}' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttributeNames()
+	 * @generated
+	 * @ordered
+	 */
+	protected EMap<String, Integer> attributeNames;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -217,33 +190,6 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public EMap<String, Integer> getElementNames() {
-		if (elementNames == null) {
-			elementNames = new EcoreEMap<String,Integer>(ExecutionPackage.Literals.STRING_TO_INT_MAP, StringToIntMapImpl.class, this, ExecutionPackage.XML_DATABASE__ELEMENT_NAMES);
-		}
-		return elementNames;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EMap<String, Integer> getAttributeNames() {
-		if (attributeNames == null) {
-			attributeNames = new EcoreEMap<String,Integer>(ExecutionPackage.Literals.STRING_TO_INT_MAP, StringToIntMapImpl.class, this, ExecutionPackage.XML_DATABASE__ATTRIBUTE_NAMES);
-		}
-		return attributeNames;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public EMap<String, Integer> getRecordedAttributeValues() {
 		if (recordedAttributeValues == null) {
@@ -263,29 +209,6 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			recordedDataValues = new EcoreEMap<String,Integer>(ExecutionPackage.Literals.STRING_TO_INT_MAP, StringToIntMapImpl.class, this, ExecutionPackage.XML_DATABASE__RECORDED_DATA_VALUES);
 		}
 		return recordedDataValues;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Context getSchemaContext() {
-		return schemaContext;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setSchemaContext(Context newSchemaContext) {
-		Context oldSchemaContext = schemaContext;
-		schemaContext = newSchemaContext;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_DATABASE__SCHEMA_CONTEXT, oldSchemaContext, schemaContext));
 	}
 
 	/**
@@ -376,6 +299,32 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EMap<String, Integer> getElementNames() {
+		if (elementNames == null) {
+			elementNames = new EcoreEMap<String,Integer>(ExecutionPackage.Literals.STRING_TO_INT_MAP, StringToIntMapImpl.class, this, ExecutionPackage.XML_DATABASE__ELEMENT_NAMES);
+		}
+		return elementNames;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EMap<String, Integer> getAttributeNames() {
+		if (attributeNames == null) {
+			attributeNames = new EcoreEMap<String,Integer>(ExecutionPackage.Literals.STRING_TO_INT_MAP, StringToIntMapImpl.class, this, ExecutionPackage.XML_DATABASE__ATTRIBUTE_NAMES);
+		}
+		return attributeNames;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @throws QueryException 
 	 * @throws QueryIOException 
 	 * @generated NOT
@@ -393,20 +342,16 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			valueStorage.put(getNamespace() + result.get(i),0);
 		}
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws QueryException 
-	 * @throws QueryIOException 
-	 * @generated NOT
-	 */
-	@Override
-	public void analyseSchema() throws BaseXException, QueryIOException, QueryException {
-		openSchemaDatabase();
-		executeAnalysis("//*[name()=\"xs:element\"]/data(@name)", getElementNames(), schemaContext);
-		executeAnalysis("//*[name()=\"xs:attribute\"]/data(@name)", getAttributeNames(), schemaContext);
-		// TODO: add namespace
+	
+	private List<String> executeQuery(String query, Context context) throws QueryException, QueryIOException {
+		List<String> queryResult = new ArrayList<String>();		
+	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
+	      Iter iter = proc.iter();
+	      for(Item item; (item = iter.next()) != null;) {
+	    	  queryResult.add(item.serialize().toString());
+	        }
+	    }
+		return queryResult;
 	}
 
 	/**
@@ -545,333 +490,7 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	public void removeAttributeName(String name) {
 		decreaseCount(name, getAttributeNames());
 	}
-	
-	private static String readFile(String path, Charset encoding) throws IOException {
-		byte[] encoded = Files.readAllBytes(Paths.get(path));
-		return new String(encoded, encoding);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws BaseXException 
-	 * @throws QueryException 
-	 * @throws QueryIOException 
-	 * @generated NOT
-	 */
-	@Override
-	public boolean checkChildInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
-		return checkAxis(elementName1, elementName2, "queries/CheckChild.xq", "checkChild");		
-	}
-
-	private boolean checkAxis(String elementName1, String elementName2, String path, String methodName)
-			throws BaseXException, QueryException, QueryIOException {
-		openSchemaDatabase();
 		
-		String checkQuery;
-		try {
-			checkQuery = readFile(path, StandardCharsets.US_ASCII);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-			return true;
-		}
-		
-		String call = "\nfor $root in /xs:schema\r\n" + 
-				"return local:"+methodName+"($root, \""+elementName1.replace(getNamespace(), "")+"\", \""+elementName2.replace(getNamespace(), "")+"\", \""+getNamespace()+"\")";
-		
-		String query = checkQuery + call;
-		
-		List<String> queryResult = executeQuery(query, schemaContext);
-		if(queryResult.size() == 1) {			
-			if(queryResult.get(0).equals("false")) {
-				return false;
-			}
-		}
-		
-		// TODO: else throw exception ?
-		
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws QueryException 
-	 * @throws QueryIOException 
-	 * @throws BaseXException 
-	 * @generated NOT
-	 */
-	@Override
-	public boolean checkParentInSchema(String elementName1, String elementName2) throws BaseXException, QueryIOException, QueryException {
-		return checkChildInSchema(elementName2, elementName1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws QueryException 
-	 * @throws BaseXException 
-	 * @throws QueryIOException 
-	 * @generated NOT
-	 */
-	@Override
-	public boolean checkDescendantInSchema(String elementName1, String elementName2) throws QueryException, BaseXException, QueryIOException {		
-		return checkAxis(elementName1, elementName2, "queries/CheckDescendant.xq", "checkDescendant");			
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws QueryException 
-	 * @throws QueryIOException 
-	 * @throws BaseXException 
-	 * @generated NOT
-	 */
-	@Override
-	public boolean checkAncestorInSchema(String elementName1, String elementName2) throws BaseXException, QueryIOException, QueryException {
-		return checkDescendantInSchema(elementName2, elementName1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws QueryException 
-	 * @throws QueryIOException 
-	 * @throws BaseXException 
-	 * @generated NOT
-	 */
-	@Override
-	public boolean checkAttributeInSchema(String elementName, String attributeName) throws QueryException, QueryIOException, BaseXException {
-		return checkAxis(elementName, attributeName, "queries/CheckAttribute.xq", "checkAttribute");		
-	}
-
-	private List<String> executeQuery(String query, Context context) throws QueryException, QueryIOException {
-		List<String> queryResult = new ArrayList<String>();		
-	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
-	      Iter iter = proc.iter();
-	      for(Item item; (item = iter.next()) != null;) {
-	    	  queryResult.add(item.serialize().toString());
-	        }
-	    }
-		return queryResult;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void createSchemaDatabase() throws BaseXException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void openSchemaDatabase() throws BaseXException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public boolean checkFollowingSiblingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
-		return checkAxis(elementName1, elementName2, "queries/CheckFollowingSibling.xq", "checkFollowingSibling");		
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public boolean checkPrecedingSiblingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
-		return checkFollowingSiblingInSchema(elementName2, elementName1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public boolean checkFollowingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
-		return checkAxis(elementName1, elementName2, "queries/CheckFollowing.xq", "checkFollowing");			
-	}
-	
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean checkPrecedingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void initSchemaDatabase() throws BaseXException, QueryException, QueryIOException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-	
-	private String distinctNamesQuery (String methodName, String elementName) {
-		return "distinct-values(\r\n" +
-				"  let $ns := \""+getNamespace()+"\"" + 
-				"  let $elements := (\r\n" + 
-				"    for $root in /xs:schema\r\n" + 
-				"    return local:"+methodName+"($root, \""+elementName.replace(getNamespace(), "")+"\", $ns))\r\n" + 
-				"  for $element in $elements\r\n" + 
-				"  return\r\n" + 
-				"    if(exists($element/@name)) then $ns || $element/@name/data()\r\n" + 
-				"    else $element/@ref/data()\r\n" + 
-				")";
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<String> getChildrenInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		return getElementNames(elementName, "queries/GetChildren.xq", "getChildren");
-	}
-
-	private EList<String> getElementNames(String elementName, String path, String methodName) throws BaseXException, QueryException, QueryIOException {
-		openSchemaDatabase();
-
-		String checkQuery; 
-		
-		try {
-			checkQuery = readFile(path, StandardCharsets.US_ASCII);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();		
-			
-			return new BasicEList<String>();
-		}
-		
-		String call = distinctNamesQuery(methodName, elementName);
-		
-		String query = checkQuery + call;
-		
-		List<String> queryResult = executeQuery(query, schemaContext);
-		
-		EList<String> result = new BasicEList<String>();
-		result.addAll(queryResult);	
-		
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<String> getDescendantsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		return getElementNames(elementName, "queries/GetDescendantsEfficient.xq", "getDescendants");
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<String> getParentsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		return getElementNames(elementName, "queries/GetParents.xq", "getDescendants");
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<String> getAncestorsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		return getElementNames(elementName, "queries/GetAncestorsEfficient.xq", "getDescendants");
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<String> getAttributesInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<String> getFollowingSiblingsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		return getElementNames(elementName, "queries/GetFollowingSibling.xq", "getDescendants");
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<String> getPrecedingSiblingsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<String> getFollowingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		return getElementNames(elementName, "queries/GetFollowing2.xq", "getDescendants");
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<String> getPrecedingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -892,70 +511,21 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void checkKeyRefInSchema(String elementName1, String elementName2) {
-		// TODO: create/open schema database
-
-		
-		String namespace = "declare namespace xsd = \"http://www.w3.org/2001/XMLSchema\";\r\n" + 
-				"";
-		
-		/* The following function checks whether there might exist a reference between an element named $n1 and an element named $n2 by analysing the XML schema.
-		 * However, there may be false positives.
-		 * For reliably checking this, the structural context of both elements must be known.
-		 * This is not possible here.
-		 * Furthermore, for a precise check the schema analysis would be much more complex.
-		 * 
-		 */
-		
-		String checkRefId = "declare function local:checkRefId($r as element(), $n1 as xs:string, $n2 as xs:string)\r\n" + 
-				"as xs:boolean\r\n" + 
-				"{\r\n" + 
-				"some $ref in $r//xs:keyref[./xs:selector/@xpath = $n1 or matches(./xs:selector/@xpath, \"/\" || $n1 || \"$\")] \r\n" + 
-				"satisfies some $key in $r//xs:key[@name = $ref/@refer]\r\n" + 
-				"satisfies $key/xs:selector/@xpath = $n2 or matches($key/xs:selector/@xpath, \"/\" || $n2 || \"$\")\r\n" + 
-				"};";
-		
-		String getRefId = "declare function local:getRefId($r as element(), $n1 as xs:string, $n2 as xs:string)\r\n" + 
-				"as xs:string+\r\n" + 
-				"{\r\n" + 
-				"for $ref in $r//xs:keyref[./xs:selector/@xpath = $n1 or matches(./xs:selector/@xpath, \"/\" || $n1 || \"$\")] \r\n" + 
-				"for $key in $r//xs:key[@name = $ref/@refer]\r\n" + 
-				"where $key/xs:selector/@xpath = $n2 or matches($key/xs:selector/@xpath, \"/\" || $n2 || \"$\")\r\n" + 
-				"return ($ref/xs:field/@xpath, $key/xs:field/@xpath)\r\n" + 
-				"};";
-		
-		String callCheck = "for $x in /xs:schema\r\n" + 
-				"return local:checkRefId($x, \""+elementName1+"\",\""+elementName2+"\")";
-		
-		String callGet = "for $x in /xs:schema\r\n" + 
-				"return local:getRefId($x, \""+elementName1+"\",\""+elementName2+"\")";
-		
-		// TODO: execute query
-		
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ExecutionPackage.XML_DATABASE__ELEMENT_NAMES:
-				return ((InternalEList<?>)getElementNames()).basicRemove(otherEnd, msgs);
-			case ExecutionPackage.XML_DATABASE__ATTRIBUTE_NAMES:
-				return ((InternalEList<?>)getAttributeNames()).basicRemove(otherEnd, msgs);
 			case ExecutionPackage.XML_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 				return ((InternalEList<?>)getRecordedAttributeValues()).basicRemove(otherEnd, msgs);
 			case ExecutionPackage.XML_DATABASE__RECORDED_DATA_VALUES:
 				return ((InternalEList<?>)getRecordedDataValues()).basicRemove(otherEnd, msgs);
 			case ExecutionPackage.XML_DATABASE__XML_SCHEMA:
 				return basicSetXmlSchema(null, msgs);
+			case ExecutionPackage.XML_DATABASE__ELEMENT_NAMES:
+				return ((InternalEList<?>)getElementNames()).basicRemove(otherEnd, msgs);
+			case ExecutionPackage.XML_DATABASE__ATTRIBUTE_NAMES:
+				return ((InternalEList<?>)getAttributeNames()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -970,25 +540,23 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		switch (featureID) {
 			case ExecutionPackage.XML_DATABASE__CONTEXT:
 				return getContext();
-			case ExecutionPackage.XML_DATABASE__ELEMENT_NAMES:
-				if (coreType) return getElementNames();
-				else return getElementNames().map();
-			case ExecutionPackage.XML_DATABASE__ATTRIBUTE_NAMES:
-				if (coreType) return getAttributeNames();
-				else return getAttributeNames().map();
 			case ExecutionPackage.XML_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 				if (coreType) return getRecordedAttributeValues();
 				else return getRecordedAttributeValues().map();
 			case ExecutionPackage.XML_DATABASE__RECORDED_DATA_VALUES:
 				if (coreType) return getRecordedDataValues();
 				else return getRecordedDataValues().map();
-			case ExecutionPackage.XML_DATABASE__SCHEMA_CONTEXT:
-				return getSchemaContext();
 			case ExecutionPackage.XML_DATABASE__NAMESPACE:
 				return getNamespace();
 			case ExecutionPackage.XML_DATABASE__XML_SCHEMA:
 				if (resolve) return getXmlSchema();
 				return basicGetXmlSchema();
+			case ExecutionPackage.XML_DATABASE__ELEMENT_NAMES:
+				if (coreType) return getElementNames();
+				else return getElementNames().map();
+			case ExecutionPackage.XML_DATABASE__ATTRIBUTE_NAMES:
+				if (coreType) return getAttributeNames();
+				else return getAttributeNames().map();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1005,26 +573,23 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			case ExecutionPackage.XML_DATABASE__CONTEXT:
 				setContext((Context)newValue);
 				return;
-			case ExecutionPackage.XML_DATABASE__ELEMENT_NAMES:
-				((EStructuralFeature.Setting)getElementNames()).set(newValue);
-				return;
-			case ExecutionPackage.XML_DATABASE__ATTRIBUTE_NAMES:
-				((EStructuralFeature.Setting)getAttributeNames()).set(newValue);
-				return;
 			case ExecutionPackage.XML_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 				((EStructuralFeature.Setting)getRecordedAttributeValues()).set(newValue);
 				return;
 			case ExecutionPackage.XML_DATABASE__RECORDED_DATA_VALUES:
 				((EStructuralFeature.Setting)getRecordedDataValues()).set(newValue);
 				return;
-			case ExecutionPackage.XML_DATABASE__SCHEMA_CONTEXT:
-				setSchemaContext((Context)newValue);
-				return;
 			case ExecutionPackage.XML_DATABASE__NAMESPACE:
 				setNamespace((String)newValue);
 				return;
 			case ExecutionPackage.XML_DATABASE__XML_SCHEMA:
 				setXmlSchema((XmlSchema)newValue);
+				return;
+			case ExecutionPackage.XML_DATABASE__ELEMENT_NAMES:
+				((EStructuralFeature.Setting)getElementNames()).set(newValue);
+				return;
+			case ExecutionPackage.XML_DATABASE__ATTRIBUTE_NAMES:
+				((EStructuralFeature.Setting)getAttributeNames()).set(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1041,26 +606,23 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			case ExecutionPackage.XML_DATABASE__CONTEXT:
 				setContext(CONTEXT_EDEFAULT);
 				return;
-			case ExecutionPackage.XML_DATABASE__ELEMENT_NAMES:
-				getElementNames().clear();
-				return;
-			case ExecutionPackage.XML_DATABASE__ATTRIBUTE_NAMES:
-				getAttributeNames().clear();
-				return;
 			case ExecutionPackage.XML_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 				getRecordedAttributeValues().clear();
 				return;
 			case ExecutionPackage.XML_DATABASE__RECORDED_DATA_VALUES:
 				getRecordedDataValues().clear();
 				return;
-			case ExecutionPackage.XML_DATABASE__SCHEMA_CONTEXT:
-				setSchemaContext(SCHEMA_CONTEXT_EDEFAULT);
-				return;
 			case ExecutionPackage.XML_DATABASE__NAMESPACE:
 				setNamespace(NAMESPACE_EDEFAULT);
 				return;
 			case ExecutionPackage.XML_DATABASE__XML_SCHEMA:
 				setXmlSchema((XmlSchema)null);
+				return;
+			case ExecutionPackage.XML_DATABASE__ELEMENT_NAMES:
+				getElementNames().clear();
+				return;
+			case ExecutionPackage.XML_DATABASE__ATTRIBUTE_NAMES:
+				getAttributeNames().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -1076,20 +638,18 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		switch (featureID) {
 			case ExecutionPackage.XML_DATABASE__CONTEXT:
 				return CONTEXT_EDEFAULT == null ? context != null : !CONTEXT_EDEFAULT.equals(context);
-			case ExecutionPackage.XML_DATABASE__ELEMENT_NAMES:
-				return elementNames != null && !elementNames.isEmpty();
-			case ExecutionPackage.XML_DATABASE__ATTRIBUTE_NAMES:
-				return attributeNames != null && !attributeNames.isEmpty();
 			case ExecutionPackage.XML_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 				return recordedAttributeValues != null && !recordedAttributeValues.isEmpty();
 			case ExecutionPackage.XML_DATABASE__RECORDED_DATA_VALUES:
 				return recordedDataValues != null && !recordedDataValues.isEmpty();
-			case ExecutionPackage.XML_DATABASE__SCHEMA_CONTEXT:
-				return SCHEMA_CONTEXT_EDEFAULT == null ? schemaContext != null : !SCHEMA_CONTEXT_EDEFAULT.equals(schemaContext);
 			case ExecutionPackage.XML_DATABASE__NAMESPACE:
 				return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
 			case ExecutionPackage.XML_DATABASE__XML_SCHEMA:
 				return xmlSchema != null;
+			case ExecutionPackage.XML_DATABASE__ELEMENT_NAMES:
+				return elementNames != null && !elementNames.isEmpty();
+			case ExecutionPackage.XML_DATABASE__ATTRIBUTE_NAMES:
+				return attributeNames != null && !attributeNames.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1105,14 +665,6 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			case ExecutionPackage.XML_DATABASE___ANALYSE_DATABASE:
 				try {
 					analyseDatabase();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___ANALYSE_SCHEMA:
-				try {
-					analyseSchema();
 					return null;
 				}
 				catch (Throwable throwable) {
@@ -1158,164 +710,6 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			case ExecutionPackage.XML_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING:
 				removeAttributeName((String)arguments.get(0));
 				return null;
-			case ExecutionPackage.XML_DATABASE___CHECK_KEY_REF_IN_SCHEMA__STRING_STRING:
-				try {
-					checkKeyRefInSchema((String)arguments.get(0), (String)arguments.get(1));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___CHECK_CHILD_IN_SCHEMA__STRING_STRING:
-				try {
-					return checkChildInSchema((String)arguments.get(0), (String)arguments.get(1));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___CHECK_PARENT_IN_SCHEMA__STRING_STRING:
-				try {
-					return checkParentInSchema((String)arguments.get(0), (String)arguments.get(1));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___CHECK_DESCENDANT_IN_SCHEMA__STRING_STRING:
-				try {
-					return checkDescendantInSchema((String)arguments.get(0), (String)arguments.get(1));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___CHECK_ANCESTOR_IN_SCHEMA__STRING_STRING:
-				try {
-					return checkAncestorInSchema((String)arguments.get(0), (String)arguments.get(1));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING:
-				try {
-					return checkAttributeInSchema((String)arguments.get(0), (String)arguments.get(1));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___CREATE_SCHEMA_DATABASE:
-				try {
-					createSchemaDatabase();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___OPEN_SCHEMA_DATABASE:
-				try {
-					openSchemaDatabase();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___CHECK_FOLLOWING_SIBLING_IN_SCHEMA__STRING_STRING:
-				try {
-					return checkFollowingSiblingInSchema((String)arguments.get(0), (String)arguments.get(1));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___CHECK_PRECEDING_SIBLING_IN_SCHEMA__STRING_STRING:
-				try {
-					return checkPrecedingSiblingInSchema((String)arguments.get(0), (String)arguments.get(1));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___CHECK_FOLLOWING_IN_SCHEMA__STRING_STRING:
-				try {
-					return checkFollowingInSchema((String)arguments.get(0), (String)arguments.get(1));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING:
-				try {
-					return checkPrecedingInSchema((String)arguments.get(0), (String)arguments.get(1));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___INIT_SCHEMA_DATABASE:
-				try {
-					initSchemaDatabase();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___GET_CHILDREN_IN_SCHEMA__STRING:
-				try {
-					return getChildrenInSchema((String)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING:
-				try {
-					return getDescendantsInSchema((String)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___GET_PARENTS_IN_SCHEMA__STRING:
-				try {
-					return getParentsInSchema((String)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___GET_ANCESTORS_IN_SCHEMA__STRING:
-				try {
-					return getAncestorsInSchema((String)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING:
-				try {
-					return getAttributesInSchema((String)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING:
-				try {
-					return getFollowingSiblingsInSchema((String)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING:
-				try {
-					return getPrecedingSiblingsInSchema((String)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___GET_FOLLOWING_IN_SCHEMA__STRING:
-				try {
-					return getFollowingInSchema((String)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATABASE___GET_PRECEDING_IN_SCHEMA__STRING:
-				try {
-					return getPrecedingInSchema((String)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -1332,8 +726,6 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (context: ");
 		result.append(context);
-		result.append(", schemaContext: ");
-		result.append(schemaContext);
 		result.append(", namespace: ");
 		result.append(namespace);
 		result.append(')');
