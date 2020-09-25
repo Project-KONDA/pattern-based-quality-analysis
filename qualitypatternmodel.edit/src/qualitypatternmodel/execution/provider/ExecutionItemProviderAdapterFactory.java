@@ -210,6 +210,29 @@ public class ExecutionItemProviderAdapterFactory extends ExecutionAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.execution.XmlSchema} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XmlSchemaItemProvider xmlSchemaItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.execution.XmlSchema}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXmlSchemaAdapter() {
+		if (xmlSchemaItemProvider == null) {
+			xmlSchemaItemProvider = new XmlSchemaItemProvider(this);
+		}
+
+		return xmlSchemaItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -320,6 +343,7 @@ public class ExecutionItemProviderAdapterFactory extends ExecutionAdapterFactory
 		if (serverXmlDatabaseItemProvider != null) serverXmlDatabaseItemProvider.dispose();
 		if (databasesItemProvider != null) databasesItemProvider.dispose();
 		if (stringToIntMapItemProvider != null) stringToIntMapItemProvider.dispose();
+		if (xmlSchemaItemProvider != null) xmlSchemaItemProvider.dispose();
 	}
 
 }

@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.EMap;
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getRecordedDataValues <em>Recorded Data Values</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getSchemaContext <em>Schema Context</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getNamespace <em>Namespace</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#getXmlSchema <em>Xml Schema</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.execution.ExecutionPackage#getXmlDatabase()
@@ -150,6 +151,30 @@ public interface XmlDatabase extends Database {
 	 * @generated
 	 */
 	void setNamespace(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Xml Schema</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.execution.XmlSchema#getXmlDatabases <em>Xml Databases</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Xml Schema</em>' reference.
+	 * @see #setXmlSchema(XmlSchema)
+	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlDatabase_XmlSchema()
+	 * @see qualitypatternmodel.execution.XmlSchema#getXmlDatabases
+	 * @model opposite="xmlDatabases"
+	 * @generated
+	 */
+	XmlSchema getXmlSchema();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.execution.XmlDatabase#getXmlSchema <em>Xml Schema</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Xml Schema</em>' reference.
+	 * @see #getXmlSchema()
+	 * @generated
+	 */
+	void setXmlSchema(XmlSchema value);
 
 	/**
 	 * <!-- begin-user-doc -->

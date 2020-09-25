@@ -80,6 +80,7 @@ public class DatabasesItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ExecutionPackage.Literals.DATABASES__XML_DATABASES);
+			childrenFeatures.add(ExecutionPackage.Literals.DATABASES__XML_SCHEMATA);
 		}
 		return childrenFeatures;
 	}
@@ -133,6 +134,7 @@ public class DatabasesItemProvider
 
 		switch (notification.getFeatureID(Databases.class)) {
 			case ExecutionPackage.DATABASES__XML_DATABASES:
+			case ExecutionPackage.DATABASES__XML_SCHEMATA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -164,6 +166,11 @@ public class DatabasesItemProvider
 			(createChildParameter
 				(ExecutionPackage.Literals.DATABASES__XML_DATABASES,
 				 ExecutionFactory.eINSTANCE.createServerXmlDatabase()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExecutionPackage.Literals.DATABASES__XML_SCHEMATA,
+				 ExecutionFactory.eINSTANCE.createXmlSchema()));
 	}
 
 	/**

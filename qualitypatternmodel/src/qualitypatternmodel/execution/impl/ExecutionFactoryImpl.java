@@ -69,6 +69,7 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 			case ExecutionPackage.SERVER_XML_DATABASE: return createServerXmlDatabase();
 			case ExecutionPackage.DATABASES: return createDatabases();
 			case ExecutionPackage.STRING_TO_INT_MAP: return (EObject)createStringToIntMap();
+			case ExecutionPackage.XML_SCHEMA: return createXmlSchema();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -179,6 +180,17 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	public Map.Entry<String, Integer> createStringToIntMap() {
 		StringToIntMapImpl stringToIntMap = new StringToIntMapImpl();
 		return stringToIntMap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public XmlSchema createXmlSchema() {
+		XmlSchemaImpl xmlSchema = new XmlSchemaImpl();
+		return xmlSchema;
 	}
 
 	/**

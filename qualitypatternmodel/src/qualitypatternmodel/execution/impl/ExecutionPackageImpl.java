@@ -31,6 +31,7 @@ import qualitypatternmodel.execution.ServerXmlDatabase;
 import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.execution.XmlResult;
 
+import qualitypatternmodel.execution.XmlSchema;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
@@ -109,6 +110,13 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	private EClass stringToIntMapEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass xmlSchemaEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -489,6 +497,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	@Override
 	public EAttribute getXmlDatabase_Namespace() {
 		return (EAttribute)xmlDatabaseEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getXmlDatabase_XmlSchema() {
+		return (EReference)xmlDatabaseEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -907,6 +925,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getDatabases_XmlSchemata() {
+		return (EReference)databasesEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getStringToIntMap() {
 		return stringToIntMapEClass;
 	}
@@ -929,6 +957,26 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	@Override
 	public EAttribute getStringToIntMap_Value() {
 		return (EAttribute)stringToIntMapEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getXmlSchema() {
+		return xmlSchemaEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getXmlSchema_XmlDatabases() {
+		return (EReference)xmlSchemaEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1030,6 +1078,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEReference(xmlDatabaseEClass, XML_DATABASE__RECORDED_DATA_VALUES);
 		createEAttribute(xmlDatabaseEClass, XML_DATABASE__SCHEMA_CONTEXT);
 		createEAttribute(xmlDatabaseEClass, XML_DATABASE__NAMESPACE);
+		createEReference(xmlDatabaseEClass, XML_DATABASE__XML_SCHEMA);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___ANALYSE_DATABASE);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___ANALYSE_SCHEMA);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING);
@@ -1074,10 +1123,14 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		databasesEClass = createEClass(DATABASES);
 		createEReference(databasesEClass, DATABASES__XML_DATABASES);
+		createEReference(databasesEClass, DATABASES__XML_SCHEMATA);
 
 		stringToIntMapEClass = createEClass(STRING_TO_INT_MAP);
 		createEAttribute(stringToIntMapEClass, STRING_TO_INT_MAP__KEY);
 		createEAttribute(stringToIntMapEClass, STRING_TO_INT_MAP__VALUE);
+
+		xmlSchemaEClass = createEClass(XML_SCHEMA);
+		createEReference(xmlSchemaEClass, XML_SCHEMA__XML_DATABASES);
 
 		// Create data types
 		baseXExceptionWrapperEDataType = createEDataType(BASE_XEXCEPTION_WRAPPER);
@@ -1174,6 +1227,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEReference(getXmlDatabase_RecordedDataValues(), this.getStringToIntMap(), null, "recordedDataValues", null, 0, -1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getXmlDatabase_SchemaContext(), this.getBaseXContextWrapper(), "schemaContext", null, 0, 1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getXmlDatabase_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlDatabase_XmlSchema(), this.getXmlSchema(), this.getXmlSchema_XmlDatabases(), "xmlSchema", null, 0, 1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getXmlDatabase__AnalyseDatabase(), null, "analyseDatabase", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
@@ -1363,10 +1417,14 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		initEClass(databasesEClass, Databases.class, "Databases", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDatabases_XmlDatabases(), this.getXmlDatabase(), null, "xmlDatabases", null, 0, -1, Databases.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDatabases_XmlSchemata(), this.getXmlSchema(), null, "xmlSchemata", null, 0, -1, Databases.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringToIntMapEClass, Map.Entry.class, "StringToIntMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringToIntMap_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStringToIntMap_Value(), ecorePackage.getEIntegerObject(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(xmlSchemaEClass, XmlSchema.class, "XmlSchema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getXmlSchema_XmlDatabases(), this.getXmlDatabase(), this.getXmlDatabase_XmlSchema(), "xmlDatabases", null, 0, -1, XmlSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(baseXExceptionWrapperEDataType, BaseXException.class, "BaseXExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

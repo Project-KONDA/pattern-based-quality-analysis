@@ -121,6 +121,12 @@ public class ExecutionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExecutionPackage.XML_SCHEMA: {
+				XmlSchema xmlSchema = (XmlSchema)theEObject;
+				T result = caseXmlSchema(xmlSchema);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -242,6 +248,21 @@ public class ExecutionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseStringToIntMap(Map.Entry<String, Integer> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Xml Schema</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Xml Schema</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXmlSchema(XmlSchema object) {
 		return null;
 	}
 

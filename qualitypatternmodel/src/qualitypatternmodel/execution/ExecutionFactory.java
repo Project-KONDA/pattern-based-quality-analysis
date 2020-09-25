@@ -67,6 +67,15 @@ public interface ExecutionFactory extends EFactory {
 	Databases createDatabases();
 
 	/**
+	 * Returns a new object of class '<em>Xml Schema</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Xml Schema</em>'.
+	 * @generated
+	 */
+	XmlSchema createXmlSchema();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

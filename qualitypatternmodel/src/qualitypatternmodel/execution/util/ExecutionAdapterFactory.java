@@ -101,6 +101,10 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 				return createStringToIntMapAdapter();
 			}
 			@Override
+			public Adapter caseXmlSchema(XmlSchema object) {
+				return createXmlSchemaAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -229,6 +233,20 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStringToIntMapAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.XmlSchema <em>Xml Schema</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.execution.XmlSchema
+	 * @generated
+	 */
+	public Adapter createXmlSchemaAdapter() {
 		return null;
 	}
 

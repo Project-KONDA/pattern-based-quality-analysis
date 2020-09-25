@@ -486,13 +486,22 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATABASE__NAMESPACE = DATABASE_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Xml Schema</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE__XML_SCHEMA = DATABASE_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Xml Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATABASE_FEATURE_COUNT = DATABASE_FEATURE_COUNT + 7;
+	int XML_DATABASE_FEATURE_COUNT = DATABASE_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Execute</em>' operation.
@@ -926,6 +935,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOCAL_XML_DATABASE__NAMESPACE = XML_DATABASE__NAMESPACE;
+
+	/**
+	 * The feature id for the '<em><b>Xml Schema</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE__XML_SCHEMA = XML_DATABASE__XML_SCHEMA;
 
 	/**
 	 * The feature id for the '<em><b>Data Path</b></em>' attribute.
@@ -1397,6 +1415,15 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_DATABASE__NAMESPACE = XML_DATABASE__NAMESPACE;
 
 	/**
+	 * The feature id for the '<em><b>Xml Schema</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATABASE__XML_SCHEMA = XML_DATABASE__XML_SCHEMA;
+
+	/**
 	 * The number of structural features of the '<em>Server Xml Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1758,13 +1785,22 @@ public interface ExecutionPackage extends EPackage {
 	int DATABASES__XML_DATABASES = 0;
 
 	/**
+	 * The feature id for the '<em><b>Xml Schemata</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASES__XML_SCHEMATA = 1;
+
+	/**
 	 * The number of structural features of the '<em>Databases</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASES_FEATURE_COUNT = 1;
+	int DATABASES_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Databases</em>' class.
@@ -1822,6 +1858,43 @@ public interface ExecutionPackage extends EPackage {
 	int STRING_TO_INT_MAP_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.XmlSchemaImpl <em>Xml Schema</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.impl.XmlSchemaImpl
+	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getXmlSchema()
+	 * @generated
+	 */
+	int XML_SCHEMA = 8;
+
+	/**
+	 * The feature id for the '<em><b>Xml Databases</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_SCHEMA__XML_DATABASES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Xml Schema</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_SCHEMA_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Xml Schema</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_SCHEMA_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '<em>Base XException Wrapper</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1829,7 +1902,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getBaseXExceptionWrapper()
 	 * @generated
 	 */
-	int BASE_XEXCEPTION_WRAPPER = 8;
+	int BASE_XEXCEPTION_WRAPPER = 9;
 
 	/**
 	 * The meta object id for the '<em>Base XContext Wrapper</em>' data type.
@@ -1839,7 +1912,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getBaseXContextWrapper()
 	 * @generated
 	 */
-	int BASE_XCONTEXT_WRAPPER = 9;
+	int BASE_XCONTEXT_WRAPPER = 10;
 
 
 	/**
@@ -1850,7 +1923,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getQueryExceptionWrapper()
 	 * @generated
 	 */
-	int QUERY_EXCEPTION_WRAPPER = 10;
+	int QUERY_EXCEPTION_WRAPPER = 11;
 
 
 	/**
@@ -1861,7 +1934,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getQueryIOExceptionWrapper()
 	 * @generated
 	 */
-	int QUERY_IO_EXCEPTION_WRAPPER = 11;
+	int QUERY_IO_EXCEPTION_WRAPPER = 12;
 
 
 	/**
@@ -2153,6 +2226,17 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getXmlDatabase_Namespace();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.execution.XmlDatabase#getXmlSchema <em>Xml Schema</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Xml Schema</em>'.
+	 * @see qualitypatternmodel.execution.XmlDatabase#getXmlSchema()
+	 * @see #getXmlDatabase()
+	 * @generated
+	 */
+	EReference getXmlDatabase_XmlSchema();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#analyseDatabase() <em>Analyse Database</em>}' operation.
@@ -2568,6 +2652,17 @@ public interface ExecutionPackage extends EPackage {
 	EReference getDatabases_XmlDatabases();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.execution.Databases#getXmlSchemata <em>Xml Schemata</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Xml Schemata</em>'.
+	 * @see qualitypatternmodel.execution.Databases#getXmlSchemata()
+	 * @see #getDatabases()
+	 * @generated
+	 */
+	EReference getDatabases_XmlSchemata();
+
+	/**
 	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To Int Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2600,6 +2695,27 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getStringToIntMap_Value();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.execution.XmlSchema <em>Xml Schema</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Xml Schema</em>'.
+	 * @see qualitypatternmodel.execution.XmlSchema
+	 * @generated
+	 */
+	EClass getXmlSchema();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.execution.XmlSchema#getXmlDatabases <em>Xml Databases</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Xml Databases</em>'.
+	 * @see qualitypatternmodel.execution.XmlSchema#getXmlDatabases()
+	 * @see #getXmlSchema()
+	 * @generated
+	 */
+	EReference getXmlSchema_XmlDatabases();
 
 	/**
 	 * Returns the meta object for data type '{@link org.basex.core.BaseXException <em>Base XException Wrapper</em>}'.
@@ -2891,6 +3007,14 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute XML_DATABASE__NAMESPACE = eINSTANCE.getXmlDatabase_Namespace();
+
+		/**
+		 * The meta object literal for the '<em><b>Xml Schema</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XML_DATABASE__XML_SCHEMA = eINSTANCE.getXmlDatabase_XmlSchema();
 
 		/**
 		 * The meta object literal for the '<em><b>Analyse Database</b></em>' operation.
@@ -3227,6 +3351,14 @@ public interface ExecutionPackage extends EPackage {
 		EReference DATABASES__XML_DATABASES = eINSTANCE.getDatabases_XmlDatabases();
 
 		/**
+		 * The meta object literal for the '<em><b>Xml Schemata</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATABASES__XML_SCHEMATA = eINSTANCE.getDatabases_XmlSchemata();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.StringToIntMapImpl <em>String To Int Map</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3251,6 +3383,24 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STRING_TO_INT_MAP__VALUE = eINSTANCE.getStringToIntMap_Value();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.XmlSchemaImpl <em>Xml Schema</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.execution.impl.XmlSchemaImpl
+		 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getXmlSchema()
+		 * @generated
+		 */
+		EClass XML_SCHEMA = eINSTANCE.getXmlSchema();
+
+		/**
+		 * The meta object literal for the '<em><b>Xml Databases</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XML_SCHEMA__XML_DATABASES = eINSTANCE.getXmlSchema_XmlDatabases();
 
 		/**
 		 * The meta object literal for the '<em>Base XException Wrapper</em>' data type.

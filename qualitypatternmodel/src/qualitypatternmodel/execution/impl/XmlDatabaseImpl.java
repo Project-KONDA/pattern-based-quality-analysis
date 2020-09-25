@@ -36,6 +36,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.Result;
 import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlSchema;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 /**
@@ -53,6 +54,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getRecordedDataValues <em>Recorded Data Values</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getSchemaContext <em>Schema Context</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getNamespace <em>Namespace</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getXmlSchema <em>Xml Schema</em>}</li>
  * </ul>
  *
  * @generated
@@ -157,6 +159,16 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	 * @ordered
 	 */
 	protected String namespace = NAMESPACE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getXmlSchema() <em>Xml Schema</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getXmlSchema()
+	 * @generated
+	 * @ordered
+	 */
+	protected XmlSchema xmlSchema;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -297,6 +309,68 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 		namespace = newNamespace;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_DATABASE__NAMESPACE, oldNamespace, namespace));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public XmlSchema getXmlSchema() {
+		if (xmlSchema != null && xmlSchema.eIsProxy()) {
+			InternalEObject oldXmlSchema = (InternalEObject)xmlSchema;
+			xmlSchema = (XmlSchema)eResolveProxy(oldXmlSchema);
+			if (xmlSchema != oldXmlSchema) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExecutionPackage.XML_DATABASE__XML_SCHEMA, oldXmlSchema, xmlSchema));
+			}
+		}
+		return xmlSchema;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public XmlSchema basicGetXmlSchema() {
+		return xmlSchema;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetXmlSchema(XmlSchema newXmlSchema, NotificationChain msgs) {
+		XmlSchema oldXmlSchema = xmlSchema;
+		xmlSchema = newXmlSchema;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_DATABASE__XML_SCHEMA, oldXmlSchema, newXmlSchema);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setXmlSchema(XmlSchema newXmlSchema) {
+		if (newXmlSchema != xmlSchema) {
+			NotificationChain msgs = null;
+			if (xmlSchema != null)
+				msgs = ((InternalEObject)xmlSchema).eInverseRemove(this, ExecutionPackage.XML_SCHEMA__XML_DATABASES, XmlSchema.class, msgs);
+			if (newXmlSchema != null)
+				msgs = ((InternalEObject)newXmlSchema).eInverseAdd(this, ExecutionPackage.XML_SCHEMA__XML_DATABASES, XmlSchema.class, msgs);
+			msgs = basicSetXmlSchema(newXmlSchema, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_DATABASE__XML_SCHEMA, newXmlSchema, newXmlSchema));
 	}
 
 	/**
@@ -802,6 +876,22 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ExecutionPackage.XML_DATABASE__XML_SCHEMA:
+				if (xmlSchema != null)
+					msgs = ((InternalEObject)xmlSchema).eInverseRemove(this, ExecutionPackage.XML_SCHEMA__XML_DATABASES, XmlSchema.class, msgs);
+				return basicSetXmlSchema((XmlSchema)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -864,6 +954,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				return ((InternalEList<?>)getRecordedAttributeValues()).basicRemove(otherEnd, msgs);
 			case ExecutionPackage.XML_DATABASE__RECORDED_DATA_VALUES:
 				return ((InternalEList<?>)getRecordedDataValues()).basicRemove(otherEnd, msgs);
+			case ExecutionPackage.XML_DATABASE__XML_SCHEMA:
+				return basicSetXmlSchema(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -894,6 +986,9 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				return getSchemaContext();
 			case ExecutionPackage.XML_DATABASE__NAMESPACE:
 				return getNamespace();
+			case ExecutionPackage.XML_DATABASE__XML_SCHEMA:
+				if (resolve) return getXmlSchema();
+				return basicGetXmlSchema();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -928,6 +1023,9 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			case ExecutionPackage.XML_DATABASE__NAMESPACE:
 				setNamespace((String)newValue);
 				return;
+			case ExecutionPackage.XML_DATABASE__XML_SCHEMA:
+				setXmlSchema((XmlSchema)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -961,6 +1059,9 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 			case ExecutionPackage.XML_DATABASE__NAMESPACE:
 				setNamespace(NAMESPACE_EDEFAULT);
 				return;
+			case ExecutionPackage.XML_DATABASE__XML_SCHEMA:
+				setXmlSchema((XmlSchema)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -987,6 +1088,8 @@ public class XmlDatabaseImpl extends DatabaseImpl implements XmlDatabase {
 				return SCHEMA_CONTEXT_EDEFAULT == null ? schemaContext != null : !SCHEMA_CONTEXT_EDEFAULT.equals(schemaContext);
 			case ExecutionPackage.XML_DATABASE__NAMESPACE:
 				return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
+			case ExecutionPackage.XML_DATABASE__XML_SCHEMA:
+				return xmlSchema != null;
 		}
 		return super.eIsSet(featureID);
 	}
