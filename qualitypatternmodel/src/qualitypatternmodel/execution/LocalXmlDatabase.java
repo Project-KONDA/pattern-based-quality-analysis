@@ -7,6 +7,7 @@ import org.basex.core.BaseXException;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Local Xml Database</b></em>'.
+ * A BaseX XML database located on the same computer as the pattern program.
  * <!-- end-user-doc -->
  *
  * <p>
