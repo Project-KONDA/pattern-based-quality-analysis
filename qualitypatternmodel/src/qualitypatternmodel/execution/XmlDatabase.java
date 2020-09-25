@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.EMap;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Xml Database</b></em>'.
+ * A BaseX XML database.
  * <!-- end-user-doc -->
  *
  * <p>

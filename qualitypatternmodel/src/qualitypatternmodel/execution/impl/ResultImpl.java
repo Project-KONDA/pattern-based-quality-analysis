@@ -63,6 +63,7 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The name of <code>this</code> pattern application result.
 	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
@@ -83,6 +84,7 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The cached value of the '{@link #getPerson() <em>Person</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The name of the person responsible for the pattern applciation.
 	 * <!-- end-user-doc -->
 	 * @see #getPerson()
 	 * @generated
@@ -103,6 +105,7 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The cached value of the '{@link #getStartDate() <em>Start Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The date when the pattern application was started.
 	 * <!-- end-user-doc -->
 	 * @see #getStartDate()
 	 * @generated
@@ -123,6 +126,8 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The cached value of the '{@link #getRuntime() <em>Runtime</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The runtime of the pattern application.
+	 * TODO: determine data unit
 	 * <!-- end-user-doc -->
 	 * @see #getRuntime()
 	 * @generated
@@ -143,6 +148,7 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The cached value of the '{@link #getProblemNumber() <em>Problem Number</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The number of matches of the concrete pattern in the <code>database</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getProblemNumber()
 	 * @generated
@@ -163,6 +169,7 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The cached value of the '{@link #getEndDate() <em>End Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The date when the pattern application was finished.
 	 * <!-- end-user-doc -->
 	 * @see #getEndDate()
 	 * @generated
@@ -173,6 +180,7 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The cached value of the '{@link #getPattern() <em>Pattern</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The concrete pattern whose application to <code>database</code> is represented by <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getPattern()
 	 * @generated
@@ -193,6 +201,7 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The cached value of the '{@link #getMatchNumber() <em>Match Number</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The number of matches of the context <code>graph</code> of <code>pattern</code> in the <code>database</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getMatchNumber()
 	 * @generated
@@ -203,6 +212,7 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The cached value of the '{@link #getSplitResult() <em>Split Result</em>}' attribute list.
 	 * <!-- begin-user-doc -->
+	 * The list of XML elements selected by the pattern.
 	 * <!-- end-user-doc -->
 	 * @see #getSplitResult()
 	 * @generated

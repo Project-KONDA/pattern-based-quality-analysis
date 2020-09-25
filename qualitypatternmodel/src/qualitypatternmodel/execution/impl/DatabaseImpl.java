@@ -55,6 +55,7 @@ public abstract class DatabaseImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * The cached value of the '{@link #getResults() <em>Results</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of all <code>Results</code> of pattern applications to <code>this</code> <code>Database</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getResults()
 	 * @generated
@@ -65,6 +66,7 @@ public abstract class DatabaseImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * The cached value of the '{@link #getPatterns() <em>Patterns</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of all <code>CompletePatterns</code> concretized for <code>this</code> <code>Database</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getPatterns()
 	 * @generated
