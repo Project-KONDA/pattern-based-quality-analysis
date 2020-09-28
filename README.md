@@ -12,7 +12,7 @@ This pattern can be adapted to a specific database technology and concretisized 
 The resulting concrete patterns are used to locate quality problems in specific databases.
 As proof of concept, this project realizes this approach for XML databases.
 
-The approach is described in detail in the research paper "[Detecting Quality Problems in Research Data: A Model-Driven Approach](https://doi.org/10.5281/zenodo.4019095)"
+The approach is described in detail in the research paper "[Detecting Quality Problems in Research Data: A Model-Driven Approach](https://doi.org/10.5281/zenodo.4019095)", published in the Conference "[MODELS2020](http://www.modelsconference.org)".
 
 
 ## Meta
@@ -34,11 +34,10 @@ Gabriele Taentzer - taentzer@uni-marburg.de
 
 ## Context : Project "KONDA"
 
-The Project "[KONDA](https://zenodo.org/communities/konda-project)"
-KONDA is a research project of three partners: 
-Foto Marburg (Deutsches Dokumentationszentrum für Kunstgeschichte), 
-Prof. Gabriele Taentzer of the Departement for Mathematics and Informatics  of Philipps Univerisity Marburg 
-and the State Library of University Göttingen (SUB). 
+The Project "[KONDA](https://zenodo.org/communities/konda-project)" is a research project of three partners: 
+* [Deutsches Dokumentationszentrum für Kunstgeschichte](https://www.uni-marburg.de/de/fotomarburg) (Foto Marburg)
+* Prof. Gabriele Taentzer of the [Departement for Mathematics and Informatics](https://www.uni-marburg.de/en/fb12) (FB12) of Philipps Univerisity Marburg 
+* [State Library of University Göttingen] (https://www.sub.uni-goettingen.de) (SUB)
 It is funded by BMBF for three years (2019-2022).
 
 
