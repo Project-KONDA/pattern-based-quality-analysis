@@ -12,10 +12,10 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.execution.ExecutionPackage;
-import qualitypatternmodel.execution.ServerXmlDatabase;
+import qualitypatternmodel.execution.ServerXmlDataDatabase;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.execution.ServerXmlDatabase} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.execution.ServerXmlDataDatabase} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -65,7 +65,7 @@ public class ServerXmlDatabaseItemProvider extends XmlDataDatabaseItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ServerXmlDatabase)object).getName();
+		String label = ((ServerXmlDataDatabase)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ServerXmlDatabase_type") :
 			getString("_UI_ServerXmlDatabase_type") + " " + label;

@@ -65,13 +65,13 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 		switch (eClass.getClassifierID()) {
 			case ExecutionPackage.XML_RESULT: return createXmlResult();
 			case ExecutionPackage.XML_DATA_DATABASE: return createXmlDataDatabase();
-			case ExecutionPackage.LOCAL_XML_DATABASE: return createLocalXmlDatabase();
-			case ExecutionPackage.SERVER_XML_DATABASE: return createServerXmlDatabase();
+			case ExecutionPackage.LOCAL_XML_DATA_DATABASE: return createLocalXmlDataDatabase();
+			case ExecutionPackage.SERVER_XML_DATA_DATABASE: return createServerXmlDataDatabase();
 			case ExecutionPackage.DATABASES: return createDatabases();
 			case ExecutionPackage.STRING_TO_INT_MAP: return (EObject)createStringToIntMap();
 			case ExecutionPackage.XML_SCHEMA_DATABASE: return createXmlSchemaDatabase();
-			case ExecutionPackage.LOCAL_XML_SCHEMA: return createLocalXmlSchema();
-			case ExecutionPackage.SERVER_XML_SCHEMA: return createServerXmlSchema();
+			case ExecutionPackage.LOCAL_XML_SCHEMA_DATABASE: return createLocalXmlSchemaDatabase();
+			case ExecutionPackage.SERVER_XML_SCHEMA_DATABASE: return createServerXmlSchemaDatabase();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -147,9 +147,9 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	 * @generated
 	 */
 	@Override
-	public LocalXmlDatabase createLocalXmlDatabase() {
-		LocalXmlDatabaseImpl localXmlDatabase = new LocalXmlDatabaseImpl();
-		return localXmlDatabase;
+	public LocalXmlDataDatabase createLocalXmlDataDatabase() {
+		LocalXmlDataDatabaseImpl localXmlDataDatabase = new LocalXmlDataDatabaseImpl();
+		return localXmlDataDatabase;
 	}
 
 	/**
@@ -158,9 +158,9 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	 * @generated
 	 */
 	@Override
-	public ServerXmlDatabase createServerXmlDatabase() {
-		ServerXmlDatabaseImpl serverXmlDatabase = new ServerXmlDatabaseImpl();
-		return serverXmlDatabase;
+	public ServerXmlDataDatabase createServerXmlDataDatabase() {
+		ServerXmlDataDatabaseImpl serverXmlDataDatabase = new ServerXmlDataDatabaseImpl();
+		return serverXmlDataDatabase;
 	}
 
 	/**
@@ -201,9 +201,9 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	 * @generated
 	 */
 	@Override
-	public LocalXmlSchema createLocalXmlSchema() {
-		LocalXmlSchemaImpl localXmlSchema = new LocalXmlSchemaImpl();
-		return localXmlSchema;
+	public LocalXmlSchemaDatabase createLocalXmlSchemaDatabase() {
+		LocalXmlSchemaDatabaseImpl localXmlSchemaDatabase = new LocalXmlSchemaDatabaseImpl();
+		return localXmlSchemaDatabase;
 	}
 
 	/**
@@ -212,9 +212,9 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	 * @generated
 	 */
 	@Override
-	public ServerXmlSchema createServerXmlSchema() {
-		ServerXmlSchemaImpl serverXmlSchema = new ServerXmlSchemaImpl();
-		return serverXmlSchema;
+	public ServerXmlSchemaDatabase createServerXmlSchemaDatabase() {
+		ServerXmlSchemaDatabaseImpl serverXmlSchemaDatabase = new ServerXmlSchemaDatabaseImpl();
+		return serverXmlSchemaDatabase;
 	}
 
 	/**

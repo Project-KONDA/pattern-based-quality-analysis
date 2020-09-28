@@ -238,6 +238,14 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case ExecutionPackage.XML_DATABASE___CREATE:
+				try {
+					create();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -316,6 +324,18 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	public void open() throws BaseXException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void create() throws BaseXException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

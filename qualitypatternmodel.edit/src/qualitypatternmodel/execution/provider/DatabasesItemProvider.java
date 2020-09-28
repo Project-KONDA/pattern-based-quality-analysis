@@ -160,12 +160,12 @@ public class DatabasesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExecutionPackage.Literals.DATABASES__XML_DATABASES,
-				 ExecutionFactory.eINSTANCE.createLocalXmlDatabase()));
+				 ExecutionFactory.eINSTANCE.createLocalXmlDataDatabase()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ExecutionPackage.Literals.DATABASES__XML_DATABASES,
-				 ExecutionFactory.eINSTANCE.createServerXmlDatabase()));
+				 ExecutionFactory.eINSTANCE.createServerXmlDataDatabase()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -175,12 +175,12 @@ public class DatabasesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExecutionPackage.Literals.DATABASES__XML_SCHEMATA,
-				 ExecutionFactory.eINSTANCE.createLocalXmlSchema()));
+				 ExecutionFactory.eINSTANCE.createLocalXmlSchemaDatabase()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ExecutionPackage.Literals.DATABASES__XML_SCHEMATA,
-				 ExecutionFactory.eINSTANCE.createServerXmlSchema()));
+				 ExecutionFactory.eINSTANCE.createServerXmlSchemaDatabase()));
 	}
 
 	/**

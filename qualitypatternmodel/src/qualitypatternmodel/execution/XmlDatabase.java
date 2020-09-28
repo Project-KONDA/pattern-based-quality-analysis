@@ -118,4 +118,12 @@ public interface XmlDatabase extends EObject {
 	 */
 	void open() throws BaseXException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper"
+	 * @generated
+	 */
+	void create() throws BaseXException;
+
 } // XmlDatabase

@@ -40,22 +40,22 @@ public interface ExecutionFactory extends EFactory {
 	XmlDataDatabase createXmlDataDatabase();
 
 	/**
-	 * Returns a new object of class '<em>Local Xml Database</em>'.
+	 * Returns a new object of class '<em>Local Xml Data Database</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Local Xml Database</em>'.
+	 * @return a new object of class '<em>Local Xml Data Database</em>'.
 	 * @generated
 	 */
-	LocalXmlDatabase createLocalXmlDatabase();
+	LocalXmlDataDatabase createLocalXmlDataDatabase();
 
 	/**
-	 * Returns a new object of class '<em>Server Xml Database</em>'.
+	 * Returns a new object of class '<em>Server Xml Data Database</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Server Xml Database</em>'.
+	 * @return a new object of class '<em>Server Xml Data Database</em>'.
 	 * @generated
 	 */
-	ServerXmlDatabase createServerXmlDatabase();
+	ServerXmlDataDatabase createServerXmlDataDatabase();
 
 	/**
 	 * Returns a new object of class '<em>Databases</em>'.
@@ -76,22 +76,22 @@ public interface ExecutionFactory extends EFactory {
 	XmlSchemaDatabase createXmlSchemaDatabase();
 
 	/**
-	 * Returns a new object of class '<em>Local Xml Schema</em>'.
+	 * Returns a new object of class '<em>Local Xml Schema Database</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Local Xml Schema</em>'.
+	 * @return a new object of class '<em>Local Xml Schema Database</em>'.
 	 * @generated
 	 */
-	LocalXmlSchema createLocalXmlSchema();
+	LocalXmlSchemaDatabase createLocalXmlSchemaDatabase();
 
 	/**
-	 * Returns a new object of class '<em>Server Xml Schema</em>'.
+	 * Returns a new object of class '<em>Server Xml Schema Database</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Server Xml Schema</em>'.
+	 * @return a new object of class '<em>Server Xml Schema Database</em>'.
 	 * @generated
 	 */
-	ServerXmlSchema createServerXmlSchema();
+	ServerXmlSchemaDatabase createServerXmlSchemaDatabase();
 
 	/**
 	 * Returns the package supported by this factory.

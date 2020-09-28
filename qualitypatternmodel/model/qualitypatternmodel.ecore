@@ -726,11 +726,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeNames" upperBound="-1"
           eType="#//execution/StringToIntMap" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LocalXmlDatabase" eSuperTypes="#//execution/XmlDataDatabase">
-      <eOperations name="create" eExceptions="#//execution/BaseXExceptionWrapper"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LocalXmlDataDatabase" eSuperTypes="#//execution/XmlDataDatabase">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ServerXmlDatabase" eSuperTypes="#//execution/XmlDataDatabase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ServerXmlDataDatabase" eSuperTypes="#//execution/XmlDataDatabase"/>
     <eClassifiers xsi:type="ecore:EClass" name="Databases">
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlDatabases" upperBound="-1"
           eType="#//execution/XmlDataDatabase" containment="true"/>
@@ -838,15 +837,15 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="elementNames" upperBound="-1"
           eType="#//execution/StringToIntMap" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LocalXmlSchema" eSuperTypes="#//execution/XmlSchemaDatabase">
-      <eOperations name="create" eExceptions="#//execution/BaseXExceptionWrapper"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LocalXmlSchemaDatabase" eSuperTypes="#//execution/XmlSchemaDatabase">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemaPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ServerXmlSchema" eSuperTypes="#//execution/XmlSchemaDatabase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ServerXmlSchemaDatabase" eSuperTypes="#//execution/XmlSchemaDatabase"/>
     <eClassifiers xsi:type="ecore:EClass" name="XmlDatabase" abstract="true">
       <eOperations name="analyse" eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper"/>
       <eOperations name="init" eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper"/>
       <eOperations name="open" eExceptions="#//execution/BaseXExceptionWrapper"/>
+      <eOperations name="create" eExceptions="#//execution/BaseXExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="context" eType="#//execution/BaseXContextWrapper"/>

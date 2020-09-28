@@ -81,12 +81,12 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 				return createXmlDataDatabaseAdapter();
 			}
 			@Override
-			public Adapter caseLocalXmlDatabase(LocalXmlDatabase object) {
-				return createLocalXmlDatabaseAdapter();
+			public Adapter caseLocalXmlDataDatabase(LocalXmlDataDatabase object) {
+				return createLocalXmlDataDatabaseAdapter();
 			}
 			@Override
-			public Adapter caseServerXmlDatabase(ServerXmlDatabase object) {
-				return createServerXmlDatabaseAdapter();
+			public Adapter caseServerXmlDataDatabase(ServerXmlDataDatabase object) {
+				return createServerXmlDataDatabaseAdapter();
 			}
 			@Override
 			public Adapter caseDatabases(Databases object) {
@@ -101,12 +101,12 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 				return createXmlSchemaDatabaseAdapter();
 			}
 			@Override
-			public Adapter caseLocalXmlSchema(LocalXmlSchema object) {
-				return createLocalXmlSchemaAdapter();
+			public Adapter caseLocalXmlSchemaDatabase(LocalXmlSchemaDatabase object) {
+				return createLocalXmlSchemaDatabaseAdapter();
 			}
 			@Override
-			public Adapter caseServerXmlSchema(ServerXmlSchema object) {
-				return createServerXmlSchemaAdapter();
+			public Adapter caseServerXmlSchemaDatabase(ServerXmlSchemaDatabase object) {
+				return createServerXmlSchemaDatabaseAdapter();
 			}
 			@Override
 			public Adapter caseXmlDatabase(XmlDatabase object) {
@@ -183,30 +183,30 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.LocalXmlDatabase <em>Local Xml Database</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.LocalXmlDataDatabase <em>Local Xml Data Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.execution.LocalXmlDatabase
+	 * @see qualitypatternmodel.execution.LocalXmlDataDatabase
 	 * @generated
 	 */
-	public Adapter createLocalXmlDatabaseAdapter() {
+	public Adapter createLocalXmlDataDatabaseAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.ServerXmlDatabase <em>Server Xml Database</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.ServerXmlDataDatabase <em>Server Xml Data Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.execution.ServerXmlDatabase
+	 * @see qualitypatternmodel.execution.ServerXmlDataDatabase
 	 * @generated
 	 */
-	public Adapter createServerXmlDatabaseAdapter() {
+	public Adapter createServerXmlDataDatabaseAdapter() {
 		return null;
 	}
 
@@ -253,30 +253,30 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.LocalXmlSchema <em>Local Xml Schema</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.LocalXmlSchemaDatabase <em>Local Xml Schema Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.execution.LocalXmlSchema
+	 * @see qualitypatternmodel.execution.LocalXmlSchemaDatabase
 	 * @generated
 	 */
-	public Adapter createLocalXmlSchemaAdapter() {
+	public Adapter createLocalXmlSchemaDatabaseAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.ServerXmlSchema <em>Server Xml Schema</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.ServerXmlSchemaDatabase <em>Server Xml Schema Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.execution.ServerXmlSchema
+	 * @see qualitypatternmodel.execution.ServerXmlSchemaDatabase
 	 * @generated
 	 */
-	public Adapter createServerXmlSchemaAdapter() {
+	public Adapter createServerXmlSchemaDatabaseAdapter() {
 		return null;
 	}
 

@@ -25,11 +25,11 @@ import qualitypatternmodel.execution.Databaseformat;
 import qualitypatternmodel.execution.Databases;
 import qualitypatternmodel.execution.ExecutionFactory;
 import qualitypatternmodel.execution.ExecutionPackage;
-import qualitypatternmodel.execution.LocalXmlDatabase;
-import qualitypatternmodel.execution.LocalXmlSchema;
+import qualitypatternmodel.execution.LocalXmlDataDatabase;
+import qualitypatternmodel.execution.LocalXmlSchemaDatabase;
 import qualitypatternmodel.execution.Result;
-import qualitypatternmodel.execution.ServerXmlDatabase;
-import qualitypatternmodel.execution.ServerXmlSchema;
+import qualitypatternmodel.execution.ServerXmlDataDatabase;
+import qualitypatternmodel.execution.ServerXmlSchemaDatabase;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.execution.XmlResult;
@@ -84,14 +84,14 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass localXmlDatabaseEClass = null;
+	private EClass localXmlDataDatabaseEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass serverXmlDatabaseEClass = null;
+	private EClass serverXmlDataDatabaseEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,14 +119,14 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass localXmlSchemaEClass = null;
+	private EClass localXmlSchemaDatabaseEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass serverXmlSchemaEClass = null;
+	private EClass serverXmlSchemaDatabaseEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -536,8 +536,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EClass getLocalXmlDatabase() {
-		return localXmlDatabaseEClass;
+	public EClass getLocalXmlDataDatabase() {
+		return localXmlDataDatabaseEClass;
 	}
 
 	/**
@@ -546,8 +546,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getLocalXmlDatabase_DataPath() {
-		return (EAttribute)localXmlDatabaseEClass.getEStructuralFeatures().get(0);
+	public EAttribute getLocalXmlDataDatabase_DataPath() {
+		return (EAttribute)localXmlDataDatabaseEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -556,18 +556,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getLocalXmlDatabase__Create() {
-		return localXmlDatabaseEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getServerXmlDatabase() {
-		return serverXmlDatabaseEClass;
+	public EClass getServerXmlDataDatabase() {
+		return serverXmlDataDatabaseEClass;
 	}
 
 	/**
@@ -866,8 +856,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EClass getLocalXmlSchema() {
-		return localXmlSchemaEClass;
+	public EClass getLocalXmlSchemaDatabase() {
+		return localXmlSchemaDatabaseEClass;
 	}
 
 	/**
@@ -876,8 +866,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getLocalXmlSchema_SchemaPath() {
-		return (EAttribute)localXmlSchemaEClass.getEStructuralFeatures().get(0);
+	public EAttribute getLocalXmlSchemaDatabase_SchemaPath() {
+		return (EAttribute)localXmlSchemaDatabaseEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -886,18 +876,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getLocalXmlSchema__Create() {
-		return localXmlSchemaEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getServerXmlSchema() {
-		return serverXmlSchemaEClass;
+	public EClass getServerXmlSchemaDatabase() {
+		return serverXmlSchemaDatabaseEClass;
 	}
 
 	/**
@@ -968,6 +948,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	@Override
 	public EOperation getXmlDatabase__Open() {
 		return xmlDatabaseEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDatabase__Create() {
+		return xmlDatabaseEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -1129,11 +1119,10 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING);
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING);
 
-		localXmlDatabaseEClass = createEClass(LOCAL_XML_DATABASE);
-		createEAttribute(localXmlDatabaseEClass, LOCAL_XML_DATABASE__DATA_PATH);
-		createEOperation(localXmlDatabaseEClass, LOCAL_XML_DATABASE___CREATE);
+		localXmlDataDatabaseEClass = createEClass(LOCAL_XML_DATA_DATABASE);
+		createEAttribute(localXmlDataDatabaseEClass, LOCAL_XML_DATA_DATABASE__DATA_PATH);
 
-		serverXmlDatabaseEClass = createEClass(SERVER_XML_DATABASE);
+		serverXmlDataDatabaseEClass = createEClass(SERVER_XML_DATA_DATABASE);
 
 		databasesEClass = createEClass(DATABASES);
 		createEReference(databasesEClass, DATABASES__XML_DATABASES);
@@ -1167,11 +1156,10 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING);
 		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING);
 
-		localXmlSchemaEClass = createEClass(LOCAL_XML_SCHEMA);
-		createEAttribute(localXmlSchemaEClass, LOCAL_XML_SCHEMA__SCHEMA_PATH);
-		createEOperation(localXmlSchemaEClass, LOCAL_XML_SCHEMA___CREATE);
+		localXmlSchemaDatabaseEClass = createEClass(LOCAL_XML_SCHEMA_DATABASE);
+		createEAttribute(localXmlSchemaDatabaseEClass, LOCAL_XML_SCHEMA_DATABASE__SCHEMA_PATH);
 
-		serverXmlSchemaEClass = createEClass(SERVER_XML_SCHEMA);
+		serverXmlSchemaDatabaseEClass = createEClass(SERVER_XML_SCHEMA_DATABASE);
 
 		xmlDatabaseEClass = createEClass(XML_DATABASE);
 		createEAttribute(xmlDatabaseEClass, XML_DATABASE__NAME);
@@ -1180,6 +1168,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___ANALYSE);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___INIT);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___OPEN);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___CREATE);
 
 		databaseEClass = createEClass(DATABASE);
 		createEReference(databaseEClass, DATABASE__RESULTS);
@@ -1231,12 +1220,12 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		xmlResultEClass.getESuperTypes().add(this.getResult());
 		xmlDataDatabaseEClass.getESuperTypes().add(this.getXmlDatabase());
 		xmlDataDatabaseEClass.getESuperTypes().add(this.getDatabase());
-		localXmlDatabaseEClass.getESuperTypes().add(this.getXmlDataDatabase());
-		serverXmlDatabaseEClass.getESuperTypes().add(this.getXmlDataDatabase());
+		localXmlDataDatabaseEClass.getESuperTypes().add(this.getXmlDataDatabase());
+		serverXmlDataDatabaseEClass.getESuperTypes().add(this.getXmlDataDatabase());
 		xmlSchemaDatabaseEClass.getESuperTypes().add(this.getXmlDatabase());
 		xmlSchemaDatabaseEClass.getESuperTypes().add(this.getDatabaseformat());
-		localXmlSchemaEClass.getESuperTypes().add(this.getXmlSchemaDatabase());
-		serverXmlSchemaEClass.getESuperTypes().add(this.getXmlSchemaDatabase());
+		localXmlSchemaDatabaseEClass.getESuperTypes().add(this.getXmlSchemaDatabase());
+		serverXmlSchemaDatabaseEClass.getESuperTypes().add(this.getXmlSchemaDatabase());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(resultEClass, Result.class, "Result", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1287,13 +1276,10 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		op = initEOperation(getXmlDataDatabase__RemoveAttributeName__String(), null, "removeAttributeName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(localXmlDatabaseEClass, LocalXmlDatabase.class, "LocalXmlDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLocalXmlDatabase_DataPath(), ecorePackage.getEString(), "dataPath", null, 0, 1, LocalXmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(localXmlDataDatabaseEClass, LocalXmlDataDatabase.class, "LocalXmlDataDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLocalXmlDataDatabase_DataPath(), ecorePackage.getEString(), "dataPath", null, 0, 1, LocalXmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getLocalXmlDatabase__Create(), null, "create", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getBaseXExceptionWrapper());
-
-		initEClass(serverXmlDatabaseEClass, ServerXmlDatabase.class, "ServerXmlDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(serverXmlDataDatabaseEClass, ServerXmlDataDatabase.class, "ServerXmlDataDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(databasesEClass, Databases.class, "Databases", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDatabases_XmlDatabases(), this.getXmlDataDatabase(), null, "xmlDatabases", null, 0, -1, Databases.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1432,13 +1418,10 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		initEClass(localXmlSchemaEClass, LocalXmlSchema.class, "LocalXmlSchema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLocalXmlSchema_SchemaPath(), ecorePackage.getEString(), "schemaPath", null, 0, 1, LocalXmlSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(localXmlSchemaDatabaseEClass, LocalXmlSchemaDatabase.class, "LocalXmlSchemaDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLocalXmlSchemaDatabase_SchemaPath(), ecorePackage.getEString(), "schemaPath", null, 0, 1, LocalXmlSchemaDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getLocalXmlSchema__Create(), null, "create", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getBaseXExceptionWrapper());
-
-		initEClass(serverXmlSchemaEClass, ServerXmlSchema.class, "ServerXmlSchema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(serverXmlSchemaDatabaseEClass, ServerXmlSchemaDatabase.class, "ServerXmlSchemaDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(xmlDatabaseEClass, XmlDatabase.class, "XmlDatabase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getXmlDatabase_Name(), ecorePackage.getEString(), "name", null, 0, 1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1456,6 +1439,9 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		addEException(op, this.getQueryIOExceptionWrapper());
 
 		op = initEOperation(getXmlDatabase__Open(), null, "open", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getBaseXExceptionWrapper());
+
+		op = initEOperation(getXmlDatabase__Create(), null, "create", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 
 		initEClass(databaseEClass, Database.class, "Database", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
