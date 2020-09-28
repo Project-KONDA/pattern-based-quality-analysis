@@ -50,5 +50,5 @@ public interface LocalXmlSchema extends XmlSchemaDatabase {
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper"
 	 * @generated
 	 */
-	void createSchemaDatabase() throws BaseXException;
+	void create() throws BaseXException;
 } // LocalXmlSchema

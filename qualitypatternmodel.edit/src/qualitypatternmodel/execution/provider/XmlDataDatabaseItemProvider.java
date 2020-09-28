@@ -12,7 +12,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.execution.ExecutionFactory;
@@ -48,8 +47,6 @@ public class XmlDataDatabaseItemProvider extends XmlDatabaseItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addPatternsPropertyDescriptor(object);
-			addContextPropertyDescriptor(object);
-			addNamespacePropertyDescriptor(object);
 			addXmlSchemaPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -73,50 +70,6 @@ public class XmlDataDatabaseItemProvider extends XmlDatabaseItemProvider {
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Context feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addContextPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XmlDataDatabase_context_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XmlDataDatabase_context_feature", "_UI_XmlDataDatabase_type"),
-				 ExecutionPackage.Literals.XML_DATA_DATABASE__CONTEXT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Namespace feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamespacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XmlDataDatabase_namespace_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XmlDataDatabase_namespace_feature", "_UI_XmlDataDatabase_type"),
-				 ExecutionPackage.Literals.XML_DATA_DATABASE__NAMESPACE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -215,10 +168,6 @@ public class XmlDataDatabaseItemProvider extends XmlDatabaseItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(XmlDataDatabase.class)) {
-			case ExecutionPackage.XML_DATA_DATABASE__CONTEXT:
-			case ExecutionPackage.XML_DATA_DATABASE__NAMESPACE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case ExecutionPackage.XML_DATA_DATABASE__RESULTS:
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_DATA_VALUES:

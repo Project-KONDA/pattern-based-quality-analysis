@@ -3,7 +3,6 @@
 package qualitypatternmodel.execution;
 
 import org.basex.core.BaseXException;
-import org.basex.core.Context;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.util.EList;
@@ -19,8 +18,6 @@ import org.eclipse.emf.common.util.EMap;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getXmlDatabases <em>Xml Databases</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getSchemaContext <em>Schema Context</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getAttributeNames <em>Attribute Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getElementNames <em>Element Names</em>}</li>
  * </ul>
@@ -43,74 +40,6 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @generated
 	 */
 	EList<XmlDataDatabase> getXmlDatabases();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
-	 * @generated
-	 */
-	void analyseSchema() throws BaseXException, QueryException, QueryIOException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper"
-	 * @generated
-	 */
-	void openSchemaDatabase() throws BaseXException;
-
-	/**
-	 * Returns the value of the '<em><b>Schema Context</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Schema Context</em>' attribute.
-	 * @see #setSchemaContext(Context)
-	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlSchemaDatabase_SchemaContext()
-	 * @model dataType="qualitypatternmodel.execution.BaseXContextWrapper"
-	 * @generated
-	 */
-	Context getSchemaContext();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.execution.XmlSchemaDatabase#getSchemaContext <em>Schema Context</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Schema Context</em>' attribute.
-	 * @see #getSchemaContext()
-	 * @generated
-	 */
-	void setSchemaContext(Context value);
-
-	/**
-	 * Returns the value of the '<em><b>Namespace</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Namespace</em>' attribute.
-	 * @see #setNamespace(String)
-	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlSchemaDatabase_Namespace()
-	 * @model
-	 * @generated
-	 */
-	String getNamespace();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.execution.XmlSchemaDatabase#getNamespace <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Namespace</em>' attribute.
-	 * @see #getNamespace()
-	 * @generated
-	 */
-	void setNamespace(String value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
-	 * @generated
-	 */
-	void initSchemaDatabase() throws BaseXException, QueryException, QueryIOException;
 
 	/**
 	 * <!-- begin-user-doc -->

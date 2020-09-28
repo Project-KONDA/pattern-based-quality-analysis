@@ -14,9 +14,6 @@ import qualitypatternmodel.execution.XmlSchemaDatabase;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#analyseSchema() <em>Analyse Schema</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#openSchemaDatabase() <em>Open Schema Database</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#initSchemaDatabase() <em>Init Schema Database</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#checkFollowingInSchema(java.lang.String, java.lang.String) <em>Check Following In Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#checkParentInSchema(java.lang.String, java.lang.String) <em>Check Parent In Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#checkAncestorInSchema(java.lang.String, java.lang.String) <em>Check Ancestor In Schema</em>}</li>
@@ -92,45 +89,6 @@ public class XmlSchemaDatabaseTest extends XmlDatabaseTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlSchemaDatabase#analyseSchema() <em>Analyse Schema</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlSchemaDatabase#analyseSchema()
-	 * @generated
-	 */
-	public void testAnalyseSchema() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlSchemaDatabase#openSchemaDatabase() <em>Open Schema Database</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlSchemaDatabase#openSchemaDatabase()
-	 * @generated
-	 */
-	public void testOpenSchemaDatabase() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlSchemaDatabase#initSchemaDatabase() <em>Init Schema Database</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlSchemaDatabase#initSchemaDatabase()
-	 * @generated
-	 */
-	public void testInitSchemaDatabase() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 	/**

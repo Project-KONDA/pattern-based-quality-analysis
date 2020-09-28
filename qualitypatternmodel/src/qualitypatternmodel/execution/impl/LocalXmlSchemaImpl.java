@@ -69,8 +69,8 @@ public class LocalXmlSchemaImpl extends XmlSchemaDatabaseImpl implements LocalXm
 	 * @generated NOT
 	 */
 	@Override
-	public void createSchemaDatabase() throws BaseXException {
-		new CreateDB(name, schemaPath).execute(schemaContext);	
+	public void create() throws BaseXException {
+		new CreateDB(name, schemaPath).execute(context);	
 	}
 	
 	/**
@@ -79,10 +79,10 @@ public class LocalXmlSchemaImpl extends XmlSchemaDatabaseImpl implements LocalXm
 	 * @generated NOT
 	 */
 	@Override
-	public void initSchemaDatabase() throws BaseXException, QueryException, QueryIOException {
-		schemaContext = new Context();
-		createSchemaDatabase(); // TODO: optional
-		analyseSchema();
+	public void init() throws BaseXException, QueryException, QueryIOException {
+		context = new Context();
+		create(); // TODO: optional
+		analyse();
 	}
 
 	/**
@@ -184,9 +184,9 @@ public class LocalXmlSchemaImpl extends XmlSchemaDatabaseImpl implements LocalXm
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ExecutionPackage.LOCAL_XML_SCHEMA___CREATE_SCHEMA_DATABASE:
+			case ExecutionPackage.LOCAL_XML_SCHEMA___CREATE:
 				try {
-					createSchemaDatabase();
+					create();
 					return null;
 				}
 				catch (Throwable throwable) {

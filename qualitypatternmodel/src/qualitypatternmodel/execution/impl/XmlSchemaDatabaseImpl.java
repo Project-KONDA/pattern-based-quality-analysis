@@ -20,7 +20,6 @@ import org.basex.query.QueryIOException;
 import org.basex.query.QueryProcessor;
 import org.basex.query.iter.Iter;
 import org.basex.query.value.item.Item;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -28,7 +27,6 @@ import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -46,8 +44,6 @@ import qualitypatternmodel.execution.XmlSchemaDatabase;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getXmlDatabases <em>Xml Databases</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getSchemaContext <em>Schema Context</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getAttributeNames <em>Attribute Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getElementNames <em>Element Names</em>}</li>
  * </ul>
@@ -64,43 +60,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 * @ordered
 	 */
 	protected EList<XmlDataDatabase> xmlDatabases;
-	/**
-	 * The default value of the '{@link #getSchemaContext() <em>Schema Context</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSchemaContext()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Context SCHEMA_CONTEXT_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getSchemaContext() <em>Schema Context</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSchemaContext()
-	 * @generated
-	 * @ordered
-	 */
-	protected Context schemaContext = SCHEMA_CONTEXT_EDEFAULT;
-	/**
-	 * The default value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNamespace()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAMESPACE_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNamespace()
-	 * @generated
-	 * @ordered
-	 */
-	protected String namespace = NAMESPACE_EDEFAULT;
-
+	
 	/**
 	 * The cached value of the '{@link #getAttributeNames() <em>Attribute Names</em>}' map.
 	 * <!-- begin-user-doc -->
@@ -134,10 +94,10 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 * @generated NOT
 	 */
 	@Override
-	public void analyseSchema() throws BaseXException, QueryIOException, QueryException {
-		openSchemaDatabase();		
-		executeAnalysis("//*[name()=\"xs:element\"]/data(@name)", getElementNames(), schemaContext);
-		executeAnalysis("//*[name()=\"xs:attribute\"]/data(@name)", getAttributeNames(), schemaContext);
+	public void analyse() throws BaseXException, QueryIOException, QueryException {
+		open();		
+		executeAnalysis("//*[name()=\"xs:element\"]/data(@name)", getElementNames(), context);
+		executeAnalysis("//*[name()=\"xs:attribute\"]/data(@name)", getAttributeNames(), context);
 		
 		// TODO: add namespace
 	}
@@ -161,7 +121,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	}
 	
 	private EList<String> getElementNames(String elementName, String path, String methodName) throws BaseXException, QueryException, QueryIOException {
-		openSchemaDatabase();
+		open();
 
 		String checkQuery; 
 		
@@ -178,7 +138,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		
 		String query = checkQuery + call;
 		
-		List<String> queryResult = executeQuery(query, schemaContext);
+		List<String> queryResult = executeQuery(query, context);
 		
 		EList<String> result = new BasicEList<String>();
 		result.addAll(queryResult);	
@@ -210,69 +170,10 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 * @generated NOT
 	 */
 	@Override
-	public void openSchemaDatabase() throws BaseXException {
-		new Open(name).execute(schemaContext);
+	public void open() throws BaseXException {
+		new Open(name).execute(context);
 	}	
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void initSchemaDatabase() throws BaseXException, QueryException, QueryIOException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Context getSchemaContext() {
-		return schemaContext;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setSchemaContext(Context newSchemaContext) {
-		Context oldSchemaContext = schemaContext;
-		schemaContext = newSchemaContext;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_SCHEMA_DATABASE__SCHEMA_CONTEXT, oldSchemaContext, schemaContext));
-	}
-
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getNamespace() {
-		return namespace;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setNamespace(String newNamespace) {
-		String oldNamespace = namespace;
-		namespace = newNamespace;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_SCHEMA_DATABASE__NAMESPACE, oldNamespace, namespace));
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -339,10 +240,6 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		switch (featureID) {
 			case ExecutionPackage.XML_SCHEMA_DATABASE__XML_DATABASES:
 				return getXmlDatabases();
-			case ExecutionPackage.XML_SCHEMA_DATABASE__SCHEMA_CONTEXT:
-				return getSchemaContext();
-			case ExecutionPackage.XML_SCHEMA_DATABASE__NAMESPACE:
-				return getNamespace();
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
 				if (coreType) return getAttributeNames();
 				else return getAttributeNames().map();
@@ -366,12 +263,6 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 				getXmlDatabases().clear();
 				getXmlDatabases().addAll((Collection<? extends XmlDataDatabase>)newValue);
 				return;
-			case ExecutionPackage.XML_SCHEMA_DATABASE__SCHEMA_CONTEXT:
-				setSchemaContext((Context)newValue);
-				return;
-			case ExecutionPackage.XML_SCHEMA_DATABASE__NAMESPACE:
-				setNamespace((String)newValue);
-				return;
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
 				((EStructuralFeature.Setting)getAttributeNames()).set(newValue);
 				return;
@@ -393,12 +284,6 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 			case ExecutionPackage.XML_SCHEMA_DATABASE__XML_DATABASES:
 				getXmlDatabases().clear();
 				return;
-			case ExecutionPackage.XML_SCHEMA_DATABASE__SCHEMA_CONTEXT:
-				setSchemaContext(SCHEMA_CONTEXT_EDEFAULT);
-				return;
-			case ExecutionPackage.XML_SCHEMA_DATABASE__NAMESPACE:
-				setNamespace(NAMESPACE_EDEFAULT);
-				return;
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
 				getAttributeNames().clear();
 				return;
@@ -419,10 +304,6 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		switch (featureID) {
 			case ExecutionPackage.XML_SCHEMA_DATABASE__XML_DATABASES:
 				return xmlDatabases != null && !xmlDatabases.isEmpty();
-			case ExecutionPackage.XML_SCHEMA_DATABASE__SCHEMA_CONTEXT:
-				return SCHEMA_CONTEXT_EDEFAULT == null ? schemaContext != null : !SCHEMA_CONTEXT_EDEFAULT.equals(schemaContext);
-			case ExecutionPackage.XML_SCHEMA_DATABASE__NAMESPACE:
-				return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
 				return attributeNames != null && !attributeNames.isEmpty();
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES:
@@ -439,30 +320,6 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ExecutionPackage.XML_SCHEMA_DATABASE___ANALYSE_SCHEMA:
-				try {
-					analyseSchema();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_SCHEMA_DATABASE___OPEN_SCHEMA_DATABASE:
-				try {
-					openSchemaDatabase();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_SCHEMA_DATABASE___INIT_SCHEMA_DATABASE:
-				try {
-					initSchemaDatabase();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case ExecutionPackage.XML_SCHEMA_DATABASE___CHECK_FOLLOWING_IN_SCHEMA__STRING_STRING:
 				try {
 					return checkFollowingInSchema((String)arguments.get(0), (String)arguments.get(1));
@@ -604,24 +461,6 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (schemaContext: ");
-		result.append(schemaContext);
-		result.append(", namespace: ");
-		result.append(namespace);
-		result.append(')');
-		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @throws BaseXException 
 	 * @throws QueryException 
 	 * @throws QueryIOException 
@@ -634,7 +473,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 
 	private boolean checkAxis(String elementName1, String elementName2, String path, String methodName)
 			throws BaseXException, QueryException, QueryIOException {
-		openSchemaDatabase();
+		open();
 		
 		String checkQuery;
 		try {
@@ -651,7 +490,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		
 		String query = checkQuery + call;
 		
-		List<String> queryResult = executeQuery(query, schemaContext);
+		List<String> queryResult = executeQuery(query, context);
 		if(queryResult.size() == 1) {			
 			if(queryResult.get(0).equals("false")) {
 				return false;

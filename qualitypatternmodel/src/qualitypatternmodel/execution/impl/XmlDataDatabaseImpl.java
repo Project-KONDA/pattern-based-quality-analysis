@@ -47,10 +47,8 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  * <ul>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDataDatabaseImpl#getResults <em>Results</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDataDatabaseImpl#getPatterns <em>Patterns</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.impl.XmlDataDatabaseImpl#getContext <em>Context</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDataDatabaseImpl#getRecordedAttributeValues <em>Recorded Attribute Values</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDataDatabaseImpl#getRecordedDataValues <em>Recorded Data Values</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.impl.XmlDataDatabaseImpl#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDataDatabaseImpl#getXmlSchema <em>Xml Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDataDatabaseImpl#getElementNames <em>Element Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDataDatabaseImpl#getAttributeNames <em>Attribute Names</em>}</li>
@@ -80,26 +78,6 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	protected CompletePattern patterns;
 
 	/**
-	 * The default value of the '{@link #getContext() <em>Context</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContext()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Context CONTEXT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContext()
-	 * @generated
-	 * @ordered
-	 */
-	protected Context context = CONTEXT_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getRecordedAttributeValues() <em>Recorded Attribute Values</em>}' map.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,26 +96,6 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	 * @ordered
 	 */
 	protected EMap<String, Integer> recordedDataValues;
-
-	/**
-	 * The default value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNamespace()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAMESPACE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNamespace()
-	 * @generated
-	 * @ordered
-	 */
-	protected String namespace = NAMESPACE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getXmlSchema() <em>Xml Schema</em>}' reference.
@@ -269,29 +227,6 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	 * @generated
 	 */
 	@Override
-	public Context getContext() {
-		return context;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setContext(Context newContext) {
-		Context oldContext = context;
-		context = newContext;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_DATA_DATABASE__CONTEXT, oldContext, context));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EMap<String, Integer> getRecordedAttributeValues() {
 		if (recordedAttributeValues == null) {
 			recordedAttributeValues = new EcoreEMap<String,Integer>(ExecutionPackage.Literals.STRING_TO_INT_MAP, StringToIntMapImpl.class, this, ExecutionPackage.XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES);
@@ -310,29 +245,6 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			recordedDataValues = new EcoreEMap<String,Integer>(ExecutionPackage.Literals.STRING_TO_INT_MAP, StringToIntMapImpl.class, this, ExecutionPackage.XML_DATA_DATABASE__RECORDED_DATA_VALUES);
 		}
 		return recordedDataValues;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getNamespace() {
-		return namespace;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setNamespace(String newNamespace) {
-		String oldNamespace = namespace;
-		namespace = newNamespace;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_DATA_DATABASE__NAMESPACE, oldNamespace, namespace));
 	}
 
 	/**
@@ -431,7 +343,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	 * @generated NOT
 	 */
 	@Override
-	public void analyseDatabase() throws BaseXException, QueryIOException, QueryException {
+	public void analyse() throws BaseXException, QueryIOException, QueryException {
 		open();				
 		executeAnalysis("distinct-values(//*/name())", getElementNames(), context);
 		executeAnalysis("distinct-values(//*/@*/name()))", getAttributeNames(), context);
@@ -526,30 +438,6 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	@Override
 	public void removeDataValue(String value) {
 		decreaseCountOrRemove(value, getRecordedDataValues());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void init() throws BaseXException, QueryException, QueryIOException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void open() throws BaseXException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -655,16 +543,12 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			case ExecutionPackage.XML_DATA_DATABASE__PATTERNS:
 				if (resolve) return getPatterns();
 				return basicGetPatterns();
-			case ExecutionPackage.XML_DATA_DATABASE__CONTEXT:
-				return getContext();
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 				if (coreType) return getRecordedAttributeValues();
 				else return getRecordedAttributeValues().map();
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_DATA_VALUES:
 				if (coreType) return getRecordedDataValues();
 				else return getRecordedDataValues().map();
-			case ExecutionPackage.XML_DATA_DATABASE__NAMESPACE:
-				return getNamespace();
 			case ExecutionPackage.XML_DATA_DATABASE__XML_SCHEMA:
 				if (resolve) return getXmlSchema();
 				return basicGetXmlSchema();
@@ -694,17 +578,11 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			case ExecutionPackage.XML_DATA_DATABASE__PATTERNS:
 				setPatterns((CompletePattern)newValue);
 				return;
-			case ExecutionPackage.XML_DATA_DATABASE__CONTEXT:
-				setContext((Context)newValue);
-				return;
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 				((EStructuralFeature.Setting)getRecordedAttributeValues()).set(newValue);
 				return;
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_DATA_VALUES:
 				((EStructuralFeature.Setting)getRecordedDataValues()).set(newValue);
-				return;
-			case ExecutionPackage.XML_DATA_DATABASE__NAMESPACE:
-				setNamespace((String)newValue);
 				return;
 			case ExecutionPackage.XML_DATA_DATABASE__XML_SCHEMA:
 				setXmlSchema((XmlSchemaDatabase)newValue);
@@ -733,17 +611,11 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			case ExecutionPackage.XML_DATA_DATABASE__PATTERNS:
 				setPatterns((CompletePattern)null);
 				return;
-			case ExecutionPackage.XML_DATA_DATABASE__CONTEXT:
-				setContext(CONTEXT_EDEFAULT);
-				return;
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 				getRecordedAttributeValues().clear();
 				return;
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_DATA_VALUES:
 				getRecordedDataValues().clear();
-				return;
-			case ExecutionPackage.XML_DATA_DATABASE__NAMESPACE:
-				setNamespace(NAMESPACE_EDEFAULT);
 				return;
 			case ExecutionPackage.XML_DATA_DATABASE__XML_SCHEMA:
 				setXmlSchema((XmlSchemaDatabase)null);
@@ -770,14 +642,10 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 				return results != null && !results.isEmpty();
 			case ExecutionPackage.XML_DATA_DATABASE__PATTERNS:
 				return patterns != null;
-			case ExecutionPackage.XML_DATA_DATABASE__CONTEXT:
-				return CONTEXT_EDEFAULT == null ? context != null : !CONTEXT_EDEFAULT.equals(context);
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 				return recordedAttributeValues != null && !recordedAttributeValues.isEmpty();
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_DATA_VALUES:
 				return recordedDataValues != null && !recordedDataValues.isEmpty();
-			case ExecutionPackage.XML_DATA_DATABASE__NAMESPACE:
-				return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
 			case ExecutionPackage.XML_DATA_DATABASE__XML_SCHEMA:
 				return xmlSchema != null;
 			case ExecutionPackage.XML_DATA_DATABASE__ELEMENT_NAMES:
@@ -847,14 +715,6 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ExecutionPackage.XML_DATA_DATABASE___ANALYSE_DATABASE:
-				try {
-					analyseDatabase();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case ExecutionPackage.XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING:
 				recordAttributeValue((String)arguments.get(0));
 				return null;
@@ -867,22 +727,6 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			case ExecutionPackage.XML_DATA_DATABASE___REMOVE_DATA_VALUE__STRING:
 				removeDataValue((String)arguments.get(0));
 				return null;
-			case ExecutionPackage.XML_DATA_DATABASE___INIT:
-				try {
-					init();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATA_DATABASE___OPEN:
-				try {
-					open();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case ExecutionPackage.XML_DATA_DATABASE___RECORD_ELEMENT_NAME__STRING:
 				recordElementName((String)arguments.get(0));
 				return null;
@@ -911,24 +755,6 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 				}
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (context: ");
-		result.append(context);
-		result.append(", namespace: ");
-		result.append(namespace);
-		result.append(')');
-		return result.toString();
 	}
 
 	@Override

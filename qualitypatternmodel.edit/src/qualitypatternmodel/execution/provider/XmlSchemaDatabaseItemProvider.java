@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.execution.ExecutionFactory;
 import qualitypatternmodel.execution.ExecutionPackage;
@@ -48,8 +47,6 @@ public class XmlSchemaDatabaseItemProvider
 			super.getPropertyDescriptors(object);
 
 			addXmlDatabasesPropertyDescriptor(object);
-			addSchemaContextPropertyDescriptor(object);
-			addNamespacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -72,50 +69,6 @@ public class XmlSchemaDatabaseItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Schema Context feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSchemaContextPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XmlSchemaDatabase_schemaContext_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XmlSchemaDatabase_schemaContext_feature", "_UI_XmlSchemaDatabase_type"),
-				 ExecutionPackage.Literals.XML_SCHEMA_DATABASE__SCHEMA_CONTEXT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Namespace feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamespacePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XmlSchemaDatabase_namespace_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XmlSchemaDatabase_namespace_feature", "_UI_XmlSchemaDatabase_type"),
-				 ExecutionPackage.Literals.XML_SCHEMA_DATABASE__NAMESPACE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -189,10 +142,6 @@ public class XmlSchemaDatabaseItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(XmlSchemaDatabase.class)) {
-			case ExecutionPackage.XML_SCHEMA_DATABASE__SCHEMA_CONTEXT:
-			case ExecutionPackage.XML_SCHEMA_DATABASE__NAMESPACE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

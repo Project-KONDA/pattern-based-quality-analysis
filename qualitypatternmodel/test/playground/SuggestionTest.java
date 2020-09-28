@@ -45,7 +45,7 @@ public class SuggestionTest {
         db.setXmlSchema(schema);
         db.setNamespace("lido:");
         try {
-			schema.initSchemaDatabase();
+			schema.init();
 		} catch (BaseXException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

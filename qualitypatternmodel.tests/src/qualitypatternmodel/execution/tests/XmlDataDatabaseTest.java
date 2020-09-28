@@ -14,13 +14,10 @@ import qualitypatternmodel.execution.XmlDataDatabase;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#analyseDatabase() <em>Analyse Database</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#recordAttributeValue(java.lang.String) <em>Record Attribute Value</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#recordDataValue(java.lang.String) <em>Record Data Value</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#removeAttributeValue(java.lang.String) <em>Remove Attribute Value</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#removeDataValue(java.lang.String) <em>Remove Data Value</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#init() <em>Init</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#open() <em>Open</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#recordElementName(java.lang.String) <em>Record Element Name</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#recordAttributeName(java.lang.String) <em>Record Attribute Name</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#removeElementName(java.lang.String) <em>Remove Element Name</em>}</li>
@@ -86,19 +83,6 @@ public class XmlDataDatabaseTest extends XmlDatabaseTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#analyseDatabase() <em>Analyse Database</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDataDatabase#analyseDatabase()
-	 * @generated
-	 */
-	public void testAnalyseDatabase() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#recordAttributeValue(java.lang.String) <em>Record Attribute Value</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -145,32 +129,6 @@ public class XmlDataDatabaseTest extends XmlDatabaseTest {
 	 * @generated
 	 */
 	public void testRemoveDataValue__String() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#init() <em>Init</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDataDatabase#init()
-	 * @generated
-	 */
-	public void testInit() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#open() <em>Open</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.XmlDataDatabase#open()
-	 * @generated
-	 */
-	public void testOpen() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -9,6 +9,14 @@ import qualitypatternmodel.execution.XmlDatabase;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Xml Database</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#analyse() <em>Analyse</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#init() <em>Init</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#open() <em>Open</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class XmlDatabaseTest extends TestCase {
@@ -49,6 +57,45 @@ public abstract class XmlDatabaseTest extends TestCase {
 	 */
 	protected XmlDatabase getFixture() {
 		return fixture;
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#analyse() <em>Analyse</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#analyse()
+	 * @generated
+	 */
+	public void testAnalyse() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#init() <em>Init</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#init()
+	 * @generated
+	 */
+	public void testInit() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#open() <em>Open</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#open()
+	 * @generated
+	 */
+	public void testOpen() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //XmlDatabaseTest

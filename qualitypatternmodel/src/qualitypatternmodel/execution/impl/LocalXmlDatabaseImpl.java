@@ -93,7 +93,7 @@ public class LocalXmlDatabaseImpl extends XmlDataDatabaseImpl implements LocalXm
 	public void init() throws BaseXException, QueryIOException, QueryException {
 		context = new Context();
 		create(); // TODO: optional
-		analyseDatabase();
+		analyse();
 	}
 	
 	@Override

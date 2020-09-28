@@ -30,7 +30,7 @@ public class ServerXmlDatabaseImpl extends XmlDataDatabaseImpl implements Server
 	@Override
 	public void init() throws BaseXException, QueryIOException, QueryException {
 		open();
-		analyseDatabase();		
+		analyse();		
 	}
 
 	/**

@@ -14,7 +14,7 @@ import qualitypatternmodel.execution.LocalXmlSchema;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.execution.LocalXmlSchema#createSchemaDatabase() <em>Create Schema Database</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.LocalXmlSchema#create() <em>Create</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -74,13 +74,13 @@ public class LocalXmlSchemaTest extends XmlSchemaDatabaseTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.execution.LocalXmlSchema#createSchemaDatabase() <em>Create Schema Database</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.execution.LocalXmlSchema#create() <em>Create</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.LocalXmlSchema#createSchemaDatabase()
+	 * @see qualitypatternmodel.execution.LocalXmlSchema#create()
 	 * @generated
 	 */
-	public void testCreateSchemaDatabase() {
+	public void testCreate() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
