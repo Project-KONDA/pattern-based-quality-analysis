@@ -8,7 +8,6 @@ import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,14 +23,13 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getAttributeNames <em>Attribute Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getElementNames <em>Element Names</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.execution.ExecutionPackage#getXmlSchemaDatabase()
  * @model
  * @generated
  */
-public interface XmlSchemaDatabase extends EObject {
+public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	/**
 	 * Returns the value of the '<em><b>Xml Databases</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.execution.XmlDataDatabase}.
@@ -278,28 +276,6 @@ public interface XmlSchemaDatabase extends EObject {
 	 * @generated
 	 */
 	EMap<String, Integer> getElementNames();
-
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlSchemaDatabase_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.execution.XmlSchemaDatabase#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Attribute Names</b></em>' map.

@@ -25,11 +25,13 @@ import qualitypatternmodel.execution.XmlDataDatabase;
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#recordAttributeName(java.lang.String) <em>Record Attribute Name</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#removeElementName(java.lang.String) <em>Remove Element Name</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#removeAttributeName(java.lang.String) <em>Remove Attribute Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.Database#execute(qualitypatternmodel.patternstructure.CompletePattern, java.lang.String, java.lang.String) <em>Execute</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.Database#countMatches(qualitypatternmodel.patternstructure.CompletePattern) <em>Count Matches</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public class XmlDataDatabaseTest extends DatabaseTest {
+public class XmlDataDatabaseTest extends XmlDatabaseTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -221,6 +223,32 @@ public class XmlDataDatabaseTest extends DatabaseTest {
 	 * @generated
 	 */
 	public void testRemoveAttributeName__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.Database#execute(qualitypatternmodel.patternstructure.CompletePattern, java.lang.String, java.lang.String) <em>Execute</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.Database#execute(qualitypatternmodel.patternstructure.CompletePattern, java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	public void testExecute__CompletePattern_String_String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.Database#countMatches(qualitypatternmodel.patternstructure.CompletePattern) <em>Count Matches</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.Database#countMatches(qualitypatternmodel.patternstructure.CompletePattern)
+	 * @generated
+	 */
+	public void testCountMatches__CompletePattern() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

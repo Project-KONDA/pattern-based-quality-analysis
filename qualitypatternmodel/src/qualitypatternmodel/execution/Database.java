@@ -3,23 +3,19 @@
 package qualitypatternmodel.execution;
 
 import org.basex.core.BaseXException;
-
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Database</b></em>'.
- * A database identified through its <code>name</code>.
+ * A representation of the model object '<em><b>Database Interface</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -28,14 +24,14 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  * <ul>
  *   <li>{@link qualitypatternmodel.execution.Database#getResults <em>Results</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.Database#getPatterns <em>Patterns</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.Database#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.execution.ExecutionPackage#getDatabase()
- * @model abstract="true"
+ * @model interface="true" abstract="true"
  * @generated
  */
 public interface Database extends EObject {
+
 	/**
 	 * Returns the value of the '<em><b>Results</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.execution.Result}.
@@ -51,40 +47,28 @@ public interface Database extends EObject {
 	EList<Result> getResults();
 
 	/**
-	 * Returns the value of the '<em><b>Patterns</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.patternstructure.CompletePattern}.
+	 * Returns the value of the '<em><b>Patterns</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabase <em>Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Patterns</em>' reference list.
+	 * @return the value of the '<em>Patterns</em>' reference.
+	 * @see #setPatterns(CompletePattern)
 	 * @see qualitypatternmodel.execution.ExecutionPackage#getDatabase_Patterns()
 	 * @see qualitypatternmodel.patternstructure.CompletePattern#getDatabase
 	 * @model opposite="database"
 	 * @generated
 	 */
-	EList<CompletePattern> getPatterns();
+	CompletePattern getPatterns();
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.execution.Database#getPatterns <em>Patterns</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see qualitypatternmodel.execution.ExecutionPackage#getDatabase_Name()
-	 * @model
+	 * @param value the new value of the '<em>Patterns</em>' reference.
+	 * @see #getPatterns()
 	 * @generated
 	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.execution.Database#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
+	void setPatterns(CompletePattern value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -122,5 +106,4 @@ public interface Database extends EObject {
 	 * @generated
 	 */
 	int countMatches(CompletePattern pattern) throws QueryException, InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException, QueryIOException;
-
-} // Database
+} // DatabaseInterface

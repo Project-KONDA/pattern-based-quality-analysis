@@ -25,7 +25,7 @@ import qualitypatternmodel.execution.XmlDataDatabase;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XmlDataDatabaseItemProvider extends DatabaseItemProvider {
+public class XmlDataDatabaseItemProvider extends XmlDatabaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -47,11 +47,34 @@ public class XmlDataDatabaseItemProvider extends DatabaseItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addPatternsPropertyDescriptor(object);
 			addContextPropertyDescriptor(object);
 			addNamespacePropertyDescriptor(object);
 			addXmlSchemaPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Patterns feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPatternsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Database_patterns_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Database_patterns_feature", "_UI_Database_type"),
+				 ExecutionPackage.Literals.DATABASE__PATTERNS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -132,6 +155,7 @@ public class XmlDataDatabaseItemProvider extends DatabaseItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(ExecutionPackage.Literals.DATABASE__RESULTS);
 			childrenFeatures.add(ExecutionPackage.Literals.XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES);
 			childrenFeatures.add(ExecutionPackage.Literals.XML_DATA_DATABASE__RECORDED_DATA_VALUES);
 			childrenFeatures.add(ExecutionPackage.Literals.XML_DATA_DATABASE__ELEMENT_NAMES);
@@ -195,6 +219,7 @@ public class XmlDataDatabaseItemProvider extends DatabaseItemProvider {
 			case ExecutionPackage.XML_DATA_DATABASE__NAMESPACE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case ExecutionPackage.XML_DATA_DATABASE__RESULTS:
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_DATA_VALUES:
 			case ExecutionPackage.XML_DATA_DATABASE__ELEMENT_NAMES:
@@ -215,6 +240,11 @@ public class XmlDataDatabaseItemProvider extends DatabaseItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExecutionPackage.Literals.DATABASE__RESULTS,
+				 ExecutionFactory.eINSTANCE.createXmlResult()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -29,8 +29,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -52,12 +50,11 @@ import qualitypatternmodel.execution.XmlSchemaDatabase;
  *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getNamespace <em>Namespace</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getAttributeNames <em>Attribute Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getElementNames <em>Element Names</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class XmlSchemaDatabaseImpl extends MinimalEObjectImpl.Container implements XmlSchemaDatabase {
+public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaDatabase {
 	/**
 	 * The cached value of the '{@link #getXmlDatabases() <em>Xml Databases</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -122,25 +119,6 @@ public class XmlSchemaDatabaseImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected EMap<String, Integer> elementNames;
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -371,8 +349,6 @@ public class XmlSchemaDatabaseImpl extends MinimalEObjectImpl.Container implemen
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES:
 				if (coreType) return getElementNames();
 				else return getElementNames().map();
-			case ExecutionPackage.XML_SCHEMA_DATABASE__NAME:
-				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -402,9 +378,6 @@ public class XmlSchemaDatabaseImpl extends MinimalEObjectImpl.Container implemen
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES:
 				((EStructuralFeature.Setting)getElementNames()).set(newValue);
 				return;
-			case ExecutionPackage.XML_SCHEMA_DATABASE__NAME:
-				setName((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -432,9 +405,6 @@ public class XmlSchemaDatabaseImpl extends MinimalEObjectImpl.Container implemen
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES:
 				getElementNames().clear();
 				return;
-			case ExecutionPackage.XML_SCHEMA_DATABASE__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -457,8 +427,6 @@ public class XmlSchemaDatabaseImpl extends MinimalEObjectImpl.Container implemen
 				return attributeNames != null && !attributeNames.isEmpty();
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES:
 				return elementNames != null && !elementNames.isEmpty();
-			case ExecutionPackage.XML_SCHEMA_DATABASE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -647,8 +615,6 @@ public class XmlSchemaDatabaseImpl extends MinimalEObjectImpl.Container implemen
 		result.append(schemaContext);
 		result.append(", namespace: ");
 		result.append(namespace);
-		result.append(", name: ");
-		result.append(name);
 		result.append(')');
 		return result.toString();
 	}
@@ -948,29 +914,6 @@ public class XmlSchemaDatabaseImpl extends MinimalEObjectImpl.Container implemen
 			elementNames = new EcoreEMap<String,Integer>(ExecutionPackage.Literals.STRING_TO_INT_MAP, StringToIntMapImpl.class, this, ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES);
 		}
 		return elementNames;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_SCHEMA_DATABASE__NAME, oldName, name));
 	}
 
 	/**

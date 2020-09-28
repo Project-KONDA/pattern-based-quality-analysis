@@ -20,8 +20,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 
 import qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl;
-
 import qualitypatternmodel.execution.Database;
+import qualitypatternmodel.execution.Databaseformat;
 import qualitypatternmodel.execution.Databases;
 import qualitypatternmodel.execution.ExecutionFactory;
 import qualitypatternmodel.execution.ExecutionPackage;
@@ -31,6 +31,7 @@ import qualitypatternmodel.execution.Result;
 import qualitypatternmodel.execution.ServerXmlDatabase;
 import qualitypatternmodel.execution.ServerXmlSchema;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.execution.XmlResult;
 
 import qualitypatternmodel.execution.XmlSchemaDatabase;
@@ -57,13 +58,6 @@ import qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl;
  * @generated
  */
 public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPackage {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass databaseEClass = null;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -133,6 +127,27 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	private EClass serverXmlSchemaEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass xmlDatabaseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass databaseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass databaseformatEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -243,66 +258,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(ExecutionPackage.eNS_URI, theExecutionPackage);
 		return theExecutionPackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getDatabase() {
-		return databaseEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDatabase_Results() {
-		return (EReference)databaseEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getDatabase_Patterns() {
-		return (EReference)databaseEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getDatabase_Name() {
-		return (EAttribute)databaseEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getDatabase__Execute__CompletePattern_String_String() {
-		return databaseEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getDatabase__CountMatches__CompletePattern() {
-		return databaseEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -791,16 +746,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getXmlSchemaDatabase_Name() {
-		return (EAttribute)xmlSchemaDatabaseEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getXmlSchemaDatabase__AnalyseSchema() {
 		return xmlSchemaDatabaseEClass.getEOperations().get(0);
 	}
@@ -1061,6 +1006,86 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getXmlDatabase() {
+		return xmlDatabaseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getXmlDatabase_Name() {
+		return (EAttribute)xmlDatabaseEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDatabase() {
+		return databaseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDatabase_Results() {
+		return (EReference)databaseEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDatabase_Patterns() {
+		return (EReference)databaseEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getDatabase__Execute__CompletePattern_String_String() {
+		return databaseEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getDatabase__CountMatches__CompletePattern() {
+		return databaseEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDatabaseformat() {
+		return databaseformatEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getBaseXExceptionWrapper() {
 		return baseXExceptionWrapperEDataType;
 	}
@@ -1124,13 +1149,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		isCreated = true;
 
 		// Create classes and their features
-		databaseEClass = createEClass(DATABASE);
-		createEReference(databaseEClass, DATABASE__RESULTS);
-		createEReference(databaseEClass, DATABASE__PATTERNS);
-		createEAttribute(databaseEClass, DATABASE__NAME);
-		createEOperation(databaseEClass, DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING);
-		createEOperation(databaseEClass, DATABASE___COUNT_MATCHES__COMPLETEPATTERN);
-
 		resultEClass = createEClass(RESULT);
 		createEReference(resultEClass, RESULT__DATABASE);
 		createEAttribute(resultEClass, RESULT__NAME);
@@ -1186,7 +1204,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEAttribute(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE__NAMESPACE);
 		createEReference(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES);
 		createEReference(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE__ELEMENT_NAMES);
-		createEAttribute(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE__NAME);
 		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___ANALYSE_SCHEMA);
 		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___OPEN_SCHEMA_DATABASE);
 		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___INIT_SCHEMA_DATABASE);
@@ -1215,6 +1232,17 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEOperation(localXmlSchemaEClass, LOCAL_XML_SCHEMA___CREATE_SCHEMA_DATABASE);
 
 		serverXmlSchemaEClass = createEClass(SERVER_XML_SCHEMA);
+
+		xmlDatabaseEClass = createEClass(XML_DATABASE);
+		createEAttribute(xmlDatabaseEClass, XML_DATABASE__NAME);
+
+		databaseEClass = createEClass(DATABASE);
+		createEReference(databaseEClass, DATABASE__RESULTS);
+		createEReference(databaseEClass, DATABASE__PATTERNS);
+		createEOperation(databaseEClass, DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING);
+		createEOperation(databaseEClass, DATABASE___COUNT_MATCHES__COMPLETEPATTERN);
+
+		databaseformatEClass = createEClass(DATABASEFORMAT);
 
 		// Create data types
 		baseXExceptionWrapperEDataType = createEDataType(BASE_XEXCEPTION_WRAPPER);
@@ -1256,38 +1284,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		// Add supertypes to classes
 		xmlResultEClass.getESuperTypes().add(this.getResult());
+		xmlDataDatabaseEClass.getESuperTypes().add(this.getXmlDatabase());
 		xmlDataDatabaseEClass.getESuperTypes().add(this.getDatabase());
 		localXmlDatabaseEClass.getESuperTypes().add(this.getXmlDataDatabase());
 		serverXmlDatabaseEClass.getESuperTypes().add(this.getXmlDataDatabase());
+		xmlSchemaDatabaseEClass.getESuperTypes().add(this.getXmlDatabase());
+		xmlSchemaDatabaseEClass.getESuperTypes().add(this.getDatabaseformat());
 		localXmlSchemaEClass.getESuperTypes().add(this.getXmlSchemaDatabase());
 		serverXmlSchemaEClass.getESuperTypes().add(this.getXmlSchemaDatabase());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(databaseEClass, Database.class, "Database", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDatabase_Results(), this.getResult(), this.getResult_Database(), "results", null, 0, -1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDatabase_Patterns(), thePatternstructurePackage.getCompletePattern(), thePatternstructurePackage.getCompletePattern_Database(), "patterns", null, 0, -1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDatabase_Name(), ecorePackage.getEString(), "name", null, 0, 1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		EOperation op = initEOperation(getDatabase__Execute__CompletePattern_String_String(), this.getResult(), "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, thePatternstructurePackage.getCompletePattern(), "pattern", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "person", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
-		addEException(op, thePatternstructurePackage.getMissingPatternContainerException());
-		addEException(op, this.getBaseXExceptionWrapper());
-		addEException(op, this.getQueryExceptionWrapper());
-		addEException(op, this.getQueryIOExceptionWrapper());
-
-		op = initEOperation(getDatabase__CountMatches__CompletePattern(), ecorePackage.getEInt(), "countMatches", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, thePatternstructurePackage.getCompletePattern(), "pattern", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getQueryExceptionWrapper());
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
-		addEException(op, thePatternstructurePackage.getMissingPatternContainerException());
-		addEException(op, this.getBaseXExceptionWrapper());
-		addEException(op, this.getQueryIOExceptionWrapper());
-
 		initEClass(resultEClass, Result.class, "Result", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResult_Database(), this.getDatabase(), this.getDatabase_Results(), "database", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_Name(), ecorePackage.getEString(), "name", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1300,7 +1306,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEAttribute(getResult_MatchNumber(), ecorePackage.getEInt(), "matchNumber", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_SplitResult(), ecorePackage.getEString(), "splitResult", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getResult__Export__String(), null, "export", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getResult__Export__String(), null, "export", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "path", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(xmlResultEClass, XmlResult.class, "XmlResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1373,7 +1379,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEAttribute(getXmlSchemaDatabase_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, XmlSchemaDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXmlSchemaDatabase_AttributeNames(), this.getStringToIntMap(), null, "attributeNames", null, 0, -1, XmlSchemaDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXmlSchemaDatabase_ElementNames(), this.getStringToIntMap(), null, "elementNames", null, 0, -1, XmlSchemaDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getXmlSchemaDatabase_Name(), ecorePackage.getEString(), "name", null, 0, 1, XmlSchemaDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getXmlSchemaDatabase__AnalyseSchema(), null, "analyseSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
@@ -1519,6 +1524,35 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		addEException(op, this.getBaseXExceptionWrapper());
 
 		initEClass(serverXmlSchemaEClass, ServerXmlSchema.class, "ServerXmlSchema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(xmlDatabaseEClass, XmlDatabase.class, "XmlDatabase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getXmlDatabase_Name(), ecorePackage.getEString(), "name", null, 0, 1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(databaseEClass, Database.class, "Database", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDatabase_Results(), this.getResult(), this.getResult_Database(), "results", null, 0, -1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDatabase_Patterns(), thePatternstructurePackage.getCompletePattern(), thePatternstructurePackage.getCompletePattern_Database(), "patterns", null, 0, 1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getDatabase__Execute__CompletePattern_String_String(), this.getResult(), "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, thePatternstructurePackage.getCompletePattern(), "pattern", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "person", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
+		addEException(op, thePatternstructurePackage.getMissingPatternContainerException());
+		addEException(op, this.getBaseXExceptionWrapper());
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
+
+		op = initEOperation(getDatabase__CountMatches__CompletePattern(), ecorePackage.getEInt(), "countMatches", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, thePatternstructurePackage.getCompletePattern(), "pattern", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
+		addEException(op, thePatternstructurePackage.getMissingPatternContainerException());
+		addEException(op, this.getBaseXExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
+
+		initEClass(databaseformatEClass, Databaseformat.class, "Databaseformat", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize data types
 		initEDataType(baseXExceptionWrapperEDataType, BaseXException.class, "BaseXExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

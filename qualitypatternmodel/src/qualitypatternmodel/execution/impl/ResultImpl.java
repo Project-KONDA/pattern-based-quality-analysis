@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.Result;

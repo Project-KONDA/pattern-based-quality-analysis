@@ -4,6 +4,7 @@ package qualitypatternmodel.execution.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.basex.core.BaseXException;
@@ -22,16 +23,19 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.Result;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.execution.XmlSchemaDatabase;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +45,8 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link qualitypatternmodel.execution.impl.XmlDataDatabaseImpl#getResults <em>Results</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.XmlDataDatabaseImpl#getPatterns <em>Patterns</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDataDatabaseImpl#getContext <em>Context</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDataDatabaseImpl#getRecordedAttributeValues <em>Recorded Attribute Values</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDataDatabaseImpl#getRecordedDataValues <em>Recorded Data Values</em>}</li>
@@ -52,7 +58,27 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  *
  * @generated
  */
-public class XmlDataDatabaseImpl extends DatabaseImpl implements XmlDataDatabase {
+public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatabase {
+	/**
+	 * The cached value of the '{@link #getResults() <em>Results</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResults()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Result> results;
+
+	/**
+	 * The cached value of the '{@link #getPatterns() <em>Patterns</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPatterns()
+	 * @generated
+	 * @ordered
+	 */
+	protected CompletePattern patterns;
+
 	/**
 	 * The default value of the '{@link #getContext() <em>Context</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -160,6 +186,81 @@ public class XmlDataDatabaseImpl extends DatabaseImpl implements XmlDataDatabase
 	@Override
 	protected EClass eStaticClass() {
 		return ExecutionPackage.Literals.XML_DATA_DATABASE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Result> getResults() {
+		if (results == null) {
+			results = new EObjectContainmentWithInverseEList<Result>(Result.class, this, ExecutionPackage.XML_DATA_DATABASE__RESULTS, ExecutionPackage.RESULT__DATABASE);
+		}
+		return results;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CompletePattern getPatterns() {
+		if (patterns != null && patterns.eIsProxy()) {
+			InternalEObject oldPatterns = (InternalEObject)patterns;
+			patterns = (CompletePattern)eResolveProxy(oldPatterns);
+			if (patterns != oldPatterns) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExecutionPackage.XML_DATA_DATABASE__PATTERNS, oldPatterns, patterns));
+			}
+		}
+		return patterns;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompletePattern basicGetPatterns() {
+		return patterns;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPatterns(CompletePattern newPatterns, NotificationChain msgs) {
+		CompletePattern oldPatterns = patterns;
+		patterns = newPatterns;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_DATA_DATABASE__PATTERNS, oldPatterns, newPatterns);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPatterns(CompletePattern newPatterns) {
+		if (newPatterns != patterns) {
+			NotificationChain msgs = null;
+			if (patterns != null)
+				msgs = ((InternalEObject)patterns).eInverseRemove(this, PatternstructurePackage.COMPLETE_PATTERN__DATABASE, CompletePattern.class, msgs);
+			if (newPatterns != null)
+				msgs = ((InternalEObject)newPatterns).eInverseAdd(this, PatternstructurePackage.COMPLETE_PATTERN__DATABASE, CompletePattern.class, msgs);
+			msgs = basicSetPatterns(newPatterns, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_DATA_DATABASE__PATTERNS, newPatterns, newPatterns));
 	}
 
 	/**
@@ -497,9 +598,16 @@ public class XmlDataDatabaseImpl extends DatabaseImpl implements XmlDataDatabase
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ExecutionPackage.XML_DATA_DATABASE__RESULTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResults()).basicAdd(otherEnd, msgs);
+			case ExecutionPackage.XML_DATA_DATABASE__PATTERNS:
+				if (patterns != null)
+					msgs = ((InternalEObject)patterns).eInverseRemove(this, PatternstructurePackage.COMPLETE_PATTERN__DATABASE, CompletePattern.class, msgs);
+				return basicSetPatterns((CompletePattern)otherEnd, msgs);
 			case ExecutionPackage.XML_DATA_DATABASE__XML_SCHEMA:
 				if (xmlSchema != null)
 					msgs = ((InternalEObject)xmlSchema).eInverseRemove(this, ExecutionPackage.XML_SCHEMA_DATABASE__XML_DATABASES, XmlSchemaDatabase.class, msgs);
@@ -516,6 +624,10 @@ public class XmlDataDatabaseImpl extends DatabaseImpl implements XmlDataDatabase
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ExecutionPackage.XML_DATA_DATABASE__RESULTS:
+				return ((InternalEList<?>)getResults()).basicRemove(otherEnd, msgs);
+			case ExecutionPackage.XML_DATA_DATABASE__PATTERNS:
+				return basicSetPatterns(null, msgs);
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 				return ((InternalEList<?>)getRecordedAttributeValues()).basicRemove(otherEnd, msgs);
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_DATA_VALUES:
@@ -538,6 +650,11 @@ public class XmlDataDatabaseImpl extends DatabaseImpl implements XmlDataDatabase
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ExecutionPackage.XML_DATA_DATABASE__RESULTS:
+				return getResults();
+			case ExecutionPackage.XML_DATA_DATABASE__PATTERNS:
+				if (resolve) return getPatterns();
+				return basicGetPatterns();
 			case ExecutionPackage.XML_DATA_DATABASE__CONTEXT:
 				return getContext();
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES:
@@ -570,6 +687,13 @@ public class XmlDataDatabaseImpl extends DatabaseImpl implements XmlDataDatabase
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ExecutionPackage.XML_DATA_DATABASE__RESULTS:
+				getResults().clear();
+				getResults().addAll((Collection<? extends Result>)newValue);
+				return;
+			case ExecutionPackage.XML_DATA_DATABASE__PATTERNS:
+				setPatterns((CompletePattern)newValue);
+				return;
 			case ExecutionPackage.XML_DATA_DATABASE__CONTEXT:
 				setContext((Context)newValue);
 				return;
@@ -603,6 +727,12 @@ public class XmlDataDatabaseImpl extends DatabaseImpl implements XmlDataDatabase
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ExecutionPackage.XML_DATA_DATABASE__RESULTS:
+				getResults().clear();
+				return;
+			case ExecutionPackage.XML_DATA_DATABASE__PATTERNS:
+				setPatterns((CompletePattern)null);
+				return;
 			case ExecutionPackage.XML_DATA_DATABASE__CONTEXT:
 				setContext(CONTEXT_EDEFAULT);
 				return;
@@ -636,6 +766,10 @@ public class XmlDataDatabaseImpl extends DatabaseImpl implements XmlDataDatabase
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ExecutionPackage.XML_DATA_DATABASE__RESULTS:
+				return results != null && !results.isEmpty();
+			case ExecutionPackage.XML_DATA_DATABASE__PATTERNS:
+				return patterns != null;
 			case ExecutionPackage.XML_DATA_DATABASE__CONTEXT:
 				return CONTEXT_EDEFAULT == null ? context != null : !CONTEXT_EDEFAULT.equals(context);
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES:
@@ -652,6 +786,57 @@ public class XmlDataDatabaseImpl extends DatabaseImpl implements XmlDataDatabase
 				return attributeNames != null && !attributeNames.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Database.class) {
+			switch (derivedFeatureID) {
+				case ExecutionPackage.XML_DATA_DATABASE__RESULTS: return ExecutionPackage.DATABASE__RESULTS;
+				case ExecutionPackage.XML_DATA_DATABASE__PATTERNS: return ExecutionPackage.DATABASE__PATTERNS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Database.class) {
+			switch (baseFeatureID) {
+				case ExecutionPackage.DATABASE__RESULTS: return ExecutionPackage.XML_DATA_DATABASE__RESULTS;
+				case ExecutionPackage.DATABASE__PATTERNS: return ExecutionPackage.XML_DATA_DATABASE__PATTERNS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == Database.class) {
+			switch (baseOperationID) {
+				case ExecutionPackage.DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING: return ExecutionPackage.XML_DATA_DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING;
+				case ExecutionPackage.DATABASE___COUNT_MATCHES__COMPLETEPATTERN: return ExecutionPackage.XML_DATA_DATABASE___COUNT_MATCHES__COMPLETEPATTERN;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
 
 	/**
@@ -710,6 +895,20 @@ public class XmlDataDatabaseImpl extends DatabaseImpl implements XmlDataDatabase
 			case ExecutionPackage.XML_DATA_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING:
 				removeAttributeName((String)arguments.get(0));
 				return null;
+			case ExecutionPackage.XML_DATA_DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING:
+				try {
+					return execute((CompletePattern)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATA_DATABASE___COUNT_MATCHES__COMPLETEPATTERN:
+				try {
+					return countMatches((CompletePattern)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

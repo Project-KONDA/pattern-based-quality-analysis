@@ -67,12 +67,6 @@ public class ExecutionSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ExecutionPackage.DATABASE: {
-				Database database = (Database)theEObject;
-				T result = caseDatabase(database);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ExecutionPackage.RESULT: {
 				Result result = (Result)theEObject;
 				T theResult = caseResult(result);
@@ -89,6 +83,7 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			case ExecutionPackage.XML_DATA_DATABASE: {
 				XmlDataDatabase xmlDataDatabase = (XmlDataDatabase)theEObject;
 				T result = caseXmlDataDatabase(xmlDataDatabase);
+				if (result == null) result = caseXmlDatabase(xmlDataDatabase);
 				if (result == null) result = caseDatabase(xmlDataDatabase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -97,6 +92,7 @@ public class ExecutionSwitch<T> extends Switch<T> {
 				LocalXmlDatabase localXmlDatabase = (LocalXmlDatabase)theEObject;
 				T result = caseLocalXmlDatabase(localXmlDatabase);
 				if (result == null) result = caseXmlDataDatabase(localXmlDatabase);
+				if (result == null) result = caseXmlDatabase(localXmlDatabase);
 				if (result == null) result = caseDatabase(localXmlDatabase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -105,6 +101,7 @@ public class ExecutionSwitch<T> extends Switch<T> {
 				ServerXmlDatabase serverXmlDatabase = (ServerXmlDatabase)theEObject;
 				T result = caseServerXmlDatabase(serverXmlDatabase);
 				if (result == null) result = caseXmlDataDatabase(serverXmlDatabase);
+				if (result == null) result = caseXmlDatabase(serverXmlDatabase);
 				if (result == null) result = caseDatabase(serverXmlDatabase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -124,6 +121,8 @@ public class ExecutionSwitch<T> extends Switch<T> {
 			case ExecutionPackage.XML_SCHEMA_DATABASE: {
 				XmlSchemaDatabase xmlSchemaDatabase = (XmlSchemaDatabase)theEObject;
 				T result = caseXmlSchemaDatabase(xmlSchemaDatabase);
+				if (result == null) result = caseXmlDatabase(xmlSchemaDatabase);
+				if (result == null) result = caseDatabaseformat(xmlSchemaDatabase);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -131,6 +130,8 @@ public class ExecutionSwitch<T> extends Switch<T> {
 				LocalXmlSchema localXmlSchema = (LocalXmlSchema)theEObject;
 				T result = caseLocalXmlSchema(localXmlSchema);
 				if (result == null) result = caseXmlSchemaDatabase(localXmlSchema);
+				if (result == null) result = caseXmlDatabase(localXmlSchema);
+				if (result == null) result = caseDatabaseformat(localXmlSchema);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -138,26 +139,31 @@ public class ExecutionSwitch<T> extends Switch<T> {
 				ServerXmlSchema serverXmlSchema = (ServerXmlSchema)theEObject;
 				T result = caseServerXmlSchema(serverXmlSchema);
 				if (result == null) result = caseXmlSchemaDatabase(serverXmlSchema);
+				if (result == null) result = caseXmlDatabase(serverXmlSchema);
+				if (result == null) result = caseDatabaseformat(serverXmlSchema);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExecutionPackage.XML_DATABASE: {
+				XmlDatabase xmlDatabase = (XmlDatabase)theEObject;
+				T result = caseXmlDatabase(xmlDatabase);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExecutionPackage.DATABASE: {
+				Database database = (Database)theEObject;
+				T result = caseDatabase(database);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExecutionPackage.DATABASEFORMAT: {
+				Databaseformat databaseformat = (Databaseformat)theEObject;
+				T result = caseDatabaseformat(databaseformat);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Database</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Database</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDatabase(Database object) {
-		return null;
 	}
 
 	/**
@@ -307,6 +313,51 @@ public class ExecutionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseServerXmlSchema(ServerXmlSchema object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Xml Database</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Xml Database</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXmlDatabase(XmlDatabase object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Database</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Database</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDatabase(Database object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Databaseformat</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Databaseformat</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDatabaseformat(Databaseformat object) {
 		return null;
 	}
 

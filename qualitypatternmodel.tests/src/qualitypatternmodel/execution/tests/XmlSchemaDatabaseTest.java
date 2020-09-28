@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.execution.tests;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.execution.ExecutionFactory;
@@ -42,15 +40,7 @@ import qualitypatternmodel.execution.XmlSchemaDatabase;
  * </p>
  * @generated
  */
-public class XmlSchemaDatabaseTest extends TestCase {
-
-	/**
-	 * The fixture for this Xml Schema Database test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected XmlSchemaDatabase fixture = null;
+public class XmlSchemaDatabaseTest extends XmlDatabaseTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -72,23 +62,14 @@ public class XmlSchemaDatabaseTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Xml Schema Database test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(XmlSchemaDatabase fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Xml Schema Database test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected XmlSchemaDatabase getFixture() {
-		return fixture;
+		return (XmlSchemaDatabase)fixture;
 	}
 
 	/**

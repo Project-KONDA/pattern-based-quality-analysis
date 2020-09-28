@@ -31,7 +31,7 @@ import org.eclipse.emf.common.util.EMap;
  * @model
  * @generated
  */
-public interface XmlDataDatabase extends Database {
+public interface XmlDataDatabase extends XmlDatabase, Database {
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' attribute.
 	 * <!-- begin-user-doc -->

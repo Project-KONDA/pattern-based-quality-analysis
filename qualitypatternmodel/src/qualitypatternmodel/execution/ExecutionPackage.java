@@ -59,79 +59,6 @@ public interface ExecutionPackage extends EPackage {
 	ExecutionPackage eINSTANCE = qualitypatternmodel.execution.impl.ExecutionPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.DatabaseImpl <em>Database</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.impl.DatabaseImpl
-	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getDatabase()
-	 * @generated
-	 */
-	int DATABASE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Results</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATABASE__RESULTS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Patterns</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATABASE__PATTERNS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATABASE__NAME = 2;
-
-	/**
-	 * The number of structural features of the '<em>Database</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATABASE_FEATURE_COUNT = 3;
-
-	/**
-	 * The operation id for the '<em>Execute</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING = 0;
-
-	/**
-	 * The operation id for the '<em>Count Matches</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATABASE___COUNT_MATCHES__COMPLETEPATTERN = 1;
-
-	/**
-	 * The number of operations of the '<em>Database</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATABASE_OPERATION_COUNT = 2;
-
-	/**
 	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.ResultImpl <em>Result</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -139,7 +66,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getResult()
 	 * @generated
 	 */
-	int RESULT = 1;
+	int RESULT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Database</b></em>' container reference.
@@ -266,7 +193,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getXmlResult()
 	 * @generated
 	 */
-	int XML_RESULT = 2;
+	int XML_RESULT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Database</b></em>' container reference.
@@ -393,232 +320,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getXmlDataDatabase()
 	 * @generated
 	 */
-	int XML_DATA_DATABASE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Results</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE__RESULTS = DATABASE__RESULTS;
-
-	/**
-	 * The feature id for the '<em><b>Patterns</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE__PATTERNS = DATABASE__PATTERNS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE__NAME = DATABASE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Context</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE__CONTEXT = DATABASE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Recorded Attribute Values</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES = DATABASE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Recorded Data Values</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE__RECORDED_DATA_VALUES = DATABASE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE__NAMESPACE = DATABASE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Xml Schema</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE__XML_SCHEMA = DATABASE_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Element Names</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE__ELEMENT_NAMES = DATABASE_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Attribute Names</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE__ATTRIBUTE_NAMES = DATABASE_FEATURE_COUNT + 6;
-
-	/**
-	 * The number of structural features of the '<em>Xml Data Database</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE_FEATURE_COUNT = DATABASE_FEATURE_COUNT + 7;
-
-	/**
-	 * The operation id for the '<em>Execute</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING = DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING;
-
-	/**
-	 * The operation id for the '<em>Count Matches</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___COUNT_MATCHES__COMPLETEPATTERN = DATABASE___COUNT_MATCHES__COMPLETEPATTERN;
-
-	/**
-	 * The operation id for the '<em>Analyse Database</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___ANALYSE_DATABASE = DATABASE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Record Attribute Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING = DATABASE_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Record Data Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___RECORD_DATA_VALUE__STRING = DATABASE_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Remove Attribute Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING = DATABASE_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Remove Data Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___REMOVE_DATA_VALUE__STRING = DATABASE_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Init</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___INIT = DATABASE_OPERATION_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Open</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___OPEN = DATABASE_OPERATION_COUNT + 6;
-
-	/**
-	 * The operation id for the '<em>Record Element Name</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___RECORD_ELEMENT_NAME__STRING = DATABASE_OPERATION_COUNT + 7;
-
-	/**
-	 * The operation id for the '<em>Record Attribute Name</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___RECORD_ATTRIBUTE_NAME__STRING = DATABASE_OPERATION_COUNT + 8;
-
-	/**
-	 * The operation id for the '<em>Remove Element Name</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING = DATABASE_OPERATION_COUNT + 9;
-
-	/**
-	 * The operation id for the '<em>Remove Attribute Name</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING = DATABASE_OPERATION_COUNT + 10;
-
-	/**
-	 * The number of operations of the '<em>Xml Data Database</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE_OPERATION_COUNT = DATABASE_OPERATION_COUNT + 11;
+	int XML_DATA_DATABASE = 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.LocalXmlDatabaseImpl <em>Local Xml Database</em>}' class.
@@ -628,7 +330,338 @@ public interface ExecutionPackage extends EPackage {
 	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getLocalXmlDatabase()
 	 * @generated
 	 */
-	int LOCAL_XML_DATABASE = 4;
+	int LOCAL_XML_DATABASE = 3;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.ServerXmlDatabaseImpl <em>Server Xml Database</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.impl.ServerXmlDatabaseImpl
+	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getServerXmlDatabase()
+	 * @generated
+	 */
+	int SERVER_XML_DATABASE = 4;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.DatabasesImpl <em>Databases</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.impl.DatabasesImpl
+	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getDatabases()
+	 * @generated
+	 */
+	int DATABASES = 5;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.StringToIntMapImpl <em>String To Int Map</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.impl.StringToIntMapImpl
+	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getStringToIntMap()
+	 * @generated
+	 */
+	int STRING_TO_INT_MAP = 6;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl <em>Xml Schema Database</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl
+	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getXmlSchemaDatabase()
+	 * @generated
+	 */
+	int XML_SCHEMA_DATABASE = 7;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.LocalXmlSchemaImpl <em>Local Xml Schema</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.impl.LocalXmlSchemaImpl
+	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getLocalXmlSchema()
+	 * @generated
+	 */
+	int LOCAL_XML_SCHEMA = 8;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.ServerXmlSchemaImpl <em>Server Xml Schema</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.impl.ServerXmlSchemaImpl
+	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getServerXmlSchema()
+	 * @generated
+	 */
+	int SERVER_XML_SCHEMA = 9;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl <em>Xml Database</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.impl.XmlDatabaseImpl
+	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getXmlDatabase()
+	 * @generated
+	 */
+	int XML_DATABASE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Xml Database</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Xml Database</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE__NAME = XML_DATABASE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Results</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE__RESULTS = XML_DATABASE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Patterns</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE__PATTERNS = XML_DATABASE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Context</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE__CONTEXT = XML_DATABASE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Recorded Attribute Values</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES = XML_DATABASE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Recorded Data Values</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE__RECORDED_DATA_VALUES = XML_DATABASE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE__NAMESPACE = XML_DATABASE_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Xml Schema</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE__XML_SCHEMA = XML_DATABASE_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Element Names</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE__ELEMENT_NAMES = XML_DATABASE_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Attribute Names</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE__ATTRIBUTE_NAMES = XML_DATABASE_FEATURE_COUNT + 8;
+
+	/**
+	 * The number of structural features of the '<em>Xml Data Database</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE_FEATURE_COUNT = XML_DATABASE_FEATURE_COUNT + 9;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING = XML_DATABASE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Count Matches</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___COUNT_MATCHES__COMPLETEPATTERN = XML_DATABASE_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Analyse Database</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___ANALYSE_DATABASE = XML_DATABASE_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Record Attribute Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING = XML_DATABASE_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Record Data Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___RECORD_DATA_VALUE__STRING = XML_DATABASE_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Remove Attribute Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING = XML_DATABASE_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Remove Data Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___REMOVE_DATA_VALUE__STRING = XML_DATABASE_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___INIT = XML_DATABASE_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Open</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___OPEN = XML_DATABASE_OPERATION_COUNT + 8;
+
+	/**
+	 * The operation id for the '<em>Record Element Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___RECORD_ELEMENT_NAME__STRING = XML_DATABASE_OPERATION_COUNT + 9;
+
+	/**
+	 * The operation id for the '<em>Record Attribute Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___RECORD_ATTRIBUTE_NAME__STRING = XML_DATABASE_OPERATION_COUNT + 10;
+
+	/**
+	 * The operation id for the '<em>Remove Element Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING = XML_DATABASE_OPERATION_COUNT + 11;
+
+	/**
+	 * The operation id for the '<em>Remove Attribute Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING = XML_DATABASE_OPERATION_COUNT + 12;
+
+	/**
+	 * The number of operations of the '<em>Xml Data Database</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE_OPERATION_COUNT = XML_DATABASE_OPERATION_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATABASE__NAME = XML_DATA_DATABASE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Results</b></em>' containment reference list.
@@ -640,22 +673,13 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATABASE__RESULTS = XML_DATA_DATABASE__RESULTS;
 
 	/**
-	 * The feature id for the '<em><b>Patterns</b></em>' reference list.
+	 * The feature id for the '<em><b>Patterns</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int LOCAL_XML_DATABASE__PATTERNS = XML_DATA_DATABASE__PATTERNS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCAL_XML_DATABASE__NAME = XML_DATA_DATABASE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' attribute.
@@ -874,14 +898,13 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATABASE_OPERATION_COUNT = XML_DATA_DATABASE_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.ServerXmlDatabaseImpl <em>Server Xml Database</em>}' class.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.impl.ServerXmlDatabaseImpl
-	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getServerXmlDatabase()
 	 * @generated
+	 * @ordered
 	 */
-	int SERVER_XML_DATABASE = 5;
+	int SERVER_XML_DATABASE__NAME = XML_DATA_DATABASE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Results</b></em>' containment reference list.
@@ -893,22 +916,13 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_DATABASE__RESULTS = XML_DATA_DATABASE__RESULTS;
 
 	/**
-	 * The feature id for the '<em><b>Patterns</b></em>' reference list.
+	 * The feature id for the '<em><b>Patterns</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int SERVER_XML_DATABASE__PATTERNS = XML_DATA_DATABASE__PATTERNS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVER_XML_DATABASE__NAME = XML_DATA_DATABASE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Context</b></em>' attribute.
@@ -1109,16 +1123,6 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_DATABASE_OPERATION_COUNT = XML_DATA_DATABASE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.DatabasesImpl <em>Databases</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.impl.DatabasesImpl
-	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getDatabases()
-	 * @generated
-	 */
-	int DATABASES = 6;
-
-	/**
 	 * The feature id for the '<em><b>Xml Databases</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1153,16 +1157,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATABASES_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.StringToIntMapImpl <em>String To Int Map</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.impl.StringToIntMapImpl
-	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getStringToIntMap()
-	 * @generated
-	 */
-	int STRING_TO_INT_MAP = 7;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1201,14 +1195,13 @@ public interface ExecutionPackage extends EPackage {
 	int STRING_TO_INT_MAP_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl <em>Xml Schema Database</em>}' class.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl
-	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getXmlSchemaDatabase()
 	 * @generated
+	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE = 8;
+	int XML_SCHEMA_DATABASE__NAME = XML_DATABASE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Xml Databases</b></em>' reference list.
@@ -1217,7 +1210,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE__XML_DATABASES = 0;
+	int XML_SCHEMA_DATABASE__XML_DATABASES = XML_DATABASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Schema Context</b></em>' attribute.
@@ -1226,7 +1219,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE__SCHEMA_CONTEXT = 1;
+	int XML_SCHEMA_DATABASE__SCHEMA_CONTEXT = XML_DATABASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
@@ -1235,7 +1228,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE__NAMESPACE = 2;
+	int XML_SCHEMA_DATABASE__NAMESPACE = XML_DATABASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Attribute Names</b></em>' map.
@@ -1244,7 +1237,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES = 3;
+	int XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES = XML_DATABASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Element Names</b></em>' map.
@@ -1253,16 +1246,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE__ELEMENT_NAMES = 4;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_SCHEMA_DATABASE__NAME = 5;
+	int XML_SCHEMA_DATABASE__ELEMENT_NAMES = XML_DATABASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Xml Schema Database</em>' class.
@@ -1271,7 +1255,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE_FEATURE_COUNT = 6;
+	int XML_SCHEMA_DATABASE_FEATURE_COUNT = XML_DATABASE_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Analyse Schema</em>' operation.
@@ -1280,7 +1264,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___ANALYSE_SCHEMA = 0;
+	int XML_SCHEMA_DATABASE___ANALYSE_SCHEMA = XML_DATABASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Open Schema Database</em>' operation.
@@ -1289,7 +1273,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___OPEN_SCHEMA_DATABASE = 1;
+	int XML_SCHEMA_DATABASE___OPEN_SCHEMA_DATABASE = XML_DATABASE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Init Schema Database</em>' operation.
@@ -1298,7 +1282,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___INIT_SCHEMA_DATABASE = 2;
+	int XML_SCHEMA_DATABASE___INIT_SCHEMA_DATABASE = XML_DATABASE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Check Following In Schema</em>' operation.
@@ -1307,7 +1291,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___CHECK_FOLLOWING_IN_SCHEMA__STRING_STRING = 3;
+	int XML_SCHEMA_DATABASE___CHECK_FOLLOWING_IN_SCHEMA__STRING_STRING = XML_DATABASE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Check Parent In Schema</em>' operation.
@@ -1316,7 +1300,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___CHECK_PARENT_IN_SCHEMA__STRING_STRING = 4;
+	int XML_SCHEMA_DATABASE___CHECK_PARENT_IN_SCHEMA__STRING_STRING = XML_DATABASE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Check Ancestor In Schema</em>' operation.
@@ -1325,7 +1309,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___CHECK_ANCESTOR_IN_SCHEMA__STRING_STRING = 5;
+	int XML_SCHEMA_DATABASE___CHECK_ANCESTOR_IN_SCHEMA__STRING_STRING = XML_DATABASE_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Check Preceding Sibling In Schema</em>' operation.
@@ -1334,7 +1318,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___CHECK_PRECEDING_SIBLING_IN_SCHEMA__STRING_STRING = 6;
+	int XML_SCHEMA_DATABASE___CHECK_PRECEDING_SIBLING_IN_SCHEMA__STRING_STRING = XML_DATABASE_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Check Descendant In Schema</em>' operation.
@@ -1343,7 +1327,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___CHECK_DESCENDANT_IN_SCHEMA__STRING_STRING = 7;
+	int XML_SCHEMA_DATABASE___CHECK_DESCENDANT_IN_SCHEMA__STRING_STRING = XML_DATABASE_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Check Child In Schema</em>' operation.
@@ -1352,7 +1336,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___CHECK_CHILD_IN_SCHEMA__STRING_STRING = 8;
+	int XML_SCHEMA_DATABASE___CHECK_CHILD_IN_SCHEMA__STRING_STRING = XML_DATABASE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Check Attribute In Schema</em>' operation.
@@ -1361,7 +1345,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING = 9;
+	int XML_SCHEMA_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING = XML_DATABASE_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Check Key Ref In Schema</em>' operation.
@@ -1370,7 +1354,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___CHECK_KEY_REF_IN_SCHEMA__STRING_STRING = 10;
+	int XML_SCHEMA_DATABASE___CHECK_KEY_REF_IN_SCHEMA__STRING_STRING = XML_DATABASE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Check Preceding In Schema</em>' operation.
@@ -1379,7 +1363,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING = 11;
+	int XML_SCHEMA_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING = XML_DATABASE_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Check Following Sibling In Schema</em>' operation.
@@ -1388,7 +1372,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___CHECK_FOLLOWING_SIBLING_IN_SCHEMA__STRING_STRING = 12;
+	int XML_SCHEMA_DATABASE___CHECK_FOLLOWING_SIBLING_IN_SCHEMA__STRING_STRING = XML_DATABASE_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Get Ancestors In Schema</em>' operation.
@@ -1397,7 +1381,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___GET_ANCESTORS_IN_SCHEMA__STRING = 13;
+	int XML_SCHEMA_DATABASE___GET_ANCESTORS_IN_SCHEMA__STRING = XML_DATABASE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Get Descendants In Schema</em>' operation.
@@ -1406,7 +1390,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING = 14;
+	int XML_SCHEMA_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING = XML_DATABASE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Get Children In Schema</em>' operation.
@@ -1415,7 +1399,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___GET_CHILDREN_IN_SCHEMA__STRING = 15;
+	int XML_SCHEMA_DATABASE___GET_CHILDREN_IN_SCHEMA__STRING = XML_DATABASE_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Get Following In Schema</em>' operation.
@@ -1424,7 +1408,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___GET_FOLLOWING_IN_SCHEMA__STRING = 16;
+	int XML_SCHEMA_DATABASE___GET_FOLLOWING_IN_SCHEMA__STRING = XML_DATABASE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Get Preceding In Schema</em>' operation.
@@ -1433,7 +1417,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___GET_PRECEDING_IN_SCHEMA__STRING = 17;
+	int XML_SCHEMA_DATABASE___GET_PRECEDING_IN_SCHEMA__STRING = XML_DATABASE_OPERATION_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Get Parents In Schema</em>' operation.
@@ -1442,7 +1426,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___GET_PARENTS_IN_SCHEMA__STRING = 18;
+	int XML_SCHEMA_DATABASE___GET_PARENTS_IN_SCHEMA__STRING = XML_DATABASE_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Get Attributes In Schema</em>' operation.
@@ -1451,7 +1435,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING = 19;
+	int XML_SCHEMA_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING = XML_DATABASE_OPERATION_COUNT + 19;
 
 	/**
 	 * The operation id for the '<em>Get Following Siblings In Schema</em>' operation.
@@ -1460,7 +1444,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING = 20;
+	int XML_SCHEMA_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING = XML_DATABASE_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Get Preceding Siblings In Schema</em>' operation.
@@ -1469,7 +1453,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING = 21;
+	int XML_SCHEMA_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING = XML_DATABASE_OPERATION_COUNT + 21;
 
 	/**
 	 * The number of operations of the '<em>Xml Schema Database</em>' class.
@@ -1478,17 +1462,16 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE_OPERATION_COUNT = 22;
+	int XML_SCHEMA_DATABASE_OPERATION_COUNT = XML_DATABASE_OPERATION_COUNT + 22;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.LocalXmlSchemaImpl <em>Local Xml Schema</em>}' class.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.impl.LocalXmlSchemaImpl
-	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getLocalXmlSchema()
 	 * @generated
+	 * @ordered
 	 */
-	int LOCAL_XML_SCHEMA = 9;
+	int LOCAL_XML_SCHEMA__NAME = XML_SCHEMA_DATABASE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Xml Databases</b></em>' reference list.
@@ -1534,15 +1517,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOCAL_XML_SCHEMA__ELEMENT_NAMES = XML_SCHEMA_DATABASE__ELEMENT_NAMES;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCAL_XML_SCHEMA__NAME = XML_SCHEMA_DATABASE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Schema Path</b></em>' attribute.
@@ -1779,14 +1753,13 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_SCHEMA_OPERATION_COUNT = XML_SCHEMA_DATABASE_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.ServerXmlSchemaImpl <em>Server Xml Schema</em>}' class.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.impl.ServerXmlSchemaImpl
-	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getServerXmlSchema()
 	 * @generated
+	 * @ordered
 	 */
-	int SERVER_XML_SCHEMA = 10;
+	int SERVER_XML_SCHEMA__NAME = XML_SCHEMA_DATABASE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Xml Databases</b></em>' reference list.
@@ -1832,15 +1805,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_SCHEMA__ELEMENT_NAMES = XML_SCHEMA_DATABASE__ELEMENT_NAMES;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVER_XML_SCHEMA__NAME = XML_SCHEMA_DATABASE__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Server Xml Schema</em>' class.
@@ -2059,6 +2023,98 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_SCHEMA_OPERATION_COUNT = XML_SCHEMA_DATABASE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.execution.Database <em>Database</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.Database
+	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getDatabase()
+	 * @generated
+	 */
+	int DATABASE = 11;
+
+	/**
+	 * The feature id for the '<em><b>Results</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE__RESULTS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Patterns</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE__PATTERNS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Database</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE_FEATURE_COUNT = 2;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING = 0;
+
+	/**
+	 * The operation id for the '<em>Count Matches</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE___COUNT_MATCHES__COMPLETEPATTERN = 1;
+
+	/**
+	 * The number of operations of the '<em>Database</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASE_OPERATION_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.execution.Databaseformat <em>Databaseformat</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.Databaseformat
+	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getDatabaseformat()
+	 * @generated
+	 */
+	int DATABASEFORMAT = 12;
+
+	/**
+	 * The number of structural features of the '<em>Databaseformat</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASEFORMAT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Databaseformat</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASEFORMAT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '<em>Base XException Wrapper</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2066,7 +2122,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getBaseXExceptionWrapper()
 	 * @generated
 	 */
-	int BASE_XEXCEPTION_WRAPPER = 11;
+	int BASE_XEXCEPTION_WRAPPER = 13;
 
 	/**
 	 * The meta object id for the '<em>Base XContext Wrapper</em>' data type.
@@ -2076,7 +2132,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getBaseXContextWrapper()
 	 * @generated
 	 */
-	int BASE_XCONTEXT_WRAPPER = 12;
+	int BASE_XCONTEXT_WRAPPER = 14;
 
 
 	/**
@@ -2087,7 +2143,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getQueryExceptionWrapper()
 	 * @generated
 	 */
-	int QUERY_EXCEPTION_WRAPPER = 13;
+	int QUERY_EXCEPTION_WRAPPER = 15;
 
 
 	/**
@@ -2098,71 +2154,8 @@ public interface ExecutionPackage extends EPackage {
 	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getQueryIOExceptionWrapper()
 	 * @generated
 	 */
-	int QUERY_IO_EXCEPTION_WRAPPER = 14;
+	int QUERY_IO_EXCEPTION_WRAPPER = 16;
 
-
-	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.execution.Database <em>Database</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Database</em>'.
-	 * @see qualitypatternmodel.execution.Database
-	 * @generated
-	 */
-	EClass getDatabase();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.execution.Database#getResults <em>Results</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Results</em>'.
-	 * @see qualitypatternmodel.execution.Database#getResults()
-	 * @see #getDatabase()
-	 * @generated
-	 */
-	EReference getDatabase_Results();
-
-	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.execution.Database#getPatterns <em>Patterns</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Patterns</em>'.
-	 * @see qualitypatternmodel.execution.Database#getPatterns()
-	 * @see #getDatabase()
-	 * @generated
-	 */
-	EReference getDatabase_Patterns();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.execution.Database#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see qualitypatternmodel.execution.Database#getName()
-	 * @see #getDatabase()
-	 * @generated
-	 */
-	EAttribute getDatabase_Name();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.execution.Database#execute(qualitypatternmodel.patternstructure.CompletePattern, java.lang.String, java.lang.String) <em>Execute</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Execute</em>' operation.
-	 * @see qualitypatternmodel.execution.Database#execute(qualitypatternmodel.patternstructure.CompletePattern, java.lang.String, java.lang.String)
-	 * @generated
-	 */
-	EOperation getDatabase__Execute__CompletePattern_String_String();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.execution.Database#countMatches(qualitypatternmodel.patternstructure.CompletePattern) <em>Count Matches</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Count Matches</em>' operation.
-	 * @see qualitypatternmodel.execution.Database#countMatches(qualitypatternmodel.patternstructure.CompletePattern)
-	 * @generated
-	 */
-	EOperation getDatabase__CountMatches__CompletePattern();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.Result <em>Result</em>}'.
@@ -2674,17 +2667,6 @@ public interface ExecutionPackage extends EPackage {
 	EReference getXmlSchemaDatabase_ElementNames();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.execution.XmlSchemaDatabase#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see qualitypatternmodel.execution.XmlSchemaDatabase#getName()
-	 * @see #getXmlSchemaDatabase()
-	 * @generated
-	 */
-	EAttribute getXmlSchemaDatabase_Name();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlSchemaDatabase#analyseSchema() <em>Analyse Schema</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2946,6 +2928,89 @@ public interface ExecutionPackage extends EPackage {
 	EClass getServerXmlSchema();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.execution.XmlDatabase <em>Xml Database</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Xml Database</em>'.
+	 * @see qualitypatternmodel.execution.XmlDatabase
+	 * @generated
+	 */
+	EClass getXmlDatabase();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.execution.XmlDatabase#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see qualitypatternmodel.execution.XmlDatabase#getName()
+	 * @see #getXmlDatabase()
+	 * @generated
+	 */
+	EAttribute getXmlDatabase_Name();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.execution.Database <em>Database</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Database</em>'.
+	 * @see qualitypatternmodel.execution.Database
+	 * @generated
+	 */
+	EClass getDatabase();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.execution.Database#getResults <em>Results</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Results</em>'.
+	 * @see qualitypatternmodel.execution.Database#getResults()
+	 * @see #getDatabase()
+	 * @generated
+	 */
+	EReference getDatabase_Results();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.execution.Database#getPatterns <em>Patterns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Patterns</em>'.
+	 * @see qualitypatternmodel.execution.Database#getPatterns()
+	 * @see #getDatabase()
+	 * @generated
+	 */
+	EReference getDatabase_Patterns();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.Database#execute(qualitypatternmodel.patternstructure.CompletePattern, java.lang.String, java.lang.String) <em>Execute</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Execute</em>' operation.
+	 * @see qualitypatternmodel.execution.Database#execute(qualitypatternmodel.patternstructure.CompletePattern, java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getDatabase__Execute__CompletePattern_String_String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.Database#countMatches(qualitypatternmodel.patternstructure.CompletePattern) <em>Count Matches</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Count Matches</em>' operation.
+	 * @see qualitypatternmodel.execution.Database#countMatches(qualitypatternmodel.patternstructure.CompletePattern)
+	 * @generated
+	 */
+	EOperation getDatabase__CountMatches__CompletePattern();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.execution.Databaseformat <em>Databaseformat</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Databaseformat</em>'.
+	 * @see qualitypatternmodel.execution.Databaseformat
+	 * @generated
+	 */
+	EClass getDatabaseformat();
+
+	/**
 	 * Returns the meta object for data type '{@link org.basex.core.BaseXException <em>Base XException Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3012,56 +3077,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.DatabaseImpl <em>Database</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.execution.impl.DatabaseImpl
-		 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getDatabase()
-		 * @generated
-		 */
-		EClass DATABASE = eINSTANCE.getDatabase();
-
-		/**
-		 * The meta object literal for the '<em><b>Results</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DATABASE__RESULTS = eINSTANCE.getDatabase_Results();
-
-		/**
-		 * The meta object literal for the '<em><b>Patterns</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DATABASE__PATTERNS = eINSTANCE.getDatabase_Patterns();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATABASE__NAME = eINSTANCE.getDatabase_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Execute</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING = eINSTANCE.getDatabase__Execute__CompletePattern_String_String();
-
-		/**
-		 * The meta object literal for the '<em><b>Count Matches</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DATABASE___COUNT_MATCHES__COMPLETEPATTERN = eINSTANCE.getDatabase__CountMatches__CompletePattern();
-
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.ResultImpl <em>Result</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -3463,14 +3478,6 @@ public interface ExecutionPackage extends EPackage {
 		EReference XML_SCHEMA_DATABASE__ELEMENT_NAMES = eINSTANCE.getXmlSchemaDatabase_ElementNames();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute XML_SCHEMA_DATABASE__NAME = eINSTANCE.getXmlSchemaDatabase_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Analyse Schema</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3681,6 +3688,76 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SERVER_XML_SCHEMA = eINSTANCE.getServerXmlSchema();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl <em>Xml Database</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.execution.impl.XmlDatabaseImpl
+		 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getXmlDatabase()
+		 * @generated
+		 */
+		EClass XML_DATABASE = eINSTANCE.getXmlDatabase();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XML_DATABASE__NAME = eINSTANCE.getXmlDatabase_Name();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.execution.Database <em>Database</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.execution.Database
+		 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getDatabase()
+		 * @generated
+		 */
+		EClass DATABASE = eINSTANCE.getDatabase();
+
+		/**
+		 * The meta object literal for the '<em><b>Results</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATABASE__RESULTS = eINSTANCE.getDatabase_Results();
+
+		/**
+		 * The meta object literal for the '<em><b>Patterns</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATABASE__PATTERNS = eINSTANCE.getDatabase_Patterns();
+
+		/**
+		 * The meta object literal for the '<em><b>Execute</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING = eINSTANCE.getDatabase__Execute__CompletePattern_String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Count Matches</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATABASE___COUNT_MATCHES__COMPLETEPATTERN = eINSTANCE.getDatabase__CountMatches__CompletePattern();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.execution.Databaseformat <em>Databaseformat</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.execution.Databaseformat
+		 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getDatabaseformat()
+		 * @generated
+		 */
+		EClass DATABASEFORMAT = eINSTANCE.getDatabaseformat();
 
 		/**
 		 * The meta object literal for the '<em>Base XException Wrapper</em>' data type.

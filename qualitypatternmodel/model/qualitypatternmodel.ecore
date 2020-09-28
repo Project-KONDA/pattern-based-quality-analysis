@@ -671,22 +671,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="XmlRoot" eSuperTypes="#//graphstructure/Element"/>
   </eSubpackages>
   <eSubpackages name="execution" nsURI="execution" nsPrefix="execution">
-    <eClassifiers xsi:type="ecore:EClass" name="Database" abstract="true">
-      <eOperations name="execute" eType="#//execution/Result" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException #//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper">
-        <eParameters name="pattern" eType="#//patternstructure/CompletePattern"/>
-        <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-        <eParameters name="person" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      </eOperations>
-      <eOperations name="countMatches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          eExceptions="#//execution/QueryExceptionWrapper #//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException #//execution/BaseXExceptionWrapper #//execution/QueryIOExceptionWrapper">
-        <eParameters name="pattern" eType="#//patternstructure/CompletePattern"/>
-      </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="results" upperBound="-1"
-          eType="#//execution/Result" containment="true" eOpposite="#//execution/Result/database"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="patterns" upperBound="-1"
-          eType="#//patternstructure/CompletePattern" eOpposite="#//patternstructure/CompletePattern/database"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Result" abstract="true">
       <eOperations name="export">
         <eParameters name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -706,7 +690,7 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlResult" eSuperTypes="#//execution/Result"/>
-    <eClassifiers xsi:type="ecore:EClass" name="XmlDataDatabase" eSuperTypes="#//execution/Database">
+    <eClassifiers xsi:type="ecore:EClass" name="XmlDataDatabase" eSuperTypes="#//execution/XmlDatabase #//execution/Database">
       <eOperations name="analyseDatabase" eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper"/>
       <eOperations name="recordAttributeValue">
         <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -766,7 +750,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="XmlSchemaDatabase">
+    <eClassifiers xsi:type="ecore:EClass" name="XmlSchemaDatabase" eSuperTypes="#//execution/XmlDatabase #//execution/Databaseformat">
       <eOperations name="analyseSchema" eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper"/>
       <eOperations name="openSchemaDatabase" eExceptions="#//execution/BaseXExceptionWrapper"/>
       <eOperations name="initSchemaDatabase" eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper"/>
@@ -863,12 +847,30 @@
           eType="#//execution/StringToIntMap" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="elementNames" upperBound="-1"
           eType="#//execution/StringToIntMap" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LocalXmlSchema" eSuperTypes="#//execution/XmlSchemaDatabase">
       <eOperations name="createSchemaDatabase" eExceptions="#//execution/BaseXExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemaPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ServerXmlSchema" eSuperTypes="#//execution/XmlSchemaDatabase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="XmlDatabase" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Database" abstract="true" interface="true">
+      <eOperations name="execute" eType="#//execution/Result" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException #//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper">
+        <eParameters name="pattern" eType="#//patternstructure/CompletePattern"/>
+        <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eParameters name="person" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="countMatches" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          eExceptions="#//execution/QueryExceptionWrapper #//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException #//execution/BaseXExceptionWrapper #//execution/QueryIOExceptionWrapper">
+        <eParameters name="pattern" eType="#//patternstructure/CompletePattern"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="results" upperBound="-1"
+          eType="#//execution/Result" containment="true" eOpposite="#//execution/Result/database"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="patterns" eType="#//patternstructure/CompletePattern"
+          eOpposite="#//patternstructure/CompletePattern/database"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Databaseformat" abstract="true" interface="true"/>
   </eSubpackages>
 </ecore:EPackage>
