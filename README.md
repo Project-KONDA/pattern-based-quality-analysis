@@ -17,11 +17,9 @@ The approach is described in detail in the research paper "[Detecting Quality Pr
 
 ## Meta
 
-Arno Kesper - arno.kesper@uni-marburg.de
-
-Viola Wenz - viola.wenz@uni-marburg.de
-
-Gabriele Taentzer - taentzer@uni-marburg.de
+* Arno Kesper - arno.kesper@uni-marburg.de
+* Viola Wenz - viola.wenz@uni-marburg.de
+* Gabriele Taentzer - taentzer@uni-marburg.de
 
 
 ## Built With
@@ -35,9 +33,11 @@ Gabriele Taentzer - taentzer@uni-marburg.de
 ## Context : Project "KONDA"
 
 The Project "[KONDA](https://zenodo.org/communities/konda-project)" is a research project of three partners: 
-* [Deutsches Dokumentationszentrum für Kunstgeschichte](https://www.uni-marburg.de/de/fotomarburg) (Foto Marburg)
-* Prof. Gabriele Taentzer of the [Departement for Mathematics and Informatics](https://www.uni-marburg.de/en/fb12) (FB12) of Philipps Univerisity Marburg 
-* [State Library of University Göttingen] (https://www.sub.uni-goettingen.de) (SUB)
+
+* [Deutsches Dokumentationszentrum für Kunstgeschichte (Foto Marburg)](https://www.uni-marburg.de/de/fotomarburg)
+* [Departement for Mathematics and Informatics (FB12) of Philipps Univerisity Marburg](https://www.uni-marburg.de/en/fb12)
+* [State Library of University Göttingen (SUB)](https://www.sub.uni-goettingen.de)
+
 It is funded by BMBF for three years (2019-2022).
 
 
