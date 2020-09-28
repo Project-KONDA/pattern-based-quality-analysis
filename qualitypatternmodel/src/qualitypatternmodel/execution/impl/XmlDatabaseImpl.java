@@ -5,9 +5,14 @@ package qualitypatternmodel.execution.impl;
 import java.lang.reflect.InvocationTargetException;
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
+import org.basex.core.cmd.Open;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
+import org.basex.query.QueryProcessor;
+import org.basex.query.iter.Iter;
+import org.basex.query.value.item.Item;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -246,6 +251,13 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case ExecutionPackage.XML_DATABASE___EXECUTE__STRING:
+				try {
+					return execute((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -320,13 +332,11 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void open() throws BaseXException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		new Open(name).execute(context);
 	}
 
 	/**
@@ -339,6 +349,25 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws QueryException 
+	 * @throws QueryIOException
+	 * @generated NOT
+	 */
+	@Override
+	public EList<String> execute(String query) throws QueryException, QueryIOException {
+		EList<String> queryResult = new BasicEList<String>();		
+	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
+	      Iter iter = proc.iter();
+	      for(Item item; (item = iter.next()) != null;) {
+	    	  queryResult.add(item.serialize().toString());
+	        }
+	    }
+		return queryResult;
 	}
 
 	/**

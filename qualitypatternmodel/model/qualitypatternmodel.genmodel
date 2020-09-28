@@ -703,6 +703,9 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/init"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/open"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/create"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/execute">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/execute/query"/>
+        </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//execution/Database">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/Database/results"/>

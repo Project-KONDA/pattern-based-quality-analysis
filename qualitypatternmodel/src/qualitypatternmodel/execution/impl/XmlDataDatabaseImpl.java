@@ -344,28 +344,22 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	 */
 	@Override
 	public void analyse() throws BaseXException, QueryIOException, QueryException {
-		open();				
-		executeAnalysis("distinct-values(//*/name())", getElementNames(), context);
-		executeAnalysis("distinct-values(//*/@*/name()))", getAttributeNames(), context);
+		if(getXmlSchema() != null) {
+			getXmlSchema().analyse();
+		} else {
+			open();				
+			executeAnalysis("distinct-values(//*/name())", getElementNames());
+			executeAnalysis("distinct-values(//*/@*/name()))", getAttributeNames());
+		}		
 	}
 	
-	private void executeAnalysis(String query, EMap<String,Integer> valueStorage, Context context) throws BaseXException, QueryIOException, QueryException {
-		List<String> result = executeQuery(query, context);
+	private void executeAnalysis(String query, EMap<String,Integer> valueStorage) throws BaseXException, QueryIOException, QueryException {
+		List<String> result = execute(query);
 		for(int i = 0; i < result.size(); i++) {
 			valueStorage.put(getNamespace() + result.get(i),0);
 		}
-	}
+	}	
 	
-	private List<String> executeQuery(String query, Context context) throws QueryException, QueryIOException {
-		List<String> queryResult = new ArrayList<String>();		
-	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
-	      Iter iter = proc.iter();
-	      for(Item item; (item = iter.next()) != null;) {
-	    	  queryResult.add(item.serialize().toString());
-	        }
-	    }
-		return queryResult;
-	}
 
 	/**
 	 * <!-- begin-user-doc -->

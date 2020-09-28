@@ -9,7 +9,6 @@ import java.util.List;
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.core.cmd.CreateDB;
-import org.basex.core.cmd.Open;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.basex.query.QueryProcessor;
@@ -91,11 +90,6 @@ public class LocalXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Loc
 		create(); // TODO: optional
 		analyse();
 	}
-	
-	@Override
-	public void open() throws BaseXException {
-		new Open(name).execute(context);
-	}	
 	
 	@Override
 	public Result execute(CompletePattern pattern, String name, String person) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException, QueryException, QueryIOException {

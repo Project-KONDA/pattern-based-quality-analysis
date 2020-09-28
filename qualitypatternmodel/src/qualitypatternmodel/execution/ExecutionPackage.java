@@ -435,13 +435,22 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATABASE___CREATE = 3;
 
 	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___EXECUTE__STRING = 4;
+
+	/**
 	 * The number of operations of the '<em>Xml Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATABASE_OPERATION_COUNT = 4;
+	int XML_DATABASE_OPERATION_COUNT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -577,6 +586,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_DATA_DATABASE___CREATE = XML_DATABASE___CREATE;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___EXECUTE__STRING = XML_DATABASE___EXECUTE__STRING;
 
 	/**
 	 * The operation id for the '<em>Execute</em>' operation.
@@ -838,6 +856,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+	int LOCAL_XML_DATA_DATABASE___EXECUTE__STRING = XML_DATA_DATABASE___EXECUTE__STRING;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
 	int LOCAL_XML_DATA_DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING = XML_DATA_DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING;
 
 	/**
@@ -1074,6 +1101,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_DATA_DATABASE___CREATE = XML_DATA_DATABASE___CREATE;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATA_DATABASE___EXECUTE__STRING = XML_DATA_DATABASE___EXECUTE__STRING;
 
 	/**
 	 * The operation id for the '<em>Execute</em>' operation.
@@ -1344,6 +1380,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_SCHEMA_DATABASE___CREATE = XML_DATABASE___CREATE;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_SCHEMA_DATABASE___EXECUTE__STRING = XML_DATABASE___EXECUTE__STRING;
 
 	/**
 	 * The operation id for the '<em>Check Following In Schema</em>' operation.
@@ -1644,6 +1689,15 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_SCHEMA_DATABASE___CREATE = XML_SCHEMA_DATABASE___CREATE;
 
 	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_SCHEMA_DATABASE___EXECUTE__STRING = XML_SCHEMA_DATABASE___EXECUTE__STRING;
+
+	/**
 	 * The operation id for the '<em>Check Following In Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1931,6 +1985,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_SCHEMA_DATABASE___CREATE = XML_SCHEMA_DATABASE___CREATE;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_SCHEMA_DATABASE___EXECUTE__STRING = XML_SCHEMA_DATABASE___EXECUTE__STRING;
 
 	/**
 	 * The operation id for the '<em>Check Following In Schema</em>' operation.
@@ -2977,6 +3040,16 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getXmlDatabase__Create();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#execute(java.lang.String) <em>Execute</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Execute</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#execute(java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlDatabase__Execute__String();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.Database <em>Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3686,6 +3759,14 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_DATABASE___CREATE = eINSTANCE.getXmlDatabase__Create();
+
+		/**
+		 * The meta object literal for the '<em><b>Execute</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___EXECUTE__STRING = eINSTANCE.getXmlDatabase__Execute__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.Database <em>Database</em>}' class.

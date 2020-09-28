@@ -6,6 +6,7 @@ import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -125,5 +126,13 @@ public interface XmlDatabase extends EObject {
 	 * @generated
 	 */
 	void create() throws BaseXException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @generated
+	 */
+	EList<String> execute(String query) throws QueryException, QueryIOException;
 
 } // XmlDatabase
