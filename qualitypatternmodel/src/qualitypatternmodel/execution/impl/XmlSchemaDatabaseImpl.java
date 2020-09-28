@@ -14,7 +14,6 @@ import java.util.List;
 
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
-import org.basex.core.cmd.Open;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.basex.query.QueryProcessor;
@@ -96,28 +95,17 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	@Override
 	public void analyse() throws BaseXException, QueryIOException, QueryException {
 		open();		
-		executeAnalysis("//*[name()=\"xs:element\"]/data(@name)", getElementNames(), context);
-		executeAnalysis("//*[name()=\"xs:attribute\"]/data(@name)", getAttributeNames(), context);
+		executeAnalysis("//*[name()=\"xs:element\"]/data(@name)", getElementNames());
+		executeAnalysis("//*[name()=\"xs:attribute\"]/data(@name)", getAttributeNames());
 		
 		// TODO: add namespace
 	}
 	
-	private void executeAnalysis(String query, EMap<String,Integer> valueStorage, Context context) throws BaseXException, QueryIOException, QueryException {
-		List<String> result = executeQuery(query, context);
+	private void executeAnalysis(String query, EMap<String,Integer> valueStorage) throws BaseXException, QueryIOException, QueryException {
+		List<String> result = execute(query);
 		for(int i = 0; i < result.size(); i++) {			
 			valueStorage.put(getNamespace() + result.get(i),0);			
 		}
-	}
-	
-	private List<String> executeQuery(String query, Context context) throws QueryException, QueryIOException {
-		List<String> queryResult = new ArrayList<String>();		
-	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
-	      Iter iter = proc.iter();
-	      for(Item item; (item = iter.next()) != null;) {
-	    	  queryResult.add(item.serialize().toString());
-	        }
-	    }
-		return queryResult;
 	}
 	
 	private EList<String> getElementNames(String elementName, String path, String methodName) throws BaseXException, QueryException, QueryIOException {
@@ -138,7 +126,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		
 		String query = checkQuery + call;
 		
-		List<String> queryResult = executeQuery(query, context);
+		List<String> queryResult = execute(query);
 		
 		EList<String> result = new BasicEList<String>();
 		result.addAll(queryResult);	
@@ -163,16 +151,6 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 				"    else $element/@ref/data()\r\n" + 
 				")";
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void open() throws BaseXException {
-		new Open(name).execute(context);
-	}	
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -490,7 +468,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		
 		String query = checkQuery + call;
 		
-		List<String> queryResult = executeQuery(query, context);
+		List<String> queryResult = execute(query);
 		if(queryResult.size() == 1) {			
 			if(queryResult.get(0).equals("false")) {
 				return false;
