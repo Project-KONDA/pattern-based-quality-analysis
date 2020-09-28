@@ -17,7 +17,7 @@ import qualitypatternmodel.execution.ServerXmlDatabase;
  *
  * @generated
  */
-public class ServerXmlDatabaseImpl extends XmlDatabaseImpl implements ServerXmlDatabase {
+public class ServerXmlDatabaseImpl extends XmlDataDatabaseImpl implements ServerXmlDatabase {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

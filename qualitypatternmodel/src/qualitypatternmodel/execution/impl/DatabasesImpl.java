@@ -18,8 +18,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.execution.Databases;
 import qualitypatternmodel.execution.ExecutionPackage;
-import qualitypatternmodel.execution.XmlDatabase;
-import qualitypatternmodel.execution.XmlSchema;
+import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.execution.XmlSchemaDatabase;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,14 +39,13 @@ public class DatabasesImpl extends MinimalEObjectImpl.Container implements Datab
 	/**
 	 * The cached value of the '{@link #getXmlDatabases() <em>Xml Databases</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-	 * A list of all defined <code>XmlDatabases</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getXmlDatabases()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<XmlDatabase> xmlDatabases;
-	
+	protected EList<XmlDataDatabase> xmlDatabases;
+
 	/**
 	 * The cached value of the '{@link #getXmlSchemata() <em>Xml Schemata</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -55,7 +54,7 @@ public class DatabasesImpl extends MinimalEObjectImpl.Container implements Datab
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<XmlSchema> xmlSchemata;
+	protected EList<XmlSchemaDatabase> xmlSchemata;
 
 	private static DatabasesImpl instance;
 
@@ -92,9 +91,9 @@ public class DatabasesImpl extends MinimalEObjectImpl.Container implements Datab
 	 * @generated
 	 */
 	@Override
-	public EList<XmlDatabase> getXmlDatabases() {
+	public EList<XmlDataDatabase> getXmlDatabases() {
 		if (xmlDatabases == null) {
-			xmlDatabases = new EObjectContainmentEList<XmlDatabase>(XmlDatabase.class, this, ExecutionPackage.DATABASES__XML_DATABASES);
+			xmlDatabases = new EObjectContainmentEList<XmlDataDatabase>(XmlDataDatabase.class, this, ExecutionPackage.DATABASES__XML_DATABASES);
 		}
 		return xmlDatabases;
 	}
@@ -105,9 +104,9 @@ public class DatabasesImpl extends MinimalEObjectImpl.Container implements Datab
 	 * @generated
 	 */
 	@Override
-	public EList<XmlSchema> getXmlSchemata() {
+	public EList<XmlSchemaDatabase> getXmlSchemata() {
 		if (xmlSchemata == null) {
-			xmlSchemata = new EObjectContainmentEList<XmlSchema>(XmlSchema.class, this, ExecutionPackage.DATABASES__XML_SCHEMATA);
+			xmlSchemata = new EObjectContainmentEList<XmlSchemaDatabase>(XmlSchemaDatabase.class, this, ExecutionPackage.DATABASES__XML_SCHEMATA);
 		}
 		return xmlSchemata;
 	}
@@ -155,11 +154,11 @@ public class DatabasesImpl extends MinimalEObjectImpl.Container implements Datab
 		switch (featureID) {
 			case ExecutionPackage.DATABASES__XML_DATABASES:
 				getXmlDatabases().clear();
-				getXmlDatabases().addAll((Collection<? extends XmlDatabase>)newValue);
+				getXmlDatabases().addAll((Collection<? extends XmlDataDatabase>)newValue);
 				return;
 			case ExecutionPackage.DATABASES__XML_SCHEMATA:
 				getXmlSchemata().clear();
-				getXmlSchemata().addAll((Collection<? extends XmlSchema>)newValue);
+				getXmlSchemata().addAll((Collection<? extends XmlSchemaDatabase>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

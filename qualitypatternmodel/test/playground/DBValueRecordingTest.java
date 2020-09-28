@@ -7,7 +7,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.ExecutionFactory;
 import qualitypatternmodel.execution.ExecutionPackage;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -36,7 +36,7 @@ public class DBValueRecordingTest {
         ExecutionPackage.eINSTANCE.eClass();
 		ExecutionFactory factory = ExecutionFactory.eINSTANCE;
         
-        XmlDatabase db = factory.createXmlDatabase();
+        XmlDataDatabase db = factory.createXmlDataDatabase();
         completePattern.setDatabase(db);
         try {
 			completePattern.recordValues();

@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -189,7 +189,7 @@ public interface PatternElement extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void recordValues(XmlDatabase database);
+	void recordValues(XmlDataDatabase database);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -27,7 +27,7 @@ import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.execution.Database;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
@@ -503,8 +503,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		Database db;
 		try {
 			db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-			if(db instanceof XmlDatabase) {
-				XmlDatabase xmlDb = (XmlDatabase) db;
+			if(db instanceof XmlDataDatabase) {
+				XmlDataDatabase xmlDb = (XmlDataDatabase) db;
 				return xmlDb.getElementNames();
 			}
 		} catch (MissingPatternContainerException e) {
@@ -524,8 +524,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		Database db;
 		try {
 			db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-			if(db instanceof XmlDatabase) {
-				XmlDatabase xmlDb = (XmlDatabase) db;
+			if(db instanceof XmlDataDatabase) {
+				XmlDataDatabase xmlDb = (XmlDataDatabase) db;
 				return xmlDb.getAttributeNames();
 			}
 		} catch (MissingPatternContainerException e) {
@@ -545,8 +545,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		Database db;
 		try {
 			db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-			if(db instanceof XmlDatabase) {
-				XmlDatabase xmlDb = (XmlDatabase) db;
+			if(db instanceof XmlDataDatabase) {
+				XmlDataDatabase xmlDb = (XmlDataDatabase) db;
 				return xmlDb.getRecordedDataValues();
 			}
 		} catch (MissingPatternContainerException e) {
@@ -566,8 +566,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		Database db;
 		try {
 			db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-			if(db instanceof XmlDatabase) {
-				XmlDatabase xmlDb = (XmlDatabase) db;
+			if(db instanceof XmlDataDatabase) {
+				XmlDataDatabase xmlDb = (XmlDataDatabase) db;
 				return xmlDb.getRecordedAttributeValues();
 			}
 		} catch (MissingPatternContainerException e) {
@@ -665,26 +665,26 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 							Database db;
 							try {
 								db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-								if (db instanceof XmlDatabase) {
-									XmlDatabase xmlDatabase = (XmlDatabase) db;
+								if (db instanceof XmlDataDatabase) {
+									XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
 
 									if (outgoingNavigation.getOption().getValue() == RelationKind.CHILD) {
-										suggestions.addAll(xmlDatabase.getXmlSchema().getParentsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getParentsInSchema(tag));
 									}
 									if (outgoingNavigation.getOption().getValue() == RelationKind.DESCENDANT) {
-										suggestions.addAll(xmlDatabase.getXmlSchema().getAncestorsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getAncestorsInSchema(tag));
 									}
 
 									if (outgoingNavigation.getOption().getValue() == RelationKind.PARENT) {
-										suggestions.addAll(xmlDatabase.getXmlSchema().getChildrenInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getChildrenInSchema(tag));
 									}
 									if (outgoingNavigation.getOption().getValue() == RelationKind.ANCESTOR) {
-										suggestions.addAll(xmlDatabase.getXmlSchema().getDescendantsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(tag));
 									}
 
 									if (outgoingNavigation.getOption()
 											.getValue() == RelationKind.FOLLOWING_SIBLING) {
-										suggestions.addAll(xmlDatabase.getXmlSchema().getPrecedingSiblingsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getPrecedingSiblingsInSchema(tag));
 									}
 									if (outgoingNavigation.getOption().getValue() == RelationKind.FOLLOWING) {
 										// TODO
@@ -695,7 +695,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 									}
 									if (outgoingNavigation.getOption()
 											.getValue() == RelationKind.PRECEDING_SIBLING) {
-										suggestions.addAll(xmlDatabase.getXmlSchema().getFollowingSiblingsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getFollowingSiblingsInSchema(tag));
 									}
 
 									if (outgoingNavigation.getOption().getValue() == RelationKind.SELF) {
@@ -705,13 +705,13 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 									if (outgoingNavigation.getOption()
 											.getValue() == RelationKind.DESCENDANT_OR_SELF) {
 										suggestions.add(tag);
-										suggestions.addAll(xmlDatabase.getXmlSchema().getAncestorsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getAncestorsInSchema(tag));
 									}
 
 									if (outgoingNavigation.getOption()
 											.getValue() == RelationKind.ANCESTOR_OR_SELF) {
 										suggestions.add(tag);
-										suggestions.addAll(xmlDatabase.getXmlSchema().getDescendantsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(tag));
 									}
 								}
 							} catch (MissingPatternContainerException | BaseXException | QueryIOException
@@ -753,37 +753,37 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 							Database db;
 							try {
 								db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-								if (db instanceof XmlDatabase) {
-									XmlDatabase xmlDatabase = (XmlDatabase) db;
+								if (db instanceof XmlDataDatabase) {
+									XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
 
 									if (incomingNavigation.getOption().getValue() == RelationKind.CHILD) {
-										suggestions.addAll(xmlDatabase.getXmlSchema().getChildrenInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getChildrenInSchema(tag));
 									}
 									if (incomingNavigation.getOption().getValue() == RelationKind.DESCENDANT) {
-										suggestions.addAll(xmlDatabase.getXmlSchema().getDescendantsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(tag));
 									}
 
 									if (incomingNavigation.getOption().getValue() == RelationKind.PARENT) {
-										suggestions.addAll(xmlDatabase.getXmlSchema().getParentsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getParentsInSchema(tag));
 									}
 									if (incomingNavigation.getOption().getValue() == RelationKind.ANCESTOR) {
-										suggestions.addAll(xmlDatabase.getXmlSchema().getAncestorsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getAncestorsInSchema(tag));
 									}
 
 									if (incomingNavigation.getOption()
 											.getValue() == RelationKind.FOLLOWING_SIBLING) {
-										suggestions.addAll(xmlDatabase.getXmlSchema().getFollowingSiblingsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getFollowingSiblingsInSchema(tag));
 									}
 									if (incomingNavigation.getOption().getValue() == RelationKind.FOLLOWING) {
-										suggestions.addAll(xmlDatabase.getXmlSchema().getFollowingInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getFollowingInSchema(tag));
 									}
 
 									if (incomingNavigation.getOption().getValue() == RelationKind.PRECEDING) {
-										suggestions.addAll(xmlDatabase.getXmlSchema().getPrecedingInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getPrecedingInSchema(tag));
 									}
 									if (incomingNavigation.getOption()
 											.getValue() == RelationKind.PRECEDING_SIBLING) {
-										suggestions.addAll(xmlDatabase.getXmlSchema().getPrecedingSiblingsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getPrecedingSiblingsInSchema(tag));
 									}
 
 									if (incomingNavigation.getOption().getValue() == RelationKind.SELF) {
@@ -793,13 +793,13 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 									if (incomingNavigation.getOption()
 											.getValue() == RelationKind.DESCENDANT_OR_SELF) {
 										suggestions.add(tag);
-										suggestions.addAll(xmlDatabase.getXmlSchema().getDescendantsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(tag));
 									}
 
 									if (incomingNavigation.getOption()
 											.getValue() == RelationKind.ANCESTOR_OR_SELF) {
 										suggestions.add(tag);
-										suggestions.addAll(xmlDatabase.getXmlSchema().getAncestorsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getAncestorsInSchema(tag));
 									}
 								}
 							} catch (MissingPatternContainerException | BaseXException | QueryIOException

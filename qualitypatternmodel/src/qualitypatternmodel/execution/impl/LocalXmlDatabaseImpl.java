@@ -46,7 +46,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  *
  * @generated
  */
-public class LocalXmlDatabaseImpl extends XmlDatabaseImpl implements LocalXmlDatabase {
+public class LocalXmlDatabaseImpl extends XmlDataDatabaseImpl implements LocalXmlDatabase {
 	/**
 	 * The default value of the '{@link #getDataPath() <em>Data Path</em>}' attribute.
 	 * <!-- begin-user-doc -->

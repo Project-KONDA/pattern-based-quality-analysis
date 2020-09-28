@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.LocalXmlSchema;
-import qualitypatternmodel.utilityclasses.Constants;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +29,7 @@ import qualitypatternmodel.utilityclasses.Constants;
  *
  * @generated
  */
-public class LocalXmlSchemaImpl extends XmlSchemaImpl implements LocalXmlSchema {
+public class LocalXmlSchemaImpl extends XmlSchemaDatabaseImpl implements LocalXmlSchema {
 	/**
 	 * The default value of the '{@link #getSchemaPath() <em>Schema Path</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -155,7 +155,7 @@ public class DatabasesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExecutionPackage.Literals.DATABASES__XML_DATABASES,
-				 ExecutionFactory.eINSTANCE.createXmlDatabase()));
+				 ExecutionFactory.eINSTANCE.createXmlDataDatabase()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -170,7 +170,7 @@ public class DatabasesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExecutionPackage.Literals.DATABASES__XML_SCHEMATA,
-				 ExecutionFactory.eINSTANCE.createXmlSchema()));
+				 ExecutionFactory.eINSTANCE.createXmlSchemaDatabase()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -14,7 +14,7 @@ import qualitypatternmodel.execution.ServerXmlSchema;
  *
  * @generated
  */
-public class ServerXmlSchemaImpl extends XmlSchemaImpl implements ServerXmlSchema {
+public class ServerXmlSchemaImpl extends XmlSchemaDatabaseImpl implements ServerXmlSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

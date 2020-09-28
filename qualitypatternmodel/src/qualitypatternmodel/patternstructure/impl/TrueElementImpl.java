@@ -7,7 +7,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -40,7 +40,7 @@ public class TrueElementImpl extends ConditionImpl implements TrueElement {
 	public void isValidLocal(AbstractionLevel abstractionLevel) {}
 
 	@Override
-	public void recordValues(XmlDatabase database) {}
+	public void recordValues(XmlDataDatabase database) {}
 	
 	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() {

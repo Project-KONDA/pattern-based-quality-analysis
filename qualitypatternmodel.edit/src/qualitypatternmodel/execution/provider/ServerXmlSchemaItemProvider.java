@@ -20,7 +20,7 @@ import qualitypatternmodel.execution.ServerXmlSchema;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ServerXmlSchemaItemProvider extends XmlSchemaItemProvider {
+public class ServerXmlSchemaItemProvider extends XmlSchemaDatabaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -108,8 +108,8 @@ public class ServerXmlSchemaItemProvider extends XmlSchemaItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == ExecutionPackage.Literals.XML_SCHEMA__ATTRIBUTE_NAMES ||
-			childFeature == ExecutionPackage.Literals.XML_SCHEMA__ELEMENT_NAMES;
+			childFeature == ExecutionPackage.Literals.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES ||
+			childFeature == ExecutionPackage.Literals.XML_SCHEMA_DATABASE__ELEMENT_NAMES;
 
 		if (qualify) {
 			return getString

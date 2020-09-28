@@ -64,12 +64,12 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ExecutionPackage.XML_RESULT: return createXmlResult();
-			case ExecutionPackage.XML_DATABASE: return createXmlDatabase();
+			case ExecutionPackage.XML_DATA_DATABASE: return createXmlDataDatabase();
 			case ExecutionPackage.LOCAL_XML_DATABASE: return createLocalXmlDatabase();
 			case ExecutionPackage.SERVER_XML_DATABASE: return createServerXmlDatabase();
 			case ExecutionPackage.DATABASES: return createDatabases();
 			case ExecutionPackage.STRING_TO_INT_MAP: return (EObject)createStringToIntMap();
-			case ExecutionPackage.XML_SCHEMA: return createXmlSchema();
+			case ExecutionPackage.XML_SCHEMA_DATABASE: return createXmlSchemaDatabase();
 			case ExecutionPackage.LOCAL_XML_SCHEMA: return createLocalXmlSchema();
 			case ExecutionPackage.SERVER_XML_SCHEMA: return createServerXmlSchema();
 			default:
@@ -136,9 +136,9 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	 * @generated
 	 */
 	@Override
-	public XmlDatabase createXmlDatabase() {
-		XmlDatabaseImpl xmlDatabase = new XmlDatabaseImpl();
-		return xmlDatabase;
+	public XmlDataDatabase createXmlDataDatabase() {
+		XmlDataDatabaseImpl xmlDataDatabase = new XmlDataDatabaseImpl();
+		return xmlDataDatabase;
 	}
 
 	/**
@@ -190,9 +190,9 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	 * @generated
 	 */
 	@Override
-	public XmlSchema createXmlSchema() {
-		XmlSchemaImpl xmlSchema = new XmlSchemaImpl();
-		return xmlSchema;
+	public XmlSchemaDatabase createXmlSchemaDatabase() {
+		XmlSchemaDatabaseImpl xmlSchemaDatabase = new XmlSchemaDatabaseImpl();
+		return xmlSchemaDatabase;
 	}
 
 	/**

@@ -30,10 +30,10 @@ import qualitypatternmodel.execution.LocalXmlSchema;
 import qualitypatternmodel.execution.Result;
 import qualitypatternmodel.execution.ServerXmlDatabase;
 import qualitypatternmodel.execution.ServerXmlSchema;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.execution.XmlResult;
 
-import qualitypatternmodel.execution.XmlSchema;
+import qualitypatternmodel.execution.XmlSchemaDatabase;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
@@ -83,7 +83,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass xmlDatabaseEClass = null;
+	private EClass xmlDataDatabaseEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,7 +118,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass xmlSchemaEClass = null;
+	private EClass xmlSchemaDatabaseEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -441,8 +441,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EClass getXmlDatabase() {
-		return xmlDatabaseEClass;
+	public EClass getXmlDataDatabase() {
+		return xmlDataDatabaseEClass;
 	}
 
 	/**
@@ -451,8 +451,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getXmlDatabase_Context() {
-		return (EAttribute)xmlDatabaseEClass.getEStructuralFeatures().get(0);
+	public EAttribute getXmlDataDatabase_Context() {
+		return (EAttribute)xmlDataDatabaseEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -461,8 +461,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getXmlDatabase_ElementNames() {
-		return (EReference)xmlDatabaseEClass.getEStructuralFeatures().get(5);
+	public EReference getXmlDataDatabase_RecordedAttributeValues() {
+		return (EReference)xmlDataDatabaseEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -471,8 +471,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getXmlDatabase_AttributeNames() {
-		return (EReference)xmlDatabaseEClass.getEStructuralFeatures().get(6);
+	public EReference getXmlDataDatabase_RecordedDataValues() {
+		return (EReference)xmlDataDatabaseEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -481,8 +481,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getXmlDatabase_RecordedAttributeValues() {
-		return (EReference)xmlDatabaseEClass.getEStructuralFeatures().get(1);
+	public EAttribute getXmlDataDatabase_Namespace() {
+		return (EAttribute)xmlDataDatabaseEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -491,8 +491,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getXmlDatabase_RecordedDataValues() {
-		return (EReference)xmlDatabaseEClass.getEStructuralFeatures().get(2);
+	public EReference getXmlDataDatabase_XmlSchema() {
+		return (EReference)xmlDataDatabaseEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -501,8 +501,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getXmlDatabase_Namespace() {
-		return (EAttribute)xmlDatabaseEClass.getEStructuralFeatures().get(3);
+	public EReference getXmlDataDatabase_ElementNames() {
+		return (EReference)xmlDataDatabaseEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -511,8 +511,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getXmlDatabase_XmlSchema() {
-		return (EReference)xmlDatabaseEClass.getEStructuralFeatures().get(4);
+	public EReference getXmlDataDatabase_AttributeNames() {
+		return (EReference)xmlDataDatabaseEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -521,8 +521,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__AnalyseDatabase() {
-		return xmlDatabaseEClass.getEOperations().get(0);
+	public EOperation getXmlDataDatabase__AnalyseDatabase() {
+		return xmlDataDatabaseEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -531,8 +531,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__RecordAttributeValue__String() {
-		return xmlDatabaseEClass.getEOperations().get(1);
+	public EOperation getXmlDataDatabase__RecordAttributeValue__String() {
+		return xmlDataDatabaseEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -541,8 +541,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__RecordDataValue__String() {
-		return xmlDatabaseEClass.getEOperations().get(2);
+	public EOperation getXmlDataDatabase__RecordDataValue__String() {
+		return xmlDataDatabaseEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -551,8 +551,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__RemoveAttributeValue__String() {
-		return xmlDatabaseEClass.getEOperations().get(3);
+	public EOperation getXmlDataDatabase__RemoveAttributeValue__String() {
+		return xmlDataDatabaseEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -561,8 +561,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__RemoveDataValue__String() {
-		return xmlDatabaseEClass.getEOperations().get(4);
+	public EOperation getXmlDataDatabase__RemoveDataValue__String() {
+		return xmlDataDatabaseEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -571,8 +571,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__Init() {
-		return xmlDatabaseEClass.getEOperations().get(5);
+	public EOperation getXmlDataDatabase__Init() {
+		return xmlDataDatabaseEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -581,8 +581,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__Open() {
-		return xmlDatabaseEClass.getEOperations().get(6);
+	public EOperation getXmlDataDatabase__Open() {
+		return xmlDataDatabaseEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -591,8 +591,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__RecordElementName__String() {
-		return xmlDatabaseEClass.getEOperations().get(7);
+	public EOperation getXmlDataDatabase__RecordElementName__String() {
+		return xmlDataDatabaseEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -601,8 +601,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__RecordAttributeName__String() {
-		return xmlDatabaseEClass.getEOperations().get(8);
+	public EOperation getXmlDataDatabase__RecordAttributeName__String() {
+		return xmlDataDatabaseEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -611,8 +611,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__RemoveElementName__String() {
-		return xmlDatabaseEClass.getEOperations().get(9);
+	public EOperation getXmlDataDatabase__RemoveElementName__String() {
+		return xmlDataDatabaseEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -621,8 +621,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDatabase__RemoveAttributeName__String() {
-		return xmlDatabaseEClass.getEOperations().get(10);
+	public EOperation getXmlDataDatabase__RemoveAttributeName__String() {
+		return xmlDataDatabaseEClass.getEOperations().get(10);
 	}
 
 	/**
@@ -731,8 +731,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EClass getXmlSchema() {
-		return xmlSchemaEClass;
+	public EClass getXmlSchemaDatabase() {
+		return xmlSchemaDatabaseEClass;
 	}
 
 	/**
@@ -741,8 +741,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getXmlSchema_XmlDatabases() {
-		return (EReference)xmlSchemaEClass.getEStructuralFeatures().get(0);
+	public EReference getXmlSchemaDatabase_XmlDatabases() {
+		return (EReference)xmlSchemaDatabaseEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -751,8 +751,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getXmlSchema_SchemaContext() {
-		return (EAttribute)xmlSchemaEClass.getEStructuralFeatures().get(1);
+	public EAttribute getXmlSchemaDatabase_SchemaContext() {
+		return (EAttribute)xmlSchemaDatabaseEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -761,8 +761,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getXmlSchema_Namespace() {
-		return (EAttribute)xmlSchemaEClass.getEStructuralFeatures().get(2);
+	public EAttribute getXmlSchemaDatabase_Namespace() {
+		return (EAttribute)xmlSchemaDatabaseEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -771,8 +771,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getXmlSchema_AttributeNames() {
-		return (EReference)xmlSchemaEClass.getEStructuralFeatures().get(3);
+	public EReference getXmlSchemaDatabase_AttributeNames() {
+		return (EReference)xmlSchemaDatabaseEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -781,8 +781,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getXmlSchema_ElementNames() {
-		return (EReference)xmlSchemaEClass.getEStructuralFeatures().get(4);
+	public EReference getXmlSchemaDatabase_ElementNames() {
+		return (EReference)xmlSchemaDatabaseEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -791,8 +791,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getXmlSchema_Name() {
-		return (EAttribute)xmlSchemaEClass.getEStructuralFeatures().get(5);
+	public EAttribute getXmlSchemaDatabase_Name() {
+		return (EAttribute)xmlSchemaDatabaseEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -801,8 +801,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__AnalyseSchema() {
-		return xmlSchemaEClass.getEOperations().get(0);
+	public EOperation getXmlSchemaDatabase__AnalyseSchema() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -811,8 +811,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__OpenSchemaDatabase() {
-		return xmlSchemaEClass.getEOperations().get(1);
+	public EOperation getXmlSchemaDatabase__OpenSchemaDatabase() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -821,8 +821,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__InitSchemaDatabase() {
-		return xmlSchemaEClass.getEOperations().get(2);
+	public EOperation getXmlSchemaDatabase__InitSchemaDatabase() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -831,8 +831,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__CheckFollowingInSchema__String_String() {
-		return xmlSchemaEClass.getEOperations().get(3);
+	public EOperation getXmlSchemaDatabase__CheckFollowingInSchema__String_String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -841,8 +841,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__CheckParentInSchema__String_String() {
-		return xmlSchemaEClass.getEOperations().get(4);
+	public EOperation getXmlSchemaDatabase__CheckParentInSchema__String_String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -851,8 +851,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__CheckAncestorInSchema__String_String() {
-		return xmlSchemaEClass.getEOperations().get(5);
+	public EOperation getXmlSchemaDatabase__CheckAncestorInSchema__String_String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -861,8 +861,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__CheckPrecedingSiblingInSchema__String_String() {
-		return xmlSchemaEClass.getEOperations().get(6);
+	public EOperation getXmlSchemaDatabase__CheckPrecedingSiblingInSchema__String_String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -871,8 +871,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__CheckDescendantInSchema__String_String() {
-		return xmlSchemaEClass.getEOperations().get(7);
+	public EOperation getXmlSchemaDatabase__CheckDescendantInSchema__String_String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -881,8 +881,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__CheckChildInSchema__String_String() {
-		return xmlSchemaEClass.getEOperations().get(8);
+	public EOperation getXmlSchemaDatabase__CheckChildInSchema__String_String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -891,8 +891,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__CheckAttributeInSchema__String_String() {
-		return xmlSchemaEClass.getEOperations().get(9);
+	public EOperation getXmlSchemaDatabase__CheckAttributeInSchema__String_String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -901,8 +901,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__CheckKeyRefInSchema__String_String() {
-		return xmlSchemaEClass.getEOperations().get(10);
+	public EOperation getXmlSchemaDatabase__CheckKeyRefInSchema__String_String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(10);
 	}
 
 	/**
@@ -911,8 +911,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__CheckPrecedingInSchema__String_String() {
-		return xmlSchemaEClass.getEOperations().get(11);
+	public EOperation getXmlSchemaDatabase__CheckPrecedingInSchema__String_String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(11);
 	}
 
 	/**
@@ -921,8 +921,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__CheckFollowingSiblingInSchema__String_String() {
-		return xmlSchemaEClass.getEOperations().get(12);
+	public EOperation getXmlSchemaDatabase__CheckFollowingSiblingInSchema__String_String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(12);
 	}
 
 	/**
@@ -931,8 +931,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__GetAncestorsInSchema__String() {
-		return xmlSchemaEClass.getEOperations().get(13);
+	public EOperation getXmlSchemaDatabase__GetAncestorsInSchema__String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(13);
 	}
 
 	/**
@@ -941,8 +941,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__GetDescendantsInSchema__String() {
-		return xmlSchemaEClass.getEOperations().get(14);
+	public EOperation getXmlSchemaDatabase__GetDescendantsInSchema__String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(14);
 	}
 
 	/**
@@ -951,8 +951,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__GetChildrenInSchema__String() {
-		return xmlSchemaEClass.getEOperations().get(15);
+	public EOperation getXmlSchemaDatabase__GetChildrenInSchema__String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(15);
 	}
 
 	/**
@@ -961,8 +961,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__GetFollowingInSchema__String() {
-		return xmlSchemaEClass.getEOperations().get(16);
+	public EOperation getXmlSchemaDatabase__GetFollowingInSchema__String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(16);
 	}
 
 	/**
@@ -971,8 +971,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__GetPrecedingInSchema__String() {
-		return xmlSchemaEClass.getEOperations().get(17);
+	public EOperation getXmlSchemaDatabase__GetPrecedingInSchema__String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(17);
 	}
 
 	/**
@@ -981,8 +981,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__GetParentsInSchema__String() {
-		return xmlSchemaEClass.getEOperations().get(18);
+	public EOperation getXmlSchemaDatabase__GetParentsInSchema__String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(18);
 	}
 
 	/**
@@ -991,8 +991,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__GetAttributesInSchema__String() {
-		return xmlSchemaEClass.getEOperations().get(19);
+	public EOperation getXmlSchemaDatabase__GetAttributesInSchema__String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(19);
 	}
 
 	/**
@@ -1001,8 +1001,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__GetFollowingSiblingsInSchema__String() {
-		return xmlSchemaEClass.getEOperations().get(20);
+	public EOperation getXmlSchemaDatabase__GetFollowingSiblingsInSchema__String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(20);
 	}
 
 	/**
@@ -1011,8 +1011,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlSchema__GetPrecedingSiblingsInSchema__String() {
-		return xmlSchemaEClass.getEOperations().get(21);
+	public EOperation getXmlSchemaDatabase__GetPrecedingSiblingsInSchema__String() {
+		return xmlSchemaDatabaseEClass.getEOperations().get(21);
 	}
 
 	/**
@@ -1146,25 +1146,25 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		xmlResultEClass = createEClass(XML_RESULT);
 
-		xmlDatabaseEClass = createEClass(XML_DATABASE);
-		createEAttribute(xmlDatabaseEClass, XML_DATABASE__CONTEXT);
-		createEReference(xmlDatabaseEClass, XML_DATABASE__RECORDED_ATTRIBUTE_VALUES);
-		createEReference(xmlDatabaseEClass, XML_DATABASE__RECORDED_DATA_VALUES);
-		createEAttribute(xmlDatabaseEClass, XML_DATABASE__NAMESPACE);
-		createEReference(xmlDatabaseEClass, XML_DATABASE__XML_SCHEMA);
-		createEReference(xmlDatabaseEClass, XML_DATABASE__ELEMENT_NAMES);
-		createEReference(xmlDatabaseEClass, XML_DATABASE__ATTRIBUTE_NAMES);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___ANALYSE_DATABASE);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___RECORD_DATA_VALUE__STRING);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___REMOVE_DATA_VALUE__STRING);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___INIT);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___OPEN);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___RECORD_ELEMENT_NAME__STRING);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___RECORD_ATTRIBUTE_NAME__STRING);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___REMOVE_ELEMENT_NAME__STRING);
-		createEOperation(xmlDatabaseEClass, XML_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING);
+		xmlDataDatabaseEClass = createEClass(XML_DATA_DATABASE);
+		createEAttribute(xmlDataDatabaseEClass, XML_DATA_DATABASE__CONTEXT);
+		createEReference(xmlDataDatabaseEClass, XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES);
+		createEReference(xmlDataDatabaseEClass, XML_DATA_DATABASE__RECORDED_DATA_VALUES);
+		createEAttribute(xmlDataDatabaseEClass, XML_DATA_DATABASE__NAMESPACE);
+		createEReference(xmlDataDatabaseEClass, XML_DATA_DATABASE__XML_SCHEMA);
+		createEReference(xmlDataDatabaseEClass, XML_DATA_DATABASE__ELEMENT_NAMES);
+		createEReference(xmlDataDatabaseEClass, XML_DATA_DATABASE__ATTRIBUTE_NAMES);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___ANALYSE_DATABASE);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___RECORD_DATA_VALUE__STRING);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___REMOVE_DATA_VALUE__STRING);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___INIT);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___OPEN);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___RECORD_ELEMENT_NAME__STRING);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___RECORD_ATTRIBUTE_NAME__STRING);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING);
 
 		localXmlDatabaseEClass = createEClass(LOCAL_XML_DATABASE);
 		createEAttribute(localXmlDatabaseEClass, LOCAL_XML_DATABASE__DATA_PATH);
@@ -1180,35 +1180,35 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEAttribute(stringToIntMapEClass, STRING_TO_INT_MAP__KEY);
 		createEAttribute(stringToIntMapEClass, STRING_TO_INT_MAP__VALUE);
 
-		xmlSchemaEClass = createEClass(XML_SCHEMA);
-		createEReference(xmlSchemaEClass, XML_SCHEMA__XML_DATABASES);
-		createEAttribute(xmlSchemaEClass, XML_SCHEMA__SCHEMA_CONTEXT);
-		createEAttribute(xmlSchemaEClass, XML_SCHEMA__NAMESPACE);
-		createEReference(xmlSchemaEClass, XML_SCHEMA__ATTRIBUTE_NAMES);
-		createEReference(xmlSchemaEClass, XML_SCHEMA__ELEMENT_NAMES);
-		createEAttribute(xmlSchemaEClass, XML_SCHEMA__NAME);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___ANALYSE_SCHEMA);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___OPEN_SCHEMA_DATABASE);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___INIT_SCHEMA_DATABASE);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___CHECK_FOLLOWING_IN_SCHEMA__STRING_STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___CHECK_PARENT_IN_SCHEMA__STRING_STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___CHECK_ANCESTOR_IN_SCHEMA__STRING_STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___CHECK_PRECEDING_SIBLING_IN_SCHEMA__STRING_STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___CHECK_DESCENDANT_IN_SCHEMA__STRING_STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___CHECK_CHILD_IN_SCHEMA__STRING_STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___CHECK_KEY_REF_IN_SCHEMA__STRING_STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___CHECK_FOLLOWING_SIBLING_IN_SCHEMA__STRING_STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___GET_ANCESTORS_IN_SCHEMA__STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___GET_DESCENDANTS_IN_SCHEMA__STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___GET_CHILDREN_IN_SCHEMA__STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___GET_FOLLOWING_IN_SCHEMA__STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___GET_PRECEDING_IN_SCHEMA__STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___GET_PARENTS_IN_SCHEMA__STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___GET_ATTRIBUTES_IN_SCHEMA__STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING);
-		createEOperation(xmlSchemaEClass, XML_SCHEMA___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING);
+		xmlSchemaDatabaseEClass = createEClass(XML_SCHEMA_DATABASE);
+		createEReference(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE__XML_DATABASES);
+		createEAttribute(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE__SCHEMA_CONTEXT);
+		createEAttribute(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE__NAMESPACE);
+		createEReference(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES);
+		createEReference(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE__ELEMENT_NAMES);
+		createEAttribute(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE__NAME);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___ANALYSE_SCHEMA);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___OPEN_SCHEMA_DATABASE);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___INIT_SCHEMA_DATABASE);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___CHECK_FOLLOWING_IN_SCHEMA__STRING_STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___CHECK_PARENT_IN_SCHEMA__STRING_STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___CHECK_ANCESTOR_IN_SCHEMA__STRING_STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___CHECK_PRECEDING_SIBLING_IN_SCHEMA__STRING_STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___CHECK_DESCENDANT_IN_SCHEMA__STRING_STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___CHECK_CHILD_IN_SCHEMA__STRING_STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___CHECK_ATTRIBUTE_IN_SCHEMA__STRING_STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___CHECK_KEY_REF_IN_SCHEMA__STRING_STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___CHECK_PRECEDING_IN_SCHEMA__STRING_STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___CHECK_FOLLOWING_SIBLING_IN_SCHEMA__STRING_STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___GET_ANCESTORS_IN_SCHEMA__STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___GET_DESCENDANTS_IN_SCHEMA__STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___GET_CHILDREN_IN_SCHEMA__STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___GET_FOLLOWING_IN_SCHEMA__STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___GET_PRECEDING_IN_SCHEMA__STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___GET_PARENTS_IN_SCHEMA__STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___GET_ATTRIBUTES_IN_SCHEMA__STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___GET_FOLLOWING_SIBLINGS_IN_SCHEMA__STRING);
+		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___GET_PRECEDING_SIBLINGS_IN_SCHEMA__STRING);
 
 		localXmlSchemaEClass = createEClass(LOCAL_XML_SCHEMA);
 		createEAttribute(localXmlSchemaEClass, LOCAL_XML_SCHEMA__SCHEMA_PATH);
@@ -1256,11 +1256,11 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		// Add supertypes to classes
 		xmlResultEClass.getESuperTypes().add(this.getResult());
-		xmlDatabaseEClass.getESuperTypes().add(this.getDatabase());
-		localXmlDatabaseEClass.getESuperTypes().add(this.getXmlDatabase());
-		serverXmlDatabaseEClass.getESuperTypes().add(this.getXmlDatabase());
-		localXmlSchemaEClass.getESuperTypes().add(this.getXmlSchema());
-		serverXmlSchemaEClass.getESuperTypes().add(this.getXmlSchema());
+		xmlDataDatabaseEClass.getESuperTypes().add(this.getDatabase());
+		localXmlDatabaseEClass.getESuperTypes().add(this.getXmlDataDatabase());
+		serverXmlDatabaseEClass.getESuperTypes().add(this.getXmlDataDatabase());
+		localXmlSchemaEClass.getESuperTypes().add(this.getXmlSchemaDatabase());
+		serverXmlSchemaEClass.getESuperTypes().add(this.getXmlSchemaDatabase());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(databaseEClass, Database.class, "Database", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1305,50 +1305,50 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		initEClass(xmlResultEClass, XmlResult.class, "XmlResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(xmlDatabaseEClass, XmlDatabase.class, "XmlDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getXmlDatabase_Context(), this.getBaseXContextWrapper(), "context", null, 0, 1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXmlDatabase_RecordedAttributeValues(), this.getStringToIntMap(), null, "recordedAttributeValues", null, 0, -1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXmlDatabase_RecordedDataValues(), this.getStringToIntMap(), null, "recordedDataValues", null, 0, -1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getXmlDatabase_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXmlDatabase_XmlSchema(), this.getXmlSchema(), this.getXmlSchema_XmlDatabases(), "xmlSchema", null, 0, 1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXmlDatabase_ElementNames(), this.getStringToIntMap(), null, "elementNames", null, 0, -1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXmlDatabase_AttributeNames(), this.getStringToIntMap(), null, "attributeNames", null, 0, -1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(xmlDataDatabaseEClass, XmlDataDatabase.class, "XmlDataDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getXmlDataDatabase_Context(), this.getBaseXContextWrapper(), "context", null, 0, 1, XmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlDataDatabase_RecordedAttributeValues(), this.getStringToIntMap(), null, "recordedAttributeValues", null, 0, -1, XmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlDataDatabase_RecordedDataValues(), this.getStringToIntMap(), null, "recordedDataValues", null, 0, -1, XmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getXmlDataDatabase_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, XmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlDataDatabase_XmlSchema(), this.getXmlSchemaDatabase(), this.getXmlSchemaDatabase_XmlDatabases(), "xmlSchema", null, 0, 1, XmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlDataDatabase_ElementNames(), this.getStringToIntMap(), null, "elementNames", null, 0, -1, XmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlDataDatabase_AttributeNames(), this.getStringToIntMap(), null, "attributeNames", null, 0, -1, XmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getXmlDatabase__AnalyseDatabase(), null, "analyseDatabase", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDataDatabase__AnalyseDatabase(), null, "analyseDatabase", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlDatabase__RecordAttributeValue__String(), null, "recordAttributeValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDataDatabase__RecordAttributeValue__String(), null, "recordAttributeValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getXmlDatabase__RecordDataValue__String(), null, "recordDataValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDataDatabase__RecordDataValue__String(), null, "recordDataValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getXmlDatabase__RemoveAttributeValue__String(), null, "removeAttributeValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDataDatabase__RemoveAttributeValue__String(), null, "removeAttributeValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getXmlDatabase__RemoveDataValue__String(), null, "removeDataValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDataDatabase__RemoveDataValue__String(), null, "removeDataValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getXmlDatabase__Init(), null, "init", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDataDatabase__Init(), null, "init", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlDatabase__Open(), null, "open", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDataDatabase__Open(), null, "open", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 
-		op = initEOperation(getXmlDatabase__RecordElementName__String(), null, "recordElementName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDataDatabase__RecordElementName__String(), null, "recordElementName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getXmlDatabase__RecordAttributeName__String(), null, "recordAttributeName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDataDatabase__RecordAttributeName__String(), null, "recordAttributeName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getXmlDatabase__RemoveElementName__String(), null, "removeElementName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDataDatabase__RemoveElementName__String(), null, "removeElementName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getXmlDatabase__RemoveAttributeName__String(), null, "removeAttributeName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDataDatabase__RemoveAttributeName__String(), null, "removeAttributeName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(localXmlDatabaseEClass, LocalXmlDatabase.class, "LocalXmlDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1360,153 +1360,153 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEClass(serverXmlDatabaseEClass, ServerXmlDatabase.class, "ServerXmlDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(databasesEClass, Databases.class, "Databases", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDatabases_XmlDatabases(), this.getXmlDatabase(), null, "xmlDatabases", null, 0, -1, Databases.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDatabases_XmlSchemata(), this.getXmlSchema(), null, "xmlSchemata", null, 0, -1, Databases.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDatabases_XmlDatabases(), this.getXmlDataDatabase(), null, "xmlDatabases", null, 0, -1, Databases.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDatabases_XmlSchemata(), this.getXmlSchemaDatabase(), null, "xmlSchemata", null, 0, -1, Databases.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(stringToIntMapEClass, Map.Entry.class, "StringToIntMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringToIntMap_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStringToIntMap_Value(), ecorePackage.getEIntegerObject(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(xmlSchemaEClass, XmlSchema.class, "XmlSchema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getXmlSchema_XmlDatabases(), this.getXmlDatabase(), this.getXmlDatabase_XmlSchema(), "xmlDatabases", null, 0, -1, XmlSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getXmlSchema_SchemaContext(), this.getBaseXContextWrapper(), "schemaContext", null, 0, 1, XmlSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getXmlSchema_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, XmlSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXmlSchema_AttributeNames(), this.getStringToIntMap(), null, "attributeNames", null, 0, -1, XmlSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXmlSchema_ElementNames(), this.getStringToIntMap(), null, "elementNames", null, 0, -1, XmlSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getXmlSchema_Name(), ecorePackage.getEString(), "name", null, 0, 1, XmlSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(xmlSchemaDatabaseEClass, XmlSchemaDatabase.class, "XmlSchemaDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getXmlSchemaDatabase_XmlDatabases(), this.getXmlDataDatabase(), this.getXmlDataDatabase_XmlSchema(), "xmlDatabases", null, 0, -1, XmlSchemaDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getXmlSchemaDatabase_SchemaContext(), this.getBaseXContextWrapper(), "schemaContext", null, 0, 1, XmlSchemaDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getXmlSchemaDatabase_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, XmlSchemaDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlSchemaDatabase_AttributeNames(), this.getStringToIntMap(), null, "attributeNames", null, 0, -1, XmlSchemaDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlSchemaDatabase_ElementNames(), this.getStringToIntMap(), null, "elementNames", null, 0, -1, XmlSchemaDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getXmlSchemaDatabase_Name(), ecorePackage.getEString(), "name", null, 0, 1, XmlSchemaDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getXmlSchema__AnalyseSchema(), null, "analyseSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__AnalyseSchema(), null, "analyseSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__OpenSchemaDatabase(), null, "openSchemaDatabase", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__OpenSchemaDatabase(), null, "openSchemaDatabase", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__InitSchemaDatabase(), null, "initSchemaDatabase", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__InitSchemaDatabase(), null, "initSchemaDatabase", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__CheckFollowingInSchema__String_String(), ecorePackage.getEBoolean(), "checkFollowingInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__CheckFollowingInSchema__String_String(), ecorePackage.getEBoolean(), "checkFollowingInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName1", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName2", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__CheckParentInSchema__String_String(), ecorePackage.getEBoolean(), "checkParentInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__CheckParentInSchema__String_String(), ecorePackage.getEBoolean(), "checkParentInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName1", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName2", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__CheckAncestorInSchema__String_String(), ecorePackage.getEBoolean(), "checkAncestorInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__CheckAncestorInSchema__String_String(), ecorePackage.getEBoolean(), "checkAncestorInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName1", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName2", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__CheckPrecedingSiblingInSchema__String_String(), ecorePackage.getEBoolean(), "checkPrecedingSiblingInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__CheckPrecedingSiblingInSchema__String_String(), ecorePackage.getEBoolean(), "checkPrecedingSiblingInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName1", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName2", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__CheckDescendantInSchema__String_String(), ecorePackage.getEBoolean(), "checkDescendantInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__CheckDescendantInSchema__String_String(), ecorePackage.getEBoolean(), "checkDescendantInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName1", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName2", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__CheckChildInSchema__String_String(), ecorePackage.getEBoolean(), "checkChildInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__CheckChildInSchema__String_String(), ecorePackage.getEBoolean(), "checkChildInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName1", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName2", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__CheckAttributeInSchema__String_String(), ecorePackage.getEBoolean(), "checkAttributeInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__CheckAttributeInSchema__String_String(), ecorePackage.getEBoolean(), "checkAttributeInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "attributeName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__CheckKeyRefInSchema__String_String(), null, "checkKeyRefInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__CheckKeyRefInSchema__String_String(), null, "checkKeyRefInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName1", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName2", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__CheckPrecedingInSchema__String_String(), ecorePackage.getEBoolean(), "checkPrecedingInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__CheckPrecedingInSchema__String_String(), ecorePackage.getEBoolean(), "checkPrecedingInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName1", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName2", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__CheckFollowingSiblingInSchema__String_String(), ecorePackage.getEBoolean(), "checkFollowingSiblingInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__CheckFollowingSiblingInSchema__String_String(), ecorePackage.getEBoolean(), "checkFollowingSiblingInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName1", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName2", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__GetAncestorsInSchema__String(), ecorePackage.getEString(), "getAncestorsInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__GetAncestorsInSchema__String(), ecorePackage.getEString(), "getAncestorsInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__GetDescendantsInSchema__String(), ecorePackage.getEString(), "getDescendantsInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__GetDescendantsInSchema__String(), ecorePackage.getEString(), "getDescendantsInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__GetChildrenInSchema__String(), ecorePackage.getEString(), "getChildrenInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__GetChildrenInSchema__String(), ecorePackage.getEString(), "getChildrenInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__GetFollowingInSchema__String(), ecorePackage.getEString(), "getFollowingInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__GetFollowingInSchema__String(), ecorePackage.getEString(), "getFollowingInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__GetPrecedingInSchema__String(), ecorePackage.getEString(), "getPrecedingInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__GetPrecedingInSchema__String(), ecorePackage.getEString(), "getPrecedingInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__GetParentsInSchema__String(), ecorePackage.getEString(), "getParentsInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__GetParentsInSchema__String(), ecorePackage.getEString(), "getParentsInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__GetAttributesInSchema__String(), ecorePackage.getEString(), "getAttributesInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__GetAttributesInSchema__String(), ecorePackage.getEString(), "getAttributesInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__GetFollowingSiblingsInSchema__String(), ecorePackage.getEString(), "getFollowingSiblingsInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__GetFollowingSiblingsInSchema__String(), ecorePackage.getEString(), "getFollowingSiblingsInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 
-		op = initEOperation(getXmlSchema__GetPrecedingSiblingsInSchema__String(), ecorePackage.getEString(), "getPrecedingSiblingsInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlSchemaDatabase__GetPrecedingSiblingsInSchema__String(), ecorePackage.getEString(), "getPrecedingSiblingsInSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());

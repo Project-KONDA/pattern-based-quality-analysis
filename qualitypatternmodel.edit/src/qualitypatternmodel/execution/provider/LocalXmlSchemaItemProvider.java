@@ -23,7 +23,7 @@ import qualitypatternmodel.execution.LocalXmlSchema;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LocalXmlSchemaItemProvider extends XmlSchemaItemProvider {
+public class LocalXmlSchemaItemProvider extends XmlSchemaDatabaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -141,8 +141,8 @@ public class LocalXmlSchemaItemProvider extends XmlSchemaItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == ExecutionPackage.Literals.XML_SCHEMA__ATTRIBUTE_NAMES ||
-			childFeature == ExecutionPackage.Literals.XML_SCHEMA__ELEMENT_NAMES;
+			childFeature == ExecutionPackage.Literals.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES ||
+			childFeature == ExecutionPackage.Literals.XML_SCHEMA_DATABASE__ELEMENT_NAMES;
 
 		if (qualify) {
 			return getString

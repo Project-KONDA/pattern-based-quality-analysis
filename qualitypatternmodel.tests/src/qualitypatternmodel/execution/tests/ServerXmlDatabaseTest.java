@@ -13,7 +13,7 @@ import qualitypatternmodel.execution.ServerXmlDatabase;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ServerXmlDatabaseTest extends XmlDatabaseTest {
+public class ServerXmlDatabaseTest extends XmlDataDatabaseTest {
 
 	/**
 	 * <!-- begin-user-doc -->

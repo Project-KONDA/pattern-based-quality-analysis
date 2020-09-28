@@ -14,5 +14,5 @@ package qualitypatternmodel.execution;
  * @model
  * @generated
  */
-public interface ServerXmlDatabase extends XmlDatabase {
+public interface ServerXmlDatabase extends XmlDataDatabase {
 } // ServerXmlDatabase

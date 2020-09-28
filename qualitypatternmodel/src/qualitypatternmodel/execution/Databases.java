@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface Databases extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Xml Databases</b></em>' containment reference list.
-	 * The list contents are of type {@link qualitypatternmodel.execution.XmlDatabase}.
+	 * The list contents are of type {@link qualitypatternmodel.execution.XmlDataDatabase}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Xml Databases</em>' containment reference list.
@@ -35,11 +35,11 @@ public interface Databases extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<XmlDatabase> getXmlDatabases();
+	EList<XmlDataDatabase> getXmlDatabases();
 
 	/**
 	 * Returns the value of the '<em><b>Xml Schemata</b></em>' containment reference list.
-	 * The list contents are of type {@link qualitypatternmodel.execution.XmlSchema}.
+	 * The list contents are of type {@link qualitypatternmodel.execution.XmlSchemaDatabase}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Xml Schemata</em>' containment reference list.
@@ -47,6 +47,6 @@ public interface Databases extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<XmlSchema> getXmlSchemata();
+	EList<XmlSchemaDatabase> getXmlSchemata();
 
 } // Databases

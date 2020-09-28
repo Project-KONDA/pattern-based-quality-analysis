@@ -19,7 +19,7 @@ import qualitypatternmodel.execution.LocalXmlSchema;
  * </p>
  * @generated
  */
-public class LocalXmlSchemaTest extends XmlSchemaTest {
+public class LocalXmlSchemaTest extends XmlSchemaDatabaseTest {
 
 	/**
 	 * <!-- begin-user-doc -->

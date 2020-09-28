@@ -21,7 +21,7 @@ import org.basex.core.BaseXException;
  * @model
  * @generated
  */
-public interface LocalXmlDatabase extends XmlDatabase {
+public interface LocalXmlDatabase extends XmlDataDatabase {
 	/**
 	 * Returns the value of the '<em><b>Data Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->

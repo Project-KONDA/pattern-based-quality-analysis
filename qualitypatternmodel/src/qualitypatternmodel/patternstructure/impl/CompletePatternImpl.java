@@ -18,7 +18,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.ExecutionPackage;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
@@ -343,8 +343,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	
 		isValid(AbstractionLevel.CONCRETE);
 		
-		if(getDatabase() instanceof XmlDatabase) {			
-			recordValues((XmlDatabase) getDatabase());
+		if(getDatabase() instanceof XmlDataDatabase) {			
+			recordValues((XmlDataDatabase) getDatabase());
 		}
 		// TODO: else throw exception
 	}

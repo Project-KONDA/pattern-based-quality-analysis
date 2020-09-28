@@ -31,13 +31,13 @@ public interface ExecutionFactory extends EFactory {
 	XmlResult createXmlResult();
 
 	/**
-	 * Returns a new object of class '<em>Xml Database</em>'.
+	 * Returns a new object of class '<em>Xml Data Database</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Xml Database</em>'.
+	 * @return a new object of class '<em>Xml Data Database</em>'.
 	 * @generated
 	 */
-	XmlDatabase createXmlDatabase();
+	XmlDataDatabase createXmlDataDatabase();
 
 	/**
 	 * Returns a new object of class '<em>Local Xml Database</em>'.
@@ -67,13 +67,13 @@ public interface ExecutionFactory extends EFactory {
 	Databases createDatabases();
 
 	/**
-	 * Returns a new object of class '<em>Xml Schema</em>'.
+	 * Returns a new object of class '<em>Xml Schema Database</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Xml Schema</em>'.
+	 * @return a new object of class '<em>Xml Schema Database</em>'.
 	 * @generated
 	 */
-	XmlSchema createXmlSchema();
+	XmlSchemaDatabase createXmlSchemaDatabase();
 
 	/**
 	 * Returns a new object of class '<em>Local Xml Schema</em>'.

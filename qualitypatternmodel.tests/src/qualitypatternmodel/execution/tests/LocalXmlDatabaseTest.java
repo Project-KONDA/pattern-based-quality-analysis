@@ -19,7 +19,7 @@ import qualitypatternmodel.execution.LocalXmlDatabase;
  * </p>
  * @generated
  */
-public class LocalXmlDatabaseTest extends XmlDatabaseTest {
+public class LocalXmlDatabaseTest extends XmlDataDatabaseTest {
 
 	/**
 	 * <!-- begin-user-doc -->

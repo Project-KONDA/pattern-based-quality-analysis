@@ -29,7 +29,7 @@ import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.execution.Database;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.graphstructure.Element;
@@ -227,29 +227,29 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 			if(sourceTag != null && targetTag != null) {
 				try {
 					Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-					if(db instanceof XmlDatabase) {
-						XmlDatabase xmlDatabase = (XmlDatabase) db;
+					if(db instanceof XmlDataDatabase) {
+						XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
 						
 						try {
 							
-							if(xmlDatabase.getXmlSchema().checkChildInSchema(sourceTag, targetTag)) {
+							if(xmlDataDatabase.getXmlSchema().checkChildInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.CHILD);
 								suggestions.add(RelationKind.DESCENDANT);
-							} else if(xmlDatabase.getXmlSchema().checkDescendantInSchema(sourceTag, targetTag)) {
+							} else if(xmlDataDatabase.getXmlSchema().checkDescendantInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.DESCENDANT);
 							}
 							
-							if(xmlDatabase.getXmlSchema().checkParentInSchema(sourceTag, targetTag)) {
+							if(xmlDataDatabase.getXmlSchema().checkParentInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.PARENT);
 								suggestions.add(RelationKind.ANCESTOR);
-							} else if(xmlDatabase.getXmlSchema().checkAncestorInSchema(sourceTag, targetTag)) {
+							} else if(xmlDataDatabase.getXmlSchema().checkAncestorInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.ANCESTOR);
 							}
 							
-							if(xmlDatabase.getXmlSchema().checkFollowingSiblingInSchema(sourceTag, targetTag)) {
+							if(xmlDataDatabase.getXmlSchema().checkFollowingSiblingInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.FOLLOWING_SIBLING);
 								suggestions.add(RelationKind.FOLLOWING);
-							} else if(xmlDatabase.getXmlSchema().checkFollowingInSchema(sourceTag, targetTag)) {
+							} else if(xmlDataDatabase.getXmlSchema().checkFollowingInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.FOLLOWING);
 							}
 							

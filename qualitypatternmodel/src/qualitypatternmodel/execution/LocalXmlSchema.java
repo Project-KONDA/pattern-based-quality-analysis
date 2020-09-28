@@ -20,7 +20,7 @@ import org.basex.core.BaseXException;
  * @model
  * @generated
  */
-public interface LocalXmlSchema extends XmlSchema {
+public interface LocalXmlSchema extends XmlSchemaDatabase {
 
 	/**
 	 * Returns the value of the '<em><b>Schema Path</b></em>' attribute.
