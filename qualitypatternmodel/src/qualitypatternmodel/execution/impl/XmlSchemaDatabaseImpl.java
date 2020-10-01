@@ -8,26 +8,19 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.basex.core.BaseXException;
-import org.basex.core.Context;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
-import org.basex.query.QueryProcessor;
-import org.basex.query.iter.Iter;
-import org.basex.query.value.item.Item;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.execution.ExecutionPackage;
@@ -43,8 +36,8 @@ import qualitypatternmodel.execution.XmlSchemaDatabase;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getXmlDatabases <em>Xml Databases</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getAttributeNames <em>Attribute Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getElementNames <em>Element Names</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getAttributeNames <em>Attribute Names</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,23 +54,24 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	protected EList<XmlDataDatabase> xmlDatabases;
 	
 	/**
-	 * The cached value of the '{@link #getAttributeNames() <em>Attribute Names</em>}' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAttributeNames()
-	 * @generated
-	 * @ordered
-	 */
-	protected EMap<String, Integer> attributeNames;
-	/**
-	 * The cached value of the '{@link #getElementNames() <em>Element Names</em>}' map.
+	 * The cached value of the '{@link #getElementNames() <em>Element Names</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getElementNames()
 	 * @generated
 	 * @ordered
 	 */
-	protected EMap<String, Integer> elementNames;
+	protected EList<String> elementNames;
+	/**
+	 * The cached value of the '{@link #getAttributeNames() <em>Attribute Names</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttributeNames()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> attributeNames;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,27 +88,50 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 */
 	@Override
 	public void analyse() throws BaseXException, QueryIOException, QueryException {
-		open();		
-		executeAnalysis("//*[name()=\"xs:element\"]/data(@name)", getElementNames());
-		executeAnalysis("//*[name()=\"xs:attribute\"]/data(@name)", getAttributeNames());
+		
+		if(elementNames.isEmpty()) {
+			retrieveElementNames();
+			updateElementNamesInXmlDatabases();
+		}
+		if(attributeNames.isEmpty()) {			
+			retrieveAttributeNames();
+			updateAttributeNamesInXmlDatabases();
+		}
 		
 		// TODO: add namespace
 	}
-	
-	private void executeAnalysis(String query, EMap<String,Integer> valueStorage) throws BaseXException, QueryIOException, QueryException {
-		List<String> result = execute(query);
-		for(int i = 0; i < result.size(); i++) {			
-			valueStorage.put(getNamespace() + result.get(i),0);			
+
+	private void updateAttributeNamesInXmlDatabases() {
+		for(XmlDataDatabase db : getXmlDatabases()) {
+			db.addAttributeNames(getAttributeNames());
 		}
 	}
+
+	private void updateElementNamesInXmlDatabases() {
+		for(XmlDataDatabase db : getXmlDatabases()) {
+			db.addElementNames(getElementNames());
+		}
+	}
+
+	private void retrieveElementNames() throws QueryException, QueryIOException, BaseXException {
+		open();	
+		List<String> retrievedElementNames = execute("//*[name()=\"xs:element\"]/data(@name)");
+		elementNames.addAll(retrievedElementNames);
+	}
+
+	private void retrieveAttributeNames() throws QueryException, QueryIOException, BaseXException {
+		open();	
+		List<String> retrievedAttributeNames = execute("//*[name()=\"xs:attribute\"]/data(@name)");
+		attributeNames.addAll(retrievedAttributeNames);
+	}
 	
-	private EList<String> getElementNames(String elementName, String path, String methodName) throws BaseXException, QueryException, QueryIOException {
+	private EList<String> getElementNamesFromQueryExecution(String elementName, String queryPath, String xQueryMethodName) throws BaseXException, QueryException, QueryIOException {
 		open();
 
 		String checkQuery; 
 		
 		try {
-			checkQuery = readFile(path, StandardCharsets.US_ASCII);
+			checkQuery = readFile(queryPath, StandardCharsets.US_ASCII);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();		
@@ -122,7 +139,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 			return new BasicEList<String>();
 		}
 		
-		String call = distinctNamesQuery(methodName, elementName);
+		String call = distinctNamesQuery(xQueryMethodName, elementName);
 		
 		String query = checkQuery + call;
 		
@@ -178,6 +195,53 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<String> getElementNames() {
+		if (elementNames == null) {
+			elementNames = new EDataTypeUniqueEList<String>(String.class, this, ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES);
+		}
+		
+		if(elementNames.isEmpty()) {			
+			try {
+				retrieveElementNames();
+			} catch (QueryIOException | BaseXException | QueryException e) {
+				// do nothing
+//				e.printStackTrace();
+			}			
+		}
+		
+		return elementNames;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<String> getAttributeNames() {
+		if (attributeNames == null) {
+			attributeNames = new EDataTypeUniqueEList<String>(String.class, this, ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES);
+		}
+		
+		if(attributeNames.isEmpty()) {
+			try {
+				retrieveAttributeNames();
+			} catch (QueryIOException | BaseXException | QueryException e) {
+				// do nothing
+//				e.printStackTrace();
+			}	
+			
+		}
+		
+		return attributeNames;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -200,10 +264,6 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		switch (featureID) {
 			case ExecutionPackage.XML_SCHEMA_DATABASE__XML_DATABASES:
 				return ((InternalEList<?>)getXmlDatabases()).basicRemove(otherEnd, msgs);
-			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
-				return ((InternalEList<?>)getAttributeNames()).basicRemove(otherEnd, msgs);
-			case ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES:
-				return ((InternalEList<?>)getElementNames()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -218,12 +278,10 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		switch (featureID) {
 			case ExecutionPackage.XML_SCHEMA_DATABASE__XML_DATABASES:
 				return getXmlDatabases();
-			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
-				if (coreType) return getAttributeNames();
-				else return getAttributeNames().map();
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES:
-				if (coreType) return getElementNames();
-				else return getElementNames().map();
+				return getElementNames();
+			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
+				return getAttributeNames();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -241,11 +299,13 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 				getXmlDatabases().clear();
 				getXmlDatabases().addAll((Collection<? extends XmlDataDatabase>)newValue);
 				return;
-			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
-				((EStructuralFeature.Setting)getAttributeNames()).set(newValue);
-				return;
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES:
-				((EStructuralFeature.Setting)getElementNames()).set(newValue);
+				getElementNames().clear();
+				getElementNames().addAll((Collection<? extends String>)newValue);
+				return;
+			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
+				getAttributeNames().clear();
+				getAttributeNames().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -262,11 +322,11 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 			case ExecutionPackage.XML_SCHEMA_DATABASE__XML_DATABASES:
 				getXmlDatabases().clear();
 				return;
-			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
-				getAttributeNames().clear();
-				return;
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES:
 				getElementNames().clear();
+				return;
+			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
+				getAttributeNames().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -282,10 +342,10 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		switch (featureID) {
 			case ExecutionPackage.XML_SCHEMA_DATABASE__XML_DATABASES:
 				return xmlDatabases != null && !xmlDatabases.isEmpty();
-			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
-				return attributeNames != null && !attributeNames.isEmpty();
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES:
 				return elementNames != null && !elementNames.isEmpty();
+			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
+				return attributeNames != null && !attributeNames.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -434,6 +494,24 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 				}
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (elementNames: ");
+		result.append(elementNames);
+		result.append(", attributeNames: ");
+		result.append(attributeNames);
+		result.append(')');
+		return result.toString();
 	}
 
 	/**
@@ -630,7 +708,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 */
 	@Override
 	public EList<String> getChildrenInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		return getElementNames(elementName, "queries/GetChildren.xq", "getChildren");
+		return getElementNamesFromQueryExecution(elementName, "queries/GetChildren.xq", "getChildren");
 	}
 
 	/**
@@ -640,7 +718,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 */
 	@Override
 	public EList<String> getDescendantsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		return getElementNames(elementName, "queries/GetDescendantsEfficient.xq", "getDescendants");
+		return getElementNamesFromQueryExecution(elementName, "queries/GetDescendantsEfficient.xq", "getDescendants");
 	}
 
 	/**
@@ -650,7 +728,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 */
 	@Override
 	public EList<String> getParentsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		return getElementNames(elementName, "queries/GetParents.xq", "getDescendants");
+		return getElementNamesFromQueryExecution(elementName, "queries/GetParents.xq", "getDescendants");
 	}
 
 	/**
@@ -660,7 +738,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 */
 	@Override
 	public EList<String> getAncestorsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		return getElementNames(elementName, "queries/GetAncestorsEfficient.xq", "getDescendants");
+		return getElementNamesFromQueryExecution(elementName, "queries/GetAncestorsEfficient.xq", "getDescendants");
 	}
 
 	/**
@@ -682,7 +760,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 */
 	@Override
 	public EList<String> getFollowingSiblingsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		return getElementNames(elementName, "queries/GetFollowingSibling.xq", "getDescendants");
+		return getElementNamesFromQueryExecution(elementName, "queries/GetFollowingSibling.xq", "getDescendants");
 	}
 
 	/**
@@ -704,7 +782,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 */
 	@Override
 	public EList<String> getFollowingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
-		return getElementNames(elementName, "queries/GetFollowing2.xq", "getDescendants");
+		return getElementNamesFromQueryExecution(elementName, "queries/GetFollowing2.xq", "getDescendants");
 	}
 
 	/**
@@ -717,33 +795,6 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public EMap<String, Integer> getElementNames() {
-		if (elementNames == null) {
-			elementNames = new EcoreEMap<String,Integer>(ExecutionPackage.Literals.STRING_TO_INT_MAP, StringToIntMapImpl.class, this, ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES);
-		}
-		return elementNames;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EMap<String, Integer> getAttributeNames() {
-		if (attributeNames == null) {
-			attributeNames = new EcoreEMap<String,Integer>(ExecutionPackage.Literals.STRING_TO_INT_MAP, StringToIntMapImpl.class, this, ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES);
-		}
-		return attributeNames;
 	}
 
 	

@@ -536,6 +536,26 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getXmlDataDatabase__AddAttributeNames__EList() {
+		return xmlDataDatabaseEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDataDatabase__AddElementNames__EList() {
+		return xmlDataDatabaseEClass.getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getLocalXmlDataDatabase() {
 		return localXmlDataDatabaseEClass;
 	}
@@ -646,8 +666,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getXmlSchemaDatabase_AttributeNames() {
-		return (EReference)xmlSchemaDatabaseEClass.getEStructuralFeatures().get(1);
+	public EAttribute getXmlSchemaDatabase_ElementNames() {
+		return (EAttribute)xmlSchemaDatabaseEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -656,8 +676,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getXmlSchemaDatabase_ElementNames() {
-		return (EReference)xmlSchemaDatabaseEClass.getEStructuralFeatures().get(2);
+	public EAttribute getXmlSchemaDatabase_AttributeNames() {
+		return (EAttribute)xmlSchemaDatabaseEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1128,6 +1148,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___RECORD_ATTRIBUTE_NAME__STRING);
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING);
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___ADD_ATTRIBUTE_NAMES__ELIST);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST);
 
 		localXmlDataDatabaseEClass = createEClass(LOCAL_XML_DATA_DATABASE);
 		createEAttribute(localXmlDataDatabaseEClass, LOCAL_XML_DATA_DATABASE__DATA_PATH);
@@ -1144,8 +1166,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		xmlSchemaDatabaseEClass = createEClass(XML_SCHEMA_DATABASE);
 		createEReference(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE__XML_DATABASES);
-		createEReference(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES);
-		createEReference(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE__ELEMENT_NAMES);
+		createEAttribute(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE__ELEMENT_NAMES);
+		createEAttribute(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES);
 		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___CHECK_FOLLOWING_IN_SCHEMA__STRING_STRING);
 		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___CHECK_PARENT_IN_SCHEMA__STRING_STRING);
 		createEOperation(xmlSchemaDatabaseEClass, XML_SCHEMA_DATABASE___CHECK_ANCESTOR_IN_SCHEMA__STRING_STRING);
@@ -1287,6 +1309,12 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		op = initEOperation(getXmlDataDatabase__RemoveAttributeName__String(), null, "removeAttributeName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getXmlDataDatabase__AddAttributeNames__EList(), null, "addAttributeNames", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "attributeNames", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getXmlDataDatabase__AddElementNames__EList(), null, "addElementNames", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "elementNames", 0, -1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(localXmlDataDatabaseEClass, LocalXmlDataDatabase.class, "LocalXmlDataDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLocalXmlDataDatabase_DataPath(), ecorePackage.getEString(), "dataPath", null, 0, 1, LocalXmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1302,8 +1330,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		initEClass(xmlSchemaDatabaseEClass, XmlSchemaDatabase.class, "XmlSchemaDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getXmlSchemaDatabase_XmlDatabases(), this.getXmlDataDatabase(), this.getXmlDataDatabase_XmlSchema(), "xmlDatabases", null, 0, -1, XmlSchemaDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXmlSchemaDatabase_AttributeNames(), this.getStringToIntMap(), null, "attributeNames", null, 0, -1, XmlSchemaDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getXmlSchemaDatabase_ElementNames(), this.getStringToIntMap(), null, "elementNames", null, 0, -1, XmlSchemaDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getXmlSchemaDatabase_ElementNames(), ecorePackage.getEString(), "elementNames", null, 0, -1, XmlSchemaDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getXmlSchemaDatabase_AttributeNames(), ecorePackage.getEString(), "attributeNames", null, 0, -1, XmlSchemaDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getXmlSchemaDatabase__CheckFollowingInSchema__String_String(), ecorePackage.getEBoolean(), "checkFollowingInSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "elementName1", 0, 1, IS_UNIQUE, IS_ORDERED);

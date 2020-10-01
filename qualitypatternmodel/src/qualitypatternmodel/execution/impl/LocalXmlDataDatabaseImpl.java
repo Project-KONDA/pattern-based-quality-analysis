@@ -7,8 +7,8 @@ import java.util.Date;
 import java.util.List;
 
 import org.basex.core.BaseXException;
-import org.basex.core.Context;
 import org.basex.core.cmd.CreateDB;
+import org.basex.core.cmd.Open;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.basex.query.QueryProcessor;
@@ -86,9 +86,13 @@ public class LocalXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Loc
 
 	@Override
 	public void init() throws BaseXException, QueryIOException, QueryException {
-		context = new Context();
-		create(); // TODO: optional
-		analyse();
+		super.init();
+		try {
+			new Open(name).execute(context);
+		} catch(BaseXException e) {
+			create();
+		}		
+//		analyse();
 	}
 	
 	@Override

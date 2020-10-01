@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.execution;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 
 /**
@@ -165,5 +166,21 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 	 * @generated
 	 */
 	void removeAttributeName(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model attributeNamesMany="true"
+	 * @generated
+	 */
+	void addAttributeNames(EList<String> attributeNames);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model elementNamesMany="true"
+	 * @generated
+	 */
+	void addElementNames(EList<String> elementNames);
 
 } // XmlDatabase

@@ -3,8 +3,8 @@
 package qualitypatternmodel.execution.impl;
 
 import org.basex.core.BaseXException;
-import org.basex.core.Context;
 import org.basex.core.cmd.CreateDB;
+import org.basex.core.cmd.Open;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.notify.Notification;
@@ -68,7 +68,7 @@ public class LocalXmlSchemaDatabaseImpl extends XmlSchemaDatabaseImpl implements
 	 */
 	@Override
 	public void create() throws BaseXException {
-		new CreateDB(name, schemaPath).execute(context);	
+		new CreateDB(name, schemaPath).execute(context);		
 	}
 	
 	/**
@@ -78,8 +78,12 @@ public class LocalXmlSchemaDatabaseImpl extends XmlSchemaDatabaseImpl implements
 	 */
 	@Override
 	public void init() throws BaseXException, QueryException, QueryIOException {
-		context = new Context();
-		create(); // TODO: optional
+		super.init();
+		try {
+			new Open(name).execute(context);
+		} catch(BaseXException e) {
+			create();
+		}		
 		analyse();
 	}
 

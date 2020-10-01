@@ -687,13 +687,31 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATA_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING = XML_DATABASE_OPERATION_COUNT + 9;
 
 	/**
+	 * The operation id for the '<em>Add Attribute Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___ADD_ATTRIBUTE_NAMES__ELIST = XML_DATABASE_OPERATION_COUNT + 10;
+
+	/**
+	 * The operation id for the '<em>Add Element Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST = XML_DATABASE_OPERATION_COUNT + 11;
+
+	/**
 	 * The number of operations of the '<em>Xml Data Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATA_DATABASE_OPERATION_COUNT = XML_DATABASE_OPERATION_COUNT + 10;
+	int XML_DATA_DATABASE_OPERATION_COUNT = XML_DATABASE_OPERATION_COUNT + 12;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl <em>Local Xml Data Database</em>}' class.
@@ -949,6 +967,24 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATA_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING = XML_DATA_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING;
 
 	/**
+	 * The operation id for the '<em>Add Attribute Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATA_DATABASE___ADD_ATTRIBUTE_NAMES__ELIST = XML_DATA_DATABASE___ADD_ATTRIBUTE_NAMES__ELIST;
+
+	/**
+	 * The operation id for the '<em>Add Element Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST = XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST;
+
+	/**
 	 * The number of operations of the '<em>Local Xml Data Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1202,6 +1238,24 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_DATA_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING = XML_DATA_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING;
 
 	/**
+	 * The operation id for the '<em>Add Attribute Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATA_DATABASE___ADD_ATTRIBUTE_NAMES__ELIST = XML_DATA_DATABASE___ADD_ATTRIBUTE_NAMES__ELIST;
+
+	/**
+	 * The operation id for the '<em>Add Element Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST = XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST;
+
+	/**
 	 * The number of operations of the '<em>Server Xml Data Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1319,22 +1373,22 @@ public interface ExecutionPackage extends EPackage {
 	int XML_SCHEMA_DATABASE__XML_DATABASES = XML_DATABASE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Attribute Names</b></em>' map.
+	 * The feature id for the '<em><b>Element Names</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES = XML_DATABASE_FEATURE_COUNT + 1;
+	int XML_SCHEMA_DATABASE__ELEMENT_NAMES = XML_DATABASE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Element Names</b></em>' map.
+	 * The feature id for the '<em><b>Attribute Names</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE__ELEMENT_NAMES = XML_DATABASE_FEATURE_COUNT + 2;
+	int XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES = XML_DATABASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Xml Schema Database</em>' class.
@@ -1617,22 +1671,22 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_SCHEMA_DATABASE__XML_DATABASES = XML_SCHEMA_DATABASE__XML_DATABASES;
 
 	/**
-	 * The feature id for the '<em><b>Attribute Names</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCAL_XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES = XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES;
-
-	/**
-	 * The feature id for the '<em><b>Element Names</b></em>' map.
+	 * The feature id for the '<em><b>Element Names</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int LOCAL_XML_SCHEMA_DATABASE__ELEMENT_NAMES = XML_SCHEMA_DATABASE__ELEMENT_NAMES;
+
+	/**
+	 * The feature id for the '<em><b>Attribute Names</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES = XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES;
 
 	/**
 	 * The feature id for the '<em><b>Schema Path</b></em>' attribute.
@@ -1924,22 +1978,22 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_SCHEMA_DATABASE__XML_DATABASES = XML_SCHEMA_DATABASE__XML_DATABASES;
 
 	/**
-	 * The feature id for the '<em><b>Attribute Names</b></em>' map.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVER_XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES = XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES;
-
-	/**
-	 * The feature id for the '<em><b>Element Names</b></em>' map.
+	 * The feature id for the '<em><b>Element Names</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int SERVER_XML_SCHEMA_DATABASE__ELEMENT_NAMES = XML_SCHEMA_DATABASE__ELEMENT_NAMES;
+
+	/**
+	 * The feature id for the '<em><b>Attribute Names</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES = XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES;
 
 	/**
 	 * The number of structural features of the '<em>Server Xml Schema Database</em>' class.
@@ -2596,6 +2650,26 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getXmlDataDatabase__RemoveAttributeName__String();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDataDatabase#addAttributeNames(org.eclipse.emf.common.util.EList) <em>Add Attribute Names</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Attribute Names</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDataDatabase#addAttributeNames(org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	EOperation getXmlDataDatabase__AddAttributeNames__EList();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDataDatabase#addElementNames(org.eclipse.emf.common.util.EList) <em>Add Element Names</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Element Names</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDataDatabase#addElementNames(org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	EOperation getXmlDataDatabase__AddElementNames__EList();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.LocalXmlDataDatabase <em>Local Xml Data Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2714,26 +2788,26 @@ public interface ExecutionPackage extends EPackage {
 	EReference getXmlSchemaDatabase_XmlDatabases();
 
 	/**
-	 * Returns the meta object for the map '{@link qualitypatternmodel.execution.XmlSchemaDatabase#getAttributeNames <em>Attribute Names</em>}'.
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.execution.XmlSchemaDatabase#getElementNames <em>Element Names</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the map '<em>Attribute Names</em>'.
-	 * @see qualitypatternmodel.execution.XmlSchemaDatabase#getAttributeNames()
-	 * @see #getXmlSchemaDatabase()
-	 * @generated
-	 */
-	EReference getXmlSchemaDatabase_AttributeNames();
-
-	/**
-	 * Returns the meta object for the map '{@link qualitypatternmodel.execution.XmlSchemaDatabase#getElementNames <em>Element Names</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the map '<em>Element Names</em>'.
+	 * @return the meta object for the attribute list '<em>Element Names</em>'.
 	 * @see qualitypatternmodel.execution.XmlSchemaDatabase#getElementNames()
 	 * @see #getXmlSchemaDatabase()
 	 * @generated
 	 */
-	EReference getXmlSchemaDatabase_ElementNames();
+	EAttribute getXmlSchemaDatabase_ElementNames();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.execution.XmlSchemaDatabase#getAttributeNames <em>Attribute Names</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Attribute Names</em>'.
+	 * @see qualitypatternmodel.execution.XmlSchemaDatabase#getAttributeNames()
+	 * @see #getXmlSchemaDatabase()
+	 * @generated
+	 */
+	EAttribute getXmlSchemaDatabase_AttributeNames();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlSchemaDatabase#checkFollowingInSchema(java.lang.String, java.lang.String) <em>Check Following In Schema</em>}' operation.
@@ -3401,6 +3475,22 @@ public interface ExecutionPackage extends EPackage {
 		EOperation XML_DATA_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING = eINSTANCE.getXmlDataDatabase__RemoveAttributeName__String();
 
 		/**
+		 * The meta object literal for the '<em><b>Add Attribute Names</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATA_DATABASE___ADD_ATTRIBUTE_NAMES__ELIST = eINSTANCE.getXmlDataDatabase__AddAttributeNames__EList();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Element Names</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST = eINSTANCE.getXmlDataDatabase__AddElementNames__EList();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl <em>Local Xml Data Database</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3499,20 +3589,20 @@ public interface ExecutionPackage extends EPackage {
 		EReference XML_SCHEMA_DATABASE__XML_DATABASES = eINSTANCE.getXmlSchemaDatabase_XmlDatabases();
 
 		/**
-		 * The meta object literal for the '<em><b>Attribute Names</b></em>' map feature.
+		 * The meta object literal for the '<em><b>Element Names</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES = eINSTANCE.getXmlSchemaDatabase_AttributeNames();
+		EAttribute XML_SCHEMA_DATABASE__ELEMENT_NAMES = eINSTANCE.getXmlSchemaDatabase_ElementNames();
 
 		/**
-		 * The meta object literal for the '<em><b>Element Names</b></em>' map feature.
+		 * The meta object literal for the '<em><b>Attribute Names</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference XML_SCHEMA_DATABASE__ELEMENT_NAMES = eINSTANCE.getXmlSchemaDatabase_ElementNames();
+		EAttribute XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES = eINSTANCE.getXmlSchemaDatabase_AttributeNames();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Following In Schema</b></em>' operation.

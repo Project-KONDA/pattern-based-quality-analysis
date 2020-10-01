@@ -3,19 +3,15 @@
 package qualitypatternmodel.execution.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import org.basex.core.BaseXException;
-import org.basex.core.Context;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
-import org.basex.query.QueryProcessor;
-import org.basex.query.iter.Iter;
-import org.basex.query.value.item.Item;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.common.util.EMap;
@@ -277,16 +273,47 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetXmlSchema(XmlSchemaDatabase newXmlSchema, NotificationChain msgs) {
 		XmlSchemaDatabase oldXmlSchema = xmlSchema;
 		xmlSchema = newXmlSchema;
+		
+		if(oldXmlSchema != null) {
+			removeUnusedElementNames();			
+			removeUnusedAttributeNames();			
+		}
+		
+		if(newXmlSchema != null) {
+			addElementNames(newXmlSchema.getElementNames());
+			addAttributeNames(newXmlSchema.getAttributeNames());
+		}
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_DATA_DATABASE__XML_SCHEMA, oldXmlSchema, newXmlSchema);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
+	}
+
+	private void removeUnusedAttributeNames() {
+		EMap<String,Integer> attributeNamesCopy = new BasicEMap<String, Integer>();
+		attributeNamesCopy.addAll(getAttributeNames());			
+		for(String key : attributeNamesCopy.keySet()) {
+			if(attributeNamesCopy.get(key) == 0) {
+				getAttributeNames().removeKey(key);
+			}
+		}
+	}
+
+	private void removeUnusedElementNames() {
+		EMap<String,Integer> elementNamesCopy = new BasicEMap<String, Integer>();
+		elementNamesCopy.addAll(getElementNames());			
+		for(String key : elementNamesCopy.keySet()) {
+			if(elementNamesCopy.get(key) == 0) {
+				getElementNames().removeKey(key);
+			}
+		}
 	}
 
 	/**
@@ -344,13 +371,13 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	 */
 	@Override
 	public void analyse() throws BaseXException, QueryIOException, QueryException {
-		if(getXmlSchema() != null) {
-			getXmlSchema().analyse();
-		} else {
+//		if(getXmlSchema() != null) {
+//			getXmlSchema().analyse();
+//		} else {
 			open();				
 			executeAnalysis("distinct-values(//*/name())", getElementNames());
 			executeAnalysis("distinct-values(//*/@*/name()))", getAttributeNames());
-		}		
+//		}		
 	}
 	
 	private void executeAnalysis(String query, EMap<String,Integer> valueStorage) throws BaseXException, QueryIOException, QueryException {
@@ -474,6 +501,30 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 		decreaseCount(name, getAttributeNames());
 	}
 		
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addAttributeNames(EList<String> attributeNames) {
+		for(int i = 0; i < attributeNames.size(); i++) {
+			getAttributeNames().put(attributeNames.get(i),0);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addElementNames(EList<String> elementNames) {		
+		for(int i = 0; i < elementNames.size(); i++) {
+			getElementNames().put(elementNames.get(i),0);
+		}		
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -707,6 +758,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ExecutionPackage.XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING:
@@ -732,6 +784,12 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 				return null;
 			case ExecutionPackage.XML_DATA_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING:
 				removeAttributeName((String)arguments.get(0));
+				return null;
+			case ExecutionPackage.XML_DATA_DATABASE___ADD_ATTRIBUTE_NAMES__ELIST:
+				addAttributeNames((EList<String>)arguments.get(0));
+				return null;
+			case ExecutionPackage.XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST:
+				addElementNames((EList<String>)arguments.get(0));
 				return null;
 			case ExecutionPackage.XML_DATA_DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING:
 				try {

@@ -6,7 +6,6 @@ import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.EMap;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,8 +17,8 @@ import org.eclipse.emf.common.util.EMap;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getXmlDatabases <em>Xml Databases</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getAttributeNames <em>Attribute Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getElementNames <em>Element Names</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getAttributeNames <em>Attribute Names</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.execution.ExecutionPackage#getXmlSchemaDatabase()
@@ -40,6 +39,30 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @generated
 	 */
 	EList<XmlDataDatabase> getXmlDatabases();
+
+	/**
+	 * Returns the value of the '<em><b>Element Names</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Element Names</em>' attribute list.
+	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlSchemaDatabase_ElementNames()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getElementNames();
+
+	/**
+	 * Returns the value of the '<em><b>Attribute Names</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Attribute Names</em>' attribute list.
+	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlSchemaDatabase_AttributeNames()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getAttributeNames();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -192,31 +215,5 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @generated
 	 */
 	EList<String> getPrecedingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
-
-	/**
-	 * Returns the value of the '<em><b>Element Names</b></em>' map.
-	 * The key is of type {@link java.lang.String},
-	 * and the value is of type {@link java.lang.Integer},
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element Names</em>' map.
-	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlSchemaDatabase_ElementNames()
-	 * @model mapType="qualitypatternmodel.execution.StringToIntMap&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EIntegerObject&gt;"
-	 * @generated
-	 */
-	EMap<String, Integer> getElementNames();
-
-	/**
-	 * Returns the value of the '<em><b>Attribute Names</b></em>' map.
-	 * The key is of type {@link java.lang.String},
-	 * and the value is of type {@link java.lang.Integer},
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Attribute Names</em>' map.
-	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlSchemaDatabase_AttributeNames()
-	 * @model mapType="qualitypatternmodel.execution.StringToIntMap&lt;org.eclipse.emf.ecore.EString, org.eclipse.emf.ecore.EIntegerObject&gt;"
-	 * @generated
-	 */
-	EMap<String, Integer> getAttributeNames();
 
 } // XmlSchema

@@ -715,6 +715,12 @@
       <eOperations name="removeAttributeName">
         <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
+      <eOperations name="addAttributeNames">
+        <eParameters name="attributeNames" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="addElementNames">
+        <eParameters name="elementNames" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="recordedAttributeValues"
           upperBound="-1" eType="#//execution/StringToIntMap" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="recordedDataValues" upperBound="-1"
@@ -832,10 +838,10 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlDatabases" upperBound="-1"
           eType="#//execution/XmlDataDatabase" eOpposite="#//execution/XmlDataDatabase/xmlSchema"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="attributeNames" upperBound="-1"
-          eType="#//execution/StringToIntMap" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="elementNames" upperBound="-1"
-          eType="#//execution/StringToIntMap" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementNames" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributeNames" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LocalXmlSchemaDatabase" eSuperTypes="#//execution/XmlSchemaDatabase">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemaPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
