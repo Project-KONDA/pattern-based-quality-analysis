@@ -194,7 +194,7 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * <!-- begin-user-doc -->
 	 * Returns a list of names of XML elements that according to the XML schema may occur as children of XML elements with name <code>elementName</code>.
 	 * 
-	 * @param the name of the parent XML element
+	 * @param elementName the name of the parent XML element
 	 * @return a list of names of XML elements that according to the XML schema may occur as children of XML elements with name <code>elementName</code>
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
@@ -206,7 +206,7 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * <!-- begin-user-doc -->
 	 * Returns a list of names of XML elements that according to the XML schema may occur as descendants of XML elements with name <code>elementName</code>.
 	 * 
-	 * @param the name of the ancestor XML element
+	 * @param elementName the name of the ancestor XML element
 	 * @return a list of names of XML elements that according to the XML schema may occur as descendants of XML elements with name <code>elementName</code>
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
@@ -218,7 +218,7 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * <!-- begin-user-doc -->
 	 * Returns a list of names of XML elements that according to the XML schema may occur as parents of XML elements with name <code>elementName</code>.
 	 * 
-	 * @param the name of the child XML element
+	 * @param elementName the name of the child XML element
 	 * @return a list of names of XML elements that according to the XML schema may occur as parents of XML elements with name <code>elementName</code>
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
@@ -230,7 +230,7 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * <!-- begin-user-doc -->
 	 * Returns a list of names of XML elements that according to the XML schema may occur as ancestors of XML elements with name <code>elementName</code>.
 	 * 
-	 * @param the name of the descendant XML element
+	 * @param elementName the name of the descendant XML element
 	 * @return a list of names of XML elements that according to the XML schema may occur as ancestors of XML elements with name <code>elementName</code>
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
@@ -242,7 +242,7 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * <!-- begin-user-doc -->
 	 * Returns a list of names of XML attributes that according to the XML schema may occur in XML elements with name <code>elementName</code>.
 	 * 
-	 * @param the name of the XML element
+	 * @param elementName the name of the XML element
 	 * @return a list of names of XML attributes that according to the XML schema may occur in XML elements with name <code>elementName</code>
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
@@ -254,7 +254,7 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * <!-- begin-user-doc -->
 	 * Returns a list of names of XML elements that according to the XML schema may occur as following siblings of XML elements with name <code>elementName</code>.
 	 * 
-	 * @param the name of the preceding sibling XML element
+	 * @param elementName the name of the preceding sibling XML element
 	 * @return a list of names of XML elements that according to the XML schema may occur as following siblings of XML elements with name <code>elementName</code>
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
@@ -266,7 +266,7 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * <!-- begin-user-doc -->
 	 * Returns a list of names of XML elements that according to the XML schema may occur as preceding siblings of XML elements with name <code>elementName</code>.
 	 * 
-	 * @param the name of the following sibling XML element
+	 * @param elementName the name of the following sibling XML element
 	 * @return a list of names of XML elements that according to the XML schema may occur as preceding siblings of XML elements with name <code>elementName</code>
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
@@ -278,7 +278,7 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * <!-- begin-user-doc -->
 	 * Returns a list of names of XML elements that according to the XML schema may occur as following elements of XML elements with name <code>elementName</code>.
 	 * 
-	 * @param the name of the preceding XML element
+	 * @param elementName the name of the preceding XML element
 	 * @return a list of names of XML elements that according to the XML schema may occur as following elements of XML elements with name <code>elementName</code>
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
@@ -290,7 +290,7 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * <!-- begin-user-doc -->
 	 * Returns a list of names of XML elements that according to the XML schema may occur as preceding elements of XML elements with name <code>elementName</code>.
 	 * 
-	 * @param the name of the following XML element
+	 * @param elementName the name of the following XML element
 	 * @return a list of names of XML elements that according to the XML schema may occur as preceding elements of XML elements with name <code>elementName</code>
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
