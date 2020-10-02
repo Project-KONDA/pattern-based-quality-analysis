@@ -5,6 +5,8 @@ package qualitypatternmodel.execution;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Local Xml Schema</b></em>'.
+ * A BaseX XML database that contains an XML schema definition and is located on the same computer as the pattern program.
+ * The data is located at <code>schemaPath</code>.
  * <!-- end-user-doc -->
  *
  * <p>

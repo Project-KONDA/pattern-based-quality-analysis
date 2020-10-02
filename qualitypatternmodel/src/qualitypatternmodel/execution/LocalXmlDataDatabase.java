@@ -5,7 +5,8 @@ package qualitypatternmodel.execution;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Local Xml Database</b></em>'.
- * A BaseX XML database located on the same computer as the pattern program.
+ * A BaseX XML database that patterns can be applied to and that is located on the same computer as the pattern program.
+ * The data is located at <code>dataPath</code>.
  * <!-- end-user-doc -->
  *
  * <p>

@@ -10,6 +10,7 @@ import org.eclipse.emf.common.util.EList;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Xml Schema</b></em>'.
+ * A BaseX XML database containing an XML schema definition.
  * <!-- end-user-doc -->
  *
  * <p>

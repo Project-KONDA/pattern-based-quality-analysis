@@ -8,7 +8,7 @@ import org.eclipse.emf.common.util.EMap;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Xml Database</b></em>'.
- * A BaseX XML database.
+ * A BaseX XML database that patterns can be applied to.
  * <!-- end-user-doc -->
  *
  * <p>

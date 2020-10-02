@@ -56,6 +56,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	/**
 	 * The cached value of the '{@link #getResults() <em>Results</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of all results of pattern applications to <code>this</code> <code>Database</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getResults()
 	 * @generated
@@ -66,6 +67,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	/**
 	 * The cached value of the '{@link #getPatterns() <em>Patterns</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * 
 	 * <!-- end-user-doc -->
 	 * @see #getPatterns()
 	 * @generated

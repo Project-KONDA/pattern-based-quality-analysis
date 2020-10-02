@@ -16,6 +16,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Database Interface</b></em>'.
+ * A database that patterns can be applied to.
  * <!-- end-user-doc -->
  *
  * <p>
