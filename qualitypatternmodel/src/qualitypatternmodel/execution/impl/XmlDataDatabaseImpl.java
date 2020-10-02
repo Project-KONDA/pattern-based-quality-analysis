@@ -78,7 +78,8 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 
 	/**
 	 * The cached value of the '{@link #getRecordedAttributeValues() <em>Recorded Attribute Values</em>}' map.
-	 * <!-- begin-user-doc --> 
+	 * <!-- begin-user-doc -->
+	 * A map of all XML attribute values that have been entered into patterns as parameter values and the number of times the attribute value has been used. 
 	 * <!-- end-user-doc -->
 	 * @see #getRecordedAttributeValues()
 	 * @generated
@@ -89,6 +90,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	/**
 	 * The cached value of the '{@link #getRecordedDataValues() <em>Recorded Data Values</em>}' map.
 	 * <!-- begin-user-doc -->
+	 * A map of all XML data values that have been entered into patterns as parameter values and the number of times the data value has been used.
 	 * <!-- end-user-doc -->
 	 * @see #getRecordedDataValues()
 	 * @generated
@@ -99,6 +101,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	/**
 	 * The cached value of the '{@link #getXmlSchema() <em>Xml Schema</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The BaseX database containing the XML schema definition of <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getXmlSchema()
 	 * @generated
@@ -109,6 +112,9 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	/**
 	 * The cached value of the '{@link #getElementNames() <em>Element Names</em>}' map.
 	 * <!-- begin-user-doc -->
+	 * A map of all XML element names that are defined in the <code>xmlSchema</code> or occur in <code>this</code> database or that
+	 * have been entered into patterns as parameter values.
+	 * The map value is the number of times the element name has been used in a pattern.
 	 * <!-- end-user-doc -->
 	 * @see #getElementNames()
 	 * @generated
@@ -119,6 +125,9 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	/**
 	 * The cached value of the '{@link #getAttributeNames() <em>Attribute Names</em>}' map.
 	 * <!-- begin-user-doc -->
+	 * A map of all XML attribute names that are defined in the <code>xmlSchema</code> or occur in <code>this</code> database or that
+	 * have been entered into patterns as parameter values.
+	 * The map value is the number of times the attribute name has been used in a pattern.
 	 * <!-- end-user-doc -->
 	 * @see #getAttributeNames()
 	 * @generated
