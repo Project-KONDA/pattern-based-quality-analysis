@@ -105,6 +105,9 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Records an attribute <code>value</code> entered in a pattern for this <code>Database</code>.
+	 * 
+	 * @param value the attribute <code>value</code> to be recorded
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -113,6 +116,9 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Records a data <code>value</code> entered in a pattern for this <code>Database</code>.
+	 * 
+	 * @param value the data <code>value</code> to be recorded
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -121,6 +127,9 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Removes one occurrence of an attribute <code>value</code> from the record.
+	 * 
+	 * @param value the attribute <code>value</code> to be removed
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -129,6 +138,9 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Removes one occurrence of an data <code>value</code> from the record.
+	 * 
+	 * @param value the data <code>value</code> to be removed
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -137,6 +149,9 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Records an element <code>name</code> entered in a pattern for this <code>Database</code>.
+	 * 
+	 * @param name the element <code>name</code> to be recorded
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -145,6 +160,9 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Records an attribute <code>name</code> entered in a pattern for this <code>Database</code>.
+	 * 
+	 * @param name the attribute <code>name</code> to be recorded
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -153,6 +171,9 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Removes one occurrence of an element <code>name</code> from the record.
+	 * 
+	 * @param value the element <code>name</code> to be removed
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -161,6 +182,9 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Removes one occurrence of an attribute <code>name</code> from the record.
+	 * 
+	 * @param value the attribute <code>name</code> to be removed
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -169,6 +193,9 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Records all <code>attributeNames</code>.
+	 * 
+	 * @param attributeNames the attribute names to be recorded
 	 * <!-- end-user-doc -->
 	 * @model attributeNamesMany="true"
 	 * @generated
@@ -177,6 +204,9 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Records all <code>elementNames</code>.
+	 * 
+	 * @param elementNames the element names to be recorded
 	 * <!-- end-user-doc -->
 	 * @model elementNamesMany="true"
 	 * @generated
