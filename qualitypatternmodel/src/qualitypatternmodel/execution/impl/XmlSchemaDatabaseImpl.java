@@ -46,6 +46,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * The cached value of the '{@link #getXmlDatabases() <em>Xml Databases</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of all <code>XmlDataDatabases</code> that use the XML schema.
 	 * <!-- end-user-doc -->
 	 * @see #getXmlDatabases()
 	 * @generated
@@ -56,6 +57,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * The cached value of the '{@link #getElementNames() <em>Element Names</em>}' attribute list.
 	 * <!-- begin-user-doc -->
+	 * A list of the names of all XML elements defined in the XML schema.
 	 * <!-- end-user-doc -->
 	 * @see #getElementNames()
 	 * @generated
@@ -65,6 +67,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * The cached value of the '{@link #getAttributeNames() <em>Attribute Names</em>}' attribute list.
 	 * <!-- begin-user-doc -->
+	 * A list of the names of all XML attributes defined in the XML schema.
 	 * <!-- end-user-doc -->
 	 * @see #getAttributeNames()
 	 * @generated
