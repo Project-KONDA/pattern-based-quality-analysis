@@ -48,6 +48,7 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The name of <code>this</code> BaseX database, which is used as an identifier.
 	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
@@ -66,6 +67,7 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * The cached value of the '{@link #getNamespace() <em>Namespace</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The XML namespace of <code>this</code> database.
 	 * <!-- end-user-doc -->
 	 * @see #getNamespace()
 	 * @generated
@@ -84,6 +86,7 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * The cached value of the '{@link #getContext() <em>Context</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The BaseX context for executing operations on <code>this</code> BaseX database.
 	 * <!-- end-user-doc -->
 	 * @see #getContext()
 	 * @generated
