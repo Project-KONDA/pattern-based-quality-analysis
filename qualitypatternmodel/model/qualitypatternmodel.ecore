@@ -872,8 +872,8 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="results" upperBound="-1"
           eType="#//execution/Result" containment="true" eOpposite="#//execution/Result/database"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="patterns" eType="#//patternstructure/CompletePattern"
-          eOpposite="#//patternstructure/CompletePattern/database"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="patterns" upperBound="-1"
+          eType="#//patternstructure/CompletePattern" eOpposite="#//patternstructure/CompletePattern/database"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Databaseformat" abstract="true" interface="true"/>
   </eSubpackages>

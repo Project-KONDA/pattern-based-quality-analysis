@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -65,19 +66,19 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	protected EList<Result> results;
 
 	/**
-	 * The cached value of the '{@link #getPatterns() <em>Patterns</em>}' reference.
+	 * The cached value of the '{@link #getPatterns() <em>Patterns</em>}' reference list.
 	 * <!-- begin-user-doc -->
-	 * 
+	 * A list of all patterns concretized for <code>this</code> <code>Database</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getPatterns()
 	 * @generated
 	 * @ordered
 	 */
-	protected CompletePattern patterns;
+	protected EList<CompletePattern> patterns;
 
 	/**
 	 * The cached value of the '{@link #getRecordedAttributeValues() <em>Recorded Attribute Values</em>}' map.
-	 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc --> 
 	 * <!-- end-user-doc -->
 	 * @see #getRecordedAttributeValues()
 	 * @generated
@@ -163,60 +164,11 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	 * @generated
 	 */
 	@Override
-	public CompletePattern getPatterns() {
-		if (patterns != null && patterns.eIsProxy()) {
-			InternalEObject oldPatterns = (InternalEObject)patterns;
-			patterns = (CompletePattern)eResolveProxy(oldPatterns);
-			if (patterns != oldPatterns) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExecutionPackage.XML_DATA_DATABASE__PATTERNS, oldPatterns, patterns));
-			}
+	public EList<CompletePattern> getPatterns() {
+		if (patterns == null) {
+			patterns = new EObjectWithInverseResolvingEList<CompletePattern>(CompletePattern.class, this, ExecutionPackage.XML_DATA_DATABASE__PATTERNS, PatternstructurePackage.COMPLETE_PATTERN__DATABASE);
 		}
 		return patterns;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CompletePattern basicGetPatterns() {
-		return patterns;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPatterns(CompletePattern newPatterns, NotificationChain msgs) {
-		CompletePattern oldPatterns = patterns;
-		patterns = newPatterns;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_DATA_DATABASE__PATTERNS, oldPatterns, newPatterns);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setPatterns(CompletePattern newPatterns) {
-		if (newPatterns != patterns) {
-			NotificationChain msgs = null;
-			if (patterns != null)
-				msgs = ((InternalEObject)patterns).eInverseRemove(this, PatternstructurePackage.COMPLETE_PATTERN__DATABASE, CompletePattern.class, msgs);
-			if (newPatterns != null)
-				msgs = ((InternalEObject)newPatterns).eInverseAdd(this, PatternstructurePackage.COMPLETE_PATTERN__DATABASE, CompletePattern.class, msgs);
-			msgs = basicSetPatterns(newPatterns, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_DATA_DATABASE__PATTERNS, newPatterns, newPatterns));
 	}
 
 	/**
@@ -540,9 +492,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			case ExecutionPackage.XML_DATA_DATABASE__RESULTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResults()).basicAdd(otherEnd, msgs);
 			case ExecutionPackage.XML_DATA_DATABASE__PATTERNS:
-				if (patterns != null)
-					msgs = ((InternalEObject)patterns).eInverseRemove(this, PatternstructurePackage.COMPLETE_PATTERN__DATABASE, CompletePattern.class, msgs);
-				return basicSetPatterns((CompletePattern)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPatterns()).basicAdd(otherEnd, msgs);
 			case ExecutionPackage.XML_DATA_DATABASE__XML_SCHEMA:
 				if (xmlSchema != null)
 					msgs = ((InternalEObject)xmlSchema).eInverseRemove(this, ExecutionPackage.XML_SCHEMA_DATABASE__XML_DATABASES, XmlSchemaDatabase.class, msgs);
@@ -562,7 +512,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			case ExecutionPackage.XML_DATA_DATABASE__RESULTS:
 				return ((InternalEList<?>)getResults()).basicRemove(otherEnd, msgs);
 			case ExecutionPackage.XML_DATA_DATABASE__PATTERNS:
-				return basicSetPatterns(null, msgs);
+				return ((InternalEList<?>)getPatterns()).basicRemove(otherEnd, msgs);
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 				return ((InternalEList<?>)getRecordedAttributeValues()).basicRemove(otherEnd, msgs);
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_DATA_VALUES:
@@ -588,8 +538,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			case ExecutionPackage.XML_DATA_DATABASE__RESULTS:
 				return getResults();
 			case ExecutionPackage.XML_DATA_DATABASE__PATTERNS:
-				if (resolve) return getPatterns();
-				return basicGetPatterns();
+				return getPatterns();
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 				if (coreType) return getRecordedAttributeValues();
 				else return getRecordedAttributeValues().map();
@@ -623,7 +572,8 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 				getResults().addAll((Collection<? extends Result>)newValue);
 				return;
 			case ExecutionPackage.XML_DATA_DATABASE__PATTERNS:
-				setPatterns((CompletePattern)newValue);
+				getPatterns().clear();
+				getPatterns().addAll((Collection<? extends CompletePattern>)newValue);
 				return;
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 				((EStructuralFeature.Setting)getRecordedAttributeValues()).set(newValue);
@@ -656,7 +606,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 				getResults().clear();
 				return;
 			case ExecutionPackage.XML_DATA_DATABASE__PATTERNS:
-				setPatterns((CompletePattern)null);
+				getPatterns().clear();
 				return;
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 				getRecordedAttributeValues().clear();
@@ -688,7 +638,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			case ExecutionPackage.XML_DATA_DATABASE__RESULTS:
 				return results != null && !results.isEmpty();
 			case ExecutionPackage.XML_DATA_DATABASE__PATTERNS:
-				return patterns != null;
+				return patterns != null && !patterns.isEmpty();
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_ATTRIBUTE_VALUES:
 				return recordedAttributeValues != null && !recordedAttributeValues.isEmpty();
 			case ExecutionPackage.XML_DATA_DATABASE__RECORDED_DATA_VALUES:
