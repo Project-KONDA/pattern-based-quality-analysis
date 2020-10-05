@@ -342,10 +342,17 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setName(String newName) {
+		if(newName == null || newName.equals("")) {
+			if(getInternalId() > -1) {
+				newName = "Property " + getInternalId();				
+			} else {
+				return;
+			}
+		}
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())

@@ -505,6 +505,14 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public void setName(String newName) {
+		if(newName == null || newName.equals("")) {
+			if(getOriginalID() > -1) {
+				newName = "Element " + getOriginalID();
+			} else {
+				return;
+			}
+		}
+		
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
