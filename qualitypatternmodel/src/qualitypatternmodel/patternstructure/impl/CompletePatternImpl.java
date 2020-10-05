@@ -75,10 +75,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getName()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = "Pattern";
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!--
@@ -427,16 +427,19 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 */
 	@Override
-	public String getName() {
+	public String getName() {		
 		return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setName(String newName) {
+		if(newName == null || newName.equals("")) {			
+			newName = NAME_EDEFAULT;			
+		}
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
