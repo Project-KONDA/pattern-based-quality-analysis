@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:patternstructure="patternstructure" id="_KDxMYPsqEeqYEKnS78hbUg" internalId="1" elementCounter="2" parameterCounter="2" counter="15">
+  <graph id="_KDxMYvsqEeqYEKnS78hbUg" internalId="2" returnElements="_KDxMZPsqEeqYEKnS78hbUg">
+    <elements id="_KDxMZPsqEeqYEKnS78hbUg" internalId="1" resultOf="_KDxMYvsqEeqYEKnS78hbUg" name="Element 1"/>
+    <operatorList id="_KDxMY_sqEeqYEKnS78hbUg"/>
+  </graph>
+  <condition xsi:type="patternstructure:Formula" id="_B1acMfzdEeqUhOhuPXc6vw" internalId="10">
+    <condition1 xsi:type="patternstructure:TrueElement" id="_wTtzBf58Eeq0_v8NS1FSqQ" internalId="13"/>
+    <condition2 xsi:type="patternstructure:TrueElement" id="_xONsbf58Eeq0_v8NS1FSqQ" internalId="14"/>
+  </condition>
+  <parameterList id="_KDxMYfsqEeqYEKnS78hbUg"/>
+</patternstructure:CompletePattern>

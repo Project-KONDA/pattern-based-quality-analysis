@@ -781,8 +781,8 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="countCondition" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteCountCondition']" semanticCandidatesExpression="feature:eContents" domainClass="patternstructure::CountCondition" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='countCondition']" childrenPresentation="HorizontalStack">
-            <subContainerMappings name="countPattern" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteCountPattern']" semanticCandidatesExpression="feature:eContents" domainClass="patternstructure::CountPattern" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='trueElement'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='quantifiedCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='notCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='formula']" childrenPresentation="HorizontalStack">
+          <subContainerMappings name="countCondition" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteCountCondition']" semanticCandidatesExpression="feature:eContents" domainClass="patternstructure::CountCondition" childrenPresentation="HorizontalStack">
+            <subContainerMappings name="countPattern" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteCountPattern']" semanticCandidatesExpression="feature:eContents" domainClass="patternstructure::CountPattern" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='trueElement'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='quantifiedCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='notCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='formula'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='countCondition']" childrenPresentation="HorizontalStack">
               <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'CountPattern'" widthComputationExpression="40" heightComputationExpression="40">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1553,7 +1553,7 @@
                   </buttons>
                   <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Change%20Quantifier']/@initialOperation/@firstModelOperations/@subModelOperations.0/@groups.0"/>
                   <groups name="Default Group" labelExpression="Quantifiers" semanticCandidateExpression="var:self">
-                    <controls xsi:type="properties:RadioDescription" name="quantifiers" labelExpression="aql:'Quantifier'" valueExpression="aql:self.changeQuantifierValueExpression(element)" candidatesExpression="aql:self.getQuantifiers()" candidateDisplayExpression="aql:candidate.toString()" numberOfColumns="2">
+                    <controls xsi:type="properties:RadioDescription" name="quantifiers" labelExpression="aql:'Quantifier'" valueExpression="aql:self.changeQuantifierValueExpression(element)" candidatesExpression="aql:self.getQuantifiers()" candidateDisplayExpression="aql:self.getQuantifierString(candidate)" numberOfColumns="2">
                       <initialOperation>
                         <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setQuantifier(element,newValue)"/>
                       </initialOperation>
@@ -1669,14 +1669,6 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Select parameter as argument 2" precondition="aql:self.selectParameterPrecondition()" candidatesExpression="aql:self.getParameter()" message="Select a parameter to use as an argument of a match or comparison. If there is no parameter to choose, you must add a parameter to a match or a comparison." windowTitle="Selection of a parameter">
-            <element name="element"/>
-            <containerView name="containerView"/>
-            <container name="container"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setParameterAsArgument(element)"/>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Select element as argument" precondition="aql:self.selectElementPrecondition()" candidatesExpression="aql:self.getElements()" message="Select an element to use as an argument of a comparison. If there is no element to choose, you must add an element to a graph." windowTitle="Selection of an element">
             <element name="element"/>
             <containerView name="containerView"/>
@@ -1781,17 +1773,17 @@
         <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='match'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='comparison']"/>
       </filters>
       <defaultLayer name="Default">
-        <edgeMappings name="relationElement" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteRelationElement']" doubleClickDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='RelationToXml']" sourceMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="graphstructure::Relation" useDomainElement="true">
+        <edgeMappings name="relationElement" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" doubleClickDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='RelationToXml']" sourceMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="graphstructure::Relation" useDomainElement="true">
           <style sizeComputationExpression="4">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
-            <centerLabelStyleDescription labelSize="12" labelExpression="feature:name">
+            <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="feature:name">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
           <conditionnalStyles predicateExpression="aql:self.isXmlnavigation()">
             <style sourceArrow="OutputClosedArrow" targetArrow="InputClosedArrow" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
-              <centerLabelStyleDescription labelSize="12" labelExpression="feature:name">
+              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="feature:name">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
             </style>
@@ -1799,13 +1791,13 @@
           <conditionnalStyles predicateExpression="aql:self.isXmlreference()">
             <style sourceArrow="OutputFillClosedArrow" targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
-              <centerLabelStyleDescription labelSize="12" labelExpression="feature:name">
+              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="feature:name">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="comparisonArgument1" sourceMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='comparison']" targetMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetFinderExpression="aql:self.targetFinderExpressionComparisonArgument1and2('argument1')">
+        <edgeMappings name="comparisonArgument1" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" sourceMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='comparison']" targetMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetFinderExpression="aql:self.targetFinderExpressionComparisonArgument1and2('argument1')">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -1813,7 +1805,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="comparisonArgument2" sourceMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='comparison']" targetMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetFinderExpression="aql:self.targetFinderExpressionComparisonArgument1and2('argument2')">
+        <edgeMappings name="comparisonArgument2" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" sourceMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='comparison']" targetMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetFinderExpression="aql:self.targetFinderExpressionComparisonArgument1and2('argument2')">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -1821,7 +1813,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="matchArgument" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteMatchArgument']" sourceMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='match']" targetMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetFinderExpression="aql:self.targetFinderExpressionMatch()">
+        <edgeMappings name="matchArgument" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" sourceMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='match']" targetMapping="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']" targetFinderExpression="aql:self.targetFinderExpressionMatch()">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -1829,9 +1821,9 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="completePattern" semanticCandidatesExpression="aql:self.abstractPatternStart()" doubleClickDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='FinalizePattern']" domainClass="patternstructure::CompletePattern" childrenPresentation="HorizontalStack">
-          <subContainerMappings name="graph" semanticCandidatesExpression="feature:eContents" domainClass="graphstructure::Graph" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='comparison']">
-            <subContainerMappings name="element" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteElement']" semanticCandidatesExpression="feature:eContents" doubleClickDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='ShowMapping']" domainClass="graphstructure::Element" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='property']" childrenPresentation="VerticalStack">
+        <containerMappings name="completePattern" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="aql:self.abstractPatternStart()" doubleClickDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='FinalizePattern']" domainClass="patternstructure::CompletePattern" childrenPresentation="HorizontalStack">
+          <subContainerMappings name="graph" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="feature:eContents" domainClass="graphstructure::Graph" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='comparison']">
+            <subContainerMappings name="element" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="feature:eContents" doubleClickDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='ShowMapping']" domainClass="graphstructure::Element" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='property']" childrenPresentation="VerticalStack">
               <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.name">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1855,7 +1847,7 @@
                 </style>
               </conditionnalStyles>
             </subContainerMappings>
-            <subContainerMappings name="comparison" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteComparison']" semanticCandidatesExpression="aql:self.semanticCandidatExpressionComparison()" domainClass="operators::Comparison" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='property'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='textLiteral'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='untypedParameterValue'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='textList'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='number'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='time'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='dateTime'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='date'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='boolean']" childrenPresentation="HorizontalStack">
+            <subContainerMappings name="comparison" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="aql:self.semanticCandidatExpressionComparison()" domainClass="operators::Comparison" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='property'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='textLiteral'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='untypedParameterValue'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='textList'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='number'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='time'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='dateTime'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='date'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='boolean']" childrenPresentation="HorizontalStack">
               <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'comp '+self.internalId" roundedCorner="true">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1863,7 +1855,7 @@
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
               </style>
             </subContainerMappings>
-            <subContainerMappings name="match" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteMatch']" semanticCandidatesExpression="aql:self.semanticCandidatExpressionComparison()" domainClass="operators::Match" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='property'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='textLiteral']" childrenPresentation="HorizontalStack">
+            <subContainerMappings name="match" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="aql:self.semanticCandidatExpressionComparison()" domainClass="operators::Match" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='property'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='textLiteral']" childrenPresentation="HorizontalStack">
               <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'match '+self.internalId" roundedCorner="true">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1886,7 +1878,7 @@
               </style>
             </conditionnalStyles>
           </subContainerMappings>
-          <subContainerMappings name="quantifiedCondition" semanticCandidatesExpression="feature:eContents" domainClass="patternstructure::QuantifiedCondition" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='countCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='formula'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='notCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='quantifiedCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='trueElement']" childrenPresentation="HorizontalStack">
+          <subContainerMappings name="quantifiedCondition" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="feature:eContents" domainClass="patternstructure::QuantifiedCondition" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='countCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='formula'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='notCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='quantifiedCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='trueElement']" childrenPresentation="HorizontalStack">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.quantifier" widthComputationExpression="40" heightComputationExpression="40">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1894,8 +1886,8 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="countCondition" semanticCandidatesExpression="feature:eContents" domainClass="patternstructure::CountCondition" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='countCondition']" childrenPresentation="HorizontalStack">
-            <subContainerMappings name="countPattern" semanticCandidatesExpression="feature:eContents" domainClass="patternstructure::CountPattern" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='formula'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='notCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='trueElement'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='quantifiedCondition']" childrenPresentation="HorizontalStack">
+          <subContainerMappings name="countCondition" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="feature:eContents" domainClass="patternstructure::CountCondition" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='countCondition']" childrenPresentation="HorizontalStack">
+            <subContainerMappings name="countPattern" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="feature:eContents" domainClass="patternstructure::CountPattern" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='formula'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='notCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='trueElement'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='quantifiedCondition']" childrenPresentation="HorizontalStack">
               <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'CountPattern'" widthComputationExpression="40" heightComputationExpression="40">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1903,7 +1895,7 @@
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
               </style>
             </subContainerMappings>
-            <subContainerMappings name="numberElement" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteNumberElement']" semanticCandidatesExpression="feature:eAllContents" domainClass="patternstructure::NumberElement">
+            <subContainerMappings name="numberElement" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="feature:eAllContents" domainClass="patternstructure::NumberElement">
               <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Number '+self.internalId" widthComputationExpression="40" heightComputationExpression="40">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1918,7 +1910,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="formula" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteFormula']" semanticCandidatesExpression="feature:eContents" domainClass="patternstructure::Formula" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='notCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='trueElement'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='countCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='formula'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='quantifiedCondition']" childrenPresentation="HorizontalStack">
+          <subContainerMappings name="formula" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="feature:eContents" domainClass="patternstructure::Formula" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='notCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='trueElement'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='countCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='formula'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='quantifiedCondition']" childrenPresentation="HorizontalStack">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.operator" widthComputationExpression="40" heightComputationExpression="40">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1926,7 +1918,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="notCondition" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteNotCondition']" semanticCandidatesExpression="feature:eContents" domainClass="patternstructure::NotCondition" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='notCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='formula'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='countCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='quantifiedCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='trueElement']" childrenPresentation="HorizontalStack">
+          <subContainerMappings name="notCondition" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="feature:eContents" domainClass="patternstructure::NotCondition" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='notCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='formula'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='countCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='quantifiedCondition'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='trueElement']" childrenPresentation="HorizontalStack">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Not'" widthComputationExpression="40" heightComputationExpression="40">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1934,7 +1926,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="trueElement" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteTrueElement']" semanticCandidatesExpression="feature:eContents" domainClass="patternstructure::TrueElement">
+          <subContainerMappings name="trueElement" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="feature:eContents" domainClass="patternstructure::TrueElement">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'TrueElement'" widthComputationExpression="40" heightComputationExpression="40">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1942,7 +1934,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="property" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteProperty']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionProperty3()" domainClass="graphstructure::Property">
+          <subContainerMappings name="property" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionProperty3()" domainClass="graphstructure::Property">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.name">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1950,7 +1942,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="textLiteral" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteTextliteral']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Textliteral')" domainClass="parameters::TextLiteralParam">
+          <subContainerMappings name="textLiteral" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Textliteral')" domainClass="parameters::TextLiteralParam">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Text '+self.internalId">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1958,7 +1950,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="textList" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteTextlist']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Textlist')" domainClass="parameters::TextListParam">
+          <subContainerMappings name="textList" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Textlist')" domainClass="parameters::TextListParam">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Textlist '+self.internalId">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1966,7 +1958,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="number" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteNumber']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Number')" domainClass="parameters::NumberParam">
+          <subContainerMappings name="number" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Number')" domainClass="parameters::NumberParam">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Number '+self.internalId">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1974,7 +1966,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="boolean" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteBoolean']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Boolean')" domainClass="parameters::BooleanParam">
+          <subContainerMappings name="boolean" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Boolean')" domainClass="parameters::BooleanParam">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Boolean '+self.internalId">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1982,7 +1974,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="date" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteDate']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Date')" domainClass="parameters::DateParam">
+          <subContainerMappings name="date" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Date')" domainClass="parameters::DateParam">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Date '+self.internalId">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1990,7 +1982,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="time" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteTime']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Time')" domainClass="parameters::TimeParam">
+          <subContainerMappings name="time" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Time')" domainClass="parameters::TimeParam">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Time '+self.internalId">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1998,7 +1990,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="dateTime" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteDateTime']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('DateTime')" domainClass="parameters::DateTimeParam">
+          <subContainerMappings name="dateTime" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('DateTime')" domainClass="parameters::DateTimeParam">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Date and time '+self.internalId">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -2006,7 +1998,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="untypedParameterValue" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteUntypedParameterValue']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Value')" domainClass="parameters::UntypedParameterValue">
+          <subContainerMappings name="untypedParameterValue" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete']" semanticCandidatesExpression="aql:self.semanticCandidateExpressionParameter('Value')" domainClass="parameters::UntypedParameterValue">
             <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'Value '+self.internalId">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -2045,7 +2037,7 @@
                           <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.changeRelation(element)"/>
                         </initialOperation>
                       </buttons>
-                      <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='RelationToXml']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                      <page name="Default Page" labelExpression="You can select here the type of the relation" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='RelationToXml']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
                       <groups name="Default Group" labelExpression="relation typ" semanticCandidateExpression="var:self">
                         <controls xsi:type="properties:RadioDescription" name="quantifiers" labelExpression="relations" valueExpression="aql:self.getRelation()" candidatesExpression="aql:self.getRelations()" candidateDisplayExpression="aql:candidate.toString()" numberOfColumns="2">
                           <initialOperation>
@@ -2164,191 +2156,7 @@
               </itemDescriptions>
             </menuItemDescription>
           </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteGraph">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteQuantifiedCondition">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteCountCondition">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteCountPattern" precondition="aql:self.deleteCountPatternPrecondition()">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteComparisonArgument1">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteComparisonArgument2">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteElement">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteRelationElement">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteMatchArgument">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteComparison">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteMatch">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteNumberElement">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteFormula">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteNotCondition">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteTrueElement">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteProperty">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteTextliteral">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteTextlist">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteNumber">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteBoolean">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteDate">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteTime">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteDateTime">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <containerView name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DeleteElementDescription" name="DeleteUntypedParameterValue">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
@@ -2362,7 +2170,7 @@
           <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Forall" position="NORTH_WEST" preconditionExpression="aql:self.elementForallDecorationPrecondition()" imageExpression="/patterncreation.project.design/images/forall2.png" tooltipExpression="aql:'No incoming mapping'" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']"/>
           <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="NoReturnelement" position="NORTH_WEST" preconditionExpression="aql:self.hasReturnelementGraph()" imageExpression="/patterncreation.project.design/images/noreturnelement.png" tooltipExpression="It is no returnelement in this graph specified" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']"/>
           <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Returnelement" position="NORTH_WEST" distributionDirection="HORIZONTAL" preconditionExpression="aql:self.isReturnelement()" imageExpression="/patterncreation.project.design/images/return1.png" tooltipExpression="This is a returnelement" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']"/>
-          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Finalisation" position="NORTH_WEST" preconditionExpression="aql:self.finalisationDecorationPrecondition()" imageExpression="/patterncreation.project.design/images/ausrufezeichen4.png" tooltipExpression="aql:'The finalisation was not started yet'" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Finalization" position="NORTH_WEST" preconditionExpression="aql:self.finalizationDecorationPrecondition()" imageExpression="/patterncreation.project.design/images/ausrufezeichen4.png" tooltipExpression="aql:'The finalization was not started yet'" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']"/>
         </decorationDescriptionsSet>
       </defaultLayer>
     </ownedRepresentations>
@@ -2472,14 +2280,14 @@
               </conditionnalStyles>
             </subContainerMappings>
             <subContainerMappings name="match" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='ConcretPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteMatch']" semanticCandidatesExpression="aql:self.semanticCandidatExpressionComparison()" domainClass="operators::Match" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='ConcretPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='property'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='ConcretPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='textLiteral']" childrenPresentation="HorizontalStack">
-              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'match '+self.internalId" roundedCorner="true">
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.matchName()" roundedCorner="true">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
               </style>
               <conditionnalStyles predicateExpression="aql:self.isElementMarked()">
-                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'match '+self.internalId" roundedCorner="true">
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.matchName()" roundedCorner="true">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -2535,7 +2343,7 @@
                 </style>
               </conditionnalStyles>
             </subContainerMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'CountCondition'" widthComputationExpression="40" heightComputationExpression="40">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:'CountCondition '+self.getOperator()" widthComputationExpression="40" heightComputationExpression="40">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:patternstructure="patternstructure" id="_mTJIAPsxEeqYEKnS78hbUg" internalId="1" elementCounter="2" counter="5">
+  <graph id="_mTJIAvsxEeqYEKnS78hbUg" internalId="2" returnElements="_mTJIBPsxEeqYEKnS78hbUg" outgoingMorphisms="_p13is_tDEeqYEKnS78hbUg">
+    <elements id="_mTJIBPsxEeqYEKnS78hbUg" internalId="1" outgoingMappings="_qJ4q4ftDEeqYEKnS78hbUg" resultOf="_mTJIAvsxEeqYEKnS78hbUg" name="Element 1"/>
+    <operatorList id="_mTJIA_sxEeqYEKnS78hbUg"/>
+  </graph>
+  <condition xsi:type="patternstructure:NotCondition" id="_pcgAePtDEeqYEKnS78hbUg" internalId="3">
+    <condition xsi:type="patternstructure:QuantifiedCondition" id="_p13isPtDEeqYEKnS78hbUg" internalId="4">
+      <morphism id="_p13is_tDEeqYEKnS78hbUg" source="_mTJIAvsxEeqYEKnS78hbUg" target="_p13isftDEeqYEKnS78hbUg">
+        <mappings xsi:type="patternstructure:ElementMapping" id="_qJ4q4ftDEeqYEKnS78hbUg" source="_mTJIBPsxEeqYEKnS78hbUg" target="_qJ4q4PtDEeqYEKnS78hbUg"/>
+      </morphism>
+      <graph id="_p13isftDEeqYEKnS78hbUg" returnElements="_qJ4q4PtDEeqYEKnS78hbUg" incomingMorphism="_p13is_tDEeqYEKnS78hbUg">
+        <elements id="_qJ4q4PtDEeqYEKnS78hbUg" incomingMapping="_qJ4q4ftDEeqYEKnS78hbUg" resultOf="_p13isftDEeqYEKnS78hbUg" name="Element 1"/>
+        <operatorList id="_p13isvtDEeqYEKnS78hbUg"/>
+      </graph>
+    </condition>
+  </condition>
+  <parameterList id="_mTJIAfsxEeqYEKnS78hbUg"/>
+</patternstructure:CompletePattern>

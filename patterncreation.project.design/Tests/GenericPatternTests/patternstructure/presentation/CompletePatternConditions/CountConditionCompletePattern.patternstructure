@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_s9_PYPsxEeqYEKnS78hbUg" internalId="1" elementCounter="2" counter="4">
+  <graph id="_s9_PYvsxEeqYEKnS78hbUg" internalId="2" returnElements="_s9_PZPsxEeqYEKnS78hbUg" outgoingMorphisms="_q2jOgvtBEeqYEKnS78hbUg">
+    <elements id="_s9_PZPsxEeqYEKnS78hbUg" internalId="1" outgoingMappings="_q2jOhvtBEeqYEKnS78hbUg" resultOf="_s9_PYvsxEeqYEKnS78hbUg" name="Element 1"/>
+    <operatorList id="_s9_PY_sxEeqYEKnS78hbUg"/>
+  </graph>
+  <condition xsi:type="patternstructure:CountCondition" id="_oqe_mftBEeqYEKnS78hbUg" internalId="3" option="_q2jOgPtBEeqYEKnS78hbUg">
+    <countPattern id="_q2jOgftBEeqYEKnS78hbUg">
+      <graph id="_q2jOg_tBEeqYEKnS78hbUg" returnElements="_q2jOhftBEeqYEKnS78hbUg" incomingMorphism="_q2jOgvtBEeqYEKnS78hbUg">
+        <elements id="_q2jOhftBEeqYEKnS78hbUg" incomingMapping="_q2jOhvtBEeqYEKnS78hbUg" resultOf="_q2jOg_tBEeqYEKnS78hbUg" name="Element 1"/>
+        <operatorList id="_q2jOhPtBEeqYEKnS78hbUg"/>
+      </graph>
+      <morphism id="_q2jOgvtBEeqYEKnS78hbUg" source="_s9_PYvsxEeqYEKnS78hbUg" target="_q2jOg_tBEeqYEKnS78hbUg">
+        <mappings xsi:type="patternstructure:ElementMapping" id="_q2jOhvtBEeqYEKnS78hbUg" source="_s9_PZPsxEeqYEKnS78hbUg" target="_q2jOhftBEeqYEKnS78hbUg"/>
+      </morphism>
+    </countPattern>
+  </condition>
+  <parameterList id="_s9_PYfsxEeqYEKnS78hbUg">
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_q2jOgPtBEeqYEKnS78hbUg" countConditions="_oqe_mftBEeqYEKnS78hbUg">
+      <options>=</options>
+      <options>></options>
+      <options>&lt;</options>
+      <options>>=</options>
+      <options>&lt;=</options>
+      <options>!=</options>
+    </parameters>
+  </parameterList>
+</patternstructure:CompletePattern>

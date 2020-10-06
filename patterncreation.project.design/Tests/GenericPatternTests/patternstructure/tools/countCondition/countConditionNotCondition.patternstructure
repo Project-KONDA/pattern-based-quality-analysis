@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_KDxMYPsqEeqYEKnS78hbUg" internalId="1" elementCounter="2" parameterCounter="5" counter="16">
+  <graph id="_KDxMYvsqEeqYEKnS78hbUg" internalId="2" returnElements="_KDxMZPsqEeqYEKnS78hbUg" outgoingMorphisms="_Fh5tIvy-EeqUhOhuPXc6vw">
+    <elements id="_KDxMZPsqEeqYEKnS78hbUg" internalId="1" outgoingMappings="_Fh5tJvy-EeqUhOhuPXc6vw" resultOf="_KDxMYvsqEeqYEKnS78hbUg" name="Element 1"/>
+    <operatorList id="_KDxMY_sqEeqYEKnS78hbUg"/>
+  </graph>
+  <condition xsi:type="patternstructure:NotCondition" id="__W_qGPy9EeqUhOhuPXc6vw" internalId="14">
+    <condition xsi:type="patternstructure:CountCondition" id="_E6yCx_y-EeqUhOhuPXc6vw" internalId="15" option="_Fh5tIPy-EeqUhOhuPXc6vw">
+      <countPattern id="_Fh5tIfy-EeqUhOhuPXc6vw">
+        <graph id="_Fh5tI_y-EeqUhOhuPXc6vw" returnElements="_Fh5tJfy-EeqUhOhuPXc6vw" incomingMorphism="_Fh5tIvy-EeqUhOhuPXc6vw">
+          <elements id="_Fh5tJfy-EeqUhOhuPXc6vw" incomingMapping="_Fh5tJvy-EeqUhOhuPXc6vw" resultOf="_Fh5tI_y-EeqUhOhuPXc6vw" name="Element 1"/>
+          <operatorList id="_Fh5tJPy-EeqUhOhuPXc6vw"/>
+        </graph>
+        <morphism id="_Fh5tIvy-EeqUhOhuPXc6vw" source="_KDxMYvsqEeqYEKnS78hbUg" target="_Fh5tI_y-EeqUhOhuPXc6vw">
+          <mappings xsi:type="patternstructure:ElementMapping" id="_Fh5tJvy-EeqUhOhuPXc6vw" source="_KDxMZPsqEeqYEKnS78hbUg" target="_Fh5tJfy-EeqUhOhuPXc6vw"/>
+        </morphism>
+      </countPattern>
+    </condition>
+  </condition>
+  <parameterList id="_KDxMYfsqEeqYEKnS78hbUg">
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_Fh5tIPy-EeqUhOhuPXc6vw" internalId="4" countConditions="_E6yCx_y-EeqUhOhuPXc6vw">
+      <options>=</options>
+      <options>></options>
+      <options>&lt;</options>
+      <options>>=</options>
+      <options>&lt;=</options>
+      <options>!=</options>
+    </parameters>
+  </parameterList>
+</patternstructure:CompletePattern>

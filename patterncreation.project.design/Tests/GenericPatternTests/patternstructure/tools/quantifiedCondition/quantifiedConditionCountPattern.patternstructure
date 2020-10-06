@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_KDxMYPsqEeqYEKnS78hbUg" internalId="1" elementCounter="2" parameterCounter="2" counter="9">
+  <graph id="_KDxMYvsqEeqYEKnS78hbUg" internalId="2" returnElements="_KDxMZPsqEeqYEKnS78hbUg" outgoingMorphisms="_g6gV4_wiEeqnEIeZB7eCsw _hhGb0fwiEeqnEIeZB7eCsw">
+    <elements id="_KDxMZPsqEeqYEKnS78hbUg" internalId="1" outgoingMappings="_g6gV5_wiEeqnEIeZB7eCsw _hhGb1fwiEeqnEIeZB7eCsw" resultOf="_KDxMYvsqEeqYEKnS78hbUg" name="Element 1"/>
+    <operatorList id="_KDxMY_sqEeqYEKnS78hbUg"/>
+  </graph>
+  <condition xsi:type="patternstructure:CountCondition" id="_g6gV4PwiEeqnEIeZB7eCsw" internalId="5" option="_g6gV4fwiEeqnEIeZB7eCsw">
+    <countPattern id="_g6gV4vwiEeqnEIeZB7eCsw">
+      <graph id="_g6gV5PwiEeqnEIeZB7eCsw" returnElements="_g6gV5vwiEeqnEIeZB7eCsw" incomingMorphism="_g6gV4_wiEeqnEIeZB7eCsw">
+        <elements id="_g6gV5vwiEeqnEIeZB7eCsw" incomingMapping="_g6gV5_wiEeqnEIeZB7eCsw" resultOf="_g6gV5PwiEeqnEIeZB7eCsw" name="Element 1"/>
+        <operatorList id="_g6gV5fwiEeqnEIeZB7eCsw"/>
+      </graph>
+      <morphism id="_g6gV4_wiEeqnEIeZB7eCsw" source="_KDxMYvsqEeqYEKnS78hbUg" target="_g6gV5PwiEeqnEIeZB7eCsw">
+        <mappings xsi:type="patternstructure:ElementMapping" id="_g6gV5_wiEeqnEIeZB7eCsw" source="_KDxMZPsqEeqYEKnS78hbUg" target="_g6gV5vwiEeqnEIeZB7eCsw"/>
+      </morphism>
+    </countPattern>
+    <argument2 xsi:type="patternstructure:CountPattern" id="_hhGb0PwiEeqnEIeZB7eCsw" internalId="6">
+      <graph id="_hhGb0vwiEeqnEIeZB7eCsw" internalId="7" returnElements="_hhGb1PwiEeqnEIeZB7eCsw" outgoingMorphisms="_ie2dg_wiEeqnEIeZB7eCsw" incomingMorphism="_hhGb0fwiEeqnEIeZB7eCsw">
+        <elements id="_hhGb1PwiEeqnEIeZB7eCsw" outgoingMappings="_ie2dhfwiEeqnEIeZB7eCsw" incomingMapping="_hhGb1fwiEeqnEIeZB7eCsw" resultOf="_hhGb0vwiEeqnEIeZB7eCsw" name="Element 1"/>
+        <operatorList id="_hhGb0_wiEeqnEIeZB7eCsw"/>
+      </graph>
+      <condition xsi:type="patternstructure:QuantifiedCondition" id="_ie2dgPwiEeqnEIeZB7eCsw" internalId="8">
+        <morphism id="_ie2dg_wiEeqnEIeZB7eCsw" source="_hhGb0vwiEeqnEIeZB7eCsw" target="_ie2dgfwiEeqnEIeZB7eCsw">
+          <mappings xsi:type="patternstructure:ElementMapping" id="_ie2dhfwiEeqnEIeZB7eCsw" source="_hhGb1PwiEeqnEIeZB7eCsw" target="_ie2dhPwiEeqnEIeZB7eCsw"/>
+        </morphism>
+        <graph id="_ie2dgfwiEeqnEIeZB7eCsw" returnElements="_ie2dhPwiEeqnEIeZB7eCsw" incomingMorphism="_ie2dg_wiEeqnEIeZB7eCsw">
+          <elements id="_ie2dhPwiEeqnEIeZB7eCsw" incomingMapping="_ie2dhfwiEeqnEIeZB7eCsw" resultOf="_ie2dgfwiEeqnEIeZB7eCsw" name="Element 1"/>
+          <operatorList id="_ie2dgvwiEeqnEIeZB7eCsw"/>
+        </graph>
+      </condition>
+      <morphism id="_hhGb0fwiEeqnEIeZB7eCsw" source="_KDxMYvsqEeqYEKnS78hbUg" target="_hhGb0vwiEeqnEIeZB7eCsw">
+        <mappings xsi:type="patternstructure:ElementMapping" id="_hhGb1fwiEeqnEIeZB7eCsw" source="_KDxMZPsqEeqYEKnS78hbUg" target="_hhGb1PwiEeqnEIeZB7eCsw"/>
+      </morphism>
+    </argument2>
+  </condition>
+  <parameterList id="_KDxMYfsqEeqYEKnS78hbUg">
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_g6gV4fwiEeqnEIeZB7eCsw" internalId="1" countConditions="_g6gV4PwiEeqnEIeZB7eCsw">
+      <options>=</options>
+      <options>></options>
+      <options>&lt;</options>
+      <options>>=</options>
+      <options>&lt;=</options>
+      <options>!=</options>
+    </parameters>
+  </parameterList>
+</patternstructure:CompletePattern>

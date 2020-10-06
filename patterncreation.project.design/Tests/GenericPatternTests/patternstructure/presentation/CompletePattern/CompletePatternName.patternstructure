@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:patternstructure="patternstructure" id="_U09Z4PsxEeqYEKnS78hbUg" internalId="1" name="Muster" elementCounter="2" counter="2">
+  <graph id="_U09Z4vsxEeqYEKnS78hbUg" returnElements="_U09Z5PsxEeqYEKnS78hbUg">
+    <elements id="_U09Z5PsxEeqYEKnS78hbUg" internalId="1" resultOf="_U09Z4vsxEeqYEKnS78hbUg" name="Element 1"/>
+    <operatorList id="_U09Z4_sxEeqYEKnS78hbUg"/>
+  </graph>
+  <parameterList id="_U09Z4fsxEeqYEKnS78hbUg"/>
+</patternstructure:CompletePattern>

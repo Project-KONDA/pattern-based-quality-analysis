@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_SnYPkPtTEeqYEKnS78hbUg" internalId="1" elementCounter="7" parameterCounter="7" operatorCounter="4" counter="12">
+  <graph id="_SnYPkvtTEeqYEKnS78hbUg" internalId="2" returnElements="_SnYPlPtTEeqYEKnS78hbUg">
+    <elements id="_SnYPlPtTEeqYEKnS78hbUg" internalId="1" resultOf="_SnYPkvtTEeqYEKnS78hbUg" name="Element 1" predicates="_CetwYPv3EeqnEIeZB7eCsw">
+      <properties id="_CK8f0Pv3EeqnEIeZB7eCsw" internalId="11" match="_CetwYPv3EeqnEIeZB7eCsw" name="Property 11"/>
+    </elements>
+    <operatorList id="_SnYPk_tTEeqYEKnS78hbUg">
+      <operators xsi:type="operators:Match" id="_CetwYPv3EeqnEIeZB7eCsw" internalId="3" elements="_SnYPlPtTEeqYEKnS78hbUg" property="_CK8f0Pv3EeqnEIeZB7eCsw" option="_CetwYfv3EeqnEIeZB7eCsw" regularExpression="_CetwYvv3EeqnEIeZB7eCsw"/>
+    </operatorList>
+  </graph>
+  <parameterList id="_SnYPkftTEeqYEKnS78hbUg">
+    <parameters xsi:type="parameters:BooleanParam" id="_CetwYfv3EeqnEIeZB7eCsw" internalId="6" matches="_CetwYPv3EeqnEIeZB7eCsw"/>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_CetwYvv3EeqnEIeZB7eCsw" internalId="5" matches="_CetwYPv3EeqnEIeZB7eCsw"/>
+  </parameterList>
+</patternstructure:CompletePattern>

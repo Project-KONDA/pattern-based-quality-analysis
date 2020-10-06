@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_SnYPkPtTEeqYEKnS78hbUg" internalId="1" elementCounter="7" parameterCounter="8" operatorCounter="4" counter="11">
+  <graph id="_SnYPkvtTEeqYEKnS78hbUg" internalId="2" returnElements="_SnYPlPtTEeqYEKnS78hbUg">
+    <elements id="_SnYPlPtTEeqYEKnS78hbUg" internalId="1" resultOf="_SnYPkvtTEeqYEKnS78hbUg" name="Element 1"/>
+    <operatorList id="_SnYPk_tTEeqYEKnS78hbUg">
+      <operators xsi:type="operators:Match" id="_IJ9HAPwaEeqnEIeZB7eCsw" internalId="3" option="_IJ9uEPwaEeqnEIeZB7eCsw" regularExpression="_IJ9uEfwaEeqnEIeZB7eCsw"/>
+    </operatorList>
+  </graph>
+  <parameterList id="_SnYPkftTEeqYEKnS78hbUg">
+    <parameters xsi:type="parameters:BooleanParam" id="_IJ9uEPwaEeqnEIeZB7eCsw" internalId="7" matches="_IJ9HAPwaEeqnEIeZB7eCsw"/>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_IJ9uEfwaEeqnEIeZB7eCsw" internalId="6" matches="_IJ9HAPwaEeqnEIeZB7eCsw"/>
+  </parameterList>
+</patternstructure:CompletePattern>

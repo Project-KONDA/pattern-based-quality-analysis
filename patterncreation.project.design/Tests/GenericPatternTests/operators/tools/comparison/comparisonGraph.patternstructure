@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_KDxMYPsqEeqYEKnS78hbUg" internalId="1" elementCounter="3" parameterCounter="4" operatorCounter="2" counter="13">
+  <graph id="_KDxMYvsqEeqYEKnS78hbUg" internalId="2" returnElements="_KDxMZPsqEeqYEKnS78hbUg">
+    <elements id="_KDxMZPsqEeqYEKnS78hbUg" internalId="1" resultOf="_KDxMYvsqEeqYEKnS78hbUg" name="Element 1"/>
+    <elements id="_bAaPkPzeEeqUhOhuPXc6vw" internalId="2" name="Element 2"/>
+    <operatorList id="_KDxMY_sqEeqYEKnS78hbUg" internalId="12">
+      <operators xsi:type="operators:Comparison" id="_ppWO4fzeEeqUhOhuPXc6vw" internalId="1" option="_p9RQcPzeEeqUhOhuPXc6vw" typeOption="_p9RQcfzeEeqUhOhuPXc6vw"/>
+    </operatorList>
+  </graph>
+  <parameterList id="_KDxMYfsqEeqYEKnS78hbUg">
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_p9RQcPzeEeqUhOhuPXc6vw" internalId="2" comparisons="_ppWO4fzeEeqUhOhuPXc6vw">
+      <options>=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_p9RQcfzeEeqUhOhuPXc6vw" internalId="3" typeComparisons="_ppWO4fzeEeqUhOhuPXc6vw">
+      <options>UNSPECIFIED</options>
+    </parameters>
+  </parameterList>
+</patternstructure:CompletePattern>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_SnYPkPtTEeqYEKnS78hbUg" internalId="1" elementCounter="7" parameterCounter="10" operatorCounter="3" counter="11">
+  <graph id="_SnYPkvtTEeqYEKnS78hbUg" internalId="2" returnElements="_SnYPlPtTEeqYEKnS78hbUg">
+    <elements id="_SnYPlPtTEeqYEKnS78hbUg" internalId="1" resultOf="_SnYPkvtTEeqYEKnS78hbUg" name="Element 1"/>
+    <operatorList id="_SnYPk_tTEeqYEKnS78hbUg">
+      <operators xsi:type="operators:Comparison" id="_XCVCkPvwEeqnEIeZB7eCsw" internalId="1" argument2="_oG0FMPwaEeqnEIeZB7eCsw" option="_XCVCkfvwEeqnEIeZB7eCsw" typeOption="_XCVCkvvwEeqnEIeZB7eCsw"/>
+    </operatorList>
+  </graph>
+  <parameterList id="_SnYPkftTEeqYEKnS78hbUg">
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_XCVCkfvwEeqnEIeZB7eCsw" internalId="1" comparisons="_XCVCkPvwEeqnEIeZB7eCsw">
+      <options>=</options>
+      <options>!=</options>
+      <options>=</options>
+      <options>!=</options>
+      <options>=</options>
+      <options>!=</options>
+      <options>=</options>
+      <options>!=</options>
+      <options>=</options>
+      <options>!=</options>
+      <options>=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_XCVCkvvwEeqnEIeZB7eCsw" internalId="2" isPredefined="true" value="DATE" typeComparisons="_XCVCkPvwEeqnEIeZB7eCsw">
+      <options>UNSPECIFIED</options>
+      <options>UNSPECIFIED</options>
+      <options>UNSPECIFIED</options>
+      <options>UNSPECIFIED</options>
+      <options>UNSPECIFIED</options>
+      <options>UNSPECIFIED</options>
+    </parameters>
+    <parameters xsi:type="parameters:DateParam" id="_oG0FMPwaEeqnEIeZB7eCsw" internalId="9" comparison2="_XCVCkPvwEeqnEIeZB7eCsw"/>
+  </parameterList>
+</patternstructure:CompletePattern>

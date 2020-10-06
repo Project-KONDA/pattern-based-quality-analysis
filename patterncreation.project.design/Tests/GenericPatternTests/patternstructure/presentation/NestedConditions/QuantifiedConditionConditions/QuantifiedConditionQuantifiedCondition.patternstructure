@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:patternstructure="patternstructure" id="_mTJIAPsxEeqYEKnS78hbUg" internalId="1" elementCounter="2" counter="7">
+  <graph id="_mTJIAvsxEeqYEKnS78hbUg" internalId="2" returnElements="_mTJIBPsxEeqYEKnS78hbUg" outgoingMorphisms="_poKodftEEeqYEKnS78hbUg">
+    <elements id="_mTJIBPsxEeqYEKnS78hbUg" internalId="1" outgoingMappings="_p9exIftEEeqYEKnS78hbUg" resultOf="_mTJIAvsxEeqYEKnS78hbUg" name="Element 1"/>
+    <operatorList id="_mTJIA_sxEeqYEKnS78hbUg"/>
+  </graph>
+  <condition xsi:type="patternstructure:QuantifiedCondition" id="_poKocvtEEeqYEKnS78hbUg" internalId="3">
+    <morphism id="_poKodftEEeqYEKnS78hbUg" internalId="4" source="_mTJIAvsxEeqYEKnS78hbUg" target="_poKoc_tEEeqYEKnS78hbUg">
+      <mappings xsi:type="patternstructure:ElementMapping" id="_p9exIftEEeqYEKnS78hbUg" source="_mTJIBPsxEeqYEKnS78hbUg" target="_p9exIPtEEeqYEKnS78hbUg"/>
+    </morphism>
+    <graph id="_poKoc_tEEeqYEKnS78hbUg" internalId="5" returnElements="_p9exIPtEEeqYEKnS78hbUg" outgoingMorphisms="_p92klvtEEeqYEKnS78hbUg" incomingMorphism="_poKodftEEeqYEKnS78hbUg">
+      <elements id="_p9exIPtEEeqYEKnS78hbUg" outgoingMappings="_qZ61gftEEeqYEKnS78hbUg" incomingMapping="_p9exIftEEeqYEKnS78hbUg" resultOf="_poKoc_tEEeqYEKnS78hbUg" name="Element 1"/>
+      <operatorList id="_poKodPtEEeqYEKnS78hbUg"/>
+    </graph>
+    <condition xsi:type="patternstructure:QuantifiedCondition" id="_p92kk_tEEeqYEKnS78hbUg" internalId="6">
+      <morphism id="_p92klvtEEeqYEKnS78hbUg" source="_poKoc_tEEeqYEKnS78hbUg" target="_p92klPtEEeqYEKnS78hbUg">
+        <mappings xsi:type="patternstructure:ElementMapping" id="_qZ61gftEEeqYEKnS78hbUg" source="_p9exIPtEEeqYEKnS78hbUg" target="_qZ61gPtEEeqYEKnS78hbUg"/>
+      </morphism>
+      <graph id="_p92klPtEEeqYEKnS78hbUg" returnElements="_qZ61gPtEEeqYEKnS78hbUg" incomingMorphism="_p92klvtEEeqYEKnS78hbUg">
+        <elements id="_qZ61gPtEEeqYEKnS78hbUg" incomingMapping="_qZ61gftEEeqYEKnS78hbUg" resultOf="_p92klPtEEeqYEKnS78hbUg" name="Element 1"/>
+        <operatorList id="_p92klftEEeqYEKnS78hbUg"/>
+      </graph>
+    </condition>
+  </condition>
+  <parameterList id="_mTJIAfsxEeqYEKnS78hbUg"/>
+</patternstructure:CompletePattern>

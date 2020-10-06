@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_SnYPkPtTEeqYEKnS78hbUg" internalId="1" elementCounter="7" parameterCounter="5" operatorCounter="3" counter="11">
+  <graph id="_SnYPkvtTEeqYEKnS78hbUg" internalId="2" returnElements="_SnYPlPtTEeqYEKnS78hbUg">
+    <elements id="_SnYPlPtTEeqYEKnS78hbUg" internalId="1" comparison1="_vcPlAPv2EeqnEIeZB7eCsw" resultOf="_SnYPkvtTEeqYEKnS78hbUg" name="Element 1" predicates="_XCVCkPvwEeqnEIeZB7eCsw _vcPlAPv2EeqnEIeZB7eCsw">
+      <properties id="_WR0ysPvwEeqnEIeZB7eCsw" internalId="9" comparison1="_XCVCkPvwEeqnEIeZB7eCsw" name="Property 9"/>
+      <properties id="_WuybgPvwEeqnEIeZB7eCsw" internalId="10" comparison2="_XCVCkPvwEeqnEIeZB7eCsw" name="Property 10"/>
+    </elements>
+    <elements id="_vF5hkPv2EeqnEIeZB7eCsw" internalId="6" comparison2="_vcPlAPv2EeqnEIeZB7eCsw" name="Element 6" predicates="_vcPlAPv2EeqnEIeZB7eCsw"/>
+    <operatorList id="_SnYPk_tTEeqYEKnS78hbUg">
+      <operators xsi:type="operators:Comparison" id="_XCVCkPvwEeqnEIeZB7eCsw" internalId="1" elements="_SnYPlPtTEeqYEKnS78hbUg" argument1="_WR0ysPvwEeqnEIeZB7eCsw" argument2="_WuybgPvwEeqnEIeZB7eCsw" option="_XCVCkfvwEeqnEIeZB7eCsw" typeOption="_XCVCkvvwEeqnEIeZB7eCsw"/>
+      <operators xsi:type="operators:Comparison" id="_vcPlAPv2EeqnEIeZB7eCsw" internalId="2" elements="_SnYPlPtTEeqYEKnS78hbUg _vF5hkPv2EeqnEIeZB7eCsw" argument1="_SnYPlPtTEeqYEKnS78hbUg" argument2="_vF5hkPv2EeqnEIeZB7eCsw" option="_vcPlAfv2EeqnEIeZB7eCsw" typeOption="_vcPlAvv2EeqnEIeZB7eCsw"/>
+    </operatorList>
+  </graph>
+  <parameterList id="_SnYPkftTEeqYEKnS78hbUg">
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_XCVCkfvwEeqnEIeZB7eCsw" internalId="1" comparisons="_XCVCkPvwEeqnEIeZB7eCsw">
+      <options>=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_XCVCkvvwEeqnEIeZB7eCsw" internalId="2" typeComparisons="_XCVCkPvwEeqnEIeZB7eCsw">
+      <options>UNSPECIFIED</options>
+    </parameters>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_vcPlAfv2EeqnEIeZB7eCsw" internalId="3" comparisons="_vcPlAPv2EeqnEIeZB7eCsw">
+      <options>=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_vcPlAvv2EeqnEIeZB7eCsw" internalId="4" isPredefined="true" value="ELEMENT" typeComparisons="_vcPlAPv2EeqnEIeZB7eCsw">
+      <options>UNSPECIFIED</options>
+    </parameters>
+  </parameterList>
+</patternstructure:CompletePattern>

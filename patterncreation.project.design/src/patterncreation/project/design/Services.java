@@ -935,7 +935,7 @@ public class Services {
     
     public EObject addParameter(EObject self, String s) {
     	CompletePattern root = (CompletePattern) getWurzelContainer(self);
-    	ParameterList parameterlist = root.getParameterList();
+    	//ParameterList parameterlist = root.getParameterList();
     	Parameter parameter = null;
     	if(s.equals("Textliteral")) {
     		parameter = new TextLiteralParamImpl();
@@ -955,17 +955,16 @@ public class Services {
     		parameter = new DateTimeParamImpl();
     	}
     	//parameterlist.add(parameter);
-    	if(self instanceof NumberElement) {
-    		System.out.println("pppppppppppppppppppppppppppp");
+    	/*if(self instanceof NumberElement) {
     		NumberElement numberelement = (NumberElement) self;
     		numberelement.setNumberParam((NumberParam) parameter);
     	}else if(self instanceof Match) {
     		Match match = (Match) self;
     		match.setRegularExpression((TextLiteralParam) parameter);
-    	}else {//Comparison
+    	}else {*///Comparison
     		Comparison comparison =(Comparison) self;
         	comparison.setArgument2((Comparable) parameter);
-    	}
+    	//}
     	
     	
     	/*TextLiteralParam textliteral = new TextLiteralParamImpl();
@@ -983,7 +982,7 @@ public class Services {
     static HashMap<CompletePattern, HashMap<Element, Boolean>> elementMarks = new HashMap<CompletePattern, HashMap<Element, Boolean>>();//speichert elemente und ob sie markiert sind
     static Element markedElement1 = null;
     static Element markedElement2 = null;
-    public EObject changeColorOfElement(EObject self, EObject e) {//nach einem doppelklick auf element wird hier die markierung des elements und seines mappingelements hinzugefügt
+    /*public EObject changeColorOfElement(EObject self, EObject e) {//nach einem doppelklick auf element wird hier die markierung des elements und seines mappingelements hinzugefügt
     	boolean deleteMark = false;
     	Element element = (Element) e;
     	HashMap<Element, Boolean> elementMarks = this.elementMarks.get((CompletePattern) self);
@@ -1036,12 +1035,12 @@ public class Services {
     	}
 
     	return self;
-    }
+    }*/
     
     static HashMap<CompletePattern, HashSet<Element>> markedElements = new HashMap<CompletePattern, HashSet<Element>>();//merkt sich die markierten elemente, um später die markierungen zu entfernen
     static HashMap<CompletePattern, HashSet<Element>> visitedElements = new HashMap<CompletePattern, HashSet<Element>>();// elemente, die beim sammeln der elemente, die markiert werden sollen, abgearbeitet wurden
     public EObject changeColorOfElement2(EObject self, EObject e) {//nach einem doppelklick auf element wird hier die markierung des elements und seines mappingelements hinzugefügt
-    	//System.out.println("Anfang");
+    	System.out.println("Anfang");
     	Element element = (Element) e;
     	ArrayList<Element> elementsToVisit = new ArrayList<Element>();
     	boolean firstRun = true;
@@ -1049,36 +1048,36 @@ public class Services {
     	
     	HashSet<Element> markedElements = this.markedElements.get(pattern);
     	if(markedElements == null) {
-    		//System.out.println("markedElement ist null");
+    		System.out.println("markedElement ist null");
     		markedElements = new HashSet<Element>();
     		this.markedElements.put(pattern, markedElements);
     	}
     	
     	HashSet<Element> visitedElements = this.visitedElements.get(pattern);
     	if(visitedElements == null) {
-    		//System.out.println("visitedElements ist null");
+    		System.out.println("visitedElements ist null");
     		visitedElements = new HashSet<Element>();
     		this.visitedElements.put(pattern, visitedElements);
     	}
     	
     	HashMap<Element, Boolean> elementMarks = this.elementMarks.get(pattern);
-    	//System.out.println("elementMarks ist nicht null"+elementMarks);
+    	System.out.println("elementMarks ist nicht null"+elementMarks);
     	if(elementMarks == null) {
-    		//System.out.println("elementMarks ist null");
+    		System.out.println("elementMarks ist null");
     		elementMarks = new HashMap<Element, Boolean>();
     		this.elementMarks.put(pattern, elementMarks);
     	}
     	
     	
     	if(markedElements.contains(element)) {//Doppelklick auf ein Element, das markiert ist, Markierungen werden aufgehoben
-    		//System.out.println("Element ist markiert");
+    		System.out.println("Element ist markiert");
     		for(Element me:markedElements) {
     			elementMarks.put(me, false);
     		}
     		markedElements.clear();
-    		//System.out.println("Element ist markiert2");
+    		System.out.println("Element ist markiert2");
     	}else {//Doppelklick auf ein Element, das nicht markiert ist
-    		//System.out.println("Element ist nicht markiert");
+    		System.out.println("Element ist nicht markiert");
     		if(markedElements.size() != 0) {//klick auf element, das nicht markiert ist, aber andere elemente sind markiert, die nicht markiert sein sollen
     			for(Element el:markedElements) {
     				elementMarks.put(el, false);
@@ -1086,9 +1085,9 @@ public class Services {
     			markedElements.clear();//hier werden, nachdem die markierungen aufgehoben wurden, die elemente aus der merkliste der markierten elemente gelöscht
     		}
     		while(firstRun || elementsToVisit.size() != 0) {//suche nach allen elemente, die über mappings verbunden sind und markiert werden müssen
-    			//System.out.println("while durchlauf");
+    			System.out.println("while durchlauf");
         		if(firstRun) {
-        			//System.out.println("FirstRun");
+        			System.out.println("FirstRun");
         			firstRun = false;
         			ElementMapping incomingMapping = element.getIncomingMapping();
         			if(incomingMapping != null) {
@@ -1105,17 +1104,17 @@ public class Services {
         				markedElements.add(element);
         			}
         			visitedElements.add(element);
-        			//System.out.println("Element zum abarbeiten: "+elementsToVisit);
+        			System.out.println("Element zum abarbeiten: "+elementsToVisit);
         		}else {
-        			//System.out.println("nicht FirstRun");
+        			System.out.println("nicht FirstRun");
         			int etvnumber = elementsToVisit.size();
         			while(etvnumber != 0) {//Element etv:elementsToVisit
         				Element etv = elementsToVisit.get(0);//element aus elementtovisit, i ist immer 0, weil durch das löschen dieses elements im nächsten schleifendurchlauf am index 0 ein anderes element ist
-        				//System.out.println("Etv Durchlauf: "+etv);
+        				System.out.println("Etv Durchlauf: "+etv);
         				if(visitedElements.contains(etv)) {//element wurde schon abgearbeitet
-        					//System.out.println("element wurde schon abgearbeitet");
+        					System.out.println("element wurde schon abgearbeitet");
         				}else {
-        					//System.out.println("element wurde noch nicht abgearbeitet");
+        					System.out.println("element wurde noch nicht abgearbeitet");
         					visitedElements.add(etv);//element wird gerade abgearbeitet und so gekennzeichnet, dass es dann abgearbeitet wurde
         					ElementMapping incomingMapping = etv.getIncomingMapping();
         					if(incomingMapping != null) {
@@ -1130,30 +1129,37 @@ public class Services {
         	    			if(elementMark == null || elementMark == false) {//Falls es nicht markiert ist oder noch nie markiert wurde
         	    				elementMarks.put(etv, true);
         	    				markedElements.add(etv);
-        	    				//System.out.println("etv markiert");
+        	    				System.out.println("etv markiert");
         	    			}else if(elementMark == true) {//Falls es markiert ist
         	    				elementMarks.put(etv, false);
         	    				markedElements.remove(etv);
-        	    				//System.out.println("etv markierung weg");
+        	    				System.out.println("etv markierung weg");
         	    			}
         				}
         				elementsToVisit.remove(etv);
         				etvnumber = elementsToVisit.size();//die bedingung der whileschleife wird neu berechnet, weil elementtovisit verändert wurde
-        				//System.out.println("etv schleife ende");
+        				System.out.println("etv schleife ende");
         			}
-        			//System.out.println("nicht firstrun ende");
+        			System.out.println("nicht firstrun ende");
         		}
-        		//System.out.println("while ende "+(firstRun || elementsToVisit.size() != 0));
+        		System.out.println("while ende "+(firstRun || elementsToVisit.size() != 0));
         	}
     	}
-    	visitedElements.clear();
+    	visitedElements.clear();System.out.println("elementMarks "+ this.elementMarks.get(pattern));
+    	String name =pattern.getName();
+    	pattern.setName("Hallo");
+    	pattern.setName(name);
     	return self;
     }
     
     public boolean getElementMark(EObject self) {
+    	System.out.println("getElementMark " + self);
     	CompletePattern pattern = (CompletePattern) getWurzelContainer(self);
+    	System.out.println("1 "+ pattern + "/" + self + "_____" + this.elementMarks.get(pattern));
     	HashMap<Element, Boolean> elementMarks = this.elementMarks.get(pattern);
+    	System.out.println("2 " + elementMarks == null);
     	Boolean mark = elementMarks.get(self);
+    	System.out.println("3 " + mark);
     	if(mark == null) {
     		mark = false;
     	}
@@ -1233,7 +1239,8 @@ public class Services {
     	return add;
     }
     
-    public boolean conditionPrecondition(EObject self) {//beim hinzufügen
+    public boolean conditionPrecondition(EObject self) {//beim hinzufügen, self ist das Objekt unter der Maus
+    	System.out.println("Bedingung "+self);
     	boolean add = false;
     	boolean hasCondition = true;
     	if(self instanceof Formula) {
@@ -1247,6 +1254,7 @@ public class Services {
     		Condition condition = null;
     		boolean isCondition = false;//ohne das würde das popup von quantifiedcondition bei element auftauchen im kontextmenü, das Objekt unter dem Mauspfeil ist eine Condition, wenn diese Variable true ist, bzw darf eine Condition hinzugefügt bekommen
     		if(self instanceof CompletePattern) {
+    			System.out.println("Falsch");
         		CompletePattern completePattern = (CompletePattern) self;
         		condition = completePattern.getCondition();
         		isCondition = true;
@@ -1274,6 +1282,11 @@ public class Services {
     		}
     	}
     	return add;
+    }
+    
+    public boolean countConditionPrecondition(EObject self) {
+    	System.out.println("Hallo "+self);
+    	return true;
     }
     
     public Element targetFinderExpressionMatch(EObject self) {//sucht das Element der Property des Match, um den Pfeil auszurichten
@@ -1325,9 +1338,18 @@ public class Services {
     		}
     	}else if(self instanceof Comparison) {
     		Comparison comparison = (Comparison) self;
+    		Comparable argument1 = comparison.getArgument1();
     		Comparable argument2 = comparison.getArgument2();
-    		if(argument2 == null) {
+    		if(argument1 == null && argument2 == null) {
     			open = true;
+    		}else if(argument1 == null) {
+    			if(argument2 instanceof Property) {
+    				open = true;
+    			}
+    		}else if(argument2 == null) {
+    			if(argument1 instanceof Property) {
+    				open = true;
+    			}
     		}
     	}
     	return open;
@@ -1588,10 +1610,16 @@ public class Services {
     		Comparison comparison = (Comparison) self;
         	Comparable argument1 = comparison.getArgument1();
         	Comparable argument2 = comparison.getArgument2();
-        	if(argument1 == null) {
+        	if(argument1 == null && argument2 == null) {
         		open = true;
         	}else if (argument2 == null) {
-        		open = true;
+        		if(argument1 instanceof Element) {
+        			open = true;
+        		}
+        	}else if (argument1 == null) {
+        		if(argument2 instanceof Element) {
+        			open = true;
+        		}
         	}
     	}
     	return open;
@@ -1603,10 +1631,16 @@ public class Services {
     		Comparison comparison = (Comparison) self;
         	Comparable argument1 = comparison.getArgument1();
         	Comparable argument2 = comparison.getArgument2();
-        	if(argument1 == null) {
+        	if(argument1 == null && argument2 == null) {
         		open = true;
         	}else if (argument2 == null) {
-        		open = true;
+        		if(argument1 instanceof Property || argument1 instanceof ParameterValue) {
+        			open = true;
+        		}
+        	}else if (argument1 == null) {
+        		if(argument2 instanceof Property || argument2 instanceof ParameterValue) {
+        			open = true;
+        		}
         	}
     	}else if(self instanceof Match){
     		Match match = (Match) self;
@@ -1919,6 +1953,8 @@ public class Services {
      */
     public EObject abstractPatternStart(EObject self) {//soll beim ersten Öffnen eines abstrakten Musters ein Dialog zeigen, vielleicht abhängig von der Methode, die genutzt wird, um ein abstraktes Muster von einem generischen Muster zu erstellen
     	//System.out.println("vvvvvvvvvvvvvvvvvvvvvvvvvvv"+self+isAbstract);
+    	String s = "try";
+    	EObject returnObject = self;
 		if (self instanceof CompletePattern) {
 			//System.out.println("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
 			CompletePattern pattern = (CompletePattern) self;
@@ -1927,8 +1963,10 @@ public class Services {
 				try {
 					//System.out.println("lllllllllllllllllllllllllllllllll");
 					pattern.isValid(AbstractionLevel.GENERIC);
+					s = "ist generisch";
 					//System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
 					pattern.createXMLAdaption();
+					s = "adaption gestartet";
 					//System.out.println("nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
 					Display.getDefault().syncExec(new Runnable() {
 						public void run() {
@@ -1942,13 +1980,28 @@ public class Services {
 					//System.out.println("oooooooooooooooooooooooooooooooooo");
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
-					System.out.println("wurde abgefangen abstractPatternStart");
+					//e.printStackTrace();
+					System.out.println("wurde abgefangen abstractPatternStart "+s);
 					//isAbstract = true;
+					returnObject = null;
+					Display.getDefault().syncExec(new Runnable() {
+						public void run() {
+							String message = "The adaption of the pattern failed. Check if the pattern is a valid generic pattern.";
+							MessageDialog dialog = new MessageDialog(new Shell(), "New abstract pattern", null, message, MessageDialog.INFORMATION, new String[] { "Ok" }, 0);
+							int result = dialog.open();
+							//System.out.println(result + " " + isAbstract);
+						}
+					});
 				}
 			}
 		}
-		return self;
+		return returnObject;//vorher self
+    }
+    
+    public boolean abstractPatternCreationPrecondition(EObject self) {
+    	boolean open = true;
+    	System.out.println("AbstractPatternCreationPrecondition: "+self);
+    	return open;
     }
     
     public void printisabstract(EObject self) {
@@ -2044,7 +2097,7 @@ public class Services {
     	boolean open = false;
     	if(e instanceof CompletePattern) {// && !finalized
     		CompletePattern pattern = (CompletePattern) e;
-    		if(!pattern.relationsXmlAdapted() && !pattern.isAdaptionFinalized()) {
+    		if(!pattern.relationsXmlAdapted() && !pattern.isAdaptionFinalized()) {//relationXmlAdapted nullpointer bei muster ohne relationen
         		open = true;
         	}
     	}
@@ -3411,12 +3464,13 @@ public class Services {
     	return name;
     }
     
-    public boolean finalisationDecorationPrecondition(EObject self) {
+    public boolean finalizationDecorationPrecondition(EObject self) {//dekorationen funktionieren mit completepattern nicht
     	boolean showDecoration = false;
-    	if(self instanceof CompletePattern) {
-    		CompletePattern pattern = (CompletePattern) self;
-    		showDecoration = !pattern.relationsXmlAdapted();
+    	if(self instanceof Graph) {
+    		CompletePattern pattern = (CompletePattern) ((Graph) self).getPattern();
+    		showDecoration = !pattern.isAdaptionFinalized();//pattern.relationsXmlAdapted();
     	}
+    	System.out.println("Decoration: "+showDecoration);
     	return showDecoration;
     }
     
@@ -3714,5 +3768,17 @@ public class Services {
 			}
 		}
 		return sameGraph;
+	}
+	
+	public String matchName(EObject self) {//für Ansicht zur Konkretisierung
+		String s = "Match ";
+		if(self instanceof Match) {
+			Match match = (Match) self;
+			s = s + match.getInternalId();
+			if(!match.getOption().getValue()) {
+				s = "Not " + s;
+			}
+		}
+		return s;
 	}
 }

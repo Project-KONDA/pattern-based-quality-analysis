@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_s9_PYPsxEeqYEKnS78hbUg" internalId="1" elementCounter="3" parameterCounter="3" counter="9">
+  <graph id="_s9_PYvsxEeqYEKnS78hbUg" internalId="2" returnElements="_s9_PZPsxEeqYEKnS78hbUg" outgoingMorphisms="_eO0cgvtCEeqYEKnS78hbUg">
+    <elements id="_s9_PZPsxEeqYEKnS78hbUg" internalId="1" outgoingMappings="_eO0chvtCEeqYEKnS78hbUg" resultOf="_s9_PYvsxEeqYEKnS78hbUg" name="Element 1"/>
+    <operatorList id="_s9_PY_sxEeqYEKnS78hbUg"/>
+  </graph>
+  <condition xsi:type="patternstructure:CountCondition" id="_dzdWN_tCEeqYEKnS78hbUg" internalId="3" option="_eO0cgPtCEeqYEKnS78hbUg">
+    <countPattern id="_eO0cgftCEeqYEKnS78hbUg" internalId="4">
+      <graph id="_eO0cg_tCEeqYEKnS78hbUg" internalId="5" returnElements="_eO0chftCEeqYEKnS78hbUg" outgoingMorphisms="_oK2AwvtCEeqYEKnS78hbUg" incomingMorphism="_eO0cgvtCEeqYEKnS78hbUg">
+        <elements id="_eO0chftCEeqYEKnS78hbUg" internalId="2" outgoingMappings="_oK2AxvtCEeqYEKnS78hbUg" incomingMapping="_eO0chvtCEeqYEKnS78hbUg" resultOf="_eO0cg_tCEeqYEKnS78hbUg" name="Element 1"/>
+        <operatorList id="_eO0chPtCEeqYEKnS78hbUg"/>
+      </graph>
+      <condition xsi:type="patternstructure:CountCondition" id="_nwEwWftCEeqYEKnS78hbUg" internalId="8" option="_oK2AwPtCEeqYEKnS78hbUg">
+        <countPattern id="_oK2AwftCEeqYEKnS78hbUg">
+          <graph id="_oK2Aw_tCEeqYEKnS78hbUg" returnElements="_oK2AxftCEeqYEKnS78hbUg" incomingMorphism="_oK2AwvtCEeqYEKnS78hbUg">
+            <elements id="_oK2AxftCEeqYEKnS78hbUg" incomingMapping="_oK2AxvtCEeqYEKnS78hbUg" resultOf="_oK2Aw_tCEeqYEKnS78hbUg" name="Element 1"/>
+            <operatorList id="_oK2AxPtCEeqYEKnS78hbUg"/>
+          </graph>
+          <morphism id="_oK2AwvtCEeqYEKnS78hbUg" source="_eO0cg_tCEeqYEKnS78hbUg" target="_oK2Aw_tCEeqYEKnS78hbUg">
+            <mappings xsi:type="patternstructure:ElementMapping" id="_oK2AxvtCEeqYEKnS78hbUg" source="_eO0chftCEeqYEKnS78hbUg" target="_oK2AxftCEeqYEKnS78hbUg"/>
+          </morphism>
+        </countPattern>
+      </condition>
+      <morphism id="_eO0cgvtCEeqYEKnS78hbUg" internalId="6" source="_s9_PYvsxEeqYEKnS78hbUg" target="_eO0cg_tCEeqYEKnS78hbUg">
+        <mappings xsi:type="patternstructure:ElementMapping" id="_eO0chvtCEeqYEKnS78hbUg" source="_s9_PZPsxEeqYEKnS78hbUg" target="_eO0chftCEeqYEKnS78hbUg"/>
+      </morphism>
+    </countPattern>
+  </condition>
+  <parameterList id="_s9_PYfsxEeqYEKnS78hbUg">
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_eO0cgPtCEeqYEKnS78hbUg" internalId="1" countConditions="_dzdWN_tCEeqYEKnS78hbUg">
+      <options>=</options>
+      <options>></options>
+      <options>&lt;</options>
+      <options>>=</options>
+      <options>&lt;=</options>
+      <options>!=</options>
+      <options>=</options>
+      <options>></options>
+      <options>&lt;</options>
+      <options>>=</options>
+      <options>&lt;=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_oK2AwPtCEeqYEKnS78hbUg" internalId="2" countConditions="_nwEwWftCEeqYEKnS78hbUg">
+      <options>=</options>
+      <options>></options>
+      <options>&lt;</options>
+      <options>>=</options>
+      <options>&lt;=</options>
+      <options>!=</options>
+    </parameters>
+  </parameterList>
+</patternstructure:CompletePattern>

@@ -27,6 +27,7 @@ Export-Package: qualitypatternmodel.adaptionxml,
  qualitypatternmodel.patternstructure,
  qualitypatternmodel.patternstructure.impl,
  qualitypatternmodel.patternstructure.util,
+ qualitypatternmodel.testutilityclasses,
  qualitypatternmodel.utilityclasses
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,

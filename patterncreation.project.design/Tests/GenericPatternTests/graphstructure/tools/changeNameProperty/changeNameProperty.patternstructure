@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_SnYPkPtTEeqYEKnS78hbUg" internalId="1" elementCounter="6" parameterCounter="5" operatorCounter="3" counter="10">
+  <graph id="_SnYPkvtTEeqYEKnS78hbUg" internalId="2" returnElements="_SnYPlPtTEeqYEKnS78hbUg">
+    <elements id="_SnYPlPtTEeqYEKnS78hbUg" internalId="1" resultOf="_SnYPkvtTEeqYEKnS78hbUg" name="Element 1" predicates="_iw8tMPvtEeqnEIeZB7eCsw _jG9ZcPvtEeqnEIeZB7eCsw">
+      <properties id="_icW9QPvtEeqnEIeZB7eCsw" internalId="9" comparison1="_iw8tMPvtEeqnEIeZB7eCsw" match="_jG9ZcPvtEeqnEIeZB7eCsw" name="PropertyNewName"/>
+    </elements>
+    <operatorList id="_SnYPk_tTEeqYEKnS78hbUg">
+      <operators xsi:type="operators:Comparison" id="_iw8tMPvtEeqnEIeZB7eCsw" internalId="1" elements="_SnYPlPtTEeqYEKnS78hbUg" argument1="_icW9QPvtEeqnEIeZB7eCsw" option="_iw9UQPvtEeqnEIeZB7eCsw" typeOption="_iw97UPvtEeqnEIeZB7eCsw"/>
+      <operators xsi:type="operators:Match" id="_jG9ZcPvtEeqnEIeZB7eCsw" internalId="2" elements="_SnYPlPtTEeqYEKnS78hbUg" property="_icW9QPvtEeqnEIeZB7eCsw" option="_jG9ZcfvtEeqnEIeZB7eCsw" regularExpression="_jG9ZcvvtEeqnEIeZB7eCsw"/>
+    </operatorList>
+  </graph>
+  <parameterList id="_SnYPkftTEeqYEKnS78hbUg">
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_iw9UQPvtEeqnEIeZB7eCsw" internalId="1" comparisons="_iw8tMPvtEeqnEIeZB7eCsw">
+      <options>=</options>
+      <options>!=</options>
+      <options>=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_iw97UPvtEeqnEIeZB7eCsw" internalId="2" typeComparisons="_iw8tMPvtEeqnEIeZB7eCsw">
+      <options>UNSPECIFIED</options>
+      <options>UNSPECIFIED</options>
+    </parameters>
+    <parameters xsi:type="parameters:BooleanParam" id="_jG9ZcfvtEeqnEIeZB7eCsw" internalId="4" matches="_jG9ZcPvtEeqnEIeZB7eCsw"/>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_jG9ZcvvtEeqnEIeZB7eCsw" internalId="3" matches="_jG9ZcPvtEeqnEIeZB7eCsw"/>
+  </parameterList>
+</patternstructure:CompletePattern>
