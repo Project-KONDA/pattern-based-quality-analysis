@@ -50,6 +50,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	/**
 	 * The cached value of the '{@link #getProperty() <em>Property</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The <code>Property</code> that is matched to a regular expression.
 	 * <!-- end-user-doc -->
 	 * @see #getProperty()
 	 * @generated
@@ -60,6 +61,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * Boolean parameter to determine whether to negate the matching result.
 	 * <!-- end-user-doc -->
 	 * @see #getOption()
 	 * @generated
@@ -70,6 +72,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	/**
 	 * The cached value of the '{@link #getRegularExpression() <em>Regular Expression</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * Parameter to determine the regular expression.
 	 * <!-- end-user-doc -->
 	 * @see #getRegularExpression()
 	 * @generated
@@ -79,6 +82,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -130,7 +134,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	}
 
 	@Override
-	public boolean isTranslatable() throws InvalidityException {
+	public boolean isTranslatable() {
 		return property.isTranslatable();
 	}
 	
@@ -141,7 +145,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * 
 	 */
 	@Override
-	public EList<Element> getAllArgumentElements() throws InvalidityException {		
+	public EList<Element> getAllArgumentElements() {		
 		return property.getAllArgumentElements();
 	}
 	
@@ -161,14 +165,12 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			if(getOption() == null) {
 				BooleanParam bool = new BooleanParamImpl();				
 				setOption(bool);
-//				parameterList.add(bool);
 			} else {
 				parameterList.add(getOption());
 			}
 			if(getRegularExpression() == null) {
 				TextLiteralParam textLiteral = new TextLiteralParamImpl();				
 				setRegularExpression(textLiteral);
-//				parameterList.add(textLiteral);
 			} else {
 				parameterList.add(getRegularExpression());
 			}

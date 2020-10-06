@@ -48,6 +48,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	/**
 	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>Comparisons</code> that reference <code>this</code> as <code>argument1</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison1()
 	 * @generated
@@ -57,6 +58,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	/**
 	 * The cached value of the '{@link #getComparison2() <em>Comparison2</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>Comparisons</code> that reference <code>this</code> as <code>argument2</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison2()
 	 * @generated
@@ -66,6 +68,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -77,7 +80,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<Operator> getAllOperators() throws InvalidityException {
+	public EList<Operator> getAllOperators() {
 		BasicEList<Operator> operators = new BasicEList<Operator>();
 		operators.add(this);
 		return operators;
@@ -145,8 +148,8 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 		isCycleFree(list);		
 	}
 
-/**
-	 * <!-- begin-user-doc -->
+	/**
+	 * <!-- begin-user-doc -->	
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -156,27 +159,28 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	
 	/**
 	 * <!-- begin-user-doc -->
+	 * Type of the return value.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
 	abstract public ReturnType getReturnType();
 
-/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
-	abstract public boolean isTranslatable() throws InvalidityException;
+	abstract public boolean isTranslatable();
 
-/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
-	abstract public EList<Element> getAllArgumentElements() throws InvalidityException;
+	abstract public EList<Element> getAllArgumentElements();
 
 /**
 	 * <!-- begin-user-doc -->
@@ -199,7 +203,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -217,7 +221,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -231,7 +235,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
-/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -249,7 +253,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -273,7 +277,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 		super.eSet(featureID, newValue);
 	}
 
-/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -294,7 +298,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 		super.eUnset(featureID);
 	}
 
-/**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -410,12 +414,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case OperatorsPackage.OPERATOR___GET_ALL_OPERATORS:
-				try {
-					return getAllOperators();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return getAllOperators();
 			case OperatorsPackage.OPERATOR___GET_ROOT_BOOLEAN_OPERATORS:
 				return getRootBooleanOperators();
 			case OperatorsPackage.OPERATOR___IS_CYCLE_FREE__ELIST:
@@ -439,19 +438,9 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 			case OperatorsPackage.OPERATOR___GET_RETURN_TYPE:
 				return getReturnType();
 			case OperatorsPackage.OPERATOR___IS_TRANSLATABLE:
-				try {
-					return isTranslatable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return isTranslatable();
 			case OperatorsPackage.OPERATOR___GET_ALL_ARGUMENT_ELEMENTS:
-				try {
-					return getAllArgumentElements();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return getAllArgumentElements();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

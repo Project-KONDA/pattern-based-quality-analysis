@@ -10,6 +10,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Operator List</b></em>'.
+ * Contains all <code>Operator</code>s referenced from within the container <code>graph</code>.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -41,6 +42,7 @@ public interface OperatorList extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Adds <code>operator</code> to <code>this</code> <code>OperatorList</code> if it is not contained yet.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

@@ -17,7 +17,9 @@ import static qualitypatternmodel.utilityclasses.Constants.*;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Text
- * List</b></em>'. <!-- end-user-doc -->
+ * List</b></em>'.
+ * A parameter consisting of a list of <code>Strings</code>.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -30,7 +32,9 @@ import static qualitypatternmodel.utilityclasses.Constants.*;
 public class TextListParamImpl extends ParameterValueImpl implements TextListParam {
 	/**
 	 * The cached value of the '{@link #getValues() <em>Values</em>}' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * Concrete values of this parameter specified during concretization.
+	 * <!-- end-user-doc -->
 	 * @see #getValues()
 	 * @generated
 	 * @ordered
@@ -38,7 +42,9 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	protected EList<String> values;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * Constructor.
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public TextListParamImpl() {
@@ -55,9 +61,7 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	public boolean inputIsValid() {
 		if (getValues() == null || getValues().isEmpty())
 			return false;
-//		for (String val : getValues())
-//			if (val.equals(""))
-//				return false;
+
 		return true;
 	}
 	
@@ -67,7 +71,8 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -76,7 +81,8 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -100,11 +106,7 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 			res += "'" + getValues().get(i) + "'";
 		}
 		return res + ")";
-		//let $sequence := ("apple", 'banana', "carrot", 'dog', "egg", 'fig')
 	}
-
-
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -115,9 +117,6 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	public String getListVar() {
 		return LISTVARIABLE + getInternalId();
 	}
-
-
-
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -133,7 +132,8 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -149,7 +149,8 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -163,7 +164,8 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -195,7 +197,8 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

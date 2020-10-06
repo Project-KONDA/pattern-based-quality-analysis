@@ -107,13 +107,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER__DESCRIPTION = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__IS_PREDEFINED = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int PARAMETER__PREDEFINED = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
@@ -248,7 +248,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___RECORD_VALUES__XMLDATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE;
+	int PARAMETER___RECORD_VALUES__XMLDATADATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -378,13 +378,13 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM__DESCRIPTION = PARAMETER__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION_PARAM__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
+	int COMPARISON_OPTION_PARAM__PREDEFINED = PARAMETER__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -555,7 +555,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER___RECORD_VALUES__XMLDATABASE;
+	int COMPARISON_OPTION_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -685,13 +685,13 @@ public interface ParametersPackage extends EPackage {
 	int PROPERTY_OPTION_PARAM__DESCRIPTION = PARAMETER__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_PARAM__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
+	int PROPERTY_OPTION_PARAM__PREDEFINED = PARAMETER__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -853,7 +853,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER___RECORD_VALUES__XMLDATABASE;
+	int PROPERTY_OPTION_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -1124,7 +1124,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_LIST___RECORD_VALUES__XMLDATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE;
+	int PARAMETER_LIST___RECORD_VALUES__XMLDATADATABASE = PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -1236,13 +1236,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE__DESCRIPTION = PARAMETER__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
+	int PARAMETER_VALUE__PREDEFINED = PARAMETER__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1404,7 +1404,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE = PARAMETER___RECORD_VALUES__XMLDATABASE;
+	int PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE = PARAMETER___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -1660,13 +1660,13 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+	int BOOLEAN_PARAM__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1846,7 +1846,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+	int BOOLEAN_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -2102,13 +2102,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+	int TEXT_LIST_PARAM__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2279,7 +2279,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+	int TEXT_LIST_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -2553,13 +2553,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+	int TEXT_LITERAL_PARAM__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2748,7 +2748,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+	int TEXT_LITERAL_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -3004,13 +3004,13 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+	int NUMBER_PARAM__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -3190,7 +3190,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+	int NUMBER_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -3446,13 +3446,13 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+	int DATE_PARAM__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -3623,7 +3623,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+	int DATE_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -3888,13 +3888,13 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+	int TIME_PARAM__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -4065,7 +4065,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+	int TIME_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -4330,13 +4330,13 @@ public interface ParametersPackage extends EPackage {
 	int UNTYPED_PARAMETER_VALUE__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNTYPED_PARAMETER_VALUE__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+	int UNTYPED_PARAMETER_VALUE__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -4498,7 +4498,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNTYPED_PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+	int UNTYPED_PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -4763,13 +4763,13 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM__DESCRIPTION = PARAMETER_VALUE__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME_PARAM__IS_PREDEFINED = PARAMETER_VALUE__IS_PREDEFINED;
+	int DATE_TIME_PARAM__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -4940,7 +4940,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATABASE;
+	int DATE_TIME_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -5205,13 +5205,13 @@ public interface ParametersPackage extends EPackage {
 	int RELATION_OPTION_PARAM__DESCRIPTION = PARAMETER__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPTION_PARAM__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
+	int RELATION_OPTION_PARAM__PREDEFINED = PARAMETER__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -5373,7 +5373,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPTION_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER___RECORD_VALUES__XMLDATABASE;
+	int RELATION_OPTION_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -5512,13 +5512,13 @@ public interface ParametersPackage extends EPackage {
 	int TYPE_OPTION_PARAM__DESCRIPTION = PARAMETER__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Is Predefined</b></em>' attribute.
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_OPTION_PARAM__IS_PREDEFINED = PARAMETER__IS_PREDEFINED;
+	int TYPE_OPTION_PARAM__PREDEFINED = PARAMETER__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -5680,7 +5680,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_OPTION_PARAM___RECORD_VALUES__XMLDATABASE = PARAMETER___RECORD_VALUES__XMLDATABASE;
+	int TYPE_OPTION_PARAM___RECORD_VALUES__XMLDATADATABASE = PARAMETER___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -5806,15 +5806,15 @@ public interface ParametersPackage extends EPackage {
 	EAttribute getParameter_Description();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.Parameter#isIsPredefined <em>Is Predefined</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.Parameter#isPredefined <em>Predefined</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Predefined</em>'.
-	 * @see qualitypatternmodel.parameters.Parameter#isIsPredefined()
+	 * @return the meta object for the attribute '<em>Predefined</em>'.
+	 * @see qualitypatternmodel.parameters.Parameter#isPredefined()
 	 * @see #getParameter()
 	 * @generated
 	 */
-	EAttribute getParameter_IsPredefined();
+	EAttribute getParameter_Predefined();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#inputIsValid() <em>Input Is Valid</em>}' operation.
@@ -6554,12 +6554,12 @@ public interface ParametersPackage extends EPackage {
 		EAttribute PARAMETER__DESCRIPTION = eINSTANCE.getParameter_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Predefined</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Predefined</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER__IS_PREDEFINED = eINSTANCE.getParameter_IsPredefined();
+		EAttribute PARAMETER__PREDEFINED = eINSTANCE.getParameter_Predefined();
 
 		/**
 		 * The meta object literal for the '<em><b>Input Is Valid</b></em>' operation.

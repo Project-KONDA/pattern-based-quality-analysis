@@ -18,7 +18,7 @@ import qualitypatternmodel.patternstructure.ElementMapping;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Single Element</b></em>'.
- * This represents a single data element.
+ * Representation of data units in <code>Graphs</code>. They may encompass multiple <code>Properties</code> and be related to other <code>Elements<code> via <code>Relations</code>.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -253,6 +253,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the <code>internalId</code> of the first correspondence of <code>this</code> in the pattern.
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
 	 * @generated
@@ -261,6 +262,11 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates a <code>Property</code> and
+	 * a <code>Match</code>
+	 * that references the new <code>Property</code> and has <code>regex</code> as its regular expression.
+	 * 
+	 * @param regex the regular expression for the new <code>Match</code> operator
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -269,6 +275,11 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates a <code>Property</code> and
+	 * a <code>Comparison</code> that compares the new <code>Property</code>
+	 * with a newly created <code>TextLiteralParam</code> based on <code>value</code>.
+	 * 
+	 * @param the value that the newly created <code>Property</code> is compared with by the newly created <code>Comparison</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -277,6 +288,8 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates a <code>Property</code> and a <code>Match</code> operator
+	 * that references the new <code>Property</code>.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -285,6 +298,12 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates a <code>Property</code> and
+	 * a <code>Comparison</code> that compares the new <code>Property</code>
+	 * with a newly created <code>UntypedParameterValue</code>.
+	 * 
+	 * @return the <code>UntypedParameterValue</code> that the newly
+	 * created <code>Property</code> is compared with by the newly created <code>Comparison</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -293,14 +312,23 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a list of all <code>Operators</code> referenced by <code>this</code>.
+	 * 
+	 * @return a list of all <code>Operators</code> referenced by <code>this</code>
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<Operator> getAllOperators() throws InvalidityException;
+	EList<Operator> getAllOperators();
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates a <code>Property</code> and
+	 * a <code>Comparison</code> based on <code>operator</code> that compares the new <code>Property</code>
+	 * with <code>input</code>.
+	 * 
+	 * @param operator the <code>ComparisonOperator</code> underlying the newly created <code>Comparison</code>
+	 * @param input the <code>ParameterValue</code> that is compared to the new <code>Property</code> by the new <code>Comparison</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -309,6 +337,9 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates a <code>Property</code> and
+	 * a <code>Comparison</code> that compares the new <code>Property</code>
+	 * with <code>input</code>.	
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -317,6 +348,9 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Copies <code>property</code> and adds it to <code>properties</code>.
+	 * 
+	 * @return the copy of <code>property</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -324,7 +358,14 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	Property copyProperty(Property property);
 
 	/**
-	 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc --> 
+	 * Copies <code>comparison</code>.
+	 * 
+	 * Creates a new <code>Comparison</code> that has the same <code>Parameter</code> as an argument and
+	 * a copy of the original <code>Property</code> argument as an argument.
+	 * 
+	 * @param comparison the <code>Comparison</code> to be copied
+	 * @throws InvalidityException if <code>comparison</code> does not compare a <code>Property</code> and a <code>Parameter</code>
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -333,6 +374,12 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Copies <code>match</code>.
+	 * 
+	 * Creates a new <code>Match</code> that references a copy of the originally referenced <code>Property</code>
+	 * and inserts this <code>Property</code> into <code>properties</code>.
+	 * 
+	 * @param match the <code>Match</code> to be copied
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -341,6 +388,9 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a new <code>Property</code> inserted into <code>properties</code> of <code>this</code>.
+	 * 
+	 * @return the newly created <code>Property</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -349,6 +399,12 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Sets <code>graph</code> of <code>this</code> to <code>newGraph</code> 
+	 * without updating corresponding <code>Elements</code> in previous and following <code>Graphs</code>,
+	 * updating referenced <code>Parameters</code>,
+	 * clearing <code>predicates</code> and deleting <code>Relations</code>.
+	 * 
+	 * @param newGraph the new container of <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

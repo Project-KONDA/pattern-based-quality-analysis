@@ -7,8 +7,8 @@ import qualitypatternmodel.parameters.ComparisonOptionParam;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Count Condition</b></em>'.
- * Count Condition is used to do cardinality checks.
- * The Count Condition therefore compares a number calculated by a CountPattern to the calculated number of another CountConditionArgument.
+ * Comparison between the number of matches of a pattern (represented by <code>CountPattern</code>) with an integer (represented by <code>NumberElement</code>) 
+ * or the number of matches of another pattern via the operator specified in <code>option</code> of type <code>ComparisonOptionParam</code>.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -105,8 +105,8 @@ public interface CountCondition extends Condition {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * If this is directly or indirectly contained in <code>CompletePattern</code>, creates a <code>ComparisonOptionParam</code> if non existent, assigns it to the attribute <code>option</code> and adds <code>option</code> to the <code>ParameterList</code> of the enclosing <code>CompletePattern</code>.
-	 * 
+	 * If this is directly or indirectly contained in <code>CompletePattern</code>, creates a <code>ComparisonOptionParam</code> if non existent, 
+	 * assigns it to the attribute <code>option</code> and adds <code>option</code> to the <code>ParameterList</code> of the enclosing <code>CompletePattern</code>.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -115,8 +115,7 @@ public interface CountCondition extends Condition {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Creates and sets <code>countPattern</code> if non existent.
-	 * 
+	 * Creates and sets <code>countPattern</code> if non existent.	 * 
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * <!-- begin-user-doc -->
  * A representation of the literals of the enumeration '<em><b>Abstraction Level</b></em>',
  * and utility methods for working with them.
+ * Abstraction levels of patterns.
  * <!-- end-user-doc -->
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getAbstractionLevel()
  * @model

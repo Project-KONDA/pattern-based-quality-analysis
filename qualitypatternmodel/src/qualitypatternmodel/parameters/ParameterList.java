@@ -10,7 +10,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Parameter List</b></em>'.
- * The ParameterList builds the container for all Parameters in a CompletePattern.
+ * The container for all <code>Parameters</code> in a <code>CompletePattern</code>.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -66,7 +66,9 @@ public interface ParameterList extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Method to add a new Parameter into ParameterList.
+	 * Adds <code>parameter</code> if it is not contained yet and is not null.
+	 * 
+	 * @param parameter the <code>Parameter</code> to be added
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -75,6 +77,9 @@ public interface ParameterList extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Removes <code>parameter</code> if it is contained and not referenced by components of the <code>CompletePattern</code>.
+	 * 
+	 * @param parameter the <code>Parameter</code> to be removed
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

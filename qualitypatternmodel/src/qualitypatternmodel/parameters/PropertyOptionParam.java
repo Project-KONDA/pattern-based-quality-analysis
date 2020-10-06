@@ -9,6 +9,7 @@ import qualitypatternmodel.adaptionxml.XmlProperty;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Property Option</b></em>'.
+ * Defines input parameter of type <code>PropertyKind</code> to define an <code>XmlProperty</code>.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -30,6 +31,7 @@ public interface PropertyOptionParam extends Parameter {
 	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.PropertyKind}.
 	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionxml.PropertyKind}.
 	 * <!-- begin-user-doc -->
+	 * Returns all allowed choices of type <code>PropertyKind</code>.
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Options</em>' attribute list.
 	 * @see qualitypatternmodel.adaptionxml.PropertyKind
@@ -69,6 +71,7 @@ public interface PropertyOptionParam extends Parameter {
 	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XmlProperty}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlProperty#getOption <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
+	 * Returns a list of <code>XmlProperty</code>s that reference <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Properties</em>' reference list.
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getPropertyOptionParam_Properties()

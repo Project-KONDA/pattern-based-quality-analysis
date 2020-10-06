@@ -28,6 +28,7 @@ import qualitypatternmodel.utilityclasses.Constants;
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Text Literal</b></em>'.
+ * A parameter of type <code>String</code>.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -54,6 +55,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Concrete value of this parameter specified during concretization.
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
@@ -64,6 +66,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	/**
 	 * The cached value of the '{@link #getMatches() <em>Matches</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>Matches</code> whose regular expression is specified through <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getMatches()
 	 * @generated
@@ -74,6 +77,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	/**
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>XmlProperties</code> whose attribute name is specified through <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getProperties()
 	 * @generated
@@ -83,6 +87,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */

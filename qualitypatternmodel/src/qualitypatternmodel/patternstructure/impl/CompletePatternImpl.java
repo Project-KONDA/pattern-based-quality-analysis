@@ -18,7 +18,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.ExecutionPackage;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
@@ -60,7 +60,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	
 	/**
 	 * The cached value of the '{@link #getParameterList() <em>Parameter List</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The list of all <code>Parameters</code> in this <code>CompletePattern</code>
+	 * They can be referenced from components of <code>Graphs</code> directly or indirectly contained in this <code>CompletePattern</code>.
+	 * <!-- end-user-doc -->
 	 * @see #getParameterList()
 	 * @generated
 	 * @ordered
@@ -72,14 +75,16 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @see #getName()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = "Pattern";
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * begin-user-doc -->
+	 * The user defined name of this pattern. It should describe roughly the pattern's purpose.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getName()
 	 * @generated
@@ -276,18 +281,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		
 		ElementImpl element = new ElementImpl();
 		element.setGraph(getGraph());
-//		getGraph().setRootElement(rootElement);
-//		ElementImpl returnElement = new ElementImpl();
-//		returnElement.setGraph(getGraph());
-////		returnElement.setPreviousElement(getGraph().getRootElement());
+
 		getGraph().getReturnElements().add(element);
-//		element.setName("First");
-//		returnElement.setName("Return");
-//		
-//		Relation relation = new RelationImpl();
-//		relation.setGraph(getGraph());
-//		relation.setSource(rootElement);
-//		relation.setTarget(returnElement);
 		
 		getInternalId();
 	}	
@@ -312,9 +307,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		res += super.generateQuery();
 		return res;
 	}
-
-
-
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -351,10 +343,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	
 		isValid(AbstractionLevel.CONCRETE);
 		
-		if(getDatabase() instanceof XmlDatabase) {			
-			recordValues((XmlDatabase) getDatabase());
+		if(getDatabase() instanceof XmlDataDatabase) {			
+			recordValues((XmlDataDatabase) getDatabase());
 		}
-		// TODO: else throw exception?
+		// TODO: else throw exception
 	}
 
 
@@ -435,16 +427,19 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 */
 	@Override
-	public String getName() {
+	public String getName() {		
 		return name;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setName(String newName) {
+		if(newName == null || newName.equals("")) {			
+			newName = NAME_EDEFAULT;			
+		}
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())

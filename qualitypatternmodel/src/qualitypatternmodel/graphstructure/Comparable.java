@@ -5,14 +5,13 @@ package qualitypatternmodel.graphstructure;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
-import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Graph Element</b></em>'.
+ * An argument of a <code>Comparison</code>.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -58,6 +57,9 @@ public interface Comparable extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the type of <code>this</code> comparison argument.
+	 * 
+	 * @return the <code>ReturnType</code> of <code>this</code> comparison argument
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -66,11 +68,14 @@ public interface Comparable extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns <code>true</code> if <code>this</code> comparison argument can be translated to XQuery.
+	 * 
+	 * @return <code>true</code> if <code>this</code> comparison argument can be translated to XQuery
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" required="true" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	boolean isTranslatable() throws InvalidityException;
+	boolean isTranslatable();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -82,10 +87,13 @@ public interface Comparable extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a list of all <code>Elements</code> that directly or indirectly (via a <code>Property</code>) represent <code>this</code> comparison argument.
+	 * 
+	 * @return a list of all <code>Elements</code> that directly or indirectly (via a <code>Property</code>) represent <code>this</code> comparison argument
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<Element> getAllArgumentElements() throws InvalidityException;
+	EList<Element> getAllArgumentElements();
 
 } // GraphElement

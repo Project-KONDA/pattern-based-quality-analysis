@@ -15,7 +15,7 @@
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//parameters/Parameter">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/Parameter/parameterList"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/Parameter/description"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/Parameter/isPredefined"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/Parameter/predefined"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/inputIsValid"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/generateDescription"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/validate">
@@ -335,12 +335,6 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Quantifier/EXISTS"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Quantifier/FORALL"/>
       </genEnums>
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//patternstructure/Location">
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Location/RETURN"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Location/OUTSIDE"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Location/EXISTS"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Location/FORALL"/>
-      </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//patternstructure/AbstractionLevel">
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/AbstractionLevel/GENERIC"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/AbstractionLevel/ABSTRACT"/>
@@ -563,20 +557,6 @@
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/BaseXContextWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/QueryExceptionWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/QueryIOExceptionWrapper"/>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//execution/Database">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/Database/results"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/Database/patterns"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/Database/name"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/Database/execute">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/Database/execute/pattern"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/Database/execute/name"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/Database/execute/person"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/Database/countMatches">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/Database/countMatches/pattern"/>
-        </genOperations>
-      </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//execution/Result">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/Result/database"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/Result/name"/>
@@ -594,126 +574,159 @@
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/XmlResult"/>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/XmlDatabase">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/XmlDatabase/context"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/XmlDatabase/elementNames"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/XmlDatabase/attributeNames"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/XmlDatabase/recordedAttributeValues"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/XmlDatabase/recordedDataValues"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/XmlDatabase/schemaContext"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/XmlDatabase/namespace"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/analyseDatabase"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/analyseSchema"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/recordAttributeValue">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/recordAttributeValue/value"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/XmlDataDatabase">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/XmlDataDatabase/recordedAttributeValues"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/XmlDataDatabase/recordedDataValues"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/XmlDataDatabase/xmlSchema"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/XmlDataDatabase/elementNames"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/XmlDataDatabase/attributeNames"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDataDatabase/recordAttributeValue">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDataDatabase/recordAttributeValue/value"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/recordDataValue">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/recordDataValue/value"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDataDatabase/recordDataValue">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDataDatabase/recordDataValue/value"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/removeAttributeValue">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/removeAttributeValue/value"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDataDatabase/removeAttributeValue">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDataDatabase/removeAttributeValue/value"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/removeDataValue">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/removeDataValue/value"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDataDatabase/removeDataValue">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDataDatabase/removeDataValue/value"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/init"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/open"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/recordElementName">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/recordElementName/name"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDataDatabase/recordElementName">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDataDatabase/recordElementName/name"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/recordAttributeName">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/recordAttributeName/name"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDataDatabase/recordAttributeName">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDataDatabase/recordAttributeName/name"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/removeElementName">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/removeElementName/name"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDataDatabase/removeElementName">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDataDatabase/removeElementName/name"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/removeAttributeName">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/removeAttributeName/name"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDataDatabase/removeAttributeName">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDataDatabase/removeAttributeName/name"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/checkKeyRefInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkKeyRefInSchema/elementName1"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkKeyRefInSchema/elementName2"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDataDatabase/addAttributeNames">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDataDatabase/addAttributeNames/attributeNames"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/checkChildInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkChildInSchema/elementName1"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkChildInSchema/elementName2"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/checkParentInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkParentInSchema/elementName1"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkParentInSchema/elementName2"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/checkDescendantInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkDescendantInSchema/elementName1"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkDescendantInSchema/elementName2"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/checkAncestorInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkAncestorInSchema/elementName1"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkAncestorInSchema/elementName2"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/checkAttributeInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkAttributeInSchema/elementName"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkAttributeInSchema/attributeName"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/createSchemaDatabase"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/openSchemaDatabase"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/checkFollowingSiblingInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkFollowingSiblingInSchema/elementName1"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkFollowingSiblingInSchema/elementName2"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/checkPrecedingSiblingInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkPrecedingSiblingInSchema/elementName1"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkPrecedingSiblingInSchema/elementName2"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/checkFollowingInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkFollowingInSchema/elementName1"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkFollowingInSchema/elementName2"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/checkPrecedingInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkPrecedingInSchema/elementName1"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/checkPrecedingInSchema/elementName2"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/initSchemaDatabase"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getChildrenInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getChildrenInSchema/elementName"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getDescendantsInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getDescendantsInSchema/elementName"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getParentsInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getParentsInSchema/elementName"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getAncestorsInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getAncestorsInSchema/elementName"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getAttributesInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getAttributesInSchema/elementName"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getFollowingSiblingsInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getFollowingSiblingsInSchema/elementName"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getPrecedingSiblingsInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getPrecedingSiblingsInSchema/elementName"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getFollowingInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getFollowingInSchema/elementName"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/getPrecedingInSchema">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/getPrecedingInSchema/elementName"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDataDatabase/addElementNames">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDataDatabase/addElementNames/elementNames"/>
         </genOperations>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/LocalXmlDatabase">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/LocalXmlDatabase/dataPath"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/LocalXmlDatabase/schemaPath"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/LocalXmlDatabase/create"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/LocalXmlDataDatabase">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/LocalXmlDataDatabase/dataPath"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/ServerXmlDatabase"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/ServerXmlDataDatabase"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/Databases">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/Databases/xmlDatabases"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/Databases/xmlSchemata"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/StringToIntMap">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/StringToIntMap/key"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/StringToIntMap/value"/>
       </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/xmlDatabases"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/elementNames"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/attributeNames"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkFollowingInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkFollowingInSchema/elementName1"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkFollowingInSchema/elementName2"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkParentInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkParentInSchema/elementName1"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkParentInSchema/elementName2"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkAncestorInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkAncestorInSchema/elementName1"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkAncestorInSchema/elementName2"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkPrecedingSiblingInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkPrecedingSiblingInSchema/elementName1"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkPrecedingSiblingInSchema/elementName2"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkDescendantInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkDescendantInSchema/elementName1"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkDescendantInSchema/elementName2"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkChildInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkChildInSchema/elementName1"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkChildInSchema/elementName2"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkAttributeInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkAttributeInSchema/elementName"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkAttributeInSchema/attributeName"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkKeyRefInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkKeyRefInSchema/elementName1"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkKeyRefInSchema/elementName2"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkPrecedingInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkPrecedingInSchema/elementName1"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkPrecedingInSchema/elementName2"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkFollowingSiblingInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkFollowingSiblingInSchema/elementName1"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkFollowingSiblingInSchema/elementName2"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getAncestorsInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getAncestorsInSchema/elementName"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getDescendantsInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getDescendantsInSchema/elementName"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getChildrenInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getChildrenInSchema/elementName"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getFollowingInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getFollowingInSchema/elementName"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getPrecedingInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getPrecedingInSchema/elementName"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getParentsInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getParentsInSchema/elementName"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getAttributesInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getAttributesInSchema/elementName"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getFollowingSiblingsInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getFollowingSiblingsInSchema/elementName"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getPrecedingSiblingsInSchema">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/getPrecedingSiblingsInSchema/elementName"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/LocalXmlSchemaDatabase">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/LocalXmlSchemaDatabase/schemaPath"/>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/ServerXmlSchemaDatabase"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//execution/XmlDatabase">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/XmlDatabase/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/XmlDatabase/namespace"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/XmlDatabase/context"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/analyse"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/init"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/open"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/create"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/execute">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/execute/query"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//execution/Database">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/Database/results"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/Database/patterns"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/Database/execute">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/Database/execute/pattern"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/Database/execute/name"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/Database/execute/person"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/Database/countMatches">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/Database/countMatches/pattern"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//execution/Databaseformat"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
@@ -66,6 +66,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	/**
 	 * The cached value of the '{@link #getCondition1() <em>Condition1</em>}' containment reference.
 	 * <!-- begin-user-doc -->
+	 * The first argument.
 	 * <!-- end-user-doc -->
 	 * @see #getCondition1()
 	 * @generated
@@ -76,6 +77,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	/**
 	 * The cached value of the '{@link #getCondition2() <em>Condition2</em>}' containment reference.
 	 * <!-- begin-user-doc -->
+	 * The second argument.
 	 * <!-- end-user-doc -->
 	 * @see #getCondition2()
 	 * @generated
@@ -89,60 +91,50 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 */
 	protected FormulaImpl() {
 		super();
-//		setCondition1(new TrueElementImpl());
-//		setCondition2(new TrueElementImpl());
 	}
 
 	@Override
 	public String generateQuery() throws InvalidityException {
 		String result = "";
 		if (operator != null) {
-//			if (operator == LogicalOperator.NOT) {
-//				if (condition2 == null && condition != null) {
-//					result = "not(" + condition.toXQuery(location) + ")";
-//				} else {
-//					throw new InvalidityException("invalid argument");
-//				}
-//			} else {
-				if (condition1 != null && condition2 != null) {
-					switch (operator) {
-					case AND:
-					case OR:
-						result += "((" + condition1.generateQuery() + ")";
-						result += "\n" + operator.getLiteral() + "\n";
-						result += "(" + condition2.generateQuery() + "))";
-						break;
-					case IMPLIES:
-						result += "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
-						result += Constants.OR;
-						result += "(" + condition2.generateQuery() + "))";
-						break;
-					case XOR:
-						result = "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
-						result += Constants.AND;
-						result += "(" + condition2.generateQuery() + "))";
-						result += Constants.OR;
-						result += "((" + condition1.generateQuery() + ")";
-						result += Constants.AND;
-						result += Constants.NOT + "("+ condition2.generateQuery() + "))";
-						break;
-					case EQUAL:
-						result += "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
-						result += Constants.AND;
-						result += Constants.NOT + "(" + condition2.generateQuery() + "))";
-						result += Constants.OR;
-						result += "((" + condition1.generateQuery() + ")";
-						result += Constants.AND;
-						result += "("+ condition2.generateQuery() + "))";			
-						break;
-					default:
-						throw new InvalidityException("invalid arguments");
-					}
-					
-				} else {
+			if (condition1 != null && condition2 != null) {
+				switch (operator) {
+				case AND:
+				case OR:
+					result += "((" + condition1.generateQuery() + ")";
+					result += "\n" + operator.getLiteral() + "\n";
+					result += "(" + condition2.generateQuery() + "))";
+					break;
+				case IMPLIES:
+					result += "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
+					result += Constants.OR;
+					result += "(" + condition2.generateQuery() + "))";
+					break;
+				case XOR:
+					result = "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
+					result += Constants.AND;
+					result += "(" + condition2.generateQuery() + "))";
+					result += Constants.OR;
+					result += "((" + condition1.generateQuery() + ")";
+					result += Constants.AND;
+					result += Constants.NOT + "("+ condition2.generateQuery() + "))";
+					break;
+				case EQUAL:
+					result += "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
+					result += Constants.AND;
+					result += Constants.NOT + "(" + condition2.generateQuery() + "))";
+					result += Constants.OR;
+					result += "((" + condition1.generateQuery() + ")";
+					result += Constants.AND;
+					result += "("+ condition2.generateQuery() + "))";			
+					break;
+				default:
 					throw new InvalidityException("invalid arguments");
 				}
-//			}
+				
+			} else {
+				throw new InvalidityException("invalid arguments");
+			}
 			
 			return addMissingBrackets(result);
 					
@@ -155,25 +147,14 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValidLocal(abstractionLevel);
-
-//		if (operator == LogicalOperator.NOT) {
-//			condition.isValid(isDefinedPattern);
-//		} else {
-			condition1.isValid(abstractionLevel);
-			condition2.isValid(abstractionLevel);
-//		}
+		condition1.isValid(abstractionLevel);
+		condition2.isValid(abstractionLevel);
 	}
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (operator == null)
+		if (operator == null) {
 			throw new InvalidityException("operator null" + " (" + getInternalId() + ")");
-//		if (condition == null)
-//			throw new InvalidityException("arguments null");
-//		if (operator == LogicalOperator.NOT) {
-//			if (condition2 != null || condition == null) {
-//				throw new InvalidityException("argument invalid (op:NOT)");
-//			}
-//		} else 
+		}
 		if (condition1 == null || condition2 == null) {
 			throw new InvalidityException("arguments invalid" + " (" + getInternalId() + ")");
 		}
@@ -197,12 +178,6 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		getCondition2().finalizeXMLAdaption();
 	}
 	
-//	@Override	
-//	public void updateParameters(ParameterList newParameterList) {
-//		getCondition1().updateParameters(newParameterList);
-//		getCondition2().updateParameters(newParameterList);
-//	}
-	
 	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
@@ -220,7 +195,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 	
 	@Override
-	public void recordValues(XmlDatabase database) {
+	public void recordValues(XmlDataDatabase database) {
 		getCondition1().recordValues(database);
 		getCondition2().recordValues(database);
 	}

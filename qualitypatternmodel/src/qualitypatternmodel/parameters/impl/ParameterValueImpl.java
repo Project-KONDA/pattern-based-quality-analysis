@@ -25,10 +25,9 @@ import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
-import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.execution.Database;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
@@ -45,7 +44,7 @@ import qualitypatternmodel.parameters.ParameterValue;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>XS Type</b></em>'.
+ * An implementation of the model object '<em><b>ParameterValue</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -62,6 +61,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	/**
 	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>Comparisons</code> that reference <code>this</code> as <code>argument1</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison1()
 	 * @generated
@@ -71,6 +71,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	/**
 	 * The cached value of the '{@link #getComparison2() <em>Comparison2</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>Comparisons</code> that reference <code>this</code> as <code>argument2</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison2()
 	 * @generated
@@ -91,6 +92,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	/**
 	 * The cached value of the '{@link #isTypeModifiable() <em>Type Modifiable</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * True if user is allowed to replace <code>this</code> with another <code>ParameterValue</code>.
 	 * <!-- end-user-doc -->
 	 * @see #isTypeModifiable()
 	 * @generated
@@ -101,6 +103,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -239,7 +242,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 * @generated NOT
 	 */
 	@Override
-	public boolean isTranslatable() throws InvalidityException {
+	public boolean isTranslatable() {
 		return true;
 	}
 	
@@ -255,7 +258,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 * @generated NOT
 	 */
 	@Override
-	public EList<Element> getAllArgumentElements() throws InvalidityException {
+	public EList<Element> getAllArgumentElements() {
 		return new BasicEList<Element>();
 	}
 
@@ -460,19 +463,9 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			case ParametersPackage.PARAMETER_VALUE___GET_RETURN_TYPE:
 				return getReturnType();
 			case ParametersPackage.PARAMETER_VALUE___IS_TRANSLATABLE:
-				try {
-					return isTranslatable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return isTranslatable();
 			case ParametersPackage.PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS:
-				try {
-					return getAllArgumentElements();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return getAllArgumentElements();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -510,8 +503,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		Database db;
 		try {
 			db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-			if(db instanceof XmlDatabase) {
-				XmlDatabase xmlDb = (XmlDatabase) db;
+			if(db instanceof XmlDataDatabase) {
+				XmlDataDatabase xmlDb = (XmlDataDatabase) db;
 				return xmlDb.getElementNames();
 			}
 		} catch (MissingPatternContainerException e) {
@@ -531,8 +524,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		Database db;
 		try {
 			db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-			if(db instanceof XmlDatabase) {
-				XmlDatabase xmlDb = (XmlDatabase) db;
+			if(db instanceof XmlDataDatabase) {
+				XmlDataDatabase xmlDb = (XmlDataDatabase) db;
 				return xmlDb.getAttributeNames();
 			}
 		} catch (MissingPatternContainerException e) {
@@ -552,8 +545,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		Database db;
 		try {
 			db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-			if(db instanceof XmlDatabase) {
-				XmlDatabase xmlDb = (XmlDatabase) db;
+			if(db instanceof XmlDataDatabase) {
+				XmlDataDatabase xmlDb = (XmlDataDatabase) db;
 				return xmlDb.getRecordedDataValues();
 			}
 		} catch (MissingPatternContainerException e) {
@@ -573,8 +566,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		Database db;
 		try {
 			db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-			if(db instanceof XmlDatabase) {
-				XmlDatabase xmlDb = (XmlDatabase) db;
+			if(db instanceof XmlDataDatabase) {
+				XmlDataDatabase xmlDb = (XmlDataDatabase) db;
 				return xmlDb.getRecordedAttributeValues();
 			}
 		} catch (MissingPatternContainerException e) {
@@ -645,6 +638,14 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		return suggestions;
 	}
 	
+	/**
+	 * Calculates suggestions for the tag name of <code>element</code> based on
+	 * specified outgoing <code>XmlNavigations</code> to <code>XmlElements</code>
+	 * with an already specified tag name  via the XML schema of the database associated with the pattern.
+	 * 
+	 * @param suggestions a list of suggestions to which newly calculated suggestions are appended
+	 * @param element the <code>XmlElement</code> for which tag suggestions are calculated
+	 */
 	private void analyseOutgoingRelations(EList<String> suggestions, XmlElement element) {
 		for(Relation outgoingRelation : element.getOutgoing()) {
 			if(outgoingRelation instanceof XmlNavigation) {
@@ -664,26 +665,26 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 							Database db;
 							try {
 								db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-								if (db instanceof XmlDatabase) {
-									XmlDatabase xmlDatabase = (XmlDatabase) db;
+								if (db instanceof XmlDataDatabase) {
+									XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
 
 									if (outgoingNavigation.getOption().getValue() == RelationKind.CHILD) {
-										suggestions.addAll(xmlDatabase.getParentsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getParentsInSchema(tag));
 									}
 									if (outgoingNavigation.getOption().getValue() == RelationKind.DESCENDANT) {
-										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getAncestorsInSchema(tag));
 									}
 
 									if (outgoingNavigation.getOption().getValue() == RelationKind.PARENT) {
-										suggestions.addAll(xmlDatabase.getChildrenInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getChildrenInSchema(tag));
 									}
 									if (outgoingNavigation.getOption().getValue() == RelationKind.ANCESTOR) {
-										suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(tag));
 									}
 
 									if (outgoingNavigation.getOption()
 											.getValue() == RelationKind.FOLLOWING_SIBLING) {
-										suggestions.addAll(xmlDatabase.getPrecedingSiblingsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getPrecedingSiblingsInSchema(tag));
 									}
 									if (outgoingNavigation.getOption().getValue() == RelationKind.FOLLOWING) {
 										// TODO
@@ -694,7 +695,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 									}
 									if (outgoingNavigation.getOption()
 											.getValue() == RelationKind.PRECEDING_SIBLING) {
-										suggestions.addAll(xmlDatabase.getFollowingSiblingsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getFollowingSiblingsInSchema(tag));
 									}
 
 									if (outgoingNavigation.getOption().getValue() == RelationKind.SELF) {
@@ -704,13 +705,13 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 									if (outgoingNavigation.getOption()
 											.getValue() == RelationKind.DESCENDANT_OR_SELF) {
 										suggestions.add(tag);
-										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getAncestorsInSchema(tag));
 									}
 
 									if (outgoingNavigation.getOption()
 											.getValue() == RelationKind.ANCESTOR_OR_SELF) {
 										suggestions.add(tag);
-										suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(tag));
 									}
 								}
 							} catch (MissingPatternContainerException | BaseXException | QueryIOException
@@ -725,6 +726,14 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		}
 	}
 
+	/**
+	 * Calculates suggestions for the tag name of <code>element</code> based on
+	 * specified incoming <code>XmlNavigations</code> from <code>XmlElements</code>
+	 * with an already specified tag name via the XML schema of the database associated with the pattern.
+	 * 
+	 * @param suggestions a list of suggestions to which newly calculated suggestions are appended
+	 * @param element the <code>XmlElement</code> for which tag suggestions are calculated
+	 */
 	private void analyseIncomingRelations(EList<String> suggestions, XmlElement element) {
 		for(Relation incomingRelation : element.getIncoming()) {
 			if(incomingRelation instanceof XmlNavigation) {
@@ -744,37 +753,37 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 							Database db;
 							try {
 								db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-								if (db instanceof XmlDatabase) {
-									XmlDatabase xmlDatabase = (XmlDatabase) db;
+								if (db instanceof XmlDataDatabase) {
+									XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
 
 									if (incomingNavigation.getOption().getValue() == RelationKind.CHILD) {
-										suggestions.addAll(xmlDatabase.getChildrenInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getChildrenInSchema(tag));
 									}
 									if (incomingNavigation.getOption().getValue() == RelationKind.DESCENDANT) {
-										suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(tag));
 									}
 
 									if (incomingNavigation.getOption().getValue() == RelationKind.PARENT) {
-										suggestions.addAll(xmlDatabase.getParentsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getParentsInSchema(tag));
 									}
 									if (incomingNavigation.getOption().getValue() == RelationKind.ANCESTOR) {
-										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getAncestorsInSchema(tag));
 									}
 
 									if (incomingNavigation.getOption()
 											.getValue() == RelationKind.FOLLOWING_SIBLING) {
-										suggestions.addAll(xmlDatabase.getFollowingSiblingsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getFollowingSiblingsInSchema(tag));
 									}
 									if (incomingNavigation.getOption().getValue() == RelationKind.FOLLOWING) {
-										suggestions.addAll(xmlDatabase.getFollowingInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getFollowingInSchema(tag));
 									}
 
 									if (incomingNavigation.getOption().getValue() == RelationKind.PRECEDING) {
-										suggestions.addAll(xmlDatabase.getPrecedingInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getPrecedingInSchema(tag));
 									}
 									if (incomingNavigation.getOption()
 											.getValue() == RelationKind.PRECEDING_SIBLING) {
-										suggestions.addAll(xmlDatabase.getPrecedingSiblingsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getPrecedingSiblingsInSchema(tag));
 									}
 
 									if (incomingNavigation.getOption().getValue() == RelationKind.SELF) {
@@ -784,13 +793,13 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 									if (incomingNavigation.getOption()
 											.getValue() == RelationKind.DESCENDANT_OR_SELF) {
 										suggestions.add(tag);
-										suggestions.addAll(xmlDatabase.getDescendantsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(tag));
 									}
 
 									if (incomingNavigation.getOption()
 											.getValue() == RelationKind.ANCESTOR_OR_SELF) {
 										suggestions.add(tag);
-										suggestions.addAll(xmlDatabase.getAncestorsInSchema(tag));
+										suggestions.addAll(xmlDataDatabase.getXmlSchema().getAncestorsInSchema(tag));
 									}
 								}
 							} catch (MissingPatternContainerException | BaseXException | QueryIOException

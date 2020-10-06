@@ -80,6 +80,7 @@ public class DatabasesItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ExecutionPackage.Literals.DATABASES__XML_DATABASES);
+			childrenFeatures.add(ExecutionPackage.Literals.DATABASES__XML_SCHEMATA);
 		}
 		return childrenFeatures;
 	}
@@ -133,6 +134,7 @@ public class DatabasesItemProvider
 
 		switch (notification.getFeatureID(Databases.class)) {
 			case ExecutionPackage.DATABASES__XML_DATABASES:
+			case ExecutionPackage.DATABASES__XML_SCHEMATA:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -153,17 +155,32 @@ public class DatabasesItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ExecutionPackage.Literals.DATABASES__XML_DATABASES,
-				 ExecutionFactory.eINSTANCE.createXmlDatabase()));
+				 ExecutionFactory.eINSTANCE.createXmlDataDatabase()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ExecutionPackage.Literals.DATABASES__XML_DATABASES,
-				 ExecutionFactory.eINSTANCE.createLocalXmlDatabase()));
+				 ExecutionFactory.eINSTANCE.createLocalXmlDataDatabase()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ExecutionPackage.Literals.DATABASES__XML_DATABASES,
-				 ExecutionFactory.eINSTANCE.createServerXmlDatabase()));
+				 ExecutionFactory.eINSTANCE.createServerXmlDataDatabase()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExecutionPackage.Literals.DATABASES__XML_SCHEMATA,
+				 ExecutionFactory.eINSTANCE.createXmlSchemaDatabase()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExecutionPackage.Literals.DATABASES__XML_SCHEMATA,
+				 ExecutionFactory.eINSTANCE.createLocalXmlSchemaDatabase()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ExecutionPackage.Literals.DATABASES__XML_SCHEMATA,
+				 ExecutionFactory.eINSTANCE.createServerXmlSchemaDatabase()));
 	}
 
 	/**

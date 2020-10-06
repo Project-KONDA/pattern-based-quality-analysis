@@ -29,7 +29,7 @@ import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.execution.Database;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.graphstructure.Element;
@@ -58,7 +58,9 @@ import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 public class RelationOptionParamImpl extends ParameterImpl implements RelationOptionParam {
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' attribute list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * A subset of all XPath axes to choose from during the concretization.
+	 * <!-- end-user-doc -->
 	 * @see #getOptions()
 	 * @generated
 	 * @ordered
@@ -77,7 +79,9 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * begin-user-doc -->
+	 * The chosen <code>RelationKind</code> (i.e. XPath axis).
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getValue()
 	 * @generated
@@ -87,7 +91,9 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 
 	/**
 	 * The cached value of the '{@link #getRelations() <em>Relations</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <code>XmlNavigation</code>s that are specified through <code>this</code>.
+	 * <!-- end-user-doc -->
 	 * @see #getRelations()
 	 * @generated
 	 * @ordered
@@ -95,7 +101,9 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	protected EList<XmlNavigation> relations;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * Constructor.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
 	 */
@@ -125,7 +133,6 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 
 	@Override
 	public String generateQuery() throws InvalidityException {
-//		return "/" + value.getLiteral() + "::*";
 		return value.getLiteral();
 	}
 
@@ -220,37 +227,37 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 			if(sourceTag != null && targetTag != null) {
 				try {
 					Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-					if(db instanceof XmlDatabase) {
-						XmlDatabase xmlDatabase = (XmlDatabase) db;
+					if(db instanceof XmlDataDatabase) {
+						XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
 						
 						try {
 							
-							if(xmlDatabase.checkChildInSchema(sourceTag, targetTag)) {
+							if(xmlDataDatabase.getXmlSchema().checkChildInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.CHILD);
 								suggestions.add(RelationKind.DESCENDANT);
-							} else if(xmlDatabase.checkDescendantInSchema(sourceTag, targetTag)) {
+							} else if(xmlDataDatabase.getXmlSchema().checkDescendantInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.DESCENDANT);
 							}
 							
-							if(xmlDatabase.checkParentInSchema(sourceTag, targetTag)) {
+							if(xmlDataDatabase.getXmlSchema().checkParentInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.PARENT);
 								suggestions.add(RelationKind.ANCESTOR);
-							} else if(xmlDatabase.checkAncestorInSchema(sourceTag, targetTag)) {
+							} else if(xmlDataDatabase.getXmlSchema().checkAncestorInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.ANCESTOR);
 							}
 							
-							if(xmlDatabase.checkFollowingSiblingInSchema(sourceTag, targetTag)) {
+							if(xmlDataDatabase.getXmlSchema().checkFollowingSiblingInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.FOLLOWING_SIBLING);
 								suggestions.add(RelationKind.FOLLOWING);
-							} else if(xmlDatabase.checkFollowingInSchema(sourceTag, targetTag)) {
+							} else if(xmlDataDatabase.getXmlSchema().checkFollowingInSchema(sourceTag, targetTag)) {
 								suggestions.add(RelationKind.FOLLOWING);
 							}
 							
 							// TODO:
-//							if(xmlDatabase.checkPrecedingSiblingInSchema(sourceTag, targetTag)) {
+//							if(xmlDatabase.getXmlSchema().checkPrecedingSiblingInSchema(sourceTag, targetTag)) {
 //								suggestions.add(RelationKind.PRECEDING_SIBLING);
 //								suggestions.add(RelationKind.PRECEDING);
-//							} else if(xmlDatabase.checkPrecedingInSchema(sourceTag, targetTag)) {
+//							} else if(xmlDatabase.getXmlSchema().checkPrecedingInSchema(sourceTag, targetTag)) {
 //								suggestions.add(RelationKind.PRECEDING);
 //							}
 							

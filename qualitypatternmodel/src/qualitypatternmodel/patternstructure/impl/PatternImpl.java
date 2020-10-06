@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -51,6 +51,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	/**
 	 * The cached value of the '{@link #getGraph() <em>Graph</em>}' containment reference.
 	 * <!-- begin-user-doc -->
+	 * The context <code>Graph</code> of this <code>Pattern</code>, which specifies the pattern's application context and potential output.
 	 * <!-- end-user-doc -->
 	 * @see #getGraph()
 	 * @generated
@@ -60,6 +61,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
+	 * The first-order logic <code>Condition</code> of this <code>Pattern</code>, which limits the pattern's output.
 	 * <!-- end-user-doc -->
 	 * @see #getCondition()
 	 * @generated
@@ -113,7 +115,6 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 */
 	protected PatternImpl() {
 		super();
-//		setCondition(new TrueElementImpl());
 	}
 
 	@Override
@@ -140,7 +141,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			throw new InvalidityException("return elements missing");
 		}
 		String forClauses = graph.generateQuery();
-		String whereClause = WHERE + condition.generateQuery().replace("\n", "\n  "); // TODO: schachteln!
+		String whereClause = WHERE + condition.generateQuery().replace("\n", "\n  ");
 
 		String returnClause = RETURN + "(";
 		EList<Element> returnElements = graph.getReturnElements();
@@ -187,7 +188,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	}
 	
 	@Override
-	public void recordValues(XmlDatabase database) {
+	public void recordValues(XmlDataDatabase database) {
 		getGraph().recordValues(database);
 		getCondition().recordValues(database);
 	}
@@ -209,7 +210,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		EList<MorphismContainer> nextQuantifiedConditions = getCondition().getNextMorphismContainers();
 		for(MorphismContainer next : nextQuantifiedConditions) {
 			if(!getGraph().equals(next.getMorphism().getSource())) {
-				throw new InvalidityException("[" + getInternalId() + "] wrong morphism source in " + next.getInternalId() + ": " + next.getMorphism().getSource().getInternalId() + " instead of " + getGraph().getInternalId());
+				throw new InvalidityException("[" + getInternalId() + "] wrong morphism source in " + next.getInternalId() + ": " 
+					+ next.getMorphism().getSource().getInternalId() + " instead of " + getGraph().getInternalId());
 			}
 			if(!next.getGraph().equals(next.getMorphism().getTarget())) {
 				throw new InvalidityException("wrong mapping to [" + getInternalId() + "]");

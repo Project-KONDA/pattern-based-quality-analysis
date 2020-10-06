@@ -10,6 +10,7 @@ import qualitypatternmodel.operators.Comparison;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Type Option Param</b></em>'.
+ * Defines input parameter of type <code>ReturnType</code> to specify a <code>Comparison</code>.
  * <!-- end-user-doc -->
  *
  * <p>

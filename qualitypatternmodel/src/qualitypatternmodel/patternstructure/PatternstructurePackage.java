@@ -229,7 +229,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE = 14;
+	int PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE = 14;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -455,7 +455,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING___RECORD_VALUES__XMLDATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE;
+	int MAPPING___RECORD_VALUES__XMLDATADATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -699,7 +699,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPING___RECORD_VALUES__XMLDATABASE = MAPPING___RECORD_VALUES__XMLDATABASE;
+	int RELATION_MAPPING___RECORD_VALUES__XMLDATADATABASE = MAPPING___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -961,7 +961,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___RECORD_VALUES__XMLDATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE;
+	int CONDITION___RECORD_VALUES__XMLDATADATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -1268,7 +1268,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___RECORD_VALUES__XMLDATABASE = CONDITION___RECORD_VALUES__XMLDATABASE;
+	int QUANTIFIED_CONDITION___RECORD_VALUES__XMLDATADATABASE = CONDITION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -1557,7 +1557,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___RECORD_VALUES__XMLDATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE;
+	int MORPHISM___RECORD_VALUES__XMLDATADATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -1864,7 +1864,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___RECORD_VALUES__XMLDATABASE = MAPPING___RECORD_VALUES__XMLDATABASE;
+	int ELEMENT_MAPPING___RECORD_VALUES__XMLDATADATABASE = MAPPING___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -2153,7 +2153,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___RECORD_VALUES__XMLDATABASE = CONDITION___RECORD_VALUES__XMLDATABASE;
+	int FORMULA___RECORD_VALUES__XMLDATADATABASE = CONDITION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -2424,7 +2424,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___RECORD_VALUES__XMLDATABASE = CONDITION___RECORD_VALUES__XMLDATABASE;
+	int TRUE_ELEMENT___RECORD_VALUES__XMLDATADATABASE = CONDITION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -2686,7 +2686,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___RECORD_VALUES__XMLDATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE;
+	int PATTERN___RECORD_VALUES__XMLDATADATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -3047,7 +3047,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___RECORD_VALUES__XMLDATABASE = PATTERN___RECORD_VALUES__XMLDATABASE;
+	int COMPLETE_PATTERN___RECORD_VALUES__XMLDATADATABASE = PATTERN___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -3345,7 +3345,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___RECORD_VALUES__XMLDATABASE = CONDITION___RECORD_VALUES__XMLDATABASE;
+	int NOT_CONDITION___RECORD_VALUES__XMLDATADATABASE = CONDITION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -3643,7 +3643,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___RECORD_VALUES__XMLDATABASE = CONDITION___RECORD_VALUES__XMLDATABASE;
+	int COUNT_CONDITION___RECORD_VALUES__XMLDATADATABASE = CONDITION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -3896,7 +3896,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___RECORD_VALUES__XMLDATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE;
+	int COUNT_CONDITION_ARGUMENT___RECORD_VALUES__XMLDATADATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -4122,7 +4122,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___RECORD_VALUES__XMLDATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE;
+	int MORPHISM_CONTAINER___RECORD_VALUES__XMLDATADATABASE = PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -4420,7 +4420,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___RECORD_VALUES__XMLDATABASE = PATTERN___RECORD_VALUES__XMLDATABASE;
+	int COUNT_PATTERN___RECORD_VALUES__XMLDATADATABASE = PATTERN___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -4682,7 +4682,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___RECORD_VALUES__XMLDATABASE = COUNT_CONDITION_ARGUMENT___RECORD_VALUES__XMLDATABASE;
+	int NUMBER_ELEMENT___RECORD_VALUES__XMLDATADATABASE = COUNT_CONDITION_ARGUMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -4759,16 +4759,6 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIER = 18;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.Location <em>Location</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.Location
-	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getLocation()
-	 * @generated
-	 */
-	int LOCATION = 19;
-
-	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.AbstractionLevel <em>Abstraction Level</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4776,7 +4766,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getAbstractionLevel()
 	 * @generated
 	 */
-	int ABSTRACTION_LEVEL = 20;
+	int ABSTRACTION_LEVEL = 19;
 
 	/**
 	 * The meta object id for the '<em>Invalidity Exception Wrapper</em>' data type.
@@ -4786,7 +4776,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getInvalidityExceptionWrapper()
 	 * @generated
 	 */
-	int INVALIDITY_EXCEPTION_WRAPPER = 21;
+	int INVALIDITY_EXCEPTION_WRAPPER = 20;
 
 	/**
 	 * The meta object id for the '<em>Class Wrapper</em>' data type.
@@ -4796,7 +4786,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getClassWrapper()
 	 * @generated
 	 */
-	int CLASS_WRAPPER = 22;
+	int CLASS_WRAPPER = 21;
 
 	/**
 	 * The meta object id for the '<em>Missing Pattern Container Exception</em>' data type.
@@ -4806,7 +4796,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getMissingPatternContainerException()
 	 * @generated
 	 */
-	int MISSING_PATTERN_CONTAINER_EXCEPTION = 23;
+	int MISSING_PATTERN_CONTAINER_EXCEPTION = 22;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.RelationMapping <em>Relation Mapping</em>}'.
@@ -5492,14 +5482,14 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPatternElement__FinalizeXMLAdaption();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#recordValues(qualitypatternmodel.execution.XmlDatabase) <em>Record Values</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#recordValues(qualitypatternmodel.execution.XmlDataDatabase) <em>Record Values</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Record Values</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#recordValues(qualitypatternmodel.execution.XmlDatabase)
+	 * @see qualitypatternmodel.patternstructure.PatternElement#recordValues(qualitypatternmodel.execution.XmlDataDatabase)
 	 * @generated
 	 */
-	EOperation getPatternElement__RecordValues__XmlDatabase();
+	EOperation getPatternElement__RecordValues__XmlDataDatabase();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#relationsXmlAdapted() <em>Relations Xml Adapted</em>}' operation.
@@ -5852,16 +5842,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getQuantifier();
-
-	/**
-	 * Returns the meta object for enum '{@link qualitypatternmodel.patternstructure.Location <em>Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Location</em>'.
-	 * @see qualitypatternmodel.patternstructure.Location
-	 * @generated
-	 */
-	EEnum getLocation();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.patternstructure.AbstractionLevel <em>Abstraction Level</em>}'.
@@ -6475,7 +6455,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE = eINSTANCE.getPatternElement__RecordValues__XmlDatabase();
+		EOperation PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE = eINSTANCE.getPatternElement__RecordValues__XmlDataDatabase();
 
 		/**
 		 * The meta object literal for the '<em><b>Relations Xml Adapted</b></em>' operation.
@@ -6766,16 +6746,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum QUANTIFIER = eINSTANCE.getQuantifier();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.Location <em>Location</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.patternstructure.Location
-		 * @see qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl#getLocation()
-		 * @generated
-		 */
-		EEnum LOCATION = eINSTANCE.getLocation();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.AbstractionLevel <em>Abstraction Level</em>}' enum.

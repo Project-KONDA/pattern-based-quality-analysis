@@ -49,6 +49,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' attribute list.
 	 * <!-- begin-user-doc -->
+	 * A subset of all comparison operators to choose from during the concretization.
 	 * <!-- end-user-doc -->
 	 * @see #getOptions()
 	 * @generated
@@ -59,6 +60,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * 
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
@@ -69,6 +71,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The chosen concrete comparison operator.
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
@@ -79,6 +82,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	/**
 	 * The cached value of the '{@link #getComparisons() <em>Comparisons</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * <code>Comparisons</code> that are specified through <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getComparisons()
 	 * @generated
@@ -89,6 +93,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	/**
 	 * The cached value of the '{@link #getCountConditions() <em>Count Conditions</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * <code>CountConditions</code> that are specified through <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getCountConditions()
 	 * @generated

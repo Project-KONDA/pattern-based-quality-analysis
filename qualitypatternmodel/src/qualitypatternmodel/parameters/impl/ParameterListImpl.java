@@ -29,8 +29,9 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object
- * '<em><b>Variable List</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> 
+ * An implementation of the model object '<em><b>ParameterList</b></em>'. 
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -44,7 +45,9 @@ import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 public class ParameterListImpl extends PatternElementImpl implements ParameterList {
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * A list of all <code>Parameters</code> of the <code>CompletePattern</code>.
+	 * <!-- end-user-doc -->
 	 * @see #getParameters()
 	 * @generated
 	 * @ordered
@@ -52,7 +55,9 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	protected EList<Parameter> parameters;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * Constructor.
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ParameterListImpl() {

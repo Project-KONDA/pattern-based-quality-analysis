@@ -2,18 +2,15 @@
  */
 package qualitypatternmodel.graphstructure.impl;
 
-import static qualitypatternmodel.utilityclasses.Constants.*;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
@@ -26,8 +23,9 @@ import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Adaptable;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
@@ -42,21 +40,20 @@ import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.impl.ComparisonImpl;
 import qualitypatternmodel.operators.impl.MatchImpl;
-import qualitypatternmodel.graphstructure.Element;
-import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
+import qualitypatternmodel.parameters.UntypedParameterValue;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
+import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountPattern;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.ElementMapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.impl.ElementMappingImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
@@ -88,6 +85,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>Comparisons</code> that have <code>this</code> as their first argument.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison1()
 	 * @generated
@@ -98,6 +96,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getComparison2() <em>Comparison2</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>Comparisons</code> that have <code>this</code> as their second argument.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison2()
 	 * @generated
@@ -107,7 +106,10 @@ public class ElementImpl extends PatternElementImpl implements Element {
 
 	/**
 	 * The cached value of the '{@link #getOutgoingMappings() <em>Outgoing Mappings</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * A list of <code>ElementMappings</code> that have <code>this</code> as their <code>source</code>.
+	 * They declare the equivalence between <code>this</code> and other <code>Elements</code> contained in <code>Graphs</code> that directly follow in the condition hierarchy.
+	 * <!-- end-user-doc -->
 	 * @see #getOutgoingMappings()
 	 * @generated
 	 * @ordered
@@ -116,7 +118,10 @@ public class ElementImpl extends PatternElementImpl implements Element {
 
 	/**
 	 * The cached value of the '{@link #getIncomingMapping() <em>Incoming Mapping</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The <code>ElementMapping</code> that has <code>this</code> as its <code>target</code>.
+	 * It declares the equivalence between <code>this</code> and another <code>Element</code> contained in the previous <code>Graph</code> in the condition hierarchy.
+	 * <!-- end-user-doc -->
 	 * @see #getIncomingMapping()
 	 * @generated
 	 * @ordered
@@ -126,6 +131,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getResultOf() <em>Result Of</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The container <code>graph</code> if <code>this</code> should be returned by the pattern, else null.
 	 * <!-- end-user-doc -->
 	 * @see #getResultOf()
 	 * @generated
@@ -146,6 +152,9 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The name of <code>this</code> <code>Element</code>.
+	 * Is only used for the visualization, not for internal purposes.
+	 * Has default value but can be modified by users.
 	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
@@ -166,6 +175,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #isTranslated() <em>Translated</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * <code>True</code> if <code>this</code> was already translated into a query during a run of a translation algorithm.
 	 * <!-- end-user-doc -->
 	 * @see #isTranslated()
 	 * @generated
@@ -186,6 +196,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #isPredicatesAreBeingTranslated() <em>Predicates Are Being Translated</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * <code>True</code> while the <code>predicates</code> are being translated into a query language.
 	 * <!-- end-user-doc -->
 	 * @see #isPredicatesAreBeingTranslated()
 	 * @generated
@@ -196,6 +207,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>Properties</code> of <code>this</code> that are expected to exist and may serve as an argument to an <code>Operator</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getProperties()
 	 * @generated
@@ -206,6 +218,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getPredicates() <em>Predicates</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>BooleanOperators</code> that have <code>this</code> or one of its <code>properties</code> as a direct or indirect argument.
 	 * <!-- end-user-doc -->
 	 * @see #getPredicates()
 	 * @generated
@@ -216,6 +229,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getOutgoing() <em>Outgoing</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of outgoing <code>Relations</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getOutgoing()
 	 * @generated
@@ -226,6 +240,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * The cached value of the '{@link #getIncoming() <em>Incoming</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of incoming <code>Relations</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getIncoming()
 	 * @generated
@@ -243,25 +258,11 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	}	
 
 	private void removeElementFromPreviousGraphs() {
-
 		if (getIncomingMapping() != null && getIncomingMapping().getSource() != null) {
 			Element correspondingPreviousElement = getIncomingMapping().getSource();
 			correspondingPreviousElement.setGraph(null);
 		}
-
 //		getIncomingMapping().getMorphism().getMappings().remove(getIncomingMapping());
-//		correspondingPreviousElement.setPreviousElement(null);
-//		correspondingPreviousElement.setRoot(null);
-////		getMappingFrom().getMorphism().getMappings().remove(getMappingFrom());
-//		EList<Element> nextSingleElementsCopy = new BasicEList<Element>();
-//		nextSingleElementsCopy.addAll(getNextElements());
-//		for (Element element : nextSingleElementsCopy) {
-//			element.setPreviousElement(null);
-//		}
-//		if (getRelationFromPrevious() != null && getRelationFromPrevious().getMappingFrom() != null) {
-//			getRelationFromPrevious().getMappingFrom().getMorphism().getMappings()
-//					.remove(getRelationFromPrevious().getMappingFrom());
-//		}
 	}
 
 	@Override
@@ -275,36 +276,10 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	}
 
 	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {	
-//		CountPattern countPattern = null;				
-//		try {
-//			countPattern = (CountPattern) getAncestor(CountPattern.class);
-//		} catch (MissingPatternContainerException e) {
-//			// do nothing
-//		}
-	
-		if (getGraph().getPattern() != null && getGraph().getPattern() instanceof CompletePattern && incomingMapping != null) // depth=0 => ReturnGraph
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {		
+		if (getGraph().getPattern() != null && getGraph().getPattern() instanceof CompletePattern && incomingMapping != null)
 			throw new InvalidityException("invalid ElementMapping to returnGraph: " + incomingMapping + " "
 					+ incomingMapping.getId() + " - (" + outgoingMappings + ")");
-			
-//		if (!eIsSet(GraphstructurePackage.ELEMENT__ROOT)
-//				&& !eIsSet(GraphstructurePackage.ELEMENT__PREVIOUS_ELEMENT))
-//			throw new InvalidityException("previousElement null at SingleElement " + getId());
-//		if (eIsSet(GraphstructurePackage.ELEMENT__ROOT)
-//				&& eIsSet(GraphstructurePackage.ELEMENT__PREVIOUS_ELEMENT))
-//			throw new InvalidityException("root has previous Element");
-//		if (!eIsSet(GraphstructurePackage.ELEMENT__ROOT)
-//				&& !eIsSet(GraphstructurePackage.ELEMENT__RELATION_FROM_PREVIOUS))
-//			throw new InvalidityException("relation not specified");
-//		if (isRootElement() && getRelationFromPrevious() != null)
-//			throw new InvalidityException("relation specified for root element");
-//
-//		if(getPreviousElement() == null && getRoot() == null) {
-//			throw new InvalidityException("missing previous element or root graph");
-//		}
-//		if(isRootElement() && !getPredicates().isEmpty()) {
-//			throw new InvalidityException("root has predicate");
-//		}
 		
 		for (BooleanOperator predicate : getPredicates())
 			if (predicate == null)
@@ -320,11 +295,9 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			for(Property property : getProperties()) {
 				if(property.getClass().equals(PropertyImpl.class)) {
 					throw new InvalidityException("Non-generic pattern contains Property (" + getInternalId() + ")");
-				}
-				
+				}				
 			}			
-		}
-		
+		}		
 	}
 
 	@Override
@@ -337,25 +310,23 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		if(!(this instanceof XmlElement) && !(this instanceof XmlRoot)) {
 			XmlElement xmlElement = new XmlElementImpl();
 			xmlElement.setGraphSimple(getGraph());	
-//			xmlElement.setName(getName());
+			
 			if(getName().matches("Element [0-9]+")) {
 				xmlElement.setName(getName().replace("Element", "XmlElement"));
 			} else {
 				xmlElement.setName(getName());
 			}
 			
-//			for(ElementMapping mapping : xmlElement.getMappingTo()) {
-//				mapping.getTo().setGraph(null);
-//			}
-//			xmlElement.getMappingTo().clear();
-			
 			xmlElement.setResultOf(getResultOf());
+			
 			xmlElement.getPredicates().addAll(getPredicates());
 			getPredicates().clear();
+			
 			xmlElement.getOutgoingMappings().addAll(getOutgoingMappings());
 			getOutgoingMappings().clear();
 			xmlElement.setIncomingMapping(getIncomingMapping());
 			setIncomingMapping(null);
+			
 			setResultOf(null);
 			
 			EList<Relation> outgoingCopy = new BasicEList<Relation>();
@@ -363,21 +334,26 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			for(Relation relation : outgoingCopy) {
 				relation.setSource(xmlElement);
 			}
+			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
 			incomingCopy.addAll(getIncoming());
 			for(Relation relation : incomingCopy) {
 				relation.setTarget(xmlElement);
 			}
+			
 			xmlElement.getComparison1().addAll(getComparison1());
 			getComparison1().clear();
 			xmlElement.getComparison2().addAll(getComparison2());
 			getComparison2().clear();	
+			
 			EList<Property> propertiesCopy2 = new BasicEList<Property>();
 			propertiesCopy2.addAll(getProperties());
 			for(Property property : propertiesCopy2) {
 				property.setElement(xmlElement);
 			}		
+			
 			setGraph(null);
+			
 			return xmlElement;
 		}
 		return this;		
@@ -385,7 +361,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	}
 	
 	@Override
-	public void recordValues(XmlDatabase database) {
+	public void recordValues(XmlDataDatabase database) {
 		for(Property p : getProperties()) {
 			p.recordValues(database);
 		}
@@ -529,6 +505,14 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public void setName(String newName) {
+		if(newName == null || newName.equals("")) {
+			if(getOriginalID() > -1) {
+				newName = "Element " + getOriginalID();
+			} else {
+				return;
+			}
+		}
+		
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
@@ -672,9 +656,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			removeElementFromPreviousGraphs();
 			removeMappingsToNext();
 			setResultOf(null);
-//			for(BooleanOperator boolOp : getPredicates()) {
-//				boolOp.reset();				
-//			}
 			getPredicates().clear();
 		}
 		
@@ -683,8 +664,10 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		if(newGraph != null) {
 			for(Morphism morphism : newGraph.getOutgoingMorphisms()) {
 				MorphismContainer container = morphism.getMorphismContainer();
+				
 				Element newElement = new ElementImpl();
 				newElement.setGraph(container.getGraph());
+				
 				ElementMapping newMapping = new ElementMappingImpl();
 				newMapping.setMorphism(morphism);
 				newMapping.setSource(this);
@@ -692,7 +675,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			}		
 		}
 		
-		// TODO: reset incoming and outgoing ?
+		// TODO: reset incoming and outgoing relations ?
 		
 		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.ELEMENT__GRAPH, msgs);
 		return msgs;
@@ -709,42 +692,13 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		}
 	}
 	
-	public NotificationChain basicSetGraphSimple(Graph newGraph, NotificationChain msgs) {
-//		if (getMappingFrom() != null) {
-//			removeElementFromPreviousGraphs();
-//		}
-//		
-//		if(newGraph != null) {
-//			for(Morphism morphism : newGraph.getMorphismTo()) {
-//				MorphismContainer container = morphism.getMorphismContainer();
-//				Element newElement = new ElementImpl();
-//				newElement.setGraph(container.getGraph());
-//				ElementMapping newMapping = new ElementMappingImpl();
-//				newMapping.setMorphism(morphism);
-//				newMapping.setFrom(this);
-//				newMapping.setTo(newElement);
-//			}		
-//		}
-		
-//		setResultOf(null);
-		
-//		removeMappingsToNext();
-		
-		// TODO: reset incoming and outgoing ?
-		
+	public NotificationChain basicSetGraphSimple(Graph newGraph, NotificationChain msgs) {		
 		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.ELEMENT__GRAPH, msgs);
 		return msgs;
 	}
 
 	private void setGraphForCorrespondingElements(Graph newGraph) {
 		for (ElementMapping mapping : getOutgoingMappings()) {
-//			PatternElement elem;
-//			try {
-//				elem = mapping.getMorphism().getContainer();
-//			} catch (MissingPatternContainerException e1) {
-//				elem = null;
-//			}
-//			if (!( elem instanceof CountPattern)) {
 			if (!( mapping.getMorphism().getMorphismContainer() instanceof CountPattern)) {
 				Element element = mapping.getTarget();
 				if (newGraph == null && element.getResultOf() != null) {
@@ -755,16 +709,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				}
 			}			
 		}
-		if (getIncomingMapping() != null && !(getIncomingMapping().getMorphism().getMorphismContainer() instanceof CountPattern)) {
-
-//			PatternElement elem;
-//			try {
-//				elem = getMappingFrom().getMorphism().getContainer();
-//			} catch (MissingPatternContainerException e1) {
-//				elem = null;
-//			}
-//			if (!(elem instanceof CountPattern)) {
-			
+		if (getIncomingMapping() != null && !(getIncomingMapping().getMorphism().getMorphismContainer() instanceof CountPattern)) {			
 			Element element = getIncomingMapping().getSource();
 			if (newGraph == null && element.getResultOf() != null) {
 				element.setResultOf(null);
@@ -1210,12 +1155,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON:
 				return addPrimitiveComparison();
 			case GraphstructurePackage.ELEMENT___GET_ALL_OPERATORS:
-				try {
-					return getAllOperators();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return getAllOperators();
 			case GraphstructurePackage.ELEMENT___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE:
 				addPrimitiveComparison((ComparisonOperator)arguments.get(0), (ParameterValue)arguments.get(1));
 				return null;
@@ -1249,19 +1189,9 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			case GraphstructurePackage.ELEMENT___GET_RETURN_TYPE:
 				return getReturnType();
 			case GraphstructurePackage.ELEMENT___IS_TRANSLATABLE:
-				try {
-					return isTranslatable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return isTranslatable();
 			case GraphstructurePackage.ELEMENT___GET_ALL_ARGUMENT_ELEMENTS:
-				try {
-					return getAllArgumentElements();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return getAllArgumentElements();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -1282,11 +1212,8 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public EList<Operator> getAllOperators() throws InvalidityException {
+	public EList<Operator> getAllOperators() {
 		EList<Operator> res = new BasicEList<Operator>();
-//		for (Element element : getNextElements()) {
-//			res.addAll(element.getAllOperators());
-//		}
 		for (Operator op : getPredicates()) {
 			res.addAll(op.getAllOperators());
 		}
@@ -1312,9 +1239,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	@Override
 	public void prepareTranslation() {
 		translated = false;
-//		for (Element element : getNextElements()) {
-//			element.prepareTranslation();
-//		}
 	}
 
 	/**
@@ -1360,7 +1284,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public void addPrimitiveComparison(String value) {
-		// TODO: move to XMLElement ?
 		Comparison comparison = new ComparisonImpl();		
 		try {			
 			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
@@ -1393,9 +1316,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 * @generated NOT
 	 */
 	@Override
-	public void addPrimitiveComparison(ParameterValue parameter) {
-		// TODO: move to XMLElement ?
-		
+	public void addPrimitiveComparison(ParameterValue parameter) {		
 		addPrimitiveComparison().replace(parameter);
 	}
 
@@ -1406,7 +1327,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public void addPrimitiveComparison(ComparisonOperator operator, ParameterValue parameter) {
-		// TODO: move to XMLElement ?
 		Comparison comparison = new ComparisonImpl();
 		try {		
 			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
@@ -1415,9 +1335,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			OperatorList oplist = graph.getOperatorList();
 			Property property1 = new PropertyImpl();			
 			getProperties().add(property1);
-//			property1.createParameters();
-//			property1.getOption().setValue(property);
-//			property1.getAttributeName().setValue(attr);
 			
 			varlist.add(parameter);
 	
@@ -1448,34 +1365,18 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public void addPrimitiveMatch(String regex) {
-		// TODO: move to XMLElement ?
-	//		Match match = new MatchImpl();
-	//		Property property = new PropertyImpl();
-	//		getPredicates().add(match);
-	//		getProperties().add(property);
-	//		match.setProperty(property);
 			Match match = new MatchImpl();
 			try {			
-				CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-//				ParameterList varlist = completePattern.getParameterList();
 				Graph graph = (Graph) getAncestor(Graph.class);
 				OperatorList oplist = graph.getOperatorList();
 				
 				Property property = new PropertyImpl();
-				getProperties().add(property);
-//				property.createParameters();
-				
-	//			TextLiteralImpl textlit = new TextLiteralImpl();
-	//			varlist.add(textlit);
-	//			textlit.setValue(regex);
+				getProperties().add(property);				
 	
 				oplist.add(match);	
 				match.createParameters();
 				match.setProperty(property);
-								
-	//			match.setArgument1(property);
-	//			match.setRegularExpression(textlit);
-	//			match.setArgument2(textlit);		
+									
 				if(regex != null) {
 					match.getRegularExpression().setValue(regex);
 				}
@@ -1512,9 +1413,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		for(Property p : getProperties()) {
 			patternElements.add(p);			
 		}
-//		for(BooleanOperator predicate : getPredicates()) {
-//			patternElements.add(predicate);
-//		}
 		return patternElements;
 	}
 
@@ -1525,7 +1423,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public Property copyProperty(Property property) {
-		// TODO: move to XMLElement ?
 		Property newProperty = property.copy();	
 		getProperties().add(newProperty);		
 		return newProperty;
@@ -1539,7 +1436,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public void copyPrimitiveComparison(Comparison comparison) throws InvalidityException {
-		// TODO: move to XMLElement ?
 		if(!(comparison.getArgument1() instanceof Property) && !(comparison.getArgument2() instanceof Property)) {			
 			throw new InvalidityException("comparison not primitive");
 		}
@@ -1572,7 +1468,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public void copyMatch(Match match) {
-		// TODO: move to XMLElement ?
 		Match newMatch = match.copy();
 		getProperties().add(newMatch.getProperty());
 	}
@@ -1584,7 +1479,6 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	 */
 	@Override
 	public Property addNewProperty() {
-		// Overritten in XMLElement
 		Property prop = new PropertyImpl();
 		getProperties().add(prop);
 		prop.createParameters();
@@ -1625,11 +1519,4 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		return ReturnType.ELEMENT;
 	}
 
-	public void clearPredicatesRecursively() {
-		getPredicates().clear();
-//		for(Element child : getNextElements()) {
-//			child.clearPredicatesRecursively();
-//		}
-	}
-
-} // SingleElementImpl
+} // ElementImpl

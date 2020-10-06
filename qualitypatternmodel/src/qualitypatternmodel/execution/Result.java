@@ -13,6 +13,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Result</b></em>'.
+ * The result of an application of a concrete <code>CompletePattern</code> to a <code>Database</code>.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -250,6 +251,8 @@ public interface Result extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Exports <code>this</code> to a file at <code>path</code>.
+	 * TODO: note file format
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

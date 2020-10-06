@@ -11,7 +11,8 @@ import qualitypatternmodel.parameters.UntypedParameterValue;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Unknown Input Value</b></em>'.
+ * An implementation of the model object '<em><b>UntypedParameterValue</b></em>'.
+ * A parameter of unknown type.
  * <!-- end-user-doc -->
  *
  * @generated
@@ -19,6 +20,7 @@ import qualitypatternmodel.parameters.UntypedParameterValue;
 public class UntypedParameterValueImpl extends ParameterValueImpl implements UntypedParameterValue {
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
@@ -77,7 +79,6 @@ public class UntypedParameterValueImpl extends ParameterValueImpl implements Unt
 
 	@Override
 	public boolean inputIsValid() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	

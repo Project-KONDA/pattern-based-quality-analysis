@@ -10,6 +10,7 @@ import qualitypatternmodel.operators.Match;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Text Literal</b></em>'.
+ * Defines input parameter of type String.
  * <!-- end-user-doc -->
  *
  * <p>

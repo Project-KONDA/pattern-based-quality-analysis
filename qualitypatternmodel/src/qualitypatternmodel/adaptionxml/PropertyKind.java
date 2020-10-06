@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * <!-- begin-user-doc -->
  * A representation of the literals of the enumeration '<em><b>Property Location</b></em>',
  * and utility methods for working with them.
+ * Types of <code>XmlProperties</code>.
  * <!-- end-user-doc -->
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPropertyKind()
  * @model

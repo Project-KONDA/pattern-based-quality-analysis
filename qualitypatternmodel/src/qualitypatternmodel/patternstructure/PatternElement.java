@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -18,7 +18,7 @@ import qualitypatternmodel.parameters.ParameterList;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Pattern Element</b></em>'.
- * Abstract Class, which implements all basic methods needed by all classes, which are part of the structure of the Pattern.
+ * Any component of a pattern.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -189,7 +189,7 @@ public interface PatternElement extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void recordValues(XmlDatabase database);
+	void recordValues(XmlDataDatabase database);
 
 	/**
 	 * <!-- begin-user-doc -->

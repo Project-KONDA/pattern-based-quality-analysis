@@ -19,10 +19,12 @@ import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.LocalXmlDatabase;
-import qualitypatternmodel.execution.XmlDatabase;
-import qualitypatternmodel.execution.impl.LocalXmlDatabaseImpl;
-import qualitypatternmodel.execution.impl.XmlDatabaseImpl;
+import qualitypatternmodel.execution.LocalXmlDataDatabase;
+import qualitypatternmodel.execution.LocalXmlSchemaDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl;
+import qualitypatternmodel.execution.impl.LocalXmlSchemaDatabaseImpl;
+import qualitypatternmodel.execution.impl.XmlDataDatabaseImpl;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -38,10 +40,12 @@ public class SuggestionTest {
         EMFModelLoad loader = new EMFModelLoad();
         CompletePattern completePattern = loader.load("instances/playground/My2.patternstructure");
         
-        LocalXmlDatabase db = new LocalXmlDatabaseImpl("test", "", "C:/Users/Viola Wenz/Documents/Daten/1.1_lido-v1.1-draft.xsd");
+        LocalXmlDataDatabase db = new LocalXmlDataDatabaseImpl("test", "");        
+        LocalXmlSchemaDatabase schema = new LocalXmlSchemaDatabaseImpl("C:/Users/Viola Wenz/Documents/Daten/1.1_lido-v1.1-draft.xsd");
+        db.setXmlSchema(schema);
         db.setNamespace("lido:");
         try {
-			db.initSchemaDatabase();
+			schema.init();
 		} catch (BaseXException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

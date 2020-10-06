@@ -32,9 +32,12 @@ public class ExecutionTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new ExecutionTests("execution Tests");
 		suite.addTestSuite(XmlResultTest.class);
-		suite.addTestSuite(XmlDatabaseTest.class);
-		suite.addTestSuite(LocalXmlDatabaseTest.class);
-		suite.addTestSuite(ServerXmlDatabaseTest.class);
+		suite.addTestSuite(XmlDataDatabaseTest.class);
+		suite.addTestSuite(LocalXmlDataDatabaseTest.class);
+		suite.addTestSuite(ServerXmlDataDatabaseTest.class);
+		suite.addTestSuite(XmlSchemaDatabaseTest.class);
+		suite.addTestSuite(LocalXmlSchemaDatabaseTest.class);
+		suite.addTestSuite(ServerXmlSchemaDatabaseTest.class);
 		return suite;
 	}
 

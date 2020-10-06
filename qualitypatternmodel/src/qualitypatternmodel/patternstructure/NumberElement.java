@@ -7,7 +7,7 @@ import qualitypatternmodel.parameters.NumberParam;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Number Element</b></em>'.
- * It is used as representation of a fixed number for a second argument in a CountCondition.
+ * An integer (represented by <code>NumberParam</code>) serving as an argument to a <code>CountCondition</code>.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -48,6 +48,8 @@ public interface NumberElement extends CountConditionArgument {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * If this is directly or indirectly contained in <code>CompletePattern</code>, creates a <code>NumberParam</code> if non existent, 
+	 * assigns it to the attribute <code>numberParam</code> and adds <code>numberParam</code> to the <code>ParameterList</code> of the enclosing <code>CompletePattern</code>.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

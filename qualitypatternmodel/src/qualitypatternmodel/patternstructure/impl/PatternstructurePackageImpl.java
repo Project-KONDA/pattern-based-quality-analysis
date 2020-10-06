@@ -32,7 +32,6 @@ import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.Location;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.Mapping;
@@ -190,13 +189,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	private EEnum quantifierEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum locationEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -975,7 +967,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__RecordValues__XmlDatabase() {
+	public EOperation getPatternElement__RecordValues__XmlDataDatabase() {
 		return patternElementEClass.getEOperations().get(14);
 	}
 
@@ -1325,16 +1317,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EEnum getLocation() {
-		return locationEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EEnum getAbstractionLevel() {
 		return abstractionLevelEEnum;
 	}
@@ -1475,7 +1457,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_OPERATOR_LIST);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___CREATE_XML_ADAPTION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___FINALIZE_XML_ADAPTION);
-		createEOperation(patternElementEClass, PATTERN_ELEMENT___RECORD_VALUES__XMLDATABASE);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___RELATIONS_XML_ADAPTED);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT);
@@ -1516,7 +1498,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		// Create enums
 		logicalOperatorEEnum = createEEnum(LOGICAL_OPERATOR);
 		quantifierEEnum = createEEnum(QUANTIFIER);
-		locationEEnum = createEEnum(LOCATION);
 		abstractionLevelEEnum = createEEnum(ABSTRACTION_LEVEL);
 
 		// Create data types
@@ -1719,8 +1700,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		op = initEOperation(getPatternElement__FinalizeXMLAdaption(), null, "finalizeXMLAdaption", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getPatternElement__RecordValues__XmlDatabase(), null, "recordValues", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theExecutionPackage.getXmlDatabase(), "database", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternElement__RecordValues__XmlDataDatabase(), null, "recordValues", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theExecutionPackage.getXmlDataDatabase(), "database", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPatternElement__RelationsXmlAdapted(), ecorePackage.getEBoolean(), "relationsXmlAdapted", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1785,12 +1766,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEEnum(quantifierEEnum, Quantifier.class, "Quantifier");
 		addEEnumLiteral(quantifierEEnum, Quantifier.EXISTS);
 		addEEnumLiteral(quantifierEEnum, Quantifier.FORALL);
-
-		initEEnum(locationEEnum, Location.class, "Location");
-		addEEnumLiteral(locationEEnum, Location.RETURN);
-		addEEnumLiteral(locationEEnum, Location.OUTSIDE);
-		addEEnumLiteral(locationEEnum, Location.EXISTS);
-		addEEnumLiteral(locationEEnum, Location.FORALL);
 
 		initEEnum(abstractionLevelEEnum, AbstractionLevel.class, "AbstractionLevel");
 		addEEnumLiteral(abstractionLevelEEnum, AbstractionLevel.GENERIC);

@@ -6,6 +6,7 @@ package qualitypatternmodel.parameters;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Unknown Input Value</b></em>'.
+ * Used to describe an abstract Type of Parameter to be specified during the concretisation.
  * <!-- end-user-doc -->
  *
  *
@@ -16,7 +17,10 @@ package qualitypatternmodel.parameters;
 public interface UntypedParameterValue extends ParameterValue {
 
 	/**
-	 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc --> 
+	 * Replaces <code>this</code> with a new <code>TextLiteralParam</code> with value <code>val</code>.
+	 * 
+	 * @param val the value of the new <code>TextLiteralParam</code> that replaces <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

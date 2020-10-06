@@ -54,6 +54,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * The cached value of the '{@link #getComparison1() <em>Comparison1</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>Comparisons</code> that have <code>this</code> as their first argument.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison1()
 	 * @generated
@@ -64,6 +65,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * The cached value of the '{@link #getComparison2() <em>Comparison2</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>Comparisons</code> that have <code>this</code> as their second argument.
 	 * <!-- end-user-doc -->
 	 * @see #getComparison2()
 	 * @generated
@@ -74,6 +76,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * The cached value of the '{@link #getMatch() <em>Match</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>Matches</code> that have <code>this</code> as their argument.
 	 * <!-- end-user-doc -->
 	 * @see #getMatch()
 	 * @generated
@@ -94,6 +97,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The name of <code>this</code> <code>Property</code>.
+	 * Is only used for the visualization, not for internal purposes.
+	 * Has default value but can be modified by users.
 	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
@@ -124,14 +130,18 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 		if(!(this instanceof XmlProperty)) {
 			XmlProperty xmlProperty = new XmlPropertyImpl();			 
 			xmlProperty.setElement(getElement());
+			
 			if(getName().matches("Property [0-9]+")) {
 				xmlProperty.setName(getName().replace("Property", "XmlProperty"));
 			} else {
 				xmlProperty.setName(getName());
 			}
+			
 			xmlProperty.createParameters();
+			
 			xmlProperty.getMatch().addAll(getMatch());
 			getMatch().clear();			
+			
 			xmlProperty.getComparison1().addAll(getComparison1());
 			getComparison1().clear();
 			xmlProperty.getComparison2().addAll(getComparison2());
@@ -156,7 +166,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * 
 	 */
 	@Override
-	public EList<Element> getAllArgumentElements() throws InvalidityException {		
+	public EList<Element> getAllArgumentElements() {		
 		return getElement().getAllArgumentElements();
 	}
 	
@@ -332,10 +342,17 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setName(String newName) {
+		if(newName == null || newName.equals("")) {
+			if(getInternalId() > -1) {
+				newName = "Property " + getInternalId();				
+			} else {
+				return;
+			}
+		}
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
@@ -537,19 +554,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			case GraphstructurePackage.PROPERTY___GET_RETURN_TYPE:
 				return getReturnType();
 			case GraphstructurePackage.PROPERTY___IS_TRANSLATABLE:
-				try {
-					return isTranslatable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return isTranslatable();
 			case GraphstructurePackage.PROPERTY___GET_ALL_ARGUMENT_ELEMENTS:
-				try {
-					return getAllArgumentElements();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+				return getAllArgumentElements();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -577,7 +584,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	}
 
 	@Override
-	public boolean isTranslatable() throws InvalidityException {
+	public boolean isTranslatable() {
 		return false;
 	}
 

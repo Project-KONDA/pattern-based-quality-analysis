@@ -7,6 +7,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Time</b></em>'.
+ * Defines input parameter of type Time (in data type String).
  * <!-- end-user-doc -->
  *
  * <p>
@@ -47,6 +48,10 @@ public interface TimeParam extends ParameterValue {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Sets <code>value</code> to <code>newValue</code> if its format is valid.
+	 * 
+	 * @param newValue the value to be set
+	 * @throws InvalidityException if the format of <code>newValue</code> is invalid
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated

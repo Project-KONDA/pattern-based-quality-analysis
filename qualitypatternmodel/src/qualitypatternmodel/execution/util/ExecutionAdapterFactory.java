@@ -69,10 +69,6 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 	protected ExecutionSwitch<Adapter> modelSwitch =
 		new ExecutionSwitch<Adapter>() {
 			@Override
-			public Adapter caseDatabase(Database object) {
-				return createDatabaseAdapter();
-			}
-			@Override
 			public Adapter caseResult(Result object) {
 				return createResultAdapter();
 			}
@@ -81,16 +77,16 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 				return createXmlResultAdapter();
 			}
 			@Override
-			public Adapter caseXmlDatabase(XmlDatabase object) {
-				return createXmlDatabaseAdapter();
+			public Adapter caseXmlDataDatabase(XmlDataDatabase object) {
+				return createXmlDataDatabaseAdapter();
 			}
 			@Override
-			public Adapter caseLocalXmlDatabase(LocalXmlDatabase object) {
-				return createLocalXmlDatabaseAdapter();
+			public Adapter caseLocalXmlDataDatabase(LocalXmlDataDatabase object) {
+				return createLocalXmlDataDatabaseAdapter();
 			}
 			@Override
-			public Adapter caseServerXmlDatabase(ServerXmlDatabase object) {
-				return createServerXmlDatabaseAdapter();
+			public Adapter caseServerXmlDataDatabase(ServerXmlDataDatabase object) {
+				return createServerXmlDataDatabaseAdapter();
 			}
 			@Override
 			public Adapter caseDatabases(Databases object) {
@@ -99,6 +95,30 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseStringToIntMap(Map.Entry<String, Integer> object) {
 				return createStringToIntMapAdapter();
+			}
+			@Override
+			public Adapter caseXmlSchemaDatabase(XmlSchemaDatabase object) {
+				return createXmlSchemaDatabaseAdapter();
+			}
+			@Override
+			public Adapter caseLocalXmlSchemaDatabase(LocalXmlSchemaDatabase object) {
+				return createLocalXmlSchemaDatabaseAdapter();
+			}
+			@Override
+			public Adapter caseServerXmlSchemaDatabase(ServerXmlSchemaDatabase object) {
+				return createServerXmlSchemaDatabaseAdapter();
+			}
+			@Override
+			public Adapter caseXmlDatabase(XmlDatabase object) {
+				return createXmlDatabaseAdapter();
+			}
+			@Override
+			public Adapter caseDatabase(Database object) {
+				return createDatabaseAdapter();
+			}
+			@Override
+			public Adapter caseDatabaseformat(Databaseformat object) {
+				return createDatabaseformatAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -119,20 +139,6 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.Database <em>Database</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.execution.Database
-	 * @generated
-	 */
-	public Adapter createDatabaseAdapter() {
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.Result <em>Result</em>}'.
@@ -163,44 +169,44 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.XmlDatabase <em>Xml Database</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.XmlDataDatabase <em>Xml Data Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.execution.XmlDatabase
+	 * @see qualitypatternmodel.execution.XmlDataDatabase
 	 * @generated
 	 */
-	public Adapter createXmlDatabaseAdapter() {
+	public Adapter createXmlDataDatabaseAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.LocalXmlDatabase <em>Local Xml Database</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.LocalXmlDataDatabase <em>Local Xml Data Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.execution.LocalXmlDatabase
+	 * @see qualitypatternmodel.execution.LocalXmlDataDatabase
 	 * @generated
 	 */
-	public Adapter createLocalXmlDatabaseAdapter() {
+	public Adapter createLocalXmlDataDatabaseAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.ServerXmlDatabase <em>Server Xml Database</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.ServerXmlDataDatabase <em>Server Xml Data Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.execution.ServerXmlDatabase
+	 * @see qualitypatternmodel.execution.ServerXmlDataDatabase
 	 * @generated
 	 */
-	public Adapter createServerXmlDatabaseAdapter() {
+	public Adapter createServerXmlDataDatabaseAdapter() {
 		return null;
 	}
 
@@ -229,6 +235,90 @@ public class ExecutionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStringToIntMapAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.XmlSchemaDatabase <em>Xml Schema Database</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.execution.XmlSchemaDatabase
+	 * @generated
+	 */
+	public Adapter createXmlSchemaDatabaseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.LocalXmlSchemaDatabase <em>Local Xml Schema Database</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.execution.LocalXmlSchemaDatabase
+	 * @generated
+	 */
+	public Adapter createLocalXmlSchemaDatabaseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.ServerXmlSchemaDatabase <em>Server Xml Schema Database</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.execution.ServerXmlSchemaDatabase
+	 * @generated
+	 */
+	public Adapter createServerXmlSchemaDatabaseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.XmlDatabase <em>Xml Database</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.execution.XmlDatabase
+	 * @generated
+	 */
+	public Adapter createXmlDatabaseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.Database <em>Database</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.execution.Database
+	 * @generated
+	 */
+	public Adapter createDatabaseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.execution.Databaseformat <em>Databaseformat</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.execution.Databaseformat
+	 * @generated
+	 */
+	public Adapter createDatabaseformatAdapter() {
 		return null;
 	}
 

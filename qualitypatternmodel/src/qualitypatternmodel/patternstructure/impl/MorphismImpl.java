@@ -55,7 +55,9 @@ import qualitypatternmodel.patternstructure.ElementMapping;
 public class MorphismImpl extends PatternElementImpl implements Morphism {
 	/**
 	 * The cached value of the '{@link #getMappings() <em>Mappings</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The <code>Mappings</code> between components of <code>source</code> and <code>target</code> <code>Graph</code>. 
+	 * <!-- end-user-doc -->
 	 * @see #getMappings()
 	 * @generated
 	 * @ordered
@@ -64,7 +66,9 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>From</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * begin-user-doc -->
+	 * The container of the <code>source</code> of contained <code>mappings</code> and the previous <code>Graph</code> in the condition hierarchy.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getSource()
 	 * @generated
@@ -74,7 +78,9 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>To</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * begin-user-doc -->
+	 * The container of the <code>target</code> of contained <code>mappings</code> and the <code>Graph</code> contained in the same container.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getTarget()
 	 * @generated
@@ -103,8 +109,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 			throw new InvalidityException("Morphism " + getInternalId() + ": from null");
 		if (target == null)
 			throw new InvalidityException("Morphism " + getInternalId() + ": to null");
-//		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMorphDepth())
-//			throw new InvalidityException("Morphism " + getInternalId() + ": invalid target graphs");
+
 		for (Mapping mapping : getMappings())
 			if (mapping == null)
 				throw new InvalidityException("Morphism " + getInternalId() + ": mapping invalid (" + mapping + ")");
@@ -115,38 +120,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		checkRelationMappingsUniqueness();
 	}
 	
-	public void removeDanglingMappingReference() {
-		EList<Mapping> mappings = new BasicEList<Mapping>();
-		mappings.addAll(getMappings());
-		for(Mapping mapping : mappings) {	
-				if(mapping instanceof ElementMapping) {
-					ElementMapping elementMapping = (ElementMapping) mapping;
-					if(elementMapping != null) {
-						if(elementMapping.getSource() != null && elementMapping.getSource().getOutgoingMappings() != null) {
-//							elementMapping.setSource(null);
-							getMappings().remove(elementMapping);
-						}
-						if(elementMapping.getTarget() != null) {
-//							elementMapping.setTarget(null);
-							getMappings().remove(elementMapping);
-						}
-					}
-				} else if (mapping instanceof RelationMapping) {
-					RelationMapping relationMapping = (RelationMapping) mapping;
-					if(relationMapping != null) {
-						if(relationMapping.getSource() != null && relationMapping.getSource().getOutgoingMappings() != null) {
-//							relationMapping.setSource(null);
-							getMappings().remove(relationMapping);
-						}
-						if(relationMapping.getTarget() != null) {
-//							relationMapping.setTarget(null);
-							getMappings().remove(relationMapping);
-						}
-					}
-				}
-			}		
-	}
-
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -415,7 +388,11 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		}
 		Set<Element> set = new HashSet<Element>(elements);
 		if(elements.size() != set.size()) {
-			throw new InvalidityException("mappings not unique");
+			throw new InvalidityException("mapping source not unique");
+		}
+		
+		if(elements.size() != getSource().getElements().size()) {
+			throw new InvalidityException("mappings not complete");
 		}
 	}
 
@@ -499,8 +476,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		List<Relation> relations = new ArrayList<Relation>();
 		for(Mapping mapping : getMappings()) {
 			if(mapping instanceof RelationMapping) {
-				RelationMapping elementMapping = (RelationMapping) mapping;
-				relations.add(elementMapping.getSource());
+				RelationMapping relationMapping = (RelationMapping) mapping;
+				relations.add(relationMapping.getSource());
 			}
 		}
 		Set<Relation> set = new HashSet<Relation>(relations);

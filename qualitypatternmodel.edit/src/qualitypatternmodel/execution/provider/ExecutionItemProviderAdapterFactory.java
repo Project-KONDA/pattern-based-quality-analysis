@@ -95,72 +95,72 @@ public class ExecutionItemProviderAdapterFactory extends ExecutionAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.execution.XmlDatabase} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.execution.XmlDataDatabase} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected XmlDatabaseItemProvider xmlDatabaseItemProvider;
+	protected XmlDataDatabaseItemProvider xmlDataDatabaseItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.execution.XmlDatabase}.
+	 * This creates an adapter for a {@link qualitypatternmodel.execution.XmlDataDatabase}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createXmlDatabaseAdapter() {
-		if (xmlDatabaseItemProvider == null) {
-			xmlDatabaseItemProvider = new XmlDatabaseItemProvider(this);
+	public Adapter createXmlDataDatabaseAdapter() {
+		if (xmlDataDatabaseItemProvider == null) {
+			xmlDataDatabaseItemProvider = new XmlDataDatabaseItemProvider(this);
 		}
 
-		return xmlDatabaseItemProvider;
+		return xmlDataDatabaseItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.execution.LocalXmlDatabase} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.execution.LocalXmlDataDatabase} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LocalXmlDatabaseItemProvider localXmlDatabaseItemProvider;
+	protected LocalXmlDataDatabaseItemProvider localXmlDataDatabaseItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.execution.LocalXmlDatabase}.
+	 * This creates an adapter for a {@link qualitypatternmodel.execution.LocalXmlDataDatabase}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createLocalXmlDatabaseAdapter() {
-		if (localXmlDatabaseItemProvider == null) {
-			localXmlDatabaseItemProvider = new LocalXmlDatabaseItemProvider(this);
+	public Adapter createLocalXmlDataDatabaseAdapter() {
+		if (localXmlDataDatabaseItemProvider == null) {
+			localXmlDataDatabaseItemProvider = new LocalXmlDataDatabaseItemProvider(this);
 		}
 
-		return localXmlDatabaseItemProvider;
+		return localXmlDataDatabaseItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.execution.ServerXmlDatabase} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.execution.ServerXmlDataDatabase} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ServerXmlDatabaseItemProvider serverXmlDatabaseItemProvider;
+	protected ServerXmlDataDatabaseItemProvider serverXmlDataDatabaseItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.execution.ServerXmlDatabase}.
+	 * This creates an adapter for a {@link qualitypatternmodel.execution.ServerXmlDataDatabase}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createServerXmlDatabaseAdapter() {
-		if (serverXmlDatabaseItemProvider == null) {
-			serverXmlDatabaseItemProvider = new ServerXmlDatabaseItemProvider(this);
+	public Adapter createServerXmlDataDatabaseAdapter() {
+		if (serverXmlDataDatabaseItemProvider == null) {
+			serverXmlDataDatabaseItemProvider = new ServerXmlDataDatabaseItemProvider(this);
 		}
 
-		return serverXmlDatabaseItemProvider;
+		return serverXmlDataDatabaseItemProvider;
 	}
 
 	/**
@@ -207,6 +207,75 @@ public class ExecutionItemProviderAdapterFactory extends ExecutionAdapterFactory
 		}
 
 		return stringToIntMapItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.execution.XmlSchemaDatabase} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XmlSchemaDatabaseItemProvider xmlSchemaDatabaseItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.execution.XmlSchemaDatabase}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXmlSchemaDatabaseAdapter() {
+		if (xmlSchemaDatabaseItemProvider == null) {
+			xmlSchemaDatabaseItemProvider = new XmlSchemaDatabaseItemProvider(this);
+		}
+
+		return xmlSchemaDatabaseItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.execution.LocalXmlSchemaDatabase} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LocalXmlSchemaDatabaseItemProvider localXmlSchemaDatabaseItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.execution.LocalXmlSchemaDatabase}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLocalXmlSchemaDatabaseAdapter() {
+		if (localXmlSchemaDatabaseItemProvider == null) {
+			localXmlSchemaDatabaseItemProvider = new LocalXmlSchemaDatabaseItemProvider(this);
+		}
+
+		return localXmlSchemaDatabaseItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.execution.ServerXmlSchemaDatabase} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ServerXmlSchemaDatabaseItemProvider serverXmlSchemaDatabaseItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.execution.ServerXmlSchemaDatabase}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createServerXmlSchemaDatabaseAdapter() {
+		if (serverXmlSchemaDatabaseItemProvider == null) {
+			serverXmlSchemaDatabaseItemProvider = new ServerXmlSchemaDatabaseItemProvider(this);
+		}
+
+		return serverXmlSchemaDatabaseItemProvider;
 	}
 
 	/**
@@ -315,11 +384,14 @@ public class ExecutionItemProviderAdapterFactory extends ExecutionAdapterFactory
 	@Override
 	public void dispose() {
 		if (xmlResultItemProvider != null) xmlResultItemProvider.dispose();
-		if (xmlDatabaseItemProvider != null) xmlDatabaseItemProvider.dispose();
-		if (localXmlDatabaseItemProvider != null) localXmlDatabaseItemProvider.dispose();
-		if (serverXmlDatabaseItemProvider != null) serverXmlDatabaseItemProvider.dispose();
+		if (xmlDataDatabaseItemProvider != null) xmlDataDatabaseItemProvider.dispose();
+		if (localXmlDataDatabaseItemProvider != null) localXmlDataDatabaseItemProvider.dispose();
+		if (serverXmlDataDatabaseItemProvider != null) serverXmlDataDatabaseItemProvider.dispose();
 		if (databasesItemProvider != null) databasesItemProvider.dispose();
 		if (stringToIntMapItemProvider != null) stringToIntMapItemProvider.dispose();
+		if (xmlSchemaDatabaseItemProvider != null) xmlSchemaDatabaseItemProvider.dispose();
+		if (localXmlSchemaDatabaseItemProvider != null) localXmlSchemaDatabaseItemProvider.dispose();
+		if (serverXmlSchemaDatabaseItemProvider != null) serverXmlSchemaDatabaseItemProvider.dispose();
 	}
 
 }

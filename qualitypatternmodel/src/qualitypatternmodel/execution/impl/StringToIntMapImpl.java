@@ -18,6 +18,7 @@ import qualitypatternmodel.execution.ExecutionPackage;
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>String To Int Map</b></em>'.
+ * A map with keys of type <code>String</code> and values of type <code>Integer</code>.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:

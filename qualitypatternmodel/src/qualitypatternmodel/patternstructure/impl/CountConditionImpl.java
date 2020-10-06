@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
@@ -53,6 +53,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	/**
 	 * The cached value of the '{@link #getCountPattern() <em>Count Pattern</em>}' containment reference.
 	 * <!-- begin-user-doc -->
+	 * The first argument of the comparison.
 	 * <!-- end-user-doc -->
 	 * @see #getCountPattern()
 	 * @generated
@@ -63,6 +64,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The comparison operator.
 	 * <!-- end-user-doc -->
 	 * @see #getOption()
 	 * @generated
@@ -73,6 +75,7 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	/**
 	 * The cached value of the '{@link #getArgument2() <em>Argument2</em>}' containment reference.
 	 * <!-- begin-user-doc -->
+	 * The second argument of the comparison.
 	 * <!-- end-user-doc -->
 	 * @see #getArgument2()
 	 * @generated
@@ -155,27 +158,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		}
 		return result;
 	}	
-
-//	public CountConditionArgument getArgument2() throws InvalidityException {		
-//		if(getCount2() != null) {
-//			return getCount2();
-//		} else if(getNumberParam() != null){
-//			return getNumberParam();
-//		} else {
-//			throw new InvalidityException("argument2 missing");
-//		}		
-//	}
-//
-//	public CountConditionArgument getArgument1() throws InvalidityException {		
-//		if(getCount1() != null) {
-//			return getCount1();
-//		} else {
-//			throw new InvalidityException("argument1 missing");
-//		}		
-//	}
 	
 	@Override
-	public void recordValues(XmlDatabase database) {
+	public void recordValues(XmlDataDatabase database) {
 		getCountPattern().recordValues(database);
 		getArgument2().recordValues(database);
 	}
@@ -308,99 +293,34 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	@Override
-	public NotificationChain basicSetFormula1(Formula newFormula, NotificationChain msgs) {
-//		if(getOption() != null) {
-////			getOption().setParameterList(null);
-//			ParameterList parameterList = getParameterList();
-//			if(parameterList != null) {
-//				parameterList.remove(getOption());
-//			}
-//		}
-		
-		msgs = super.basicSetFormula1(newFormula, msgs);
-		
+	public NotificationChain basicSetFormula1(Formula newFormula, NotificationChain msgs) {		
+		msgs = super.basicSetFormula1(newFormula, msgs);		
 		createParameters();
-		createCountPattern();	
-		
-//		if(newFormula != null) {
-//			setCountPattern(new CountPatternImpl());
-//			setOption(new ComparisonOptionParamImpl());
-//			getParameterList().add(getOption());
-//		}			
-
+		createCountPattern();			
 		return msgs;
 	}
 	
 	@Override
-	public NotificationChain basicSetFormula2(Formula newFormula, NotificationChain msgs) {
-//		if(getOption() != null) {
-////			getOption().setParameterList(null);
-//			ParameterList parameterList = getParameterList();
-//			if(parameterList != null) {
-//				parameterList.remove(getOption());
-//			}
-//		}
-		
-		msgs = super.basicSetFormula2(newFormula, msgs);
-		
+	public NotificationChain basicSetFormula2(Formula newFormula, NotificationChain msgs) {		
+		msgs = super.basicSetFormula2(newFormula, msgs);		
 		createParameters();
-		createCountPattern();
-		
-//		if(newFormula != null) {
-//			setCountPattern(new CountPatternImpl());
-//			setOption(new ComparisonOptionParamImpl());
-//			getParameterList().add(getOption());
-//		}			
-
+		createCountPattern();		
 		return msgs;
 	}
 	
 	@Override
 	public NotificationChain basicSetNotCondition(NotCondition newNotCondition, NotificationChain msgs) {
-//		if(getOption() != null) {
-////			getOption().setParameterList(null);
-//			ParameterList parameterList = getParameterList();
-//			if(parameterList != null) {
-//				parameterList.remove(getOption());
-//			}
-//		}
-		
-		msgs = super.basicSetNotCondition(newNotCondition, msgs);
-		
+		msgs = super.basicSetNotCondition(newNotCondition, msgs);		
 		createParameters();
-		createCountPattern();
-		
-//		if(newNotCondition != null) {
-//			setCountPattern(new CountPatternImpl());
-//			setOption(new ComparisonOptionParamImpl());
-//			getParameterList().add(getOption());
-//		}			
-
+		createCountPattern();	
 		return msgs;
 	}
 	
 	@Override 
-	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedCondition, NotificationChain msgs) {
-//		if(getOption() != null) {
-////			getOption().setParameterList(null);
-//			ParameterList parameterList = getParameterList();
-//			if(parameterList != null) {
-//				parameterList.remove(getOption());
-//			}
-//		}
-				
-		msgs = super.basicSetQuantifiedCondition(newQuantifiedCondition, msgs);
-		
+	public NotificationChain basicSetQuantifiedCondition(QuantifiedCondition newQuantifiedCondition, NotificationChain msgs) {	
+		msgs = super.basicSetQuantifiedCondition(newQuantifiedCondition, msgs);		
 		createParameters();
-		createCountPattern();
-		
-//		if(newQuantifiedCondition != null) {
-//			setCountPattern(new CountPatternImpl());
-//			setOption(new ComparisonOptionParamImpl());
-//			getParameterList().add(getOption());
-//		}			
-		
-		
+		createCountPattern();		
 		return msgs;
 	}
 	

@@ -8,7 +8,9 @@ import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Input</b></em>'.
+ * A representation of the model object '<em><b>Parameter</b></em>'.
+ * A parameter of a <code>CompletePattern</code>.
+ * Its value is not further specified in generic and abstract patterns, but in concrete patterns.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -17,7 +19,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getDescription <em>Description</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.Parameter#isIsPredefined <em>Is Predefined</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#isPredefined <em>Predefined</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getParameter()
@@ -72,29 +74,32 @@ public interface Parameter extends PatternElement {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Predefined</b></em>' attribute.
+	 * Returns the value of the '<em><b>Predefined</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Predefined</em>' attribute.
-	 * @see #setIsPredefined(boolean)
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getParameter_IsPredefined()
+	 * @return the value of the '<em>Predefined</em>' attribute.
+	 * @see #setPredefined(boolean)
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getParameter_Predefined()
 	 * @model required="true"
 	 * @generated
 	 */
-	boolean isIsPredefined();
+	boolean isPredefined();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.Parameter#isIsPredefined <em>Is Predefined</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.parameters.Parameter#isPredefined <em>Predefined</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Predefined</em>' attribute.
-	 * @see #isIsPredefined()
+	 * @param value the new value of the '<em>Predefined</em>' attribute.
+	 * @see #isPredefined()
 	 * @generated
 	 */
-	void setIsPredefined(boolean value);
+	void setPredefined(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns true if the parameter value is valid.
+	 * 
+	 * @return true if the parameter value is valid
 	 * <!-- end-user-doc -->
 	 * @model required="true"
 	 * @generated
@@ -103,6 +108,9 @@ public interface Parameter extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns true if <code>this</code> is valid.
+	 * 
+	 * @return true if <code>this</code> is valid
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -111,6 +119,9 @@ public interface Parameter extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns true if <code>this</code> is referenced somewhere within the pattern.
+	 * 
+	 * @return true if <code>this</code> is referenced somewhere within the pattern
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -119,6 +130,9 @@ public interface Parameter extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a simple textual description for <code>this</code>.
+	 * 
+	 * @return a simple textual description for <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

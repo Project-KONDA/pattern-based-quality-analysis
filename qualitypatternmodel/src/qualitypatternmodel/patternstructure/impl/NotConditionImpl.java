@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.Condition;
@@ -39,6 +39,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	/**
 	 * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
 	 * <!-- begin-user-doc -->
+	 * The argument, thus the <code>Condition</code> that is negated by <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getCondition()
 	 * @generated
@@ -51,7 +52,6 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	 */
 	protected NotConditionImpl() {
 		super();
-//		setCondition(new TrueElementImpl());
 	}
 
 	@Override
@@ -90,11 +90,6 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 		getCondition().finalizeXMLAdaption();
 	}
 	
-//	@Override	
-//	public void updateParameters(ParameterList newParameterList) {
-//		getCondition().updateParameters(newParameterList);		
-//	}
-	
 	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
@@ -109,7 +104,7 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	}
 	
 	@Override
-	public void recordValues(XmlDatabase database) {
+	public void recordValues(XmlDataDatabase database) {
 		getCondition().recordValues(database);
 	}
 

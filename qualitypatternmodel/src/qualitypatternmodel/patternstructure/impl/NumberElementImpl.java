@@ -46,6 +46,7 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	/**
 	 * The cached value of the '{@link #getNumberParam() <em>Number Param</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The <code>Parameter</code> representing the integer serving as an argument to a <code>CountCondition</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getNumberParam()
 	 * @generated
@@ -142,7 +143,6 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 			if(getNumberParam() == null) {
 				NumberParam newNumberParam = new NumberParamImpl();
 				setNumberParam(newNumberParam);
-//				parameterList.add(newNumberParam);
 			} else {			
 				parameterList.add(getNumberParam());
 			}

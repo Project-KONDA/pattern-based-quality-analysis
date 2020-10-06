@@ -34,7 +34,9 @@ import qualitypatternmodel.patternstructure.RelationMapping;
 public class RelationMappingImpl extends MappingImpl implements RelationMapping {
 	/**
 	 * The cached value of the '{@link #getTarget() <em>To</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * begin-user-doc -->
+	 * The target <code>Relation</code> of this <code>Mapping</code> in the <code>Graph</code> contained in the container of <code>morphism</code>.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getTarget()
 	 * @generated
@@ -44,7 +46,9 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>From</em>}' reference. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
+	 * begin-user-doc -->
+	 * The source <code>Relation</code> of this <code>Mapping</code> in the previous <code>Graph</code> in the condition hierarchy.
+	 * <!-- end-user-doc -->
 	 * 
 	 * @see #getSource()
 	 * @generated
@@ -70,10 +74,6 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 			throw new InvalidityException("RelationMapping " + getInternalId() + ": from-element null");
 		if (target == null)
 			throw new InvalidityException("RelationMapping " + getInternalId() + ": to null");
-//		if (from.getGraphDepth() + 1 != to.getGraphDepth() && to.getGraphDepth() != getMappingDepth()) {
-//			throw new InvalidityException("RelationMapping " + getInternalId() + ": invalid target elements: " + from.getId() + "(" + from.getGraphDepth() + ")"
-//					+ " -> " + to.getId() + " (" + to.getGraphDepth() + ")" + " map: " + getMappingDepth());
-//		}
 	}
 
 	/**
@@ -315,13 +315,6 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 		}
 		return super.eIsSet(featureID);
 	}
-	
-//	@Override
-//	public String myToString() {
-//		String res = "RelationMapping (" + getShortPatternInternalId() + ") ";
-//		res += "[" +getFrom().getShortPatternInternalId() + ", " + getTo().getShortPatternInternalId() + "]";		
-//		return res;
-//	}
 
 	@Override
 	public String myToString() {

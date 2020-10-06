@@ -8,7 +8,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Condition</b></em>'.
- * Abstract class for the structural components of the quantified formula represented by a model instance.
+ * A component of a pattern's nested first-order logic condition.
  * <!-- end-user-doc -->
  *
  * <p>

@@ -8,6 +8,7 @@ import org.eclipse.emf.common.util.EList;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Text List</b></em>'.
+ * Defines input parameter of type List<String>.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -37,6 +38,9 @@ public interface TextListParam extends ParameterValue {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns an XQuery LET clause representing the list <code>values</code>.
+	 * 
+	 * @return an XQuery LET clause representing the list <code>values</code>
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -45,6 +49,9 @@ public interface TextListParam extends ParameterValue {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the XQuery variable representing the list <code>values</code>.
+	 * 
+	 * @return the XQuery variable representing the list <code>values</code>
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated

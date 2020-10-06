@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * <!-- begin-user-doc -->
  * A representation of the literals of the enumeration '<em><b>Axis</b></em>',
  * and utility methods for working with them.
+ * XPath axes for specifying <code>XmlNavigations</code>.
  * <!-- end-user-doc -->
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getRelationKind()
  * @model

@@ -9,6 +9,7 @@ import qualitypatternmodel.parameters.TypeOptionParam;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Comparison</b></em>'.
+ * A comparison within a pattern between two <code>Element</code>s, two <code>Property</code>s or one <code>Property</code> and one <code>Parameter</code>.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -100,6 +101,7 @@ public interface Comparison extends BooleanOperator {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns true if <code>this</code> compares a <code>Property</code> with a <code>Parameter</code>.
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -108,6 +110,11 @@ public interface Comparison extends BooleanOperator {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * In case <code>this</code> is primitive returns the <code>Element</code> that contains the
+	 * <code>Property</code> that is compared with a <code>Parameter</code>, else returns null.
+	 * 
+	 * @return null if <code>this</code> is not primitive, else the <code>Element</code> that contains the
+	 * <code>Property</code> that is compared with a <code>Parameter</code>
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -116,6 +123,9 @@ public interface Comparison extends BooleanOperator {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a copy of <code>this</code>, which references the same <code>option</code>.
+	 * 
+	 * @return a copy of <code>this</code>, which references the same <code>option</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

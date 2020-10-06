@@ -22,7 +22,7 @@ import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
@@ -57,6 +57,7 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * A <code>PropertyOptionParam</code> that specifies the type of <code>this</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getOption()
 	 * @generated
@@ -67,6 +68,8 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	/**
 	 * The cached value of the '{@link #getAttributeName() <em>Attribute Name</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * A <code>TextLiteralParam</code> that specifies the attribute name in case 
+	 * <code>this</code> is of type <code>PropertyKind.ATTRIBUTE</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getAttributeName()
 	 * @generated
@@ -77,6 +80,7 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	/**
 	 * The cached value of the '{@link #getIncomingReferences() <em>Incoming References</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>XmlReferences</code> that have <code>this</code> as their <code>target</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getIncomingReferences()
 	 * @generated
@@ -87,6 +91,7 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	/**
 	 * The cached value of the '{@link #getOutgoingReferences() <em>Outgoing References</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of <code>XmlReferences</code> that have <code>this</code> as their <code>source</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getOutgoingReferences()
 	 * @generated
@@ -163,7 +168,7 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	}
 	
 	@Override
-	public void recordValues(XmlDatabase database) {
+	public void recordValues(XmlDataDatabase database) {
 		if(getOption() != null && getOption().getValue() != null) {			
 			EList<Comparison> comps = new BasicEList<Comparison>();
 			comps.addAll(getComparison1());
@@ -175,8 +180,8 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 				} else if (comp.getArgument2() instanceof TextLiteralParam) {
 					value = ((TextLiteralParam) comp.getArgument2()).getValue(); 
 				}
-				// TODO: support other Param types as well
-				if(value != null && comp.getOption() != null && comp.getOption().getValue() != null) {	//  && comp.getOption().getValue() == ComparisonOperator.EQUAL		
+				// TODO: support other parameter types as well
+				if(value != null && comp.getOption() != null && comp.getOption().getValue() != null) {
 					switch (getOption().getValue()) {
 					case ATTRIBUTE:
 						if(getAttributeName() != null && getAttributeName().getValue() != null) {
@@ -200,7 +205,7 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	}
 	
 	@Override
-	public boolean isTranslatable() throws InvalidityException {
+	public boolean isTranslatable() {
 		return getElement().isTranslatable();
 	}
 	
@@ -225,14 +230,12 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 		if(parameterList != null) {
 			if(getOption() == null) {
 				PropertyOptionParam option = new PropertyOptionParamImpl();	
-//				parameterList.add(option);
 				setOption(option);
 			} else {
 				parameterList.add(getOption());
 			}
 			if(getAttributeName() == null) {
 				TextLiteralParam textLiteral = new TextLiteralParamImpl();
-//				parameterList.add(textLiteral);
 				setAttributeName(textLiteral);
 			} else {
 				parameterList.add(getAttributeName());
@@ -241,24 +244,9 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	}
 	
 	@Override
-	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {
-//		getComparison1().clear();
-//		getComparison2().clear();	
-//		getMatch().clear();			
-			
-//		triggerParameterUpdates(newElement);		
-		
-//		if(newElement == null) {
-//			removeParametersFromParameterList();		
-//		}
-//		reset();
-		NotificationChain res = super.basicSetElement(newElement, msgs);
-		
+	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {			
+		NotificationChain res = super.basicSetElement(newElement, msgs);		
 		createParameters();
-		
-//		if(newElement != null) {
-//		createInputs();
-//	} 
 		return res;
 		
 	}
@@ -338,8 +326,10 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 		PropertyOptionParam oldOption = option;
 		
 		ParameterList varlist = getParameterList();
-		varlist.remove(oldOption);
-		varlist.add(newOption);			
+		if(varlist != null) {
+			varlist.remove(oldOption);
+			varlist.add(newOption);			
+		}
 		
 		option = newOption;
 		

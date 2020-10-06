@@ -52,6 +52,7 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The type of the identifier in the XML data that is used to reference an XML element.
 	 * <!-- end-user-doc -->
 	 * @see #getType()
 	 * @generated
@@ -62,6 +63,7 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	/**
 	 * The cached value of the '{@link #getTargetProperty() <em>Target Property</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The <code>XmlProperty</code> (i.e. identifier) that is referenced from another XML element through <code>this</code> reference.
 	 * <!-- end-user-doc -->
 	 * @see #getTargetProperty()
 	 * @generated
@@ -72,6 +74,7 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	/**
 	 * The cached value of the '{@link #getSourceProperty() <em>Source Property</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The <code>XmlProperty</code> that contains a reference to another XML element. 
 	 * <!-- end-user-doc -->
 	 * @see #getSourceProperty()
 	 * @generated
@@ -98,7 +101,8 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 			String conversionEndArgument2 = getType().getConversionEnd();
 					
 			ComparisonOperator operator = ComparisonOperator.EQUAL;				
-			return conversionStartArgument1 + getSourceProperty().generateQuery() + conversionEndArgument1 + operator.getLiteral() + conversionStartArgument2 +  getTargetProperty().generateQuery() + conversionEndArgument2;
+			return conversionStartArgument1 + getSourceProperty().generateQuery() + conversionEndArgument1 + operator.getLiteral() 
+			+ conversionStartArgument2 +  getTargetProperty().generateQuery() + conversionEndArgument2;
 		} else {
 			throw new InvalidityException("invalid arguments for Reference" + " (" + getInternalId() + ")");
 		}		
@@ -142,26 +146,7 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 		if(!getTargetProperty().getElement().equals(getTarget())) {
 			throw new InvalidityException("target and targetProperty not conform (" + getInternalId() + ")" );
 		}
-		
-		// TODO: decided to not allow ReferenceOperator to be an argument of Comparison
-		// ensure "predicate owner must be argument" constraint: 		
-//		if(getComparison1().isEmpty() && getComparison2().isEmpty()) {
-//			// this is root operator
-//
-//			if(!getElements().contains(getProperty1().getElement()) || !getElements().contains(getProperty2().getElement())) {
-//				throw new InvalidityException("invalid predicate argument" + " (" + getInternalId() + ")" );
-//			}			
-//		}		
-//		
-//		for(Element element : getElements()) {
-//			if(!element.equals(getProperty1().getElement()) && !element.equals(getProperty2().getElement())) {
-//				throw new InvalidityException("too many predicate owners" + " (" + getInternalId() + ")" );
-//			}
-//		}
-//
-//		if(getElements().size() > 2) {
-//			throw new InvalidityException("invalid predicate argument" + " (" + getInternalId() + ")" );
-//		}
+	
 	}
 	
 	@Override
@@ -237,43 +222,6 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
-
-	// TODO: adapt copy
-//	/**
-//	 * <!-- begin-user-doc -->
-//	 * <!-- end-user-doc -->
-//	 * @generated NOT
-//	 */
-//	@Override
-//	public ReferenceOperator copy() {
-//		ReferenceOperator newReferenceOperator = new ReferenceOperatorImpl();
-//		newReferenceOperator.setProperty1(getProperty1().copy());
-//		newReferenceOperator.setProperty2(getProperty2().copy());
-//		return newReferenceOperator;
-//	}
-	
-	// TODO: not needed anymore
-//	/**
-//	 * <!-- begin-user-doc -->
-//	 * <!-- end-user-doc -->
-//	 * @throws InvalidityException 
-//	 * 
-//	 */
-//	@Override
-//	public EList<Element> getAllArgumentElements() throws InvalidityException {				
-//		EList<Element> arguments = getSourceProperty().getAllArgumentElements();
-//		arguments.addAll(getTargetProperty().getAllArgumentElements());
-//		return arguments;
-//	}
-	
-	// TODO: not needed anymore
-//	@Override
-//	public EList<Comparable> getArguments() {
-//		EList<Comparable> list = new BasicEList<Comparable>();
-//		list.add(property1);
-//		list.add(property2);
-//		return list;
-//	}
 	
 	/**
 	 * <!-- begin-user-doc -->

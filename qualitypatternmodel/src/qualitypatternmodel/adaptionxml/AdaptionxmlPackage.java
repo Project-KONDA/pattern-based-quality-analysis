@@ -338,7 +338,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___RECORD_VALUES__XMLDATABASE = GraphstructurePackage.ELEMENT___RECORD_VALUES__XMLDATABASE;
+	int XML_ELEMENT___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -825,7 +825,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___RECORD_VALUES__XMLDATABASE = GraphstructurePackage.RELATION___RECORD_VALUES__XMLDATABASE;
+	int XML_NAVIGATION___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.RELATION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -1195,7 +1195,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___RECORD_VALUES__XMLDATABASE = GraphstructurePackage.RELATION___RECORD_VALUES__XMLDATABASE;
+	int XML_REFERENCE___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.RELATION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -1565,7 +1565,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___RECORD_VALUES__XMLDATABASE = GraphstructurePackage.PROPERTY___RECORD_VALUES__XMLDATABASE;
+	int XML_PROPERTY___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.PROPERTY___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -1971,7 +1971,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___RECORD_VALUES__XMLDATABASE = GraphstructurePackage.ELEMENT___RECORD_VALUES__XMLDATABASE;
+	int XML_ROOT___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.ELEMENT___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.

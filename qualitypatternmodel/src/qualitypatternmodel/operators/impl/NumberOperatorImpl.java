@@ -18,6 +18,7 @@ import qualitypatternmodel.operators.OperatorsPackage;
 public abstract class NumberOperatorImpl extends OperatorImpl implements NumberOperator {
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */

@@ -18,7 +18,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.execution.Databases;
 import qualitypatternmodel.execution.ExecutionPackage;
-import qualitypatternmodel.execution.XmlDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.execution.XmlSchemaDatabase;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +30,7 @@ import qualitypatternmodel.execution.XmlDatabase;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.execution.impl.DatabasesImpl#getXmlDatabases <em>Xml Databases</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.DatabasesImpl#getXmlSchemata <em>Xml Schemata</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,8 +44,18 @@ public class DatabasesImpl extends MinimalEObjectImpl.Container implements Datab
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<XmlDatabase> xmlDatabases;
-	
+	protected EList<XmlDataDatabase> xmlDatabases;
+
+	/**
+	 * The cached value of the '{@link #getXmlSchemata() <em>Xml Schemata</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getXmlSchemata()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<XmlSchemaDatabase> xmlSchemata;
+
 	private static DatabasesImpl instance;
 
 
@@ -79,11 +91,24 @@ public class DatabasesImpl extends MinimalEObjectImpl.Container implements Datab
 	 * @generated
 	 */
 	@Override
-	public EList<XmlDatabase> getXmlDatabases() {
+	public EList<XmlDataDatabase> getXmlDatabases() {
 		if (xmlDatabases == null) {
-			xmlDatabases = new EObjectContainmentEList<XmlDatabase>(XmlDatabase.class, this, ExecutionPackage.DATABASES__XML_DATABASES);
+			xmlDatabases = new EObjectContainmentEList<XmlDataDatabase>(XmlDataDatabase.class, this, ExecutionPackage.DATABASES__XML_DATABASES);
 		}
 		return xmlDatabases;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<XmlSchemaDatabase> getXmlSchemata() {
+		if (xmlSchemata == null) {
+			xmlSchemata = new EObjectContainmentEList<XmlSchemaDatabase>(XmlSchemaDatabase.class, this, ExecutionPackage.DATABASES__XML_SCHEMATA);
+		}
+		return xmlSchemata;
 	}
 
 	/**
@@ -96,6 +121,8 @@ public class DatabasesImpl extends MinimalEObjectImpl.Container implements Datab
 		switch (featureID) {
 			case ExecutionPackage.DATABASES__XML_DATABASES:
 				return ((InternalEList<?>)getXmlDatabases()).basicRemove(otherEnd, msgs);
+			case ExecutionPackage.DATABASES__XML_SCHEMATA:
+				return ((InternalEList<?>)getXmlSchemata()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -110,6 +137,8 @@ public class DatabasesImpl extends MinimalEObjectImpl.Container implements Datab
 		switch (featureID) {
 			case ExecutionPackage.DATABASES__XML_DATABASES:
 				return getXmlDatabases();
+			case ExecutionPackage.DATABASES__XML_SCHEMATA:
+				return getXmlSchemata();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -125,7 +154,11 @@ public class DatabasesImpl extends MinimalEObjectImpl.Container implements Datab
 		switch (featureID) {
 			case ExecutionPackage.DATABASES__XML_DATABASES:
 				getXmlDatabases().clear();
-				getXmlDatabases().addAll((Collection<? extends XmlDatabase>)newValue);
+				getXmlDatabases().addAll((Collection<? extends XmlDataDatabase>)newValue);
+				return;
+			case ExecutionPackage.DATABASES__XML_SCHEMATA:
+				getXmlSchemata().clear();
+				getXmlSchemata().addAll((Collection<? extends XmlSchemaDatabase>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -142,6 +175,9 @@ public class DatabasesImpl extends MinimalEObjectImpl.Container implements Datab
 			case ExecutionPackage.DATABASES__XML_DATABASES:
 				getXmlDatabases().clear();
 				return;
+			case ExecutionPackage.DATABASES__XML_SCHEMATA:
+				getXmlSchemata().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -156,6 +192,8 @@ public class DatabasesImpl extends MinimalEObjectImpl.Container implements Datab
 		switch (featureID) {
 			case ExecutionPackage.DATABASES__XML_DATABASES:
 				return xmlDatabases != null && !xmlDatabases.isEmpty();
+			case ExecutionPackage.DATABASES__XML_SCHEMATA:
+				return xmlSchemata != null && !xmlSchemata.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

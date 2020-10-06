@@ -27,6 +27,7 @@ import qualitypatternmodel.parameters.ParameterList;
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Boolean</b></em>'.
+ * A parameter of type <code>Boolean</code>.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -52,6 +53,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * Concrete value of this parameter specified during concretization.
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
 	 * @generated
@@ -62,6 +64,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	/**
 	 * The cached value of the '{@link #getMatches() <em>Matches</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * Returns all <code>Matches</code> that use <code>this</code> to specify if the result of the matching is negated.
 	 * <!-- end-user-doc -->
 	 * @see #getMatches()
 	 * @generated
@@ -71,6 +74,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Constructor.
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */

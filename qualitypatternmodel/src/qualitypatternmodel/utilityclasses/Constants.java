@@ -34,7 +34,12 @@ public class Constants {
 	public static final String SCHEMA = "_schema";
 	
 	
-	
+	/**
+	 * Appends as many closing brackets to <code>str</code> as it contains opening brackets that are not yet closed.
+	 * 
+	 * @param str
+	 * @return <code>str</code> with appended closing brackets
+	 */
 	public static String addMissingBrackets(String str) {
 		int res = 0;
 		for (int i = 0; i < str.length(); i++) {
@@ -50,6 +55,14 @@ public class Constants {
 		return str;
 	}
 	
+	/**
+	 * Sorts <code>map</code> by value.
+	 * 
+	 * @param <K> key type
+	 * @param <V> value type
+	 * @param map the map to be sorted by value
+	 * @return <code>map</code> sorted by value
+	 */
 	public static <K, V extends Comparable<? super V>> EMap<K, V> sortByValue(EMap<K, V> map) {
         EList<Entry<K, V>> list = new BasicEList<>();
         list.addAll(map.entrySet());

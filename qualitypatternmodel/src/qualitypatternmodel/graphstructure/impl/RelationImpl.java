@@ -61,7 +61,10 @@ import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
 public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * The cached value of the '{@link #getIncomingMapping() <em>Incoming Mapping</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * The <code>RelationMapping</code> that has <code>this</code> as its <code>target</code>.
+	 * It declares the equivalence between <code>this</code> and another <code>Relation</code> contained in the previous <code>Graph</code> in the condition hierarchy.
+	 * <!-- end-user-doc -->
 	 * @see #getIncomingMapping()
 	 * @generated
 	 * @ordered
@@ -70,7 +73,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	/**
 	 * The cached value of the '{@link #getOutgoingMappings() <em>Outgoing Mappings</em>}' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * A list of <code>RelationMapping</code> that have <code>this</code> as their <code>source</code>.
+	 * They declare the equivalence between <code>this</code> and other <code>Relations</code> contained in <code>Graphs</code> that directly follow in the condition hierarchy.
+	 * <!-- end-user-doc -->
 	 * @see #getOutgoingMappings()
 	 * @generated
 	 * @ordered
@@ -80,6 +86,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The source of <code>this</code> <code>Relation</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getSource()
 	 * @generated
@@ -90,6 +97,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The target of <code>this</code> <code>Relation</code>.
 	 * <!-- end-user-doc -->
 	 * @see #getTarget()
 	 * @generated
@@ -110,6 +118,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The name of <code>this</code> <code>Relation</code>.
+	 * Is only used for the visualization, not for internal purposes.
+	 * Has default value but can be modified by users.
 	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated
@@ -126,22 +137,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		
-//		CountPattern countPattern = null;				
-//		try {
-//			countPattern = (CountPattern) getAncestor(CountPattern.class);
-//		} catch (MissingPatternContainerException e) {
-//			// do nothing
-//		}
 		if (getGraph().getPattern() != null && getGraph().getPattern() instanceof CompletePattern && incomingMapping != null) // depth=0 => ReturnGraph
 			throw new InvalidityException("invalid RelationMapping to returnGraph: " + incomingMapping + " "
-					+ incomingMapping.getId() + " - (" + outgoingMappings + ")");		
-		
-//		for(RelationMapping mapping : getMappingTo()) {
-//			if(!mapping.getTo().getElement().getMappingFrom().getFrom().equals(getElement())) {
-//				throw new InvalidityException("mapping invalid");
-//			}
-//		}
+					+ incomingMapping.getId() + " - (" + outgoingMappings + ")");	
 		
 		if(getSource() == null) {
 			throw new InvalidityException("source null " + getId());
@@ -211,43 +209,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 	
 	public NotificationChain basicSetGraphSimple(Graph newGraph, NotificationChain msgs) {
-//		removeRelationFromPreviousGraphs();
-//		removeMappingsToNext();
-		
-		// TODO: reset ?
-		
-//		if(newGraph != null) {
-//			for(Morphism morphism : newGraph.getMorphismTo()) {
-//				MorphismContainer container = morphism.getMorphismContainer();
-//				Relation newRelation = new RelationImpl();
-//				newRelation.setGraph(container.getGraph());
-//				RelationMapping newMapping = new RelationMappingImpl();
-//				newMapping.setMorphism(morphism);
-//				newMapping.setFrom(this);
-//				newMapping.setTo(newRelation);
-//				
-//				for(Mapping mapping : morphism.getMappings()) {
-//					if(mapping instanceof ElementMapping) {
-//						ElementMapping elementMapping = (ElementMapping) mapping;
-//						if(elementMapping.getFrom().equals(getSource())) {
-//							newRelation.setSource(elementMapping.getTo());
-//						}
-//						if(elementMapping.getFrom().equals(getTarget())) {
-//							newRelation.setTarget(elementMapping.getTo());
-//						}
-//					}
-//				}
-//			}		
-//		}
-		
-//		if (getElement() != null) {
-//			removeParametersFromParameterList();
-//		}		
-//		if (newGraph != null) {
-//			copyToNewNextGraphs(newGraph); // not needed anymore
-//		}
-		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.RELATION__GRAPH, msgs);
-		
+		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.RELATION__GRAPH, msgs);		
 		return msgs;
 	}
 
@@ -275,14 +237,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				setTarget(null);
 			}
 		}
-		
-		// TODO: reset ?		
-		
+				
 		if(newGraph != null) {
 			for(Morphism morphism : newGraph.getOutgoingMorphisms()) {
 				MorphismContainer container = morphism.getMorphismContainer();
+				
 				Relation newRelation = new RelationImpl();
 				newRelation.setGraph(container.getGraph());
+				
 				RelationMapping newMapping = new RelationMappingImpl();
 				newMapping.setMorphism(morphism);
 				newMapping.setSource(this);
@@ -301,13 +263,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				}
 			}
 		}
-		
-//		if (getElement() != null) {
-//			removeParametersFromParameterList();
-//		}		
-//		if (newGraph != null) {
-//			copyToNewNextGraphs(newGraph); // not needed anymore
-//		}
+
 		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.RELATION__GRAPH, msgs);
 		
 		return msgs;
@@ -557,6 +513,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 */
 	@Override
 	public void setName(String newName) {
+		if(newName == null || newName.equals("")) {
+			if(getOriginalID() > -1) {
+				newName = "Relation " + getOriginalID();
+			} else {
+				return;
+			}
+		}
+		
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
@@ -577,7 +541,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 					target.setName(newName);
 				}			
 			}
-		}
+		}		
 	}
 
 	/**
@@ -647,7 +611,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public XmlNavigation adaptAsXMLNavigation() {
 		if(!(this instanceof XmlNavigation)) {
 			XmlNavigation navigation = new XmlNavigationImpl();
-//			navigation.setName(getName());
+
 			if(getName().matches("Relation [0-9]+")) {
 				navigation.setName(getName().replace("Relation", "XmlNavigation"));
 			} else if(getName().matches("XmlReference [0-9]+")) {
@@ -655,10 +619,13 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			} else {
 				navigation.setName(getName());
 			}
+			
 			navigation.setGraphSimple(getGraph());
+			
 			if(getIncomingMapping() == null) {
 				navigation.createParameters();
 			}
+			
 			navigation.setSource(getSource());
 			navigation.setTarget(getTarget());
 		
@@ -691,7 +658,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if(!(this instanceof XmlReference)) {
 			XmlReference reference = new XmlReferenceImpl();			
 			reference.setGraphSimple(getGraph());
-//			reference.setName(getName());
+
 			if(getName().matches("Relation [0-9]+")) {
 				reference.setName(getName().replace("Relation", "XmlReference"));
 			} else if(getName().matches("XmlNavigation [0-9]+")) {
@@ -699,6 +666,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			} else {
 				reference.setName(getName());
 			}
+			
 			reference.setSource(getSource());
 			reference.setTarget(getTarget());			
 			
@@ -706,9 +674,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				XmlProperty sourceProperty = new XmlPropertyImpl();
 				sourceProperty.setElement(reference.getSource());
 				sourceProperty.createParameters();
+				
 				XmlProperty targetProperty = new XmlPropertyImpl();
 				targetProperty.setElement(reference.getTarget());
 				targetProperty.createParameters();
+				
 				reference.setSourceProperty(sourceProperty);			
 				reference.setTargetProperty(targetProperty);
 			}
@@ -748,7 +718,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if (getIncomingMapping() != null) {
 			Relation correspondingRelation = getIncomingMapping().getSource();
 			if (correspondingRelation != null) correspondingRelation.setGraph(null);
-//			correspondingRelation.getElement().setRelationFromPrevious(null);
 //			getMappingFrom().setFrom(null);
 //			if(getMappingFrom().getMorphism() != null) {
 //				getMappingFrom().getMorphism().getMappings().remove(getMappingFrom());
@@ -998,15 +967,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	@Override
 	public String myToString() {
-//		if (getOption() != null) {
-//			return getOption().getValue().getLiteral() + " (" + getInternalId() + ")";
-//		} else {
-			String res = this.getClass().getSimpleName();
-			res += " [" + getInternalId() + "]";
-			if (getSource() != null) res += " from " + getSource().getInternalId();
-			if (getTarget() != null) res += " to " + getTarget().getInternalId();
-			return res;
-//		}
+		String res = this.getClass().getSimpleName();
+		res += " [" + getInternalId() + "]";
+		if (getSource() != null) res += " from " + getSource().getInternalId();
+		if (getTarget() != null) res += " to " + getTarget().getInternalId();
+		return res;
 	}
 
 	@Override

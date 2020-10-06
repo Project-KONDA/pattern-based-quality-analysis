@@ -94,10 +94,10 @@ public class EvalFunc {
 		
 		Comparison comparisonA = operatorsFactory.createComparison();
 		graph1.getOperatorList().add(comparisonA);
-		comparisonA.createParameters();
+//		comparisonA.createParameters();
 		Property propertyAReturn = graphFactory.createProperty();
 		propertyAReturn.setElement(fieldAReturn);
-		propertyAReturn.createParameters();
+//		propertyAReturn.createParameters();
 		comparisonA.setArgument1(propertyAReturn);
 		Property propertyAOtherRecord = propertyAReturn.copy();
 		propertyAOtherRecord.setElement(fieldAOtherRecord);
@@ -105,10 +105,10 @@ public class EvalFunc {
 		
 		Comparison comparisonB = operatorsFactory.createComparison(); 
 		graph1.getOperatorList().add(comparisonB);
-		comparisonB.createParameters();
+//		comparisonB.createParameters();
 		Property propertyBReturn = graphFactory.createProperty();
 		propertyBReturn.setElement(fieldBReturn);
-		propertyBReturn.createParameters();
+//		propertyBReturn.createParameters();
 		comparisonB.setArgument1(propertyBReturn);
 		Property propertyBOtherRecord = propertyBReturn.copy();
 		propertyBOtherRecord.setElement(fieldBOtherRecord);
@@ -178,25 +178,25 @@ public class EvalFunc {
 		fieldAOtherRecord.addPrimitiveComparison(); 
 		fieldBOtherRecord.addPrimitiveComparison(); 
 		
-		Comparison comparisonA = operatorsFactory.createComparison();
-		comparisonA.getTypeOption().setValue(ReturnType.STRING);
+		Comparison comparisonA = operatorsFactory.createComparison();		
 		graph1.getOperatorList().add(comparisonA);
-		comparisonA.createParameters();
+//		comparisonA.createParameters();
+		comparisonA.getTypeOption().setValue(ReturnType.STRING);
 		Property propertyAReturn = graphFactory.createProperty();
 		propertyAReturn.setElement(fieldAReturn);
-		propertyAReturn.createParameters();
+//		propertyAReturn.createParameters();
 		comparisonA.setArgument1(propertyAReturn);
 		Property propertyAOtherRecord = propertyAReturn.copy();
 		propertyAOtherRecord.setElement(fieldAOtherRecord);
 		comparisonA.setArgument2(propertyAOtherRecord);		
 		
-		Comparison comparisonB = operatorsFactory.createComparison(); 
-		comparisonB.getTypeOption().setValue(ReturnType.STRING);
+		Comparison comparisonB = operatorsFactory.createComparison(); 		
 		graph1.getOperatorList().add(comparisonB);
-		comparisonB.createParameters();
+//		comparisonB.createParameters();
+		comparisonB.getTypeOption().setValue(ReturnType.STRING);
 		Property propertyBReturn = graphFactory.createProperty();
 		propertyBReturn.setElement(fieldBReturn);
-		propertyBReturn.createParameters();
+//		propertyBReturn.createParameters();
 		comparisonB.setArgument1(propertyBReturn);
 		Property propertyBOtherRecord = propertyBReturn.copy();
 		propertyBOtherRecord.setElement(fieldBOtherRecord);

@@ -204,10 +204,10 @@ public class EvalUnique {
 		Property other = graphFactory.createProperty();
 		other.setElement(e5G2);
 			
-		Comparison comparison = operatorsFactory.createComparison();
-		comparison.getTypeOption().setValue(ReturnType.STRING);
+		Comparison comparison = operatorsFactory.createComparison();		
 		countPattern.getGraph().getOperatorList().add(comparison);		
-		comparison.createParameters();
+//		comparison.createParameters();
+		comparison.getTypeOption().setValue(ReturnType.STRING);
 		comparison.setArgument1(previous);
 		comparison.setArgument2(other);	
 		comparison.getOption().setValue(ComparisonOperator.EQUAL);
@@ -302,10 +302,10 @@ public class EvalUnique {
 		Property propertyNextToElement2 = graphFactory.createProperty();
 		propertyNextToElement2.setElement(nextToElement2);
 			
-		Comparison comparison = operatorsFactory.createComparison();
-		comparison.getTypeOption().setValue(ReturnType.STRING);
+		Comparison comparison = operatorsFactory.createComparison();		
 		countQCond.getGraph().getOperatorList().add(comparison);		
-		comparison.createParameters();
+//		comparison.createParameters();
+		comparison.getTypeOption().setValue(ReturnType.STRING);
 		comparison.setArgument1(propertyNextToReturn);
 		comparison.setArgument2(propertyNextToElement2);	
 		comparison.getOption().setValue(ComparisonOperator.EQUAL);

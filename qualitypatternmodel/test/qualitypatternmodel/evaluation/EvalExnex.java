@@ -110,15 +110,15 @@ public class EvalExnex {
 		CompletePattern completePattern = getExNExAbstract();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 
-		((RelationOptionParam) params.get(10)).setValue(RelationKind.THREECHILD);
-		((RelationOptionParam) params.get(9)).setValue(RelationKind.CHILD);
-		((RelationOptionParam) params.get(8)).setValue(RelationKind.CHILD);
+		((RelationOptionParam) params.get(12)).setValue(RelationKind.THREECHILD);
+		((RelationOptionParam) params.get(11)).setValue(RelationKind.CHILD);
+		((RelationOptionParam) params.get(10)).setValue(RelationKind.CHILD);
+		((TextLiteralParam) params.get(9)).setValue("Type");
+		((PropertyOptionParam) params.get(8)).setValue(PropertyKind.ATTRIBUTE);
 		((TextLiteralParam) params.get(7)).setValue("Type");
 		((PropertyOptionParam) params.get(6)).setValue(PropertyKind.ATTRIBUTE);
-		((TextLiteralParam) params.get(5)).setValue("Type");
-		((PropertyOptionParam) params.get(4)).setValue(PropertyKind.ATTRIBUTE);
-		((ComparisonOptionParam) params.get(3)).setValue(ComparisonOperator.EQUAL);
-		((UntypedParameterValue) params.get(2)).replace(new TextLiteralParamImpl("ob30"));
+		((ComparisonOptionParam) params.get(4)).setValue(ComparisonOperator.EQUAL);
+		((UntypedParameterValue) params.get(3)).replace(new TextLiteralParamImpl("ob30"));
 		((ComparisonOptionParam) params.get(1)).setValue(ComparisonOperator.EQUAL);
 		((UntypedParameterValue) params.get(0)).replace(new TextLiteralParamImpl("obj"));
 		
@@ -129,19 +129,19 @@ public class EvalExnex {
 		CompletePattern completePattern = getExNExAbstractWithComp();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 
-		((RelationOptionParam) params.get(14)).setValue(RelationKind.TWOCHILD);
-		((RelationOptionParam) params.get(13)).setValue(RelationKind.CHILD);
-		((RelationOptionParam) params.get(12)).setValue(RelationKind.SEVENCHILD);
-//		((TextLiteralParam) params.get(11)).setValue("Type");
-		((PropertyOptionParam) params.get(10)).setValue(PropertyKind.TAG);
-//		((TextLiteralParam) params.get(9)).setValue("Type");
-		((PropertyOptionParam) params.get(8)).setValue(PropertyKind.TAG);
-//		((TextLiteralParam) params.get(7)).setValue("Type");
-		((PropertyOptionParam) params.get(6)).setValue(PropertyKind.TAG);
-		((ComparisonOptionParam) params.get(5)).setValue(ComparisonOperator.EQUAL);
-		((UntypedParameterValue) params.get(4)).replace(new TextLiteralParamImpl("lido:conceptID"));
-		((ComparisonOptionParam) params.get(3)).setValue(ComparisonOperator.EQUAL);
-		((UntypedParameterValue) params.get(2)).replace(new TextLiteralParamImpl("lido:roleActor"));
+		((RelationOptionParam) params.get(17)).setValue(RelationKind.TWOCHILD);
+		((RelationOptionParam) params.get(16)).setValue(RelationKind.CHILD);
+		((RelationOptionParam) params.get(15)).setValue(RelationKind.SEVENCHILD);
+//		((TextLiteralParam) params.get(14)).setValue("Type");
+		((PropertyOptionParam) params.get(13)).setValue(PropertyKind.TAG);
+//		((TextLiteralParam) params.get(12)).setValue("Type");
+		((PropertyOptionParam) params.get(11)).setValue(PropertyKind.TAG);
+//		((TextLiteralParam) params.get(10)).setValue("Type");
+		((PropertyOptionParam) params.get(9)).setValue(PropertyKind.TAG);
+		((ComparisonOptionParam) params.get(7)).setValue(ComparisonOperator.EQUAL);
+		((UntypedParameterValue) params.get(6)).replace(new TextLiteralParamImpl("lido:conceptID"));
+		((ComparisonOptionParam) params.get(4)).setValue(ComparisonOperator.EQUAL);
+		((UntypedParameterValue) params.get(3)).replace(new TextLiteralParamImpl("lido:roleActor"));
 		((ComparisonOptionParam) params.get(1)).setValue(ComparisonOperator.EQUAL);
 		((UntypedParameterValue) params.get(0)).replace(new TextLiteralParamImpl("lido:lido"));
 		

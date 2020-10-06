@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * <!-- begin-user-doc -->
  * A representation of the literals of the enumeration '<em><b>Return Type</b></em>',
  * and utility methods for working with them.
+ * Possible types of operator arguments.
  * <!-- end-user-doc -->
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getReturnType()
  * @model

@@ -48,7 +48,7 @@ public class ParameterItemProvider extends PatternElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addDescriptionPropertyDescriptor(object);
-			addIsPredefinedPropertyDescriptor(object);
+			addPredefinedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -76,19 +76,19 @@ public class ParameterItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Predefined feature.
+	 * This adds a property descriptor for the Predefined feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsPredefinedPropertyDescriptor(Object object) {
+	protected void addPredefinedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Parameter_isPredefined_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_isPredefined_feature", "_UI_Parameter_type"),
-				 ParametersPackage.Literals.PARAMETER__IS_PREDEFINED,
+				 getString("_UI_Parameter_predefined_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_predefined_feature", "_UI_Parameter_type"),
+				 ParametersPackage.Literals.PARAMETER__PREDEFINED,
 				 true,
 				 false,
 				 false,
@@ -123,7 +123,7 @@ public class ParameterItemProvider extends PatternElementItemProvider {
 
 		switch (notification.getFeatureID(Parameter.class)) {
 			case ParametersPackage.PARAMETER__DESCRIPTION:
-			case ParametersPackage.PARAMETER__IS_PREDEFINED:
+			case ParametersPackage.PARAMETER__PREDEFINED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

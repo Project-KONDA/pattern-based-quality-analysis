@@ -10,6 +10,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>XML Property</b></em>'.
+ * A primitive subcomponent of an XML element that holds a data value, thus its tag name, a named attribute or its content.
  * <!-- end-user-doc -->
  *
  * <p>

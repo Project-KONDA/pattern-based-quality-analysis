@@ -9,7 +9,6 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.parameters.PropertyOptionParam;
-import qualitypatternmodel.parameters.TextParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 
 /**
@@ -33,5 +32,4 @@ public interface PropertyValidator {
 
 	boolean validateMatch(EList<Match> value);
 
-	boolean validateAttributeName(TextParam value);
 }

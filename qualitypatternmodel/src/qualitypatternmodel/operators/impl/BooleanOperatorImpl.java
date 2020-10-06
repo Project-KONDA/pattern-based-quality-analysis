@@ -41,6 +41,8 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	/**
 	 * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
 	 * <!-- begin-user-doc -->
+	 * A list of all <code>Elements</code> that are direct or indirect arguments of <code>this</code> or
+	 * contain <code>Properties</code> that serve as direct or indirect arguments.
 	 * <!-- end-user-doc -->
 	 * @see #getElements()
 	 * @generated
@@ -48,7 +50,7 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 */
 	protected EList<Element> elements;
 	
-	protected EMap<Element,Integer> elementCount;
+	private EMap<Element,Integer> elementCount;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,8 +63,7 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
 
 		if (getComparison1().isEmpty() && getComparison2().isEmpty()) {
-			// this is root operator
-			// ensure "each predicate owner must be argument" constraint:
+			// this is root operator, thus does not serve as an argument to another operator
 			EList<Element> arguments = getAllArgumentElements();
 			if (!arguments.containsAll(elements)) {
 				throw new InvalidityException("invalid predicate owner" + " (" + getInternalId() + ")");
@@ -71,6 +72,7 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 				throw new InvalidityException("invalid predicate argument" + " (" + getInternalId() + ")");
 			}
 		} else {
+			// this serves as an argument to another operator
 			if(!elements.isEmpty()) {
 				throw new InvalidityException("invalid predicate owner" + " (" + getInternalId() + ")");
 			}
@@ -119,7 +121,6 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 		}
 		if(!getElements().contains(element)) {
 			getElements().add(element);
-//			element.getPredicates().add(this);
 		}
 	}
 
@@ -133,7 +134,6 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 		if(getElementCount().containsKey(element)) {			
 			if(getElementCount().get(element) == 1) {
 				getElements().remove(element);
-//				element.getPredicates().remove(this);
 				getElementCount().removeKey(element);
 			} else {
 				getElementCount().put(element, getElementCount().get(element)-1);
@@ -149,20 +149,10 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	@Override
 	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
 		if(getOperatorList() != null && !getOperatorList().equals(newOperatorList)) {			
-//			reset();
 			getElements().clear();
 		}
-//		if(getOperatorList() != null) {
-//			removeParametersFromParameterList();
-//		}
-		msgs = super.basicSetOperatorList(newOperatorList, msgs);
-		
-		createParameters();
-		
-//		if(newOperatorList != null) {
-//			createParameters();
-//		}
-		
+		msgs = super.basicSetOperatorList(newOperatorList, msgs);		
+		createParameters();		
 		return msgs;
 	}	
 	
@@ -279,15 +269,11 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 		return super.eInvoke(operationID, arguments);
 	}
 
-	public EMap<Element, Integer> getElementCount() {
+	private EMap<Element, Integer> getElementCount() {
 		if(elementCount == null) {
 			elementCount = new BasicEMap<Element, Integer>();
 		}
 		return elementCount;
-	}
-
-	public void setElementCount(EMap<Element, Integer> elementCount) {
-		this.elementCount = elementCount;
 	}
 
 } //BooleanOperatorImpl

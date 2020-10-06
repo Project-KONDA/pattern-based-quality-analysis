@@ -30,7 +30,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#isIsPredefined <em>Is Predefined</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#isPredefined <em>Predefined</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,28 +46,34 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	protected static final String DESCRIPTION_EDEFAULT = null;
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * A textual description for <code>this</code> that guides the concretization of the pattern.
+	 * <!-- end-user-doc -->
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
 	/**
-	 * The default value of the '{@link #isIsPredefined() <em>Is Predefined</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #isIsPredefined()
+	 * The default value of the '{@link #isPredefined() <em>Predefined</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPredefined()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_PREDEFINED_EDEFAULT = false;
+	protected static final boolean PREDEFINED_EDEFAULT = false;
 	/**
-	 * The cached value of the '{@link #isIsPredefined() <em>Is Predefined</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #isIsPredefined()
+	 * The cached value of the '{@link #isPredefined() <em>Predefined</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <code>True</code> if <code>this</code> <code>Parameter</code> is predefined in a generic or
+	 * abstract pattern and hence does not have to be specified during concretization.
+	 * <!-- end-user-doc -->
+	 * @see #isPredefined()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isPredefined = IS_PREDEFINED_EDEFAULT;
+	protected boolean predefined = PREDEFINED_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -76,32 +82,12 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		super();
 	}
 
-//	@Override
-//	public String toXQuery(Location location, int depth) throws InvalidityException {
-//		return toXQuery(location);
-//	}
-
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		res.add(this);
 		return res;
 	}
-
-//	@Override
-//	public boolean isTranslatable() throws InvalidityException {
-//		return true;
-//	}
-
-//	/**
-//	 * <!-- begin-user-doc -->
-//	 * <!-- end-user-doc -->
-//	 * @generated NOT
-//	 */
-//	@Override
-//	public void triggerParameterUpdates(PatternElement newContainer) {
-//		
-//	}
 	
 	@Override
 	public void updateParameters(ParameterList newParameterList) {
@@ -110,22 +96,6 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			getParameterList().remove(this);
 		}
 	}
-	
-//	@Override
-//	public void prepareParameterUpdates(ParameterList newParameterList) {
-//		setParameterList(newParameterList);
-//		// attention: all references to this are deleted automatically when moved to newParameterList
-//		// TODO: OK?
-//		
-////		if(newParameterList == null) {
-////			getParameterList().remove(this);
-////		} else {
-////			// move this to newParameterList
-////			// attention: all references are deleted automatically
-////			setParameterList(newParameterList);
-////		}
-//		
-//	}
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -203,8 +173,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @generated
 	 */
 	@Override
-	public boolean isIsPredefined() {
-		return isPredefined;
+	public boolean isPredefined() {
+		return predefined;
 	}
 
 	/**
@@ -212,11 +182,11 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @generated
 	 */
 	@Override
-	public void setIsPredefined(boolean newIsPredefined) {
-		boolean oldIsPredefined = isPredefined;
-		isPredefined = newIsPredefined;
+	public void setPredefined(boolean newPredefined) {
+		boolean oldPredefined = predefined;
+		predefined = newPredefined;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PARAMETER__IS_PREDEFINED, oldIsPredefined, isPredefined));
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PARAMETER__PREDEFINED, oldPredefined, predefined));
 	}
 
 	@Override
@@ -306,8 +276,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				return getParameterList();
 			case ParametersPackage.PARAMETER__DESCRIPTION:
 				return getDescription();
-			case ParametersPackage.PARAMETER__IS_PREDEFINED:
-				return isIsPredefined();
+			case ParametersPackage.PARAMETER__PREDEFINED:
+				return isPredefined();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -326,8 +296,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			case ParametersPackage.PARAMETER__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case ParametersPackage.PARAMETER__IS_PREDEFINED:
-				setIsPredefined((Boolean)newValue);
+			case ParametersPackage.PARAMETER__PREDEFINED:
+				setPredefined((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -346,8 +316,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			case ParametersPackage.PARAMETER__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case ParametersPackage.PARAMETER__IS_PREDEFINED:
-				setIsPredefined(IS_PREDEFINED_EDEFAULT);
+			case ParametersPackage.PARAMETER__PREDEFINED:
+				setPredefined(PREDEFINED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -364,8 +334,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				return getParameterList() != null;
 			case ParametersPackage.PARAMETER__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case ParametersPackage.PARAMETER__IS_PREDEFINED:
-				return isPredefined != IS_PREDEFINED_EDEFAULT;
+			case ParametersPackage.PARAMETER__PREDEFINED:
+				return predefined != PREDEFINED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -398,8 +368,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (description: ");
 		result.append(description);
-		result.append(", isPredefined: ");
-		result.append(isPredefined);
+		result.append(", predefined: ");
+		result.append(predefined);
 		result.append(')');
 		return result.toString();
 	}

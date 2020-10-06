@@ -3,8 +3,6 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
-
-import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
@@ -16,6 +14,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Graph</b></em>'.
+ * Abstract representation of data of interest by means of <code>Elements</code>, <code>Relations</code> and <code>Properties</code>.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -143,6 +142,7 @@ public interface Graph extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns true if <code>this</code> serves as the context graph of a <code>Pattern</code>, thus is contained in a <code>Pattern</code>.
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
@@ -151,6 +151,8 @@ public interface Graph extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Creates a <code>Relation</code> with <code>from</code> as <code>source</code> and <code>to</code> 
+	 * as <code>target</code> and inserts it into <code>relations</code>.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -207,14 +209,23 @@ public interface Graph extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a list of all <code>Operators</code> referenced by the contained graph components.
+	 * 
+	 * @return a list of all <code>Operators</code> referenced by the contained graph components
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<Operator> getAllOperators() throws InvalidityException;
+	EList<Operator> getAllOperators();
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Copies all contained <code>Elements</code> and <code>Relations</code> to <code>graph</code>.
+	 * 
+	 * New <code>Elements</code> and <code>Relations</code> are created and inserted into <code>graph</code>.
+	 * Corresponding <code>Mappings</code> are created and added to the corresponding <code>MorphismContainer's</code> <code>Morphism</code>.
+	 * 
+	 * @throws MissingPatternContainerException // TODO comment
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
