@@ -10,48 +10,51 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
-import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
 
 public class DemoPatterns {
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		getAbstractCompPattern().isValid(AbstractionLevel.ABSTRACT);
-		System.out.println(getAbstractCompPattern().myToString());
+		CompletePattern pattern = getConcreteCompPattern();
+		pattern.isValid(AbstractionLevel.CONCRETE);
+		System.out.println(pattern.generateQuery());
 	}
 	
 	public static CompletePattern getGenericCompPattern() {
 		
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		
-		CompletePattern completePattern = factory.createCompletePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setName("Comp [generic]");
 		
+		// Context graph of pattern:
 		Element element0 = completePattern.getGraph().getElements().get(0);
 		element0.addPrimitiveComparison();
-				
-		QuantifiedCondition quantifiedCondition = factory.createQuantifiedCondition();
+		
+		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
+		comp0.getOption().setValue(ComparisonOperator.EQUAL);
+		comp0.getOption().setPredefined(true);
+		
+		// First-order logic condition of pattern:
+		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(quantifiedCondition);
 		
-		Element element1 = graphFactory.createElement();
-		element1.setGraph(quantifiedCondition.getGraph());
-		
+		// Graph of quantified condition:		
 		Element element0Copy = quantifiedCondition.getGraph().getElements().get(0);
 		
-		Relation relation = graphFactory.createRelation();
+		Element element1 = GraphstructureFactory.eINSTANCE.createElement();
+		element1.setGraph(quantifiedCondition.getGraph());		
+		
+		Relation relation = GraphstructureFactory.eINSTANCE.createRelation();
 		relation.setGraph(quantifiedCondition.getGraph());		
 		relation.setSource(element0Copy);
 		relation.setTarget(element1);
@@ -59,7 +62,18 @@ public class DemoPatterns {
 		element1.addPrimitiveComparison();
 		element1.addPrimitiveComparison();
 		
-		TrueElement trueElement = factory.createTrueElement();
+		Comparison comp1 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
+		comp1.getOption().setValue(ComparisonOperator.EQUAL);
+		comp1.getOption().setPredefined(true);
+		
+		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);
+		comp2.getOption().getOptions().add(ComparisonOperator.GREATER);
+		comp2.getOption().getOptions().add(ComparisonOperator.LESS);
+		comp2.getOption().getOptions().add(ComparisonOperator.GREATEROREQUAL);
+		comp2.getOption().getOptions().add(ComparisonOperator.LESSOREQUAL);
+		
+		// Condition of quantified condition:
+		TrueElement trueElement = PatternstructureFactory.eINSTANCE.createTrueElement();
 		quantifiedCondition.setCondition(trueElement);
 		
 		return completePattern;			
@@ -67,9 +81,11 @@ public class DemoPatterns {
 	
 	public static CompletePattern getAbstractCompPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericCompPattern();
+		completePattern.setName("Comp [abstract]");
 		
 		completePattern.createXMLAdaption();
 		
+		// Specify relation between Element 0 and Element 1:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLNavigation();
 		
@@ -80,7 +96,9 @@ public class DemoPatterns {
 
 	public static CompletePattern getConcreteCompPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getAbstractCompPattern();
+		completePattern.setName("Comp [concrete]");
 		
+		// Context graph of pattern:
 		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
 		property0.getOption().setValue(PropertyKind.TAG);
@@ -90,39 +108,33 @@ public class DemoPatterns {
 		textValue0.setValue("architect");
 		value0.replace(textValue0);
 		
-		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
-		comp0.getOption().setValue(ComparisonOperator.EQUAL);
-		
+		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
+		// Graph of quantified condition:
 		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		property1.getOption().setValue(PropertyKind.TAG);
 		
-		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(1);
+		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(2);
 		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
 		textValue1.setValue("birthyear");
 		value1.replace(textValue1);
 		
-		Comparison comp1 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
-		comp1.getOption().setValue(ComparisonOperator.EQUAL);
-		
 		XmlProperty property2 = (XmlProperty) element1.getProperties().get(0);
 		property2.getOption().setValue(PropertyKind.TAG);
 		
-		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(2);
-		TextLiteralParam textValue2 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue2.setValue("birthyear");
-		value2.replace(textValue2);
+		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(4);
+		NumberParam numberValue = ParametersFactory.eINSTANCE.createNumberParam();
+		numberValue.setValue(2020.0);
+		value2.replace(numberValue);
 		
 		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);
-		comp2.getOption().setValue(ComparisonOperator.EQUAL);
+		comp2.getOption().getOptions().add(ComparisonOperator.GREATER);	
 		
 		XmlNavigation nav = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
 		nav.getOption().setValue(RelationKind.CHILD);
-		
-		// TODO: complete and check concretization
-		
+				
 		return completePattern;
 	}
 
