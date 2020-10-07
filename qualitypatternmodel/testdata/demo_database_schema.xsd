@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:demo="demo" targetNamespace="demo">
+
+	<xs:element name="data">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="building" type="demo:buildingType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="painting" type="demo:paintingType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="architect" type="demo:personType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="artist" type="demo:personType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element name="data">
+
+	<xs:complexType name="buildingType">
+		<xs:sequence>
+			<xs:element name="name" maxOccurs="unbounded"/>
+			<xs:element name="creator" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id"/>
+	</xs:complexType>
+
+	<xs:complexType name="paintingType">
+		<xs:sequence>
+			<xs:element name="title" maxOccurs="unbounded"/>
+			<xs:element name="creator" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="startwork"/>
+			<xs:element name="endwork"/>		
+		</xs:sequence>
+		<xs:attribute name="id"/>
+	</xs:complexType>
+
+	<xs:complexType name="personType">
+		<xs:sequence>
+			<xs:element name="name" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="birthyear" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id"/>
+	</xs:complexType>
+
+	<xs:complexType name="adressType">
+		<xs:sequence>
+			<xs:element name="city" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="country" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
+
+minOccurs="0" maxOccurs="unbounded"
