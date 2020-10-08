@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:demo="demo" targetNamespace="demo">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:demo="demo" targetNamespace="demo">
 
 	<xs:element name="data">
 		<xs:complexType>
@@ -10,7 +10,7 @@
 				<xs:element name="artist" type="demo:personType" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
 		</xs:complexType>
-	</xs:element name="data">
+	</xs:element>
 
 	<xs:complexType name="buildingType">
 		<xs:sequence>
@@ -46,5 +46,3 @@
 	</xs:complexType>
 
 </xs:schema>
-
-minOccurs="0" maxOccurs="unbounded"

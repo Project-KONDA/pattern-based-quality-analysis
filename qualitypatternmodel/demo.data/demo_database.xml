@@ -1,4 +1,7 @@
-<demo:data>	
+<?xml version="1.0" encoding="UTF-8"?>
+
+<demo:data xmlns:demo="demo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="demo_database_schema.xsd">	
 
 	<!--  BUILDINGS -->
 	
