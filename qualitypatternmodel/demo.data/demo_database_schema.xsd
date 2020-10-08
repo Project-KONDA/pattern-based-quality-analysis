@@ -14,7 +14,7 @@
 
 	<xs:complexType name="buildingType">
 		<xs:sequence>
-			<xs:element name="name" maxOccurs="unbounded"/>
+			<xs:element name="name" type="xs:string" maxOccurs="unbounded"/>
 			<xs:element name="creator" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="id"/>
@@ -22,26 +22,26 @@
 
 	<xs:complexType name="paintingType">
 		<xs:sequence>
-			<xs:element name="title" maxOccurs="unbounded"/>
+			<xs:element name="title" type="xs:string" maxOccurs="unbounded"/>
 			<xs:element name="creator" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="startwork"/>
-			<xs:element name="endwork"/>		
+			<xs:element name="startwork" type="xs:integer"/>
+			<xs:element name="endwork" type="xs:integer"/>		
 		</xs:sequence>
 		<xs:attribute name="id"/>
 	</xs:complexType>
 
 	<xs:complexType name="personType">
 		<xs:sequence>
-			<xs:element name="name" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="birthyear" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="birthyear" type="xs:integer" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="id"/>
 	</xs:complexType>
 
 	<xs:complexType name="adressType">
 		<xs:sequence>
-			<xs:element name="city" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="country" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="city" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="country" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 
