@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <demo:data xmlns:demo="demo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="demo_database_schema.xsd">	
+xsi:schemaLocation="demo demo_database_schema.xsd">	
 
 	<!--  BUILDINGS -->
 	
 	<demo:building id="101">
-		<demo:name>Empire State Building<demo:/name>
-		<demo:city>New York City<demo:/city>
+		<demo:name>Empire State Building</demo:name>
+		<demo:city>New York City</demo:city>
 		<demo:country>USA</demo:country>	
 		<demo:creator>301</demo:creator>
 		<demo:creator ref="301"/>
@@ -35,7 +35,7 @@ xsi:schemaLocation="demo_database_schema.xsd">
 		<demo:title>The Starry Night</demo:title>
 		<demo:creator>401</demo:creator>
 		<demo:endwork>1889</demo:endwork>
-	</demo:painting id="4">
+	</demo:painting>
 	
 	<demo:painting id="202">
 		<demo:title>Wheatfield with Crows</demo:title>
