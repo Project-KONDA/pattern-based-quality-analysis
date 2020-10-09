@@ -57,9 +57,9 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected NumberElementImpl() {
+	public NumberElementImpl() {
 		super();
 	}
 	

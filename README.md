@@ -1,26 +1,24 @@
 # Quality Pattern Model
 
-> Proof of concept for the definition of generic patterns, independent of database technology.
-
-
-## About the Project
-
-To localize data-inherent quality problems, we present a model-driven approach to analyze the quality of research data.
-It allows abstracting from the underlying database technology. 
-Based on the observation that many quality problems show anti-patterns, generic analysis patterns can be formulated that are generic concerning the database format and technology. 
-This pattern can be adapted to a specific database technology and concretisized for a domain-specific database format. 
-The resulting concrete patterns are used to locate quality problems in specific databases.
+This tool is a proof of concept for a model-driven approach to analyze the quality of research data.
+It supports the specification of anti-patterns for data quality problems.
+These anti-patterns are generic with respect to database technologies and formats.
+Generic patterns can be adapted to several database technologies, resulting in several abstract patterns.
+An abstract pattern can be concretisized for a domain-specific database format and concrete quality problem. 
+The resulting concrete patterns can be utilized to locate quality problems in databases.
 As proof of concept, this project realizes this approach for XML databases.
 
-The approach is described in detail in the research paper "[Detecting Quality Problems in Research Data: A Model-Driven Approach](https://doi.org/10.5281/zenodo.4019095)", published in the Conference "[MODELS2020](http://www.modelsconference.org)".
+The approach is described in detail in the research paper "[Detecting Quality Problems in Research Data: A Model-Driven Approach](https://doi.org/10.5281/zenodo.4019095)",
+which will be published in the proceedings of the conference "[MODELS2020](http://www.modelsconference.org)".
 
+## Motivation
+???
 
-## Meta
+## Installation
+...
 
-* Arno Kesper - arno.kesper@uni-marburg.de
-* Viola Wenz - viola.wenz@uni-marburg.de
-* Gabriele Taentzer - taentzer@uni-marburg.de
-
+## Tests
+...
 
 ## Built With
 
@@ -29,10 +27,15 @@ The approach is described in detail in the research paper "[Detecting Quality Pr
 * [XQuery](https://www.w3.org/XML/Query/)
 * [BaseX](https://basex.org)
 
+## Authors
 
-## Context : Project "KONDA"
+* Arno Kesper - arno.kesper@uni-marburg.de
+* Viola Wenz - viola.wenz@uni-marburg.de
+* Gabriele Taentzer - taentzer@uni-marburg.de
 
-The Project "[KONDA](https://zenodo.org/communities/konda-project)" is a research project of three partners: 
+## Context : Research Project "KONDA"
+
+The research project "[KONDA](https://zenodo.org/communities/konda-project)" is a collaboration of three partners: 
 
 * [Deutsches Dokumentationszentrum für Kunstgeschichte (Foto Marburg)](https://www.uni-marburg.de/de/fotomarburg)
 * [Departement for Mathematics and Informatics (FB12) of Philipps Univerisity Marburg](https://www.uni-marburg.de/en/fb12)
