@@ -28,6 +28,18 @@
 		</demo:address>
 	</demo:building>
 	
+	<demo:building demo:id="103">
+		<demo:name>Royal Palace</demo:name>
+		<demo:city>unknown</demo:city>
+		<demo:country>unknown</demo:country>
+		<demo:creator>103</demo:creator>
+		<demo:creator demo:ref="103"/>
+		<demo:address>
+			<demo:city>unknown</demo:city>
+			<demo:country>unknown</demo:country>
+		</demo:address>
+	</demo:building>
+	
 	<!--  PAINTINGS -->
 	
 	<demo:painting demo:id="201">
