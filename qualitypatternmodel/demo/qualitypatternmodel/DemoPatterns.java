@@ -1,5 +1,6 @@
 package qualitypatternmodel;
 
+import java.io.IOException;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
@@ -25,9 +26,31 @@ import qualitypatternmodel.patternstructure.TrueElement;
 
 public class DemoPatterns {
 	
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = getConcreteCompPattern();
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
+		exportAllDemoPatterns();
+		printAllDemoPatternQueries();
+	}
+
+	private static void printAllDemoPatternQueries()
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern compConcrete = getConcreteCompPattern();
+		printPatternQuery(compConcrete);
+	}
+
+	private static void exportAllDemoPatterns()
+			throws IOException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern compGeneric = getGenericCompPattern();
+		Util.exportToFile(compGeneric,"instances/demo/comp_generic.patternstructure");
+		CompletePattern compAbstract = getAbstractCompPattern();
+		Util.exportToFile(compAbstract,"instances/demo/comp_abstract.patternstructure");
+		CompletePattern compConcrete = getConcreteCompPattern();				
+		Util.exportToFile(compConcrete,"instances/demo/comp_concrete.patternstructure");
+	}
+
+	private static void printPatternQuery(CompletePattern pattern)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		pattern.isValid(AbstractionLevel.CONCRETE);
+		System.out.println("*** "+pattern.getName()+" ***");
 		System.out.println(pattern.generateQuery());
 	}
 	
@@ -108,6 +131,9 @@ public class DemoPatterns {
 		textValue0.setValue("architect");
 		value0.replace(textValue0);
 		
+		XmlNavigation navigationRootElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		navigationRootElement0.getOption().setValue(RelationKind.DESCENDANT);
+		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
@@ -130,10 +156,10 @@ public class DemoPatterns {
 		value2.replace(numberValue);
 		
 		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);
-		comp2.getOption().getOptions().add(ComparisonOperator.GREATER);	
+		comp2.getOption().setValue(ComparisonOperator.GREATER);	
 		
-		XmlNavigation nav = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		nav.getOption().setValue(RelationKind.CHILD);
+		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
+		navigationElement0Element1.getOption().setValue(RelationKind.CHILD);	
 				
 		return completePattern;
 	}
