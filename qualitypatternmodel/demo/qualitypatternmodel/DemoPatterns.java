@@ -92,6 +92,7 @@ public class DemoPatterns {
 		
 		// Context graph of pattern:
 		Element element0 = completePattern.getGraph().getElements().get(0);
+		element0.setName("Element0");
 		element0.addPrimitiveComparison();
 		
 		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
@@ -106,6 +107,7 @@ public class DemoPatterns {
 		Element element0Copy = quantifiedCondition.getGraph().getElements().get(0);
 		
 		Element element1 = GraphstructureFactory.eINSTANCE.createElement();
+		element1.setName("Element1");
 		element1.setGraph(quantifiedCondition.getGraph());		
 		
 		Relation relation = GraphstructureFactory.eINSTANCE.createRelation();
@@ -205,6 +207,7 @@ public class DemoPatterns {
 		
 		// Context graph of pattern:
 		Element element0 = completePattern.getGraph().getElements().get(0);
+		element0.setName("Element0");
 		element0.addPrimitiveComparison();
 		
 		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
@@ -238,6 +241,7 @@ public class DemoPatterns {
 		Element element0Copy = countPattern.getGraph().getElements().get(0);
 		
 		Element element1 = GraphstructureFactory.eINSTANCE.createElement();
+		element1.setName("Element1");
 		element1.setGraph(countPattern.getGraph());		
 		
 		Relation relation = GraphstructureFactory.eINSTANCE.createRelation();
@@ -321,6 +325,7 @@ public class DemoPatterns {
 		
 		// Context graph of pattern:
 		Element element0 = completePattern.getGraph().getElements().get(0);
+		element0.setName("Element0");
 		element0.addPrimitiveComparison();
 		
 		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
@@ -335,6 +340,7 @@ public class DemoPatterns {
 		Element element0Copy = quantifiedCondition.getGraph().getElements().get(0);
 		
 		Element element0A = GraphstructureFactory.eINSTANCE.createElement();
+		element0A.setName("Element0A");
 		element0A.setGraph(quantifiedCondition.getGraph());		
 		Property property0A = element0A.addNewProperty();
 		
@@ -350,6 +356,7 @@ public class DemoPatterns {
 		comp0A.getOption().setPredefined(true);
 		
 		Element element0B = GraphstructureFactory.eINSTANCE.createElement();
+		element0B.setName("Element0B");
 		element0B.setGraph(quantifiedCondition.getGraph());		
 		Property property0B = element0B.addNewProperty();
 		
@@ -365,10 +372,12 @@ public class DemoPatterns {
 		comp0B.getOption().setPredefined(true);
 		
 		Element element1 = GraphstructureFactory.eINSTANCE.createElement();
+		element1.setName("Element1");
 		element1.setGraph(quantifiedCondition.getGraph());	
 		element1.addPrimitiveComparison();
 		
 		Element element1A = GraphstructureFactory.eINSTANCE.createElement();
+		element1A.setName("Element1A");
 		element1A.setGraph(quantifiedCondition.getGraph());	
 		Property property1A = element1A.addNewProperty();
 		
@@ -384,6 +393,7 @@ public class DemoPatterns {
 		comp1A.getOption().setPredefined(true);
 		
 		Element element1B = GraphstructureFactory.eINSTANCE.createElement();
+		element1B.setName("Element1B");
 		element1B.setGraph(quantifiedCondition.getGraph());	
 		Property property1B = element1B.addNewProperty();
 		
