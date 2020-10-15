@@ -1,6 +1,22 @@
 package qualitypatternmodel.demo;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.basex.core.BaseXException;
+import org.basex.core.Context;
+import org.basex.core.cmd.Close;
+import org.basex.core.cmd.CreateDB;
+import org.basex.core.cmd.Open;
+import org.basex.core.cmd.XQuery;
+import org.basex.query.QueryException;
+import org.basex.query.QueryIOException;
+import org.basex.query.QueryProcessor;
+import org.basex.query.iter.Iter;
+import org.basex.query.value.item.Item;
+
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
@@ -32,10 +48,75 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
 
 public class DemoPatterns {
+	private static final String DEMO_DATABASE_NAME = "DemoDatabase";
+	private static final String DEMO_NAMESPACE = "demo:";
 	
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
+	private static Context context;
+	
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException, QueryException {
 		exportAllDemoPatterns();
 		printAllDemoPatternQueries();
+		executeAllDemoPatterns();
+		
+	}
+	
+	private static void executeAllDemoPatterns() throws BaseXException, InvalidityException, OperatorCycleException, MissingPatternContainerException, QueryIOException, QueryException {
+		createDemoBaseXDatabase();
+		
+		new Open(DEMO_DATABASE_NAME).execute(context);
+		
+		CompletePattern compConcrete = getConcreteCompPattern();
+		List<String> compResult = executePattern(compConcrete);
+		printExecutionResult(compConcrete, compResult);
+		
+		CompletePattern cardConcrete = getConcreteCardPattern();
+		List<String> cardResult = executePattern(cardConcrete);
+		printExecutionResult(cardConcrete, cardResult);
+		
+		CompletePattern funcConcrete = getConcreteFuncPattern();
+		List<String> funcResult = executePattern(funcConcrete);
+		printExecutionResult(funcConcrete, funcResult);
+				
+	}
+	
+	private static void printExecutionResult(CompletePattern pattern, List<String> result) {
+		System.out.println("\n*** Result of applying the pattern "+pattern.getName()+" to the demo database***");
+		int i = 1;
+		for(String item : result) {
+			System.out.println("\n--- Item " + i + " ---");
+			System.out.println(item);
+			i++;
+		}
+	}
+	
+	private static List<String> executePattern(CompletePattern pattern) throws InvalidityException, QueryException, QueryIOException, BaseXException {
+		
+		String query;
+		if(pattern.getQuery() == null) {
+			query = pattern.generateQuery();
+		} else {
+			query = pattern.getQuery();
+		}
+		
+//		Date startDate = new Date();
+		
+		List<String> queryResult = new ArrayList<String>();
+	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
+	      Iter iter = proc.iter();
+	      for(Item item; (item = iter.next()) != null;) {
+	    	  queryResult.add(item.serialize().toString());
+	        }
+	    }
+		
+//		Date endDate = new Date();
+//		long runtime = endDate.getTime() - startDate.getTime();
+	    
+	    return queryResult;
+	}
+	
+	private static void createDemoBaseXDatabase() throws BaseXException {
+		context = new Context();
+		new CreateDB(DEMO_DATABASE_NAME, "demo.data/demo_database.xml").execute(context);		
 	}
 
 	private static void exportAllDemoPatterns()
@@ -79,7 +160,7 @@ public class DemoPatterns {
 	private static void printPatternQuery(CompletePattern pattern)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		pattern.isValid(AbstractionLevel.CONCRETE);
-		System.out.println("\n*** "+pattern.getName()+" ***");
+		System.out.println("\n*** "+pattern.getName()+" query ***");
 		System.out.println(pattern.generateQuery());
 	}
 	
@@ -161,7 +242,7 @@ public class DemoPatterns {
 		
 		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
 		TextLiteralParam textValue0 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue0.setValue("architect");
+		textValue0.setValue(DEMO_NAMESPACE + "architect");
 		value0.replace(textValue0);
 		
 		XmlNavigation navigationRootElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
@@ -177,7 +258,7 @@ public class DemoPatterns {
 		
 		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(2);
 		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue1.setValue("birthyear");
+		textValue1.setValue(DEMO_NAMESPACE + "birthyear");
 		value1.replace(textValue1);
 		
 		XmlProperty property2 = (XmlProperty) element1.getProperties().get(0);
@@ -284,7 +365,7 @@ public class DemoPatterns {
 		
 		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
 		TextLiteralParam textValue0 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue0.setValue("artist");
+		textValue0.setValue(DEMO_NAMESPACE + "artist");
 		value0.replace(textValue0);
 		
 		XmlNavigation navigationRootElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
@@ -306,7 +387,7 @@ public class DemoPatterns {
 		
 		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(4);
 		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue1.setValue("birthyear");
+		textValue1.setValue(DEMO_NAMESPACE + "birthyear");
 		value1.replace(textValue1);	
 		
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) countPattern.getGraph().getRelations().get(0);
@@ -458,7 +539,7 @@ public class DemoPatterns {
 		
 		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
 		TextLiteralParam textValue0 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue0.setValue("building");
+		textValue0.setValue(DEMO_NAMESPACE + "building");
 		value0.replace(textValue0);
 		
 		XmlNavigation navigationRootElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
@@ -475,7 +556,7 @@ public class DemoPatterns {
 		
 		ParameterValue value0A = (ParameterValue) completePattern.getParameterList().getParameters().get(2);
 		TextLiteralParam textValue0A = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue0A.setValue("city");
+		textValue0A.setValue(DEMO_NAMESPACE + "city");
 		value0A.replace(textValue0A);
 		
 		XmlElement element0B = (XmlElement) quantifiedCondition.getGraph().getElements().get(2);
@@ -484,7 +565,7 @@ public class DemoPatterns {
 		
 		ParameterValue value0B = (ParameterValue) completePattern.getParameterList().getParameters().get(4);
 		TextLiteralParam textValue0B = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue0B.setValue("country");
+		textValue0B.setValue(DEMO_NAMESPACE + "country");
 		value0B.replace(textValue0B);
 		
 		
@@ -494,7 +575,7 @@ public class DemoPatterns {
 		
 		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
 		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue1.setValue("building");
+		textValue1.setValue(DEMO_NAMESPACE + "building");
 		value1.replace(textValue1);
 		
 		
@@ -504,7 +585,7 @@ public class DemoPatterns {
 		
 		ParameterValue value1A = (ParameterValue) completePattern.getParameterList().getParameters().get(8);
 		TextLiteralParam textValue1A = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue1A.setValue("city");
+		textValue1A.setValue(DEMO_NAMESPACE + "city");
 		value1A.replace(textValue1A);
 		
 		
@@ -514,7 +595,7 @@ public class DemoPatterns {
 		
 		ParameterValue value1B = (ParameterValue) completePattern.getParameterList().getParameters().get(10);
 		TextLiteralParam textValue1B = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue1B.setValue("country");
+		textValue1B.setValue(DEMO_NAMESPACE + "country");
 		value1B.replace(textValue1B);		
 		
 		
