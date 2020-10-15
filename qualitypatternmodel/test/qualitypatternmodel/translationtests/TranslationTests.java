@@ -40,10 +40,10 @@ public class TranslationTests {
 		testPairs.addAll(Test04QuantorCombinations.getTestPairs());
 		
 		testPairs.addAll(Test06NotElement.getTestPairs());
+		testPairs.addAll(Test07Formula.getTestPairs());
 		
 		// TODO:
 //		testPairs.addAll(Test05QuantorCombinationsCond.getTestPairs());
-//		testPairs.addAll(Test07Formula.getTestPairs());
 //		testPairs.addAll(Test08Comparison.getTestPairs());
 //		testPairs.addAll(Test09ComplexComparison.getTestPairs());
 //		testPairs.addAll(Test10Reference.getTestPairs());
