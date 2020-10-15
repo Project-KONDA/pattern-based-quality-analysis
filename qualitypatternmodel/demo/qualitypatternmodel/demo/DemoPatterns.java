@@ -2,15 +2,12 @@ package qualitypatternmodel.demo;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
-import org.basex.core.cmd.Close;
 import org.basex.core.cmd.CreateDB;
 import org.basex.core.cmd.Open;
-import org.basex.core.cmd.XQuery;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.basex.query.QueryProcessor;
@@ -34,7 +31,6 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorsFactory;
 import qualitypatternmodel.parameters.NumberParam;
-import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -48,6 +44,7 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
 
 public class DemoPatterns {
+	private static final String DEMO_DATA_PATH = "demo.data/demo_database.xml";
 	private static final String DEMO_DATABASE_NAME = "DemoDatabase";
 	private static final String DEMO_NAMESPACE = "demo:";
 	
@@ -61,9 +58,9 @@ public class DemoPatterns {
 	}
 	
 	private static void executeAllDemoPatterns() throws BaseXException, InvalidityException, OperatorCycleException, MissingPatternContainerException, QueryIOException, QueryException {
-		createDemoBaseXDatabase();
 		
-		new Open(DEMO_DATABASE_NAME).execute(context);
+		createContext();
+		openDemoDatabase();
 		
 		CompletePattern compConcrete = getConcreteCompPattern();
 		List<String> compResult = executePattern(compConcrete);
@@ -114,9 +111,20 @@ public class DemoPatterns {
 	    return queryResult;
 	}
 	
-	private static void createDemoBaseXDatabase() throws BaseXException {
+	private static void createContext() {
 		context = new Context();
-		new CreateDB(DEMO_DATABASE_NAME, "demo.data/demo_database.xml").execute(context);		
+	}
+	
+	private static void openDemoDatabase() {
+		try {
+			new Open(DEMO_DATABASE_NAME).execute(context);
+		} catch (BaseXException e) {
+			try {
+				new CreateDB(DEMO_DATABASE_NAME, DEMO_DATA_PATH).execute(context);
+			} catch (BaseXException e1) {
+				e1.printStackTrace();
+			}
+		}				
 	}
 
 	private static void exportAllDemoPatterns()

@@ -22,16 +22,17 @@ import qualitypatternmodel.testutility.EMFValidationPreparation;
 import qualitypatternmodel.testutility.PatternTestPair;
 
 public class TranslationTests {
+	private static final String TEST_DATABASE_NAME = "DemoDatabase";
+	private static final String TEST_DATA_PATH = "demo.data/demo_database.xml";
 	private static Context context;
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		
 		EMFValidationPreparation.registerDelegates();
 		createContext();
-		openDatabase("DBExample", "D:\\Dokumente\\MIDAS\\20190522\\fme-private-Seiten20190521.xml");
+		openDatabase(TEST_DATABASE_NAME, TEST_DATA_PATH);
 		
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		// TODO: add all test cases to testpairs
 		testPairs.addAll(Test00.getTestPairs());
 		testPairs.addAll(Test01Axis.getTestPairs());
 		testPairs.addAll(Test02Return.getTestPairs());
@@ -48,21 +49,18 @@ public class TranslationTests {
 		
 		for(PatternTestPair testPair : testPairs) {
 			runTestQueryResultComparison(testPair);
-		}
-		
-//		runTestQueryResultComparison("instances/userstudy/disjp.patternstructure",
-//				"//*[@Type=\"kue\" and .//*[@Type=\"3100\"]/@Value=.//*[@Type=\"3105\"]/@Value]", "Test 1");		
+		}		
 		
 	}
 	
 	private static void runTestQueryResultComparison(PatternTestPair testPair) {
-		// compares the pattern query result with that of the manually written query
+		// Checks test case defined as testPair
 		
 		/*
 		 * given per test case:
 		 * - pattern
 		 * - manually written query
-		 * - database (MIDAS, LIDO or self written test database)
+		 * - database (small cultural heritage test database)
 		 * 
 		 * approach: 
 		 * - run pattern query
@@ -73,8 +71,10 @@ public class TranslationTests {
 		
 		try {
 			testPair.getPattern().isValid(AbstractionLevel.CONCRETE);
+			
 			String result = applyQuery(testPair.getPattern().generateQuery());
 			String expectedResult = applyQuery(testPair.getManualQuery());
+			
 			boolean isCorrect = compareResults(result, expectedResult);	
 			if(isCorrect) {
 				System.out.println(testPair.getName() + ": succeeded");
@@ -100,12 +100,12 @@ public class TranslationTests {
 	private static String applyQuery(String query) throws BaseXException {		
 		XQuery xquery = new XQuery(query);
 		String result = xquery.execute(context);	
-		System.out.println("query executed");
+//		System.out.println("query executed");
 		return result;
 	}
 	
 	private static boolean compareResults(String result, String expectedResult) {
-		// compares the results of the pattern query to that of the manually written query
+		// Compares the results of the application of the pattern query to that of the manually written query
 		// TODO: use XQuery instead for checking equality?
 		return result.equals(expectedResult);
 	}
