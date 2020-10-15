@@ -35,9 +35,11 @@ public class TranslationTests {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		testPairs.addAll(Test00.getTestPairs());
 		testPairs.addAll(Test01Axis.getTestPairs());
-//		testPairs.addAll(Test02Return.getTestPairs());
-//		testPairs.addAll(Test03Quantor.getTestPairs());
-//		testPairs.addAll(Test04QuantorCombinations.getTestPairs());
+		testPairs.addAll(Test02Return.getTestPairs());
+		testPairs.addAll(Test03Quantor.getTestPairs());
+		testPairs.addAll(Test04QuantorCombinations.getTestPairs());
+		
+		// TODO:
 //		testPairs.addAll(Test05QuantorCombinationsCond.getTestPairs());
 //		testPairs.addAll(Test06NotElement.getTestPairs());
 //		testPairs.addAll(Test07Formula.getTestPairs());
@@ -117,10 +119,10 @@ public class TranslationTests {
 		context = new Context();
 	}
 	private static void openDatabase(String databaseName, String dataPath) {
-		try {
-			new Open(databaseName).execute(context);
-			System.out.println("Opened database \"" + databaseName + "\"\n");
-		} catch (BaseXException e) {
+//		try {
+//			new Open(databaseName).execute(context);
+//			System.out.println("Opened database \"" + databaseName + "\"\n");
+//		} catch (BaseXException e) {
 			try {
 				new CreateDB(databaseName, dataPath).execute(context);
 				System.out.println("Created database \"" + databaseName + "\" with data " + dataPath + "\n");
@@ -128,7 +130,7 @@ public class TranslationTests {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-		}				
+//		}				
 	}		
 	
 	private static void printDiagnostic(Diagnostic diagnostic, String indent) {

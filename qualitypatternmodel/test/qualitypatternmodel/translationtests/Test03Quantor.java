@@ -4,6 +4,8 @@ import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutility.PatternTestPair;
+import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -131,6 +133,10 @@ public class Test03Quantor {
 		completePattern.createXMLAdaption();
 		completePattern.finalizeXMLAdaption();	
 		
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
+		XmlNavigation nav = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
+		nav.getOption().setValue(RelationKind.THREECHILD);
+		
 		return completePattern;
 	}
 
@@ -139,7 +145,7 @@ public class Test03Quantor {
 		CompletePattern completePattern = getPatternExists();
 		Graph graph2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Element last = graph2.getElements().get(1);
-		last.addPrimitiveComparison("myvalue");
+		last.addPrimitiveComparison("New York City");
 		
 		return completePattern;
 	}
@@ -167,7 +173,7 @@ public class Test03Quantor {
 		testPairs.add(new PatternTestPair("EXISTSREL", getPatternExistsWithRelationFinal(), "/*[./*]"));
 		testPairs.add(new PatternTestPair("EXISTS", getPatternExistsFinal(), "/*[/*]"));
 //		testPairs.add(new PatternTestPair("EXISTSNAV", getPatternExistsNavigation(), ""));		
-		testPairs.add(new PatternTestPair("EXISTSCOND", getPatternExistsCondFinal(), "/*[/*[data()=\"myvalue\"]]"));
+		testPairs.add(new PatternTestPair("EXISTSCOND", getPatternExistsCondFinal(), "/*[/*/*/*[data()=\"New York City\"]]"));
 		testPairs.add(new PatternTestPair("FORALL", getPatternForall(), "for $x1 in /* where every $x2 in /* satisfies true() return $x1"));
 		testPairs.add(new PatternTestPair("FORALLCOND", getPatternForallCond(), "for $x1 in /* where every $x2 in /*[data()=\"myvalue\"] satisfies true() return $x1"));
 		// TODO: complete test cases
