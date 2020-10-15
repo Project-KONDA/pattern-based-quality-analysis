@@ -111,22 +111,28 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 					result += "(" + condition2.generateQuery() + "))";
 					break;
 				case XOR:
-					result = "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
-					result += Constants.AND;
-					result += "(" + condition2.generateQuery() + "))";
-					result += Constants.OR;
-					result += "((" + condition1.generateQuery() + ")";
-					result += Constants.AND;
-					result += Constants.NOT + "("+ condition2.generateQuery() + "))";
+//					result = "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
+//					result += Constants.AND;
+//					result += "(" + condition2.generateQuery() + "))";
+//					result += Constants.OR;
+//					result += "((" + condition1.generateQuery() + ")";
+//					result += Constants.AND;
+//					result += Constants.NOT + "("+ condition2.generateQuery() + "))";
+					result += "(not(exists(" + Constants.NOT + "(" + condition1.generateQuery() + ")))";
+					result += "=";
+					result += "(" + condition2.generateQuery() + "))";					
 					break;
 				case EQUAL:
-					result += "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
-					result += Constants.AND;
-					result += Constants.NOT + "(" + condition2.generateQuery() + "))";
-					result += Constants.OR;
-					result += "((" + condition1.generateQuery() + ")";
-					result += Constants.AND;
-					result += "("+ condition2.generateQuery() + "))";			
+//					result += "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
+//					result += Constants.AND;
+//					result += Constants.NOT + "(" + condition2.generateQuery() + "))";
+//					result += Constants.OR;
+//					result += "((" + condition1.generateQuery() + ")";
+//					result += Constants.AND;
+//					result += "("+ condition2.generateQuery() + "))";
+					result += "(exists(" + Constants.NOT + "(" + condition1.generateQuery() + "))";
+					result += "=";
+					result += "(" + condition2.generateQuery() + "))";
 					break;
 				default:
 					throw new InvalidityException("invalid arguments");
