@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<demo:data xmlns:demo="demo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="demo demo_database_schema.xsd">	
+<demo:data xmlns:demo="demo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="demo demo_database_schema.xsd">	
 
 	<!--  BUILDINGS -->
 	
-	<demo:building id="101">
+	<demo:building demo:id="101">
 		<demo:name>Empire State Building</demo:name>
 		<demo:city>New York City</demo:city>
 		<demo:country>USA</demo:country>	
 		<demo:creator>301</demo:creator>
-		<demo:creator ref="301"/>
+		<demo:creator demo:ref="301"/>
 		<demo:address>
 			<demo:city>New York City</demo:city>
 			<demo:country>USA</demo:country>
 		</demo:address>
 	</demo:building>	
 	
-	<demo:building id="102">
+	<demo:building demo:id="102">
 		<demo:name>Chrysler Building</demo:name>
 		<demo:city>New York City</demo:city>
 		<demo:country>unknown</demo:country>
 		<demo:creator>302</demo:creator>
-		<demo:creator ref="302"/>
+		<demo:creator demo:ref="302"/>
 		<demo:address>
 			<demo:city>New York City</demo:city>
 			<demo:country>unknown</demo:country>
@@ -31,45 +30,43 @@ xsi:schemaLocation="demo demo_database_schema.xsd">
 	
 	<!--  PAINTINGS -->
 	
-	<demo:painting id="201">
+	<demo:painting demo:id="201">
 		<demo:title>The Starry Night</demo:title>
 		<demo:creator>401</demo:creator>
 		<demo:endwork>1889</demo:endwork>
 	</demo:painting>
 	
-	<demo:painting id="202">
+	<demo:painting demo:id="202">
 		<demo:title>Wheatfield with Crows</demo:title>
 		<demo:creator>9</demo:creator>
 		<demo:endwork>1890</demo:endwork>
 	</demo:painting>
 	
-	<demo:painting id="203">
+	<demo:painting demo:id="203">
 		<demo:title>The Last Supper</demo:title>
 		<demo:creator>402</demo:creator>
 		<demo:startwork>1492</demo:startwork>
 		<demo:endwork>1498</demo:endwork>
 	</demo:painting>
 	
-	<demo:painting id="204">
+	<demo:painting demo:id="204">
 		<demo:title>Mona Lisa</demo:title>
-		<demo:title lang="fr">La Gioconda</demo:title>
+		<demo:title demo:lang="fr">La Gioconda</demo:title>
 		<demo:creator>402</demo:creator>
 		<demo:startwork>1503</demo:startwork>
 		<demo:endwork>1516</demo:endwork>
 	</demo:painting>
 	
-	<demo:painting id="205">
+	<demo:painting demo:id="205">
 		<demo:title>Salvator Mundi</demo:title>
 		<demo:creator>402</demo:creator>
 		<demo:startwork>1490</demo:startwork>
 		<demo:endwork>1500</demo:endwork>
 	</demo:painting>
 	
-	
-	
 	<!--  ARCHITECTS -->
 	
-	<demo:architect id="301">
+	<demo:architect demo:id="301">
 		<demo:name>William Frederick Lamb</demo:name>
 		<demo:name>William F. Lamb</demo:name>
 		<demo:name>Wiliam F. Lamb</demo:name>
@@ -79,7 +76,7 @@ xsi:schemaLocation="demo demo_database_schema.xsd">
 		<demo:deathyear>1952</demo:deathyear>		
 	</demo:architect>
 	
-	<demo:architect id="302">
+	<demo:architect demo:id="302">
 		<demo:name>William Van Alen</demo:name>
 		<demo:birthyear>1882</demo:birthyear>
 		<demo:deathyear>1954</demo:deathyear>		
@@ -87,13 +84,13 @@ xsi:schemaLocation="demo demo_database_schema.xsd">
 	
 	<!--  ARTISTS -->
 	
-	<demo:artist id="401">
+	<demo:artist demo:id="401">
 		<demo:name>Vincent van Gogh</demo:name>
 		<demo:birthyear>1853</demo:birthyear>
 		<demo:deathyear>1890</demo:deathyear>		
 	</demo:artist>
 	
-	<demo:artist id="402">
+	<demo:artist demo:id="402">
 		<demo:name>Leonardo Da Vinci</demo:name>
 		<demo:birthyear>1452</demo:birthyear>
 		<demo:birthyear>1453</demo:birthyear>
