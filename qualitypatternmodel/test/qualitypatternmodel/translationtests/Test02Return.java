@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.testutilityclasses.PatternTestPair;
+import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;

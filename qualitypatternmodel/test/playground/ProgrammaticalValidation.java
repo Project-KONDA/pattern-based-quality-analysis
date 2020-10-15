@@ -14,7 +14,7 @@ import org.eclipse.ocl.xtext.oclinecore.OCLinEcoreStandaloneSetup;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.testutilityclasses.EMFValidationPreparation;
+import qualitypatternmodel.testutility.EMFValidationPreparation;
 
 public class ProgrammaticalValidation {
 	public static void main(String[] args) {	

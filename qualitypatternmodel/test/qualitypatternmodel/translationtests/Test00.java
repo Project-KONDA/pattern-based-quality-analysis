@@ -6,7 +6,7 @@ import org.eclipse.emf.common.util.EList;
 //import org.graalvm.graphio.GraphStructure;
 
 import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.testutilityclasses.PatternTestPair;
+import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.exceptions.*;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.Parameter;

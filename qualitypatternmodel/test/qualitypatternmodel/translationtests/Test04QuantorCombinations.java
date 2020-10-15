@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.testutilityclasses.PatternTestPair;
+import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;

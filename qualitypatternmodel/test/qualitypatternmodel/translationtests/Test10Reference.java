@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.testutilityclasses.PatternTestPair;
+import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.adaptionxml.PropertyKind;

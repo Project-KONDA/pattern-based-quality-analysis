@@ -11,8 +11,8 @@ import org.basex.query.iter.Iter;
 import org.basex.query.value.item.Item;
 import org.eclipse.emf.common.util.Diagnostic;
 
-import qualitypatternmodel.testutilityclasses.EMFModelLoad;
-import qualitypatternmodel.testutilityclasses.EMFValidationPreparation;
+import qualitypatternmodel.testutility.EMFModelLoad;
+import qualitypatternmodel.testutility.EMFValidationPreparation;
 
 public class ExampleExecutionIterator {
 	public static void main(String[] args) throws QueryIOException {

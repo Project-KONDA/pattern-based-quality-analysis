@@ -1,4 +1,4 @@
-package qualitypatternmodel.testutilityclasses;
+package qualitypatternmodel.testutility;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
 

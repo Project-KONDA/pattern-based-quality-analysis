@@ -17,9 +17,9 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.testutilityclasses.EMFModelLoad;
-import qualitypatternmodel.testutilityclasses.EMFValidationPreparation;
-import qualitypatternmodel.testutilityclasses.PatternTestPair;
+import qualitypatternmodel.testutility.EMFModelLoad;
+import qualitypatternmodel.testutility.EMFValidationPreparation;
+import qualitypatternmodel.testutility.PatternTestPair;
 
 public class TranslationTests {
 	private static Context context;

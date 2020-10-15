@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.testutilityclasses.PatternTestPair;
+import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;

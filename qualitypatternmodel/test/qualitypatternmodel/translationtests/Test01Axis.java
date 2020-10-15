@@ -6,7 +6,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.testutilityclasses.PatternTestPair;
+import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.ParametersFactory;
