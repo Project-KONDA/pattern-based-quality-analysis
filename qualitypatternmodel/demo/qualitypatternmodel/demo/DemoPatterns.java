@@ -80,7 +80,7 @@ public class DemoPatterns {
 	}
 	
 	private static void printExecutionResult(CompletePattern pattern, List<String> result) {
-		System.out.println("\n*** Result of applying the pattern "+pattern.getName()+" to the demo database***");
+		System.out.println("\n*** Result of applying the pattern "+pattern.getName()+" to the demo database ***");
 		int i = 1;
 		for(String item : result) {
 			System.out.println("\n--- Item " + i + " ---");
