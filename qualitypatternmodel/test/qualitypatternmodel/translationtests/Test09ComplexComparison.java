@@ -157,11 +157,11 @@ public class Test09ComplexComparison {
 		Element se = completePattern.getGraph().getElements().get(0);
 
 		TextLiteralParam tl2 = inputsFactory.createTextLiteralParam();
-		tl2.setValue("a");
+		tl2.setValue("building");
 		TextLiteralParam tl3 = inputsFactory.createTextLiteralParam();
-		tl3.setValue("b");
+		tl3.setValue("A");
 		TextLiteralParam tl4 = inputsFactory.createTextLiteralParam();
-		tl4.setValue("c");
+		tl4.setValue("B");
 
 		varlist.add(tl2);
 		varlist.add(tl3);
@@ -200,9 +200,7 @@ public class Test09ComplexComparison {
 		testPairs.add(new PatternTestPair("COMPSELFPROPS", getPatternSelfTwoProperties(), "/*"));
 		testPairs.add(new PatternTestPair("COMPPROPPROP", getPatternTwoProperties(), "for $c in /*/* for $copy in $c/parent::*/*[(./data() = $c/data())] return $c/parent::*"));
 		testPairs.add(new PatternTestPair("COMPELEL", getPatternTwoElements(), "for $c in /*/* for $copy in $c/parent::*/*[fn:deep-equal(.,$c)] return $c/parent::*"));
-		testPairs.add(new PatternTestPair("COMPOPOP", getPatternTwoOperators(), "/*[name()!='a']"));
-
-		// TODO: complete test cases
+		testPairs.add(new PatternTestPair("COMPOPOP", getPatternTwoOperators(), "/*[name()!='building']"));
 		
 		return testPairs;
 	}
