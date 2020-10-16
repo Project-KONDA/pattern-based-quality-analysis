@@ -98,41 +98,31 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		String result = "";
 		if (operator != null) {
 			if (condition1 != null && condition2 != null) {
+				
+				String condition1Query = condition1.generateQuery();
+				String condition2Query = condition2.generateQuery();
+				
 				switch (operator) {
 				case AND:
 				case OR:
-					result += "((" + condition1.generateQuery() + ")";
+					result += "((" + condition1Query + ")";
 					result += "\n" + operator.getLiteral() + "\n";
-					result += "(" + condition2.generateQuery() + "))";
+					result += "(" + condition2Query + "))";
 					break;
 				case IMPLIES:
-					result += "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
+					result += "(" + Constants.NOT + "(" + condition1Query + ")";
 					result += Constants.OR;
-					result += "(" + condition2.generateQuery() + "))";
+					result += "(" + condition2Query + "))";
 					break;
-				case XOR:
-//					result = "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
-//					result += Constants.AND;
-//					result += "(" + condition2.generateQuery() + "))";
-//					result += Constants.OR;
-//					result += "((" + condition1.generateQuery() + ")";
-//					result += Constants.AND;
-//					result += Constants.NOT + "("+ condition2.generateQuery() + "))";
-					result += "(not(exists(" + Constants.NOT + "(" + condition1.generateQuery() + ")))";
-					result += "=";
-					result += "(" + condition2.generateQuery() + "))";					
+				case XOR:					
+					result = "(" + Constants.NOT + "(" + condition1Query + "))";
+					result += " = ";
+					result += "(" + condition2Query + ")";				
 					break;
-				case EQUAL:
-//					result += "(" + Constants.NOT + "(" + condition1.generateQuery() + ")";
-//					result += Constants.AND;
-//					result += Constants.NOT + "(" + condition2.generateQuery() + "))";
-//					result += Constants.OR;
-//					result += "((" + condition1.generateQuery() + ")";
-//					result += Constants.AND;
-//					result += "("+ condition2.generateQuery() + "))";
-					result += "(exists(" + Constants.NOT + "(" + condition1.generateQuery() + "))";
-					result += "=";
-					result += "(" + condition2.generateQuery() + "))";
+				case EQUAL:					
+					result = "(" + condition1Query + ")";
+					result += " = ";
+					result += "(" + condition2Query + ")";					
 					break;
 				default:
 					throw new InvalidityException("invalid arguments");
