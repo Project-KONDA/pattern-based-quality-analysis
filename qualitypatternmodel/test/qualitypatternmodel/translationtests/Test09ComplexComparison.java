@@ -10,6 +10,8 @@ import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.operators.impl.*;
+import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -187,16 +189,18 @@ public class Test09ComplexComparison {
 		completePattern.createXMLAdaption();
 		completePattern.finalizeXMLAdaption();	
 		
+		((XmlProperty) comp1.getArgument1()).getOption().setValue(PropertyKind.TAG);
+		
 		return completePattern;		
 	}	
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		
-		testPairs.add(new PatternTestPair("COMPSELFPROPPROP", getPatternSelfTwoProperties(), ""));
-		testPairs.add(new PatternTestPair("COMPPROPPROP", getPatternTwoProperties(), ""));
-		testPairs.add(new PatternTestPair("COMPELEL", getPatternTwoElements(), ""));
-		testPairs.add(new PatternTestPair("COMPOPOP", getPatternTwoOperators(), ""));
+		testPairs.add(new PatternTestPair("COMPSELFPROPS", getPatternSelfTwoProperties(), "/*"));
+		testPairs.add(new PatternTestPair("COMPPROPPROP", getPatternTwoProperties(), "for $c in /*/* for $copy in $c/parent::*/*[(./data() = $c/data())] return $c/parent::*"));
+		testPairs.add(new PatternTestPair("COMPELEL", getPatternTwoElements(), "for $c in /*/* for $copy in $c/parent::*/*[fn:deep-equal(.,$c)] return $c/parent::*"));
+		testPairs.add(new PatternTestPair("COMPOPOP", getPatternTwoOperators(), "/*[name()!='a']"));
 
 		// TODO: complete test cases
 		
