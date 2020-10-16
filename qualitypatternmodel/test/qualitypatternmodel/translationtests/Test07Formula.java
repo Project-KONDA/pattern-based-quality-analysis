@@ -102,18 +102,12 @@ public class Test07Formula {
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
-//		for (LogicalOperator lo: LogicalOperator.VALUES) {
-//			System.out.println(lo);
-//			testPairs.add(new PatternTestPair(lo.toString(), getFormulaPatternConcrete(lo), "/*"));
-//		}
 		testPairs.add(new PatternTestPair("AND", getFormulaPatternConcrete(LogicalOperator.AND), "/*/*[ ./* and ./@*[name()=\"demo:id\"]=/*/*/*/data()]"));
 		testPairs.add(new PatternTestPair("OR", getFormulaPatternConcrete(LogicalOperator.OR), "/*/*[ ./* or ./@*[name()=\"demo:id\"]=/*/*/*/data()]"));
 		testPairs.add(new PatternTestPair("IMPLIES", getFormulaPatternConcrete(LogicalOperator.IMPLIES), "/*/*[ not(./*) or ./@*[name()=\"demo:id\"]=/*/*/*/data()]"));
 		testPairs.add(new PatternTestPair("XOR", getFormulaPatternConcrete(LogicalOperator.XOR), "/*/* [ not(./*) = (./@*[name()=\"demo:id\"]=/*/*/*/data())]"));
 		testPairs.add(new PatternTestPair("EQUAL", getFormulaPatternConcrete(LogicalOperator.EQUAL), "/*/* [ exists(./*) = (./@*[name()=\"demo:id\"]=/*/*/*/data())]"));
-		
-		// TODO: complete test cases
-		
+				
 		return testPairs;		
 	}
 

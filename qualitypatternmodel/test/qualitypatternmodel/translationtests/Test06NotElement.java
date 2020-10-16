@@ -24,7 +24,7 @@ public class Test06NotElement {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getPatternNotTrue());	
+		completePatterns.add(getPatternNotNotTrue());	
 		completePatterns.add(getPatternNotExists());
 		completePatterns.add(getPatternNotForall());
 		completePatterns.add(getPatternExistsNotExists());
@@ -172,9 +172,7 @@ public class Test06NotElement {
 		testPairs.add(new PatternTestPair("NOTFA", 		getPatternNotForall(), 		"()"));
 		testPairs.add(new PatternTestPair("EXNOTEX",	getPatternExistsNotExists(),"if ( not( exists (/ancestor::*)) and  exists (/*)) then (/*/*)"));
 		testPairs.add(new PatternTestPair("FANOTFA", 	getPatternForallNotForall(),"if ( not( exists (/parent::*))) then (/*/*)"));
-		
-		// TODO: complete test cases
-		
+				
 		return testPairs;		
 	}
 
