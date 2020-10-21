@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:patternstructure="patternstructure" id="__xHdAAlwEeu2bJ1tnqq5kg" internalId="1" adaptionStarted="true" elementCounter="2" counter="4">
+  <graph id="__xHdAglwEeu2bJ1tnqq5kg" internalId="2" returnElements="_E3h9MAlxEeu2bJ1tnqq5kg">
+    <elements xsi:type="adaptionxml:XmlElement" id="_E3h9MAlxEeu2bJ1tnqq5kg" resultOf="__xHdAglwEeu2bJ1tnqq5kg" name="XmlElement 1"/>
+    <operatorList id="__xHdAwlwEeu2bJ1tnqq5kg"/>
+  </graph>
+  <condition xsi:type="patternstructure:TrueElement" id="_Df1KcAlxEeu2bJ1tnqq5kg" internalId="3"/>
+  <parameterList id="__xHdAQlwEeu2bJ1tnqq5kg"/>
+</patternstructure:CompletePattern>

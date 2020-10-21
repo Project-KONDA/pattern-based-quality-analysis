@@ -87,6 +87,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.TrueElement;
+import qualitypatternmodel.patternstructure.impl.NumberElementImpl;
 import qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl;
 import qualitypatternmodel.patternstructure.provider.QuantifiedConditionItemProvider;
 
@@ -974,6 +975,15 @@ public class Services {
     	return self;
     }
     
+    public void addNumber(EObject self) {
+    	if(self instanceof Comparison) {
+    		addParameter(self, "Number");
+    	}else if(self instanceof CountCondition) {
+    		CountCondition countCondition = (CountCondition) self;
+    		countCondition.setArgument2(new NumberElementImpl());
+    	}
+    }
+    
     public EObject nametest(EObject self, EObject e) {//testet, ob bei einem doppelklick auf ein element der name geändert werden kann
     	((Element) e).setName("Hallo");
     	return self;
@@ -1157,8 +1167,11 @@ public class Services {
     	CompletePattern pattern = (CompletePattern) getWurzelContainer(self);
     	System.out.println("1 "+ pattern + "/" + self + "_____" + this.elementMarks.get(pattern));
     	HashMap<Element, Boolean> elementMarks = this.elementMarks.get(pattern);
-    	System.out.println("2 " + elementMarks == null);
-    	Boolean mark = elementMarks.get(self);
+    	System.out.println("2 " + this.elementMarks.size());
+    	Boolean mark = null;
+    	if(elementMarks != null) {
+    		 mark = elementMarks.get(self);
+    	}
     	System.out.println("3 " + mark);
     	if(mark == null) {
     		mark = false;
@@ -1206,10 +1219,16 @@ public class Services {
     }
     
     public boolean parameterPrecondition(EObject self, String s) {//beim hinzufügen
-    	boolean add = false;
+    	boolean add = false;System.out.println("ftjkkfzukfzufkzfkzufkfkfzukfuzkfzukfukfukfzuk"+self);
     	if(s.equals("Number") && self instanceof NumberElement) {
+        	System.out.println("ftjkkfzukfzufkzfkzufkfkfzukfuzkfzukfukfukfzuk");
     		NumberElement numberelement = (NumberElement) self;
     		if(numberelement.getNumberParam() == null) {
+    			add = true;
+    		}
+    	}else if(s.equals("Number") && self instanceof CountCondition) {
+    		CountCondition countCondition = (CountCondition) self;
+    		if(countCondition.getArgument2() == null) {
     			add = true;
     		}
     	}else if(s.equals("Textliteral") && self instanceof Match) {
@@ -1951,6 +1970,7 @@ public class Services {
      * @param self the complete pattern
      * @return the parameter of this method
      */
+    static ArrayList<CompletePattern> adaptionFailed = new ArrayList<CompletePattern>();//speichert die Muster, bei denen die Adaptierung fehlgeschlagen ist
     public EObject abstractPatternStart(EObject self) {//soll beim ersten Öffnen eines abstrakten Musters ein Dialog zeigen, vielleicht abhängig von der Methode, die genutzt wird, um ein abstraktes Muster von einem generischen Muster zu erstellen
     	//System.out.println("vvvvvvvvvvvvvvvvvvvvvvvvvvv"+self+isAbstract);
     	String s = "try";
@@ -1984,14 +2004,18 @@ public class Services {
 					System.out.println("wurde abgefangen abstractPatternStart "+s);
 					//isAbstract = true;
 					returnObject = null;
-					Display.getDefault().syncExec(new Runnable() {
-						public void run() {
-							String message = "The adaption of the pattern failed. Check if the pattern is a valid generic pattern.";
-							MessageDialog dialog = new MessageDialog(new Shell(), "New abstract pattern", null, message, MessageDialog.INFORMATION, new String[] { "Ok" }, 0);
-							int result = dialog.open();
-							//System.out.println(result + " " + isAbstract);
-						}
-					});
+					if(!adaptionFailed.contains(pattern)) {//wird das nicht geprüft, öffnet sich der Dialog sehr oft, weil die Methode von Sirius sehr oft aufgerufen wird
+						adaptionFailed.add(pattern);
+						Display.getDefault().syncExec(new Runnable() {
+							public void run() {
+								String message = "The adaption of the pattern failed. Check if the pattern is a valid generic pattern.";
+								MessageDialog dialog = new MessageDialog(new Shell(), "New abstract pattern", null, message, MessageDialog.INFORMATION, new String[] { "Ok" }, 0);
+								int result = dialog.open();
+								//System.out.println(result + " " + isAbstract);
+							}
+						});
+					}
+					
 				}
 			}
 		}
@@ -2299,7 +2323,12 @@ public class Services {
     	}else if(iterator instanceof TextListParam) {
     		name = "Textlist " + patternelement.getInternalId();
     	}else if(iterator instanceof NumberParam) {
+    		NumberParam numberParam = (NumberParam) iterator;
+    		NumberElement numberElement = numberParam.getNumberArgument();
     		name = "Number " + patternelement.getInternalId();
+    		if(numberElement != null) {
+    			name = "Number " + numberParam.getInternalId() + " (value of \"NumberElement " + numberElement.getInternalId() + "\")";
+    		}
     	}else if(iterator instanceof DateParam) {
     		name = "Date " + patternelement.getInternalId();
     	}else if(iterator instanceof TimeParam) {
@@ -2555,7 +2584,7 @@ public class Services {
     	}else if(object instanceof TextLiteralParam) {//Textliteral kann auch von XMLProperty kommen
     		TextLiteralParam textliteral = (TextLiteralParam) object;
     		EList<XmlProperty> properties = textliteral.getProperties();
-    		if(properties == null) {
+    		if(properties == null || properties.isEmpty()) {
     			returnlist.add(object);
     		}else {
     			//returnlist.addAll(properties);
@@ -2571,8 +2600,8 @@ public class Services {
     		PropertyOptionParam propertyoption = (PropertyOptionParam) object;
     		EList<XmlProperty> properties = propertyoption.getProperties();
     		returnlist.addAll(properties);
-    		if(properties == null) {
-    			returnlist.addAll(properties);
+    		if(properties == null || properties.isEmpty()) {
+    			returnlist.addAll(properties);//was soll das
     		}else {
     			//returnlist.addAll(properties);
     			for(XmlProperty p:properties) {
@@ -2660,7 +2689,7 @@ public class Services {
     	
     	CompletePattern pattern = (CompletePattern) getWurzelContainer(self);
     	ArrayList<EObject> markedElements = patternRelatedElements.get(pattern);
-    	if(markedElements.contains(self)) {
+    	if(markedElements != null && markedElements.contains(self)) {
     		isMarked = true;
     	}
     	System.out.println("2"+self+isMarked);
@@ -3780,5 +3809,55 @@ public class Services {
 			}
 		}
 		return s;
+	}
+	
+	public String countConditionName(EObject self) {//für Ansicht zur Konkretisierung
+		String s = "CountCondition ";
+		if(self instanceof CountCondition) {
+			CountCondition countCondition = (CountCondition) self;
+			s = s + countCondition.getOption().getValue();
+		}
+		return s;
+	}
+	
+	public String numberElementName(EObject self, String s) {//für Ansicht zur Konkretisierung
+		String name = "Number ";
+		if(self instanceof NumberElement) {
+			NumberElement numberElement = (NumberElement) self;
+			name = name + numberElement.getNumberParam().getInternalId();
+			if(s.equals("concrete")) {
+				name = name + ": " + numberElement.getNumberParam().getValue();
+			}
+		}
+		return name;
+	}
+	
+	public boolean textLiteralTextEnabledExpression(EObject self, EObject iterator) {//Das Textliteral einer XmlProperty soll nur funktionieren, falls in ihrer PropertyOption Attribut eingestellt ist
+		boolean enabled = true;
+		if(iterator instanceof TextLiteralParam) {
+			TextLiteralParam textLiteral = (TextLiteralParam) iterator;
+			EList<XmlProperty> properties = textLiteral.getProperties();
+			if(!properties.isEmpty()) {
+				if(properties.get(0).getOption().getValue() != PropertyKind.ATTRIBUTE) {
+					enabled = false;
+				}
+			}
+		}
+		return enabled;
+	}
+	
+	public String getElementName(EObject self, EObject element) {
+		String name = "Element ";
+		if(element instanceof Element) {
+			name = name + ((Element) element).getInternalId();
+		}
+		return name;
+	}
+	
+	public void deleteElement(EObject self) {
+		if(self instanceof Element) {
+			Element element = (Element) self;
+			element.setGraph(null);
+		}
 	}
 }

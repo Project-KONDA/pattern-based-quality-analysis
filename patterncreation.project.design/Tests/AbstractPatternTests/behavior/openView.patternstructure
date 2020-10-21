@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_CVp_YA0sEeuaBpPVDI3XkQ" internalId="1" adaptionStarted="true" elementCounter="2" parameterCounter="4" operatorCounter="2" counter="6">
+  <graph id="_CVp_Yg0sEeuaBpPVDI3XkQ" internalId="2" returnElements="_dEi8gw0vEeuaBpPVDI3XkQ">
+    <elements xsi:type="adaptionxml:XmlElement" id="_dEi8gw0vEeuaBpPVDI3XkQ" resultOf="_CVp_Yg0sEeuaBpPVDI3XkQ" name="XmlElement 1">
+      <properties xsi:type="adaptionxml:XmlProperty" id="_dEi8gA0vEeuaBpPVDI3XkQ" name="XmlProperty 4" option="_dEjjkA0vEeuaBpPVDI3XkQ" attributeName="_dEjjkQ0vEeuaBpPVDI3XkQ"/>
+    </elements>
+    <operatorList id="_CVp_Yw0sEeuaBpPVDI3XkQ"/>
+  </graph>
+  <condition xsi:type="patternstructure:TrueElement" id="_bXWa4A0vEeuaBpPVDI3XkQ" internalId="5"/>
+  <parameterList id="_CVp_YQ0sEeuaBpPVDI3XkQ">
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_dEjjkA0vEeuaBpPVDI3XkQ" properties="_dEi8gA0vEeuaBpPVDI3XkQ">
+      <options>TAG</options>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_dEjjkQ0vEeuaBpPVDI3XkQ" properties="_dEi8gA0vEeuaBpPVDI3XkQ"/>
+  </parameterList>
+</patternstructure:CompletePattern>

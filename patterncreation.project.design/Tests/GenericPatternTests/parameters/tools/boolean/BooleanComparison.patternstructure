@@ -19,7 +19,7 @@
       <options>=</options>
       <options>!=</options>
     </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_XCVCkvvwEeqnEIeZB7eCsw" internalId="2" isPredefined="true" value="BOOLEAN" typeComparisons="_XCVCkPvwEeqnEIeZB7eCsw">
+    <parameters xsi:type="parameters:TypeOptionParam" id="_XCVCkvvwEeqnEIeZB7eCsw" internalId="2" predefined="true" value="BOOLEAN" typeComparisons="_XCVCkPvwEeqnEIeZB7eCsw">
       <options>UNSPECIFIED</options>
       <options>UNSPECIFIED</options>
       <options>UNSPECIFIED</options>

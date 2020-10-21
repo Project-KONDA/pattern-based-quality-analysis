@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_B-PQQAo_Eeu4N9YK7wBskQ" internalId="1" adaptionStarted="true" adaptionFinalized="true" elementCounter="3" relationCounter="2" parameterCounter="4" counter="5">
+  <graph id="_B-PQQgo_Eeu4N9YK7wBskQ" internalId="2" returnElements="_FczB1Qo_Eeu4N9YK7wBskQ">
+    <elements xsi:type="adaptionxml:XmlElement" id="_FczB1Qo_Eeu4N9YK7wBskQ" internalId="2" resultOf="_B-PQQgo_Eeu4N9YK7wBskQ" name="XmlElement 1" incoming="_GeAAIQo_Eeu4N9YK7wBskQ">
+      <properties xsi:type="adaptionxml:XmlProperty" id="_FczB0go_Eeu4N9YK7wBskQ" name="XmlProperty 4" option="_FczB1go_Eeu4N9YK7wBskQ" attributeName="_FczB1wo_Eeu4N9YK7wBskQ"/>
+    </elements>
+    <elements xsi:type="adaptionxml:XmlRoot" id="_GeAAIAo_Eeu4N9YK7wBskQ" name="Root" outgoing="_GeAAIQo_Eeu4N9YK7wBskQ"/>
+    <operatorList id="_B-PQQwo_Eeu4N9YK7wBskQ"/>
+    <relations xsi:type="adaptionxml:XmlNavigation" id="_GeAAIQo_Eeu4N9YK7wBskQ" internalId="1" source="_GeAAIAo_Eeu4N9YK7wBskQ" target="_FczB1Qo_Eeu4N9YK7wBskQ" name="XmlNavigation 1" option="_GeAAIgo_Eeu4N9YK7wBskQ"/>
+  </graph>
+  <condition xsi:type="patternstructure:TrueElement" id="_Do4NIAo_Eeu4N9YK7wBskQ" internalId="3"/>
+  <parameterList id="_B-PQQQo_Eeu4N9YK7wBskQ">
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_FczB1go_Eeu4N9YK7wBskQ" internalId="1" properties="_FczB0go_Eeu4N9YK7wBskQ">
+      <options>TAG</options>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_FczB1wo_Eeu4N9YK7wBskQ" internalId="2" properties="_FczB0go_Eeu4N9YK7wBskQ"/>
+    <parameters xsi:type="parameters:RelationOptionParam" id="_GeAAIgo_Eeu4N9YK7wBskQ" internalId="3" relations="_GeAAIQo_Eeu4N9YK7wBskQ">
+      <options>/child::*</options>
+      <options>/descendant::*</options>
+      <options>/parent::*</options>
+      <options>/ancestor::*</options>
+      <options>/following::*</options>
+      <options>/following-sibling::*</options>
+      <options>/preceding::*</options>
+      <options>/preceding-sibling::*</options>
+      <options>/ancestor-or-self::*</options>
+      <options>/descendant-or-self::*</options>
+      <options>/self::*</options>
+    </parameters>
+  </parameterList>
+</patternstructure:CompletePattern>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_7h-_cAr3EeuOcYZYlQcWtw" internalId="1" adaptionStarted="true" adaptionFinalized="true" elementCounter="3" relationCounter="2" parameterCounter="7" operatorCounter="2" counter="5">
+  <graph id="_7h-_cgr3EeuOcYZYlQcWtw" internalId="2" returnElements="_AbtugAr4EeuOcYZYlQcWtw">
+    <elements xsi:type="adaptionxml:XmlElement" id="_AbtugAr4EeuOcYZYlQcWtw" internalId="2" resultOf="_7h-_cgr3EeuOcYZYlQcWtw" name="XmlElement 1" predicates="_9YM6MAr3EeuOcYZYlQcWtw" incoming="_BKrGQQr4EeuOcYZYlQcWtw">
+      <properties xsi:type="adaptionxml:XmlProperty" id="_AbtHcAr4EeuOcYZYlQcWtw" comparison1="_9YM6MAr3EeuOcYZYlQcWtw" name="XmlProperty 4" option="_AbtugQr4EeuOcYZYlQcWtw" attributeName="_Abtuggr4EeuOcYZYlQcWtw"/>
+    </elements>
+    <elements xsi:type="adaptionxml:XmlRoot" id="_BKrGQAr4EeuOcYZYlQcWtw" name="Root" outgoing="_BKrGQQr4EeuOcYZYlQcWtw"/>
+    <operatorList id="_7h-_cwr3EeuOcYZYlQcWtw">
+      <operators xsi:type="operators:Comparison" id="_9YM6MAr3EeuOcYZYlQcWtw" internalId="1" elements="_AbtugAr4EeuOcYZYlQcWtw" argument1="_AbtHcAr4EeuOcYZYlQcWtw" argument2="_-1CEkAr3EeuOcYZYlQcWtw" option="_9YM6MQr3EeuOcYZYlQcWtw" typeOption="_9YM6Mgr3EeuOcYZYlQcWtw"/>
+    </operatorList>
+    <relations xsi:type="adaptionxml:XmlNavigation" id="_BKrGQQr4EeuOcYZYlQcWtw" internalId="1" source="_BKrGQAr4EeuOcYZYlQcWtw" target="_AbtugAr4EeuOcYZYlQcWtw" name="XmlNavigation 1" option="_BKrGQgr4EeuOcYZYlQcWtw"/>
+  </graph>
+  <condition xsi:type="patternstructure:TrueElement" id="_9BtFwAr3EeuOcYZYlQcWtw" internalId="3"/>
+  <parameterList id="_7h-_cQr3EeuOcYZYlQcWtw">
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_9YM6MQr3EeuOcYZYlQcWtw" internalId="1" value="&lt;" comparisons="_9YM6MAr3EeuOcYZYlQcWtw">
+      <options>=</options>
+      <options>!=</options>
+      <options>=</options>
+      <options>!=</options>
+      <options>=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_9YM6Mgr3EeuOcYZYlQcWtw" internalId="2" predefined="true" value="STRING" typeComparisons="_9YM6MAr3EeuOcYZYlQcWtw">
+      <options>UNSPECIFIED</options>
+      <options>UNSPECIFIED</options>
+      <options>UNSPECIFIED</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_-1CEkAr3EeuOcYZYlQcWtw" internalId="3" comparison2="_9YM6MAr3EeuOcYZYlQcWtw"/>
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_AbtugQr4EeuOcYZYlQcWtw" internalId="4" properties="_AbtHcAr4EeuOcYZYlQcWtw">
+      <options>TAG</options>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+      <options>TAG</options>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+      <options>TAG</options>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_Abtuggr4EeuOcYZYlQcWtw" internalId="5" properties="_AbtHcAr4EeuOcYZYlQcWtw"/>
+    <parameters xsi:type="parameters:RelationOptionParam" id="_BKrGQgr4EeuOcYZYlQcWtw" internalId="6" relations="_BKrGQQr4EeuOcYZYlQcWtw">
+      <options>/child::*</options>
+      <options>/descendant::*</options>
+      <options>/parent::*</options>
+      <options>/ancestor::*</options>
+      <options>/following::*</options>
+      <options>/following-sibling::*</options>
+      <options>/preceding::*</options>
+      <options>/preceding-sibling::*</options>
+      <options>/ancestor-or-self::*</options>
+      <options>/descendant-or-self::*</options>
+      <options>/self::*</options>
+      <options>/child::*</options>
+      <options>/descendant::*</options>
+      <options>/parent::*</options>
+      <options>/ancestor::*</options>
+      <options>/following::*</options>
+      <options>/following-sibling::*</options>
+      <options>/preceding::*</options>
+      <options>/preceding-sibling::*</options>
+      <options>/ancestor-or-self::*</options>
+      <options>/descendant-or-self::*</options>
+      <options>/self::*</options>
+      <options>/child::*</options>
+      <options>/descendant::*</options>
+      <options>/parent::*</options>
+      <options>/ancestor::*</options>
+      <options>/following::*</options>
+      <options>/following-sibling::*</options>
+      <options>/preceding::*</options>
+      <options>/preceding-sibling::*</options>
+      <options>/ancestor-or-self::*</options>
+      <options>/descendant-or-self::*</options>
+      <options>/self::*</options>
+    </parameters>
+  </parameterList>
+</patternstructure:CompletePattern>

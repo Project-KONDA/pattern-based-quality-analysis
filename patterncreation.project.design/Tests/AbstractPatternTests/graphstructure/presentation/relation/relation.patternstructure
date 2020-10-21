@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:patternstructure="patternstructure" id="_SnYPkPtTEeqYEKnS78hbUg" internalId="1" adaptionStarted="true" elementCounter="9" relationCounter="2" parameterCounter="9" operatorCounter="3" counter="14">
+  <graph id="_SnYPkvtTEeqYEKnS78hbUg" internalId="2" returnElements="_33VaUAI-Eeuwy54vsIAD-w">
+    <elements xsi:type="adaptionxml:XmlElement" id="_33VaUAI-Eeuwy54vsIAD-w" resultOf="_SnYPkvtTEeqYEKnS78hbUg" name="XmlElement 1" outgoing="_0Nr3QAI3Eeuwy54vsIAD-w"/>
+    <elements xsi:type="adaptionxml:XmlElement" id="_33VaUQI-Eeuwy54vsIAD-w" name="XmlElement 8" incoming="_0Nr3QAI3Eeuwy54vsIAD-w"/>
+    <operatorList id="_SnYPk_tTEeqYEKnS78hbUg"/>
+    <relations id="_0Nr3QAI3Eeuwy54vsIAD-w" internalId="1" source="_33VaUAI-Eeuwy54vsIAD-w" target="_33VaUQI-Eeuwy54vsIAD-w" name="Relation 1"/>
+  </graph>
+  <condition xsi:type="patternstructure:TrueElement" id="_53C-YAI1Eeuwy54vsIAD-w" internalId="13"/>
+  <parameterList id="_SnYPkftTEeqYEKnS78hbUg"/>
+</patternstructure:CompletePattern>

@@ -16,7 +16,7 @@
       <options>=</options>
       <options>!=</options>
     </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_KV2r4fzgEeqUhOhuPXc6vw" internalId="3" isPredefined="true" value="ELEMENT" typeComparisons="_KEWsMfzgEeqUhOhuPXc6vw">
+    <parameters xsi:type="parameters:TypeOptionParam" id="_KV2r4fzgEeqUhOhuPXc6vw" internalId="3" predefined="true" value="ELEMENT" typeComparisons="_KEWsMfzgEeqUhOhuPXc6vw">
       <options>UNSPECIFIED</options>
       <options>UNSPECIFIED</options>
       <options>UNSPECIFIED</options>

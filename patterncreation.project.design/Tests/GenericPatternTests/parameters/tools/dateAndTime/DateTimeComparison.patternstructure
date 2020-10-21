@@ -1,34 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_SnYPkPtTEeqYEKnS78hbUg" internalId="1" elementCounter="7" parameterCounter="10" operatorCounter="3" counter="11">
-  <graph id="_SnYPkvtTEeqYEKnS78hbUg" internalId="2" returnElements="_SnYPlPtTEeqYEKnS78hbUg">
-    <elements id="_SnYPlPtTEeqYEKnS78hbUg" internalId="1" resultOf="_SnYPkvtTEeqYEKnS78hbUg" name="Element 1"/>
-    <operatorList id="_SnYPk_tTEeqYEKnS78hbUg">
-      <operators xsi:type="operators:Comparison" id="_XCVCkPvwEeqnEIeZB7eCsw" internalId="1" argument2="_xxy8wPwaEeqnEIeZB7eCsw" option="_XCVCkfvwEeqnEIeZB7eCsw" typeOption="_XCVCkvvwEeqnEIeZB7eCsw"/>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_Lcnb4AsTEeuOcYZYlQcWtw" internalId="1" elementCounter="2" parameterCounter="4" operatorCounter="2" counter="6">
+  <graph id="_Lcnb4gsTEeuOcYZYlQcWtw" internalId="2" returnElements="_Lcnb5AsTEeuOcYZYlQcWtw">
+    <elements id="_Lcnb5AsTEeuOcYZYlQcWtw" internalId="1" resultOf="_Lcnb4gsTEeuOcYZYlQcWtw" name="Element 1" predicates="_NZMdUQsTEeuOcYZYlQcWtw">
+      <properties id="_MjlD8AsTEeuOcYZYlQcWtw" internalId="3" comparison1="_NZMdUQsTEeuOcYZYlQcWtw" name="Property 3"/>
+    </elements>
+    <operatorList id="_Lcnb4wsTEeuOcYZYlQcWtw" internalId="4">
+      <operators xsi:type="operators:Comparison" id="_NZMdUQsTEeuOcYZYlQcWtw" internalId="1" elements="_Lcnb5AsTEeuOcYZYlQcWtw" argument1="_MjlD8AsTEeuOcYZYlQcWtw" argument2="_POkqlgsTEeuOcYZYlQcWtw" option="_NrnqEAsTEeuOcYZYlQcWtw" typeOption="_NrnqEQsTEeuOcYZYlQcWtw"/>
     </operatorList>
   </graph>
-  <parameterList id="_SnYPkftTEeqYEKnS78hbUg">
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_XCVCkfvwEeqnEIeZB7eCsw" internalId="1" comparisons="_XCVCkPvwEeqnEIeZB7eCsw">
-      <options>=</options>
-      <options>!=</options>
-      <options>=</options>
-      <options>!=</options>
-      <options>=</options>
-      <options>!=</options>
-      <options>=</options>
-      <options>!=</options>
-      <options>=</options>
-      <options>!=</options>
+  <parameterList id="_Lcnb4QsTEeuOcYZYlQcWtw" internalId="5">
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_NrnqEAsTEeuOcYZYlQcWtw" internalId="1" comparisons="_NZMdUQsTEeuOcYZYlQcWtw">
       <options>=</options>
       <options>!=</options>
     </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_XCVCkvvwEeqnEIeZB7eCsw" internalId="2" isPredefined="true" value="DATETIME" typeComparisons="_XCVCkPvwEeqnEIeZB7eCsw">
-      <options>UNSPECIFIED</options>
-      <options>UNSPECIFIED</options>
-      <options>UNSPECIFIED</options>
-      <options>UNSPECIFIED</options>
-      <options>UNSPECIFIED</options>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_NrnqEQsTEeuOcYZYlQcWtw" internalId="2" predefined="true" value="DATETIME" typeComparisons="_NZMdUQsTEeuOcYZYlQcWtw">
       <options>UNSPECIFIED</options>
     </parameters>
-    <parameters xsi:type="parameters:DateTimeParam" id="_xxy8wPwaEeqnEIeZB7eCsw" internalId="9" comparison2="_XCVCkPvwEeqnEIeZB7eCsw"/>
+    <parameters xsi:type="parameters:DateTimeParam" id="_POkqlgsTEeuOcYZYlQcWtw" internalId="3" comparison2="_NZMdUQsTEeuOcYZYlQcWtw"/>
   </parameterList>
 </patternstructure:CompletePattern>

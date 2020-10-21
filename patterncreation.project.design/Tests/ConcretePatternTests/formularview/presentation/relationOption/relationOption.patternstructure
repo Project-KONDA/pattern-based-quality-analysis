@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_OrOgQAo_Eeu4N9YK7wBskQ" internalId="1" adaptionStarted="true" adaptionFinalized="true" elementCounter="5" relationCounter="4" parameterCounter="3" counter="4">
+  <graph id="_OrOgQgo_Eeu4N9YK7wBskQ" internalId="2" returnElements="_dNQmUgo_Eeu4N9YK7wBskQ">
+    <elements xsi:type="adaptionxml:XmlElement" id="_dNQmUgo_Eeu4N9YK7wBskQ" internalId="3" resultOf="_OrOgQgo_Eeu4N9YK7wBskQ" name="XmlElement 1" outgoing="_eK0awAo_Eeu4N9YK7wBskQ" incoming="_elu1IQo_Eeu4N9YK7wBskQ"/>
+    <elements xsi:type="adaptionxml:XmlElement" id="_dNQmUwo_Eeu4N9YK7wBskQ" internalId="4" name="XmlElement 2" incoming="_eK0awAo_Eeu4N9YK7wBskQ"/>
+    <elements xsi:type="adaptionxml:XmlRoot" id="_elu1IAo_Eeu4N9YK7wBskQ" name="Root" outgoing="_elu1IQo_Eeu4N9YK7wBskQ"/>
+    <operatorList id="_OrOgQwo_Eeu4N9YK7wBskQ"/>
+    <relations xsi:type="adaptionxml:XmlNavigation" id="_eK0awAo_Eeu4N9YK7wBskQ" internalId="2" source="_dNQmUgo_Eeu4N9YK7wBskQ" target="_dNQmUwo_Eeu4N9YK7wBskQ" name="XmlNavigation 1" option="_eK0awQo_Eeu4N9YK7wBskQ"/>
+    <relations xsi:type="adaptionxml:XmlNavigation" id="_elu1IQo_Eeu4N9YK7wBskQ" internalId="3" source="_elu1IAo_Eeu4N9YK7wBskQ" target="_dNQmUgo_Eeu4N9YK7wBskQ" name="XmlNavigation 3" option="_elu1Igo_Eeu4N9YK7wBskQ"/>
+  </graph>
+  <condition xsi:type="patternstructure:TrueElement" id="_cK6YgAo_Eeu4N9YK7wBskQ" internalId="3"/>
+  <parameterList id="_OrOgQQo_Eeu4N9YK7wBskQ">
+    <parameters xsi:type="parameters:RelationOptionParam" id="_eK0awQo_Eeu4N9YK7wBskQ" internalId="1" relations="_eK0awAo_Eeu4N9YK7wBskQ">
+      <options>/child::*</options>
+      <options>/descendant::*</options>
+      <options>/parent::*</options>
+      <options>/ancestor::*</options>
+      <options>/following::*</options>
+      <options>/following-sibling::*</options>
+      <options>/preceding::*</options>
+      <options>/preceding-sibling::*</options>
+      <options>/ancestor-or-self::*</options>
+      <options>/descendant-or-self::*</options>
+      <options>/self::*</options>
+    </parameters>
+    <parameters xsi:type="parameters:RelationOptionParam" id="_elu1Igo_Eeu4N9YK7wBskQ" internalId="2" relations="_elu1IQo_Eeu4N9YK7wBskQ">
+      <options>/child::*</options>
+      <options>/descendant::*</options>
+      <options>/parent::*</options>
+      <options>/ancestor::*</options>
+      <options>/following::*</options>
+      <options>/following-sibling::*</options>
+      <options>/preceding::*</options>
+      <options>/preceding-sibling::*</options>
+      <options>/ancestor-or-self::*</options>
+      <options>/descendant-or-self::*</options>
+      <options>/self::*</options>
+    </parameters>
+  </parameterList>
+</patternstructure:CompletePattern>

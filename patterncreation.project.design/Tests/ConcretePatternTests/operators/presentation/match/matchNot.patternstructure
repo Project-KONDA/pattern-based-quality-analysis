@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_gLgssAoqEeuH_-6-BG64Vw" internalId="1" adaptionStarted="true" adaptionFinalized="true" elementCounter="3" relationCounter="2" parameterCounter="6" operatorCounter="2" counter="5">
+  <graph id="_gLgssgoqEeuH_-6-BG64Vw" internalId="2" returnElements="_U0dfdQorEeuH_-6-BG64Vw">
+    <elements xsi:type="adaptionxml:XmlElement" id="_U0dfdQorEeuH_-6-BG64Vw" internalId="2" resultOf="_gLgssgoqEeuH_-6-BG64Vw" name="XmlElement 1" predicates="_Ksyr4AorEeuH_-6-BG64Vw" incoming="_Vc70sQorEeuH_-6-BG64Vw">
+      <properties xsi:type="adaptionxml:XmlProperty" id="_U0dfcgorEeuH_-6-BG64Vw" match="_Ksyr4AorEeuH_-6-BG64Vw" name="XmlProperty 4" option="_U0dfdgorEeuH_-6-BG64Vw" attributeName="_U0dfdworEeuH_-6-BG64Vw"/>
+    </elements>
+    <elements xsi:type="adaptionxml:XmlRoot" id="_Vc70sAorEeuH_-6-BG64Vw" name="Root" outgoing="_Vc70sQorEeuH_-6-BG64Vw"/>
+    <operatorList id="_gLgsswoqEeuH_-6-BG64Vw">
+      <operators xsi:type="operators:Match" id="_Ksyr4AorEeuH_-6-BG64Vw" internalId="1" elements="_U0dfdQorEeuH_-6-BG64Vw" property="_U0dfcgorEeuH_-6-BG64Vw" option="_Ksyr4QorEeuH_-6-BG64Vw" regularExpression="_Ksyr4gorEeuH_-6-BG64Vw"/>
+    </operatorList>
+    <relations xsi:type="adaptionxml:XmlNavigation" id="_Vc70sQorEeuH_-6-BG64Vw" internalId="1" source="_Vc70sAorEeuH_-6-BG64Vw" target="_U0dfdQorEeuH_-6-BG64Vw" name="XmlNavigation 1" option="_Vc70sgorEeuH_-6-BG64Vw"/>
+  </graph>
+  <condition xsi:type="patternstructure:TrueElement" id="_KOp-YAorEeuH_-6-BG64Vw" internalId="3"/>
+  <parameterList id="_gLgssQoqEeuH_-6-BG64Vw">
+    <parameters xsi:type="parameters:BooleanParam" id="_Ksyr4QorEeuH_-6-BG64Vw" internalId="2" value="false" matches="_Ksyr4AorEeuH_-6-BG64Vw"/>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_Ksyr4gorEeuH_-6-BG64Vw" internalId="1" matches="_Ksyr4AorEeuH_-6-BG64Vw"/>
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_U0dfdgorEeuH_-6-BG64Vw" internalId="3" properties="_U0dfcgorEeuH_-6-BG64Vw">
+      <options>TAG</options>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+      <options>TAG</options>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_U0dfdworEeuH_-6-BG64Vw" internalId="4" properties="_U0dfcgorEeuH_-6-BG64Vw"/>
+    <parameters xsi:type="parameters:RelationOptionParam" id="_Vc70sgorEeuH_-6-BG64Vw" internalId="5" relations="_Vc70sQorEeuH_-6-BG64Vw">
+      <options>/child::*</options>
+      <options>/descendant::*</options>
+      <options>/parent::*</options>
+      <options>/ancestor::*</options>
+      <options>/following::*</options>
+      <options>/following-sibling::*</options>
+      <options>/preceding::*</options>
+      <options>/preceding-sibling::*</options>
+      <options>/ancestor-or-self::*</options>
+      <options>/descendant-or-self::*</options>
+      <options>/self::*</options>
+      <options>/child::*</options>
+      <options>/descendant::*</options>
+      <options>/parent::*</options>
+      <options>/ancestor::*</options>
+      <options>/following::*</options>
+      <options>/following-sibling::*</options>
+      <options>/preceding::*</options>
+      <options>/preceding-sibling::*</options>
+      <options>/ancestor-or-self::*</options>
+      <options>/descendant-or-self::*</options>
+      <options>/self::*</options>
+    </parameters>
+  </parameterList>
+</patternstructure:CompletePattern>

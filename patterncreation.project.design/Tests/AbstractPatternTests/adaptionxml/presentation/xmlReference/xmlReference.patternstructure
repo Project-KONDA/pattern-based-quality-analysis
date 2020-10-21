@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_SnYPkPtTEeqYEKnS78hbUg" internalId="1" adaptionStarted="true" elementCounter="11" relationCounter="3" parameterCounter="9" operatorCounter="3" counter="16">
+  <graph id="_SnYPkvtTEeqYEKnS78hbUg" internalId="2" returnElements="_EZTGEAI_Eeuwy54vsIAD-w">
+    <elements xsi:type="adaptionxml:XmlElement" id="_EZTGEAI_Eeuwy54vsIAD-w" internalId="9" resultOf="_SnYPkvtTEeqYEKnS78hbUg" name="XmlElement 1" outgoing="_FPGssAI_Eeuwy54vsIAD-w">
+      <properties xsi:type="adaptionxml:XmlProperty" id="_FPP2oAI_Eeuwy54vsIAD-w" internalId="14" name="XmlProperty 14" option="_FPYZgAI_Eeuwy54vsIAD-w" attributeName="_FPYZgQI_Eeuwy54vsIAD-w" outgoingReferences="_FPGssAI_Eeuwy54vsIAD-w"/>
+    </elements>
+    <elements xsi:type="adaptionxml:XmlElement" id="_EZTGEQI_Eeuwy54vsIAD-w" internalId="10" name="XmlElement 8" incoming="_FPGssAI_Eeuwy54vsIAD-w">
+      <properties xsi:type="adaptionxml:XmlProperty" id="_FPYZggI_Eeuwy54vsIAD-w" internalId="15" name="XmlProperty 15" option="_FPYZgwI_Eeuwy54vsIAD-w" attributeName="_FPYZhAI_Eeuwy54vsIAD-w" incomingReferences="_FPGssAI_Eeuwy54vsIAD-w"/>
+    </elements>
+    <operatorList id="_SnYPk_tTEeqYEKnS78hbUg"/>
+    <relations xsi:type="adaptionxml:XmlReference" id="_FPGssAI_Eeuwy54vsIAD-w" internalId="2" source="_EZTGEAI_Eeuwy54vsIAD-w" target="_EZTGEQI_Eeuwy54vsIAD-w" name="XmlReference 1" targetProperty="_FPYZggI_Eeuwy54vsIAD-w" sourceProperty="_FPP2oAI_Eeuwy54vsIAD-w"/>
+  </graph>
+  <condition xsi:type="patternstructure:TrueElement" id="_53C-YAI1Eeuwy54vsIAD-w" internalId="13"/>
+  <parameterList id="_SnYPkftTEeqYEKnS78hbUg">
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_FPYZgAI_Eeuwy54vsIAD-w" properties="_FPP2oAI_Eeuwy54vsIAD-w">
+      <options>TAG</options>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_FPYZgQI_Eeuwy54vsIAD-w" properties="_FPP2oAI_Eeuwy54vsIAD-w"/>
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_FPYZgwI_Eeuwy54vsIAD-w" properties="_FPYZggI_Eeuwy54vsIAD-w">
+      <options>TAG</options>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_FPYZhAI_Eeuwy54vsIAD-w" properties="_FPYZggI_Eeuwy54vsIAD-w"/>
+  </parameterList>
+</patternstructure:CompletePattern>

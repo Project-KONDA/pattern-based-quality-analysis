@@ -16,7 +16,7 @@
       <options>=</options>
       <options>!=</options>
     </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_KV2r4fzgEeqUhOhuPXc6vw" internalId="3" isPredefined="true" value="NUMBER" typeComparisons="_KEWsMfzgEeqUhOhuPXc6vw">
+    <parameters xsi:type="parameters:TypeOptionParam" id="_KV2r4fzgEeqUhOhuPXc6vw" internalId="3" predefined="true" value="NUMBER" typeComparisons="_KEWsMfzgEeqUhOhuPXc6vw">
       <options>UNSPECIFIED</options>
       <options>UNSPECIFIED</options>
     </parameters>
@@ -25,7 +25,7 @@
       <options>=</options>
       <options>!=</options>
     </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_85uogfzgEeqUhOhuPXc6vw" internalId="6" isPredefined="true" value="NUMBER" typeComparisons="_8eVF8fzgEeqUhOhuPXc6vw">
+    <parameters xsi:type="parameters:TypeOptionParam" id="_85uogfzgEeqUhOhuPXc6vw" internalId="6" predefined="true" value="NUMBER" typeComparisons="_8eVF8fzgEeqUhOhuPXc6vw">
       <options>UNSPECIFIED</options>
     </parameters>
   </parameterList>

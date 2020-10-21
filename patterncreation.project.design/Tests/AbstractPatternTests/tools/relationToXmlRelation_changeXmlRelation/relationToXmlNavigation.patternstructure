@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_SnYPkPtTEeqYEKnS78hbUg" internalId="1" adaptionStarted="true" elementCounter="11" relationCounter="3" parameterCounter="10" operatorCounter="3" counter="14">
+  <graph id="_SnYPkvtTEeqYEKnS78hbUg" internalId="2" returnElements="_AYs-cAI_Eeuwy54vsIAD-w">
+    <elements xsi:type="adaptionxml:XmlElement" id="_AYs-cAI_Eeuwy54vsIAD-w" internalId="9" resultOf="_SnYPkvtTEeqYEKnS78hbUg" name="XmlElement 1" outgoing="_BWe1UAI_Eeuwy54vsIAD-w"/>
+    <elements xsi:type="adaptionxml:XmlElement" id="_AYs-cQI_Eeuwy54vsIAD-w" internalId="10" name="XmlElement 8" incoming="_BWe1UAI_Eeuwy54vsIAD-w"/>
+    <operatorList id="_SnYPk_tTEeqYEKnS78hbUg"/>
+    <relations xsi:type="adaptionxml:XmlNavigation" id="_BWe1UAI_Eeuwy54vsIAD-w" internalId="2" source="_AYs-cAI_Eeuwy54vsIAD-w" target="_AYs-cQI_Eeuwy54vsIAD-w" name="XmlNavigation 1" option="_BWe1UQI_Eeuwy54vsIAD-w"/>
+  </graph>
+  <condition xsi:type="patternstructure:TrueElement" id="_53C-YAI1Eeuwy54vsIAD-w" internalId="13"/>
+  <parameterList id="_SnYPkftTEeqYEKnS78hbUg">
+    <parameters xsi:type="parameters:RelationOptionParam" id="_BWe1UQI_Eeuwy54vsIAD-w" internalId="9" relations="_BWe1UAI_Eeuwy54vsIAD-w">
+      <options>/child::*</options>
+      <options>/descendant::*</options>
+      <options>/parent::*</options>
+      <options>/ancestor::*</options>
+      <options>/following::*</options>
+      <options>/following-sibling::*</options>
+      <options>/preceding::*</options>
+      <options>/preceding-sibling::*</options>
+      <options>/ancestor-or-self::*</options>
+      <options>/descendant-or-self::*</options>
+      <options>/self::*</options>
+    </parameters>
+  </parameterList>
+</patternstructure:CompletePattern>
