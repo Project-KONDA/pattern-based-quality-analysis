@@ -6,7 +6,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.testutilityclasses.PatternTestPair;
+import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.ParametersFactory;
@@ -28,8 +28,9 @@ public class Test01Axis {
 		for (RelationKind ax : RelationKind.VALUES) {
 			completePatterns.add(getBasePatternAxisRoot(ax));
 			completePatterns.add(getBasePatternAxisNotRoot(ax));
+			
 		}
-		
+				
 		Test00.test(completePatterns);
 	}
 
@@ -74,9 +75,12 @@ public class Test01Axis {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
 		for (RelationKind ax : RelationKind.VALUES) {
-			if(ax != RelationKind.DESCENDANT && ax != RelationKind.ANCESTOR)
-				testPairs.add(new PatternTestPair(ax.getName(), getBasePatternAxisRoot(ax), "/"+ax.getLiteral()+"::*"));
-		}		
+			testPairs.add(new PatternTestPair(ax.getName()+"_ROOT", getBasePatternAxisRoot(ax), ax.getLiteral()));
+			testPairs.add(new PatternTestPair(ax.getName(), getBasePatternAxisNotRoot(ax), "for $x in /* for $y in $x" + ax.getLiteral() + " return $x"));
+		}
+		
+		
+		
 //		testPairs.add(new PatternTestPair("CHILD", 				getBasePatternAxis(Axis.CHILD), 				"/child::*"));
 ////		testPairs.add(new PatternTestPair("PARENT", 			getBasePatternAxis(Axis.PARENT), 				"/parent::*"));
 //		testPairs.add(new PatternTestPair("SELF", 				getBasePatternAxis(Axis.SELF), 				"/self::*"));

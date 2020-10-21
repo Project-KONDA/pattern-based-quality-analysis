@@ -6,7 +6,9 @@ import org.eclipse.emf.common.util.EList;
 //import org.graalvm.graphio.GraphStructure;
 
 import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.testutilityclasses.PatternTestPair;
+import qualitypatternmodel.testutility.PatternTestPair;
+import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.*;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.Parameter;
@@ -56,8 +58,8 @@ public class Test00 {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getBasePatternFinal());
-		completePatterns.add(getBasePatternCond("my_cond"));
-		completePatterns.add(getBasePatternMatch("my_regex"));
+		completePatterns.add(getBasePatternCondConcrete("USA"));
+		completePatterns.add(getBasePatternMatchConcrete("^New"));
 		Test00.test(completePatterns);
 	}
 
@@ -92,6 +94,13 @@ public class Test00 {
 		return completePattern;
 	}
 	
+	public static CompletePattern getBasePatternCondConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePatternCond(comp);
+		XmlNavigation xmlNavigation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		xmlNavigation.getOption().setValue(RelationKind.DESCENDANT);		
+		return completePattern;		
+	}
+	
 	public static CompletePattern getBasePatternMatch(String regex) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		Element se = completePattern.getGraph().getReturnElements().get(0);
@@ -101,9 +110,18 @@ public class Test00 {
 		return completePattern;
 	}
 	
-	public static List<PatternTestPair> getTestPairs(){
+	public static CompletePattern getBasePatternMatchConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePatternMatch(comp);
+		XmlNavigation xmlNavigation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		xmlNavigation.getOption().setValue(RelationKind.DESCENDANT);		
+		return completePattern;		
+	}
+	
+	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("BASE", getBasePattern(), "/*"));
+		testPairs.add(new PatternTestPair("BASE\t", getBasePatternFinal(), "/*"));
+		testPairs.add(new PatternTestPair("BASE_COND", getBasePatternCondConcrete("USA"), "//*[./data() = \"USA\"]"));
+		testPairs.add(new PatternTestPair("BASE_MATCH", getBasePatternMatchConcrete("^New"), "//*[matches(./data(), \"^New\")]"));
 		return testPairs;		
 	}
 	

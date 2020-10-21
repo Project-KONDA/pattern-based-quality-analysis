@@ -1,4 +1,4 @@
-package qualitypatternmodel.testutilityclasses;
+package qualitypatternmodel.testutility;
 
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EStructuralFeature;

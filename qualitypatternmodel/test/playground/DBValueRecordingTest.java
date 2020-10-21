@@ -12,8 +12,8 @@ import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.testutilityclasses.EMFModelLoad;
-import qualitypatternmodel.testutilityclasses.EMFValidationPreparation;
+import qualitypatternmodel.testutility.EMFModelLoad;
+import qualitypatternmodel.testutility.EMFValidationPreparation;
 
 public class DBValueRecordingTest {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

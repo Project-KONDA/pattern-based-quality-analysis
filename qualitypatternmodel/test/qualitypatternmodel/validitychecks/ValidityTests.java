@@ -8,7 +8,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.testutilityclasses.EMFModelLoad;
+import qualitypatternmodel.testutility.EMFModelLoad;
 
 public class ValidityTests {
 	public static void main(String[] args) {

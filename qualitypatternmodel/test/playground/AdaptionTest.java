@@ -18,8 +18,8 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.testutilityclasses.EMFModelLoad;
-import qualitypatternmodel.testutilityclasses.EMFValidationPreparation;
+import qualitypatternmodel.testutility.EMFModelLoad;
+import qualitypatternmodel.testutility.EMFValidationPreparation;
 
 public class AdaptionTest {
 	public static void main(String[] args) {

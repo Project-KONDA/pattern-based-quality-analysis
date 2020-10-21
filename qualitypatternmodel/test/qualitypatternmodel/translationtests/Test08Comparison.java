@@ -5,7 +5,7 @@ import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.patternstructure.impl.*;
-import qualitypatternmodel.testutilityclasses.PatternTestPair;
+import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;

@@ -17,52 +17,53 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.testutilityclasses.EMFModelLoad;
-import qualitypatternmodel.testutilityclasses.EMFValidationPreparation;
-import qualitypatternmodel.testutilityclasses.PatternTestPair;
+import qualitypatternmodel.testutility.EMFModelLoad;
+import qualitypatternmodel.testutility.EMFValidationPreparation;
+import qualitypatternmodel.testutility.PatternTestPair;
 
 public class TranslationTests {
+	private static final String TEST_DATABASE_NAME = "DemoDatabase";
+	private static final String TEST_DATA_PATH = "demo.data/demo_database.xml";
 	private static Context context;
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		
 		EMFValidationPreparation.registerDelegates();
 		createContext();
-		openDatabase("DBExample", "D:\\Dokumente\\MIDAS\\20190522\\fme-private-Seiten20190521.xml");
+		openDatabase(TEST_DATABASE_NAME, TEST_DATA_PATH);
 		
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		// TODO: add all test cases to testpairs
 		testPairs.addAll(Test00.getTestPairs());
 		testPairs.addAll(Test01Axis.getTestPairs());
 		testPairs.addAll(Test02Return.getTestPairs());
 		testPairs.addAll(Test03Quantor.getTestPairs());
 		testPairs.addAll(Test04QuantorCombinations.getTestPairs());
-		testPairs.addAll(Test05QuantorCombinationsCond.getTestPairs());
+		
 		testPairs.addAll(Test06NotElement.getTestPairs());
 		testPairs.addAll(Test07Formula.getTestPairs());
-		testPairs.addAll(Test08Comparison.getTestPairs());
-		testPairs.addAll(Test09ComplexComparison.getTestPairs());
-		testPairs.addAll(Test10Reference.getTestPairs());
-		testPairs.addAll(Test11Match.getTestPairs());
-		testPairs.addAll(Test12Count.getTestPairs());
+		
+		// TODO:
+//		testPairs.addAll(Test05QuantorCombinationsCond.getTestPairs());
+//		testPairs.addAll(Test08Comparison.getTestPairs());
+//		testPairs.addAll(Test09ComplexComparison.getTestPairs());
+//		testPairs.addAll(Test10Reference.getTestPairs());
+//		testPairs.addAll(Test11Match.getTestPairs());
+//		testPairs.addAll(Test12Count.getTestPairs());
 		
 		for(PatternTestPair testPair : testPairs) {
 			runTestQueryResultComparison(testPair);
-		}
-		
-//		runTestQueryResultComparison("instances/userstudy/disjp.patternstructure",
-//				"//*[@Type=\"kue\" and .//*[@Type=\"3100\"]/@Value=.//*[@Type=\"3105\"]/@Value]", "Test 1");		
+		}		
 		
 	}
 	
 	private static void runTestQueryResultComparison(PatternTestPair testPair) {
-		// compares the pattern query result with that of the manually written query
+		// Checks test case defined as testPair
 		
 		/*
 		 * given per test case:
 		 * - pattern
 		 * - manually written query
-		 * - database (MIDAS, LIDO or self written test database)
+		 * - database (small cultural heritage test database)
 		 * 
 		 * approach: 
 		 * - run pattern query
@@ -73,15 +74,12 @@ public class TranslationTests {
 		
 		try {
 			testPair.getPattern().isValid(AbstractionLevel.CONCRETE);
+			
 			String result = applyQuery(testPair.getPattern().generateQuery());
 			String expectedResult = applyQuery(testPair.getManualQuery());
-			boolean isCorrect = compareResults(result, expectedResult);	
-			if(isCorrect) {
-				System.out.println(testPair.getName() + ": succeeded");
-			} else {
-				System.out.println(testPair.getName() + ": failed");
-			}
-			// TODO: visualize result
+			
+			System.out.println(testPair.getName() + compareResults(result, expectedResult));	
+
 		} catch (InvalidityException e) {
 			// TODO: print output if pattern is not valid
 			e.printStackTrace();
@@ -100,32 +98,40 @@ public class TranslationTests {
 	private static String applyQuery(String query) throws BaseXException {		
 		XQuery xquery = new XQuery(query);
 		String result = xquery.execute(context);	
-		System.out.println("query executed");
+//		System.out.println("query executed");
 		return result;
 	}
 	
-	private static boolean compareResults(String result, String expectedResult) {
-		// compares the results of the pattern query to that of the manually written query
+	private static String compareResults(String result, String expectedResult) {
+		// Compares the results of the application of the pattern query to that of the manually written query
 		// TODO: use XQuery instead for checking equality?
-		return result.equals(expectedResult);
+//		System.out.println(expectedResult);
+				
+		String empty = (result.equals("") ? "\tresult empty" : "");
+		
+		if(result.equals(expectedResult)) {			 
+			return "\t: succeeded"+empty;
+		} else {
+			return "\t: FAILED" + empty;
+		}
 	}
 	
 	private static void createContext() {
 		context = new Context();
 	}
 	private static void openDatabase(String databaseName, String dataPath) {
-		try {
-			new Open(databaseName).execute(context);
-			System.out.println("opened database " + databaseName);
-		} catch (BaseXException e) {
+//		try {
+//			new Open(databaseName).execute(context);
+//			System.out.println("Opened database \"" + databaseName + "\"\n");
+//		} catch (BaseXException e) {
 			try {
 				new CreateDB(databaseName, dataPath).execute(context);
-				System.out.println("created database " + databaseName + " with data " + dataPath);
+				System.out.println("Created database \"" + databaseName + "\" with data " + dataPath + "\n");
 			} catch (BaseXException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-		}				
+//		}				
 	}		
 	
 	private static void printDiagnostic(Diagnostic diagnostic, String indent) {

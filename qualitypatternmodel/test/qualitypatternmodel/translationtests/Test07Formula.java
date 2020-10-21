@@ -5,11 +5,15 @@ import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.patternstructure.impl.*;
-import qualitypatternmodel.testutilityclasses.PatternTestPair;
+import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.operators.impl.*;
+import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -24,7 +28,7 @@ public class Test07Formula {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		
 		for (LogicalOperator lo: LogicalOperator.VALUES) {
-			completePatterns.add(getFormulaPattern(lo));
+			completePatterns.add(getFormulaPatternConcrete(lo));
 		}
 
 		Test00.test(completePatterns);
@@ -78,16 +82,32 @@ public class Test07Formula {
 		return completePattern;
 	}
 	
+	public static CompletePattern getFormulaPatternConcrete(LogicalOperator op) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern pattern = getFormulaPattern(op);
+		
+		((XmlNavigation) pattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.TWOCHILD);
+		QuantifiedCondition q1 = ((QuantifiedCondition)((Formula) pattern.getCondition()).getCondition2());
+		XmlProperty xp = ((XmlProperty) q1.getGraph().getElements().get(0).getProperties().get(0));
+		xp.getOption().setValue(PropertyKind.ATTRIBUTE);
+		xp.getAttributeName().setValue("demo:id");;
+		
+		((XmlNavigation) q1.getGraph().getRelations().get(2)).getOption().setValue(RelationKind.THREECHILD);
+		
+		
+		return pattern;		
+	}
+	
+	
 	
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
-		for (LogicalOperator lo: LogicalOperator.VALUES) {
-			testPairs.add(new PatternTestPair(lo.toString(), getFormulaPattern(lo), ""));
-		}		
-		
-		// TODO: complete test cases
-		
+		testPairs.add(new PatternTestPair("AND", getFormulaPatternConcrete(LogicalOperator.AND), "/*/*[ ./* and ./@*[name()=\"demo:id\"]=/*/*/*/data()]"));
+		testPairs.add(new PatternTestPair("OR", getFormulaPatternConcrete(LogicalOperator.OR), "/*/*[ ./* or ./@*[name()=\"demo:id\"]=/*/*/*/data()]"));
+		testPairs.add(new PatternTestPair("IMPLIES", getFormulaPatternConcrete(LogicalOperator.IMPLIES), "/*/*[ not(./*) or ./@*[name()=\"demo:id\"]=/*/*/*/data()]"));
+		testPairs.add(new PatternTestPair("XOR", getFormulaPatternConcrete(LogicalOperator.XOR), "/*/* [ not(./*) = (./@*[name()=\"demo:id\"]=/*/*/*/data())]"));
+		testPairs.add(new PatternTestPair("EQUAL", getFormulaPatternConcrete(LogicalOperator.EQUAL), "/*/* [ exists(./*) = (./@*[name()=\"demo:id\"]=/*/*/*/data())]"));
+				
 		return testPairs;		
 	}
 

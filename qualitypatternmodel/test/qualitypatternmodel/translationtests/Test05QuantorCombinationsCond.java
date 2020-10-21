@@ -3,11 +3,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.testutilityclasses.PatternTestPair;
+import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.parameters.*;
 import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.*;
@@ -36,20 +38,21 @@ public class Test05QuantorCombinationsCond {
 		
 		// comparisons
 		Element e0 = graph0.getElements().get(0);
-		e0.addPrimitiveComparison("test");
+		e0.addPrimitiveComparison("101");
 		Element e1 = graph1.getElements().get(0);
+		e1.addPrimitiveComparison("demo:building");
 		e1.addPrimitiveComparison("abc");
-		e1.addPrimitiveComparison("abc2");
+		((Comparison) graph1.getOperatorList().getOperators().get(1)).getOption().setValue(ComparisonOperator.NOTEQUAL);
+		
 		Element e2 = graph1.getElements().get(1);
-		e2.addPrimitiveComparison("def");
+		e2.addPrimitiveComparison("USA");
 		Element se = graph2.getElements().get(2);
-		se.addPrimitiveComparison("ghi");
-
+		se.addPrimitiveComparison("demo:country");
 		
 		completePattern.createXMLAdaption();
 		
 		XmlProperty property = (XmlProperty) graph0.getElements().get(0).getProperties().get(0);
-		property.getAttributeName().setValue("prop");
+		property.getAttributeName().setValue("demo:id");
 		property.getOption().getOptions().add(PropertyKind.ATTRIBUTE);
 		property.getOption().setValue(PropertyKind.ATTRIBUTE);
 	
@@ -61,6 +64,10 @@ public class Test05QuantorCombinationsCond {
 		XmlReference ref = qcond2.getGraph().getRelations().get(0).adaptAsXMLReference();
 		ref.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();		
+		
+		((XmlProperty) graph2.getElements().get(2).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.TWOCHILD);
+		((XmlNavigation) graph2.getRelations().get(3)).getOption().setValue(RelationKind.THREECHILD);
 		
 		return completePattern;
 	}
@@ -84,13 +91,11 @@ public class Test05QuantorCombinationsCond {
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		
-		testPairs.add(new PatternTestPair("EXEXCON", 	getPatternExistsInExistsCond(), ""));
-		testPairs.add(new PatternTestPair("EXFACON", 	getPatternForallInExistsCond(), ""));
-		testPairs.add(new PatternTestPair("FAEXCON", 	getPatternExistsInForallCond(), ""));
-		testPairs.add(new PatternTestPair("FAFACON", 	getPatternForallInForallCond(), ""));
-	
-		// TODO: complete test cases
-		
+		testPairs.add(new PatternTestPair("EXEXCON", 	getPatternExistsInExistsCond(), "/*/*[./@*[name()=\"demo:id\"]=\"101\" and ./name()=\"demo:building\" and ./data()!=\"abc\"and ./*[./data()=\"USA\"]/data()= /*/*/*[./name()=\"demo:country\"]/data()]"));
+		testPairs.add(new PatternTestPair("EXFACON", 	getPatternForallInExistsCond(), "/*/*[./@*[name()=\"demo:id\"]=\"101\"and ./name()=\"demo:building\" and ./data()!=\"abc\" and ./child::*[data()=\"USA\"]]"));
+		testPairs.add(new PatternTestPair("FAEXCON", 	getPatternExistsInForallCond(), "for $v in /*/* [./@*[name()=\"demo:id\"]=\"101\"] where  not( $v [name()=\"demo:building\" and data()!=\"abc\"]) or ( not( $v/child::*[./data()=\"USA\"]) or (exists(/*/*/* [name()=\"demo:country\" and data()=\"USA\"]))) return $v"));
+		testPairs.add(new PatternTestPair("FAFACON", 	getPatternForallInForallCond(), "/*/*[./@*[name()=\"demo:id\"]=\"101\"]"));
+			
 		return testPairs;		
 	}
 	

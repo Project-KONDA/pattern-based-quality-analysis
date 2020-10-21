@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.testutilityclasses.PatternTestPair;
+import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -72,8 +72,8 @@ public class Test02Return {
 	
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		testPairs.add(new PatternTestPair("MULRETNAV", getPatternMultipleReturnNavigation(), "for $x1 in /* for $x2 in $x1/* return ($x1, $x2)"));
-		testPairs.add(new PatternTestPair("MULRETREF", getPatternMultipleReturnReference(), "for $x1 in /* for $x2 in /*[data()=$x1/data()] return ($x1, $x2)"));
+		testPairs.add(new PatternTestPair("MUL_RET_NAV", getPatternMultipleReturnNavigation(), "for $x1 in /* for $x2 in $x1/* return ($x1, $x2)"));
+		testPairs.add(new PatternTestPair("MUL_RET_REF", getPatternMultipleReturnReference(), "for $x1 in /* for $x2 in /*[data()=$x1/data()] return ($x1, $x2)"));
 		return testPairs;		
 	}
 	

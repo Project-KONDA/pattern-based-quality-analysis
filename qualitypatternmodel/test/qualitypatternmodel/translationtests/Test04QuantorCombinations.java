@@ -3,9 +3,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.testutilityclasses.PatternTestPair;
+import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
 import qualitypatternmodel.exceptions.*;
@@ -33,6 +38,22 @@ public class Test04QuantorCombinations {
 		XmlReference ref = qcond2.getGraph().getRelations().get(0).adaptAsXMLReference();
 		ref.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();		
+		
+		XmlNavigation navRoot = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+//		navRoot.getOption().setValue(RelationKind.DESCENDANT);
+		
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
+		QuantifiedCondition quantifiedCondition2 = (QuantifiedCondition) quantifiedCondition.getCondition();
+		
+		XmlProperty prop0 = (XmlProperty) quantifiedCondition2.getGraph().getElements().get(1).getProperties().get(0);
+		prop0.getOption().setValue(PropertyKind.ATTRIBUTE);
+		prop0.getAttributeName().setValue("demo:id");
+		
+		XmlNavigation nav1 = (XmlNavigation) quantifiedCondition2.getGraph().getRelations().get(3);
+		nav1.getOption().setValue(RelationKind.DESCENDANT);
+		
+//		Comparison comp = (Comparison) quantifiedCondition2.getGraph().getOperatorList().getOperators().get(0);
+//		comp.getOption().setValue(ComparisonOperator.NOTEQUAL);
 		
 		return completePattern;
 	}
@@ -90,6 +111,9 @@ public class Test04QuantorCombinations {
 	public static CompletePattern getPatternExistsInForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternExistsInExistsFinal();
 		((QuantifiedCondition) completePattern.getCondition()).setQuantifier(Quantifier.FORALL);
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
+		quantifiedCondition.getGraph().getElements().get(1).addPrimitiveComparison("demo:artist");;
+		
 		return completePattern;
 	}
 	public static CompletePattern getPatternForallInForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -100,10 +124,10 @@ public class Test04QuantorCombinations {
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
-		testPairs.add(new PatternTestPair("EXEX", 	getPatternExistsInExistsFinal(), ""));
-		testPairs.add(new PatternTestPair("EXFA", 	getPatternForallInExists(), ""));
-		testPairs.add(new PatternTestPair("FAEX", 	getPatternExistsInForall(), ""));
-		testPairs.add(new PatternTestPair("FAFA", 	getPatternForallInForall(), ""));
+		testPairs.add(new PatternTestPair("EXEX", 	getPatternExistsInExistsFinal(), "/*[./*[@*[name()=\"demo:id\"] = //*/data()]]"));
+		testPairs.add(new PatternTestPair("EXFA", 	getPatternForallInExists(), "/*[./*]"));
+		testPairs.add(new PatternTestPair("FAEX", 	getPatternExistsInForall(), "for $x in /* where every $y in $x/child::*[./name()=\"demo:artist\"] satisfies ($y[exists(./@*[name()=\"demo:id\"])] and /descendant::*[exists(./data())][$y/@*[name()=\"demo:id\"]=./data()]) return $x"));
+		testPairs.add(new PatternTestPair("FAFA", 	getPatternForallInForall(), "for $var4 in /* where every $var7 in $var4/* satisfies ($var7[exists(./@*[name()=\"demo:id\"])]) return ($var4)"));
 		
 		// TODO: complete test cases
 		
