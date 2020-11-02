@@ -114,7 +114,7 @@ public class Test08ParameterValues {
 
 		testPairs.add(new PatternTestPair("DataTextLiter", getMyPattern(PropertyKind.DATA, parameter.get(0)), "//*[data()='USA']"));
 		testPairs.add(new PatternTestPair("DataTextList", getMyPattern(PropertyKind.DATA, parameter.get(1)), "//*[data()='USA' or data()='unknown']"));
-		testPairs.add(new PatternTestPair("DataTextList", getMyPattern(PropertyKind.DATA, parameter.get(2)), "//*[if(string(number(data())) != 'NaN') then xs:integer(data())=301]"));
+		testPairs.add(new PatternTestPair("DataTextList", getMyPattern(PropertyKind.DATA, parameter.get(2)), "//*[if(string(number(data())) != 'NaN') then xs:double(data())=1452.0]"));
 		
 		
 		return testPairs;
