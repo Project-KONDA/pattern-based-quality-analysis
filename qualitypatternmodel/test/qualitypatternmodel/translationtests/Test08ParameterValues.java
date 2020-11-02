@@ -45,7 +45,7 @@ public class Test08ParameterValues {
 		completePattern.createXMLAdaption();
 		
 		XmlProperty property = (XmlProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0);
-		property.getAttributeName().setValue("prop");
+		property.getAttributeName().setValue("*");
 		property.getOption().getOptions().add(pl);
 		property.getOption().setValue(pl);
 		
@@ -72,11 +72,11 @@ public class Test08ParameterValues {
 		BooleanParam input4 = inputFactory.createBooleanParam();
 		input4.setValue(true);
 		DateParam input5 = inputFactory.createDateParam();
-		input5.setValue("2000-01-01");
+		input5.setValue("2020-10-03");
 		TimeParam input6 = inputFactory.createTimeParam();
 		input6.setValue("09:00:00");
 		DateTimeParam input7 = inputFactory.createDateTimeParam();
-		input7.setValue("2002-05-30T09:00:00");
+		input7.setValue("2020-10-03T09:00:00");
 
 		parameters.add(input1);
 		parameters.add(input2);
@@ -112,9 +112,13 @@ public class Test08ParameterValues {
 //		System.out.println(getMyPattern(PropertyKind.DATA, parameter.get(0)).generateQuery());
 		
 
-		testPairs.add(new PatternTestPair("DataTextLiter", getMyPattern(PropertyKind.DATA, parameter.get(0)), "//*[data()='USA']"));
+		testPairs.add(new PatternTestPair("DataTextLiteral", getMyPattern(PropertyKind.DATA, parameter.get(0)), "//*[data()='USA']"));
 		testPairs.add(new PatternTestPair("DataTextList", getMyPattern(PropertyKind.DATA, parameter.get(1)), "//*[data()='USA' or data()='unknown']"));
-		testPairs.add(new PatternTestPair("DataTextList", getMyPattern(PropertyKind.DATA, parameter.get(2)), "//*[if(string(number(data())) != 'NaN') then xs:double(data())=1452.0]"));
+		testPairs.add(new PatternTestPair("DataNumber", getMyPattern(PropertyKind.DATA, parameter.get(2)), "//*[if(string(number(data())) != 'NaN') then xs:double(data())=1452.0]"));
+		testPairs.add(new PatternTestPair("DataBoolean", getMyPattern(PropertyKind.ATTRIBUTE, parameter.get(3)), "//*[@*[try {xs:boolean(data()) = true()} catch err:FORG0001 {false()}]]"));
+		testPairs.add(new PatternTestPair("DataDate", getMyPattern(PropertyKind.ATTRIBUTE, parameter.get(4)), "//*[@*[try {xs:date(data()) = xs:date(\"2020-10-03\")} catch err:FORG0001 {false()}]]"));
+		testPairs.add(new PatternTestPair("DataTime", getMyPattern(PropertyKind.ATTRIBUTE, parameter.get(5)), "//*[@*[try {xs:time(data()) = xs:time(\"09:00:00\")} catch err:FORG0001 {false()}]]"));
+		testPairs.add(new PatternTestPair("DataDateTime", getMyPattern(PropertyKind.ATTRIBUTE, parameter.get(6)), "//*[@*[try {xs:dateTime(data()) = xs:dateTime(\"2020-10-03T09:00:00\")} catch err:FORG0001 {false()}]]"));
 		
 		// TODO: complete
 		
