@@ -11,16 +11,16 @@ import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.operators.impl.*;
 import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.*;
-import qualitypatternmodel.parameters.BooleanParam;
-import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.impl.*;
 
-public class Test08Comparison {
+public class Test08ParameterValues {
 
 	public static void main(String[] args)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -28,25 +28,32 @@ public class Test08Comparison {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 
 		for (PropertyKind pl : PropertyKind.VALUES) {
-				for (ParameterValue parameter : getExampleInputs()) {
-					CompletePattern completePattern = Test00.getBasePattern();
-					completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.EQUAL, parameter);
-					completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.NOTEQUAL, parameter);
-					
-					completePattern.createXMLAdaption();
-					
-					XmlProperty property = (XmlProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0);
-					property.getAttributeName().setValue("prop");
-					property.getOption().getOptions().add(pl);
-					property.getOption().setValue(pl);
-					
-					completePattern.finalizeXMLAdaption();
-					
-					completePatterns.add(completePattern);				
+				for (ParameterValue parameter : getExampleInputs()) {					
+					CompletePattern completePattern = getMyPattern(pl, parameter);
+					completePatterns.add(completePattern);		
 			}
 		}
 
 		Test00.test(completePatterns);
+	}
+	
+	public static CompletePattern getMyPattern(PropertyKind pl, ParameterValue parameter) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = Test00.getBasePattern();
+		completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.EQUAL, parameter);
+//		completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.NOTEQUAL, parameter);
+		
+		completePattern.createXMLAdaption();
+		
+		XmlProperty property = (XmlProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0);
+		property.getAttributeName().setValue("prop");
+		property.getOption().getOptions().add(pl);
+		property.getOption().setValue(pl);
+		
+		completePattern.finalizeXMLAdaption();
+		
+		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		
+		return completePattern;
 	}
 
 	public static ArrayList<ParameterValue> getExampleInputs() {
@@ -56,12 +63,12 @@ public class Test08Comparison {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory inputFactory = ParametersFactory.eINSTANCE;
 		TextLiteralParam input1 = inputFactory.createTextLiteralParam();
-		input1.setValue("abc");
+		input1.setValue("USA");
 		TextListParam input2 = inputFactory.createTextListParam();
-		input2.getValues().add("eins");
-		input2.getValues().add("zwei");
+		input2.getValues().add("unknown");
+		input2.getValues().add("USA");
 		NumberParam input3 = inputFactory.createNumberParam();
-		input3.setValue(0.);
+		input3.setValue(1452.);
 		BooleanParam input4 = inputFactory.createBooleanParam();
 		input4.setValue(true);
 		DateParam input5 = inputFactory.createDateParam();
@@ -96,11 +103,19 @@ public class Test08Comparison {
 //		return completePattern;
 //	}
 
-	public static List<PatternTestPair> getTestPairs() {
+	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		ArrayList<ParameterValue> parameter = getExampleInputs();
+
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
+		System.out.println(parameter.size());
+		
+		System.out.println(getMyPattern(PropertyKind.DATA, parameter.get(0)).generateQuery());
 		
 
-		// TODO: add test cases
+		testPairs.add(new PatternTestPair("DataTextLiter", getMyPattern(PropertyKind.DATA, parameter.get(0)), "//*[data()='USA']"));
+		testPairs.add(new PatternTestPair("DataTextList", getMyPattern(PropertyKind.DATA, parameter.get(1)), "//*[data()='USA' or data()='unknown']"));
+		testPairs.add(new PatternTestPair("DataTextList", getMyPattern(PropertyKind.DATA, parameter.get(2)), "//*[if(string(number(data())) != 'NaN') then xs:integer(data())=301]"));
+		
 		
 		return testPairs;
 	}
