@@ -107,15 +107,16 @@ public class Test08ParameterValues {
 		ArrayList<ParameterValue> parameter = getExampleInputs();
 
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		System.out.println(parameter.size());
 		
-		System.out.println(getMyPattern(PropertyKind.DATA, parameter.get(0)).generateQuery());
+//		System.out.println(parameter.size());		
+//		System.out.println(getMyPattern(PropertyKind.DATA, parameter.get(0)).generateQuery());
 		
 
 		testPairs.add(new PatternTestPair("DataTextLiter", getMyPattern(PropertyKind.DATA, parameter.get(0)), "//*[data()='USA']"));
 		testPairs.add(new PatternTestPair("DataTextList", getMyPattern(PropertyKind.DATA, parameter.get(1)), "//*[data()='USA' or data()='unknown']"));
 		testPairs.add(new PatternTestPair("DataTextList", getMyPattern(PropertyKind.DATA, parameter.get(2)), "//*[if(string(number(data())) != 'NaN') then xs:double(data())=1452.0]"));
 		
+		// TODO: complete
 		
 		return testPairs;
 	}
