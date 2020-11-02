@@ -128,6 +128,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			
 			ReturnType type = getTypeOption().getValue();
 			
+			String tryStatement = type.getTryStatement();
+			String catchTypeCastingError = type.getCatchCastingError();
+			
 			String conversionStartArgument1 = type.getConversion();
 			String conversionEndArgument1 = type.getConversionEnd();
 			String argument1Translated = "";
@@ -159,9 +162,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 					&& (getOption().getValue() == ComparisonOperator.NOTEQUAL)) {
 				return "not ( " + argument1Translated + " = " + argument2Translated + " )";
 			}
-			
-			return conversionStartArgument1 + argument1Translated + conversionEndArgument1 + operator.getLiteral()
-					+ conversionStartArgument2 + argument2Translated + conversionEndArgument2;
+						
+			return tryStatement + conversionStartArgument1 + argument1Translated + conversionEndArgument1 + operator.getLiteral()
+					+ conversionStartArgument2 + argument2Translated + conversionEndArgument2 + catchTypeCastingError;
 		} else {
 			throw new InvalidityException("invalid option" + " (" + getInternalId() + ")");
 		}
