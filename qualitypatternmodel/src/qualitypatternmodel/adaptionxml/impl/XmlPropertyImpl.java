@@ -132,7 +132,7 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 				return propertyElementTranslation + "/@" + attributeName.getValue() + "";				
 			}
 		case DATA:
-			return propertyElementTranslation + "/data()";
+			return propertyElementTranslation + "/text()";
 		case TAG:
 			return propertyElementTranslation + "/name()";
 		default:
