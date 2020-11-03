@@ -51,6 +51,7 @@ public class DemoPatterns {
 	private static CompletePattern funcConcrete;
 	private static LocalXmlDataDatabase database;
 	private static LocalXmlSchemaDatabase schema;
+	private static Databases databases;
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException, QueryException {
 		
@@ -59,6 +60,10 @@ public class DemoPatterns {
         schema.setNamespace(DEMO_NAMESPACE);   
         database.setXmlSchema(schema);             
         database.init();
+        
+        databases = DatabasesImpl.getInstance();
+        databases.getXmlDatabases().add(database);
+        databases.getXmlSchemata().add(schema);
         
         compConcrete = getConcreteCompPattern(database);
         cardConcrete = getConcreteCardPattern(database);
@@ -100,6 +105,8 @@ public class DemoPatterns {
 
 	private static void exportAllDemoPatterns()
 			throws IOException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		
+		Util.exportToFile(databases,"instances/demo/databases", "execution");
 		
 		CompletePattern compGeneric = getGenericCompPattern();
 		Util.exportToFile(compGeneric,"instances/demo/comp_generic.patternstructure");
