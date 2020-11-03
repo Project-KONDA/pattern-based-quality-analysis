@@ -50,6 +50,12 @@ public class Test10Reference {
 		reference.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();
 		
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().getOptions().add(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		
+		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(2)).getOption().getOptions().add(RelationKind.DESCENDANT);
+		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(2)).getOption().setValue(RelationKind.DESCENDANT);
+		
 		return completePattern;		
 	}
 	
@@ -81,6 +87,15 @@ public class Test10Reference {
 		XmlReference reference2 = graph.getRelations().get(0).adaptAsXMLReference();	
 		reference2.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();
+		
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().getOptions().add(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		
+		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(3)).getOption().getOptions().add(RelationKind.DESCENDANT);
+		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(3)).getOption().setValue(RelationKind.DESCENDANT);
+		
+		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(4)).getOption().getOptions().add(RelationKind.DESCENDANT);
+		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(4)).getOption().setValue(RelationKind.DESCENDANT);
 		
 		return completePattern;		
 	}
@@ -150,10 +165,10 @@ public class Test10Reference {
 		reference.setType(ReturnType.STRING);
 		reference.getSourceProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
 		reference.getSourceProperty().getOption().setValue(PropertyKind.ATTRIBUTE);
-		reference.getSourceProperty().getAttributeName().setValue("demo:id");
+		reference.getSourceProperty().getAttributeName().setValue("demo:lang");
 		reference.getTargetProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
 		reference.getTargetProperty().getOption().setValue(PropertyKind.ATTRIBUTE);
-		reference.getTargetProperty().getAttributeName().setValue("demo:id");
+		reference.getTargetProperty().getAttributeName().setValue("demo:lang");
 		
 		XmlReference reference1 = graph.getRelations().get(0).adaptAsXMLReference();	
 		reference1.setType(ReturnType.STRING);
@@ -170,9 +185,9 @@ public class Test10Reference {
 		reference2.getTargetProperty().getOption().setValue(PropertyKind.DATA);
 		completePattern.finalizeXMLAdaption();
 
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.TWOCHILD);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
 		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition())
-				.getGraph().getRelations().get(4)).getOption().setValue(RelationKind.TWOCHILD);
+				.getGraph().getRelations().get(4)).getOption().setValue(RelationKind.THREECHILD);
 		
 		return completePattern;		
 	}
@@ -211,10 +226,10 @@ public class Test10Reference {
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		
-		testPairs.add(new PatternTestPair("REF", getPatternReferenceSimple(), "/*"));
-		testPairs.add(new PatternTestPair("REFREF", getPatternReferenceTwoReference(), "/*"));
+		testPairs.add(new PatternTestPair("REF", getPatternReferenceSimple(), "//*[./text()]"));
+		testPairs.add(new PatternTestPair("REFREF", getPatternReferenceTwoReference(), "//*[./text()]"));
 		testPairs.add(new PatternTestPair("REFNAV", getPatternReferenceParallelNavigation(), "/*/*[./@*[name()='demo:id'] = ./*/data()]"));
-		testPairs.add(new PatternTestPair("REFPROP", getPatternReferencePropertyLocationsParallel(), "/*/*[exists(./@*[name()=\"demo:id\"])]"));
+		testPairs.add(new PatternTestPair("REFPROP", getPatternReferencePropertyLocationsParallel(), "/*/*/*[exists(./@*[name()=\"demo:lang\"])]"));
 		
 		return testPairs;
 	}
