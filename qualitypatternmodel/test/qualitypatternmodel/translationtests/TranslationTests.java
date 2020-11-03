@@ -1,6 +1,8 @@
 package qualitypatternmodel.translationtests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 import java.util.List;
 
@@ -31,78 +33,74 @@ public class TranslationTests {
 	}
 	
 	@Test
-	public void simple() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+	public void simple() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test00.getTestPairs());
 	}
 	@Test
-	public void axis() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+	public void axis() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test01Axis.getTestPairs());
 	}
 	@Test
-	public void returnElements() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+	public void returnElements() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test02Return.getTestPairs());
 	}
 	@Test
-	public void quantors() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+	public void quantors() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test03Quantor.getTestPairs());
 	}
 	@Test
-	public void quantorCombinations() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+	public void quantorCombinations() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test04QuantorCombinations.getTestPairs());
 	}
 	@Test
-	public void quantorCombinationsConditions() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+	public void quantorCombinationsConditions() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test05QuantorCombinationsCond.getTestPairs());
 	}
 	@Test
-	public void notElements() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+	public void notElements() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test06NotElement.getTestPairs());
 	}
 	@Test
-	public void formulas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+	public void formulas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test07Formula.getTestPairs());
 	}
 	@Test
-	public void parameterValues() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+	public void parameterValues() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test08ParameterValues.getTestPairs());
 	}
 	@Test
-	public void complexComparisons() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+	public void complexComparisons() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test09ComplexComparison.getTestPairs());
 	}
 	@Test
-	public void references() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+	public void references() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test10Reference.getTestPairs());
 	}
 	@Test
-	public void matches() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+	public void matches() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test11Match.getTestPairs());
 	}
 	@Test
-	public void count() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+	public void count() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {	
 		validatePatternTestPairs(Test12Count.getTestPairs());
 	}
 
 	private void validatePatternTestPairs(List<PatternTestPair> testPairs)
-			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {
 		for(PatternTestPair testPair : testPairs) {
 			runQueryResultComparison(testPair);
 		}
 	}
 	
-	private static void runQueryResultComparison(PatternTestPair testPair) {		
-		try {
+	private static void runQueryResultComparison(PatternTestPair testPair) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {		
 			testPair.getPattern().isValid(AbstractionLevel.CONCRETE);
 			
 			String result = applyQuery(testPair.getPattern().generateQuery());
 			String expectedResult = applyQuery(testPair.getManualQuery());
 			
-			assertEquals(expectedResult, result);
-			
-		} catch (BaseXException | InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			assertNotNull(result);
+			assertNotNull(expectedResult);
+			assertEquals(expectedResult, result);		
 	}
 	
 	private static String applyQuery(String query) throws BaseXException {		
