@@ -41,7 +41,7 @@ public class SuggestionTest {
         CompletePattern completePattern = loader.load("instances/playground/My2.patternstructure");
         
         LocalXmlDataDatabase db = new LocalXmlDataDatabaseImpl("test", "");        
-        LocalXmlSchemaDatabase schema = new LocalXmlSchemaDatabaseImpl("C:/Users/Viola Wenz/Documents/Daten/1.1_lido-v1.1-draft.xsd");
+        LocalXmlSchemaDatabase schema = new LocalXmlSchemaDatabaseImpl("test_schema","C:/Users/Viola Wenz/Documents/Daten/1.1_lido-v1.1-draft.xsd");
         db.setXmlSchema(schema);
         db.setNamespace("lido:");
         try {
