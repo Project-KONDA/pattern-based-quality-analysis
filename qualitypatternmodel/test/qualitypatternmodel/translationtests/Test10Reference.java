@@ -216,8 +216,6 @@ public class Test10Reference {
 		testPairs.add(new PatternTestPair("REFNAV", getPatternReferenceParallelNavigation(), "/*/*[./@*[name()='demo:id'] = ./*/data()]"));
 		testPairs.add(new PatternTestPair("REFPROP", getPatternReferencePropertyLocationsParallel(), "/*/*[exists(./@*[name()=\"demo:id\"])]"));
 		
-		// TODO: complete test cases
-		
 		return testPairs;
 	}
 
