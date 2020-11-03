@@ -5,6 +5,8 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutility.PatternTestPair;
+import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -66,6 +68,20 @@ public class Test02Return {
 		XmlReference reference = completePattern.getGraph().getElements().get(1).getIncoming().get(0).adaptAsXMLReference();	
 		reference.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();
+		
+		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getOption().getOptions().add(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getOption().setValue(RelationKind.DESCENDANT);
+		
+		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getOption().getOptions().add(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getOption().setValue(RelationKind.DESCENDANT);
+		
+		reference.getSourceProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
+		reference.getSourceProperty().getOption().setValue(PropertyKind.ATTRIBUTE);
+		reference.getSourceProperty().getAttributeName().setValue("demo:id");
+		
+		reference.getTargetProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
+		reference.getTargetProperty().getOption().setValue(PropertyKind.ATTRIBUTE);
+		reference.getTargetProperty().getAttributeName().setValue("demo:id");
 				
 		return completePattern;
 	}
@@ -73,7 +89,7 @@ public class Test02Return {
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		testPairs.add(new PatternTestPair("MUL_RET_NAV", getPatternMultipleReturnNavigation(), "for $x1 in /* for $x2 in $x1/* return ($x1, $x2)"));
-		testPairs.add(new PatternTestPair("MUL_RET_REF", getPatternMultipleReturnReference(), "for $x1 in /* for $x2 in /*[data()=$x1/data()] return ($x1, $x2)"));
+		testPairs.add(new PatternTestPair("MUL_RET_REF", getPatternMultipleReturnReference(), "for $x1 in //* for $x2 in //*[@*[name()='demo:id']=$x1/@*[name()='demo:id']] return ($x1, $x2)"));
 		return testPairs;		
 	}
 	
