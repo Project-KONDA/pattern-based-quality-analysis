@@ -53,8 +53,6 @@ public class Test11Match {
 		testPairs.add(new PatternTestPair("MATCH_END", getPatternMatch(true, "own$"), "//*[./text()[matches(., 'own$')]]"));
 		testPairs.add(new PatternTestPair("MATCH_EXACT", getPatternMatch(true, "^unknown$"), "//*[./text()[matches(., '^unknown$')]]"));		
 		testPairs.add(new PatternTestPair("MATCH_NOTEXACT", getPatternMatch(false, "^unknown$"), "//*[./text()[not(matches(., '^unknown$'))]]"));
-
-		// TODO: complete test cases
 		
 		return testPairs;
 	}
