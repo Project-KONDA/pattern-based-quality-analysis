@@ -78,6 +78,10 @@ public class TranslationTests {
 	public void matches() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		validatePatternTestPairs(Test11Match.getTestPairs());
 	}
+	@Test
+	public void count() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+		validatePatternTestPairs(Test12Count.getTestPairs());
+	}
 
 	private void validatePatternTestPairs(List<PatternTestPair> testPairs)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
