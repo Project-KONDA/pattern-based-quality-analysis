@@ -13,9 +13,11 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
+import qualitypatternmodel.execution.Databases;
 import qualitypatternmodel.execution.LocalXmlDataDatabase;
 import qualitypatternmodel.execution.LocalXmlSchemaDatabase;
 import qualitypatternmodel.execution.Result;
+import qualitypatternmodel.execution.impl.DatabasesImpl;
 import qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl;
 import qualitypatternmodel.execution.impl.LocalXmlSchemaDatabaseImpl;
 import qualitypatternmodel.graphstructure.Element;
@@ -109,25 +111,25 @@ public class DemoPatterns {
 		Util.exportToFile(databases,"instances/demo/databases", "execution");
 		
 		CompletePattern compGeneric = getGenericCompPattern();
-		Util.exportToFile(compGeneric,"instances/demo/comp_generic.patternstructure");
+		Util.exportToFile(compGeneric,"instances/demo/comp_generic", "patternstructure");
 		CompletePattern compAbstract = getAbstractCompPattern();
-		Util.exportToFile(compAbstract,"instances/demo/comp_abstract.patternstructure");
-		CompletePattern compConcrete = getConcreteCompPattern(null); // TODO: database not contained				
-		Util.exportToFile(compConcrete,"instances/demo/comp_concrete.patternstructure");
+		Util.exportToFile(compAbstract,"instances/demo/comp_abstract", "patternstructure");
+		CompletePattern compConcrete = getConcreteCompPattern(database);			
+		Util.exportToFile(compConcrete,"instances/demo/comp_concrete", "patternstructure");
 		
 		CompletePattern cardGeneric = getGenericCardPattern();
-		Util.exportToFile(cardGeneric,"instances/demo/card_generic.patternstructure");
+		Util.exportToFile(cardGeneric,"instances/demo/card_generic", "patternstructure");
 		CompletePattern cardAbstract = getAbstractCardPattern();
-		Util.exportToFile(cardAbstract,"instances/demo/card_abstract.patternstructure");
-		CompletePattern cardConcrete = getConcreteCardPattern(null);				
-		Util.exportToFile(cardConcrete,"instances/demo/card_concrete.patternstructure");
+		Util.exportToFile(cardAbstract,"instances/demo/card_abstract", "patternstructure");
+		CompletePattern cardConcrete = getConcreteCardPattern(database);				
+		Util.exportToFile(cardConcrete,"instances/demo/card_concrete", "patternstructure");
 		
 		CompletePattern funcGeneric = getGenericFuncPattern();
-		Util.exportToFile(funcGeneric,"instances/demo/func_generic.patternstructure");
+		Util.exportToFile(funcGeneric,"instances/demo/func_generic", "patternstructure");
 		CompletePattern funcAbstract = getAbstractFuncPattern();
-		Util.exportToFile(funcAbstract,"instances/demo/func_abstract.patternstructure");
-		CompletePattern funcConcrete = getConcreteFuncPattern(null);				
-		Util.exportToFile(funcConcrete,"instances/demo/func_concrete.patternstructure");
+		Util.exportToFile(funcAbstract,"instances/demo/func_abstract", "patternstructure");
+		CompletePattern funcConcrete = getConcreteFuncPattern(database);				
+		Util.exportToFile(funcConcrete,"instances/demo/func_concrete", "patternstructure");
 		
 		System.out.println(">>> Exported demo patterns to folder 'instances/demo/'");
 	}

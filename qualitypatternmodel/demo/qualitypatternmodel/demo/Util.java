@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 public class Util {
 	
-	public static void exportToFile(EObject data, String fileName) throws IOException {		
+	public static void exportToFile(EObject data, String filePath, String packageName) throws IOException {		
 	  Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 	  Map<String, Object> m = reg.getExtensionToFactoryMap();
-	  m.put("patternstructure", new XMIResourceFactoryImpl());
+	  m.put(packageName, new XMIResourceFactoryImpl());
 	  ResourceSet resSet = new ResourceSetImpl();
-	  Resource resource = resSet.createResource(URI.createFileURI(fileName));
+	  Resource resource = resSet.createResource(URI.createFileURI(filePath + "." + packageName));
 	  resource.getContents().add(data);
 	  resource.save(Collections.EMPTY_MAP);
 	}
