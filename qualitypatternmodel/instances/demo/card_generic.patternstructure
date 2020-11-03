@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="ASCII"?>
-<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_yGReMA7BEeuEMecqtCf6RQ" internalId="1" name="Card [generic]" counter="2">
-  <graph id="_yGReMg7BEeuEMecqtCf6RQ" returnElements="_yGReNA7BEeuEMecqtCf6RQ" outgoingMorphisms="_yGSsUQ7BEeuEMecqtCf6RQ">
-    <elements id="_yGReNA7BEeuEMecqtCf6RQ" outgoingMappings="_yGSsVQ7BEeuEMecqtCf6RQ" resultOf="_yGReMg7BEeuEMecqtCf6RQ" name="Element0" predicates="_yGReNQ7BEeuEMecqtCf6RQ">
-      <properties id="_yGReNg7BEeuEMecqtCf6RQ" comparison1="_yGReNQ7BEeuEMecqtCf6RQ"/>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_30wCUB3HEeubIo_GLUT43Q" internalId="1" name="Card [generic]" counter="2">
+  <graph id="_30wCUh3HEeubIo_GLUT43Q" returnElements="_30wCVB3HEeubIo_GLUT43Q" outgoingMorphisms="_30wCXR3HEeubIo_GLUT43Q">
+    <elements id="_30wCVB3HEeubIo_GLUT43Q" outgoingMappings="_30wCYR3HEeubIo_GLUT43Q" resultOf="_30wCUh3HEeubIo_GLUT43Q" name="Element0" predicates="_30wCVR3HEeubIo_GLUT43Q">
+      <properties id="_30wCVh3HEeubIo_GLUT43Q" comparison1="_30wCVR3HEeubIo_GLUT43Q"/>
     </elements>
-    <operatorList id="_yGReMw7BEeuEMecqtCf6RQ">
-      <operators xsi:type="operators:Comparison" id="_yGReNQ7BEeuEMecqtCf6RQ" elements="_yGReNA7BEeuEMecqtCf6RQ" argument1="_yGReNg7BEeuEMecqtCf6RQ" argument2="_yGReNw7BEeuEMecqtCf6RQ" option="_yGReOA7BEeuEMecqtCf6RQ" typeOption="_yGReOQ7BEeuEMecqtCf6RQ"/>
+    <operatorList id="_30wCUx3HEeubIo_GLUT43Q">
+      <operators xsi:type="operators:Comparison" id="_30wCVR3HEeubIo_GLUT43Q" elements="_30wCVB3HEeubIo_GLUT43Q" argument1="_30wCVh3HEeubIo_GLUT43Q" argument2="_30wCVx3HEeubIo_GLUT43Q" option="_30wCWB3HEeubIo_GLUT43Q" typeOption="_30wCWR3HEeubIo_GLUT43Q"/>
     </operatorList>
   </graph>
-  <condition xsi:type="patternstructure:CountCondition" id="_yGSFQA7BEeuEMecqtCf6RQ" option="_yGSFQQ7BEeuEMecqtCf6RQ">
-    <countPattern id="_yGSsUA7BEeuEMecqtCf6RQ">
-      <graph id="_yGSsUg7BEeuEMecqtCf6RQ" returnElements="_yGSsVA7BEeuEMecqtCf6RQ" incomingMorphism="_yGSsUQ7BEeuEMecqtCf6RQ">
-        <elements id="_yGSsVA7BEeuEMecqtCf6RQ" incomingMapping="_yGSsVQ7BEeuEMecqtCf6RQ" resultOf="_yGSsUg7BEeuEMecqtCf6RQ" name="Element0" outgoing="_yGTTZA7BEeuEMecqtCf6RQ"/>
-        <elements id="_yGTTYw7BEeuEMecqtCf6RQ" name="Element1" predicates="_yGTTZQ7BEeuEMecqtCf6RQ" incoming="_yGTTZA7BEeuEMecqtCf6RQ">
-          <properties id="_yGTTZg7BEeuEMecqtCf6RQ" comparison1="_yGTTZQ7BEeuEMecqtCf6RQ"/>
+  <condition xsi:type="patternstructure:CountCondition" id="_30wCWh3HEeubIo_GLUT43Q" option="_30wCWx3HEeubIo_GLUT43Q">
+    <countPattern id="_30wCXB3HEeubIo_GLUT43Q">
+      <graph id="_30wCXh3HEeubIo_GLUT43Q" returnElements="_30wCYB3HEeubIo_GLUT43Q" incomingMorphism="_30wCXR3HEeubIo_GLUT43Q">
+        <elements id="_30wCYB3HEeubIo_GLUT43Q" incomingMapping="_30wCYR3HEeubIo_GLUT43Q" resultOf="_30wCXh3HEeubIo_GLUT43Q" name="Element0" outgoing="_30wCZx3HEeubIo_GLUT43Q"/>
+        <elements id="_30wCZh3HEeubIo_GLUT43Q" name="Element1" predicates="_30wCaB3HEeubIo_GLUT43Q" incoming="_30wCZx3HEeubIo_GLUT43Q">
+          <properties id="_30wCaR3HEeubIo_GLUT43Q" comparison1="_30wCaB3HEeubIo_GLUT43Q"/>
         </elements>
-        <operatorList id="_yGSsUw7BEeuEMecqtCf6RQ">
-          <operators xsi:type="operators:Comparison" id="_yGTTZQ7BEeuEMecqtCf6RQ" elements="_yGTTYw7BEeuEMecqtCf6RQ" argument1="_yGTTZg7BEeuEMecqtCf6RQ" argument2="_yGTTZw7BEeuEMecqtCf6RQ" option="_yGTTaA7BEeuEMecqtCf6RQ" typeOption="_yGTTaQ7BEeuEMecqtCf6RQ"/>
+        <operatorList id="_30wCXx3HEeubIo_GLUT43Q">
+          <operators xsi:type="operators:Comparison" id="_30wCaB3HEeubIo_GLUT43Q" elements="_30wCZh3HEeubIo_GLUT43Q" argument1="_30wCaR3HEeubIo_GLUT43Q" argument2="_30wCah3HEeubIo_GLUT43Q" option="_30wCax3HEeubIo_GLUT43Q" typeOption="_30wCbB3HEeubIo_GLUT43Q"/>
         </operatorList>
-        <relations id="_yGTTZA7BEeuEMecqtCf6RQ" source="_yGSsVA7BEeuEMecqtCf6RQ" target="_yGTTYw7BEeuEMecqtCf6RQ"/>
+        <relations id="_30wCZx3HEeubIo_GLUT43Q" source="_30wCYB3HEeubIo_GLUT43Q" target="_30wCZh3HEeubIo_GLUT43Q"/>
       </graph>
-      <condition xsi:type="patternstructure:TrueElement" id="_yGSsVg7BEeuEMecqtCf6RQ"/>
-      <morphism id="_yGSsUQ7BEeuEMecqtCf6RQ" source="_yGReMg7BEeuEMecqtCf6RQ" target="_yGSsUg7BEeuEMecqtCf6RQ">
-        <mappings xsi:type="patternstructure:ElementMapping" id="_yGSsVQ7BEeuEMecqtCf6RQ" source="_yGReNA7BEeuEMecqtCf6RQ" target="_yGSsVA7BEeuEMecqtCf6RQ"/>
+      <condition xsi:type="patternstructure:TrueElement" id="_30wCYh3HEeubIo_GLUT43Q"/>
+      <morphism id="_30wCXR3HEeubIo_GLUT43Q" source="_30wCUh3HEeubIo_GLUT43Q" target="_30wCXh3HEeubIo_GLUT43Q">
+        <mappings xsi:type="patternstructure:ElementMapping" id="_30wCYR3HEeubIo_GLUT43Q" source="_30wCVB3HEeubIo_GLUT43Q" target="_30wCYB3HEeubIo_GLUT43Q"/>
       </morphism>
     </countPattern>
-    <argument2 xsi:type="patternstructure:NumberElement" id="_yGTTYA7BEeuEMecqtCf6RQ" numberParam="_yGTTYg7BEeuEMecqtCf6RQ"/>
+    <argument2 xsi:type="patternstructure:NumberElement" id="_30wCYx3HEeubIo_GLUT43Q" numberParam="_30wCZR3HEeubIo_GLUT43Q"/>
   </condition>
-  <parameterList id="_yGReMQ7BEeuEMecqtCf6RQ">
-    <parameters xsi:type="parameters:UntypedParameterValue" id="_yGReNw7BEeuEMecqtCf6RQ" comparison2="_yGReNQ7BEeuEMecqtCf6RQ" typeModifiable="true"/>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_yGReOA7BEeuEMecqtCf6RQ" predefined="true" comparisons="_yGReNQ7BEeuEMecqtCf6RQ">
+  <parameterList id="_30wCUR3HEeubIo_GLUT43Q">
+    <parameters xsi:type="parameters:UntypedParameterValue" id="_30wCVx3HEeubIo_GLUT43Q" comparison2="_30wCVR3HEeubIo_GLUT43Q" typeModifiable="true"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_30wCWB3HEeubIo_GLUT43Q" predefined="true" comparisons="_30wCVR3HEeubIo_GLUT43Q">
       <options>=</options>
       <options>!=</options>
     </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_yGReOQ7BEeuEMecqtCf6RQ" typeComparisons="_yGReNQ7BEeuEMecqtCf6RQ">
+    <parameters xsi:type="parameters:TypeOptionParam" id="_30wCWR3HEeubIo_GLUT43Q" typeComparisons="_30wCVR3HEeubIo_GLUT43Q">
       <options>UNSPECIFIED</options>
     </parameters>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_yGSFQQ7BEeuEMecqtCf6RQ" countConditions="_yGSFQA7BEeuEMecqtCf6RQ">
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_30wCWx3HEeubIo_GLUT43Q" countConditions="_30wCWh3HEeubIo_GLUT43Q">
       <options>=</options>
       <options>></options>
       <options>&lt;</options>
@@ -44,13 +44,13 @@
       <options>&lt;=</options>
       <options>!=</options>
     </parameters>
-    <parameters xsi:type="parameters:NumberParam" id="_yGTTYg7BEeuEMecqtCf6RQ" numberArgument="_yGTTYA7BEeuEMecqtCf6RQ"/>
-    <parameters xsi:type="parameters:UntypedParameterValue" id="_yGTTZw7BEeuEMecqtCf6RQ" comparison2="_yGTTZQ7BEeuEMecqtCf6RQ" typeModifiable="true"/>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_yGTTaA7BEeuEMecqtCf6RQ" predefined="true" comparisons="_yGTTZQ7BEeuEMecqtCf6RQ">
+    <parameters xsi:type="parameters:NumberParam" id="_30wCZR3HEeubIo_GLUT43Q" numberArgument="_30wCYx3HEeubIo_GLUT43Q"/>
+    <parameters xsi:type="parameters:UntypedParameterValue" id="_30wCah3HEeubIo_GLUT43Q" comparison2="_30wCaB3HEeubIo_GLUT43Q" typeModifiable="true"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_30wCax3HEeubIo_GLUT43Q" predefined="true" comparisons="_30wCaB3HEeubIo_GLUT43Q">
       <options>=</options>
       <options>!=</options>
     </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_yGTTaQ7BEeuEMecqtCf6RQ" typeComparisons="_yGTTZQ7BEeuEMecqtCf6RQ">
+    <parameters xsi:type="parameters:TypeOptionParam" id="_30wCbB3HEeubIo_GLUT43Q" typeComparisons="_30wCaB3HEeubIo_GLUT43Q">
       <options>UNSPECIFIED</options>
     </parameters>
   </parameterList>
