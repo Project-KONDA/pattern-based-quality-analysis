@@ -2,8 +2,6 @@ package qualitypatternmodel.translationtests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
 import java.util.List;
 
 import org.basex.core.BaseXException;
@@ -93,14 +91,14 @@ public class TranslationTests {
 	}
 	
 	private static void runQueryResultComparison(PatternTestPair testPair) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {		
-			testPair.getPattern().isValid(AbstractionLevel.CONCRETE);
-			
-			String result = applyQuery(testPair.getPattern().generateQuery());
-			String expectedResult = applyQuery(testPair.getManualQuery());
-			
-			assertNotNull(result);
-			assertNotNull(expectedResult);
-			assertEquals(expectedResult, result);		
+		testPair.getPattern().isValid(AbstractionLevel.CONCRETE);
+		
+		String result = applyQuery(testPair.getPattern().generateQuery());
+		String expectedResult = applyQuery(testPair.getManualQuery());
+		
+		assertNotNull(result);
+		assertNotNull(expectedResult);
+		assertEquals(expectedResult, result);		
 	}
 	
 	private static String applyQuery(String query) throws BaseXException {		
@@ -124,88 +122,6 @@ public class TranslationTests {
 			}
 		}				
 	}		
-	
-//	private static void printDiagnostic(Diagnostic diagnostic, String indent) {
-//		System.out.print(indent);
-//		System.out.println(diagnostic.getMessage());
-//		for (Diagnostic child : diagnostic.getChildren()) {
-//			printDiagnostic(child, indent + "  ");
-//		}
-//	}
-	
-//	private static boolean checkSelection(String query) {
-//		// check selection against manually inserted markings
-//		
-//		// TODO: 1. check if every selected element was expected to be selected (find false positives)
-//		// result of query "for $a in (query) where empty($a[@expected]) return $a" must be empty
-//		
-//		// TODO: 2. check if every expected element got selected (find false negatives)
-//		// result of query "let $q := (query) for $n in originalXML[@expected] where not(exists($q intersect $n))" must be empty		
-//		/* alternative: mark selected elements in whole 
-//		 * result of query
-//		 * "for $a in (
-//		 * ... 
-//		 * for $x ... return if(...where clause...) then ( element{$x/name()} {
-//		 * $x/@*, attribute { 'selected' } { '1' } }
-//		 * 
-//		 * ) else ($x)
-//		 * )
-//		 * where $a[@expected] and not($a[@selected])
-//		 * return $a"
-//		 * must be empty
-//		 * 
-//		 * Is this method problematic if there are multiple return elements in the pattern?
-//		 */
-//		return false;
-//		
-//	}
-	
-//	private static void runTestCheckMarkings(String instancePath, String testName) {
-//		// checks the pattern query result against markings (e.g. @expected="true()") manually inserted into the database
-//		try {
-//			String query = getQuery(instancePath);
-//			String result = applyQuery(query);
-//			boolean isCorrect = checkSelection(result);	
-//			if(isCorrect) {
-//				System.out.println(testName + ": succeeded");
-//			} else {
-//				System.out.println(testName + ": failed");
-//			}
-//			// TODO: visualize result
-//		} catch (InvalidityException e) {
-//			// TODO: print output if pattern is not valid
-//			e.printStackTrace();
-//		} catch (BaseXException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//	}	
-	
-//	private static String getQuery(String path) throws InvalidityException {
-//        EMFModelLoad loader = new EMFModelLoad();
-//        Pattern pattern = loader.load(path);
-//        DiagnosticChain diagnostics = null;
-//        if(!Diagnostician.INSTANCE.validate(pattern, diagnostics)) {
-//        	// TODO: print output if pattern is not valid
-////    		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(pattern);		
-////    		printDiagnostic(diagnostic, "");
-//        }
-//		try {
-//			pattern.isValid(true);
-//		} catch (InvalidityException e) {
-//			// TODO: print output if pattern is not valid
-//			e.printStackTrace();
-//		} catch (OperatorCycleException e) {
-//			// TODO: print output if pattern is not valid
-//			e.printStackTrace();
-//		} catch (MissingPatternContainerException e) {
-//			// TODO: print output if pattern is not valid
-//			e.printStackTrace();
-//		}
-//		return pattern.toXQuery();
-//		
-//	}
-	
+		
 	
 }
