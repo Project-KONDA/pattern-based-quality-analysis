@@ -60,6 +60,10 @@ public class Test05QuantorCombinationsCond {
 		property1.getOption().getOptions().add(PropertyKind.TAG);
 		property1.getOption().setValue(PropertyKind.TAG);
 		
+		XmlProperty property2 = (XmlProperty) graph1.getElements().get(0).getProperties().get(1);
+		property2.getOption().getOptions().add(PropertyKind.TAG);
+		property2.getOption().setValue(PropertyKind.TAG);
+		
 		qcond.getGraph().getRelations().get(0).adaptAsXMLNavigation();
 		XmlReference ref = qcond2.getGraph().getRelations().get(0).adaptAsXMLReference();
 		ref.setType(ReturnType.STRING);
@@ -91,9 +95,9 @@ public class Test05QuantorCombinationsCond {
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		
-		testPairs.add(new PatternTestPair("EXEXCON", 	getPatternExistsInExistsCond(), "/*/*[./@*[name()=\"demo:id\"]=\"101\" and ./name()=\"demo:building\" and ./data()!=\"abc\"and ./*[./data()=\"USA\"]/data()= /*/*/*[./name()=\"demo:country\"]/data()]"));
-		testPairs.add(new PatternTestPair("EXFACON", 	getPatternForallInExistsCond(), "/*/*[./@*[name()=\"demo:id\"]=\"101\"and ./name()=\"demo:building\" and ./data()!=\"abc\" and ./child::*[data()=\"USA\"]]"));
-		testPairs.add(new PatternTestPair("FAEXCON", 	getPatternExistsInForallCond(), "for $v in /*/* [./@*[name()=\"demo:id\"]=\"101\"] where  not( $v [name()=\"demo:building\" and data()!=\"abc\"]) or ( not( $v/child::*[./data()=\"USA\"]) or (exists(/*/*/* [name()=\"demo:country\" and data()=\"USA\"]))) return $v"));
+		testPairs.add(new PatternTestPair("EXEXCON", 	getPatternExistsInExistsCond(), "/*/*[./@*[name()=\"demo:id\"]=\"101\" and ./name()=\"demo:building\" and ./name()!=\"abc\"and ./*[./data()=\"USA\"]/data()= /*/*/*[./name()=\"demo:country\"]/data()]"));
+		testPairs.add(new PatternTestPair("EXFACON", 	getPatternForallInExistsCond(), "/*/*[./@*[name()=\"demo:id\"]=\"101\"and ./name()=\"demo:building\" and ./name()!=\"abc\" and ./child::*[data()=\"USA\"]]"));
+		testPairs.add(new PatternTestPair("FAEXCON", 	getPatternExistsInForallCond(), "for $v in /*/* [./@*[name()=\"demo:id\"]=\"101\"] where  not( $v [name()=\"demo:building\" and name()!=\"abc\"]) or ( not( $v/child::*[./data()=\"USA\"]) or (exists(/*/*/* [name()=\"demo:country\" and data()=\"USA\"]))) return $v"));
 		testPairs.add(new PatternTestPair("FAFACON", 	getPatternForallInForallCond(), "/*/*[./@*[name()=\"demo:id\"]=\"101\"]"));
 			
 		return testPairs;		
