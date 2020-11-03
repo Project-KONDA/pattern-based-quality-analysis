@@ -125,8 +125,7 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * The cached value of the '{@link #getRuntime() <em>Runtime</em>}' attribute.
 	 * <!-- begin-user-doc -->
-	 * The runtime of the pattern application.
-	 * TODO: determine data unit
+	 * The runtime of the pattern application in milliseconds.
 	 * <!-- end-user-doc -->
 	 * @see #getRuntime()
 	 * @generated
