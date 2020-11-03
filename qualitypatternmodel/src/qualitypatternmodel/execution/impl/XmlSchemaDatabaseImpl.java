@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.execution.XmlSchemaDatabase;
 
 /**
@@ -170,6 +171,14 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 				"    if(exists($element/@name)) then $ns || $element/@name/data()\r\n" + 
 				"    else $element/@ref/data()\r\n" + 
 				")";
+	}
+	
+	@Override
+	public void setNamespace(String newNamespace) {
+		super.setNamespace(newNamespace);
+		for(XmlDatabase db : getXmlDatabases()) {
+			db.setNamespace(newNamespace);
+		}
 	}
 	
 	/**
