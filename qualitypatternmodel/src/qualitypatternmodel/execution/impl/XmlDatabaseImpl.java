@@ -327,7 +327,9 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	public void init() throws BaseXException, QueryException, QueryIOException {
-		context = new Context();
+		if(context == null) {
+			context = new Context();
+		}
 	}
 
 	/**
@@ -336,7 +338,7 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	 * @generated NOT
 	 */
 	@Override
-	public void open() throws BaseXException {
+	public void open() throws BaseXException {		
 		new Open(name).execute(context);
 	}
 
