@@ -93,11 +93,11 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	@Override
 	public void analyse() throws BaseXException, QueryIOException, QueryException {
 		
-		if(elementNames.isEmpty()) {
+		if(getElementNames().isEmpty()) {
 			retrieveElementNames();
 			updateElementNamesInXmlDatabases();
 		}
-		if(attributeNames.isEmpty()) {			
+		if(getAttributeNames().isEmpty()) {			
 			retrieveAttributeNames();
 			updateAttributeNamesInXmlDatabases();
 		}
@@ -120,13 +120,13 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	private void retrieveElementNames() throws QueryException, QueryIOException, BaseXException {
 		open();	
 		List<String> retrievedElementNames = execute("//*[name()=\"xs:element\"]/data(@name)");
-		elementNames.addAll(retrievedElementNames);
+		getElementNames().addAll(retrievedElementNames);
 	}
 
 	private void retrieveAttributeNames() throws QueryException, QueryIOException, BaseXException {
 		open();	
 		List<String> retrievedAttributeNames = execute("//*[name()=\"xs:attribute\"]/data(@name)");
-		attributeNames.addAll(retrievedAttributeNames);
+		getAttributeNames().addAll(retrievedAttributeNames);
 	}
 	
 	private EList<String> getElementNamesFromQueryExecution(String elementName, String queryPath, String xQueryMethodName) throws BaseXException, QueryException, QueryIOException {
@@ -215,14 +215,14 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 			elementNames = new EDataTypeUniqueEList<String>(String.class, this, ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES);
 		}
 		
-		if(elementNames.isEmpty()) {			
-			try {
-				retrieveElementNames();
-			} catch (QueryIOException | BaseXException | QueryException e) {
-				// do nothing
-//				e.printStackTrace();
-			}			
-		}
+//		if(elementNames.isEmpty()) {			
+//			try {
+//				retrieveElementNames();
+//			} catch (QueryIOException | BaseXException | QueryException e) {
+//				// do nothing
+////				e.printStackTrace();
+//			}			
+//		}
 		
 		return elementNames;
 	}
@@ -238,15 +238,15 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 			attributeNames = new EDataTypeUniqueEList<String>(String.class, this, ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES);
 		}
 		
-		if(attributeNames.isEmpty()) {
-			try {
-				retrieveAttributeNames();
-			} catch (QueryIOException | BaseXException | QueryException e) {
-				// do nothing
-//				e.printStackTrace();
-			}	
-			
-		}
+//		if(attributeNames.isEmpty()) {
+//			try {
+//				retrieveAttributeNames();
+//			} catch (QueryIOException | BaseXException | QueryException e) {
+//				// do nothing
+////				e.printStackTrace();
+//			}	
+//			
+//		}
 		
 		return attributeNames;
 	}
