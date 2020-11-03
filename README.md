@@ -17,6 +17,14 @@ which will be published in the proceedings of the conference "[MODELS2020](http:
 ## Installation
 ...
 
+## Example
+
+![COMP](readme_images/COMP_concrete.png)
+![CARD](readme_images/CARD_concrete.png)
+![FUUNC](readme_images/FUNC_concrete.png)
+
+...
+
 ## Tests
 ...
 
@@ -36,6 +44,7 @@ which will be published in the proceedings of the conference "[MODELS2020](http:
 ## Context : Research Project "KONDA"
 
 The research project "[KONDA](https://zenodo.org/communities/konda-project)" is a collaboration of three partners: 
+![KONDA](readme_images/konda_logo.jpg)
 
 * [Deutsches Dokumentationszentrum für Kunstgeschichte (Foto Marburg)](https://www.uni-marburg.de/de/fotomarburg)
 * [Departement for Mathematics and Informatics (FB12) of Philipps Univerisity Marburg](https://www.uni-marburg.de/en/fb12)
