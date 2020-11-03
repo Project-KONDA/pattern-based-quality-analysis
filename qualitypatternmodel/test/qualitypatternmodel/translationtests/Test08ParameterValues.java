@@ -28,8 +28,8 @@ public class Test08ParameterValues {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 
 		for (PropertyKind pl : PropertyKind.VALUES) {
-				for (ParameterValue parameter : getExampleInputs()) {					
-					CompletePattern completePattern = getMyPattern(pl, parameter);
+				for (ParameterValue parameter : getTestParameters()) {					
+					CompletePattern completePattern = getConcreteComparisonPattern(pl, parameter);
 					completePatterns.add(completePattern);		
 			}
 		}
@@ -37,17 +37,17 @@ public class Test08ParameterValues {
 		Test00.test(completePatterns);
 	}
 	
-	public static CompletePattern getMyPattern(PropertyKind pl, ParameterValue parameter) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getConcreteComparisonPattern(PropertyKind propertyKind, ParameterValue parameterValue) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = Test00.getBasePattern();
-		completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.EQUAL, parameter);
+		completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.EQUAL, parameterValue);
 //		completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.NOTEQUAL, parameter);
 		
 		completePattern.createXMLAdaption();
 		
 		XmlProperty property = (XmlProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0);
 		property.getAttributeName().setValue("*");
-		property.getOption().getOptions().add(pl);
-		property.getOption().setValue(pl);
+		property.getOption().getOptions().add(propertyKind);
+		property.getOption().setValue(propertyKind);
 		
 		completePattern.finalizeXMLAdaption();
 		
@@ -56,7 +56,7 @@ public class Test08ParameterValues {
 		return completePattern;
 	}
 
-	public static ArrayList<ParameterValue> getExampleInputs() {
+	public static ArrayList<ParameterValue> getTestParameters() {
 
 		ArrayList<ParameterValue> parameters = new ArrayList<ParameterValue>();
 
@@ -104,21 +104,17 @@ public class Test08ParameterValues {
 //	}
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ArrayList<ParameterValue> parameter = getExampleInputs();
+		ArrayList<ParameterValue> parameter = getTestParameters();
 
-		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
-		
-//		System.out.println(parameter.size());		
-//		System.out.println(getMyPattern(PropertyKind.DATA, parameter.get(0)).generateQuery());
-		
+		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();	
 
-		testPairs.add(new PatternTestPair("DataTextLiteral", getMyPattern(PropertyKind.DATA, parameter.get(0)), "//*[data()='USA']"));
-		testPairs.add(new PatternTestPair("DataTextList", getMyPattern(PropertyKind.DATA, parameter.get(1)), "//*[data()='USA' or data()='unknown']"));
-		testPairs.add(new PatternTestPair("DataNumber", getMyPattern(PropertyKind.DATA, parameter.get(2)), "//*[if(string(number(data())) != 'NaN') then xs:double(data())=1452.0]"));
-		testPairs.add(new PatternTestPair("DataBoolean", getMyPattern(PropertyKind.ATTRIBUTE, parameter.get(3)), "//*[@*[try {xs:boolean(data()) = true()} catch err:FORG0001 {false()}]]"));
-		testPairs.add(new PatternTestPair("DataDate", getMyPattern(PropertyKind.ATTRIBUTE, parameter.get(4)), "//*[@*[try {xs:date(data()) = xs:date(\"2020-10-03\")} catch err:FORG0001 {false()}]]"));
-		testPairs.add(new PatternTestPair("DataTime", getMyPattern(PropertyKind.ATTRIBUTE, parameter.get(5)), "//*[@*[try {xs:time(data()) = xs:time(\"09:00:00\")} catch err:FORG0001 {false()}]]"));
-		testPairs.add(new PatternTestPair("DataDateTime", getMyPattern(PropertyKind.ATTRIBUTE, parameter.get(6)), "//*[@*[try {xs:dateTime(data()) = xs:dateTime(\"2020-10-03T09:00:00\")} catch err:FORG0001 {false()}]]"));
+		testPairs.add(new PatternTestPair("DataTextLiteral", getConcreteComparisonPattern(PropertyKind.DATA, parameter.get(0)), "//*[data()='USA']"));
+		testPairs.add(new PatternTestPair("DataTextList", getConcreteComparisonPattern(PropertyKind.DATA, parameter.get(1)), "//*[data()='USA' or data()='unknown']"));
+		testPairs.add(new PatternTestPair("DataNumber", getConcreteComparisonPattern(PropertyKind.DATA, parameter.get(2)), "//*[if(string(number(data())) != 'NaN') then xs:double(data())=1452.0]"));
+		testPairs.add(new PatternTestPair("DataBoolean", getConcreteComparisonPattern(PropertyKind.ATTRIBUTE, parameter.get(3)), "//*[@*[try {xs:boolean(data()) = true()} catch err:FORG0001 {false()}]]"));
+		testPairs.add(new PatternTestPair("DataDate", getConcreteComparisonPattern(PropertyKind.ATTRIBUTE, parameter.get(4)), "//*[@*[try {xs:date(data()) = xs:date(\"2020-10-03\")} catch err:FORG0001 {false()}]]"));
+		testPairs.add(new PatternTestPair("DataTime", getConcreteComparisonPattern(PropertyKind.ATTRIBUTE, parameter.get(5)), "//*[@*[try {xs:time(data()) = xs:time(\"09:00:00\")} catch err:FORG0001 {false()}]]"));
+		testPairs.add(new PatternTestPair("DataDateTime", getConcreteComparisonPattern(PropertyKind.ATTRIBUTE, parameter.get(6)), "//*[@*[try {xs:dateTime(data()) = xs:dateTime(\"2020-10-03T09:00:00\")} catch err:FORG0001 {false()}]]"));
 		
 		// TODO: complete
 		
