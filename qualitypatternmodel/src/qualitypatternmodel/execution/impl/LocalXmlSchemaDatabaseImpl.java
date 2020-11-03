@@ -56,9 +56,10 @@ public class LocalXmlSchemaDatabaseImpl extends XmlSchemaDatabaseImpl implements
 		super();
 	}
 	
-	public LocalXmlSchemaDatabaseImpl(String path) {
+	public LocalXmlSchemaDatabaseImpl(String name, String schemaPath) {
 		super();
-		setSchemaPath(path);
+		this.name = name;
+		this.schemaPath = schemaPath;	
 	}
 
 	/**
