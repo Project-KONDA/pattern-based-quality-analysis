@@ -120,8 +120,8 @@ public class Test00 {
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		testPairs.add(new PatternTestPair("BASE\t", getBasePatternFinal(), "/*"));
-		testPairs.add(new PatternTestPair("BASE_COND", getBasePatternCondConcrete("USA"), "//*[./data() = \"USA\"]"));
-		testPairs.add(new PatternTestPair("BASE_MATCH", getBasePatternMatchConcrete("^New"), "//*[matches(./data(), \"^New\")]"));
+		testPairs.add(new PatternTestPair("BASE_COND", getBasePatternCondConcrete("USA"), "//*[./text() = \"USA\"]"));
+		testPairs.add(new PatternTestPair("BASE_MATCH", getBasePatternMatchConcrete("^New"), "//*[matches(./text(), \"^New\")]"));
 		return testPairs;		
 	}
 	
