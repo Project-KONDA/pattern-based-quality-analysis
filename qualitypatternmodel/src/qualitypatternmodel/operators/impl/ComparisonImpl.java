@@ -12,7 +12,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -149,6 +151,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				argument2Translated = argument2.generateQuery();
 			}			
 			
+			// Two Elements
 			if( argument1 instanceof XmlElement && argument2 instanceof XmlElement ) {
 				String res = "fn:deep-equal ( " + argument1Translated + ", " + argument2Translated + " )";
 				if (operator == ComparisonOperator.EQUAL) {
@@ -157,14 +160,40 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 					return "not ( " + res + ")";					
 				}
 			}
-
+			
+			// At least one TextListParam
 			if ((argument1 instanceof TextListParam || argument2 instanceof TextListParam)
 					&& (getOption().getValue() == ComparisonOperator.NOTEQUAL)) {
 				return "not ( " + argument1Translated + " = " + argument2Translated + " )";
 			}
-						
-			return tryStatement + conversionStartArgument1 + argument1Translated + conversionEndArgument1 + operator.getLiteral()
-					+ conversionStartArgument2 + argument2Translated + conversionEndArgument2 + catchTypeCastingError;
+			
+			// No Property or string comparison
+			if((!(argument1 instanceof XmlProperty) && !(argument2 instanceof XmlProperty)) || type == ReturnType.STRING) {
+				return tryStatement + conversionStartArgument1 + argument1Translated + conversionEndArgument1 + operator.getLiteral()
+				+ conversionStartArgument2 + argument2Translated + conversionEndArgument2 + catchTypeCastingError;	
+			}
+			
+			// At least one casted Property
+			String some1 = "";
+			String some2 = "";
+			String castedArg1 = "";
+			String castedArg2 = "";
+			
+			if(argument1 instanceof XmlProperty && ((XmlProperty) argument1).getOption().getValue() == PropertyKind.ATTRIBUTE) {				
+				some1 = "some $arg1 in " + argument1Translated + " satisfies ";
+				castedArg1 = conversionStartArgument1 + "$arg1" + conversionEndArgument1;			
+			} else {
+				castedArg1 = conversionStartArgument1 + argument1Translated + conversionEndArgument1;
+			}
+			
+			if(argument2 instanceof XmlProperty && ((XmlProperty) argument2).getOption().getValue() == PropertyKind.ATTRIBUTE) {						
+				some2 = "some $arg2 in " + argument2Translated + " satisfies ";
+				castedArg2 = conversionStartArgument2 + "$arg2" + conversionEndArgument2;					
+			} else {
+				castedArg2 = conversionStartArgument2 + argument2Translated + conversionEndArgument2;	
+			}
+			return some1 + some2 + tryStatement + castedArg1 + operator.getLiteral() + castedArg2 + catchTypeCastingError;
+			
 		} else {
 			throw new InvalidityException("invalid option" + " (" + getInternalId() + ")");
 		}
