@@ -17,6 +17,17 @@ The approach is described in detail in the research paper "[Detecting Quality Pr
 ![Component Diagram](readme_images/component_diagram.png)
 
 
+This diagram gives an overview of the components and their interfaces of the proof-of-concept implementation.
+The implementation includes a metamodel for the patterns, a pattern execution system and a front-end.
+In accordance with the discussed workflow, the tool, first of all, allows creating generic patterns via a Sirius modelling workbench.
+It contains a set of predefined generic example patterns for detecting typical data quality problems.
+The tool further supports the semi-automatic adaption of generic patterns to XML via the modelling view.
+The concretisation of an XML-adapted abstract pattern can be achieved by specifying the pattern’s parameters in a form-based view.
+Finally, a concrete pattern is automatically translated into XQuery.
+The execution system allows the application to a chosen XML database via the query processor BaseX.
+The result of the pattern application is presented to the user via the report view.
+
+
 ## Authors
 
 * Arno Kesper - [arno.kesper@uni-marburg.de](mailto:arno.kesper@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
@@ -87,7 +98,8 @@ In the following we will present visualizations of the concrete patterns and cor
 ### COMP Pattern
 ![COMP](readme_images/COMP_generic.png)
 
-
+The depicted example pattern is a generic pattern to detect simple interval violations.
+Hereby the pattern searches for `Element0`s (identified via a `Property0`), that have an associated `Element1` (identified via a `Property1`), where `Property2` ist out of a specific range.
 
 
 ![COMP](readme_images/COMP_concrete.png)
