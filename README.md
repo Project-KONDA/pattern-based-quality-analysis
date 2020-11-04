@@ -101,7 +101,7 @@ In general, our patterns consist of two parts: a context graph and a condition.
 The context graph defines the elements that the pattern is searching for.
 Ultimately, these elements are selected by the pattern if they satisfy the condition, which is a first-order logic expression over graphs.
 The depicted concrete pattern searches for XML elements with the name ```demo:architect```.
-They are selected if they contain an XML elements with the name ```demo:birthyear``` that has a data value greater than ```2020```.
+They are selected if they contain an XML element with the name ```demo:birthyear``` that has a data value greater than ```2020```.
 
 
 
