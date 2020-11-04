@@ -140,7 +140,8 @@ For each ```demo:artist``` element, it checks whether the inner pattern matches 
 </demo:building>
 ```
 
-+ detect functional dependency violations
-+ 
-+ concretised for cities and countries: city1 = city2 should imply, that country1 = country2
+This data snippet includes a violation of a functional dependency.
+It indicates that both buildings are located in the same city but different countries.
+This problem can be detected via the depicted FUNC pattern.
+As the graph shows, the pattern detects ```demo:building``` elements that contain equivalent ```demo:city``` elements but different ```demo:country``` elements.
 
