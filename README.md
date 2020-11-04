@@ -77,7 +77,7 @@ For each of the three examples it includes three methods:
 
 When the class is executed, the following steps are performed:
 
-* The patterns are exported to XML files in the folder `instances/demo`.
+* The patterns are exported to XMI files in the folder `instances/demo`.
 * The XQuery expressions generated from the three concrete patterns are printed to the console.
 * The concrete patterns are applied to the demo database and the detected problematic XML elements are printed to the console.
 
