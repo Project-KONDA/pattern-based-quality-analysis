@@ -71,20 +71,25 @@ The demo database and the corresponding schema can be found in the folder `demo.
 The class `qualitypatternmodel.demo/DemoPatterns.java` includes the programmatical creation of the example patterns.
 For each of the three examples it includes three methods:
 
-* one method that returns the generic pattern,
-* a second method that adapts the generic pattern to XML and returns the resulting abstract pattern,
-* and a third method that concretizes the abstract pattern for the demo database and returns the resulting concrete pattern.
+* `getGeneric___Pattern()` returns the generic pattern
+* `getAbstract___Pattern()` adapts the generic pattern to XML and returns the resulting abstract pattern
+* `getConcrete___Pattern(Database)` concretizes the abstract pattern for the demo database and returns the resulting concrete pattern
 
 When the class is executed, the following steps are performed:
 
-* The patterns are exported to XMI files in the folder `instances/demo`.
-* The XQuery expressions generated from the three concrete patterns are printed to the console.
-* The concrete patterns are applied to the demo database and the detected problematic XML elements are printed to the console.
+* `exportAllDemoPatterns()`: The patterns are exported to XMI files in the folder `instances/demo`
+* `printAllDemoPatternQueries()`: The XQuery expressions generated from the three concrete patterns are printed to the console
+* `executeAllDemoPatterns()`: The concrete patterns are applied to the demo database and the detected problematic XML elements are printed to the console
 
 In the following we will present visualizations of the concrete patterns and corresponding snippets of problematic data taken from the demo database.
 
 
 ### COMP Pattern
+![COMP](readme_images/COMP_generic.png)
+
+
+
+
 ![COMP](readme_images/COMP_concrete.png)
 
 ```xml
