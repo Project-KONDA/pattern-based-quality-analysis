@@ -57,6 +57,8 @@ This work emerged from the research project "[KONDA](https://zenodo.org/communit
 
 ...
 
+* translation tests: qualitypatternmodel.translationtests / TranslationTests.java
+* executable file, which tests various features of the
 
 
 
@@ -81,22 +83,17 @@ When the class is executed, the following steps are performed:
 
 In the following we will present visualizations of the concrete patterns and discuss some details.
 
-Notizen:
-
-+ example database, look at: at qualitypatternmodel / data.demo / demo_database.xml with schema demo_database_schema.xsd
-+ evaluation pattern: qualitypatternmodel.evaluation
-+ qualitypatternmodel.demo / 
-	+ Aufbau Klasse
-	+ Erkl�rung
-
-+ translation tests: qualitypatternmodel.translationtests / TranslationTests.java
-+ executable file, which tests various features of the 
-
-
-
 
 ### COMP Pattern
 ![COMP](readme_images/COMP_concrete.png)
+
+```xml
+<demo:architect demo:id="301">
+	<demo:name>William Frederick Lamb</demo:name>	
+	<demo:birthyear>2883</demo:birthyear>
+</demo:architect>
+```
+
 + datei: eval_comp ... ?
 + detect interval violations
 + 
@@ -107,6 +104,15 @@ Notizen:
 
 ### CARD Pattern
 ![CARD](readme_images/CARD_concrete.png)
+
+```xml
+<demo:artist demo:id="402">
+	<demo:name>Leonardo Da Vinci</demo:name>
+	<demo:birthyear>1452</demo:birthyear>
+	<demo:birthyear>1453</demo:birthyear>	
+</demo:artist>
+```
+
 + datei: eval_comp ... ?
 + detect cardinality violations
 + 
@@ -117,6 +123,20 @@ Notizen:
 
 ### FUNC Pattern
 ![FUNC](readme_images/FUNC_concrete.png)
+
+```xml
+<demo:building demo:id="101">
+	<demo:name>Empire State Building</demo:name>
+	<demo:city>New York City</demo:city>
+	<demo:country>USA</demo:country>		
+</demo:building>	
+
+<demo:building demo:id="102" demo:recorded="2020-11-01T09:00:00" demo:last-modified-date="2020-11-01" demo:last-modified-time="09:00:00">
+	<demo:name>Chrysler Building</demo:name>
+	<demo:city>New York City</demo:city>
+	<demo:country>unknown</demo:country>	
+</demo:building>
+```
 
 + detect functional dependency violations
 + 
