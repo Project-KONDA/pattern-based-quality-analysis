@@ -8,50 +8,96 @@ An abstract pattern can be concretisized for a domain-specific database format a
 The resulting concrete patterns can be utilized to locate quality problems in databases.
 As proof of concept, this project realizes this approach for XML databases.
 
-The approach is described in detail in the research paper "[Detecting Quality Problems in Research Data: A Model-Driven Approach](https://doi.org/10.5281/zenodo.4019095)",
-which will be published in the proceedings of the conference "[MODELS2020](http://www.modelsconference.org)".
+This approach is based on the observation of a dynamic digitalisation (resulting in a variety of database technologies employed) and a variety of data quality problems occurring in research data.
 
-## Motivation
+The approach is described in detail in the research paper "[Detecting Quality Problems in Research Data: A Model-Driven Approach](https://dl.acm.org/doi/10.1145/3365438.3410987)", published in the [proceedings](https://dl.acm.org/doi/proceedings/10.1145/3417990) of the conference "[MODELS2020](http://www.modelsconference.org)".
+
++ GUI in development?
+
+![Component Diagram](readme_images/component_diagram.png)
+
+
+## Authors
+
+* Arno Kesper - [arno.kesper@uni-marburg.de](mailto:arno.kesper@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
+* Viola Wenz - [viola.wenz@uni-marburg.de](mailto:viola.wenz@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
+* Gabriele Taentzer - [taentzer@uni-marburg.de](mailto:taentzer@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
+
+This work emerged from the research project "[KONDA](https://zenodo.org/communities/konda-project)". 
+![KONDA](readme_images/konda_logo.jpg)
+
+
+
+## License
+
 ???
+
+
+## Built With
+
+* [Eclipse Version: 2019-09 R (4.13.0)](https://www.eclipse.org/downloads/packages/release/2019-09/r)
+* [Eclipse Modelling Framework](https://www.eclipse.org/modeling/emf/)
+* [XQuery](https://www.w3.org/XML/Query/)
+* [BaseX](https://basex.org)
+* [Eclipse Sirius](https://www.eclipse.org/sirius/)
+
+
 
 ## Installation
 ...
 
-## Example
++ Eclipse Version: 2019-09 R (4.13.0)
++ (Eclipse Sirius 6.2)
++ import project
++ project files: packages, 
 
-![COMP](readme_images/COMP_concrete.png)
-![CARD](readme_images/CARD_concrete.png)
-![FUUNC](readme_images/FUNC_concrete.png)
 
-...
 
 ## Tests
+
 ...
 
-## Built With
-
-* [Eclipse Modelling Framework](https://www.eclipse.org/modeling/emf/)
-* [Eclipse Sirius](https://www.eclipse.org/sirius/)
-* [XQuery](https://www.w3.org/XML/Query/)
-* [BaseX](https://basex.org)
-
-## Authors
-
-* Arno Kesper - arno.kesper@uni-marburg.de
-* Viola Wenz - viola.wenz@uni-marburg.de
-* Gabriele Taentzer - taentzer@uni-marburg.de
-
-## Context : Research Project "KONDA"
-
-The research project "[KONDA](https://zenodo.org/communities/konda-project)" is a collaboration of three partners: 
-![KONDA](readme_images/konda_logo.jpg)
-
-* [Deutsches Dokumentationszentrum für Kunstgeschichte (Foto Marburg)](https://www.uni-marburg.de/de/fotomarburg)
-* [Departement for Mathematics and Informatics (FB12) of Philipps Univerisity Marburg](https://www.uni-marburg.de/en/fb12)
-* [State Library of University Göttingen (SUB)](https://www.sub.uni-goettingen.de)
-
-It is funded by BMBF for three years (2019-2022).
 
 
-## License
-???
+
+## Examples
+
++ example database, look at: at qualitypatternmodel / data.demo / demo_database.xml with schema demo_database_schema.xsd
++ evaluation pattern: qualitypatternmodel.evaluation
++ qualitypatternmodel.demo / 
+	+ Aufbau Klasse
+	+ Erklärung
+
++ translation tests: qualitypatternmodel.translationtests / TranslationTests.java
++ executable file, which tests various features of the 
+
+
+
+
+### COMP Pattern
+![COMP](readme_images/COMP_concrete.png)
++ datei: eval_comp ... ?
++ detect interval violations
++ 
++ concretized for birthyears of architects being later than the current year.
+
+
+
+
+### CARD Pattern
+![CARD](readme_images/CARD_concrete.png)
++ datei: eval_comp ... ?
++ detect cardinality violations
++ 
++ concretized for detection of multiple birthyears in a record
+
+
+
+
+### FUNC Pattern
+![FUNC](readme_images/FUNC_concrete.png)
+
++ detect functional dependency violations
++ 
++ concretised for cities and countries: city1 = city2 should imply, that country1 = country2
+
