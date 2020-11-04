@@ -131,7 +131,7 @@ In the following we will present visualizations of the concrete patterns and dis
 	<demo:country>USA</demo:country>		
 </demo:building>	
 
-<demo:building demo:id="102" demo:recorded="2020-11-01T09:00:00" demo:last-modified-date="2020-11-01" demo:last-modified-time="09:00:00">
+<demo:building demo:id="102">
 	<demo:name>Chrysler Building</demo:name>
 	<demo:city>New York City</demo:city>
 	<demo:country>unknown</demo:country>	
