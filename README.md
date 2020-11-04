@@ -94,11 +94,14 @@ In the following we will present visualizations of the concrete patterns and dis
 </demo:architect>
 ```
 
-+ datei: eval_comp ... ?
-+ detect interval violations
-+ 
-+ concretized for birthyears of architects being later than the current year.
-
+The depicted example data includes one quality problem: the birth year is stated to be in the future.
+This quality problem represents an interval violation and thus decreases the data’s correctness.
+We will now take a closer look at how architect records that include occurrences of this problem can be detected.
+In general, our patterns consist of two parts: a context graph and a condition.
+The context graph defines the elements that the pattern is searching for.
+Ultimately, these elements are selected by the pattern if they satisfy the condition, which is a first-order logic expression over graphs.
+The depicted concrete pattern searches for XML elements with the name ```demo:architect```.
+They are selected if they contain an XML elements with the name ```demo:birthyear``` that has a data value greater than ```2020```.
 
 
 
