@@ -62,24 +62,7 @@ This work emerged from the research project "[KONDA](https://zenodo.org/communit
 
 ## Examples
 
-In the following we will briefly present three example patterns, called `COMP`, `CARD` and `FUNC`.  
-They allow detecting quality problems in a demo XML database on cultural heritage objects.
-The demo database and the corresponding schema can be found in the folder `demo.data`.
-
-The class `qualitypatternmodel.demo/DemoPatterns.java` includes the programmatical creation of the example patterns.  
-For each of the three examples it includes three methods:
-
-* one method that returns the generic pattern,
-* a second method that adapts the generic pattern to XML and returns the resulting abstract pattern,
-* and a third method that concretizes the abstract pattern for the demo database and returns the resulting concrete pattern.
-
-When the class is executed, the following steps are performed:
-
-* The patterns are exported to XML files in the folder `instances/demo`.
-* The XQuery expressions generated from the three concrete patterns are printed to the console.
-* The concrete patterns are applied to the demo database and the detected problematic XML elements are printed to the console.
-
-In the following we will present visualizations of the concrete patterns and discuss some details.
+`test`
 
 Notizen:
 
@@ -87,7 +70,7 @@ Notizen:
 + evaluation pattern: qualitypatternmodel.evaluation
 + qualitypatternmodel.demo / 
 	+ Aufbau Klasse
-	+ Erklärung
+	+ Erklï¿½rung
 
 + translation tests: qualitypatternmodel.translationtests / TranslationTests.java
 + executable file, which tests various features of the 
