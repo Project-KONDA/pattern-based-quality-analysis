@@ -81,7 +81,7 @@ When the class is executed, the following steps are performed:
 * The XQuery expressions generated from the three concrete patterns are printed to the console.
 * The concrete patterns are applied to the demo database and the detected problematic XML elements are printed to the console.
 
-In the following we will present visualizations of the concrete patterns and discuss some details.
+In the following we will present visualizations of the concrete patterns and corresponding snippets of problematic data taken from the demo database.
 
 
 ### COMP Pattern
@@ -116,11 +116,10 @@ They are selected if they contain an XML element with the name ```demo:birthyear
 </demo:artist>
 ```
 
-+ datei: eval_comp ... ?
-+ detect cardinality violations
-+ 
-+ concretized for detection of multiple birthyears in a record
-
+In the example data, two birth years are given for the artist.
+This represents a violation of a cardinality constraint, which indicates uncertain information.
+The concrete CARD pattern allows detecting this problem.
+For each ```demo:artist``` element, it checks whether the inner pattern matches more than once, thus whether multiple ```demo:birthyear``` elements are contained.
 
 
 
