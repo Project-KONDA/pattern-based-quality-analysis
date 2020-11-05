@@ -19,8 +19,6 @@ import qualitypatternmodel.testutility.EMFValidationPreparation;
 
 public class SuggestionTest {
 	public static void main(String[] args) {
-
-//		EMFValidationPreparation.registerDelegates();
 		
 		 // Loading the existing model
         EMFModelLoad loader = new EMFModelLoad();
@@ -57,10 +55,7 @@ public class SuggestionTest {
 //        for(String s : db.getElementNames().keySet()) {
 //        	System.out.println(s);
 //        }
-		
-//		Diagnostic diagnostic = Diagnostician.INSTANCE.validate(completePattern);			
-//		
-//		printDiagnostic(diagnostic, "");
+
         
         try {
 			completePattern.isValid(AbstractionLevel.CONCRETE);
@@ -80,11 +75,5 @@ public class SuggestionTest {
 
 	}
 	
-	private static void printDiagnostic(Diagnostic diagnostic, String indent) {
-		System.out.print(indent);
-		System.out.println(diagnostic.getMessage());
-		for (Diagnostic child : diagnostic.getChildren()) {
-			printDiagnostic(child, indent + "  ");
-		}
-	}
+
 }
