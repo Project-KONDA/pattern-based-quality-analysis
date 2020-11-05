@@ -41,12 +41,10 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
 
+import static qualitypatternmodel.testutility.DatabaseConstants.*;
+
 public class DemoPatterns {
-	private static final String DEMO_DATA_PATH = "demo.data/demo_database.xml";
-	private static final String DEMO_SCHEMA_PATH = "demo.data/demo_database_schema.xsd";
-	private static final String DEMO_DATABASE_NAME = "DemoDatabase";	
-	private static final String DEMO_SCHEMA_NAME = "DemoSchema";
-	private static final String DEMO_NAMESPACE = "demo:";
+
 	
 	private static CompletePattern compConcrete;
 	private static CompletePattern cardConcrete;

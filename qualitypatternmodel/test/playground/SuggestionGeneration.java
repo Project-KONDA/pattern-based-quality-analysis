@@ -1,5 +1,10 @@
 package playground;
 
+import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_DATABASE_NAME;
+import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_DATA_PATH;
+import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_SCHEMA_NAME;
+import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_SCHEMA_PATH;
+
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
@@ -40,8 +45,8 @@ public class SuggestionGeneration {
 		}
 		
 		
-        LocalXmlDataDatabase db = new LocalXmlDataDatabaseImpl("test", "demo.data/demo_database.xml");        
-        LocalXmlSchemaDatabase schema = new LocalXmlSchemaDatabaseImpl("test_schema","demo.data/demo_database_schema.xsd");
+        LocalXmlDataDatabase db = new LocalXmlDataDatabaseImpl(DEMO_DATABASE_NAME, DEMO_DATA_PATH);        
+        LocalXmlSchemaDatabase schema = new LocalXmlSchemaDatabaseImpl(DEMO_SCHEMA_NAME, DEMO_SCHEMA_PATH);
         schema.setNamespace("demo:");
         db.setXmlSchema(schema);                   
         

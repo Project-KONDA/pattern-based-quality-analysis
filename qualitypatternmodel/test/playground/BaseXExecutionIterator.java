@@ -13,13 +13,14 @@ import org.eclipse.emf.common.util.Diagnostic;
 
 import qualitypatternmodel.testutility.EMFModelLoad;
 import qualitypatternmodel.testutility.EMFValidationPreparation;
+import static qualitypatternmodel.testutility.DatabaseConstants.*;
 
 public class BaseXExecutionIterator {
 	public static void main(String[] args) throws QueryIOException {
 
 		try {
 			Context context = new Context();					
-			new CreateDB("DBExample", "demo.data/demo_database.xml").execute(context);
+			new CreateDB(DEMO_DATABASE_NAME, DEMO_DATA_PATH).execute(context);
 			
 			try(QueryProcessor proc = new QueryProcessor("//*", context)) {
 		      Iter iter = proc.iter();

@@ -1,5 +1,8 @@
 package playground;
 
+import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_DATABASE_NAME;
+import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_DATA_PATH;
+
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.core.cmd.CreateDB;
@@ -9,9 +12,8 @@ public class SimpleBaseXQueryExecution {
 	public static void main(String[] args) {
 
 		try {
-//			String query = "(//*[name()=\"lido:appellationValue\" and matches(./data(),\"\\?\")]/parent::*/parent::*/parent::*/parent::*/parent::*)[1]";
 			Context context = new Context();					
-			new CreateDB("DBExample", "D:\\Dokumente\\Lido\\ddb_20190220\\ddb_20190220\\ddb_20190220_1.xml").execute(context);
+			new CreateDB(DEMO_DATABASE_NAME, DEMO_DATA_PATH).execute(context);
 			XQuery xquery = new XQuery("(//*)[1]");
 			String result = xquery.execute(context);
 			System.out.println(result);
