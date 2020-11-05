@@ -28,22 +28,6 @@ The execution system allows the application to a chosen XML database via the que
 The result of the pattern application is presented to the user via the report view.
 
 
-## Authors
-
-* Arno Kesper - [arno.kesper@uni-marburg.de](mailto:arno.kesper@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
-* Viola Wenz - [viola.wenz@uni-marburg.de](mailto:viola.wenz@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
-* Gabriele Taentzer - [taentzer@uni-marburg.de](mailto:taentzer@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
-
-This work emerged from the research project "[KONDA](https://zenodo.org/communities/konda-project)". 
-![KONDA](readme_images/konda_logo.jpg)
-
-
-
-## License
-
-???
-
-
 ## Built With
 
 * [Eclipse Version: 2019-09 R (4.13.0)](https://www.eclipse.org/downloads/packages/release/2019-09/r)
@@ -53,24 +37,26 @@ This work emerged from the research project "[KONDA](https://zenodo.org/communit
 * [Eclipse Sirius](https://www.eclipse.org/sirius/)
 
 
-
 ## Installation
-...
 
-+ Eclipse Version: 2019-09 R (4.13.0)
-+ (Eclipse Sirius 6.2)
-+ import project
-+ project files: packages, 
+Prerequisites:
 
+* Eclipse (Version 4.13.0)
+* Eclipse Modeling Framework (Version 2.18.0)
+* (Eclipse Sirius 6.2)
+* JUnit
+* OCL
 
+To set this project up locally, you just need to import it into your Eclipse workspace.
 
 ## Tests
 
-...
-
-* translation tests: qualitypatternmodel.translationtests / TranslationTests.java
-* executable file, which tests various features of the
-
+Tests concerning the correctness of the translation of concrete patterns to XQuery are contained in the package ```qualitypatternmodel.translationtests```.
+The class ```TranslationTests``` allows executing the tests.
+Each test case consists of a pattern concretized for the demo database located in the ```demo.data``` folder and a manually written XQuery expression that selects all elements that are expected to be selected by the pattern.
+For each test case the concrete pattern is automatically translated to XQuery.
+Both this query and the manually written query are applied to the demo database.
+The results of these applications must be equal for the test to be successful.
 
 
 ## Examples
@@ -79,18 +65,18 @@ In the following we will briefly present three example patterns, called `COMP`, 
 They allow detecting quality problems in a demo XML database on cultural heritage objects.
 The demo database and the corresponding schema can be found in the folder `demo.data`.
 
-The class `qualitypatternmodel.demo/DemoPatterns.java` includes the programmatical creation of the example patterns.
+The class `qualitypatternmodel.demo/DemoPatterns` includes the programmatical creation of the example patterns.
 For each of the three examples it includes three methods:
 
-* `getGeneric___Pattern()` returns the generic pattern
-* `getAbstract___Pattern()` adapts the generic pattern to XML and returns the resulting abstract pattern
-* `getConcrete___Pattern(Database)` concretizes the abstract pattern for the demo database and returns the resulting concrete pattern
+* `getGeneric___Pattern()` returns the generic pattern.
+* `getAbstract___Pattern()` adapts the generic pattern to XML and returns the resulting abstract pattern.
+* `getConcrete___Pattern(Database)` concretizes the abstract pattern for the demo database and returns the resulting concrete pattern.
 
 When the class is executed, the following steps are performed:
 
-* `exportAllDemoPatterns()`: The patterns are exported to XMI files in the folder `instances/demo`
-* `printAllDemoPatternQueries()`: The XQuery expressions generated from the three concrete patterns are printed to the console
-* `executeAllDemoPatterns()`: The concrete patterns are applied to the demo database and the detected problematic XML elements are printed to the console
+* `exportAllDemoPatterns()`: The patterns are exported to XMI files in the folder `instances/demo`.
+* `printAllDemoPatternQueries()`: The XQuery expressions generated from the three concrete patterns are printed to the console.
+* `executeAllDemoPatterns()`: The concrete patterns are applied to the demo database and the detected problematic XML elements are printed to the console.
 
 In the following we will present visualizations of the concrete patterns and corresponding snippets of problematic data taken from the demo database.
 
@@ -98,8 +84,8 @@ In the following we will present visualizations of the concrete patterns and cor
 ### COMP Pattern
 ![COMP](readme_images/COMP_generic.png)
 
-The depicted example pattern is a generic pattern to detect simple interval violations.
-Hereby the pattern searches for `Element0`s (identified via a `Property0`), that have an associated `Element1` (identified via a `Property1`), where `Property2` ist out of a specific range.
+The depicted example pattern is a generic pattern for detecting simple interval violations.
+It searches for `Element0`s (identified via a `Property0`) that are related to an `Element1` (identified via a `Property1`), whose `Property2` is outside a specific range.
 
 
 ![COMP](readme_images/COMP_concrete.png)
@@ -162,3 +148,18 @@ It indicates that both buildings are located in the same city but different coun
 This problem can be detected via the depicted FUNC pattern.
 As the graph shows, the pattern detects ```demo:building``` elements that contain equivalent ```demo:city``` elements but different ```demo:country``` elements.
 
+
+## Authors
+
+* Arno Kesper - [arno.kesper@uni-marburg.de](mailto:arno.kesper@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
+* Viola Wenz - [viola.wenz@uni-marburg.de](mailto:viola.wenz@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
+* Gabriele Taentzer - [taentzer@uni-marburg.de](mailto:taentzer@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
+
+This work emerged from the research project "[KONDA](https://zenodo.org/communities/konda-project)". 
+![KONDA](readme_images/konda_logo.jpg)
+
+
+
+## License
+
+???
