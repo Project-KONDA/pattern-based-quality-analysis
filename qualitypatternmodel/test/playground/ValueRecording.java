@@ -14,17 +14,12 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.testutility.EMFModelLoad;
 import qualitypatternmodel.testutility.EMFValidationPreparation;
+import qualitypatternmodel.translationtests.Test00;
 
 public class ValueRecording {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
-		EMFModelLoad loader = new EMFModelLoad();
-        CompletePattern completePattern = loader.load("instances/playground/My9.patternstructure");
-        
-        completePattern.createXMLAdaption();
-        completePattern.finalizeXMLAdaption();
-        
-        ((XmlProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0)).getOption().setValue(PropertyKind.DATA);
+		CompletePattern completePattern = Test00.getBasePatternCondConcrete("test");
                 
         try {
 			completePattern.isValid(AbstractionLevel.CONCRETE);
@@ -45,6 +40,7 @@ public class ValueRecording {
 			e.printStackTrace();
 		}
         
+        System.out.println("> Recorded Data Values:\n");
         for(String s : db.getRecordedDataValues().keySet()) {
         	System.out.println(s);
         }
