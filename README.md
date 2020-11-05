@@ -48,10 +48,12 @@ The result of the pattern application is presented to the user via the report vi
 
 ## Tests
 
-...
-
-* translation tests: qualitypatternmodel.translationtests / TranslationTests.java
-* executable file, which tests various features of the
+Tests concerning the correctness of the translation of concrete patterns to XQuery are contained in the package ```qualitypatternmodel.translationtests```.
+The class ```TranslationTests``` allows executing the tests.
+Each test case consists of a pattern concretized for the demo database located in the ```demo.data``` folder and a manually written XQuery expression that selects all elements that are expected to be selected by the pattern.
+For each test case the concrete pattern is automatically translated to XQuery.
+Both this query and the manually written query are applied to the demo database.
+The results of these applications must be equal for the test to be successful.
 
 
 ## Examples
