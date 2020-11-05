@@ -30,7 +30,7 @@ The result of the pattern application is presented to the user via the report vi
 
 ## Built With
 
-* [Eclipse Version: 2019-09 R (4.13.0)](https://www.eclipse.org/downloads/packages/release/2019-09/r)
+* [Eclipse](https://www.eclipse.org/ide/)
 * [Eclipse Modelling Framework](https://www.eclipse.org/modeling/emf/)
 * [XQuery](https://www.w3.org/XML/Query/)
 * [BaseX](https://basex.org)
@@ -41,11 +41,11 @@ The result of the pattern application is presented to the user via the report vi
 
 Prerequisites:
 
-* Eclipse (Version 4.13.0)
-* Eclipse Modeling Framework (Version 2.18.0)
+* Eclipse 4.12.0
+* Eclipse Modeling Framework 2.18.0
 * (Eclipse Sirius 6.2)
-* JUnit
-* OCL
+* JUnit 5
+* Eclipse OCL (OCL Classic SDK 5.9.0 and OCL Examples and Editors SDK 6.8.0)
 
 To set this project up locally, you just need to import it into your Eclipse workspace.
 
