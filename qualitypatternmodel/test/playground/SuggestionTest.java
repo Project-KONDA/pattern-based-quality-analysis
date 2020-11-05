@@ -4,27 +4,13 @@ import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.EValidator;
-import org.eclipse.emf.ecore.util.Diagnostician;
-import org.eclipse.ocl.pivot.internal.delegate.OCLInvocationDelegateFactory;
-import org.eclipse.ocl.pivot.internal.delegate.OCLSettingDelegateFactory;
-import org.eclipse.ocl.pivot.internal.delegate.OCLValidationDelegateFactory;
-import org.eclipse.ocl.pivot.model.OCLstdlib;
-import org.eclipse.ocl.xtext.oclinecore.OCLinEcoreStandaloneSetup;
-
-import qualitypatternmodel.adaptionxml.RelationKind;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.LocalXmlDataDatabase;
 import qualitypatternmodel.execution.LocalXmlSchemaDatabase;
-import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl;
 import qualitypatternmodel.execution.impl.LocalXmlSchemaDatabaseImpl;
-import qualitypatternmodel.execution.impl.XmlDataDatabaseImpl;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -34,7 +20,7 @@ import qualitypatternmodel.testutility.EMFValidationPreparation;
 public class SuggestionTest {
 	public static void main(String[] args) {
 
-		EMFValidationPreparation.registerDelegates();
+//		EMFValidationPreparation.registerDelegates();
 		
 		 // Loading the existing model
         EMFModelLoad loader = new EMFModelLoad();
