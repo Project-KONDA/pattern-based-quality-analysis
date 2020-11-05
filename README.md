@@ -41,8 +41,8 @@ The result of the pattern application is presented to the user via the report vi
 
 Prerequisites:
 
-* Eclipse (Version 4.12.0)
-* Eclipse Modeling Framework
+* Eclipse (Version 4.13.0)
+* Eclipse Modeling Framework (Version 2.18.0)
 * (Eclipse Sirius 6.2)
 * JUnit
 * OCL
