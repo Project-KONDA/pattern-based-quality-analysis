@@ -28,22 +28,6 @@ The execution system allows the application to a chosen XML database via the que
 The result of the pattern application is presented to the user via the report view.
 
 
-## Authors
-
-* Arno Kesper - [arno.kesper@uni-marburg.de](mailto:arno.kesper@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
-* Viola Wenz - [viola.wenz@uni-marburg.de](mailto:viola.wenz@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
-* Gabriele Taentzer - [taentzer@uni-marburg.de](mailto:taentzer@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
-
-This work emerged from the research project "[KONDA](https://zenodo.org/communities/konda-project)". 
-![KONDA](readme_images/konda_logo.jpg)
-
-
-
-## License
-
-???
-
-
 ## Built With
 
 * [Eclipse Version: 2019-09 R (4.13.0)](https://www.eclipse.org/downloads/packages/release/2019-09/r)
@@ -51,7 +35,6 @@ This work emerged from the research project "[KONDA](https://zenodo.org/communit
 * [XQuery](https://www.w3.org/XML/Query/)
 * [BaseX](https://basex.org)
 * [Eclipse Sirius](https://www.eclipse.org/sirius/)
-
 
 
 ## Installation
@@ -63,7 +46,6 @@ This work emerged from the research project "[KONDA](https://zenodo.org/communit
 + project files: packages, 
 
 
-
 ## Tests
 
 ...
@@ -72,14 +54,13 @@ This work emerged from the research project "[KONDA](https://zenodo.org/communit
 * executable file, which tests various features of the
 
 
-
 ## Examples
 
 In the following we will briefly present three example patterns, called `COMP`, `CARD` and `FUNC`.
 They allow detecting quality problems in a demo XML database on cultural heritage objects.
 The demo database and the corresponding schema can be found in the folder `demo.data`.
 
-The class `qualitypatternmodel.demo/DemoPatterns.java` includes the programmatical creation of the example patterns.
+The class `qualitypatternmodel.demo/DemoPatterns` includes the programmatical creation of the example patterns.
 For each of the three examples it includes three methods:
 
 * `getGeneric___Pattern()` returns the generic pattern.
@@ -162,3 +143,18 @@ It indicates that both buildings are located in the same city but different coun
 This problem can be detected via the depicted FUNC pattern.
 As the graph shows, the pattern detects ```demo:building``` elements that contain equivalent ```demo:city``` elements but different ```demo:country``` elements.
 
+
+## Authors
+
+* Arno Kesper - [arno.kesper@uni-marburg.de](mailto:arno.kesper@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
+* Viola Wenz - [viola.wenz@uni-marburg.de](mailto:viola.wenz@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
+* Gabriele Taentzer - [taentzer@uni-marburg.de](mailto:taentzer@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
+
+This work emerged from the research project "[KONDA](https://zenodo.org/communities/konda-project)". 
+![KONDA](readme_images/konda_logo.jpg)
+
+
+
+## License
+
+???
