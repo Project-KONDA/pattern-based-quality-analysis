@@ -35,7 +35,7 @@ import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.translationtests.Test03Quantor;
 import qualitypatternmodel.translationtests.Test06NotElement;
 
-public class RelationSwitchTest {
+public class RelationSwitch {
 	public static void main(String[] args) throws OperatorCycleException, MissingPatternContainerException {
 		try {
 			System.out.println(getRefintRunningExample().generateQuery());

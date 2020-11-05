@@ -15,7 +15,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.testutility.EMFModelLoad;
 import qualitypatternmodel.testutility.EMFValidationPreparation;
 
-public class DBValueRecordingTest {
+public class ValueRecording {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		EMFModelLoad loader = new EMFModelLoad();

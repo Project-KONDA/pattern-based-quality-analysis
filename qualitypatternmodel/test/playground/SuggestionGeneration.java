@@ -17,7 +17,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.testutility.EMFModelLoad;
 import qualitypatternmodel.testutility.EMFValidationPreparation;
 
-public class SuggestionTest {
+public class SuggestionGeneration {
 	public static void main(String[] args) {
 		
 		 // Loading the existing model
