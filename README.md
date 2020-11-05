@@ -98,8 +98,8 @@ In the following we will present visualizations of the concrete patterns and cor
 ### COMP Pattern
 ![COMP](readme_images/COMP_generic.png)
 
-The depicted example pattern is a generic pattern to detect simple interval violations.
-Hereby the pattern searches for `Element0`s (identified via a `Property0`), that have an associated `Element1` (identified via a `Property1`), where `Property2` ist out of a specific range.
+The depicted example pattern is a generic pattern for detecting simple interval violations.
+It searches for `Element0`s (identified via a `Property0`) that are related to an `Element1` (identified via a `Property1`), whose `Property2` is outside a specific range.
 
 
 ![COMP](readme_images/COMP_concrete.png)
