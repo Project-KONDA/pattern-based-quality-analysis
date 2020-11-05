@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import qualitypatternmodel.testutility.EMFModelLoad;
 import qualitypatternmodel.testutility.EMFValidationPreparation;
 
-public class ExampleExecutionIterator {
+public class BaseXExecutionIterator {
 	public static void main(String[] args) throws QueryIOException {
 
 		try {
