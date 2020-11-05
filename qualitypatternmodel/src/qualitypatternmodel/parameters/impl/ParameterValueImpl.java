@@ -25,6 +25,7 @@ import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.XmlDataDatabase;
@@ -809,7 +810,30 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 							}								
 						}
 					}
-				}					
+				} else if(incomingNavigation.getOption() != null && incomingNavigation.getSource() instanceof XmlRoot) {			
+					
+					Database db;
+					try {
+						db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
+						if (db instanceof XmlDataDatabase) {
+							XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
+							
+							for(String rootElementName : xmlDataDatabase.getXmlSchema().getRootElementNames()) {
+
+								if (incomingNavigation.getOption().getValue() == RelationKind.CHILD) {
+									suggestions.addAll(xmlDataDatabase.getXmlSchema().getChildrenInSchema(rootElementName));
+								}
+								if (incomingNavigation.getOption().getValue() == RelationKind.DESCENDANT) {
+									suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(rootElementName));
+								}
+							}
+						}
+					} catch (MissingPatternContainerException | BaseXException | QueryIOException | QueryException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
 			}
 		}
 	}
