@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getXmlDatabases <em>Xml Databases</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getElementNames <em>Element Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getAttributeNames <em>Attribute Names</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getRootElementNames <em>Root Element Names</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.execution.ExecutionPackage#getXmlSchemaDatabase()
@@ -64,6 +65,18 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @generated
 	 */
 	EList<String> getAttributeNames();
+
+	/**
+	 * Returns the value of the '<em><b>Root Element Names</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Root Element Names</em>' attribute list.
+	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlSchemaDatabase_RootElementNames()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getRootElementNames();
 
 	/**
 	 * <!-- begin-user-doc -->

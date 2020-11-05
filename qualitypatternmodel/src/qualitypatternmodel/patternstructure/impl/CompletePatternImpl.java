@@ -427,7 +427,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 */
 	@Override
-	public String getName() {		
+	public String getName() {
 		return name;
 	}
 
