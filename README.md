@@ -38,13 +38,16 @@ The result of the pattern application is presented to the user via the report vi
 
 
 ## Installation
-...
 
-+ Eclipse Version: 2019-09 R (4.13.0)
-+ (Eclipse Sirius 6.2)
-+ import project
-+ project files: packages, 
+Prerequisites:
 
+* Eclipse (Version 4.12.0)
+* Eclipse Modeling Framework
+* (Eclipse Sirius 6.2)
+* JUnit
+* OCL
+
+To set this project up locally, you just need to import it into your Eclipse workspace.
 
 ## Tests
 
