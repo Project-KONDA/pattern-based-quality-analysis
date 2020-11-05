@@ -17,7 +17,7 @@ import qualitypatternmodel.testutility.EMFValidationPreparation;
 public class ExampleExecutionIterator {
 	public static void main(String[] args) throws QueryIOException {
 		
-		EMFValidationPreparation.registerDelegates();
+//		EMFValidationPreparation.registerDelegates();
 		
 		 // Loading the existing model
         EMFModelLoad loader = new EMFModelLoad();

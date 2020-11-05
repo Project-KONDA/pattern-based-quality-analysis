@@ -16,7 +16,7 @@ import qualitypatternmodel.testutility.EMFValidationPreparation;
 public class ExampleExecution {
 	public static void main(String[] args) {
 		
-		EMFValidationPreparation.registerDelegates();
+//		EMFValidationPreparation.registerDelegates();
 		
 		 // Loading the existing model
         EMFModelLoad loader = new EMFModelLoad();
