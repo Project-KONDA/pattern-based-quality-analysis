@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:patternstructure="patternstructure" id="_KRo0sOavEeq6DdTqq1j7og" internalId="0" elementCounter="10">
+  <graph id="_KRo0suavEeq6DdTqq1j7og" internalId="1" returnElements="_KRo0tOavEeq6DdTqq1j7og">
+    <elements id="_KRo0tOavEeq6DdTqq1j7og" internalId="2" resultOf="_KRo0suavEeq6DdTqq1j7og" outgoing="_Rufn1OavEeq6DdTqq1j7og _SFUMZOavEeq6DdTqq1j7og"/>
+    <elements id="_Q8IWwOavEeq6DdTqq1j7og" internalId="3" incoming="_Rufn1OavEeq6DdTqq1j7og"/>
+    <elements id="_RNRKEOavEeq6DdTqq1j7og" internalId="4" incoming="_SFUMZOavEeq6DdTqq1j7og"/>
+    <operatorList id="_KRo0s-avEeq6DdTqq1j7og" internalId="7"/>
+    <relations id="_Rufn1OavEeq6DdTqq1j7og" internalId="5" source="_KRo0tOavEeq6DdTqq1j7og" target="_Q8IWwOavEeq6DdTqq1j7og" name="Relation 5"/>
+    <relations id="_SFUMZOavEeq6DdTqq1j7og" internalId="6" source="_KRo0tOavEeq6DdTqq1j7og" target="_RNRKEOavEeq6DdTqq1j7og" name="Relation 6"/>
+  </graph>
+  <condition xsi:type="patternstructure:TrueElement" id="_YktRt-avEeq6DdTqq1j7og" internalId="8"/>
+  <parameterList id="_KRo0seavEeq6DdTqq1j7og" internalId="9"/>
+</patternstructure:CompletePattern>
