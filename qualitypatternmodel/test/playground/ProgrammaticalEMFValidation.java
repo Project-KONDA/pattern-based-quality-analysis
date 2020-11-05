@@ -16,7 +16,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.testutility.EMFValidationPreparation;
 
-public class ProgrammaticalValidation {
+public class ProgrammaticalEMFValidation {
 	public static void main(String[] args) {	
 
 		EMFValidationPreparation.registerDelegates();
