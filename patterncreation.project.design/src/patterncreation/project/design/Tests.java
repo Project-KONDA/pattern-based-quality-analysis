@@ -48,63 +48,63 @@ import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.patternstructure.TrueElement;
-import qualitypatternmodel.testutilityclasses.EMFModelLoad;
+import qualitypatternmodel.testutility.EMFModelLoad;
 
 public class Tests {
 	EMFModelLoad loader = new EMFModelLoad();
-	String testDirectoryGeneric = "Tests/GenericPatternTests/";
-	String testDirectoryGraphstructureChangeNameElement = testDirectoryGeneric + "graphstructure/tools/changeNameElement/";
-	String testDirectoryGraphstructureChangeNameProperty = testDirectoryGeneric + "graphstructure/tools/changeNameProperty/";
-	String testDirectoryGraphstructureChangeNameRelation = testDirectoryGeneric + "graphstructure/tools/changeNameRelation/";
-	String testDirectoryGraphstructureDeleteGraph = testDirectoryGeneric + "graphstructure/tools/deleteGraph/";
-	String testDirectoryGraphstructureElement = testDirectoryGeneric + "graphstructure/tools/element/";
-	String testDirectoryGraphstructureMarkAsReturnElement = testDirectoryGeneric + "graphstructure/tools/markAsReturnElement/";
-	String testDirectoryGraphstructureProperty = testDirectoryGeneric + "graphstructure/tools/property/";
-	String testDirectoryGraphstructureRelation = testDirectoryGeneric + "graphstructure/tools/relation/";
-	String testDirectoryOperatorsComparison = testDirectoryGeneric + "operators/tools/comparison/";
-	String testDirectoryOperatorsDiscardArgument = testDirectoryGeneric + "operators/tools/discardArgument/";
-	String testDirectoryOperatorsMatch = testDirectoryGeneric + "operators/tools/match/";
-	String testDirectoryOperatorsSelectElementAsArgument = testDirectoryGeneric + "operators/tools/selectElementAsArgument/";
-	String testDirectoryOperatorsSelectParameterAsArgument = testDirectoryGeneric + "operators/tools/selectParameterAsArgument/";
-	String testDirectoryOperatorsSelectPropertyAsArgument = testDirectoryGeneric + "operators/tools/selectPropertyAsArgument/";
-	String testDirectoryParametersBoolean = testDirectoryGeneric + "parameters/tools/boolean/";
-	String testDirectoryParametersDate = testDirectoryGeneric + "parameters/tools/date/";
-	String testDirectoryParametersDateAndTime = testDirectoryGeneric + "parameters/tools/dateAndTime/";
-	String testDirectoryParametersNumber = testDirectoryGeneric + "parameters/tools/number/";
-	String testDirectoryParametersTextList = testDirectoryGeneric + "parameters/tools/textList/";
-	String testDirectoryParametersTextLiteral = testDirectoryGeneric + "parameters/tools/textLiteral/";
-	String testDirectoryParametersTime = testDirectoryGeneric + "parameters/tools/time/";
-	String testDirectoryParametersUntypedValue = testDirectoryGeneric + "parameters/tools/untypedValue/";
-	String testDirectoryPatternstructureChangeNameCompletePattern = testDirectoryGeneric + "patternstructure/tools/changeNameCompletePattern/";
-	String testDirectoryPatternstructureChangeOperator = testDirectoryGeneric + "patternstructure/tools/changeOperator/";
-	String testDirectoryPatternstructureChangeQuantifier = testDirectoryGeneric + "patternstructure/tools/changeQuantifier/";
-	String testDirectoryPatternstructureCoutnCondition = testDirectoryGeneric + "patternstructure/tools/countCondition/";
-	String testDirectoryPatternstructureCountPattern = testDirectoryGeneric + "patternstructure/tools/countPattern/";
-	String testDirectoryPatternstructureFormula = testDirectoryGeneric + "patternstructure/tools/formula/";
-	String testDirectoryPatternstructureNotCondition = testDirectoryGeneric + "patternstructure/tools/notCondition/";
-	String testDirectoryPatternstructureNumberElement = testDirectoryGeneric + "patternstructure/tools/numberElement/";
-	String testDirectoryPatternstructureQuantifiedCondition = testDirectoryGeneric + "patternstructure/tools/quantifiedCondition/";
-	String testDirectoryPatternstructureTrueElement = testDirectoryGeneric + "patternstructure/tools/trueElement/";
+	private static final String TEST_DIRECTORY_GENERIC = "Tests/GenericPatternTests/";
+	private static final String TEST_DIRECTORY_GRAPHSTRUCTURE_CHANGE_NAME_ELEMENT = TEST_DIRECTORY_GENERIC + "graphstructure/tools/changeNameElement/";
+	private static final String TEST_DIRECTORY_GRAPHSTRUCTURE_CHANGE_NAME_PROPERTY = TEST_DIRECTORY_GENERIC + "graphstructure/tools/changeNameProperty/";
+	private static final String TEST_DIRECTORY_GRAPHSTRUCTURE_CHANGE_NAME_RELATION = TEST_DIRECTORY_GENERIC + "graphstructure/tools/changeNameRelation/";
+	private static final String TEST_DIRECTORY_GRAPHSTRUCTURE_DELETE_GRAPH = TEST_DIRECTORY_GENERIC + "graphstructure/tools/deleteGraph/";
+	private static final String TEST_DIRECTORY_GRAPHSTRUCTURE_ELEMENT = TEST_DIRECTORY_GENERIC + "graphstructure/tools/element/";
+	private static final String TEST_DIRECTORY_GRAPHSTRUCTURE_MARK_AS_RETURN_ELEMENT = TEST_DIRECTORY_GENERIC + "graphstructure/tools/markAsReturnElement/";
+	private static final String TEST_DIRECTORY_GRAPHSTRUCTURE_PROPERTY = TEST_DIRECTORY_GENERIC + "graphstructure/tools/property/";
+	private static final String TEST_DIRECTORY_GRAPHSTRUCTURE_RELATION = TEST_DIRECTORY_GENERIC + "graphstructure/tools/relation/";
+	private static final String TEST_DIRECTORY_OPERATORS_COMPARISON = TEST_DIRECTORY_GENERIC + "operators/tools/comparison/";
+	private static final String testDirectoryOperatorsDiscardArgument = TEST_DIRECTORY_GENERIC + "operators/tools/discardArgument/";
+	private static final String testDirectoryOperatorsMatch = TEST_DIRECTORY_GENERIC + "operators/tools/match/";
+	private static final String testDirectoryOperatorsSelectElementAsArgument = TEST_DIRECTORY_GENERIC + "operators/tools/selectElementAsArgument/";
+	private static final String testDirectoryOperatorsSelectParameterAsArgument = TEST_DIRECTORY_GENERIC + "operators/tools/selectParameterAsArgument/";
+	private static final String testDirectoryOperatorsSelectPropertyAsArgument = TEST_DIRECTORY_GENERIC + "operators/tools/selectPropertyAsArgument/";
+	private static final String testDirectoryParametersBoolean = TEST_DIRECTORY_GENERIC + "parameters/tools/boolean/";
+	private static final String testDirectoryParametersDate = TEST_DIRECTORY_GENERIC + "parameters/tools/date/";
+	private static final String testDirectoryParametersDateAndTime = TEST_DIRECTORY_GENERIC + "parameters/tools/dateAndTime/";
+	private static final String testDirectoryParametersNumber = TEST_DIRECTORY_GENERIC + "parameters/tools/number/";
+	private static final String testDirectoryParametersTextList = TEST_DIRECTORY_GENERIC + "parameters/tools/textList/";
+	private static final String testDirectoryParametersTextLiteral = TEST_DIRECTORY_GENERIC + "parameters/tools/textLiteral/";
+	private static final String testDirectoryParametersTime = TEST_DIRECTORY_GENERIC + "parameters/tools/time/";
+	private static final String testDirectoryParametersUntypedValue = TEST_DIRECTORY_GENERIC + "parameters/tools/untypedValue/";
+	private static final String testDirectoryPatternstructureChangeNameCompletePattern = TEST_DIRECTORY_GENERIC + "patternstructure/tools/changeNameCompletePattern/";
+	private static final String testDirectoryPatternstructureChangeOperator = TEST_DIRECTORY_GENERIC + "patternstructure/tools/changeOperator/";
+	private static final String testDirectoryPatternstructureChangeQuantifier = TEST_DIRECTORY_GENERIC + "patternstructure/tools/changeQuantifier/";
+	private static final String testDirectoryPatternstructureCoutnCondition = TEST_DIRECTORY_GENERIC + "patternstructure/tools/countCondition/";
+	private static final String testDirectoryPatternstructureCountPattern = TEST_DIRECTORY_GENERIC + "patternstructure/tools/countPattern/";
+	private static final String testDirectoryPatternstructureFormula = TEST_DIRECTORY_GENERIC + "patternstructure/tools/formula/";
+	private static final String testDirectoryPatternstructureNotCondition = TEST_DIRECTORY_GENERIC + "patternstructure/tools/notCondition/";
+	private static final String testDirectoryPatternstructureNumberElement = TEST_DIRECTORY_GENERIC + "patternstructure/tools/numberElement/";
+	private static final String testDirectoryPatternstructureQuantifiedCondition = TEST_DIRECTORY_GENERIC + "patternstructure/tools/quantifiedCondition/";
+	private static final String testDirectoryPatternstructureTrueElement = TEST_DIRECTORY_GENERIC + "patternstructure/tools/trueElement/";
 	//abstract
-	String testDirectoryAbstract = "Tests/AbstractPatternTests/";
-	String testDirectoryBehavior = testDirectoryAbstract + "behavior/";
-	String testDirectoryToolsRelationToXmlRelation = testDirectoryAbstract + "tools/relationToXmlRelation_changeXmlRelation/";
-	String testDirectoryToolsFinalization = testDirectoryAbstract + "tools/finalization/";
-	String testDirectoryToolsDelete = testDirectoryAbstract + "tools/delete/";
+	private static final String testDirectoryAbstract = "Tests/AbstractPatternTests/";
+	private static final String testDirectoryBehavior = testDirectoryAbstract + "behavior/";
+	private static final String testDirectoryToolsRelationToXmlRelation = testDirectoryAbstract + "tools/relationToXmlRelation_changeXmlRelation/";
+	private static final String testDirectoryToolsFinalization = testDirectoryAbstract + "tools/finalization/";
+	private static final String testDirectoryToolsDelete = testDirectoryAbstract + "tools/delete/";
 	//concrete
-	String testDirectoryConcrete = "Tests/ConcretePatternTests/";
-	String testDirectoryFormularviewToolsBoolean = testDirectoryConcrete + "formularview/tools/boolean/";
-	String testDirectoryFormularviewToolsComparisonOption = testDirectoryConcrete + "formularview/tools/comparisonOption/";
-	String testDirectoryFormularviewToolsDate = testDirectoryConcrete + "formularview/tools/date/";
-	String testDirectoryFormularviewToolsDateTime = testDirectoryConcrete + "formularview/tools/dateTime/";
-	String testDirectoryFormularviewToolsNumber = testDirectoryConcrete + "formularview/tools/number/";
-	String testDirectoryFormularviewToolsPropertyOption = testDirectoryConcrete + "formularview/tools/propertyOption/";
-	String testDirectoryFormularviewToolsRelationOption = testDirectoryConcrete + "formularview/tools/relationOption/";
-	String testDirectoryFormularviewToolsTextList = testDirectoryConcrete + "formularview/tools/textList/";
-	String testDirectoryFormularviewToolsTextLiteral = testDirectoryConcrete + "formularview/tools/textLiteral/";
-	String testDirectoryFormularviewToolsTime = testDirectoryConcrete + "formularview/tools/time/";
-	String testDirectoryFormularviewToolsTypeOption = testDirectoryConcrete + "formularview/tools/typeOption/";
-	String testDirectoryFormularviewToolsUntypedParameterValue = testDirectoryConcrete + "formularview/tools/untypedParameterValue/";
+	private static final String testDirectoryConcrete = "Tests/ConcretePatternTests/";
+	private static final String testDirectoryFormularviewToolsBoolean = testDirectoryConcrete + "formularview/tools/boolean/";
+	private static final String testDirectoryFormularviewToolsComparisonOption = testDirectoryConcrete + "formularview/tools/comparisonOption/";
+	private static final String testDirectoryFormularviewToolsDate = testDirectoryConcrete + "formularview/tools/date/";
+	private static final String testDirectoryFormularviewToolsDateTime = testDirectoryConcrete + "formularview/tools/dateTime/";
+	private static final String testDirectoryFormularviewToolsNumber = testDirectoryConcrete + "formularview/tools/number/";
+	private static final String testDirectoryFormularviewToolsPropertyOption = testDirectoryConcrete + "formularview/tools/propertyOption/";
+	private static final String testDirectoryFormularviewToolsRelationOption = testDirectoryConcrete + "formularview/tools/relationOption/";
+	private static final String testDirectoryFormularviewToolsTextList = testDirectoryConcrete + "formularview/tools/textList/";
+	private static final String testDirectoryFormularviewToolsTextLiteral = testDirectoryConcrete + "formularview/tools/textLiteral/";
+	private static final String testDirectoryFormularviewToolsTime = testDirectoryConcrete + "formularview/tools/time/";
+	private static final String testDirectoryFormularviewToolsTypeOption = testDirectoryConcrete + "formularview/tools/typeOption/";
+	private static final String testDirectoryFormularviewToolsUntypedParameterValue = testDirectoryConcrete + "formularview/tools/untypedParameterValue/";
 	
 	
 	CompletePattern pattern = null;
@@ -150,7 +150,7 @@ public class Tests {
 	@Test
 	public void testGraphstructureChangeNameElement() {
 		//graphstructure/tools/changeNameElement
-		pattern = loader.load(testDirectoryGraphstructureChangeNameElement + "changeNameElement.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_GRAPHSTRUCTURE_CHANGE_NAME_ELEMENT + "changeNameElement.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("attribute name of element must contain the String \"ElementNewName\"", graph.getElements().get(0).getName().equals("ElementNewName"));
 	}
@@ -158,7 +158,7 @@ public class Tests {
 	@Test
 	public void testGraphstructureChangeNameProperty() {
 		//graphstructure/tools/changeNameElement
-		pattern = loader.load(testDirectoryGraphstructureChangeNameProperty + "changeNameProperty.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_GRAPHSTRUCTURE_CHANGE_NAME_PROPERTY + "changeNameProperty.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("attribute name of property must contain the String \"PropertyNewName\"", graph.getElements().get(0).getProperties().get(0).getName().equals("PropertyNewName"));
 	}
@@ -166,7 +166,7 @@ public class Tests {
 	@Test
 	public void testGraphstructureChangeNameRelation() {
 		//graphstructure/tools/changeNameRelation
-		pattern = loader.load(testDirectoryGraphstructureChangeNameRelation + "changeNameRelation.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_GRAPHSTRUCTURE_CHANGE_NAME_RELATION + "changeNameRelation.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("attribute name of relation must contain the String \"RelationNewName\"", graph.getRelations().get(0).getName().equals("RelationNewName"));
 	}
@@ -174,7 +174,7 @@ public class Tests {
 	@Test
 	public void testGraphstructureDeleteGraph() {
 		//graphstructure/tools/changeNameRelation
-		pattern = loader.load(testDirectoryGraphstructureDeleteGraph + "deleteGraph.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_GRAPHSTRUCTURE_DELETE_GRAPH + "deleteGraph.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("graph of pattern must not be null", graph != null);
 	}
@@ -183,7 +183,7 @@ public class Tests {
 	@Test
 	public void testGraphstructureElement() {
 		//graphstructure/tools/element
-		pattern = loader.load(testDirectoryGraphstructureElement + "elementGraph.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_GRAPHSTRUCTURE_ELEMENT + "elementGraph.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("graph must contain two elements", graph.getElements().size() == 2);
 	}
@@ -192,11 +192,11 @@ public class Tests {
 	@Test
 	public void testGraphstructureMarkAsReturnElement() {
 		//graphstructure/tools/markAsReturnElement
-		pattern = loader.load(testDirectoryGraphstructureMarkAsReturnElement + "markAsReturnElement.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_GRAPHSTRUCTURE_MARK_AS_RETURN_ELEMENT + "markAsReturnElement.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("graph must contain one returnelement", graph.getReturnElements().size() == 1);
 		
-		pattern = loader.load(testDirectoryGraphstructureMarkAsReturnElement + "markAsNoReturnElement.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_GRAPHSTRUCTURE_MARK_AS_RETURN_ELEMENT + "markAsNoReturnElement.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("graph must contain zero returnelement", graph.getReturnElements().size() == 0);
 	}
@@ -205,7 +205,7 @@ public class Tests {
 	@Test
 	public void testGraphstructureProperty() {
 		//graphstructure/tools/property
-		pattern = loader.load(testDirectoryGraphstructureProperty + "propertyElement.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_GRAPHSTRUCTURE_PROPERTY + "propertyElement.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("element must contain one property", graph.getElements().get(0).getProperties().size() == 1);
 	}
@@ -214,7 +214,7 @@ public class Tests {
 	@Test
 	public void testGraphstructureRelation() {
 		//graphstructure/tools/relation
-		pattern = loader.load(testDirectoryGraphstructureRelation + "relationGraph.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_GRAPHSTRUCTURE_RELATION + "relationGraph.patternstructure");
 		graph = pattern.getGraph();
 		relation = graph.getRelations().get(0);
 		assertTrue("graph must contain one relation, the attribute source must be element1, the attribute target must be element2", graph.getRelations().size() == 1 && relation.getSource().getName().equals("Element 1") && relation.getTarget().getName().equals("Element 2"));
@@ -223,7 +223,7 @@ public class Tests {
 	@Test
 	public void testOperatorsComparison() {
 		//operators/tools/comparison
-		pattern = loader.load(testDirectoryOperatorsComparison + "comparisonGraph.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_OPERATORS_COMPARISON + "comparisonGraph.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("operatorlist of graph must contain one comparison", graph.getOperatorList().getOperators().get(0) instanceof Comparison);
 	}
