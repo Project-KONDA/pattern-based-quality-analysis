@@ -11,6 +11,8 @@ import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.operators.impl.*;
 import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -58,6 +60,9 @@ public class Test09ComplexComparison {
 		
 		completePattern.createXMLAdaption();
 		completePattern.finalizeXMLAdaption();
+		
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().getOptions().add(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
 
 		return completePattern;
 	}
@@ -103,6 +108,9 @@ public class Test09ComplexComparison {
 		completePattern.getGraph().getRelations().get(0).adaptAsXMLNavigation();
 		completePattern.getGraph().getRelations().get(0).adaptAsXMLNavigation();
 		completePattern.finalizeXMLAdaption();
+		
+		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getOption().getOptions().add(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getOption().setValue(RelationKind.DESCENDANT);
 
 		return completePattern;
 	}
@@ -197,8 +205,8 @@ public class Test09ComplexComparison {
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		
-		testPairs.add(new PatternTestPair("COMPSELFPROPS", getPatternSelfTwoProperties(), "/*"));
-		testPairs.add(new PatternTestPair("COMPPROPPROP", getPatternTwoProperties(), "for $c in /*/* for $copy in $c/parent::*/*[(./data() = $c/data())] return $c/parent::*"));
+		testPairs.add(new PatternTestPair("COMPSELFPROPS", getPatternSelfTwoProperties(), "//*[./text()]"));
+		testPairs.add(new PatternTestPair("COMPPROPPROP", getPatternTwoProperties(), "for $c in //*/* for $copy in $c/parent::*/*[(./text() = $c/text())] return $c/parent::*"));
 		testPairs.add(new PatternTestPair("COMPELEL", getPatternTwoElements(), "for $c in /*/* for $copy in $c/parent::*/*[fn:deep-equal(.,$c)] return $c/parent::*"));
 		testPairs.add(new PatternTestPair("COMPOPOP", getPatternTwoOperators(), "/*[name()!='building']"));
 		

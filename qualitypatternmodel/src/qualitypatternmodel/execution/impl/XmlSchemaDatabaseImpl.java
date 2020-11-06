@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.execution.XmlSchemaDatabase;
 
 /**
@@ -38,6 +39,7 @@ import qualitypatternmodel.execution.XmlSchemaDatabase;
  *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getXmlDatabases <em>Xml Databases</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getElementNames <em>Element Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getAttributeNames <em>Attribute Names</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getRootElementNames <em>Root Element Names</em>}</li>
  * </ul>
  *
  * @generated
@@ -76,6 +78,16 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	protected EList<String> attributeNames;
 
 	/**
+	 * The cached value of the '{@link #getRootElementNames() <em>Root Element Names</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRootElementNames()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> rootElementNames;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -92,13 +104,16 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	@Override
 	public void analyse() throws BaseXException, QueryIOException, QueryException {
 		
-		if(elementNames.isEmpty()) {
+		if(getElementNames().isEmpty()) {
 			retrieveElementNames();
 			updateElementNamesInXmlDatabases();
 		}
-		if(attributeNames.isEmpty()) {			
+		if(getAttributeNames().isEmpty()) {			
 			retrieveAttributeNames();
 			updateAttributeNamesInXmlDatabases();
+		}
+		if(getRootElementNames().isEmpty()) {			
+			retrieveRootElementNames();
 		}
 		
 		// TODO: add namespace
@@ -119,13 +134,19 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	private void retrieveElementNames() throws QueryException, QueryIOException, BaseXException {
 		open();	
 		List<String> retrievedElementNames = execute("//*[name()=\"xs:element\"]/data(@name)");
-		elementNames.addAll(retrievedElementNames);
+		getElementNames().addAll(retrievedElementNames);
+	}
+	
+	private void retrieveRootElementNames() throws QueryException, QueryIOException, BaseXException {
+		open();	
+		List<String> retrievedElementNames = execute("/*/*[name()=\"xs:element\"]/data(@name)");
+		getRootElementNames().addAll(retrievedElementNames);
 	}
 
 	private void retrieveAttributeNames() throws QueryException, QueryIOException, BaseXException {
 		open();	
 		List<String> retrievedAttributeNames = execute("//*[name()=\"xs:attribute\"]/data(@name)");
-		attributeNames.addAll(retrievedAttributeNames);
+		getAttributeNames().addAll(retrievedAttributeNames);
 	}
 	
 	private EList<String> getElementNamesFromQueryExecution(String elementName, String queryPath, String xQueryMethodName) throws BaseXException, QueryException, QueryIOException {
@@ -172,6 +193,14 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 				")";
 	}
 	
+	@Override
+	public void setNamespace(String newNamespace) {
+		super.setNamespace(newNamespace);
+		for(XmlDatabase db : getXmlDatabases()) {
+			db.setNamespace(newNamespace);
+		}
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -206,14 +235,14 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 			elementNames = new EDataTypeUniqueEList<String>(String.class, this, ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES);
 		}
 		
-		if(elementNames.isEmpty()) {			
-			try {
-				retrieveElementNames();
-			} catch (QueryIOException | BaseXException | QueryException e) {
-				// do nothing
-//				e.printStackTrace();
-			}			
-		}
+//		if(elementNames.isEmpty()) {			
+//			try {
+//				retrieveElementNames();
+//			} catch (QueryIOException | BaseXException | QueryException e) {
+//				// do nothing
+////				e.printStackTrace();
+//			}			
+//		}
 		
 		return elementNames;
 	}
@@ -229,17 +258,30 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 			attributeNames = new EDataTypeUniqueEList<String>(String.class, this, ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES);
 		}
 		
-		if(attributeNames.isEmpty()) {
-			try {
-				retrieveAttributeNames();
-			} catch (QueryIOException | BaseXException | QueryException e) {
-				// do nothing
-//				e.printStackTrace();
-			}	
-			
-		}
+//		if(attributeNames.isEmpty()) {
+//			try {
+//				retrieveAttributeNames();
+//			} catch (QueryIOException | BaseXException | QueryException e) {
+//				// do nothing
+////				e.printStackTrace();
+//			}	
+//			
+//		}
 		
 		return attributeNames;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getRootElementNames() {
+		if (rootElementNames == null) {
+			rootElementNames = new EDataTypeUniqueEList<String>(String.class, this, ExecutionPackage.XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES);
+		}
+		return rootElementNames;
 	}
 
 	/**
@@ -285,6 +327,8 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 				return getElementNames();
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
 				return getAttributeNames();
+			case ExecutionPackage.XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES:
+				return getRootElementNames();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -310,6 +354,10 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 				getAttributeNames().clear();
 				getAttributeNames().addAll((Collection<? extends String>)newValue);
 				return;
+			case ExecutionPackage.XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES:
+				getRootElementNames().clear();
+				getRootElementNames().addAll((Collection<? extends String>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -331,6 +379,9 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
 				getAttributeNames().clear();
 				return;
+			case ExecutionPackage.XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES:
+				getRootElementNames().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -349,6 +400,8 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 				return elementNames != null && !elementNames.isEmpty();
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
 				return attributeNames != null && !attributeNames.isEmpty();
+			case ExecutionPackage.XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES:
+				return rootElementNames != null && !rootElementNames.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -513,6 +566,8 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		result.append(elementNames);
 		result.append(", attributeNames: ");
 		result.append(attributeNames);
+		result.append(", rootElementNames: ");
+		result.append(rootElementNames);
 		result.append(')');
 		return result.toString();
 	}

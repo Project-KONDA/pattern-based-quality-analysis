@@ -247,6 +247,15 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			removeUnusedAttributeNames();			
 		}
 		
+		try {
+			xmlSchema.init();
+		} catch (BaseXException | QueryIOException | QueryException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		setNamespace(xmlSchema.getNamespace());
+		
 		if(newXmlSchema != null) {
 			addElementNames(newXmlSchema.getElementNames());
 			addAttributeNames(newXmlSchema.getAttributeNames());

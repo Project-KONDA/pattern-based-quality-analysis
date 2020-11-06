@@ -85,6 +85,10 @@ public enum ReturnType implements Enumerator {
 	 */
 	DATETIME(8, "DATETIME", "DATETIME");
 
+	private static final String CATCH_CASTING_ERROR = "} catch err:FORG0001 { false() }";
+
+	private static final String TRY = "try {";
+
 	/**
 	 * The '<em><b>UNSPECIFIED</b></em>' literal value.
 	 * <!-- begin-user-doc -->
@@ -365,6 +369,40 @@ public enum ReturnType implements Enumerator {
 	
 	public String getConversionEnd() {
 		return conversionEnd;
+	}
+	
+	private String tryStatement;
+	
+	static {
+		NUMBER.tryStatement = TRY;
+		STRING.tryStatement = "";
+		BOOLEAN.tryStatement = TRY;
+		DATE.tryStatement = TRY;
+		TIME.tryStatement = TRY;
+		DATETIME.tryStatement = TRY;
+		ELEMENT.tryStatement = "";		
+		UNSPECIFIED.tryStatement = "";
+	}
+	
+	public String getTryStatement() {
+		return tryStatement;
+	}
+	
+	private String catchCastingError;
+	
+	static {
+		NUMBER.catchCastingError = CATCH_CASTING_ERROR;
+		STRING.catchCastingError = "";
+		BOOLEAN.catchCastingError = CATCH_CASTING_ERROR;
+		DATE.catchCastingError = CATCH_CASTING_ERROR;
+		TIME.catchCastingError = CATCH_CASTING_ERROR;
+		DATETIME.catchCastingError = CATCH_CASTING_ERROR;
+		ELEMENT.catchCastingError = "";		
+		UNSPECIFIED.catchCastingError = "";
+	}
+	
+	public String getCatchCastingError() {
+		return catchCastingError;
 	}
 	
 } //ReturnType

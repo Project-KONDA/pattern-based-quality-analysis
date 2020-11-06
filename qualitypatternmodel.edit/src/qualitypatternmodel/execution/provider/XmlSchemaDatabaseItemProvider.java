@@ -48,6 +48,7 @@ public class XmlSchemaDatabaseItemProvider
 			addXmlDatabasesPropertyDescriptor(object);
 			addElementNamesPropertyDescriptor(object);
 			addAttributeNamesPropertyDescriptor(object);
+			addRootElementNamesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -119,6 +120,28 @@ public class XmlSchemaDatabaseItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Root Element Names feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRootElementNamesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XmlSchemaDatabase_rootElementNames_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlSchemaDatabase_rootElementNames_feature", "_UI_XmlSchemaDatabase_type"),
+				 ExecutionPackage.Literals.XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns XmlSchemaDatabase.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,6 +181,7 @@ public class XmlSchemaDatabaseItemProvider
 		switch (notification.getFeatureID(XmlSchemaDatabase.class)) {
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES:
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
+			case ExecutionPackage.XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

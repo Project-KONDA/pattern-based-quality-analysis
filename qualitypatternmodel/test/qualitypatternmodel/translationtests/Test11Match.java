@@ -10,6 +10,7 @@ import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.operators.impl.*;
+import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -22,12 +23,12 @@ public class Test11Match {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getPatternMatch(true, "a"));
-		completePatterns.add(getPatternMatch(false, "a"));
-		completePatterns.add(getPatternMatch(true, "^a"));
-		completePatterns.add(getPatternMatch(true, "a$"));
-		completePatterns.add(getPatternMatch(true, "^a$"));
-		completePatterns.add(getPatternMatch(false, "^a$"));
+		completePatterns.add(getPatternMatch(true, "know"));
+		completePatterns.add(getPatternMatch(false, "u"));
+		completePatterns.add(getPatternMatch(true, "^unk"));
+		completePatterns.add(getPatternMatch(true, "own$"));
+		completePatterns.add(getPatternMatch(true, "^unknown$"));
+		completePatterns.add(getPatternMatch(false, "^unknown$"));
 		Test00.test(completePatterns);
 	}
 
@@ -39,20 +40,19 @@ public class Test11Match {
 		match.getOption().setValue(invert);
 		pattern.createXMLAdaption();
 		pattern.finalizeXMLAdaption();
+		((RelationOptionParam) pattern.getParameterList().getParameters().get(4)).setValue(RelationKind.DESCENDANT);
 		return pattern;		
 	}
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		
-		testPairs.add(new PatternTestPair("MATCHCHARINV", getPatternMatch(true, "a"), ""));
-		testPairs.add(new PatternTestPair("MATCHCHAR", getPatternMatch(false, "a"), ""));
-		testPairs.add(new PatternTestPair("MATCHBEG", getPatternMatch(true, "^a"), ""));		
-		testPairs.add(new PatternTestPair("MATCHEND", getPatternMatch(true, "a$"), ""));
-		testPairs.add(new PatternTestPair("MATCHEXACTINV", getPatternMatch(true, "^a$"), ""));		
-		testPairs.add(new PatternTestPair("MATCHEXACT", getPatternMatch(false, "^a$"), ""));
-
-		// TODO: complete test cases
+		testPairs.add(new PatternTestPair("MATCH_IN", getPatternMatch(true, "know"), "//*[./text()[matches(., 'know')]]"));
+		testPairs.add(new PatternTestPair("MATCH_NOT", getPatternMatch(false, "u"), "//*[./text()[not(matches(., 'u'))]]"));
+		testPairs.add(new PatternTestPair("MATCH_START", getPatternMatch(true, "^unk"), "//*[./text()[matches(., '^unk')]]"));		
+		testPairs.add(new PatternTestPair("MATCH_END", getPatternMatch(true, "own$"), "//*[./text()[matches(., 'own$')]]"));
+		testPairs.add(new PatternTestPair("MATCH_EXACT", getPatternMatch(true, "^unknown$"), "//*[./text()[matches(., '^unknown$')]]"));		
+		testPairs.add(new PatternTestPair("MATCH_NOTEXACT", getPatternMatch(false, "^unknown$"), "//*[./text()[not(matches(., '^unknown$'))]]"));
 		
 		return testPairs;
 	}

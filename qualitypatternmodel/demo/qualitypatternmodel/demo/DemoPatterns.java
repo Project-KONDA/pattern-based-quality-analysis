@@ -1,19 +1,9 @@
 package qualitypatternmodel.demo;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.basex.core.BaseXException;
-import org.basex.core.Context;
-import org.basex.core.cmd.CreateDB;
-import org.basex.core.cmd.Open;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
-import org.basex.query.QueryProcessor;
-import org.basex.query.iter.Iter;
-import org.basex.query.value.item.Item;
-
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
@@ -22,6 +12,14 @@ import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.execution.Database;
+import qualitypatternmodel.execution.Databases;
+import qualitypatternmodel.execution.LocalXmlDataDatabase;
+import qualitypatternmodel.execution.LocalXmlSchemaDatabase;
+import qualitypatternmodel.execution.Result;
+import qualitypatternmodel.execution.impl.DatabasesImpl;
+import qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl;
+import qualitypatternmodel.execution.impl.LocalXmlSchemaDatabaseImpl;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.Property;
@@ -43,14 +41,34 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
 
+import static qualitypatternmodel.testutility.DatabaseConstants.*;
+
 public class DemoPatterns {
-	private static final String DEMO_DATA_PATH = "demo.data/demo_database.xml";
-	private static final String DEMO_DATABASE_NAME = "DemoDatabase";
-	private static final String DEMO_NAMESPACE = "demo:";
+
 	
-	private static Context context;
+	private static CompletePattern compConcrete;
+	private static CompletePattern cardConcrete;
+	private static CompletePattern funcConcrete;
+	private static LocalXmlDataDatabase database;
+	private static LocalXmlSchemaDatabase schema;
+	private static Databases databases;
 	
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException, QueryException {
+		
+		database = new LocalXmlDataDatabaseImpl(DEMO_DATABASE_NAME, DEMO_DATA_PATH);        
+        schema = new LocalXmlSchemaDatabaseImpl(DEMO_SCHEMA_NAME, DEMO_SCHEMA_PATH);
+        schema.setNamespace(DEMO_NAMESPACE);   
+        database.setXmlSchema(schema);             
+        database.init();
+        
+        databases = DatabasesImpl.getInstance();
+        databases.getXmlDatabases().add(database);
+        databases.getXmlSchemata().add(schema);
+        
+        compConcrete = getConcreteCompPattern(database);
+        cardConcrete = getConcreteCardPattern(database);
+        funcConcrete = getConcreteFuncPattern(database);
+        
 		exportAllDemoPatterns();
 		printAllDemoPatternQueries();
 		executeAllDemoPatterns();
@@ -59,116 +77,77 @@ public class DemoPatterns {
 	
 	private static void executeAllDemoPatterns() throws BaseXException, InvalidityException, OperatorCycleException, MissingPatternContainerException, QueryIOException, QueryException {
 		
-		createContext();
-		openDemoDatabase();
+		System.out.println("\n\n\n>>> Executing demo patterns:");		
 		
-		CompletePattern compConcrete = getConcreteCompPattern();
-		List<String> compResult = executePattern(compConcrete);
-		printExecutionResult(compConcrete, compResult);
+		Result compResult = database.execute(compConcrete, "COMP demo execution", "Joe Cool");
+		printExecutionResult(compConcrete, compResult);		
 		
-		CompletePattern cardConcrete = getConcreteCardPattern();
-		List<String> cardResult = executePattern(cardConcrete);
-		printExecutionResult(cardConcrete, cardResult);
+		Result cardResult = database.execute(cardConcrete, "CARD demo execution", "Joe Cool");
+		printExecutionResult(cardConcrete, cardResult);		
 		
-		CompletePattern funcConcrete = getConcreteFuncPattern();
-		List<String> funcResult = executePattern(funcConcrete);
+		Result funcResult = database.execute(funcConcrete, "FUNC demo execution", "Joe Cool");
 		printExecutionResult(funcConcrete, funcResult);
 				
 	}
 	
-	private static void printExecutionResult(CompletePattern pattern, List<String> result) {
-		System.out.println("\n*** Result of applying the pattern "+pattern.getName()+" to the demo database ***");
+	private static void printExecutionResult(CompletePattern pattern, Result result) {
+		System.out.println("\n\n*** Result of applying the pattern "+pattern.getName()+" to the demo database ***");
+		System.out.println("\n| Runtime: " + result.getRuntime() + " milliseconds");
+		System.out.println("| Number of problems found: " + result.getProblemNumber());
+		
 		int i = 1;
-		for(String item : result) {
+		for(String item : result.getSplitResult()) {
 			System.out.println("\n--- Item " + i + " ---");
 			System.out.println(item);
 			i++;
 		}
-	}
-	
-	private static List<String> executePattern(CompletePattern pattern) throws InvalidityException, QueryException, QueryIOException, BaseXException {
-		
-		String query;
-		if(pattern.getQuery() == null) {
-			query = pattern.generateQuery();
-		} else {
-			query = pattern.getQuery();
-		}
-		
-//		Date startDate = new Date();
-		
-		List<String> queryResult = new ArrayList<String>();
-	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
-	      Iter iter = proc.iter();
-	      for(Item item; (item = iter.next()) != null;) {
-	    	  queryResult.add(item.serialize().toString());
-	        }
-	    }
-		
-//		Date endDate = new Date();
-//		long runtime = endDate.getTime() - startDate.getTime();
-	    
-	    return queryResult;
-	}
-	
-	private static void createContext() {
-		context = new Context();
-	}
-	
-	private static void openDemoDatabase() {
-		try {
-			new Open(DEMO_DATABASE_NAME).execute(context);
-		} catch (BaseXException e) {
-			try {
-				new CreateDB(DEMO_DATABASE_NAME, DEMO_DATA_PATH).execute(context);
-			} catch (BaseXException e1) {
-				e1.printStackTrace();
-			}
-		}				
-	}
+	}	
 
 	private static void exportAllDemoPatterns()
 			throws IOException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
+		Util.exportToFile(databases,"instances/demo/databases", "execution");
+		
 		CompletePattern compGeneric = getGenericCompPattern();
-		Util.exportToFile(compGeneric,"instances/demo/comp_generic.patternstructure");
+		Util.exportToFile(compGeneric,"instances/demo/comp_generic", "patternstructure");
 		CompletePattern compAbstract = getAbstractCompPattern();
-		Util.exportToFile(compAbstract,"instances/demo/comp_abstract.patternstructure");
-		CompletePattern compConcrete = getConcreteCompPattern();				
-		Util.exportToFile(compConcrete,"instances/demo/comp_concrete.patternstructure");
+		Util.exportToFile(compAbstract,"instances/demo/comp_abstract", "patternstructure");
+		CompletePattern compConcrete = getConcreteCompPattern(database);			
+		Util.exportToFile(compConcrete,"instances/demo/comp_concrete", "patternstructure");
 		
 		CompletePattern cardGeneric = getGenericCardPattern();
-		Util.exportToFile(cardGeneric,"instances/demo/card_generic.patternstructure");
+		Util.exportToFile(cardGeneric,"instances/demo/card_generic", "patternstructure");
 		CompletePattern cardAbstract = getAbstractCardPattern();
-		Util.exportToFile(cardAbstract,"instances/demo/card_abstract.patternstructure");
-		CompletePattern cardConcrete = getConcreteCardPattern();				
-		Util.exportToFile(cardConcrete,"instances/demo/card_concrete.patternstructure");
+		Util.exportToFile(cardAbstract,"instances/demo/card_abstract", "patternstructure");
+		CompletePattern cardConcrete = getConcreteCardPattern(database);				
+		Util.exportToFile(cardConcrete,"instances/demo/card_concrete", "patternstructure");
 		
 		CompletePattern funcGeneric = getGenericFuncPattern();
-		Util.exportToFile(funcGeneric,"instances/demo/func_generic.patternstructure");
+		Util.exportToFile(funcGeneric,"instances/demo/func_generic", "patternstructure");
 		CompletePattern funcAbstract = getAbstractFuncPattern();
-		Util.exportToFile(funcAbstract,"instances/demo/func_abstract.patternstructure");
-		CompletePattern funcConcrete = getConcreteFuncPattern();				
-		Util.exportToFile(funcConcrete,"instances/demo/func_concrete.patternstructure");
+		Util.exportToFile(funcAbstract,"instances/demo/func_abstract", "patternstructure");
+		CompletePattern funcConcrete = getConcreteFuncPattern(database);				
+		Util.exportToFile(funcConcrete,"instances/demo/func_concrete", "patternstructure");
+		
+		System.out.println(">>> Exported demo patterns to folder 'instances/demo/'");
 	}
 
 	private static void printAllDemoPatternQueries()
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
-		CompletePattern compConcrete = getConcreteCompPattern();
+		System.out.println("\n\n\n>>> Printing queries of demo patterns:");
+		
 		printPatternQuery(compConcrete);
 		
-		CompletePattern cardConcrete = getConcreteCardPattern();
 		printPatternQuery(cardConcrete);
 		
-		CompletePattern funcConcrete = getConcreteFuncPattern();
 		printPatternQuery(funcConcrete);
 	}
 	
 	private static void printPatternQuery(CompletePattern pattern)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		pattern.isValid(AbstractionLevel.CONCRETE);
-		System.out.println("\n*** "+pattern.getName()+" query ***");
+		System.out.println("\n\n*** "+pattern.getName()+" query ***");
 		System.out.println(pattern.generateQuery());
 	}
 	
@@ -239,9 +218,10 @@ public class DemoPatterns {
 		return completePattern;
 	}
 
-	public static CompletePattern getConcreteCompPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getConcreteCompPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getAbstractCompPattern();
 		completePattern.setName("Comp [concrete]");
+		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
 		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
@@ -362,9 +342,10 @@ public class DemoPatterns {
 		return completePattern;
 	}
 	
-	public static CompletePattern getConcreteCardPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getConcreteCardPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getAbstractCardPattern();
 		completePattern.setName("Card [concrete]");
+		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
 		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
@@ -536,9 +517,10 @@ public class DemoPatterns {
 		return completePattern;
 	}
 	
-	public static CompletePattern getConcreteFuncPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getConcreteFuncPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getAbstractFuncPattern();
 		completePattern.setName("Func [concrete]");
+		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
 		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);

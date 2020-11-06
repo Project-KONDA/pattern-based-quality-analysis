@@ -1391,13 +1391,22 @@ public interface ExecutionPackage extends EPackage {
 	int XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES = XML_DATABASE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Root Element Names</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES = XML_DATABASE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Xml Schema Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE_FEATURE_COUNT = XML_DATABASE_FEATURE_COUNT + 3;
+	int XML_SCHEMA_DATABASE_FEATURE_COUNT = XML_DATABASE_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Analyse</em>' operation.
@@ -1687,6 +1696,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOCAL_XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES = XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES;
+
+	/**
+	 * The feature id for the '<em><b>Root Element Names</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES = XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES;
 
 	/**
 	 * The feature id for the '<em><b>Schema Path</b></em>' attribute.
@@ -1994,6 +2012,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES = XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES;
+
+	/**
+	 * The feature id for the '<em><b>Root Element Names</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES = XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES;
 
 	/**
 	 * The number of structural features of the '<em>Server Xml Schema Database</em>' class.
@@ -2810,6 +2837,17 @@ public interface ExecutionPackage extends EPackage {
 	EAttribute getXmlSchemaDatabase_AttributeNames();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.execution.XmlSchemaDatabase#getRootElementNames <em>Root Element Names</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Root Element Names</em>'.
+	 * @see qualitypatternmodel.execution.XmlSchemaDatabase#getRootElementNames()
+	 * @see #getXmlSchemaDatabase()
+	 * @generated
+	 */
+	EAttribute getXmlSchemaDatabase_RootElementNames();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlSchemaDatabase#checkFollowingInSchema(java.lang.String, java.lang.String) <em>Check Following In Schema</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3603,6 +3641,14 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES = eINSTANCE.getXmlSchemaDatabase_AttributeNames();
+
+		/**
+		 * The meta object literal for the '<em><b>Root Element Names</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES = eINSTANCE.getXmlSchemaDatabase_RootElementNames();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Following In Schema</b></em>' operation.

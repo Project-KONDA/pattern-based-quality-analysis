@@ -93,10 +93,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	@Override
 	public String generateQuery() throws InvalidityException {
 		if(option!=null && regularExpression != null && regularExpression.getValue() != null && property != null) {
-			if (option.getValue()){
-				return "matches(" + property.generateQuery() + ", \"" + regularExpression.getValue() + "\")";
+			if (option.getValue()){				
+				return property.generateQuery() + "[matches(., \"" + regularExpression.getValue() + "\")]";				
 			} else {
-				return "not(matches(" + property.generateQuery() + ", \"" + regularExpression.getValue() + "\"))";
+				return property.generateQuery() + "[not(matches(., \"" + regularExpression.getValue() + "\"))]";
 			}	
 		} else {
 			throw new InvalidityException("invalid option");

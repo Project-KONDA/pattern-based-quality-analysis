@@ -629,6 +629,7 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/xmlDatabases"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/elementNames"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/attributeNames"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/rootElementNames"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkFollowingInSchema">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkFollowingInSchema/elementName1"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlSchemaDatabase/checkFollowingInSchema/elementName2"/>

@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"qualitypatternmodel.graphstructure"},{"l":"qualitypatternmodel.graphstructure.impl"}]

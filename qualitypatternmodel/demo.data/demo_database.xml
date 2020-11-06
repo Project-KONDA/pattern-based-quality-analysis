@@ -4,7 +4,7 @@
 
 	<!--  BUILDINGS -->
 	
-	<demo:building demo:id="101">
+	<demo:building demo:id="101" demo:recorded="2020-11-01T09:00:00" demo:last-modified-date="2020-11-01" demo:last-modified-time="09:00:00">
 		<demo:name>Empire State Building</demo:name>
 		<demo:city>New York City</demo:city>
 		<demo:country>USA</demo:country>	
@@ -16,7 +16,7 @@
 		</demo:address>
 	</demo:building>	
 	
-	<demo:building demo:id="102">
+	<demo:building demo:id="102" demo:recorded="2020-11-01T09:00:00" demo:last-modified-date="2020-11-01" demo:last-modified-time="09:00:00">
 		<demo:name>Chrysler Building</demo:name>
 		<demo:city>New York City</demo:city>
 		<demo:country>unknown</demo:country>
@@ -28,7 +28,7 @@
 		</demo:address>
 	</demo:building>
 	
-	<demo:building demo:id="103">
+	<demo:building demo:id="103" demo:recorded="2020-11-01T09:00:00" demo:last-modified-date="2020-11-01" demo:last-modified-time="09:00:00">
 		<demo:name>Royal Palace</demo:name>
 		<demo:city>unknown</demo:city>
 		<demo:country>unknown</demo:country>
@@ -42,26 +42,26 @@
 	
 	<!--  PAINTINGS -->
 	
-	<demo:painting demo:id="201">
+	<demo:painting demo:id="201" demo:recorded="2020-10-01T07:00:00">
 		<demo:title>The Starry Night</demo:title>
 		<demo:creator>401</demo:creator>
 		<demo:endwork>1889</demo:endwork>
 	</demo:painting>
 	
-	<demo:painting demo:id="202">
+	<demo:painting demo:id="202" demo:recorded="2020-10-02T08:00:00">
 		<demo:title>Wheatfield with Crows</demo:title>
 		<demo:creator>9</demo:creator>
 		<demo:endwork>1890</demo:endwork>
 	</demo:painting>
 	
-	<demo:painting demo:id="203">
+	<demo:painting demo:id="203" demo:recorded="2020-10-03T09:00:00" demo:modified="true" demo:last-modified-date="2020-10-03" demo:last-modified-time="09:00:00">
 		<demo:title>The Last Supper</demo:title>
 		<demo:creator>402</demo:creator>
 		<demo:startwork>1492</demo:startwork>
 		<demo:endwork>1498</demo:endwork>
 	</demo:painting>
 	
-	<demo:painting demo:id="204">
+	<demo:painting demo:id="204" demo:recorded="2020-10-04T10:00:00" demo:modified="true" demo:last-modified-date="2020-10-04" demo:last-modified-time="10:00:00">
 		<demo:title>Mona Lisa</demo:title>
 		<demo:title demo:lang="fr">La Gioconda</demo:title>
 		<demo:creator>402</demo:creator>
@@ -69,7 +69,7 @@
 		<demo:endwork>1516</demo:endwork>
 	</demo:painting>
 	
-	<demo:painting demo:id="205">
+	<demo:painting demo:id="205" demo:recorded="2020-11-01T09:00:00" demo:last-modified-date="2020-11-01" demo:last-modified-time="09:00:00">
 		<demo:title>Salvator Mundi</demo:title>
 		<demo:creator>402</demo:creator>
 		<demo:startwork>1490</demo:startwork>

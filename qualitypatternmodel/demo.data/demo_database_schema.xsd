@@ -28,7 +28,11 @@
 			</xs:element>
 			<xs:element name="address" type="demo:addressType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+		<xs:attribute name="recorded" type="xs:dateTime" use="required"/>
+		<xs:attribute name="modified" type="xs:boolean" default="false"/>	
+		<xs:attribute name="last-modified-date" type="xs:date"/>
+		<xs:attribute name="last-modified-time" type="xs:time"/>
 	</xs:complexType>
 
 	<xs:complexType name="paintingType">
@@ -46,7 +50,11 @@
 			<xs:element name="startwork" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="endwork" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>		
 		</xs:sequence>
-		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+		<xs:attribute name="recorded" type="xs:dateTime" use="required"/>
+		<xs:attribute name="modified" type="xs:boolean" default="false"/>		
+		<xs:attribute name="last-modified-date" type="xs:date"/>
+		<xs:attribute name="last-modified-time" type="xs:time"/>
 	</xs:complexType>
 
 	<xs:complexType name="personType">
@@ -55,7 +63,7 @@
 			<xs:element name="birthyear" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="deathyear" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
-		<xs:attribute name="id" type="xs:string"/>
+		<xs:attribute name="id" type="xs:string" use="required"/>
 	</xs:complexType>
 
 	<xs:complexType name="addressType">

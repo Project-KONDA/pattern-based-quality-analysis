@@ -20,8 +20,7 @@ public class EMFValidationPreparation {
 		 * "SettingDelegateFactory registration must occur before the static initialization of the EMF generated classes."
 		 */
 		
-//		String oclDelegateURI = OCLDelegateDomain.OCL_DELEGATE_URI+"/Pivot";
-//		String oclDelegateURI = OCLDelegateDomain.OCL_DELEGATE_URI;
+
 		String oclDelegateURI = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
 		EOperation.Internal.InvocationDelegate.Factory.Registry.INSTANCE.put(oclDelegateURI,
 				    new OCLInvocationDelegateFactory.Global());
