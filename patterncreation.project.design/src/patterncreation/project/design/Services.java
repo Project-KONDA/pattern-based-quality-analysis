@@ -24,6 +24,10 @@ import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IPartListener2;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IWorkbenchPartReference;
 import org.eclipse.ui.PlatformUI;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
@@ -2203,7 +2207,7 @@ public class Services {
     		selectedRelation = "xmlreference";
     	}
     }
-    
+    boolean isNewConcretePatternCreation = false;
     public boolean isFinalized(EObject self, EObject e) {
     	/*boolean isFinalized = false;
     	if(e instanceof CompletePattern) {
@@ -2227,7 +2231,24 @@ public class Services {
         	}
     	}
     	System.out.println("Finalisiert: "+isFinalized);
-    	return isFinalized;
+
+    	IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+    	   //the active part
+    	   IWorkbenchPart active = page.getActivePart();
+    	   //adding a listener
+    	   IPartListener2 pl = new IPartListener2() {
+    	      public void partActivated(IWorkbenchPartReference ref) {
+    	         System.out.println("Active: "+ref.getTitle().equals("new ConcretPatternCreation"));
+    	         if(ref.getTitle().equals("new ConcretPatternCreation")){
+    	        	 isNewConcretePatternCreation = true;
+    	         }else {
+    	        	 isNewConcretePatternCreation = false;
+    	         }
+    	      }
+    	   };
+    	   page.addPartListener(pl);
+    	
+    	return isNewConcretePatternCreation;//isFinalized;
     }
     
     public void addComparison(EObject self) {
@@ -2497,10 +2518,15 @@ public class Services {
     	return isComparisonOptionParam;
     }
     
-    public boolean isTypeOptionParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein typeoption ist
+    public boolean isTypeOptionParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein typeoption ist, falls property property vergleich, soll es nicht eingestellt werden, deshalb dann false
     	boolean isTypeOptionParam = false;
     	if(iterator instanceof TypeOptionParam) {
-    		isTypeOptionParam = true;
+    		TypeOptionParam typeOption = (TypeOptionParam) iterator;
+    		EList<Comparison> comparisons = typeOption.getTypeComparisons();
+    		Comparison comparison = comparisons.get(0);
+    		if(comparison.getArgument1() instanceof Property && comparison.getArgument2() instanceof Property) {
+    			isTypeOptionParam = true;
+    		}
     	}
     	return isTypeOptionParam;
     }
