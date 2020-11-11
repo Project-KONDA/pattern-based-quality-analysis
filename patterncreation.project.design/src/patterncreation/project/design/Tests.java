@@ -62,29 +62,29 @@ public class Tests {
 	private static final String TEST_DIRECTORY_GRAPHSTRUCTURE_PROPERTY = TEST_DIRECTORY_GENERIC + "graphstructure/tools/property/";
 	private static final String TEST_DIRECTORY_GRAPHSTRUCTURE_RELATION = TEST_DIRECTORY_GENERIC + "graphstructure/tools/relation/";
 	private static final String TEST_DIRECTORY_OPERATORS_COMPARISON = TEST_DIRECTORY_GENERIC + "operators/tools/comparison/";
-	private static final String testDirectoryOperatorsDiscardArgument = TEST_DIRECTORY_GENERIC + "operators/tools/discardArgument/";
-	private static final String testDirectoryOperatorsMatch = TEST_DIRECTORY_GENERIC + "operators/tools/match/";
-	private static final String testDirectoryOperatorsSelectElementAsArgument = TEST_DIRECTORY_GENERIC + "operators/tools/selectElementAsArgument/";
-	private static final String testDirectoryOperatorsSelectParameterAsArgument = TEST_DIRECTORY_GENERIC + "operators/tools/selectParameterAsArgument/";
-	private static final String testDirectoryOperatorsSelectPropertyAsArgument = TEST_DIRECTORY_GENERIC + "operators/tools/selectPropertyAsArgument/";
-	private static final String testDirectoryParametersBoolean = TEST_DIRECTORY_GENERIC + "parameters/tools/boolean/";
-	private static final String testDirectoryParametersDate = TEST_DIRECTORY_GENERIC + "parameters/tools/date/";
-	private static final String testDirectoryParametersDateAndTime = TEST_DIRECTORY_GENERIC + "parameters/tools/dateAndTime/";
-	private static final String testDirectoryParametersNumber = TEST_DIRECTORY_GENERIC + "parameters/tools/number/";
-	private static final String testDirectoryParametersTextList = TEST_DIRECTORY_GENERIC + "parameters/tools/textList/";
-	private static final String testDirectoryParametersTextLiteral = TEST_DIRECTORY_GENERIC + "parameters/tools/textLiteral/";
-	private static final String testDirectoryParametersTime = TEST_DIRECTORY_GENERIC + "parameters/tools/time/";
-	private static final String testDirectoryParametersUntypedValue = TEST_DIRECTORY_GENERIC + "parameters/tools/untypedValue/";
-	private static final String testDirectoryPatternstructureChangeNameCompletePattern = TEST_DIRECTORY_GENERIC + "patternstructure/tools/changeNameCompletePattern/";
-	private static final String testDirectoryPatternstructureChangeOperator = TEST_DIRECTORY_GENERIC + "patternstructure/tools/changeOperator/";
-	private static final String testDirectoryPatternstructureChangeQuantifier = TEST_DIRECTORY_GENERIC + "patternstructure/tools/changeQuantifier/";
-	private static final String testDirectoryPatternstructureCoutnCondition = TEST_DIRECTORY_GENERIC + "patternstructure/tools/countCondition/";
-	private static final String testDirectoryPatternstructureCountPattern = TEST_DIRECTORY_GENERIC + "patternstructure/tools/countPattern/";
-	private static final String testDirectoryPatternstructureFormula = TEST_DIRECTORY_GENERIC + "patternstructure/tools/formula/";
-	private static final String testDirectoryPatternstructureNotCondition = TEST_DIRECTORY_GENERIC + "patternstructure/tools/notCondition/";
-	private static final String testDirectoryPatternstructureNumberElement = TEST_DIRECTORY_GENERIC + "patternstructure/tools/numberElement/";
-	private static final String testDirectoryPatternstructureQuantifiedCondition = TEST_DIRECTORY_GENERIC + "patternstructure/tools/quantifiedCondition/";
-	private static final String testDirectoryPatternstructureTrueElement = TEST_DIRECTORY_GENERIC + "patternstructure/tools/trueElement/";
+	private static final String TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT = TEST_DIRECTORY_GENERIC + "operators/tools/discardArgument/";
+	private static final String TEST_DIRECTORY_OPERATORS_MATCH = TEST_DIRECTORY_GENERIC + "operators/tools/match/";
+	private static final String TEST_DIRECTORY_OPERATORS_SELECT_ELEMENT_AS_ARGUMENT = TEST_DIRECTORY_GENERIC + "operators/tools/selectElementAsArgument/";
+	private static final String TEST_DIRECTORY_OPERATORS_SELECT_PARAMETERS_AS_ARGUMENT = TEST_DIRECTORY_GENERIC + "operators/tools/selectParameterAsArgument/";
+	private static final String TEST_DIRECTORY_OPERATORS_SELECT_PROPERTY_AS_ARGUMENT = TEST_DIRECTORY_GENERIC + "operators/tools/selectPropertyAsArgument/";
+	private static final String TEST_DIRECTORY_PARAMETERS_BOOLEAN = TEST_DIRECTORY_GENERIC + "parameters/tools/boolean/";
+	private static final String TEST_DIRECTORY_PARAMETERS_DATE = TEST_DIRECTORY_GENERIC + "parameters/tools/date/";
+	private static final String TEST_DIRECTORY_PARAMETERS_DATE_AND_TIME = TEST_DIRECTORY_GENERIC + "parameters/tools/dateAndTime/";
+	private static final String TEST_DIRECTORY_PARAMETERS_NUMBER = TEST_DIRECTORY_GENERIC + "parameters/tools/number/";
+	private static final String TEST_DIRECTORY_PARAMETERS_TEXTLIST = TEST_DIRECTORY_GENERIC + "parameters/tools/textList/";
+	private static final String TEST_DIRECTORY_PARAMETERS_TEXTLITERAL = TEST_DIRECTORY_GENERIC + "parameters/tools/textLiteral/";
+	private static final String TEST_DIRECTORY_PARAMETERS_TIME = TEST_DIRECTORY_GENERIC + "parameters/tools/time/";
+	private static final String TEST_DIRECTORY_PARAMETERS_UNTYPEDVALUE = TEST_DIRECTORY_GENERIC + "parameters/tools/untypedValue/";
+	private static final String TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_NAME_COMPLETEPATTERN = TEST_DIRECTORY_GENERIC + "patternstructure/tools/changeNameCompletePattern/";
+	private static final String TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_OPERATOR = TEST_DIRECTORY_GENERIC + "patternstructure/tools/changeOperator/";
+	private static final String TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_QUANTIFIER = TEST_DIRECTORY_GENERIC + "patternstructure/tools/changeQuantifier/";
+	private static final String TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTCONDITION = TEST_DIRECTORY_GENERIC + "patternstructure/tools/countCondition/";
+	private static final String TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTPATTERN = TEST_DIRECTORY_GENERIC + "patternstructure/tools/countPattern/";
+	private static final String TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA = TEST_DIRECTORY_GENERIC + "patternstructure/tools/formula/";
+	private static final String TEST_DIRECTORY_PATTERNSTRUCTURE_NOTCONDITION = TEST_DIRECTORY_GENERIC + "patternstructure/tools/notCondition/";
+	private static final String TEST_DIRECTORY_PATTERNSTRUCTURE_NUMBERELEMENT = TEST_DIRECTORY_GENERIC + "patternstructure/tools/numberElement/";
+	private static final String TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION = TEST_DIRECTORY_GENERIC + "patternstructure/tools/quantifiedCondition/";
+	private static final String TEST_DIRECTORY_PATTERNSTRUCTURE_TRUEELEMENT = TEST_DIRECTORY_GENERIC + "patternstructure/tools/trueElement/";
 	//abstract
 	private static final String testDirectoryAbstract = "Tests/AbstractPatternTests/";
 	private static final String testDirectoryBehavior = testDirectoryAbstract + "behavior/";
@@ -231,27 +231,27 @@ public class Tests {
 	@Test
 	public void testOperatorsDiscardArgument() {
 		//operators/tools/discardArgument
-		pattern = loader.load(testDirectoryOperatorsDiscardArgument + "discardArgument1Comparison.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgument1Comparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("comparison must have an empty argument1", comparison.getArgument1() == null);
 		
-		pattern = loader.load(testDirectoryOperatorsDiscardArgument + "discardArgument2Comparison.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgument2Comparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("comparison must have an empty argument2", comparison.getArgument2() == null);
 		
-		pattern = loader.load(testDirectoryOperatorsDiscardArgument + "discardArgument2Match.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgument2Match.patternstructure");
 		match = (Match) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("match must have an empty property", match.getProperty() == null);
 		
-		pattern = loader.load(testDirectoryOperatorsDiscardArgument + "discardArgumentComparison1.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgumentComparison1.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("comparison must have an empty argument1", comparison.getArgument1() == null);
 		
-		pattern = loader.load(testDirectoryOperatorsDiscardArgument + "discardArgumentComparison2.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgumentComparison2.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("comparison must have an empty argument2", comparison.getArgument2() == null);
 		
-		pattern = loader.load(testDirectoryOperatorsDiscardArgument + "discardArgumentMatch.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgumentMatch.patternstructure");
 		match = (Match) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("match must have an empty property", match.getProperty() == null);
 	}
@@ -259,7 +259,7 @@ public class Tests {
 	@Test
 	public void testOperatorsMatch() {
 		//operators/tools/match
-		pattern = loader.load(testDirectoryOperatorsMatch + "matchGraph.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_OPERATORS_MATCH + "matchGraph.patternstructure");
 		match = (Match) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("operatorlist of graph must contain one match", match instanceof Match);
 	}
@@ -267,11 +267,11 @@ public class Tests {
 	@Test
 	public void testOperatorsSelectElementAsArgument() {
 		//operators/tools/selectElementAsArgument
-		pattern = loader.load(testDirectoryOperatorsSelectElementAsArgument + "selectElementComparison1.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_OPERATORS_SELECT_ELEMENT_AS_ARGUMENT + "selectElementComparison1.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument1 of comparison must contain Element 1", ((Element) comparison.getArgument1()).getName().equals("Element 1"));
 		
-		pattern = loader.load(testDirectoryOperatorsSelectElementAsArgument + "selectElementComparison2.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_OPERATORS_SELECT_ELEMENT_AS_ARGUMENT + "selectElementComparison2.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument1 of comparison must contain Element 3", ((Element) comparison.getArgument2()).getName().equals("Element 3"));
 	}
@@ -279,7 +279,7 @@ public class Tests {
 	@Test
 	public void testOperatorsSelectParameterAsArgument() {
 		//operators/tools/selectParameterAsArgument
-		pattern = loader.load(testDirectoryOperatorsSelectParameterAsArgument + "selectParameterComparison.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_OPERATORS_SELECT_PARAMETERS_AS_ARGUMENT + "selectParameterComparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(1);
 		assertTrue("argument2 of comparison must contain Number 4", comparison.getInternalId() == 2 && comparison.getArgument2() instanceof NumberParam);
 	}
@@ -287,15 +287,15 @@ public class Tests {
 	@Test
 	public void testOperatorsSelectPropertyAsArgument() {
 		//operators/tools/selectPropertyAsArgument
-		pattern = loader.load(testDirectoryOperatorsSelectPropertyAsArgument + "selectPropertyComparison1.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_OPERATORS_SELECT_PROPERTY_AS_ARGUMENT + "selectPropertyComparison1.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument1 of comparison must contain one property", comparison.getArgument1() instanceof Property);
 		
-		pattern = loader.load(testDirectoryOperatorsSelectPropertyAsArgument + "selectPropertyComparison2.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_OPERATORS_SELECT_PROPERTY_AS_ARGUMENT + "selectPropertyComparison2.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one property", comparison.getArgument2() instanceof Property);
 		
-		pattern = loader.load(testDirectoryOperatorsSelectPropertyAsArgument + "selectPropertyMatch.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_OPERATORS_SELECT_PROPERTY_AS_ARGUMENT + "selectPropertyMatch.patternstructure");
 		match = (Match) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of match must contain one property", match.getProperty() instanceof Property);
 	}
@@ -303,7 +303,7 @@ public class Tests {
 	@Test
 	public void testParametersBoolean() {
 		//parameters/tools/boolean
-		pattern = loader.load(testDirectoryParametersBoolean + "BooleanComparison.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_PARAMETERS_BOOLEAN + "BooleanComparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one BooleanParam", comparison.getArgument2() instanceof BooleanParam);
 	}
@@ -311,7 +311,7 @@ public class Tests {
 	@Test
 	public void testParametersDate() {
 		//parameters/tools/date
-		pattern = loader.load(testDirectoryParametersDate + "DateComparison.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_PARAMETERS_DATE + "DateComparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one DateParam", comparison.getArgument2() instanceof DateParam);
 	}
@@ -319,7 +319,7 @@ public class Tests {
 	@Test
 	public void testParametersDateAndTime() {
 		//parameters/tools/dateAndTime
-		pattern = loader.load(testDirectoryParametersDateAndTime + "DateTimeComparison.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_PARAMETERS_DATE_AND_TIME + "DateTimeComparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one DateTimeParam", comparison.getArgument2() instanceof DateTimeParam);
 	}
@@ -327,7 +327,7 @@ public class Tests {
 	@Test
 	public void testParametersNumber() {
 		//parameters/tools/number
-		pattern = loader.load(testDirectoryParametersNumber + "NumberComparison.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_PARAMETERS_NUMBER + "NumberComparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one NumberParam", comparison.getArgument2() instanceof NumberParam);
 	}
@@ -335,7 +335,7 @@ public class Tests {
 	@Test
 	public void testParametersTextList() {
 		//parameters/tools/textList
-		pattern = loader.load(testDirectoryParametersTextList + "TextListComparison.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_PARAMETERS_TEXTLIST + "TextListComparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one TextListParam", comparison.getArgument2() instanceof TextListParam);
 	}
@@ -343,7 +343,7 @@ public class Tests {
 	@Test
 	public void testParametersTextLiteral() {
 		//parameters/tools/textLiteral
-		pattern = loader.load(testDirectoryParametersTextLiteral + "TextLiteralComparison.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_PARAMETERS_TEXTLITERAL + "TextLiteralComparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one TextLiteralParam", comparison.getArgument2() instanceof TextLiteralParam);
 	}
@@ -351,7 +351,7 @@ public class Tests {
 	@Test
 	public void testParametersTime() {
 		//parameters/tools/time
-		pattern = loader.load(testDirectoryParametersTime + "TimeComparison.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_PARAMETERS_TIME + "TimeComparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one TimeParam", comparison.getArgument2() instanceof TimeParam);
 	}
@@ -359,7 +359,7 @@ public class Tests {
 	@Test
 	public void testParametersUntypedValue() {
 		//parameters/tools/untypedValue
-		pattern = loader.load(testDirectoryParametersUntypedValue + "UntypedValueComparison.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_PARAMETERS_UNTYPEDVALUE + "UntypedValueComparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one UntypedParameterValue", comparison.getArgument2() instanceof UntypedParameterValue);
 	}
@@ -367,30 +367,30 @@ public class Tests {
 	@Test
 	public void testChangeNameCompletePattern() {
 		//patternstructure/tools/changeNameCompletePattern
-		pattern = loader.load(testDirectoryPatternstructureChangeNameCompletePattern + "changeNameCompletePattern.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_NAME_COMPLETEPATTERN + "changeNameCompletePattern.patternstructure");
 		assertTrue("attribute of completePattern must be equal to \"Muster\"", pattern.getName().equals("Muster"));
 	}
 	
 	@Test
 	public void testPatternstructureChangeOperator() {
 		//patternstructure/tools/changeOperator
-		pattern = loader.load(testDirectoryPatternstructureChangeOperator + "andToEqual.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_OPERATOR + "andToEqual.patternstructure");
 		formula = (Formula) pattern.getCondition();
         assertTrue("operator of formula must be equal", formula.getOperator() == LogicalOperator.EQUAL);
         
-        pattern = loader.load(testDirectoryPatternstructureChangeOperator + "andToImplies.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_OPERATOR + "andToImplies.patternstructure");
 		formula = (Formula) pattern.getCondition();
         assertTrue("operator of formula must be implies", formula.getOperator() == LogicalOperator.IMPLIES);
         
-        pattern = loader.load(testDirectoryPatternstructureChangeOperator + "andToOr.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_OPERATOR + "andToOr.patternstructure");
 		formula = (Formula) pattern.getCondition();
         assertTrue("operator of formula must be or", formula.getOperator() == LogicalOperator.OR);
         
-        pattern = loader.load(testDirectoryPatternstructureChangeOperator + "andToXor.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_OPERATOR + "andToXor.patternstructure");
 		formula = (Formula) pattern.getCondition();
         assertTrue("operator of formula must be xor", formula.getOperator() == LogicalOperator.XOR);
         
-        pattern = loader.load(testDirectoryPatternstructureChangeOperator + "orToAnd.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_OPERATOR + "orToAnd.patternstructure");
 		formula = (Formula) pattern.getCondition();
         assertTrue("operator of formula must be and", formula.getOperator() == LogicalOperator.AND);
 	}
@@ -398,11 +398,11 @@ public class Tests {
 	@Test
 	public void testPatternstructureChangeQuantifier() {
 		//patternstructure/tools/changeQuantifier
-        pattern = loader.load(testDirectoryPatternstructureChangeQuantifier + "existsToForall.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_QUANTIFIER + "existsToForall.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("quantifier of quantifiedCondition must be forall", quantifiedCondition.getQuantifier() == Quantifier.FORALL);
         
-        pattern = loader.load(testDirectoryPatternstructureChangeQuantifier + "forallToExists.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_QUANTIFIER + "forallToExists.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("quantifier of quantifiedCondition must be exists", quantifiedCondition.getQuantifier() == Quantifier.EXISTS);
 	}
@@ -410,24 +410,24 @@ public class Tests {
 	@Test
 	public void testPatternstructureCountCondition() {
 		//patternstructure/tools/countCondition
-        pattern = loader.load(testDirectoryPatternstructureCoutnCondition + "countConditionCompletePattern.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTCONDITION + "countConditionCompletePattern.patternstructure");
         countCondition = (CountCondition) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of countCondition", countCondition instanceof CountCondition);
         
-        pattern = loader.load(testDirectoryPatternstructureCoutnCondition + "countConditionCountPattern.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTCONDITION + "countConditionCountPattern.patternstructure");
         countCondition = (CountCondition) pattern.getCondition();
         countPattern = (CountPattern) countCondition.getCountPattern();
         assertTrue("condition of CountPattern must be instance of countCondition", countPattern.getCondition() instanceof CountCondition);
         
-        pattern = loader.load(testDirectoryPatternstructureCoutnCondition + "countConditionFormula.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTCONDITION + "countConditionFormula.patternstructure");
         formula = (Formula) pattern.getCondition();
         assertTrue("conditions of formula must be instance of countCondition", formula.getCondition1() instanceof CountCondition && formula.getCondition2() instanceof CountCondition);
         
-        pattern = loader.load(testDirectoryPatternstructureCoutnCondition + "countConditionNotCondition.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTCONDITION + "countConditionNotCondition.patternstructure");
         notCondition = (NotCondition) pattern.getCondition();
         assertTrue("condition of notCondition must be instance of countCondition", notCondition.getCondition() instanceof CountCondition);
         
-        pattern = loader.load(testDirectoryPatternstructureCoutnCondition + "countConditionQuantifiedCondition.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTCONDITION + "countConditionQuantifiedCondition.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("condition of quantifiedCondition must be instance of countCondition", quantifiedCondition.getCondition() instanceof CountCondition);
 	}
@@ -435,7 +435,7 @@ public class Tests {
 	@Test
 	public void testPatternstructureCountPattern() {
 		//patternstructure/tools/countPattern
-        pattern = loader.load(testDirectoryPatternstructureCountPattern + "countPatternCountCondition.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTPATTERN + "countPatternCountCondition.patternstructure");
         countCondition = (CountCondition) pattern.getCondition();
         countPattern = (CountPattern) countCondition.getArgument2();
         assertTrue("argument2 of countCondition must be instance of countPattern", countPattern instanceof CountPattern);
@@ -444,64 +444,64 @@ public class Tests {
 	@Test
 	public void testPatternstructureFormula() {
 		//patternstructure/tools/formula
-      	pattern = loader.load(testDirectoryPatternstructureFormula + "formulaAnd.patternstructure");
+      	pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaAnd.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be and", formula.getOperator() == LogicalOperator.AND);
         
-        pattern = loader.load(testDirectoryPatternstructureFormula + "formulaAndDialog.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaAndDialog.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be and", formula.getOperator() == LogicalOperator.AND);
         
-        pattern = loader.load(testDirectoryPatternstructureFormula + "formulaCompletePattern.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaCompletePattern.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula", formula instanceof Formula);
         
-        pattern = loader.load(testDirectoryPatternstructureFormula + "formulaCountPattern.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaCountPattern.patternstructure");
         countCondition = (CountCondition) pattern.getCondition();
       	countPattern = countCondition.getCountPattern();
         assertTrue("condition of countPattern must be instance of formula", countPattern.getCondition() instanceof Formula);
         
-        pattern = loader.load(testDirectoryPatternstructureFormula + "formulaEqual.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaEqual.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be equal", formula.getOperator() == LogicalOperator.EQUAL);
         
-        pattern = loader.load(testDirectoryPatternstructureFormula + "formulaEqualDialog.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaEqualDialog.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be equal", formula.getOperator() == LogicalOperator.EQUAL);
         
-        pattern = loader.load(testDirectoryPatternstructureFormula + "formulaFormula.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaFormula.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("conditions of formula must be instance of formula", formula.getCondition1() instanceof Formula && formula.getCondition1() instanceof Formula);
         
-        pattern = loader.load(testDirectoryPatternstructureFormula + "formulaImplies.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaImplies.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be implies", formula.getOperator() == LogicalOperator.IMPLIES);
         
-        pattern = loader.load(testDirectoryPatternstructureFormula + "formulaImpliesDialog.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaImpliesDialog.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be implies", formula.getOperator() == LogicalOperator.IMPLIES);
         
-        pattern = loader.load(testDirectoryPatternstructureFormula + "formulaNotCondition.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaNotCondition.patternstructure");
       	notCondition = (NotCondition) pattern.getCondition();
         assertTrue("conditions of notcondition must be instance of formula", notCondition.getCondition() instanceof Formula);
         
-        pattern = loader.load(testDirectoryPatternstructureFormula + "formulaOr.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaOr.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be or", formula.getOperator() == LogicalOperator.OR);
         
-        pattern = loader.load(testDirectoryPatternstructureFormula + "formulaOrDialog.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaOrDialog.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be or", formula.getOperator() == LogicalOperator.OR);
         
-        pattern = loader.load(testDirectoryPatternstructureFormula + "formulaQuantifiedCondition.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaQuantifiedCondition.patternstructure");
       	quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("conditions of quantifiedCondition must be instance of formula", quantifiedCondition.getCondition() instanceof Formula);
         
-        pattern = loader.load(testDirectoryPatternstructureFormula + "formulaXor.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaXor.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be xor", formula.getOperator() == LogicalOperator.XOR);
         
-        pattern = loader.load(testDirectoryPatternstructureFormula + "formulaXorDialog.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaXorDialog.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be xor", formula.getOperator() == LogicalOperator.XOR);
 	}
@@ -509,23 +509,23 @@ public class Tests {
 	@Test
 	public void testPatternstructureNotCondition() {
 		//patternstructure/tools/notCondition
-      	pattern = loader.load(testDirectoryPatternstructureNotCondition + "notConditionCompletePattern.patternstructure");
+      	pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_NOTCONDITION + "notConditionCompletePattern.patternstructure");
         assertTrue("condition of CompletePattern must be instance of notCondition", pattern.getCondition() instanceof NotCondition);
         
-        pattern = loader.load(testDirectoryPatternstructureNotCondition + "notConditionCountPattern.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_NOTCONDITION + "notConditionCountPattern.patternstructure");
         countCondition = (CountCondition) pattern.getCondition();
         countPattern = countCondition.getCountPattern();
         assertTrue("condition of countPattern must be instance of notCondition", countPattern.getCondition() instanceof NotCondition);
         
-        pattern = loader.load(testDirectoryPatternstructureNotCondition + "notConditionFormula.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_NOTCONDITION + "notConditionFormula.patternstructure");
         formula = (Formula) pattern.getCondition();
         assertTrue("conditions of formula must be instance of notCondition", formula.getCondition1() instanceof NotCondition && formula.getCondition2() instanceof NotCondition);
         
-        pattern = loader.load(testDirectoryPatternstructureNotCondition + "notConditionNotCondition.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_NOTCONDITION + "notConditionNotCondition.patternstructure");
         notCondition = (NotCondition) pattern.getCondition();
         assertTrue("condition of notCondition must be instance of notCondition", notCondition.getCondition() instanceof NotCondition);
         
-        pattern = loader.load(testDirectoryPatternstructureNotCondition + "notConditionQuantifiedCondition.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_NOTCONDITION + "notConditionQuantifiedCondition.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("condition of quantifiedCondition must be instance of notCondition", quantifiedCondition.getCondition() instanceof NotCondition);
 	}
@@ -533,7 +533,7 @@ public class Tests {
 	@Test
 	public void testPatternstructureNumberElement() {
 		//patternstructure/tools/numberElement
-      	pattern = loader.load(testDirectoryPatternstructureNumberElement + "numberElementCountCondition.patternstructure");
+      	pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_NUMBERELEMENT + "numberElementCountCondition.patternstructure");
       	countCondition = (CountCondition) pattern.getCondition();
         assertTrue("condition of countCondition must be instance of numberElement", countCondition.getArgument2() instanceof NumberElement);
 	}
@@ -541,39 +541,39 @@ public class Tests {
 	@Test
 	public void testPatternstructureQuantifiedCondition() {
 		//patternstructure/tools/quantifiedCondition
-		pattern = loader.load(testDirectoryPatternstructureQuantifiedCondition + "quantifiedConditionCompletePattern.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionCompletePattern.patternstructure");
         assertTrue("condition of CompletePattern must be instance of quantifiedCondition", pattern.getCondition() instanceof QuantifiedCondition);
 
-        pattern = loader.load(testDirectoryPatternstructureQuantifiedCondition + "quantifiedConditionCountPattern.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionCountPattern.patternstructure");
         countCondition = (CountCondition) pattern.getCondition();
         countPattern = (CountPattern) countCondition.getArgument2();
         assertTrue("condition of CountPattern must be instance of quantifiedCondition", countPattern.getCondition() instanceof QuantifiedCondition);
         
-        pattern = loader.load(testDirectoryPatternstructureQuantifiedCondition + "quantifiedConditionExists.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionExists.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of quantifiedCondition and its quantifier must be exists", quantifiedCondition.getQuantifier() == Quantifier.EXISTS);
         
-        pattern = loader.load(testDirectoryPatternstructureQuantifiedCondition + "quantifiedConditionForall.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionForall.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of quantifiedCondition and its quantifier must be forall", quantifiedCondition.getQuantifier() == Quantifier.FORALL);
         
-        pattern = loader.load(testDirectoryPatternstructureQuantifiedCondition + "quantifiedConditionExistsDialog.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionExistsDialog.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of quantifiedCondition and its quantifier must be exists", quantifiedCondition.getQuantifier() == Quantifier.EXISTS);
         
-        pattern = loader.load(testDirectoryPatternstructureQuantifiedCondition + "quantifiedConditionForallDialog.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionForallDialog.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of quantifiedCondition and its quantifier must be forall", quantifiedCondition.getQuantifier() == Quantifier.FORALL);
         
-        pattern = loader.load(testDirectoryPatternstructureQuantifiedCondition + "quantifiedConditionFormula.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionFormula.patternstructure");
         formula = (Formula) pattern.getCondition();
         assertTrue("condition of formula must be instance of quantifiedCondition", formula.getCondition1() instanceof QuantifiedCondition && formula.getCondition2() instanceof QuantifiedCondition);
         
-        pattern = loader.load(testDirectoryPatternstructureQuantifiedCondition + "quantifiedConditionNotCondition.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionNotCondition.patternstructure");
         notCondition = (NotCondition) pattern.getCondition();
         assertTrue("condition of notCondition must be instance of quantifiedCondition", notCondition.getCondition() instanceof QuantifiedCondition);
         
-        pattern = loader.load(testDirectoryPatternstructureQuantifiedCondition + "quantifiedConditionQuantifiedCondition.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionQuantifiedCondition.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("condition of quantifiedCondition must be instance of quantifiedCondition", quantifiedCondition.getCondition() instanceof QuantifiedCondition);
 	}
@@ -581,23 +581,23 @@ public class Tests {
 	@Test
 	public void testPatternstructureTrueElement() {
 		//patternstructure/tools/trueElement
-      	pattern = loader.load(testDirectoryPatternstructureTrueElement + "trueElementCompletePattern.patternstructure");
+      	pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_TRUEELEMENT + "trueElementCompletePattern.patternstructure");
         assertTrue("condition of CompletePattern must be instance of trueElement", pattern.getCondition() instanceof TrueElement);
         
-        pattern = loader.load(testDirectoryPatternstructureTrueElement + "trueElementCountPattern.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_TRUEELEMENT + "trueElementCountPattern.patternstructure");
         countCondition = (CountCondition) pattern.getCondition();
         countPattern = countCondition.getCountPattern();
         assertTrue("condition of countPattern must be instance of trueElement", countPattern.getCondition() instanceof TrueElement);
         
-        pattern = loader.load(testDirectoryPatternstructureTrueElement + "trueElementFormula.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_TRUEELEMENT + "trueElementFormula.patternstructure");
         formula = (Formula) pattern.getCondition();
         assertTrue("conditions of formula must be instance of trueElement", formula.getCondition1() instanceof TrueElement && formula.getCondition2() instanceof TrueElement);
         
-        pattern = loader.load(testDirectoryPatternstructureTrueElement + "trueElementNotCondition.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_TRUEELEMENT + "trueElementNotCondition.patternstructure");
         notCondition = (NotCondition) pattern.getCondition();
         assertTrue("condition of notCondition must be instance of trueElement", notCondition.getCondition() instanceof TrueElement);
         
-        pattern = loader.load(testDirectoryPatternstructureTrueElement + "trueElementQuantifiedCondition.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_PATTERNSTRUCTURE_TRUEELEMENT + "trueElementQuantifiedCondition.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("condition of quantifiedCondition must be instance of trueElement", quantifiedCondition.getCondition() instanceof TrueElement);
 	}

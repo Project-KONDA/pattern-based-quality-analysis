@@ -7,4 +7,13 @@
 	       name="patterncreation">
     </component>
   </extension>
+  <extension
+        point="org.eclipse.ui.views">
+     <view
+           class="patterncreation.project.design.ViewExecutionPart1"
+           id="patterncreation.project.design.viewExecution"
+           name="Pattern execution"
+           restorable="true">
+     </view>
+  </extension>
 </plugin>
