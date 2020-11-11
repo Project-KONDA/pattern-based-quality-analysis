@@ -2245,6 +2245,47 @@ public class Services {
     	        	 isNewConcretePatternCreation = false;
     	         }
     	      }
+    	      @Override
+    	      public void partBroughtToTop(IWorkbenchPartReference partRef) {
+    	      // TODO Auto-generated method stub
+
+    	      }
+
+    	      @Override
+    	      public void partClosed(IWorkbenchPartReference partRef) {
+    	      // TODO Auto-generated method stub
+
+    	      }
+
+    	      @Override
+    	      public void partDeactivated(IWorkbenchPartReference partRef) {
+    	      // TODO Auto-generated method stub
+
+    	      }
+
+    	      @Override
+    	      public void partOpened(IWorkbenchPartReference partRef) {
+    	      // TODO Auto-generated method stub
+
+    	      }
+
+    	      @Override
+    	      public void partHidden(IWorkbenchPartReference partRef) {
+    	      // TODO Auto-generated method stub
+
+    	      }
+
+    	      @Override
+    	      public void partVisible(IWorkbenchPartReference partRef) {
+    	      // TODO Auto-generated method stub
+
+    	      }
+
+    	      @Override
+    	      public void partInputChanged(IWorkbenchPartReference partRef) {
+    	      // TODO Auto-generated method stub
+
+    	      }
     	   };
     	   page.addPartListener(pl);
     	
