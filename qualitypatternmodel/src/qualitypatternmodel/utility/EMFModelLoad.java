@@ -9,11 +9,15 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import qualitypatternmodel.execution.Databases;
+import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 public class EMFModelLoad {
 	public static CompletePattern loadCompletePattern(String path) {
+		// Initialize the model
+        PatternstructurePackage.eINSTANCE.eClass();
+
 		Resource resource = load(path, "patternstructure");
 		if(resource.getContents().get(0) instanceof CompletePattern) {
 			return (CompletePattern) resource.getContents().get(0);	         
@@ -23,6 +27,9 @@ public class EMFModelLoad {
 	}
 	
 	public static Databases loadDatabases(String path) {
+		// Initialize the model
+        ExecutionPackage.eINSTANCE.eClass();
+
 		Resource resource = load(path, "execution");
 		if(resource.getContents().get(0) instanceof Databases) {
 			return (Databases) resource.getContents().get(0);	         
@@ -32,11 +39,8 @@ public class EMFModelLoad {
 	}
 
 	private static Resource load(String path, String fileEnding) {
-		// Initialize the model
-        PatternstructurePackage.eINSTANCE.eClass();
-
+		
         // Register the XMI resource factory for the .patternstructure extension
-
         Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
         Map<String, Object> m = reg.getExtensionToFactoryMap();
         m.put(fileEnding, new XMIResourceFactoryImpl());
