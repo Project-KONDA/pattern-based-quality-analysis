@@ -121,7 +121,7 @@ public class CreateDatabaseDialog extends Dialog {
             public void widgetSelected(SelectionEvent e) {
             	Shell shell = new Shell();
     		    FileDialog dialog = new FileDialog(shell, SWT.OPEN);
-    			dialog.setFilterExtensions(new String [] {"*.xml"});
+    			dialog.setFilterExtensions(new String [] {"*.xsd"});
     			dialog.setFilterPath(System.getProperty("user.dir"));//"c:\\temp"
     			
     			schemaPath = dialog.open();
