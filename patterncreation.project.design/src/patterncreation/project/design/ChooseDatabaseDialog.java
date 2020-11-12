@@ -27,6 +27,7 @@ import org.eclipse.swt.widgets.Shell;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.Databases;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.utility.EMFModelLoad;
 
 public class ChooseDatabaseDialog extends Dialog {
 	Database selectedDatabase;
@@ -102,7 +103,7 @@ public class ChooseDatabaseDialog extends Dialog {
     private List<XmlDataDatabase> extractDatabases() {
 		// TODO Auto-generated method stub
     	
-//    	Databases databases = ...;    	
+//    	Databases databases = EMFModelLoad.loadDatabases("databases.execution");    	
 //		return databases.getXmlDatabases();
     	
     	return null;
