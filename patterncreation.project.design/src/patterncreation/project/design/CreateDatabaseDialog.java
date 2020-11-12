@@ -1,7 +1,9 @@
 package patterncreation.project.design;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
@@ -9,6 +11,8 @@ import org.basex.query.QueryIOException;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
@@ -71,6 +75,15 @@ public class CreateDatabaseDialog extends Dialog {
         //gridData.horizontalAlignment = GridData.FILL;
         //gridData.horizontalSpan = 2;
         nameText.setLayoutData(gridDataText);
+        
+        nameText.addModifyListener(new ModifyListener() {
+			
+			@Override
+			public void modifyText(ModifyEvent e) {
+				name = nameText.getText();
+				
+			}
+		});
         
         Label dataPathLabel = new Label(container, SWT.NONE);
         dataPathLabel.setText("Data Path:");
