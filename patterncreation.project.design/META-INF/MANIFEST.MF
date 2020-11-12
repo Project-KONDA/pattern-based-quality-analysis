@@ -21,3 +21,5 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: %providerName
 Automatic-Module-Name: patterncreation.project.design
+Bundle-ClassPath: lib/BaseX931.jar,
+ .
