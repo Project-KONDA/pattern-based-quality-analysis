@@ -105,7 +105,9 @@ public class ViewExecutionPart1 extends ViewPart {
 	    			dialog.setFilterPath(System.getProperty("user.dir"));//"c:\\temp"
 	    			
 	    			patternFilePath = dialog.open();
-	    			selectedPatternText.setText(patternFilePath);
+	    			if(patternFilePath != null) {
+	    				selectedPatternText.setText(patternFilePath);
+	    			}
 	    			
 	    			// TODO: check if pattern is valid concrete pattern
 	    	   }
