@@ -2,10 +2,11 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import static qualitypatternmodel.utility.Constants.RETURN;
+import static qualitypatternmodel.utility.Constants.VARIABLE;
+import static qualitypatternmodel.utility.Constants.WHERE;
+
 import java.lang.reflect.InvocationTargetException;
-import static qualitypatternmodel.utilityclasses.Constants.RETURN;
-import static qualitypatternmodel.utilityclasses.Constants.VARIABLE;
-import static qualitypatternmodel.utilityclasses.Constants.WHERE;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;

@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import static qualitypatternmodel.utility.Constants.*;
+
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -13,8 +15,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.ParametersPackage;
-
-import static qualitypatternmodel.utilityclasses.Constants.*;
 
 /**
  * <!-- begin-user-doc -->

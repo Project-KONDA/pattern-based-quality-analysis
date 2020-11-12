@@ -1,4 +1,4 @@
-package qualitypatternmodel.testutility;
+package qualitypatternmodel.utility;
 
 import java.util.Map;
 
@@ -7,11 +7,31 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+
+import qualitypatternmodel.execution.Databases;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 public class EMFModelLoad {
-	public CompletePattern load(String path) {
+	public CompletePattern loadCompletePattern(String path) {
+		Resource resource = load(path, "patternstructure");
+		if(resource.getContents().get(0) instanceof CompletePattern) {
+			return (CompletePattern) resource.getContents().get(0);	         
+		} else {
+			return null;
+		}
+	}
+	
+	public Databases loadDatabases(String path) {
+		Resource resource = load(path, "execution");
+		if(resource.getContents().get(0) instanceof Databases) {
+			return (Databases) resource.getContents().get(0);	         
+		} else {
+			return null;
+		}
+	}
+
+	private Resource load(String path, String fileEnding) {
 		// Initialize the model
         PatternstructurePackage.eINSTANCE.eClass();
 
@@ -19,7 +39,7 @@ public class EMFModelLoad {
 
         Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
         Map<String, Object> m = reg.getExtensionToFactoryMap();
-        m.put("patternstructure", new XMIResourceFactoryImpl());
+        m.put(fileEnding, new XMIResourceFactoryImpl());
 
         // Obtain a new resource set
         ResourceSet resSet = new ResourceSetImpl();
@@ -27,9 +47,7 @@ public class EMFModelLoad {
         // Get the resource
         Resource resource = resSet.getResource(URI
                 .createURI(path), true);
-        // Get the first model element and cast it to the right type
-        CompletePattern completePattern = (CompletePattern) resource.getContents().get(0);
-        return completePattern;
+		return resource;
 	}
 
 }
