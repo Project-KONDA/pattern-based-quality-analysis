@@ -30,6 +30,8 @@ import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.utility.EMFModelLoad;
 
 public class ChooseDatabaseDialog extends Dialog {
+	static final String DATABASES_PATH = "platform:/plugin/patterncreation.project.design/databases";
+	static final String DATABASES_PATH_WITH_SUFFIX = DATABASES_PATH + ".execution";
 	Database selectedDatabase;
 	
 	public ChooseDatabaseDialog(Shell parentShell) {
@@ -48,7 +50,7 @@ public class ChooseDatabaseDialog extends Dialog {
         group.setLayout(new RowLayout(SWT.VERTICAL));
         
         List<XmlDataDatabase> databases = extractDatabases();
-        
+        // TODO: inform user if no database exists
         ArrayList<Button> radioButtons = new ArrayList<Button>();
 		for (XmlDataDatabase database : databases) {
         	Button radioButton = new Button(group, SWT.RADIO);
@@ -100,13 +102,9 @@ public class ChooseDatabaseDialog extends Dialog {
         return container;
     }
 
-    private List<XmlDataDatabase> extractDatabases() {
-		// TODO Auto-generated method stub
-    	
-//    	Databases databases = EMFModelLoad.loadDatabases("databases.execution");    	
-//		return databases.getXmlDatabases();
-    	
-    	return null;
+    private List<XmlDataDatabase> extractDatabases() {    	
+    	Databases databases = EMFModelLoad.loadDatabases(DATABASES_PATH_WITH_SUFFIX);    	
+		return databases.getXmlDatabases();    	
 	}
 
 	@Override
