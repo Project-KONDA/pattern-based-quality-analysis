@@ -27,6 +27,9 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.part.ViewPart;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.Result;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -185,20 +188,21 @@ public class ViewExecutionPart1 extends ViewPart {
 	    	  @Override
 	            public void widgetSelected(SelectionEvent e) {
 	    		
-//	    		  if(pattern == null || database == null) {
-//	    			  MessageDialog.openError(shell, "OK", "Please choose a pattern and a database.");
-//	    		  } else {
-//	    			try {
-//	    				
-//						Result result = database.execute(pattern, null, null); // TODO: allow specificaiton of name and person						
-//						resultText.setText(result.getResultString());
-//						
-//					} catch (BaseXException | QueryIOException | InvalidityException | OperatorCycleException
-//							| MissingPatternContainerException | QueryException e1) {
-//						// TODO Auto-generated catch block
-//						e1.printStackTrace();
-//					} 
-//	    		  }
+	    		  if(pattern == null || database == null) {
+	    			  MessageDialog.openError(shell, "OK", "Please choose a pattern and a database.");
+	    		  } else {	    				
+						try {
+							Result result = database.execute(pattern, null, null); // TODO: allow specification of name and person
+//							resultText.setText(result.getResultString()); // TODO	
+							
+						} catch (BaseXException | QueryIOException | InvalidityException | OperatorCycleException
+								| MissingPatternContainerException | QueryException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+							MessageDialog.openError(shell, "OK", "An error occurred during the pattern application.");
+						} 							
+					
+	    		  }
 	    		  
 	    		  
 	    	  }
