@@ -157,7 +157,9 @@ public class CreateDatabaseDialog extends Dialog {
 				
 				// TODO: check if schema database already exists
 				
-				String[] split = schemaPath.split("\\");
+				System.out.println(schemaPath);
+				
+				String[] split = schemaPath.split(Pattern.quote(File.separator));
 				String schemaDatabaseName = split[split.length-1]; // TODO: improve
 				LocalXmlSchemaDatabase schemaDatabase = new LocalXmlSchemaDatabaseImpl(schemaDatabaseName, schemaPath);
 				
