@@ -1,5 +1,6 @@
 package patterncreation.project.design;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.basex.core.BaseXException;
@@ -32,6 +33,7 @@ import qualitypatternmodel.execution.XmlSchemaDatabase;
 import qualitypatternmodel.execution.impl.DatabasesImpl;
 import qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl;
 import qualitypatternmodel.execution.impl.LocalXmlSchemaDatabaseImpl;
+import qualitypatternmodel.utility.EMFModelSave;
 
 //import static qualitypatternmodel.utilityclasses.Util.*;
 
@@ -156,11 +158,12 @@ public class CreateDatabaseDialog extends Dialog {
 			        databases.getXmlDatabases().add(dataDatabase);
 			        databases.getXmlSchemata().add(schemaDatabase);
 			        
-//			        TODO: exportToFile(databases, "databases", "execution");
+			        EMFModelSave.exportToFile(databases, "databases", "execution");
 					
-				} catch (BaseXException | QueryIOException | QueryException e) {
+				} catch (QueryException | IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+					MessageDialog.openError(shell, "OK", "An error occurred during database creation.");
 				}
 				
 				
