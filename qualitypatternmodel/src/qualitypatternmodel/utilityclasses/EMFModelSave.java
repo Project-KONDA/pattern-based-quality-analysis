@@ -1,4 +1,4 @@
-package qualitypatternmodel.demo;
+package qualitypatternmodel.utilityclasses;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-public class Util {
+public class EMFModelSave {
 	
 	public static void exportToFile(EObject data, String filePath, String packageName) throws IOException {		
 	  Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
