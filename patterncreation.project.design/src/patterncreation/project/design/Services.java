@@ -3927,4 +3927,32 @@ public class Services {
 			element.setGraph(null);
 		}
 	}
+	
+	public String validityCheckGenericPatternString(EObject self){
+		String s = "";
+		if(self instanceof CompletePattern) {
+			CompletePattern pattern = (CompletePattern) self;
+			try {
+				pattern.isValid(AbstractionLevel.GENERIC);
+				s = "This pattern is a valid generic pattern.";
+			}catch (Exception e) {
+				s = "This pattern is not a valid generic pattern.";
+			}
+		}
+		return s;
+	}
+	
+	public String validityCheckAbstractPatternString(EObject self){
+		String s = "";
+		if(self instanceof CompletePattern) {
+			CompletePattern pattern = (CompletePattern) self;
+			try {
+				pattern.isValid(AbstractionLevel.ABSTRACT);
+				s = "This pattern is a valid abstract pattern.";
+			}catch (Exception e) {
+				s = "This pattern is not a valid abstract pattern.";
+			}
+		}
+		return s;
+	}
 }

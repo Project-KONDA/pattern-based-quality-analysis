@@ -4,14 +4,20 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
+import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
@@ -61,14 +67,14 @@ public class ViewExecutionPart1 extends ViewPart {
 
 	    Label label = new Label(container, SWT.NONE);
 	    label.setBounds(10, 10, 75, 25);
-        label.setText("Muster: ");
+        label.setText("Pattern: ");
         
         text = new Text(container, SWT.BORDER);//Text
         text.setBounds(90, 10, 200, 25);
 	    
 	    Button buttonmusterwahl = new Button(container, SWT.NONE);
-	    buttonmusterwahl.setBounds(300, 10, 100, 25);
-	    buttonmusterwahl.setText("Muster wählen");
+	    buttonmusterwahl.setBounds(300, 10, 120, 25);
+	    buttonmusterwahl.setText("Choose Pattern");
 	    
 	    buttonmusterwahl.addSelectionListener(new SelectionListener() {
 	    	 
@@ -93,20 +99,20 @@ public class ViewExecutionPart1 extends ViewPart {
 	    
 	    Label label2 = new Label(container, SWT.NONE);
 	    label2.setBounds(10, 40, 75, 25);
-        label2.setText("Datenbank: ");
+        label2.setText("Database:");
         
         Text text2 = new Text(container, SWT.BORDER);
         text2.setBounds(90, 40, 200, 25);
 	    
 	    Button buttondatenbankwahl = new Button(container, SWT.NONE);
 	    buttondatenbankwahl.setBounds(300, 40, 120, 25);
-	    buttondatenbankwahl.setText("Datenbank wählen");
+	    buttondatenbankwahl.setText("Choose Database");
 	    
 	    buttondatenbankwahl.addSelectionListener(new SelectionListener() {
 	    	 
 	    	   @Override
 	    	   public void widgetSelected(SelectionEvent arg0) {
-	    			Shell shell = new Shell();
+	    			/*Shell shell = new Shell();
 	    		    FileDialog dialog = new FileDialog(shell, SWT.OPEN|SWT.MULTI);
 	    			dialog.setFilterExtensions(new String [] {"*.html"});
 	    			dialog.setFilterPath(System.getProperty("user.dir"));
@@ -114,7 +120,29 @@ public class ViewExecutionPart1 extends ViewPart {
 	    			//text2.setText(result);
 	    			dialog.open();
 	    			String[] selectedFiles = dialog.getFileNames();
-	    			text2.setText(String.join(", ", selectedFiles));
+	    			text2.setText(String.join(", ", selectedFiles));*/
+	    		   
+	    		   /*Display.getDefault().syncExec(new Runnable() {
+						public void run() {
+							String message = "Choose Database";
+							MessageDialog dialog = new MessageDialog(new Shell(), "Choose Database", null, message, MessageDialog.INFORMATION, new String[] { "Ok" }, 0);
+							Shell shell = new Shell();
+							Group genderGroup = new Group(shell, SWT.NONE);
+							genderGroup.setLayout(new RowLayout(SWT.HORIZONTAL));
+							 
+							 
+							Button buttonMale = new Button(genderGroup, SWT.RADIO);
+							buttonMale.setText("Male");
+							 
+							Button buttonFemale = new Button(genderGroup, SWT.RADIO);
+							buttonFemale.setText("Female");
+							int result = dialog.open();
+							//System.out.println(result + " " + isAbstract);
+						}
+					});*/
+	    		   Shell shell = new Shell();
+	    		   ChooseDatabaseDialog dialog = new ChooseDatabaseDialog(shell);
+	    		   dialog.open();
 	    	   }
 	    	 
 	    	   @Override
@@ -124,17 +152,21 @@ public class ViewExecutionPart1 extends ViewPart {
 	    	 
 	    	});
 	    
+	    final Text text4 = new Text(container, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL | SWT.READ_ONLY);
+	    text4.setBounds(10, 100, 1000, 30);
+	    text4.setText("Hallo");
+	    
 	    final Text text3 = new Text(container, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL | SWT.READ_ONLY);
-	    text3.setBounds(10, 70, 1000, 1000);
+	    text3.setBounds(10, 135, 1000, 1000);
 	    text3.setText("Hallo");
 	    
 	    Button buttonabspielen = new Button(container, SWT.NONE);
-	    buttonabspielen.setBounds(430, 10, 100, 25);
-	    buttonabspielen.setText("Abspielen");
+	    buttonabspielen.setBounds(90, 70, 200, 25);
+	    buttonabspielen.setText("Applay Pattern");
 	    
 	    Button buttonspeichern = new Button(container, SWT.NONE);
-	    buttonspeichern.setBounds(430, 40, 100, 25);
-	    buttonspeichern.setText("Speichern");
+	    buttonspeichern.setBounds(300, 70, 120, 25);
+	    buttonspeichern.setText("Save Result");
 	    
 	    buttonspeichern.addSelectionListener(new SelectionListener() {
 	    	 
