@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import static qualitypatternmodel.utility.Constants.*;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -24,9 +26,7 @@ import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.utilityclasses.Constants;
-
-import static qualitypatternmodel.utilityclasses.Constants.*;
+import qualitypatternmodel.utility.Constants;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object

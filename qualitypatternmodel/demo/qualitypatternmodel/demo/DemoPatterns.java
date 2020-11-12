@@ -40,7 +40,7 @@ import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
-import qualitypatternmodel.utilityclasses.EMFModelSave;
+import qualitypatternmodel.utility.EMFModelSave;
 
 import static qualitypatternmodel.testutility.DatabaseConstants.*;
 

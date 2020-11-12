@@ -40,7 +40,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
-import qualitypatternmodel.utilityclasses.Constants;
+import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.parameters.ParameterValue;
 
 /**

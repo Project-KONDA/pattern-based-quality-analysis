@@ -1,4 +1,4 @@
-package qualitypatternmodel.utilityclasses;
+package qualitypatternmodel.utility;
 
 import java.io.IOException;
 import java.util.Collections;

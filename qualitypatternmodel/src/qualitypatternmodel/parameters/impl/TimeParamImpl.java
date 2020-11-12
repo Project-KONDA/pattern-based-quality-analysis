@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import static qualitypatternmodel.utility.Constants.*;
+
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -12,7 +14,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TimeParam;
-import static qualitypatternmodel.utilityclasses.Constants.*;
 
 /**
  * <!-- begin-user-doc -->

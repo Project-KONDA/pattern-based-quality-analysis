@@ -12,7 +12,7 @@ import org.basex.query.value.item.Item;
 import org.eclipse.emf.common.util.Diagnostic;
 
 import qualitypatternmodel.testutility.EMFValidationPreparation;
-import qualitypatternmodel.utilityclasses.EMFModelLoad;
+import qualitypatternmodel.utility.EMFModelLoad;
 
 import static qualitypatternmodel.testutility.DatabaseConstants.*;
 

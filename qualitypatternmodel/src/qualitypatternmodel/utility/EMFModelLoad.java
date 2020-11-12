@@ -1,4 +1,4 @@
-package qualitypatternmodel.utilityclasses;
+package qualitypatternmodel.utility;
 
 import java.util.Map;
 

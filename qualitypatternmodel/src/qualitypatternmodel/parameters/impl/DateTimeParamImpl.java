@@ -2,10 +2,11 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import static qualitypatternmodel.utility.Constants.REGEX_DATE_TIME;
+import static qualitypatternmodel.utility.Constants.REGEX_POSITIVE_NEGATIVE;
+import static qualitypatternmodel.utility.Constants.REGEX_TIME_HOURS_MINUTES;
+
 import java.lang.reflect.InvocationTargetException;
-import static qualitypatternmodel.utilityclasses.Constants.REGEX_DATE_TIME;
-import static qualitypatternmodel.utilityclasses.Constants.REGEX_POSITIVE_NEGATIVE;
-import static qualitypatternmodel.utilityclasses.Constants.REGEX_TIME_HOURS_MINUTES;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;

@@ -2,11 +2,11 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
-import static qualitypatternmodel.utilityclasses.Constants.EVERY;
-import static qualitypatternmodel.utilityclasses.Constants.FOR;
-import static qualitypatternmodel.utilityclasses.Constants.IN;
-import static qualitypatternmodel.utilityclasses.Constants.SATISFIES;
-import static qualitypatternmodel.utilityclasses.Constants.SOME;
+import static qualitypatternmodel.utility.Constants.EVERY;
+import static qualitypatternmodel.utility.Constants.FOR;
+import static qualitypatternmodel.utility.Constants.IN;
+import static qualitypatternmodel.utility.Constants.SATISFIES;
+import static qualitypatternmodel.utility.Constants.SOME;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;

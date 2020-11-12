@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
-import static qualitypatternmodel.utilityclasses.Constants.VARIABLE;
+import static qualitypatternmodel.utility.Constants.VARIABLE;
 
 import java.lang.reflect.InvocationTargetException;
 
