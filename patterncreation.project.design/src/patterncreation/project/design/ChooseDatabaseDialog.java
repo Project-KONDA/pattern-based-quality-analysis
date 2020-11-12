@@ -1,9 +1,15 @@
 package patterncreation.project.design;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.security.auth.Refreshable;
 
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -18,40 +24,56 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
+import qualitypatternmodel.execution.Database;
+import qualitypatternmodel.execution.Databases;
+import qualitypatternmodel.execution.XmlDataDatabase;
+
 public class ChooseDatabaseDialog extends Dialog {
+	Database selectedDatabase;
+	
 	public ChooseDatabaseDialog(Shell parentShell) {
         super(parentShell);
     }
 
     @Override
     protected Control createDialogArea(Composite parent) {
+    	Shell shell = new Shell();
         Composite container = (Composite) super.createDialogArea(parent);
         
         Label chooseDatabaseLabel = new Label(container, SWT.NONE);
-        chooseDatabaseLabel.setText("Choose Database");
+        chooseDatabaseLabel.setText("Choose an existing database:");
         
-        Group genderGroup = new Group(container, SWT.NONE);
-        genderGroup.setLayout(new RowLayout(SWT.VERTICAL));
-        ArrayList<String> stringlist = new ArrayList<String>();
-        stringlist.add("Hallo");
-        stringlist.add("Haus");
-        ArrayList<Button> buttons = new ArrayList<Button>();
-        for(String s:stringlist) {
-        	Button radiobutton = new Button(genderGroup, SWT.RADIO);
-        	radiobutton.setText(s);
-        	buttons.add(radiobutton);
+        Group group = new Group(container, SWT.NONE);
+        group.setLayout(new RowLayout(SWT.VERTICAL));
+        
+        List<XmlDataDatabase> databases = extractDatabases();
+        
+        ArrayList<Button> radioButtons = new ArrayList<Button>();
+		for (XmlDataDatabase database : databases) {
+        	Button radioButton = new Button(group, SWT.RADIO);
+        	radioButton.setText(database.getName());
+        	radioButtons.add(radioButton);
+        	
+        	radioButton.addSelectionListener(new SelectionAdapter() {
+        		@Override
+                public void widgetSelected(SelectionEvent e) {
+        			selectedDatabase = database;        			
+        		}
+			});
+        	
         }
         
-        Button button = new Button(container, SWT.PUSH);
-        button.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
-        button.setText("Create New Database");
-        button.addSelectionListener(new SelectionAdapter() {
+        Button createDatabaseButton = new Button(container, SWT.PUSH);
+        createDatabaseButton.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
+        createDatabaseButton.setText("Create New Database");
+        createDatabaseButton.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-                System.out.println("Pressed");
                 Shell shell = new Shell();
                 CreateDatabaseDialog dialog = new CreateDatabaseDialog(shell);
 	    		dialog.open();
+	    		
+	    		// TODO: make sure that new radio button is added
             }
         });
         
@@ -60,26 +82,36 @@ public class ChooseDatabaseDialog extends Dialog {
         
         /*Button buttonGo = createButton(parent, IDialogConstants.OK_ID,"Go!", false);
   	    buttonGo.setBounds(200, 0, 100, 25);*/
-        Button buttonGo = new Button(container, SWT.PUSH);
-        buttonGo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
-        buttonGo.setText("Go!");
-        buttonGo.addSelectionListener(new SelectionAdapter() {
+        Button closeButton = new Button(container, SWT.PUSH);
+        closeButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
+        closeButton.setText("Close");
+        closeButton.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-                System.out.println("Pressed");
-                container.getShell().close();
+            	if(selectedDatabase == null) {
+            		MessageDialog.openError(shell, "OK", "Please choose a database.");
+            	} else {
+            		container.getShell().close();
+            	}
             }
         });
         
         return container;
     }
 
-    // overriding this methods allows you to set the
-    // title of the custom dialog
-    @Override
+    private List<XmlDataDatabase> extractDatabases() {
+		// TODO Auto-generated method stub
+    	
+//    	Databases databases = ...;    	
+//		return databases.getXmlDatabases();
+    	
+    	return null;
+	}
+
+	@Override
     protected void configureShell(Shell newShell) {
         super.configureShell(newShell);
-        newShell.setText("Selection dialog");
+        newShell.setText("Choose Database");
     }
 
     @Override
@@ -93,4 +125,12 @@ public class ChooseDatabaseDialog extends Dialog {
       GridLayout layout = (GridLayout)parent.getLayout();
       layout.marginHeight = 0;
     }
+
+	public Database getSelectedDatabase() {
+		return selectedDatabase;
+	}
+
+	public void setSelectedDatabase(Database selectedDatabase) {
+		this.selectedDatabase = selectedDatabase;
+	}
 }

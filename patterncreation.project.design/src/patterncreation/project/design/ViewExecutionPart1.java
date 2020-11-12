@@ -4,9 +4,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import org.basex.core.BaseXException;
+import org.basex.query.QueryException;
+import org.basex.query.QueryIOException;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
+import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Point;
@@ -23,10 +27,21 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.part.ViewPart;
 
+import qualitypatternmodel.execution.Database;
+import qualitypatternmodel.execution.Result;
+import qualitypatternmodel.patternstructure.CompletePattern;
+
 public class ViewExecutionPart1 extends ViewPart {
 
-	private Label label;
-	private Text text = null;
+	private Text selectedPatternText;	
+	private Text selectedDatabaseText;
+	
+	private String patternFilePath;
+	private CompletePattern pattern;
+	
+	private Database database;
+	
+	
 	public ViewExecutionPart1() {
 		// TODO Auto-generated constructor stub
 	}
@@ -35,6 +50,7 @@ public class ViewExecutionPart1 extends ViewPart {
 
 	@Override
 	public void createPartControl(Composite parent) {
+		Shell shell = new Shell();
 		// TODO Auto-generated method stub
 		//label = new Label(parent, 0);
         //label.setText("Hello World");
@@ -65,29 +81,30 @@ public class ViewExecutionPart1 extends ViewPart {
 		container.setLayoutData(leftData);
 	    //container.setLayout(new GridLayout(1, false));
 
-	    Label label = new Label(container, SWT.NONE);
-	    label.setBounds(10, 10, 75, 25);
-        label.setText("Pattern: ");
+	    Label patternLabel = new Label(container, SWT.NONE);
+	    patternLabel.setBounds(10, 10, 75, 25);
+        patternLabel.setText("Pattern: ");
         
-        text = new Text(container, SWT.BORDER);//Text
-        text.setBounds(90, 10, 200, 25);
+        selectedPatternText = new Text(container, SWT.BORDER);//Text
+        selectedPatternText.setBounds(90, 10, 200, 25);
 	    
-	    Button buttonmusterwahl = new Button(container, SWT.NONE);
-	    buttonmusterwahl.setBounds(300, 10, 120, 25);
-	    buttonmusterwahl.setText("Choose Pattern");
+	    Button choosePatternButton = new Button(container, SWT.NONE);
+	    choosePatternButton.setBounds(300, 10, 120, 25);
+	    choosePatternButton.setText("Choose Pattern");	   
 	    
-	    buttonmusterwahl.addSelectionListener(new SelectionListener() {
+	    choosePatternButton.addSelectionListener(new SelectionListener() {
 	    	 
 	    	   @Override
 	    	   public void widgetSelected(SelectionEvent arg0) {
 	    			Shell shell = new Shell();
 	    		    FileDialog dialog = new FileDialog(shell, SWT.OPEN);
-	    			dialog.setFilterExtensions(new String [] {"*.html"});
+	    			dialog.setFilterExtensions(new String [] {"*.patternstructure"});
 	    			dialog.setFilterPath(System.getProperty("user.dir"));//"c:\\temp"
-	    			//String result = dialog.open();
-	    			//text.setText(result);
-	    			dialog.open();
-	    			text.setText(dialog.getFileName());//zur ausführung braucht man den gesamten pfad, result verwenden
+	    			
+	    			patternFilePath = dialog.open();
+	    			selectedPatternText.setText(patternFilePath);
+	    			
+	    			// TODO: check if pattern is valid concrete pattern
 	    	   }
 	    	 
 	    	   @Override
@@ -97,18 +114,18 @@ public class ViewExecutionPart1 extends ViewPart {
 	    	 
 	    	});
 	    
-	    Label label2 = new Label(container, SWT.NONE);
-	    label2.setBounds(10, 40, 75, 25);
-        label2.setText("Database:");
+	    Label databaseLabel = new Label(container, SWT.NONE);
+	    databaseLabel.setBounds(10, 40, 75, 25);
+        databaseLabel.setText("Database:");
         
-        Text text2 = new Text(container, SWT.BORDER);
-        text2.setBounds(90, 40, 200, 25);
+        selectedDatabaseText = new Text(container, SWT.BORDER);
+        selectedDatabaseText.setBounds(90, 40, 200, 25);
 	    
-	    Button buttondatenbankwahl = new Button(container, SWT.NONE);
-	    buttondatenbankwahl.setBounds(300, 40, 120, 25);
-	    buttondatenbankwahl.setText("Choose Database");
+	    Button chooseDatabaseButton = new Button(container, SWT.NONE);
+	    chooseDatabaseButton.setBounds(300, 40, 120, 25);
+	    chooseDatabaseButton.setText("Choose Database");
 	    
-	    buttondatenbankwahl.addSelectionListener(new SelectionListener() {
+	    chooseDatabaseButton.addSelectionListener(new SelectionListener() {
 	    	 
 	    	   @Override
 	    	   public void widgetSelected(SelectionEvent arg0) {
@@ -152,23 +169,46 @@ public class ViewExecutionPart1 extends ViewPart {
 	    	 
 	    	});
 	    
-	    final Text text4 = new Text(container, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL | SWT.READ_ONLY);
-	    text4.setBounds(10, 100, 1000, 30);
-	    text4.setText("Hallo");
+	    final Text metaDataText = new Text(container, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL | SWT.READ_ONLY);
+	    metaDataText.setBounds(10, 100, 1000, 30);
+	    metaDataText.setText("Hallo");
 	    
-	    final Text text3 = new Text(container, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL | SWT.READ_ONLY);
-	    text3.setBounds(10, 135, 1000, 1000);
-	    text3.setText("Hallo");
+	    final Text resultText = new Text(container, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL | SWT.READ_ONLY);
+	    resultText.setBounds(10, 135, 1000, 1000);
+	    resultText.setText("Hallo");
 	    
-	    Button buttonabspielen = new Button(container, SWT.NONE);
-	    buttonabspielen.setBounds(90, 70, 200, 25);
-	    buttonabspielen.setText("Applay Pattern");
+	    Button applyButton = new Button(container, SWT.NONE);
+	    applyButton.setBounds(90, 70, 200, 25);
+	    applyButton.setText("Apply Pattern");
 	    
-	    Button buttonspeichern = new Button(container, SWT.NONE);
-	    buttonspeichern.setBounds(300, 70, 120, 25);
-	    buttonspeichern.setText("Save Result");
+	    applyButton.addSelectionListener(new SelectionAdapter() {
+	    	  @Override
+	            public void widgetSelected(SelectionEvent e) {
+	    		
+//	    		  if(pattern == null || database == null) {
+//	    			  MessageDialog.openError(shell, "OK", "Please choose a pattern and a database.");
+//	    		  } else {
+//	    			try {
+//	    				
+//						Result result = database.execute(pattern, null, null); // TODO: allow specificaiton of name and person						
+//						resultText.setText(result.getResultString());
+//						
+//					} catch (BaseXException | QueryIOException | InvalidityException | OperatorCycleException
+//							| MissingPatternContainerException | QueryException e1) {
+//						// TODO Auto-generated catch block
+//						e1.printStackTrace();
+//					} 
+//	    		  }
+	    		  
+	    		  
+	    	  }
+		});
 	    
-	    buttonspeichern.addSelectionListener(new SelectionListener() {
+	    Button saveButton = new Button(container, SWT.NONE);
+	    saveButton.setBounds(300, 70, 120, 25);
+	    saveButton.setText("Save Result");
+	    
+	    saveButton.addSelectionListener(new SelectionListener() {
 	    	 
 	    	   @Override
 	    	   public void widgetSelected(SelectionEvent arg0) {
@@ -185,7 +225,7 @@ public class ViewExecutionPart1 extends ViewPart {
 	    			      File myObj = new File(result);
 	    			      myObj.createNewFile();
 	    			      FileWriter myWriter = new FileWriter(result);
-	    			      myWriter.write(text3.getText());
+	    			      myWriter.write(resultText.getText());
 	    			      myWriter.close();
 	    			    } catch (IOException e) {
 	    			      System.out.println("An error occurred.");
@@ -216,8 +256,8 @@ public class ViewExecutionPart1 extends ViewPart {
 		// TODO Auto-generated method stub
 	}
 	
-	public void setText(String s) {
-		text.setText(s);
-	}
+//	public void setText(String s) {
+//		selectedPatternText.setText(s);
+//	}
 
 }
