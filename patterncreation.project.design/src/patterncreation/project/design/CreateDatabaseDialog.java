@@ -173,7 +173,7 @@ public class CreateDatabaseDialog extends Dialog {
 			        databases.getXmlDatabases().add(dataDatabase);
 			        databases.getXmlSchemata().add(schemaDatabase);
 			        
-			        EMFModelSave.exportToFile(databases, "databases", "execution");
+			        EMFModelSave.exportToFile(databases, "platform:\\plugin\\patterncreation.project.design\\databases", "execution");
 					
 				} catch (QueryException | IOException e) {
 					// TODO Auto-generated catch block
