@@ -13,7 +13,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 public class EMFModelLoad {
-	public CompletePattern loadCompletePattern(String path) {
+	public static CompletePattern loadCompletePattern(String path) {
 		Resource resource = load(path, "patternstructure");
 		if(resource.getContents().get(0) instanceof CompletePattern) {
 			return (CompletePattern) resource.getContents().get(0);	         
@@ -22,7 +22,7 @@ public class EMFModelLoad {
 		}
 	}
 	
-	public Databases loadDatabases(String path) {
+	public static Databases loadDatabases(String path) {
 		Resource resource = load(path, "execution");
 		if(resource.getContents().get(0) instanceof Databases) {
 			return (Databases) resource.getContents().get(0);	         
@@ -31,7 +31,7 @@ public class EMFModelLoad {
 		}
 	}
 
-	private Resource load(String path, String fileEnding) {
+	private static Resource load(String path, String fileEnding) {
 		// Initialize the model
         PatternstructurePackage.eINSTANCE.eClass();
 
