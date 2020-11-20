@@ -37,6 +37,7 @@ import qualitypatternmodel.execution.XmlSchemaDatabase;
 import qualitypatternmodel.execution.impl.DatabasesImpl;
 import qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl;
 import qualitypatternmodel.execution.impl.LocalXmlSchemaDatabaseImpl;
+import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
 
 //import static qualitypatternmodel.utilityclasses.Util.*;
@@ -157,7 +158,6 @@ public class CreateDatabaseDialog extends Dialog {
 				
 				// TODO: check if schema database already exists
 				
-				System.out.println(schemaPath);
 				
 				String[] split = schemaPath.split(Pattern.quote(File.separator));
 				String schemaDatabaseName = split[split.length-1]; // TODO: improve
@@ -169,11 +169,13 @@ public class CreateDatabaseDialog extends Dialog {
 					
 					dataDatabase.init();
 					
-					Databases databases = DatabasesImpl.getInstance();
+					// TODO: OR add database to databases of previous dialog
+					
+					Databases databases = EMFModelLoad.loadDatabases(ChooseDatabaseDialog.DATABASES_PATH_WITH_SUFFIX);
 			        databases.getXmlDatabases().add(dataDatabase);
 			        databases.getXmlSchemata().add(schemaDatabase);
-			        
-			        EMFModelSave.exportToFile(databases, "platform:\\plugin\\patterncreation.project.design\\databases", "execution");
+			        			        
+			        EMFModelSave.exportToFile(databases, ChooseDatabaseDialog.DATABASES_PATH, "execution");
 					
 				} catch (QueryException | IOException e) {
 					// TODO Auto-generated catch block
