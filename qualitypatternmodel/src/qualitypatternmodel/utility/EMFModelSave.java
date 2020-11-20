@@ -18,7 +18,7 @@ public class EMFModelSave {
 	  Map<String, Object> m = reg.getExtensionToFactoryMap();
 	  m.put(packageName, new XMIResourceFactoryImpl());
 	  ResourceSet resSet = new ResourceSetImpl();
-	  Resource resource = resSet.createResource(URI.createFileURI(filePath + "." + packageName));
+	  Resource resource = resSet.createResource(URI.createURI(filePath + "." + packageName));
 	  resource.getContents().add(data);
 	  resource.save(Collections.EMPTY_MAP);
 	}
