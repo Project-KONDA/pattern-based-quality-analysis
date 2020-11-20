@@ -165,6 +165,9 @@ public class ViewExecutionPart1 extends ViewPart {
 	    		   Shell shell = new Shell();
 	    		   ChooseDatabaseDialog dialog = new ChooseDatabaseDialog(shell);
 	    		   dialog.open();
+	    		   
+	    		   // TODO: set database
+	    		   
 	    	   }
 	    	 
 	    	   @Override
