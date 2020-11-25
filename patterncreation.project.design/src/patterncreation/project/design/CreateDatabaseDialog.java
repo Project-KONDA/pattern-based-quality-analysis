@@ -6,8 +6,10 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 import org.basex.core.BaseXException;
+import org.basex.core.Context;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
@@ -52,7 +54,10 @@ public class CreateDatabaseDialog extends Dialog {
     }
 
     @Override
-    protected Control createDialogArea(Composite parent) {    	
+    protected Control createDialogArea(Composite parent) {    
+    	
+//    	System.out.println("CreateDatabaseDialog.createDialogArea");
+    	
     	Shell shell = new Shell();
         Composite container = (Composite) super.createDialogArea(parent);
         GridLayout gridLayout = new GridLayout();
@@ -154,36 +159,37 @@ public class CreateDatabaseDialog extends Dialog {
             }
 
 			private void createDatabase() {
+				
+//				System.out.println("create database");
+				
 				LocalXmlDataDatabase dataDatabase = new LocalXmlDataDatabaseImpl(name, dataPath);
 				
-				// TODO: check if schema database already exists
-				
+				// TODO: check if schema database already exists				
 				
 				String[] split = schemaPath.split(Pattern.quote(File.separator));
 				String schemaDatabaseName = split[split.length-1]; // TODO: improve
-				LocalXmlSchemaDatabase schemaDatabase = new LocalXmlSchemaDatabaseImpl(schemaDatabaseName, schemaPath);
+				LocalXmlSchemaDatabase schemaDatabase = new LocalXmlSchemaDatabaseImpl(schemaDatabaseName, schemaPath); 
 				
-				dataDatabase.setXmlSchema(schemaDatabase);     
+//				try {
+//					schemaDatabase.init();
+//				} catch (BaseXException | QueryIOException | QueryException e1) {
+//					// TODO Auto-generated catch block
+//					e1.printStackTrace();
+//				}			
 				
+				dataDatabase.setXmlSchema(schemaDatabase); 			
+					
 				try {
-					
 					dataDatabase.init();
-					
-					// TODO: OR add database to databases of previous dialog
-					
-					Databases databases = EMFModelLoad.loadDatabases(ChooseDatabaseDialog.DATABASES_PATH_WITH_SUFFIX);
-			        databases.getXmlDatabases().add(dataDatabase);
-			        databases.getXmlSchemata().add(schemaDatabase);
-			        			        
-			        EMFModelSave.exportToFile(databases, ChooseDatabaseDialog.DATABASES_PATH, "execution");
-					
-				} catch (QueryException | IOException e) {
+				} catch (BaseXException | QueryIOException | QueryException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-					MessageDialog.openError(shell, "OK", "An error occurred during database creation.");
-				}
+				}			
 				
+				// TODO: create BaseX database here?
 				
+		        DatabasesImpl.getInstance().getXmlDatabases().add(dataDatabase);
+		        DatabasesImpl.getInstance().getXmlSchemata().add(schemaDatabase); // TODO: uncomment  
 			}
         });
 
