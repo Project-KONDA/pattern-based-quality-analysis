@@ -7,6 +7,7 @@ import java.io.IOException;
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
@@ -37,7 +38,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 public class ViewExecutionPart1 extends ViewPart {
 
 	private Text selectedPatternText;	
-	private Text selectedDatabaseText;
+	private Label selectedDatabaseLabel;
 	
 	private String patternFilePath;
 	private CompletePattern pattern;
@@ -54,6 +55,12 @@ public class ViewExecutionPart1 extends ViewPart {
 	@Override
 	public void createPartControl(Composite parent) {
 		Shell shell = new Shell();
+		
+		System.out.println("ViewExecutionPart1.createPartControl");
+		
+		System.out.println("Platform.getInstallLocation().getURL(): " + Platform.getInstallLocation().getURL());
+		System.out.println("System.getProperty(\"user.dir\"): " + System.getProperty("user.dir"));
+		
 		// TODO Auto-generated method stub
 		//label = new Label(parent, 0);
         //label.setText("Hello World");
@@ -123,8 +130,8 @@ public class ViewExecutionPart1 extends ViewPart {
 	    databaseLabel.setBounds(10, 40, 75, 25);
         databaseLabel.setText("Database:");
         
-        selectedDatabaseText = new Text(container, SWT.BORDER);
-        selectedDatabaseText.setBounds(90, 40, 200, 25);
+        selectedDatabaseLabel = new Label(container, SWT.BORDER);
+        selectedDatabaseLabel.setBounds(90, 40, 200, 25);
 	    
 	    Button chooseDatabaseButton = new Button(container, SWT.NONE);
 	    chooseDatabaseButton.setBounds(300, 40, 120, 25);
@@ -133,41 +140,13 @@ public class ViewExecutionPart1 extends ViewPart {
 	    chooseDatabaseButton.addSelectionListener(new SelectionListener() {
 	    	 
 	    	   @Override
-	    	   public void widgetSelected(SelectionEvent arg0) {
-	    			/*Shell shell = new Shell();
-	    		    FileDialog dialog = new FileDialog(shell, SWT.OPEN|SWT.MULTI);
-	    			dialog.setFilterExtensions(new String [] {"*.html"});
-	    			dialog.setFilterPath(System.getProperty("user.dir"));
-	    			//String result = dialog.open();
-	    			//text2.setText(result);
-	    			dialog.open();
-	    			String[] selectedFiles = dialog.getFileNames();
-	    			text2.setText(String.join(", ", selectedFiles));*/
-	    		   
-	    		   /*Display.getDefault().syncExec(new Runnable() {
-						public void run() {
-							String message = "Choose Database";
-							MessageDialog dialog = new MessageDialog(new Shell(), "Choose Database", null, message, MessageDialog.INFORMATION, new String[] { "Ok" }, 0);
-							Shell shell = new Shell();
-							Group genderGroup = new Group(shell, SWT.NONE);
-							genderGroup.setLayout(new RowLayout(SWT.HORIZONTAL));
-							 
-							 
-							Button buttonMale = new Button(genderGroup, SWT.RADIO);
-							buttonMale.setText("Male");
-							 
-							Button buttonFemale = new Button(genderGroup, SWT.RADIO);
-							buttonFemale.setText("Female");
-							int result = dialog.open();
-							//System.out.println(result + " " + isAbstract);
-						}
-					});*/
+	    	   public void widgetSelected(SelectionEvent arg0) {	    			
 	    		   Shell shell = new Shell();
 	    		   ChooseDatabaseDialog dialog = new ChooseDatabaseDialog(shell);
 	    		   dialog.open();
 	    		   
-	    		   // TODO: set database
-	    		   
+	    		   database = dialog.getSelectedDatabase();
+	    		   selectedDatabaseLabel.setText(database.toString()); // TODO: show name	    		   
 	    	   }
 	    	 
 	    	   @Override
@@ -205,7 +184,7 @@ public class ViewExecutionPart1 extends ViewPart {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 							MessageDialog.openError(shell, "OK", "An error occurred during the pattern application.");
-						} 							
+						} 		
 					
 	    		  }
 	    		  
