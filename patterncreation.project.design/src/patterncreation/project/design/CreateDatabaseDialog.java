@@ -48,9 +48,11 @@ public class CreateDatabaseDialog extends Dialog {
 	private String name;
 	private String dataPath;
 	private String schemaPath;
+	private ChooseDatabaseDialog chooseDatabaseDialog;
 	
-	public CreateDatabaseDialog(Shell parentShell) {
+	public CreateDatabaseDialog(Shell parentShell, ChooseDatabaseDialog chooseDatabaseDialog) {
         super(parentShell);
+        this.chooseDatabaseDialog = chooseDatabaseDialog;
     }
 
     @Override
@@ -153,8 +155,12 @@ public class CreateDatabaseDialog extends Dialog {
             	if(name == null || name.equals("") || dataPath == null || schemaPath == null) {
             		MessageDialog.openError(shell, "OK", "Please specify all database properties.");
             	} else {
-            		createDatabase();
+            		createDatabase();            		
+            		
             		container.getShell().close();
+            		
+            		chooseDatabaseDialog.refresh(shell);            		
+            		
             	}
             }
 
