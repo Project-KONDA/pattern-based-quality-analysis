@@ -245,6 +245,18 @@ public class ViewExecutionPart1 extends ViewPart {
 	public void setFocus() {
 		// TODO Auto-generated method stub
 	}
+
+
+
+	public ChooseDatabaseDialog getChooseDatabaseDialog() {
+		return chooseDatabaseDialog;
+	}
+
+
+
+	public void setChooseDatabaseDialog(ChooseDatabaseDialog chooseDatabaseDialog) {
+		this.chooseDatabaseDialog = chooseDatabaseDialog;
+	}
 	
 //	public void setText(String s) {
 //		selectedPatternText.setText(s);
