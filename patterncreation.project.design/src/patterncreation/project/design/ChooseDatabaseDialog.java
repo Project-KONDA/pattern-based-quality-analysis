@@ -39,9 +39,12 @@ public class ChooseDatabaseDialog extends Dialog {
 //	static final String DATABASES_PATH = "platform:/plugin/patterncreation.project.design/databases";
 //	static final String DATABASES_PATH_WITH_SUFFIX = DATABASES_PATH + ".execution";
 	Database selectedDatabase;
+	ViewExecutionPart1 viewExecutionPart1;
 	
-	public ChooseDatabaseDialog(Shell parentShell) {
+	public ChooseDatabaseDialog(Shell parentShell, ViewExecutionPart1 viewExecutionPart1) {
         super(parentShell);
+        this.viewExecutionPart1 = viewExecutionPart1;
+        viewExecutionPart1.setChooseDatabaseDialog(this);
         loadDatabases();
     }
 	
@@ -130,6 +133,14 @@ public class ChooseDatabaseDialog extends Dialog {
 		}
     }
     
+    protected void refresh(Shell shell) {
+    	saveDatabases();
+    	
+    	close();
+		ChooseDatabaseDialog dialog = new ChooseDatabaseDialog(shell, viewExecutionPart1);
+		dialog.open();
+    }
+    
     @Override
     protected void okPressed() {
     	// TODO Auto-generated method stub
@@ -172,6 +183,16 @@ public class ChooseDatabaseDialog extends Dialog {
 
 	public void setSelectedDatabase(Database selectedDatabase) {
 		this.selectedDatabase = selectedDatabase;
+	}
+
+
+	public ViewExecutionPart1 getViewExecutionPart1() {
+		return viewExecutionPart1;
+	}
+
+
+	public void setViewExecutionPart1(ViewExecutionPart1 viewExecutionPart1) {
+		this.viewExecutionPart1 = viewExecutionPart1;
 	}
 	
 }

@@ -48,6 +48,8 @@ public class ViewExecutionPart1 extends ViewPart {
 	
 	private Database database;
 	
+	private ChooseDatabaseDialog chooseDatabaseDialog;
+	
 	
 	public ViewExecutionPart1() {
 		// TODO Auto-generated constructor stub
@@ -130,15 +132,20 @@ public class ViewExecutionPart1 extends ViewPart {
 	    chooseDatabaseButton.setBounds(300, 40, 120, 25);
 	    chooseDatabaseButton.setText("Choose Database");
 	    
+	    ViewExecutionPart1 thisView = this;
+	    
 	    chooseDatabaseButton.addSelectionListener(new SelectionListener() {
 	    	 
 	    	   @Override
 	    	   public void widgetSelected(SelectionEvent arg0) {	    			
 	    		   Shell shell = new Shell();
-	    		   ChooseDatabaseDialog dialog = new ChooseDatabaseDialog(shell);
+	    		   ChooseDatabaseDialog dialog = new ChooseDatabaseDialog(shell, thisView);
 	    		   dialog.open();
 	    		   
-	    		   database = dialog.getSelectedDatabase();
+	    		   database = chooseDatabaseDialog.getSelectedDatabase();
+	    		   
+	    		   System.out.println(database);
+	    		   
 	    		   if(database != null) {
 	    			   selectedDatabaseLabel.setText(database.toString()); // TODO: show name	    	
 	    		   }
