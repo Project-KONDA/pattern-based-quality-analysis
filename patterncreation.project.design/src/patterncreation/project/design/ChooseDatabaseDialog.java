@@ -55,8 +55,8 @@ public class ChooseDatabaseDialog extends Dialog {
 //    	Shell shell = new Shell();
         Composite container = (Composite) super.createDialogArea(parent);
         
-        Label chooseDatabaseLabel = new Label(container, SWT.NONE);
-        chooseDatabaseLabel.setText("Choose an existing database or create a new database");
+//        Label chooseDatabaseLabel = new Label(container, SWT.NONE);
+//        chooseDatabaseLabel.setText("Choose an existing database or create a new database");
         
         Button createDatabaseButton = new Button(container, SWT.PUSH);
         createDatabaseButton.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
@@ -74,6 +74,7 @@ public class ChooseDatabaseDialog extends Dialog {
         
         Group group = new Group(container, SWT.NONE);
         group.setLayout(new RowLayout(SWT.VERTICAL));
+        group.setText("Choose an existing database:");
         
         List<XmlDataDatabase> databases = DatabasesImpl.getInstance().getXmlDatabases();
         // TODO: inform user if no database exists
