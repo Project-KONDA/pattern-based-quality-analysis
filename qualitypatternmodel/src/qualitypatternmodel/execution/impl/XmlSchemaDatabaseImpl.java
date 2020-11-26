@@ -132,25 +132,25 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	}
 
 	private void retrieveElementNames() throws QueryException, QueryIOException, BaseXException {
-		open();	
+//		open();	
 		List<String> retrievedElementNames = execute("//*[name()=\"xs:element\"]/data(@name)");
 		getElementNames().addAll(retrievedElementNames);
 	}
 	
 	private void retrieveRootElementNames() throws QueryException, QueryIOException, BaseXException {
-		open();	
+//		open();	
 		List<String> retrievedElementNames = execute("/*/*[name()=\"xs:element\"]/data(@name)");
 		getRootElementNames().addAll(retrievedElementNames);
 	}
 
 	private void retrieveAttributeNames() throws QueryException, QueryIOException, BaseXException {
-		open();	
+//		open();	
 		List<String> retrievedAttributeNames = execute("//*[name()=\"xs:attribute\"]/data(@name)");
 		getAttributeNames().addAll(retrievedAttributeNames);
 	}
 	
 	private EList<String> getElementNamesFromQueryExecution(String elementName, String queryPath, String xQueryMethodName) throws BaseXException, QueryException, QueryIOException {
-		open();
+//		open();
 
 		String checkQuery; 
 		
@@ -587,7 +587,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 
 	private boolean checkAxis(String elementName1, String elementName2, String path, String methodName)
 			throws BaseXException, QueryException, QueryIOException {
-		open();
+//		open();
 		
 		String checkQuery;
 		try {

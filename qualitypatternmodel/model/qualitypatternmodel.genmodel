@@ -554,7 +554,6 @@
     <nestedGenPackages prefix="Execution" basePackage="qualitypatternmodel" disposableProviderFactory="true"
         ecorePackage="qualitypatternmodel.ecore#//execution">
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/BaseXExceptionWrapper"/>
-      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/BaseXContextWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/QueryExceptionWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/QueryIOExceptionWrapper"/>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//execution/Result">
@@ -705,7 +704,6 @@
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//execution/XmlDatabase">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/XmlDatabase/name"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/XmlDatabase/namespace"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/XmlDatabase/context"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/analyse"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/init"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/open"/>

@@ -54,7 +54,6 @@ public class XmlDatabaseItemProvider
 
 			addNamePropertyDescriptor(object);
 			addNamespacePropertyDescriptor(object);
-			addContextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -104,28 +103,6 @@ public class XmlDatabaseItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Context feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addContextPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XmlDatabase_context_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XmlDatabase_context_feature", "_UI_XmlDatabase_type"),
-				 ExecutionPackage.Literals.XML_DATABASE__CONTEXT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -154,7 +131,6 @@ public class XmlDatabaseItemProvider
 		switch (notification.getFeatureID(XmlDatabase.class)) {
 			case ExecutionPackage.XML_DATABASE__NAME:
 			case ExecutionPackage.XML_DATABASE__NAMESPACE:
-			case ExecutionPackage.XML_DATABASE__CONTEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
