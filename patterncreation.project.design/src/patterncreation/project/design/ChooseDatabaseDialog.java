@@ -125,16 +125,18 @@ public class ChooseDatabaseDialog extends Dialog {
 		try {
 			EMFModelLoad.loadDatabases(path);  
 		} catch (Exception e) {
-			System.out.println("Problem at loading: ");
-			e.printStackTrace();
-			try {
-				System.out.println("exporting");
+			if(e.getCause() instanceof FileNotFoundException) {
 				// create file if it does not exist
-				EMFModelSave.exportToFile(DatabasesImpl.getInstance(), userDir + "databases", "execution");
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}			  		
+				try {					
+					EMFModelSave.exportToFile(DatabasesImpl.getInstance(), userDir + "databases", "execution");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			} else {
+				e.printStackTrace();
+			}			
+						  		
 		}  
     }
     private void saveDatabases() {
