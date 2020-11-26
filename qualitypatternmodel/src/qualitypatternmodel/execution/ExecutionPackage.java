@@ -381,22 +381,13 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATABASE__NAMESPACE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Context</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATABASE__CONTEXT = 2;
-
-	/**
 	 * The number of structural features of the '<em>Xml Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATABASE_FEATURE_COUNT = 3;
+	int XML_DATABASE_FEATURE_COUNT = 2;
 
 	/**
 	 * The operation id for the '<em>Analyse</em>' operation.
@@ -469,15 +460,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_DATA_DATABASE__NAMESPACE = XML_DATABASE__NAMESPACE;
-
-	/**
-	 * The feature id for the '<em><b>Context</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE__CONTEXT = XML_DATABASE__CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>Results</b></em>' containment reference list.
@@ -740,15 +722,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOCAL_XML_DATA_DATABASE__NAMESPACE = XML_DATA_DATABASE__NAMESPACE;
-
-	/**
-	 * The feature id for the '<em><b>Context</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCAL_XML_DATA_DATABASE__CONTEXT = XML_DATA_DATABASE__CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>Results</b></em>' containment reference list.
@@ -1020,15 +993,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_DATA_DATABASE__NAMESPACE = XML_DATA_DATABASE__NAMESPACE;
-
-	/**
-	 * The feature id for the '<em><b>Context</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVER_XML_DATA_DATABASE__CONTEXT = XML_DATA_DATABASE__CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>Results</b></em>' containment reference list.
@@ -1355,15 +1319,6 @@ public interface ExecutionPackage extends EPackage {
 	int XML_SCHEMA_DATABASE__NAMESPACE = XML_DATABASE__NAMESPACE;
 
 	/**
-	 * The feature id for the '<em><b>Context</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_SCHEMA_DATABASE__CONTEXT = XML_DATABASE__CONTEXT;
-
-	/**
 	 * The feature id for the '<em><b>Xml Databases</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1660,15 +1615,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOCAL_XML_SCHEMA_DATABASE__NAMESPACE = XML_SCHEMA_DATABASE__NAMESPACE;
-
-	/**
-	 * The feature id for the '<em><b>Context</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCAL_XML_SCHEMA_DATABASE__CONTEXT = XML_SCHEMA_DATABASE__CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>Xml Databases</b></em>' reference list.
@@ -1976,15 +1922,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_SCHEMA_DATABASE__NAMESPACE = XML_SCHEMA_DATABASE__NAMESPACE;
-
-	/**
-	 * The feature id for the '<em><b>Context</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVER_XML_SCHEMA_DATABASE__CONTEXT = XML_SCHEMA_DATABASE__CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>Xml Databases</b></em>' reference list.
@@ -2359,17 +2296,6 @@ public interface ExecutionPackage extends EPackage {
 	int BASE_XEXCEPTION_WRAPPER = 13;
 
 	/**
-	 * The meta object id for the '<em>Base XContext Wrapper</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.basex.core.Context
-	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getBaseXContextWrapper()
-	 * @generated
-	 */
-	int BASE_XCONTEXT_WRAPPER = 14;
-
-
-	/**
 	 * The meta object id for the '<em>Query Exception Wrapper</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2377,7 +2303,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getQueryExceptionWrapper()
 	 * @generated
 	 */
-	int QUERY_EXCEPTION_WRAPPER = 15;
+	int QUERY_EXCEPTION_WRAPPER = 14;
 
 
 	/**
@@ -2388,7 +2314,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getQueryIOExceptionWrapper()
 	 * @generated
 	 */
-	int QUERY_IO_EXCEPTION_WRAPPER = 16;
+	int QUERY_IO_EXCEPTION_WRAPPER = 15;
 
 
 	/**
@@ -3101,17 +3027,6 @@ public interface ExecutionPackage extends EPackage {
 	EAttribute getXmlDatabase_Namespace();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.execution.XmlDatabase#getContext <em>Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Context</em>'.
-	 * @see qualitypatternmodel.execution.XmlDatabase#getContext()
-	 * @see #getXmlDatabase()
-	 * @generated
-	 */
-	EAttribute getXmlDatabase_Context();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#analyse() <em>Analyse</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3233,17 +3148,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getBaseXExceptionWrapper();
-
-	/**
-	 * Returns the meta object for data type '{@link org.basex.core.Context <em>Base XContext Wrapper</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Base XContext Wrapper</em>'.
-	 * @see org.basex.core.Context
-	 * @model instanceClass="org.basex.core.Context"
-	 * @generated
-	 */
-	EDataType getBaseXContextWrapper();
 
 	/**
 	 * Returns the meta object for data type '{@link org.basex.query.QueryException <em>Query Exception Wrapper</em>}'.
@@ -3857,14 +3761,6 @@ public interface ExecutionPackage extends EPackage {
 		EAttribute XML_DATABASE__NAMESPACE = eINSTANCE.getXmlDatabase_Namespace();
 
 		/**
-		 * The meta object literal for the '<em><b>Context</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute XML_DATABASE__CONTEXT = eINSTANCE.getXmlDatabase_Context();
-
-		/**
 		 * The meta object literal for the '<em><b>Analyse</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3965,16 +3861,6 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType BASE_XEXCEPTION_WRAPPER = eINSTANCE.getBaseXExceptionWrapper();
-
-		/**
-		 * The meta object literal for the '<em>Base XContext Wrapper</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.basex.core.Context
-		 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getBaseXContextWrapper()
-		 * @generated
-		 */
-		EDataType BASE_XCONTEXT_WRAPPER = eINSTANCE.getBaseXContextWrapper();
 
 		/**
 		 * The meta object literal for the '<em>Query Exception Wrapper</em>' data type.

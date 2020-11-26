@@ -743,7 +743,6 @@
           eType="#//execution/XmlSchemaDatabase" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="BaseXExceptionWrapper" instanceClassName="org.basex.core.BaseXException"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="BaseXContextWrapper" instanceClassName="org.basex.core.Context"/>
     <eClassifiers xsi:type="ecore:EDataType" name="QueryExceptionWrapper" instanceClassName="org.basex.query.QueryException"/>
     <eClassifiers xsi:type="ecore:EDataType" name="QueryIOExceptionWrapper" instanceClassName="org.basex.query.QueryIOException"/>
     <eClassifiers xsi:type="ecore:EClass" name="StringToIntMap" instanceClassName="java.util.Map$Entry">
@@ -855,12 +854,11 @@
       <eOperations name="open" eExceptions="#//execution/BaseXExceptionWrapper"/>
       <eOperations name="create" eExceptions="#//execution/BaseXExceptionWrapper"/>
       <eOperations name="execute" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper">
+          eExceptions="#//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper #//execution/BaseXExceptionWrapper">
         <eParameters name="query" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="context" eType="#//execution/BaseXContextWrapper"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Database" abstract="true" interface="true">
       <eOperations name="execute" eType="#//execution/Result" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException #//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper">
