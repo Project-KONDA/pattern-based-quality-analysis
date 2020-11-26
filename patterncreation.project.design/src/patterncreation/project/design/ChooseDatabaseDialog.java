@@ -62,8 +62,8 @@ public class ChooseDatabaseDialog extends Dialog {
         // TODO: inform user if no database exists
         ArrayList<Button> radioButtons = new ArrayList<Button>();
 		for (XmlDataDatabase database : databases) {
-			System.out.println("database: " + database);
-			System.out.println("context: " + database.getContext());
+//			System.out.println("database: " + database);
+//			System.out.println("context: " + database.getContext());
         	Button radioButton = new Button(group, SWT.RADIO);
         	radioButton.setText(database.getName());
         	radioButtons.add(radioButton);
