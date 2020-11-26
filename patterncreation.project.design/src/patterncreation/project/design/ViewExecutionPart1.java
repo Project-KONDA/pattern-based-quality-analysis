@@ -33,10 +33,13 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.Result;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.EMFModelLoad;
 
 public class ViewExecutionPart1 extends ViewPart {
 
+	private static final String FILE_PATH_PREFIX = "file:/";
 	private Text selectedPatternText;	
 	private Label selectedDatabaseLabel;
 	
@@ -112,9 +115,21 @@ public class ViewExecutionPart1 extends ViewPart {
 	    			dialog.setFilterPath(System.getProperty("user.dir"));//"c:\\temp"
 	    			
 	    			patternFilePath = dialog.open();
+	    			
 	    			if(patternFilePath != null) {
 	    				selectedPatternText.setText(patternFilePath);
-	    			}
+	    				patternFilePath = FILE_PATH_PREFIX + patternFilePath.replace("\\", "/");
+	    				pattern = EMFModelLoad.loadCompletePattern(patternFilePath);
+	    				
+	    				try {
+							pattern.isValid(AbstractionLevel.CONCRETE);
+						} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
+							MessageDialog.openError(shell, "OK", "The selected pattern is not a valid concrete pattern.");
+							pattern = null;
+							selectedPatternText.setText("");
+						}	    					
+	    				
+	    			}	    			
 	    			
 	    			// TODO: check if pattern is valid concrete pattern
 	    	   }
