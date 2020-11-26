@@ -55,6 +55,20 @@ public class ChooseDatabaseDialog extends Dialog {
         Label chooseDatabaseLabel = new Label(container, SWT.NONE);
         chooseDatabaseLabel.setText("Choose an existing database or create a new database");
         
+        Button createDatabaseButton = new Button(container, SWT.PUSH);
+        createDatabaseButton.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
+        createDatabaseButton.setText("Create New Database");
+        ChooseDatabaseDialog thisThis = this;
+        createDatabaseButton.addSelectionListener(new SelectionAdapter() {
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                Shell shell = new Shell();
+                CreateDatabaseDialog dialog = new CreateDatabaseDialog(shell, thisThis);
+	    		dialog.open();	    		
+            }
+        });     
+        
+        
         Group group = new Group(container, SWT.NONE);
         group.setLayout(new RowLayout(SWT.VERTICAL));
         
@@ -76,40 +90,7 @@ public class ChooseDatabaseDialog extends Dialog {
 			});
         	
         }
-        
-        Button createDatabaseButton = new Button(container, SWT.PUSH);
-        createDatabaseButton.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
-        createDatabaseButton.setText("Create New Database");
-        createDatabaseButton.addSelectionListener(new SelectionAdapter() {
-            @Override
-            public void widgetSelected(SelectionEvent e) {
-                Shell shell = new Shell();
-                CreateDatabaseDialog dialog = new CreateDatabaseDialog(shell);
-	    		dialog.open();
-	    		
-	    		// TODO: make sure that new radio button is added
-            }
-        });
-        
-        new Label(container, SWT.NONE);
-        new Label(container, SWT.NONE);
-        
-        /*Button buttonGo = createButton(parent, IDialogConstants.OK_ID,"Go!", false);
-  	    buttonGo.setBounds(200, 0, 100, 25);*/
-//        Button closeButton = new Button(container, SWT.PUSH);
-//        closeButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
-//        closeButton.setText("Close");
-//        closeButton.addSelectionListener(new SelectionAdapter() {
-//            @Override
-//            public void widgetSelected(SelectionEvent e) {
-//            	saveDatabases();
-//            	if(selectedDatabase == null) {
-//            		MessageDialog.openError(getShell(), "OK", "Please choose a database.");
-//            	} else {
-//            		container.getShell().close();
-//            	}
-//            }
-//        });
+
         
         return container;
     }
