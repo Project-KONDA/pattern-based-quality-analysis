@@ -57,28 +57,7 @@ public class ViewExecutionPart1 extends ViewPart {
 
 	@Override
 	public void createPartControl(Composite parent) {
-		Shell shell = new Shell();
-		
-		System.out.println("ViewExecutionPart1.createPartControl");
-		
-		System.out.println("Platform.getInstallLocation().getURL(): " + Platform.getInstallLocation().getURL());
-		System.out.println("System.getProperty(\"user.dir\"): " + System.getProperty("user.dir"));
-		
-		// TODO Auto-generated method stub
-		//label = new Label(parent, 0);
-        //label.setText("Hello World");
-		
-		//Display display = new Display();
-
-		
-		/*final Button button1 = new Button(shell, SWT.NONE);
-		button1.setText("Knopf1");*/
-		
-		/*FileDialog dialog = new FileDialog(shell, SWT.OPEN);
-		dialog.setFilterExtensions(new String [] {"*.html"});
-		dialog.setFilterPath("c:\\temp");
-		String result = dialog.open();*/
-		
+		Shell shell = new Shell();		
 
 		//ScrolledComposite container = new ScrolledComposite(parent, SWT.NONE|SWT.H_SCROLL | SWT.V_SCROLL);
 		ScrolledComposite sc = new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER);
@@ -131,7 +110,6 @@ public class ViewExecutionPart1 extends ViewPart {
 	    				
 	    			}	    			
 	    			
-	    			// TODO: check if pattern is valid concrete pattern
 	    	   }
 	    	 
 	    	   @Override
