@@ -152,7 +152,7 @@ public class CreateDatabaseDialog extends Dialog {
         createDatabaseButton.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-            	if(name == null || name.equals("") || dataPath == null || schemaPath == null) {
+            	if(name == null || name.equals("") || dataPath == null) {
             		MessageDialog.openError(shell, "OK", "Please specify all database properties.");
             	} else {
             		createDatabase();            		
@@ -165,25 +165,19 @@ public class CreateDatabaseDialog extends Dialog {
             }
 
 			private void createDatabase() {
-				
-//				System.out.println("create database");
-				
+								
 				LocalXmlDataDatabase dataDatabase = new LocalXmlDataDatabaseImpl(name, dataPath);
+				DatabasesImpl.getInstance().getXmlDatabases().add(dataDatabase);
 				
 				// TODO: check if schema database already exists				
 				
-				String[] split = schemaPath.split(Pattern.quote(File.separator));
-				String schemaDatabaseName = split[split.length-1]; // TODO: improve
-				LocalXmlSchemaDatabase schemaDatabase = new LocalXmlSchemaDatabaseImpl(schemaDatabaseName, schemaPath); 
-				
-//				try {
-//					schemaDatabase.init();
-//				} catch (BaseXException | QueryIOException | QueryException e1) {
-//					// TODO Auto-generated catch block
-//					e1.printStackTrace();
-//				}			
-				
-				dataDatabase.setXmlSchema(schemaDatabase); 			
+				if(schemaPath != null) {
+					String[] split = schemaPath.split(Pattern.quote(File.separator));
+					String schemaDatabaseName = split[split.length-1]; // TODO: improve
+					LocalXmlSchemaDatabase schemaDatabase = new LocalXmlSchemaDatabaseImpl(schemaDatabaseName, schemaPath); 		
+					DatabasesImpl.getInstance().getXmlSchemata().add(schemaDatabase);  
+					dataDatabase.setXmlSchema(schemaDatabase); 		
+				}
 					
 				try {
 					dataDatabase.init();
@@ -191,11 +185,7 @@ public class CreateDatabaseDialog extends Dialog {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}			
-				
-				// TODO: create BaseX database here?
-				
-		        DatabasesImpl.getInstance().getXmlDatabases().add(dataDatabase);
-		        DatabasesImpl.getInstance().getXmlSchemata().add(schemaDatabase); // TODO: uncomment  
+						        
 			}
         });
 
