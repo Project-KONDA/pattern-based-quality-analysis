@@ -146,7 +146,9 @@ public class ViewExecutionPart1 extends ViewPart {
 	    		   dialog.open();
 	    		   
 	    		   database = dialog.getSelectedDatabase();
-	    		   selectedDatabaseLabel.setText(database.toString()); // TODO: show name	    		   
+	    		   if(database != null) {
+	    			   selectedDatabaseLabel.setText(database.toString()); // TODO: show name	    	
+	    		   }
 	    	   }
 	    	 
 	    	   @Override
