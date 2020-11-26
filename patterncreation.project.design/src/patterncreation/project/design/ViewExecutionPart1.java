@@ -179,7 +179,16 @@ public class ViewExecutionPart1 extends ViewPart {
 	    		  } else {	    				
 						try {
 							Result result = database.execute(pattern, null, null); // TODO: allow specification of name and person
-//							resultText.setText(result.getResultString()); // TODO	
+							if(result != null) {
+								String resultString = "";
+								for(String s : result.getSplitResult()) {
+									resultString += s;
+								}								
+								resultText.setText(resultString); // TODO: result.getResultString()
+							}
+							String metaData = "Pattern: " + result.getName() + "\nPerson: " + result.getPerson() + "\nDate: " + result.getStartDate() + "\nRuntime: " + result.getRuntime() + " ms"
+							+"\nNo. Matches: " + result.getProblemNumber();
+							metaDataText.setText(metaData);
 							
 						} catch (BaseXException | QueryIOException | InvalidityException | OperatorCycleException
 								| MissingPatternContainerException | QueryException e1) {
