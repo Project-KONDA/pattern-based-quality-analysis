@@ -39,12 +39,9 @@ public class ChooseDatabaseDialog extends Dialog {
 //	static final String DATABASES_PATH = "platform:/plugin/patterncreation.project.design/databases";
 //	static final String DATABASES_PATH_WITH_SUFFIX = DATABASES_PATH + ".execution";
 	Database selectedDatabase;
-	ViewExecutionPart1 viewExecutionPart1;
 	
-	public ChooseDatabaseDialog(Shell parentShell, ViewExecutionPart1 viewExecutionPart1) {
-        super(parentShell);
-        this.viewExecutionPart1 = viewExecutionPart1;
-        viewExecutionPart1.setChooseDatabaseDialog(this);
+	public ChooseDatabaseDialog(Shell parentShell) {
+        super(parentShell);       
         loadDatabases();
     }
 	
@@ -55,8 +52,8 @@ public class ChooseDatabaseDialog extends Dialog {
 //    	Shell shell = new Shell();
         Composite container = (Composite) super.createDialogArea(parent);
         
-//        Label chooseDatabaseLabel = new Label(container, SWT.NONE);
-//        chooseDatabaseLabel.setText("Choose an existing database or create a new database");
+        Label chooseDatabaseLabel = new Label(container, SWT.NONE);
+        chooseDatabaseLabel.setText("Choose an existing database or create a new database");
         
         Button createDatabaseButton = new Button(container, SWT.PUSH);
         createDatabaseButton.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false, false));
@@ -100,7 +97,7 @@ public class ChooseDatabaseDialog extends Dialog {
     }
 
     
-    private void loadDatabases() {    
+    void loadDatabases() {    
     	String userDir = Platform.getInstallLocation().getURL().toString();
     	String path = userDir + "databases" + ".execution";
     	    	
@@ -135,11 +132,9 @@ public class ChooseDatabaseDialog extends Dialog {
     }
     
     protected void refresh(Shell shell) {
-    	saveDatabases();
-    	
+    	saveDatabases();    	
     	close();
-		ChooseDatabaseDialog dialog = new ChooseDatabaseDialog(shell, viewExecutionPart1);
-		dialog.open();
+		
     }
     
     @Override
@@ -184,16 +179,6 @@ public class ChooseDatabaseDialog extends Dialog {
 
 	public void setSelectedDatabase(Database selectedDatabase) {
 		this.selectedDatabase = selectedDatabase;
-	}
-
-
-	public ViewExecutionPart1 getViewExecutionPart1() {
-		return viewExecutionPart1;
-	}
-
-
-	public void setViewExecutionPart1(ViewExecutionPart1 viewExecutionPart1) {
-		this.viewExecutionPart1 = viewExecutionPart1;
 	}
 	
 }

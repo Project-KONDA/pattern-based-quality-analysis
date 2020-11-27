@@ -48,7 +48,7 @@ public class ViewExecutionPart1 extends ViewPart {
 	
 	private Database database;
 	
-	private ChooseDatabaseDialog chooseDatabaseDialog;
+	private ChooseDatabaseForExecutionDialog chooseDatabaseDialog;
 	
 	
 	public ViewExecutionPart1() {
@@ -139,7 +139,7 @@ public class ViewExecutionPart1 extends ViewPart {
 	    	   @Override
 	    	   public void widgetSelected(SelectionEvent arg0) {	    			
 	    		   Shell shell = new Shell();
-	    		   ChooseDatabaseDialog dialog = new ChooseDatabaseDialog(shell, thisView);
+	    		   ChooseDatabaseDialog dialog = new ChooseDatabaseForExecutionDialog(shell, thisView);
 	    		   dialog.open();
 	    		   
 	    		   database = chooseDatabaseDialog.getSelectedDatabase();
@@ -257,13 +257,13 @@ public class ViewExecutionPart1 extends ViewPart {
 
 
 
-	public ChooseDatabaseDialog getChooseDatabaseDialog() {
+	public ChooseDatabaseForExecutionDialog getChooseDatabaseDialog() {
 		return chooseDatabaseDialog;
 	}
 
 
 
-	public void setChooseDatabaseDialog(ChooseDatabaseDialog chooseDatabaseDialog) {
+	public void setChooseDatabaseDialog(ChooseDatabaseForExecutionDialog chooseDatabaseDialog) {
 		this.chooseDatabaseDialog = chooseDatabaseDialog;
 	}
 	

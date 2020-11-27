@@ -36,6 +36,7 @@ import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.XmlRoot;
+import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
@@ -111,6 +112,54 @@ public class Services {
     /**
     * See http://help.eclipse.org/neon/index.jsp?topic=%2Forg.eclipse.sirius.doc%2Fdoc%2Findex.html&cp=24 for documentation on how to write service methods.
     */
+	
+	
+	
+	
+	private ChooseDatabaseForConcretizationDialog chooseDatabaseForConcretizationDialog;
+	
+	static ArrayList<CompletePattern> patternsWithDatabaseSpecified = new ArrayList<CompletePattern>();
+	
+	public EObject concretePatternStart(EObject self) {
+
+		if (self instanceof CompletePattern) {
+			CompletePattern pattern = (CompletePattern) self;
+
+			if (!patternsWithDatabaseSpecified.contains(pattern)) {
+				
+				patternsWithDatabaseSpecified.add(pattern);
+				
+				Services thisServices = this;
+				
+				Display.getDefault().syncExec(new Runnable() {
+					public void run() {
+						ChooseDatabaseForConcretizationDialog dialog = new ChooseDatabaseForConcretizationDialog(
+								new Shell(), thisServices);
+						dialog.open();
+					}
+				});
+
+				Database selectedDatabase = chooseDatabaseForConcretizationDialog.getSelectedDatabase();
+				if (selectedDatabase != null) {
+					pattern.setDatabase(selectedDatabase);					
+				}
+			}
+		}
+
+		return self;
+	}
+	
+	public ChooseDatabaseForConcretizationDialog getChooseDatabaseForConcretizationDialog() {
+		return chooseDatabaseForConcretizationDialog;
+	}
+
+	public void setChooseDatabaseForConcretizationDialog(
+			ChooseDatabaseForConcretizationDialog chooseDatabaseForConcretizationDialog) {
+		this.chooseDatabaseForConcretizationDialog = chooseDatabaseForConcretizationDialog;
+	}
+	
+	
+
 	private static EObject comparisonProperty = null;//das ist das Comparison, auf das geklickt wurde, als eine neue Property erstellt wurde
     public EObject myService(EObject self, String arg) {
        // TODO Auto-generated code
