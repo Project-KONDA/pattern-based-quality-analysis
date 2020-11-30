@@ -112,11 +112,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		if(getArgument2() != null) {
 			getArgument2().isValid(abstractionLevel);
 		}
-		if(getOption() != null) {
-			getOption().isValid(abstractionLevel);
-		} else {
-			throw new InvalidityException("invalid option");
-		}
+		getOption().isValid(abstractionLevel);
+		
 	}
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {

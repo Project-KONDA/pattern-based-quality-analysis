@@ -78,7 +78,7 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @see #setSource(Element)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Source()
 	 * @see qualitypatternmodel.graphstructure.Element#getOutgoing
-	 * @model opposite="outgoing" required="true"
+	 * @model opposite="outgoing"
 	 * @generated
 	 */
 	Element getSource();
@@ -102,7 +102,7 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @see #setTarget(Element)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Target()
 	 * @see qualitypatternmodel.graphstructure.Element#getIncoming
-	 * @model opposite="incoming" required="true"
+	 * @model opposite="incoming"
 	 * @generated
 	 */
 	Element getTarget();

@@ -258,10 +258,10 @@
           eType="#//patternstructure/RelationMapping" eOpposite="#//patternstructure/RelationMapping/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/relations"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
-          eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/outgoing"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
-          eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/incoming"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//graphstructure/Element"
+          eOpposite="#//graphstructure/Element/outgoing"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//graphstructure/Element"
+          eOpposite="#//graphstructure/Element/incoming"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">

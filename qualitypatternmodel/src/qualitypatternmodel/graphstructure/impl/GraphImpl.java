@@ -158,7 +158,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(abstractionLevel);
+		super.isValid(abstractionLevel);
 		for(Element element : getElements()) {
 			element.isValid(abstractionLevel);
 		}
@@ -169,7 +169,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, MissingPatternContainerException {
-		if (returnElements == null || returnElements.isEmpty())
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && (returnElements == null || returnElements.isEmpty()))
 			throw new InvalidityException("returnElement empty (" + getInternalId() + ")");
 		if (operatorList == null)
 			throw new InvalidityException("operatorList null (" + getInternalId() + ")");
