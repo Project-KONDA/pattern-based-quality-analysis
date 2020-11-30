@@ -80,8 +80,15 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		getMorphism().isValid(abstractionLevel);
 		super.isValid(abstractionLevel);
+		getMorphism().isValid(abstractionLevel);		
+	}
+	
+	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
+		if(getMorphism() == null) {
+			throw new InvalidityException("morphism null" + " (" + getInternalId() + ")");
+		}
 	}
 	
 	

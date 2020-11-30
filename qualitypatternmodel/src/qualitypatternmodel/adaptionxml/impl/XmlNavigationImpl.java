@@ -22,6 +22,8 @@ import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.parameters.Parameter;
@@ -137,6 +139,13 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		
 		return query;
 	}
+	
+	@Override
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		super.isValid(abstractionLevel);
+		option.isValid(abstractionLevel);
+	}
+	
 	
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {

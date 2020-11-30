@@ -65,12 +65,15 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(abstractionLevel);
-		condition.isValid(abstractionLevel);
+		super.isValid(abstractionLevel);
+		
+		if(condition != null) {
+			condition.isValid(abstractionLevel);
+		}
 	}
 	
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (condition == null)
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && condition == null)
 			throw new InvalidityException("condition null (" + getInternalId() + ")");
 	}
 	

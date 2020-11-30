@@ -336,8 +336,11 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/Quantifier/FORALL"/>
       </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//patternstructure/AbstractionLevel">
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/AbstractionLevel/SEMI_GENERIC"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/AbstractionLevel/GENERIC"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/AbstractionLevel/SEMI_ABSTRACT"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/AbstractionLevel/ABSTRACT"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/AbstractionLevel/SEMI_CONCRETE"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//patternstructure/AbstractionLevel/CONCRETE"/>
       </genEnums>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//patternstructure/InvalidityExceptionWrapper"/>

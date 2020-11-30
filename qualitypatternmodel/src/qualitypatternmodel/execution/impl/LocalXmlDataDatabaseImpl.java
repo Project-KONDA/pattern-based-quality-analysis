@@ -2,18 +2,13 @@
  */
 package qualitypatternmodel.execution.impl;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.basex.core.BaseXException;
-import org.basex.core.cmd.Close;
 import org.basex.core.cmd.CreateDB;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
-import org.basex.query.QueryProcessor;
-import org.basex.query.iter.Iter;
-import org.basex.query.value.item.Item;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 

@@ -268,7 +268,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(abstractionLevel);
+		super.isValid(abstractionLevel);
 
 		for (BooleanOperator predicate : getPredicates())
 			predicate.isValid(abstractionLevel);

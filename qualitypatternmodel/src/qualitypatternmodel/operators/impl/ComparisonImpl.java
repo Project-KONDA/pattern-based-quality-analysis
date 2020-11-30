@@ -208,7 +208,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(abstractionLevel);
+		super.isValid(abstractionLevel);
 
 		if (argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof ParameterImpl)
 			argument1.isValid(abstractionLevel);

@@ -59,7 +59,7 @@ public interface MorphismContainer extends PatternElement {
 	 * @see #setMorphism(Morphism)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getMorphismContainer_Morphism()
 	 * @see qualitypatternmodel.patternstructure.Morphism#getMorphismContainer
-	 * @model opposite="morphismContainer" containment="true"
+	 * @model opposite="morphismContainer" containment="true" required="true"
 	 * @generated
 	 */
 	Morphism getMorphism();

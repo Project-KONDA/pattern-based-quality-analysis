@@ -34,7 +34,7 @@ public interface QuantifiedCondition extends Condition, MorphismContainer {
 	 * @see #setCondition(Condition)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getQuantifiedCondition_Condition()
 	 * @see qualitypatternmodel.patternstructure.Condition#getQuantifiedCondition
-	 * @model opposite="quantifiedCondition" containment="true" required="true"
+	 * @model opposite="quantifiedCondition" containment="true"
 	 * @generated
 	 */
 	Condition getCondition();
