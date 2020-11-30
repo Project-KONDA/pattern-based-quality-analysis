@@ -40,10 +40,10 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDescription()
-	 * @generated
+	 * @generated not
 	 * @ordered
 	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
+	protected static final String DESCRIPTION_EDEFAULT = "";
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -148,10 +148,12 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public String getDescription() {
+		if (description == DESCRIPTION_EDEFAULT) 
+			return generateDescription();
 		return description;
 	}
 

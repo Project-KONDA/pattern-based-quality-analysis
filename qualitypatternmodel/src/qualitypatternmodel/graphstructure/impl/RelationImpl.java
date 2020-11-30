@@ -24,6 +24,8 @@ import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
@@ -135,33 +137,61 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public RelationImpl() {
 		super();
 	}
+	
+	@Override
+	public void isValid (AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		if (abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE)
+			throw new InvalidityException("generic class in non-generic pattern");
+		super.isValid(abstractionLevel);
+	}
 
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (getGraph().getPattern() != null && getGraph().getPattern() instanceof CompletePattern && incomingMapping != null) // depth=0 => ReturnGraph
 			throw new InvalidityException("invalid RelationMapping to returnGraph: " + incomingMapping + " "
 					+ incomingMapping.getId() + " - (" + outgoingMappings + ")");	
 		
-		if(getSource() == null) {
+		if(getSource() == null && abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
 			throw new InvalidityException("source null " + getId());
+		} else {
+			if (getSource().getGraph() != getGraph()) 
+				throw new InvalidityException("source Element not in Graph " + getId());
 		}
-		if(getTarget() == null) {
+		
+		if(getTarget() == null && abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
 			throw new InvalidityException("target null " + getId());
+		} else {
+			if (getTarget().getGraph() != getGraph()) 
+				throw new InvalidityException("target Element not in Graph " + getId());
 		}
 		
 		for(RelationMapping mapping : getOutgoingMappings()) {
 			Relation mappedRelation = mapping.getTarget();
+			
+			// Source
 			Element mappedSource = mappedRelation.getSource();
-			if(!mappedSource.getIncomingMapping().getSource().equals(getSource())) {
-				throw new InvalidityException("mapping of source invalid");
+			if (getSource() != null && mappedSource.getIncomingMapping().getSource() != null) {
+				if(!mappedSource.getIncomingMapping().getSource().equals(getSource())) {
+					throw new InvalidityException("mapping of source invalid");
+				}
+			} else {
+				if (abstractionLevel != AbstractionLevel.SEMI_GENERIC)
+					throw new InvalidityException("source of mapping empty " + getId());
+				else if ( getSource() != null || mappedSource.getIncomingMapping().getSource() != null )
+					throw new InvalidityException("one source of mapping empty " + getId());					
 			}
+			
+			// Target
 			Element mappedTarget = mappedRelation.getTarget();
-			if (mappedTarget == null) {
-				throw new InvalidityException("Target of Mapping " + mappedRelation.getInternalId() + " from " + mappedRelation.getSource().getInternalId() + " is null");
-			}
-			ElementMapping mappingSource = mappedTarget.getIncomingMapping();
-			Element mappedSource2 = mappingSource.getSource();
-			if(!mappedSource2.equals(getTarget())) {
-				throw new InvalidityException("mapping of target invalid");
+			if (getTarget() != null && mappedTarget.getIncomingMapping().getSource() != null) {
+				if(!mappedTarget.getIncomingMapping().getSource().equals(getTarget())) {
+					throw new InvalidityException("mapping of target invalid");
+				}				
+			} else {
+					if (abstractionLevel != AbstractionLevel.SEMI_GENERIC)
+						throw new InvalidityException("target of mapping empty " + getId());
+					else if ( getTarget() != null || mappedTarget.getIncomingMapping().getSource() != null )
+						throw new InvalidityException("one target of mapping empty " + getId());					
 			}
 		}	
 	}	

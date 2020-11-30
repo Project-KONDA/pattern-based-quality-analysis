@@ -143,8 +143,11 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
+		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
+			throw new InvalidityException("non-generic class in generic pattern");
 		super.isValid(abstractionLevel);
 		option.isValid(abstractionLevel);
+		getAttributeName().isValid(abstractionLevel);
 	}
 	
 	@Override
@@ -152,8 +155,8 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 		super.isValidLocal(abstractionLevel);
 		if (option == null) 
 			throw new InvalidityException("options invalid");
-		if (option.getValue() != null && option.getValue() == PropertyKind.ATTRIBUTE && attributeName == null)
-			throw new InvalidityException("attributeName null");		
+		if (getAttributeName() == null)
+			throw new InvalidityException("attributeName null");
 	}
 	
 	@Override

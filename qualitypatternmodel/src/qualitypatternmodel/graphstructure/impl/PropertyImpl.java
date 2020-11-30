@@ -116,14 +116,14 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	}
 	
 	@Override
-	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
-		isValidLocal(abstractionLevel);
+	public void isValid (AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		if (abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE)
+			throw new InvalidityException("generic class in non-generic pattern");
+		super.isValid(abstractionLevel);
 	}
 	
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException{
-		if (getElement() == null) 
-			throw new InvalidityException("element null");		
-	}	
+	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {}	
 	
 	@Override
 	public PatternElement createXMLAdaption() {

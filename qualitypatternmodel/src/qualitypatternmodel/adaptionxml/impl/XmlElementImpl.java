@@ -17,6 +17,8 @@ import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
@@ -85,11 +87,20 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 		}		
 		return query;					
 	}
+
+	@Override
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
+			throw new InvalidityException("non-generic class in generic pattern");
+		super.isValid(abstractionLevel);
+	}
 	
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {	
 		super.isValidLocal(abstractionLevel);
-		if(getIncoming() == null) {
+		
+		
+		if ( getIncoming() == null && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
 			throw new InvalidityException("no incoming relation at XMLElement " + getId());
 		}
 		boolean hasIncomingXMLNavigation = false;
@@ -102,7 +113,7 @@ public class XmlElementImpl extends ElementImpl implements XmlElement {
 				}
 			}
 		}
-		if(!hasIncomingXMLNavigation) {
+		if ( !hasIncomingXMLNavigation  && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
 			throw new InvalidityException("no incoming XMLNavigations at XMLElement " + getId());
 		}
 		

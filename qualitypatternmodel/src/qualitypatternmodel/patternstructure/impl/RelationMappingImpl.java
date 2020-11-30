@@ -71,9 +71,12 @@ public class RelationMappingImpl extends MappingImpl implements RelationMapping 
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (source == null)
-			throw new InvalidityException("RelationMapping " + getInternalId() + ": from-element null");
+			throw new InvalidityException("RelationMapping " + getInternalId() + ": source relation null");
 		if (target == null)
-			throw new InvalidityException("RelationMapping " + getInternalId() + ": to null");
+			throw new InvalidityException("RelationMapping " + getInternalId() + ": target relation null");
+		if (!target.getClass().equals(source.getClass())) {
+			throw new InvalidityException("RelationMapping " + getInternalId() + ": unequal types of source and target relations");			
+		}
 	}
 
 	/**

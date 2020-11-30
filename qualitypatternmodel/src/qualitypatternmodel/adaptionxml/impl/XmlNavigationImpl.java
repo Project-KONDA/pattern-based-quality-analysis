@@ -142,8 +142,11 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
+			throw new InvalidityException("non-generic class in generic pattern");
 		super.isValid(abstractionLevel);
-		option.isValid(abstractionLevel);
+		if (option != null) 
+			option.isValid(abstractionLevel);
 	}
 	
 	
@@ -154,12 +157,6 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 			throw new InvalidityException("axis missing");
 		if (getIncomingMapping() != null && option != null)
 			throw new InvalidityException("axis redundant");
-		
-		for(RelationMapping mapping : getOutgoingMappings()) {
-			if(!(mapping.getSource() instanceof XmlNavigation)) {
-				throw new InvalidityException("mapping different relations");
-			}			
-		}		
 	}	
 	
 	@Override

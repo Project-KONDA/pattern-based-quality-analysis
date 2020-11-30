@@ -65,9 +65,12 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (source == null)
-			throw new InvalidityException("ElementMapping " + getInternalId() + ": from-element null");
+			throw new InvalidityException("ElementMapping " + getInternalId() + ": source element null");
 		if (target == null)
-			throw new InvalidityException("ElementMapping " + getInternalId() + ": to null");
+			throw new InvalidityException("ElementMapping " + getInternalId() + ": target element null");
+		if (!target.getClass().equals(source.getClass())) {
+			throw new InvalidityException("ElementMapping " + getInternalId() + ": unequal types of source and target elements");			
+		}
 	}
 
 	/**
