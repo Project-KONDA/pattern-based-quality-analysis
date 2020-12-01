@@ -31,6 +31,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.RelationOptionParam;
@@ -109,17 +110,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	 */
 	public RelationOptionParamImpl() {
 		super();
-		getOptions().add(RelationKind.CHILD);
-		getOptions().add(RelationKind.DESCENDANT);
-		getOptions().add(RelationKind.PARENT);
-		getOptions().add(RelationKind.ANCESTOR);		
-		getOptions().add(RelationKind.FOLLOWING);
-		getOptions().add(RelationKind.FOLLOWING_SIBLING);
-		getOptions().add(RelationKind.PRECEDING);
-		getOptions().add(RelationKind.PRECEDING_SIBLING);		
-		getOptions().add(RelationKind.ANCESTOR_OR_SELF);
-		getOptions().add(RelationKind.DESCENDANT_OR_SELF);
-		getOptions().add(RelationKind.SELF);
+		getOptions().addAll(RelationKind.VALUES);
 	}
 
 	@Override
