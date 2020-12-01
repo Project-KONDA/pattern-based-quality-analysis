@@ -351,6 +351,53 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public AbstractionLevel getAbstractionLevel() {
+		
+		try {
+			isValid(AbstractionLevel.SEMI_CONCRETE);
+			
+			try {
+				isValid(AbstractionLevel.CONCRETE);
+				return AbstractionLevel.CONCRETE;
+			} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e1) {
+				try {
+					isValid(AbstractionLevel.ABSTRACT);
+					return AbstractionLevel.ABSTRACT;
+				} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e2) {
+					return AbstractionLevel.SEMI_CONCRETE;
+				}
+			}
+			
+		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e3) {
+			try {
+				isValid(AbstractionLevel.SEMI_ABSTRACT);
+				try {
+					isValid(AbstractionLevel.GENERIC);
+					return AbstractionLevel.GENERIC;
+				} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e4) {
+					return AbstractionLevel.SEMI_ABSTRACT;
+				}
+			} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e5) {
+				try {
+					isValid(AbstractionLevel.SEMI_GENERIC);
+					return AbstractionLevel.SEMI_GENERIC;
+				} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e6) {
+					// pattern invalid
+					return null;
+				}
+			}
+			
+		}
+		
+	}
+
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -931,6 +978,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case PatternstructurePackage.COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL:
+				return getAbstractionLevel();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
