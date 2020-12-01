@@ -171,7 +171,6 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	
 	@Override
 	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValid(AbstractionLevel.GENERIC);			
 		getGraph().createXMLAdaption();
 		getCondition().createXMLAdaption();
 		return this;

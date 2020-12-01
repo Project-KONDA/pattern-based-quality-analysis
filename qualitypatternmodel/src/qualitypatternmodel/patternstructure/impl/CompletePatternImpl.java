@@ -585,6 +585,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 	@Override
 	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		isValid(AbstractionLevel.GENERIC);
 		setAdaptionStarted(true);
 		return super.createXMLAdaption();
 	}
