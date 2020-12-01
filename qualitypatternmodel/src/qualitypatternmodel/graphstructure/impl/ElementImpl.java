@@ -268,7 +268,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE)
+		if (getClass().equals(ElementImpl.class) && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE)
 			throw new InvalidityException("generic class in non-generic pattern");
 		
 		super.isValid(abstractionLevel);

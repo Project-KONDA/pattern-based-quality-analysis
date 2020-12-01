@@ -117,7 +117,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	
 	@Override
 	public void isValid (AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		if (abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE)
+		if (getClass().equals(PropertyImpl.class) && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE)
 			throw new InvalidityException("generic class in non-generic pattern");
 		super.isValid(abstractionLevel);
 	}
