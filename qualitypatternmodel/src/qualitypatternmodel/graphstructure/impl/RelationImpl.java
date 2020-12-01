@@ -198,7 +198,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	
 	@Override
 	public PatternElement createXMLAdaption() {
-		throw new UnsupportedOperationException();
+		throw new UnsupportedOperationException("Relation cannot be adapted automatically. Use adaptAsXMLNavigation() or adaptAsXMLReference() instead.");
 	}
 
 	@Override
