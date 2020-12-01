@@ -321,6 +321,9 @@ public interface CompletePattern extends Pattern {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the most narrow <code>AbstractionLevel</code> of <code>this</code>.
+	 * 
+	 * @return the most narrow <code>AbstractionLevel</code> of <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
