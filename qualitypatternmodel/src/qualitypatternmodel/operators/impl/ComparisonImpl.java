@@ -481,38 +481,46 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			qualitypatternmodel.graphstructure.Comparable otherArgument) {
 		if(getTypeOption() != null) {
 			if (newArgument == null) {
-				if (otherArgument == null) {
+				if (otherArgument == null || otherArgument instanceof Property || otherArgument instanceof UntypedParameterValue) {
 					getTypeOption().setValue(ReturnType.UNSPECIFIED);
+					if(!getTypeOption().getOptions().contains(ReturnType.UNSPECIFIED)) {
+						getTypeOption().getOptions().add(ReturnType.UNSPECIFIED);
+					}
 					getTypeOption().setPredefined(false);
-				}
-				if (otherArgument instanceof Property) {
-					getTypeOption().setValue(ReturnType.UNSPECIFIED);
-					getTypeOption().setPredefined(false);
-				}
-				if (otherArgument instanceof UntypedParameterValue) {
-					getTypeOption().setValue(ReturnType.UNSPECIFIED);
-					getTypeOption().setPredefined(false);
-				}
+				}				
 			} else {
-				if (newArgument instanceof Element) {
-					getTypeOption().setValue(ReturnType.ELEMENT);
+				
+				if (newArgument instanceof Element || newArgument instanceof BooleanOperator || newArgument instanceof NumberOperator || newArgument instanceof ParameterValue) {
+					ReturnType returnType = null;
+					
+					if (newArgument instanceof Element) {
+						returnType = ReturnType.ELEMENT;
+					}
+					if (newArgument instanceof BooleanOperator) {
+						returnType = ReturnType.BOOLEAN;
+					}
+					if (newArgument instanceof NumberOperator) {
+						returnType = ReturnType.NUMBER;
+						
+					}
+					if (newArgument instanceof ParameterValue) {
+						ParameterValue xsType = (ParameterValue) newArgument;						
+						returnType = xsType.getReturnType();
+					}
+					
+					getTypeOption().setValue(returnType);
+					if(!getTypeOption().getOptions().contains(returnType)) {
+						getTypeOption().getOptions().add(returnType);
+					}
 					getTypeOption().setPredefined(true);
 				}
-				if (newArgument instanceof BooleanOperator) {
-					getTypeOption().setValue(ReturnType.BOOLEAN);
-					getTypeOption().setPredefined(true);
-				}
-				if (newArgument instanceof NumberOperator) {
-					getTypeOption().setValue(ReturnType.NUMBER);
-					getTypeOption().setPredefined(true);
-				}
-				if (newArgument instanceof ParameterValue) {
-					ParameterValue xsType = (ParameterValue) newArgument;
-					getTypeOption().setValue(xsType.getReturnType());
-					getTypeOption().setPredefined(true);
-				}
+				
+				
 				if (newArgument instanceof UntypedParameterValue) {
 					getTypeOption().setValue(ReturnType.UNSPECIFIED);
+					if(!getTypeOption().getOptions().contains(ReturnType.UNSPECIFIED)) {
+						getTypeOption().getOptions().add(ReturnType.UNSPECIFIED);
+					}
 					getTypeOption().setPredefined(false);
 				}			
 			}
