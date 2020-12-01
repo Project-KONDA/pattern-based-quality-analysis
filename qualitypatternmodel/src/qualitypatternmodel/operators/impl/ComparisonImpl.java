@@ -40,6 +40,7 @@ import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
+import qualitypatternmodel.parameters.impl.ParameterValueImpl;
 import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -210,11 +211,12 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
 
-		if (argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof ParameterImpl)
+		if (argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof ParameterValueImpl)
 			argument1.isValid(abstractionLevel);
-		if (argument2 instanceof PropertyImpl || argument2 instanceof OperatorImpl || argument2 instanceof ParameterImpl)
+		if (argument2 instanceof PropertyImpl || argument2 instanceof OperatorImpl || argument2 instanceof ParameterValueImpl)
 			argument2.isValid(abstractionLevel);
 		option.isValid(abstractionLevel);
+		typeOption.isValid(abstractionLevel);
 
 	}
 
@@ -225,24 +227,31 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 */
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
-		if (argument1 == null)
-			throw new InvalidityException("argument1 null" + " (" + getInternalId() + ")");
-		if (argument2 == null)
-			throw new InvalidityException("argument2 null" + " (" + getInternalId() + ")");
+		if(abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
+			if (argument1 == null)
+				throw new InvalidityException("argument1 null" + " (" + getInternalId() + ")");
+			if (argument2 == null)
+				throw new InvalidityException("argument2 null" + " (" + getInternalId() + ")");
+		}
+		
 		if (option == null)
-			throw new InvalidityException("operator options null" + " (" + getInternalId() + ")");
+			throw new InvalidityException("operator option null" + " (" + getInternalId() + ")");
+		if (typeOption == null)
+			throw new InvalidityException("operator typeOption null" + " (" + getInternalId() + ")");
 
-		if (argument1.getReturnType() != argument2.getReturnType()) {
-			if (argument1.getReturnType() != ReturnType.UNSPECIFIED
-					&& argument2.getReturnType() != ReturnType.UNSPECIFIED) {
-				throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");
+		if(argument1 != null && argument2 != null) { 
+			if (argument1.getReturnType() != argument2.getReturnType()) {
+				if (argument1.getReturnType() != ReturnType.UNSPECIFIED
+						&& argument2.getReturnType() != ReturnType.UNSPECIFIED) {
+					throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");
+				}
 			}
 		}
 
-		if (argument1.getReturnType() != ReturnType.UNSPECIFIED && argument1.getReturnType() != getTypeOption().getValue()) {
+		if (argument1 != null && argument1.getReturnType() != ReturnType.UNSPECIFIED && argument1.getReturnType() != getTypeOption().getValue()) {
 			throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");
 		}
-		if (argument2.getReturnType() != ReturnType.UNSPECIFIED && argument2.getReturnType() != getTypeOption().getValue()) {
+		if (argument2 != null && argument2.getReturnType() != ReturnType.UNSPECIFIED && argument2.getReturnType() != getTypeOption().getValue()) {
 			throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");
 		}
 

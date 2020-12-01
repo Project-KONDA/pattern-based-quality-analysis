@@ -105,10 +105,13 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(abstractionLevel);
+		super.isValid(abstractionLevel);
 		option.isValid(abstractionLevel);		
-		regularExpression.isValid(abstractionLevel);		
-		property.isValid(abstractionLevel);
+		regularExpression.isValid(abstractionLevel);
+		
+		if(property != null) {
+			property.isValid(abstractionLevel);
+		}
 	}
 	
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
@@ -116,7 +119,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			throw new InvalidityException("options null");
 		if (regularExpression == null)
 			throw new InvalidityException("regularExpression null");
-		if (property == null)
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && property == null)
 			throw new InvalidityException("property null");		
 		
 		super.isValidLocal(abstractionLevel);
