@@ -291,7 +291,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		super.isValid(abstractionLevel);
+		// If adaptationFinalized is true, Pattern can only be SEMI_ABSTRACT if it is ABSTRACT.
+		if ( adaptionStarted && adaptionFinalized && abstractionLevel == AbstractionLevel.SEMI_ABSTRACT )
+			super.isValid(AbstractionLevel.ABSTRACT);
+		else super.isValid(abstractionLevel);
 		parameterList.isValid(abstractionLevel);		
 	}
 
@@ -299,6 +302,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		super.isValidLocal(abstractionLevel);
 		if (parameterList == null)
 			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")");
+		if ( adaptionStarted && !adaptionFinalized && abstractionLevel != AbstractionLevel.SEMI_ABSTRACT )
+			throw new InvalidityException("adaptation in progress (" + getInternalId() + ")");
+		if ( adaptionStarted && adaptionFinalized && abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE )
+			throw new InvalidityException("adaptation already finalized" + " (" + getInternalId() + ")");
 	}
 
 	@Override
