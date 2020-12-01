@@ -94,7 +94,7 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	 */
 	public TypeOptionParamImpl() {
 		super();
-		getOptions().add(ReturnType.UNSPECIFIED);
+		getOptions().addAll(ReturnType.VALUES);
 	}
 	
 	@Override
