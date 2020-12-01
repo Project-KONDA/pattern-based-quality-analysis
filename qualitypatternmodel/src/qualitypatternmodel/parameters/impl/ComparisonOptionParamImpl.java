@@ -120,7 +120,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (getOptions() == null) 
 			throw new InvalidityException("options null");
-		if (getOptions().size() < 1) 
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getOptions().isEmpty()) 
 			throw new InvalidityException("not enough options");
 		super.isValidLocal(abstractionLevel);
 	}

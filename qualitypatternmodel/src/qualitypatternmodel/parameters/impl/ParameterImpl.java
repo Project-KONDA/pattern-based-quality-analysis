@@ -83,6 +83,17 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	}
 
 	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
+		if (getParameterList() == null)
+			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")");
+		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
+			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + ")");
+		if(isPredefined() && !inputIsValid()) {
+			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + ")");
+		}
+	}
+	
+	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		res.add(this);
@@ -189,17 +200,6 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		predefined = newPredefined;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PARAMETER__PREDEFINED, oldPredefined, predefined));
-	}
-
-	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (getParameterList() == null)
-			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")");
-		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
-			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + ")");
-		if(isPredefined() && !inputIsValid()) {
-			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + ")");
-		}
 	}
 
 	/**

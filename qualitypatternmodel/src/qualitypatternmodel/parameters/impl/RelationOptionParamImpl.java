@@ -124,9 +124,12 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
+		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
+			throw new InvalidityException("non-generic class in generic pattern");
+		
 		if (getOptions() == null)
 			throw new InvalidityException("options null");
-		if (getOptions().size() < 1)
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getOptions().isEmpty())
 			throw new InvalidityException("not enough options");
 		super.isValidLocal(abstractionLevel);
 	}
