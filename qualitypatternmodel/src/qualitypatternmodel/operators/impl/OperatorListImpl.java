@@ -75,27 +75,29 @@ public class OperatorListImpl extends PatternElementImpl implements OperatorList
 		if (getGraph().getAllOperators() == null)
 			throw new InvalidityException("invalid Operators of Graph" + "(" + getInternalId() + ")");
 
-		EList<Operator> graphOps = getGraph().getAllOperators();
-		if (!(graphOps.containsAll(getOperators()) && getOperators().containsAll(graphOps))) {
-			String msg = "amount of operators in OperatorList not equal to amount of operators used in Graph (" + getInternalId() + "):\n";
-			msg += getOperators();
-			msg += "\n";
-			for (Operator op : graphOps) {
-				msg += op.myToString();
-				if (!getOperators().contains(op))
-					msg += "- ";
-				else
-					msg += "+ ";
+		if(abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
+			EList<Operator> graphOps = getGraph().getAllOperators();
+			if (!(graphOps.containsAll(getOperators()) && getOperators().containsAll(graphOps))) {
+				String msg = "amount of operators in OperatorList not equal to amount of operators used in Graph (" + getInternalId() + "):\n";
+				msg += getOperators();
+				msg += "\n";
+				for (Operator op : graphOps) {
+					msg += op.myToString();
+					if (!getOperators().contains(op))
+						msg += "- ";
+					else
+						msg += "+ ";
+				}
+				msg += "\n";
+				for (Operator op : getOperators()) {
+					msg += op.myToString();
+					if (!getOperators().contains(op))
+						msg += "- ";
+					else
+						msg += "+ ";
+				}
+				throw new InvalidityException(msg);
 			}
-			msg += "\n";
-			for (Operator op : getOperators()) {
-				msg += op.myToString();
-				if (!getOperators().contains(op))
-					msg += "- ";
-				else
-					msg += "+ ";
-			}
-			throw new InvalidityException(msg);
 		}
 	}
 	

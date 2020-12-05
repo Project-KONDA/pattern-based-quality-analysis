@@ -23,9 +23,9 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.testutility.EMFModelLoad;
 import qualitypatternmodel.testutility.EMFValidationPreparation;
 import qualitypatternmodel.translationtests.Test00;
+import qualitypatternmodel.utility.EMFModelLoad;
 
 public class SuggestionGeneration {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

@@ -40,10 +40,10 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getDescription()
-	 * @generated
+	 * @generated not
 	 * @ordered
 	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
+	protected static final String DESCRIPTION_EDEFAULT = "";
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -82,6 +82,17 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		super();
 	}
 
+	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
+		if (getParameterList() == null)
+			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")");
+		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
+			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + ")");
+		if(isPredefined() && !inputIsValid()) {
+			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + ")");
+		}
+	}
+	
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
@@ -148,10 +159,12 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public String getDescription() {
+		if (description == DESCRIPTION_EDEFAULT) 
+			return generateDescription();
 		return description;
 	}
 
@@ -187,14 +200,6 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		predefined = newPredefined;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PARAMETER__PREDEFINED, oldPredefined, predefined));
-	}
-
-	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (getParameterList() == null)
-			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")");
-		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
-			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + ")");
 	}
 
 	/**

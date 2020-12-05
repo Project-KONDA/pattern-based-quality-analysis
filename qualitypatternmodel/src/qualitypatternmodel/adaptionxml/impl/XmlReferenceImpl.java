@@ -109,16 +109,31 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	}
 	
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(abstractionLevel);
+		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
+			throw new InvalidityException("non-generic class in generic pattern");
+		
+		super.isValid(abstractionLevel);
+		
 		if(getIncomingMapping() == null) {
-			if(getSourceProperty() == null) {
-				throw new InvalidityException("source property null");
-			}
-			if(getTargetProperty() == null) {
-				throw new InvalidityException("target property null");
-			}
 			getSourceProperty().isValid(abstractionLevel);
 			getTargetProperty().isValid(abstractionLevel);
+		}
+	}
+	
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
+		super.isValidLocal(abstractionLevel);
+		
+		if(getIncomingMapping() == null) {
+			if (getSourceProperty() == null)
+				throw new InvalidityException("source property null (" + getInternalId() + ")" );
+			if (getTargetProperty() == null)
+				throw new InvalidityException("target property null (" + getInternalId() + ")" );			
+			if(!getSourceProperty().getElement().equals(getSource())) {
+				throw new InvalidityException("source and sourceProperty not conform (" + getInternalId() + ")" );
+			}
+			if(!getTargetProperty().getElement().equals(getTarget())) {
+				throw new InvalidityException("target and targetProperty not conform (" + getInternalId() + ")" );
+			}			
 		} else {
 			if(getSourceProperty() != null) {
 				throw new InvalidityException("source property not null");
@@ -127,24 +142,9 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 				throw new InvalidityException("target property not null");
 			}
 		}
-	}
-	
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (getSourceProperty() == null)
-			throw new InvalidityException("referenceSource null (" + getInternalId() + ")" );
-		if (getTargetProperty() == null)
-			throw new InvalidityException("referenceSource2 null (" + getInternalId() + ")" );
 		
 		if(abstractionLevel == AbstractionLevel.CONCRETE && type == ReturnType.UNSPECIFIED) {
 			throw new InvalidityException("input value type unspecified" + " (" + getInternalId() + ")" );	
-		}
-		
-		if(!getSourceProperty().getElement().equals(getSource())) {
-			throw new InvalidityException("source and sourceProperty not conform (" + getInternalId() + ")" );
-		}
-		
-		if(!getTargetProperty().getElement().equals(getTarget())) {
-			throw new InvalidityException("target and targetProperty not conform (" + getInternalId() + ")" );
 		}
 	
 	}

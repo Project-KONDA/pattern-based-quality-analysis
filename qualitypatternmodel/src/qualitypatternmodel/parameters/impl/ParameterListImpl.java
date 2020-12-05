@@ -69,10 +69,10 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 		setPattern(completePatternImpl);
 	}
 
-	@Override
-	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException {
-		isValidLocal(abstractionLevel);
-	}
+//	@Override
+//	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException {
+//		isValidLocal(abstractionLevel);
+//	}
 
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
@@ -82,26 +82,28 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 		EList<Parameter> patternVars = getPattern().getAllParameters();
 		if (patternVars == null)
 			throw new InvalidityException("invalid Operators of Graph" + " (" + getInternalId() + ")");
-
-		if (!(patternVars.containsAll(getParameters()) && getParameters().containsAll(patternVars))) {
-			String msg = "parameters from ParameterList (" + getInternalId() + ") not equal to parameters used in Pattern:";
-			msg += "\nin Pattern:       ";
-			for (Parameter var : patternVars) {
-				msg += "[" + var.myToString() + "]";
-				if (!getParameters().contains(var))
-					msg += "- ";
-				else
-					msg += "+ ";
+		
+		if(abstractionLevel != AbstractionLevel.SEMI_GENERIC) {	
+			if (!(patternVars.containsAll(getParameters()) && getParameters().containsAll(patternVars))) {
+				String msg = "parameters from ParameterList (" + getInternalId() + ") not equal to parameters used in Pattern:";
+				msg += "\nin Pattern:       ";
+				for (Parameter var : patternVars) {
+					msg += "[" + var.myToString() + "]";
+					if (!getParameters().contains(var))
+						msg += "- ";
+					else
+						msg += "+ ";
+				}
+				msg += "\nin ParameterList: ";
+				for (Parameter var : getParameters()) {
+					msg += "[" + var.myToString() + "]";
+					if (!patternVars.contains(var))
+						msg += "- ";
+					else
+						msg += "+ ";
+				}
+				throw new InvalidityException(msg + " (" + getInternalId() + ")");
 			}
-			msg += "\nin ParameterList: ";
-			for (Parameter var : getParameters()) {
-				msg += "[" + var.myToString() + "]";
-				if (!patternVars.contains(var))
-					msg += "- ";
-				else
-					msg += "+ ";
-			}
-			throw new InvalidityException(msg + " (" + getInternalId() + ")");
 		}
 	}
 

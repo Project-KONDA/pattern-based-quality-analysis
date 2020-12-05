@@ -56,7 +56,7 @@ public interface Formula extends Condition {
 	 * @see #setCondition1(Condition)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getFormula_Condition1()
 	 * @see qualitypatternmodel.patternstructure.Condition#getFormula1
-	 * @model opposite="formula1" containment="true" required="true"
+	 * @model opposite="formula1" containment="true"
 	 * @generated
 	 */
 	Condition getCondition1();
@@ -80,7 +80,7 @@ public interface Formula extends Condition {
 	 * @see #setCondition2(Condition)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getFormula_Condition2()
 	 * @see qualitypatternmodel.patternstructure.Condition#getFormula2
-	 * @model opposite="formula2" containment="true" required="true"
+	 * @model opposite="formula2" containment="true"
 	 * @generated
 	 */
 	Condition getCondition2();

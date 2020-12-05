@@ -2,10 +2,11 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import static qualitypatternmodel.utility.Constants.RETURN;
+import static qualitypatternmodel.utility.Constants.VARIABLE;
+import static qualitypatternmodel.utility.Constants.WHERE;
+
 import java.lang.reflect.InvocationTargetException;
-import static qualitypatternmodel.utilityclasses.Constants.RETURN;
-import static qualitypatternmodel.utilityclasses.Constants.VARIABLE;
-import static qualitypatternmodel.utilityclasses.Constants.WHERE;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -120,19 +121,23 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(abstractionLevel);		
+		super.isValid(abstractionLevel);		
 		graph.isValid(abstractionLevel);
-		condition.isValid(abstractionLevel);
+		
+		if (condition != null) {
+			condition.isValid(abstractionLevel);
+		}
 	}
 	
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {		
 		if (graph == null)
 			throw new InvalidityException("Graph null" + " (" + getInternalId() + ")");
-		if (condition == null)
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && condition == null)
 			throw new InvalidityException("condition null" + " (" + getInternalId() + ")");
 		
 		checkMorphismOfNextGraph();
+		
 	}
 	
 	@Override
@@ -166,7 +171,6 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	
 	@Override
 	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValid(AbstractionLevel.GENERIC);			
 		getGraph().createXMLAdaption();
 		getCondition().createXMLAdaption();
 		return this;
@@ -207,14 +211,16 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 */
 	@Override
 	public void checkMorphismOfNextGraph() throws InvalidityException {
-		EList<MorphismContainer> nextQuantifiedConditions = getCondition().getNextMorphismContainers();
-		for(MorphismContainer next : nextQuantifiedConditions) {
-			if(!getGraph().equals(next.getMorphism().getSource())) {
-				throw new InvalidityException("[" + getInternalId() + "] wrong morphism source in " + next.getInternalId() + ": " 
-					+ next.getMorphism().getSource().getInternalId() + " instead of " + getGraph().getInternalId());
-			}
-			if(!next.getGraph().equals(next.getMorphism().getTarget())) {
-				throw new InvalidityException("wrong mapping to [" + getInternalId() + "]");
+		if(getCondition() != null) {
+			EList<MorphismContainer> nextQuantifiedConditions = getCondition().getNextMorphismContainers();
+			for(MorphismContainer next : nextQuantifiedConditions) {
+				if(!getGraph().equals(next.getMorphism().getSource())) {
+					throw new InvalidityException("[" + getInternalId() + "] wrong morphism source in " + next.getInternalId() + ": " 
+						+ next.getMorphism().getSource().getInternalId() + " instead of " + getGraph().getInternalId());
+				}
+				if(!next.getGraph().equals(next.getMorphism().getTarget())) {
+					throw new InvalidityException("wrong mapping to [" + getInternalId() + "]");
+				}
 			}
 		}
 	}

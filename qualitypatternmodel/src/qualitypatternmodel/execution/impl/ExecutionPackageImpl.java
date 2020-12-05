@@ -4,8 +4,6 @@ package qualitypatternmodel.execution.impl;
 
 import java.util.Map;
 import org.basex.core.BaseXException;
-import org.basex.core.Context;
-
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.eclipse.emf.ecore.EAttribute;
@@ -155,13 +153,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	private EDataType baseXExceptionWrapperEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType baseXContextWrapperEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -946,16 +937,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getXmlDatabase_Context() {
-		return (EAttribute)xmlDatabaseEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getXmlDatabase__Analyse() {
 		return xmlDatabaseEClass.getEOperations().get(0);
 	}
@@ -1068,16 +1049,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	@Override
 	public EDataType getBaseXExceptionWrapper() {
 		return baseXExceptionWrapperEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EDataType getBaseXContextWrapper() {
-		return baseXContextWrapperEDataType;
 	}
 
 	/**
@@ -1207,7 +1178,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		xmlDatabaseEClass = createEClass(XML_DATABASE);
 		createEAttribute(xmlDatabaseEClass, XML_DATABASE__NAME);
 		createEAttribute(xmlDatabaseEClass, XML_DATABASE__NAMESPACE);
-		createEAttribute(xmlDatabaseEClass, XML_DATABASE__CONTEXT);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___ANALYSE);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___INIT);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___OPEN);
@@ -1224,7 +1194,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		// Create data types
 		baseXExceptionWrapperEDataType = createEDataType(BASE_XEXCEPTION_WRAPPER);
-		baseXContextWrapperEDataType = createEDataType(BASE_XCONTEXT_WRAPPER);
 		queryExceptionWrapperEDataType = createEDataType(QUERY_EXCEPTION_WRAPPER);
 		queryIOExceptionWrapperEDataType = createEDataType(QUERY_IO_EXCEPTION_WRAPPER);
 	}
@@ -1477,7 +1446,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEClass(xmlDatabaseEClass, XmlDatabase.class, "XmlDatabase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getXmlDatabase_Name(), ecorePackage.getEString(), "name", null, 0, 1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getXmlDatabase_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getXmlDatabase_Context(), this.getBaseXContextWrapper(), "context", null, 0, 1, XmlDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getXmlDatabase__Analyse(), null, "analyse", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
@@ -1499,6 +1467,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		addEParameter(op, ecorePackage.getEString(), "query", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
+		addEException(op, this.getBaseXExceptionWrapper());
 
 		initEClass(databaseEClass, Database.class, "Database", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDatabase_Results(), this.getResult(), this.getResult_Database(), "results", null, 0, -1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1528,7 +1497,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		// Initialize data types
 		initEDataType(baseXExceptionWrapperEDataType, BaseXException.class, "BaseXExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(baseXContextWrapperEDataType, Context.class, "BaseXContextWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(queryExceptionWrapperEDataType, QueryException.class, "QueryExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(queryIOExceptionWrapperEDataType, QueryIOException.class, "QueryIOExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 

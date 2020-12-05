@@ -23,7 +23,7 @@ import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.utilityclasses.Constants;
+import qualitypatternmodel.utility.Constants;
 
 /**
  * <!-- begin-user-doc -->

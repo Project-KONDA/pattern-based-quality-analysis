@@ -319,4 +319,15 @@ public interface CompletePattern extends Pattern {
 	 */
 	void recordValues() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * Returns the most narrow <code>AbstractionLevel</code> of <code>this</code>.
+	 * 
+	 * @return the most narrow <code>AbstractionLevel</code> of <code>this</code>
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	AbstractionLevel getAbstractionLevel();
+
 } // Pattern

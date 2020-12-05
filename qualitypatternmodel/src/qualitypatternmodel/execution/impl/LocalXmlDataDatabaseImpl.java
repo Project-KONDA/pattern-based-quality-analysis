@@ -2,18 +2,13 @@
  */
 package qualitypatternmodel.execution.impl;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.basex.core.BaseXException;
 import org.basex.core.cmd.CreateDB;
-import org.basex.core.cmd.Open;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
-import org.basex.query.QueryProcessor;
-import org.basex.query.iter.Iter;
-import org.basex.query.value.item.Item;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
@@ -84,23 +79,30 @@ public class LocalXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Loc
 //		this.schemaPath = schemaPath;
 //	}
 
-	@Override
-	public void init() throws BaseXException, QueryIOException, QueryException {
-		super.init();
-		try {
-			new Open(name).execute(context);
-		} catch(BaseXException e) {
-			create();
-		}		
-//		analyse();
-	}
+//	@Override
+//	public void init() throws BaseXException, QueryIOException, QueryException {
+////		super.init();
+//		
+//		if(!context.listDBs().contains(name)) {
+//			create();
+//		}
+//		
+////		try {
+////			
+////			new Open(name).execute(context);
+////			new Close().execute(context);
+////		} catch(BaseXException e) {
+////			create();
+////		}		
+////		analyse();
+//	}
 	
 	@Override
 	public Result execute(CompletePattern pattern, String name, String person) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException, QueryException, QueryIOException {
 		
 		pattern.isValid(AbstractionLevel.CONCRETE);	
 		
-		open();
+//		open();
 		
 		String query;
 		if(pattern.getQuery() == null) {
@@ -112,16 +114,18 @@ public class LocalXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Loc
 		
 		Date startDate = new Date();
 		
-//		String queryResult = xquery.execute(context);
-		List<String> queryResult = new ArrayList<String>();
-		// Create a query processor
-	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
-	      // Store the pointer to the result in an iterator:
-	      Iter iter = proc.iter();
-	      for(Item item; (item = iter.next()) != null;) {
-	    	  queryResult.add(item.serialize().toString());
-	        }
-	    }
+		List<String> queryResult = execute(query);
+		
+////		String queryResult = xquery.execute(context);
+//		List<String> queryResult = new ArrayList<String>();
+//		// Create a query processor
+//	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
+//	      // Store the pointer to the result in an iterator:
+//	      Iter iter = proc.iter();
+//	      for(Item item; (item = iter.next()) != null;) {
+//	    	  queryResult.add(item.serialize().toString());
+//	        }
+//	    }
 		
 		Date endDate = new Date();
 		long runtime = endDate.getTime() - startDate.getTime();
@@ -150,7 +154,7 @@ public class LocalXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Loc
 	public int countMatches(CompletePattern pattern) throws QueryException, InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException, QueryIOException {
 		pattern.isValid(AbstractionLevel.CONCRETE);	
 		
-		open();
+//		open();
 		
 		String query;
 		if(pattern.getPartialQuery() == null) {
@@ -158,13 +162,15 @@ public class LocalXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Loc
 		}
 		query = pattern.getPartialQuery();
 		
-		List<String> queryResult = new ArrayList<String>();
-	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
-	      Iter iter = proc.iter();
-	      for(Item item; (item = iter.next()) != null;) {
-	    	  queryResult.add(item.serialize().toString());
-	        }
-	    }
+		List<String> queryResult = execute(query);
+		
+//		List<String> queryResult = new ArrayList<String>();
+//	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
+//	      Iter iter = proc.iter();
+//	      for(Item item; (item = iter.next()) != null;) {
+//	    	  queryResult.add(item.serialize().toString());
+//	        }
+//	    }
 	    
 	    return queryResult.size();
 	}
@@ -211,6 +217,7 @@ public class LocalXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Loc
 	@Override
 	public void create() throws BaseXException {
 		new CreateDB(name, dataPath).execute(context);	
+//		new Close().execute(context);
 	}	
 
 	/**

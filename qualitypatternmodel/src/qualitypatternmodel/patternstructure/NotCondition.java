@@ -30,7 +30,7 @@ public interface NotCondition extends Condition {
 	 * @see #setCondition(Condition)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getNotCondition_Condition()
 	 * @see qualitypatternmodel.patternstructure.Condition#getNotCondition
-	 * @model opposite="notCondition" containment="true" required="true"
+	 * @model opposite="notCondition" containment="true"
 	 * @generated
 	 */
 	Condition getCondition();

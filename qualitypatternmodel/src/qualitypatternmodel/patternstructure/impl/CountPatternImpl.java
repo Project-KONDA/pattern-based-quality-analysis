@@ -2,10 +2,11 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import static qualitypatternmodel.utility.Constants.RETURN;
+import static qualitypatternmodel.utility.Constants.VARIABLE;
+import static qualitypatternmodel.utility.Constants.WHERE;
+
 import java.lang.reflect.InvocationTargetException;
-import static qualitypatternmodel.utilityclasses.Constants.RETURN;
-import static qualitypatternmodel.utilityclasses.Constants.VARIABLE;
-import static qualitypatternmodel.utilityclasses.Constants.WHERE;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -79,8 +80,15 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		getMorphism().isValid(abstractionLevel);
 		super.isValid(abstractionLevel);
+		getMorphism().isValid(abstractionLevel);		
+	}
+	
+	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
+		if(getMorphism() == null) {
+			throw new InvalidityException("morphism null" + " (" + getInternalId() + ")");
+		}
 	}
 	
 	

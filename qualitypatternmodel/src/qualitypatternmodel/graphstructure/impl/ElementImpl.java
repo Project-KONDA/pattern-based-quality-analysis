@@ -268,7 +268,10 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(abstractionLevel);
+		if (getClass().equals(ElementImpl.class) && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE)
+			throw new InvalidityException("generic class in non-generic pattern");
+		
+		super.isValid(abstractionLevel);
 
 		for (BooleanOperator predicate : getPredicates())
 			predicate.isValid(abstractionLevel);
@@ -276,7 +279,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	}
 
 	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {		
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {	
 		if (getGraph().getPattern() != null && getGraph().getPattern() instanceof CompletePattern && incomingMapping != null)
 			throw new InvalidityException("invalid ElementMapping to returnGraph: " + incomingMapping + " "
 					+ incomingMapping.getId() + " - (" + outgoingMappings + ")");
@@ -285,16 +288,18 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			if (predicate == null)
 				throw new InvalidityException("predicate null (" + predicate + ")");
 		
-		if(abstractionLevel == AbstractionLevel.GENERIC) {
+		if ( abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE) {
 			for(Property property : getProperties()) {
 				if(!property.getClass().equals(PropertyImpl.class)) {
 					throw new InvalidityException("Generic pattern contains non-generic class (" + getInternalId() + ")");
 				}
 			}
-		} else {
+		} 
+
+		if ( abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
 			for(Property property : getProperties()) {
 				if(property.getClass().equals(PropertyImpl.class)) {
-					throw new InvalidityException("Non-generic pattern contains Property (" + getInternalId() + ")");
+					throw new InvalidityException("Non-generic pattern contains generic Property (" + getInternalId() + ")");
 				}				
 			}			
 		}		

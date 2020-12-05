@@ -36,7 +36,7 @@ public interface Comparison extends BooleanOperator {
 	 * @see #setArgument1(qualitypatternmodel.graphstructure.Comparable)
 	 * @see qualitypatternmodel.operators.OperatorsPackage#getComparison_Argument1()
 	 * @see qualitypatternmodel.graphstructure.Comparable#getComparison1
-	 * @model opposite="comparison1" required="true"
+	 * @model opposite="comparison1"
 	 * @generated
 	 */
 	qualitypatternmodel.graphstructure.Comparable getArgument1();
@@ -141,7 +141,7 @@ public interface Comparison extends BooleanOperator {
 	 * @see #setArgument2(qualitypatternmodel.graphstructure.Comparable)
 	 * @see qualitypatternmodel.operators.OperatorsPackage#getComparison_Argument2()
 	 * @see qualitypatternmodel.graphstructure.Comparable#getComparison2
-	 * @model opposite="comparison2" required="true"
+	 * @model opposite="comparison2"
 	 * @generated
 	 */
 	qualitypatternmodel.graphstructure.Comparable getArgument2();

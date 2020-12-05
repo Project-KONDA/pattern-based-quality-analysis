@@ -4,7 +4,6 @@ package qualitypatternmodel.execution.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import org.basex.core.BaseXException;
-import org.basex.core.Context;
 import org.basex.core.cmd.Open;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
@@ -30,7 +29,6 @@ import qualitypatternmodel.execution.XmlDatabase;
  * <ul>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getNamespace <em>Namespace</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.impl.XmlDatabaseImpl#getContext <em>Context</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,26 +72,6 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	 * @ordered
 	 */
 	protected String namespace = NAMESPACE_EDEFAULT;
-	/**
-	 * The default value of the '{@link #getContext() <em>Context</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContext()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Context CONTEXT_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getContext() <em>Context</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * The BaseX context for executing operations on <code>this</code> BaseX database.
-	 * <!-- end-user-doc -->
-	 * @see #getContext()
-	 * @generated
-	 * @ordered
-	 */
-	protected Context context = CONTEXT_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,8 +126,6 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 				return getName();
 			case ExecutionPackage.XML_DATABASE__NAMESPACE:
 				return getNamespace();
-			case ExecutionPackage.XML_DATABASE__CONTEXT:
-				return getContext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -167,9 +143,6 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 				return;
 			case ExecutionPackage.XML_DATABASE__NAMESPACE:
 				setNamespace((String)newValue);
-				return;
-			case ExecutionPackage.XML_DATABASE__CONTEXT:
-				setContext((Context)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -189,9 +162,6 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 			case ExecutionPackage.XML_DATABASE__NAMESPACE:
 				setNamespace(NAMESPACE_EDEFAULT);
 				return;
-			case ExecutionPackage.XML_DATABASE__CONTEXT:
-				setContext(CONTEXT_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -208,8 +178,6 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case ExecutionPackage.XML_DATABASE__NAMESPACE:
 				return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
-			case ExecutionPackage.XML_DATABASE__CONTEXT:
-				return CONTEXT_EDEFAULT == null ? context != null : !CONTEXT_EDEFAULT.equals(context);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -279,33 +247,8 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 		result.append(name);
 		result.append(", namespace: ");
 		result.append(namespace);
-		result.append(", context: ");
-		result.append(context);
 		result.append(')');
 		return result.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Context getContext() {
-		return context;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setContext(Context newContext) {
-		Context oldContext = context;
-		context = newContext;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_DATABASE__CONTEXT, oldContext, context));
 	}
 
 	/**
@@ -327,9 +270,13 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	public void init() throws BaseXException, QueryException, QueryIOException {
-		if(context == null) {
-			context = new Context();
+		if(!context.listDBs().contains(name)) {
+			create();
 		}
+		
+//		if(context == null) {
+//			context = new Context();			
+//		}
 	}
 
 	/**
@@ -359,10 +306,12 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @throws QueryException 
 	 * @throws QueryIOException
+	 * @throws BaseXException 
 	 * @generated NOT
 	 */
 	@Override
-	public EList<String> execute(String query) throws QueryException, QueryIOException {
+	public EList<String> execute(String query) throws QueryException, QueryIOException, BaseXException {
+		open();
 		EList<String> queryResult = new BasicEList<String>();		
 	    try(QueryProcessor proc = new QueryProcessor(query, context)) {
 	      Iter iter = proc.iter();

@@ -16,6 +16,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo(java.lang.Class) <em>Get New Ref No</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#recordValues() <em>Record Values</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractionLevel() <em>Get Abstraction Level</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -95,6 +96,19 @@ public class CompletePatternTest extends PatternTest {
 	 * @generated
 	 */
 	public void testRecordValues() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractionLevel() <em>Get Abstraction Level</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getAbstractionLevel()
+	 * @generated
+	 */
+	public void testGetAbstractionLevel() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

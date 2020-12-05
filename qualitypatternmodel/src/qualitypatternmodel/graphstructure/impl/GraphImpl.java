@@ -158,7 +158,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(abstractionLevel);
+		super.isValid(abstractionLevel);
 		for(Element element : getElements()) {
 			element.isValid(abstractionLevel);
 		}
@@ -169,16 +169,17 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, MissingPatternContainerException {
-		if (returnElements == null || returnElements.isEmpty())
+		
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC 
+				&& (returnElements == null || returnElements.isEmpty()))
 			throw new InvalidityException("returnElement empty (" + getInternalId() + ")");
+		
 		if (operatorList == null)
 			throw new InvalidityException("operatorList null (" + getInternalId() + ")");
-		int noRoot = 0;
-		for(Element element : getElements()) {
-			if(element instanceof XmlRoot) {
-				noRoot++;
-			}
-		}
+		
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getElements().isEmpty())
+			throw new InvalidityException("no element in graph (" + getInternalId() + ")");
+			
 
 		for (Element returnElement : returnElements) {
 			if (!returnElement.getGraph().equals(this)) {
@@ -186,7 +187,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			}
 		}
 		
-		if(abstractionLevel == AbstractionLevel.GENERIC) {
+		if ( abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
+			// SEMI_GENERIC or GENERIC 
 			for(Element element : getElements()) {
 				if(!element.getClass().equals(ElementImpl.class)) {
 					throw new InvalidityException("Generic pattern contains non-generic class (" + getInternalId() + ")");
@@ -197,18 +199,28 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					throw new InvalidityException("Generic pattern contains non-generic class (" + getInternalId() + ")");
 				}				
 			}
-		} else {
+		} 
+		
+
+		if ( abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {	
+			// ABSTRACT, SEMI_CONCRETE or CONCRETE 		
+			int noRoot = 0;		
+			for(Element element : getElements()) {
+				if(element instanceof XmlRoot) {
+					noRoot++;
+				}
+			}
+			
 			if (noRoot != 1)
 				throw new InvalidityException("too many or too few XMLRoot (" + getInternalId() + ")");
 			for(Element element : getElements()) {
 				if(element.getClass().equals(ElementImpl.class)) {
-					throw new InvalidityException("Non-generic pattern contains Element (" + getInternalId() + ")");
+					throw new InvalidityException("Non-generic pattern contains generic Element (" + getInternalId() + ")");
 				}
-				
 			}
 			for(Relation relation : getRelations()) {
 				if(relation.getClass().equals(RelationImpl.class)) {
-					throw new InvalidityException("Non-generic pattern contains Relation (" + getInternalId() + ")");
+					throw new InvalidityException("Non-generic pattern contains generic Relation (" + getInternalId() + ")");
 				}				
 			}
 		}

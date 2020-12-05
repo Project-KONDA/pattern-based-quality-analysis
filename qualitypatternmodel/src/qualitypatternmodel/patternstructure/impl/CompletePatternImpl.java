@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
-import static qualitypatternmodel.utilityclasses.Constants.*;
+import static qualitypatternmodel.utility.Constants.*;
 
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
@@ -291,7 +291,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		super.isValid(abstractionLevel);
+		// If adaptationFinalized is true, Pattern can only be SEMI_ABSTRACT if it is ABSTRACT.
+		if ( adaptionStarted && adaptionFinalized && abstractionLevel == AbstractionLevel.SEMI_ABSTRACT )
+			super.isValid(AbstractionLevel.ABSTRACT);
+		else super.isValid(abstractionLevel);
 		parameterList.isValid(abstractionLevel);		
 	}
 
@@ -299,6 +302,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		super.isValidLocal(abstractionLevel);
 		if (parameterList == null)
 			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")");
+		if ( adaptionStarted && !adaptionFinalized && abstractionLevel != AbstractionLevel.SEMI_ABSTRACT )
+			throw new InvalidityException("adaptation in progress (" + getInternalId() + ")");
+		if ( adaptionStarted && adaptionFinalized && abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE )
+			throw new InvalidityException("adaptation already finalized" + " (" + getInternalId() + ")");
 	}
 
 	@Override
@@ -347,6 +354,53 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			recordValues((XmlDataDatabase) getDatabase());
 		}
 		// TODO: else throw exception
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public AbstractionLevel getAbstractionLevel() {
+		
+		try {
+			isValid(AbstractionLevel.SEMI_CONCRETE);
+			
+			try {
+				isValid(AbstractionLevel.CONCRETE);
+				return AbstractionLevel.CONCRETE;
+			} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e1) {
+				try {
+					isValid(AbstractionLevel.ABSTRACT);
+					return AbstractionLevel.ABSTRACT;
+				} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e2) {
+					return AbstractionLevel.SEMI_CONCRETE;
+				}
+			}
+			
+		} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e3) {
+			try {
+				isValid(AbstractionLevel.SEMI_ABSTRACT);
+				try {
+					isValid(AbstractionLevel.GENERIC);
+					return AbstractionLevel.GENERIC;
+				} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e4) {
+					return AbstractionLevel.SEMI_ABSTRACT;
+				}
+			} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e5) {
+				try {
+					isValid(AbstractionLevel.SEMI_GENERIC);
+					return AbstractionLevel.SEMI_GENERIC;
+				} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e6) {
+					// pattern invalid
+					return null;
+				}
+			}
+			
+		}
+		
 	}
 
 
@@ -538,6 +592,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 	@Override
 	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		isValid(AbstractionLevel.GENERIC);
 		setAdaptionStarted(true);
 		return super.createXMLAdaption();
 	}
@@ -931,6 +986,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case PatternstructurePackage.COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL:
+				return getAbstractionLevel();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

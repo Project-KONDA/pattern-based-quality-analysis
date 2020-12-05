@@ -20,6 +20,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum AbstractionLevel implements Enumerator {
 	/**
+	 * The '<em><b>SEMI GENERIC</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SEMI_GENERIC_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SEMI_GENERIC(0, "SEMI_GENERIC", "SEMI_GENERIC"), /**
 	 * The '<em><b>GENERIC</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -27,9 +35,17 @@ public enum AbstractionLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GENERIC(0, "GENERIC", "GENERIC"),
+	GENERIC(1, "GENERIC", "GENERIC"),
 
 	/**
+	 * The '<em><b>SEMI ABSTRACT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SEMI_ABSTRACT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SEMI_ABSTRACT(2, "SEMI_ABSTRACT", "SEMI_ABSTRACT"), /**
 	 * The '<em><b>ABSTRACT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -37,9 +53,17 @@ public enum AbstractionLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ABSTRACT(1, "ABSTRACT", "ABSTRACT"),
+	ABSTRACT(3, "ABSTRACT", "ABSTRACT"),
 
 	/**
+	 * The '<em><b>SEMI CONCRETE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SEMI_CONCRETE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SEMI_CONCRETE(4, "SEMI_CONCRETE", "SEMI_CONCRETE"), /**
 	 * The '<em><b>CONCRETE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -47,7 +71,18 @@ public enum AbstractionLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CONCRETE(2, "CONCRETE", "CONCRETE");
+	CONCRETE(5, "CONCRETE", "CONCRETE");
+
+	/**
+	 * The '<em><b>SEMI GENERIC</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SEMI_GENERIC
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SEMI_GENERIC_VALUE = 0;
 
 	/**
 	 * The '<em><b>GENERIC</b></em>' literal value.
@@ -58,7 +93,18 @@ public enum AbstractionLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int GENERIC_VALUE = 0;
+	public static final int GENERIC_VALUE = 1;
+
+	/**
+	 * The '<em><b>SEMI ABSTRACT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SEMI_ABSTRACT
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SEMI_ABSTRACT_VALUE = 2;
 
 	/**
 	 * The '<em><b>ABSTRACT</b></em>' literal value.
@@ -69,7 +115,18 @@ public enum AbstractionLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ABSTRACT_VALUE = 1;
+	public static final int ABSTRACT_VALUE = 3;
+
+	/**
+	 * The '<em><b>SEMI CONCRETE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SEMI_CONCRETE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SEMI_CONCRETE_VALUE = 4;
 
 	/**
 	 * The '<em><b>CONCRETE</b></em>' literal value.
@@ -80,7 +137,7 @@ public enum AbstractionLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONCRETE_VALUE = 2;
+	public static final int CONCRETE_VALUE = 5;
 
 	/**
 	 * An array of all the '<em><b>Abstraction Level</b></em>' enumerators.
@@ -90,8 +147,11 @@ public enum AbstractionLevel implements Enumerator {
 	 */
 	private static final AbstractionLevel[] VALUES_ARRAY =
 		new AbstractionLevel[] {
+			SEMI_GENERIC,
 			GENERIC,
+			SEMI_ABSTRACT,
 			ABSTRACT,
+			SEMI_CONCRETE,
 			CONCRETE,
 		};
 
@@ -149,8 +209,11 @@ public enum AbstractionLevel implements Enumerator {
 	 */
 	public static AbstractionLevel get(int value) {
 		switch (value) {
+			case SEMI_GENERIC_VALUE: return SEMI_GENERIC;
 			case GENERIC_VALUE: return GENERIC;
+			case SEMI_ABSTRACT_VALUE: return SEMI_ABSTRACT;
 			case ABSTRACT_VALUE: return ABSTRACT;
+			case SEMI_CONCRETE_VALUE: return SEMI_CONCRETE;
 			case CONCRETE_VALUE: return CONCRETE;
 		}
 		return null;

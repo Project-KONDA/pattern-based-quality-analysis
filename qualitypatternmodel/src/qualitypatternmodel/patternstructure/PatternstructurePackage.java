@@ -3113,13 +3113,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___RECORD_VALUES = PATTERN_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get Abstraction Level</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL = PATTERN_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 2;
+	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
@@ -5340,6 +5349,16 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getCompletePattern__RecordValues();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractionLevel() <em>Get Abstraction Level</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Abstraction Level</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getAbstractionLevel()
+	 * @generated
+	 */
+	EOperation getCompletePattern__GetAbstractionLevel();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6334,6 +6353,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COMPLETE_PATTERN___RECORD_VALUES = eINSTANCE.getCompletePattern__RecordValues();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Abstraction Level</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL = eINSTANCE.getCompletePattern__GetAbstractionLevel();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.

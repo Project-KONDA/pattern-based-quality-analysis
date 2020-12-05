@@ -36,7 +36,7 @@ public interface Match extends BooleanOperator {
 	 * @see #setProperty(Property)
 	 * @see qualitypatternmodel.operators.OperatorsPackage#getMatch_Property()
 	 * @see qualitypatternmodel.graphstructure.Property#getMatch
-	 * @model opposite="match" required="true"
+	 * @model opposite="match"
 	 * @generated
 	 */
 	Property getProperty();

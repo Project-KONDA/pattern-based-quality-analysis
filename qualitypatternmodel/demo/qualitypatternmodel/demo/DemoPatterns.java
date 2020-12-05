@@ -40,6 +40,7 @@ import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
+import qualitypatternmodel.utility.EMFModelSave;
 
 import static qualitypatternmodel.testutility.DatabaseConstants.*;
 
@@ -106,28 +107,28 @@ public class DemoPatterns {
 	private static void exportAllDemoPatterns()
 			throws IOException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
-		Util.exportToFile(databases,"instances/demo/databases", "execution");
+		EMFModelSave.exportToFile(databases,"instances/demo/databases", "execution");
 		
 		CompletePattern compGeneric = getGenericCompPattern();
-		Util.exportToFile(compGeneric,"instances/demo/comp_generic", "patternstructure");
+		EMFModelSave.exportToFile(compGeneric,"instances/demo/comp_generic", "patternstructure");
 		CompletePattern compAbstract = getAbstractCompPattern();
-		Util.exportToFile(compAbstract,"instances/demo/comp_abstract", "patternstructure");
+		EMFModelSave.exportToFile(compAbstract,"instances/demo/comp_abstract", "patternstructure");
 		CompletePattern compConcrete = getConcreteCompPattern(database);			
-		Util.exportToFile(compConcrete,"instances/demo/comp_concrete", "patternstructure");
+		EMFModelSave.exportToFile(compConcrete,"instances/demo/comp_concrete", "patternstructure");
 		
 		CompletePattern cardGeneric = getGenericCardPattern();
-		Util.exportToFile(cardGeneric,"instances/demo/card_generic", "patternstructure");
+		EMFModelSave.exportToFile(cardGeneric,"instances/demo/card_generic", "patternstructure");
 		CompletePattern cardAbstract = getAbstractCardPattern();
-		Util.exportToFile(cardAbstract,"instances/demo/card_abstract", "patternstructure");
+		EMFModelSave.exportToFile(cardAbstract,"instances/demo/card_abstract", "patternstructure");
 		CompletePattern cardConcrete = getConcreteCardPattern(database);				
-		Util.exportToFile(cardConcrete,"instances/demo/card_concrete", "patternstructure");
+		EMFModelSave.exportToFile(cardConcrete,"instances/demo/card_concrete", "patternstructure");
 		
 		CompletePattern funcGeneric = getGenericFuncPattern();
-		Util.exportToFile(funcGeneric,"instances/demo/func_generic", "patternstructure");
+		EMFModelSave.exportToFile(funcGeneric,"instances/demo/func_generic", "patternstructure");
 		CompletePattern funcAbstract = getAbstractFuncPattern();
-		Util.exportToFile(funcAbstract,"instances/demo/func_abstract", "patternstructure");
+		EMFModelSave.exportToFile(funcAbstract,"instances/demo/func_abstract", "patternstructure");
 		CompletePattern funcConcrete = getConcreteFuncPattern(database);				
-		Util.exportToFile(funcConcrete,"instances/demo/func_concrete", "patternstructure");
+		EMFModelSave.exportToFile(funcConcrete,"instances/demo/func_concrete", "patternstructure");
 		
 		System.out.println(">>> Exported demo patterns to folder 'instances/demo/'");
 	}

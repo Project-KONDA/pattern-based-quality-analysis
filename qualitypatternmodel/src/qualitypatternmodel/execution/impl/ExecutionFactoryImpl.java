@@ -4,8 +4,6 @@ package qualitypatternmodel.execution.impl;
 
 import java.util.Map;
 import org.basex.core.BaseXException;
-import org.basex.core.Context;
-
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.eclipse.emf.ecore.EClass;
@@ -87,8 +85,6 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 		switch (eDataType.getClassifierID()) {
 			case ExecutionPackage.BASE_XEXCEPTION_WRAPPER:
 				return createBaseXExceptionWrapperFromString(eDataType, initialValue);
-			case ExecutionPackage.BASE_XCONTEXT_WRAPPER:
-				return createBaseXContextWrapperFromString(eDataType, initialValue);
 			case ExecutionPackage.QUERY_EXCEPTION_WRAPPER:
 				return createQueryExceptionWrapperFromString(eDataType, initialValue);
 			case ExecutionPackage.QUERY_IO_EXCEPTION_WRAPPER:
@@ -108,8 +104,6 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 		switch (eDataType.getClassifierID()) {
 			case ExecutionPackage.BASE_XEXCEPTION_WRAPPER:
 				return convertBaseXExceptionWrapperToString(eDataType, instanceValue);
-			case ExecutionPackage.BASE_XCONTEXT_WRAPPER:
-				return convertBaseXContextWrapperToString(eDataType, instanceValue);
 			case ExecutionPackage.QUERY_EXCEPTION_WRAPPER:
 				return convertQueryExceptionWrapperToString(eDataType, instanceValue);
 			case ExecutionPackage.QUERY_IO_EXCEPTION_WRAPPER:
@@ -232,24 +226,6 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	 * @generated
 	 */
 	public String convertBaseXExceptionWrapperToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Context createBaseXContextWrapperFromString(EDataType eDataType, String initialValue) {
-		return (Context)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertBaseXContextWrapperToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

@@ -4,7 +4,6 @@ package qualitypatternmodel.execution.impl;
 
 import org.basex.core.BaseXException;
 import org.basex.core.cmd.CreateDB;
-import org.basex.core.cmd.Open;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.notify.Notification;
@@ -80,11 +79,14 @@ public class LocalXmlSchemaDatabaseImpl extends XmlSchemaDatabaseImpl implements
 	@Override
 	public void init() throws BaseXException, QueryException, QueryIOException {
 		super.init();
-		try {
-			new Open(name).execute(context);
-		} catch(BaseXException e) {
-			create();
-		}		
+//		if(!context.listDBs().contains(name)) {
+//			create();
+//		}
+//		try {
+//			new Open(name).execute(context);
+//		} catch(BaseXException e) {
+//			create();
+//		}		
 		analyse();
 	}
 

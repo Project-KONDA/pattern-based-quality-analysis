@@ -94,14 +94,14 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	 */
 	public TypeOptionParamImpl() {
 		super();
-		getOptions().add(ReturnType.UNSPECIFIED);
+		getOptions().addAll(ReturnType.VALUES);
 	}
 	
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (getOptions() == null) 
 			throw new InvalidityException("options null");
-		if (getOptions().size() < 1) 
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getOptions().isEmpty()) 
 			throw new InvalidityException("not enough options");
 		super.isValidLocal(abstractionLevel);
 	}

@@ -107,21 +107,20 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(abstractionLevel);
+		super.isValid(abstractionLevel);
 		getCountPattern().isValid(abstractionLevel);
-		getArgument2().isValid(abstractionLevel);
-		if(getOption() != null) {
-			getOption().isValid(abstractionLevel);
-		} else {
-			throw new InvalidityException("invalid option");
+		if(getArgument2() != null) {
+			getArgument2().isValid(abstractionLevel);
 		}
+		getOption().isValid(abstractionLevel);
+		
 	}
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if(getCountPattern() == null) {
 			throw new InvalidityException("argument1 missing");
 		} 		
-		if(getArgument2() == null) {
+		if(abstractionLevel != AbstractionLevel.SEMI_GENERIC && getArgument2() == null) {
 			throw new InvalidityException("argument2 missing");
 		}
 		if(getOption() == null) {

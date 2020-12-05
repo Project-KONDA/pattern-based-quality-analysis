@@ -2,11 +2,11 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
-import static qualitypatternmodel.utilityclasses.Constants.EVERY;
-import static qualitypatternmodel.utilityclasses.Constants.FOR;
-import static qualitypatternmodel.utilityclasses.Constants.IN;
-import static qualitypatternmodel.utilityclasses.Constants.SATISFIES;
-import static qualitypatternmodel.utilityclasses.Constants.SOME;
+import static qualitypatternmodel.utility.Constants.EVERY;
+import static qualitypatternmodel.utility.Constants.FOR;
+import static qualitypatternmodel.utility.Constants.IN;
+import static qualitypatternmodel.utility.Constants.SATISFIES;
+import static qualitypatternmodel.utility.Constants.SOME;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -22,6 +22,8 @@ import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.parameters.Parameter;
@@ -139,18 +141,22 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	}
 	
 	@Override
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
+			throw new InvalidityException("non-generic class in generic pattern");
+		super.isValid(abstractionLevel);
+		if (option != null) 
+			option.isValid(abstractionLevel);
+	}
+	
+	
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
 		if (getIncomingMapping() == null && option == null)
 			throw new InvalidityException("axis missing");
 		if (getIncomingMapping() != null && option != null)
 			throw new InvalidityException("axis redundant");
-		
-		for(RelationMapping mapping : getOutgoingMappings()) {
-			if(!(mapping.getSource() instanceof XmlNavigation)) {
-				throw new InvalidityException("mapping different relations");
-			}			
-		}		
 	}	
 	
 	@Override

@@ -39,7 +39,7 @@ import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
-import qualitypatternmodel.parameters.impl.ParameterImpl;
+import qualitypatternmodel.parameters.impl.ParameterValueImpl;
 import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -208,13 +208,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(abstractionLevel);
+		super.isValid(abstractionLevel);
 
-		if (argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof ParameterImpl)
+		if (argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof ParameterValueImpl)
 			argument1.isValid(abstractionLevel);
-		if (argument2 instanceof PropertyImpl || argument2 instanceof OperatorImpl || argument2 instanceof ParameterImpl)
+		if (argument2 instanceof PropertyImpl || argument2 instanceof OperatorImpl || argument2 instanceof ParameterValueImpl)
 			argument2.isValid(abstractionLevel);
 		option.isValid(abstractionLevel);
+		typeOption.isValid(abstractionLevel);
 
 	}
 
@@ -225,24 +226,31 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 */
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
-		if (argument1 == null)
-			throw new InvalidityException("argument1 null" + " (" + getInternalId() + ")");
-		if (argument2 == null)
-			throw new InvalidityException("argument2 null" + " (" + getInternalId() + ")");
+		if(abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
+			if (argument1 == null)
+				throw new InvalidityException("argument1 null" + " (" + getInternalId() + ")");
+			if (argument2 == null)
+				throw new InvalidityException("argument2 null" + " (" + getInternalId() + ")");
+		}
+		
 		if (option == null)
-			throw new InvalidityException("operator options null" + " (" + getInternalId() + ")");
+			throw new InvalidityException("operator option null" + " (" + getInternalId() + ")");
+		if (typeOption == null)
+			throw new InvalidityException("operator typeOption null" + " (" + getInternalId() + ")");
 
-		if (argument1.getReturnType() != argument2.getReturnType()) {
-			if (argument1.getReturnType() != ReturnType.UNSPECIFIED
-					&& argument2.getReturnType() != ReturnType.UNSPECIFIED) {
-				throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");
+		if(argument1 != null && argument2 != null) { 
+			if (argument1.getReturnType() != argument2.getReturnType()) {
+				if (argument1.getReturnType() != ReturnType.UNSPECIFIED
+						&& argument2.getReturnType() != ReturnType.UNSPECIFIED) {
+					throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");
+				}
 			}
 		}
 
-		if (argument1.getReturnType() != ReturnType.UNSPECIFIED && argument1.getReturnType() != getTypeOption().getValue()) {
+		if (argument1 != null && argument1.getReturnType() != ReturnType.UNSPECIFIED && argument1.getReturnType() != getTypeOption().getValue()) {
 			throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");
 		}
-		if (argument2.getReturnType() != ReturnType.UNSPECIFIED && argument2.getReturnType() != getTypeOption().getValue()) {
+		if (argument2 != null && argument2.getReturnType() != ReturnType.UNSPECIFIED && argument2.getReturnType() != getTypeOption().getValue()) {
 			throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");
 		}
 
@@ -473,38 +481,46 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			qualitypatternmodel.graphstructure.Comparable otherArgument) {
 		if(getTypeOption() != null) {
 			if (newArgument == null) {
-				if (otherArgument == null) {
+				if (otherArgument == null || otherArgument instanceof Property || otherArgument instanceof UntypedParameterValue) {
 					getTypeOption().setValue(ReturnType.UNSPECIFIED);
+					if(!getTypeOption().getOptions().contains(ReturnType.UNSPECIFIED)) {
+						getTypeOption().getOptions().add(ReturnType.UNSPECIFIED);
+					}
 					getTypeOption().setPredefined(false);
-				}
-				if (otherArgument instanceof Property) {
-					getTypeOption().setValue(ReturnType.UNSPECIFIED);
-					getTypeOption().setPredefined(false);
-				}
-				if (otherArgument instanceof UntypedParameterValue) {
-					getTypeOption().setValue(ReturnType.UNSPECIFIED);
-					getTypeOption().setPredefined(false);
-				}
+				}				
 			} else {
-				if (newArgument instanceof Element) {
-					getTypeOption().setValue(ReturnType.ELEMENT);
+				
+				if (newArgument instanceof Element || newArgument instanceof BooleanOperator || newArgument instanceof NumberOperator || newArgument instanceof ParameterValue) {
+					ReturnType returnType = null;
+					
+					if (newArgument instanceof Element) {
+						returnType = ReturnType.ELEMENT;
+					}
+					if (newArgument instanceof BooleanOperator) {
+						returnType = ReturnType.BOOLEAN;
+					}
+					if (newArgument instanceof NumberOperator) {
+						returnType = ReturnType.NUMBER;
+						
+					}
+					if (newArgument instanceof ParameterValue) {
+						ParameterValue xsType = (ParameterValue) newArgument;						
+						returnType = xsType.getReturnType();
+					}
+					
+					getTypeOption().setValue(returnType);
+					if(!getTypeOption().getOptions().contains(returnType)) {
+						getTypeOption().getOptions().add(returnType);
+					}
 					getTypeOption().setPredefined(true);
 				}
-				if (newArgument instanceof BooleanOperator) {
-					getTypeOption().setValue(ReturnType.BOOLEAN);
-					getTypeOption().setPredefined(true);
-				}
-				if (newArgument instanceof NumberOperator) {
-					getTypeOption().setValue(ReturnType.NUMBER);
-					getTypeOption().setPredefined(true);
-				}
-				if (newArgument instanceof ParameterValue) {
-					ParameterValue xsType = (ParameterValue) newArgument;
-					getTypeOption().setValue(xsType.getReturnType());
-					getTypeOption().setPredefined(true);
-				}
+				
+				
 				if (newArgument instanceof UntypedParameterValue) {
 					getTypeOption().setValue(ReturnType.UNSPECIFIED);
+					if(!getTypeOption().getOptions().contains(ReturnType.UNSPECIFIED)) {
+						getTypeOption().getOptions().add(ReturnType.UNSPECIFIED);
+					}
 					getTypeOption().setPredefined(false);
 				}			
 			}

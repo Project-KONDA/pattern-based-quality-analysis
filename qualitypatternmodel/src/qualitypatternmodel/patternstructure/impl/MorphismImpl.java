@@ -98,7 +98,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(abstractionLevel);
+		super.isValid(abstractionLevel);
 		for (Mapping mapping : mappings) {
 			mapping.isValid(abstractionLevel);
 		}

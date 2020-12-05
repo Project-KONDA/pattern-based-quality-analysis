@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import static qualitypatternmodel.utility.Constants.*;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -24,9 +26,7 @@ import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.utilityclasses.Constants;
-
-import static qualitypatternmodel.utilityclasses.Constants.*;
+import qualitypatternmodel.utility.Constants;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -142,16 +142,21 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(abstractionLevel);
-		condition1.isValid(abstractionLevel);
-		condition2.isValid(abstractionLevel);
+		super.isValid(abstractionLevel);
+		
+		if(condition1 != null) {
+			condition1.isValid(abstractionLevel);
+		}
+		if(condition2 != null) {
+			condition2.isValid(abstractionLevel);
+		}
 	}
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (operator == null) {
 			throw new InvalidityException("operator null" + " (" + getInternalId() + ")");
 		}
-		if (condition1 == null || condition2 == null) {
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && (condition1 == null || condition2 == null)) {
 			throw new InvalidityException("arguments invalid" + " (" + getInternalId() + ")");
 		}
 	}

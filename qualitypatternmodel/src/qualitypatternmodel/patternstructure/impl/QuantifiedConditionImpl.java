@@ -2,10 +2,10 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
-import static qualitypatternmodel.utilityclasses.Constants.AND;
-import static qualitypatternmodel.utilityclasses.Constants.NOT;
-import static qualitypatternmodel.utilityclasses.Constants.OR;
-import static qualitypatternmodel.utilityclasses.Constants.addMissingBrackets;
+import static qualitypatternmodel.utility.Constants.AND;
+import static qualitypatternmodel.utility.Constants.NOT;
+import static qualitypatternmodel.utility.Constants.OR;
+import static qualitypatternmodel.utility.Constants.addMissingBrackets;
 
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
@@ -134,16 +134,19 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(abstractionLevel);
+		super.isValid(abstractionLevel);
 		graph.isValid(abstractionLevel);
 		morphism.isValid(abstractionLevel);
-		condition.isValid(abstractionLevel);
+		
+		if(condition != null) {
+			condition.isValid(abstractionLevel);
+		}
 	}
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (quantifier == null)
 			throw new InvalidityException("quantifier null (" + getInternalId() + ")");
-		if (condition == null)
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && condition == null)
 			throw new InvalidityException("condition null (" + getInternalId() + ")");
 		if (graph == null)
 			throw new InvalidityException("graph null (" + getInternalId() + ")");
@@ -565,15 +568,17 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	 */
 	@Override
 	public void checkMorphismOfNextGraph() throws InvalidityException  {
-		EList<MorphismContainer> nextGraphContainers = getCondition().getNextMorphismContainers();
-		for(MorphismContainer next : nextGraphContainers) {
-			if(!getGraph().equals(next.getMorphism().getSource())) {
-				throw new InvalidityException("wrong mapping from");
-			}
-			if(!next.getGraph().equals(next.getMorphism().getTarget())) {
-				throw new InvalidityException("wrong mapping to");
-			}
-		}				
+		if(getCondition() != null) {
+			EList<MorphismContainer> nextGraphContainers = getCondition().getNextMorphismContainers();
+			for(MorphismContainer next : nextGraphContainers) {
+				if(!getGraph().equals(next.getMorphism().getSource())) {
+					throw new InvalidityException("wrong mapping from");
+				}
+				if(!next.getGraph().equals(next.getMorphism().getTarget())) {
+					throw new InvalidityException("wrong mapping to");
+				}
+			}				
+		}
 	}
 
 	/**

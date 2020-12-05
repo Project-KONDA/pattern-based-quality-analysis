@@ -71,12 +71,14 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		isValidLocal(abstractionLevel);
+		super.isValid(abstractionLevel);
 		getNumberParam().isValid(abstractionLevel);		
 	}
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		
+		if(getNumberParam() == null) {
+			throw new InvalidityException("number param missing" + " (" + getInternalId() + ")");
+		}
 	}
 	
 	@Override
