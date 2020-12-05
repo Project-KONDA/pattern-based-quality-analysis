@@ -86,25 +86,25 @@ public class Tests {
 	private static final String TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION = TEST_DIRECTORY_GENERIC + "patternstructure/tools/quantifiedCondition/";
 	private static final String TEST_DIRECTORY_PATTERNSTRUCTURE_TRUEELEMENT = TEST_DIRECTORY_GENERIC + "patternstructure/tools/trueElement/";
 	//abstract
-	private static final String testDirectoryAbstract = "Tests/AbstractPatternTests/";
-	private static final String testDirectoryBehavior = testDirectoryAbstract + "behavior/";
-	private static final String testDirectoryToolsRelationToXmlRelation = testDirectoryAbstract + "tools/relationToXmlRelation_changeXmlRelation/";
-	private static final String testDirectoryToolsFinalization = testDirectoryAbstract + "tools/finalization/";
-	private static final String testDirectoryToolsDelete = testDirectoryAbstract + "tools/delete/";
+	private static final String TEST_DIRECTORY_ABSTRACT = "Tests/AbstractPatternTests/";
+	private static final String TEST_DIRECTORY_BEHAVIOR = TEST_DIRECTORY_ABSTRACT + "behavior/";
+	private static final String TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION = TEST_DIRECTORY_ABSTRACT + "tools/relationToXmlRelation_changeXmlRelation/";
+	private static final String TEST_DIRECTORY_TOOLS_FINALIZATION = TEST_DIRECTORY_ABSTRACT + "tools/finalization/";
+	private static final String TEST_DIRECTORY_TOOLS_DELETE = TEST_DIRECTORY_ABSTRACT + "tools/delete/";
 	//concrete
-	private static final String testDirectoryConcrete = "Tests/ConcretePatternTests/";
-	private static final String testDirectoryFormularviewToolsBoolean = testDirectoryConcrete + "formularview/tools/boolean/";
-	private static final String testDirectoryFormularviewToolsComparisonOption = testDirectoryConcrete + "formularview/tools/comparisonOption/";
-	private static final String testDirectoryFormularviewToolsDate = testDirectoryConcrete + "formularview/tools/date/";
-	private static final String testDirectoryFormularviewToolsDateTime = testDirectoryConcrete + "formularview/tools/dateTime/";
-	private static final String testDirectoryFormularviewToolsNumber = testDirectoryConcrete + "formularview/tools/number/";
-	private static final String testDirectoryFormularviewToolsPropertyOption = testDirectoryConcrete + "formularview/tools/propertyOption/";
-	private static final String testDirectoryFormularviewToolsRelationOption = testDirectoryConcrete + "formularview/tools/relationOption/";
-	private static final String testDirectoryFormularviewToolsTextList = testDirectoryConcrete + "formularview/tools/textList/";
-	private static final String testDirectoryFormularviewToolsTextLiteral = testDirectoryConcrete + "formularview/tools/textLiteral/";
-	private static final String testDirectoryFormularviewToolsTime = testDirectoryConcrete + "formularview/tools/time/";
-	private static final String testDirectoryFormularviewToolsTypeOption = testDirectoryConcrete + "formularview/tools/typeOption/";
-	private static final String testDirectoryFormularviewToolsUntypedParameterValue = testDirectoryConcrete + "formularview/tools/untypedParameterValue/";
+	private static final String TEST_DIRECTORY_CONCRETE = "Tests/ConcretePatternTests/";
+	private static final String TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_BOOLEAN = TEST_DIRECTORY_CONCRETE + "formularview/tools/boolean/";
+	private static final String TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION = TEST_DIRECTORY_CONCRETE + "formularview/tools/comparisonOption/";
+	private static final String TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_DATE = TEST_DIRECTORY_CONCRETE + "formularview/tools/date/";
+	private static final String TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_DATETIME = TEST_DIRECTORY_CONCRETE + "formularview/tools/dateTime/";
+	private static final String TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_NUMBER = TEST_DIRECTORY_CONCRETE + "formularview/tools/number/";
+	private static final String TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_PROPERTYOPTION = TEST_DIRECTORY_CONCRETE + "formularview/tools/propertyOption/";
+	private static final String TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION = TEST_DIRECTORY_CONCRETE + "formularview/tools/relationOption/";
+	private static final String TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLIST = TEST_DIRECTORY_CONCRETE + "formularview/tools/textList/";
+	private static final String TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLITERAL = TEST_DIRECTORY_CONCRETE + "formularview/tools/textLiteral/";
+	private static final String TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TIME = TEST_DIRECTORY_CONCRETE + "formularview/tools/time/";
+	private static final String TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION = TEST_DIRECTORY_CONCRETE + "formularview/tools/typeOption/";
+	private static final String TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE = TEST_DIRECTORY_CONCRETE + "formularview/tools/untypedParameterValue/";
 	
 	
 	CompletePattern pattern = null;
@@ -147,6 +147,10 @@ public class Tests {
 
 
 	//GenericPatternTests
+	
+	/**
+	 * Checks if the tool change name works proper with elements
+	 */
 	@Test
 	public void testGraphstructureChangeNameElement() {
 		//graphstructure/tools/changeNameElement
@@ -155,6 +159,9 @@ public class Tests {
 		assertTrue("attribute name of element must contain the String \"ElementNewName\"", graph.getElements().get(0).getName().equals("ElementNewName"));
 	}
 	
+	/**
+	 * Checks if the tool change name works proper with properties
+	 */
 	@Test
 	public void testGraphstructureChangeNameProperty() {
 		//graphstructure/tools/changeNameElement
@@ -163,6 +170,9 @@ public class Tests {
 		assertTrue("attribute name of property must contain the String \"PropertyNewName\"", graph.getElements().get(0).getProperties().get(0).getName().equals("PropertyNewName"));
 	}
 	
+	/**
+	 * Checks if the tool change name works proper with relations
+	 */
 	@Test
 	public void testGraphstructureChangeNameRelation() {
 		//graphstructure/tools/changeNameRelation
@@ -171,9 +181,12 @@ public class Tests {
 		assertTrue("attribute name of relation must contain the String \"RelationNewName\"", graph.getRelations().get(0).getName().equals("RelationNewName"));
 	}
 	
+	/**
+	 * Checks if the tool delete doesn't delete graphs
+	 */
 	@Test
 	public void testGraphstructureDeleteGraph() {
-		//graphstructure/tools/changeNameRelation
+		//graphstructure/tools/deleteGraph
 		pattern = loader.load(TEST_DIRECTORY_GRAPHSTRUCTURE_DELETE_GRAPH + "deleteGraph.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("graph of pattern must not be null", graph != null);
@@ -606,7 +619,7 @@ public class Tests {
 	@Test
 	public void testBehavior() {
 		//behavior
-		pattern = loader.load(testDirectoryBehavior + "openView.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_BEHAVIOR + "openView.patternstructure");
       	graph = pattern.getGraph();
       	ArrayList<XmlElement> xmlElements = new ArrayList<XmlElement>();
       	ArrayList<Property> xmlProperties = new ArrayList<Property>();
@@ -622,7 +635,7 @@ public class Tests {
 	@Test
 	public void testDelete() {
 		//tools/delete
-		pattern = loader.load(testDirectoryToolsDelete + "deleteButton.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_TOOLS_DELETE + "deleteButton.patternstructure");
       	graph = pattern.getGraph();
       	ArrayList<Element> elements = new ArrayList<Element>();
       	ArrayList<Property> properties = new ArrayList<Property>();
@@ -658,7 +671,7 @@ public class Tests {
       	
       	assertTrue("number of objects in pattern must be 69", trueElementCountPattern != null && trueElementQuantifiedCondition != null && elements.size() + properties.size() + relations.size() + operators.size() + parameters.size() == 69);
       	
-      	pattern = loader.load(testDirectoryToolsDelete + "deleteContextmenu.patternstructure");
+      	pattern = loader.load(TEST_DIRECTORY_TOOLS_DELETE + "deleteContextmenu.patternstructure");
       	graph = pattern.getGraph();
       	elements = new ArrayList<Element>();
       	properties = new ArrayList<Property>();
@@ -699,7 +712,7 @@ public class Tests {
 	@Test
 	public void testFinalization() {
 		//tools/finalization
-		pattern = loader.load(testDirectoryToolsFinalization + "finalization.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_TOOLS_FINALIZATION + "finalization.patternstructure");
       	graph = pattern.getGraph();
       	for(Element e:graph.getElements()) {
       		if(e.getName().equals("Root")) {
@@ -712,7 +725,7 @@ public class Tests {
 	@Test
 	public void testRelationToXmlRelation_changeXmlRelation() {
 		//tools/relationToXmlRelation
-      	pattern = loader.load(testDirectoryToolsRelationToXmlRelation + "relationToXmlNavigation.patternstructure");
+      	pattern = loader.load(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "relationToXmlNavigation.patternstructure");
       	graph = pattern.getGraph();
       	relations = graph.getRelations();
       	xmlNavigation = (XmlNavigation) relations.get(0);
@@ -720,7 +733,7 @@ public class Tests {
       	Element target = xmlNavigation.getTarget();
         assertTrue("contextgraph must contain one xmlNavigation and its attribute source must be xmlElement 1 and attribute target must be xmlElement 8", source.getName().equals("XmlElement 1") && target.getName().equals("XmlElement 8"));
         
-        pattern = loader.load(testDirectoryToolsRelationToXmlRelation + "relationToXmlReference.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "relationToXmlReference.patternstructure");
       	Graph graph = pattern.getGraph();
       	EList<Relation> relations = graph.getRelations();
       	XmlReference xmlReference = (XmlReference) relations.get(0);
@@ -728,7 +741,7 @@ public class Tests {
       	target = xmlReference.getTarget();
         assertTrue("contextgraph must contain one xmlReference and its attribute source must be xmlElement 1 and attribute target must be xmlElement 8", source.getName().equals("XmlElement 1") && target.getName().equals("XmlElement 8"));
         
-        pattern = loader.load(testDirectoryToolsRelationToXmlRelation + "relationUnchanged.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "relationUnchanged.patternstructure");
       	graph = pattern.getGraph();
       	relations = graph.getRelations();
       	relation = (Relation) relations.get(0);
@@ -736,7 +749,7 @@ public class Tests {
       	target = relation.getTarget();
         assertTrue("contextgraph must contain one relation and its attribute source must be xmlElement 1 and attribute target must be xmlElement 8", source.getName().equals("XmlElement 1") && target.getName().equals("XmlElement 8"));
 
-        pattern = loader.load(testDirectoryToolsRelationToXmlRelation + "xmlNavigationToXmlReference.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "xmlNavigationToXmlReference.patternstructure");
       	graph = pattern.getGraph();
       	relations = graph.getRelations();
       	xmlReference = (XmlReference) relations.get(0);
@@ -744,7 +757,7 @@ public class Tests {
       	target = xmlReference.getTarget();
         assertTrue("contextgraph must contain one xmlReference and its attribute source must be xmlElement 1 and attribute target must be xmlElement 8", source.getName().equals("XmlElement 1") && target.getName().equals("XmlElement 8"));
 
-        pattern = loader.load(testDirectoryToolsRelationToXmlRelation + "xmlNavigationUnchanged.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "xmlNavigationUnchanged.patternstructure");
       	graph = pattern.getGraph();
       	relations = graph.getRelations();
       	xmlNavigation = (XmlNavigation) relations.get(0);
@@ -752,7 +765,7 @@ public class Tests {
       	target = xmlNavigation.getTarget();
         assertTrue("contextgraph must contain one xmlNavigation and its attribute source must be xmlElement 1 and attribute target must be xmlElement 8", source.getName().equals("XmlElement 1") && target.getName().equals("XmlElement 8"));
 
-        pattern = loader.load(testDirectoryToolsRelationToXmlRelation + "xmlReferenceToXmlNavigation.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "xmlReferenceToXmlNavigation.patternstructure");
       	graph = pattern.getGraph();
       	relations = graph.getRelations();
       	xmlNavigation = (XmlNavigation) relations.get(0);
@@ -760,7 +773,7 @@ public class Tests {
       	target = xmlNavigation.getTarget();
         assertTrue("contextgraph must contain one xmlNavigation and its attribute source must be xmlElement 1 and attribute target must be xmlElement 8", source.getName().equals("XmlElement 1") && target.getName().equals("XmlElement 8"));
 
-        pattern = loader.load(testDirectoryToolsRelationToXmlRelation + "xmlReferenceUnchanged.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "xmlReferenceUnchanged.patternstructure");
       	graph = pattern.getGraph();
       	relations = graph.getRelations();
       	xmlReference = (XmlReference) relations.get(0);
@@ -773,7 +786,7 @@ public class Tests {
 	@Test
 	public void testFormularviewBoolean() {
 		//formularview/tools/boolean
-      	pattern = loader.load(testDirectoryFormularviewToolsBoolean + "booleanFalseToTrue.patternstructure");
+      	pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_BOOLEAN + "booleanFalseToTrue.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof BooleanParam) {
@@ -782,7 +795,7 @@ public class Tests {
       	}
         assertTrue("value of booleanParam must be true", booleanParam.getValue());
         
-        pattern = loader.load(testDirectoryFormularviewToolsBoolean + "booleanTrueToFalse.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_BOOLEAN + "booleanTrueToFalse.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof BooleanParam) {
@@ -795,7 +808,7 @@ public class Tests {
 	@Test
 	public void testFormularviewComparisonOption() {
 		//formularview/tools/comparisonOption
-      	pattern = loader.load(testDirectoryFormularviewToolsComparisonOption + "comparisonOptionEqual.patternstructure");
+      	pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION + "comparisonOptionEqual.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof ComparisonOptionParam) {
@@ -804,7 +817,7 @@ public class Tests {
       	}
         assertTrue("value of comparisonOptionParam must be equal", comparisonOption.getValue() == ComparisonOperator.EQUAL);
         
-        pattern = loader.load(testDirectoryFormularviewToolsComparisonOption + "comparisonOptionGreater.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION + "comparisonOptionGreater.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof ComparisonOptionParam) {
@@ -813,7 +826,7 @@ public class Tests {
       	}
         assertTrue("value of comparisonOptionParam must be greater", comparisonOption.getValue() == ComparisonOperator.GREATER);
         
-        pattern = loader.load(testDirectoryFormularviewToolsComparisonOption + "comparisonOptionGreaterOrEqual.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION + "comparisonOptionGreaterOrEqual.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof ComparisonOptionParam) {
@@ -822,7 +835,7 @@ public class Tests {
       	}
         assertTrue("value of comparisonOptionParam must be equal", comparisonOption.getValue() == ComparisonOperator.GREATEROREQUAL);
         
-        pattern = loader.load(testDirectoryFormularviewToolsComparisonOption + "comparisonOptionLess.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION + "comparisonOptionLess.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof ComparisonOptionParam) {
@@ -831,7 +844,7 @@ public class Tests {
       	}
         assertTrue("value of comparisonOptionParam must be equal", comparisonOption.getValue() == ComparisonOperator.LESS);
         
-        pattern = loader.load(testDirectoryFormularviewToolsComparisonOption + "comparisonOptionLessOrEqual.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION + "comparisonOptionLessOrEqual.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof ComparisonOptionParam) {
@@ -840,7 +853,7 @@ public class Tests {
       	}
         assertTrue("value of comparisonOptionParam must be equal", comparisonOption.getValue() == ComparisonOperator.LESSOREQUAL);
         
-        pattern = loader.load(testDirectoryFormularviewToolsComparisonOption + "comparisonOptionNotEqual.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION + "comparisonOptionNotEqual.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof ComparisonOptionParam) {
@@ -853,7 +866,7 @@ public class Tests {
 	@Test
 	public void testFormularviewDate() {
 		//formularview/tools/date
-		pattern = loader.load(testDirectoryFormularviewToolsDate + "dateSetValue.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_DATE + "dateSetValue.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof DateParam) {
@@ -866,7 +879,7 @@ public class Tests {
 	@Test
 	public void testFormularviewDateTime() {
 		//formularview/tools/dateTime
-		pattern = loader.load(testDirectoryFormularviewToolsDateTime + "dateTimeSetValue.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_DATETIME + "dateTimeSetValue.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof DateTimeParam) {
@@ -879,7 +892,7 @@ public class Tests {
 	@Test
 	public void testFormularviewNumber() {
 		//formularview/tools/number
-		pattern = loader.load(testDirectoryFormularviewToolsNumber + "numberSetValue.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_NUMBER + "numberSetValue.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof NumberParam) {
@@ -892,7 +905,7 @@ public class Tests {
 	@Test
 	public void testFormularviewPropertyOption() {
 		//formularview/tools/propertyOption
-		pattern = loader.load(testDirectoryFormularviewToolsPropertyOption + "propertyOptionAttribute.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_PROPERTYOPTION + "propertyOptionAttribute.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof PropertyOptionParam) {
@@ -901,7 +914,7 @@ public class Tests {
       	}
         assertTrue("value of propertyOptionParam must be 1.0", propertyOption.getValue() == PropertyKind.ATTRIBUTE);
         
-        pattern = loader.load(testDirectoryFormularviewToolsPropertyOption + "propertyOptionData.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_PROPERTYOPTION + "propertyOptionData.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof PropertyOptionParam) {
@@ -910,7 +923,7 @@ public class Tests {
       	}
         assertTrue("value of propertyOptionParam must be 1.0", propertyOption.getValue() == PropertyKind.DATA);
         
-        pattern = loader.load(testDirectoryFormularviewToolsPropertyOption + "propertyOptionTag.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_PROPERTYOPTION + "propertyOptionTag.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof PropertyOptionParam) {
@@ -923,7 +936,7 @@ public class Tests {
 	@Test
 	public void testFormularviewRelationOption() {
 		//formularview/tools/relationOption
-		pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionAncestor.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionAncestor.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -932,7 +945,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.ANCESTOR);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionAncestorOrSelf.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionAncestorOrSelf.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -941,7 +954,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.ANCESTOR_OR_SELF);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionChild.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionChild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -950,7 +963,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.CHILD);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionDescendant.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionDescendant.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -959,7 +972,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.DESCENDANT);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionDescendantOrSelf.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionDescendantOrSelf.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -968,7 +981,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.DESCENDANT_OR_SELF);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionEightchild.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionEightchild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -977,7 +990,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.EIGHTCHILD);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionFivechild.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionFivechild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -986,7 +999,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.FIVECHILD);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionFollowing.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionFollowing.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -995,7 +1008,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.FOLLOWING);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionFollowingSibling.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionFollowingSibling.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1004,7 +1017,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.FOLLOWING_SIBLING);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionFourchild.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionFourchild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1013,7 +1026,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.FOURCHILD);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionNinechild.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionNinechild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1022,7 +1035,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.NINECHILD);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionParent.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionParent.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1031,7 +1044,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.PARENT);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionPreceding.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionPreceding.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1040,7 +1053,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.PRECEDING);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionPrecedingSibling.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionPrecedingSibling.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1049,7 +1062,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.PRECEDING_SIBLING);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionSelf.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionSelf.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1058,7 +1071,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.SELF);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionSevenchild.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionSevenchild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1067,7 +1080,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.SEVENCHILD);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionSixchild.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionSixchild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1076,7 +1089,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.SIXCHILD);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionThreechild.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionThreechild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1085,7 +1098,7 @@ public class Tests {
       	}
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.THREECHILD);
         
-        pattern = loader.load(testDirectoryFormularviewToolsRelationOption + "relationOptionTwochild.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionTwochild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1098,7 +1111,7 @@ public class Tests {
 	@Test
 	public void testFormularviewTextList() {
 		//formularview/tools/textList
-		pattern = loader.load(testDirectoryFormularviewToolsTextList + "textListAdd.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLIST + "textListAdd.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextListParam) {
@@ -1107,7 +1120,7 @@ public class Tests {
       	}
         assertTrue("value of textListParam must be hinzugefügt mit add", textListParam.getValues().get(0).equals("hinzugefügt mit add"));
         
-        pattern = loader.load(testDirectoryFormularviewToolsTextList + "textListDelete.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLIST + "textListDelete.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextListParam) {
@@ -1116,7 +1129,7 @@ public class Tests {
       	}
         assertTrue("value of textListParam must be empty", textListParam.getValues().isEmpty());
         
-        pattern = loader.load(testDirectoryFormularviewToolsTextList + "textListSave.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLIST + "textListSave.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextListParam) {
@@ -1125,7 +1138,7 @@ public class Tests {
       	}
         assertTrue("value of textListParam must be gespeichert mit save", textListParam.getValues().get(0).equals("gespeichert mit save"));
         
-        pattern = loader.load(testDirectoryFormularviewToolsTextList + "textListCancel.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLIST + "textListCancel.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextListParam) {
@@ -1134,7 +1147,7 @@ public class Tests {
       	}
       	assertTrue("value of textListParam must be empty", textListParam.getValues().isEmpty());
       	
-      	pattern = loader.load(testDirectoryFormularviewToolsTextList + "textListOk.patternstructure");
+      	pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLIST + "textListOk.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextListParam) {
@@ -1147,7 +1160,7 @@ public class Tests {
 	@Test
 	public void testFormularviewTextLiteral() {
 		//formularview/tools/textLiteral
-		pattern = loader.load(testDirectoryFormularviewToolsTextLiteral + "textLiteralSetValue.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLITERAL + "textLiteralSetValue.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextLiteralParam && p.getInternalId() == 3) {
@@ -1156,7 +1169,7 @@ public class Tests {
       	}
         assertTrue("value of textLiteralParam must be Test", textLiteralParam.getValue().equals("Test"));
         
-        pattern = loader.load(testDirectoryFormularviewToolsTextLiteral + "textLiteralSetValueSuggestion.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLITERAL + "textLiteralSetValueSuggestion.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextLiteralParam && p.getInternalId() == 3) {
@@ -1169,7 +1182,7 @@ public class Tests {
 	@Test
 	public void testFormularviewTime() {
 		//formularview/tools/time
-		pattern = loader.load(testDirectoryFormularviewToolsTime + "timeSetValue.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TIME + "timeSetValue.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TimeParam) {
@@ -1182,7 +1195,7 @@ public class Tests {
 	@Test
 	public void testFormularviewTypeOption() {
 		//formularview/tools/typeOption
-		pattern = loader.load(testDirectoryFormularviewToolsTypeOption + "typeOptionBoolean.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionBoolean.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TypeOptionParam) {
@@ -1192,7 +1205,7 @@ public class Tests {
       	//System.out.println(typeOption);
         assertTrue("value of typeOptionParam must be boolean", typeOption.getValue() == ReturnType.BOOLEAN);
         
-        pattern = loader.load(testDirectoryFormularviewToolsTypeOption + "typeOptionDate.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionDate.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TypeOptionParam) {
@@ -1201,7 +1214,7 @@ public class Tests {
       	}
         assertTrue("value of typeOptionParam must be date", typeOption.getValue() == ReturnType.DATE);
         
-        pattern = loader.load(testDirectoryFormularviewToolsTypeOption + "typeOptionDateTime.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionDateTime.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TypeOptionParam) {
@@ -1210,7 +1223,7 @@ public class Tests {
       	}
         assertTrue("value of typeOptionParam must be dateTime", typeOption.getValue() == ReturnType.DATETIME);
         
-        pattern = loader.load(testDirectoryFormularviewToolsTypeOption + "typeOptionElement.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionElement.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TypeOptionParam) {
@@ -1219,7 +1232,7 @@ public class Tests {
       	}
         assertTrue("value of typeOptionParam must be element", typeOption.getValue() == ReturnType.ELEMENT);
         
-        pattern = loader.load(testDirectoryFormularviewToolsTypeOption + "typeOptionNumber.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionNumber.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TypeOptionParam) {
@@ -1228,7 +1241,7 @@ public class Tests {
       	}
         assertTrue("value of typeOptionParam must be number", typeOption.getValue() == ReturnType.NUMBER);
         
-        pattern = loader.load(testDirectoryFormularviewToolsTypeOption + "typeOptionString.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionString.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TypeOptionParam) {
@@ -1237,7 +1250,7 @@ public class Tests {
       	}
         assertTrue("value of typeOptionParam must be string", typeOption.getValue() == ReturnType.STRING);
         
-        pattern = loader.load(testDirectoryFormularviewToolsTypeOption + "typeOptionTime.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionTime.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TypeOptionParam) {
@@ -1258,7 +1271,7 @@ public class Tests {
       	textLiteralParam = null;
       	timeParam = null;
 		
-		pattern = loader.load(testDirectoryFormularviewToolsUntypedParameterValue + "untypedParameterValueToBoolean.patternstructure");
+		pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToBoolean.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof BooleanParam) {
@@ -1267,7 +1280,7 @@ public class Tests {
       	}
         assertTrue("parameterList must contain one booleanParam", booleanParam != null);
         
-        pattern = loader.load(testDirectoryFormularviewToolsUntypedParameterValue + "untypedParameterValueToDate.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToDate.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof DateParam) {
@@ -1276,7 +1289,7 @@ public class Tests {
       	}
         assertTrue("parameterList must contain one dateParam", dateParam != null);
         
-        pattern = loader.load(testDirectoryFormularviewToolsUntypedParameterValue + "untypedParameterValueToDateTime.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToDateTime.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof DateTimeParam) {
@@ -1285,7 +1298,7 @@ public class Tests {
       	}
         assertTrue("parameterList must contain one dateTimeParam", dateTimeParam != null);
         
-        pattern = loader.load(testDirectoryFormularviewToolsUntypedParameterValue + "untypedParameterValueToNumber.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToNumber.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof NumberParam) {
@@ -1294,7 +1307,7 @@ public class Tests {
       	}
         assertTrue("parameterList must contain one numberParam", numberParam != null);
         
-        pattern = loader.load(testDirectoryFormularviewToolsUntypedParameterValue + "untypedParameterValueToTextList.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToTextList.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextListParam) {
@@ -1303,7 +1316,7 @@ public class Tests {
       	}
         assertTrue("parameterList must contain one textListParam", textListParam != null);
         
-        pattern = loader.load(testDirectoryFormularviewToolsUntypedParameterValue + "untypedParameterValueToTextLiteral.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToTextLiteral.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextLiteralParam) {
@@ -1312,7 +1325,7 @@ public class Tests {
       	}
         assertTrue("parameterList must contain one textLiteralParam", textLiteralParam != null);
         
-        pattern = loader.load(testDirectoryFormularviewToolsUntypedParameterValue + "untypedParameterValueToTime.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToTime.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TimeParam) {
@@ -1321,7 +1334,7 @@ public class Tests {
       	}
         assertTrue("parameterList must contain one timeParam", timeParam != null);
         
-        pattern = loader.load(testDirectoryFormularviewToolsUntypedParameterValue + "timeToBoolean.patternstructure");
+        pattern = loader.load(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "timeToBoolean.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof BooleanParam) {

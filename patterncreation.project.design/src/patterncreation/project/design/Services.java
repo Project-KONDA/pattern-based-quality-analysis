@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -19,8 +20,10 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditor;
 import org.eclipse.gmf.runtime.diagram.ui.requests.ArrangeRequest;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
+import org.eclipse.sirius.viewpoint.ViewpointPackage;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
@@ -181,6 +184,12 @@ public class Services {
     	return !morethanonecontent;
     }
     
+    /**
+     * Determines the name of the reference, in which a condition will be stored
+     * 
+     * @param self the evaluation context
+     * @return the name of the reference, in which a condition will be stored
+     */
     public String referenceName(EObject self) {
     	String returnCondition = "x";
     	if(self instanceof Formula) {
@@ -249,6 +258,12 @@ public class Services {
     	return returnCondition;
     }
     
+    /**
+     * Determines the name of a graph
+     * 
+     * @param self the evaluation context
+     * @return name of a graph
+     */
     public String graphName(EObject self) {
     	EObject container = self.eContainer();
     	String graphName = "Graph";
@@ -258,6 +273,12 @@ public class Services {
     	return graphName;
     }
     
+    /**
+     * Determines the name of an element
+     * 
+     * @param self the evaluation context
+     * @return name of an element
+     */
     public String elementName(EObject self) {
     	String elementName = "Element ";
     	if(self instanceof Element) {
@@ -329,6 +350,12 @@ public class Services {
      	return(list1);
     }*/
     
+    /**
+     * Determines the root element
+     * 
+     * @param context the evaluation context
+     * @return the root element
+     */
     public EObject getWurzelContainer(EObject context) {//sucht das Wurzelelement
     	EObject container1 = null;
     	EObject container2 = null;
@@ -345,6 +372,12 @@ public class Services {
     
     //HashMap<String, Integer> objectSizes = new HashMap<String, Integer>();
     //HashMap<String, PatternElement> objects = new HashMap<String, PatternElement>();
+    /**
+     * Activates for every new element autosize
+     * 
+     * @param self the evaluation context
+     * @return the value, which activates autosize
+     */
     public int getSizeAndAutosize(EObject self) {//autosize für jedes Element, wenn ein Element hinzugefügt wird
     	//String id = ((PatternElement)self).getId();
     	/*File file = new File("C:\\Users\\Lukas\\Desktop\\NeuerOrdner\\"+id+".txt");
@@ -432,7 +465,13 @@ public class Services {
     	return referenceName;
     }
     
-    public EObject getOperatorListAsEObject(EObject self) {//wird von container creation comparison im change context aufgerufen, m die operatorlist des graphen als eobject zu bekommen
+    /**
+     * Returns the operatorlist as eobject
+     * 
+     * @param self the evaluation context
+     * @return the operatorllst
+     */
+    public EObject getOperatorListAsEObject(EObject self) {//wird von container creation comparison im change context aufgerufen, um die operatorlist des graphen als eobject zu bekommen
     	Graph gr = null;
     	EObject eo = null;
     	EList<EObject> contents = self.eContents();((Graph)self).getOperatorList();
@@ -455,7 +494,7 @@ public class Services {
     	return ((Graph)self).getOperatorList();
     }
     
-    public ArrayList<EObject> semanticCandidatExpressionComparisonAlternative(EObject self) {//zeigt primitive vergleiche in elementen an, die anderen zwischen den elementen
+    public ArrayList<EObject> semanticCandidatesExpressionComparisonAlternative(EObject self) {//zeigt primitive vergleiche in elementen an, die anderen zwischen den elementen
     	/*System.out.println("SCE "+self.toString());
     	if(self instanceof Element) {
     		System.out.println("Ist Element");
@@ -530,7 +569,13 @@ public class Services {
     	
     }
     
-    public EList<EObject> semanticCandidatExpressionComparison(EObject self) {
+    /**
+     * The semantic candidates expression of comparison
+     * 
+     * @param self the evaluation context
+     * @return The comparisons, which will be displayed in a graph
+     */
+    public EList<EObject> semanticCandidatesExpressionComparison(EObject self) {
     	EObject eo = null;
     	EList<EObject> contents = self.eContents();
     	for(EObject i:contents) {
@@ -540,8 +585,22 @@ public class Services {
     	}
     	EList<EObject> elements = ((OperatorList)eo).eContents();
     	return elements;
+    	
+    	//Alternative ist nicht getestet worden
+    	/*OperatorList operatorlist = null;
+    	if(self instanceof Graph) {
+    		Graph graph = (Graph) self;
+    		operatorlist = graph.getOperatorList();
+    	}
+    	return operatorlist.getOperators();*/
     }
     
+    /**
+     * Prints the evaluation context.
+     * 
+     * @param self the evaluation context
+     * @return the evaluation context
+     */
     public EObject printSelf(EObject self) {
     	/*EObject co = null;
 		try {
@@ -599,6 +658,7 @@ public class Services {
     	return operators;
     }*/
     
+    
     public ArrayList<EObject> semanticCandidateExpressionProperty(EObject self) {
     	//System.out.println("Property: "+self.toString());
     	EList<EObject> eo = null;
@@ -632,7 +692,7 @@ public class Services {
     	return list;
     }
     
-    public ArrayList<EObject> semanticCandidateExpressionProperty2(EObject self) {//ist für properties, die in einem comparison nicht angezeigt werden solleen, sie sollen nur im namen angezeigt werden
+    public ArrayList<EObject> semanticCandidateExpressionProperty2(EObject self) {//ist für properties, die in einem comparison nicht angezeigt werden sollen, sie sollen nur im namen angezeigt werden
     	//System.out.println("Property: "+self.toString());
     	EList<EObject> eo = null;
     	ArrayList<EObject> list = new ArrayList<EObject>();
@@ -665,6 +725,12 @@ public class Services {
     	return list;
     }
     
+    /**
+     * The semantic candidates expression of property
+     * 
+     * @param self the evaluation context
+     * @return The properties, which will be displayed in an element
+     */
     public ArrayList<EObject> semanticCandidateExpressionProperty3(EObject self) {//zeigt properties in elementen, matches und in comparisons an
     	//System.out.println("Property: "+self.toString());
     	ArrayList<EObject> list = new ArrayList<EObject>();
@@ -705,6 +771,12 @@ public class Services {
     	return comparisonProperty;
     }*/
     
+    /**
+     * The precondition for the tool, which creates properties
+     * 
+     * @param self the evaluation context
+     * @return returns true, if the container is an element
+     */
     public boolean creationPropertyPrecondition(EObject self) {
     	boolean returnvalue = false;
     	/*if(self instanceof Comparison) {
@@ -723,6 +795,7 @@ public class Services {
     	return returnvalue;
     }
     
+    //wird vermutlich nicht mehr genutzt
     public ArrayList<EObject> semanticCandidateExpressionTextliteral(EObject self) {
     	System.out.println(self.toString()+"aaaaaaaaaaaaaaaaa");
     	CompletePattern root = (CompletePattern) getWurzelContainer(self);System.out.println("1");
@@ -787,6 +860,13 @@ public class Services {
     	return returnvalues;
     }
     
+    /**
+     * The semantic candidates
+     * 
+     * @param self
+     * @param s
+     * @return
+     */
     public ArrayList<EObject> semanticCandidateExpressionParameter(EObject self, String s) {
     	HashMap<String, Class<?>> typen = new HashMap<String, Class<?>>();
     	typen.put("Textliteral", TextLiteralParam.class);
@@ -2209,6 +2289,8 @@ public class Services {
     }
     boolean isNewConcretePatternCreation = false;
     public boolean isFinalized(EObject self, EObject e) {
+    	//Über den Titel des Tabs in Eclipse kann die View zum Konkretisieren nicht geöffnet werden, der Titel kann vom Benutzer verändert werden. Über die Diagramm Description geht es auch nicht. Man  bekommt alle geöffneten Descriptions in einer Collection, die nicht Mustern zugeordnet werden können.
+    	
     	/*boolean isFinalized = false;
     	if(e instanceof CompletePattern) {
     		CompletePattern pattern = (CompletePattern) e;
@@ -2232,14 +2314,14 @@ public class Services {
     	}
     	System.out.println("Finalisiert: "+isFinalized);
 
-    	IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+    	/*IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
     	   //the active part
     	   IWorkbenchPart active = page.getActivePart();
     	   //adding a listener
     	   IPartListener2 pl = new IPartListener2() {
     	      public void partActivated(IWorkbenchPartReference ref) {
-    	         System.out.println("Active: "+ref.getTitle().equals("new ConcretPatternCreation"));
-    	         if(ref.getTitle().equals("new ConcretPatternCreation")){
+    	         System.out.println("Active: "+ref.getId());
+    	         if(ref.getId().equals("org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID")){
     	        	 isNewConcretePatternCreation = true;
     	         }else {
     	        	 isNewConcretePatternCreation = false;
@@ -2287,9 +2369,9 @@ public class Services {
 
     	      }
     	   };
-    	   page.addPartListener(pl);
+    	   page.addPartListener(pl);*/
     	
-    	return isNewConcretePatternCreation;//isFinalized;
+    	return /*isNewConcretePatternCreation;*/isFinalized;
     }
     
     public void addComparison(EObject self) {
@@ -2465,22 +2547,23 @@ public class Services {
     	if(newObject != null) {
     		iterator = newObject;System.out.println("newObject");
     	}
+    	PatternElement patternelement2 = (PatternElement) iterator;
     	if(iterator instanceof UntypedParameterValue) {
-    		name = "UntypedParameterValue " + patternelement.getInternalId() + " (modifiable)";
+    		name = "UntypedParameterValue " + patternelement2.getInternalId() + " (modifiable)";
     	}else if(iterator instanceof BooleanParam) {
-    		name = "Boolean " + patternelement.getInternalId() + " (modifiable)";
+    		name = "Boolean " + patternelement2.getInternalId() + " (modifiable)";
     	}else if(iterator instanceof TextLiteralParam) {
-    		name = "Textliteral " + patternelement.getInternalId() + " (modifiable)";
+    		name = "Textliteral " + patternelement2.getInternalId() + " (modifiable)";
     	}else if(iterator instanceof TextListParam) {
-    		name = "Textlist " + patternelement.getInternalId() + " (modifiable)";
+    		name = "Textlist " + patternelement2.getInternalId() + " (modifiable)";
     	}else if(iterator instanceof NumberParam) {
-    		name = "Number " + patternelement.getInternalId() + " (modifiable)";
+    		name = "Number " + patternelement2.getInternalId() + " (modifiable)";
     	}else if(iterator instanceof DateParam) {
-    		name = "Date " + patternelement.getInternalId() + " (modifiable)";
+    		name = "Date " + patternelement2.getInternalId() + " (modifiable)";
     	}else if(iterator instanceof TimeParam) {
-    		name = "Time " + patternelement.getInternalId() + " (modifiable)";
+    		name = "Time " + patternelement2.getInternalId() + " (modifiable)";
     	}else if(iterator instanceof DateTimeParam) {
-    		name = "Date and time " + patternelement.getInternalId() + " (modifiable)";
+    		name = "Date and time " + patternelement2.getInternalId() + " (modifiable)";
     	}
     	return name;
     }
@@ -3954,5 +4037,83 @@ public class Services {
 			}
 		}
 		return s;
+	}
+	
+	public String validityCheckConcretePatternString(EObject self){
+		String s = "";
+		if(self instanceof CompletePattern) {
+			CompletePattern pattern = (CompletePattern) self;
+			try {
+				pattern.isValid(AbstractionLevel.CONCRETE);
+				s = "This pattern is a valid concrete pattern.";
+			}catch (Exception e) {
+				s = "This pattern is not a valid concrete pattern.";
+			}
+		}
+		return s;
+	}
+	
+	public String xmlNavigationName(EObject self) {
+		String name = "XmlNavigation ";
+		if(self instanceof XmlNavigation) {
+			XmlNavigation xmlNavigation = (XmlNavigation) self;
+			name = name + xmlNavigation.getInternalId() + ": " + getRelationOptionSelectCandidatesDisplay(self, xmlNavigation.getOption().getValue());
+		}
+		 return name;
+	}
+	
+	public Boolean isRelation(EObject self) {
+		Boolean isRelation = false;
+		if(self instanceof Relation) {
+			isRelation = true;
+		}
+		return isRelation;
+	}
+	
+	public boolean validityCheck(EObject self, String s) {
+		boolean isValide = false;
+		if (self instanceof CompletePattern) {
+			CompletePattern pattern = (CompletePattern) self;
+			if (s.equals("generic")) {
+				try {
+					pattern.isValid(AbstractionLevel.GENERIC);
+					isValide = true;
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} else if (s.equals("abstract")) {
+				try {
+					pattern.isValid(AbstractionLevel.GENERIC);
+					isValide = true;
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} else if (s.equals("concrete")) {
+				try {
+					pattern.isValid(AbstractionLevel.ABSTRACT);
+					isValide = true;
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		return isValide;
+	}
+	
+	public boolean emptylabel(EObject self, EObject i) {// falls typeoptionparam nicht von einem comparison ist, das zwei elemente vergleicht, wird es nicht in der formularansicht angezeigt, dann soll auch das leere label nicht angezeigt werden
+		boolean set = true;
+		if(i instanceof TypeOptionParam) {
+			TypeOptionParam typeOption = (TypeOptionParam) i;
+			EList<Comparison> comparisons = typeOption.getTypeComparisons();
+			Comparison comparison = comparisons.get(0);
+			if(!(comparison.getArgument1() instanceof Element && comparison.getArgument2() instanceof Element)) {
+				set = false;
+			}
+		}
+		System.out.println("Parameter: " + i);
+		return set;
 	}
 }
