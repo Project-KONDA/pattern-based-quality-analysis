@@ -1,9 +1,20 @@
 package patterncreation.project.design;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
+import org.basex.core.BaseXException;
+import org.basex.core.Context;
+import org.basex.query.QueryException;
+import org.basex.query.QueryIOException;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
@@ -19,13 +30,36 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
+import qualitypatternmodel.execution.Databases;
+import qualitypatternmodel.execution.ExecutionFactory;
+import qualitypatternmodel.execution.LocalXmlDataDatabase;
+import qualitypatternmodel.execution.LocalXmlSchemaDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.execution.XmlSchemaDatabase;
+import qualitypatternmodel.execution.impl.DatabasesImpl;
+import qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl;
+import qualitypatternmodel.execution.impl.LocalXmlSchemaDatabaseImpl;
+import qualitypatternmodel.utility.EMFModelLoad;
+import qualitypatternmodel.utility.EMFModelSave;
+
+//import static qualitypatternmodel.utilityclasses.Util.*;
+
 public class CreateDatabaseDialog extends Dialog {
-	public CreateDatabaseDialog(Shell parentShell) {
+	private String name;
+	private String dataPath;
+	private String schemaPath;
+	private ChooseDatabaseDialog chooseDatabaseDialog;
+	
+	public CreateDatabaseDialog(Shell parentShell, ChooseDatabaseDialog chooseDatabaseDialog) {
         super(parentShell);
+        this.chooseDatabaseDialog = chooseDatabaseDialog;
     }
 
     @Override
-    protected Control createDialogArea(Composite parent) {
+    protected Control createDialogArea(Composite parent) {    
+    	
+//    	System.out.println("CreateDatabaseDialog.createDialogArea");
+    	
     	Shell shell = new Shell();
         Composite container = (Composite) super.createDialogArea(parent);
         GridLayout gridLayout = new GridLayout();
@@ -33,7 +67,7 @@ public class CreateDatabaseDialog extends Dialog {
         container.setLayout(gridLayout);
         
         Label chooseDatabaseLabel = new Label(container, SWT.NONE);
-        chooseDatabaseLabel.setText("Create New Database");
+        chooseDatabaseLabel.setText("Specify New Database:");
         GridData gridData = new GridData();
         gridData.horizontalAlignment = GridData.FILL;
         gridData.horizontalSpan = 2;
@@ -41,58 +75,65 @@ public class CreateDatabaseDialog extends Dialog {
         
         new Label(container, SWT.NONE);
         
-        Label labelName = new Label(container, SWT.NONE);
-        labelName.setText("Name:");
+        Label nameLabel = new Label(container, SWT.NONE);
+        nameLabel.setText("Name:");
         
-        Text text2 = new Text(container, SWT.BORDER);
+        Text nameText = new Text(container, SWT.BORDER);
         GridData gridDataText = new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1);
         //gridData.horizontalAlignment = GridData.FILL;
         //gridData.horizontalSpan = 2;
-        text2.setLayoutData(gridDataText);
+        nameText.setLayoutData(gridDataText);
         
-        Label labelDataPath = new Label(container, SWT.NONE);
-        labelDataPath.setText("Data Path:");
+        nameText.addModifyListener(new ModifyListener() {
+			
+			@Override
+			public void modifyText(ModifyEvent e) {
+				name = nameText.getText();
+				
+			}
+		});
         
-        Text textDataPath = new Text(container, SWT.BORDER);
+        Label dataPathLabel = new Label(container, SWT.NONE);
+        dataPathLabel.setText("Data Path:");
+        
+        Text dataPathText = new Text(container, SWT.BORDER);
         GridData gridDataDataPath = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
-        textDataPath.setLayoutData(gridDataDataPath);
+        dataPathText.setLayoutData(gridDataDataPath);
         
-        Button button = new Button(container, SWT.PUSH);
-        button.setText("Choose Path");
-        button.addSelectionListener(new SelectionAdapter() {
+        Button chooseDataPathButton = new Button(container, SWT.PUSH);
+        chooseDataPathButton.setText("Choose Data Path");
+        chooseDataPathButton.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
             	Shell shell = new Shell();
     		    FileDialog dialog = new FileDialog(shell, SWT.OPEN);
-    			dialog.setFilterExtensions(new String [] {"*.html"});
+    			dialog.setFilterExtensions(new String [] {"*.xml"});
     			dialog.setFilterPath(System.getProperty("user.dir"));//"c:\\temp"
-    			//String result = dialog.open();
-    			//text.setText(result);
-    			dialog.open();
-    			textDataPath.setText(dialog.getFileName());//zur ausführung braucht man den gesamten pfad, result verwenden
+    			
+    			dataPath = dialog.open();
+    			dataPathText.setText(dataPath);
             }
         });
         
-        Label labelSchemaPath = new Label(container, SWT.NONE);
-        labelSchemaPath.setText("Schema Path:");
+        Label schemaPathLabel = new Label(container, SWT.NONE);
+        schemaPathLabel.setText("Schema Path:");
         
-        Text textSchemaPath = new Text(container, SWT.BORDER);
+        Text schemaPathText = new Text(container, SWT.BORDER);
         GridData gridDataSchemaPath = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
-        textSchemaPath.setLayoutData(gridDataSchemaPath);
+        schemaPathText.setLayoutData(gridDataSchemaPath);
         
-        Button buttonChoosePath = new Button(container, SWT.PUSH);
-        buttonChoosePath.setText("Choose Path");
-        buttonChoosePath.addSelectionListener(new SelectionAdapter() {
+        Button chooseSchemaPathButton = new Button(container, SWT.PUSH);
+        chooseSchemaPathButton.setText("Choose Schema Path");
+        chooseSchemaPathButton.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
             	Shell shell = new Shell();
     		    FileDialog dialog = new FileDialog(shell, SWT.OPEN);
-    			dialog.setFilterExtensions(new String [] {"*.html"});
+    			dialog.setFilterExtensions(new String [] {"*.xsd"});
     			dialog.setFilterPath(System.getProperty("user.dir"));//"c:\\temp"
-    			//String result = dialog.open();
-    			//text.setText(result);
-    			dialog.open();
-    			textSchemaPath.setText(dialog.getFileName());//zur ausführung braucht man den gesamten pfad, result verwenden
+    			
+    			schemaPath = dialog.open();
+    			schemaPathText.setText(schemaPath);
             }
         });
         
@@ -105,26 +146,56 @@ public class CreateDatabaseDialog extends Dialog {
         new Label(container, SWT.NONE);
         //new Label(container, SWT.NONE);
         
-        Button buttonCreateDatabase = new Button(container, SWT.PUSH);
-        buttonCreateDatabase.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false,2,1));
-        buttonCreateDatabase.setText("Create Database");
-        buttonCreateDatabase.addSelectionListener(new SelectionAdapter() {
+        Button createDatabaseButton = new Button(container, SWT.PUSH);
+        createDatabaseButton.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false,2,1));
+        createDatabaseButton.setText("Create Database");
+        createDatabaseButton.addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
-                System.out.println("Pressed");
-                container.getShell().close();
+            	if(name == null || name.equals("") || dataPath == null) {
+            		MessageDialog.openError(shell, "OK", "Please specify all database properties.");
+            	} else {
+            		createDatabase();            		
+            		
+            		container.getShell().close();
+            		
+            		chooseDatabaseDialog.refresh(shell);            		
+            		
+            	}
             }
+
+			private void createDatabase() {
+								
+				LocalXmlDataDatabase dataDatabase = new LocalXmlDataDatabaseImpl(name, dataPath);
+				DatabasesImpl.getInstance().getXmlDatabases().add(dataDatabase);
+				
+				// TODO: check if schema database already exists				
+				
+				if(schemaPath != null) {
+					String[] split = schemaPath.split(Pattern.quote(File.separator));
+					String schemaDatabaseName = split[split.length-1]; // TODO: improve
+					LocalXmlSchemaDatabase schemaDatabase = new LocalXmlSchemaDatabaseImpl(schemaDatabaseName, schemaPath); 		
+					DatabasesImpl.getInstance().getXmlSchemata().add(schemaDatabase);  
+					dataDatabase.setXmlSchema(schemaDatabase); 		
+				}
+					
+				try {
+					dataDatabase.init();
+				} catch (BaseXException | QueryIOException | QueryException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}			
+						        
+			}
         });
 
         return container;
     }
-
-    // overriding this methods allows you to set the
-    // title of the custom dialog
+    
     @Override
     protected void configureShell(Shell newShell) {
         super.configureShell(newShell);
-        newShell.setText("Selection dialog");
+        newShell.setText("Create New Database");
     }
 
     @Override
@@ -143,4 +214,28 @@ public class CreateDatabaseDialog extends Dialog {
       GridLayout layout = (GridLayout)parent.getLayout();
       layout.marginHeight = 0;
     }
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDataPath() {
+		return dataPath;
+	}
+
+	public void setDataPath(String dataPath) {
+		this.dataPath = dataPath;
+	}
+
+	public String getSchemaPath() {
+		return schemaPath;
+	}
+
+	public void setSchemaPath(String schemaPath) {
+		this.schemaPath = schemaPath;
+	}
 }
