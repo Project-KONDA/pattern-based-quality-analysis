@@ -99,6 +99,13 @@ public class CreateDatabaseDialog extends Dialog {
         Text dataPathText = new Text(container, SWT.BORDER);
         GridData gridDataDataPath = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
         dataPathText.setLayoutData(gridDataDataPath);
+        dataPathText.addModifyListener(new ModifyListener() {
+			
+			@Override
+			public void modifyText(ModifyEvent e) {				
+				dataPath = dataPathText.getText();	
+			}
+		});
         
         Button chooseDataPathButton = new Button(container, SWT.PUSH);
         chooseDataPathButton.setText("Choose Data Path");
@@ -121,6 +128,13 @@ public class CreateDatabaseDialog extends Dialog {
         Text schemaPathText = new Text(container, SWT.BORDER);
         GridData gridDataSchemaPath = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
         schemaPathText.setLayoutData(gridDataSchemaPath);
+        schemaPathText.addModifyListener(new ModifyListener() {
+			
+			@Override
+			public void modifyText(ModifyEvent e) {				
+				schemaPath = schemaPathText.getText();	
+			}
+		});
         
         Button chooseSchemaPathButton = new Button(container, SWT.PUSH);
         chooseSchemaPathButton.setText("Choose Schema Path");

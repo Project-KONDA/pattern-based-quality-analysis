@@ -11,6 +11,8 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
@@ -81,6 +83,14 @@ public class ViewExecutionPart1 extends ViewPart {
         
         selectedPatternText = new Text(container, SWT.BORDER);//Text
         selectedPatternText.setBounds(90, 10, 200, 25);
+        selectedPatternText.addModifyListener(new ModifyListener() {
+			
+			@Override
+			public void modifyText(ModifyEvent e) {
+				patternFilePath = selectedPatternText.getText();
+				loadPatternFromFile(shell);				
+			}
+		});
 	    
 	    Button choosePatternButton = new Button(container, SWT.NONE);
 	    choosePatternButton.setBounds(300, 10, 120, 25);
@@ -96,23 +106,14 @@ public class ViewExecutionPart1 extends ViewPart {
 	    			dialog.setFilterPath(System.getProperty("user.dir"));//"c:\\temp"
 	    			
 	    			patternFilePath = dialog.open();
-	    			
 	    			if(patternFilePath != null) {
 	    				selectedPatternText.setText(patternFilePath);
-	    				patternFilePath = FILE_PATH_PREFIX + patternFilePath.replace("\\", "/");
-	    				pattern = EMFModelLoad.loadCompletePattern(patternFilePath);
-	    				
-	    				try {
-							pattern.isValid(AbstractionLevel.CONCRETE);
-						} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-							MessageDialog.openError(shell, "OK", "The selected pattern is not a valid concrete pattern.");
-							pattern = null;
-							selectedPatternText.setText("");
-						}	    					
-	    				
-	    			}	    			
+	    				loadPatternFromFile(shell);	    	
+	    			}
 	    			
 	    	   }
+
+			
 	    	 
 	    	   @Override
 	    	   public void widgetDefaultSelected(SelectionEvent arg0) {
@@ -255,6 +256,21 @@ public class ViewExecutionPart1 extends ViewPart {
 		// TODO Auto-generated method stub
 	}
 
+	private void loadPatternFromFile(Shell shell) {
+		if(patternFilePath != null) {			
+			patternFilePath = FILE_PATH_PREFIX + patternFilePath.replace("\\", "/");
+			pattern = EMFModelLoad.loadCompletePattern(patternFilePath);
+			
+			try {
+				pattern.isValid(AbstractionLevel.CONCRETE);
+			} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
+				MessageDialog.openError(shell, "OK", "The selected pattern is not a valid concrete pattern.");
+				pattern = null;
+				selectedPatternText.setText("");
+			}	    					
+			
+		}
+	}
 
 
 	public ChooseDatabaseForExecutionDialog getChooseDatabaseDialog() {
