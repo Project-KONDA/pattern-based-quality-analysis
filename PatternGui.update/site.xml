@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/PatternGui.feature_1.0.0.202101031746.jar" id="PatternGui.feature" version="1.0.0.202101031746">
+      <category name="PatternGui"/>
+   </feature>
+   <category-def name="PatternGui" label="PatternGui"/>
+</site>
