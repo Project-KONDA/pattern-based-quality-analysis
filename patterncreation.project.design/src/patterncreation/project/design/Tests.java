@@ -16,6 +16,8 @@ import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.execution.Database;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Property;
@@ -107,6 +109,7 @@ public class Tests {
 	private static final String TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TIME = TEST_DIRECTORY_CONCRETE + "formularview/tools/time/";
 	private static final String TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION = TEST_DIRECTORY_CONCRETE + "formularview/tools/typeOption/";
 	private static final String TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE = TEST_DIRECTORY_CONCRETE + "formularview/tools/untypedParameterValue/";
+	private static final String TEST_DIRECTORY_DATABASE = TEST_DIRECTORY_CONCRETE + "database/";
 	
 	
 	CompletePattern pattern = null;
@@ -158,7 +161,7 @@ public class Tests {
 	public void testGraphstructureChangeNameElement() {
 		//graphstructure/tools/changeNameElement
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_CHANGE_NAME_ELEMENT + "changeNameElement.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_CHANGE_NAME_ELEMENT + "changeNameElement.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("attribute name of element must contain the String \"ElementNewName\"", graph.getElements().get(0).getName().equals("ElementNewName"));
 	}
@@ -169,7 +172,7 @@ public class Tests {
 	@Test
 	public void testGraphstructureChangeNameProperty() {
 		//graphstructure/tools/changeNameElement
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_CHANGE_NAME_PROPERTY + "changeNameProperty.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_CHANGE_NAME_PROPERTY + "changeNameProperty.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("attribute name of property must contain the String \"PropertyNewName\"", graph.getElements().get(0).getProperties().get(0).getName().equals("PropertyNewName"));
 	}
@@ -181,7 +184,7 @@ public class Tests {
 	public void testGraphstructureChangeNameRelation() {
 		//graphstructure/tools/changeNameRelation
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_CHANGE_NAME_RELATION + "changeNameRelation.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_CHANGE_NAME_RELATION + "changeNameRelation.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("attribute name of relation must contain the String \"RelationNewName\"", graph.getRelations().get(0).getName().equals("RelationNewName"));
 	}
@@ -193,7 +196,7 @@ public class Tests {
 	public void testGraphstructureDeleteGraph() {
 
 		//graphstructure/tools/changeNameRelation
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_DELETE_GRAPH + "deleteGraph.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_DELETE_GRAPH + "deleteGraph.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("graph of pattern must not be null", graph != null);
 	}
@@ -203,7 +206,7 @@ public class Tests {
 	public void testGraphstructureElement() {
 		//graphstructure/tools/element
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_ELEMENT + "elementGraph.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_ELEMENT + "elementGraph.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("graph must contain two elements", graph.getElements().size() == 2);
 	}
@@ -213,13 +216,13 @@ public class Tests {
 	public void testGraphstructureMarkAsReturnElement() {
 		//graphstructure/tools/markAsReturnElement
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_MARK_AS_RETURN_ELEMENT + "markAsReturnElement.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_MARK_AS_RETURN_ELEMENT + "markAsReturnElement.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("graph must contain one returnelement", graph.getReturnElements().size() == 1);
 		
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_MARK_AS_RETURN_ELEMENT + "markAsNoReturnElement.patternstructure");
-	graph = pattern.getGraph();
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_MARK_AS_RETURN_ELEMENT + "markAsNoReturnElement.patternstructure");
+		graph = pattern.getGraph();
 		assertTrue("graph must contain zero returnelement", graph.getReturnElements().size() == 0);
 	}
 	
@@ -228,7 +231,7 @@ public class Tests {
 	public void testGraphstructureProperty() {
 		//graphstructure/tools/property
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_PROPERTY + "propertyElement.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_PROPERTY + "propertyElement.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("element must contain one property", graph.getElements().get(0).getProperties().size() == 1);
 	}
@@ -238,7 +241,7 @@ public class Tests {
 	public void testGraphstructureRelation() {
 		//graphstructure/tools/relation
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_RELATION + "relationGraph.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_GRAPHSTRUCTURE_RELATION + "relationGraph.patternstructure");
 		graph = pattern.getGraph();
 		relation = graph.getRelations().get(0);
 		assertTrue("graph must contain one relation, the attribute source must be element1, the attribute target must be element2", graph.getRelations().size() == 1 && relation.getSource().getName().equals("Element 1") && relation.getTarget().getName().equals("Element 2"));
@@ -248,7 +251,7 @@ public class Tests {
 	public void testOperatorsComparison() {
 		//operators/tools/comparison
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_OPERATORS_COMPARISON + "comparisonGraph.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_OPERATORS_COMPARISON + "comparisonGraph.patternstructure");
 		graph = pattern.getGraph();
 		assertTrue("operatorlist of graph must contain one comparison", graph.getOperatorList().getOperators().get(0) instanceof Comparison);
 	}
@@ -257,32 +260,32 @@ public class Tests {
 	public void testOperatorsDiscardArgument() {
 		//operators/tools/discardArgument
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgument1Comparison.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgument1Comparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("comparison must have an empty argument1", comparison.getArgument1() == null);
 		
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgument2Comparison.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgument2Comparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("comparison must have an empty argument2", comparison.getArgument2() == null);
 		
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgument2Match.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgument2Match.patternstructure");
 		match = (Match) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("match must have an empty property", match.getProperty() == null);
 		
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgumentComparison1.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgumentComparison1.patternstructure");
 	comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("comparison must have an empty argument1", comparison.getArgument1() == null);
 		
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgumentComparison2.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgumentComparison2.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("comparison must have an empty argument2", comparison.getArgument2() == null);
 		
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgumentMatch.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_OPERATORS_DISCARD_ARGUMENT + "discardArgumentMatch.patternstructure");
 		match = (Match) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("match must have an empty property", match.getProperty() == null);
 	}
@@ -291,7 +294,7 @@ public class Tests {
 	public void testOperatorsMatch() {
 		//operators/tools/match
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_OPERATORS_MATCH + "matchGraph.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_OPERATORS_MATCH + "matchGraph.patternstructure");
 		match = (Match) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("operatorlist of graph must contain one match", match instanceof Match);
 	}
@@ -300,12 +303,12 @@ public class Tests {
 	public void testOperatorsSelectElementAsArgument() {
 		//operators/tools/selectElementAsArgument
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_OPERATORS_SELECT_ELEMENT_AS_ARGUMENT + "selectElementComparison1.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_OPERATORS_SELECT_ELEMENT_AS_ARGUMENT + "selectElementComparison1.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument1 of comparison must contain Element 1", ((Element) comparison.getArgument1()).getName().equals("Element 1"));
 		
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_OPERATORS_SELECT_ELEMENT_AS_ARGUMENT + "selectElementComparison2.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_OPERATORS_SELECT_ELEMENT_AS_ARGUMENT + "selectElementComparison2.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument1 of comparison must contain Element 3", ((Element) comparison.getArgument2()).getName().equals("Element 3"));
 	}
@@ -314,7 +317,7 @@ public class Tests {
 	public void testOperatorsSelectParameterAsArgument() {
 		//operators/tools/selectParameterAsArgument
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_OPERATORS_SELECT_PARAMETERS_AS_ARGUMENT + "selectParameterComparison.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_OPERATORS_SELECT_PARAMETERS_AS_ARGUMENT + "selectParameterComparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(1);
 		assertTrue("argument2 of comparison must contain Number 4", comparison.getInternalId() == 2 && comparison.getArgument2() instanceof NumberParam);
 	}
@@ -323,17 +326,17 @@ public class Tests {
 	public void testOperatorsSelectPropertyAsArgument() {
 		//operators/tools/selectPropertyAsArgument
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_OPERATORS_SELECT_PROPERTY_AS_ARGUMENT + "selectPropertyComparison1.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_OPERATORS_SELECT_PROPERTY_AS_ARGUMENT + "selectPropertyComparison1.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument1 of comparison must contain one property", comparison.getArgument1() instanceof Property);
 		
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_OPERATORS_SELECT_PROPERTY_AS_ARGUMENT + "selectPropertyComparison2.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_OPERATORS_SELECT_PROPERTY_AS_ARGUMENT + "selectPropertyComparison2.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one property", comparison.getArgument2() instanceof Property);
 		
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_OPERATORS_SELECT_PROPERTY_AS_ARGUMENT + "selectPropertyMatch.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_OPERATORS_SELECT_PROPERTY_AS_ARGUMENT + "selectPropertyMatch.patternstructure");
 		match = (Match) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of match must contain one property", match.getProperty() instanceof Property);
 	}
@@ -342,7 +345,7 @@ public class Tests {
 	public void testParametersBoolean() {
 		//parameters/tools/boolean
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_PARAMETERS_BOOLEAN + "BooleanComparison.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PARAMETERS_BOOLEAN + "BooleanComparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one BooleanParam", comparison.getArgument2() instanceof BooleanParam);
 	}
@@ -351,7 +354,7 @@ public class Tests {
 	public void testParametersDate() {
 		//parameters/tools/date
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_PARAMETERS_DATE + "DateComparison.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PARAMETERS_DATE + "DateComparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one DateParam", comparison.getArgument2() instanceof DateParam);
 	}
@@ -360,7 +363,7 @@ public class Tests {
 	public void testParametersDateAndTime() {
 		//parameters/tools/dateAndTime
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_PARAMETERS_DATE_AND_TIME + "DateTimeComparison.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PARAMETERS_DATE_AND_TIME + "DateTimeComparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one DateTimeParam", comparison.getArgument2() instanceof DateTimeParam);
 	}
@@ -369,7 +372,7 @@ public class Tests {
 	public void testParametersNumber() {
 		//parameters/tools/number
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_PARAMETERS_NUMBER + "NumberComparison.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PARAMETERS_NUMBER + "NumberComparison.patternstructure");
 	comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one NumberParam", comparison.getArgument2() instanceof NumberParam);
 	}
@@ -378,7 +381,7 @@ public class Tests {
 	public void testParametersTextList() {
 		//parameters/tools/textList
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_PARAMETERS_TEXTLIST + "TextListComparison.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PARAMETERS_TEXTLIST + "TextListComparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one TextListParam", comparison.getArgument2() instanceof TextListParam);
 	}
@@ -387,7 +390,7 @@ public class Tests {
 	public void testParametersTextLiteral() {
 		//parameters/tools/textLiteral
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_PARAMETERS_TEXTLITERAL + "TextLiteralComparison.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PARAMETERS_TEXTLITERAL + "TextLiteralComparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one TextLiteralParam", comparison.getArgument2() instanceof TextLiteralParam);
 	}
@@ -396,7 +399,7 @@ public class Tests {
 	public void testParametersTime() {
 		//parameters/tools/time
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_PARAMETERS_TIME + "TimeComparison.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PARAMETERS_TIME + "TimeComparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one TimeParam", comparison.getArgument2() instanceof TimeParam);
 	}
@@ -405,7 +408,7 @@ public class Tests {
 	public void testParametersUntypedValue() {
 		//parameters/tools/untypedValue
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_PARAMETERS_UNTYPEDVALUE + "UntypedValueComparison.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PARAMETERS_UNTYPEDVALUE + "UntypedValueComparison.patternstructure");
 		comparison = (Comparison) pattern.getGraph().getOperatorList().getOperators().get(0);
 		assertTrue("argument2 of comparison must contain one UntypedParameterValue", comparison.getArgument2() instanceof UntypedParameterValue);
 	}
@@ -414,7 +417,7 @@ public class Tests {
 	public void testChangeNameCompletePattern() {
 		//patternstructure/tools/changeNameCompletePattern
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_NAME_COMPLETEPATTERN + "changeNameCompletePattern.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_NAME_COMPLETEPATTERN + "changeNameCompletePattern.patternstructure");
 		assertTrue("attribute of completePattern must be equal to \"Muster\"", pattern.getName().equals("Muster"));
 	}
 	
@@ -422,27 +425,27 @@ public class Tests {
 	public void testPatternstructureChangeOperator() {
 		//patternstructure/tools/changeOperator
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_OPERATOR + "andToEqual.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_OPERATOR + "andToEqual.patternstructure");
 		formula = (Formula) pattern.getCondition();
         assertTrue("operator of formula must be equal", formula.getOperator() == LogicalOperator.EQUAL);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_OPERATOR + "andToImplies.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_OPERATOR + "andToImplies.patternstructure");
 		formula = (Formula) pattern.getCondition();
         assertTrue("operator of formula must be implies", formula.getOperator() == LogicalOperator.IMPLIES);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_OPERATOR + "andToOr.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_OPERATOR + "andToOr.patternstructure");
 		formula = (Formula) pattern.getCondition();
         assertTrue("operator of formula must be or", formula.getOperator() == LogicalOperator.OR);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_OPERATOR + "andToXor.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_OPERATOR + "andToXor.patternstructure");
 		formula = (Formula) pattern.getCondition();
         assertTrue("operator of formula must be xor", formula.getOperator() == LogicalOperator.XOR);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_OPERATOR + "orToAnd.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_OPERATOR + "orToAnd.patternstructure");
 		formula = (Formula) pattern.getCondition();
         assertTrue("operator of formula must be and", formula.getOperator() == LogicalOperator.AND);
 	}
@@ -451,12 +454,12 @@ public class Tests {
 	public void testPatternstructureChangeQuantifier() {
 		//patternstructure/tools/changeQuantifier
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_QUANTIFIER + "existsToForall.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_QUANTIFIER + "existsToForall.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("quantifier of quantifiedCondition must be forall", quantifiedCondition.getQuantifier() == Quantifier.FORALL);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_QUANTIFIER + "forallToExists.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_CHANGE_QUANTIFIER + "forallToExists.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("quantifier of quantifiedCondition must be exists", quantifiedCondition.getQuantifier() == Quantifier.EXISTS);
 	}
@@ -465,28 +468,28 @@ public class Tests {
 	public void testPatternstructureCountCondition() {
 		//patternstructure/tools/countCondition
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTCONDITION + "countConditionCompletePattern.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTCONDITION + "countConditionCompletePattern.patternstructure");
         countCondition = (CountCondition) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of countCondition", countCondition instanceof CountCondition);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTCONDITION + "countConditionCountPattern.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTCONDITION + "countConditionCountPattern.patternstructure");
         countCondition = (CountCondition) pattern.getCondition();
         countPattern = (CountPattern) countCondition.getCountPattern();
         assertTrue("condition of CountPattern must be instance of countCondition", countPattern.getCondition() instanceof CountCondition);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTCONDITION + "countConditionFormula.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTCONDITION + "countConditionFormula.patternstructure");
         formula = (Formula) pattern.getCondition();
         assertTrue("conditions of formula must be instance of countCondition", formula.getCondition1() instanceof CountCondition && formula.getCondition2() instanceof CountCondition);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTCONDITION + "countConditionNotCondition.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTCONDITION + "countConditionNotCondition.patternstructure");
         notCondition = (NotCondition) pattern.getCondition();
         assertTrue("condition of notCondition must be instance of countCondition", notCondition.getCondition() instanceof CountCondition);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTCONDITION + "countConditionQuantifiedCondition.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTCONDITION + "countConditionQuantifiedCondition.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("condition of quantifiedCondition must be instance of countCondition", quantifiedCondition.getCondition() instanceof CountCondition);
 	}
@@ -495,7 +498,7 @@ public class Tests {
 	public void testPatternstructureCountPattern() {
 		//patternstructure/tools/countPattern
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTPATTERN + "countPatternCountCondition.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_COUNTPATTERN + "countPatternCountCondition.patternstructure");
         countCondition = (CountCondition) pattern.getCondition();
         countPattern = (CountPattern) countCondition.getArgument2();
         assertTrue("argument2 of countCondition must be instance of countPattern", countPattern instanceof CountPattern);
@@ -505,78 +508,78 @@ public class Tests {
 	public void testPatternstructureFormula() {
 		//patternstructure/tools/formula
 
-      	pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaAnd.patternstructure");
+      	pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaAnd.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be and", formula.getOperator() == LogicalOperator.AND);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaAndDialog.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaAndDialog.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be and", formula.getOperator() == LogicalOperator.AND);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaCompletePattern.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaCompletePattern.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula", formula instanceof Formula);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaCountPattern.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaCountPattern.patternstructure");
         countCondition = (CountCondition) pattern.getCondition();
       	countPattern = countCondition.getCountPattern();
         assertTrue("condition of countPattern must be instance of formula", countPattern.getCondition() instanceof Formula);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaEqual.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaEqual.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be equal", formula.getOperator() == LogicalOperator.EQUAL);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaEqualDialog.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaEqualDialog.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be equal", formula.getOperator() == LogicalOperator.EQUAL);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaFormula.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaFormula.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("conditions of formula must be instance of formula", formula.getCondition1() instanceof Formula && formula.getCondition1() instanceof Formula);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaImplies.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaImplies.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be implies", formula.getOperator() == LogicalOperator.IMPLIES);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaImpliesDialog.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaImpliesDialog.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be implies", formula.getOperator() == LogicalOperator.IMPLIES);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaNotCondition.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaNotCondition.patternstructure");
       	notCondition = (NotCondition) pattern.getCondition();
         assertTrue("conditions of notcondition must be instance of formula", notCondition.getCondition() instanceof Formula);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaOr.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaOr.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be or", formula.getOperator() == LogicalOperator.OR);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaOrDialog.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaOrDialog.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be or", formula.getOperator() == LogicalOperator.OR);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaQuantifiedCondition.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaQuantifiedCondition.patternstructure");
       	quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("conditions of quantifiedCondition must be instance of formula", quantifiedCondition.getCondition() instanceof Formula);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaXor.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaXor.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be xor", formula.getOperator() == LogicalOperator.XOR);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaXorDialog.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_FORMULA + "formulaXorDialog.patternstructure");
       	formula = (Formula) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of formula and its operator must be xor", formula.getOperator() == LogicalOperator.XOR);
 	}
@@ -585,27 +588,27 @@ public class Tests {
 	public void testPatternstructureNotCondition() {
 		//patternstructure/tools/notCondition
 
-      	pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_NOTCONDITION + "notConditionCompletePattern.patternstructure");
+      	pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_NOTCONDITION + "notConditionCompletePattern.patternstructure");
         assertTrue("condition of CompletePattern must be instance of notCondition", pattern.getCondition() instanceof NotCondition);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_NOTCONDITION + "notConditionCountPattern.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_NOTCONDITION + "notConditionCountPattern.patternstructure");
         countCondition = (CountCondition) pattern.getCondition();
         countPattern = countCondition.getCountPattern();
         assertTrue("condition of countPattern must be instance of notCondition", countPattern.getCondition() instanceof NotCondition);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_NOTCONDITION + "notConditionFormula.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_NOTCONDITION + "notConditionFormula.patternstructure");
         formula = (Formula) pattern.getCondition();
         assertTrue("conditions of formula must be instance of notCondition", formula.getCondition1() instanceof NotCondition && formula.getCondition2() instanceof NotCondition);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_NOTCONDITION + "notConditionNotCondition.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_NOTCONDITION + "notConditionNotCondition.patternstructure");
         notCondition = (NotCondition) pattern.getCondition();
         assertTrue("condition of notCondition must be instance of notCondition", notCondition.getCondition() instanceof NotCondition);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_NOTCONDITION + "notConditionQuantifiedCondition.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_NOTCONDITION + "notConditionQuantifiedCondition.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("condition of quantifiedCondition must be instance of notCondition", quantifiedCondition.getCondition() instanceof NotCondition);
 	}
@@ -614,7 +617,7 @@ public class Tests {
 	public void testPatternstructureNumberElement() {
 		//patternstructure/tools/numberElement
 
-      	pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_NUMBERELEMENT + "numberElementCountCondition.patternstructure");
+      	pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_NUMBERELEMENT + "numberElementCountCondition.patternstructure");
       	countCondition = (CountCondition) pattern.getCondition();
         assertTrue("condition of countCondition must be instance of numberElement", countCondition.getArgument2() instanceof NumberElement);
 	}
@@ -623,47 +626,47 @@ public class Tests {
 	public void testPatternstructureQuantifiedCondition() {
 		//patternstructure/tools/quantifiedCondition
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionCompletePattern.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionCompletePattern.patternstructure");
         assertTrue("condition of CompletePattern must be instance of quantifiedCondition", pattern.getCondition() instanceof QuantifiedCondition);
 
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionCountPattern.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionCountPattern.patternstructure");
         countCondition = (CountCondition) pattern.getCondition();
         countPattern = (CountPattern) countCondition.getArgument2();
         assertTrue("condition of CountPattern must be instance of quantifiedCondition", countPattern.getCondition() instanceof QuantifiedCondition);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionExists.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionExists.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of quantifiedCondition and its quantifier must be exists", quantifiedCondition.getQuantifier() == Quantifier.EXISTS);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionForall.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionForall.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of quantifiedCondition and its quantifier must be forall", quantifiedCondition.getQuantifier() == Quantifier.FORALL);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionExistsDialog.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionExistsDialog.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of quantifiedCondition and its quantifier must be exists", quantifiedCondition.getQuantifier() == Quantifier.EXISTS);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionForallDialog.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionForallDialog.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("condition of CompletePattern must be instance of quantifiedCondition and its quantifier must be forall", quantifiedCondition.getQuantifier() == Quantifier.FORALL);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionFormula.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionFormula.patternstructure");
         formula = (Formula) pattern.getCondition();
         assertTrue("condition of formula must be instance of quantifiedCondition", formula.getCondition1() instanceof QuantifiedCondition && formula.getCondition2() instanceof QuantifiedCondition);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionNotCondition.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionNotCondition.patternstructure");
         notCondition = (NotCondition) pattern.getCondition();
         assertTrue("condition of notCondition must be instance of quantifiedCondition", notCondition.getCondition() instanceof QuantifiedCondition);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionQuantifiedCondition.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_QUANTIFIEDCONDITION + "quantifiedConditionQuantifiedCondition.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("condition of quantifiedCondition must be instance of quantifiedCondition", quantifiedCondition.getCondition() instanceof QuantifiedCondition);
 	}
@@ -672,27 +675,27 @@ public class Tests {
 	public void testPatternstructureTrueElement() {
 		//patternstructure/tools/trueElement
 
-      	pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_TRUEELEMENT + "trueElementCompletePattern.patternstructure");
+      	pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_TRUEELEMENT + "trueElementCompletePattern.patternstructure");
         assertTrue("condition of CompletePattern must be instance of trueElement", pattern.getCondition() instanceof TrueElement);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_TRUEELEMENT + "trueElementCountPattern.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_TRUEELEMENT + "trueElementCountPattern.patternstructure");
         countCondition = (CountCondition) pattern.getCondition();
         countPattern = countCondition.getCountPattern();
         assertTrue("condition of countPattern must be instance of trueElement", countPattern.getCondition() instanceof TrueElement);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_TRUEELEMENT + "trueElementFormula.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_TRUEELEMENT + "trueElementFormula.patternstructure");
         formula = (Formula) pattern.getCondition();
         assertTrue("conditions of formula must be instance of trueElement", formula.getCondition1() instanceof TrueElement && formula.getCondition2() instanceof TrueElement);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_TRUEELEMENT + "trueElementNotCondition.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_TRUEELEMENT + "trueElementNotCondition.patternstructure");
         notCondition = (NotCondition) pattern.getCondition();
         assertTrue("condition of notCondition must be instance of trueElement", notCondition.getCondition() instanceof TrueElement);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_TRUEELEMENT + "trueElementQuantifiedCondition.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_PATTERNSTRUCTURE_TRUEELEMENT + "trueElementQuantifiedCondition.patternstructure");
         quantifiedCondition = (QuantifiedCondition) pattern.getCondition();
         assertTrue("condition of quantifiedCondition must be instance of trueElement", quantifiedCondition.getCondition() instanceof TrueElement);
 	}
@@ -702,7 +705,7 @@ public class Tests {
 	public void testBehavior() {
 		//behavior
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_BEHAVIOR + "openView.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_BEHAVIOR + "openView.patternstructure");
       	graph = pattern.getGraph();
       	ArrayList<XmlElement> xmlElements = new ArrayList<XmlElement>();
       	ArrayList<Property> xmlProperties = new ArrayList<Property>();
@@ -719,7 +722,7 @@ public class Tests {
 	public void testDelete() {
 		//tools/delete
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_TOOLS_DELETE + "deleteButton.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_TOOLS_DELETE + "deleteButton.patternstructure");
       	graph = pattern.getGraph();
       	ArrayList<Element> elements = new ArrayList<Element>();
       	ArrayList<Property> properties = new ArrayList<Property>();
@@ -756,7 +759,7 @@ public class Tests {
       	assertTrue("number of objects in pattern must be 69", trueElementCountPattern != null && trueElementQuantifiedCondition != null && elements.size() + properties.size() + relations.size() + operators.size() + parameters.size() == 69);
       	
 
-      	pattern = loader.loadCompletePattern(TEST_DIRECTORY_TOOLS_DELETE+ "deleteContextmenu.patternstructure");
+      	pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_TOOLS_DELETE+ "deleteContextmenu.patternstructure");
       	graph = pattern.getGraph();
       	elements = new ArrayList<Element>();
       	properties = new ArrayList<Property>();
@@ -798,7 +801,7 @@ public class Tests {
 	public void testFinalization() {
 		//tools/finalization
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_TOOLS_FINALIZATION+ "finalization.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_TOOLS_FINALIZATION+ "finalization.patternstructure");
       	graph = pattern.getGraph();
       	for(Element e:graph.getElements()) {
       		if(e.getName().equals("Root")) {
@@ -812,7 +815,7 @@ public class Tests {
 	public void testRelationToXmlRelation_changeXmlRelation() {
 		//tools/relationToXmlRelation
 
-      	pattern = loader.loadCompletePattern(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION+ "relationToXmlNavigation.patternstructure");
+      	pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION+ "relationToXmlNavigation.patternstructure");
       	graph = pattern.getGraph();
       	relations = graph.getRelations();
       	xmlNavigation = (XmlNavigation) relations.get(0);
@@ -821,7 +824,7 @@ public class Tests {
         assertTrue("contextgraph must contain one xmlNavigation and its attribute source must be xmlElement 1 and attribute target must be xmlElement 8", source.getName().equals("XmlElement 1") && target.getName().equals("XmlElement 8"));
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "relationToXmlReference.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "relationToXmlReference.patternstructure");
       	Graph graph = pattern.getGraph();
       	EList<Relation> relations = graph.getRelations();
       	XmlReference xmlReference = (XmlReference) relations.get(0);
@@ -830,7 +833,7 @@ public class Tests {
         assertTrue("contextgraph must contain one xmlReference and its attribute source must be xmlElement 1 and attribute target must be xmlElement 8", source.getName().equals("XmlElement 1") && target.getName().equals("XmlElement 8"));
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "relationUnchanged.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "relationUnchanged.patternstructure");
       	graph = pattern.getGraph();
       	relations = graph.getRelations();
       	relation = (Relation) relations.get(0);
@@ -839,7 +842,7 @@ public class Tests {
         assertTrue("contextgraph must contain one relation and its attribute source must be xmlElement 1 and attribute target must be xmlElement 8", source.getName().equals("XmlElement 1") && target.getName().equals("XmlElement 8"));
 
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "xmlNavigationToXmlReference.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "xmlNavigationToXmlReference.patternstructure");
       	graph = pattern.getGraph();
       	relations = graph.getRelations();
       	xmlReference = (XmlReference) relations.get(0);
@@ -848,7 +851,7 @@ public class Tests {
         assertTrue("contextgraph must contain one xmlReference and its attribute source must be xmlElement 1 and attribute target must be xmlElement 8", source.getName().equals("XmlElement 1") && target.getName().equals("XmlElement 8"));
 
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "xmlNavigationUnchanged.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "xmlNavigationUnchanged.patternstructure");
       	graph = pattern.getGraph();
       	relations = graph.getRelations();
       	xmlNavigation = (XmlNavigation) relations.get(0);
@@ -857,7 +860,7 @@ public class Tests {
         assertTrue("contextgraph must contain one xmlNavigation and its attribute source must be xmlElement 1 and attribute target must be xmlElement 8", source.getName().equals("XmlElement 1") && target.getName().equals("XmlElement 8"));
 
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "xmlReferenceToXmlNavigation.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "xmlReferenceToXmlNavigation.patternstructure");
       	graph = pattern.getGraph();
       	relations = graph.getRelations();
       	xmlNavigation = (XmlNavigation) relations.get(0);
@@ -866,7 +869,7 @@ public class Tests {
         assertTrue("contextgraph must contain one xmlNavigation and its attribute source must be xmlElement 1 and attribute target must be xmlElement 8", source.getName().equals("XmlElement 1") && target.getName().equals("XmlElement 8"));
 
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "xmlReferenceUnchanged.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_TOOLS_RELATION_TO_XMLRELATION + "xmlReferenceUnchanged.patternstructure");
       	graph = pattern.getGraph();
       	relations = graph.getRelations();
       	xmlReference = (XmlReference) relations.get(0);
@@ -880,7 +883,7 @@ public class Tests {
 	public void testFormularviewBoolean() {
 		//formularview/tools/boolean
 
-      	pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_BOOLEAN+ "booleanFalseToTrue.patternstructure");
+      	pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_BOOLEAN+ "booleanFalseToTrue.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof BooleanParam) {
@@ -890,7 +893,7 @@ public class Tests {
         assertTrue("value of booleanParam must be true", booleanParam.getValue());
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_BOOLEAN + "booleanTrueToFalse.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_BOOLEAN + "booleanTrueToFalse.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof BooleanParam) {
@@ -904,7 +907,7 @@ public class Tests {
 	public void testFormularviewComparisonOption() {
 		//formularview/tools/comparisonOption
 
-      	pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION+ "comparisonOptionEqual.patternstructure");
+      	pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION+ "comparisonOptionEqual.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof ComparisonOptionParam) {
@@ -914,7 +917,7 @@ public class Tests {
         assertTrue("value of comparisonOptionParam must be equal", comparisonOption.getValue() == ComparisonOperator.EQUAL);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION + "comparisonOptionGreater.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION + "comparisonOptionGreater.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof ComparisonOptionParam) {
@@ -924,7 +927,7 @@ public class Tests {
         assertTrue("value of comparisonOptionParam must be greater", comparisonOption.getValue() == ComparisonOperator.GREATER);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION + "comparisonOptionGreaterOrEqual.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION + "comparisonOptionGreaterOrEqual.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof ComparisonOptionParam) {
@@ -934,7 +937,7 @@ public class Tests {
         assertTrue("value of comparisonOptionParam must be equal", comparisonOption.getValue() == ComparisonOperator.GREATEROREQUAL);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION + "comparisonOptionLess.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION + "comparisonOptionLess.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof ComparisonOptionParam) {
@@ -944,7 +947,7 @@ public class Tests {
         assertTrue("value of comparisonOptionParam must be equal", comparisonOption.getValue() == ComparisonOperator.LESS);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION + "comparisonOptionLessOrEqual.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION + "comparisonOptionLessOrEqual.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof ComparisonOptionParam) {
@@ -954,7 +957,7 @@ public class Tests {
         assertTrue("value of comparisonOptionParam must be equal", comparisonOption.getValue() == ComparisonOperator.LESSOREQUAL);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION + "comparisonOptionNotEqual.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_COMPARISONOPTION + "comparisonOptionNotEqual.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof ComparisonOptionParam) {
@@ -968,7 +971,7 @@ public class Tests {
 	public void testFormularviewDate() {
 		//formularview/tools/date
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_DATE+ "dateSetValue.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_DATE+ "dateSetValue.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof DateParam) {
@@ -982,7 +985,7 @@ public class Tests {
 	public void testFormularviewDateTime() {
 		//formularview/tools/dateTime
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_DATETIME + "dateTimeSetValue.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_DATETIME + "dateTimeSetValue.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof DateTimeParam) {
@@ -996,7 +999,7 @@ public class Tests {
 	public void testFormularviewNumber() {
 		//formularview/tools/number
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_NUMBER+ "numberSetValue.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_NUMBER+ "numberSetValue.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof NumberParam) {
@@ -1010,7 +1013,7 @@ public class Tests {
 	public void testFormularviewPropertyOption() {
 		//formularview/tools/propertyOption
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_PROPERTYOPTION+ "propertyOptionAttribute.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_PROPERTYOPTION+ "propertyOptionAttribute.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof PropertyOptionParam) {
@@ -1020,7 +1023,7 @@ public class Tests {
         assertTrue("value of propertyOptionParam must be 1.0", propertyOption.getValue() == PropertyKind.ATTRIBUTE);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_PROPERTYOPTION + "propertyOptionData.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_PROPERTYOPTION + "propertyOptionData.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof PropertyOptionParam) {
@@ -1030,7 +1033,7 @@ public class Tests {
         assertTrue("value of propertyOptionParam must be 1.0", propertyOption.getValue() == PropertyKind.DATA);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_PROPERTYOPTION + "propertyOptionTag.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_PROPERTYOPTION + "propertyOptionTag.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof PropertyOptionParam) {
@@ -1044,7 +1047,7 @@ public class Tests {
 	public void testFormularviewRelationOption() {
 		//formularview/tools/relationOption
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION+ "relationOptionAncestor.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION+ "relationOptionAncestor.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1054,7 +1057,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.ANCESTOR);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionAncestorOrSelf.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionAncestorOrSelf.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1064,7 +1067,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.ANCESTOR_OR_SELF);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionChild.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionChild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1074,7 +1077,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.CHILD);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionDescendant.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionDescendant.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1084,7 +1087,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.DESCENDANT);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionDescendantOrSelf.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionDescendantOrSelf.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1094,7 +1097,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.DESCENDANT_OR_SELF);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionEightchild.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionEightchild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1104,7 +1107,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.EIGHTCHILD);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionFivechild.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionFivechild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1114,7 +1117,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.FIVECHILD);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionFollowing.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionFollowing.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1124,7 +1127,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.FOLLOWING);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionFollowingSibling.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionFollowingSibling.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1134,7 +1137,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.FOLLOWING_SIBLING);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionFourchild.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionFourchild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1144,7 +1147,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.FOURCHILD);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionNinechild.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionNinechild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1154,7 +1157,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.NINECHILD);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionParent.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionParent.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1164,7 +1167,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.PARENT);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionPreceding.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionPreceding.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1174,7 +1177,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.PRECEDING);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionPrecedingSibling.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionPrecedingSibling.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1184,7 +1187,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.PRECEDING_SIBLING);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionSelf.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionSelf.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1194,7 +1197,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.SELF);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionSevenchild.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionSevenchild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1204,7 +1207,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.SEVENCHILD);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionSixchild.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionSixchild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1214,7 +1217,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.SIXCHILD);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionThreechild.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionThreechild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1224,7 +1227,7 @@ public class Tests {
         assertTrue("value of relationOptionParam must be ancestor", relationOption.getValue() == RelationKind.THREECHILD);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionTwochild.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_RELATIONOPTION + "relationOptionTwochild.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof RelationOptionParam && p.getInternalId() == 1) {
@@ -1238,7 +1241,7 @@ public class Tests {
 	public void testFormularviewTextList() {
 		//formularview/tools/textList
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLIST+ "textListAdd.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLIST+ "textListAdd.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextListParam) {
@@ -1248,7 +1251,7 @@ public class Tests {
         assertTrue("value of textListParam must be hinzugefügt mit add", textListParam.getValues().get(0).equals("hinzugefügt mit add"));
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLIST + "textListDelete.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLIST + "textListDelete.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextListParam) {
@@ -1258,7 +1261,7 @@ public class Tests {
         assertTrue("value of textListParam must be empty", textListParam.getValues().isEmpty());
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLIST + "textListSave.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLIST + "textListSave.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextListParam) {
@@ -1268,7 +1271,7 @@ public class Tests {
         assertTrue("value of textListParam must be gespeichert mit save", textListParam.getValues().get(0).equals("gespeichert mit save"));
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLIST + "textListCancel.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLIST + "textListCancel.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextListParam) {
@@ -1278,7 +1281,7 @@ public class Tests {
       	assertTrue("value of textListParam must be empty", textListParam.getValues().isEmpty());
       	
 
-      	pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLIST + "textListOk.patternstructure");
+      	pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLIST + "textListOk.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextListParam) {
@@ -1292,7 +1295,7 @@ public class Tests {
 	public void testFormularviewTextLiteral() {
 		//formularview/tools/textLiteral
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLITERAL+ "textLiteralSetValue.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLITERAL+ "textLiteralSetValue.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextLiteralParam && p.getInternalId() == 3) {
@@ -1302,7 +1305,7 @@ public class Tests {
         assertTrue("value of textLiteralParam must be Test", textLiteralParam.getValue().equals("Test"));
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLITERAL + "textLiteralSetValueSuggestion.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TEXTLITERAL + "textLiteralSetValueSuggestion.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextLiteralParam && p.getInternalId() == 3) {
@@ -1316,7 +1319,7 @@ public class Tests {
 	public void testFormularviewTime() {
 		//formularview/tools/time
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TIME+ "timeSetValue.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TIME+ "timeSetValue.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TimeParam) {
@@ -1330,7 +1333,7 @@ public class Tests {
 	public void testFormularviewTypeOption() {
 		//formularview/tools/typeOption
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION+ "typeOptionBoolean.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION+ "typeOptionBoolean.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TypeOptionParam) {
@@ -1341,7 +1344,7 @@ public class Tests {
         assertTrue("value of typeOptionParam must be boolean", typeOption.getValue() == ReturnType.BOOLEAN);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionDate.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionDate.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TypeOptionParam) {
@@ -1351,7 +1354,7 @@ public class Tests {
         assertTrue("value of typeOptionParam must be date", typeOption.getValue() == ReturnType.DATE);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionDateTime.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionDateTime.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TypeOptionParam) {
@@ -1361,7 +1364,7 @@ public class Tests {
         assertTrue("value of typeOptionParam must be dateTime", typeOption.getValue() == ReturnType.DATETIME);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionElement.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionElement.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TypeOptionParam) {
@@ -1371,7 +1374,7 @@ public class Tests {
         assertTrue("value of typeOptionParam must be element", typeOption.getValue() == ReturnType.ELEMENT);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionNumber.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionNumber.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TypeOptionParam) {
@@ -1381,7 +1384,7 @@ public class Tests {
         assertTrue("value of typeOptionParam must be number", typeOption.getValue() == ReturnType.NUMBER);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionString.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionString.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TypeOptionParam) {
@@ -1391,7 +1394,7 @@ public class Tests {
         assertTrue("value of typeOptionParam must be string", typeOption.getValue() == ReturnType.STRING);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionTime.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_TYPEOPTION + "typeOptionTime.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TypeOptionParam) {
@@ -1413,7 +1416,7 @@ public class Tests {
       	timeParam = null;
 		
 
-		pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToBoolean.patternstructure");
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToBoolean.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof BooleanParam) {
@@ -1423,7 +1426,7 @@ public class Tests {
         assertTrue("parameterList must contain one booleanParam", booleanParam != null);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToDate.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToDate.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof DateParam) {
@@ -1433,7 +1436,7 @@ public class Tests {
         assertTrue("parameterList must contain one dateParam", dateParam != null);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToDateTime.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToDateTime.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof DateTimeParam) {
@@ -1443,7 +1446,7 @@ public class Tests {
         assertTrue("parameterList must contain one dateTimeParam", dateTimeParam != null);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToNumber.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToNumber.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof NumberParam) {
@@ -1453,7 +1456,7 @@ public class Tests {
         assertTrue("parameterList must contain one numberParam", numberParam != null);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToTextList.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToTextList.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextListParam) {
@@ -1463,7 +1466,7 @@ public class Tests {
         assertTrue("parameterList must contain one textListParam", textListParam != null);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToTextLiteral.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToTextLiteral.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TextLiteralParam) {
@@ -1473,7 +1476,7 @@ public class Tests {
         assertTrue("parameterList must contain one textLiteralParam", textLiteralParam != null);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToTime.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "untypedParameterValueToTime.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof TimeParam) {
@@ -1483,7 +1486,7 @@ public class Tests {
         assertTrue("parameterList must contain one timeParam", timeParam != null);
         
 
-        pattern = loader.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "timeToBoolean.patternstructure");
+        pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_FORMULAR_VIEW_TOOLS_UNTYPEDPARAMETERVALUE + "timeToBoolean.patternstructure");
       	parameters = pattern.getParameterList().getParameters();
       	for(Parameter p:parameters) {
       		if(p instanceof BooleanParam) {
@@ -1492,4 +1495,21 @@ public class Tests {
       	}
         assertTrue("parameterList must contain one booleanParam", booleanParam != null);
 	}
+	
+	/*@Test
+	public void testDatabase() {
+		//database/
+
+		pattern = EMFModelLoad.loadCompletePattern(TEST_DIRECTORY_DATABASE + "dataBaseTest.patternstructure");
+      	Database database = pattern.getDatabase();
+      	System.out.println("Database1" + database);
+      	if(database instanceof XmlDataDatabase) {
+      		System.out.println("Database2");
+      		XmlDataDatabase xmlDataDatebase = (XmlDataDatabase) database;
+      		String dataName = xmlDataDatebase.getName();
+      		String schemaName = xmlDataDatebase.getXmlSchema().getName();
+      		System.out.println("Database: " + dataName + schemaName);
+      	}
+        assertTrue("value of timeParam must be 00:00:00", timeParam.getValue().equals("00:00:00"));
+	}*/
 }

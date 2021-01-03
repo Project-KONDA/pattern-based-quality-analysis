@@ -160,11 +160,11 @@ public class ViewExecutionPart1 extends ViewPart {
 	    
 	    final Text metaDataText = new Text(container, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL | SWT.READ_ONLY);
 	    metaDataText.setBounds(10, 100, 1000, 100);
-	    metaDataText.setText("Hallo");
+	    metaDataText.setText("");
 	    
 	    final Text resultText = new Text(container, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL | SWT.READ_ONLY);
 	    resultText.setBounds(10, 200, 1000, 1000);
-	    resultText.setText("Hallo");
+	    resultText.setText("");
 	    
 	    Button applyButton = new Button(container, SWT.NONE);
 	    applyButton.setBounds(90, 70, 200, 25);

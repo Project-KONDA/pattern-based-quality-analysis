@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_BZOtcEwkEeuugd0bff1sDA" internalId="1" adaptionStarted="true" adaptionFinalized="true" elementCounter="3" relationCounter="2" counter="4">
+  <graph id="_BZOtckwkEeuugd0bff1sDA" internalId="2" returnElements="_F8p1UEwkEeuugd0bff1sDA">
+    <elements xsi:type="adaptionxml:XmlElement" id="_F8p1UEwkEeuugd0bff1sDA" internalId="2" resultOf="_BZOtckwkEeuugd0bff1sDA" name="XmlElement 1" incoming="_H8_VYUwkEeuugd0bff1sDA"/>
+    <elements xsi:type="adaptionxml:XmlRoot" id="_H8_VYEwkEeuugd0bff1sDA" name="Root" outgoing="_H8_VYUwkEeuugd0bff1sDA"/>
+    <operatorList id="_BZOtc0wkEeuugd0bff1sDA"/>
+    <relations xsi:type="adaptionxml:XmlNavigation" id="_H8_VYUwkEeuugd0bff1sDA" internalId="1" source="_H8_VYEwkEeuugd0bff1sDA" target="_F8p1UEwkEeuugd0bff1sDA" name="XmlNavigation 1" option="_H8_VYkwkEeuugd0bff1sDA"/>
+  </graph>
+  <condition xsi:type="patternstructure:TrueElement" id="_EH0aoEwkEeuugd0bff1sDA" internalId="3"/>
+  <parameterList id="_BZOtcUwkEeuugd0bff1sDA">
+    <parameters xsi:type="parameters:RelationOptionParam" id="_H8_VYkwkEeuugd0bff1sDA" relations="_H8_VYUwkEeuugd0bff1sDA">
+      <options>/child::*</options>
+      <options>/descendant::*</options>
+      <options>/parent::*</options>
+      <options>/ancestor::*</options>
+      <options>/following::*</options>
+      <options>/following-sibling::*</options>
+      <options>/preceding::*</options>
+      <options>/preceding-sibling::*</options>
+      <options>/ancestor-or-self::*</options>
+      <options>/descendant-or-self::*</options>
+      <options>/self::*</options>
+      <options>/*/*</options>
+      <options>/*/*/*</options>
+      <options>/*/*/*/*</options>
+      <options>/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*/*/*</options>
+    </parameters>
+  </parameterList>
+</patternstructure:CompletePattern>

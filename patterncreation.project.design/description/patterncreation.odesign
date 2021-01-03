@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="patterncreation" version="12.0.0.2017041100">
   <ownedViewpoints name="Patterncreation">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="GenericPatternCreation" domainClass="patternstructure::CompletePattern" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="GenericPatternCreation" domainClass="patternstructure::CompletePattern" preconditionExpression="aql:self.validityCheck('generic')" enablePopupBars="true">
       <filters xsi:type="filter:CompositeFilterDescription" name="Comparison and Match">
         <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='match'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='comparison']"/>
       </filters>
@@ -38,7 +38,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="completePattern" labelDirectEdit="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='editlabel']" semanticCandidatesExpression="aql:self.printSelf()" domainClass="patternstructure::CompletePattern" childrenPresentation="HorizontalStack">
+        <containerMappings name="completePattern" labelDirectEdit="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='editlabel']" semanticCandidatesExpression="aql:self" domainClass="patternstructure::CompletePattern" childrenPresentation="HorizontalStack">
           <subContainerMappings name="graph" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteGraph']" semanticCandidatesExpression="feature:eContents" domainClass="graphstructure::Graph" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='comparison']">
             <subContainerMappings name="element" deletionDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='DeleteElement']" labelDirectEdit="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='editlabel']" semanticCandidatesExpression="feature:eContents" doubleClickDescription="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='ShowMapping']" domainClass="graphstructure::Element" reusedContainerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='property']" childrenPresentation="VerticalStack">
               <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.name">
@@ -384,15 +384,6 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="patternstructure::CountPattern" referenceName="argument2"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="NumberElement" containerMappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='GenericPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='countCondition']/@subContainerMappings[name='numberElement']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="patternstructure::NumberElement" referenceName="argument2"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -1107,7 +1098,7 @@
         </decorationDescriptionsSet>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="AbstractPatternCreation" domainClass="patternstructure::CompletePattern" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="AbstractPatternCreation" domainClass="patternstructure::CompletePattern" preconditionExpression="aql:self.validityCheck('abstract')" enablePopupBars="true">
       <filters xsi:type="filter:CompositeFilterDescription" name="Comparison and Match">
         <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='match'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='comparison']"/>
       </filters>
@@ -1360,7 +1351,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.changeColorOfElement2(element)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="RelationToXml" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@edgeMappings[name='relationElement']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="RelationToXmlOriginal">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -1376,7 +1367,7 @@
                           <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.changeRelation(element)"/>
                         </initialOperation>
                       </buttons>
-                      <page name="Default Page" labelExpression="You can select here the type of the relation" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='RelationToXml']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                      <page name="Default Page" labelExpression="You can select here the type of the relation" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='RelationToXmlOriginal']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
                       <groups name="Default Group" labelExpression="relation typ" semanticCandidateExpression="var:self">
                         <controls xsi:type="properties:RadioDescription" name="quantifiers" labelExpression="relations" valueExpression="aql:self.getRelation()" candidatesExpression="aql:self.getRelations()" candidateDisplayExpression="aql:candidate.toString()" numberOfColumns="2">
                           <initialOperation>
@@ -1398,7 +1389,7 @@
                           <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.changeRelation(element)"/>
                         </initialOperation>
                       </buttons>
-                      <page name="Default Page" labelExpression="You can select here the type of the relation" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='RelationToXml']/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                      <page name="Default Page" labelExpression="You can select here the type of the relation" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='RelationToXmlOriginal']/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
                       <groups name="Default Group" labelExpression="relation typ" semanticCandidateExpression="var:self">
                         <controls xsi:type="properties:RadioDescription" name="quantifiers" labelExpression="relations" valueExpression="aql:self.getRelation()" candidatesExpression="aql:self.getXmlRelations()" candidateDisplayExpression="aql:candidate.toString()" numberOfColumns="3">
                           <initialOperation>
@@ -1520,9 +1511,61 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="RelationToXml" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@edgeMappings[name='relationElement']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.isNotXmlrelation(element)">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setChangeRelationType(element, 'relation')">
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Replace relation with xmlnavigation or xmlreference">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.changeRelationType(element)"/>
+                        </initialOperation>
+                      </buttons>
+                      <page name="Default Page" labelExpression="You can select here the type of the relation" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='RelationToXml']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                      <groups name="Default Group" labelExpression="relation type" semanticCandidateExpression="var:self">
+                        <controls xsi:type="properties:RadioDescription" name="quantifiers" labelExpression="relations" valueExpression="aql:self.getChangeRelationType()" candidatesExpression="aql:self.getRelations()" candidateDisplayExpression="aql:candidate.toString()" numberOfColumns="2">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setChangeRelationType(newValue)"/>
+                          </initialOperation>
+                        </controls>
+                      </groups>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.isXmlrelation(element)">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setChangeRelationTypeXml(element)">
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Select between xmlnavigation and xmlreference">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.changeRelationType(element)"/>
+                        </initialOperation>
+                      </buttons>
+                      <page name="Default Page" labelExpression="You can select here the type of the relation" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='RelationToXml']/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                      <groups name="Default Group" labelExpression="relation type" semanticCandidateExpression="var:self">
+                        <controls xsi:type="properties:RadioDescription" name="quantifiers" labelExpression="relations" valueExpression="aql:self.getChangeRelationType()" candidatesExpression="aql:self.getXmlRelations()" candidateDisplayExpression="aql:candidate.toString()" numberOfColumns="3">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setChangeRelationType(newValue)"/>
+                          </initialOperation>
+                        </controls>
+                      </groups>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="Tools">
-          <ownedTools xsi:type="tool_1:ToolDescription" name="Change relation type" precondition="aql:self.isRelation()">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Change relation type Original" precondition="aql:self.isRelation()">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -1538,7 +1581,7 @@
                           <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.changeRelation(element)"/>
                         </initialOperation>
                       </buttons>
-                      <page name="Default Page" labelExpression="You can select here the type of the relation" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.1/@ownedTools[name='Change%20relation%20type']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                      <page name="Default Page" labelExpression="You can select here the type of the relation" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.1/@ownedTools[name='Change%20relation%20type%20Original']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
                       <groups name="Default Group" labelExpression="relation typ" semanticCandidateExpression="var:self">
                         <controls xsi:type="properties:RadioDescription" name="quantifiers" labelExpression="relations" valueExpression="aql:self.getRelation()" candidatesExpression="aql:self.getRelations()" candidateDisplayExpression="aql:candidate.toString()" numberOfColumns="2">
                           <initialOperation>
@@ -1560,7 +1603,7 @@
                           <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.changeRelation(element)"/>
                         </initialOperation>
                       </buttons>
-                      <page name="Default Page" labelExpression="You can select here the type of the relation" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.1/@ownedTools[name='Change%20relation%20type']/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                      <page name="Default Page" labelExpression="You can select here the type of the relation" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.1/@ownedTools[name='Change%20relation%20type%20Original']/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
                       <groups name="Default Group" labelExpression="relation typ" semanticCandidateExpression="var:self">
                         <controls xsi:type="properties:RadioDescription" name="quantifiers" labelExpression="relations" valueExpression="aql:self.getRelation()" candidatesExpression="aql:self.getXmlRelations()" candidateDisplayExpression="aql:candidate.toString()" numberOfColumns="3">
                           <initialOperation>
@@ -1617,6 +1660,58 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Change relation type" precondition="aql:self.isRelation()">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.isNotXmlrelation(element)">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setChangeRelationType('relation')">
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Replace relation with xmlnavigation or xmlreference">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.changeRelationType(element)"/>
+                        </initialOperation>
+                      </buttons>
+                      <page name="Default Page" labelExpression="You can select here the type of the relation" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.1/@ownedTools[name='Change%20relation%20type']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                      <groups name="Default Group" labelExpression="relation type" semanticCandidateExpression="var:self">
+                        <controls xsi:type="properties:RadioDescription" name="quantifiers" labelExpression="relations" valueExpression="aql:self.getChangeRelationType()" candidatesExpression="aql:self.getRelations()" candidateDisplayExpression="aql:candidate.toString()" numberOfColumns="2">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setChangeRelationType(newValue)"/>
+                          </initialOperation>
+                        </controls>
+                      </groups>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.isXmlrelation(element)">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setChangeRelationTypeXml(element)">
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Select between xmlnavigation and xmlreference">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.changeRelationType(element)"/>
+                        </initialOperation>
+                      </buttons>
+                      <page name="Default Page" labelExpression="You can select here the type of the relation" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@toolSections.1/@ownedTools[name='Change%20relation%20type']/@initialOperation/@firstModelOperations/@subModelOperations.1/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                      <groups name="Default Group" labelExpression="relation type" semanticCandidateExpression="var:self">
+                        <controls xsi:type="properties:RadioDescription" name="quantifiers" labelExpression="relations" valueExpression="aql:self.getChangeRelationType()" candidatesExpression="aql:self.getXmlRelations()" candidateDisplayExpression="aql:candidate.toString()" numberOfColumns="3">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setChangeRelationType(newValue)"/>
+                          </initialOperation>
+                        </controls>
+                      </groups>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Exists" position="NORTH_WEST" preconditionExpression="aql:self.elementExistDecorationPrecondition()" imageExpression="/patterncreation.project.design/images/exists.png" tooltipExpression="aql:'No incoming mapping'" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='AbstractPatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='element']"/>
@@ -1627,7 +1722,7 @@
         </decorationDescriptionsSet>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ConcretePatternCreation" domainClass="patternstructure::CompletePattern" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ConcretePatternCreation" domainClass="patternstructure::CompletePattern" preconditionExpression="aql:self.validityCheck('concrete')" enablePopupBars="true">
       <filters xsi:type="filter:CompositeFilterDescription" name="Comparison and Match">
         <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='ConcretePatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='match'] //@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='ConcretePatternCreation']/@defaultLayer/@containerMappings[name='completePattern']/@subContainerMappings[name='graph']/@subContainerMappings[name='comparison']"/>
       </filters>
@@ -1652,7 +1747,7 @@
           <conditionnalStyles predicateExpression="aql:self.isXmlnavigationAndMarked()">
             <style sourceArrow="OutputClosedArrow" targetArrow="InputClosedArrow" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="feature:name">
+              <centerLabelStyleDescription labelSize="12" showIcon="false" labelExpression="aql:self.xmlNavigationName()">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
             </style>
@@ -2205,6 +2300,59 @@
             <containerView name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Set database" precondition="aql:self.isCompletePattern()">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Set database">
+                <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                  <initialOperation/>
+                </buttons>
+                <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                  <initialOperation>
+                    <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setDatabase()"/>
+                  </initialOperation>
+                </buttons>
+                <page name="Default Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Patterncreation']/@ownedRepresentations[name='ConcretePatternCreation']/@defaultLayer/@toolSections.0/@ownedTools[name='Set%20database']/@initialOperation/@firstModelOperations/@groups.0"/>
+                <groups name="Default Group" labelExpression="Information of the database" semanticCandidateExpression="var:self">
+                  <controls xsi:type="properties:ContainerDescription" name="DatabaseNameContainer">
+                    <controls xsi:type="properties:TextDescription" name="DatebaseName" labelExpression="aql:'Name'" valueExpression="aql:self.getDatabaseName()">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setDatabaseName(newValue)"/>
+                      </initialOperation>
+                    </controls>
+                    <layout xsi:type="properties:FillLayoutDescription" orientation="HORIZONTAL"/>
+                  </controls>
+                  <controls xsi:type="properties:ContainerDescription" name="DataPathContainer">
+                    <controls xsi:type="properties:TextDescription" name="DataPath" labelExpression="aql:'Data Path'" valueExpression="aql:self.getDatapath()">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setDatapath(newValue)"/>
+                      </initialOperation>
+                    </controls>
+                    <controls xsi:type="properties:ButtonDescription">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.openFileDialog('DataPath')"/>
+                      </initialOperation>
+                    </controls>
+                    <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2"/>
+                  </controls>
+                  <controls xsi:type="properties:ContainerDescription" name="DataSchemaContainer">
+                    <controls xsi:type="properties:TextDescription" name="SchemaPath" labelExpression="aql:'Schema Path'" valueExpression="aql:self.getDataschema()">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setDataschema(newValue)"/>
+                      </initialOperation>
+                    </controls>
+                    <controls xsi:type="properties:ButtonDescription">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.openFileDialog('DataSchema')"/>
+                      </initialOperation>
+                    </controls>
+                    <layout xsi:type="properties:GridLayoutDescription" numberOfColumns="2"/>
+                  </controls>
+                </groups>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>

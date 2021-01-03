@@ -24,7 +24,9 @@ import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.common.ui.tools.api.util.EclipseUIUtil;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IPartListener2;
@@ -40,6 +42,11 @@ import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.execution.Database;
+import qualitypatternmodel.execution.LocalXmlDataDatabase;
+import qualitypatternmodel.execution.LocalXmlSchemaDatabase;
+import qualitypatternmodel.execution.impl.DatabasesImpl;
+import qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl;
+import qualitypatternmodel.execution.impl.LocalXmlSchemaDatabaseImpl;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
@@ -910,11 +917,11 @@ public class Services {
     }
     
     /**
-     * The semantic candidates
+     * The semantic candidates expression of the parameter containers
      * 
-     * @param self
-     * @param s
-     * @return
+     * @param self the evaluation context
+     * @param s the type of the parameter
+     * @return the list of parameters which will be displayed
      */
     public ArrayList<EObject> semanticCandidateExpressionParameter(EObject self, String s) {
     	HashMap<String, Class<?>> typen = new HashMap<String, Class<?>>();
@@ -962,6 +969,11 @@ public class Services {
     	}
     }*/
     
+    /**
+     * The precondition of the tool, which deletes countPatterns
+     * @param self the evaluation context
+     * @return returns true, if it is allowed to delete the countPattern
+     */
     //es soll nur das countpattern in argument2 gelöscht werden können
     public boolean deleteCountPatternPrecondition(EObject self) {
     	CountPattern countpattern = (CountPattern) self;
@@ -998,6 +1010,12 @@ public class Services {
     	comparison.setArgument2(null);
     }
     
+    
+    /**
+     * Determines the properties, which are displayed in the dialog from the tool Set property as argument.
+     * @param self the evaluation context
+     * @return returns the list of properties
+     */
     public ArrayList<Property> getProperties(EObject self) {
     	Comparison comparison = null;
     	OperatorList operatorList = null;
@@ -1034,6 +1052,11 @@ public class Services {
     	return properties;
     }
     
+    /**
+     * Determines the name of the field, in which the property will be stored
+     * @param self the evaluation context
+     * @return the name of the field
+     */
     public String featureNameSelectProperty(EObject self) {//hinzufügen einer Property zu einem Comparison, das gibt die kante zurück, in der die property gespeichert wird, auch hinzufügen von property zu match
     	System.out.println("wwwwwwwwwwwwwwwwwwwwwww"+self);
     	String feature = "property";//Wert für Match
@@ -1049,6 +1072,12 @@ public class Services {
     	return feature;
     }
     
+    /**
+     * Determines the element that contains an argument of a comparison
+     * @param self the evaluation context
+     * @param s argument1 or argument2
+     * @return the element that contains the argument
+     */
     public Element targetFinderExpressionComparisonArgument1and2(EObject self, String s) {
     	Comparison comparison = (Comparison) self;
     	Comparable argument = null;
@@ -1067,6 +1096,13 @@ public class Services {
 		return element;
     }
     
+    
+    /**
+     * Adds a new parameter to a comparison
+     * @param self the evaluation context
+     * @param s the type of the new parameter
+     * @return the evaluation context
+     */
     public EObject addParameter(EObject self, String s) {
     	CompletePattern root = (CompletePattern) getWurzelContainer(self);
     	//ParameterList parameterlist = root.getParameterList();
@@ -1108,6 +1144,10 @@ public class Services {
     	return self;
     }
     
+    /**
+     * Adds a new NumberParam to a Comparison or a CountCondition
+     * @param self the evaluation context
+     */
     public void addNumber(EObject self) {
     	if(self instanceof Comparison) {
     		addParameter(self, "Number");
@@ -1182,6 +1222,12 @@ public class Services {
     
     static HashMap<CompletePattern, HashSet<Element>> markedElements = new HashMap<CompletePattern, HashSet<Element>>();//merkt sich die markierten elemente, um später die markierungen zu entfernen
     static HashMap<CompletePattern, HashSet<Element>> visitedElements = new HashMap<CompletePattern, HashSet<Element>>();// elemente, die beim sammeln der elemente, die markiert werden sollen, abgearbeitet wurden
+    /**
+     * Marks an element and related elements as highlighted
+     * @param self the evaluation context
+     * @param e clicked element
+     * @return the evaluation context
+     */
     public EObject changeColorOfElement2(EObject self, EObject e) {//nach einem doppelklick auf element wird hier die markierung des elements und seines mappingelements hinzugefügt
     	System.out.println("Anfang");
     	Element element = (Element) e;
@@ -1295,6 +1341,11 @@ public class Services {
     	return self;
     }
     
+    /**
+     * Returns if an element is highlighted
+     * @param self the evaluation context
+     * @return boolean if an element is highlighted
+     */
     public boolean getElementMark(EObject self) {
     	System.out.println("getElementMark " + self);
     	CompletePattern pattern = (CompletePattern) getWurzelContainer(self);
@@ -1312,6 +1363,7 @@ public class Services {
     	return mark;
     }
     
+
     public void deleteQuantifiedCondition(EObject self) {
     	EObject root = getWurzelContainer(self);
     	if(root instanceof CompletePattern) {
@@ -1351,6 +1403,12 @@ public class Services {
     	return add;
     }
     
+    /**
+     * Precondition for tools which create new parameters
+     * @param self the evaluation context
+     * @param s the type of the new parameter
+     * @return boolean if the new parameter will be created
+     */
     public boolean parameterPrecondition(EObject self, String s) {//beim hinzufügen
     	boolean add = false;System.out.println("ftjkkfzukfzufkzfkzufkfkfzukfuzkfzukfukfukfzuk"+self);
     	if(s.equals("Number") && self instanceof NumberElement) {
@@ -1391,6 +1449,11 @@ public class Services {
     	return add;
     }
     
+    /**
+     * Precondition for tools which add a new condition
+     * @param self the evaluation context
+     * @return boolean if the new condition will be created
+     */
     public boolean conditionPrecondition(EObject self) {//beim hinzufügen, self ist das Objekt unter der Maus
     	System.out.println("Bedingung "+self);
     	boolean add = false;
@@ -1441,6 +1504,11 @@ public class Services {
     	return true;
     }
     
+    /**
+     * Determines the element that is the container of the property of a match
+     * @param self the evaluation context
+     * @return the element that is the container of the property of a match
+     */
     public Element targetFinderExpressionMatch(EObject self) {//sucht das Element der Property des Match, um den Pfeil auszurichten
     	Match match = (Match) self;
     	Property argument = match.getProperty();
@@ -1448,6 +1516,11 @@ public class Services {
 		return element;
     }
     
+    /**
+     * Determines all parameters which can be used as arguments in one graph
+     * @param self the evaluation context
+     * @return list of all parameters which can be used as arguments in one graph
+     */
     public ArrayList<Parameter> getParameter(EObject self) {//sucht alle Parameter, um sie wiederverwenden zu können
     	EObject root = getWurzelContainer(self);
     	CompletePattern completePattern = (CompletePattern) root;
@@ -1480,6 +1553,11 @@ public class Services {
     	return parameter2;
     }
     
+    /**
+     * Precondition of the tool select parameter as argument
+     * @param self the evaluation context
+     * @return boolean if the wizard to set a parameter as argument will be opened
+     */
     public boolean selectParameterPrecondition(EObject self) {//wann soll das Fenster zur Auswahl von Parametern geöffnet werden können
     	boolean open = false;
     	if(self instanceof Match) {
@@ -1507,6 +1585,11 @@ public class Services {
     	return open;
     }
     
+    /**
+     * Determines the field of a comparisons or a match in which a parameter will be referenced
+     * @param self the evaluation context
+     * @return the name of the field of a comparisons or a match in which a parameter will be referenced
+     */
     public String featureNameSelectParameter(EObject self) {//hinzufügen eines Parameters zu einem Comparison, das gibt die kante zurück, in der der Parameter gespeichert wird, auch hinzufügen von Parameter zu match
     	String feature = "regularExpression";//Wert für Match
     	if(self instanceof Comparison) {
@@ -1522,6 +1605,10 @@ public class Services {
     	}
     }
     
+    /**
+     * Discards argument1 of a comparison or a match
+     * @param self the evaluation context
+     */
     public void discardArgument1(EObject self) {//entfernt argument1 von comparison und match, dort werden immer properties gespeichert
     	if(self instanceof Match) {
     		Match match = (Match) self;
@@ -1532,6 +1619,10 @@ public class Services {
     	}
     }
     
+    /**
+     * Discards argument2 of a comparison
+     * @param self the evaluation context
+     */
     public void discardArgument2(EObject self) {//entfernt argument2 von comparison und match, dort werden properties und parameter gespeichert
     	if(self instanceof Match) {
     		Match match = (Match) self;
@@ -1550,6 +1641,11 @@ public class Services {
     	}
     }
     
+    /**
+     * The precondition of the tool discard argument 1
+     * @param self the evaluation context
+     * @return Boolean if the comparison or match has an argument1 that can be discarded
+     */
     public boolean discardArgument1Precondition(EObject self) {
     	boolean discard = false;
     	if(self instanceof Match) {
@@ -1568,6 +1664,11 @@ public class Services {
     	return discard;
     }
     
+    /**
+     * The precondition of the tool discard argument 2
+     * @param self the evaluation context
+     * @return Boolean if the comparison has an argument2 that can be discarded
+     */
     public boolean discardArgument2Precondition(EObject self) {
     	boolean discard = false;
     	/*if(self instanceof Match) {
@@ -1586,6 +1687,11 @@ public class Services {
     	return discard;
     }
     
+    /**
+     * Determines all parameters of one comparison or match that can be discarded
+     * @param self the evaluation context
+     * @return a list of all parameters of one comparison or match that can be discarded
+     */
     public ArrayList<EObject> candidatesExpressionDiscardArgument(EObject self) {//für das entfernen von argumenten von comparisons und matches über den selectionwizard
     	ArrayList<EObject> arguments = new ArrayList<EObject>();
     	if(self instanceof Match) {
@@ -1612,6 +1718,12 @@ public class Services {
     	return arguments;
     }
     
+    /**
+     * Discards an argument from a comparison or a match
+     * @param self the evaluation context
+     * @param element the parameter that will be discarded
+     * @param container the comparison or match
+     */
     public void discardArgument(EObject self, EObject element, EObject container) {//entfernt das ausgewählte argument von comparison und match
     	if(container instanceof Match) {
     		System.out.println("1");
@@ -1657,6 +1769,11 @@ public class Services {
     	return decoration;
     }
     
+    /**
+     * Precondition of the decoration exists
+     * @param self the evaluation context
+     * @return Boolean if the quantor of the quantifiedCondition of an element has the quantor exists
+     */
     public boolean elementExistDecorationPrecondition(EObject self) {//decoration Quantor Exist
     	boolean decoration = false;
     	Element element = (Element) self;
@@ -1671,6 +1788,11 @@ public class Services {
     	return decoration;
     }
     
+    /**
+     * Precondition of the decorationforall
+     * @param self the evaluation context
+     * @return Boolean if the quantor of the quantifiedCondition of an element has the quantor forall
+     */
     public boolean elementForallDecorationPrecondition(EObject self) {//decoration Quantor Forall
     	boolean decoration = false;
     	Element element = (Element) self;
@@ -1685,6 +1807,11 @@ public class Services {
     	return decoration;
     }
     
+    /**
+     * Precondition of the decoration NoReturnelement
+     * @param self the evaluation context
+     * @return Boolean if the contextgraph has no  returnelements
+     */
     public boolean hasReturnelementGraph(EObject self) {//decoration graph hat kein returnelement
     	boolean decoration = false;
     	Graph graph = (Graph) self;
@@ -1698,6 +1825,11 @@ public class Services {
     	return decoration;
     }
     
+    /**
+     * Precondition of the decoration returnelement
+     * @param self the evaluation context
+     * @return Boolean if an element is a returnelement
+     */
     public boolean isReturnelement(EObject self) {//decoration element ist returnelement
     	boolean decoration = false;
     	Element element = (Element) self;
@@ -1708,6 +1840,10 @@ public class Services {
     	return decoration;
     }
     
+    /**
+     * Sets one element as returnelement
+     * @param self the evaluation context
+     */
     public void setReturnelement(EObject self) {//setzt ein element als returnelement
     	Element element = (Element) self;
     	//Graph graph = element.getGraph();
@@ -1716,6 +1852,10 @@ public class Services {
     	element.setResultOf(element.getGraph());
     }
     
+    /**
+     * Sets one element as no returnelement
+     * @param self the evaluation context
+     */
     public void deleteReturnelement(EObject self) {//löscht ein element als returnelement
     	Element element = (Element) self;
     	//Graph graph = element.getGraph();
@@ -1724,6 +1864,11 @@ public class Services {
     	element.setResultOf(null);
     }
     
+    /**
+     * Determines all elements from one graph without the element that is set as argument of a comparison
+     * @param self the evaluation context
+     * @return a list of all element from one graph without the element that is set as argument of a comparison
+     */
     public ArrayList<Element> getElements(EObject self){//sucht für die selection von elementen die elemente
     	ArrayList<Element> elements = new ArrayList<Element>();
     	Comparison comparison = (Comparison) self;
@@ -1746,6 +1891,11 @@ public class Services {
     	return elements;
     }
     
+    /**
+     * Sets an element as argument of a comparison
+     * @param self the evaluation context
+     * @param element the element that will be set as argument
+     */
     public void setElementToComparison(EObject self, EObject element) {//setzt elemente als argumente von comparisonSystem.out.println("zzzzzzzzzzzzzzzz"+self);
     	Comparison comparison = (Comparison) self;
     	Comparable comparable = (Comparable) element;
@@ -1756,6 +1906,11 @@ public class Services {
     	}
     }
     
+    /**
+     * Precondition of the tool select element as argument
+     * @param self the evaluation context
+     * @return Boolean if a comparison has at least one empty argument and the other argument is also empty or an element
+     */
     public boolean selectElementPrecondition(EObject self) {
     	boolean open = false;
     	if(self instanceof Comparison) {
@@ -1777,6 +1932,11 @@ public class Services {
     	return open;
     }
     
+    /**
+     * Precondition of the tool select property as argument
+     * @param self the evaluation context
+     * @return Boolean if a comparison or a match has at least one empty argument, the second argument of the comparison musts not be an element
+     */
     public boolean selectPropertyPrecondition(EObject self) {
     	boolean open = false;
     	if(self instanceof Comparison) {
@@ -1804,6 +1964,11 @@ public class Services {
     	return open;
     }
     
+    /**
+     * Precondition of the tool mark as returnelement
+     * @param self the evaluation context
+     * @return Boolean if the element is no returnelement
+     */
     public boolean returnelementmarkPrecondition(EObject self) {
     	boolean open = false;
     	if(self instanceof Element) {
@@ -1816,6 +1981,11 @@ public class Services {
     	return open;
     }
     
+    /**
+     * Precondition of the tool mark as no returnelement
+     * @param self the evaluation context
+     * @return Boolean if the element is a returnelement
+     */
     public boolean deleteReturnelementmarkPrecondition(EObject self) {
     	boolean open = false;
     	if(self instanceof Element) {
@@ -1828,6 +1998,11 @@ public class Services {
     	return open;
     }
     
+    /**
+     * Checks if a graph is a contextgraph
+     * @param self the evaluation context
+     * @return Boolean if a graph is a contextgraph
+     */
     public boolean isContextgraph(EObject self) {//condition für den conditionalstyle von graph
     	boolean isContextgraph = false;
     	if(self instanceof Graph) {
@@ -1837,6 +2012,11 @@ public class Services {
     	return isContextgraph;
     }
     
+    /**
+     * Provides the logical operators
+     * @param self the evaluation context
+     * @return a list of all logical operators
+     */
     public ArrayList<LogicalOperator> getOperators(EObject self){
     	ArrayList<LogicalOperator> operators = new ArrayList<LogicalOperator>();
     	operators.add(LogicalOperator.AND);
@@ -1847,6 +2027,11 @@ public class Services {
     	return operators;
     }
     
+    /**
+     * Precondition of the tool change operator
+     * @param self the evaluation context
+     * @return Boolean if the clicked object is a formula
+     */
     public boolean changeOperatorPrecondition(EObject self) {
     	boolean open = false;
     	if(self instanceof Formula) {
@@ -1855,6 +2040,12 @@ public class Services {
     	return open;
     }
     
+    /**
+     * Sets the logical operator to a given logical operator
+     * @param self the evaluation context
+     * @param element a clicked object
+     * @param operator the new logical operator
+     */
     public void setOperator(EObject self, EObject element, LogicalOperator operator) {
     	if(element instanceof Formula) {
     		Formula formula = (Formula) element;
@@ -1862,6 +2053,12 @@ public class Services {
     	}
     }
     
+    /**
+     * Checks which logical operator is set of a formula
+     * @param self the evaluation context
+     * @param element a clicked object
+     * @return logical operator of a formula
+     */
     public LogicalOperator changeOperatorValueExpression(EObject self, EObject element) {//guckt welcher operator gerade gewählt ist, das returnelement muss in getOperators vorkommen
     	LogicalOperator operator = null;
     	if(element instanceof Formula) {
@@ -1872,6 +2069,11 @@ public class Services {
     	
     }
     
+    /**
+     * Provides the quantifiers
+     * @param self the evaluation context
+     * @return a list of all quantifiers
+     */
     public ArrayList<Quantifier> getQuantifiers(EObject self){
     	ArrayList<Quantifier> quantifiers = new ArrayList<Quantifier>();
     	quantifiers.add(Quantifier.EXISTS);
@@ -1879,6 +2081,12 @@ public class Services {
     	return quantifiers;
     }
     
+    /**
+     * Provides strings of quantifiers
+     * @param self the evaluation context
+     * @param q a quantifier
+     * @return the name of a quantifier in form of a string
+     */
     public String getQuantifierString(EObject self, Quantifier q) {
     	String name = "forall";
     	if(q == Quantifier.EXISTS) {
@@ -1887,6 +2095,11 @@ public class Services {
     	return name;
     }
     
+    /**
+     * Precondition of the tool change quantifier
+     * @param self the evaluation context
+     * @return Boolean if the clicked objekt is a quantifiedcondition
+     */
     public boolean changeQuantifierPrecondition(EObject self) {
     	boolean open = false;
     	if(self instanceof QuantifiedCondition) {
@@ -1895,6 +2108,12 @@ public class Services {
     	return open;
     }
     
+    /**
+     * Sets the quantifier of a quantifiedcondition to a given quantifier
+     * @param self the evaluation context
+     * @param element a clicked object
+     * @param quantifier the new quantifier
+     */
     public void setQuantifier(EObject self, EObject element, Quantifier quantifier) {
     	if(element instanceof QuantifiedCondition) {
     		QuantifiedCondition quantifiedcondition = (QuantifiedCondition) element;
@@ -1902,6 +2121,12 @@ public class Services {
     	}
     }
     
+    /**
+     * Checks which quantifier is set of a quantifiedcondition
+     * @param self the evaluation context
+     * @param element a clicked element
+     * @return a quantifier
+     */
     public Quantifier changeQuantifierValueExpression(EObject self, EObject element) {//guckt welcher quantifier gerade gewählt ist, das returnelement muss in getQuantifiers vorkommen
     	Quantifier quantifier = null;
     	if(element instanceof QuantifiedCondition) {
@@ -1965,6 +2190,11 @@ public class Services {
     	return open;
     }
     
+    /**
+     * Precondition of the element creation tool in the popup menu
+     * @param self the evaluation context
+     * @return Boolean if the clicked object is a graph
+     */
     public boolean elementPreconditionPopup(EObject self) {
     	boolean open = false;
     	if(self instanceof Graph) {
@@ -1974,6 +2204,11 @@ public class Services {
     }
     
     static ArrayList<Element> elementsRelation = null;
+    /**
+     * Determines all elements that can be used for the creation of a relation
+     * @param self the evaluation context
+     * @return a list of all elements that can be used for the creation of a relation
+     */
     public ArrayList<Element> getElementsForRelationCreation(EObject self){//sucht für die erstellung von relation über das kontextmenü die elemente
     	ArrayList<Element> elements = new ArrayList<Element>();
     	if(self instanceof Graph) {
@@ -1985,28 +2220,57 @@ public class Services {
     }
     
     static EObject selectedElement1 = null;
+    /**
+     * Stores the first element of a new relation
+     * @param self the evaluation context
+     * @param e1 an element
+     */
     public void storeElement1Relation(EObject self, EObject e1){//speichert element1 von relation über kontextmenü von select
     	selectedElement1 = e1;
     }
     
+    /**
+     * Provides the first element of a new relation
+     * @param self the evaluation context
+     * @return the first element of a new relation
+     */
     public EObject getElement1Relation(EObject self){
     	return selectedElement1;
     }
     
     static EObject selectedElement2 = null;
+    /**
+     * Stores the second element of a new relation
+     * @param self the evaluation context
+     * @param e2 an element
+     */
     public void storeElement2Relation(EObject self, EObject e2){//speichert element2 von relation über kontextmenü von select
     	selectedElement2 = e2;
     }
     
+    /**
+     * Provides the second element of a new relation
+     * @param self the evaluation context
+     * @return the second element of a new relation
+     */
     public EObject getElement2Relation(EObject self){
     	return selectedElement2;
     }
     
+    /**
+     * Determines all elements that can be used for the creation of a new relation as element2
+     * @param self the evaluation context
+     * @return a list of elements that can be used for the creation of a new relation as element2
+     */
     public ArrayList<Element> getElementsForRelationCreation2(EObject self){//sucht für die erstellung von relation über das kontextmenü die elemente für das zweite select
     	elementsRelation.remove(selectedElement1);
     	return elementsRelation;
     }
     
+    /**
+     * Creates a new relation
+     * @param self the evaluation context
+     */
     public void createRelation(EObject self) {//erstellt relation über kontextmenü
     	if(selectedElement1 != null && selectedElement2 != null) {
     		Element e1 = (Element) selectedElement1;
@@ -2018,11 +2282,20 @@ public class Services {
     	}
     }
     
+    /**
+     * Sets element1 and element2 of the creation of a new relation to null
+     * @param self the evaluation context
+     */
     public void setE1E2ToNull(EObject self) {//setzt selectetElement1 und selectedElement2 auf null, damit bei erneutem aufruf des dialogs die select objecte nichts anzeigen
     	selectedElement1 = null;
     	selectedElement2 = null;
     }
     
+    /**
+     * Precondition of Relation creation of the popup menu
+     * @param self the evaluation context
+     * @return Boolean if the clicked object is a graph
+     */
     public boolean relationPreconditionPopup(EObject self) {
     	boolean open = false;
     	if(self instanceof Graph) {
@@ -2077,6 +2350,11 @@ public class Services {
     	setElementToComparison(self, selectedElement);
     }
     
+    /**
+     * Precondition of the tool discard argument
+     * @param self the evaluation context
+     * @return Boolean if a comparison or a match has arguments that can be discarded
+     */
     public boolean discardArgumentPrecondition(EObject self) {
     	boolean open = false;
     	if(self instanceof Comparison) {
@@ -2216,6 +2494,12 @@ public class Services {
     	return isXmlreference;
     }
     
+    /**
+     * Checks if an object is a xmlrelation
+     * @param self the evaluation context
+     * @param e a clicked object
+     * @return Boolean if the clicked object is a xmlrelation
+     */
     public boolean isXmlrelation(EObject self, EObject e) {
     	boolean isXmlrelation = false;
     	if(isXmlnavigation(e) || isXmlreference(e)) {
@@ -2224,6 +2508,12 @@ public class Services {
     	return isXmlrelation;
     }
     
+    /**
+     * Checks if an object is a no xmlrelation
+     * @param self the evaluation context
+     * @param e a clicked object
+     * @returnBoolean if the clicked object is a no xmlrelation
+     */
     public boolean isNotXmlrelation(EObject self, EObject e) {
     	return !isXmlrelation(self, e);
     }
@@ -2239,6 +2529,12 @@ public class Services {
     	return open;
     }
     
+    /**
+     * Checks if all relations are exchanged for xmlnavigations or xmlreferences and the pattern is not finalized
+     * @param self the evaluation context
+     * @param e a clicked object
+     * @return Boolean if all relations are exchanged for xmlnavigations or xmlreferences and the pattern is not finalized
+     */
     public boolean finalizeDoubleClick(EObject self, EObject e) {//prüft, ob alle relationen ersetzt wurden und das muster noch nicht finalisiert wurde
     	boolean open = false;
     	if(e instanceof CompletePattern) {// && !finalized
@@ -2250,6 +2546,12 @@ public class Services {
     	return open;
     }
     
+    /**
+     * Checks if not all relations are exchanged for xmlnavigations or xmlreferences and the pattern is not finalized
+     * @param self the evaluation context
+     * @param e a clicked object
+     * @return Boolean if not all relations are exchanged for xmlnavigations or xmlreferences and the pattern is not finalized
+     */
     public boolean notFinalizeDoubleClick(EObject self, EObject e) {
     	boolean open = false;
     	if(e instanceof CompletePattern) {// && !finalized
@@ -2261,6 +2563,11 @@ public class Services {
     	return open;
     }
     
+    /**
+     * Finalizes the pattern
+     * @param self the evaluation context
+     * @param e a clicked object
+     */
     //static boolean finalized = false;
     public void finalizeXmladaption(EObject self, EObject e) {//finalisiert das muster
     	System.out.println("1");
@@ -2279,6 +2586,11 @@ public class Services {
     	}
     }
     
+    /**
+     * Checks if an object is a Xmlroot
+     * @param self the evaluation context
+     * @return Boolean if the clicked object is a xmlroot
+     */
     public boolean isXmlroot(EObject self) {
     	boolean isXmlroot = false;
     	if(self instanceof XmlRoot) {
@@ -2287,6 +2599,11 @@ public class Services {
     	return isXmlroot;
     }
     
+    /**
+     * Provides all types of relations
+     * @param self the evaluation context
+     * @return a list of all types of relations
+     */
     public ArrayList<String> getRelations(EObject self){//für wizard, um relation durch xml zu erstetzen
     	ArrayList<String> relations = new ArrayList<String>();
     	relations.add("relation");
@@ -2295,6 +2612,11 @@ public class Services {
     	return relations;
     }
     
+    /**
+     * Provides all types of xmlrelations
+     * @param self the evaluation context
+     * @return a list of the types of xmlrelations
+     */
     public ArrayList<String> getXmlRelations(EObject self){//für wizard, um zwischen xmlrelationen zu wechseln
     	ArrayList<String> relations = new ArrayList<String>();
     	relations.add("xmlnavigation");
@@ -2302,13 +2624,81 @@ public class Services {
     	return relations;
     }
     
-    static String selectedRelation = "relation";
+    
+    static HashMap<CompletePattern, String> changeRelationType = new HashMap<CompletePattern, String>();
+    /**
+     * Stores the given type of a relation
+     * @param self the evaluation context
+     * @param e a clicked element
+     * @param type the type of a relation
+     */
+    public void setChangeRelationType(EObject self, EObject e, String type) {
+    	EObject rootElement = getWurzelContainer(e);
+    	if(rootElement instanceof CompletePattern) {
+    		changeRelationType.put((CompletePattern) rootElement, type);
+    	}
+    }
+    
+    /**
+     * Provides the type of a relation
+     * @param self the evaluation context
+     * @return the type of a relation in the form of a string
+     */
+    public String getChangeRelationType(EObject self) {
+    	String type = "";
+    	EObject rootElement = getWurzelContainer(self);
+    	if(rootElement instanceof CompletePattern) {
+    		type = changeRelationType.get((CompletePattern) rootElement);
+    	}
+    	return type;
+    }
+    
+    /**
+     * Changes the type of a relation dependent to the stored type
+     * @param self the evaluation context
+     * @param e a clicked object
+     */
+    public void changeRelationType(EObject self, EObject e) {
+    	if(e instanceof Relation) {
+    		Relation relation = (Relation) e;
+    		String type = "";
+    		EObject rootElement = getWurzelContainer(e);
+    		if(rootElement instanceof CompletePattern) {
+    			type = changeRelationType.get((CompletePattern) rootElement);
+    		}
+    		if(type.equals("relation")) {
+    			
+    		}else if(type.equals("xmlnavigation")) {
+    			relation.adaptAsXMLNavigation();
+    		}else if(type.equals("xmlreference")) {
+    			relation.adaptAsXMLReference();
+    		}
+    	}
+    }
+    
+    /**
+     * Stores the type of a xmlnavigation or a xmlreference
+     * @param self the evaluation context
+     * @param e a clicked object
+     */
+    public void setChangeRelationTypeXml(EObject self, EObject e){
+    	EObject rootElement = getWurzelContainer(e);
+    	if(rootElement instanceof CompletePattern) {
+    		if(e instanceof XmlNavigation) {
+        		changeRelationType.put((CompletePattern) rootElement, "xmlnavigation");
+        	}else if(e instanceof XmlReference) {
+        		changeRelationType.put((CompletePattern) rootElement, "xmlreference");
+        	}
+    	}
+    }
+    
+    /*static String selectedRelation = "relation";
     public void storeRelation(EObject self, String s) {
     	//System.out.println(q);
     	selectedRelation = s;
     }
     
-    public String getRelation(EObject self9) {
+    public String getRelation(EObject self) {
     	return selectedRelation;
     }
     
@@ -2335,8 +2725,15 @@ public class Services {
     	}else if(e instanceof XmlReference) {
     		selectedRelation = "xmlreference";
     	}
-    }
+    }*/
+    
     boolean isNewConcretePatternCreation = false;
+    /**
+     * Checks if a pattern is finalized
+     * @param self the evaluation context
+     * @param e a clicked object
+     * @return Boolean if a pattern is finalized
+     */
     public boolean isFinalized(EObject self, EObject e) {
     	//Über den Titel des Tabs in Eclipse kann die View zum Konkretisieren nicht geöffnet werden, der Titel kann vom Benutzer verändert werden. Über die Diagramm Description geht es auch nicht. Man  bekommt alle geöffneten Descriptions in einer Collection, die nicht Mustern zugeordnet werden können.
     	
@@ -2472,6 +2869,11 @@ public class Services {
     	}
     }
     //ab hier Konkretisierungsview
+    /**
+     * Determines all parameters of the parameterlist of a pattern
+     * @param self the evaluation context
+     * @return a list of all parameters of the parameterlist of a pattern
+     */
     public ArrayList<EObject> getParameterlistElements(EObject self) {//sucht alle Objekte in der Parameterliste, diese müssen konkretisiert werden
     	ArrayList<EObject> elements = new ArrayList<EObject>();
     	if(self instanceof CompletePattern) {
@@ -2482,7 +2884,13 @@ public class Services {
     	return elements;
     }
     
-    public String getParameterlistElementsIteratorName(EObject self, EObject iterator) {//Namen zu einem Element der Parameterliste, Iterator der Forschleife ist eine Element der Parameterliste
+    /**
+     * Determines a name for a parameter to display in the formularview
+     * @param self the evaluation context
+     * @param iterator a parameter of the parameterlist of a pattern
+     * @return a name to display in the formularview of a parameter in form of a string
+     */
+    public String getParameterlistElementsIteratorName(EObject self, EObject iterator) {//Namen zu einem Element der Parameterliste, Iterator der Forschleife ist ein Element der Parameterliste
     	String name = "";
     	PatternElement patternelement = (PatternElement) iterator;
     	if(isModifiable(iterator)) {
@@ -2584,6 +2992,12 @@ public class Services {
     	return name;
     }
     
+    /**
+     * Determines a name for a parameter that is modifiable to display in the formularview
+     * @param self the evaluation context
+     * @param iteratorr a parameter
+     * @return a name to display in the formularview of a parameter that is modifiable in form of a string
+     */
     public String getModifiableName(EObject self, EObject iteratorr) {
     	String name = "";
     	PatternElement patternelement = (PatternElement) iteratorr;
@@ -2617,6 +3031,11 @@ public class Services {
     	return name;
     }
     
+    /**
+     * Checks if a parameter is modifiable
+     * @param object a parameter
+     * @return Boolean if a parameter is modifiable
+     */
     public boolean isModifiable(EObject object) {
     	boolean returnboolean = false;
     	if(object instanceof ParameterValue) {
@@ -2627,6 +3046,12 @@ public class Services {
     	return returnboolean;
     }
     
+    /**
+     * Checks if a parameter is a booleanparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter is a booleanparam
+     */
     public boolean isBooleanParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein booleanparam ist
     	boolean isBooleanParam = false;
     	if(iterator instanceof BooleanParam) {
@@ -2635,6 +3060,12 @@ public class Services {
     	return isBooleanParam;
     }
     
+    /**
+     * Checks if a parameter is a textliteralparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter is a textliteralparam
+     */
     public boolean isTextliteralParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein textliteralparam ist
     	boolean isTextliteralParam = false;
     	if(iterator instanceof TextLiteralParam) {
@@ -2643,6 +3074,12 @@ public class Services {
     	return isTextliteralParam;
     }
     
+    /**
+     * Checks if a parameter is a textlistparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter is a textlistparam
+     */
     public boolean isTextlistParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein textlistparam ist
     	boolean isTextlistParam = false;
     	if(iterator instanceof TextListParam) {
@@ -2651,6 +3088,12 @@ public class Services {
     	return isTextlistParam;
     }
     
+    /**
+     * Checks if a parameter is a numberparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter is a numberparam
+     */
     public boolean isNumberParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein number ist
     	boolean isNumberParam = false;
     	if(iterator instanceof NumberParam) {
@@ -2659,6 +3102,12 @@ public class Services {
     	return isNumberParam;
     }
     
+    /**
+     * Checks if a parameter is a dateparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter is a dateparam
+     */
     public boolean isDateParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein date ist
     	boolean isDateParam = false;
     	if(iterator instanceof DateParam) {
@@ -2667,6 +3116,12 @@ public class Services {
     	return isDateParam;
     }
     
+    /**
+     * Checks if a parameter is a timeparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter is a timeparam
+     */
     public boolean isTimeParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein time ist
     	boolean isTimeParam = false;
     	if(iterator instanceof TimeParam) {
@@ -2675,6 +3130,12 @@ public class Services {
     	return isTimeParam;
     }
     
+    /**
+     * Checks if a parameter is a datetimeparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter is a datetimeparam
+     */
     public boolean isDateTimeParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein datetime ist
     	boolean isDateTimeParam = false;
     	if(iterator instanceof DateTimeParam) {
@@ -2683,6 +3144,12 @@ public class Services {
     	return isDateTimeParam;
     }
     
+    /**
+     * Checks if a parameter is a comparisonoptionparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter is a comparisonoptionparam
+     */
     public boolean isComparisonOptionParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein comparisonoption ist
     	boolean isComparisonOptionParam = false;
     	if(iterator instanceof ComparisonOptionParam) {
@@ -2691,6 +3158,12 @@ public class Services {
     	return isComparisonOptionParam;
     }
     
+    /**
+     * Checks if a parameter is a typeoptionparam and the two arguments of the related comparison are properties
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter is a typeoptionparam and the two arguments of the related comparison are properties
+     */
     public boolean isTypeOptionParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein typeoption ist, falls property property vergleich, soll es nicht eingestellt werden, deshalb dann false
     	boolean isTypeOptionParam = false;
     	if(iterator instanceof TypeOptionParam) {
@@ -2704,6 +3177,12 @@ public class Services {
     	return isTypeOptionParam;
     }
     
+    /**
+     * Checks if a parameter is a relationoptionparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter is a relationoptionparam
+     */
     public boolean isRelationOptionParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein relationoption ist
     	boolean isRelationOptionParam = false;
     	if(iterator instanceof RelationOptionParam) {
@@ -2712,6 +3191,12 @@ public class Services {
     	return isRelationOptionParam;
     }
     
+    /**
+     * Checks if a parameter is a propertyoptionparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter is a propertyoptionparam
+     */
     public boolean isPropertyOptionParam(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein propertyoption ist
     	boolean isPropertyOptionParam = false;
     	if(iterator instanceof PropertyOptionParam) {
@@ -2720,6 +3205,12 @@ public class Services {
     	return isPropertyOptionParam;
     }
     
+    /**
+     * Checks if a parameter is a untypedparametervalue
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter is a untypedparametervalue
+     */
     public boolean isUntypedParameterValue(EObject self, EObject iterator) {//prüft, ob das Element des Iterators ein untypedparametervalue ist
     	boolean isUntypedParameterValue = false;
     	if(iterator instanceof UntypedParameterValue) {
@@ -2733,6 +3224,11 @@ public class Services {
     	return isUntypedParameterValue;
     }
     
+    /**
+     * Determines all related objects to a given object that will be marked
+     * @param object a parameter
+     * @return a list of all related objects to a given object that will be marked
+     */
     public ArrayList<EObject> getRelatedElements(EObject object){//sucht die Elemente heraus, die markiert werden müssen, wenn ein Objekt in der View mit der Checkbox ausgewählt wird
     	ArrayList<EObject> returnlist = new ArrayList<EObject>();//die gesuchten Elemente
     	
@@ -2819,6 +3315,12 @@ public class Services {
     }
     
     static HashMap<CompletePattern, ArrayList<EObject>> patternRelatedElements = new HashMap<CompletePattern, ArrayList<EObject>>();//Schlüssel ist ein CompletePattern, der Wert sind die Elemente, die in diesem CompletePattern markiert sind
+    /**
+     * Marks an object or related objects or does the opposite
+     * @param self the evaluation context
+     * @param iteratorr a parameter
+     * @param checkboxValue the value of the checkbox of the parameter
+     */
     public void iteratorCheckbox(EObject self, EObject iteratorr, boolean checkboxValue) {//wird aufgerufen, wenn eine checkbox aktiviert wird
     	/*Fälle:
     		1. Element wird markiert und kein anderes Element ist markiert
@@ -2883,6 +3385,11 @@ public class Services {
     	return self;
     }*/
     
+    /**
+     * Checks if a parameter or related object is marked
+     * @param self the evaluation context
+     * @return Boolean if a parameter or related object is marked
+     */
     public boolean isElementMarked(EObject self) {//self ist das Element, in dem das conditional style liegt
     	boolean isMarked = false;//System.out.println(")))))))))))))))))))))))))))))))))))))))");
     	
@@ -2896,6 +3403,12 @@ public class Services {
     }
     
     static HashMap<CompletePattern, EObject> checkboxElements = new HashMap<CompletePattern, EObject>();//hier wird zu dem jeweiligen Muster das EObject zur markierten Checkbox gespeichert
+    /**
+     * Provied the value of a checkbox of the formularview
+     * @param self the evaluation context
+     * @param o a parameter
+     * @return Boolean of the checkbox
+     */
     public boolean isCheckboxActivated(EObject self, EObject o) {
     	//System.out.println("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
     	/*boolean isActivated = false;
@@ -2923,6 +3436,10 @@ public class Services {
     	return isActivated;
     }
     
+    /**
+     * Stores the marked checkbox
+     * @param eo a parameter related to the checkbox
+     */
     public void markCheckbox(EObject eo) {//Speichert die markierte Checkbox, damit nur eine aktiviert sein kann
     	CompletePattern pattern = (CompletePattern) getWurzelContainer(eo);
     	EObject checkboxElement = checkboxElements.get(pattern);
@@ -2932,11 +3449,20 @@ public class Services {
     	//}
     }
     
+    /**
+     * Deletes the stored checkbox that is marked
+     * @param eo a parameter related to the checkbox
+     */
     public void deleteCheckbox(EObject eo) {//löscht den speicher, in dem die aktuell angewählte chechbox gespeichert ist
     	CompletePattern pattern = (CompletePattern) getWurzelContainer(eo);
     	checkboxElements.put(pattern, null);
     }
     
+    /**
+     * Checks if an object is a completepattern
+     * @param self the evaluation context
+     * @return Boolean if an object is a completepattern
+     */
     public boolean isCompletePattern(EObject self) {
     	boolean isCompletePattern = false;
     	if(self instanceof CompletePattern) {
@@ -2945,6 +3471,12 @@ public class Services {
     	return isCompletePattern;
     }
     
+    /**
+     * Sets the value of a textliteralparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @param s the new value
+     */
     public void setTextliteralValue(EObject self, EObject iterator, String s) {//wird bei text von textliteral in view 3 aufgerufen
     	/*if(iterator instanceof TextLiteralParam) {
     		TextLiteralParam textliteral = (TextLiteralParam) iterator;
@@ -2960,6 +3492,12 @@ public class Services {
     	}
     }
     
+    /**
+     * Provides the value of a textliteralparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return the value of a textliteralparam
+     */
     public String getTextliteralValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
     	String s = "";
     	EObject newParameter = hasNewParameter(self, iterator);
@@ -2973,6 +3511,12 @@ public class Services {
     	return s;
     }
     
+    /**
+     * Sets the value of a booleanparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @param b the new value
+     */
     public void setBooleanValue(EObject self, EObject iterator, Boolean b) {//wird bei text von textliteral in view 3 aufgerufen
     	EObject newParameter = hasNewParameter(self, iterator);
     	if(iterator instanceof BooleanParam) {
@@ -2984,6 +3528,12 @@ public class Services {
     	}
     }
     
+    /**
+     * Provides the value of a booleanparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return the value of a booleanparam
+     */
     public boolean getBooleanValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
     	boolean b = false;
     	EObject newParameter = hasNewParameter(self, iterator);
@@ -2997,6 +3547,12 @@ public class Services {
     	return b;
     }
     
+    /**
+     * Sets the value of a numberparam, checks if the new value is a number
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @param s the new value
+     */
     public void setNumberValue(EObject self, EObject iterator, String s) {//wird bei text von textliteral in view 3 aufgerufen
     	EObject newParameter = hasNewParameter(self, iterator);
     	if(iterator instanceof NumberParam) {
@@ -3017,6 +3573,12 @@ public class Services {
     	}
     }
     
+    /**
+     * Provides the value of a numberparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return the value of a numberparam
+     */
     public double getNumberValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
     	double d = 0.0;
     	EObject newParameter = hasNewParameter(self, iterator);
@@ -3030,6 +3592,12 @@ public class Services {
     	return d;
     }
     
+    /**
+     * Sets the value of a dateparam, checks if the new value is a valid dateparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @param s the new value
+     */
     public void setDateValue(EObject self, EObject iterator, String s) {//wird bei text von textliteral in view 3 aufgerufen
     	EObject newParameter = hasNewParameter(self, iterator);
     	if(iterator instanceof DateParam) {
@@ -3049,6 +3617,12 @@ public class Services {
     	}
     }
     
+    /**
+     * Provides the value of a dateparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return the value of a dateparam
+     */
     public String getDateValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
     	String s = "";
     	EObject newParameter = hasNewParameter(self, iterator);
@@ -3062,6 +3636,12 @@ public class Services {
     	return s;
     }
     
+    /**
+     * Sets the value of a datetimeparam, checks if the new value is a valid datetimeparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @param s the new value
+     */
     public void setDateTimeValue(EObject self, EObject iterator, String s) {//wird bei text von textliteral in view 3 aufgerufen
     	EObject newParameter = hasNewParameter(self, iterator);
     	if(iterator instanceof DateTimeParam) {
@@ -3081,6 +3661,12 @@ public class Services {
     	}
     }
     
+    /**
+     * Provides the value of a datetimeparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return the value of a datetimeparam
+     */
     public String getDateTimeValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
     	String s = "";
     	EObject newParameter = hasNewParameter(self, iterator);
@@ -3094,6 +3680,12 @@ public class Services {
     	return s;
     }
     
+    /**
+     * Sets the value of a timeparam, checks if the new value is a valid timeparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @param s the new value
+     */
     public void setTimeValue(EObject self, EObject iterator, String s) {//wird bei text von textliteral in view 3 aufgerufen
     	EObject newParameter = hasNewParameter(self, iterator);
     	if(iterator instanceof TimeParam) {
@@ -3113,6 +3705,12 @@ public class Services {
     	}
     }
     
+    /**
+     * Provides the value of a timeparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return the value of a timeparam
+     */
     public String getTimeValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
     	String s = "";
     	EObject newParameter = hasNewParameter(self, iterator);
@@ -3126,6 +3724,12 @@ public class Services {
     	return s;
     }
     
+    /**
+     * Sets the value of a typeoptionparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @param r the new value
+     */
     public void setTypeOptionValue(EObject self, EObject iterator, ReturnType r) {//wird bei text von textliteral in view 3 aufgerufen
     	if(iterator instanceof TypeOptionParam) {
     		TypeOptionParam typeoptionparam = (TypeOptionParam) iterator;
@@ -3133,6 +3737,12 @@ public class Services {
     	}
     }
     
+    /**
+     * Provides the value of a typeoptionparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return the value of a typeoptionparam
+     */
     public ReturnType getTypeOptionValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
     	ReturnType r = null;
     	if(iterator instanceof TypeOptionParam) {
@@ -3142,6 +3752,12 @@ public class Services {
     	return r;
     }
     
+    /**
+     * Sets the value of a comparisonoptionparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @param c the new value
+     */
     public void setComparisonOptionValue(EObject self, EObject iterator, ComparisonOperator c) {//wird bei text von textliteral in view 3 aufgerufen
     	if(iterator instanceof ComparisonOptionParam) {
     		ComparisonOptionParam comparisonoptionparam = (ComparisonOptionParam) iterator;
@@ -3149,6 +3765,12 @@ public class Services {
     	}
     }
     
+    /**
+     * Provides the value of a comparisonoptionparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return the value of a comparisonoptionparam
+     */
     public ComparisonOperator getComparisonOptionValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
     	ComparisonOperator c = null;
     	if(iterator instanceof ComparisonOptionParam) {
@@ -3158,6 +3780,12 @@ public class Services {
     	return c;
     }
     
+    /**
+     * Sets the value of a relationoptionparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @param r the new value
+     */
     public void setRelationOptionValue(EObject self, EObject iterator, RelationKind r) {//wird bei text von textliteral in view 3 aufgerufen
     	if(iterator instanceof RelationOptionParam) {
     		RelationOptionParam relationoptionparam = (RelationOptionParam) iterator;
@@ -3165,6 +3793,12 @@ public class Services {
     	}
     }
     
+    /**
+     * Provides the value of a relationoptionparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return the value of a relationoptionparam
+     */
     public RelationKind getRelationOptionValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
     	RelationKind r = null;
     	if(iterator instanceof RelationOptionParam) {
@@ -3174,6 +3808,12 @@ public class Services {
     	return r;
     }
     
+    /**
+     * Sets the value of a propertyoptionparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @param p the new value
+     */
     public void setPropertyOptionValue(EObject self, EObject iterator, PropertyKind p) {//wird bei text von textliteral in view 3 aufgerufen
     	if(iterator instanceof PropertyOptionParam) {
     		PropertyOptionParam propertyoptionparam = (PropertyOptionParam) iterator;
@@ -3181,6 +3821,12 @@ public class Services {
     	}
     }
     
+    /**
+     * Provides the value of a propertyoptionparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return the value of a propertyoptionparam
+     */
     public PropertyKind getPropertyOptionValue(EObject self, EObject iterator) {//wird bei text von textliteral in view 3 aufgerufen
     	PropertyKind p = null;
     	if(iterator instanceof PropertyOptionParam) {
@@ -3190,6 +3836,11 @@ public class Services {
     	return p;
     }
     
+    /**
+     * Provides the values for a select element of the type boolean
+     * @param self the evaluation context
+     * @return a list of true and false
+     */
     public ArrayList<Boolean> getBooleanSelectCandidates(EObject self){
     	ArrayList<Boolean> candidates = new ArrayList<Boolean>();
     	candidates.add(true);
@@ -3197,6 +3848,12 @@ public class Services {
     	return candidates;
     }
     
+    /**
+     * Provides strings to be displayed for true and false
+     * @param self the evaluation context
+     * @param b a boolean
+     * @return a string to be displayed for true or false
+     */
     public String getBooleanSelectCandidatesDisplay(EObject self, Boolean b){
     	String s = "false";
     	if(b) {
@@ -3206,6 +3863,12 @@ public class Services {
     }
     
     //Textlist
+    /**
+     * Provides the values of a textlistparam
+     * @param self the evaluation context
+     * @param object a textlist
+     * @return a list of the values of a textlistparam
+     */
     public EList<String> getTextListValue(EObject self, EObject object){
     	EList<String> listvalues = null;
     	if(object instanceof TextListParam) {
@@ -3216,6 +3879,12 @@ public class Services {
     	return listvalues;
     }
     
+    /**
+     * Provides string to be displayed in the dialog for the manipulation of a textlistparam
+     * @param self the evaluation context
+     * @param s a string
+     * @return a string that looks good in the dialog
+     */
     public String getTextListListDisplay(EObject self, String s){
     	String returns = "";
     	if(s.equals("")) {
@@ -3250,6 +3919,11 @@ public class Services {
     	return returns;
     }
     
+    /**
+     * Adds the element textString to a textlistparam
+     * @param self the evaluation context
+     * @param object a textlistparam
+     */
     public void addTextListElement(EObject self, EObject object) {
     	/*if(object instanceof TextListParam) {
     		TextListParam textlistparam = (TextListParam) object;
@@ -3268,11 +3942,23 @@ public class Services {
     	}
     }
     
+    /**
+     * Deletes an element of a textlistparam
+     * @param self the evaluation context
+     * @param s the element that will be deleted
+     * @param textlist a textlistparam
+     */
     public void deleteTextListElement(EObject self, String s, EObject textlist) {
     	EList<String> list = getTextListValue(self, textlist);
     	list.remove(s);
     }
     
+    /**
+     * Exchanges an element of a textlistparam by another element
+     * @param self the evaluation context
+     * @param s the new element
+     * @param textlist a textlistparam
+     */
     public void changeTextListElement(EObject self, String s, EObject textlist) {
     	System.out.println("00000000000000000"+s);
     	EList<String> list = getTextListValue(self, textlist);
@@ -3283,10 +3969,20 @@ public class Services {
     }
     
     static HashMap<CompletePattern, String> textString = new HashMap<CompletePattern, String>();//String im Textfeld in der Listenmanipulation
+    /**
+     * Stores the value of the textfield of the dialog for the manipulation of a textlistparam
+     * @param self the evaluation context
+     * @param s the value of the textfield of the dialog for the manipulation of a textlistparam
+     */
     public void storeTextListText(EObject self, String s) {
     	textString.put((CompletePattern) self, s);
     }
     
+    /**
+     * Saves the string loadedString to a textlistparam
+     * @param self the evaluation context
+     * @param textlist a textlistparam
+     */
     public void saveChangedText(EObject self, EObject textlist) {
     	System.out.println("00000000000000000");
     	EList<String> list = getTextListValue(self, textlist);
@@ -3297,25 +3993,49 @@ public class Services {
     }
     
     static HashMap<CompletePattern, String> loadedString = new HashMap<CompletePattern, String>();
+    /**
+     * Loads the value of a textfield of the dialog for the manipulation of a textllistparam to the variable loadedString
+     * @param self the evaluation context
+     * @param s a string
+     */
     public void loadTextListElement(EObject self, String s) {
     	System.out.println("Selection: "+s);
     	loadedString.put((CompletePattern) self, s);
     }
     
+    /**
+     * Provides the stored value in loadedString
+     * @param self the evaluation context
+     * @return the stored value
+     */
     public String getLoadedString(EObject self) {
     	System.out.println("Gelandener String: "+loadedString.get((CompletePattern) self));
     	return loadedString.get((CompletePattern) self);
     }
     
+    /**
+     * Sets the variable loadedString to the empty string
+     * @param self the evaluation context
+     */
     public void closeTextListElement(EObject self) {//das geladene TextListelement soll jetzt leer sein
     	loadedString.put((CompletePattern) self, "");
     }
     
     static HashMap<CompletePattern, EObject> oldTextList = new HashMap<CompletePattern, EObject>();
+    /**
+     * Stores before the manipulation of a textlistparam the textlistparam to restore the textlistparam
+     * @param self the evaluation context
+     * @param textlist a textlistparam
+     */
     public void storeOldTextList(EObject self, EObject textlist) {//speichert zu Beginn des Dialogs zum bearbeiten der Textlist die aktuelle Textlist, um sie bei cancel wiederherzustellen
     	oldTextList.put((CompletePattern) self, textlist);
     }
     
+    /**
+     * Restores a textlistparam
+     * @param self the evaluation context
+     * @param textlist a textlistparam
+     */
     public void restoreOldTextList(EObject self, EObject textlist) {
     	if(textlist instanceof TextListParam) {
     		TextListParam textlistparam = (TextListParam) textlist;
@@ -3327,6 +4047,11 @@ public class Services {
     }
     //Ende Textlist
     
+    /**
+     * Provides a list of all returntypes
+     * @param self the evaluation context
+     * @returna list of all returntypes
+     */
     public ArrayList<ReturnType> getTypeOptionSelectCandidates(EObject self){
     	ArrayList<ReturnType> candidates = new ArrayList<ReturnType>();
     	candidates.add(ReturnType.STRING);
@@ -3339,11 +4064,22 @@ public class Services {
     	return candidates;
     }
     
+    /**
+     * ToString of returntype
+     * @param self the evaluation context
+     * @param r a returntype
+     * @return string of a returntype
+     */
     public String getTypeOptionSelectCandidatesDisplay(EObject self, ReturnType r){
     	String s = r.toString();
     	return s;
     }
     
+    /**
+     * Provides a list of all propertykinds
+     * @param self the evaluation context
+     * @return list of all propertykinds
+     */
     public ArrayList<PropertyKind> getPropertyOptionSelectCandidates(EObject self){
     	ArrayList<PropertyKind> candidates = new ArrayList<PropertyKind>();
     	candidates.add(PropertyKind.ATTRIBUTE);
@@ -3352,11 +4088,22 @@ public class Services {
     	return candidates;
     }
     
+    /**
+     * ToString of propertykind
+     * @param self the evaluation context
+     * @param r a propertykind
+     * @return string of a propertykind
+     */
     public String getPropertyOptionSelectCandidatesDisplay(EObject self, ReturnType r){
     	String s = r.toString();
     	return s;
     }
     
+    /**
+     * Provides a list of all comparisonoperators
+     * @param self the evaluation context
+     * @returna list of all comparisonoperators
+     */
     public ArrayList<ComparisonOperator> getComparisonOptionSelectCandidates(EObject self){
     	ArrayList<ComparisonOperator> candidates = new ArrayList<ComparisonOperator>();
     	candidates.add(ComparisonOperator.EQUAL);
@@ -3368,6 +4115,11 @@ public class Services {
     	return candidates;
     }
     
+    /**
+     * Provides a list of all relationkinds
+     * @param self the evaluation context
+     * @return a list of all relationkinds
+     */
     public ArrayList<RelationKind> getRelationOptionSelectCandidates(EObject self){
     	ArrayList<RelationKind> candidates = new ArrayList<RelationKind>();
     	candidates.add(RelationKind.CHILD);
@@ -3392,6 +4144,12 @@ public class Services {
     	return candidates;
     }
     
+    /**
+     * ToString of relationkind
+     * @param self the evaluation context
+     * @param r a relationkind
+     * @return string of a relationkind
+     */
     public String getRelationOptionSelectCandidatesDisplay(EObject self, RelationKind r){
     	String s = "";
     	if(r == RelationKind.CHILD) {
@@ -3436,6 +4194,12 @@ public class Services {
     	return s;
     }
     
+    /**
+     * Provides a list of parameter types
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return a list of parameter types
+     */
     public ArrayList<String> getTypeSelectCandidates(EObject self, EObject iterator){
     	ArrayList<String> candidates = new ArrayList<String>();
     	candidates.add("TextLiteral");
@@ -3469,11 +4233,22 @@ public class Services {
     	return candidates;
     }
     
+    /**
+     * ToString of comparisonoperator
+     * @param self the evaluation context
+     * @param c a comparisonoperator
+     * @return string of a comparisonoperator
+     */
     public String getComparisonOptionSelectCandidatesDisplay(EObject self, ComparisonOperator c){
     	String s = c.toString();
     	return s;
     }
     
+    /**
+     * Determines the name of a property for the formularview
+     * @param property a property
+     * @return the name of a property in form of a string
+     */
     public String getPropertyName(Property property) {
     	return "Property" + " \"" + property.getName() + "\" (of " + "Element" + " \"" + property.getElement().getName()+"\"" + ")";
     }
@@ -3494,10 +4269,19 @@ public class Services {
     
     //untypedparametervalue
     HashMap<CompletePattern, String> newType = new HashMap<CompletePattern, String>();
+    /**
+     * Stores the new type of an untypedparametervalue
+     * @param self the evaluation context
+     * @param s the new type
+     */
     public void storeUntypedparametervalueSelect(EObject self, String s) {//speichert den ausgewählten Wert von select
     	newType.put((CompletePattern) self, s);
     }
     
+    /**
+     * Deletes the new type of an untypedparametervalue
+     * @param self the evaluation context
+     */
     public void deleteUntypedparametervalueSelect(EObject self) {//speichert den ausgewählten Wert von select
     	newType.remove((CompletePattern) self);
     }
@@ -3524,6 +4308,11 @@ public class Services {
     	deleteUntypedparametervalueSelect(self);
     }*/
     
+    /**
+     * Replaces an untypedparametervalue with a new parameter
+     * @param self the evaluation context
+     * @param object the untypedparametervalue
+     */
     public void changeTypeUntypedparametervalue(EObject self, EObject object) {
     	String type = newType.get((CompletePattern) self);
     	//UntypedParameterValue untypedparametervalue = (UntypedParameterValue) object;
@@ -3571,6 +4360,11 @@ public class Services {
     	
     }
     
+    /**
+     * Provides the new type of an untypedparametervalue
+     * @param self the evaluation context
+     * @return the new type of an untypedparametervalue
+     */
     public String untypedparametervalueSelectValueExpression(EObject self) {//speichert den ausgewählten Wert von select
     	return newType.get((CompletePattern) self);
     }
@@ -3581,6 +4375,12 @@ public class Services {
     	return isComplete;
     }
     
+    /**
+     * Checks if a modifiable parameter was exchanged
+     * @param self the evaluation context
+     * @param object a parameter
+     * @return the new parameter or null
+     */
     public EObject hasNewParameter(EObject self, EObject object) {//prüft, ob bereits ein neuer Parameter existiert, der den alten ersetzt, passiert wenn ein modifiable parameter ersetzt wird
     	HashMap<EObject, EObject> newTypeAllocation = newTypeAfterTypeChange.get((CompletePattern) self);
     	EObject newObject = null;
@@ -3590,6 +4390,12 @@ public class Services {
     	return newObject;
     }
     
+    /**
+     * Checks if the untypedparametervalue was exchanged
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if the untypedparametervalue was exchanged
+     */
     public boolean isTyped(EObject self, EObject iterator) {//prüft, ob der Knopf zum setzen des Parameterwerts klickbar sein soll
     	boolean isTyped = false;
     	if(!(iterator instanceof UntypedParameterValue)) {
@@ -3600,6 +4406,12 @@ public class Services {
     	return isTyped;
     }
     
+    /**
+     * Checks if a parameter is a modifiable textliteralparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter or its replacement is a textliteralparam
+     */
     public boolean isTextliteralModifiable(EObject self, EObject iterator) {
     	boolean isType = false;
     	EObject newParameter = hasNewParameter(self, iterator);
@@ -3611,6 +4423,12 @@ public class Services {
     	return isType;
     }
     
+    /**
+     * Checks if a parameter is a modifiable textlistparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter or its replacement is a textlistparam
+     */
     public boolean isTextlistModifiable(EObject self, EObject iterator) {
     	boolean isType = false;
     	EObject newParameter = hasNewParameter(self, iterator);
@@ -3622,6 +4440,12 @@ public class Services {
     	return isType;
     }
     
+    /**
+     * Checks if a parameter is a modifiable numberparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter or its replacement is a numberparam
+     */
     public boolean isNumberModifiable(EObject self, EObject iterator) {
     	boolean isType = false;
     	EObject newParameter = hasNewParameter(self, iterator);
@@ -3633,6 +4457,12 @@ public class Services {
     	return isType;
     }
     
+    /**
+     * Checks if a parameter is a modifiable booleanparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter or its replacement is a booleanparam
+     */
     public boolean isBooleanModifiable(EObject self, EObject iterator) {
     	boolean isType = false;
     	EObject newParameter = hasNewParameter(self, iterator);
@@ -3644,6 +4474,12 @@ public class Services {
     	return isType;
     }
     
+    /**
+     * Checks if a parameter is a modifiable dateparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter or its replacement is a dateparam
+     */
     public boolean isDateModifiable(EObject self, EObject iterator) {
     	boolean isType = false;
     	EObject newParameter = hasNewParameter(self, iterator);
@@ -3654,11 +4490,12 @@ public class Services {
     	}
     	return isType;
     }
+    
     /**
-     * 
-     * @param self
-     * @param iterator
-     * @return
+     * Checks if a parameter is a modifiable timeparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter or its replacement is a timeparam
      */
     public boolean isTimeModifiable(EObject self, EObject iterator) {
     	boolean isType = false;
@@ -3671,6 +4508,12 @@ public class Services {
     	return isType;
     }
     
+    /**
+     * Checks if a parameter is a modifiable datetimeparam
+     * @param self the evaluation context
+     * @param iterator a parameter
+     * @return Boolean if a parameter or its replacement is a datetimeparam
+     */
     public boolean isDateTimeModifiable(EObject self, EObject iterator) {
     	boolean isType = false;
     	EObject newParameter = hasNewParameter(self, iterator);
@@ -3682,6 +4525,12 @@ public class Services {
     	return isType;
     }
     
+    /**
+     * Determines the name of a property for the tool select property as parameter
+     * @param self the evaluation context
+     * @param object a property
+     * @return the name of a property for the tool select property as parameter
+     */
     public String getPropertyNameSelectPropertyContextMenu(EObject self, EObject object) {
     	String name = "Property ";
     	if(object instanceof Property) {
@@ -3692,6 +4541,11 @@ public class Services {
     	return name;
     }
     
+    /**
+     * Precondition for finalization decoration
+     * @param self the evaluation context
+     * @return Boolean i the finalization decoration will be displayed
+     */
     public boolean finalizationDecorationPrecondition(EObject self) {//dekorationen funktionieren mit completepattern nicht
     	boolean showDecoration = false;
     	if(self instanceof Graph) {
@@ -3702,6 +4556,11 @@ public class Services {
     	return showDecoration;
     }
     
+    /**
+     * Determines the name of a comparison for the concretisation view
+     * @param self the evaluation context
+     * @return the name of a comparison for the concretisation view
+     */
     public String getComparisonNameConcretePattern(EObject self) {
     	String name = "comp ";
     	if(self instanceof Comparison) {
@@ -3733,6 +4592,11 @@ public class Services {
     	return isXmlreference(self) && isElementMarked(self);
     }
     
+    /**
+     * Opens a message dialog
+     * @param message the message
+     * @param windowname the name of the window
+     */
     public void openMessageDialog(String message, String windowname) {
     	Display.getDefault().syncExec(new Runnable() {
 			public void run() {
@@ -3930,6 +4794,12 @@ public class Services {
 		return isLeapYear;
 	}
 	
+	/**
+	 * Provides suggestions of a textliteralparam
+	 * @param self the evaluation context
+	 * @param iterator a parameter
+	 * @return a list of suggestions of a textliteralparam
+	 */
 	public EList<String> getTextLiteralSuggestions(EObject self, EObject iterator) {
 		EList<String> suggestions = null;
 		if(iterator instanceof TextLiteralParam) {
@@ -3948,15 +4818,30 @@ public class Services {
 	}
 	
 	HashMap<CompletePattern, String> suggestionsEmptyNote = new HashMap<CompletePattern, String>();
+	/**
+	 * Provides the suggestion note of the dialog
+	 * @param self the evaluation context
+	 * @return the suggestion note of the dialog
+	 */
 	public String getSuggestionsNote(EObject self) {
 		String note = suggestionsEmptyNote.get((CompletePattern) self);
 		return note;
 	}
 	
+	/**
+	 * Sets the suggestion note to a given string
+	 * @param self the evaluation context
+	 * @param s the string
+	 */
 	public void setSuggestionsNote(EObject self, String s) {
 		suggestionsEmptyNote.put((CompletePattern) self, s);
 	}
 	
+	/**
+	 * Sets the suggestion to a textliteralparam
+	 * @param self the evaluation context
+	 * @param iterator a parameter
+	 */
 	public void setSuggestionToText(EObject self, EObject iterator) {
 		if(iterator instanceof TextLiteralParam) {
 			TextLiteralParam textliteral = (TextLiteralParam) iterator;
@@ -3965,10 +4850,21 @@ public class Services {
 	}
 	
 	HashMap<CompletePattern, String> suggestionsSelection = new HashMap<CompletePattern, String>();
+	/**
+	 * Stores the selected sugestion
+	 * @param self the evaluation context
+	 * @param s the suggestion
+	 */
 	public void setSuggestionSelection(EObject self, String s) {
 		suggestionsSelection.put((CompletePattern) self, s);
 	}
 	
+	/**
+	 * Runs if a suggestion is selected
+	 * @param self the evaluation context
+	 * @param iterator a textliteralparam
+	 * @param s a suggestion
+	 */
 	public void suggestionSelection(EObject self, EObject iterator, String s) {
 		setSuggestionsNote(self, "");
 		setSuggestionSelection(self, s);
@@ -3976,6 +4872,12 @@ public class Services {
 	}
 	
 	HashMap<CompletePattern, Element> relationFirstElement = new HashMap<CompletePattern, Element>();
+	/**
+	 * Precondition of the relation creation tool, first element
+	 * @param self the evaluation context
+	 * @param source an element
+	 * @return Boolean if source is an element
+	 */
 	public boolean relationStartPrecondition(EObject self, EObject source) {
 		boolean isElement = false;
 		if(source instanceof Element) {
@@ -3986,6 +4888,12 @@ public class Services {
 		return isElement;
 	}
 	
+	/**
+	 * Precondition of the relation creation tool, second element
+	 * @param self the evaluation context
+	 * @param target an element
+	 * @return Boolean if the target is in the same garph as source
+	 */
 	public boolean relationCompletePrecondition(EObject self, EObject target) {
 		boolean sameGraph = false;
 		if(target instanceof Element) {
@@ -3998,6 +4906,11 @@ public class Services {
 		return sameGraph;
 	}
 	
+	/**
+	 * Determines the name of a match for the concretisation view
+	 * @param self the evaluation context
+	 * @return the name of a match for the concretisation view
+	 */
 	public String matchName(EObject self) {//für Ansicht zur Konkretisierung
 		String s = "Match ";
 		if(self instanceof Match) {
@@ -4010,6 +4923,11 @@ public class Services {
 		return s;
 	}
 	
+	/**
+	 * Determines the name of a countcondition for the concretisation view
+	 * @param self the evaluation context
+	 * @return the name of a countcondition for the concretisation view
+	 */
 	public String countConditionName(EObject self) {//für Ansicht zur Konkretisierung
 		String s = "CountCondition ";
 		if(self instanceof CountCondition) {
@@ -4019,18 +4937,30 @@ public class Services {
 		return s;
 	}
 	
+	/**
+	 * Determines the name of a numberelement
+	 * @param self the evaluation context
+	 * @param s flag if the name is for the concretisation view
+	 * @return the name of a numberelement
+	 */
 	public String numberElementName(EObject self, String s) {//für Ansicht zur Konkretisierung
 		String name = "Number ";
 		if(self instanceof NumberElement) {
 			NumberElement numberElement = (NumberElement) self;
 			name = name + numberElement.getNumberParam().getInternalId();
 			if(s.equals("concrete")) {
-				name = name + ": " + numberElement.getNumberParam().getValue();
+				name = name + ": " + numberElement.getNumberParam().getValue() + numberElement.getCountCondition2().getOption();
 			}
 		}
 		return name;
 	}
 	
+	/**
+	 * Checks if the propertyoption of a textliteralparam of a xmlproperty is attribute
+	 * @param self the evaluation context
+	 * @param iterator a parameter
+	 * @return Boolean if the propertyoption of a textliteralparam of a xmlproperty is attribute
+	 */
 	public boolean textLiteralTextEnabledExpression(EObject self, EObject iterator) {//Das Textliteral einer XmlProperty soll nur funktionieren, falls in ihrer PropertyOption Attribut eingestellt ist
 		boolean enabled = true;
 		if(iterator instanceof TextLiteralParam) {
@@ -4060,6 +4990,11 @@ public class Services {
 		}
 	}
 	
+	/**
+	 * Provides messages if a pattern is valid generic
+	 * @param self the evaluation context
+	 * @return a message if a pattern is valid generic
+	 */
 	public String validityCheckGenericPatternString(EObject self){
 		String s = "";
 		if(self instanceof CompletePattern) {
@@ -4074,6 +5009,11 @@ public class Services {
 		return s;
 	}
 	
+	/**
+	 * Provides messages if a pattern is valid abstract
+	 * @param self the evaluation context
+	 * @return a message if a pattern is valid abstract
+	 */
 	public String validityCheckAbstractPatternString(EObject self){
 		String s = "";
 		if(self instanceof CompletePattern) {
@@ -4088,6 +5028,11 @@ public class Services {
 		return s;
 	}
 	
+	/**
+	 * Provides messages if a pattern is valid concrete
+	 * @param self the evaluation context
+	 * @return a message if a pattern is valid concrete
+	 */
 	public String validityCheckConcretePatternString(EObject self){
 		String s = "";
 		if(self instanceof CompletePattern) {
@@ -4102,6 +5047,11 @@ public class Services {
 		return s;
 	}
 	
+	/**
+	 * Determines the name of a xmlnavigation
+	 * @param self the evaluation context
+	 * @return the name of a xmlnavigation
+	 */
 	public String xmlNavigationName(EObject self) {
 		String name = "XmlNavigation ";
 		if(self instanceof XmlNavigation) {
@@ -4111,6 +5061,11 @@ public class Services {
 		 return name;
 	}
 	
+	/**
+	 * Checks if an object is a relation
+	 * @param self the evaluation context
+	 * @return Boolean if an object is a relation
+	 */
 	public Boolean isRelation(EObject self) {
 		Boolean isRelation = false;
 		if(self instanceof Relation) {
@@ -4119,13 +5074,19 @@ public class Services {
 		return isRelation;
 	}
 	
+	/**
+	 * Checks the validity of a pattern in relation of a given state
+	 * @param self the evaluation context
+	 * @param s the state of the pattern
+	 * @return Boolean if a pattern is valid in relation of a given state
+	 */
 	public boolean validityCheck(EObject self, String s) {
 		boolean isValide = false;
 		if (self instanceof CompletePattern) {
 			CompletePattern pattern = (CompletePattern) self;
 			if (s.equals("generic")) {
 				try {
-					pattern.isValid(AbstractionLevel.GENERIC);
+					pattern.isValid(AbstractionLevel.SEMI_GENERIC);
 					isValide = true;
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -4133,15 +5094,20 @@ public class Services {
 				}
 			} else if (s.equals("abstract")) {
 				try {
-					pattern.isValid(AbstractionLevel.GENERIC);
-					isValide = true;
+					pattern.isValid(AbstractionLevel.SEMI_ABSTRACT);
+					try {
+						pattern.isValid(AbstractionLevel.ABSTRACT);
+						isValide = true;
+					} catch (Exception e) {
+						isValide = true;
+					}
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			} else if (s.equals("concrete")) {
 				try {
-					pattern.isValid(AbstractionLevel.ABSTRACT);
+					pattern.isValid(AbstractionLevel.SEMI_CONCRETE);
 					isValide = true;
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -4152,6 +5118,12 @@ public class Services {
 		return isValide;
 	}
 	
+	/**
+	 * Determines if an empty label will be displayed
+	 * @param self the evaluation context
+	 * @param i a parameter
+	 * @return Boolean if an empty label will be displayed
+	 */
 	public boolean emptylabel(EObject self, EObject i) {// falls typeoptionparam nicht von einem comparison ist, das zwei elemente vergleicht, wird es nicht in der formularansicht angezeigt, dann soll auch das leere label nicht angezeigt werden
 		boolean set = true;
 		if(i instanceof TypeOptionParam) {
@@ -4164,5 +5136,136 @@ public class Services {
 		}
 		System.out.println("Parameter: " + i);
 		return set;
+	}
+	
+	static HashMap<CompletePattern, String> datapaths = new HashMap<CompletePattern, String>();
+	static HashMap<CompletePattern, String> dataschemas = new HashMap<CompletePattern, String>();
+	static HashMap<CompletePattern, String> databaseName = new HashMap<CompletePattern, String>();
+	
+	/**
+	 * Stores a datapath
+	 * @param self the evaluation context
+	 * @param datapath a datapath
+	 */
+	public void setDatapath(EObject self, String datapath) {
+		if(self instanceof CompletePattern) {
+			CompletePattern pattern = (CompletePattern) self;
+			datapaths.put(pattern, datapath);
+		}
+	}
+	
+	/**
+	 * Provides a datapath
+	 * @param self the evaluation context
+	 * @return a datapath
+	 */
+	public String getDatapath(EObject self) {
+		String returndatapath = "";
+		if(self instanceof CompletePattern) {
+			CompletePattern pattern = (CompletePattern) self;
+			returndatapath = datapaths.get(pattern);
+		}
+		return returndatapath;
+	}
+	
+	/**
+	 * Stores a dataschema
+	 * @param self the evaluation context
+	 * @param dataschema a dataschema
+	 */
+	public void setDataschema(EObject self, String dataschema) {
+		if(self instanceof CompletePattern) {
+			CompletePattern pattern = (CompletePattern) self;
+			dataschemas.put(pattern, dataschema);
+		}
+	}
+	
+	/**
+	 * Provides a dataschema
+	 * @param self the evaluation context
+	 * @return a dataschema
+	 */
+	public String getDataschema(EObject self) {
+		String returndataschema = "";
+		if(self instanceof CompletePattern) {
+			CompletePattern pattern = (CompletePattern) self;
+			returndataschema = dataschemas.get(pattern);
+		}
+		return returndataschema;
+	}
+	
+	/**
+	 * Stores a databasename
+	 * @param self the evaluation context
+	 * @param name a databasename
+	 */
+	public void setDatabaseName(EObject self, String name) {
+		if(self instanceof CompletePattern) {
+			CompletePattern pattern = (CompletePattern) self;
+			databaseName.put(pattern, name);
+		}
+	}
+	
+	/**
+	 * Provides a databasename
+	 * @param self the evaluation context
+	 * @return a databasename
+	 */
+	public String getDatabaseName(EObject self) {
+		String returndatabaseName = "";
+		if(self instanceof CompletePattern) {
+			CompletePattern pattern = (CompletePattern) self;
+			returndatabaseName = databaseName.get(pattern);
+		}
+		return returndatabaseName;
+	}
+	
+	/**
+	 * Sets a database of a apttern
+	 * @param self the evaluation context
+	 */
+	public void setDatabase(EObject self) {
+		LocalXmlDataDatabase dataDatabase = new LocalXmlDataDatabaseImpl(getDatabaseName(self), getDatapath(self));
+		DatabasesImpl.getInstance().getXmlDatabases().add(dataDatabase);
+		
+		// TODO: check if schema database already exists				
+		String schemaPath = getDataschema(self);
+		if(schemaPath != null) {
+			String[] split = schemaPath.split(java.util.regex.Pattern.quote(File.separator));
+			String schemaDatabaseName = split[split.length-1]; // TODO: improve
+			LocalXmlSchemaDatabase schemaDatabase = new LocalXmlSchemaDatabaseImpl(schemaDatabaseName, schemaPath);		
+			DatabasesImpl.getInstance().getXmlSchemata().add(schemaDatabase);
+			dataDatabase.setXmlSchema(schemaDatabase);
+		}
+			
+		try {
+			dataDatabase.init();
+			CompletePattern pattern = (CompletePattern) self;
+			pattern.setDatabase(dataDatabase);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Opens a filedialog to select a datapath or a dataschema
+	 * @param self the evaluation context
+	 * @param s datapath or dataschema
+	 */
+	public void openFileDialog(EObject self, String s) {
+		FileDialog fileDialog = new FileDialog(new Shell(), SWT.OPEN);
+		fileDialog.setText("Open");
+		if(s.equals("DataPath")) {
+			fileDialog.setFilterExtensions(new String [] {"*.xml"});
+		}else if(s.equals("DataSchema")){
+			fileDialog.setFilterExtensions(new String [] {"*.xsd"});
+		}
+		String filePath = fileDialog.open();
+		if(s.equals("DataPath")) {
+			setDatapath(self, filePath);
+		}else if(s.equals("DataSchema")){
+			setDataschema(self, filePath);
+		}
 	}
 }
