@@ -314,13 +314,7 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		}
 		if(!(this instanceof XmlElement) && !(this instanceof XmlRoot)) {
 			XmlElement xmlElement = new XmlElementImpl();
-			xmlElement.setGraphSimple(getGraph());	
-			
-			if(getName().matches("Element [0-9]+")) {
-				xmlElement.setName(getName().replace("Element", "XmlElement"));
-			} else {
-				xmlElement.setName(getName());
-			}
+			xmlElement.setGraphSimple(getGraph());				
 			
 			xmlElement.setResultOf(getResultOf());
 			
@@ -331,6 +325,12 @@ public class ElementImpl extends PatternElementImpl implements Element {
 			getOutgoingMappings().clear();
 			xmlElement.setIncomingMapping(getIncomingMapping());
 			setIncomingMapping(null);
+			
+			if(getName().matches("Element [0-9]+")) {
+				xmlElement.setName(getName().replace("Element", "XmlElement"));
+			} else {
+				xmlElement.setName(getName());
+			}
 			
 			setResultOf(null);
 			
