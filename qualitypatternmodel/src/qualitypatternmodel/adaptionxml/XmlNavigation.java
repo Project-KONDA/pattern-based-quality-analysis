@@ -47,4 +47,12 @@ public interface XmlNavigation extends Relation {
 	 */
 	void setOption(RelationOptionParam value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	RelationOptionParam getOriginalOption();
+
 } // XMLNavigation

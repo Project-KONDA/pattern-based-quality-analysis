@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import static qualitypatternmodel.utility.Constants.EVERY;
 import static qualitypatternmodel.utility.Constants.FOR;
 import static qualitypatternmodel.utility.Constants.IN;
@@ -25,6 +26,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -337,6 +339,26 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public RelationOptionParam getOriginalOption() {
+		if (incomingMapping == null) {
+			return this.getOption();
+		} else {
+			Relation mappingSource = incomingMapping.getSource();
+			if(mappingSource instanceof XmlNavigation) {
+				XmlNavigation prev = (XmlNavigation) mappingSource;
+				return prev.getOriginalOption();
+			}			
+		}
+		return null;		
+			
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -421,6 +443,20 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 				return option != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case AdaptionxmlPackage.XML_NAVIGATION___GET_ORIGINAL_OPTION:
+				return getOriginalOption();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	@Override

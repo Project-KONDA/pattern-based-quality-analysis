@@ -624,6 +624,7 @@
       <eOperations name="getTagComparisons" upperBound="-1" eType="#//operators/Comparison"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlNavigation" eSuperTypes="#//graphstructure/Relation">
+      <eOperations name="getOriginalOption" eType="#//parameters/RelationOptionParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/RelationOptionParam"
           eOpposite="#//parameters/RelationOptionParam/relations"/>
     </eClassifiers>

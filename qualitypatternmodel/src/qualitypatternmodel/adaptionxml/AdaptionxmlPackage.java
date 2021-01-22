@@ -936,13 +936,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___GET_ORIGINAL_ID = GraphstructurePackage.RELATION___GET_ORIGINAL_ID;
 
 	/**
+	 * The operation id for the '<em>Get Original Option</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___GET_ORIGINAL_OPTION = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Xml Navigation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
+	int XML_NAVIGATION_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl <em>Xml Reference</em>}' class.
@@ -2281,6 +2290,16 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlNavigation_Option();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getOriginalOption() <em>Get Original Option</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Original Option</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlNavigation#getOriginalOption()
+	 * @generated
+	 */
+	EOperation getXmlNavigation__GetOriginalOption();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlReference <em>Xml Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2499,6 +2518,14 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference XML_NAVIGATION__OPTION = eINSTANCE.getXmlNavigation_Option();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Original Option</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_NAVIGATION___GET_ORIGINAL_OPTION = eINSTANCE.getXmlNavigation__GetOriginalOption();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl <em>Xml Reference</em>}' class.
