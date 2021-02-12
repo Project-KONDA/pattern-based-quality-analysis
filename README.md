@@ -12,14 +12,13 @@ This approach is based on the observation of a dynamic digitalisation (resulting
 
 The approach is described in detail in the research paper "[Detecting Quality Problems in Research Data: A Model-Driven Approach](https://dl.acm.org/doi/10.1145/3365438.3410987)", published in the [proceedings](https://dl.acm.org/doi/proceedings/10.1145/3417990) of the conference "[MODELS2020](http://www.modelsconference.org)".
 
-+ GUI in development?
 
 ![Component Diagram](readme_images/component_diagram.png)
 
 
-This diagram gives an overview of the components and their interfaces of the proof-of-concept implementation.
+This diagram gives an overview of the components and their interfaces.
 The implementation includes a metamodel for the patterns, a pattern execution system and a front-end.
-In accordance with the discussed workflow, the tool, first of all, allows creating generic patterns via a Sirius modelling workbench.
+In accordance with the outlined workflow, the tool, first of all, allows creating generic patterns via a Sirius modelling workbench.
 It contains a set of predefined generic example patterns for detecting typical data quality problems.
 The tool further supports the semi-automatic adaption of generic patterns to XML via the modelling view.
 The concretisation of an XML-adapted abstract pattern can be achieved by specifying the pattern’s parameters in a form-based view.
@@ -32,9 +31,9 @@ The result of the pattern application is presented to the user via the report vi
 
 * [Eclipse](https://www.eclipse.org/ide/)
 * [Eclipse Modelling Framework](https://www.eclipse.org/modeling/emf/)
+* [Eclipse Sirius](https://www.eclipse.org/sirius/)
 * [XQuery](https://www.w3.org/XML/Query/)
 * [BaseX](https://basex.org)
-* [Eclipse Sirius](https://www.eclipse.org/sirius/)
 
 
 ## Installation
@@ -43,7 +42,7 @@ Prerequisites:
 
 * Eclipse 4.12.0
 * Eclipse Modeling Framework 2.18.0
-* (Eclipse Sirius 6.2)
+* Eclipse Sirius 6.2
 * JUnit 5
 * Eclipse OCL (OCL Classic SDK 5.9.0 and OCL Examples and Editors SDK 6.8.0)
 
@@ -104,7 +103,7 @@ In general, our patterns consist of two parts: a context graph and a condition.
 The context graph defines the elements that the pattern is searching for.
 Ultimately, these elements are selected by the pattern if they satisfy the condition, which is a first-order logic expression over graphs.
 The depicted concrete pattern searches for XML elements with the name ```demo:architect```.
-They are selected if they contain an XML element with the name ```demo:birthyear``` that has a data value greater than ```2020```.
+They are selected if they contain an XML element with the name ```demo:birthyear``` that has a data value greater than ```2021```.
 
 
 
@@ -153,6 +152,7 @@ As the graph shows, the pattern detects ```demo:building``` elements that contai
 
 * Arno Kesper - [arno.kesper@uni-marburg.de](mailto:arno.kesper@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
 * Viola Wenz - [viola.wenz@uni-marburg.de](mailto:viola.wenz@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
+* Lukas Tympel - [tympel@students.uni-marburg.de](mailto:tympel@students.uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
 * Gabriele Taentzer - [taentzer@uni-marburg.de](mailto:taentzer@uni-marburg.de?subject=[GitHub]%20Quality%20Pattern%20Model)
 
 This work emerged from the research project "[KONDA](https://zenodo.org/communities/konda-project)". 
