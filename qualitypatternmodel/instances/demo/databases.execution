@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <execution:Databases xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:execution="execution">
-  <xmlDatabases xsi:type="execution:LocalXmlDataDatabase" name="DemoDatabase" namespace="demo:" context="org.basex.core.Context@655ef322" patterns="_3ze3AB3HEeubIo_GLUT43Q _3z7i8R3HEeubIo_GLUT43Q _3z-mSh3HEeubIo_GLUT43Q" xmlSchema="//@xmlSchemata.0" dataPath="demo.data/demo_database.xml">
+  <xmlDatabases xsi:type="execution:LocalXmlDataDatabase" name="demo_database" namespace="demo:" patterns="_u6IakG0BEeu3iaLoR9uiaA _u6aHZG0BEeu3iaLoR9uiaA _u6cjr20BEeu3iaLoR9uiaA" xmlSchema="//@xmlSchemata.0" dataPath="demo.data/demo_database.xml">
     <elementNames key="data" value="0"/>
     <elementNames key="building" value="0"/>
     <elementNames key="painting" value="0"/>
@@ -24,7 +24,7 @@
     <attributeNames key="last-modified-time" value="0"/>
     <attributeNames key="lang" value="0"/>
   </xmlDatabases>
-  <xmlSchemata xsi:type="execution:LocalXmlSchemaDatabase" name="DemoSchema" namespace="demo:" context="org.basex.core.Context@1a9c38eb" xmlDatabases="//@xmlDatabases.0" schemaPath="demo.data/demo_database_schema.xsd">
+  <xmlSchemata xsi:type="execution:LocalXmlSchemaDatabase" name="demo_database_schema" namespace="demo:" xmlDatabases="//@xmlDatabases.0" schemaPath="demo.data/demo_database_schema.xsd">
     <elementNames>data</elementNames>
     <elementNames>building</elementNames>
     <elementNames>painting</elementNames>
@@ -47,5 +47,6 @@
     <attributeNames>last-modified-date</attributeNames>
     <attributeNames>last-modified-time</attributeNames>
     <attributeNames>lang</attributeNames>
+    <rootElementNames>data</rootElementNames>
   </xmlSchemata>
 </execution:Databases>
