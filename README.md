@@ -26,6 +26,9 @@ Finally, a concrete pattern is automatically translated into XQuery.
 The execution system allows the application to a chosen XML database via the query processor BaseX.
 The result of the pattern application is presented to the user via the report view.
 
+The metamodel and pattern execution system are implemented in the project called ```qualitypatternmodel```.
+The graphical user interface is implemented in the project called ```patterncreation.project.design```.
+
 
 ## Built With
 
