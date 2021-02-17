@@ -162,4 +162,4 @@ This work emerged from the research project "[KONDA](https://zenodo.org/communit
 
 ## License
 
-???
+GNU Lesser General Public License v3.0
