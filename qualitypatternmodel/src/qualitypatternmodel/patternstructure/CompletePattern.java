@@ -2,11 +2,13 @@
  */
 package qualitypatternmodel.patternstructure;
 
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.textrepresentation.PatternText;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +31,7 @@ import qualitypatternmodel.parameters.ParameterList;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getParameterCounter <em>Parameter Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getOperatorCounter <em>Operator Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getCounter <em>Counter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getText <em>Text</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern()
@@ -290,6 +293,20 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	void setCounter(Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Text</b></em>' containment reference list.
+	 * The list contents are of type {@link qualitypatternmodel.textrepresentation.PatternText}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.textrepresentation.PatternText#getPattern <em>Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Text</em>' containment reference list.
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_Text()
+	 * @see qualitypatternmodel.textrepresentation.PatternText#getPattern
+	 * @model opposite="pattern" containment="true"
+	 * @generated
+	 */
+	EList<PatternText> getText();
 
 	/**
 	 * <!-- begin-user-doc -->

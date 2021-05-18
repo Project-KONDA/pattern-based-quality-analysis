@@ -5,6 +5,7 @@ package qualitypatternmodel.patternstructure.impl;
 import static qualitypatternmodel.utility.Constants.*;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -12,6 +13,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -33,6 +36,8 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.textrepresentation.PatternText;
+import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -52,6 +57,7 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getParameterCounter <em>Parameter Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getOperatorCounter <em>Operator Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getCounter <em>Counter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getText <em>Text</em>}</li>
  * </ul>
  *
  * @generated
@@ -271,6 +277,16 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @ordered
 	 */
 	protected Integer counter = COUNTER_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getText()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<PatternText> text;
 
 	//	protected int[] elementCounter = {1,1,1,1,1,1};
 
@@ -780,9 +796,24 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<PatternText> getText() {
+		if (text == null) {
+			text = new EObjectContainmentWithInverseEList<PatternText>(PatternText.class, this, PatternstructurePackage.COMPLETE_PATTERN__TEXT, TextrepresentationPackage.PATTERN_TEXT__PATTERN);
+		}
+		return text;
+	}
+
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -794,6 +825,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				if (database != null)
 					msgs = ((InternalEObject)database).eInverseRemove(this, ExecutionPackage.DATABASE__PATTERNS, Database.class, msgs);
 				return basicSetDatabase((Database)otherEnd, msgs);
+			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getText()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -809,6 +842,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return basicSetParameterList(null, msgs);
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				return basicSetDatabase(null, msgs);
+			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
+				return ((InternalEList<?>)getText()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -843,6 +878,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return getOperatorCounter();
 			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
 				return getCounter();
+			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
+				return getText();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -888,6 +925,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
 				setCounter((Integer)newValue);
 				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
+				getText().clear();
+				getText().addAll((Collection<? extends PatternText>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -932,6 +973,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
 				setCounter(COUNTER_EDEFAULT);
 				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
+				getText().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -965,6 +1009,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return OPERATOR_COUNTER_EDEFAULT == null ? operatorCounter != null : !OPERATOR_COUNTER_EDEFAULT.equals(operatorCounter);
 			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
 				return COUNTER_EDEFAULT == null ? counter != null : !COUNTER_EDEFAULT.equals(counter);
+			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
+				return text != null && !text.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

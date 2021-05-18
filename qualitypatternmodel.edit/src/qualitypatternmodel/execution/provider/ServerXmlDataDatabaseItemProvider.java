@@ -82,7 +82,6 @@ public class ServerXmlDataDatabaseItemProvider extends XmlDataDatabaseItemProvid
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

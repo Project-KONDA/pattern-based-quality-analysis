@@ -15,7 +15,8 @@ Export-Package: qualitypatternmodel.adaptionxml.presentation,
  qualitypatternmodel.graphstructure.presentation,
  qualitypatternmodel.operators.presentation,
  qualitypatternmodel.parameters.presentation,
- qualitypatternmodel.patternstructure.presentation
+ qualitypatternmodel.patternstructure.presentation,
+ qualitypatternmodel.textrepresentation.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  qualitypatternmodel.edit;visibility:=reexport,

@@ -15,7 +15,8 @@ Export-Package: qualitypatternmodel.adaptionxml.provider,
  qualitypatternmodel.graphstructure.provider,
  qualitypatternmodel.operators.provider,
  qualitypatternmodel.parameters.provider,
- qualitypatternmodel.patternstructure.provider
+ qualitypatternmodel.patternstructure.provider,
+ qualitypatternmodel.textrepresentation.provider
 Require-Bundle: org.eclipse.core.runtime,
  qualitypatternmodel;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport

@@ -32,6 +32,8 @@ import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 import qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl;
+import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -147,6 +149,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		AdaptionxmlPackageImpl theAdaptionxmlPackage = (AdaptionxmlPackageImpl)(registeredPackage instanceof AdaptionxmlPackageImpl ? registeredPackage : AdaptionxmlPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExecutionPackage.eNS_URI);
 		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl)(registeredPackage instanceof ExecutionPackageImpl ? registeredPackage : ExecutionPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TextrepresentationPackage.eNS_URI);
+		TextrepresentationPackageImpl theTextrepresentationPackage = (TextrepresentationPackageImpl)(registeredPackage instanceof TextrepresentationPackageImpl ? registeredPackage : TextrepresentationPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theGraphstructurePackage.createPackageContents();
@@ -155,6 +159,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		thePatternstructurePackage.createPackageContents();
 		theAdaptionxmlPackage.createPackageContents();
 		theExecutionPackage.createPackageContents();
+		theTextrepresentationPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theGraphstructurePackage.initializePackageContents();
@@ -163,6 +168,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		thePatternstructurePackage.initializePackageContents();
 		theAdaptionxmlPackage.initializePackageContents();
 		theExecutionPackage.initializePackageContents();
+		theTextrepresentationPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put

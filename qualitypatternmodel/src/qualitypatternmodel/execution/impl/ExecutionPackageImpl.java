@@ -48,6 +48,8 @@ import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 import qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl;
+import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -226,6 +228,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		PatternstructurePackageImpl thePatternstructurePackage = (PatternstructurePackageImpl)(registeredPackage instanceof PatternstructurePackageImpl ? registeredPackage : PatternstructurePackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdaptionxmlPackage.eNS_URI);
 		AdaptionxmlPackageImpl theAdaptionxmlPackage = (AdaptionxmlPackageImpl)(registeredPackage instanceof AdaptionxmlPackageImpl ? registeredPackage : AdaptionxmlPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TextrepresentationPackage.eNS_URI);
+		TextrepresentationPackageImpl theTextrepresentationPackage = (TextrepresentationPackageImpl)(registeredPackage instanceof TextrepresentationPackageImpl ? registeredPackage : TextrepresentationPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theExecutionPackage.createPackageContents();
@@ -234,6 +238,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		theGraphstructurePackage.createPackageContents();
 		thePatternstructurePackage.createPackageContents();
 		theAdaptionxmlPackage.createPackageContents();
+		theTextrepresentationPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theExecutionPackage.initializePackageContents();
@@ -242,6 +247,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		theGraphstructurePackage.initializePackageContents();
 		thePatternstructurePackage.initializePackageContents();
 		theAdaptionxmlPackage.initializePackageContents();
+		theTextrepresentationPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theExecutionPackage.freeze();

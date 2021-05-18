@@ -11,6 +11,7 @@ import qualitypatternmodel.execution.tests.ExecutionTests;
 import qualitypatternmodel.graphstructure.tests.GraphstructureTests;
 import qualitypatternmodel.operators.tests.OperatorsTests;
 import qualitypatternmodel.patternstructure.tests.PatternstructureTests;
+import qualitypatternmodel.textrepresentation.tests.TextrepresentationTests;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,6 +43,7 @@ public class QualitypatternmodelAllTests extends TestSuite {
 		suite.addTest(PatternstructureTests.suite());
 		suite.addTest(AdaptionxmlTests.suite());
 		suite.addTest(ExecutionTests.suite());
+		suite.addTest(TextrepresentationTests.suite());
 		return suite;
 	}
 

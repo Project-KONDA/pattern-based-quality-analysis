@@ -41,6 +41,8 @@ import qualitypatternmodel.parameters.impl.ParametersPackageImpl;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 import qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl;
+import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -163,6 +165,8 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		AdaptionxmlPackageImpl theAdaptionxmlPackage = (AdaptionxmlPackageImpl)(registeredPackage instanceof AdaptionxmlPackageImpl ? registeredPackage : AdaptionxmlPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExecutionPackage.eNS_URI);
 		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl)(registeredPackage instanceof ExecutionPackageImpl ? registeredPackage : ExecutionPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TextrepresentationPackage.eNS_URI);
+		TextrepresentationPackageImpl theTextrepresentationPackage = (TextrepresentationPackageImpl)(registeredPackage instanceof TextrepresentationPackageImpl ? registeredPackage : TextrepresentationPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theOperatorsPackage.createPackageContents();
@@ -171,6 +175,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		thePatternstructurePackage.createPackageContents();
 		theAdaptionxmlPackage.createPackageContents();
 		theExecutionPackage.createPackageContents();
+		theTextrepresentationPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theOperatorsPackage.initializePackageContents();
@@ -179,6 +184,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		thePatternstructurePackage.initializePackageContents();
 		theAdaptionxmlPackage.initializePackageContents();
 		theExecutionPackage.initializePackageContents();
+		theTextrepresentationPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put

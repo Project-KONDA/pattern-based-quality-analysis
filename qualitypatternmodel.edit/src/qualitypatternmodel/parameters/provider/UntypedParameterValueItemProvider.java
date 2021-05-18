@@ -76,7 +76,6 @@ public class UntypedParameterValueItemProvider extends ParameterValueItemProvide
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

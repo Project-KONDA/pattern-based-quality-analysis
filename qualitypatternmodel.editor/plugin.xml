@@ -174,4 +174,32 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated qualitypatternmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="qualitypatternmodel.textrepresentation.presentation.TextrepresentationModelWizardID"
+            name="%_UI_TextrepresentationModelWizard_label"
+            class="qualitypatternmodel.textrepresentation.presentation.TextrepresentationModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TextrepresentationModelFile.gif">
+         <description>%_UI_TextrepresentationModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated qualitypatternmodel -->
+      <editor
+            id="qualitypatternmodel.textrepresentation.presentation.TextrepresentationEditorID"
+            name="%_UI_TextrepresentationEditor_label"
+            icon="icons/full/obj16/TextrepresentationModelFile.gif"
+            extensions="textrepresentation"
+            class="qualitypatternmodel.textrepresentation.presentation.TextrepresentationEditor"
+            contributorClass="qualitypatternmodel.textrepresentation.presentation.TextrepresentationActionBarContributor">
+      </editor>
+   </extension>
+
 </plugin>

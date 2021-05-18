@@ -13,7 +13,8 @@ Export-Package: qualitypatternmodel.adaptionxml.tests,
  qualitypatternmodel.graphstructure.tests,
  qualitypatternmodel.operators.tests,
  qualitypatternmodel.parameters.tests,
- qualitypatternmodel.patternstructure.tests
+ qualitypatternmodel.patternstructure.tests,
+ qualitypatternmodel.textrepresentation.tests
 Require-Bundle: org.eclipse.core.runtime,
  qualitypatternmodel;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,

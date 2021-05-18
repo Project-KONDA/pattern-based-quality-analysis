@@ -17,6 +17,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.patternstructure.CompletePattern} object.
@@ -286,6 +287,7 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(PatternstructurePackage.Literals.COMPLETE_PATTERN__PARAMETER_LIST);
+			childrenFeatures.add(PatternstructurePackage.Literals.COMPLETE_PATTERN__TEXT);
 		}
 		return childrenFeatures;
 	}
@@ -355,6 +357,7 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:
+			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -376,6 +379,11 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 			(createChildParameter
 				(PatternstructurePackage.Literals.COMPLETE_PATTERN__PARAMETER_LIST,
 				 ParametersFactory.eINSTANCE.createParameterList()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PatternstructurePackage.Literals.COMPLETE_PATTERN__TEXT,
+				 TextrepresentationFactory.eINSTANCE.createPatternText()));
 	}
 
 }
