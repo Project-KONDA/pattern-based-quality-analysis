@@ -23,6 +23,7 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/Parameter/validate/context"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/isUsed"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/getValueAsString"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/ComparisonOptionParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/ComparisonOptionParam/options"/>
@@ -739,6 +740,7 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/PatternText">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/pattern"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/textfragment"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/generateJSON"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -748,7 +750,10 @@
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getType"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//textrepresentation/Fragment"/>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//textrepresentation/Fragment">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/Fragment/patternText"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/Fragment/generateJSON"/>
+      </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/TextFragment">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/TextFragment/text"/>
       </genClasses>

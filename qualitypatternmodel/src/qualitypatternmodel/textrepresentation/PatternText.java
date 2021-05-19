@@ -53,13 +53,23 @@ public interface PatternText extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Textfragment</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.textrepresentation.Fragment}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.textrepresentation.Fragment#getPatternText <em>Pattern Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Textfragment</em>' containment reference list.
 	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getPatternText_Textfragment()
-	 * @model containment="true" required="true"
+	 * @see qualitypatternmodel.textrepresentation.Fragment#getPatternText
+	 * @model opposite="patternText" containment="true" required="true"
 	 * @generated
 	 */
 	EList<Fragment> getTextfragment();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String generateJSON();
 
 } // PatternText

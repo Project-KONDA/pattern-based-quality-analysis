@@ -144,6 +144,11 @@ public class TextFragmentImpl extends FragmentImpl implements TextFragment {
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	@Override
+	public String generateJSON() {
+		return '"' + getText() + '"';
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

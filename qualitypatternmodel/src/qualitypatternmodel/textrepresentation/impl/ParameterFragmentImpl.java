@@ -10,7 +10,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -169,6 +168,21 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			}
 		}
 		
+	}
+	
+	@Override
+	public String generateJSON() {
+		String patternName = getPatternText().getPattern().getName();
+		int parameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(getParameter());
+		String url = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(parameterID);
+		String value = getParameter().getValueAsString();
+		String type = getParameter().getClass().toString();
+		String json = "{\"URL\": \"" + url + "\", \"Type\": \"" + type + "\"";
+		if(value != null) {
+			json += ", \"Value\": \"" + value + "\"";
+		}
+		json += "}";
+		return json;
 	}
 
 	/**

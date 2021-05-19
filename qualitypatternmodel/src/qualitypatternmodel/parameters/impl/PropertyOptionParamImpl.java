@@ -102,6 +102,11 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	}
 	
 	@Override
+	public String getValueAsString() {
+		return getValue().toString();
+	}
+	
+	@Override
 	public String generateQuery() throws InvalidityException {
 		return getValue().getLiteral();
 	}

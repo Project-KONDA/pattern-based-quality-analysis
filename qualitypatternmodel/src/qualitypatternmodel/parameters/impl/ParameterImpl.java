@@ -229,6 +229,18 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getValueAsString() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -358,6 +370,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				return generateDescription();
 			case ParametersPackage.PARAMETER___IS_USED:
 				return isUsed();
+			case ParametersPackage.PARAMETER___GET_VALUE_AS_STRING:
+				return getValueAsString();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

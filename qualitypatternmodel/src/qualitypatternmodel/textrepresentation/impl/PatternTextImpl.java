@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.textrepresentation.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -14,8 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -121,7 +121,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	@Override
 	public EList<Fragment> getTextfragment() {
 		if (textfragment == null) {
-			textfragment = new EObjectContainmentEList<Fragment>(Fragment.class, this, TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT);
+			textfragment = new EObjectContainmentWithInverseEList<Fragment>(Fragment.class, this, TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT, TextrepresentationPackage.FRAGMENT__PATTERN_TEXT);
 		}
 		return textfragment;
 	}
@@ -129,8 +129,25 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String generateJSON() {
+		String json = "{\nFragments\" : [";
+		for(Fragment f : getTextfragment()) {
+			json += f.generateJSON() + ",\n";
+		}
+		json = json.substring(0, json.length()-1);
+		json += "]\n}";
+		return json;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -138,6 +155,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetPattern((CompletePattern)otherEnd, msgs);
+			case TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTextfragment()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -240,6 +259,20 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return textfragment != null && !textfragment.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case TextrepresentationPackage.PATTERN_TEXT___GENERATE_JSON:
+				return generateJSON();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //PatternTextImpl

@@ -111,6 +111,11 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 		super();
 		getOptions().addAll(RelationKind.VALUES);
 	}
+	
+	@Override
+	public String getValueAsString() {
+		return getValue().toString();
+	}
 
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {

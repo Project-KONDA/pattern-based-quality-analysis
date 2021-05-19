@@ -10,6 +10,12 @@ import qualitypatternmodel.textrepresentation.Fragment;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Fragment</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.textrepresentation.Fragment#generateJSON() <em>Generate JSON</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class FragmentTest extends TestCase {
@@ -50,6 +56,19 @@ public abstract class FragmentTest extends TestCase {
 	 */
 	protected Fragment getFixture() {
 		return fixture;
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.Fragment#generateJSON() <em>Generate JSON</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.Fragment#generateJSON()
+	 * @generated
+	 */
+	public void testGenerateJSON() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //FragmentTest

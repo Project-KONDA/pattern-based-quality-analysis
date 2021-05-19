@@ -31,7 +31,9 @@ public class TextrepresentationTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new TextrepresentationTests("textrepresentation Tests");
+		suite.addTestSuite(PatternTextTest.class);
 		suite.addTestSuite(ParameterFragmentTest.class);
+		suite.addTestSuite(TextFragmentTest.class);
 		return suite;
 	}
 

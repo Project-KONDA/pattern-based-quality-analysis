@@ -95,6 +95,11 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		super();
 	}
 	
+	@Override
+	public String getValueAsString() {
+		return getValue();
+	}
+	
 	public TextLiteralParamImpl(String value) {
 		super();
 		this.value = value;

@@ -18,6 +18,7 @@
         </eParameters>
       </eOperations>
       <eOperations name="isUsed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="getValueAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" lowerBound="1"
           eType="#//parameters/ParameterList" eOpposite="#//parameters/ParameterList/parameters"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -886,10 +887,12 @@
   </eSubpackages>
   <eSubpackages name="textrepresentation" nsURI="textrepresentation" nsPrefix="textrepresentation">
     <eClassifiers xsi:type="ecore:EClass" name="PatternText">
+      <eOperations name="generateJSON" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
           eType="#//patternstructure/CompletePattern" eOpposite="#//patternstructure/CompletePattern/text"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="textfragment" lowerBound="1"
-          upperBound="-1" eType="#//textrepresentation/Fragment" containment="true"/>
+          upperBound="-1" eType="#//textrepresentation/Fragment" containment="true"
+          eOpposite="#//textrepresentation/Fragment/patternText"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterFragment" eSuperTypes="#//textrepresentation/Fragment">
       <eOperations name="setValue">
@@ -899,7 +902,11 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
           eType="#//parameters/Parameter"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Fragment" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Fragment" abstract="true">
+      <eOperations name="generateJSON" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="patternText" lowerBound="1"
+          eType="#//textrepresentation/PatternText" eOpposite="#//textrepresentation/PatternText/textfragment"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TextFragment" eSuperTypes="#//textrepresentation/Fragment">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>

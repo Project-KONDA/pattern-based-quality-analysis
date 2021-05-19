@@ -117,6 +117,11 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	}
 	
 	@Override
+	public String getValueAsString() {
+		return getValue().toString();
+	}
+	
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (getOptions() == null) 
 			throw new InvalidityException("options null");

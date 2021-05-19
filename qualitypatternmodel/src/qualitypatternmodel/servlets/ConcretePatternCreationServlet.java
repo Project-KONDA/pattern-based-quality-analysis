@@ -22,10 +22,12 @@ public class ConcretePatternCreationServlet extends HttpServlet {
 		String concretePatternName = request.getParameter("name");
 		String path = "../../abstract-patterns/" + abstractPatternName + ".patternstructure";		
 		URL url = getClass().getClassLoader().getResource(path);		
-		CompletePattern pattern = EMFModelLoad.loadCompletePattern(url.toString());
+		CompletePattern pattern = EMFModelLoad.loadCompletePattern(url.toString());		
 		if(pattern != null) {
 			try {
-				EMFModelSave.exportToFile(pattern, "../../concrete-patterns/" + concretePatternName, "patternstructure"); // TODO: test
+				pattern.setName(concretePatternName);
+				// TODO: use substring of url ?
+				EMFModelSave.exportToFile(pattern, "../../concrete-patterns/" + concretePatternName, "patternstructure"); // TODO: correct path
 				response.getOutputStream().println("Successfully createed concrete pattern with name '" + concretePatternName + "' from abstract pattern '" + abstractPatternName + "'.");
 			} catch (IOException e) {
 				response.getOutputStream().println("Saving concrete pattern failed.");

@@ -323,13 +323,22 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___IS_USED = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___GET_VALUE_AS_STRING = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl <em>Comparison Option Param</em>}' class.
@@ -630,6 +639,15 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM___IS_USED = PARAMETER___IS_USED;
 
 	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___GET_VALUE_AS_STRING = PARAMETER___GET_VALUE_AS_STRING;
+
+	/**
 	 * The number of operations of the '<em>Comparison Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -926,6 +944,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY_OPTION_PARAM___IS_USED = PARAMETER___IS_USED;
+
+	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___GET_VALUE_AS_STRING = PARAMETER___GET_VALUE_AS_STRING;
 
 	/**
 	 * The number of operations of the '<em>Property Option Param</em>' class.
@@ -1470,6 +1497,15 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE___IS_USED = PARAMETER___IS_USED;
 
 	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___GET_VALUE_AS_STRING = PARAMETER___GET_VALUE_AS_STRING;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1912,6 +1948,15 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___IS_USED = PARAMETER_VALUE___IS_USED;
 
 	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2343,6 +2388,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM___IS_USED = PARAMETER_VALUE___IS_USED;
+
+	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2814,6 +2868,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___IS_USED = PARAMETER_VALUE___IS_USED;
 
 	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3256,6 +3319,15 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___IS_USED = PARAMETER_VALUE___IS_USED;
 
 	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3687,6 +3759,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_PARAM___IS_USED = PARAMETER_VALUE___IS_USED;
+
+	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -4131,6 +4212,15 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___IS_USED = PARAMETER_VALUE___IS_USED;
 
 	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4562,6 +4652,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNTYPED_PARAMETER_VALUE___IS_USED = PARAMETER_VALUE___IS_USED;
+
+	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -5006,6 +5105,15 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___IS_USED = PARAMETER_VALUE___IS_USED;
 
 	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5448,6 +5556,15 @@ public interface ParametersPackage extends EPackage {
 	int RELATION_OPTION_PARAM___IS_USED = PARAMETER___IS_USED;
 
 	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___GET_VALUE_AS_STRING = PARAMETER___GET_VALUE_AS_STRING;
+
+	/**
 	 * The operation id for the '<em>Infer Suggestions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5755,6 +5872,15 @@ public interface ParametersPackage extends EPackage {
 	int TYPE_OPTION_PARAM___IS_USED = PARAMETER___IS_USED;
 
 	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPTION_PARAM___GET_VALUE_AS_STRING = PARAMETER___GET_VALUE_AS_STRING;
+
+	/**
 	 * The number of operations of the '<em>Type Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5845,6 +5971,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getParameter__IsUsed();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#getValueAsString() <em>Get Value As String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Value As String</em>' operation.
+	 * @see qualitypatternmodel.parameters.Parameter#getValueAsString()
+	 * @generated
+	 */
+	EOperation getParameter__GetValueAsString();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}' operation.
@@ -6584,6 +6720,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PARAMETER___IS_USED = eINSTANCE.getParameter__IsUsed();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Value As String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER___GET_VALUE_AS_STRING = eINSTANCE.getParameter__GetValueAsString();
 
 		/**
 		 * The meta object literal for the '<em><b>Generate Description</b></em>' operation.

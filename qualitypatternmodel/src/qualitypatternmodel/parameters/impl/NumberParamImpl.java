@@ -75,6 +75,11 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	}
 	
 	@Override
+	public String getValueAsString() {
+		return Double.toString(getValue());
+	}
+	
+	@Override
 	public String generateQuery() throws InvalidityException {
 		if(getValue() != null) {
 			return Double.toString(getValue());

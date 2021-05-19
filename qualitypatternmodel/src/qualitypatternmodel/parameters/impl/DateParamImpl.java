@@ -62,6 +62,11 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 	}
 	
 	@Override
+	public String getValueAsString() {
+		return getValue();
+	}
+	
+	@Override
 	public String generateQuery() throws InvalidityException {
 		if(getValue() != null) {
 			return "\"" + getValue() + "\"";

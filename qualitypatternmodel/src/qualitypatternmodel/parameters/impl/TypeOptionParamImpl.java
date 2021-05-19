@@ -98,6 +98,11 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	}
 	
 	@Override
+	public String getValueAsString() {
+		return getValue().toString();
+	}
+	
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (getOptions() == null) 
 			throw new InvalidityException("options null");

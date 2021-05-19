@@ -96,13 +96,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PATTERN_TEXT_FEATURE_COUNT = 2;
 
 	/**
+	 * The operation id for the '<em>Generate JSON</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT___GENERATE_JSON = 0;
+
+	/**
 	 * The number of operations of the '<em>Pattern Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT_OPERATION_COUNT = 0;
+	int PATTERN_TEXT_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.FragmentImpl <em>Fragment</em>}' class.
@@ -115,13 +124,31 @@ public interface TextrepresentationPackage extends EPackage {
 	int FRAGMENT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Pattern Text</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT__PATTERN_TEXT = 0;
+
+	/**
 	 * The number of structural features of the '<em>Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FRAGMENT_FEATURE_COUNT = 0;
+	int FRAGMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The operation id for the '<em>Generate JSON</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT___GENERATE_JSON = 0;
 
 	/**
 	 * The number of operations of the '<em>Fragment</em>' class.
@@ -130,7 +157,7 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FRAGMENT_OPERATION_COUNT = 0;
+	int FRAGMENT_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl <em>Parameter Fragment</em>}' class.
@@ -141,6 +168,15 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	int PARAMETER_FRAGMENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Pattern Text</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT__PATTERN_TEXT = FRAGMENT__PATTERN_TEXT;
 
 	/**
 	 * The feature id for the '<em><b>Parameter</b></em>' reference.
@@ -159,6 +195,15 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_FRAGMENT_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Generate JSON</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT___GENERATE_JSON = FRAGMENT___GENERATE_JSON;
 
 	/**
 	 * The operation id for the '<em>Set Value</em>' operation.
@@ -198,6 +243,15 @@ public interface TextrepresentationPackage extends EPackage {
 	int TEXT_FRAGMENT = 3;
 
 	/**
+	 * The feature id for the '<em><b>Pattern Text</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FRAGMENT__PATTERN_TEXT = FRAGMENT__PATTERN_TEXT;
+
+	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -214,6 +268,15 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_FRAGMENT_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Generate JSON</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FRAGMENT___GENERATE_JSON = FRAGMENT___GENERATE_JSON;
 
 	/**
 	 * The number of operations of the '<em>Text Fragment</em>' class.
@@ -269,6 +332,16 @@ public interface TextrepresentationPackage extends EPackage {
 	EReference getPatternText_Textfragment();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#generateJSON() <em>Generate JSON</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate JSON</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.PatternText#generateJSON()
+	 * @generated
+	 */
+	EOperation getPatternText__GenerateJSON();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.ParameterFragment <em>Parameter Fragment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -318,6 +391,27 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getFragment();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.textrepresentation.Fragment#getPatternText <em>Pattern Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Pattern Text</em>'.
+	 * @see qualitypatternmodel.textrepresentation.Fragment#getPatternText()
+	 * @see #getFragment()
+	 * @generated
+	 */
+	EReference getFragment_PatternText();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.Fragment#generateJSON() <em>Generate JSON</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate JSON</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.Fragment#generateJSON()
+	 * @generated
+	 */
+	EOperation getFragment__GenerateJSON();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.TextFragment <em>Text Fragment</em>}'.
@@ -401,6 +495,14 @@ public interface TextrepresentationPackage extends EPackage {
 		EReference PATTERN_TEXT__TEXTFRAGMENT = eINSTANCE.getPatternText_Textfragment();
 
 		/**
+		 * The meta object literal for the '<em><b>Generate JSON</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_TEXT___GENERATE_JSON = eINSTANCE.getPatternText__GenerateJSON();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl <em>Parameter Fragment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -443,6 +545,22 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EClass FRAGMENT = eINSTANCE.getFragment();
+
+		/**
+		 * The meta object literal for the '<em><b>Pattern Text</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FRAGMENT__PATTERN_TEXT = eINSTANCE.getFragment_PatternText();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate JSON</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation FRAGMENT___GENERATE_JSON = eINSTANCE.getFragment__GenerateJSON();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.TextFragmentImpl <em>Text Fragment</em>}' class.
