@@ -6,6 +6,26 @@
 	version="4.0">	
 	
 	<servlet>
+		<servlet-name>AbstractPatternListServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.AbstractPatternListServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AbstractPatternListServlet</servlet-name>
+		<url-pattern>/abstract-patterns</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ConcretePatternListServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.ConcretePatternListServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ConcretePatternListServlet</servlet-name>
+		<url-pattern>/concrete-patterns</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
 		<servlet-name>ConcretePatternCreationServlet</servlet-name>
 		<servlet-class>qualitypatternmodel.servlets.ConcretePatternCreationServlet</servlet-class>
 	</servlet>
