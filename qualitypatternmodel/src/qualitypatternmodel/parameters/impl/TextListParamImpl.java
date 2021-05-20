@@ -64,7 +64,7 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	}
 	
 	@Override
-	public void setValueAsString(String value) {
+	public void setValueFromString(String value) {
 		// TODO
 	}
 	

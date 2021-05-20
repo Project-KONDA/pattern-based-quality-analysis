@@ -348,7 +348,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameter__SetValueAsString__String() {
+	public EOperation getParameter__SetValueFromString__String() {
 		return parameterEClass.getEOperations().get(5);
 	}
 
@@ -1030,7 +1030,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(parameterEClass, PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP);
 		createEOperation(parameterEClass, PARAMETER___IS_USED);
 		createEOperation(parameterEClass, PARAMETER___GET_VALUE_AS_STRING);
-		createEOperation(parameterEClass, PARAMETER___SET_VALUE_AS_STRING__STRING);
+		createEOperation(parameterEClass, PARAMETER___SET_VALUE_FROM_STRING__STRING);
 		createEOperation(parameterEClass, PARAMETER___GET_OPTIONS_AS_STRING_LIST);
 
 		comparisonOptionParamEClass = createEClass(COMPARISON_OPTION_PARAM);
@@ -1188,7 +1188,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEOperation(getParameter__GetValueAsString(), ecorePackage.getEString(), "getValueAsString", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getParameter__SetValueAsString__String(), null, "setValueAsString", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getParameter__SetValueFromString__String(), null, "setValueFromString", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 

@@ -110,7 +110,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	}
 	
 	@Override
-	public void setValueAsString(String value) {
+	public void setValueFromString(String value) {
 		for(PropertyKind kind : PropertyKind.values()) {
 			if(kind.getName().equals(value)) {			
 				setValue(kind);

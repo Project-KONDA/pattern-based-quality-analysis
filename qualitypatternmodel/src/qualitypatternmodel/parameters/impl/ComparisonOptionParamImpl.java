@@ -20,8 +20,6 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
@@ -128,7 +126,7 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	}
 	
 	@Override
-	public void setValueAsString(String value) {
+	public void setValueFromString(String value) {
 		for(ComparisonOperator operator : ComparisonOperator.values()) {
 			if(operator.getName().equals(value)) {			
 				setValue(operator);

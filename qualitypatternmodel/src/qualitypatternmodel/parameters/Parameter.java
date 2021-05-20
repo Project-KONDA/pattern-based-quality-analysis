@@ -143,7 +143,7 @@ public interface Parameter extends PatternElement {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void setValueAsString(String value) throws InvalidityException;
+	void setValueFromString(String value) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

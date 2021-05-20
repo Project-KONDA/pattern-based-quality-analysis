@@ -101,7 +101,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	}
 	
 	@Override
-	public void setValueAsString(String value) {
+	public void setValueFromString(String value) {
 		setValue(value);
 	}
 	

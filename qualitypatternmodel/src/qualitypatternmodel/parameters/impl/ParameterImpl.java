@@ -246,7 +246,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @generated
 	 */
 	@Override
-	public void setValueAsString(String value) throws InvalidityException {
+	public void setValueFromString(String value) throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -396,9 +396,9 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				return isUsed();
 			case ParametersPackage.PARAMETER___GET_VALUE_AS_STRING:
 				return getValueAsString();
-			case ParametersPackage.PARAMETER___SET_VALUE_AS_STRING__STRING:
+			case ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING:
 				try {
-					setValueAsString((String)arguments.get(0));
+					setValueFromString((String)arguments.get(0));
 					return null;
 				}
 				catch (Throwable throwable) {

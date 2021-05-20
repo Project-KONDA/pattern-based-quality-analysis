@@ -75,7 +75,7 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	}
 	
 	@Override
-	public void setValueAsString(String value) {
+	public void setValueFromString(String value) {
 		setValue(Double.parseDouble(value));
 	}
 	

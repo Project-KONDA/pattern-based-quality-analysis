@@ -67,7 +67,7 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 	}
 	
 	@Override
-	public void setValueAsString(String value) throws InvalidityException {
+	public void setValueFromString(String value) throws InvalidityException {
 		specifyValue(value);
 	}
 	

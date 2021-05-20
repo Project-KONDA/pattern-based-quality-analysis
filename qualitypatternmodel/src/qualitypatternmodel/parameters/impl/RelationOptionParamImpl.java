@@ -33,7 +33,6 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.RelationOptionParam;
@@ -122,7 +121,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	}
 	
 	@Override
-	public void setValueAsString(String value) {
+	public void setValueFromString(String value) {
 		for(RelationKind kind : RelationKind.values()) {
 			if(kind.getName().equals(value)) {			
 				setValue(kind);

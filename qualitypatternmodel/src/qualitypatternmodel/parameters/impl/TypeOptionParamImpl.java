@@ -18,8 +18,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 
@@ -107,7 +105,7 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	}
 	
 	@Override
-	public void setValueAsString(String value) {
+	public void setValueFromString(String value) {
 		for(ReturnType kind : ReturnType.values()) {
 			if(kind.getName().equals(value)) {			
 				setValue(kind);

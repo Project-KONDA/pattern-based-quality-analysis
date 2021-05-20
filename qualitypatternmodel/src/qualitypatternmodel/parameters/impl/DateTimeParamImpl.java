@@ -70,7 +70,7 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 	}
 	
 	@Override
-	public void setValueAsString(String value) throws InvalidityException {
+	public void setValueFromString(String value) throws InvalidityException {
 		specifyValue(value);
 	}
 		

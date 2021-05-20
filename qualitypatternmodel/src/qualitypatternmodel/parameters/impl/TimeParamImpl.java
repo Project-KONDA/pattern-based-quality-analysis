@@ -66,7 +66,7 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 	}
 	
 	@Override
-	public void setValueAsString(String value) throws InvalidityException {
+	public void setValueFromString(String value) throws InvalidityException {
 		specifyValue(value);
 	}
 	

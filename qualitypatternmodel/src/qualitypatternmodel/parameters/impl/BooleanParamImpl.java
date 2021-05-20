@@ -88,7 +88,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	}
 	
 	@Override
-	public void setValueAsString(String value) {
+	public void setValueFromString(String value) {
 		setValue(Boolean.parseBoolean(value));
 	}
 
