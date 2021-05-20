@@ -32,6 +32,7 @@ import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
@@ -40,6 +41,10 @@ import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
+import qualitypatternmodel.textrepresentation.ParameterFragment;
+import qualitypatternmodel.textrepresentation.PatternText;
+import qualitypatternmodel.textrepresentation.TextFragment;
+import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
 import qualitypatternmodel.utility.EMFModelSave;
 
 import static qualitypatternmodel.testutility.DatabaseConstants.*;
@@ -217,7 +222,7 @@ public class DemoPatterns {
 		completePattern.finalizeXMLAdaption();
 		
 		return completePattern;
-	}
+	}	
 
 	public static CompletePattern getConcreteCompPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getAbstractCompPattern();
@@ -340,7 +345,99 @@ public class DemoPatterns {
 		
 		completePattern.finalizeXMLAdaption();
 		
+		addTextualRepresentationCardPattern(completePattern);
+		
 		return completePattern;
+	}
+	
+	
+	public static void addTextualRepresentationCardPattern(CompletePattern completePattern) {
+		PatternText patternText = TextrepresentationFactory.eINSTANCE.createPatternText();
+		completePattern.getText().add(patternText);
+		
+		// Is there an element with <property> <value> that has <comp> <number> <relation> whose <property> is equal to <value>?
+		
+		TextFragment text0 = TextrepresentationFactory.eINSTANCE.createTextFragment();
+		text0.setText("Is there an element with");
+		TextFragment text1 = TextrepresentationFactory.eINSTANCE.createTextFragment();
+		text1.setText("that has");
+		TextFragment text2 = TextrepresentationFactory.eINSTANCE.createTextFragment();
+		text2.setText("whose");
+		TextFragment text3 = TextrepresentationFactory.eINSTANCE.createTextFragment();
+		text3.setText("is equal to");
+		
+		
+		// Context graph of pattern:
+		
+		// <property>
+		ParameterFragment param0 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
+		param0.setParameter(property0.getOption());
+		
+		ParameterFragment param1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+		param1.setParameter(property0.getAttributeName());
+		
+		// <value>
+		ParameterFragment param2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
+		UntypedParameterValue value0 = (UntypedParameterValue) comp0.getArgument2();
+		param2.setParameter(value0);
+				
+		
+		// First-order logic condition of pattern:
+		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
+		CountPattern countPattern = countCondition.getCountPattern();
+
+		
+		// <comp>
+		ParameterFragment param3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();		
+		param3.setParameter(countCondition.getOption());
+		
+		// <number>
+		ParameterFragment param4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+		param4.setParameter(((NumberElement) countCondition.getArgument2()).getNumberParam()); 
+		
+		
+		// Graph of inner pattern:
+		
+		// <relation>
+		ParameterFragment param5 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+		XmlNavigation navigationElement0Element1 = (XmlNavigation) countPattern.getGraph().getRelations().get(0);
+		param5.setParameter(navigationElement0Element1.getOption());
+		
+		// <property>
+		ParameterFragment param6 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+		XmlElement element1 = (XmlElement) countPattern.getGraph().getElements().get(1);
+		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
+		param6.setParameter(property1.getOption());
+		
+		ParameterFragment param7 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+		param7.setParameter(property1.getAttributeName());
+		
+		// <value>
+		ParameterFragment param8 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+		Comparison comp1 = (Comparison) countPattern.getGraph().getOperatorList().getOperators().get(0);
+		UntypedParameterValue value1 = (UntypedParameterValue) comp1.getArgument2();
+		param8.setParameter(value1);
+		
+		
+		// Is there an element with <property> <value> that has <comp> <number> <relation> whose <property> is equal to <value>?
+		
+		patternText.getTextfragment().add(text0);  // Is there an element with
+		patternText.getTextfragment().add(param0); // <property>
+		patternText.getTextfragment().add(param1);
+		patternText.getTextfragment().add(param2); // <value>		
+		patternText.getTextfragment().add(text1);  // that has
+		patternText.getTextfragment().add(param3); // <comp>
+		patternText.getTextfragment().add(param4); // <number>
+		patternText.getTextfragment().add(param5); // <relation>
+		patternText.getTextfragment().add(text2);  // whose
+		patternText.getTextfragment().add(param6); // <property>
+		patternText.getTextfragment().add(param7);
+		patternText.getTextfragment().add(text3);  // is equal to
+		patternText.getTextfragment().add(param8); // <value>
+
 	}
 	
 	public static CompletePattern getConcreteCardPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
