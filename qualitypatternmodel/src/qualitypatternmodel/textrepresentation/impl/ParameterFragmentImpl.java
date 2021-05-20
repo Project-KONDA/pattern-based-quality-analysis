@@ -179,7 +179,10 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		String type = getParameter().getClass().toString();
 		String json = "{\"URL\": \"" + url + "\", \"Type\": \"" + type + "\"";
 		if(value != null) {
-			json += ", \"Value\": \"" + value + "\"";
+			if(! (getParameter() instanceof TextListParamImpl)) {
+				value = "\"" + value + "\"";
+			}
+			json += ", \"Value\": " + value + "";
 		}
 		json += "}";
 		return json;
