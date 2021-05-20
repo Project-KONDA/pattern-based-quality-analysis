@@ -28,6 +28,11 @@ public class UntypedParameterValueImpl extends ParameterValueImpl implements Unt
 		super();
 		setTypeModifiable(true);
 	}
+	
+	@Override
+	public String getValueAsString() {
+		return null;
+	}
 
 	@Override
 	public ReturnType getReturnType() {
