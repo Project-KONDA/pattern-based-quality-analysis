@@ -4,6 +4,7 @@ package qualitypatternmodel.parameters.impl;
 
 import java.lang.Boolean;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -13,13 +14,17 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
+import qualitypatternmodel.textrepresentation.ParameterFragment;
+import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -31,6 +36,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#isPredefined <em>Predefined</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getParameterFragments <em>Parameter Fragments</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,6 +80,15 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @ordered
 	 */
 	protected boolean predefined = PREDEFINED_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getParameterFragments() <em>Parameter Fragments</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameterFragments()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ParameterFragment> parameterFragments;
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -203,6 +218,19 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<ParameterFragment> getParameterFragments() {
+		if (parameterFragments == null) {
+			parameterFragments = new EObjectWithInverseResolvingEList<ParameterFragment>(ParameterFragment.class, this, ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS, TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER);
+		}
+		return parameterFragments;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 */
@@ -276,6 +304,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetParameterList((ParameterList)otherEnd, msgs);
+			case ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameterFragments()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -289,6 +319,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		switch (featureID) {
 			case ParametersPackage.PARAMETER__PARAMETER_LIST:
 				return basicSetParameterList(null, msgs);
+			case ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS:
+				return ((InternalEList<?>)getParameterFragments()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -319,6 +351,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				return getDescription();
 			case ParametersPackage.PARAMETER__PREDEFINED:
 				return isPredefined();
+			case ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS:
+				return getParameterFragments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -340,6 +374,10 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			case ParametersPackage.PARAMETER__PREDEFINED:
 				setPredefined((Boolean)newValue);
 				return;
+			case ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS:
+				getParameterFragments().clear();
+				getParameterFragments().addAll((Collection<? extends ParameterFragment>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -360,6 +398,9 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			case ParametersPackage.PARAMETER__PREDEFINED:
 				setPredefined(PREDEFINED_EDEFAULT);
 				return;
+			case ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS:
+				getParameterFragments().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -377,6 +418,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case ParametersPackage.PARAMETER__PREDEFINED:
 				return predefined != PREDEFINED_EDEFAULT;
+			case ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS:
+				return parameterFragments != null && !parameterFragments.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

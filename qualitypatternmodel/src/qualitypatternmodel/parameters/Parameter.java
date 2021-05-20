@@ -4,8 +4,10 @@ package qualitypatternmodel.parameters;
 
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.textrepresentation.ParameterFragment;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +23,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#isPredefined <em>Predefined</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#getParameterFragments <em>Parameter Fragments</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getParameter()
@@ -95,6 +98,20 @@ public interface Parameter extends PatternElement {
 	 * @generated
 	 */
 	void setPredefined(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Parameter Fragments</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.textrepresentation.ParameterFragment}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getParameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameter Fragments</em>' reference list.
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getParameter_ParameterFragments()
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#getParameter
+	 * @model opposite="parameter"
+	 * @generated
+	 */
+	EList<ParameterFragment> getParameterFragments();
 
 	/**
 	 * <!-- begin-user-doc -->

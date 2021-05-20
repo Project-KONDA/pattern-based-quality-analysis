@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -14,6 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
 import qualitypatternmodel.parameters.impl.DateTimeParamImpl;
@@ -100,12 +102,34 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setParameter(Parameter newParameter) {
+	public NotificationChain basicSetParameter(Parameter newParameter, NotificationChain msgs) {
 		Parameter oldParameter = parameter;
 		parameter = newParameter;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER, oldParameter, parameter));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER, oldParameter, newParameter);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setParameter(Parameter newParameter) {
+		if (newParameter != parameter) {
+			NotificationChain msgs = null;
+			if (parameter != null)
+				msgs = ((InternalEObject)parameter).eInverseRemove(this, ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS, Parameter.class, msgs);
+			if (newParameter != null)
+				msgs = ((InternalEObject)newParameter).eInverseAdd(this, ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS, Parameter.class, msgs);
+			msgs = basicSetParameter(newParameter, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER, newParameter, newParameter));
 	}
 
 	/**
@@ -222,6 +246,36 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return "Enumeration";
 		}		
 	}	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER:
+				if (parameter != null)
+					msgs = ((InternalEObject)parameter).eInverseRemove(this, ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS, Parameter.class, msgs);
+				return basicSetParameter((Parameter)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER:
+				return basicSetParameter(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	public static String generateJSONList(List<String> list) {		
 		String s = "[";
