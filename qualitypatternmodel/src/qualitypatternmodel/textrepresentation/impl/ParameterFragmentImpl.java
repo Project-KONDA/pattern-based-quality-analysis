@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
@@ -22,6 +23,7 @@ import qualitypatternmodel.parameters.impl.NumberParamImpl;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.TimeParamImpl;
+import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 
@@ -115,58 +117,58 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 */
 	@Override
 	public void setValue(Object value) {
-		Class type = getType();
-		if (type.equals(DateParamImpl.class)) {
-			DateParamImpl date = (DateParamImpl) getParameter();
-			try {
-				date.specifyValue((String) value);
-			} catch (Exception e) {
-				// TODO
-			}
-			
-		} else if(type.equals(TimeParamImpl.class)) {
-			TimeParamImpl time = (TimeParamImpl) getParameter();
-			try {
-				time.specifyValue((String) value);			
-			} catch (Exception e) {
-				// TODO
-			}
-		} else if (type.equals(DateTimeParamImpl.class)) {
-			DateTimeParamImpl dateTime = (DateTimeParamImpl) getParameter();
-			try {
-				dateTime.specifyValue((String) value);
-			} catch (Exception e) {
-				// TODO
-			}
-		} else if (type.equals(TextLiteralParamImpl.class)) {
-			TextLiteralParamImpl text = (TextLiteralParamImpl) getParameter();
-			try {
-				text.setValue((String) value);
-			} catch (Exception e) {
-				// TODO
-			}
-		} else if (type.equals(BooleanParamImpl.class)) {
-			BooleanParamImpl bool = (BooleanParamImpl) getParameter();
-			try {
-				bool.setValue((Boolean) value);
-			} catch (Exception e) {
-				// TODO
-			}
-		} else if (type.equals(NumberParamImpl.class)) {
-			NumberParamImpl number = (NumberParamImpl) getParameter();
-			try {
-				number.setValue((Double) value);
-			} catch (Exception e) {
-				// TODO
-			}
-		} else if (type.equals(TextListParamImpl.class)) {
-			TextListParamImpl list = (TextListParamImpl) getParameter();
-			try {
-				list.getValues().addAll((List<String>) value);
-			} catch (Exception e) {
-				// TODO
-			}
-		}
+//		Class type = getType();
+//		if (type.equals(DateParamImpl.class)) {
+//			DateParamImpl date = (DateParamImpl) getParameter();
+//			try {
+//				date.specifyValue((String) value);
+//			} catch (Exception e) {
+//				// TODO
+//			}
+//			
+//		} else if(type.equals(TimeParamImpl.class)) {
+//			TimeParamImpl time = (TimeParamImpl) getParameter();
+//			try {
+//				time.specifyValue((String) value);			
+//			} catch (Exception e) {
+//				// TODO
+//			}
+//		} else if (type.equals(DateTimeParamImpl.class)) {
+//			DateTimeParamImpl dateTime = (DateTimeParamImpl) getParameter();
+//			try {
+//				dateTime.specifyValue((String) value);
+//			} catch (Exception e) {
+//				// TODO
+//			}
+//		} else if (type.equals(TextLiteralParamImpl.class)) {
+//			TextLiteralParamImpl text = (TextLiteralParamImpl) getParameter();
+//			try {
+//				text.setValue((String) value);
+//			} catch (Exception e) {
+//				// TODO
+//			}
+//		} else if (type.equals(BooleanParamImpl.class)) {
+//			BooleanParamImpl bool = (BooleanParamImpl) getParameter();
+//			try {
+//				bool.setValue((Boolean) value);
+//			} catch (Exception e) {
+//				// TODO
+//			}
+//		} else if (type.equals(NumberParamImpl.class)) {
+//			NumberParamImpl number = (NumberParamImpl) getParameter();
+//			try {
+//				number.setValue((Double) value);
+//			} catch (Exception e) {
+//				// TODO
+//			}
+//		} else if (type.equals(TextListParamImpl.class)) {
+//			TextListParamImpl list = (TextListParamImpl) getParameter();
+//			try {
+//				list.getValues().addAll((List<String>) value);
+//			} catch (Exception e) {
+//				// TODO
+//			}
+//		}
 		
 	}
 	
@@ -176,13 +178,17 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		int parameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(getParameter());
 		String url = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(parameterID);
 		String value = getParameter().getValueAsString();
-		String type = getParameter().getClass().toString();
+		String type = getType();
 		String json = "{\"URL\": \"" + url + "\", \"Type\": \"" + type + "\"";
 		if(value != null) {
-			if(! (getParameter() instanceof TextListParamImpl)) {
+			if(!(getParameter() instanceof TextListParamImpl) && !(getParameter() instanceof NumberParamImpl) && !(getParameter() instanceof BooleanParamImpl)) {
 				value = "\"" + value + "\"";
 			}
 			json += ", \"Value\": " + value + "";
+		}
+		if(type.equals("Enumeration")) {
+			String options = getParameter().getOptionsAsStringList();
+			json += ", \"Options\": " + options + "";
 		}
 		json += "}";
 		return json;
@@ -194,8 +200,39 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * @generated NOT
 	 */
 	@Override
-	public Class getType() {
-		return getParameter().getClass();
+	public String getType() {
+//		return getParameter().getClass().toString();
+		
+		Class type = getParameter().getClass();
+		if (type.equals(DateParamImpl.class)) {
+			return "Date";			
+		} else if(type.equals(TimeParamImpl.class)) {
+			return "Time";
+		} else if (type.equals(DateTimeParamImpl.class)) {
+			return "DateTime";
+		} else if (type.equals(TextLiteralParamImpl.class)) {
+			return "TextLiteral";
+		} else if (type.equals(BooleanParamImpl.class)) {
+			return "Boolean";
+		} else if (type.equals(NumberParamImpl.class)) {
+			return "Number";
+		} else if (type.equals(TextListParamImpl.class)) {
+			return "TextList";
+		} else if (type.equals(UntypedParameterValueImpl.class)) {
+			return "Untyped";
+		} else {
+			return "Enumeration";
+		}		
+	}	
+
+	public static String generateJSONList(List<String> list) {		
+		String s = "[";
+		for(String value : list) {
+			s += "\"" + value + "\", ";
+		}
+		s = s.substring(0, s.length()-2);
+		s += "]";
+		return s;
 	}
 
 	/**

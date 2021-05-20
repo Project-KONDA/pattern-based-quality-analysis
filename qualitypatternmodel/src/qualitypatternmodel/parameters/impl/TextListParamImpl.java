@@ -56,11 +56,16 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	public String getValueAsString() {
 		String s = "[";
 		for(String value : values) {
-			s += "\"" + value + "\"";
+			s += "\"" + value + "\", ";
 		}
 		s = s.substring(0, s.length()-1);
 		s += "]";
 		return s;
+	}
+	
+	@Override
+	public void setValueAsString(String value) {
+		// TODO
 	}
 	
 	@Override

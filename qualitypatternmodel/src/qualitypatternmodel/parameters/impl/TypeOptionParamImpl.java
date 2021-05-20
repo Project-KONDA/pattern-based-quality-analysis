@@ -3,6 +3,8 @@
 package qualitypatternmodel.parameters.impl;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -17,6 +19,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 
@@ -26,6 +29,7 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -99,8 +103,24 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	
 	@Override
 	public String getValueAsString() {
-		return getValue().toString();
+		return getValue().getName();
 	}
+	
+	@Override
+	public void setValueAsString(String value) {
+		for(ReturnType kind : ReturnType.values()) {
+			if(kind.getName().equals(value)) {			
+				setValue(kind);
+			}
+		}		
+	}
+	
+	@Override
+	public String getOptionsAsStringList() {
+		List<String> list = getOptions().stream().map(a -> a.getName()).collect(Collectors.toList());
+		return ParameterFragmentImpl.generateJSONList(list);
+	}
+	
 	
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {

@@ -137,7 +137,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		for(Fragment f : getTextfragment()) {
 			json += f.generateJSON() + ",\n";
 		}
-		json = json.substring(0, json.length()-1);
+		json = json.substring(0, json.length()-2);
 		json += "]\n}";
 		return json;
 	}

@@ -54,9 +54,9 @@ public interface ParameterFragment extends Fragment {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="qualitypatternmodel.patternstructure.ClassWrapper"
+	 * @model kind="operation"
 	 * @generated
 	 */
-	Class getType();
+	String getType();
 
 } // ParameterFragment

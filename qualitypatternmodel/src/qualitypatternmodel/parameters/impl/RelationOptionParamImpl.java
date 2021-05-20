@@ -4,6 +4,8 @@ package qualitypatternmodel.parameters.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
@@ -31,6 +33,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.RelationOptionParam;
@@ -40,6 +43,7 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
+import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Axis
@@ -114,7 +118,22 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	
 	@Override
 	public String getValueAsString() {
-		return getValue().toString();
+		return getValue().getName();
+	}
+	
+	@Override
+	public void setValueAsString(String value) {
+		for(RelationKind kind : RelationKind.values()) {
+			if(kind.getName().equals(value)) {			
+				setValue(kind);
+			}
+		}		
+	}
+	
+	@Override
+	public String getOptionsAsStringList() {
+		List<String> list = getOptions().stream().map(a -> a.getName()).collect(Collectors.toList());
+		return ParameterFragmentImpl.generateJSONList(list);
 	}
 
 	@Override

@@ -33,6 +33,11 @@ public class UntypedParameterValueImpl extends ParameterValueImpl implements Unt
 	public String getValueAsString() {
 		return null;
 	}
+	
+	@Override
+	public void setValueAsString(String value) {
+		// TODO
+	}
 
 	@Override
 	public ReturnType getReturnType() {

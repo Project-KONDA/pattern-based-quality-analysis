@@ -3,6 +3,9 @@
 package qualitypatternmodel.parameters.impl;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -17,6 +20,8 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
@@ -28,6 +33,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -118,7 +124,22 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	
 	@Override
 	public String getValueAsString() {
-		return getValue().toString();
+		return getValue().getName();
+	}
+	
+	@Override
+	public void setValueAsString(String value) {
+		for(ComparisonOperator operator : ComparisonOperator.values()) {
+			if(operator.getName().equals(value)) {			
+				setValue(operator);
+			}
+		}		
+	}
+	
+	@Override
+	public String getOptionsAsStringList() {
+		List<String> list = getOptions().stream().map(a -> a.getName()).collect(Collectors.toList());
+		return ParameterFragmentImpl.generateJSONList(list);
 	}
 	
 	@Override

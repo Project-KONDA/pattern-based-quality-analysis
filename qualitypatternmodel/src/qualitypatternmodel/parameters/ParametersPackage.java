@@ -332,13 +332,31 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___GET_VALUE_AS_STRING = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Set Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___SET_VALUE_AS_STRING__STRING = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___GET_OPTIONS_AS_STRING_LIST = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
+
+	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl <em>Comparison Option Param</em>}' class.
@@ -648,6 +666,24 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM___GET_VALUE_AS_STRING = PARAMETER___GET_VALUE_AS_STRING;
 
 	/**
+	 * The operation id for the '<em>Set Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___SET_VALUE_AS_STRING__STRING = PARAMETER___SET_VALUE_AS_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
 	 * The number of operations of the '<em>Comparison Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -953,6 +989,24 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY_OPTION_PARAM___GET_VALUE_AS_STRING = PARAMETER___GET_VALUE_AS_STRING;
+
+	/**
+	 * The operation id for the '<em>Set Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___SET_VALUE_AS_STRING__STRING = PARAMETER___SET_VALUE_AS_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
 	 * The number of operations of the '<em>Property Option Param</em>' class.
@@ -1506,6 +1560,24 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE___GET_VALUE_AS_STRING = PARAMETER___GET_VALUE_AS_STRING;
 
 	/**
+	 * The operation id for the '<em>Set Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___SET_VALUE_AS_STRING__STRING = PARAMETER___SET_VALUE_AS_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST = PARAMETER___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1957,6 +2029,24 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
 
 	/**
+	 * The operation id for the '<em>Set Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___SET_VALUE_AS_STRING__STRING = PARAMETER_VALUE___SET_VALUE_AS_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2397,6 +2487,24 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
+
+	/**
+	 * The operation id for the '<em>Set Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___SET_VALUE_AS_STRING__STRING = PARAMETER_VALUE___SET_VALUE_AS_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2877,6 +2985,24 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
 
 	/**
+	 * The operation id for the '<em>Set Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___SET_VALUE_AS_STRING__STRING = PARAMETER_VALUE___SET_VALUE_AS_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3328,6 +3454,24 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
 
 	/**
+	 * The operation id for the '<em>Set Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___SET_VALUE_AS_STRING__STRING = PARAMETER_VALUE___SET_VALUE_AS_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3768,6 +3912,24 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_PARAM___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
+
+	/**
+	 * The operation id for the '<em>Set Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___SET_VALUE_AS_STRING__STRING = PARAMETER_VALUE___SET_VALUE_AS_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -4221,6 +4383,24 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
 
 	/**
+	 * The operation id for the '<em>Set Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___SET_VALUE_AS_STRING__STRING = PARAMETER_VALUE___SET_VALUE_AS_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4661,6 +4841,24 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNTYPED_PARAMETER_VALUE___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
+
+	/**
+	 * The operation id for the '<em>Set Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___SET_VALUE_AS_STRING__STRING = PARAMETER_VALUE___SET_VALUE_AS_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -5114,6 +5312,24 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___GET_VALUE_AS_STRING = PARAMETER_VALUE___GET_VALUE_AS_STRING;
 
 	/**
+	 * The operation id for the '<em>Set Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___SET_VALUE_AS_STRING__STRING = PARAMETER_VALUE___SET_VALUE_AS_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5565,6 +5781,24 @@ public interface ParametersPackage extends EPackage {
 	int RELATION_OPTION_PARAM___GET_VALUE_AS_STRING = PARAMETER___GET_VALUE_AS_STRING;
 
 	/**
+	 * The operation id for the '<em>Set Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___SET_VALUE_AS_STRING__STRING = PARAMETER___SET_VALUE_AS_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
 	 * The operation id for the '<em>Infer Suggestions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5881,6 +6115,24 @@ public interface ParametersPackage extends EPackage {
 	int TYPE_OPTION_PARAM___GET_VALUE_AS_STRING = PARAMETER___GET_VALUE_AS_STRING;
 
 	/**
+	 * The operation id for the '<em>Set Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPTION_PARAM___SET_VALUE_AS_STRING__STRING = PARAMETER___SET_VALUE_AS_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPTION_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
 	 * The number of operations of the '<em>Type Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5981,6 +6233,26 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getParameter__GetValueAsString();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#setValueAsString(java.lang.String) <em>Set Value As String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Value As String</em>' operation.
+	 * @see qualitypatternmodel.parameters.Parameter#setValueAsString(java.lang.String)
+	 * @generated
+	 */
+	EOperation getParameter__SetValueAsString__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#getOptionsAsStringList() <em>Get Options As String List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Options As String List</em>' operation.
+	 * @see qualitypatternmodel.parameters.Parameter#getOptionsAsStringList()
+	 * @generated
+	 */
+	EOperation getParameter__GetOptionsAsStringList();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}' operation.
@@ -6728,6 +7000,22 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PARAMETER___GET_VALUE_AS_STRING = eINSTANCE.getParameter__GetValueAsString();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Value As String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER___SET_VALUE_AS_STRING__STRING = eINSTANCE.getParameter__SetValueAsString__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Options As String List</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER___GET_OPTIONS_AS_STRING_LIST = eINSTANCE.getParameter__GetOptionsAsStringList();
 
 		/**
 		 * The meta object literal for the '<em><b>Generate Description</b></em>' operation.

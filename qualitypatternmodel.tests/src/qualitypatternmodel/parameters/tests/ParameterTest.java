@@ -16,6 +16,8 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#isUsed() <em>Is Used</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getValueAsString() <em>Get Value As String</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#setValueAsString(java.lang.String) <em>Set Value As String</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#getOptionsAsStringList() <em>Get Options As String List</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -90,6 +92,32 @@ public abstract class ParameterTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGetValueAsString() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#setValueAsString(java.lang.String) <em>Set Value As String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.Parameter#setValueAsString(java.lang.String)
+	 * @generated
+	 */
+	public void testSetValueAsString__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#getOptionsAsStringList() <em>Get Options As String List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.Parameter#getOptionsAsStringList()
+	 * @generated
+	 */
+	public void testGetOptionsAsStringList() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

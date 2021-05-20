@@ -30,7 +30,8 @@ public class PatternTextServlet extends HttpServlet {
 			String json = patternText.generateJSON();
 			response.getOutputStream().println(json);	
 		} else {
-			response.getOutputStream().println("Extracting pattern text failed.");
+			response.getOutputStream().println("Loading pattern failed.");
 		}
 	}
+	
 }

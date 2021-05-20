@@ -241,6 +241,30 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setValueAsString(String value) throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getOptionsAsStringList() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -372,6 +396,16 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				return isUsed();
 			case ParametersPackage.PARAMETER___GET_VALUE_AS_STRING:
 				return getValueAsString();
+			case ParametersPackage.PARAMETER___SET_VALUE_AS_STRING__STRING:
+				try {
+					setValueAsString((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST:
+				return getOptionsAsStringList();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -409,7 +409,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		EOperation op = initEOperation(getParameterFragment__SetValue__Object(), null, "setValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getObjectWrapper(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getParameterFragment__GetType(), thePatternstructurePackage.getClassWrapper(), "getType", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getParameterFragment__GetType(), ecorePackage.getEString(), "getType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(fragmentEClass, Fragment.class, "Fragment", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFragment_PatternText(), this.getPatternText(), this.getPatternText_Textfragment(), "patternText", null, 1, 1, Fragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

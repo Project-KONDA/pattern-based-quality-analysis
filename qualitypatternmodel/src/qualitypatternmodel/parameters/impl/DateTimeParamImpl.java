@@ -70,6 +70,11 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 	}
 	
 	@Override
+	public void setValueAsString(String value) throws InvalidityException {
+		specifyValue(value);
+	}
+		
+	@Override
 	public String generateQuery() throws InvalidityException {
 		if(getValue() != null) {
 			return "\"" + getValue() + "\"";

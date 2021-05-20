@@ -4,6 +4,7 @@ package qualitypatternmodel.parameters;
 
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -135,6 +136,22 @@ public interface Parameter extends PatternElement {
 	 * @generated
 	 */
 	String getValueAsString();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void setValueAsString(String value) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getOptionsAsStringList();
 
 	/**
 	 * <!-- begin-user-doc -->

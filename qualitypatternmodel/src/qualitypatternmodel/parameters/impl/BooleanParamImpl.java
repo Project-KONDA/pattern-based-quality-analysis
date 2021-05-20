@@ -86,6 +86,12 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	public String getValueAsString() {
 		return getValue().toString();
 	}
+	
+	@Override
+	public void setValueAsString(String value) {
+		setValue(Boolean.parseBoolean(value));
+	}
+
 
 	@Override
 	public String generateQuery() throws InvalidityException {
