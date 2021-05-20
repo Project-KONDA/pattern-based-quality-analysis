@@ -27,7 +27,6 @@ public class ConcretePatternCreationServlet extends HttpServlet {
 			try {
 				pattern.setName(concretePatternName);
 				URL concretePatternFolderUrl = getClass().getClassLoader().getResource("../../concrete-patterns/");
-				System.out.println(concretePatternFolderUrl);
 				EMFModelSave.exportToFile(pattern, concretePatternFolderUrl.toString() + concretePatternName, "patternstructure");
 				response.getOutputStream().println("Successfully createed concrete pattern with name '" + concretePatternName + "' from abstract pattern '" + abstractPatternName + "'.");
 			} catch (IOException e) {
