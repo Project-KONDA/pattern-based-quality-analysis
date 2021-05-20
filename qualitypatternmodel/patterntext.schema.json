@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft/2019-09/schema",
+  "title": "PatternText",
+  "type": "object",
+  "description": "todo",
+  "required": ["Fragments"],
+  "properties":
+  {
+	"Fragments": {
+		"description": "todo",
+		"type" : "array",
+		"items": { 
+			"anyOf": [
+				{
+					"type": "object",
+					"required": ["URL", "Type"],					
+					"properties": {						
+						"URL": {
+						  "type": "string",
+						  "description": "todo"
+						},
+						"Type": {
+						  "type": "string",
+						  "enum": ["Text", "TextList", "Number", "Boolean", "Date", "Time", "DateTime", "Enumeration", "Untyped"],
+						  "description": "todo"
+						},
+						"Value": {
+						  "type": ["string", "integer", "boolean", "array"],		
+						  "items": {"type": "string"},				  
+						  "description": "todo"
+						},
+						"Options": {
+						  "type": "array",		
+						  "items": {"type": "string"},				  
+						  "description": "todo"
+						},
+						"TypeMofifiable": {
+						  "type": "boolean",
+						  "description": "todo"
+						}
+					},
+					"additionalProperties": false
+				},
+				{
+				"type": "string",
+				"description": "todo"
+				}
+			]
+		}	
+	}
+  },
+  "additionalProperties": false  
+}
