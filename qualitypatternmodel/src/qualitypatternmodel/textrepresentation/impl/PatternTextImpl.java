@@ -36,6 +36,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  * <ul>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getTextfragment <em>Textfragment</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,6 +51,25 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @ordered
 	 */
 	protected EList<Fragment> textfragment;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,6 +149,29 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PATTERN_TEXT__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -203,6 +246,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return getPattern();
 			case TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT:
 				return getTextfragment();
+			case TextrepresentationPackage.PATTERN_TEXT__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -223,6 +268,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				getTextfragment().clear();
 				getTextfragment().addAll((Collection<? extends Fragment>)newValue);
 				return;
+			case TextrepresentationPackage.PATTERN_TEXT__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -241,6 +289,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			case TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT:
 				getTextfragment().clear();
 				return;
+			case TextrepresentationPackage.PATTERN_TEXT__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -257,6 +308,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return getPattern() != null;
 			case TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT:
 				return textfragment != null && !textfragment.isEmpty();
+			case TextrepresentationPackage.PATTERN_TEXT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -273,6 +326,22 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return generateJSON();
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //PatternTextImpl

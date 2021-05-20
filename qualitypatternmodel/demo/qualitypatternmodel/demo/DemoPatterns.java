@@ -353,6 +353,7 @@ public class DemoPatterns {
 	
 	public static void addTextualRepresentationCardPattern(CompletePattern completePattern) {
 		PatternText patternText = TextrepresentationFactory.eINSTANCE.createPatternText();
+		patternText.setName("test_text");
 		completePattern.getText().add(patternText);
 		
 		// Is there an element with <property> <value> that has <comp> <number> <relation> whose <property> is equal to <value>?

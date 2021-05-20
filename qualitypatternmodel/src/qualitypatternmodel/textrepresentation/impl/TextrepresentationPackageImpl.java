@@ -207,6 +207,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPatternText_Name() {
+		return (EAttribute)patternTextEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPatternText__GenerateJSON() {
 		return patternTextEClass.getEOperations().get(0);
 	}
@@ -343,6 +353,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		patternTextEClass = createEClass(PATTERN_TEXT);
 		createEReference(patternTextEClass, PATTERN_TEXT__PATTERN);
 		createEReference(patternTextEClass, PATTERN_TEXT__TEXTFRAGMENT);
+		createEAttribute(patternTextEClass, PATTERN_TEXT__NAME);
 		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_JSON);
 
 		parameterFragmentEClass = createEClass(PARAMETER_FRAGMENT);
@@ -400,6 +411,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		initEClass(patternTextEClass, PatternText.class, "PatternText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPatternText_Pattern(), thePatternstructurePackage.getCompletePattern(), thePatternstructurePackage.getCompletePattern_Text(), "pattern", null, 1, 1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPatternText_Textfragment(), this.getFragment(), this.getFragment_PatternText(), "textfragment", null, 1, -1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPatternText_Name(), ecorePackage.getEString(), "name", null, 0, 1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getPatternText__GenerateJSON(), ecorePackage.getEString(), "generateJSON", 0, 1, IS_UNIQUE, IS_ORDERED);
 

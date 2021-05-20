@@ -18,17 +18,35 @@ public class PatternTextServlet extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		System.out.println("do get");
 		String requestUrl = request.getRequestURI();
-		String name = requestUrl.substring("/qualitypatternmodel/concrete-patterns/text/".length());
-		String path = "../../concrete-patterns/" + name + ".patternstructure";		
+		String patternNameAndTextName = requestUrl.substring("/qualitypatternmodel/concrete-patterns/text/".length());
+		String[] patternNameAndTextNameSplit = patternNameAndTextName.split("/");
+		String patternName = patternNameAndTextNameSplit[0];
+		
+		String path = "../../concrete-patterns/" + patternName + ".patternstructure";		
 		URL url = getClass().getClassLoader().getResource(path);		
-		System.out.println(url);
+
 		if(url != null) {
 			CompletePattern pattern = EMFModelLoad.loadCompletePattern(url.toString());
-			PatternText patternText = pattern.getText().get(0); // TODO: support selection		
-			String json = patternText.generateJSON();
-			response.getOutputStream().println(json);	
+			PatternText chosenPatternText = null;			
+			
+			if(patternNameAndTextNameSplit.length > 1) {				
+				String textName = patternNameAndTextNameSplit[1];
+				for(PatternText patternText : pattern.getText()) {
+					if(patternText.getName().equals(textName)) {
+						chosenPatternText = patternText;
+					}
+				}				
+			} else {
+				chosenPatternText = pattern.getText().get(0);
+			}			
+			
+			if(chosenPatternText != null) {
+				String json = chosenPatternText.generateJSON();
+				response.getOutputStream().println(json);	
+			} else {
+				response.getOutputStream().println("Requested pattern text not found.");
+			}
 		} else {
 			response.getOutputStream().println("Loading pattern failed.");
 		}
