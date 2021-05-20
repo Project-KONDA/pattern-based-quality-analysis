@@ -143,6 +143,10 @@
       <eOperations name="setValue">
         <eParameters name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
+      <eOperations name="replaceViaValue" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="values" eType="#//parameters/StringArray"/>
+        <eParameters name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DateTimeParam" eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="specifyValue" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
@@ -172,6 +176,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="typeComparisons" upperBound="-1"
           eType="#//operators/Comparison" eOpposite="#//operators/Comparison/typeOption"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="StringArray" instanceClassName="java.lang.String[]"/>
   </eSubpackages>
   <eSubpackages name="operators" nsURI="operators" nsPrefix="operators">
     <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//operators/Operator">

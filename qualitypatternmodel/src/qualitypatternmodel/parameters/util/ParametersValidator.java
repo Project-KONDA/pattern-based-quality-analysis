@@ -146,6 +146,8 @@ public class ParametersValidator extends EObjectValidator {
 				return validateTypeOptionParam((TypeOptionParam)value, diagnostics, context);
 			case ParametersPackage.STRING_TO_INT_EMAP:
 				return validateStringToIntEMap((EMap<?, ?>)value, diagnostics, context);
+			case ParametersPackage.STRING_ARRAY:
+				return validateStringArray((String[])value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -452,6 +454,15 @@ public class ParametersValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateStringToIntEMap(EMap<?, ?> stringToIntEMap, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStringArray(String[] stringArray, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

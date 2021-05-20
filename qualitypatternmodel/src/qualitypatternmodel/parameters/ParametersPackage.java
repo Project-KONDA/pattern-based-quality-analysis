@@ -5104,13 +5104,22 @@ public interface ParametersPackage extends EPackage {
 	int UNTYPED_PARAMETER_VALUE___SET_VALUE__STRING = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Replace Via Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Untyped Parameter Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNTYPED_PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 1;
+	int UNTYPED_PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.DateTimeParamImpl <em>Date Time Param</em>}' class.
@@ -6278,6 +6287,15 @@ public interface ParametersPackage extends EPackage {
 	int STRING_TO_INT_EMAP = 15;
 
 	/**
+	 * The meta object id for the '<em>String Array</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getStringArray()
+	 * @generated
+	 */
+	int STRING_ARRAY = 16;
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.Parameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6912,6 +6930,16 @@ public interface ParametersPackage extends EPackage {
 	EOperation getUntypedParameterValue__SetValue__String();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.UntypedParameterValue#replaceViaValue(java.lang.String[], java.lang.String) <em>Replace Via Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Replace Via Value</em>' operation.
+	 * @see qualitypatternmodel.parameters.UntypedParameterValue#replaceViaValue(java.lang.String[], java.lang.String)
+	 * @generated
+	 */
+	EOperation getUntypedParameterValue__ReplaceViaValue__String_String();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.DateTimeParam <em>Date Time Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7048,6 +7076,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getStringToIntEMap();
+
+	/**
+	 * Returns the meta object for data type '<em>String Array</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>String Array</em>'.
+	 * @model instanceClass="java.lang.String[]"
+	 * @generated
+	 */
+	EDataType getStringArray();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -7585,6 +7623,14 @@ public interface ParametersPackage extends EPackage {
 		EOperation UNTYPED_PARAMETER_VALUE___SET_VALUE__STRING = eINSTANCE.getUntypedParameterValue__SetValue__String();
 
 		/**
+		 * The meta object literal for the '<em><b>Replace Via Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation UNTYPED_PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING = eINSTANCE.getUntypedParameterValue__ReplaceViaValue__String_String();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.DateTimeParamImpl <em>Date Time Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7695,6 +7741,15 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType STRING_TO_INT_EMAP = eINSTANCE.getStringToIntEMap();
+
+		/**
+		 * The meta object literal for the '<em>String Array</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getStringArray()
+		 * @generated
+		 */
+		EDataType STRING_ARRAY = eINSTANCE.getStringArray();
 
 	}
 

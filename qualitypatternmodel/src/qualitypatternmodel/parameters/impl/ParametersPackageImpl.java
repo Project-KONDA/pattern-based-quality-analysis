@@ -166,6 +166,13 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	private EDataType stringToIntEMapEDataType = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType stringArrayEDataType = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -878,6 +885,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getUntypedParameterValue__ReplaceViaValue__String_String() {
+		return untypedParameterValueEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDateTimeParam() {
 		return dateTimeParamEClass;
 	}
@@ -1008,6 +1025,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EDataType getStringArray() {
+		return stringArrayEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ParametersFactory getParametersFactory() {
 		return (ParametersFactory)getEFactoryInstance();
 	}
@@ -1103,6 +1130,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		untypedParameterValueEClass = createEClass(UNTYPED_PARAMETER_VALUE);
 		createEOperation(untypedParameterValueEClass, UNTYPED_PARAMETER_VALUE___SET_VALUE__STRING);
+		createEOperation(untypedParameterValueEClass, UNTYPED_PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING);
 
 		dateTimeParamEClass = createEClass(DATE_TIME_PARAM);
 		createEAttribute(dateTimeParamEClass, DATE_TIME_PARAM__VALUE);
@@ -1121,6 +1149,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		// Create data types
 		stringToIntEMapEDataType = createEDataType(STRING_TO_INT_EMAP);
+		stringArrayEDataType = createEDataType(STRING_ARRAY);
 	}
 
 	/**
@@ -1317,6 +1346,11 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		op = initEOperation(getUntypedParameterValue__SetValue__String(), null, "setValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "val", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getUntypedParameterValue__ReplaceViaValue__String_String(), null, "replaceViaValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getStringArray(), "values", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
 		initEClass(dateTimeParamEClass, DateTimeParam.class, "DateTimeParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateTimeParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateTimeParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1338,6 +1372,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		// Initialize data types
 		initEDataType(stringToIntEMapEDataType, EMap.class, "StringToIntEMap", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(stringArrayEDataType, String[].class, "StringArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

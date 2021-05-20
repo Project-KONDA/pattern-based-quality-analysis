@@ -33,6 +33,16 @@ public class Constants {
 	public static final String REGEX_POSITIVE_NEGATIVE = "(\\+|-)";
 	public static final String SCHEMA = "_schema";
 	
+	public static final String PARAMETER_TYPE_TEXT = "Text";
+	public static final String PARAMETER_TYPE_TEXT_LIST = "TextList";
+	public static final String PARAMETER_TYPE_NUMBER = "Number";
+	public static final String PARAMETER_TYPE_BOOLEAN = "Boolean";
+	public static final String PARAMETER_TYPE_DATE = "Date";
+	public static final String PARAMETER_TYPE_TIME = "Time";
+	public static final String PARAMETER_TYPE_DATE_TIME = "DateTime";
+	public static final String PARAMETER_TYPE_ENUMERATION = "Enumeration";
+	public static final String PARAMETER_TYPE_UNTYPED = "Untyped";
+	
 	
 	/**
 	 * Appends as many closing brackets to <code>str</code> as it contains opening brackets that are not yet closed.

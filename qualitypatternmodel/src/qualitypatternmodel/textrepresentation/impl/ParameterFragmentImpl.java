@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
@@ -26,6 +27,7 @@ import qualitypatternmodel.parameters.impl.TimeParamImpl;
 import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
+import qualitypatternmodel.utility.Constants;
 
 /**
  * <!-- begin-user-doc -->
@@ -212,6 +214,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			String options = getParameter().getOptionsAsStringList();
 			json += ", \"Options\": " + options + "";
 		}
+		if(getParameter() instanceof ParameterValue) {
+			ParameterValue parameterValue = (ParameterValue) getParameter();
+			if(parameterValue.isTypeModifiable()) {
+				json += ", \"TypeModifiable\": true";
+			}
+		}
 		json += "}";
 		return json;
 	}
@@ -227,23 +235,23 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		
 		Class type = getParameter().getClass();
 		if (type.equals(DateParamImpl.class)) {
-			return "Date";			
+			return Constants.PARAMETER_TYPE_DATE;			
 		} else if(type.equals(TimeParamImpl.class)) {
-			return "Time";
+			return Constants.PARAMETER_TYPE_TIME;
 		} else if (type.equals(DateTimeParamImpl.class)) {
-			return "DateTime";
+			return Constants.PARAMETER_TYPE_DATE_TIME;
 		} else if (type.equals(TextLiteralParamImpl.class)) {
-			return "TextLiteral";
+			return Constants.PARAMETER_TYPE_TEXT;
 		} else if (type.equals(BooleanParamImpl.class)) {
-			return "Boolean";
+			return Constants.PARAMETER_TYPE_BOOLEAN;
 		} else if (type.equals(NumberParamImpl.class)) {
-			return "Number";
+			return Constants.PARAMETER_TYPE_NUMBER;
 		} else if (type.equals(TextListParamImpl.class)) {
-			return "TextList";
+			return Constants.PARAMETER_TYPE_TEXT_LIST;
 		} else if (type.equals(UntypedParameterValueImpl.class)) {
-			return "Untyped";
+			return Constants.PARAMETER_TYPE_UNTYPED;
 		} else {
-			return "Enumeration";
+			return Constants.PARAMETER_TYPE_ENUMERATION;
 		}		
 	}	
 

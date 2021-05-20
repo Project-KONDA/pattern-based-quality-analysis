@@ -12,6 +12,7 @@
         <genTypeParameters ecoreTypeParameter="qualitypatternmodel.ecore#//parameters/StringToIntEMap/K"/>
         <genTypeParameters ecoreTypeParameter="qualitypatternmodel.ecore#//parameters/StringToIntEMap/V"/>
       </genDataTypes>
+      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//parameters/StringArray"/>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//parameters/Parameter">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/Parameter/parameterList"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/Parameter/description"/>
@@ -108,6 +109,10 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/UntypedParameterValue">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/UntypedParameterValue/setValue">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/UntypedParameterValue/setValue/val"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/UntypedParameterValue/replaceViaValue">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/UntypedParameterValue/replaceViaValue/values"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/UntypedParameterValue/replaceViaValue/type"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/DateTimeParam">

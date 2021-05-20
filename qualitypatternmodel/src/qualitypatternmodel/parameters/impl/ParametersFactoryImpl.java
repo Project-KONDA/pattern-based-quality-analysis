@@ -98,6 +98,8 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 		switch (eDataType.getClassifierID()) {
 			case ParametersPackage.STRING_TO_INT_EMAP:
 				return createStringToIntEMapFromString(eDataType, initialValue);
+			case ParametersPackage.STRING_ARRAY:
+				return createStringArrayFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -113,6 +115,8 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 		switch (eDataType.getClassifierID()) {
 			case ParametersPackage.STRING_TO_INT_EMAP:
 				return convertStringToIntEMapToString(eDataType, instanceValue);
+			case ParametersPackage.STRING_ARRAY:
+				return convertStringArrayToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -276,6 +280,24 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	 * @generated
 	 */
 	public String convertStringToIntEMapToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String[] createStringArrayFromString(EDataType eDataType, String initialValue) {
+		return (String[])super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertStringArrayToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(instanceValue);
 	}
 

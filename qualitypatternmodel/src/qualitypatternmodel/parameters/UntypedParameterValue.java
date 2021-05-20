@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.parameters;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -26,4 +28,12 @@ public interface UntypedParameterValue extends ParameterValue {
 	 * @generated
 	 */
 	void setValue(String val);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" valuesDataType="qualitypatternmodel.parameters.StringArray"
+	 * @generated
+	 */
+	void replaceViaValue(String[] values, String type) throws InvalidityException;
 } // UnknownInputValue
