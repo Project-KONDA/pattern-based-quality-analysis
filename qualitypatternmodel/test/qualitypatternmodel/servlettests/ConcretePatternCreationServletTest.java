@@ -14,9 +14,9 @@ public class ConcretePatternCreationServletTest {
 	}
 
 	public static void doPostTest() throws IOException {
-		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/abstract-patterns/comp_abstract").openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/abstract-patterns/card_abstract").openConnection();
 		connection.setRequestMethod("POST");
-		String parameters = "name=" + URLEncoder.encode("my_test_card");
+		String parameters = "name=" + URLEncoder.encode("test_card");
 		System.out.println(parameters);
 		
 		connection.setDoOutput(true);
