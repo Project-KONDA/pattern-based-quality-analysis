@@ -21,13 +21,14 @@ public class ConcretePatternCreationServlet extends HttpServlet {
 		String abstractPatternName = requestUrl.substring("/qualitypatternmodel/abstract-patterns/".length());
 		String concretePatternName = request.getParameter("name");
 		String path = "../../abstract-patterns/" + abstractPatternName + ".patternstructure";		
-		URL url = getClass().getClassLoader().getResource(path);		
-		CompletePattern pattern = EMFModelLoad.loadCompletePattern(url.toString());		
+		URL abstractPatternUrl = getClass().getClassLoader().getResource(path);		
+		CompletePattern pattern = EMFModelLoad.loadCompletePattern(abstractPatternUrl.toString());		
 		if(pattern != null) {
 			try {
 				pattern.setName(concretePatternName);
-				// TODO: use substring of url ?
-				EMFModelSave.exportToFile(pattern, "../../concrete-patterns/" + concretePatternName, "patternstructure"); // TODO: correct path
+				URL concretePatternFolderUrl = getClass().getClassLoader().getResource("../../concrete-patterns/");
+				System.out.println(concretePatternFolderUrl);
+				EMFModelSave.exportToFile(pattern, concretePatternFolderUrl.toString() + concretePatternName, "patternstructure");
 				response.getOutputStream().println("Successfully createed concrete pattern with name '" + concretePatternName + "' from abstract pattern '" + abstractPatternName + "'.");
 			} catch (IOException e) {
 				response.getOutputStream().println("Saving concrete pattern failed.");
