@@ -12,13 +12,13 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
 import qualitypatternmodel.utility.EMFModelSave;
 
-public class ConcretePatternCreationServlet extends HttpServlet {
+public class AbstractPatternInstantiationServlet extends HttpServlet {
 
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String requestUrl = request.getRequestURI();
-		String abstractPatternName = requestUrl.substring("/qualitypatternmodel/abstract-patterns/".length());
+		String abstractPatternName = requestUrl.substring("/qualitypatternmodel/abstract-patterns/instantiation/".length());
 		String concretePatternName = request.getParameter("name");
 		String abstractPatternPath = "../../abstract-patterns/" + abstractPatternName + ".patternstructure";		
 		URL abstractPatternUrl = getClass().getClassLoader().getResource(abstractPatternPath);	

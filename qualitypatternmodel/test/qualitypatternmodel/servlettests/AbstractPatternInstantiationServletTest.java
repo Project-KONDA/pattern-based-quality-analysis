@@ -7,14 +7,14 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Scanner;
 
-public class ConcretePatternCreationServletTest {
+public class AbstractPatternInstantiationServletTest {
 	
 	public static void main(String[] args) throws IOException {
 		doPostTest();
 	}
 
 	public static void doPostTest() throws IOException {
-		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/abstract-patterns/card_abstract").openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/abstract-patterns/instantiation/card_abstract").openConnection();
 		connection.setRequestMethod("POST");
 		String parameters = "name=" + URLEncoder.encode("test_card");
 		System.out.println(parameters);

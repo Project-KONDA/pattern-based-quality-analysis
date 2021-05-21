@@ -26,13 +26,13 @@
 	</servlet-mapping>	
 	
 	<servlet>
-		<servlet-name>ConcretePatternCreationServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.servlets.ConcretePatternCreationServlet</servlet-class>
+		<servlet-name>AbstractPatternInstantiationServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.AbstractPatternInstantiationServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>ConcretePatternCreationServlet</servlet-name>
-		<url-pattern>/abstract-patterns/*</url-pattern>
+		<servlet-name>AbstractPatternInstantiationServlet</servlet-name>
+		<url-pattern>/abstract-patterns/instantiation/*</url-pattern>
 	</servlet-mapping>
 	
 	
