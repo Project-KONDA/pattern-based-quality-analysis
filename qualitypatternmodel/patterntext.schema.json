@@ -2,48 +2,49 @@
   "$schema": "http://json-schema.org/draft/2019-09/schema",
   "title": "PatternText",
   "type": "object",
-  "description": "todo",
+  "description": "JSON Schema for the configuration parameters from the REST API.",
   "required": ["Fragments"],
   "properties":
   {
 	"Fragments": {
-		"description": "todo",
+		"description": "List of Fragments. Fragments either represent a text building block or an input-field.",
 		"type" : "array",
 		"items": { 
 			"anyOf": [
+				{
+				"type": "string",
+				"description": "Text building block"
+				},
 				{
 					"type": "object",
 					"required": ["URL", "Type"],					
 					"properties": {						
 						"URL": {
 						  "type": "string",
-						  "description": "todo"
+						  "description": "URL that references the corrisponding element within the pattern"
 						},
 						"Type": {
 						  "type": "string",
 						  "enum": ["Text", "TextList", "Number", "Boolean", "Date", "Time", "DateTime", "Enumeration", "Untyped"],
-						  "description": "todo"
+						  "description": "Type of the Input field"
 						},
 						"Value": {
 						  "type": ["string", "integer", "boolean", "array"],		
 						  "items": {"type": "string"},				  
-						  "description": "todo"
+						  "description": "Predefined value for an input field. Optional"
 						},
 						"Options": {
 						  "type": "array",		
 						  "items": {"type": "string"},				  
-						  "description": "todo"
+						  "description": "List of allowed values. Only if type is Enumeration"
 						},
 						"TypeMofifiable": {
 						  "type": "boolean",
-						  "description": "todo"
+						  "description": "Indicates if type of parameter is flexible and can be changed."
 						}
 					},
-					"additionalProperties": false
-				},
-				{
-				"type": "string",
-				"description": "todo"
+					"additionalProperties": false,
+					"description": "input field"
 				}
 			]
 		}	
