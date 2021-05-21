@@ -2,18 +2,26 @@
   "$schema": "http://json-schema.org/draft/2019-09/schema",
   "title": "PatternText",
   "type": "object",
-  "description": "JSON Schema for the configuration parameters from the REST API.",
-  "required": ["Fragments"],
+  "description": "A textual representation of a pattern",
+  "required": ["PatternName","PatternTextName","Fragments"],
   "properties":
   {
+  	"PatternName": {
+  		"type": "string",
+		"description": "The name of the pattern"
+  	},
+  	"PatternTextName": {
+  		"type": "string",
+		"description": "The name of the textual representation of the pattern"
+  	},
 	"Fragments": {
-		"description": "List of Fragments. Fragments either represent a text building block or an input-field.",
+		"description": "List of fragments of the pattern text, i.e. text blocks and parameters of the pattern",
 		"type" : "array",
 		"items": { 
 			"anyOf": [
 				{
 				"type": "string",
-				"description": "Text building block"
+				"description": "Text block"
 				},
 				{
 					"type": "object",
@@ -21,30 +29,30 @@
 					"properties": {						
 						"URL": {
 						  "type": "string",
-						  "description": "URL that references the corrisponding element within the pattern"
+						  "description": "URL that allows concretising the parameter"
 						},
 						"Type": {
 						  "type": "string",
 						  "enum": ["Text", "TextList", "Number", "Boolean", "Date", "Time", "DateTime", "Enumeration", "Untyped"],
-						  "description": "Type of the Input field"
+						  "description": "Type of the parameter"
 						},
 						"Value": {
 						  "type": ["string", "integer", "boolean", "array"],		
 						  "items": {"type": "string"},				  
-						  "description": "Predefined value for an input field. Optional"
+						  "description": "Value of the parameter"
 						},
 						"Options": {
 						  "type": "array",		
 						  "items": {"type": "string"},				  
-						  "description": "List of allowed values. Only if type is Enumeration"
+						  "description": "Allowed values of an enumeration"
 						},
 						"TypeMofifiable": {
 						  "type": "boolean",
-						  "description": "Indicates if type of parameter is flexible and can be changed."
+						  "description": "Whether the type of the parameter can be modified"
 						}
 					},
 					"additionalProperties": false,
-					"description": "input field"
+					"description": "Parameter"
 				}
 			]
 		}	
