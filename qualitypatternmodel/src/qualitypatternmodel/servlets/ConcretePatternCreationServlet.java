@@ -21,22 +21,27 @@ public class ConcretePatternCreationServlet extends HttpServlet {
 		String abstractPatternName = requestUrl.substring("/qualitypatternmodel/abstract-patterns/".length());
 		String concretePatternName = request.getParameter("name");
 		String path = "../../abstract-patterns/" + abstractPatternName + ".patternstructure";		
-		URL abstractPatternUrl = getClass().getClassLoader().getResource(path);		
-		CompletePattern pattern = EMFModelLoad.loadCompletePattern(abstractPatternUrl.toString());		
-		if(pattern != null) {
-			try {
-				pattern.setName(concretePatternName);
-				URL concretePatternFolderUrl = getClass().getClassLoader().getResource("../../concrete-patterns/");
-				// TODO: check if file exists
-				EMFModelSave.exportToFile(pattern, concretePatternFolderUrl.toString() + concretePatternName, "patternstructure");
-				response.getOutputStream().println("Successfully createed concrete pattern with name '" + concretePatternName + "' from abstract pattern '" + abstractPatternName + "'.");
-			} catch (IOException e) {
-				response.sendError(500);
-				response.getOutputStream().println("{ \"error\": \"Saving concrete pattern failed.\"}");
+		URL abstractPatternUrl = getClass().getClassLoader().getResource(path);	
+		if(abstractPatternUrl != null) {
+			CompletePattern pattern = EMFModelLoad.loadCompletePattern(abstractPatternUrl.toString());		
+			if(pattern != null) {
+				try {
+					pattern.setName(concretePatternName);
+					URL concretePatternFolderUrl = getClass().getClassLoader().getResource("../../concrete-patterns/");
+					// TODO: check if file exists
+					EMFModelSave.exportToFile(pattern, concretePatternFolderUrl.toString() + concretePatternName, "patternstructure");
+					response.getOutputStream().println("Successfully createed concrete pattern with name '" + concretePatternName + "' from abstract pattern '" + abstractPatternName + "'.");
+				} catch (IOException e) {
+					response.sendError(500);
+					response.getOutputStream().println("{ \"error\": \"Saving concrete pattern failed\"}");
+				}
+			} else {
+				response.sendError(404);
+				response.getOutputStream().println("{ \"error\": \"Abstract pattern not found\"}");
 			}
 		} else {
 			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"Loading abstract pattern failed.\"}");
+			response.getOutputStream().println("{ \"error\": \"Abstract pattern not found\"}");
 		}
 		
 	}

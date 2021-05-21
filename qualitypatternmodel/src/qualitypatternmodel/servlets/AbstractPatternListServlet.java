@@ -17,6 +17,9 @@ public class AbstractPatternListServlet extends HttpServlet {
 			if(fileNames == null) {
 				response.sendError(404);
 				response.getOutputStream().println("{ \"error\": \"Loading abstract pattern folder failed.\"}");
+			} else if(fileNames.equals("")) {
+				response.sendError(404);
+				response.getOutputStream().println("{ \"error\": \"No abstract patterns found.\"}");
 			} else {
 				response.getOutputStream().println(fileNames);
 			}

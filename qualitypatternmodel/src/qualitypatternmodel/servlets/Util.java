@@ -10,6 +10,9 @@ public class Util {
 		URL url = clas.getClassLoader().getResource(path);		
 		if(url != null) {			
 			File[] files = Paths.get(url.toURI()).toFile().listFiles();
+			if(files.length == 0) {
+				return "";
+			}
 			String json = "{\"Patterns\" : [";
 			for(File f : files) {
 				json += f.getName().split("\\.")[0] + ", ";

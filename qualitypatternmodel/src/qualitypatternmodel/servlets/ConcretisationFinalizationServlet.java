@@ -38,12 +38,12 @@ public class ConcretisationFinalizationServlet extends HttpServlet {
 				response.getOutputStream().println("Successfully finalized concrete pattern '" + name + "'.");
 			} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
 				response.sendError(404);
-				response.getOutputStream().println("{ \"error\": \"Pattern invalid.\"}");
+				response.getOutputStream().println("{ \"error\": \"Pattern not valid\"}");
 			}			
 			
 		} else {
 			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"Loading pattern failed.\"}");
+			response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
 		}
 		
 	}

@@ -28,12 +28,12 @@ public class QueryServlet extends HttpServlet {
 				response.getOutputStream().println(query);
 			} else {
 				response.sendError(404);
-				response.getOutputStream().println("{ \"error\": \"Loading query failed.\"}");
+				response.getOutputStream().println("{ \"error\": \"Query not found\"}");
 			}
 			
 		} else {
 			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"Loading pattern failed.\"}");
+			response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
 		}
 	}
 
