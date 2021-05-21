@@ -46,11 +46,11 @@ public class PatternTextServlet extends HttpServlet {
 				response.getOutputStream().println(json);	
 			} else {
 				response.sendError(404);
-				response.getOutputStream().println("Requested pattern text not found.");
+				response.getOutputStream().println("{ \"error\": \"Requested pattern text not found.\"}");
 			}
 		} else {
 			response.sendError(404);
-			response.getOutputStream().println("Loading pattern failed.");
+			response.getOutputStream().println("{ \"error\": \"Loading pattern failed.\"}");
 		}
 	}
 	

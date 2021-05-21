@@ -32,11 +32,11 @@ public class ConcretePatternCreationServlet extends HttpServlet {
 				response.getOutputStream().println("Successfully createed concrete pattern with name '" + concretePatternName + "' from abstract pattern '" + abstractPatternName + "'.");
 			} catch (IOException e) {
 				response.sendError(500);
-				response.getOutputStream().println("Saving concrete pattern failed.");
+				response.getOutputStream().println("{ \"error\": \"Saving concrete pattern failed.\"}");
 			}
 		} else {
 			response.sendError(404);
-			response.getOutputStream().println("Loading abstract pattern failed.");
+			response.getOutputStream().println("{ \"error\": \"Loading abstract pattern failed.\"}");
 		}
 		
 	}

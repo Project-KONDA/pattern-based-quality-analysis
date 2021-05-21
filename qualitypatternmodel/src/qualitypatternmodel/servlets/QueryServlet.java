@@ -28,12 +28,12 @@ public class QueryServlet extends HttpServlet {
 				response.getOutputStream().println(query);
 			} else {
 				response.sendError(404);
-				response.getOutputStream().println("Loading query failed.");
+				response.getOutputStream().println("{ \"error\": \"Loading query failed.\"}");
 			}
 			
 		} else {
 			response.sendError(404);
-			response.getOutputStream().println("Loading pattern failed.");
+			response.getOutputStream().println("{ \"error\": \"Loading pattern failed.\"}");
 		}
 	}
 

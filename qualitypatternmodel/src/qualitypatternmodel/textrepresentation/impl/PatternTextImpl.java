@@ -176,7 +176,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 */
 	@Override
 	public String generateJSON() {
-		String json = "{\nFragments\" : [";
+		String json = "{\n\"Fragments\" : [";
 		for(Fragment f : getTextfragment()) {
 			json += f.generateJSON() + ",\n";
 		}

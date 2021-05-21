@@ -15,13 +15,13 @@ public class ConcretePatternListServlet extends HttpServlet {
 			String fileNames = Util.getFileNamesInFolder("../../concrete-patterns/", getClass());
 			if(fileNames == null) {
 				response.sendError(404);
-				response.getOutputStream().println("Loading concrete pattern folder failed.");
+				response.getOutputStream().println("{ \"error\": \"Loading concrete pattern folder failed.\"}");
 			} else {
 				response.getOutputStream().println(fileNames);
 			}
 		} catch (URISyntaxException e) {
 			response.sendError(404);
-			response.getOutputStream().println("Loading concrete pattern folder failed.");
+			response.getOutputStream().println("{ \"error\": \"Loading concrete pattern folder failed.\"");
 		}	
 		
 	}
