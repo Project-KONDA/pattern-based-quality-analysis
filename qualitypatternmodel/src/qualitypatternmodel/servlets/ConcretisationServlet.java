@@ -60,7 +60,7 @@ public class ConcretisationServlet extends HttpServlet {
 						untypedValue.replaceViaValue(values, type);
 					} catch (InvalidityException e) {
 						response.sendError(400);
-						response.getOutputStream().println("UntypedParameterValue invalid.");
+						response.getOutputStream().println("{ \"error\": \"Untyped parameter value invalid\"}");
 					}				
 				} else if(parameter instanceof TextListParamImpl){									
 					TextListParam textListParam = (TextListParam) parameter;
@@ -73,20 +73,20 @@ public class ConcretisationServlet extends HttpServlet {
 						response.getOutputStream().println("Successfully set parameter '" + parameterID + "' of concrete pattern with name '" + name + "' to value '" + values[0] + "' .");
 					} catch (InvalidityException e) {
 						response.sendError(400);
-						response.getOutputStream().println("Parameter value invalid.");
+						response.getOutputStream().println("{ \"error\": \"Parameter value invalid\"}");
 					}
 				} else {
 					response.sendError(400);
-					response.getOutputStream().println("Too many values passed.");
+					response.getOutputStream().println("{ \"error\": \"Too many values passed\"}");
 				}
 			} else {
 				response.sendError(404);
-				response.getOutputStream().println("Parameter not found.");
+				response.getOutputStream().println("{ \"error\": \"Parameter not found\"}");
 			}
 														
 		} else {
 			response.sendError(404);
-			response.getOutputStream().println("Loading pattern failed.");
+			response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
 		}		
 	}	
 	

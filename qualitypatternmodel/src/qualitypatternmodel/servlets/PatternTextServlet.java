@@ -28,29 +28,34 @@ public class PatternTextServlet extends HttpServlet {
 
 		if(url != null) {
 			CompletePattern pattern = EMFModelLoad.loadCompletePattern(url.toString());
-			PatternText chosenPatternText = null;			
-			
-			if(patternNameAndTextNameSplit.length > 1) {				
-				String textName = patternNameAndTextNameSplit[1];
-				for(PatternText patternText : pattern.getText()) {
-					if(patternText.getName().equals(textName)) {
-						chosenPatternText = patternText;
-					}
-				}				
-			} else {
-				chosenPatternText = pattern.getText().get(0);
-			}			
-			
-			if(chosenPatternText != null) {
-				String json = chosenPatternText.generateJSON();
-				response.getOutputStream().println(json);	
+			if(pattern != null) {
+				PatternText chosenPatternText = null;			
+				
+				if(patternNameAndTextNameSplit.length > 1) {				
+					String textName = patternNameAndTextNameSplit[1];
+					for(PatternText patternText : pattern.getText()) {
+						if(patternText.getName().equals(textName)) {
+							chosenPatternText = patternText;
+						}
+					}				
+				} else {
+					chosenPatternText = pattern.getText().get(0);
+				}			
+				
+				if(chosenPatternText != null) {
+					String json = chosenPatternText.generateJSON();
+					response.getOutputStream().println(json);	
+				} else {
+					response.sendError(404);
+					response.getOutputStream().println("{ \"error\": \"Pattern text not found\"}");
+				}
 			} else {
 				response.sendError(404);
-				response.getOutputStream().println("Requested pattern text not found.");
+				response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
 			}
 		} else {
 			response.sendError(404);
-			response.getOutputStream().println("Loading pattern failed.");
+			response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
 		}
 	}
 	
