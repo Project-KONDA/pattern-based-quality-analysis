@@ -13,7 +13,7 @@ public class Util {
 			if(files.length == 0) {
 				return "";
 			}
-			String json = "{\"Patterns\" : [";
+			String json = "{\"Patterns\": [";
 			for(File f : files) {
 				json += f.getName().split("\\.")[0] + ", ";
 			}
