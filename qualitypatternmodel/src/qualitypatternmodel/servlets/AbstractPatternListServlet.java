@@ -15,11 +15,13 @@ public class AbstractPatternListServlet extends HttpServlet {
 		try {
 			String fileNames = Util.getFileNamesInFolder("../../abstract-patterns/", getClass());
 			if(fileNames == null) {
+				response.sendError(404);
 				response.getOutputStream().println("Loading abstract pattern folder failed.");
 			} else {
 				response.getOutputStream().println(fileNames);
 			}
 		} catch (URISyntaxException e) {
+			response.sendError(404);
 			response.getOutputStream().println("Loading abstract pattern folder failed.");
 		}			
 	}

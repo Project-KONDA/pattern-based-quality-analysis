@@ -38,6 +38,7 @@ public class ConcretisationServlet extends HttpServlet {
 		String[] patternNameAndParamIDSplit = patternNameAndParamID.split("/");
 		String name = patternNameAndParamIDSplit[0];
 		String parameterID = patternNameAndParamIDSplit[1];
+		int parameterIDInt = Integer.parseInt(parameterID);
 		
 		String[] values = request.getParameterValues("value");
 		String type = request.getParameter("type"); // only needed in case of UntypedParameterValue
@@ -48,33 +49,43 @@ public class ConcretisationServlet extends HttpServlet {
 		URL fileURL = getClass().getClassLoader().getResource(filePath);		
 		
 		if(fileURL != null && folderURL != null) {
-			CompletePattern pattern = EMFModelLoad.loadCompletePattern(fileURL.toString());
-			Parameter parameter = pattern.getParameterList().getParameters().get(Integer.parseInt(parameterID));			
+			CompletePattern pattern = EMFModelLoad.loadCompletePattern(fileURL.toString());			
 			
-			if(parameter instanceof UntypedParameterValueImpl) {
-				UntypedParameterValue untypedValue = (UntypedParameterValue) parameter;
-				try {
-					untypedValue.replaceViaValue(values, type);
-				} catch (InvalidityException e) {
-					response.getOutputStream().println("UntypedParameterValue invalid.");
-				}				
-			} else if(parameter instanceof TextListParamImpl){									
-				TextListParam textListParam = (TextListParam) parameter;
-				textListParam.getValues().clear();
-				textListParam.getValues().addAll(Arrays.asList(values));			
-			} else if(values.length == 1) {
-				try {
-					parameter.setValueFromString(values[0]);
-					EMFModelSave.exportToFile(pattern, folderURL.toString() + name, "patternstructure");
-					response.getOutputStream().println("Successfully set parameter '" + parameterID + "' of concrete pattern with name '" + name + "' to value '" + values[0] + "' .");
-				} catch (InvalidityException e) {
-					response.getOutputStream().println("Parameter value invalid.");
+			if(parameterIDInt < pattern.getParameterList().getParameters().size()) {
+				Parameter parameter = pattern.getParameterList().getParameters().get(parameterIDInt);			
+				
+				if(parameter instanceof UntypedParameterValueImpl) {
+					UntypedParameterValue untypedValue = (UntypedParameterValue) parameter;
+					try {
+						untypedValue.replaceViaValue(values, type);
+					} catch (InvalidityException e) {
+						response.sendError(400);
+						response.getOutputStream().println("UntypedParameterValue invalid.");
+					}				
+				} else if(parameter instanceof TextListParamImpl){									
+					TextListParam textListParam = (TextListParam) parameter;
+					textListParam.getValues().clear();
+					textListParam.getValues().addAll(Arrays.asList(values));			
+				} else if(values.length == 1) {
+					try {
+						parameter.setValueFromString(values[0]);
+						EMFModelSave.exportToFile(pattern, folderURL.toString() + name, "patternstructure");
+						response.getOutputStream().println("Successfully set parameter '" + parameterID + "' of concrete pattern with name '" + name + "' to value '" + values[0] + "' .");
+					} catch (InvalidityException e) {
+						response.sendError(400);
+						response.getOutputStream().println("Parameter value invalid.");
+					}
+				} else {
+					response.sendError(400);
+					response.getOutputStream().println("Too many values passed.");
 				}
 			} else {
-				response.getOutputStream().println("Too many values passed.");
+				response.sendError(404);
+				response.getOutputStream().println("Parameter not found.");
 			}
 														
 		} else {
+			response.sendError(404);
 			response.getOutputStream().println("Loading pattern failed.");
 		}		
 	}	

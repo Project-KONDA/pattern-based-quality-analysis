@@ -37,13 +37,12 @@ public class ConcretisationFinalizationServlet extends HttpServlet {
 				EMFModelSave.exportToFile(pattern, folderURL.toString() + name, "patternstructure");
 				response.getOutputStream().println("Successfully finalized concrete pattern '" + name + "'.");
 			} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-				// TODO
-				e.printStackTrace();
-			}
-			
-			
+				response.sendError(404);
+				response.getOutputStream().println("Pattern invalid.");
+			}			
 			
 		} else {
+			response.sendError(404);
 			response.getOutputStream().println("Loading pattern failed.");
 		}
 		
