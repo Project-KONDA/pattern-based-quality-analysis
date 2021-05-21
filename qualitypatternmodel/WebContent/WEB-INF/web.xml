@@ -59,6 +59,17 @@
 	
 	
 	<servlet>
+		<servlet-name>PatternTextListServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.PatternTextListServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>PatternTextListServlet</servlet-name>
+		<url-pattern>/concrete-patterns/text-list/*</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
 		<servlet-name>ConcretisationFinalizationServlet</servlet-name>
 		<servlet-class>qualitypatternmodel.servlets.ConcretisationFinalizationServlet</servlet-class>
 	</servlet>
