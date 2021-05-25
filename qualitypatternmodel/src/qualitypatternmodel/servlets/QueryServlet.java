@@ -25,8 +25,8 @@ public class QueryServlet extends HttpServlet {
 			CompletePattern pattern = EMFModelLoad.loadCompletePattern(url.toString());
 			String query = pattern.getQuery();
 			if(query != null && !query.equals("")) {
-				String json = "{\"Query\": \"" + query + "\"}";			
-				response.getOutputStream().println(json);
+//				String json = "{\"Query\": \"" + query + "\"}";			
+				response.getOutputStream().println(query);
 			} else {
 				response.sendError(404);
 				response.getOutputStream().println("{ \"error\": \"Query not found\"}");
