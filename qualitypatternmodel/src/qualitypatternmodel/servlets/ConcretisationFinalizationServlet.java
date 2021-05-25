@@ -37,8 +37,8 @@ public class ConcretisationFinalizationServlet extends HttpServlet {
 				EMFModelSave.exportToFile(pattern, folderURL.toString() + name, "patternstructure");
 				response.getOutputStream().println("Successfully finalized concrete pattern '" + name + "'.");
 			} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {
-				response.sendError(404);
-				response.getOutputStream().println("{ \"error\": \"Pattern not valid\"}");
+				response.sendError(409);
+				response.getOutputStream().println("{ \"error\": \"Concrete pattern not valid\"}");
 			}			
 			
 		} else {

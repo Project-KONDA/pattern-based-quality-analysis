@@ -35,7 +35,7 @@ public class AbstractPatternInstantiationServlet extends HttpServlet {
 						EMFModelSave.exportToFile(pattern, concretePatternFolderUrl.toString() + concretePatternName, "patternstructure");
 						response.getOutputStream().println("Successfully created concrete pattern with name '" + concretePatternName + "' from abstract pattern '" + abstractPatternName + "'.");
 					} else {
-						response.sendError(400);
+						response.sendError(409);
 						response.getOutputStream().println("{ \"error\": \"Pattern name already used\"}");						
 					}					
 				} catch (IOException e) {
