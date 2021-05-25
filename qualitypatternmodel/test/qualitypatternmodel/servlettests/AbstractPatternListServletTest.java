@@ -28,8 +28,9 @@ public class AbstractPatternListServletTest {
 		try {
 			JSONParser parser = new JSONParser();			
 			Object obj = parser.parse(result);			
-			JSONObject jsonObject = (JSONObject) obj;
-			JSONArray array = (JSONArray) jsonObject.get("Patterns");
+//			JSONObject jsonObject = (JSONObject) obj;
+//			JSONArray array = (JSONArray) jsonObject.get("Patterns");
+			JSONArray array = (JSONArray) obj;
 			List<String> list = ServletTestsUtil.JSONArrayToList(array);
 			
 			assertTrue(list.contains("card_abstract"));
