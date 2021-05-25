@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft/2019-09/schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "PatternText",
   "type": "object",
   "description": "A textual representation of a pattern",
@@ -37,7 +37,7 @@
 						  "description": "Type of the parameter"
 						},
 						"Value": {
-						  "type": ["string", "integer", "boolean", "array"],		
+						  "type": ["string", "number", "boolean", "array"],		
 						  "items": {"type": "string"},				  
 						  "description": "Value of the parameter"
 						},
