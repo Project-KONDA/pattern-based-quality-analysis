@@ -1,5 +1,7 @@
 package qualitypatternmodel.servlettests;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
@@ -7,19 +9,25 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Scanner;
 
-public class ConcretisationFinalizationServletTest {
-	public static void main(String[] args) throws IOException {
-		doPostTest();
-	}
+import org.junit.Test;
 
-	public static void doPostTest() throws IOException {
-		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/finalization/card_concrete").openConnection();
+public class ConcretisationFinalizationServletTest {
+	
+	@Test
+	public void doPostTest() throws IOException {
+		String patternName = "card_concrete";
+		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/finalization/" + patternName).openConnection();
 		connection.setRequestMethod("POST");
 		
-		int responseCode = connection.getResponseCode();
-		
+		int responseCode = connection.getResponseCode();		
 		String result = ServletTestsUtil.getResult(connection);		
-		ServletTestsUtil.printResult(connection, responseCode, result);
+//		ServletTestsUtil.printResult(connection, responseCode, result);
+		
+		HttpURLConnection connection2 = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/query/" + patternName).openConnection();
+		connection2.setRequestMethod("GET");
+		
+		int responseCode2 = connection2.getResponseCode();
+		assertTrue(responseCode2 >= 200 && responseCode2 < 300);	
 
 	}
 }
