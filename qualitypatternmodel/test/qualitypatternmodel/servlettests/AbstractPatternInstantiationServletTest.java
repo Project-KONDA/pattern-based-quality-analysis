@@ -1,38 +1,68 @@
 package qualitypatternmodel.servlettests;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.file.Paths;
+import java.util.List;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.utility.EMFModelLoad;
 
 public class AbstractPatternInstantiationServletTest {
 	
-	public static void main(String[] args) throws IOException {
-		String patternName = "test_card";
-		doPostTest(patternName);
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		ConcretePatternListServletTest.doGetTest();
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		ConcretePatternDeletionServletTest.doDeleteTest(patternName);
+	private static final String PATTERN_NAME = "test_card";
+
+	
+//	public static void main(String[] args) throws IOException {
+//		String patternName = "test_card";
+//		doPostTest(patternName);
+//		try {
+//			Thread.sleep(10000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		ConcretePatternListServletTest.doGetTest();
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		ConcretePatternDeletionServletTest.doDeleteTest(patternName);
+//	}
+	
+	@After
+	public void deletePattern() throws IOException {	
+		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/deletion/" + PATTERN_NAME).openConnection();
+		connection.setRequestMethod("DELETE");		
+		int responseCode = connection.getResponseCode();
 	}
 
-	public static void doPostTest(String concretePatternName) throws IOException {
-		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/abstract-patterns/instantiation/card_abstract").openConnection();
+	@Test
+	public void doPostTest() throws IOException {
+		String abstractPatternName = "card_abstract";
+		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/abstract-patterns/instantiation/" + abstractPatternName).openConnection();
 		connection.setRequestMethod("POST");
 		
-		String parameters = "name=" + URLEncoder.encode(concretePatternName);
-//		System.out.println(parameters);
+		String parameters = "name=" + URLEncoder.encode(PATTERN_NAME);
 		
 		connection.setDoOutput(true);
 	    OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
@@ -40,9 +70,36 @@ public class AbstractPatternInstantiationServletTest {
 	    wr.flush();
 		
 		int responseCode = connection.getResponseCode();
+		String result = ServletTestsUtil.getResult(connection);		
+//		ServletTestsUtil.printResult(connection, responseCode, result);
 		
-		ServletTestsUtil.printResult(connection, responseCode);	
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		HttpURLConnection connection2 = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns").openConnection();
+		connection2.setRequestMethod("GET");
+		
+		int responseCode2 = connection2.getResponseCode();
+		assertTrue(responseCode2 >= 200 && responseCode < 300);
+		
+		String result2 = ServletTestsUtil.getResult(connection2);		
+		
+		try {
+			JSONParser parser = new JSONParser();			
+			Object obj = parser.parse(result2);			
+			JSONObject jsonObject = (JSONObject) obj;
+			JSONArray array = (JSONArray) jsonObject.get("Patterns");
+			List<String> list = ServletTestsUtil.JSONArrayToList(array);
+			assertTrue(list.contains(PATTERN_NAME));
+			
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  	  			
 
 	}
 	

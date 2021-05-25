@@ -19,7 +19,8 @@ public class PatternTextListServletTest {
 				
 		int responseCode = connection.getResponseCode();
 		
-		ServletTestsUtil.printResult(connection, responseCode);
+		String result = ServletTestsUtil.getResult(connection);		
+		ServletTestsUtil.printResult(connection, responseCode, result);
 
 	}
 	
