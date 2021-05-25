@@ -1,5 +1,7 @@
 package qualitypatternmodel.servlettests;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -21,6 +23,7 @@ public class PatternTextServletTest {
 		connection.setRequestMethod("GET");
 				
 		int responseCode = connection.getResponseCode();
+		assertTrue(responseCode >= 200 && responseCode < 300);
 		
 		String result = ServletTestsUtil.getResult(connection);		
 //		ServletTestsUtil.printResult(connection, responseCode, result);

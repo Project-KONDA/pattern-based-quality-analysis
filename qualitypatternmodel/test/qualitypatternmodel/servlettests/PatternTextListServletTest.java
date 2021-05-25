@@ -22,6 +22,7 @@ public class PatternTextListServletTest {
 		connection.setRequestMethod("GET");
 				
 		int responseCode = connection.getResponseCode();
+		assertTrue(responseCode >= 200 && responseCode < 300);
 		
 		String result = ServletTestsUtil.getResult(connection);		
 //		ServletTestsUtil.printResult(connection, responseCode, result);		
