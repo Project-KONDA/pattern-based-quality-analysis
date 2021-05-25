@@ -97,14 +97,24 @@ public class ConcretisationServlet extends HttpServlet {
 		String[] patternNameAndParamIDSplit = patternNameAndParamID.split("/");
 		String name = patternNameAndParamIDSplit[0];
 		String parameterID = patternNameAndParamIDSplit[1];
+		int parameterIDInt = Integer.parseInt(parameterID);
+
 		
 		String path = "../../concrete-patterns/" + name + ".patternstructure";		
 		URL url = getClass().getClassLoader().getResource(path);		
 		
 		if(url != null) {
 			CompletePattern pattern = EMFModelLoad.loadCompletePattern(url.toString());
-			Parameter parameter = pattern.getParameterList().getParameters().get(Integer.parseInt(parameterID));
-			response.getOutputStream().println(parameter.getValueAsString());
+			if(parameterIDInt < pattern.getParameterList().getParameters().size()) {
+				Parameter parameter = pattern.getParameterList().getParameters().get(Integer.parseInt(parameterID));				
+				response.getOutputStream().println(parameter.getValueAsString());
+			} else {
+				response.sendError(404);
+				response.getOutputStream().println("{ \"error\": \"Parameter not found\"}");
+			}
+		} else {
+			response.sendError(404);
+			response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
 		}
 	}
 
