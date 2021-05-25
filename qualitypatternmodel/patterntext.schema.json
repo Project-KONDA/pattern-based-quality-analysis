@@ -46,7 +46,7 @@
 						  "items": {"type": "string"},				  
 						  "description": "Allowed values of an enumeration"
 						},
-						"TypeMofifiable": {
+						"TypeModifiable": {
 						  "type": "boolean",
 						  "description": "Whether the type of the parameter can be modified"
 						}
