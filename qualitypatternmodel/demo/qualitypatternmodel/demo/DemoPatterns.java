@@ -54,6 +54,7 @@ public class DemoPatterns {
 	
 	private static CompletePattern compConcrete;
 	private static CompletePattern cardConcrete;
+	private static CompletePattern cardConcreteFinalized;
 	private static CompletePattern funcConcrete;
 	private static LocalXmlDataDatabase database;
 	private static LocalXmlSchemaDatabase schema;
@@ -73,6 +74,7 @@ public class DemoPatterns {
         
         compConcrete = getConcreteCompPattern(database);
         cardConcrete = getConcreteCardPattern(database);
+        cardConcreteFinalized = getConcreteFinalizedCardPattern(database);
         funcConcrete = getConcreteFuncPattern(database);
         
 		exportAllDemoPatterns();
@@ -127,6 +129,8 @@ public class DemoPatterns {
 		EMFModelSave.exportToFile(cardAbstract,"instances/demo/card_abstract", "patternstructure");
 		CompletePattern cardConcrete = getConcreteCardPattern(database);				
 		EMFModelSave.exportToFile(cardConcrete,"instances/demo/card_concrete", "patternstructure");
+		CompletePattern cardConcreteFinalized = getConcreteFinalizedCardPattern(database);				
+		EMFModelSave.exportToFile(cardConcreteFinalized,"instances/demo/card_concrete_finalized", "patternstructure");
 		
 		CompletePattern funcGeneric = getGenericFuncPattern();
 		EMFModelSave.exportToFile(funcGeneric,"instances/demo/func_generic", "patternstructure");
@@ -162,7 +166,7 @@ public class DemoPatterns {
 	public static CompletePattern getGenericCompPattern() {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		completePattern.setName("Comp [generic]");
+		completePattern.setName("comp_generic");
 		
 		// Context graph of pattern:
 		Element element0 = completePattern.getGraph().getElements().get(0);
@@ -211,7 +215,7 @@ public class DemoPatterns {
 	
 	public static CompletePattern getAbstractCompPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericCompPattern();
-		completePattern.setName("Comp [abstract]");
+		completePattern.setName("comp_abstract");
 		
 		completePattern.createXMLAdaption();
 		
@@ -226,7 +230,7 @@ public class DemoPatterns {
 
 	public static CompletePattern getConcreteCompPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getAbstractCompPattern();
-		completePattern.setName("Comp [concrete]");
+		completePattern.setName("comp_concrete");
 		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
@@ -278,7 +282,7 @@ public class DemoPatterns {
 	public static CompletePattern getGenericCardPattern() {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		completePattern.setName("Card [generic]");
+		completePattern.setName("card_generic");
 		
 		// Context graph of pattern:
 		Element element0 = completePattern.getGraph().getElements().get(0);
@@ -335,7 +339,7 @@ public class DemoPatterns {
 	
 	public static CompletePattern getAbstractCardPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericCardPattern();
-		completePattern.setName("Card [abstract]");
+		completePattern.setName("card_abstract");
 		
 		completePattern.createXMLAdaption();
 		
@@ -443,7 +447,7 @@ public class DemoPatterns {
 	
 	public static CompletePattern getConcreteCardPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getAbstractCardPattern();
-		completePattern.setName("Card [concrete]");
+		completePattern.setName("card_concrete");
 		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
@@ -484,13 +488,21 @@ public class DemoPatterns {
 		return completePattern;
 	}
 	
+	public static CompletePattern getConcreteFinalizedCardPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getConcreteCardPattern(db);
+		completePattern.setName("card_concrete_finalized");
+		completePattern.isValid(AbstractionLevel.CONCRETE);
+		completePattern.generateQuery();
+		return completePattern;
+	}
+	
 	
 	// ---------- FUNC pattern ----------
 
 	public static CompletePattern getGenericFuncPattern() {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		completePattern.setName("Func [generic]");
+		completePattern.setName("func_generic");
 		
 		// Context graph of pattern:
 		Element element0 = completePattern.getGraph().getElements().get(0);
@@ -600,7 +612,7 @@ public class DemoPatterns {
 	
 	public static CompletePattern getAbstractFuncPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericFuncPattern();
-		completePattern.setName("Func [abstract]");
+		completePattern.setName("func_abstract");
 		
 		completePattern.createXMLAdaption();
 		
@@ -618,7 +630,7 @@ public class DemoPatterns {
 	
 	public static CompletePattern getConcreteFuncPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getAbstractFuncPattern();
-		completePattern.setName("Func [concrete]");
+		completePattern.setName("func_concrete");
 		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
