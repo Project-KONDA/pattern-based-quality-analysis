@@ -9,14 +9,29 @@ import java.net.URLEncoder;
 public class AbstractPatternInstantiationServletTest {
 	
 	public static void main(String[] args) throws IOException {
-		doPostTest();
+		String patternName = "test_card";
+		doPostTest(patternName);
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ConcretePatternListServletTest.doGetTest();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ConcretePatternDeletionServletTest.doDeleteTest(patternName);
 	}
 
-	public static void doPostTest() throws IOException {
+	public static void doPostTest(String concretePatternName) throws IOException {
 		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/abstract-patterns/instantiation/card_abstract").openConnection();
 		connection.setRequestMethod("POST");
 		
-		String parameters = "name=" + URLEncoder.encode("test_card");
+		String parameters = "name=" + URLEncoder.encode(concretePatternName);
 //		System.out.println(parameters);
 		
 		connection.setDoOutput(true);
@@ -26,7 +41,8 @@ public class AbstractPatternInstantiationServletTest {
 		
 		int responseCode = connection.getResponseCode();
 		
-		ServletTestsUtil.printResult(connection, responseCode);
+		ServletTestsUtil.printResult(connection, responseCode);	
+		
 
 	}
 	
