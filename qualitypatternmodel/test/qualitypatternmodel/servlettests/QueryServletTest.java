@@ -11,30 +11,12 @@ public class QueryServletTest {
 	}
 
 	public static void doGetTest() throws IOException {
-		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/query/card_concrete").openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/query/card_concrete_finalized").openConnection();
 		connection.setRequestMethod("GET");
 		
 		int responseCode = connection.getResponseCode();
 		
-		if(responseCode == 200){
-			System.out.println("GET was successful.");
-			
-			String response = "";
-			Scanner scanner = new Scanner(connection.getInputStream());
-			while(scanner.hasNextLine()){
-				response += scanner.nextLine();
-				response += "\n";
-			}
-			scanner.close();
-
-			System.out.println("Result: " + response);
-
-			
-		}
-		else if(responseCode == 401){
-			System.out.println("Wrong password.");
-		}
-
+		ServletTestsUtil.printResult(connection, responseCode);
 
 	}
 }
