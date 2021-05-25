@@ -13,12 +13,14 @@ public class Util {
 			if(files.length == 0) {
 				return "";
 			}
-			String json = "{\"Patterns\": [";
+//			String json = "{\"Patterns\": [";
+			String json = "[";
 			for(File f : files) {
 				json += "\"" + f.getName().split("\\.")[0] + "\", ";
 			}
 			json = json.substring(0, json.length()-2);
-			json += "]}";
+//			json += "]}";
+			json += "]";
 			return json;			     
 			
 		} else {
