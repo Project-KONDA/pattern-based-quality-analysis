@@ -21,6 +21,7 @@ public class ServletTestsUtil {
 			response += scanner.nextLine();
 			response += "\n";
 		}
+		response = response.substring(0, response.length()-1);
 		scanner.close();
 		return response;
 	}
