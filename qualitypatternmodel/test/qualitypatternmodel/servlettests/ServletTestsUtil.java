@@ -5,7 +5,9 @@ import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import org.json.simple.JSONArray;
+import org.json.JSONArray;
+import org.json.JSONException;
+
 
 public class ServletTestsUtil {
 
@@ -26,10 +28,10 @@ public class ServletTestsUtil {
 		return response;
 	}
 	
-	static ArrayList<String> JSONArrayToList(JSONArray jsonArray) {
+	static ArrayList<String> JSONArrayToList(JSONArray jsonArray) throws JSONException {
 		ArrayList<String> list = new ArrayList<String>();     
 		if (jsonArray != null) { 
-		   int len = jsonArray.size();
+		   int len = jsonArray.length();
 		   for (int i=0;i<len;i++){ 
 		    list.add(jsonArray.get(i).toString());
 		   } 

@@ -17,10 +17,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -53,7 +51,7 @@ public class ConcretePatternDeletionServletTest {
 	}
 
 	@Test
-	public void doDeleteTest() throws IOException {		
+	public void doDeleteTest() throws IOException, JSONException {		
 		
 		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/deletion/" + PATTERN_NAME).openConnection();
 		connection.setRequestMethod("DELETE");
@@ -71,19 +69,11 @@ public class ConcretePatternDeletionServletTest {
 		assertTrue(responseCode2 >= 200 && responseCode < 300);
 		
 		String result2 = ServletTestsUtil.getResult(connection2);		
+
+		JSONArray array = new JSONArray(result2);
+		List<String> list = ServletTestsUtil.JSONArrayToList(array);
 		
-		try {
-			JSONParser parser = new JSONParser();			
-			Object obj = parser.parse(result2);			
-			JSONObject jsonObject = (JSONObject) obj;
-			JSONArray array = (JSONArray) jsonObject.get("Patterns");
-			List<String> list = ServletTestsUtil.JSONArrayToList(array);
-			assertFalse(list.contains(PATTERN_NAME));
-			
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}  	  		
+		assertFalse(list.contains(PATTERN_NAME));
 		
 
 	}

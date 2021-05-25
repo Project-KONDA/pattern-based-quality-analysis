@@ -14,10 +14,9 @@ import java.net.URLEncoder;
 import java.nio.file.Paths;
 import java.util.List;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -38,7 +37,7 @@ public class AbstractPatternInstantiationServletTest {
 	}
 
 	@Test
-	public void doPostTest() throws IOException {
+	public void doPostTest() throws IOException, JSONException {
 		String abstractPatternName = "card_abstract";
 		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/abstract-patterns/instantiation/" + abstractPatternName).openConnection();
 		connection.setRequestMethod("POST");
@@ -69,18 +68,12 @@ public class AbstractPatternInstantiationServletTest {
 		
 		String result2 = ServletTestsUtil.getResult(connection2);		
 		
-		try {
-			JSONParser parser = new JSONParser();			
-			Object obj = parser.parse(result2);			
-			JSONObject jsonObject = (JSONObject) obj;
-			JSONArray array = (JSONArray) jsonObject.get("Patterns");
-			List<String> list = ServletTestsUtil.JSONArrayToList(array);
-			assertTrue(list.contains(PATTERN_NAME));
+		JSONArray array = new JSONArray(result2);
+		List<String> list = ServletTestsUtil.JSONArrayToList(array);
+		
+		assertTrue(list.contains(PATTERN_NAME));
 			
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}  	  			
+		 			
 
 	}
 	
