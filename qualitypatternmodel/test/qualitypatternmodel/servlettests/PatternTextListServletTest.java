@@ -10,35 +10,26 @@ import java.net.URLEncoder;
 import java.util.List;
 import java.util.Scanner;
 
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.junit.Test;
 
 public class PatternTextListServletTest {
 	
 	@Test
-	public void doGetTest() throws IOException {
+	public void doGetTest() throws IOException, JSONException {
 		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/text-list/card_concrete").openConnection();
 		connection.setRequestMethod("GET");
 				
 		int responseCode = connection.getResponseCode();
 		
 		String result = ServletTestsUtil.getResult(connection);		
-//		ServletTestsUtil.printResult(connection, responseCode, result);
+//		ServletTestsUtil.printResult(connection, responseCode, result);		
+			
+		JSONArray array = new JSONArray(result);
+		List<String> list = ServletTestsUtil.JSONArrayToList(array);
 		
-		try {
-			JSONParser parser = new JSONParser();			
-			Object obj = parser.parse(result);
-			JSONArray array = (JSONArray) obj;
-			List<String> list = ServletTestsUtil.JSONArrayToList(array);
-			
-			assertTrue(list.contains("test_text"));
-			
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}  	  
+		assertTrue(list.contains("test_text"));
 
 	}
 	
