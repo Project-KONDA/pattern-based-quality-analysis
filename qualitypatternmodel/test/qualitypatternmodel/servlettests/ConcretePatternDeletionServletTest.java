@@ -59,8 +59,9 @@ public class ConcretePatternDeletionServletTest {
 		connection.setRequestMethod("DELETE");
 		
 		int responseCode = connection.getResponseCode();
+		assertTrue(responseCode >= 200 && responseCode < 300);
 		
-		String result = ServletTestsUtil.getResult(connection);		
+//		String result = ServletTestsUtil.getResult(connection);		
 //		ServletTestsUtil.printResult(connection, responseCode, result);
 		
 		HttpURLConnection connection2 = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns").openConnection();

@@ -28,32 +28,13 @@ import qualitypatternmodel.utility.EMFModelLoad;
 public class AbstractPatternInstantiationServletTest {
 	
 	private static final String PATTERN_NAME = "test_card";
-
-	
-//	public static void main(String[] args) throws IOException {
-//		String patternName = "test_card";
-//		doPostTest(patternName);
-//		try {
-//			Thread.sleep(10000);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		ConcretePatternListServletTest.doGetTest();
-//		try {
-//			Thread.sleep(1000);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		ConcretePatternDeletionServletTest.doDeleteTest(patternName);
-//	}
 	
 	@After
 	public void deletePattern() throws IOException {	
 		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/deletion/" + PATTERN_NAME).openConnection();
 		connection.setRequestMethod("DELETE");		
 		int responseCode = connection.getResponseCode();
+		assertTrue(responseCode >= 200 && responseCode < 300);
 	}
 
 	@Test
@@ -70,7 +51,7 @@ public class AbstractPatternInstantiationServletTest {
 	    wr.flush();
 		
 		int responseCode = connection.getResponseCode();
-		String result = ServletTestsUtil.getResult(connection);		
+//		String result = ServletTestsUtil.getResult(connection);		
 //		ServletTestsUtil.printResult(connection, responseCode, result);
 		
 		try {

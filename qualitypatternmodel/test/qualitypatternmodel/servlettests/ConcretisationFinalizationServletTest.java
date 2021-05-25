@@ -20,7 +20,9 @@ public class ConcretisationFinalizationServletTest {
 		connection.setRequestMethod("POST");
 		
 		int responseCode = connection.getResponseCode();		
-		String result = ServletTestsUtil.getResult(connection);		
+		assertTrue(responseCode >= 200 && responseCode < 300);
+
+//		String result = ServletTestsUtil.getResult(connection);		
 //		ServletTestsUtil.printResult(connection, responseCode, result);
 		
 		HttpURLConnection connection2 = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/query/" + patternName).openConnection();
