@@ -34,12 +34,14 @@ public class PatternTextListServlet extends HttpServlet {
 				response.sendError(404);
 				response.getOutputStream().println("{ \"error\": \"No pattern texts found\"}");					
 			} else {
-				String result = "{\"Texts\": [";
+//				String result = "{\"Texts\": [";
+				String result = "[";
 				for (PatternText text: texts) {
 					result += "\"" + text.getName() + "\", ";
 				} 					
-				result += "]}";
-				result = result.replace(", ]}", "]}");
+//				result += "]}";
+				result += "]";
+				result = result.replace(", ]", "]");
 				response.getOutputStream().println(result);
 			}
 			
