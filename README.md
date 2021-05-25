@@ -37,8 +37,8 @@ The graphical user interface is implemented in the project called ```patterncrea
 * [Eclipse Sirius](https://www.eclipse.org/sirius/)
 * [XQuery](https://www.w3.org/XML/Query/)
 * [BaseX](https://basex.org)
-* [everit-org/json-schema] (https://github.com/everit-org/json-schema)
-* [damnhandy/Handy-URI-Templates] (https://github.com/damnhandy/Handy-URI-Templates)
+* [everit-org/json-schema](https://github.com/everit-org/json-schema)
+* [damnhandy/Handy-URI-Templates](https://github.com/damnhandy/Handy-URI-Templates)
 
 
 
