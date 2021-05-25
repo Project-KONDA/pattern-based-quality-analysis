@@ -15,7 +15,7 @@ public class Util {
 			}
 			String json = "{\"Patterns\": [";
 			for(File f : files) {
-				json += f.getName().split("\\.")[0] + ", ";
+				json += "\"" + f.getName().split("\\.")[0] + "\", ";
 			}
 			json = json.substring(0, json.length()-2);
 			json += "]}";

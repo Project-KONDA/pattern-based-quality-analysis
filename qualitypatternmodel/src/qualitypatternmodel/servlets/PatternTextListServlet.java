@@ -34,7 +34,7 @@ public class PatternTextListServlet extends HttpServlet {
 				response.sendError(404);
 				response.getOutputStream().println("{ \"error\": \"No pattern texts found\"}");					
 			} else {
-				String result = "\"{\\\"Texts\\\": [";
+				String result = "{\"Texts\": [";
 				for (PatternText text: texts) {
 					result += "\"" + text.getName() + "\", ";
 				} 					
