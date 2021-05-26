@@ -6,6 +6,7 @@ package qualitypatternmodel.textrepresentation;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Text Fragment</b></em>'.
+ * A textual fragment of a textual representation of a pattern.
  * <!-- end-user-doc -->
  *
  * <p>

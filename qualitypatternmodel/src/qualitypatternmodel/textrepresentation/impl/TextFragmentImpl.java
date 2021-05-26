@@ -38,6 +38,7 @@ public class TextFragmentImpl extends FragmentImpl implements TextFragment {
 	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The text represented by this fragment.
 	 * <!-- end-user-doc -->
 	 * @see #getText()
 	 * @generated

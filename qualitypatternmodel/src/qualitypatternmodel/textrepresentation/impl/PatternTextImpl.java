@@ -45,6 +45,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	/**
 	 * The cached value of the '{@link #getTextfragment() <em>Textfragment</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
+	 * The fragments of the textual representation of a pattern.
 	 * <!-- end-user-doc -->
 	 * @see #getTextfragment()
 	 * @generated
@@ -64,6 +65,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
+	 * The name of this textual representation of the pattern.
 	 * <!-- end-user-doc -->
 	 * @see #getName()
 	 * @generated

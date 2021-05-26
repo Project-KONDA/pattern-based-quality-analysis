@@ -46,6 +46,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	/**
 	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference.
 	 * <!-- begin-user-doc -->
+	 * The parameter represented by this fragment of a textual representation of the pattern.
 	 * <!-- end-user-doc -->
 	 * @see #getParameter()
 	 * @generated

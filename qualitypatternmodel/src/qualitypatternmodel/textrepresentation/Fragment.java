@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Fragment</b></em>'.
+ * A fragment of a textual representation of a pattern.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -48,6 +49,9 @@ public interface Fragment extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a JSON representation of <code>this</code> <code>PatternText</code> and its contents.
+	 * 
+	 * @return a JSON representation of <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

@@ -11,6 +11,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Pattern Text</b></em>'.
+ * A textual representation of a pattern consisting of text fragments and parameters in between.
  * <!-- end-user-doc -->
  *
  * <p>
@@ -89,6 +90,9 @@ public interface PatternText extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns a JSON representation of <code>this</code> <code>PatternText</code> and its contents.
+	 * 
+	 * @return a JSON representation of <code>this</code>
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

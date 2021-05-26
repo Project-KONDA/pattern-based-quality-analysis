@@ -7,6 +7,7 @@ import qualitypatternmodel.parameters.Parameter;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Parameter Fragment</b></em>'.
+ * A fragment of a textual representation of a pattern that represents a parameter, thus gap in the text.
  * <!-- end-user-doc -->
  *
  * <p>
