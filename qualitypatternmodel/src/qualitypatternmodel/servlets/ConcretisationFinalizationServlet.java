@@ -22,11 +22,10 @@ public class ConcretisationFinalizationServlet extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String requestUrl = request.getRequestURI();
-		String name = requestUrl.substring("/qualitypatternmodel/concrete-patterns/finalization/".length());
+		String name = requestUrl.substring(Util.CONCRETISATION_FINALIZATION_ENDPOINT.length());
 		
-		String folderPath = "../../concrete-patterns/";
-		String filePath = folderPath + name + ".patternstructure";	
-		URL folderURL = getClass().getClassLoader().getResource(folderPath);
+		String filePath = Util.CONCRETE_PATTERNS_PATH + name + ".patternstructure";	
+		URL folderURL = getClass().getClassLoader().getResource(Util.CONCRETE_PATTERNS_PATH);
 		URL fileURL = getClass().getClassLoader().getResource(filePath);	
 		
 		if(fileURL != null && folderURL != null) {

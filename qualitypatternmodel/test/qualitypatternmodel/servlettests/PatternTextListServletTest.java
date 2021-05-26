@@ -14,11 +14,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.junit.Test;
 
+import qualitypatternmodel.servlets.Util;
+
 public class PatternTextListServletTest {
 	
 	@Test
 	public void doGetTest() throws IOException, JSONException {
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + "/concrete-patterns/text-list/card_concrete").openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.PATTERN_TEXT_LIST_ENDPOINT + "card_concrete").openConnection();
 		connection.setRequestMethod("GET");
 				
 		int responseCode = connection.getResponseCode();

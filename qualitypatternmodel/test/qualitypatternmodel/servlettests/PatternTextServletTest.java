@@ -15,11 +15,13 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.junit.Test;
 
+import qualitypatternmodel.servlets.Util;
+
 public class PatternTextServletTest {
 	
 	@Test
 	public void doGetTest() throws IOException {
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + "/concrete-patterns/text/card_concrete/test_text").openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.PATTERN_TEXT_ENDPOINT + "card_concrete/test_text").openConnection();
 		connection.setRequestMethod("GET");
 				
 		int responseCode = connection.getResponseCode();

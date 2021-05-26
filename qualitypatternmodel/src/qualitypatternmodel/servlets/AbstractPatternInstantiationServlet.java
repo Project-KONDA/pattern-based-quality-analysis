@@ -18,20 +18,19 @@ public class AbstractPatternInstantiationServlet extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String requestUrl = request.getRequestURI();
-		String abstractPatternName = requestUrl.substring("/qualitypatternmodel/abstract-patterns/instantiation/".length());
+		String abstractPatternName = requestUrl.substring(Util.INSTANTIATION_ENDPOINT.length());
 		String concretePatternName = request.getParameter("name");
-		String abstractPatternPath = "../../abstract-patterns/" + abstractPatternName + ".patternstructure";		
+		String abstractPatternPath = Util.ABSTRACT_PATTERNS_PATH + abstractPatternName + ".patternstructure";		
 		URL abstractPatternUrl = getClass().getClassLoader().getResource(abstractPatternPath);	
 		if(abstractPatternUrl != null) {
 			CompletePattern pattern = EMFModelLoad.loadCompletePattern(abstractPatternUrl.toString());		
 			if(pattern != null) {
 				try {
 					pattern.setName(concretePatternName);
-					String concretePatternFolderPath = "../../concrete-patterns/";
-					String concretePatternPath = concretePatternFolderPath + concretePatternName + ".patternstructure";		
+					String concretePatternPath = Util.CONCRETE_PATTERNS_PATH + concretePatternName + ".patternstructure";		
 					URL concretePatternURL = getClass().getClassLoader().getResource(concretePatternPath);		
 					if(concretePatternURL == null) {
-						URL concretePatternFolderUrl = getClass().getClassLoader().getResource(concretePatternFolderPath);
+						URL concretePatternFolderUrl = getClass().getClassLoader().getResource(Util.CONCRETE_PATTERNS_PATH);
 						EMFModelSave.exportToFile(pattern, concretePatternFolderUrl.toString() + concretePatternName, "patternstructure");
 						response.getOutputStream().println("Successfully created concrete pattern with name '" + concretePatternName + "' from abstract pattern '" + abstractPatternName + "'.");
 					} else {

@@ -19,11 +19,11 @@ public class PatternTextServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String requestUrl = request.getRequestURI();
-		String patternNameAndTextName = requestUrl.substring("/qualitypatternmodel/concrete-patterns/text/".length());
+		String patternNameAndTextName = requestUrl.substring(Util.PATTERN_TEXT_ENDPOINT.length());
 		String[] patternNameAndTextNameSplit = patternNameAndTextName.split("/");
 		String patternName = patternNameAndTextNameSplit[0];
 		
-		String path = "../../concrete-patterns/" + patternName + ".patternstructure";		
+		String path = Util.CONCRETE_PATTERNS_PATH + patternName + ".patternstructure";		
 		URL url = getClass().getClassLoader().getResource(path);		
 
 		if(url != null) {

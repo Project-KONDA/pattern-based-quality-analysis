@@ -34,7 +34,7 @@ public class ConcretisationServlet extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String requestUrl = request.getRequestURI();
-		String patternNameAndParamID = requestUrl.substring("/qualitypatternmodel/concrete-patterns/parameter/".length());
+		String patternNameAndParamID = requestUrl.substring(Util.CONCRETISATION_ENDPOINT.length());
 		String[] patternNameAndParamIDSplit = patternNameAndParamID.split("/");
 		String name = patternNameAndParamIDSplit[0];
 		String parameterID = patternNameAndParamIDSplit[1];
@@ -43,9 +43,8 @@ public class ConcretisationServlet extends HttpServlet {
 		String[] values = request.getParameterValues("value");
 		String type = request.getParameter("type"); // only needed in case of UntypedParameterValue
 		
-		String folderPath = "../../concrete-patterns/";
-		String filePath = folderPath + name + ".patternstructure";	
-		URL folderURL = getClass().getClassLoader().getResource(folderPath);
+		String filePath = Util.CONCRETE_PATTERNS_PATH + name + ".patternstructure";	
+		URL folderURL = getClass().getClassLoader().getResource(Util.CONCRETE_PATTERNS_PATH);
 		URL fileURL = getClass().getClassLoader().getResource(filePath);		
 		
 		if(fileURL != null && folderURL != null) {

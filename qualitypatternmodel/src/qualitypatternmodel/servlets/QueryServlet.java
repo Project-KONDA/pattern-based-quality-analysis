@@ -16,9 +16,9 @@ public class QueryServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String requestUrl = request.getRequestURI();
-		String name = requestUrl.substring("/qualitypatternmodel/concrete-patterns/query/".length());
+		String name = requestUrl.substring(Util.QUERY_ENDPOINT.length());
 		
-		String path = "../../concrete-patterns/" + name + ".patternstructure";		
+		String path = Util.CONCRETE_PATTERNS_PATH + name + ".patternstructure";		
 		URL url = getClass().getClassLoader().getResource(path);		
 		
 		if(url != null) {

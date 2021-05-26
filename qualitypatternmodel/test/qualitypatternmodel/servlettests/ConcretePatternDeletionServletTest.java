@@ -22,6 +22,8 @@ import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
 
+import qualitypatternmodel.servlets.Util;
+
 public class ConcretePatternDeletionServletTest {
 	
 	private static final String PATTERN_NAME = "deletion_test";
@@ -29,7 +31,7 @@ public class ConcretePatternDeletionServletTest {
 	@Before
 	public void createPattern() throws IOException {
 		
-		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/abstract-patterns/instantiation/card_abstract").openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.INSTANTIATION_ENDPOINT + "card_abstract").openConnection();
 		connection.setRequestMethod("POST");
 		
 		String parameters = "name=" + URLEncoder.encode(PATTERN_NAME);
@@ -53,7 +55,7 @@ public class ConcretePatternDeletionServletTest {
 	@Test
 	public void doDeleteTest() throws IOException, JSONException {		
 		
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + "/concrete-patterns/deletion/" + PATTERN_NAME).openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + PATTERN_NAME).openConnection();
 		connection.setRequestMethod("DELETE");
 		
 		int responseCode = connection.getResponseCode();
@@ -62,7 +64,7 @@ public class ConcretePatternDeletionServletTest {
 //		String result = ServletTestsUtil.getResult(connection);		
 //		ServletTestsUtil.printResult(connection, responseCode, result);
 		
-		HttpURLConnection connection2 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + "/concrete-patterns").openConnection();
+		HttpURLConnection connection2 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_LIST_ENDPOINT).openConnection();
 		connection2.setRequestMethod("GET");
 		
 		int responseCode2 = connection2.getResponseCode();

@@ -9,11 +9,13 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
+import qualitypatternmodel.servlets.Util;
+
 public class QueryServletTest {
 	
 	@Test
 	public void doGetTest() throws IOException {
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + "/concrete-patterns/query/card_concrete_finalized").openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.QUERY_ENDPOINT + "card_concrete_finalized").openConnection();
 		connection.setRequestMethod("GET");
 		
 		int responseCode = connection.getResponseCode();

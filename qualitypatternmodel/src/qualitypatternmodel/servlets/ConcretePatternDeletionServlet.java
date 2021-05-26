@@ -16,10 +16,9 @@ public class ConcretePatternDeletionServlet extends HttpServlet {
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String requestUrl = request.getRequestURI();
-		String name = requestUrl.substring("/qualitypatternmodel/concrete-patterns/deletion/".length());
+		String name = requestUrl.substring(Util.CONCRETE_PATTERN_DELETION_ENDPOINT.length());
 		
-		String folderPath = "../../concrete-patterns/";
-		String filePath = folderPath + name + ".patternstructure";	
+		String filePath = Util.CONCRETE_PATTERNS_PATH + name + ".patternstructure";	
 		URL fileURL = getClass().getClassLoader().getResource(filePath);	
 
 		try {

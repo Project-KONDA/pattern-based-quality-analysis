@@ -13,7 +13,7 @@ public class AbstractPatternListServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
 		try {
-			String fileNames = Util.getFileNamesInFolder("../../abstract-patterns/", getClass());
+			String fileNames = Util.getFileNamesInFolder(Util.ABSTRACT_PATTERNS_PATH, getClass());
 			if(fileNames == null) {
 				response.sendError(404);
 				response.getOutputStream().println("{ \"error\": \"Loading abstract pattern folder failed.\"}");

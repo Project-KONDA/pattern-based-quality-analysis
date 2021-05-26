@@ -6,6 +6,22 @@ import java.net.URL;
 import java.nio.file.Paths;
 
 public class Util {
+	static final String ABSTRACT_PATTERNS_PATH = "../../abstract-patterns/";
+	static final String CONCRETE_PATTERNS_PATH = "../../concrete-patterns/";
+
+	public static final String PROJECT_PREFIX_ENDPOINT = "/qualitypatternmodel";
+	
+	public static final String ABSTRACT_PATTERN_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/abstract-patterns";
+	public static final String CONCRETE_PATTERN_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns";
+	public static final String PATTERN_TEXT_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/text-list/";
+	public static final String INSTANTIATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/abstract-patterns/instantiation/";
+	public static final String CONCRETE_PATTERN_DELETION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/deletion/";
+	public static final String PATTERN_TEXT_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/text/";
+	public static final String CONCRETISATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/parameter/";
+	public static final String CONCRETISATION_FINALIZATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/finalization/";
+	public static final String QUERY_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/query/";
+
+	
 	public static String getFileNamesInFolder(String path, Class clas) throws URISyntaxException {
 		URL url = clas.getClassLoader().getResource(path);		
 		if(url != null) {			

@@ -10,12 +10,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.junit.Test;
 
+import qualitypatternmodel.servlets.Util;
+
 public class AbstractPatternListServletTest {
 
 
 	@Test
 	public void doGetTest() throws IOException, JSONException {
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + "/abstract-patterns").openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.ABSTRACT_PATTERN_LIST_ENDPOINT).openConnection();
 		connection.setRequestMethod("GET");
 		
 		int responseCode = connection.getResponseCode();

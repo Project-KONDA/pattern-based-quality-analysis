@@ -10,7 +10,7 @@ import org.json.JSONException;
 
 
 public class ServletTestsUtil {
-	static final String PATH_PREFIX = "http://localhost:8081/qualitypatternmodel";
+	static final String PATH_PREFIX = "http://localhost:8081";
 
 	static void printResult(HttpURLConnection connection, int responseCode, String result) throws IOException {		
 		System.out.println("Response code: " + responseCode);			
