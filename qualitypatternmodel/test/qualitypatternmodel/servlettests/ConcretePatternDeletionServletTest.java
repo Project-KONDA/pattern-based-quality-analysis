@@ -53,7 +53,7 @@ public class ConcretePatternDeletionServletTest {
 	@Test
 	public void doDeleteTest() throws IOException, JSONException {		
 		
-		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/deletion/" + PATTERN_NAME).openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + "/concrete-patterns/deletion/" + PATTERN_NAME).openConnection();
 		connection.setRequestMethod("DELETE");
 		
 		int responseCode = connection.getResponseCode();
@@ -62,7 +62,7 @@ public class ConcretePatternDeletionServletTest {
 //		String result = ServletTestsUtil.getResult(connection);		
 //		ServletTestsUtil.printResult(connection, responseCode, result);
 		
-		HttpURLConnection connection2 = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns").openConnection();
+		HttpURLConnection connection2 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + "/concrete-patterns").openConnection();
 		connection2.setRequestMethod("GET");
 		
 		int responseCode2 = connection2.getResponseCode();

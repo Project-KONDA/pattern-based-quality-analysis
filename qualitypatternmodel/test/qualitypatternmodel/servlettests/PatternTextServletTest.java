@@ -19,7 +19,7 @@ public class PatternTextServletTest {
 	
 	@Test
 	public void doGetTest() throws IOException {
-		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/text/card_concrete/test_text").openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + "/concrete-patterns/text/card_concrete/test_text").openConnection();
 		connection.setRequestMethod("GET");
 				
 		int responseCode = connection.getResponseCode();

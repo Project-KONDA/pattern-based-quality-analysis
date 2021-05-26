@@ -13,7 +13,7 @@ public class QueryServletTest {
 	
 	@Test
 	public void doGetTest() throws IOException {
-		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/query/card_concrete_finalized").openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + "/concrete-patterns/query/card_concrete_finalized").openConnection();
 		connection.setRequestMethod("GET");
 		
 		int responseCode = connection.getResponseCode();

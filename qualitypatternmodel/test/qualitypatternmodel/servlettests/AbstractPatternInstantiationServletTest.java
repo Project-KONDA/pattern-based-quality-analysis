@@ -29,8 +29,8 @@ public class AbstractPatternInstantiationServletTest {
 	private static final String PATTERN_NAME = "test_card";
 	
 	@After
-	public void deletePattern() throws IOException {	
-		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/deletion/" + PATTERN_NAME).openConnection();
+	public void deletePattern() throws IOException {			
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + "/concrete-patterns/deletion/" + PATTERN_NAME).openConnection();
 		connection.setRequestMethod("DELETE");		
 		int responseCode = connection.getResponseCode();
 		assertTrue(responseCode >= 200 && responseCode < 300);
@@ -39,7 +39,7 @@ public class AbstractPatternInstantiationServletTest {
 	@Test
 	public void doPostTest() throws IOException, JSONException {
 		String abstractPatternName = "card_abstract";
-		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/abstract-patterns/instantiation/" + abstractPatternName).openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + "/abstract-patterns/instantiation/" + abstractPatternName).openConnection();
 		connection.setRequestMethod("POST");
 		
 		String parameters = "name=" + URLEncoder.encode(PATTERN_NAME);
@@ -62,7 +62,7 @@ public class AbstractPatternInstantiationServletTest {
 			e.printStackTrace();
 		}
 		
-		HttpURLConnection connection2 = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns").openConnection();
+		HttpURLConnection connection2 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + "/concrete-patterns").openConnection();
 		connection2.setRequestMethod("GET");
 		
 		int responseCode2 = connection2.getResponseCode();

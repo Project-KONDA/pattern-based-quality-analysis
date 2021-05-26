@@ -18,7 +18,7 @@ public class ConcretisationServletTest {
 	@Test
 	public void doPostTest() throws IOException {
 		String patternAndParam = "card_concrete/8";
-		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/parameter/" + patternAndParam).openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + "/concrete-patterns/parameter/" + patternAndParam).openConnection();
 		connection.setRequestMethod("POST");
 		String value = URLEncoder.encode("TAG");
 		String parameters = "value=" + value;
@@ -34,7 +34,7 @@ public class ConcretisationServletTest {
 //		String result = ServletTestsUtil.getResult(connection);		
 //		ServletTestsUtil.printResult(connection, responseCode, result);		
 	
-		HttpURLConnection connection2 = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/parameter/" + patternAndParam).openConnection();
+		HttpURLConnection connection2 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + "/concrete-patterns/parameter/" + patternAndParam).openConnection();
 		connection2.setRequestMethod("GET");		
 		
 		int responseCode2 = connection2.getResponseCode();

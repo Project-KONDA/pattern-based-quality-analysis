@@ -16,7 +16,7 @@ public class ConcretisationFinalizationServletTest {
 	@Test
 	public void doPostTest() throws IOException {
 		String patternName = "card_concrete";
-		HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/finalization/" + patternName).openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + "/concrete-patterns/finalization/" + patternName).openConnection();
 		connection.setRequestMethod("POST");
 		
 		int responseCode = connection.getResponseCode();		
@@ -25,7 +25,7 @@ public class ConcretisationFinalizationServletTest {
 //		String result = ServletTestsUtil.getResult(connection);		
 //		ServletTestsUtil.printResult(connection, responseCode, result);
 		
-		HttpURLConnection connection2 = (HttpURLConnection) new URL("http://localhost:8081/qualitypatternmodel/concrete-patterns/query/" + patternName).openConnection();
+		HttpURLConnection connection2 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + "/concrete-patterns/query/" + patternName).openConnection();
 		connection2.setRequestMethod("GET");
 		
 		int responseCode2 = connection2.getResponseCode();
