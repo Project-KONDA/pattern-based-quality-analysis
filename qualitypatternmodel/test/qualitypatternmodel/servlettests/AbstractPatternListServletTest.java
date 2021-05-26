@@ -29,9 +29,7 @@ public class AbstractPatternListServletTest {
 		JSONArray array = new JSONArray(result);
 		List<String> list = ServletTestsUtil.JSONArrayToList(array);
 		
-		assertTrue(list.contains("card_abstract"));
-		assertTrue(list.contains("comp_abstract"));
-		assertTrue(list.contains("func_abstract"));		 	     
+		assertTrue(list.contains("card_abstract"));		 	     
 
 	}
 	
