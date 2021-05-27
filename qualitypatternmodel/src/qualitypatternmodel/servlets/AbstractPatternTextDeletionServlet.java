@@ -41,13 +41,7 @@ public class AbstractPatternTextDeletionServlet extends HttpServlet {
 					}
 
 					if(chosenPatternText != null) {
-						chosenPatternText.setPattern(null);
-						for(Fragment fragment : chosenPatternText.getTextfragment()) {
-							if(fragment instanceof ParameterFragment) {
-								ParameterFragment parameterFragment = (ParameterFragment) fragment;
-								parameterFragment.setParameter(null);
-							}
-						}
+						chosenPatternText.delete();
 						EMFModelSave.exportToFile(pattern, folderURL.toString() + patternName, "patternstructure");
 						response.getOutputStream().println("Successfully deleted pattern text '" + textName + "' from abstract pattern '" + patternName + "'");	
 					} else {
