@@ -899,12 +899,17 @@
   <eSubpackages name="textrepresentation" nsURI="textrepresentation" nsPrefix="textrepresentation">
     <eClassifiers xsi:type="ecore:EClass" name="PatternText">
       <eOperations name="generateJSON" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper">
+        <eParameters name="abstractionLevel" lowerBound="1" eType="#//patternstructure/AbstractionLevel"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
           eType="#//patternstructure/CompletePattern" eOpposite="#//patternstructure/CompletePattern/text"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="textfragment" lowerBound="1"
           upperBound="-1" eType="#//textrepresentation/Fragment" containment="true"
           eOpposite="#//textrepresentation/Fragment/patternText"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterPredefinitions"
+          upperBound="-1" eType="#//textrepresentation/ParameterPredefinition" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterFragment" eSuperTypes="#//textrepresentation/Fragment #//textrepresentation/ParameterReference">
       <eOperations name="getType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

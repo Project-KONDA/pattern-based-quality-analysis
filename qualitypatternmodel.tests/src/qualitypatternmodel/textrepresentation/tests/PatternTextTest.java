@@ -17,6 +17,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#generateJSON() <em>Generate JSON</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -100,6 +101,19 @@ public class PatternTextTest extends TestCase {
 	 * @generated
 	 */
 	public void testGenerateJSON() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel)
+	 * @generated
+	 */
+	public void testIsValid__AbstractionLevel() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

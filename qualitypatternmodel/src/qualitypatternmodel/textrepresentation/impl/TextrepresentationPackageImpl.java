@@ -233,8 +233,28 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EReference getPatternText_ParameterPredefinitions() {
+		return (EReference)patternTextEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPatternText__GenerateJSON() {
 		return patternTextEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternText__IsValid__AbstractionLevel() {
+		return patternTextEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -390,7 +410,9 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEReference(patternTextEClass, PATTERN_TEXT__PATTERN);
 		createEReference(patternTextEClass, PATTERN_TEXT__TEXTFRAGMENT);
 		createEAttribute(patternTextEClass, PATTERN_TEXT__NAME);
+		createEReference(patternTextEClass, PATTERN_TEXT__PARAMETER_PREDEFINITIONS);
 		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_JSON);
+		createEOperation(patternTextEClass, PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL);
 
 		parameterFragmentEClass = createEClass(PARAMETER_FRAGMENT);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___GET_TYPE);
@@ -437,6 +459,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		// Obtain other dependent packages
 		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
+		OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
 
 		// Create type parameters
@@ -454,8 +477,14 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		initEReference(getPatternText_Pattern(), thePatternstructurePackage.getCompletePattern(), thePatternstructurePackage.getCompletePattern_Text(), "pattern", null, 1, 1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPatternText_Textfragment(), this.getFragment(), this.getFragment_PatternText(), "textfragment", null, 1, -1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPatternText_Name(), ecorePackage.getEString(), "name", null, 0, 1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPatternText_ParameterPredefinitions(), this.getParameterPredefinition(), null, "parameterPredefinitions", null, 0, -1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getPatternText__GenerateJSON(), ecorePackage.getEString(), "generateJSON", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		EOperation op = initEOperation(getPatternText__IsValid__AbstractionLevel(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, thePatternstructurePackage.getAbstractionLevel(), "abstractionLevel", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
 
 		initEClass(parameterFragmentEClass, ParameterFragment.class, "ParameterFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

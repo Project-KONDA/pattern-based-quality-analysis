@@ -6,6 +6,9 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 /**
@@ -21,6 +24,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getPattern <em>Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getTextfragment <em>Textfragment</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getName <em>Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getParameterPredefinitions <em>Parameter Predefinitions</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getPatternText()
@@ -89,6 +93,18 @@ public interface PatternText extends EObject {
 	void setName(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Parameter Predefinitions</b></em>' containment reference list.
+	 * The list contents are of type {@link qualitypatternmodel.textrepresentation.ParameterPredefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameter Predefinitions</em>' containment reference list.
+	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getPatternText_ParameterPredefinitions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ParameterPredefinition> getParameterPredefinitions();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * Returns a JSON representation of <code>this</code> <code>PatternText</code> and its contents.
 	 * 
@@ -98,5 +114,13 @@ public interface PatternText extends EObject {
 	 * @generated
 	 */
 	String generateJSON();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper" abstractionLevelRequired="true"
+	 * @generated
+	 */
+	void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException;
 
 } // PatternText

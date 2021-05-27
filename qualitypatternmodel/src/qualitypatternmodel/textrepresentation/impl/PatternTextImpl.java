@@ -3,7 +3,11 @@
 package qualitypatternmodel.textrepresentation.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -15,14 +19,22 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.graalvm.compiler.nodes.java.ArrayLengthNode;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
 import qualitypatternmodel.textrepresentation.Fragment;
+import qualitypatternmodel.textrepresentation.ParameterFragment;
+import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 
@@ -37,6 +49,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getPattern <em>Pattern</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getTextfragment <em>Textfragment</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getName <em>Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getParameterPredefinitions <em>Parameter Predefinitions</em>}</li>
  * </ul>
  *
  * @generated
@@ -72,6 +85,16 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getParameterPredefinitions() <em>Parameter Predefinitions</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameterPredefinitions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ParameterPredefinition> parameterPredefinitions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -174,6 +197,19 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<ParameterPredefinition> getParameterPredefinitions() {
+		if (parameterPredefinitions == null) {
+			parameterPredefinitions = new EObjectContainmentEList<ParameterPredefinition>(ParameterPredefinition.class, this, TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS);
+		}
+		return parameterPredefinitions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -188,6 +224,41 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		json = json.substring(0, json.length()-2);
 		json += "]\n}";
 		return json;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
+		if(abstractionLevel == AbstractionLevel.CONCRETE && getTextfragment().size() > 1) {
+			throw new InvalidityException("concrete pattern has too many fragments");
+		}
+		List<Parameter> referencedParameters = new ArrayList<Parameter>();
+		for(Fragment f : getTextfragment()) {
+			if(f instanceof ParameterFragment) {
+				ParameterFragment p = (ParameterFragment) f;
+				referencedParameters.add(p.getParameter());
+			}
+		}
+		for(ParameterPredefinition p : getParameterPredefinitions()) {
+			referencedParameters.add(p.getParameter());			
+		}
+		
+		if(!referencedParameters.containsAll(getPattern().getParameterList().getParameters())) {
+			throw new InvalidityException("pattern text does not reference all parameters");
+		}
+		if(!getPattern().getParameterList().getParameters().containsAll(referencedParameters)) {
+			throw new InvalidityException("pattern text references invalid parameters");
+		}
+		
+		Set<Parameter> referencedParametersSet = new HashSet<>(referencedParameters);
+		if(referencedParameters.size() != referencedParametersSet.size()) {
+			throw new InvalidityException("pattern text references parameters multiple times");
+		}
+		
 	}
 
 	/**
@@ -221,6 +292,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return basicSetPattern(null, msgs);
 			case TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT:
 				return ((InternalEList<?>)getTextfragment()).basicRemove(otherEnd, msgs);
+			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:
+				return ((InternalEList<?>)getParameterPredefinitions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -253,6 +326,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return getTextfragment();
 			case TextrepresentationPackage.PATTERN_TEXT__NAME:
 				return getName();
+			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:
+				return getParameterPredefinitions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -276,6 +351,10 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			case TextrepresentationPackage.PATTERN_TEXT__NAME:
 				setName((String)newValue);
 				return;
+			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:
+				getParameterPredefinitions().clear();
+				getParameterPredefinitions().addAll((Collection<? extends ParameterPredefinition>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -297,6 +376,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			case TextrepresentationPackage.PATTERN_TEXT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:
+				getParameterPredefinitions().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -315,6 +397,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return textfragment != null && !textfragment.isEmpty();
 			case TextrepresentationPackage.PATTERN_TEXT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:
+				return parameterPredefinitions != null && !parameterPredefinitions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -329,6 +413,14 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		switch (operationID) {
 			case TextrepresentationPackage.PATTERN_TEXT___GENERATE_JSON:
 				return generateJSON();
+			case TextrepresentationPackage.PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL:
+				try {
+					isValid((AbstractionLevel)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

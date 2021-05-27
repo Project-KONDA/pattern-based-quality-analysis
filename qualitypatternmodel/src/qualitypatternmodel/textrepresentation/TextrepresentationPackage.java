@@ -96,13 +96,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PATTERN_TEXT__NAME = 2;
 
 	/**
+	 * The feature id for the '<em><b>Parameter Predefinitions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT__PARAMETER_PREDEFINITIONS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Pattern Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT_FEATURE_COUNT = 3;
+	int PATTERN_TEXT_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Generate JSON</em>' operation.
@@ -114,13 +123,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PATTERN_TEXT___GENERATE_JSON = 0;
 
 	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL = 1;
+
+	/**
 	 * The number of operations of the '<em>Pattern Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT_OPERATION_COUNT = 1;
+	int PATTERN_TEXT_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.FragmentImpl <em>Fragment</em>}' class.
@@ -426,6 +444,17 @@ public interface TextrepresentationPackage extends EPackage {
 	EAttribute getPatternText_Name();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.textrepresentation.PatternText#getParameterPredefinitions <em>Parameter Predefinitions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameter Predefinitions</em>'.
+	 * @see qualitypatternmodel.textrepresentation.PatternText#getParameterPredefinitions()
+	 * @see #getPatternText()
+	 * @generated
+	 */
+	EReference getPatternText_ParameterPredefinitions();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#generateJSON() <em>Generate JSON</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -434,6 +463,16 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternText__GenerateJSON();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel)
+	 * @generated
+	 */
+	EOperation getPatternText__IsValid__AbstractionLevel();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.ParameterFragment <em>Parameter Fragment</em>}'.
@@ -618,12 +657,28 @@ public interface TextrepresentationPackage extends EPackage {
 		EAttribute PATTERN_TEXT__NAME = eINSTANCE.getPatternText_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Parameter Predefinitions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PATTERN_TEXT__PARAMETER_PREDEFINITIONS = eINSTANCE.getPatternText_ParameterPredefinitions();
+
+		/**
 		 * The meta object literal for the '<em><b>Generate JSON</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation PATTERN_TEXT___GENERATE_JSON = eINSTANCE.getPatternText__GenerateJSON();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL = eINSTANCE.getPatternText__IsValid__AbstractionLevel();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl <em>Parameter Fragment</em>}' class.

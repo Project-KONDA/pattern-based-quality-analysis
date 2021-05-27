@@ -311,7 +311,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if ( adaptionStarted && adaptionFinalized && abstractionLevel == AbstractionLevel.SEMI_ABSTRACT )
 			super.isValid(AbstractionLevel.ABSTRACT);
 		else super.isValid(abstractionLevel);
-		parameterList.isValid(abstractionLevel);		
+		parameterList.isValid(abstractionLevel);	
+		for(PatternText p : getText()) {
+			p.isValid(abstractionLevel);
+		}
 	}
 
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {

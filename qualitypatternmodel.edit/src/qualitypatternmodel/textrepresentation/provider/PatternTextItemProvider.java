@@ -105,6 +105,7 @@ public class PatternTextItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(TextrepresentationPackage.Literals.PATTERN_TEXT__TEXTFRAGMENT);
+			childrenFeatures.add(TextrepresentationPackage.Literals.PATTERN_TEXT__PARAMETER_PREDEFINITIONS);
 		}
 		return childrenFeatures;
 	}
@@ -164,6 +165,7 @@ public class PatternTextItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT:
+			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -190,6 +192,11 @@ public class PatternTextItemProvider
 			(createChildParameter
 				(TextrepresentationPackage.Literals.PATTERN_TEXT__TEXTFRAGMENT,
 				 TextrepresentationFactory.eINSTANCE.createTextFragment()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TextrepresentationPackage.Literals.PATTERN_TEXT__PARAMETER_PREDEFINITIONS,
+				 TextrepresentationFactory.eINSTANCE.createParameterPredefinition()));
 	}
 
 	/**
