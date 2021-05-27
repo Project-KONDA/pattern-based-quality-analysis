@@ -23,9 +23,16 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.RelationOptionParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
@@ -241,10 +248,39 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			referencedParameters.add(p.getParameter());			
 		}
 		
-		if(!referencedParameters.containsAll(getPattern().getParameterList().getParameters())) {
+		List<Parameter> patternParametersNonPredefinedNotAutomaticTypeNotRootRelation = new ArrayList<Parameter>();
+		List<Parameter> patternParametersNonPredefined = new ArrayList<Parameter>();
+		for(Parameter p : getPattern().getParameterList().getParameters()){
+			if(!p.isPredefined()) {
+				patternParametersNonPredefined.add(p);
+				if(!(p instanceof TypeOptionParam)) {					
+					if(p instanceof RelationOptionParam) {
+						RelationOptionParam r = (RelationOptionParam) p;
+						boolean rootRelation = true;
+						for(Relation relation : r.getRelations()) {
+							rootRelation &= relation instanceof XmlRoot;
+						}						
+						if(!rootRelation) {
+							patternParametersNonPredefinedNotAutomaticTypeNotRootRelation.add(p);
+						}
+					}					
+					
+				} else {					
+					TypeOptionParam t = (TypeOptionParam) p;
+					boolean automaticType = true;
+					for(Comparison c : t.getTypeComparisons()) {
+						automaticType &= !(c.getArgument1() instanceof Property && c.getArgument2() instanceof Property);
+					}
+					if(!automaticType) {
+						patternParametersNonPredefinedNotAutomaticTypeNotRootRelation.add(p);
+					}					
+				}				
+			}
+		}
+		if(!referencedParameters.containsAll(patternParametersNonPredefinedNotAutomaticTypeNotRootRelation)) {
 			throw new InvalidityException("pattern text does not reference all parameters");
 		}
-		if(!getPattern().getParameterList().getParameters().containsAll(referencedParameters)) {
+		if(!patternParametersNonPredefined.containsAll(referencedParameters)) {
 			throw new InvalidityException("pattern text references invalid parameters");
 		}
 		
