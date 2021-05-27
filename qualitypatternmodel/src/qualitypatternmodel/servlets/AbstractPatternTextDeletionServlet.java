@@ -55,17 +55,17 @@ public class AbstractPatternTextDeletionServlet extends HttpServlet {
 						response.getOutputStream().println("{ \"error\": \"Pattern text not found\"}");
 					}
 				} else {
-					response.sendError(404); // TODO
-					response.getOutputStream().println("{ \"error\": \"Pattern text not specified\"}");
+					response.sendError(400);
+					response.getOutputStream().println("{ \"error\": \"Pattern text name not specified\"}");
 				}			
 				
 			} else {
 				response.sendError(404);
-				response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
+				response.getOutputStream().println("{ \"error\": \"Abstract pattern not found\"}");
 			}
 		} else {
 			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
+			response.getOutputStream().println("{ \"error\": \"Abstract pattern not found\"}");
 		}
 	}
 
