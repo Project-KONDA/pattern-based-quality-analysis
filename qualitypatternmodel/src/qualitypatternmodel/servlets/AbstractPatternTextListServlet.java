@@ -15,14 +15,14 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.EMFModelLoad;
 
-public class PatternTextListServlet extends HttpServlet {
+public class AbstractPatternTextListServlet extends HttpServlet {
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String requestUrl = request.getRequestURI();
-		String patternName = requestUrl.substring(Util.PATTERN_TEXT_LIST_ENDPOINT.length());
+		String patternName = requestUrl.substring(Util.ABSTRACT_PATTERN_TEXT_LIST_ENDPOINT.length());
 		
-		String filePath = Util.CONCRETE_PATTERNS_PATH + patternName + ".patternstructure";	
+		String filePath = Util.ABSTRACT_PATTERNS_PATH + patternName + ".patternstructure";	
 		
 		URL fileURL = getClass().getClassLoader().getResource(filePath);		
 		

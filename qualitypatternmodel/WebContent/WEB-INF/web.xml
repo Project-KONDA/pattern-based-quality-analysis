@@ -66,14 +66,23 @@
 		<url-pattern>/concrete-patterns/parameter/*</url-pattern>
 	</servlet-mapping>
 	
-	
 	<servlet>
-		<servlet-name>PatternTextListServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.servlets.PatternTextListServlet</servlet-class>
+		<servlet-name>AbstractPatternTextListServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.AbstractPatternTextListServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>PatternTextListServlet</servlet-name>
+		<servlet-name>AbstractPatternTextListServlet</servlet-name>
+		<url-pattern>/abstract-patterns/text-list/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ConcretePatternTextListServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.ConcretePatternTextListServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ConcretePatternTextListServlet</servlet-name>
 		<url-pattern>/concrete-patterns/text-list/*</url-pattern>
 	</servlet-mapping>
 	

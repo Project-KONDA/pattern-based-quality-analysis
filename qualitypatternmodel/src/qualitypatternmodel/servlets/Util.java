@@ -13,7 +13,8 @@ public class Util {
 	
 	public static final String ABSTRACT_PATTERN_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/abstract-patterns";
 	public static final String CONCRETE_PATTERN_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns";
-	public static final String PATTERN_TEXT_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/text-list/";
+	public static final String CONCRETE_PATTERN_TEXT_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/text-list/";
+	public static final String ABSTRACT_PATTERN_TEXT_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/abstract-patterns/text-list/";
 	public static final String INSTANTIATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/abstract-patterns/instantiation/";
 	public static final String CONCRETE_PATTERN_DELETION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/deletion/";
 	public static final String PATTERN_TEXT_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/text/";
