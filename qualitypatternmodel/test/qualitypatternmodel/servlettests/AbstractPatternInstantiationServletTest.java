@@ -31,16 +31,17 @@ public class AbstractPatternInstantiationServletTest {
 	
 	@After
 	public void deletePattern() throws IOException {			
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + PATTERN_NAME).openConnection();
-		connection.setRequestMethod("DELETE");		
-		int responseCode = connection.getResponseCode();
-		assertTrue(responseCode >= 200 && responseCode < 300);
+//		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + PATTERN_NAME).openConnection();
+//		connection.setRequestMethod("DELETE");		
+//		int responseCode = connection.getResponseCode();
+//		assertTrue(responseCode >= 200 && responseCode < 300);
 	}
 
 	@Test
 	public void doPostTest() throws IOException, JSONException {
 		String abstractPatternName = "card_abstract";
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.INSTANTIATION_ENDPOINT + abstractPatternName).openConnection();
+		String textName = "test_text";
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.INSTANTIATION_ENDPOINT + abstractPatternName + "/" + textName).openConnection();
 		connection.setRequestMethod("POST");
 		
 		String parameters = "name=" + URLEncoder.encode(PATTERN_NAME);
@@ -51,6 +52,8 @@ public class AbstractPatternInstantiationServletTest {
 	    wr.flush();
 		
 		int responseCode = connection.getResponseCode();
+//		System.out.println(responseCode);
+//		System.out.println(ServletTestsUtil.getResult(connection));
 		assertTrue(responseCode >= 200 && responseCode < 300);
 
 //		String result = ServletTestsUtil.getResult(connection);		
