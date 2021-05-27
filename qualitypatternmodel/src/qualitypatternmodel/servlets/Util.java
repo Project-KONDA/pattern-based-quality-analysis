@@ -18,6 +18,7 @@ public class Util {
 	public static final String INSTANTIATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/abstract-patterns/instantiation/";
 	public static final String CONCRETE_PATTERN_DELETION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/deletion/";
 	public static final String PATTERN_TEXT_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/text/";
+	public static final String ABSTRACT_PATTERN_TEXT_DELETION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/abstract-patterns/text/deletion/";
 	public static final String CONCRETISATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/parameter/";
 	public static final String CONCRETISATION_FINALIZATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/finalization/";
 	public static final String QUERY_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/query/";

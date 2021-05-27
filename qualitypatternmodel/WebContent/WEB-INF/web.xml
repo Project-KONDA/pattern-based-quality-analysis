@@ -55,6 +55,15 @@
 		<url-pattern>/concrete-patterns/text/*</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>AbstractPatternTextDeletionServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.AbstractPatternTextDeletionServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AbstractPatternTextDeletionServlet</servlet-name>
+		<url-pattern>/abstract-patterns/text/deletion/*</url-pattern>
+	</servlet-mapping>
 	
 	<servlet>
 		<servlet-name>ConcretisationServlet</servlet-name>
