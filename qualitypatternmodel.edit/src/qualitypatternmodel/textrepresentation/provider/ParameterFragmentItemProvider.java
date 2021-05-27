@@ -58,9 +58,9 @@ public class ParameterFragmentItemProvider extends FragmentItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ParameterFragment_parameter_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterFragment_parameter_feature", "_UI_ParameterFragment_type"),
-				 TextrepresentationPackage.Literals.PARAMETER_FRAGMENT__PARAMETER,
+				 getString("_UI_ParameterReference_parameter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterReference_parameter_feature", "_UI_ParameterReference_type"),
+				 TextrepresentationPackage.Literals.PARAMETER_REFERENCE__PARAMETER,
 				 true,
 				 false,
 				 true,

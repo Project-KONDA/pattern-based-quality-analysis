@@ -41,6 +41,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
+import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.utility.Constants;
 import qualitypatternmodel.parameters.ParameterValue;
 
@@ -621,9 +622,9 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				comparison.setArgument2(concreteValue);	
 			}
 			
-			EList<ParameterFragment> fragmentCopy = new BasicEList<ParameterFragment>();
+			EList<ParameterReference> fragmentCopy = new BasicEList<ParameterReference>();
 			fragmentCopy.addAll(getParameterFragments());
-			for(ParameterFragment fragment : fragmentCopy) {
+			for(ParameterReference fragment : fragmentCopy) {
 				fragment.setParameter(concreteValue);
 			}
 			

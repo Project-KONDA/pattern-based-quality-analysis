@@ -49,6 +49,15 @@ public interface TextrepresentationFactory extends EFactory {
 	TextFragment createTextFragment();
 
 	/**
+	 * Returns a new object of class '<em>Parameter Predefinition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter Predefinition</em>'.
+	 * @generated
+	 */
+	ParameterPredefinition createParameterPredefinition();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

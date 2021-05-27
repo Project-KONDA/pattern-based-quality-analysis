@@ -60,6 +60,7 @@ public class TextrepresentationFactoryImpl extends EFactoryImpl implements Textr
 			case TextrepresentationPackage.PATTERN_TEXT: return createPatternText();
 			case TextrepresentationPackage.PARAMETER_FRAGMENT: return createParameterFragment();
 			case TextrepresentationPackage.TEXT_FRAGMENT: return createTextFragment();
+			case TextrepresentationPackage.PARAMETER_PREDEFINITION: return createParameterPredefinition();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -126,6 +127,17 @@ public class TextrepresentationFactoryImpl extends EFactoryImpl implements Textr
 	public TextFragment createTextFragment() {
 		TextFragmentImpl textFragment = new TextFragmentImpl();
 		return textFragment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ParameterPredefinition createParameterPredefinition() {
+		ParameterPredefinitionImpl parameterPredefinition = new ParameterPredefinitionImpl();
+		return parameterPredefinition;
 	}
 
 	/**

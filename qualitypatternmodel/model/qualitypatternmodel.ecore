@@ -29,7 +29,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="predefined" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterFragments" upperBound="-1"
-          eType="#//textrepresentation/ParameterFragment" eOpposite="#//textrepresentation/ParameterFragment/parameter"/>
+          eType="#//textrepresentation/ParameterReference" eOpposite="#//textrepresentation/ParameterReference/parameter"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ComparisonOptionParam" eSuperTypes="#//parameters/Parameter">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
@@ -906,10 +906,8 @@
           eOpposite="#//textrepresentation/Fragment/patternText"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ParameterFragment" eSuperTypes="#//textrepresentation/Fragment">
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterFragment" eSuperTypes="#//textrepresentation/Fragment #//textrepresentation/ParameterReference">
       <eOperations name="getType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
-          eType="#//parameters/Parameter" eOpposite="#//parameters/Parameter/parameterFragments"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Fragment" abstract="true">
       <eOperations name="generateJSON" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -920,5 +918,13 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="ObjectWrapper" instanceClassName="java.lang.Object"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterPredefinition" eSuperTypes="#//textrepresentation/ParameterReference">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterReference" abstract="true"
+        interface="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//parameters/Parameter"
+          eOpposite="#//parameters/Parameter/parameterFragments"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

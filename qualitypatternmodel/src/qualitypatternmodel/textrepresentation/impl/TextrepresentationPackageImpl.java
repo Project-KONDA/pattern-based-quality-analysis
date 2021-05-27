@@ -37,6 +37,8 @@ import qualitypatternmodel.patternstructure.impl.PatternstructurePackageImpl;
 
 import qualitypatternmodel.textrepresentation.Fragment;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
+import qualitypatternmodel.textrepresentation.ParameterPredefinition;
+import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextFragment;
 import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
@@ -76,6 +78,20 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	private EClass textFragmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterPredefinitionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterReferenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -237,16 +253,6 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
-	public EReference getParameterFragment_Parameter() {
-		return (EReference)parameterFragmentEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getParameterFragment__GetType() {
 		return parameterFragmentEClass.getEOperations().get(0);
 	}
@@ -307,6 +313,46 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EClass getParameterPredefinition() {
+		return parameterPredefinitionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getParameterPredefinition_Value() {
+		return (EAttribute)parameterPredefinitionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getParameterReference() {
+		return parameterReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParameterReference_Parameter() {
+		return (EReference)parameterReferenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getObjectWrapper() {
 		return objectWrapperEDataType;
 	}
@@ -347,7 +393,6 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_JSON);
 
 		parameterFragmentEClass = createEClass(PARAMETER_FRAGMENT);
-		createEReference(parameterFragmentEClass, PARAMETER_FRAGMENT__PARAMETER);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___GET_TYPE);
 
 		fragmentEClass = createEClass(FRAGMENT);
@@ -356,6 +401,12 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		textFragmentEClass = createEClass(TEXT_FRAGMENT);
 		createEAttribute(textFragmentEClass, TEXT_FRAGMENT__TEXT);
+
+		parameterPredefinitionEClass = createEClass(PARAMETER_PREDEFINITION);
+		createEAttribute(parameterPredefinitionEClass, PARAMETER_PREDEFINITION__VALUE);
+
+		parameterReferenceEClass = createEClass(PARAMETER_REFERENCE);
+		createEReference(parameterReferenceEClass, PARAMETER_REFERENCE__PARAMETER);
 
 		// Create data types
 		objectWrapperEDataType = createEDataType(OBJECT_WRAPPER);
@@ -394,7 +445,9 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		// Add supertypes to classes
 		parameterFragmentEClass.getESuperTypes().add(this.getFragment());
+		parameterFragmentEClass.getESuperTypes().add(this.getParameterReference());
 		textFragmentEClass.getESuperTypes().add(this.getFragment());
+		parameterPredefinitionEClass.getESuperTypes().add(this.getParameterReference());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(patternTextEClass, PatternText.class, "PatternText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -405,7 +458,6 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		initEOperation(getPatternText__GenerateJSON(), ecorePackage.getEString(), "generateJSON", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(parameterFragmentEClass, ParameterFragment.class, "ParameterFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParameterFragment_Parameter(), theParametersPackage.getParameter(), theParametersPackage.getParameter_ParameterFragments(), "parameter", null, 1, 1, ParameterFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getParameterFragment__GetType(), ecorePackage.getEString(), "getType", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -416,6 +468,12 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		initEClass(textFragmentEClass, TextFragment.class, "TextFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextFragment_Text(), ecorePackage.getEString(), "text", null, 0, 1, TextFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterPredefinitionEClass, ParameterPredefinition.class, "ParameterPredefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameterPredefinition_Value(), ecorePackage.getEString(), "value", null, 0, 1, ParameterPredefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterReferenceEClass, ParameterReference.class, "ParameterReference", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameterReference_Parameter(), theParametersPackage.getParameter(), theParametersPackage.getParameter_ParameterFragments(), "parameter", null, 0, 1, ParameterReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(objectWrapperEDataType, Object.class, "ObjectWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

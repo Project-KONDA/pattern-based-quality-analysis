@@ -755,8 +755,6 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/generateJSON"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/parameter"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getType"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//textrepresentation/Fragment">
@@ -765,6 +763,13 @@
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/TextFragment">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/TextFragment/text"/>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/ParameterPredefinition">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ParameterPredefinition/value"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//textrepresentation/ParameterReference">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/ParameterReference/parameter"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

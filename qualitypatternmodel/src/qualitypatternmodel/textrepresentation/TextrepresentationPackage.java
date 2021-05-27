@@ -289,6 +289,89 @@ public interface TextrepresentationPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.ParameterReference <em>Parameter Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.ParameterReference
+	 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getParameterReference()
+	 * @generated
+	 */
+	int PARAMETER_REFERENCE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REFERENCE__PARAMETER = 0;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REFERENCE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Parameter Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REFERENCE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.ParameterPredefinitionImpl <em>Parameter Predefinition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.impl.ParameterPredefinitionImpl
+	 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getParameterPredefinition()
+	 * @generated
+	 */
+	int PARAMETER_PREDEFINITION = 4;
+
+	/**
+	 * The feature id for the '<em><b>Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_PREDEFINITION__PARAMETER = PARAMETER_REFERENCE__PARAMETER;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_PREDEFINITION__VALUE = PARAMETER_REFERENCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Predefinition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_PREDEFINITION_FEATURE_COUNT = PARAMETER_REFERENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Parameter Predefinition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_PREDEFINITION_OPERATION_COUNT = PARAMETER_REFERENCE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>Object Wrapper</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -296,7 +379,7 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getObjectWrapper()
 	 * @generated
 	 */
-	int OBJECT_WRAPPER = 4;
+	int OBJECT_WRAPPER = 6;
 
 
 	/**
@@ -363,17 +446,6 @@ public interface TextrepresentationPackage extends EPackage {
 	EClass getParameterFragment();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getParameter <em>Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parameter</em>'.
-	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#getParameter()
-	 * @see #getParameterFragment()
-	 * @generated
-	 */
-	EReference getParameterFragment_Parameter();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getType() <em>Get Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -434,6 +506,48 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTextFragment_Text();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.ParameterPredefinition <em>Parameter Predefinition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Predefinition</em>'.
+	 * @see qualitypatternmodel.textrepresentation.ParameterPredefinition
+	 * @generated
+	 */
+	EClass getParameterPredefinition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.textrepresentation.ParameterPredefinition#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see qualitypatternmodel.textrepresentation.ParameterPredefinition#getValue()
+	 * @see #getParameterPredefinition()
+	 * @generated
+	 */
+	EAttribute getParameterPredefinition_Value();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.ParameterReference <em>Parameter Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Reference</em>'.
+	 * @see qualitypatternmodel.textrepresentation.ParameterReference
+	 * @generated
+	 */
+	EClass getParameterReference();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.textrepresentation.ParameterReference#getParameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parameter</em>'.
+	 * @see qualitypatternmodel.textrepresentation.ParameterReference#getParameter()
+	 * @see #getParameterReference()
+	 * @generated
+	 */
+	EReference getParameterReference_Parameter();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Object Wrapper</em>}'.
@@ -522,14 +636,6 @@ public interface TextrepresentationPackage extends EPackage {
 		EClass PARAMETER_FRAGMENT = eINSTANCE.getParameterFragment();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARAMETER_FRAGMENT__PARAMETER = eINSTANCE.getParameterFragment_Parameter();
-
-		/**
 		 * The meta object literal for the '<em><b>Get Type</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -580,6 +686,42 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEXT_FRAGMENT__TEXT = eINSTANCE.getTextFragment_Text();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.ParameterPredefinitionImpl <em>Parameter Predefinition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.textrepresentation.impl.ParameterPredefinitionImpl
+		 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getParameterPredefinition()
+		 * @generated
+		 */
+		EClass PARAMETER_PREDEFINITION = eINSTANCE.getParameterPredefinition();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_PREDEFINITION__VALUE = eINSTANCE.getParameterPredefinition_Value();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.ParameterReference <em>Parameter Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.textrepresentation.ParameterReference
+		 * @see qualitypatternmodel.textrepresentation.impl.TextrepresentationPackageImpl#getParameterReference()
+		 * @generated
+		 */
+		EClass PARAMETER_REFERENCE = eINSTANCE.getParameterReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_REFERENCE__PARAMETER = eINSTANCE.getParameterReference_Parameter();
 
 		/**
 		 * The meta object literal for the '<em>Object Wrapper</em>' data type.

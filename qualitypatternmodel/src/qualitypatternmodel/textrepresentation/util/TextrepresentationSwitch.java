@@ -76,6 +76,7 @@ public class TextrepresentationSwitch<T> extends Switch<T> {
 				ParameterFragment parameterFragment = (ParameterFragment)theEObject;
 				T result = caseParameterFragment(parameterFragment);
 				if (result == null) result = caseFragment(parameterFragment);
+				if (result == null) result = caseParameterReference(parameterFragment);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -89,6 +90,19 @@ public class TextrepresentationSwitch<T> extends Switch<T> {
 				TextFragment textFragment = (TextFragment)theEObject;
 				T result = caseTextFragment(textFragment);
 				if (result == null) result = caseFragment(textFragment);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TextrepresentationPackage.PARAMETER_PREDEFINITION: {
+				ParameterPredefinition parameterPredefinition = (ParameterPredefinition)theEObject;
+				T result = caseParameterPredefinition(parameterPredefinition);
+				if (result == null) result = caseParameterReference(parameterPredefinition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TextrepresentationPackage.PARAMETER_REFERENCE: {
+				ParameterReference parameterReference = (ParameterReference)theEObject;
+				T result = caseParameterReference(parameterReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -153,6 +167,36 @@ public class TextrepresentationSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTextFragment(TextFragment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Predefinition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Predefinition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterPredefinition(ParameterPredefinition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterReference(ParameterReference object) {
 		return null;
 	}
 

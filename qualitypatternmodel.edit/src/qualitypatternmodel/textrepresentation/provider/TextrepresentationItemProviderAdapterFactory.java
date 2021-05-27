@@ -141,6 +141,29 @@ public class TextrepresentationItemProviderAdapterFactory extends Textrepresenta
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.textrepresentation.ParameterPredefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterPredefinitionItemProvider parameterPredefinitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.textrepresentation.ParameterPredefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterPredefinitionAdapter() {
+		if (parameterPredefinitionItemProvider == null) {
+			parameterPredefinitionItemProvider = new ParameterPredefinitionItemProvider(this);
+		}
+
+		return parameterPredefinitionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -248,6 +271,7 @@ public class TextrepresentationItemProviderAdapterFactory extends Textrepresenta
 		if (patternTextItemProvider != null) patternTextItemProvider.dispose();
 		if (parameterFragmentItemProvider != null) parameterFragmentItemProvider.dispose();
 		if (textFragmentItemProvider != null) textFragmentItemProvider.dispose();
+		if (parameterPredefinitionItemProvider != null) parameterPredefinitionItemProvider.dispose();
 	}
 
 }

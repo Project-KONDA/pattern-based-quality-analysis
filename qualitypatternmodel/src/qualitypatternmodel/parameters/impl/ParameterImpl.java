@@ -23,7 +23,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
-import qualitypatternmodel.textrepresentation.ParameterFragment;
+import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 
 /**
@@ -88,7 +88,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ParameterFragment> parameterFragments;
+	protected EList<ParameterReference> parameterFragments;
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -223,9 +223,9 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @generated
 	 */
 	@Override
-	public EList<ParameterFragment> getParameterFragments() {
+	public EList<ParameterReference> getParameterFragments() {
 		if (parameterFragments == null) {
-			parameterFragments = new EObjectWithInverseResolvingEList<ParameterFragment>(ParameterFragment.class, this, ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS, TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER);
+			parameterFragments = new EObjectWithInverseResolvingEList<ParameterReference>(ParameterReference.class, this, ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS, TextrepresentationPackage.PARAMETER_REFERENCE__PARAMETER);
 		}
 		return parameterFragments;
 	}
@@ -376,7 +376,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				return;
 			case ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS:
 				getParameterFragments().clear();
-				getParameterFragments().addAll((Collection<? extends ParameterFragment>)newValue);
+				getParameterFragments().addAll((Collection<? extends ParameterReference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

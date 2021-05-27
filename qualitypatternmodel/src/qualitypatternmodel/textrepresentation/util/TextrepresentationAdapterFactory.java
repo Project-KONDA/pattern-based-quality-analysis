@@ -84,6 +84,14 @@ public class TextrepresentationAdapterFactory extends AdapterFactoryImpl {
 				return createTextFragmentAdapter();
 			}
 			@Override
+			public Adapter caseParameterPredefinition(ParameterPredefinition object) {
+				return createParameterPredefinitionAdapter();
+			}
+			@Override
+			public Adapter caseParameterReference(ParameterReference object) {
+				return createParameterReferenceAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -156,6 +164,34 @@ public class TextrepresentationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTextFragmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.textrepresentation.ParameterPredefinition <em>Parameter Predefinition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.textrepresentation.ParameterPredefinition
+	 * @generated
+	 */
+	public Adapter createParameterPredefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.textrepresentation.ParameterReference <em>Parameter Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.textrepresentation.ParameterReference
+	 * @generated
+	 */
+	public Adapter createParameterReferenceAdapter() {
 		return null;
 	}
 
