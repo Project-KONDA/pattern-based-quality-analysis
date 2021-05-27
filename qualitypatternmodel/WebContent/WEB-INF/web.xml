@@ -46,12 +46,12 @@
 	</servlet-mapping>	
 	
 	<servlet>
-		<servlet-name>PatternTextServlet</servlet-name>
-		<servlet-class>qualitypatternmodel.servlets.PatternTextServlet</servlet-class>
+		<servlet-name>ConcretePatternTextServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.ConcretePatternTextServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>PatternTextServlet</servlet-name>
+		<servlet-name>ConcretePatternTextServlet</servlet-name>
 		<url-pattern>/concrete-patterns/text/*</url-pattern>
 	</servlet-mapping>
 	

@@ -14,12 +14,12 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.EMFModelLoad;
 
-public class PatternTextServlet extends HttpServlet {
+public class ConcretePatternTextServlet extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String requestUrl = request.getRequestURI();
-		String patternNameAndTextName = requestUrl.substring(Util.PATTERN_TEXT_ENDPOINT.length());
+		String patternNameAndTextName = requestUrl.substring(Util.CONCRETE_PATTERN_TEXT_ENDPOINT.length());
 		String[] patternNameAndTextNameSplit = patternNameAndTextName.split("/");
 		String patternName = patternNameAndTextNameSplit[0];
 		

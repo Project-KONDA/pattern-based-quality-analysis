@@ -13,7 +13,7 @@ import org.junit.runners.Suite;
    ConcretisationFinalizationServletTest.class,
    ConcretisationServletTest.class,
    ConcretePatternTextListServletTest.class,
-   PatternTextServletTest.class,
+   ConcretePatternTextServletTest.class,
    QueryServletTest.class
 })
 
