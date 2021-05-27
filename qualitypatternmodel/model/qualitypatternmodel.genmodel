@@ -754,9 +754,9 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/PatternText/name"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/parameterPredefinitions"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/generateJSON"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/isValid">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/PatternText/isValid/abstractionLevel"/>
-        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/isValid"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/instantiate"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/delete"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getType"/>

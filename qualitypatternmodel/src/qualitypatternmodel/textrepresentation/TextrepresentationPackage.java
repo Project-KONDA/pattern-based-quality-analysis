@@ -129,7 +129,25 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL = 1;
+	int PATTERN_TEXT___IS_VALID = 1;
+
+	/**
+	 * The operation id for the '<em>Instantiate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT___INSTANTIATE = 2;
+
+	/**
+	 * The operation id for the '<em>Delete</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT___DELETE = 3;
 
 	/**
 	 * The number of operations of the '<em>Pattern Text</em>' class.
@@ -138,7 +156,7 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT_OPERATION_COUNT = 2;
+	int PATTERN_TEXT_OPERATION_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.FragmentImpl <em>Fragment</em>}' class.
@@ -465,14 +483,34 @@ public interface TextrepresentationPackage extends EPackage {
 	EOperation getPatternText__GenerateJSON();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#isValid() <em>Is Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Valid</em>' operation.
-	 * @see qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel)
+	 * @see qualitypatternmodel.textrepresentation.PatternText#isValid()
 	 * @generated
 	 */
-	EOperation getPatternText__IsValid__AbstractionLevel();
+	EOperation getPatternText__IsValid();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#instantiate() <em>Instantiate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Instantiate</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.PatternText#instantiate()
+	 * @generated
+	 */
+	EOperation getPatternText__Instantiate();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#delete() <em>Delete</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Delete</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.PatternText#delete()
+	 * @generated
+	 */
+	EOperation getPatternText__Delete();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.ParameterFragment <em>Parameter Fragment</em>}'.
@@ -678,7 +716,23 @@ public interface TextrepresentationPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL = eINSTANCE.getPatternText__IsValid__AbstractionLevel();
+		EOperation PATTERN_TEXT___IS_VALID = eINSTANCE.getPatternText__IsValid();
+
+		/**
+		 * The meta object literal for the '<em><b>Instantiate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_TEXT___INSTANTIATE = eINSTANCE.getPatternText__Instantiate();
+
+		/**
+		 * The meta object literal for the '<em><b>Delete</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_TEXT___DELETE = eINSTANCE.getPatternText__Delete();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl <em>Parameter Fragment</em>}' class.

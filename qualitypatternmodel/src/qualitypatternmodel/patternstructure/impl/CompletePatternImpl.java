@@ -311,9 +311,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		if ( adaptionStarted && adaptionFinalized && abstractionLevel == AbstractionLevel.SEMI_ABSTRACT )
 			super.isValid(AbstractionLevel.ABSTRACT);
 		else super.isValid(abstractionLevel);
-		parameterList.isValid(abstractionLevel);	
+		parameterList.isValid(abstractionLevel);
+		if(abstractionLevel == AbstractionLevel.CONCRETE && getText().size() > 1) {
+			throw new InvalidityException("concrete pattern has too many fragments");
+		}
 		for(PatternText p : getText()) {
-			p.isValid(abstractionLevel);
+			p.isValid();
 		}
 	}
 

@@ -17,7 +17,9 @@ import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#generateJSON() <em>Generate JSON</em>}</li>
- *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#isValid() <em>Is Valid</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#instantiate() <em>Instantiate</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#delete() <em>Delete</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -107,13 +109,39 @@ public class PatternTextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#isValid() <em>Is Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel)
+	 * @see qualitypatternmodel.textrepresentation.PatternText#isValid()
 	 * @generated
 	 */
-	public void testIsValid__AbstractionLevel() {
+	public void testIsValid() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#instantiate() <em>Instantiate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.PatternText#instantiate()
+	 * @generated
+	 */
+	public void testInstantiate() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#delete() <em>Delete</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.PatternText#delete()
+	 * @generated
+	 */
+	public void testDelete() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

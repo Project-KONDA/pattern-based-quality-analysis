@@ -23,12 +23,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.graalvm.compiler.nodes.java.ArrayLengthNode;
-
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
@@ -232,10 +229,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @generated NOT
 	 */
 	@Override
-	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
-		if(abstractionLevel == AbstractionLevel.CONCRETE && getTextfragment().size() > 1) {
-			throw new InvalidityException("concrete pattern has too many fragments");
-		}
+	public void isValid() throws InvalidityException {
 		List<Parameter> referencedParameters = new ArrayList<Parameter>();
 		for(Fragment f : getTextfragment()) {
 			if(f instanceof ParameterFragment) {
@@ -259,6 +253,45 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			throw new InvalidityException("pattern text references parameters multiple times");
 		}
 		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws OperatorCycleException 
+	 * @throws InvalidityException 
+	 * @generated NOT
+	 */
+	@Override
+	public void instantiate() throws InvalidityException {
+		isValid();
+		for(PatternText text : getPattern().getText()) {
+			if(!text.equals(this)) {
+				text.delete();
+			}
+		}
+		for(ParameterPredefinition p : getParameterPredefinitions()) {
+			p.getParameter().setValueFromString(p.getValue());
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void delete() {
+		setPattern(null);
+		for(Fragment fragment : getTextfragment()) {
+			if(fragment instanceof ParameterFragment) {
+				ParameterFragment parameterFragment = (ParameterFragment) fragment;
+				parameterFragment.setParameter(null);
+			}
+		}
+		for(ParameterPredefinition p : getParameterPredefinitions()) {
+			p.setParameter(null);		
+		}
 	}
 
 	/**
@@ -413,14 +446,25 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		switch (operationID) {
 			case TextrepresentationPackage.PATTERN_TEXT___GENERATE_JSON:
 				return generateJSON();
-			case TextrepresentationPackage.PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL:
+			case TextrepresentationPackage.PATTERN_TEXT___IS_VALID:
 				try {
-					isValid((AbstractionLevel)arguments.get(0));
+					isValid();
 					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case TextrepresentationPackage.PATTERN_TEXT___INSTANTIATE:
+				try {
+					instantiate();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case TextrepresentationPackage.PATTERN_TEXT___DELETE:
+				delete();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

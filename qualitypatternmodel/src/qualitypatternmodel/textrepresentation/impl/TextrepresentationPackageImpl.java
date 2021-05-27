@@ -253,8 +253,28 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternText__IsValid__AbstractionLevel() {
+	public EOperation getPatternText__IsValid() {
 		return patternTextEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternText__Instantiate() {
+		return patternTextEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternText__Delete() {
+		return patternTextEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -412,7 +432,9 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEAttribute(patternTextEClass, PATTERN_TEXT__NAME);
 		createEReference(patternTextEClass, PATTERN_TEXT__PARAMETER_PREDEFINITIONS);
 		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_JSON);
-		createEOperation(patternTextEClass, PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL);
+		createEOperation(patternTextEClass, PATTERN_TEXT___IS_VALID);
+		createEOperation(patternTextEClass, PATTERN_TEXT___INSTANTIATE);
+		createEOperation(patternTextEClass, PATTERN_TEXT___DELETE);
 
 		parameterFragmentEClass = createEClass(PARAMETER_FRAGMENT);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___GET_TYPE);
@@ -459,7 +481,6 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		// Obtain other dependent packages
 		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
-		OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
 
 		// Create type parameters
@@ -481,10 +502,13 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		initEOperation(getPatternText__GenerateJSON(), ecorePackage.getEString(), "generateJSON", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getPatternText__IsValid__AbstractionLevel(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, thePatternstructurePackage.getAbstractionLevel(), "abstractionLevel", 1, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getPatternText__IsValid(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
+
+		op = initEOperation(getPatternText__Instantiate(), null, "instantiate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		initEOperation(getPatternText__Delete(), null, "delete", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(parameterFragmentEClass, ParameterFragment.class, "ParameterFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
