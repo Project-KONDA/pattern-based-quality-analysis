@@ -215,22 +215,13 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_FRAGMENT___GENERATE_JSON = FRAGMENT___GENERATE_JSON;
 
 	/**
-	 * The operation id for the '<em>Set Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_FRAGMENT___SET_VALUE__OBJECT = FRAGMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Get Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT___GET_TYPE = FRAGMENT_OPERATION_COUNT + 1;
+	int PARAMETER_FRAGMENT___GET_TYPE = FRAGMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Parameter Fragment</em>' class.
@@ -239,7 +230,7 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT_OPERATION_COUNT = FRAGMENT_OPERATION_COUNT + 2;
+	int PARAMETER_FRAGMENT_OPERATION_COUNT = FRAGMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.TextFragmentImpl <em>Text Fragment</em>}' class.
@@ -381,16 +372,6 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getParameterFragment_Parameter();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#setValue(java.lang.Object) <em>Set Value</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Set Value</em>' operation.
-	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#setValue(java.lang.Object)
-	 * @generated
-	 */
-	EOperation getParameterFragment__SetValue__Object();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getType() <em>Get Type</em>}' operation.
@@ -547,14 +528,6 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PARAMETER_FRAGMENT__PARAMETER = eINSTANCE.getParameterFragment_Parameter();
-
-		/**
-		 * The meta object literal for the '<em><b>Set Value</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PARAMETER_FRAGMENT___SET_VALUE__OBJECT = eINSTANCE.getParameterFragment__SetValue__Object();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Type</b></em>' operation.

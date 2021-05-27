@@ -14,7 +14,6 @@ import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#setValue(java.lang.Object) <em>Set Value</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getType() <em>Get Type</em>}</li>
  * </ul>
  * </p>
@@ -72,19 +71,6 @@ public class ParameterFragmentTest extends FragmentTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#setValue(java.lang.Object) <em>Set Value</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#setValue(java.lang.Object)
-	 * @generated
-	 */
-	public void testSetValue__Object() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 	/**

@@ -247,18 +247,8 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameterFragment__SetValue__Object() {
-		return parameterFragmentEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getParameterFragment__GetType() {
-		return parameterFragmentEClass.getEOperations().get(1);
+		return parameterFragmentEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -358,7 +348,6 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		parameterFragmentEClass = createEClass(PARAMETER_FRAGMENT);
 		createEReference(parameterFragmentEClass, PARAMETER_FRAGMENT__PARAMETER);
-		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___SET_VALUE__OBJECT);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___GET_TYPE);
 
 		fragmentEClass = createEClass(FRAGMENT);
@@ -417,9 +406,6 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		initEClass(parameterFragmentEClass, ParameterFragment.class, "ParameterFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameterFragment_Parameter(), theParametersPackage.getParameter(), theParametersPackage.getParameter_ParameterFragments(), "parameter", null, 1, 1, ParameterFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		EOperation op = initEOperation(getParameterFragment__SetValue__Object(), null, "setValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getObjectWrapper(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getParameterFragment__GetType(), ecorePackage.getEString(), "getType", 0, 1, IS_UNIQUE, IS_ORDERED);
 

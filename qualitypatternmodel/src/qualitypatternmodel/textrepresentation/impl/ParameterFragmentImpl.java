@@ -134,68 +134,6 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER, newParameter, newParameter));
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void setValue(Object value) {
-//		Class type = getType();
-//		if (type.equals(DateParamImpl.class)) {
-//			DateParamImpl date = (DateParamImpl) getParameter();
-//			try {
-//				date.specifyValue((String) value);
-//			} catch (Exception e) {
-//				// TODO
-//			}
-//			
-//		} else if(type.equals(TimeParamImpl.class)) {
-//			TimeParamImpl time = (TimeParamImpl) getParameter();
-//			try {
-//				time.specifyValue((String) value);			
-//			} catch (Exception e) {
-//				// TODO
-//			}
-//		} else if (type.equals(DateTimeParamImpl.class)) {
-//			DateTimeParamImpl dateTime = (DateTimeParamImpl) getParameter();
-//			try {
-//				dateTime.specifyValue((String) value);
-//			} catch (Exception e) {
-//				// TODO
-//			}
-//		} else if (type.equals(TextLiteralParamImpl.class)) {
-//			TextLiteralParamImpl text = (TextLiteralParamImpl) getParameter();
-//			try {
-//				text.setValue((String) value);
-//			} catch (Exception e) {
-//				// TODO
-//			}
-//		} else if (type.equals(BooleanParamImpl.class)) {
-//			BooleanParamImpl bool = (BooleanParamImpl) getParameter();
-//			try {
-//				bool.setValue((Boolean) value);
-//			} catch (Exception e) {
-//				// TODO
-//			}
-//		} else if (type.equals(NumberParamImpl.class)) {
-//			NumberParamImpl number = (NumberParamImpl) getParameter();
-//			try {
-//				number.setValue((Double) value);
-//			} catch (Exception e) {
-//				// TODO
-//			}
-//		} else if (type.equals(TextListParamImpl.class)) {
-//			TextListParamImpl list = (TextListParamImpl) getParameter();
-//			try {
-//				list.getValues().addAll((List<String>) value);
-//			} catch (Exception e) {
-//				// TODO
-//			}
-//		}
-		
-	}
 	
 	@Override
 	public String generateJSON() {
@@ -363,9 +301,6 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case TextrepresentationPackage.PARAMETER_FRAGMENT___SET_VALUE__OBJECT:
-				setValue(arguments.get(0));
-				return null;
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_TYPE:
 				return getType();
 		}

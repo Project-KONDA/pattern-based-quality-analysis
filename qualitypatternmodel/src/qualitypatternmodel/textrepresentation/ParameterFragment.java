@@ -49,14 +49,6 @@ public interface ParameterFragment extends Fragment {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model valueDataType="qualitypatternmodel.textrepresentation.ObjectWrapper"
-	 * @generated
-	 */
-	void setValue(Object value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
