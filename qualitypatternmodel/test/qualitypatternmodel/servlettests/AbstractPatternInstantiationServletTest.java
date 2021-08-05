@@ -40,7 +40,7 @@ public class AbstractPatternInstantiationServletTest {
 	@Test
 	public void doPostTest() throws IOException, JSONException {
 		String abstractPatternName = "card_abstract";
-		String textName = "test_text";
+		String textName = "flexible";
 		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.INSTANTIATION_ENDPOINT + abstractPatternName + "/" + textName).openConnection();
 		connection.setRequestMethod("POST");
 		

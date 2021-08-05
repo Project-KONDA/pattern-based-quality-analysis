@@ -21,7 +21,7 @@ public class ConcretePatternTextServletTest {
 	
 	@Test
 	public void doGetTest() throws IOException {
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_TEXT_ENDPOINT + "card_concrete/test_text").openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_TEXT_ENDPOINT + "card_concrete/flexible").openConnection();
 		connection.setRequestMethod("GET");
 				
 		int responseCode = connection.getResponseCode();
