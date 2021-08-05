@@ -258,7 +258,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 						RelationOptionParam r = (RelationOptionParam) p;
 						boolean rootRelation = true;
 						for(Relation relation : r.getRelations()) {
-							rootRelation &= relation instanceof XmlRoot;
+							rootRelation &= relation.getSource() instanceof XmlRoot;
 						}						
 						if(!rootRelation) {
 							patternParametersNonPredefinedNotAutomaticTypeNotRootRelation.add(p);
