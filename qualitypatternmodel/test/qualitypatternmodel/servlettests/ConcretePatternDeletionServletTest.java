@@ -30,8 +30,9 @@ public class ConcretePatternDeletionServletTest {
 	
 	@Before
 	public void createPattern() throws IOException {
-		
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.INSTANTIATION_ENDPOINT + "card_abstract").openConnection();
+		String abstractPatternName = "card_abstract";
+		String textName = "test_text";
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.INSTANTIATION_ENDPOINT +  abstractPatternName + "/" + textName).openConnection();
 		connection.setRequestMethod("POST");
 		
 		String parameters = "name=" + URLEncoder.encode(PATTERN_NAME);
