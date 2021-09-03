@@ -42,6 +42,7 @@ public class ConcretisationServlet extends HttpServlet {
 		
 		String[] values = request.getParameterValues("value");
 		String type = request.getParameter("type"); // only needed in case of UntypedParameterValue
+
 		
 		String filePath = Util.CONCRETE_PATTERNS_PATH + name + ".patternstructure";	
 		URL folderURL = getClass().getClassLoader().getResource(Util.CONCRETE_PATTERNS_PATH);
@@ -56,7 +57,10 @@ public class ConcretisationServlet extends HttpServlet {
 				if(parameter instanceof UntypedParameterValueImpl) {
 					UntypedParameterValue untypedValue = (UntypedParameterValue) parameter;
 					try {
-						untypedValue.replaceViaValue(values, type);
+						untypedValue.replaceViaValue(values, type);						
+						EMFModelSave.exportToFile(pattern, folderURL.toString() + name, "patternstructure");
+						response.getOutputStream().println("Successfully set parameter '" + parameterID + "' of concrete pattern with name '" + name + "' to value '" + values[0] + "' .");
+
 					} catch (InvalidityException e) {
 						response.sendError(400);
 						response.getOutputStream().println("{ \"error\": \"Untyped parameter value invalid\"}");
@@ -64,7 +68,9 @@ public class ConcretisationServlet extends HttpServlet {
 				} else if(parameter instanceof TextListParamImpl){									
 					TextListParam textListParam = (TextListParam) parameter;
 					textListParam.getValues().clear();
-					textListParam.getValues().addAll(Arrays.asList(values));			
+					textListParam.getValues().addAll(Arrays.asList(values));						
+					EMFModelSave.exportToFile(pattern, folderURL.toString() + name, "patternstructure");
+					response.getOutputStream().println("Successfully set parameter '" + parameterID + "' of concrete pattern with name '" + name + "' to value '" + values[0] + "' .");
 				} else if(values.length == 1) {
 					try {
 						parameter.setValueFromString(values[0]);
