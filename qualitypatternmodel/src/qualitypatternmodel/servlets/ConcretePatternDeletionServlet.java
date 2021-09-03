@@ -20,12 +20,20 @@ public class ConcretePatternDeletionServlet extends HttpServlet {
 		
 		String filePath = Util.CONCRETE_PATTERNS_PATH + name + ".patternstructure";	
 		URL fileURL = getClass().getClassLoader().getResource(filePath);	
-
-		try {
-			Files.deleteIfExists(Paths.get(fileURL.toURI()));
-			response.getOutputStream().println("Successfully deleted concrete pattern '" + name + "'.");
-		} catch (Exception e) {
-			e.printStackTrace();
+		
+		if (fileURL == null) {
+			response.sendError(404);
+			response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
+		} else {
+			try {
+				Files.deleteIfExists(Paths.get(fileURL.toURI()));
+				response.getOutputStream().println("Successfully deleted concrete pattern '" + name + "'.");
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+				response.sendError(500);
+				response.getOutputStream().println("{ \"error\": \"Deleting concrete pattern failed\"}");
+			}
 		}
 		
 	}
