@@ -92,6 +92,16 @@ public class ConcretisationServletTest {
 		String result2 = ServletTestsUtil.getResult(connection2);			
 		assertEquals(value, result2);		
 		
+		HttpURLConnection connection3 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_TEXT_ENDPOINT + CONCRETE_PATTERN_NAME + "/flexible").openConnection();
+		connection3.setRequestMethod("GET");
+				
+		int responseCode3 = connection3.getResponseCode();
+		assertTrue(responseCode3 >= 200 && responseCode3 < 300);
+		
+		String result3 = ServletTestsUtil.getResult(connection3);
+		System.out.println(result3);
+		assertTrue(result3.contains("\"URL\": \"/concrete-patterns/parameter/" + patternAndParam + "\", \"Type\": \"" + type + "\", \"Value\": \"" + value + "\""));
+		
 
 	}
 
