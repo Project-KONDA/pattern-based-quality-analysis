@@ -13,9 +13,14 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.DateParam;
+import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.NumberParam;
+import qualitypatternmodel.parameters.ParameterValue;
+import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.RelationOptionParam;
+import qualitypatternmodel.parameters.TimeParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -48,6 +53,19 @@ public class DemoPatternTexts {
 		compConcrete.isValid(AbstractionLevel.CONCRETE);
 		EMFModelSave.exportToFile(compConcrete,"instances/demo_with_texts/comp_concrete", "patternstructure");	
 		
+		// ------------- COMP DATE ----------------
+		
+		CompletePattern compDateAbstract = getAbstractCompDatePatternWithText();
+		compDateAbstract.isValid(AbstractionLevel.ABSTRACT);
+		EMFModelSave.exportToFile(compDateAbstract,"instances/demo_with_texts/comp_date_abstract", "patternstructure");	
+		
+		// ------------- COMP DATE ----------------
+		
+		CompletePattern compBoolAbstract = getAbstractCompBoolPatternWithText();
+		compBoolAbstract.isValid(AbstractionLevel.ABSTRACT);
+		EMFModelSave.exportToFile(compBoolAbstract,"instances/demo_with_texts/comp_bool_abstract", "patternstructure");	
+		
+		
 		// ------------- CARD ----------------
 		
 		CompletePattern cardAbstract = getAbstractCardPatternWithText();
@@ -63,6 +81,23 @@ public class DemoPatternTexts {
 		EMFModelSave.exportToFile(cardConcreteFinalized,"instances/demo_with_texts/card_concrete_finalized", "patternstructure");
 
 	}
+	
+	// ------------- COMP BOOL ----------------
+	
+		public static CompletePattern getAbstractCompBoolPatternWithText() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+			CompletePattern completePattern = DemoPatterns.getAbstractCompBoolPattern();		
+			addTextualRepresentationCompPattern0(completePattern);	
+			return completePattern;
+		}
+	
+	// ------------- COMP DATE ----------------
+	
+	public static CompletePattern getAbstractCompDatePatternWithText() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = DemoPatterns.getAbstractCompDatePattern();		
+		addTextualRepresentationCompPattern0(completePattern);	
+		return completePattern;
+	}
+	
 	
 	// ------------- COMP ----------------
 	
@@ -213,7 +248,7 @@ public class DemoPatternTexts {
 		// <value>
 		ParameterFragment param2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
-		UntypedParameterValue value0 = (UntypedParameterValue) comp0.getArgument2();
+		ParameterValue value0 = (ParameterValue) comp0.getArgument2();
 		param2.setParameter(value0);
 				
 		
@@ -241,7 +276,7 @@ public class DemoPatternTexts {
 		// <value>
 		ParameterFragment param8 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		Comparison comp1 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
-		UntypedParameterValue value1 = (UntypedParameterValue) comp1.getArgument2();
+		ParameterValue value1 = (ParameterValue) comp1.getArgument2();
 		param8.setParameter(value1);
 				
 		// <property>
@@ -255,7 +290,7 @@ public class DemoPatternTexts {
 		// <value>
 		ParameterFragment param11 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);
-		UntypedParameterValue value2 = (UntypedParameterValue) comp2.getArgument2();
+		ParameterValue value2 = (ParameterValue) comp2.getArgument2();
 		param11.setParameter(value2);
 		
 		

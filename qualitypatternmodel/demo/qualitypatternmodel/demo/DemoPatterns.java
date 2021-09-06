@@ -28,10 +28,16 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorsFactory;
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.DateParam;
+import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.NumberParam;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TimeParam;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
@@ -40,6 +46,8 @@ import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
+import qualitypatternmodel.textrepresentation.ParameterFragment;
+import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
 import qualitypatternmodel.utility.EMFModelSave;
 
 import static qualitypatternmodel.testutility.DatabaseConstants.*;
@@ -111,6 +119,12 @@ public class DemoPatterns {
 		
 		EMFModelSave.exportToFile(databases,"instances/demo/databases", "execution");
 		
+		CompletePattern compDateAbstract = getAbstractCompDatePattern();
+		EMFModelSave.exportToFile(compDateAbstract,"instances/demo/comp_date_abstract", "patternstructure");
+		
+		CompletePattern compBoolAbstract = getAbstractCompBoolPattern();
+		EMFModelSave.exportToFile(compBoolAbstract,"instances/demo/comp_bool_abstract", "patternstructure");	
+		
 		CompletePattern compGeneric = getGenericCompPattern();
 		EMFModelSave.exportToFile(compGeneric,"instances/demo/comp_generic", "patternstructure");
 		CompletePattern compAbstract = getAbstractCompPattern();
@@ -154,6 +168,72 @@ public class DemoPatterns {
 		pattern.isValid(AbstractionLevel.CONCRETE);
 		System.out.println("\n\n*** "+pattern.getName()+" query ***");
 		System.out.println(pattern.generateQuery());
+	}
+	
+	// ---------- COMP BOOLEAN pattern ----------
+	
+	public static CompletePattern getAbstractCompBoolPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getGenericCompPattern();
+		completePattern.setName("comp_bool_abstract");
+		
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();	
+		
+		// <value dateTime>
+		ParameterValue value = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
+		
+		BooleanParam bool = ParametersFactory.eINSTANCE.createBooleanParam();
+		value.replace(bool);
+		bool.setTypeModifiable(false);
+		
+		completePattern.createXMLAdaption();
+		
+		// Specify relation between Element 0 and Element 1:
+		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		
+		completePattern.finalizeXMLAdaption();
+		
+		return completePattern;
+	}
+	
+	
+	// ---------- COMP DATE pattern ----------
+	
+	public static CompletePattern getAbstractCompDatePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getGenericCompPattern();
+		completePattern.setName("comp_date_abstract");
+		
+		// <value date>
+		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
+		
+		DateParam date = ParametersFactory.eINSTANCE.createDateParam();
+		value0.replace(date);
+		date.setTypeModifiable(false);
+		
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
+		
+		// <value time>
+		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(3);
+		
+		TimeParam time = ParametersFactory.eINSTANCE.createTimeParam();
+		value1.replace(time);
+		time.setTypeModifiable(false);
+
+		
+		// <value dateTime>
+		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
+		
+		DateTimeParam dateTime = ParametersFactory.eINSTANCE.createDateTimeParam();
+		value2.replace(dateTime);
+		dateTime.setTypeModifiable(false);
+		
+		completePattern.createXMLAdaption();
+		
+		// Specify relation between Element 0 and Element 1:
+		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		
+		completePattern.finalizeXMLAdaption();
+		
+		return completePattern;
 	}
 	
 	// ---------- COMP pattern ----------
@@ -253,7 +333,7 @@ public class DemoPatterns {
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		property1.getOption().setValue(PropertyKind.TAG);
 		
-		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(2);
+		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(3);
 		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
 		textValue1.setValue(DEMO_NAMESPACE + "birthyear");
 		value1.replace(textValue1);
@@ -261,7 +341,7 @@ public class DemoPatterns {
 		XmlProperty property2 = (XmlProperty) element1.getProperties().get(0);
 		property2.getOption().setValue(PropertyKind.TAG);
 		
-		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(4);
+		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
 		NumberParam numberValue = ParametersFactory.eINSTANCE.createNumberParam();
 		numberValue.setValue(2020.0);
 		value2.replace(numberValue);
@@ -271,7 +351,7 @@ public class DemoPatterns {
 		
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
 		navigationElement0Element1.getOption().setValue(RelationKind.CHILD);	
-				
+						
 		return completePattern;
 	}
 	
@@ -388,7 +468,7 @@ public class DemoPatterns {
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		property1.getOption().setValue(PropertyKind.TAG);
 		
-		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(4);
+		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(5);
 		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
 		textValue1.setValue(DEMO_NAMESPACE + "birthyear");
 		value1.replace(textValue1);	
@@ -570,7 +650,7 @@ public class DemoPatterns {
 		XmlProperty property0A = (XmlProperty) element0A.getProperties().get(1);
 		property0A.getOption().setValue(PropertyKind.TAG);
 		
-		ParameterValue value0A = (ParameterValue) completePattern.getParameterList().getParameters().get(2);
+		ParameterValue value0A = (ParameterValue) completePattern.getParameterList().getParameters().get(3);
 		TextLiteralParam textValue0A = ParametersFactory.eINSTANCE.createTextLiteralParam();
 		textValue0A.setValue(DEMO_NAMESPACE + "city");
 		value0A.replace(textValue0A);
@@ -579,7 +659,7 @@ public class DemoPatterns {
 		XmlProperty property0B = (XmlProperty) element0B.getProperties().get(1);
 		property0B.getOption().setValue(PropertyKind.TAG);
 		
-		ParameterValue value0B = (ParameterValue) completePattern.getParameterList().getParameters().get(4);
+		ParameterValue value0B = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
 		TextLiteralParam textValue0B = ParametersFactory.eINSTANCE.createTextLiteralParam();
 		textValue0B.setValue(DEMO_NAMESPACE + "country");
 		value0B.replace(textValue0B);
@@ -589,7 +669,7 @@ public class DemoPatterns {
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		property1.getOption().setValue(PropertyKind.TAG);
 		
-		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
+		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(9);
 		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
 		textValue1.setValue(DEMO_NAMESPACE + "building");
 		value1.replace(textValue1);
@@ -599,7 +679,7 @@ public class DemoPatterns {
 		XmlProperty property1A = (XmlProperty) element1A.getProperties().get(1);
 		property1A.getOption().setValue(PropertyKind.TAG);
 		
-		ParameterValue value1A = (ParameterValue) completePattern.getParameterList().getParameters().get(8);
+		ParameterValue value1A = (ParameterValue) completePattern.getParameterList().getParameters().get(12);
 		TextLiteralParam textValue1A = ParametersFactory.eINSTANCE.createTextLiteralParam();
 		textValue1A.setValue(DEMO_NAMESPACE + "city");
 		value1A.replace(textValue1A);
@@ -609,7 +689,7 @@ public class DemoPatterns {
 		XmlProperty property1B = (XmlProperty) element1B.getProperties().get(1);
 		property1B.getOption().setValue(PropertyKind.TAG);
 		
-		ParameterValue value1B = (ParameterValue) completePattern.getParameterList().getParameters().get(10);
+		ParameterValue value1B = (ParameterValue) completePattern.getParameterList().getParameters().get(15);
 		TextLiteralParam textValue1B = ParametersFactory.eINSTANCE.createTextLiteralParam();
 		textValue1B.setValue(DEMO_NAMESPACE + "country");
 		value1B.replace(textValue1B);		
