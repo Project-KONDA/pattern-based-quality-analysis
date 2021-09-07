@@ -131,7 +131,7 @@ public class UntypedParameterValueImpl extends ParameterValueImpl implements Unt
 				break;
 
 			default:
-				throw new InvalidityException("Parameter type invalid");
+				throw new InvalidityException("Parameter type '" + type + "' invalid");
 			}
 		} else {
 			throw new InvalidityException("Too many values passed.");
