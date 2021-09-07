@@ -14,13 +14,19 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
 import qualitypatternmodel.parameters.impl.DateTimeParamImpl;
 import qualitypatternmodel.parameters.impl.NumberParamImpl;
+import qualitypatternmodel.parameters.impl.PropertyOptionParamImpl;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.TimeParamImpl;
@@ -157,9 +163,34 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		if(getParameter() instanceof ParameterValue) {
 			ParameterValue parameterValue = (ParameterValue) getParameter();
 			if(parameterValue.isTypeModifiable()) {
-				json += ", \"TypeModifiable\": true";
+				json += ", \"TypeModifiable\": true";				
 			}
 		}
+		if(getParameter() instanceof TextLiteralParamImpl) {
+			TextLiteralParamImpl textLiteral = (TextLiteralParamImpl) getParameter();
+			if(!textLiteral.getProperties().isEmpty() && textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
+				json += ", \"Dependent\": true";
+			}
+		}
+		if(getParameter() instanceof PropertyOptionParamImpl) {
+			PropertyOptionParamImpl propertyOption = (PropertyOptionParamImpl) getParameter();
+			for (Property property : propertyOption.getProperties()) {
+				XmlProperty xmlProperty = (XmlProperty) property;
+				TextLiteralParam textLiteral = xmlProperty.getAttributeName();
+				if(textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
+					int dependentParameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(textLiteral);
+					String id = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(dependentParameterID);
+					String cond = PropertyKind.ATTRIBUTE.getLiteral();
+					json += ", \"Enable\": {";
+					json += "\"Parameter\": \"" + id + "\"";
+					json += ", \"If\": \"" + cond + "\"";
+					json += "}";
+				
+				}
+			}			
+		}
+		
+		
 		json += "}";
 		return json;
 	}

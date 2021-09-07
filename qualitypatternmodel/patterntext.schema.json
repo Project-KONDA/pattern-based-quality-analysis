@@ -49,6 +49,26 @@
 						"TypeModifiable": {
 						  "type": "boolean",
 						  "description": "Whether the type of the parameter can be modified"
+						},
+						"Dependent": {
+						  "type": "boolean",
+						  "description": "Whether the requirement status of this parameter depends on another parameter's value'"
+						},
+						"Enable": {
+							"type": "object",
+							"required": ["Parameter", "If"],					
+							"properties": {
+								"Parameter": {
+									"type": "string",
+									"description": "URL of the dependent parameter"
+								},
+								"If": {
+									"type": "string",
+									"description": "Value of this parameter that enables the other parameter"
+								}
+							},
+							"additionalProperties": false,
+							"description": "Parameter whose requirement status depends on this parameter's value'"
 						}
 					},
 					"additionalProperties": false,
