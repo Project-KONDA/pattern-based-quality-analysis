@@ -17,11 +17,13 @@ import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
+import qualitypatternmodel.parameters.impl.ParameterValueImpl;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -53,18 +55,17 @@ public class ConcretisationServlet extends HttpServlet {
 			
 			if(parameterIDInt < pattern.getParameterList().getParameters().size()) {
 				Parameter parameter = pattern.getParameterList().getParameters().get(parameterIDInt);			
-				
-				if(parameter instanceof UntypedParameterValueImpl) {
-					UntypedParameterValue untypedValue = (UntypedParameterValue) parameter;
+
+				if(parameter instanceof ParameterValueImpl && ((ParameterValue) parameter).isTypeModifiable()){					
 					try {
-						untypedValue.replaceViaValue(values, type);						
+						((ParameterValue) parameter).replaceViaValue(values, type);						
 						EMFModelSave.exportToFile(pattern, folderURL.toString() + name, "patternstructure");
-						response.getOutputStream().println("Successfully set parameter '" + parameterID + "' of concrete pattern with name '" + name + "' to value '" + values[0] + "' .");
+						response.getOutputStream().println("Successfully set parameter '" + parameterID + "' of concrete pattern with name '" + name + "' to value '" + values[0] + "' and type '" + type + "'.");
 
 					} catch (InvalidityException e) {
 						response.sendError(400);
 						response.getOutputStream().println("{ \"error\": \"Untyped parameter value invalid\"}");
-					}				
+					}					
 				} else if(parameter instanceof TextListParamImpl){									
 					TextListParam textListParam = (TextListParam) parameter;
 					textListParam.getValues().clear();
