@@ -11,7 +11,7 @@ import java.util.Set;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -301,7 +301,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	@Override
 	public void instantiate() throws InvalidityException {
 		isValid();
-		for(PatternText text : getPattern().getText()) {
+		EList<PatternText> textsCopy = new BasicEList<PatternText>();
+		textsCopy.addAll(getPattern().getText());
+		for(PatternText text : textsCopy) {
 			if(!text.equals(this)) {
 				text.delete();
 			}
