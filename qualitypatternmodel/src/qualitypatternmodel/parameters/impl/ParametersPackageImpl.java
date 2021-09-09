@@ -805,6 +805,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getParameterValue__ReplaceViaValue__String_String() {
+		return parameterValueEClass.getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDateParam() {
 		return dateParamEClass;
 	}
@@ -877,16 +887,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	@Override
 	public EOperation getUntypedParameterValue__SetValue__String() {
 		return untypedParameterValueEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getUntypedParameterValue__ReplaceViaValue__String_String() {
-		return untypedParameterValueEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1119,6 +1119,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_ATTRIBUTE_VALUES);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_SUGGESTIONS);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___REPLACE__PARAMETERVALUE);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING);
 
 		dateParamEClass = createEClass(DATE_PARAM);
 		createEAttribute(dateParamEClass, DATE_PARAM__VALUE);
@@ -1130,7 +1131,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		untypedParameterValueEClass = createEClass(UNTYPED_PARAMETER_VALUE);
 		createEOperation(untypedParameterValueEClass, UNTYPED_PARAMETER_VALUE___SET_VALUE__STRING);
-		createEOperation(untypedParameterValueEClass, UNTYPED_PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING);
 
 		dateTimeParamEClass = createEClass(DATE_TIME_PARAM);
 		createEAttribute(dateTimeParamEClass, DATE_TIME_PARAM__VALUE);
@@ -1327,6 +1327,11 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		op = initEOperation(getParameterValue__Replace__ParameterValue(), null, "replace", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getParameterValue(), "concreteValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getParameterValue__ReplaceViaValue__String_String(), null, "replaceViaValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getStringArray(), "values", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
 		initEClass(dateParamEClass, DateParam.class, "DateParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1345,11 +1350,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		op = initEOperation(getUntypedParameterValue__SetValue__String(), null, "setValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "val", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getUntypedParameterValue__ReplaceViaValue__String_String(), null, "replaceViaValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getStringArray(), "values", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(dateTimeParamEClass, DateTimeParam.class, "DateTimeParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateTimeParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateTimeParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

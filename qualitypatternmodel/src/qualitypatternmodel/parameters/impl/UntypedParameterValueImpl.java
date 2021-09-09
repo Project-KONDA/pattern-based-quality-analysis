@@ -83,62 +83,6 @@ public class UntypedParameterValueImpl extends ParameterValueImpl implements Unt
 		replace(new TextLiteralParamImpl(val));	
 	}
 
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
-	 * @generated NOT
-	 */
-	@Override
-	public void replaceViaValue(String[] values, String type) throws InvalidityException {
-		if(type.equals(Constants.PARAMETER_TYPE_TEXT_LIST)) {
-			TextListParam textList = ParametersFactory.eINSTANCE.createTextListParam();
-			textList.getValues().clear();
-			textList.getValues().addAll(Arrays.asList(values));			
-			replace(textList);
-		} else if(values.length == 1) {
-			switch (type) {
-			case Constants.PARAMETER_TYPE_TEXT:
-				TextLiteralParam text = ParametersFactory.eINSTANCE.createTextLiteralParam();
-				text.setValueFromString(values[0]);
-				replace(text);
-				break;			
-			case Constants.PARAMETER_TYPE_NUMBER:
-				NumberParam number = ParametersFactory.eINSTANCE.createNumberParam();
-				number.setValueFromString(values[0]);
-				replace(number);
-				break;
-			case Constants.PARAMETER_TYPE_BOOLEAN:
-				BooleanParam bool = ParametersFactory.eINSTANCE.createBooleanParam();
-				bool.setValueFromString(values[0]);
-				replace(bool);
-				break;
-			case Constants.PARAMETER_TYPE_DATE:
-				DateParam date = ParametersFactory.eINSTANCE.createDateParam();
-				date.setValueFromString(values[0]);
-				replace(date);
-				break;
-			case Constants.PARAMETER_TYPE_TIME:
-				TimeParam time = ParametersFactory.eINSTANCE.createTimeParam();
-				time.setValueFromString(values[0]);
-				replace(time);
-				break;
-			case Constants.PARAMETER_TYPE_DATE_TIME:
-				DateTimeParam dateTime = ParametersFactory.eINSTANCE.createDateTimeParam();
-				dateTime.setValueFromString(values[0]);
-				replace(dateTime);
-				break;
-
-			default:
-				throw new InvalidityException("Parameter type '" + type + "' invalid");
-			}
-		} else {
-			throw new InvalidityException("Too many values passed.");
-		}
-		
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,14 +94,6 @@ public class UntypedParameterValueImpl extends ParameterValueImpl implements Unt
 			case ParametersPackage.UNTYPED_PARAMETER_VALUE___SET_VALUE__STRING:
 				setValue((String)arguments.get(0));
 				return null;
-			case ParametersPackage.UNTYPED_PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING:
-				try {
-					replaceViaValue((String[])arguments.get(0), (String)arguments.get(1));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

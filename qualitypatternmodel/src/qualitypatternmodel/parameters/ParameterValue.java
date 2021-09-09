@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 
 import qualitypatternmodel.adaptionxml.XmlElement;
+import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->
@@ -153,6 +154,14 @@ public interface ParameterValue extends Parameter, qualitypatternmodel.graphstru
 	 * @generated
 	 */
 	void replace(ParameterValue concreteValue);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" valuesDataType="qualitypatternmodel.parameters.StringArray"
+	 * @generated
+	 */
+	void replaceViaValue(String[] values, String type) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

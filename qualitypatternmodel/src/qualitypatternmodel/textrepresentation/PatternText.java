@@ -7,7 +7,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 /**

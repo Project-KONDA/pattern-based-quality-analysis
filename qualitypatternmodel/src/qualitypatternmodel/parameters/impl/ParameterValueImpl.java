@@ -3,6 +3,7 @@
 package qualitypatternmodel.parameters.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 import java.util.Collection;
 
 import org.basex.core.BaseXException;
@@ -26,6 +27,7 @@ import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlRoot;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.XmlDataDatabase;
@@ -37,12 +39,19 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TimeParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.utility.Constants;
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.DateParam;
+import qualitypatternmodel.parameters.DateTimeParam;
+import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParameterValue;
+import qualitypatternmodel.parameters.ParametersFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -462,6 +471,14 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			case ParametersPackage.PARAMETER_VALUE___REPLACE__PARAMETERVALUE:
 				replace((ParameterValue)arguments.get(0));
 				return null;
+			case ParametersPackage.PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING:
+				try {
+					replaceViaValue((String[])arguments.get(0), (String)arguments.get(1));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case ParametersPackage.PARAMETER_VALUE___GET_RETURN_TYPE:
 				return getReturnType();
 			case ParametersPackage.PARAMETER_VALUE___IS_TRANSLATABLE:
@@ -632,6 +649,60 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			concreteValue.setTypeModifiable(true);
 
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void replaceViaValue(String[] values, String type) throws InvalidityException {
+		if(type.equals(Constants.PARAMETER_TYPE_TEXT_LIST)) {
+			TextListParam textList = ParametersFactory.eINSTANCE.createTextListParam();
+			textList.getValues().clear();
+			textList.getValues().addAll(Arrays.asList(values));			
+			replace(textList);
+		} else if(values.length == 1) {
+			switch (type) {
+			case Constants.PARAMETER_TYPE_TEXT:
+				TextLiteralParam text = ParametersFactory.eINSTANCE.createTextLiteralParam();
+				text.setValueFromString(values[0]);
+				replace(text);
+				break;			
+			case Constants.PARAMETER_TYPE_NUMBER:
+				NumberParam number = ParametersFactory.eINSTANCE.createNumberParam();
+				number.setValueFromString(values[0]);
+				replace(number);
+				break;
+			case Constants.PARAMETER_TYPE_BOOLEAN:
+				BooleanParam bool = ParametersFactory.eINSTANCE.createBooleanParam();
+				bool.setValueFromString(values[0]);
+				replace(bool);
+				break;
+			case Constants.PARAMETER_TYPE_DATE:
+				DateParam date = ParametersFactory.eINSTANCE.createDateParam();
+				date.setValueFromString(values[0]);
+				replace(date);
+				break;
+			case Constants.PARAMETER_TYPE_TIME:
+				TimeParam time = ParametersFactory.eINSTANCE.createTimeParam();
+				time.setValueFromString(values[0]);
+				replace(time);
+				break;
+			case Constants.PARAMETER_TYPE_DATE_TIME:
+				DateTimeParam dateTime = ParametersFactory.eINSTANCE.createDateTimeParam();
+				dateTime.setValueFromString(values[0]);
+				replace(dateTime);
+				break;
+
+			default:
+				throw new InvalidityException("Parameter type '" + type + "' invalid");
+			}
+		} else {
+			throw new InvalidityException("Too many values passed.");
+		}
+		
 	}
 
 	/**

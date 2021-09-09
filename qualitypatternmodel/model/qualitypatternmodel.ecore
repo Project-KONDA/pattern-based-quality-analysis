@@ -123,6 +123,10 @@
       <eOperations name="replace">
         <eParameters name="concreteValue" eType="#//parameters/ParameterValue"/>
       </eOperations>
+      <eOperations name="replaceViaValue" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="values" eType="#//parameters/StringArray"/>
+        <eParameters name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeModifiable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DateParam" eSuperTypes="#//parameters/ParameterValue">
@@ -142,10 +146,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="UntypedParameterValue" eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="setValue">
         <eParameters name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      </eOperations>
-      <eOperations name="replaceViaValue" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="values" eType="#//parameters/StringArray"/>
-        <eParameters name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DateTimeParam" eSuperTypes="#//parameters/ParameterValue">

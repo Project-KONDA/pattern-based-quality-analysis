@@ -93,6 +93,10 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/replace">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/ParameterValue/replace/concreteValue"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/replaceViaValue">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/ParameterValue/replaceViaValue/values"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/ParameterValue/replaceViaValue/type"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/DateParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/DateParam/value"/>
@@ -109,10 +113,6 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/UntypedParameterValue">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/UntypedParameterValue/setValue">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/UntypedParameterValue/setValue/val"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/UntypedParameterValue/replaceViaValue">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/UntypedParameterValue/replaceViaValue/values"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/UntypedParameterValue/replaceViaValue/type"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/DateTimeParam">

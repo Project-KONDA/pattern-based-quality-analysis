@@ -1749,13 +1749,22 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE___REPLACE__PARAMETERVALUE = PARAMETER_OPERATION_COUNT + 14;
 
 	/**
+	 * The operation id for the '<em>Replace Via Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_OPERATION_COUNT + 15;
+
+	/**
 	 * The number of operations of the '<em>Parameter Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 15;
+	int PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 16;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.BooleanParamImpl <em>Boolean Param</em>}' class.
@@ -2227,6 +2236,15 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
 
 	/**
+	 * The operation id for the '<em>Replace Via Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
+
+	/**
 	 * The number of operations of the '<em>Boolean Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2694,6 +2712,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
+
+	/**
+	 * The operation id for the '<em>Replace Via Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
 	 * The operation id for the '<em>Get List Declaration</em>' operation.
@@ -3201,6 +3228,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
 
 	/**
+	 * The operation id for the '<em>Replace Via Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
+
+	/**
 	 * The number of operations of the '<em>Text Literal Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3679,6 +3715,15 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
 
 	/**
+	 * The operation id for the '<em>Replace Via Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
+
+	/**
 	 * The number of operations of the '<em>Number Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4146,6 +4191,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
+
+	/**
+	 * The operation id for the '<em>Replace Via Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
 	 * The operation id for the '<em>Specify Value</em>' operation.
@@ -4626,6 +4680,15 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
 
 	/**
+	 * The operation id for the '<em>Replace Via Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
+
+	/**
 	 * The operation id for the '<em>Specify Value</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5095,6 +5158,15 @@ public interface ParametersPackage extends EPackage {
 	int UNTYPED_PARAMETER_VALUE___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
 
 	/**
+	 * The operation id for the '<em>Replace Via Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
+
+	/**
 	 * The operation id for the '<em>Set Value</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5104,22 +5176,13 @@ public interface ParametersPackage extends EPackage {
 	int UNTYPED_PARAMETER_VALUE___SET_VALUE__STRING = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Replace Via Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNTYPED_PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Untyped Parameter Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNTYPED_PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 2;
+	int UNTYPED_PARAMETER_VALUE_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.DateTimeParamImpl <em>Date Time Param</em>}' class.
@@ -5580,6 +5643,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_TIME_PARAM___REPLACE__PARAMETERVALUE = PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
+
+	/**
+	 * The operation id for the '<em>Replace Via Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
 	 * The operation id for the '<em>Specify Value</em>' operation.
@@ -6848,6 +6920,16 @@ public interface ParametersPackage extends EPackage {
 	EOperation getParameterValue__Replace__ParameterValue();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#replaceViaValue(java.lang.String[], java.lang.String) <em>Replace Via Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Replace Via Value</em>' operation.
+	 * @see qualitypatternmodel.parameters.ParameterValue#replaceViaValue(java.lang.String[], java.lang.String)
+	 * @generated
+	 */
+	EOperation getParameterValue__ReplaceViaValue__String_String();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.DateParam <em>Date Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6928,16 +7010,6 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getUntypedParameterValue__SetValue__String();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.UntypedParameterValue#replaceViaValue(java.lang.String[], java.lang.String) <em>Replace Via Value</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Replace Via Value</em>' operation.
-	 * @see qualitypatternmodel.parameters.UntypedParameterValue#replaceViaValue(java.lang.String[], java.lang.String)
-	 * @generated
-	 */
-	EOperation getUntypedParameterValue__ReplaceViaValue__String_String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.DateTimeParam <em>Date Time Param</em>}'.
@@ -7553,6 +7625,14 @@ public interface ParametersPackage extends EPackage {
 		EOperation PARAMETER_VALUE___REPLACE__PARAMETERVALUE = eINSTANCE.getParameterValue__Replace__ParameterValue();
 
 		/**
+		 * The meta object literal for the '<em><b>Replace Via Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING = eINSTANCE.getParameterValue__ReplaceViaValue__String_String();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.DateParamImpl <em>Date Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7621,14 +7701,6 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation UNTYPED_PARAMETER_VALUE___SET_VALUE__STRING = eINSTANCE.getUntypedParameterValue__SetValue__String();
-
-		/**
-		 * The meta object literal for the '<em><b>Replace Via Value</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation UNTYPED_PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING = eINSTANCE.getUntypedParameterValue__ReplaceViaValue__String_String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.DateTimeParamImpl <em>Date Time Param</em>}' class.

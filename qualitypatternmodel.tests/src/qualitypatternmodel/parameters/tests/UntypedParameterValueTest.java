@@ -15,7 +15,6 @@ import qualitypatternmodel.parameters.UntypedParameterValue;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.UntypedParameterValue#setValue(java.lang.String) <em>Set Value</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.UntypedParameterValue#replaceViaValue(java.lang.String[], java.lang.String) <em>Replace Via Value</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -82,19 +81,6 @@ public class UntypedParameterValueTest extends ParameterValueTest {
 	 * @generated
 	 */
 	public void testSetValue__String() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.UntypedParameterValue#replaceViaValue(java.lang.String[], java.lang.String) <em>Replace Via Value</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.UntypedParameterValue#replaceViaValue(java.lang.String[], java.lang.String)
-	 * @generated
-	 */
-	public void testReplaceViaValue__String_String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
