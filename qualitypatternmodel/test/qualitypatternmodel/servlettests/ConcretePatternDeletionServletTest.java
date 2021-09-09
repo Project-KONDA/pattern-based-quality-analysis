@@ -25,51 +25,13 @@ import org.junit.Test;
 import qualitypatternmodel.servlets.Util;
 
 public class ConcretePatternDeletionServletTest {
-	
-	private static final String PATTERN_NAME = "deletion_test";
-	
-	@Before
-	public void createPattern() throws IOException, JSONException {
-		String abstractPatternName = "card_abstract";
-		String textName = "flexible";
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.INSTANTIATION_ENDPOINT +  abstractPatternName + "/" + textName).openConnection();
-		connection.setRequestMethod("POST");
-		
-		String parameters = "name=" + URLEncoder.encode(PATTERN_NAME);
-		
-		connection.setDoOutput(true);
-	    OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
-	    wr.write(parameters);
-	    wr.flush();
-		
-		int responseCode = connection.getResponseCode();
-		assertTrue(responseCode >= 200 && responseCode < 300);
-		
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
-		
-		HttpURLConnection connection2 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_LIST_ENDPOINT).openConnection();
-		connection2.setRequestMethod("GET");
-		
-		int responseCode2 = connection2.getResponseCode();
-		assertTrue(responseCode2 >= 200 && responseCode < 300);
-		
-		String result2 = ServletTestsUtil.getResult(connection2);		
-		
-		JSONArray array = new JSONArray(result2);
-		List<String> list = ServletTestsUtil.JSONArrayToList(array);
-		
-		assertTrue(list.contains(PATTERN_NAME));
-	}
 
 	@Test
 	public void doDeleteTest() throws IOException, JSONException {		
+		String concretePatternName = "deletion_test";
+		ServletTestsUtil.createConcretePattern("card_abstract", "flexible", concretePatternName);
 		
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + PATTERN_NAME).openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + concretePatternName).openConnection();
 		connection.setRequestMethod("DELETE");
 		
 		int responseCode = connection.getResponseCode();
@@ -89,7 +51,7 @@ public class ConcretePatternDeletionServletTest {
 		JSONArray array = new JSONArray(result2);
 		List<String> list = ServletTestsUtil.JSONArrayToList(array);
 		
-		assertFalse(list.contains(PATTERN_NAME));
+		assertFalse(list.contains(concretePatternName));
 		
 
 	}

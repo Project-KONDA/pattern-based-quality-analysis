@@ -22,7 +22,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.servlets.Util;
 import qualitypatternmodel.utility.EMFModelLoad;
 
 public class AbstractPatternInstantiationServletTest {
@@ -38,49 +37,8 @@ public class AbstractPatternInstantiationServletTest {
 	}
 
 	@Test
-	public void doPostTest() throws IOException, JSONException {
-		String abstractPatternName = "card_abstract";
-		String textName = "flexible";
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.INSTANTIATION_ENDPOINT + abstractPatternName + "/" + textName).openConnection();
-		connection.setRequestMethod("POST");
-		
-		String parameters = "name=" + URLEncoder.encode(PATTERN_NAME);
-		
-		connection.setDoOutput(true);
-	    OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
-	    wr.write(parameters);
-	    wr.flush();
-		
-		int responseCode = connection.getResponseCode();
-//		System.out.println(responseCode);
-//		System.out.println(ServletTestsUtil.getResult(connection));
-		assertTrue(responseCode >= 200 && responseCode < 300);
-
-//		String result = ServletTestsUtil.getResult(connection);		
-//		ServletTestsUtil.printResult(connection, responseCode, result);
-		
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		HttpURLConnection connection2 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_LIST_ENDPOINT).openConnection();
-		connection2.setRequestMethod("GET");
-		
-		int responseCode2 = connection2.getResponseCode();
-		assertTrue(responseCode2 >= 200 && responseCode < 300);
-		
-		String result2 = ServletTestsUtil.getResult(connection2);		
-		
-		JSONArray array = new JSONArray(result2);
-		List<String> list = ServletTestsUtil.JSONArrayToList(array);
-		
-		assertTrue(list.contains(PATTERN_NAME));
-			
-		 			
-
+	public void doPostTest() throws IOException, JSONException {		
+		ServletTestsUtil.createConcretePattern("card_abstract", "flexible", PATTERN_NAME);
 	}
 	
 }
