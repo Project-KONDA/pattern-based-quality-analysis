@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
@@ -191,6 +192,15 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	public EList<RelationKind> getOptions() {
 		if (options == null) {
 			options = new EDataTypeUniqueEList<RelationKind>(RelationKind.class, this, ParametersPackage.RELATION_OPTION_PARAM__OPTIONS);
+		}
+		else if (options.size() > 1){
+			EList<RelationKind> options2 = new EDataTypeUniqueEList<RelationKind>(RelationKind.class, this, ParametersPackage.RELATION_OPTION_PARAM__OPTIONS);
+			for (RelationKind cop: options) {
+				if (!options2.contains(cop)) {
+					options2.add(cop);				
+				}
+			}
+			options = options2;
 		}
 		return options;
 	}

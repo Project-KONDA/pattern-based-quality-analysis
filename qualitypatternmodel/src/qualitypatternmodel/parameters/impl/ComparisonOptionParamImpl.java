@@ -196,6 +196,15 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	public EList<ComparisonOperator> getOptions() {
 		if (options == null) {
 			options = new EDataTypeUniqueEList<ComparisonOperator>(ComparisonOperator.class, this, ParametersPackage.COMPARISON_OPTION_PARAM__OPTIONS);
+		} 
+		else if (options.size() > 1){
+			EList<ComparisonOperator> options2 = new EDataTypeUniqueEList(ComparisonOperator.class, this, ParametersPackage.COMPARISON_OPTION_PARAM__OPTIONS);
+			for (ComparisonOperator cop: options) {
+				if (!options2.contains(cop)) {
+					options2.add(cop);				
+				}
+			}
+			options = options2;
 		}
 		return options;
 	}

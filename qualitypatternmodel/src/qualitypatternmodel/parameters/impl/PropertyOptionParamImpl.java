@@ -25,6 +25,7 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
@@ -179,6 +180,15 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	public EList<PropertyKind> getOptions() {
 		if (options == null) {
 			options = new EDataTypeUniqueEList<PropertyKind>(PropertyKind.class, this, ParametersPackage.PROPERTY_OPTION_PARAM__OPTIONS);
+		}
+		else if (options.size() > 1){
+			EList<PropertyKind> options2 = new EDataTypeUniqueEList<PropertyKind>(PropertyKind.class, this, ParametersPackage.PROPERTY_OPTION_PARAM__OPTIONS);
+			for (PropertyKind cop: options) {
+				if (!options2.contains(cop)) {
+					options2.add(cop);				
+				}
+			}
+			options = options2;
 		}
 		return options;
 	}
