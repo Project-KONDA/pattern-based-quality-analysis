@@ -46,8 +46,10 @@ public class ConcretisationFinalizationServletTest {
 	@Test
 	public void doPostTestWithPreviousInstantiationAndConcretisation() throws IOException, JSONException {
 		ServletTestsUtil.createConcretePattern("card_abstract", "flexible", CONCRETE_PATTERN_NAME);			
-		ServletTestsUtil.setParameter(CONCRETE_PATTERN_NAME, "0", "example0", "Text");  
-		ServletTestsUtil.setParameter(CONCRETE_PATTERN_NAME, "5", "example5", "Text");
+		ServletTestsUtil.setParameter(CONCRETE_PATTERN_NAME, "0", "demo:test", "Text");  
+		ServletTestsUtil.setParameter(CONCRETE_PATTERN_NAME, "5", "demo:totest", "Text");
+		ServletTestsUtil.setParameter(CONCRETE_PATTERN_NAME, "8", "DATA", null);
+
 	    
 		
 		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETISATION_FINALIZATION_ENDPOINT + CONCRETE_PATTERN_NAME).openConnection();
