@@ -54,9 +54,12 @@ public class ConcretisationServlet extends HttpServlet {
 			CompletePattern pattern = EMFModelLoad.loadCompletePattern(fileURL.toString());			
 			
 			if(parameterIDInt < pattern.getParameterList().getParameters().size()) {
-				Parameter parameter = pattern.getParameterList().getParameters().get(parameterIDInt);			
-
-				if(parameter instanceof ParameterValueImpl && ((ParameterValue) parameter).isTypeModifiable()){					
+				Parameter parameter = pattern.getParameterList().getParameters().get(parameterIDInt);
+				
+				if(parameter instanceof UntypedParameterValueImpl && type==null) {
+					response.sendError(400);
+					response.getOutputStream().println("{ \"error\": \"Type missing\"}");
+				} else if(parameter instanceof ParameterValueImpl && ((ParameterValue) parameter).isTypeModifiable() && type!=null){					
 					try {
 						((ParameterValue) parameter).replaceViaValue(values, type);						
 						EMFModelSave.exportToFile(pattern, folderURL.toString() + name, "patternstructure");
