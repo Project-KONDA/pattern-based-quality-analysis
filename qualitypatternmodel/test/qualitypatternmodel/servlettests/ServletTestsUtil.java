@@ -124,7 +124,7 @@ public class ServletTestsUtil {
 		assertTrue(responseCode2 >= 200 && responseCode2 < 300);
 		
 		String result2 = getResult(connection2);			
-		assertEquals(valueEncoded, result2);		
+		assertEquals(value, result2);		
 		
 		HttpURLConnection connection3 = (HttpURLConnection) new URL(PATH_PREFIX + Util.CONCRETE_PATTERN_TEXT_ENDPOINT + concretePatternName + "/flexible").openConnection();
 		connection3.setRequestMethod("GET");
@@ -135,7 +135,7 @@ public class ServletTestsUtil {
 		String result3 = getResult(connection3);
 		
 		if(type != null) {
-			assertTrue(result3.contains("\"URL\": \"/concrete-patterns/parameter/" + patternAndParam + "\", \"Type\": \"" + typeEncoded + "\", \"Value\": \"" + valueEncoded + "\""));
+			assertTrue(result3.contains("\"URL\": \"/concrete-patterns/parameter/" + patternAndParam + "\", \"Type\": \"" + type + "\", \"Value\": \"" + value + "\""));
 		} else {
 			String[] split = result3.split("\"URL\": \"/concrete-patterns/parameter/" + patternAndParam)[1].split("}");			
 			assertTrue(split[0].contains("\"Value\": \"" + valueEncoded + "\""));
