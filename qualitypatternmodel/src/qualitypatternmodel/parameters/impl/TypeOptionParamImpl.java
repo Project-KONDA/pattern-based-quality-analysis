@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
 
@@ -166,6 +168,15 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	public EList<ReturnType> getOptions() {
 		if (options == null) {
 			options = new EDataTypeUniqueEList<ReturnType>(ReturnType.class, this, ParametersPackage.TYPE_OPTION_PARAM__OPTIONS);
+		}
+		else if (options.size() > 1){
+			EList<ReturnType> options2 = new EDataTypeUniqueEList<ReturnType>(ReturnType.class, this, ParametersPackage.TYPE_OPTION_PARAM__OPTIONS);
+			for (ReturnType cop: options) {
+				if (!options2.contains(cop)) {
+					options2.add(cop);				
+				}
+			}
+			options = options2;
 		}
 		return options;
 	}
