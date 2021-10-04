@@ -69,6 +69,11 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	protected ParameterFragmentImpl() {
 		super();
 	}
+	
+	@Override
+	public String getPreview() {	
+		return " [" + getParameter().eClass().getName() + "] ";
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

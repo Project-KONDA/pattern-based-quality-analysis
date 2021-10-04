@@ -283,6 +283,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EOperation getPatternText__GetPreview() {
+		return patternTextEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getParameterFragment() {
 		return parameterFragmentEClass;
 	}
@@ -325,6 +335,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	@Override
 	public EOperation getFragment__GenerateJSON() {
 		return fragmentEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getFragment__GetPreview() {
+		return fragmentEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -435,6 +455,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEOperation(patternTextEClass, PATTERN_TEXT___IS_VALID);
 		createEOperation(patternTextEClass, PATTERN_TEXT___INSTANTIATE);
 		createEOperation(patternTextEClass, PATTERN_TEXT___DELETE);
+		createEOperation(patternTextEClass, PATTERN_TEXT___GET_PREVIEW);
 
 		parameterFragmentEClass = createEClass(PARAMETER_FRAGMENT);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___GET_TYPE);
@@ -442,6 +463,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		fragmentEClass = createEClass(FRAGMENT);
 		createEReference(fragmentEClass, FRAGMENT__PATTERN_TEXT);
 		createEOperation(fragmentEClass, FRAGMENT___GENERATE_JSON);
+		createEOperation(fragmentEClass, FRAGMENT___GET_PREVIEW);
 
 		textFragmentEClass = createEClass(TEXT_FRAGMENT);
 		createEAttribute(textFragmentEClass, TEXT_FRAGMENT__TEXT);
@@ -510,6 +532,8 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		initEOperation(getPatternText__Delete(), null, "delete", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getPatternText__GetPreview(), ecorePackage.getEString(), "getPreview", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(parameterFragmentEClass, ParameterFragment.class, "ParameterFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getParameterFragment__GetType(), ecorePackage.getEString(), "getType", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -518,6 +542,8 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		initEReference(getFragment_PatternText(), this.getPatternText(), this.getPatternText_Textfragment(), "patternText", null, 1, 1, Fragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getFragment__GenerateJSON(), ecorePackage.getEString(), "generateJSON", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getFragment__GetPreview(), ecorePackage.getEString(), "getPreview", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(textFragmentEClass, TextFragment.class, "TextFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextFragment_Text(), ecorePackage.getEString(), "text", null, 0, 1, TextFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

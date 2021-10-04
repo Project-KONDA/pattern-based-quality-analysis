@@ -57,4 +57,12 @@ public interface Fragment extends EObject {
 	 * @generated
 	 */
 	String generateJSON();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getPreview();
 } // Fragment

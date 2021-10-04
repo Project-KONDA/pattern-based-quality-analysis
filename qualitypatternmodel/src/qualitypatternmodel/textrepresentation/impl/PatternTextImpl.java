@@ -335,6 +335,20 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getPreview() {
+		String s = "";
+		for(Fragment frag : getTextfragment()) {
+			s += frag.getPreview();
+		}
+		return s;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -503,6 +517,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			case TextrepresentationPackage.PATTERN_TEXT___DELETE:
 				delete();
 				return null;
+			case TextrepresentationPackage.PATTERN_TEXT___GET_PREVIEW:
+				return getPreview();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

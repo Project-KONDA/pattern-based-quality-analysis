@@ -757,6 +757,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/isValid"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/instantiate"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/delete"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/getPreview"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getType"/>
@@ -764,6 +765,7 @@
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//textrepresentation/Fragment">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/Fragment/patternText"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/Fragment/generateJSON"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/Fragment/getPreview"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/TextFragment">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/TextFragment/text"/>

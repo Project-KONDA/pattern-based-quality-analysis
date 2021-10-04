@@ -14,6 +14,7 @@ import qualitypatternmodel.textrepresentation.Fragment;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.textrepresentation.Fragment#generateJSON() <em>Generate JSON</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.Fragment#getPreview() <em>Get Preview</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -66,6 +67,19 @@ public abstract class FragmentTest extends TestCase {
 	 * @generated
 	 */
 	public void testGenerateJSON() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.Fragment#getPreview() <em>Get Preview</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.Fragment#getPreview()
+	 * @generated
+	 */
+	public void testGetPreview() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

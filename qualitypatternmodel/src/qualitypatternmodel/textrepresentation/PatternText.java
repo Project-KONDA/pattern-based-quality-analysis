@@ -137,4 +137,12 @@ public interface PatternText extends EObject {
 	 */
 	void delete();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getPreview();
+
 } // PatternText

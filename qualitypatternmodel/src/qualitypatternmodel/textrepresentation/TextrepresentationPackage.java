@@ -150,13 +150,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PATTERN_TEXT___DELETE = 3;
 
 	/**
+	 * The operation id for the '<em>Get Preview</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT___GET_PREVIEW = 4;
+
+	/**
 	 * The number of operations of the '<em>Pattern Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT_OPERATION_COUNT = 4;
+	int PATTERN_TEXT_OPERATION_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.FragmentImpl <em>Fragment</em>}' class.
@@ -196,13 +205,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int FRAGMENT___GENERATE_JSON = 0;
 
 	/**
+	 * The operation id for the '<em>Get Preview</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT___GET_PREVIEW = 1;
+
+	/**
 	 * The number of operations of the '<em>Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FRAGMENT_OPERATION_COUNT = 1;
+	int FRAGMENT_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl <em>Parameter Fragment</em>}' class.
@@ -249,6 +267,15 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_FRAGMENT___GENERATE_JSON = FRAGMENT___GENERATE_JSON;
+
+	/**
+	 * The operation id for the '<em>Get Preview</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT___GET_PREVIEW = FRAGMENT___GET_PREVIEW;
 
 	/**
 	 * The operation id for the '<em>Get Type</em>' operation.
@@ -313,6 +340,15 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_FRAGMENT___GENERATE_JSON = FRAGMENT___GENERATE_JSON;
+
+	/**
+	 * The operation id for the '<em>Get Preview</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FRAGMENT___GET_PREVIEW = FRAGMENT___GET_PREVIEW;
 
 	/**
 	 * The number of operations of the '<em>Text Fragment</em>' class.
@@ -513,6 +549,16 @@ public interface TextrepresentationPackage extends EPackage {
 	EOperation getPatternText__Delete();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#getPreview() <em>Get Preview</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Preview</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.PatternText#getPreview()
+	 * @generated
+	 */
+	EOperation getPatternText__GetPreview();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.ParameterFragment <em>Parameter Fragment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -562,6 +608,16 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getFragment__GenerateJSON();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.Fragment#getPreview() <em>Get Preview</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Preview</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.Fragment#getPreview()
+	 * @generated
+	 */
+	EOperation getFragment__GetPreview();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.TextFragment <em>Text Fragment</em>}'.
@@ -735,6 +791,14 @@ public interface TextrepresentationPackage extends EPackage {
 		EOperation PATTERN_TEXT___DELETE = eINSTANCE.getPatternText__Delete();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Preview</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_TEXT___GET_PREVIEW = eINSTANCE.getPatternText__GetPreview();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl <em>Parameter Fragment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -777,6 +841,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation FRAGMENT___GENERATE_JSON = eINSTANCE.getFragment__GenerateJSON();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Preview</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation FRAGMENT___GET_PREVIEW = eINSTANCE.getFragment__GetPreview();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.TextFragmentImpl <em>Text Fragment</em>}' class.

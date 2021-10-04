@@ -7,7 +7,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import qualitypatternmodel.textrepresentation.TextFragment;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 
@@ -53,6 +52,11 @@ public class TextFragmentImpl extends FragmentImpl implements TextFragment {
 	 */
 	protected TextFragmentImpl() {
 		super();
+	}
+	
+	@Override
+	public String getPreview() {		
+		return getText();
 	}
 
 	/**

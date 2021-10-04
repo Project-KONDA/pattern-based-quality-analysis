@@ -111,6 +111,18 @@ public abstract class FragmentImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
+	public String getPreview() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case TextrepresentationPackage.FRAGMENT__PATTERN_TEXT:
@@ -217,6 +229,8 @@ public abstract class FragmentImpl extends MinimalEObjectImpl.Container implemen
 		switch (operationID) {
 			case TextrepresentationPackage.FRAGMENT___GENERATE_JSON:
 				return generateJSON();
+			case TextrepresentationPackage.FRAGMENT___GET_PREVIEW:
+				return getPreview();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
