@@ -162,7 +162,7 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public EList<ReturnType> getOptions() {

@@ -3,24 +3,11 @@
 package qualitypatternmodel.parameters.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
-import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.parameters.BooleanParam;
-import qualitypatternmodel.parameters.DateParam;
-import qualitypatternmodel.parameters.DateTimeParam;
-import qualitypatternmodel.parameters.NumberParam;
-import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.TimeParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.utility.Constants;
 
 /**
  * <!-- begin-user-doc -->

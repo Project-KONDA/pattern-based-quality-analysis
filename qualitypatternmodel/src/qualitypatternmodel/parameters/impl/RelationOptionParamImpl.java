@@ -186,7 +186,7 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public EList<RelationKind> getOptions() {

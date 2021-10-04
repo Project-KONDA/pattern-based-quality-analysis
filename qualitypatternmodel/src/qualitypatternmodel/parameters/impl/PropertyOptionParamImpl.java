@@ -174,7 +174,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public EList<PropertyKind> getOptions() {
