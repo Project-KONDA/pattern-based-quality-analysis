@@ -352,9 +352,9 @@ public class DemoPatternTexts {
 		TextFragment text1 = TextrepresentationFactory.eINSTANCE.createTextFragment();
 		text1.setText("that has two children");
 		TextFragment text2 = TextrepresentationFactory.eINSTANCE.createTextFragment();
-		text2.setText("whose name");
+		text2.setText(" whose name");
 		TextFragment text3 = TextrepresentationFactory.eINSTANCE.createTextFragment();
-		text3.setText("is equal to");
+		text3.setText(" is equal to");
 		
 		
 		// Context graph of pattern:
@@ -424,7 +424,7 @@ public class DemoPatternTexts {
 		patternText.getTextfragment().add(text0);  // Is there an element with
 		patternText.getParameterPredefinitions().add(paramPredef0); // name
 		patternText.getTextfragment().add(param2); // <value>		
-		patternText.getTextfragment().add(text1);  // that has
+		patternText.getTextfragment().add(text1);  // that has two children
 		patternText.getParameterPredefinitions().add(paramPredef2); // =
 		patternText.getParameterPredefinitions().add(paramPredef3); // 2
 		patternText.getParameterPredefinitions().add(paramPredef4); // child
