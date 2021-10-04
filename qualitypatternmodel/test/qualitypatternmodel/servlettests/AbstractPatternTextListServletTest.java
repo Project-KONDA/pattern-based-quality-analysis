@@ -27,12 +27,10 @@ public class AbstractPatternTextListServletTest {
 		assertTrue(responseCode >= 200 && responseCode < 300);
 		
 		String result = ServletTestsUtil.getResult(connection);		
-//		ServletTestsUtil.printResult(connection, responseCode, result);		
-			
-		JSONArray array = new JSONArray(result);
-		List<String> list = ServletTestsUtil.JSONArrayToList(array);
+//		ServletTestsUtil.printResult(connection, responseCode, result);	
 		
-		assertTrue(list.contains("test_text"));
+		JSONArray array = new JSONArray(result);		
+		assertTrue(array.getJSONObject(0).get("Name").equals("flexible"));
 
 	}
 	
