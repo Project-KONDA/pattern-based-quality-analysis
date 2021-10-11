@@ -116,5 +116,16 @@
 		<servlet-name>QueryServlet</servlet-name>
 		<url-pattern>/concrete-patterns/query/*</url-pattern>
 	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>FinalizedPatternListServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.FinalizedPatternListServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>FinalizedPatternListServlet</servlet-name>
+		<url-pattern>/finalized-patterns</url-pattern>
+	</servlet-mapping>
 
 </web-app>

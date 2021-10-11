@@ -4,6 +4,7 @@ import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class Util {
 	static final String ABSTRACT_PATTERNS_PATH = "../../abstract-patterns/";
@@ -21,6 +22,7 @@ public class Util {
 	public static final String CONCRETISATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/parameter/";
 	public static final String CONCRETISATION_FINALIZATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/finalization/";
 	public static final String QUERY_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/query/";
+	public static final String FINALIZED_PATTERN_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/finalized-patterns";
 
 	
 	public static String getFileNamesInFolder(String path, Class clas) throws URISyntaxException {
@@ -39,6 +41,24 @@ public class Util {
 //			json += "]}";
 			json += "]";
 			return json;			     
+			
+		} else {
+			return null;
+		}
+	}
+	
+	public static ArrayList<String> getListOfFileNamesInFolder(String path, Class clas) throws URISyntaxException {
+		URL url = clas.getClassLoader().getResource(path);
+		ArrayList<String> fileNames = new ArrayList<String>();
+		if(url != null) {			
+			File[] files = Paths.get(url.toURI()).toFile().listFiles();
+			if(files.length == 0) {
+				return null;
+			}
+			for(File f : files) {
+				fileNames.add(f.getName().split("\\.")[0]);
+			}
+			return fileNames;			     
 			
 		} else {
 			return null;
