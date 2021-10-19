@@ -18,7 +18,7 @@ public interface MatchValidator {
 	boolean validate();
 
 	boolean validateProperty(Property value);
-	boolean validateOption(BooleanParam value);
+	boolean validateOption1(BooleanParam value);
 
 	boolean validateRegularExpression(TextLiteralParam value);
 
