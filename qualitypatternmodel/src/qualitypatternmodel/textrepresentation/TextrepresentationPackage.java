@@ -129,7 +129,7 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT___IS_VALID = 1;
+	int PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL = 1;
 
 	/**
 	 * The operation id for the '<em>Instantiate</em>' operation.
@@ -251,13 +251,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_FRAGMENT__PARAMETER = FRAGMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Example Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT__EXAMPLE_VALUE = FRAGMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Parameter Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 1;
+	int PARAMETER_FRAGMENT_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Generate JSON</em>' operation.
@@ -296,13 +305,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_FRAGMENT___GET_ROLE = FRAGMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL = FRAGMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Parameter Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT_OPERATION_COUNT = FRAGMENT_OPERATION_COUNT + 2;
+	int PARAMETER_FRAGMENT_OPERATION_COUNT = FRAGMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.TextFragmentImpl <em>Text Fragment</em>}' class.
@@ -528,14 +546,14 @@ public interface TextrepresentationPackage extends EPackage {
 	EOperation getPatternText__GenerateJSON();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#isValid() <em>Is Valid</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Valid</em>' operation.
-	 * @see qualitypatternmodel.textrepresentation.PatternText#isValid()
+	 * @see qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel)
 	 * @generated
 	 */
-	EOperation getPatternText__IsValid();
+	EOperation getPatternText__IsValid__AbstractionLevel();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#instantiate() <em>Instantiate</em>}' operation.
@@ -578,6 +596,17 @@ public interface TextrepresentationPackage extends EPackage {
 	EClass getParameterFragment();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getExampleValue <em>Example Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Example Value</em>'.
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#getExampleValue()
+	 * @see #getParameterFragment()
+	 * @generated
+	 */
+	EAttribute getParameterFragment_ExampleValue();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getType() <em>Get Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -596,6 +625,16 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getParameterFragment__GetRole();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#isValid(qualitypatternmodel.patternstructure.AbstractionLevel)
+	 * @generated
+	 */
+	EOperation getParameterFragment__IsValid__AbstractionLevel();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.Fragment <em>Fragment</em>}'.
@@ -791,7 +830,7 @@ public interface TextrepresentationPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATTERN_TEXT___IS_VALID = eINSTANCE.getPatternText__IsValid();
+		EOperation PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL = eINSTANCE.getPatternText__IsValid__AbstractionLevel();
 
 		/**
 		 * The meta object literal for the '<em><b>Instantiate</b></em>' operation.
@@ -828,6 +867,14 @@ public interface TextrepresentationPackage extends EPackage {
 		EClass PARAMETER_FRAGMENT = eINSTANCE.getParameterFragment();
 
 		/**
+		 * The meta object literal for the '<em><b>Example Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_FRAGMENT__EXAMPLE_VALUE = eINSTANCE.getParameterFragment_ExampleValue();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Type</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -842,6 +889,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PARAMETER_FRAGMENT___GET_ROLE = eINSTANCE.getParameterFragment__GetRole();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL = eINSTANCE.getParameterFragment__IsValid__AbstractionLevel();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.FragmentImpl <em>Fragment</em>}' class.

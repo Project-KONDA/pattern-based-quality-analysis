@@ -155,6 +155,10 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 	private static boolean isFormatValid(String newValue) {
 		// [-]CCYY-MM-DD[Z|(+|-)hh:mm]
 		
+		if(newValue.equals("")){
+			return true;
+		}
+		
 		int offset = 0;
 		if(newValue.substring(0, 1).equals("-")) {
 			offset = 1;

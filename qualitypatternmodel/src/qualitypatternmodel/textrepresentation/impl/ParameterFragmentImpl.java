@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
@@ -34,6 +35,7 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.TimeParamImpl;
 import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
@@ -48,6 +50,7 @@ import qualitypatternmodel.utility.Constants;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getExampleValue <em>Example Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,6 +66,26 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * @ordered
 	 */
 	protected Parameter parameter;
+
+	/**
+	 * The default value of the '{@link #getExampleValue() <em>Example Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExampleValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EXAMPLE_VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getExampleValue() <em>Example Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExampleValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String exampleValue = EXAMPLE_VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -150,6 +173,29 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER, newParameter, newParameter));
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getExampleValue() {
+		return exampleValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setExampleValue(String newExampleValue) {
+		String oldExampleValue = exampleValue;
+		exampleValue = newExampleValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__EXAMPLE_VALUE, oldExampleValue, exampleValue));
+	}
+
 	@Override
 	public String generateJSON() {
 		String patternName = getPatternText().getPattern().getName();
@@ -158,12 +204,19 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		String value = getParameter().getValueAsString();
 		String type = getType();
 		String role = getRole();
+		String exampleValue = getExampleValue();
 		String json = "{\"URL\": \"" + url + "\", \"Type\": \"" + type + "\", \"Role\": \"" + role + "\"";
 		if(value != null) {
 			if(!(getParameter() instanceof TextListParamImpl) && !(getParameter() instanceof NumberParamImpl) && !(getParameter() instanceof BooleanParamImpl)) {
 				value = "\"" + value + "\"";
 			}
 			json += ", \"Value\": " + value + "";
+		}
+		if(exampleValue != null) {
+			if(!(getParameter() instanceof TextListParamImpl) && !(getParameter() instanceof NumberParamImpl) && !(getParameter() instanceof BooleanParamImpl)) {
+				exampleValue = "\"" + exampleValue + "\"";
+			}
+			json += ", \"ExampleValue\": " + exampleValue + "";
 		}
 		if(type.equals("Enumeration")) {
 			String options = getParameter().getOptionsAsStringList();
@@ -271,6 +324,26 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return "";
 		}
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated Not
+	 */
+	@Override
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException {
+		String value = getParameter().getValueAsString();
+		try {
+			if(getExampleValue() != null && abstractionLevel != AbstractionLevel.CONCRETE) {
+				getParameter().setValueFromString(getExampleValue());
+				getParameter().setValueFromString(value);
+			}	
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new InvalidityException("Example value '" + getExampleValue() + "' has wrong type");
+		}		
+		
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -323,6 +396,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER:
 				if (resolve) return getParameter();
 				return basicGetParameter();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__EXAMPLE_VALUE:
+				return getExampleValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -337,6 +412,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER:
 				setParameter((Parameter)newValue);
+				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__EXAMPLE_VALUE:
+				setExampleValue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -353,6 +431,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER:
 				setParameter((Parameter)null);
 				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__EXAMPLE_VALUE:
+				setExampleValue(EXAMPLE_VALUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -367,6 +448,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER:
 				return parameter != null;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__EXAMPLE_VALUE:
+				return EXAMPLE_VALUE_EDEFAULT == null ? exampleValue != null : !EXAMPLE_VALUE_EDEFAULT.equals(exampleValue);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -415,8 +498,32 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return getType();
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_ROLE:
 				return getRole();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL:
+				try {
+					isValid((AbstractionLevel)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (exampleValue: ");
+		result.append(exampleValue);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ParameterFragmentImpl

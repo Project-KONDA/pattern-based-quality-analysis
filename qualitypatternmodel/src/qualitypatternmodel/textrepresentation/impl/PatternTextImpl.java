@@ -33,6 +33,7 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 
@@ -236,12 +237,13 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @generated NOT
 	 */
 	@Override
-	public void isValid() throws InvalidityException {
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException {
 		List<Parameter> referencedParameters = new ArrayList<Parameter>();
 		for(Fragment f : getTextfragment()) {
 			if(f instanceof ParameterFragment) {
 				ParameterFragment p = (ParameterFragment) f;
 				referencedParameters.add(p.getParameter());
+				p.isValid(abstractionLevel);
 			}
 		}
 		for(ParameterPredefinition p : getParameterPredefinitions()) {
@@ -300,7 +302,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 */
 	@Override
 	public void instantiate() throws InvalidityException {
-		isValid();
+		isValid(AbstractionLevel.CONCRETE);
 		EList<PatternText> textsCopy = new BasicEList<PatternText>();
 		textsCopy.addAll(getPattern().getText());
 		for(PatternText text : textsCopy) {
@@ -498,9 +500,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		switch (operationID) {
 			case TextrepresentationPackage.PATTERN_TEXT___GENERATE_JSON:
 				return generateJSON();
-			case TextrepresentationPackage.PATTERN_TEXT___IS_VALID:
+			case TextrepresentationPackage.PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL:
 				try {
-					isValid();
+					isValid((AbstractionLevel)arguments.get(0));
 					return null;
 				}
 				catch (Throwable throwable) {

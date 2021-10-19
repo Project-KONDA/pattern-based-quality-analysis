@@ -46,6 +46,11 @@
 						  "items": {"type": "string"},				  
 						  "description": "Value of the parameter"
 						},
+						"ExampleValue": {
+						  "type": ["string", "number", "boolean", "array"],		
+						  "items": {"type": "string"},				  
+						  "description": "Example value of the parameter"
+						},
 						"Options": {
 						  "type": "array",		
 						  "items": {"type": "string"},				  

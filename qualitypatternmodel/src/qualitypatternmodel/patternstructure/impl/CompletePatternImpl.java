@@ -316,7 +316,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			throw new InvalidityException("concrete pattern has too many fragments");
 		}
 		for(PatternText p : getText()) {
-			p.isValid();
+			p.isValid(abstractionLevel);
 		}
 	}
 

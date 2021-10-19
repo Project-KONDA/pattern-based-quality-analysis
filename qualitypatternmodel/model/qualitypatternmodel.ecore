@@ -899,7 +899,9 @@
   <eSubpackages name="textrepresentation" nsURI="textrepresentation" nsPrefix="textrepresentation">
     <eClassifiers xsi:type="ecore:EClass" name="PatternText">
       <eOperations name="generateJSON" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="abstractionLevel" eType="#//patternstructure/AbstractionLevel"/>
+      </eOperations>
       <eOperations name="instantiate" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="delete"/>
       <eOperations name="getPreview" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -915,6 +917,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="ParameterFragment" eSuperTypes="#//textrepresentation/Fragment #//textrepresentation/ParameterReference">
       <eOperations name="getType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getRole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="isValid" unique="false" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="abstractionLevel" eType="#//patternstructure/AbstractionLevel"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="exampleValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Fragment" abstract="true">
       <eOperations name="generateJSON" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

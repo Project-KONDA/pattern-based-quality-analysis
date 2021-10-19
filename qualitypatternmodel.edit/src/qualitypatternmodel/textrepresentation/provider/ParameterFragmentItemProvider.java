@@ -12,6 +12,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 
 /**
@@ -43,6 +45,7 @@ public class ParameterFragmentItemProvider extends FragmentItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addParameterPropertyDescriptor(object);
+			addExampleValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -70,6 +73,28 @@ public class ParameterFragmentItemProvider extends FragmentItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Example Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExampleValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ParameterFragment_exampleValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterFragment_exampleValue_feature", "_UI_ParameterFragment_type"),
+				 TextrepresentationPackage.Literals.PARAMETER_FRAGMENT__EXAMPLE_VALUE,
+				 true,
+				 false,
+				 true,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ParameterFragment.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,7 +113,10 @@ public class ParameterFragmentItemProvider extends FragmentItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ParameterFragment_type");
+		String label = ((ParameterFragment)object).getExampleValue();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ParameterFragment_type") :
+			getString("_UI_ParameterFragment_type") + " " + label;
 	}
 
 

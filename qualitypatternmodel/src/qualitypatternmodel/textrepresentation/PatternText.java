@@ -7,6 +7,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
 /**
@@ -116,10 +117,10 @@ public interface PatternText extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void isValid() throws InvalidityException;
+	void isValid(AbstractionLevel abstractionLevel) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -4,6 +4,8 @@
  */
 package qualitypatternmodel.textrepresentation.validation;
 
+import qualitypatternmodel.parameters.Parameter;
+
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.textrepresentation.ParameterFragment}.
@@ -13,5 +15,9 @@ package qualitypatternmodel.textrepresentation.validation;
  */
 public interface ParameterFragmentValidator {
 	boolean validate();
+
+	boolean validateExampleValue(String value);
+
+	boolean validateExampleValue(Parameter value);
 
 }

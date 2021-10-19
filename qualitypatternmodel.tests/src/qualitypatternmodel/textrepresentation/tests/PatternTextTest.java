@@ -17,7 +17,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#generateJSON() <em>Generate JSON</em>}</li>
- *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#isValid() <em>Is Valid</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#instantiate() <em>Instantiate</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#delete() <em>Delete</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getPreview() <em>Get Preview</em>}</li>
@@ -110,13 +110,13 @@ public class PatternTextTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#isValid() <em>Is Valid</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.textrepresentation.PatternText#isValid()
+	 * @see qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel)
 	 * @generated
 	 */
-	public void testIsValid() {
+	public void testIsValid__AbstractionLevel() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
