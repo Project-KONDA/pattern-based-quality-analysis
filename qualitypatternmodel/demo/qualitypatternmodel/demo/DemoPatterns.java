@@ -175,6 +175,7 @@ public class DemoPatterns {
 	public static CompletePattern getAbstractCompBoolPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericCompPattern();
 		completePattern.setName("comp_bool_abstract");
+		completePattern.setDescription("Allows detecting elements with a specific property which are related to other elements with a specific property and a specific boolean property");
 		
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();	
 		
@@ -201,6 +202,7 @@ public class DemoPatterns {
 	public static CompletePattern getAbstractCompDatePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericCompPattern();
 		completePattern.setName("comp_date_abstract");
+		completePattern.setDescription("Allows detecting elements with a specific date property which are related to other elements with specific time and dateTime properties");
 		
 		// <value date>
 		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
@@ -242,6 +244,7 @@ public class DemoPatterns {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setName("comp_generic");
+		completePattern.setDescription("Allows detecting elements with a specific property which are related to other elements with two specific properties");
 		
 		// Context graph of pattern:
 		Element element0 = completePattern.getGraph().getElements().get(0);
@@ -362,6 +365,7 @@ public class DemoPatterns {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setName("card_generic");
+		completePattern.setDescription("Allows detecting elements with a specific property which are related to a specific number of elements with a specific property");
 		
 		// Context graph of pattern:
 		Element element0 = completePattern.getGraph().getElements().get(0);
