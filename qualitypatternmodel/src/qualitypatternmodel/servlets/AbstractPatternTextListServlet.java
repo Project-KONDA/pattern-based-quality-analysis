@@ -35,14 +35,11 @@ public class AbstractPatternTextListServlet extends HttpServlet {
 			} else {
 				String result = "[";
 				for (PatternText text: texts) {
-					result += "{\"Name\":";
-					result += "\"" + text.getName() + "\", ";
-					result += "\"Preview\":";
-					result += "\"" + text.getPreview() + "\", ";
-					result += "}, ";
+					String json = text.generateJSON();
+					result += json + ",";
 				} 					
 				result += "]";
-				result = result.replace(", ]", "]");
+				result = result.replace(",]", "]");
 				response.getOutputStream().println(result);
 			}
 			

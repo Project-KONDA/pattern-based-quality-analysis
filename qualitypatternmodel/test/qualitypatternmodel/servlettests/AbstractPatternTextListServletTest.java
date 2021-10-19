@@ -30,7 +30,7 @@ public class AbstractPatternTextListServletTest {
 //		ServletTestsUtil.printResult(connection, responseCode, result);	
 		
 		JSONArray array = new JSONArray(result);		
-		assertTrue(array.getJSONObject(0).get("Name").equals("flexible"));
+		assertTrue(array.getJSONObject(0).get("PatternTextName").equals("flexible"));
 
 	}
 	
