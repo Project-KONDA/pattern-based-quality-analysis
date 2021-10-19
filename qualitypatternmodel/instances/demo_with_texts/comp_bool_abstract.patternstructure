@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="ASCII"?>
-<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" xmlns:textrepresentation="textrepresentation" id="_PSQSMCT-Eey7edYFLC_eSw" internalId="1" name="comp_bool_abstract" adaptionStarted="true" adaptionFinalized="true" propertyCounter="4" relationCounter="2" counter="2">
-  <graph id="_PSQSMiT-Eey7edYFLC_eSw" returnElements="_PSRgVCT-Eey7edYFLC_eSw" outgoingMorphisms="_PSQ5QCT-Eey7edYFLC_eSw">
-    <elements xsi:type="adaptionxml:XmlElement" id="_PSRgVCT-Eey7edYFLC_eSw" outgoingMappings="_PSQ5QiT-Eey7edYFLC_eSw" resultOf="_PSQSMiT-Eey7edYFLC_eSw" name="Element0" predicates="_PSQSNST-Eey7edYFLC_eSw" incoming="_PSSHaCT-Eey7edYFLC_eSw">
-      <properties xsi:type="adaptionxml:XmlProperty" id="_PSRgUST-Eey7edYFLC_eSw" comparison1="_PSQSNST-Eey7edYFLC_eSw" name="XmlProperty 1" option="_PSRgVST-Eey7edYFLC_eSw" attributeName="_PSRgViT-Eey7edYFLC_eSw"/>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" xmlns:textrepresentation="textrepresentation" id="_ZJ0ZYDDUEeyS995WbPriuw" internalId="1" name="comp_bool_abstract" adaptionStarted="true" adaptionFinalized="true" propertyCounter="4" relationCounter="2" counter="2">
+  <graph id="_ZJ0ZYjDUEeyS995WbPriuw" returnElements="_ZJ1nhDDUEeyS995WbPriuw" outgoingMorphisms="_ZJ1AczDUEeyS995WbPriuw">
+    <elements xsi:type="adaptionxml:XmlElement" id="_ZJ1nhDDUEeyS995WbPriuw" outgoingMappings="_ZJ1AdTDUEeyS995WbPriuw" resultOf="_ZJ0ZYjDUEeyS995WbPriuw" name="Element0" predicates="_ZJ0ZZTDUEeyS995WbPriuw" incoming="_ZJ21oTDUEeyS995WbPriuw">
+      <properties xsi:type="adaptionxml:XmlProperty" id="_ZJ1ngTDUEeyS995WbPriuw" comparison1="_ZJ0ZZTDUEeyS995WbPriuw" name="XmlProperty 1" option="_ZJ2OkDDUEeyS995WbPriuw" attributeName="_ZJ2OkTDUEeyS995WbPriuw"/>
     </elements>
-    <elements xsi:type="adaptionxml:XmlRoot" id="_PSSHZyT-Eey7edYFLC_eSw" outgoingMappings="_PSSHayT-Eey7edYFLC_eSw" name="Root" outgoing="_PSSHaCT-Eey7edYFLC_eSw"/>
-    <operatorList id="_PSQSMyT-Eey7edYFLC_eSw">
-      <operators xsi:type="operators:Comparison" id="_PSQSNST-Eey7edYFLC_eSw" elements="_PSRgVCT-Eey7edYFLC_eSw" argument1="_PSRgUST-Eey7edYFLC_eSw" argument2="_PSQSNyT-Eey7edYFLC_eSw" option="_PSQSOCT-Eey7edYFLC_eSw" typeOption="_PSQSOST-Eey7edYFLC_eSw"/>
+    <elements xsi:type="adaptionxml:XmlRoot" id="_ZJ21oDDUEeyS995WbPriuw" outgoingMappings="_ZJ21pDDUEeyS995WbPriuw" name="Root" outgoing="_ZJ21oTDUEeyS995WbPriuw"/>
+    <operatorList id="_ZJ0ZYzDUEeyS995WbPriuw">
+      <operators xsi:type="operators:Comparison" id="_ZJ0ZZTDUEeyS995WbPriuw" elements="_ZJ1nhDDUEeyS995WbPriuw" argument1="_ZJ1ngTDUEeyS995WbPriuw" argument2="_ZJ0ZZzDUEeyS995WbPriuw" option="_ZJ0ZaDDUEeyS995WbPriuw" typeOption="_ZJ0ZaTDUEeyS995WbPriuw"/>
     </operatorList>
-    <relations xsi:type="adaptionxml:XmlNavigation" id="_PSSHaCT-Eey7edYFLC_eSw" outgoingMappings="_PSSHbiT-Eey7edYFLC_eSw" source="_PSSHZyT-Eey7edYFLC_eSw" target="_PSRgVCT-Eey7edYFLC_eSw" option="_PSSHaST-Eey7edYFLC_eSw"/>
+    <relations xsi:type="adaptionxml:XmlNavigation" id="_ZJ21oTDUEeyS995WbPriuw" outgoingMappings="_ZJ21pzDUEeyS995WbPriuw" source="_ZJ21oDDUEeyS995WbPriuw" target="_ZJ1nhDDUEeyS995WbPriuw" option="_ZJ21ojDUEeyS995WbPriuw"/>
   </graph>
-  <condition xsi:type="patternstructure:QuantifiedCondition" id="_PSQSOiT-Eey7edYFLC_eSw">
-    <morphism id="_PSQ5QCT-Eey7edYFLC_eSw" source="_PSQSMiT-Eey7edYFLC_eSw" target="_PSQSOyT-Eey7edYFLC_eSw">
-      <mappings xsi:type="patternstructure:ElementMapping" id="_PSQ5QiT-Eey7edYFLC_eSw" source="_PSRgVCT-Eey7edYFLC_eSw" target="_PSRgVyT-Eey7edYFLC_eSw"/>
-      <mappings xsi:type="patternstructure:ElementMapping" id="_PSSHayT-Eey7edYFLC_eSw" source="_PSSHZyT-Eey7edYFLC_eSw" target="_PSSHaiT-Eey7edYFLC_eSw"/>
-      <mappings xsi:type="patternstructure:RelationMapping" id="_PSSHbiT-Eey7edYFLC_eSw" target="_PSSHbCT-Eey7edYFLC_eSw" source="_PSSHaCT-Eey7edYFLC_eSw"/>
+  <condition xsi:type="patternstructure:QuantifiedCondition" id="_ZJ1AcDDUEeyS995WbPriuw">
+    <morphism id="_ZJ1AczDUEeyS995WbPriuw" source="_ZJ0ZYjDUEeyS995WbPriuw" target="_ZJ1AcTDUEeyS995WbPriuw">
+      <mappings xsi:type="patternstructure:ElementMapping" id="_ZJ1AdTDUEeyS995WbPriuw" source="_ZJ1nhDDUEeyS995WbPriuw" target="_ZJ2OkjDUEeyS995WbPriuw"/>
+      <mappings xsi:type="patternstructure:ElementMapping" id="_ZJ21pDDUEeyS995WbPriuw" source="_ZJ21oDDUEeyS995WbPriuw" target="_ZJ21ozDUEeyS995WbPriuw"/>
+      <mappings xsi:type="patternstructure:RelationMapping" id="_ZJ21pzDUEeyS995WbPriuw" target="_ZJ21pTDUEeyS995WbPriuw" source="_ZJ21oTDUEeyS995WbPriuw"/>
     </morphism>
-    <graph id="_PSQSOyT-Eey7edYFLC_eSw" returnElements="_PSRgVyT-Eey7edYFLC_eSw" incomingMorphism="_PSQ5QCT-Eey7edYFLC_eSw">
-      <elements xsi:type="adaptionxml:XmlElement" id="_PSRgVyT-Eey7edYFLC_eSw" incomingMapping="_PSQ5QiT-Eey7edYFLC_eSw" resultOf="_PSQSOyT-Eey7edYFLC_eSw" name="Element0" outgoing="_PSSHZST-Eey7edYFLC_eSw" incoming="_PSSHbCT-Eey7edYFLC_eSw"/>
-      <elements xsi:type="adaptionxml:XmlElement" id="_PSSHYCT-Eey7edYFLC_eSw" name="Element1" predicates="_PSQ5RST-Eey7edYFLC_eSw _PSQ5SiT-Eey7edYFLC_eSw" incoming="_PSSHZST-Eey7edYFLC_eSw">
-        <properties xsi:type="adaptionxml:XmlProperty" id="_PSRgWCT-Eey7edYFLC_eSw" comparison1="_PSQ5RST-Eey7edYFLC_eSw" name="XmlProperty 2" option="_PSSHYST-Eey7edYFLC_eSw" attributeName="_PSSHYiT-Eey7edYFLC_eSw"/>
-        <properties xsi:type="adaptionxml:XmlProperty" id="_PSRgWyT-Eey7edYFLC_eSw" comparison1="_PSQ5SiT-Eey7edYFLC_eSw" name="XmlProperty 3" option="_PSSHYyT-Eey7edYFLC_eSw" attributeName="_PSSHZCT-Eey7edYFLC_eSw"/>
+    <graph id="_ZJ1AcTDUEeyS995WbPriuw" returnElements="_ZJ2OkjDUEeyS995WbPriuw" incomingMorphism="_ZJ1AczDUEeyS995WbPriuw">
+      <elements xsi:type="adaptionxml:XmlElement" id="_ZJ2OkjDUEeyS995WbPriuw" incomingMapping="_ZJ1AdTDUEeyS995WbPriuw" resultOf="_ZJ1AcTDUEeyS995WbPriuw" name="Element0" outgoing="_ZJ2OnjDUEeyS995WbPriuw" incoming="_ZJ21pTDUEeyS995WbPriuw"/>
+      <elements xsi:type="adaptionxml:XmlElement" id="_ZJ2OmTDUEeyS995WbPriuw" name="Element1" predicates="_ZJ1AeDDUEeyS995WbPriuw _ZJ1AfTDUEeyS995WbPriuw" incoming="_ZJ2OnjDUEeyS995WbPriuw">
+        <properties xsi:type="adaptionxml:XmlProperty" id="_ZJ2OkzDUEeyS995WbPriuw" comparison1="_ZJ1AeDDUEeyS995WbPriuw" name="XmlProperty 2" option="_ZJ2OmjDUEeyS995WbPriuw" attributeName="_ZJ2OmzDUEeyS995WbPriuw"/>
+        <properties xsi:type="adaptionxml:XmlProperty" id="_ZJ2OljDUEeyS995WbPriuw" comparison1="_ZJ1AfTDUEeyS995WbPriuw" name="XmlProperty 3" option="_ZJ2OnDDUEeyS995WbPriuw" attributeName="_ZJ2OnTDUEeyS995WbPriuw"/>
       </elements>
-      <elements xsi:type="adaptionxml:XmlRoot" id="_PSSHaiT-Eey7edYFLC_eSw" incomingMapping="_PSSHayT-Eey7edYFLC_eSw" name="Root" outgoing="_PSSHbCT-Eey7edYFLC_eSw"/>
-      <operatorList id="_PSQSPCT-Eey7edYFLC_eSw">
-        <operators xsi:type="operators:Comparison" id="_PSQ5RST-Eey7edYFLC_eSw" elements="_PSSHYCT-Eey7edYFLC_eSw" argument1="_PSRgWCT-Eey7edYFLC_eSw" argument2="_PSQ5RyT-Eey7edYFLC_eSw" option="_PSQ5SCT-Eey7edYFLC_eSw" typeOption="_PSQ5SST-Eey7edYFLC_eSw"/>
-        <operators xsi:type="operators:Comparison" id="_PSQ5SiT-Eey7edYFLC_eSw" elements="_PSSHYCT-Eey7edYFLC_eSw" argument1="_PSRgWyT-Eey7edYFLC_eSw" argument2="_PSRgUCT-Eey7edYFLC_eSw" option="_PSQ5TST-Eey7edYFLC_eSw" typeOption="_PSQ5TiT-Eey7edYFLC_eSw"/>
+      <elements xsi:type="adaptionxml:XmlRoot" id="_ZJ21ozDUEeyS995WbPriuw" incomingMapping="_ZJ21pDDUEeyS995WbPriuw" name="Root" outgoing="_ZJ21pTDUEeyS995WbPriuw"/>
+      <operatorList id="_ZJ1AcjDUEeyS995WbPriuw">
+        <operators xsi:type="operators:Comparison" id="_ZJ1AeDDUEeyS995WbPriuw" elements="_ZJ2OmTDUEeyS995WbPriuw" argument1="_ZJ2OkzDUEeyS995WbPriuw" argument2="_ZJ1AejDUEeyS995WbPriuw" option="_ZJ1AezDUEeyS995WbPriuw" typeOption="_ZJ1AfDDUEeyS995WbPriuw"/>
+        <operators xsi:type="operators:Comparison" id="_ZJ1AfTDUEeyS995WbPriuw" elements="_ZJ2OmTDUEeyS995WbPriuw" argument1="_ZJ2OljDUEeyS995WbPriuw" argument2="_ZJ1ngDDUEeyS995WbPriuw" option="_ZJ1AgDDUEeyS995WbPriuw" typeOption="_ZJ1AgTDUEeyS995WbPriuw"/>
       </operatorList>
-      <relations xsi:type="adaptionxml:XmlNavigation" id="_PSSHZST-Eey7edYFLC_eSw" source="_PSRgVyT-Eey7edYFLC_eSw" target="_PSSHYCT-Eey7edYFLC_eSw" name="XmlNavigation 1" option="_PSSHZiT-Eey7edYFLC_eSw"/>
-      <relations xsi:type="adaptionxml:XmlNavigation" id="_PSSHbCT-Eey7edYFLC_eSw" incomingMapping="_PSSHbiT-Eey7edYFLC_eSw" source="_PSSHaiT-Eey7edYFLC_eSw" target="_PSRgVyT-Eey7edYFLC_eSw"/>
+      <relations xsi:type="adaptionxml:XmlNavigation" id="_ZJ2OnjDUEeyS995WbPriuw" source="_ZJ2OkjDUEeyS995WbPriuw" target="_ZJ2OmTDUEeyS995WbPriuw" name="XmlNavigation 1" option="_ZJ2OnzDUEeyS995WbPriuw"/>
+      <relations xsi:type="adaptionxml:XmlNavigation" id="_ZJ21pTDUEeyS995WbPriuw" incomingMapping="_ZJ21pzDUEeyS995WbPriuw" source="_ZJ21ozDUEeyS995WbPriuw" target="_ZJ2OkjDUEeyS995WbPriuw"/>
     </graph>
-    <condition xsi:type="patternstructure:TrueElement" id="_PSQ5TyT-Eey7edYFLC_eSw"/>
+    <condition xsi:type="patternstructure:TrueElement" id="_ZJ1AgjDUEeyS995WbPriuw"/>
   </condition>
-  <parameterList id="_PSQSMST-Eey7edYFLC_eSw">
-    <parameters xsi:type="parameters:UntypedParameterValue" id="_PSQSNyT-Eey7edYFLC_eSw" parameterFragments="//@text.0/@textfragment.3" comparison2="_PSQSNST-Eey7edYFLC_eSw" typeModifiable="true"/>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_PSQSOCT-Eey7edYFLC_eSw" predefined="true" comparisons="_PSQSNST-Eey7edYFLC_eSw">
+  <parameterList id="_ZJ0ZYTDUEeyS995WbPriuw">
+    <parameters xsi:type="parameters:UntypedParameterValue" id="_ZJ0ZZzDUEeyS995WbPriuw" parameterFragments="//@text.0/@textfragment.3" comparison2="_ZJ0ZZTDUEeyS995WbPriuw" typeModifiable="true"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_ZJ0ZaDDUEeyS995WbPriuw" predefined="true" comparisons="_ZJ0ZZTDUEeyS995WbPriuw">
       <options>=</options>
       <options>!=</options>
     </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_PSQSOST-Eey7edYFLC_eSw" typeComparisons="_PSQSNST-Eey7edYFLC_eSw">
+    <parameters xsi:type="parameters:TypeOptionParam" id="_ZJ0ZaTDUEeyS995WbPriuw" typeComparisons="_ZJ0ZZTDUEeyS995WbPriuw">
       <options>UNSPECIFIED</options>
       <options>STRING</options>
       <options>BOOLEAN</options>
@@ -48,12 +48,12 @@
       <options>NUMBER</options>
       <options>DATETIME</options>
     </parameters>
-    <parameters xsi:type="parameters:UntypedParameterValue" id="_PSQ5RyT-Eey7edYFLC_eSw" parameterFragments="//@text.0/@textfragment.10" comparison2="_PSQ5RST-Eey7edYFLC_eSw" typeModifiable="true"/>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_PSQ5SCT-Eey7edYFLC_eSw" predefined="true" comparisons="_PSQ5RST-Eey7edYFLC_eSw">
+    <parameters xsi:type="parameters:UntypedParameterValue" id="_ZJ1AejDUEeyS995WbPriuw" parameterFragments="//@text.0/@textfragment.10" comparison2="_ZJ1AeDDUEeyS995WbPriuw" typeModifiable="true"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_ZJ1AezDUEeyS995WbPriuw" predefined="true" comparisons="_ZJ1AeDDUEeyS995WbPriuw">
       <options>=</options>
       <options>!=</options>
     </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_PSQ5SST-Eey7edYFLC_eSw" typeComparisons="_PSQ5RST-Eey7edYFLC_eSw">
+    <parameters xsi:type="parameters:TypeOptionParam" id="_ZJ1AfDDUEeyS995WbPriuw" typeComparisons="_ZJ1AeDDUEeyS995WbPriuw">
       <options>UNSPECIFIED</options>
       <options>STRING</options>
       <options>BOOLEAN</options>
@@ -63,8 +63,8 @@
       <options>NUMBER</options>
       <options>DATETIME</options>
     </parameters>
-    <parameters xsi:type="parameters:BooleanParam" id="_PSRgUCT-Eey7edYFLC_eSw" parameterFragments="//@text.0/@textfragment.15" comparison2="_PSQ5SiT-Eey7edYFLC_eSw"/>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_PSQ5TST-Eey7edYFLC_eSw" comparisons="_PSQ5SiT-Eey7edYFLC_eSw">
+    <parameters xsi:type="parameters:BooleanParam" id="_ZJ1ngDDUEeyS995WbPriuw" parameterFragments="//@text.0/@textfragment.15" comparison2="_ZJ1AfTDUEeyS995WbPriuw"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_ZJ1AgDDUEeyS995WbPriuw" comparisons="_ZJ1AfTDUEeyS995WbPriuw">
       <options>=</options>
       <options>!=</options>
       <options>></options>
@@ -72,7 +72,7 @@
       <options>>=</options>
       <options>&lt;=</options>
     </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_PSQ5TiT-Eey7edYFLC_eSw" predefined="true" value="BOOLEAN" typeComparisons="_PSQ5SiT-Eey7edYFLC_eSw">
+    <parameters xsi:type="parameters:TypeOptionParam" id="_ZJ1AgTDUEeyS995WbPriuw" predefined="true" value="BOOLEAN" typeComparisons="_ZJ1AfTDUEeyS995WbPriuw">
       <options>UNSPECIFIED</options>
       <options>STRING</options>
       <options>BOOLEAN</options>
@@ -82,25 +82,25 @@
       <options>NUMBER</options>
       <options>DATETIME</options>
     </parameters>
-    <parameters xsi:type="parameters:PropertyOptionParam" id="_PSRgVST-Eey7edYFLC_eSw" parameterFragments="//@text.0/@textfragment.1" properties="_PSRgUST-Eey7edYFLC_eSw">
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_ZJ2OkDDUEeyS995WbPriuw" parameterFragments="//@text.0/@textfragment.1" properties="_ZJ1ngTDUEeyS995WbPriuw">
       <options>TAG</options>
       <options>DATA</options>
       <options>ATTRIBUTE</options>
     </parameters>
-    <parameters xsi:type="parameters:TextLiteralParam" id="_PSRgViT-Eey7edYFLC_eSw" parameterFragments="//@text.0/@textfragment.2" properties="_PSRgUST-Eey7edYFLC_eSw"/>
-    <parameters xsi:type="parameters:PropertyOptionParam" id="_PSSHYST-Eey7edYFLC_eSw" parameterFragments="//@text.0/@textfragment.7" properties="_PSRgWCT-Eey7edYFLC_eSw">
+    <parameters xsi:type="parameters:TextLiteralParam" id="_ZJ2OkTDUEeyS995WbPriuw" parameterFragments="//@text.0/@textfragment.2" properties="_ZJ1ngTDUEeyS995WbPriuw"/>
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_ZJ2OmjDUEeyS995WbPriuw" parameterFragments="//@text.0/@textfragment.7" properties="_ZJ2OkzDUEeyS995WbPriuw">
       <options>TAG</options>
       <options>DATA</options>
       <options>ATTRIBUTE</options>
     </parameters>
-    <parameters xsi:type="parameters:TextLiteralParam" id="_PSSHYiT-Eey7edYFLC_eSw" parameterFragments="//@text.0/@textfragment.8" properties="_PSRgWCT-Eey7edYFLC_eSw"/>
-    <parameters xsi:type="parameters:PropertyOptionParam" id="_PSSHYyT-Eey7edYFLC_eSw" parameterFragments="//@text.0/@textfragment.12" properties="_PSRgWyT-Eey7edYFLC_eSw">
+    <parameters xsi:type="parameters:TextLiteralParam" id="_ZJ2OmzDUEeyS995WbPriuw" parameterFragments="//@text.0/@textfragment.8" properties="_ZJ2OkzDUEeyS995WbPriuw"/>
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_ZJ2OnDDUEeyS995WbPriuw" parameterFragments="//@text.0/@textfragment.12" properties="_ZJ2OljDUEeyS995WbPriuw">
       <options>TAG</options>
       <options>DATA</options>
       <options>ATTRIBUTE</options>
     </parameters>
-    <parameters xsi:type="parameters:TextLiteralParam" id="_PSSHZCT-Eey7edYFLC_eSw" parameterFragments="//@text.0/@textfragment.13" properties="_PSRgWyT-Eey7edYFLC_eSw"/>
-    <parameters xsi:type="parameters:RelationOptionParam" id="_PSSHZiT-Eey7edYFLC_eSw" parameterFragments="//@text.0/@textfragment.5" relations="_PSSHZST-Eey7edYFLC_eSw">
+    <parameters xsi:type="parameters:TextLiteralParam" id="_ZJ2OnTDUEeyS995WbPriuw" parameterFragments="//@text.0/@textfragment.13" properties="_ZJ2OljDUEeyS995WbPriuw"/>
+    <parameters xsi:type="parameters:RelationOptionParam" id="_ZJ2OnzDUEeyS995WbPriuw" parameterFragments="//@text.0/@textfragment.5" relations="_ZJ2OnjDUEeyS995WbPriuw">
       <options>/child::*</options>
       <options>/descendant::*</options>
       <options>/parent::*</options>
@@ -121,7 +121,7 @@
       <options>/*/*/*/*/*/*/*/*</options>
       <options>/*/*/*/*/*/*/*/*/*</options>
     </parameters>
-    <parameters xsi:type="parameters:RelationOptionParam" id="_PSSHaST-Eey7edYFLC_eSw" relations="_PSSHaCT-Eey7edYFLC_eSw">
+    <parameters xsi:type="parameters:RelationOptionParam" id="_ZJ21ojDUEeyS995WbPriuw" relations="_ZJ21oTDUEeyS995WbPriuw">
       <options>/child::*</options>
       <options>/descendant::*</options>
       <options>/parent::*</options>
@@ -145,20 +145,20 @@
   </parameterList>
   <text name="flexible">
     <textfragment xsi:type="textrepresentation:TextFragment" text="Is there an element with"/>
-    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_PSRgVST-Eey7edYFLC_eSw"/>
-    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_PSRgViT-Eey7edYFLC_eSw"/>
-    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_PSQSNyT-Eey7edYFLC_eSw"/>
+    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_ZJ2OkDDUEeyS995WbPriuw"/>
+    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_ZJ2OkTDUEeyS995WbPriuw"/>
+    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_ZJ0ZZzDUEeyS995WbPriuw"/>
     <textfragment xsi:type="textrepresentation:TextFragment" text="that has a"/>
-    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_PSSHZiT-Eey7edYFLC_eSw"/>
+    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_ZJ2OnzDUEeyS995WbPriuw"/>
     <textfragment xsi:type="textrepresentation:TextFragment" text="whose"/>
-    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_PSSHYST-Eey7edYFLC_eSw"/>
-    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_PSSHYiT-Eey7edYFLC_eSw"/>
+    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_ZJ2OmjDUEeyS995WbPriuw"/>
+    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_ZJ2OmzDUEeyS995WbPriuw"/>
     <textfragment xsi:type="textrepresentation:TextFragment" text="is equal to"/>
-    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_PSQ5RyT-Eey7edYFLC_eSw"/>
+    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_ZJ1AejDUEeyS995WbPriuw"/>
     <textfragment xsi:type="textrepresentation:TextFragment" text="and whose"/>
-    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_PSSHYyT-Eey7edYFLC_eSw"/>
-    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_PSSHZCT-Eey7edYFLC_eSw"/>
+    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_ZJ2OnDDUEeyS995WbPriuw"/>
+    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_ZJ2OnTDUEeyS995WbPriuw"/>
     <textfragment xsi:type="textrepresentation:TextFragment" text="is equal to"/>
-    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_PSRgUCT-Eey7edYFLC_eSw"/>
+    <textfragment xsi:type="textrepresentation:ParameterFragment" parameter="_ZJ1ngDDUEeyS995WbPriuw"/>
   </text>
 </patternstructure:CompletePattern>
