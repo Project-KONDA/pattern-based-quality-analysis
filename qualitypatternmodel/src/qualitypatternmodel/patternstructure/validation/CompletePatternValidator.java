@@ -48,6 +48,8 @@ public interface CompletePatternValidator {
 
 	boolean validateText(EList<PatternText> value);
 
+	boolean validateDescription(String value);
+
 	boolean validateVariableList(ParameterList value);
 
 	boolean validateCheckMorphismOfNextGraph(boolean value);

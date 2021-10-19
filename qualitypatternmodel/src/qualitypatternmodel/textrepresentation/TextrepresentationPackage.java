@@ -105,13 +105,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PATTERN_TEXT__PARAMETER_PREDEFINITIONS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT__DESCRIPTION = 4;
+
+	/**
 	 * The number of structural features of the '<em>Pattern Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT_FEATURE_COUNT = 4;
+	int PATTERN_TEXT_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Generate JSON</em>' operation.
@@ -536,6 +545,17 @@ public interface TextrepresentationPackage extends EPackage {
 	EReference getPatternText_ParameterPredefinitions();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.textrepresentation.PatternText#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see qualitypatternmodel.textrepresentation.PatternText#getDescription()
+	 * @see #getPatternText()
+	 * @generated
+	 */
+	EAttribute getPatternText_Description();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#generateJSON() <em>Generate JSON</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -815,6 +835,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PATTERN_TEXT__PARAMETER_PREDEFINITIONS = eINSTANCE.getPatternText_ParameterPredefinitions();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PATTERN_TEXT__DESCRIPTION = eINSTANCE.getPatternText_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Generate JSON</b></em>' operation.

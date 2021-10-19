@@ -58,6 +58,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getOperatorCounter <em>Operator Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getCounter <em>Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getText <em>Text</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -287,6 +288,26 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @ordered
 	 */
 	protected EList<PatternText> text;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
 
 	//	protected int[] elementCounter = {1,1,1,1,1,1};
 
@@ -816,6 +837,31 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getDescription() {
+		return description;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION, oldDescription, description));
+	}
+
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -886,6 +932,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return getCounter();
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				return getText();
+			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -935,6 +983,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				getText().clear();
 				getText().addAll((Collection<? extends PatternText>)newValue);
 				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -982,6 +1033,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				getText().clear();
 				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1017,6 +1071,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return COUNTER_EDEFAULT == null ? counter != null : !COUNTER_EDEFAULT.equals(counter);
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				return text != null && !text.isEmpty();
+			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1071,6 +1127,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		result.append(operatorCounter);
 		result.append(", counter: ");
 		result.append(counter);
+		result.append(", description: ");
+		result.append(description);
 		result.append(')');
 		return result.toString();
 	}

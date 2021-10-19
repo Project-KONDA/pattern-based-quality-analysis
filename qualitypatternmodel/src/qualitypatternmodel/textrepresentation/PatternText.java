@@ -24,6 +24,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getTextfragment <em>Textfragment</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getParameterPredefinitions <em>Parameter Predefinitions</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getPatternText()
@@ -102,6 +103,28 @@ public interface PatternText extends EObject {
 	 * @generated
 	 */
 	EList<ParameterPredefinition> getParameterPredefinitions();
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getPatternText_Description()
+	 * @model
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.textrepresentation.PatternText#getDescription <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

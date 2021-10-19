@@ -2915,13 +2915,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__TEXT = PATTERN_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__DESCRIPTION = PATTERN_FEATURE_COUNT + 12;
+
+	/**
 	 * The number of structural features of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 12;
+	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -5349,6 +5358,17 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getCompletePattern_Text();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getDescription()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_Description();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo(java.lang.Class) <em>Get New Ref No</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6365,6 +6385,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPLETE_PATTERN__TEXT = eINSTANCE.getCompletePattern_Text();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__DESCRIPTION = eINSTANCE.getCompletePattern_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Get New Ref No</b></em>' operation.

@@ -428,6 +428,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/operatorCounter"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/counter"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CompletePattern/text"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/description"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/getNewRefNo">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/CompletePattern/getNewRefNo/type"/>
         </genOperations>
@@ -753,6 +754,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/textfragment"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/PatternText/name"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/parameterPredefinitions"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/PatternText/description"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/generateJSON"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/isValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/PatternText/isValid/abstractionLevel"/>

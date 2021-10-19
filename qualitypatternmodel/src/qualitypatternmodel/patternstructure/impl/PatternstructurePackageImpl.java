@@ -823,6 +823,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EAttribute getCompletePattern_Description() {
+		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getCompletePattern__GetNewRefNo__Class() {
 		return completePatternEClass.getEOperations().get(0);
 	}
@@ -1464,6 +1474,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__OPERATOR_COUNTER);
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__COUNTER);
 		createEReference(completePatternEClass, COMPLETE_PATTERN__TEXT);
+		createEAttribute(completePatternEClass, COMPLETE_PATTERN__DESCRIPTION);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GET_NEW_REF_NO__CLASS);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___RECORD_VALUES);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL);
@@ -1667,6 +1678,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEAttribute(getCompletePattern_OperatorCounter(), ecorePackage.getEIntegerObject(), "operatorCounter", "1", 1, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompletePattern_Counter(), ecorePackage.getEIntegerObject(), "counter", "1", 1, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCompletePattern_Text(), theTextrepresentationPackage.getPatternText(), theTextrepresentationPackage.getPatternText_Pattern(), "text", null, 0, -1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompletePattern_Description(), ecorePackage.getEString(), "description", null, 0, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getCompletePattern__GetNewRefNo__Class(), ecorePackage.getEInt(), "getNewRefNo", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getClassWrapper(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);

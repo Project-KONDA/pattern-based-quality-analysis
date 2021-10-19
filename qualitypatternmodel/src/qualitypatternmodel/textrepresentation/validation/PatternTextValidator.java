@@ -24,4 +24,6 @@ public interface PatternTextValidator {
 	boolean validateTextfragment(EList<Fragment> value);
 	boolean validateName(String value);
 	boolean validateParameterPredefinitions(EList<ParameterPredefinition> value);
+
+	boolean validateDescription(String value);
 }
