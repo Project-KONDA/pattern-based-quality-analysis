@@ -138,5 +138,16 @@
 		<servlet-name>ParameterExplanationServlet</servlet-name>
 		<url-pattern>/parameter-explanations</url-pattern>
 	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>ConcretePatternDescriptionServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.ConcretePatternDescriptionServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ConcretePatternDescriptionServlet</servlet-name>
+		<url-pattern>/concrete-patterns/description/*</url-pattern>
+	</servlet-mapping>
 
 </web-app>
