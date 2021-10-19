@@ -15,6 +15,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getType() <em>Get Type</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getRole() <em>Get Role</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -81,6 +82,19 @@ public class ParameterFragmentTest extends FragmentTest {
 	 * @generated
 	 */
 	public void testGetType() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getRole() <em>Get Role</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#getRole()
+	 * @generated
+	 */
+	public void testGetRole() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

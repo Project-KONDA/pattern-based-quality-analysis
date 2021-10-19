@@ -10,6 +10,7 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.patternstructure.Morphism;
+import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
@@ -22,11 +23,19 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 public interface GraphValidator {
 	boolean validate();
 
+	boolean validateElements(EList<Element> value);
+
 	boolean validateRootElements(Element value);
 
 	boolean validateRootElements(EList<Element> value);
 
 	boolean validateReturnElements(EList<Element> value);
+	boolean validateOutgoingMorphisms(EList<Morphism> value);
+
+	boolean validateIncomingMorphism(Morphism value);
+
+	boolean validateRelations(EList<Relation> value);
+
 	boolean validateMorphismTo(EList<Morphism> value);
 
 	boolean validateMorphismFrom(Morphism value);
@@ -42,6 +51,8 @@ public interface GraphValidator {
 	boolean validateGetAllRelations(EList<Relation> value);
 
 	boolean validateQuantifiedCondition(QuantifiedCondition value);
+
+	boolean validatePattern(Pattern value);
 
 	boolean validateQuantifiedcondition(QuantifiedCondition value);
 

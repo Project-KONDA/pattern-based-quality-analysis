@@ -127,5 +127,16 @@
 		<servlet-name>FinalizedPatternListServlet</servlet-name>
 		<url-pattern>/finalized-patterns</url-pattern>
 	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>ParameterExplanationServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.ParameterExplanationServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ParameterExplanationServlet</servlet-name>
+		<url-pattern>/parameter-explanations</url-pattern>
+	</servlet-mapping>
 
 </web-app>

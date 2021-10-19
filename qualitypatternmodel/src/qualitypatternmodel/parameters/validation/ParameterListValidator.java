@@ -18,6 +18,8 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 public interface ParameterListValidator {
 	boolean validate();
 
+	boolean validateParameters(EList<Parameter> value);
+
 	boolean validateVariables(EList<Parameter> value);
 	boolean validatePattern(CompletePattern value);
 }

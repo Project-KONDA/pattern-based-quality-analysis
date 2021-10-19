@@ -8,6 +8,7 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.patternstructure.CountCondition;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.parameters.ComparisonOptionParam}.
@@ -20,6 +21,10 @@ public interface ComparisonOptionParamValidator {
 
 	boolean validateOptions(EList<ComparisonOperator> value);
 	boolean validateValue(ComparisonOperator value);
+
+	boolean validateComparisons(EList<Comparison> value);
+
+	boolean validateCountConditions(EList<CountCondition> value);
 
 	boolean validateComparison(Comparison value);
 

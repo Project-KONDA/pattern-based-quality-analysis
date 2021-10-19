@@ -8,6 +8,7 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
 /**
@@ -18,6 +19,18 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  */
 public interface RelationValidator {
 	boolean validate();
+
+	boolean validateIncomingMapping(RelationMapping value);
+
+	boolean validateOutgoingMappings(EList<RelationMapping> value);
+
+	boolean validateGraph(Graph value);
+
+	boolean validateSource(Element value);
+
+	boolean validateTarget(Element value);
+
+	boolean validateName(String value);
 
 	boolean validateMappingFrom(RelationMapping value);
 	boolean validateMappingTo(EList<RelationMapping> value);

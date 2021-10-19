@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.Graph;
 
 import qualitypatternmodel.patternstructure.Mapping;
+import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 /**
@@ -21,6 +22,12 @@ public interface MorphismValidator {
 	boolean validate();
 
 	boolean validateMappings(EList<Mapping> value);
+	boolean validateSource(Graph value);
+
+	boolean validateTarget(Graph value);
+
+	boolean validateMorphismContainer(MorphismContainer value);
+
 	boolean validateFrom(Graph value);
 	boolean validateTo(Graph value);
 

@@ -14,4 +14,6 @@ package qualitypatternmodel.parameters.validation;
 public interface ParameterValueValidator {
 	boolean validate();
 
+	boolean validateTypeModifiable(boolean value);
+
 }

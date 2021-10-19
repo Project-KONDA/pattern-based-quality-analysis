@@ -22,4 +22,12 @@ public interface ParameterFragment extends Fragment, ParameterReference {
 	 */
 	String getType();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getRole();
+
 } // ParameterFragment

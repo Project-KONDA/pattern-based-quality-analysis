@@ -4,6 +4,7 @@
  */
 package qualitypatternmodel.parameters.validation;
 
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.operators.Match;
 
 
@@ -17,6 +18,8 @@ public interface BooleanParamValidator {
 	boolean validate();
 
 	boolean validateValue(Boolean value);
+
+	boolean validateMatches(EList<Match> value);
 
 	boolean validateMatch(Match value);
 

@@ -5,6 +5,7 @@
 package qualitypatternmodel.operators.validation;
 
 import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 
 /**
@@ -17,6 +18,8 @@ public interface MatchValidator {
 	boolean validate();
 
 	boolean validateProperty(Property value);
+	boolean validateOption(BooleanParam value);
+
 	boolean validateRegularExpression(TextLiteralParam value);
 
 	boolean validateOption(qualitypatternmodel.parameters.BooleanParam value);

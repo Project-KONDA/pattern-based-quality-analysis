@@ -15,6 +15,10 @@ import qualitypatternmodel.graphstructure.Element;
 public interface ElementMappingValidator {
 	boolean validate();
 
+	boolean validateSource(Element value);
+
+	boolean validateTarget(Element value);
+
 	boolean validateFrom(Element value);
 	boolean validateTo(Element value);
 }

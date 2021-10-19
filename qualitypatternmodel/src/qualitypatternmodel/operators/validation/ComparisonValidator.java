@@ -6,6 +6,7 @@ package qualitypatternmodel.operators.validation;
 
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.operators.Comparison}.
@@ -19,6 +20,8 @@ public interface ComparisonValidator {
 	boolean validateArgument1(qualitypatternmodel.graphstructure.Comparable value);
 
 	boolean validateOption(ComparisonOptionParam value);
+	boolean validateTypeOption(TypeOptionParam value);
+
 	boolean validateArgument2(qualitypatternmodel.graphstructure.Comparable value);
 
 	boolean validateType(ReturnType value);

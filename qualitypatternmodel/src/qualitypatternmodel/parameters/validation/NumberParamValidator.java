@@ -4,6 +4,8 @@
  */
 package qualitypatternmodel.parameters.validation;
 
+import qualitypatternmodel.patternstructure.NumberElement;
+
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.parameters.NumberParam}.
@@ -15,6 +17,8 @@ public interface NumberParamValidator {
 	boolean validate();
 
 	boolean validateValue(Double value);
+
+	boolean validateNumberArgument(NumberElement value);
 
 	boolean validateNumber(Double value);
 }

@@ -34,7 +34,12 @@
 						"Type": {
 						  "type": "string",
 						  "enum": ["Text", "TextList", "Number", "Boolean", "Date", "Time", "DateTime", "Enumeration", "Untyped"],
-						  "description": "Type of the parameter"
+						  "description": "Data type of the parameter"
+						},
+						"Role": {
+						  "type": "string",
+						  "enum": ["Text", "TextList", "Number", "Boolean", "Date", "Time", "DateTime", "RelationOption", "ComparisonOption", "PropertyOption", "TypeOption", "Untyped"],
+						  "description": "Role of the parameter in the pattern"
 						},
 						"Value": {
 						  "type": ["string", "number", "boolean", "array"],		

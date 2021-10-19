@@ -4,9 +4,12 @@
  */
 package qualitypatternmodel.patternstructure.validation;
 
+import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.Condition;
+import qualitypatternmodel.textrepresentation.PatternText;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.patternstructure.CompletePattern}.
@@ -17,11 +20,33 @@ import qualitypatternmodel.patternstructure.Condition;
 public interface CompletePatternValidator {
 	boolean validate();
 
+	boolean validateParameterList(ParameterList value);
+
 	boolean validateReturnGraph(Graph value);
 	boolean validateCondition(Condition value);
 	boolean validateElementCounter(int value);
 
 	boolean validateName(String value);
+
+	boolean validateDatabase(Database value);
+
+	boolean validateAdaptionStarted(boolean value);
+
+	boolean validateAdaptionFinalized(boolean value);
+
+	boolean validateElementCounter(Integer value);
+
+	boolean validatePropertyCounter(Integer value);
+
+	boolean validateRelationCounter(Integer value);
+
+	boolean validateParameterCounter(Integer value);
+
+	boolean validateOperatorCounter(Integer value);
+
+	boolean validateCounter(Integer value);
+
+	boolean validateText(EList<PatternText> value);
 
 	boolean validateVariableList(ParameterList value);
 

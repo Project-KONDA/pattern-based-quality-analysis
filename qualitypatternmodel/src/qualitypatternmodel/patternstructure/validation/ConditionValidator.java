@@ -7,6 +7,7 @@ package qualitypatternmodel.patternstructure.validation;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.NotCondition;
+import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
@@ -20,6 +21,10 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 public interface ConditionValidator {
 	boolean validate();
 
+	boolean validatePattern(Pattern value);
+
+	boolean validateQuantifiedCondition(QuantifiedCondition value);
+
 	boolean validateCondDepth(int value);
 
 	boolean validateGetNextQuantifiedConditions(EList<QuantifiedCondition> value);
@@ -31,6 +36,8 @@ public interface ConditionValidator {
 	boolean validateFormula1(Formula value);
 
 	boolean validateFormula2(Formula value);
+
+	boolean validateNotCondition(NotCondition value);
 
 	boolean validateNot(NotCondition value);
 

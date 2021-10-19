@@ -23,13 +23,16 @@ import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.BooleanParamImpl;
+import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.DateParamImpl;
 import qualitypatternmodel.parameters.impl.DateTimeParamImpl;
 import qualitypatternmodel.parameters.impl.NumberParamImpl;
 import qualitypatternmodel.parameters.impl.PropertyOptionParamImpl;
+import qualitypatternmodel.parameters.impl.RelationOptionParamImpl;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.TimeParamImpl;
+import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.ParameterReference;
@@ -154,7 +157,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		String url = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(parameterID);
 		String value = getParameter().getValueAsString();
 		String type = getType();
-		String json = "{\"URL\": \"" + url + "\", \"Type\": \"" + type + "\"";
+		String role = getRole();
+		String json = "{\"URL\": \"" + url + "\", \"Type\": \"" + type + "\", \"Role\": \"" + role + "\"";
 		if(value != null) {
 			if(!(getParameter() instanceof TextListParamImpl) && !(getParameter() instanceof NumberParamImpl) && !(getParameter() instanceof BooleanParamImpl)) {
 				value = "\"" + value + "\"";
@@ -230,6 +234,43 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return Constants.PARAMETER_TYPE_ENUMERATION;
 		}		
 	}	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getRole() {
+		Class type = getParameter().getClass();
+		if (type.equals(DateParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_DATE;			
+		} else if(type.equals(TimeParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_TIME;
+		} else if (type.equals(DateTimeParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_DATE_TIME;
+		} else if (type.equals(TextLiteralParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_TEXT;
+		} else if (type.equals(BooleanParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_BOOLEAN;
+		} else if (type.equals(NumberParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_NUMBER;
+		} else if (type.equals(TextListParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_TEXT_LIST;
+		} else if (type.equals(UntypedParameterValueImpl.class)) {
+			return Constants.PARAMETER_TYPE_UNTYPED;
+		} else if (type.equals(RelationOptionParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_RELATION;
+		} else if (type.equals(PropertyOptionParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_PROPERTY;
+		} else if (type.equals(ComparisonOptionParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_COMPARISON;
+		} else if (type.equals(TypeOptionParamImpl.class)) {
+			return Constants.PARAMETER_TYPE_TYPE;
+		} else {
+			return "";
+		}
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -372,6 +413,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		switch (operationID) {
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_TYPE:
 				return getType();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_ROLE:
+				return getRole();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

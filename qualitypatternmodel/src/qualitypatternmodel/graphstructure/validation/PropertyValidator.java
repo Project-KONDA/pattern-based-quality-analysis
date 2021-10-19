@@ -32,4 +32,6 @@ public interface PropertyValidator {
 
 	boolean validateMatch(EList<Match> value);
 
+	boolean validateName(String value);
+
 }

@@ -7,6 +7,7 @@ package qualitypatternmodel.parameters.validation;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.graphstructure.Property;
 
 /**
@@ -20,6 +21,8 @@ public interface PropertyOptionParamValidator {
 
 	boolean validateOptions(EList<PropertyKind> value);
 	boolean validateValue(PropertyKind value);
+
+	boolean validateProperties(EList<XmlProperty> value);
 
 	boolean validateProperty(Property value);
 

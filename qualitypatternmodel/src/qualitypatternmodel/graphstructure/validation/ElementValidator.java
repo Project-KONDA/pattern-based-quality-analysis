@@ -7,6 +7,9 @@ package qualitypatternmodel.graphstructure.validation;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.graphstructure.Element;
 
 import qualitypatternmodel.patternstructure.ElementMapping;
@@ -20,6 +23,10 @@ import qualitypatternmodel.patternstructure.ElementMapping;
 public interface ElementValidator {
 	boolean validate();
 
+	boolean validateOutgoingMappings(EList<ElementMapping> value);
+
+	boolean validateIncomingMapping(ElementMapping value);
+
 	boolean validateMappingTo(EList<ElementMapping> value);
 
 	boolean validateMappingTo(ElementMapping value);
@@ -28,6 +35,22 @@ public interface ElementValidator {
 	boolean validateNextSet(EList<Element> value);
 
 	boolean validateGraph(Graph value);
+
+	boolean validateResultOf(Graph value);
+
+	boolean validateName(String value);
+
+	boolean validateTranslated(boolean value);
+
+	boolean validatePredicatesAreBeingTranslated(boolean value);
+
+	boolean validateProperties(EList<Property> value);
+
+	boolean validatePredicates(EList<BooleanOperator> value);
+
+	boolean validateOutgoing(EList<Relation> value);
+
+	boolean validateIncoming(EList<Relation> value);
 
 	boolean validateNext(EList<Element> value);
 	boolean validateRoot(Graph value);

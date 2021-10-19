@@ -4,7 +4,9 @@
  */
 package qualitypatternmodel.parameters.validation;
 
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.textrepresentation.ParameterReference;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.parameters.Parameter}.
@@ -15,7 +17,13 @@ import qualitypatternmodel.parameters.ParameterList;
 public interface ParameterValidator {
 	boolean validate();
 
+	boolean validateParameterList(ParameterList value);
+
 	boolean validateVariableList(ParameterList value);
 	boolean validateDescription(String value);
+	boolean validatePredefined(boolean value);
+
+	boolean validateParameterFragments(EList<ParameterReference> value);
+
 	boolean validateIsPredefined(boolean value);
 }

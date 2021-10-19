@@ -15,6 +15,10 @@ import qualitypatternmodel.graphstructure.Relation;
 public interface RelationMappingValidator {
 	boolean validate();
 
+	boolean validateTarget(Relation value);
+
+	boolean validateSource(Relation value);
+
 	boolean validateTo(Relation value);
 	boolean validateFrom(Relation value);
 }
