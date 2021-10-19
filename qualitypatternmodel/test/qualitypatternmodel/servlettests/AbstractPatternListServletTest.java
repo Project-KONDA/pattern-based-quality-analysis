@@ -11,6 +11,7 @@ import org.json.JSONException;
 import org.junit.Test;
 
 import qualitypatternmodel.servlets.Util;
+import qualitypatternmodel.utility.Constants;
 
 public class AbstractPatternListServletTest {
 
@@ -27,9 +28,7 @@ public class AbstractPatternListServletTest {
 //		ServletTestsUtil.printResult(connection, responseCode, result);		
 		
 		JSONArray array = new JSONArray(result);
-		List<String> list = ServletTestsUtil.JSONArrayToList(array);
-		
-		assertTrue(list.contains("card_abstract"));		 	     
+		assertTrue(array.getJSONObject(0).get("Name").equals("card_abstract"));     	 	     
 
 	}
 	
