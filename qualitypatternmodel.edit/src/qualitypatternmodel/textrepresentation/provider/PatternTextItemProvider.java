@@ -66,7 +66,6 @@ public class PatternTextItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -85,28 +84,6 @@ public class PatternTextItemProvider
 				 getString("_UI_PatternText_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PatternText_name_feature", "_UI_PatternText_type"),
 				 TextrepresentationPackage.Literals.PATTERN_TEXT__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Description feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_PatternText_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PatternText_description_feature", "_UI_PatternText_type"),
-				 TextrepresentationPackage.Literals.PATTERN_TEXT__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -185,7 +162,6 @@ public class PatternTextItemProvider
 
 		switch (notification.getFeatureID(PatternText.class)) {
 			case TextrepresentationPackage.PATTERN_TEXT__NAME:
-			case TextrepresentationPackage.PATTERN_TEXT__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT:

@@ -243,16 +243,6 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPatternText_Description() {
-		return (EAttribute)patternTextEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getPatternText__GenerateJSON() {
 		return patternTextEClass.getEOperations().get(0);
 	}
@@ -491,7 +481,6 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEReference(patternTextEClass, PATTERN_TEXT__TEXTFRAGMENT);
 		createEAttribute(patternTextEClass, PATTERN_TEXT__NAME);
 		createEReference(patternTextEClass, PATTERN_TEXT__PARAMETER_PREDEFINITIONS);
-		createEAttribute(patternTextEClass, PATTERN_TEXT__DESCRIPTION);
 		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_JSON);
 		createEOperation(patternTextEClass, PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL);
 		createEOperation(patternTextEClass, PATTERN_TEXT___INSTANTIATE);
@@ -565,7 +554,6 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		initEReference(getPatternText_Textfragment(), this.getFragment(), this.getFragment_PatternText(), "textfragment", null, 1, -1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPatternText_Name(), ecorePackage.getEString(), "name", null, 0, 1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPatternText_ParameterPredefinitions(), this.getParameterPredefinition(), null, "parameterPredefinitions", null, 0, -1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPatternText_Description(), ecorePackage.getEString(), "description", null, 0, 1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getPatternText__GenerateJSON(), ecorePackage.getEString(), "generateJSON", 0, 1, IS_UNIQUE, IS_ORDERED);
 

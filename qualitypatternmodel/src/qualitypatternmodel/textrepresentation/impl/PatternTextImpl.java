@@ -55,7 +55,6 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getTextfragment <em>Textfragment</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getParameterPredefinitions <em>Parameter Predefinitions</em>}</li>
- *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,26 +100,6 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @ordered
 	 */
 	protected EList<ParameterPredefinition> parameterPredefinitions;
-
-	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -236,29 +215,6 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getDescription() {
-		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setDescription(String newDescription) {
-		String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PATTERN_TEXT__DESCRIPTION, oldDescription, description));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -357,7 +313,6 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		for(ParameterPredefinition p : getParameterPredefinitions()) {
 			p.getParameter().setValueFromString(p.getValue());
 		}
-		getPattern().setDescription(getDescription());
 	}
 
 	/**
@@ -460,8 +415,6 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return getName();
 			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:
 				return getParameterPredefinitions();
-			case TextrepresentationPackage.PATTERN_TEXT__DESCRIPTION:
-				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -489,9 +442,6 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				getParameterPredefinitions().clear();
 				getParameterPredefinitions().addAll((Collection<? extends ParameterPredefinition>)newValue);
 				return;
-			case TextrepresentationPackage.PATTERN_TEXT__DESCRIPTION:
-				setDescription((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -516,9 +466,6 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:
 				getParameterPredefinitions().clear();
 				return;
-			case TextrepresentationPackage.PATTERN_TEXT__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -539,8 +486,6 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:
 				return parameterPredefinitions != null && !parameterPredefinitions.isEmpty();
-			case TextrepresentationPackage.PATTERN_TEXT__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -592,8 +537,6 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", description: ");
-		result.append(description);
 		result.append(')');
 		return result.toString();
 	}
