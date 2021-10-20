@@ -7,6 +7,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.textrepresentation.PatternText;
 
@@ -369,5 +370,13 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	AbstractionLevel getAbstractionLevel();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<Parameter> validateAgainstSchema();
 
 } // Pattern

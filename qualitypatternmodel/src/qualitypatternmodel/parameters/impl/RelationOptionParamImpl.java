@@ -39,6 +39,7 @@ import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -114,6 +115,15 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	public RelationOptionParamImpl() {
 		super();
 		getOptions().addAll(RelationKind.VALUES);
+	}
+	
+	@Override
+	public EList<Parameter> validateAgainstSchema() {
+		EList<Parameter> invalidParams = new BasicEList<Parameter>();
+		if(!inferSuggestions().contains(getValue())) {
+			invalidParams.add(this);
+		}
+		return invalidParams;
 	}
 	
 	@Override

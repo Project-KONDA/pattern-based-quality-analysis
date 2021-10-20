@@ -172,6 +172,14 @@ public interface Parameter extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<Parameter> validateAgainstSchema();
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Returns a simple textual description for <code>this</code>.
 	 * 
 	 * @return a simple textual description for <code>this</code>

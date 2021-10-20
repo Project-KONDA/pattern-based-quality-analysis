@@ -293,6 +293,17 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Parameter> validateAgainstSchema() {
+		EList<Parameter> invalidParams = new BasicEList<Parameter>();		
+		return invalidParams;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -449,6 +460,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				}
 			case ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST:
 				return getOptionsAsStringList();
+			case ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA:
+				return validateAgainstSchema();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

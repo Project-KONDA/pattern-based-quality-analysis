@@ -17,6 +17,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo(java.lang.Class) <em>Get New Ref No</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#recordValues() <em>Record Values</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractionLevel() <em>Get Abstraction Level</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#validateAgainstSchema() <em>Validate Against Schema</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -109,6 +110,19 @@ public class CompletePatternTest extends PatternTest {
 	 * @generated
 	 */
 	public void testGetAbstractionLevel() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.CompletePattern#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#validateAgainstSchema()
+	 * @generated
+	 */
+	public void testValidateAgainstSchema() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

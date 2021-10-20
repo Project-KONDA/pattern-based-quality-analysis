@@ -107,6 +107,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	public void analyse() throws QueryException, IOException {
 		
 		if(getElementNames().isEmpty()) {
+			System.out.println("true");
 			retrieveElementNames();
 			updateElementNamesInXmlDatabases();
 		}

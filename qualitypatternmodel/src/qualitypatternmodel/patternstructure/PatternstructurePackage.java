@@ -3140,13 +3140,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL = PATTERN_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA = PATTERN_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 3;
+	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
@@ -5399,6 +5408,16 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getCompletePattern__GetAbstractionLevel();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Validate Against Schema</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#validateAgainstSchema()
+	 * @generated
+	 */
+	EOperation getCompletePattern__ValidateAgainstSchema();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6417,6 +6436,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL = eINSTANCE.getCompletePattern__GetAbstractionLevel();
+
+		/**
+		 * The meta object literal for the '<em><b>Validate Against Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA = eINSTANCE.getCompletePattern__ValidateAgainstSchema();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.

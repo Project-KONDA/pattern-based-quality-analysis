@@ -27,6 +27,7 @@ import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.operators.impl.OperatorImpl;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.graphstructure.impl.ElementImpl;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -444,6 +445,17 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			
 		}
 		
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Parameter> validateAgainstSchema() {
+		return getParameterList().validateAgainstSchema();
 	}
 
 
@@ -1096,6 +1108,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				}
 			case PatternstructurePackage.COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL:
 				return getAbstractionLevel();
+			case PatternstructurePackage.COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA:
+				return validateAgainstSchema();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

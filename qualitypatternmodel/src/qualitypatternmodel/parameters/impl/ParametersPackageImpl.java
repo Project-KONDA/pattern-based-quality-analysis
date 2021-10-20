@@ -385,6 +385,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getParameter__ValidateAgainstSchema() {
+		return parameterEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getParameter__GenerateDescription() {
 		return parameterEClass.getEOperations().get(1);
 	}
@@ -527,6 +537,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	@Override
 	public EOperation getParameterList__Remove__Parameter() {
 		return parameterListEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterList__ValidateAgainstSchema() {
+		return parameterListEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -1070,6 +1090,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(parameterEClass, PARAMETER___GET_VALUE_AS_STRING);
 		createEOperation(parameterEClass, PARAMETER___SET_VALUE_FROM_STRING__STRING);
 		createEOperation(parameterEClass, PARAMETER___GET_OPTIONS_AS_STRING_LIST);
+		createEOperation(parameterEClass, PARAMETER___VALIDATE_AGAINST_SCHEMA);
 
 		comparisonOptionParamEClass = createEClass(COMPARISON_OPTION_PARAM);
 		createEAttribute(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__OPTIONS);
@@ -1087,6 +1108,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEReference(parameterListEClass, PARAMETER_LIST__PATTERN);
 		createEOperation(parameterListEClass, PARAMETER_LIST___ADD__PARAMETER);
 		createEOperation(parameterListEClass, PARAMETER_LIST___REMOVE__PARAMETER);
+		createEOperation(parameterListEClass, PARAMETER_LIST___VALIDATE_AGAINST_SCHEMA);
 
 		booleanParamEClass = createEClass(BOOLEAN_PARAM);
 		createEAttribute(booleanParamEClass, BOOLEAN_PARAM__VALUE);
@@ -1236,6 +1258,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEOperation(getParameter__GetOptionsAsStringList(), ecorePackage.getEString(), "getOptionsAsStringList", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getParameter__ValidateAgainstSchema(), this.getParameter(), "validateAgainstSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(comparisonOptionParamEClass, ComparisonOptionParam.class, "ComparisonOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComparisonOptionParam_Options(), theOperatorsPackage.getComparisonOperator(), "options", null, 0, -1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComparisonOptionParam_Value(), theOperatorsPackage.getComparisonOperator(), "value", null, 1, 1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1256,6 +1280,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		op = initEOperation(getParameterList__Remove__Parameter(), null, "remove", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getParameter(), "parameter", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getParameterList__ValidateAgainstSchema(), this.getParameter(), "validateAgainstSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(booleanParamEClass, BooleanParam.class, "BooleanParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBooleanParam_Value(), ecorePackage.getEBooleanObject(), "value", "true", 1, 1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

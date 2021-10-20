@@ -48,6 +48,7 @@ import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.NumberParam;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersFactory;
 
@@ -119,6 +120,22 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	protected ParameterValueImpl() {
 		super();
 	}
+	
+	@Override
+	public EList<Parameter> validateAgainstSchema() {
+		EList<Parameter> invalidParams = new BasicEList<Parameter>();
+		boolean invalid = true;
+		for(String s : getSuggestions()) {
+			if(s.equals(getValueAsString())){
+				invalid = false;
+			}
+		}
+		if(invalid) {
+			invalidParams.add(this);
+		}
+		return invalidParams;
+	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->

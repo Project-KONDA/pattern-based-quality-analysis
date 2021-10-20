@@ -86,4 +86,12 @@ public interface ParameterList extends PatternElement {
 	 */
 	void remove(Parameter parameter);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<Parameter> validateAgainstSchema();
+
 } // ParameterList

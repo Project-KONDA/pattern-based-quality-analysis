@@ -359,13 +359,22 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___GET_OPTIONS_AS_STRING_LIST = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___VALIDATE_AGAINST_SCHEMA = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
+
+	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
+	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl <em>Comparison Option Param</em>}' class.
@@ -702,6 +711,15 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER___VALIDATE_AGAINST_SCHEMA;
+
+	/**
 	 * The number of operations of the '<em>Comparison Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1036,6 +1054,15 @@ public interface ParametersPackage extends EPackage {
 	int PROPERTY_OPTION_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER___VALIDATE_AGAINST_SCHEMA;
+
+	/**
 	 * The number of operations of the '<em>Property Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1289,13 +1316,22 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_LIST___REMOVE__PARAMETER = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST___VALIDATE_AGAINST_SCHEMA = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Parameter List</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
+	int PARAMETER_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ParameterValueImpl <em>Parameter Value</em>}' class.
@@ -1612,6 +1648,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST = PARAMETER___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA = PARAMETER___VALIDATE_AGAINST_SCHEMA;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -2101,6 +2146,15 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2577,6 +2631,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_LIST_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -3093,6 +3156,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3580,6 +3652,15 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4056,6 +4137,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -4545,6 +4635,15 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5021,6 +5120,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNTYPED_PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -5510,6 +5618,15 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5997,6 +6114,15 @@ public interface ParametersPackage extends EPackage {
 	int RELATION_OPTION_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER___VALIDATE_AGAINST_SCHEMA;
+
+	/**
 	 * The operation id for the '<em>Infer Suggestions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6340,6 +6466,15 @@ public interface ParametersPackage extends EPackage {
 	int TYPE_OPTION_PARAM___GET_OPTIONS_AS_STRING_LIST = PARAMETER___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPTION_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER___VALIDATE_AGAINST_SCHEMA;
+
+	/**
 	 * The number of operations of the '<em>Type Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6480,6 +6615,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getParameter__GetOptionsAsStringList();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Validate Against Schema</em>' operation.
+	 * @see qualitypatternmodel.parameters.Parameter#validateAgainstSchema()
+	 * @generated
+	 */
+	EOperation getParameter__ValidateAgainstSchema();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}' operation.
@@ -6639,6 +6784,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getParameterList__Remove__Parameter();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterList#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Validate Against Schema</em>' operation.
+	 * @see qualitypatternmodel.parameters.ParameterList#validateAgainstSchema()
+	 * @generated
+	 */
+	EOperation getParameterList__ValidateAgainstSchema();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.BooleanParam <em>Boolean Param</em>}'.
@@ -7273,6 +7428,14 @@ public interface ParametersPackage extends EPackage {
 		EOperation PARAMETER___GET_OPTIONS_AS_STRING_LIST = eINSTANCE.getParameter__GetOptionsAsStringList();
 
 		/**
+		 * The meta object literal for the '<em><b>Validate Against Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER___VALIDATE_AGAINST_SCHEMA = eINSTANCE.getParameter__ValidateAgainstSchema();
+
+		/**
 		 * The meta object literal for the '<em><b>Generate Description</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7397,6 +7560,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PARAMETER_LIST___REMOVE__PARAMETER = eINSTANCE.getParameterList__Remove__Parameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Validate Against Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_LIST___VALIDATE_AGAINST_SCHEMA = eINSTANCE.getParameterList__ValidateAgainstSchema();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.BooleanParamImpl <em>Boolean Param</em>}' class.

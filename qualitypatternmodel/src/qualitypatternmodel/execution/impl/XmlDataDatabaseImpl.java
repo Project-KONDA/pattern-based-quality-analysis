@@ -40,7 +40,6 @@ import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.execution.XmlSchemaDatabase;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.servlets.Util;
 import qualitypatternmodel.servlettests.ServletTestsUtil;
 
 /**

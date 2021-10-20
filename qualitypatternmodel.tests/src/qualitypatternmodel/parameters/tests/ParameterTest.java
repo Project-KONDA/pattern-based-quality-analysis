@@ -18,6 +18,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getValueAsString() <em>Get Value As String</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#setValueFromString(java.lang.String) <em>Set Value From String</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getOptionsAsStringList() <em>Get Options As String List</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#validateAgainstSchema() <em>Validate Against Schema</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -118,6 +119,19 @@ public abstract class ParameterTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGetOptionsAsStringList() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#validateAgainstSchema() <em>Validate Against Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.Parameter#validateAgainstSchema()
+	 * @generated
+	 */
+	public void testValidateAgainstSchema() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
