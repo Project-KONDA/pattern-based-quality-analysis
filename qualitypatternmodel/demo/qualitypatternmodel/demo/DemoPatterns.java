@@ -313,6 +313,7 @@ public class DemoPatterns {
 
 	public static CompletePattern getConcreteCompPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePattern.setName("comp_concrete");
+		completePattern.setDescription("Detect architects born after 2020");
 		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
@@ -443,6 +444,7 @@ public class DemoPatterns {
 	
 	public static CompletePattern getConcreteCardPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePattern.setName("card_concrete");
+		completePattern.setDescription("Detect artists with multiple birth years");
 		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
