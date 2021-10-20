@@ -741,6 +741,10 @@
       <eOperations name="addElementNames">
         <eParameters name="elementNames" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
+      <eOperations name="createSchemaDatabaseFromReferencedSchema" eType="#//execution/LocalXmlSchemaDatabase"
+          eExceptions="#//execution/IoExceptionWrapper #//patternstructure/InvalidityExceptionWrapper #//execution/QueryExceptionWrapper"/>
+      <eOperations name="findXSDURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//execution/IoExceptionWrapper #//execution/QueryExceptionWrapper #//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="recordedAttributeValues"
           upperBound="-1" eType="#//execution/StringToIntMap" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="recordedDataValues" upperBound="-1"

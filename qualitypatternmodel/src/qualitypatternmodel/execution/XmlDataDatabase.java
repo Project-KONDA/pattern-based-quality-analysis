@@ -2,8 +2,11 @@
  */
 package qualitypatternmodel.execution;
 
+import java.io.IOException;
+import org.basex.query.QueryException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
+import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->
@@ -212,5 +215,21 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 	 * @generated
 	 */
 	void addElementNames(EList<String> elementNames);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.IoExceptionWrapper qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper"
+	 * @generated
+	 */
+	LocalXmlSchemaDatabase createSchemaDatabaseFromReferencedSchema() throws IOException, QueryException, InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.IoExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String findXSDURL() throws IOException, QueryException, InvalidityException;
 
 } // XmlDatabase

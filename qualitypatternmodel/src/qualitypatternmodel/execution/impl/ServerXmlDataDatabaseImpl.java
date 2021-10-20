@@ -58,6 +58,12 @@ public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Se
 		super();
 	}
 	
+	public ServerXmlDataDatabaseImpl(String name, String host, int port, String username, String password) throws IOException {
+		super();
+		setName(name);
+		setBaseXClient(new BaseXClient(host, port, username, password));		
+	}
+	
 	@Override
 	public void init() throws QueryException, IOException {
 //		open();
@@ -66,10 +72,10 @@ public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Se
 	}
 	
 	@Override
-	public EList<String> execute(String queryString) throws QueryException, QueryIOException, BaseXException, IOException {		
+	public EList<String> execute(String queryString) throws QueryException, QueryIOException, BaseXException, IOException {	
 		EList<String> resultList = new BasicEList<String>();
+		getBaseXClient().execute("OPEN " + getName());
 		Query query = getBaseXClient().query(queryString);		
-		
         while(query.more()) {
         	resultList.add(query.next());
         } 			

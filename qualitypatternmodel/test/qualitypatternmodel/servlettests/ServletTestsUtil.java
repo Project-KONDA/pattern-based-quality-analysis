@@ -28,7 +28,7 @@ public class ServletTestsUtil {
 		System.out.println("Result: " +result);		
 	}
 
-	static String getResult(HttpURLConnection connection) throws IOException {
+	public static String getResult(HttpURLConnection connection) throws IOException {
 		String response = "";
 		Scanner scanner = new Scanner(connection.getInputStream());
 		while(scanner.hasNextLine()){

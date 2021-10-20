@@ -24,6 +24,8 @@ import qualitypatternmodel.execution.XmlDataDatabase;
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#removeAttributeName(java.lang.String) <em>Remove Attribute Name</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#addAttributeNames(org.eclipse.emf.common.util.EList) <em>Add Attribute Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#addElementNames(org.eclipse.emf.common.util.EList) <em>Add Element Names</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#createSchemaDatabaseFromReferencedSchema() <em>Create Schema Database From Referenced Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#findXSDURL() <em>Find XSDURL</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.Database#execute(qualitypatternmodel.patternstructure.CompletePattern, java.lang.String, java.lang.String) <em>Execute</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.Database#countMatches(qualitypatternmodel.patternstructure.CompletePattern) <em>Count Matches</em>}</li>
  * </ul>
@@ -209,6 +211,32 @@ public class XmlDataDatabaseTest extends XmlDatabaseTest {
 	 * @generated
 	 */
 	public void testAddElementNames__EList() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#createSchemaDatabaseFromReferencedSchema() <em>Create Schema Database From Referenced Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDataDatabase#createSchemaDatabaseFromReferencedSchema()
+	 * @generated
+	 */
+	public void testCreateSchemaDatabaseFromReferencedSchema() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#findXSDURL() <em>Find XSDURL</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDataDatabase#findXSDURL()
+	 * @generated
+	 */
+	public void testFindXSDURL() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

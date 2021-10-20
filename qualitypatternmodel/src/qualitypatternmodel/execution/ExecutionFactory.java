@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.execution;
 
+import java.io.IOException;
+
 import org.eclipse.emf.ecore.EFactory;
 
 /**
@@ -55,7 +57,7 @@ public interface ExecutionFactory extends EFactory {
 	 * @return a new object of class '<em>Server Xml Data Database</em>'.
 	 * @generated
 	 */
-	ServerXmlDataDatabase createServerXmlDataDatabase();
+	ServerXmlDataDatabase createServerXmlDataDatabase() throws IOException;
 
 	/**
 	 * Returns a new object of class '<em>Databases</em>'.

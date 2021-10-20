@@ -687,13 +687,31 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST = XML_DATABASE_OPERATION_COUNT + 11;
 
 	/**
+	 * The operation id for the '<em>Create Schema Database From Referenced Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___CREATE_SCHEMA_DATABASE_FROM_REFERENCED_SCHEMA = XML_DATABASE_OPERATION_COUNT + 12;
+
+	/**
+	 * The operation id for the '<em>Find XSDURL</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___FIND_XSDURL = XML_DATABASE_OPERATION_COUNT + 13;
+
+	/**
 	 * The number of operations of the '<em>Xml Data Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATA_DATABASE_OPERATION_COUNT = XML_DATABASE_OPERATION_COUNT + 12;
+	int XML_DATA_DATABASE_OPERATION_COUNT = XML_DATABASE_OPERATION_COUNT + 14;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl <em>Local Xml Data Database</em>}' class.
@@ -956,6 +974,24 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOCAL_XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST = XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST;
+
+	/**
+	 * The operation id for the '<em>Create Schema Database From Referenced Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATA_DATABASE___CREATE_SCHEMA_DATABASE_FROM_REFERENCED_SCHEMA = XML_DATA_DATABASE___CREATE_SCHEMA_DATABASE_FROM_REFERENCED_SCHEMA;
+
+	/**
+	 * The operation id for the '<em>Find XSDURL</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATA_DATABASE___FIND_XSDURL = XML_DATA_DATABASE___FIND_XSDURL;
 
 	/**
 	 * The number of operations of the '<em>Local Xml Data Database</em>' class.
@@ -1227,6 +1263,24 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST = XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST;
+
+	/**
+	 * The operation id for the '<em>Create Schema Database From Referenced Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATA_DATABASE___CREATE_SCHEMA_DATABASE_FROM_REFERENCED_SCHEMA = XML_DATA_DATABASE___CREATE_SCHEMA_DATABASE_FROM_REFERENCED_SCHEMA;
+
+	/**
+	 * The operation id for the '<em>Find XSDURL</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATA_DATABASE___FIND_XSDURL = XML_DATA_DATABASE___FIND_XSDURL;
 
 	/**
 	 * The number of operations of the '<em>Server Xml Data Database</em>' class.
@@ -2654,6 +2708,26 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getXmlDataDatabase__AddElementNames__EList();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDataDatabase#createSchemaDatabaseFromReferencedSchema() <em>Create Schema Database From Referenced Schema</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Schema Database From Referenced Schema</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDataDatabase#createSchemaDatabaseFromReferencedSchema()
+	 * @generated
+	 */
+	EOperation getXmlDataDatabase__CreateSchemaDatabaseFromReferencedSchema();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDataDatabase#findXSDURL() <em>Find XSDURL</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find XSDURL</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDataDatabase#findXSDURL()
+	 * @generated
+	 */
+	EOperation getXmlDataDatabase__FindXSDURL();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.LocalXmlDataDatabase <em>Local Xml Data Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3495,6 +3569,22 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST = eINSTANCE.getXmlDataDatabase__AddElementNames__EList();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Schema Database From Referenced Schema</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATA_DATABASE___CREATE_SCHEMA_DATABASE_FROM_REFERENCED_SCHEMA = eINSTANCE.getXmlDataDatabase__CreateSchemaDatabaseFromReferencedSchema();
+
+		/**
+		 * The meta object literal for the '<em><b>Find XSDURL</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATA_DATABASE___FIND_XSDURL = eINSTANCE.getXmlDataDatabase__FindXSDURL();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl <em>Local Xml Data Database</em>}' class.

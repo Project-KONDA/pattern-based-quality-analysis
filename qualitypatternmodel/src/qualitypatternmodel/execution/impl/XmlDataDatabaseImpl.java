@@ -2,9 +2,14 @@
  */
 package qualitypatternmodel.execution.impl;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.basex.core.BaseXException;
@@ -29,11 +34,14 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.ExecutionPackage;
+import qualitypatternmodel.execution.LocalXmlSchemaDatabase;
 import qualitypatternmodel.execution.Result;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.execution.XmlSchemaDatabase;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.servlets.Util;
+import qualitypatternmodel.servlettests.ServletTestsUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -502,6 +510,70 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * @throws QueryException 
+	 * @throws IOException 
+	 * @generated NOT
+	 */
+	@Override
+	public LocalXmlSchemaDatabase createSchemaDatabaseFromReferencedSchema() throws IOException, QueryException, InvalidityException {
+		String url = findXSDURL();		
+		
+		HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+		connection.setRequestMethod("GET");
+		
+		int responseCode = connection.getResponseCode();
+		if(responseCode < 200 || responseCode >= 300) {
+			throw new InvalidityException("Fetching XSD failed");
+		}
+		String result = ServletTestsUtil.getResult(connection);
+		Date d = new Date();
+		String fileName = d.toString().replace(" ", "_").replace(":", "-");
+		String path = System.getProperty("user.dir") + "\\" + fileName + ".xml";
+		
+		java.io.FileWriter fw = new java.io.FileWriter(path);
+	    fw.write(result);
+	    fw.close();
+		
+		LocalXmlSchemaDatabase db = new LocalXmlSchemaDatabaseImpl(fileName, path);
+		db.create();
+		return db;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws QueryException 
+	 * @throws InvalidityException 
+	 * @generated NOT
+	 */
+	@Override
+	public String findXSDURL() throws IOException, QueryException, InvalidityException {
+		String query = "/*/@xsi:schemaLocation/data()";
+		EList<String> result = execute(query);
+		String value = result.get(0);
+		for(String r : result) {
+			if(!value.equals(r)) {
+				throw new InvalidityException("Multiple XSDs referenced");
+			}
+		}
+		String[] valueSplit = value.split(" ");
+		String url = null;
+		for(String s : valueSplit) {
+			if(s.startsWith("http") && s.endsWith(".xsd")) {
+				url = s;
+			}
+		}
+		if(url == null) {
+			throw new InvalidityException("XSD reference invalid");
+		}
+		return url;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -762,6 +834,20 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			case ExecutionPackage.XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST:
 				addElementNames((EList<String>)arguments.get(0));
 				return null;
+			case ExecutionPackage.XML_DATA_DATABASE___CREATE_SCHEMA_DATABASE_FROM_REFERENCED_SCHEMA:
+				try {
+					return createSchemaDatabaseFromReferencedSchema();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATA_DATABASE___FIND_XSDURL:
+				try {
+					return findXSDURL();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case ExecutionPackage.XML_DATA_DATABASE___EXECUTE__COMPLETEPATTERN_STRING_STRING:
 				try {
 					return execute((CompletePattern)arguments.get(0), (String)arguments.get(1), (String)arguments.get(2));

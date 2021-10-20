@@ -631,6 +631,8 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDataDatabase/addElementNames">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDataDatabase/addElementNames/elementNames"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDataDatabase/createSchemaDatabaseFromReferencedSchema"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDataDatabase/findXSDURL"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/LocalXmlDataDatabase">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/LocalXmlDataDatabase/dataPath"/>
