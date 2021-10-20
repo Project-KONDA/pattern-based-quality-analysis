@@ -90,10 +90,11 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected XmlSchemaDatabaseImpl() {
 		super();
+		DatabasesImpl.getInstance().getXmlSchemata().add(this);
 	}
 
 	/**

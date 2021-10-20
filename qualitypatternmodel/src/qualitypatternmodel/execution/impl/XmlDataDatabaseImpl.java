@@ -147,10 +147,11 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected XmlDataDatabaseImpl() {
 		super();
+		DatabasesImpl.getInstance().getXmlDatabases().add(this);
 	}
 	
 	/**
@@ -535,8 +536,9 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	    fw.write(result);
 	    fw.close();
 		
-		LocalXmlSchemaDatabase db = new LocalXmlSchemaDatabaseImpl(fileName, path);
+		LocalXmlSchemaDatabase db = new LocalXmlSchemaDatabaseImpl(fileName, path);		
 		db.create();
+		db.analyse();
 		return db;
 		
 	}
