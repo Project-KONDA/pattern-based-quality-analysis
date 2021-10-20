@@ -22,16 +22,7 @@ import org.junit.jupiter.api.AfterAll;
 import qualitypatternmodel.servlets.Util;
 
 public class ConcretisationServletTest {
-	private static final String PATTERN_NAME = "test";
-	
-	@AfterAll
-	public void deletePattern() throws IOException {			
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + PATTERN_NAME).openConnection();
-		connection.setRequestMethod("DELETE");		
-		int responseCode = connection.getResponseCode();
-		assertTrue(responseCode >= 200 && responseCode < 300);
-	}
-	
+	private static final String PATTERN_NAME = "test";	
 
 	@Test
 	public void doPostTest() throws IOException {
@@ -50,6 +41,12 @@ public class ConcretisationServletTest {
 		String value = "example";
 		String type = "Text";
 		ServletTestsUtil.setParameter(PATTERN_NAME, parameterId, value, type, "Text");
+		
+		// delete pattern:
+		HttpURLConnection connection3 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + PATTERN_NAME).openConnection();
+		connection3.setRequestMethod("DELETE");		
+		int responseCode3 = connection3.getResponseCode();
+		assertTrue(responseCode3 >= 200 && responseCode3 < 300);
 
 	}
 

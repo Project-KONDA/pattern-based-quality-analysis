@@ -24,14 +24,6 @@ import qualitypatternmodel.servlets.Util;
 public class ConcretisationFinalizationServletTest {
 	
 	private static final String CONCRETE_PATTERN_NAME = "finalization_test";
-	
-	@AfterAll
-	public void deletePattern() throws IOException {			
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + CONCRETE_PATTERN_NAME).openConnection();
-		connection.setRequestMethod("DELETE");		
-		int responseCode = connection.getResponseCode();
-		assertTrue(responseCode >= 200 && responseCode < 300);
-	}
 
 	
 	@Test
@@ -76,6 +68,12 @@ public class ConcretisationFinalizationServletTest {
 		
 		int responseCode2 = connection2.getResponseCode();
 		assertTrue(responseCode2 >= 200 && responseCode2 < 300);
+		
+		// delete pattern:
+		HttpURLConnection connection3 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + CONCRETE_PATTERN_NAME).openConnection();
+		connection3.setRequestMethod("DELETE");		
+		int responseCode3 = connection3.getResponseCode();
+		assertTrue(responseCode3 >= 200 && responseCode3 < 300);
 		
 	}
 }
