@@ -28,10 +28,7 @@ public class ConcretePatternListServletTest {
 //		ServletTestsUtil.printResult(connection, responseCode, result);
 		
 		JSONArray array = new JSONArray(result);
-		List<String> list = ServletTestsUtil.JSONArrayToList(array); 
-		
-		assertTrue(list.contains("card_concrete"));
-		assertTrue(list.contains("card_concrete_finalized"));
+		assertTrue(array.getJSONObject(0).get("Name").equals("card_concrete"));
 
 	}
 }

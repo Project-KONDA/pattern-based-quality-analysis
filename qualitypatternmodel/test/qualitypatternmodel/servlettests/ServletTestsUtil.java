@@ -64,7 +64,7 @@ public class ServletTestsUtil {
 		    wr.flush();
 			
 			int responseCode = connection.getResponseCode();
-	//		System.out.println(responseCode);
+//			System.out.println(responseCode);
 			assertTrue(responseCode >= 200 && responseCode < 300);
 			
 			
@@ -84,12 +84,14 @@ public class ServletTestsUtil {
 			String result2 = getResult(connection2);		
 			
 			JSONArray array = new JSONArray(result2);
-			List<String> list = JSONArrayToList(array);
-			
-			assertTrue(list.contains(concretePatternName));
+			boolean contained = false;
+			for(int i=0; i < array.length(); i++) {
+				contained = contained || array.getJSONObject(i).get("Name").equals(concretePatternName);
+			}						
+			assertTrue(contained);
 		}
 
-	public static void setParameter(String concretePatternName, String parameterId, String value, String type) throws IOException, MalformedURLException, ProtocolException {
+	public static void setParameter(String concretePatternName, String parameterId, String value, String type, String role) throws IOException, MalformedURLException, ProtocolException {
 		String patternAndParam = concretePatternName + "/" + parameterId;
 		HttpURLConnection connection = (HttpURLConnection) new URL(PATH_PREFIX + Util.CONCRETISATION_ENDPOINT + patternAndParam).openConnection();
 		connection.setRequestMethod("POST");
@@ -126,16 +128,17 @@ public class ServletTestsUtil {
 		String result2 = getResult(connection2);			
 		assertEquals(value, result2);		
 		
-		HttpURLConnection connection3 = (HttpURLConnection) new URL(PATH_PREFIX + Util.CONCRETE_PATTERN_TEXT_ENDPOINT + concretePatternName + "/flexible").openConnection();
+		HttpURLConnection connection3 = (HttpURLConnection) new URL(PATH_PREFIX + Util.CONCRETE_PATTERN_TEXT_ENDPOINT + concretePatternName).openConnection();
 		connection3.setRequestMethod("GET");
 				
 		int responseCode3 = connection3.getResponseCode();
 		assertTrue(responseCode3 >= 200 && responseCode3 < 300);
 		
 		String result3 = getResult(connection3);
+		System.out.println(result3);
 		
 		if(type != null) {
-			assertTrue(result3.contains("\"URL\": \"/concrete-patterns/parameter/" + patternAndParam + "\", \"Type\": \"" + type + "\", \"Value\": \"" + value + "\""));
+			assertTrue(result3.contains("\"URL\": \"/concrete-patterns/parameter/" + patternAndParam + "\", \"Type\": \"" + type + "\", \"Role\": \"" + role + "\", \"Value\": \"" + value + "\""));
 		} else {
 			String[] split = result3.split("\"URL\": \"/concrete-patterns/parameter/" + patternAndParam)[1].split("}");			
 			assertTrue(split[0].contains("\"Value\": \"" + valueEncoded + "\""));

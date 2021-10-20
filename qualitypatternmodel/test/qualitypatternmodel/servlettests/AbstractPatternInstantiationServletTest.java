@@ -22,6 +22,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.servlets.Util;
 import qualitypatternmodel.utility.EMFModelLoad;
 
 public class AbstractPatternInstantiationServletTest {
@@ -30,10 +31,10 @@ public class AbstractPatternInstantiationServletTest {
 	
 	@After
 	public void deletePattern() throws IOException {			
-//		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + PATTERN_NAME).openConnection();
-//		connection.setRequestMethod("DELETE");		
-//		int responseCode = connection.getResponseCode();
-//		assertTrue(responseCode >= 200 && responseCode < 300);
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + PATTERN_NAME).openConnection();
+		connection.setRequestMethod("DELETE");		
+		int responseCode = connection.getResponseCode();
+		assertTrue(responseCode >= 200 && responseCode < 300);
 	}
 
 	@Test

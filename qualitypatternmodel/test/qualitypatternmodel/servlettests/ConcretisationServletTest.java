@@ -15,29 +15,41 @@ import java.util.Scanner;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.junit.After;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+
+import qualitypatternmodel.servlets.Util;
 
 public class ConcretisationServletTest {
+	private static final String PATTERN_NAME = "test";
+	
+	@AfterAll
+	public void deletePattern() throws IOException {			
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.CONCRETE_PATTERN_DELETION_ENDPOINT + PATTERN_NAME).openConnection();
+		connection.setRequestMethod("DELETE");		
+		int responseCode = connection.getResponseCode();
+		assertTrue(responseCode >= 200 && responseCode < 300);
+	}
 	
 
 	@Test
 	public void doPostTest() throws IOException {
 		String concretePatternName = "card_concrete";
-		String parameterId = "8";
-		String value = "TAG";
+		String parameterId = "10";
+		String value = "DATA";
 		String type = null;
-		ServletTestsUtil.setParameter(concretePatternName, parameterId, value, type);		
+		ServletTestsUtil.setParameter(concretePatternName, parameterId, value, type, "PropertyOption");		
 	}
 	
 	@Test
 	public void doPostTestUntypedWithPreviousInstantiation() throws IOException, JSONException {
-		String concretePatternName = "test";
-		ServletTestsUtil.createConcretePattern("card_abstract", "flexible", concretePatternName);	
+		ServletTestsUtil.createConcretePattern("card_abstract", "flexible", PATTERN_NAME);	
 		
 		String parameterId = "5";
 		String value = "example";
 		String type = "Text";
-		ServletTestsUtil.setParameter(concretePatternName, parameterId, value, type);
+		ServletTestsUtil.setParameter(PATTERN_NAME, parameterId, value, type, "Text");
 
 	}
 

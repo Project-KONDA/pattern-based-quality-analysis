@@ -19,9 +19,8 @@ public class ConcretePatternTextServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String requestUrl = request.getRequestURI();
-		String patternNameAndTextName = requestUrl.substring(Util.CONCRETE_PATTERN_TEXT_ENDPOINT.length());
-		String[] patternNameAndTextNameSplit = patternNameAndTextName.split("/");
-		String patternName = patternNameAndTextNameSplit[0];
+		String patternName = requestUrl.substring(Util.CONCRETE_PATTERN_TEXT_ENDPOINT.length());
+		
 		
 		String path = Util.CONCRETE_PATTERNS_PATH + patternName + ".patternstructure";		
 		URL url = getClass().getClassLoader().getResource(path);		
@@ -29,18 +28,7 @@ public class ConcretePatternTextServlet extends HttpServlet {
 		if(url != null) {
 			CompletePattern pattern = EMFModelLoad.loadCompletePattern(url.toString());
 			if(pattern != null) {
-				PatternText chosenPatternText = null;			
-				
-				if(patternNameAndTextNameSplit.length > 1) {				
-					String textName = patternNameAndTextNameSplit[1];
-					for(PatternText patternText : pattern.getText()) {
-						if(patternText.getName().equals(textName)) {
-							chosenPatternText = patternText;
-						}
-					}				
-				} else {
-					chosenPatternText = pattern.getText().get(0);
-				}			
+				PatternText chosenPatternText = pattern.getText().get(0);						
 				
 				if(chosenPatternText != null) {
 					String json = chosenPatternText.generateJSON();
