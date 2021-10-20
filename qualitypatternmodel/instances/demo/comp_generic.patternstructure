@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="ASCII"?>
-<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_aTMc4PXnEeuGwJuMePookQ" internalId="1" name="comp_generic" counter="2">
-  <graph id="_aTND8PXnEeuGwJuMePookQ" returnElements="_aTND8vXnEeuGwJuMePookQ" outgoingMorphisms="_aTND-_XnEeuGwJuMePookQ">
-    <elements id="_aTND8vXnEeuGwJuMePookQ" outgoingMappings="_aTND_fXnEeuGwJuMePookQ" resultOf="_aTND8PXnEeuGwJuMePookQ" name="Element0" predicates="_aTND8_XnEeuGwJuMePookQ">
-      <properties id="_aTND9PXnEeuGwJuMePookQ" comparison1="_aTND8_XnEeuGwJuMePookQ"/>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_1rqFIDF3EeyAyJ-DndLhlQ" internalId="1" name="comp_generic" counter="2" description="Allows detecting elements with a specific property which are related to other elements with two specific properties">
+  <graph id="_1rqFIjF3EeyAyJ-DndLhlQ" returnElements="_1rqFJDF3EeyAyJ-DndLhlQ" outgoingMorphisms="_1rqFLTF3EeyAyJ-DndLhlQ">
+    <elements id="_1rqFJDF3EeyAyJ-DndLhlQ" outgoingMappings="_1rqFLzF3EeyAyJ-DndLhlQ" resultOf="_1rqFIjF3EeyAyJ-DndLhlQ" name="Element0" predicates="_1rqFJTF3EeyAyJ-DndLhlQ">
+      <properties id="_1rqFJjF3EeyAyJ-DndLhlQ" comparison1="_1rqFJTF3EeyAyJ-DndLhlQ"/>
     </elements>
-    <operatorList id="_aTND8fXnEeuGwJuMePookQ">
-      <operators xsi:type="operators:Comparison" id="_aTND8_XnEeuGwJuMePookQ" elements="_aTND8vXnEeuGwJuMePookQ" argument1="_aTND9PXnEeuGwJuMePookQ" argument2="_aTND9fXnEeuGwJuMePookQ" option="_aTND9vXnEeuGwJuMePookQ" typeOption="_aTND9_XnEeuGwJuMePookQ"/>
+    <operatorList id="_1rqFIzF3EeyAyJ-DndLhlQ">
+      <operators xsi:type="operators:Comparison" id="_1rqFJTF3EeyAyJ-DndLhlQ" elements="_1rqFJDF3EeyAyJ-DndLhlQ" argument1="_1rqFJjF3EeyAyJ-DndLhlQ" argument2="_1rqFJzF3EeyAyJ-DndLhlQ" option="_1rqFKDF3EeyAyJ-DndLhlQ" typeOption="_1rqFKTF3EeyAyJ-DndLhlQ"/>
     </operatorList>
   </graph>
-  <condition xsi:type="patternstructure:QuantifiedCondition" id="_aTND-PXnEeuGwJuMePookQ">
-    <morphism id="_aTND-_XnEeuGwJuMePookQ" source="_aTND8PXnEeuGwJuMePookQ" target="_aTND-fXnEeuGwJuMePookQ">
-      <mappings xsi:type="patternstructure:ElementMapping" id="_aTND_fXnEeuGwJuMePookQ" source="_aTND8vXnEeuGwJuMePookQ" target="_aTND_PXnEeuGwJuMePookQ"/>
+  <condition xsi:type="patternstructure:QuantifiedCondition" id="_1rqFKjF3EeyAyJ-DndLhlQ">
+    <morphism id="_1rqFLTF3EeyAyJ-DndLhlQ" source="_1rqFIjF3EeyAyJ-DndLhlQ" target="_1rqFKzF3EeyAyJ-DndLhlQ">
+      <mappings xsi:type="patternstructure:ElementMapping" id="_1rqFLzF3EeyAyJ-DndLhlQ" source="_1rqFJDF3EeyAyJ-DndLhlQ" target="_1rqFLjF3EeyAyJ-DndLhlQ"/>
     </morphism>
-    <graph id="_aTND-fXnEeuGwJuMePookQ" returnElements="_aTND_PXnEeuGwJuMePookQ" incomingMorphism="_aTND-_XnEeuGwJuMePookQ">
-      <elements id="_aTND_PXnEeuGwJuMePookQ" incomingMapping="_aTND_fXnEeuGwJuMePookQ" resultOf="_aTND-fXnEeuGwJuMePookQ" name="Element0" outgoing="_aTND__XnEeuGwJuMePookQ"/>
-      <elements id="_aTND_vXnEeuGwJuMePookQ" name="Element1" predicates="_aTNEAPXnEeuGwJuMePookQ _aTNEBfXnEeuGwJuMePookQ" incoming="_aTND__XnEeuGwJuMePookQ">
-        <properties id="_aTNEAfXnEeuGwJuMePookQ" comparison1="_aTNEAPXnEeuGwJuMePookQ"/>
-        <properties id="_aTNEBvXnEeuGwJuMePookQ" comparison1="_aTNEBfXnEeuGwJuMePookQ"/>
+    <graph id="_1rqFKzF3EeyAyJ-DndLhlQ" returnElements="_1rqFLjF3EeyAyJ-DndLhlQ" incomingMorphism="_1rqFLTF3EeyAyJ-DndLhlQ">
+      <elements id="_1rqFLjF3EeyAyJ-DndLhlQ" incomingMapping="_1rqFLzF3EeyAyJ-DndLhlQ" resultOf="_1rqFKzF3EeyAyJ-DndLhlQ" name="Element0" outgoing="_1rqFMTF3EeyAyJ-DndLhlQ"/>
+      <elements id="_1rqFMDF3EeyAyJ-DndLhlQ" name="Element1" predicates="_1rqFMjF3EeyAyJ-DndLhlQ _1rqFNzF3EeyAyJ-DndLhlQ" incoming="_1rqFMTF3EeyAyJ-DndLhlQ">
+        <properties id="_1rqFMzF3EeyAyJ-DndLhlQ" comparison1="_1rqFMjF3EeyAyJ-DndLhlQ"/>
+        <properties id="_1rqFODF3EeyAyJ-DndLhlQ" comparison1="_1rqFNzF3EeyAyJ-DndLhlQ"/>
       </elements>
-      <operatorList id="_aTND-vXnEeuGwJuMePookQ">
-        <operators xsi:type="operators:Comparison" id="_aTNEAPXnEeuGwJuMePookQ" elements="_aTND_vXnEeuGwJuMePookQ" argument1="_aTNEAfXnEeuGwJuMePookQ" argument2="_aTNEAvXnEeuGwJuMePookQ" option="_aTNEA_XnEeuGwJuMePookQ" typeOption="_aTNEBPXnEeuGwJuMePookQ"/>
-        <operators xsi:type="operators:Comparison" id="_aTNEBfXnEeuGwJuMePookQ" elements="_aTND_vXnEeuGwJuMePookQ" argument1="_aTNEBvXnEeuGwJuMePookQ" argument2="_aTNEB_XnEeuGwJuMePookQ" option="_aTNECPXnEeuGwJuMePookQ" typeOption="_aTNECfXnEeuGwJuMePookQ"/>
+      <operatorList id="_1rqFLDF3EeyAyJ-DndLhlQ">
+        <operators xsi:type="operators:Comparison" id="_1rqFMjF3EeyAyJ-DndLhlQ" elements="_1rqFMDF3EeyAyJ-DndLhlQ" argument1="_1rqFMzF3EeyAyJ-DndLhlQ" argument2="_1rqFNDF3EeyAyJ-DndLhlQ" option="_1rqFNTF3EeyAyJ-DndLhlQ" typeOption="_1rqFNjF3EeyAyJ-DndLhlQ"/>
+        <operators xsi:type="operators:Comparison" id="_1rqFNzF3EeyAyJ-DndLhlQ" elements="_1rqFMDF3EeyAyJ-DndLhlQ" argument1="_1rqFODF3EeyAyJ-DndLhlQ" argument2="_1rqFOTF3EeyAyJ-DndLhlQ" option="_1rqsMDF3EeyAyJ-DndLhlQ" typeOption="_1rqsMTF3EeyAyJ-DndLhlQ"/>
       </operatorList>
-      <relations id="_aTND__XnEeuGwJuMePookQ" source="_aTND_PXnEeuGwJuMePookQ" target="_aTND_vXnEeuGwJuMePookQ"/>
+      <relations id="_1rqFMTF3EeyAyJ-DndLhlQ" source="_1rqFLjF3EeyAyJ-DndLhlQ" target="_1rqFMDF3EeyAyJ-DndLhlQ"/>
     </graph>
-    <condition xsi:type="patternstructure:TrueElement" id="_aTNECvXnEeuGwJuMePookQ"/>
+    <condition xsi:type="patternstructure:TrueElement" id="_1rqsMjF3EeyAyJ-DndLhlQ"/>
   </condition>
-  <parameterList id="_aTMc4fXnEeuGwJuMePookQ">
-    <parameters xsi:type="parameters:UntypedParameterValue" id="_aTND9fXnEeuGwJuMePookQ" comparison2="_aTND8_XnEeuGwJuMePookQ" typeModifiable="true"/>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_aTND9vXnEeuGwJuMePookQ" predefined="true" comparisons="_aTND8_XnEeuGwJuMePookQ">
+  <parameterList id="_1rqFITF3EeyAyJ-DndLhlQ">
+    <parameters xsi:type="parameters:UntypedParameterValue" id="_1rqFJzF3EeyAyJ-DndLhlQ" comparison2="_1rqFJTF3EeyAyJ-DndLhlQ" typeModifiable="true"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_1rqFKDF3EeyAyJ-DndLhlQ" predefined="true" comparisons="_1rqFJTF3EeyAyJ-DndLhlQ">
       <options>=</options>
       <options>!=</options>
     </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_aTND9_XnEeuGwJuMePookQ" typeComparisons="_aTND8_XnEeuGwJuMePookQ">
+    <parameters xsi:type="parameters:TypeOptionParam" id="_1rqFKTF3EeyAyJ-DndLhlQ" typeComparisons="_1rqFJTF3EeyAyJ-DndLhlQ">
       <options>UNSPECIFIED</options>
       <options>STRING</options>
       <options>BOOLEAN</options>
@@ -42,12 +42,12 @@
       <options>NUMBER</options>
       <options>DATETIME</options>
     </parameters>
-    <parameters xsi:type="parameters:UntypedParameterValue" id="_aTNEAvXnEeuGwJuMePookQ" comparison2="_aTNEAPXnEeuGwJuMePookQ" typeModifiable="true"/>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_aTNEA_XnEeuGwJuMePookQ" predefined="true" comparisons="_aTNEAPXnEeuGwJuMePookQ">
+    <parameters xsi:type="parameters:UntypedParameterValue" id="_1rqFNDF3EeyAyJ-DndLhlQ" comparison2="_1rqFMjF3EeyAyJ-DndLhlQ" typeModifiable="true"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_1rqFNTF3EeyAyJ-DndLhlQ" predefined="true" comparisons="_1rqFMjF3EeyAyJ-DndLhlQ">
       <options>=</options>
       <options>!=</options>
     </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_aTNEBPXnEeuGwJuMePookQ" typeComparisons="_aTNEAPXnEeuGwJuMePookQ">
+    <parameters xsi:type="parameters:TypeOptionParam" id="_1rqFNjF3EeyAyJ-DndLhlQ" typeComparisons="_1rqFMjF3EeyAyJ-DndLhlQ">
       <options>UNSPECIFIED</options>
       <options>STRING</options>
       <options>BOOLEAN</options>
@@ -57,8 +57,8 @@
       <options>NUMBER</options>
       <options>DATETIME</options>
     </parameters>
-    <parameters xsi:type="parameters:UntypedParameterValue" id="_aTNEB_XnEeuGwJuMePookQ" comparison2="_aTNEBfXnEeuGwJuMePookQ" typeModifiable="true"/>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_aTNECPXnEeuGwJuMePookQ" comparisons="_aTNEBfXnEeuGwJuMePookQ">
+    <parameters xsi:type="parameters:UntypedParameterValue" id="_1rqFOTF3EeyAyJ-DndLhlQ" comparison2="_1rqFNzF3EeyAyJ-DndLhlQ" typeModifiable="true"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_1rqsMDF3EeyAyJ-DndLhlQ" comparisons="_1rqFNzF3EeyAyJ-DndLhlQ">
       <options>=</options>
       <options>!=</options>
       <options>></options>
@@ -66,7 +66,7 @@
       <options>>=</options>
       <options>&lt;=</options>
     </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_aTNECfXnEeuGwJuMePookQ" typeComparisons="_aTNEBfXnEeuGwJuMePookQ">
+    <parameters xsi:type="parameters:TypeOptionParam" id="_1rqsMTF3EeyAyJ-DndLhlQ" typeComparisons="_1rqFNzF3EeyAyJ-DndLhlQ">
       <options>UNSPECIFIED</options>
       <options>STRING</options>
       <options>BOOLEAN</options>
