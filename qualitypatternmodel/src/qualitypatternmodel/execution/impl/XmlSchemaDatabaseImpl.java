@@ -99,10 +99,11 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public void analyse() throws BaseXException, QueryIOException, QueryException {
+	public void analyse() throws QueryException, IOException {
 		
 		if(getElementNames().isEmpty()) {
 			retrieveElementNames();
@@ -131,25 +132,25 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		}
 	}
 
-	private void retrieveElementNames() throws QueryException, QueryIOException, BaseXException {
+	private void retrieveElementNames() throws QueryException, IOException {
 //		open();	
 		List<String> retrievedElementNames = execute("//*[name()=\"xs:element\"]/data(@name)");
 		getElementNames().addAll(retrievedElementNames);
 	}
 	
-	private void retrieveRootElementNames() throws QueryException, QueryIOException, BaseXException {
+	private void retrieveRootElementNames() throws QueryException, IOException {
 //		open();	
 		List<String> retrievedElementNames = execute("/*/*[name()=\"xs:element\"]/data(@name)");
 		getRootElementNames().addAll(retrievedElementNames);
 	}
 
-	private void retrieveAttributeNames() throws QueryException, QueryIOException, BaseXException {
+	private void retrieveAttributeNames() throws QueryException, IOException {
 //		open();	
 		List<String> retrievedAttributeNames = execute("//*[name()=\"xs:attribute\"]/data(@name)");
 		getAttributeNames().addAll(retrievedAttributeNames);
 	}
 	
-	private EList<String> getElementNamesFromQueryExecution(String elementName, String queryPath, String xQueryMethodName) throws BaseXException, QueryException, QueryIOException {
+	private EList<String> getElementNamesFromQueryExecution(String elementName, String queryPath, String xQueryMethodName) throws QueryException, IOException {
 //		open();
 
 		String checkQuery; 
@@ -575,18 +576,17 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @throws BaseXException 
 	 * @throws QueryException 
-	 * @throws QueryIOException 
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public boolean checkChildInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
+	public boolean checkChildInSchema(String elementName1, String elementName2) throws QueryException, IOException {
 		return checkAxis(elementName1, elementName2, "queries/CheckChild.xq", "checkChild");		
 	}
 
 	private boolean checkAxis(String elementName1, String elementName2, String path, String methodName)
-			throws BaseXException, QueryException, QueryIOException {
+			throws QueryException, IOException {
 //		open();
 		
 		String checkQuery;
@@ -620,12 +620,11 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @throws QueryException 
-	 * @throws QueryIOException 
-	 * @throws BaseXException 
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public boolean checkParentInSchema(String elementName1, String elementName2) throws BaseXException, QueryIOException, QueryException {
+	public boolean checkParentInSchema(String elementName1, String elementName2) throws QueryException, IOException {
 		return checkChildInSchema(elementName2, elementName1);
 	}
 
@@ -633,12 +632,11 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @throws QueryException 
-	 * @throws BaseXException 
-	 * @throws QueryIOException 
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public boolean checkDescendantInSchema(String elementName1, String elementName2) throws QueryException, BaseXException, QueryIOException {		
+	public boolean checkDescendantInSchema(String elementName1, String elementName2) throws QueryException, IOException {		
 		return checkAxis(elementName1, elementName2, "queries/CheckDescendant.xq", "checkDescendant");			
 	}
 
@@ -646,12 +644,11 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @throws QueryException 
-	 * @throws QueryIOException 
-	 * @throws BaseXException 
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public boolean checkAncestorInSchema(String elementName1, String elementName2) throws BaseXException, QueryIOException, QueryException {
+	public boolean checkAncestorInSchema(String elementName1, String elementName2) throws QueryException, IOException {
 		return checkDescendantInSchema(elementName2, elementName1);
 	}
 
@@ -659,42 +656,44 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @throws QueryException 
-	 * @throws QueryIOException 
-	 * @throws BaseXException 
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public boolean checkAttributeInSchema(String elementName, String attributeName) throws QueryException, QueryIOException, BaseXException {
+	public boolean checkAttributeInSchema(String elementName, String attributeName) throws QueryException, IOException {
 		return checkAxis(elementName, attributeName, "queries/CheckAttribute.xq", "checkAttribute");		
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public boolean checkFollowingSiblingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
+	public boolean checkFollowingSiblingInSchema(String elementName1, String elementName2) throws QueryException, IOException {
 		return checkAxis(elementName1, elementName2, "queries/CheckFollowingSibling.xq", "checkFollowingSibling");		
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public boolean checkPrecedingSiblingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
+	public boolean checkPrecedingSiblingInSchema(String elementName1, String elementName2) throws QueryException, IOException {
 		return checkFollowingSiblingInSchema(elementName2, elementName1);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public boolean checkFollowingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
+	public boolean checkFollowingInSchema(String elementName1, String elementName2) throws QueryException, IOException {
 		return checkAxis(elementName1, elementName2, "queries/CheckFollowing.xq", "checkFollowing");			
 	}
 
@@ -704,7 +703,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 * @generated
 	 */
 	@Override
-	public boolean checkPrecedingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException {
+	public boolean checkPrecedingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException, IOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -762,40 +761,44 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public EList<String> getChildrenInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+	public EList<String> getChildrenInSchema(String elementName) throws QueryException, IOException {
 		return getElementNamesFromQueryExecution(elementName, "queries/GetChildren.xq", "getChildren");
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public EList<String> getDescendantsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+	public EList<String> getDescendantsInSchema(String elementName) throws QueryException, IOException {
 		return getElementNamesFromQueryExecution(elementName, "queries/GetDescendantsEfficient.xq", "getDescendants");
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public EList<String> getParentsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+	public EList<String> getParentsInSchema(String elementName) throws QueryException, IOException {
 		return getElementNamesFromQueryExecution(elementName, "queries/GetParents.xq", "getDescendants");
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public EList<String> getAncestorsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+	public EList<String> getAncestorsInSchema(String elementName) throws QueryException, IOException {
 		return getElementNamesFromQueryExecution(elementName, "queries/GetAncestorsEfficient.xq", "getDescendants");
 	}
 
@@ -814,10 +817,11 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public EList<String> getFollowingSiblingsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+	public EList<String> getFollowingSiblingsInSchema(String elementName) throws QueryException, IOException {
 		return getElementNamesFromQueryExecution(elementName, "queries/GetFollowingSibling.xq", "getDescendants");
 	}
 
@@ -836,10 +840,11 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public EList<String> getFollowingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException {
+	public EList<String> getFollowingInSchema(String elementName) throws QueryException, IOException {
 		return getElementNamesFromQueryExecution(elementName, "queries/GetFollowing2.xq", "getDescendants");
 	}
 

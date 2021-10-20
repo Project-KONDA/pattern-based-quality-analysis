@@ -5,6 +5,8 @@ import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_DATA_PATH;
 import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_SCHEMA_NAME;
 import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_SCHEMA_PATH;
 
+import java.io.IOException;
+
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
@@ -59,6 +61,9 @@ public class SuggestionGeneration {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (QueryException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

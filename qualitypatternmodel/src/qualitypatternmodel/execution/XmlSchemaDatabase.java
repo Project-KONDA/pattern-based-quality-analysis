@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.execution;
 
+import java.io.IOException;
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
@@ -81,10 +82,10 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"
 	 * @generated
 	 */
-	void checkKeyRefInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException;
+	void checkKeyRefInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -94,10 +95,10 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @param elementName2 the name of the child XML elements
 	 * @return <code>true</code> if according to the XML schema XML elements with name <code>elementName1</code> may have XML elements with name <code>elementName2</code> as their child
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"
 	 * @generated
 	 */
-	boolean checkChildInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException;
+	boolean checkChildInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,10 +108,10 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @param elementName2 the name of the parent XML elements
 	 * @return <code>true</code> if according to the XML schema XML elements with name <code>elementName1</code> may have XML elements with name <code>elementName2</code> as their parent
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"
 	 * @generated
 	 */
-	boolean checkParentInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException;
+	boolean checkParentInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -120,10 +121,10 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @param elementName2 the name of the descendant XML elements
 	 * @return <code>true</code> if according to the XML schema XML elements with name <code>elementName1</code> may have XML elements with name <code>elementName2</code> as their descendant
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"
 	 * @generated
 	 */
-	boolean checkDescendantInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException;
+	boolean checkDescendantInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,10 +134,10 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @param elementName2 the name of the ancestor XML elements
 	 * @return <code>true</code> if according to the XML schema XML elements with name <code>elementName1</code> may have XML elements with name <code>elementName2</code> as their ancestor
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"
 	 * @generated
 	 */
-	boolean checkAncestorInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException;
+	boolean checkAncestorInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,10 +147,10 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @param attributeName the name of the XML attribute
 	 * @return <code>true</code> if according to the XML schema XML elements with name <code>elementName</code> may contain XML attributes with name <code>attributeName</code>
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"
 	 * @generated
 	 */
-	boolean checkAttributeInSchema(String elementName, String attributeName) throws BaseXException, QueryException, QueryIOException;
+	boolean checkAttributeInSchema(String elementName, String attributeName) throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -159,10 +160,10 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @param elementName2 the name of the following sibling XML elements
 	 * @return <code>true</code> if according to the XML schema XML elements with name <code>elementName1</code> may have XML elements with name <code>elementName2</code> as their following sibling
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"
 	 * @generated
 	 */
-	boolean checkFollowingSiblingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException;
+	boolean checkFollowingSiblingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -172,10 +173,10 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @param elementName2 the name of the preceding sibling XML elements
 	 * @return <code>true</code> if according to the XML schema XML elements with name <code>elementName1</code> may have XML elements with name <code>elementName2</code> as their preceding sibling
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"
 	 * @generated
 	 */
-	boolean checkPrecedingSiblingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException;
+	boolean checkPrecedingSiblingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -185,10 +186,10 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @param elementName2 the name of the following XML elements
 	 * @return <code>true</code> if according to the XML schema XML elements with name <code>elementName1</code> may have XML elements with name <code>elementName2</code> as their following element
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"
 	 * @generated
 	 */
-	boolean checkFollowingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException;
+	boolean checkFollowingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -198,10 +199,10 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @param elementName2 the name of the preceding XML elements
 	 * @return <code>true</code> if according to the XML schema XML elements with name <code>elementName1</code> may have XML elements with name <code>elementName2</code> as their following element
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"
 	 * @generated
 	 */
-	boolean checkPrecedingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException;
+	boolean checkPrecedingInSchema(String elementName1, String elementName2) throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -210,10 +211,11 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @param elementName the name of the parent XML element
 	 * @return a list of names of XML elements that according to the XML schema may occur as children of XML elements with name <code>elementName</code>
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
 	 */
-	EList<String> getChildrenInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
+	EList<String> getChildrenInSchema(String elementName) throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -222,10 +224,11 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @param elementName the name of the ancestor XML element
 	 * @return a list of names of XML elements that according to the XML schema may occur as descendants of XML elements with name <code>elementName</code>
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
 	 */
-	EList<String> getDescendantsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
+	EList<String> getDescendantsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -234,10 +237,11 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @param elementName the name of the child XML element
 	 * @return a list of names of XML elements that according to the XML schema may occur as parents of XML elements with name <code>elementName</code>
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
 	 */
-	EList<String> getParentsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
+	EList<String> getParentsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -246,10 +250,11 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @param elementName the name of the descendant XML element
 	 * @return a list of names of XML elements that according to the XML schema may occur as ancestors of XML elements with name <code>elementName</code>
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
 	 */
-	EList<String> getAncestorsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
+	EList<String> getAncestorsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -270,10 +275,11 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @param elementName the name of the preceding sibling XML element
 	 * @return a list of names of XML elements that according to the XML schema may occur as following siblings of XML elements with name <code>elementName</code>
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
 	 */
-	EList<String> getFollowingSiblingsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
+	EList<String> getFollowingSiblingsInSchema(String elementName) throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -294,10 +300,11 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @param elementName the name of the preceding XML element
 	 * @return a list of names of XML elements that according to the XML schema may occur as following elements of XML elements with name <code>elementName</code>
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
 	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
 	 * @generated
 	 */
-	EList<String> getFollowingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException;
+	EList<String> getFollowingInSchema(String elementName) throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc -->

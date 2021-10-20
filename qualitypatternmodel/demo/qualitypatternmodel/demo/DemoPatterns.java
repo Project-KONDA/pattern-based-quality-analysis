@@ -86,7 +86,7 @@ public class DemoPatterns {
 		
 	}
 	
-	private static void executeAllDemoPatterns() throws BaseXException, InvalidityException, OperatorCycleException, MissingPatternContainerException, QueryIOException, QueryException {
+	private static void executeAllDemoPatterns() throws InvalidityException, OperatorCycleException, MissingPatternContainerException, QueryException, IOException {
 		
 		System.out.println("\n\n\n>>> Executing demo patterns:");		
 		

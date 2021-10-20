@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.execution.impl;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.List;
@@ -249,7 +250,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 		
 		try {
 			xmlSchema.init();
-		} catch (BaseXException | QueryIOException | QueryException e) {
+		} catch (QueryException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -338,11 +339,11 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @throws QueryException 
-	 * @throws QueryIOException 
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public void analyse() throws BaseXException, QueryIOException, QueryException {
+	public void analyse() throws QueryException, IOException {
 //		if(getXmlSchema() != null) {
 //			getXmlSchema().analyse();
 //		} else {
@@ -352,7 +353,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 //		}		
 	}
 	
-	private void executeAnalysis(String query, EMap<String,Integer> valueStorage) throws BaseXException, QueryIOException, QueryException {
+	private void executeAnalysis(String query, EMap<String,Integer> valueStorage) throws QueryException, IOException {
 		List<String> result = execute(query);
 		for(int i = 0; i < result.size(); i++) {
 			valueStorage.put(getNamespace() + result.get(i),0);
@@ -781,14 +782,14 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 
 	@Override
 	public Result execute(CompletePattern pattern, String name, String person) throws InvalidityException,
-			OperatorCycleException, MissingPatternContainerException, BaseXException, QueryException, QueryIOException {
+			OperatorCycleException, MissingPatternContainerException, BaseXException, QueryException, QueryIOException, IOException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public int countMatches(CompletePattern pattern) throws QueryException, InvalidityException, OperatorCycleException,
-			MissingPatternContainerException, BaseXException, QueryIOException {
+			MissingPatternContainerException, BaseXException, QueryIOException, IOException {
 		// TODO Auto-generated method stub
 		return 0;
 	}

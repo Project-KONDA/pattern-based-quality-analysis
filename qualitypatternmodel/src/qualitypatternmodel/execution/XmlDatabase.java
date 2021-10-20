@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.execution;
 
+import java.io.IOException;
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.query.QueryException;
@@ -83,10 +84,10 @@ public interface XmlDatabase extends EObject {
 	 * @throws QueryException
 	 * @throws QueryIOException
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"
 	 * @generated
 	 */
-	void analyse() throws BaseXException, QueryException, QueryIOException;
+	void analyse() throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc --> 
@@ -96,10 +97,10 @@ public interface XmlDatabase extends EObject {
 	 * @throws QueryException
 	 * @throws QueryIOException
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"
 	 * @generated
 	 */
-	void init() throws BaseXException, QueryException, QueryIOException;
+	void init() throws BaseXException, QueryException, QueryIOException, IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,9 +130,9 @@ public interface XmlDatabase extends EObject {
 	 * 
 	 * @return the list of XML elements that were selected by the applied query
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.BaseXExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"
 	 * @generated
 	 */
-	EList<String> execute(String query) throws QueryException, QueryIOException, BaseXException;
+	EList<String> execute(String query) throws QueryException, QueryIOException, BaseXException, IOException;
 
 } // XmlDatabase

@@ -576,6 +576,7 @@
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/QueryExceptionWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/QueryIOExceptionWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/BaseXClientWrapper"/>
+      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/IoExceptionWrapper"/>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//execution/Result">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/Result/database"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/Result/name"/>

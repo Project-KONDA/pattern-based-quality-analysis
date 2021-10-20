@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.execution.impl;
 
+import java.io.IOException;
 import java.util.Map;
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
@@ -91,6 +92,8 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 				return createQueryIOExceptionWrapperFromString(eDataType, initialValue);
 			case ExecutionPackage.BASE_XCLIENT_WRAPPER:
 				return createBaseXClientWrapperFromString(eDataType, initialValue);
+			case ExecutionPackage.IO_EXCEPTION_WRAPPER:
+				return createIoExceptionWrapperFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -112,6 +115,8 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 				return convertQueryIOExceptionWrapperToString(eDataType, instanceValue);
 			case ExecutionPackage.BASE_XCLIENT_WRAPPER:
 				return convertBaseXClientWrapperToString(eDataType, instanceValue);
+			case ExecutionPackage.IO_EXCEPTION_WRAPPER:
+				return convertIoExceptionWrapperToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -284,6 +289,24 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	 * @generated
 	 */
 	public String convertBaseXClientWrapperToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IOException createIoExceptionWrapperFromString(EDataType eDataType, String initialValue) {
+		return (IOException)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIoExceptionWrapperToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

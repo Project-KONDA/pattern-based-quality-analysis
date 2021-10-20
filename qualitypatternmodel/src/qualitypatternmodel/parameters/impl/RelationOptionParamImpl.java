@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.List;
@@ -297,6 +298,9 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						} catch (QueryException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (IOException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}						

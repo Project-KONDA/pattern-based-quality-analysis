@@ -2338,6 +2338,17 @@ public interface ExecutionPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '<em>Io Exception Wrapper</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.io.IOException
+	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getIoExceptionWrapper()
+	 * @generated
+	 */
+	int IO_EXCEPTION_WRAPPER = 17;
+
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.Result <em>Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3214,6 +3225,17 @@ public interface ExecutionPackage extends EPackage {
 	EDataType getBaseXClientWrapper();
 
 	/**
+	 * Returns the meta object for data type '{@link java.io.IOException <em>Io Exception Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Io Exception Wrapper</em>'.
+	 * @see java.io.IOException
+	 * @model instanceClass="java.io.IOException"
+	 * @generated
+	 */
+	EDataType getIoExceptionWrapper();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3941,6 +3963,16 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType BASE_XCLIENT_WRAPPER = eINSTANCE.getBaseXClientWrapper();
+
+		/**
+		 * The meta object literal for the '<em>Io Exception Wrapper</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.io.IOException
+		 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getIoExceptionWrapper()
+		 * @generated
+		 */
+		EDataType IO_EXCEPTION_WRAPPER = eINSTANCE.getIoExceptionWrapper();
 
 	}
 

@@ -2,15 +2,19 @@
  */
 package qualitypatternmodel.execution.impl;
 
+import java.io.IOException;
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.ServerXmlDataDatabase;
+import qualitypatternmodel.execution.impl.BaseXClient.Query;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,9 +59,21 @@ public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Se
 	}
 	
 	@Override
-	public void init() throws BaseXException, QueryIOException, QueryException {
-		open();
+	public void init() throws QueryException, IOException {
+//		open();
+		// TODO
 		analyse();		
+	}
+	
+	@Override
+	public EList<String> execute(String queryString) throws QueryException, QueryIOException, BaseXException, IOException {		
+		EList<String> resultList = new BasicEList<String>();
+		Query query = getBaseXClient().query(queryString);		
+		
+        while(query.more()) {
+        	resultList.add(query.next());
+        } 			
+        return resultList;		
 	}
 
 	/**

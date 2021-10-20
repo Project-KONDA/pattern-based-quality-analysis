@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.execution.impl;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import org.basex.core.BaseXException;
 import org.basex.core.cmd.Open;
@@ -257,7 +258,7 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
-	public void analyse() throws BaseXException, QueryException, QueryIOException {
+	public void analyse() throws BaseXException, QueryException, QueryIOException, IOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -266,10 +267,11 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public void init() throws BaseXException, QueryException, QueryIOException {
+	public void init() throws BaseXException, QueryException, QueryIOException, IOException {
 		if(!context.listDBs().contains(name)) {
 			create();
 		}
@@ -307,10 +309,11 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	 * @throws QueryException 
 	 * @throws QueryIOException
 	 * @throws BaseXException 
+	 * @throws IOException 
 	 * @generated NOT
 	 */
 	@Override
-	public EList<String> execute(String query) throws QueryException, QueryIOException, BaseXException {
+	public EList<String> execute(String query) throws QueryException, QueryIOException, BaseXException, IOException {
 		open();
 		EList<String> queryResult = new BasicEList<String>();		
 	    try(QueryProcessor proc = new QueryProcessor(query, context)) {

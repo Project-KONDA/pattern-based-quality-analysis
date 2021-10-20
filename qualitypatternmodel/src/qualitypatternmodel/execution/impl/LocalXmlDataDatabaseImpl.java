@@ -2,13 +2,13 @@
  */
 package qualitypatternmodel.execution.impl;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
 import org.basex.core.BaseXException;
 import org.basex.core.cmd.CreateDB;
 import org.basex.query.QueryException;
-import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
@@ -98,7 +98,7 @@ public class LocalXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Loc
 //	}
 	
 	@Override
-	public Result execute(CompletePattern pattern, String name, String person) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException, QueryException, QueryIOException {
+	public Result execute(CompletePattern pattern, String name, String person) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, QueryException, IOException {
 		
 		pattern.isValid(AbstractionLevel.CONCRETE);	
 		
@@ -151,7 +151,7 @@ public class LocalXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Loc
 	}
 	
 	@Override
-	public int countMatches(CompletePattern pattern) throws QueryException, InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException, QueryIOException {
+	public int countMatches(CompletePattern pattern) throws QueryException, InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
 		pattern.isValid(AbstractionLevel.CONCRETE);	
 		
 //		open();

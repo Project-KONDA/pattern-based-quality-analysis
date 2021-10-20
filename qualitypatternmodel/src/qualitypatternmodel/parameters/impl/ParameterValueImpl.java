@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.Collection;
@@ -796,8 +797,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(tag));
 									}
 								}
-							} catch (MissingPatternContainerException | BaseXException | QueryIOException
-									| QueryException e) {
+							} catch (MissingPatternContainerException | QueryException | IOException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}								
@@ -884,8 +884,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getAncestorsInSchema(tag));
 									}
 								}
-							} catch (MissingPatternContainerException | BaseXException | QueryIOException
-									| QueryException e) {
+							} catch (MissingPatternContainerException | QueryException | IOException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}								
@@ -909,7 +908,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 								}
 							}
 						}
-					} catch (MissingPatternContainerException | BaseXException | QueryIOException | QueryException e) {
+					} catch (MissingPatternContainerException | QueryException | IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
