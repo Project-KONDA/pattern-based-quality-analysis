@@ -23,7 +23,7 @@ import qualitypatternmodel.textrepresentation.ParameterReference;
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#isPredefined <em>Predefined</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.Parameter#getParameterFragments <em>Parameter Fragments</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#getParameterReferences <em>Parameter References</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getParameter()
@@ -100,18 +100,18 @@ public interface Parameter extends PatternElement {
 	void setPredefined(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Parameter Fragments</b></em>' reference list.
+	 * Returns the value of the '<em><b>Parameter References</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.textrepresentation.ParameterReference}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.textrepresentation.ParameterReference#getParameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameter Fragments</em>' reference list.
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getParameter_ParameterFragments()
+	 * @return the value of the '<em>Parameter References</em>' reference list.
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getParameter_ParameterReferences()
 	 * @see qualitypatternmodel.textrepresentation.ParameterReference#getParameter
 	 * @model opposite="parameter"
 	 * @generated
 	 */
-	EList<ParameterReference> getParameterFragments();
+	EList<ParameterReference> getParameterReferences();
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -36,7 +36,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#isPredefined <em>Predefined</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getParameterFragments <em>Parameter Fragments</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getParameterReferences <em>Parameter References</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,14 +81,14 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 */
 	protected boolean predefined = PREDEFINED_EDEFAULT;
 	/**
-	 * The cached value of the '{@link #getParameterFragments() <em>Parameter Fragments</em>}' reference list.
+	 * The cached value of the '{@link #getParameterReferences() <em>Parameter References</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParameterFragments()
+	 * @see #getParameterReferences()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ParameterReference> parameterFragments;
+	protected EList<ParameterReference> parameterReferences;
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -223,11 +223,11 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @generated
 	 */
 	@Override
-	public EList<ParameterReference> getParameterFragments() {
-		if (parameterFragments == null) {
-			parameterFragments = new EObjectWithInverseResolvingEList<ParameterReference>(ParameterReference.class, this, ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS, TextrepresentationPackage.PARAMETER_REFERENCE__PARAMETER);
+	public EList<ParameterReference> getParameterReferences() {
+		if (parameterReferences == null) {
+			parameterReferences = new EObjectWithInverseResolvingEList<ParameterReference>(ParameterReference.class, this, ParametersPackage.PARAMETER__PARAMETER_REFERENCES, TextrepresentationPackage.PARAMETER_REFERENCE__PARAMETER);
 		}
-		return parameterFragments;
+		return parameterReferences;
 	}
 
 	/**
@@ -304,8 +304,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetParameterList((ParameterList)otherEnd, msgs);
-			case ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameterFragments()).basicAdd(otherEnd, msgs);
+			case ParametersPackage.PARAMETER__PARAMETER_REFERENCES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameterReferences()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -319,8 +319,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		switch (featureID) {
 			case ParametersPackage.PARAMETER__PARAMETER_LIST:
 				return basicSetParameterList(null, msgs);
-			case ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS:
-				return ((InternalEList<?>)getParameterFragments()).basicRemove(otherEnd, msgs);
+			case ParametersPackage.PARAMETER__PARAMETER_REFERENCES:
+				return ((InternalEList<?>)getParameterReferences()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -351,8 +351,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				return getDescription();
 			case ParametersPackage.PARAMETER__PREDEFINED:
 				return isPredefined();
-			case ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS:
-				return getParameterFragments();
+			case ParametersPackage.PARAMETER__PARAMETER_REFERENCES:
+				return getParameterReferences();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -374,9 +374,9 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			case ParametersPackage.PARAMETER__PREDEFINED:
 				setPredefined((Boolean)newValue);
 				return;
-			case ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS:
-				getParameterFragments().clear();
-				getParameterFragments().addAll((Collection<? extends ParameterReference>)newValue);
+			case ParametersPackage.PARAMETER__PARAMETER_REFERENCES:
+				getParameterReferences().clear();
+				getParameterReferences().addAll((Collection<? extends ParameterReference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -398,8 +398,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			case ParametersPackage.PARAMETER__PREDEFINED:
 				setPredefined(PREDEFINED_EDEFAULT);
 				return;
-			case ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS:
-				getParameterFragments().clear();
+			case ParametersPackage.PARAMETER__PARAMETER_REFERENCES:
+				getParameterReferences().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -418,8 +418,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case ParametersPackage.PARAMETER__PREDEFINED:
 				return predefined != PREDEFINED_EDEFAULT;
-			case ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS:
-				return parameterFragments != null && !parameterFragments.isEmpty();
+			case ParametersPackage.PARAMETER__PARAMETER_REFERENCES:
+				return parameterReferences != null && !parameterReferences.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

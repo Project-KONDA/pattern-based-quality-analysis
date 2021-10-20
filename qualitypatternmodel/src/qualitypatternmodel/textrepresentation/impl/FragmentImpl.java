@@ -85,7 +85,7 @@ public abstract class FragmentImpl extends MinimalEObjectImpl.Container implemen
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newPatternText != null)
-				msgs = ((InternalEObject)newPatternText).eInverseAdd(this, TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT, PatternText.class, msgs);
+				msgs = ((InternalEObject)newPatternText).eInverseAdd(this, TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS, PatternText.class, msgs);
 			msgs = basicSetPatternText(newPatternText, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -156,7 +156,7 @@ public abstract class FragmentImpl extends MinimalEObjectImpl.Container implemen
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case TextrepresentationPackage.FRAGMENT__PATTERN_TEXT:
-				return eInternalContainer().eInverseRemove(this, TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT, PatternText.class, msgs);
+				return eInternalContainer().eInverseRemove(this, TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS, PatternText.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

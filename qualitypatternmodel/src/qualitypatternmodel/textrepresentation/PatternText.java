@@ -21,7 +21,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getPattern <em>Pattern</em>}</li>
- *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getTextfragment <em>Textfragment</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getFragments <em>Fragments</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getParameterPredefinitions <em>Parameter Predefinitions</em>}</li>
  * </ul>
@@ -56,18 +56,18 @@ public interface PatternText extends EObject {
 	void setPattern(CompletePattern value);
 
 	/**
-	 * Returns the value of the '<em><b>Textfragment</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Fragments</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.textrepresentation.Fragment}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.textrepresentation.Fragment#getPatternText <em>Pattern Text</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Textfragment</em>' containment reference list.
-	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getPatternText_Textfragment()
+	 * @return the value of the '<em>Fragments</em>' containment reference list.
+	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getPatternText_Fragments()
 	 * @see qualitypatternmodel.textrepresentation.Fragment#getPatternText
 	 * @model opposite="patternText" containment="true" required="true"
 	 * @generated
 	 */
-	EList<Fragment> getTextfragment();
+	EList<Fragment> getFragments();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

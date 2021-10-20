@@ -49,7 +49,7 @@ public class ParameterItemProvider extends PatternElementItemProvider {
 
 			addDescriptionPropertyDescriptor(object);
 			addPredefinedPropertyDescriptor(object);
-			addParameterFragmentsPropertyDescriptor(object);
+			addParameterReferencesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -99,19 +99,19 @@ public class ParameterItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Parameter Fragments feature.
+	 * This adds a property descriptor for the Parameter References feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addParameterFragmentsPropertyDescriptor(Object object) {
+	protected void addParameterReferencesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Parameter_parameterFragments_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_parameterFragments_feature", "_UI_Parameter_type"),
-				 ParametersPackage.Literals.PARAMETER__PARAMETER_FRAGMENTS,
+				 getString("_UI_Parameter_parameterReferences_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_parameterReferences_feature", "_UI_Parameter_type"),
+				 ParametersPackage.Literals.PARAMETER__PARAMETER_REFERENCES,
 				 true,
 				 false,
 				 true,

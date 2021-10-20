@@ -163,9 +163,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		if (newParameter != parameter) {
 			NotificationChain msgs = null;
 			if (parameter != null)
-				msgs = ((InternalEObject)parameter).eInverseRemove(this, ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS, Parameter.class, msgs);
+				msgs = ((InternalEObject)parameter).eInverseRemove(this, ParametersPackage.PARAMETER__PARAMETER_REFERENCES, Parameter.class, msgs);
 			if (newParameter != null)
-				msgs = ((InternalEObject)newParameter).eInverseAdd(this, ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS, Parameter.class, msgs);
+				msgs = ((InternalEObject)newParameter).eInverseAdd(this, ParametersPackage.PARAMETER__PARAMETER_REFERENCES, Parameter.class, msgs);
 			msgs = basicSetParameter(newParameter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -355,7 +355,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER:
 				if (parameter != null)
-					msgs = ((InternalEObject)parameter).eInverseRemove(this, ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS, Parameter.class, msgs);
+					msgs = ((InternalEObject)parameter).eInverseRemove(this, ParametersPackage.PARAMETER__PARAMETER_REFERENCES, Parameter.class, msgs);
 				return basicSetParameter((Parameter)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);

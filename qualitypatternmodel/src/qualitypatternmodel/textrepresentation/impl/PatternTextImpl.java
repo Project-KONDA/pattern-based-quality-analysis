@@ -52,7 +52,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getPattern <em>Pattern</em>}</li>
- *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getTextfragment <em>Textfragment</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getFragments <em>Fragments</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getParameterPredefinitions <em>Parameter Predefinitions</em>}</li>
  * </ul>
@@ -61,15 +61,15 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  */
 public class PatternTextImpl extends MinimalEObjectImpl.Container implements PatternText {
 	/**
-	 * The cached value of the '{@link #getTextfragment() <em>Textfragment</em>}' containment reference list.
+	 * The cached value of the '{@link #getFragments() <em>Fragments</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * The fragments of the textual representation of a pattern.
 	 * <!-- end-user-doc -->
-	 * @see #getTextfragment()
+	 * @see #getFragments()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Fragment> textfragment;
+	protected EList<Fragment> fragments;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -169,11 +169,11 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @generated
 	 */
 	@Override
-	public EList<Fragment> getTextfragment() {
-		if (textfragment == null) {
-			textfragment = new EObjectContainmentWithInverseEList<Fragment>(Fragment.class, this, TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT, TextrepresentationPackage.FRAGMENT__PATTERN_TEXT);
+	public EList<Fragment> getFragments() {
+		if (fragments == null) {
+			fragments = new EObjectContainmentWithInverseEList<Fragment>(Fragment.class, this, TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS, TextrepresentationPackage.FRAGMENT__PATTERN_TEXT);
 		}
-		return textfragment;
+		return fragments;
 	}
 
 	/**
@@ -223,7 +223,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		json += "\n\"PatternName\": \"" + getPattern().getName() + "\",";
 		json += "\n\"PatternTextName\": \"" + getName() + "\","; 
 		json+= "\n\"Fragments\" : [";
-		for(Fragment f : getTextfragment()) {
+		for(Fragment f : getFragments()) {
 			json += f.generateJSON() + ",\n";
 		}
 		json = json.substring(0, json.length()-2);
@@ -239,7 +239,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException {
 		List<Parameter> referencedParameters = new ArrayList<Parameter>();
-		for(Fragment f : getTextfragment()) {
+		for(Fragment f : getFragments()) {
 			if(f instanceof ParameterFragment) {
 				ParameterFragment p = (ParameterFragment) f;
 				referencedParameters.add(p.getParameter());
@@ -323,7 +323,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	@Override
 	public void delete() {
 		setPattern(null);
-		for(Fragment fragment : getTextfragment()) {
+		for(Fragment fragment : getFragments()) {
 			if(fragment instanceof ParameterFragment) {
 				ParameterFragment parameterFragment = (ParameterFragment) fragment;
 				parameterFragment.setParameter(null);
@@ -342,7 +342,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	@Override
 	public String getPreview() {
 		String s = "";
-		for(Fragment frag : getTextfragment()) {
+		for(Fragment frag : getFragments()) {
 			s += frag.getPreview();
 		}
 		return s;
@@ -361,8 +361,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetPattern((CompletePattern)otherEnd, msgs);
-			case TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTextfragment()).basicAdd(otherEnd, msgs);
+			case TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFragments()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -377,8 +377,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		switch (featureID) {
 			case TextrepresentationPackage.PATTERN_TEXT__PATTERN:
 				return basicSetPattern(null, msgs);
-			case TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT:
-				return ((InternalEList<?>)getTextfragment()).basicRemove(otherEnd, msgs);
+			case TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS:
+				return ((InternalEList<?>)getFragments()).basicRemove(otherEnd, msgs);
 			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:
 				return ((InternalEList<?>)getParameterPredefinitions()).basicRemove(otherEnd, msgs);
 		}
@@ -409,8 +409,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		switch (featureID) {
 			case TextrepresentationPackage.PATTERN_TEXT__PATTERN:
 				return getPattern();
-			case TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT:
-				return getTextfragment();
+			case TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS:
+				return getFragments();
 			case TextrepresentationPackage.PATTERN_TEXT__NAME:
 				return getName();
 			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:
@@ -431,9 +431,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			case TextrepresentationPackage.PATTERN_TEXT__PATTERN:
 				setPattern((CompletePattern)newValue);
 				return;
-			case TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT:
-				getTextfragment().clear();
-				getTextfragment().addAll((Collection<? extends Fragment>)newValue);
+			case TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS:
+				getFragments().clear();
+				getFragments().addAll((Collection<? extends Fragment>)newValue);
 				return;
 			case TextrepresentationPackage.PATTERN_TEXT__NAME:
 				setName((String)newValue);
@@ -457,8 +457,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			case TextrepresentationPackage.PATTERN_TEXT__PATTERN:
 				setPattern((CompletePattern)null);
 				return;
-			case TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT:
-				getTextfragment().clear();
+			case TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS:
+				getFragments().clear();
 				return;
 			case TextrepresentationPackage.PATTERN_TEXT__NAME:
 				setName(NAME_EDEFAULT);
@@ -480,8 +480,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		switch (featureID) {
 			case TextrepresentationPackage.PATTERN_TEXT__PATTERN:
 				return getPattern() != null;
-			case TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT:
-				return textfragment != null && !textfragment.isEmpty();
+			case TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS:
+				return fragments != null && !fragments.isEmpty();
 			case TextrepresentationPackage.PATTERN_TEXT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:

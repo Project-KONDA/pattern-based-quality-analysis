@@ -104,7 +104,7 @@ public class PatternTextItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TextrepresentationPackage.Literals.PATTERN_TEXT__TEXTFRAGMENT);
+			childrenFeatures.add(TextrepresentationPackage.Literals.PATTERN_TEXT__FRAGMENTS);
 			childrenFeatures.add(TextrepresentationPackage.Literals.PATTERN_TEXT__PARAMETER_PREDEFINITIONS);
 		}
 		return childrenFeatures;
@@ -164,7 +164,7 @@ public class PatternTextItemProvider
 			case TextrepresentationPackage.PATTERN_TEXT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case TextrepresentationPackage.PATTERN_TEXT__TEXTFRAGMENT:
+			case TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS:
 			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -185,12 +185,12 @@ public class PatternTextItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TextrepresentationPackage.Literals.PATTERN_TEXT__TEXTFRAGMENT,
+				(TextrepresentationPackage.Literals.PATTERN_TEXT__FRAGMENTS,
 				 TextrepresentationFactory.eINSTANCE.createParameterFragment()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TextrepresentationPackage.Literals.PATTERN_TEXT__TEXTFRAGMENT,
+				(TextrepresentationPackage.Literals.PATTERN_TEXT__FRAGMENTS,
 				 TextrepresentationFactory.eINSTANCE.createTextFragment()));
 
 		newChildDescriptors.add

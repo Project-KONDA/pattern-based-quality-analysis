@@ -18,7 +18,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/Parameter/description"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/Parameter/predefined"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/Parameter/parameterFragments"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/Parameter/parameterReferences"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/inputIsValid"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/generateDescription"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/validate">
@@ -751,7 +751,7 @@
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//textrepresentation/ObjectWrapper"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/PatternText">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/pattern"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/textfragment"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/fragments"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/PatternText/name"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/parameterPredefinitions"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/generateJSON"/>

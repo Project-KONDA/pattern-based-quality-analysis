@@ -26,14 +26,14 @@ public interface ParameterReference extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Parameter</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.Parameter#getParameterFragments <em>Parameter Fragments</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.Parameter#getParameterReferences <em>Parameter References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameter</em>' reference.
 	 * @see #setParameter(Parameter)
 	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getParameterReference_Parameter()
-	 * @see qualitypatternmodel.parameters.Parameter#getParameterFragments
-	 * @model opposite="parameterFragments"
+	 * @see qualitypatternmodel.parameters.Parameter#getParameterReferences
+	 * @model opposite="parameterReferences"
 	 * @generated
 	 */
 	Parameter getParameter();

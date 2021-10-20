@@ -132,9 +132,9 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 		if (newParameter != parameter) {
 			NotificationChain msgs = null;
 			if (parameter != null)
-				msgs = ((InternalEObject)parameter).eInverseRemove(this, ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS, Parameter.class, msgs);
+				msgs = ((InternalEObject)parameter).eInverseRemove(this, ParametersPackage.PARAMETER__PARAMETER_REFERENCES, Parameter.class, msgs);
 			if (newParameter != null)
-				msgs = ((InternalEObject)newParameter).eInverseAdd(this, ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS, Parameter.class, msgs);
+				msgs = ((InternalEObject)newParameter).eInverseAdd(this, ParametersPackage.PARAMETER__PARAMETER_REFERENCES, Parameter.class, msgs);
 			msgs = basicSetParameter(newParameter, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -175,7 +175,7 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION__PARAMETER:
 				if (parameter != null)
-					msgs = ((InternalEObject)parameter).eInverseRemove(this, ParametersPackage.PARAMETER__PARAMETER_FRAGMENTS, Parameter.class, msgs);
+					msgs = ((InternalEObject)parameter).eInverseRemove(this, ParametersPackage.PARAMETER__PARAMETER_REFERENCES, Parameter.class, msgs);
 				return basicSetParameter((Parameter)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);

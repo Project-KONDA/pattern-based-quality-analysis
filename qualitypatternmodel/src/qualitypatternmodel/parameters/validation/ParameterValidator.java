@@ -23,6 +23,8 @@ public interface ParameterValidator {
 	boolean validateDescription(String value);
 	boolean validatePredefined(boolean value);
 
+	boolean validateParameterReferences(EList<ParameterReference> value);
+
 	boolean validateParameterFragments(EList<ParameterReference> value);
 
 	boolean validateIsPredefined(boolean value);

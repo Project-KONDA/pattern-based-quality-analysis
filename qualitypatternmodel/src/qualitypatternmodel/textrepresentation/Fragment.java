@@ -25,14 +25,14 @@ public interface Fragment extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Pattern Text</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.textrepresentation.PatternText#getTextfragment <em>Textfragment</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.textrepresentation.PatternText#getFragments <em>Fragments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Pattern Text</em>' container reference.
 	 * @see #setPatternText(PatternText)
 	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getFragment_PatternText()
-	 * @see qualitypatternmodel.textrepresentation.PatternText#getTextfragment
-	 * @model opposite="textfragment" required="true" transient="false"
+	 * @see qualitypatternmodel.textrepresentation.PatternText#getFragments
+	 * @model opposite="fragments" required="true" transient="false"
 	 * @generated
 	 */
 	PatternText getPatternText();

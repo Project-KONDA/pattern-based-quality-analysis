@@ -116,13 +116,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER__PREDEFINED = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Fragments</b></em>' reference list.
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__PARAMETER_FRAGMENTS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int PARAMETER__PARAMETER_REFERENCES = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
@@ -423,13 +423,13 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM__PREDEFINED = PARAMETER__PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Fragments</b></em>' reference list.
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION_PARAM__PARAMETER_FRAGMENTS = PARAMETER__PARAMETER_FRAGMENTS;
+	int COMPARISON_OPTION_PARAM__PARAMETER_REFERENCES = PARAMETER__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -766,13 +766,13 @@ public interface ParametersPackage extends EPackage {
 	int PROPERTY_OPTION_PARAM__PREDEFINED = PARAMETER__PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Fragments</b></em>' reference list.
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_PARAM__PARAMETER_FRAGMENTS = PARAMETER__PARAMETER_FRAGMENTS;
+	int PROPERTY_OPTION_PARAM__PARAMETER_REFERENCES = PARAMETER__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -1353,13 +1353,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE__PREDEFINED = PARAMETER__PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Fragments</b></em>' reference list.
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE__PARAMETER_FRAGMENTS = PARAMETER__PARAMETER_FRAGMENTS;
+	int PARAMETER_VALUE__PARAMETER_REFERENCES = PARAMETER__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1822,13 +1822,13 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Fragments</b></em>' reference list.
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_PARAM__PARAMETER_FRAGMENTS = PARAMETER_VALUE__PARAMETER_FRAGMENTS;
+	int BOOLEAN_PARAM__PARAMETER_REFERENCES = PARAMETER_VALUE__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2309,13 +2309,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Fragments</b></em>' reference list.
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM__PARAMETER_FRAGMENTS = PARAMETER_VALUE__PARAMETER_FRAGMENTS;
+	int TEXT_LIST_PARAM__PARAMETER_REFERENCES = PARAMETER_VALUE__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -2805,13 +2805,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Fragments</b></em>' reference list.
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM__PARAMETER_FRAGMENTS = PARAMETER_VALUE__PARAMETER_FRAGMENTS;
+	int TEXT_LITERAL_PARAM__PARAMETER_REFERENCES = PARAMETER_VALUE__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -3301,13 +3301,13 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Fragments</b></em>' reference list.
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_PARAM__PARAMETER_FRAGMENTS = PARAMETER_VALUE__PARAMETER_FRAGMENTS;
+	int NUMBER_PARAM__PARAMETER_REFERENCES = PARAMETER_VALUE__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -3788,13 +3788,13 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Fragments</b></em>' reference list.
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_PARAM__PARAMETER_FRAGMENTS = PARAMETER_VALUE__PARAMETER_FRAGMENTS;
+	int DATE_PARAM__PARAMETER_REFERENCES = PARAMETER_VALUE__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -4275,13 +4275,13 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Fragments</b></em>' reference list.
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_PARAM__PARAMETER_FRAGMENTS = PARAMETER_VALUE__PARAMETER_FRAGMENTS;
+	int TIME_PARAM__PARAMETER_REFERENCES = PARAMETER_VALUE__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -4762,13 +4762,13 @@ public interface ParametersPackage extends EPackage {
 	int UNTYPED_PARAMETER_VALUE__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Fragments</b></em>' reference list.
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNTYPED_PARAMETER_VALUE__PARAMETER_FRAGMENTS = PARAMETER_VALUE__PARAMETER_FRAGMENTS;
+	int UNTYPED_PARAMETER_VALUE__PARAMETER_REFERENCES = PARAMETER_VALUE__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -5240,13 +5240,13 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM__PREDEFINED = PARAMETER_VALUE__PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Fragments</b></em>' reference list.
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME_PARAM__PARAMETER_FRAGMENTS = PARAMETER_VALUE__PARAMETER_FRAGMENTS;
+	int DATE_TIME_PARAM__PARAMETER_REFERENCES = PARAMETER_VALUE__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -5727,13 +5727,13 @@ public interface ParametersPackage extends EPackage {
 	int RELATION_OPTION_PARAM__PREDEFINED = PARAMETER__PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Fragments</b></em>' reference list.
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPTION_PARAM__PARAMETER_FRAGMENTS = PARAMETER__PARAMETER_FRAGMENTS;
+	int RELATION_OPTION_PARAM__PARAMETER_REFERENCES = PARAMETER__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -6070,13 +6070,13 @@ public interface ParametersPackage extends EPackage {
 	int TYPE_OPTION_PARAM__PREDEFINED = PARAMETER__PREDEFINED;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Fragments</b></em>' reference list.
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_OPTION_PARAM__PARAMETER_FRAGMENTS = PARAMETER__PARAMETER_FRAGMENTS;
+	int TYPE_OPTION_PARAM__PARAMETER_REFERENCES = PARAMETER__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Options</b></em>' attribute list.
@@ -6411,15 +6411,15 @@ public interface ParametersPackage extends EPackage {
 	EAttribute getParameter_Predefined();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.Parameter#getParameterFragments <em>Parameter Fragments</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.Parameter#getParameterReferences <em>Parameter References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Parameter Fragments</em>'.
-	 * @see qualitypatternmodel.parameters.Parameter#getParameterFragments()
+	 * @return the meta object for the reference list '<em>Parameter References</em>'.
+	 * @see qualitypatternmodel.parameters.Parameter#getParameterReferences()
 	 * @see #getParameter()
 	 * @generated
 	 */
-	EReference getParameter_ParameterFragments();
+	EReference getParameter_ParameterReferences();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#inputIsValid() <em>Input Is Valid</em>}' operation.
@@ -7217,12 +7217,12 @@ public interface ParametersPackage extends EPackage {
 		EAttribute PARAMETER__PREDEFINED = eINSTANCE.getParameter_Predefined();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameter Fragments</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Parameter References</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARAMETER__PARAMETER_FRAGMENTS = eINSTANCE.getParameter_ParameterFragments();
+		EReference PARAMETER__PARAMETER_REFERENCES = eINSTANCE.getParameter_ParameterReferences();
 
 		/**
 		 * The meta object literal for the '<em><b>Input Is Valid</b></em>' operation.

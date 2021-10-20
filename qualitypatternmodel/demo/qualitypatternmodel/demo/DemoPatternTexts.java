@@ -204,21 +204,21 @@ public class DemoPatternTexts {
 		
 		// Is there an element with <property> <value> that has a <relation> whose <property> is equal to <value> and other <property> is equal to other <value>?
 		
-		patternText.getTextfragment().add(text0);  // Is there an element with name
+		patternText.getFragments().add(text0);  // Is there an element with name
 		patternText.getParameterPredefinitions().add(paramPredef0); // name
-		patternText.getTextfragment().add(param2); // <value>		
-		patternText.getTextfragment().add(text1);  // that has a
-		patternText.getTextfragment().add(param5); // <relation>
-		patternText.getTextfragment().add(text2);  // whose name
+		patternText.getFragments().add(param2); // <value>		
+		patternText.getFragments().add(text1);  // that has a
+		patternText.getFragments().add(param5); // <relation>
+		patternText.getFragments().add(text2);  // whose name
 		patternText.getParameterPredefinitions().add(paramPredef1); // name
-		patternText.getTextfragment().add(text3);  // is equal to
-		patternText.getTextfragment().add(param8); // <value>
+		patternText.getFragments().add(text3);  // is equal to
+		patternText.getFragments().add(param8); // <value>
 		
-		patternText.getTextfragment().add(text4);  // and whose
-		patternText.getTextfragment().add(param9); // <property>
-		patternText.getTextfragment().add(param10);
-		patternText.getTextfragment().add(text5);  // is equal to
-		patternText.getTextfragment().add(param11); // <value>
+		patternText.getFragments().add(text4);  // and whose
+		patternText.getFragments().add(param9); // <property>
+		patternText.getFragments().add(param10);
+		patternText.getFragments().add(text5);  // is equal to
+		patternText.getFragments().add(param11); // <value>
 
 		
 	}
@@ -306,23 +306,23 @@ public class DemoPatternTexts {
 		
 		// Is there an element with <property> <value> that has a <relation> whose <property> is equal to <value> and other <property> is equal to other <value>?
 		
-		patternText.getTextfragment().add(text0);  // Is there an element with
-		patternText.getTextfragment().add(param0); // <property>
-		patternText.getTextfragment().add(param1);
-		patternText.getTextfragment().add(param2); // <value>		
-		patternText.getTextfragment().add(text1);  // that has a
-		patternText.getTextfragment().add(param5); // <relation>
-		patternText.getTextfragment().add(text2);  // whose
-		patternText.getTextfragment().add(param6); // <property>
-		patternText.getTextfragment().add(param7);
-		patternText.getTextfragment().add(text3);  // is equal to
-		patternText.getTextfragment().add(param8); // <value>
+		patternText.getFragments().add(text0);  // Is there an element with
+		patternText.getFragments().add(param0); // <property>
+		patternText.getFragments().add(param1);
+		patternText.getFragments().add(param2); // <value>		
+		patternText.getFragments().add(text1);  // that has a
+		patternText.getFragments().add(param5); // <relation>
+		patternText.getFragments().add(text2);  // whose
+		patternText.getFragments().add(param6); // <property>
+		patternText.getFragments().add(param7);
+		patternText.getFragments().add(text3);  // is equal to
+		patternText.getFragments().add(param8); // <value>
 		
-		patternText.getTextfragment().add(text4);  // and whose
-		patternText.getTextfragment().add(param9); // <property>
-		patternText.getTextfragment().add(param10);
-		patternText.getTextfragment().add(text5);  // is equal to
-		patternText.getTextfragment().add(param11); // <value>
+		patternText.getFragments().add(text4);  // and whose
+		patternText.getFragments().add(param9); // <property>
+		patternText.getFragments().add(param10);
+		patternText.getFragments().add(text5);  // is equal to
+		patternText.getFragments().add(param11); // <value>
 		
 	
 	}
@@ -420,23 +420,23 @@ public class DemoPatternTexts {
 		
 		// Is there an element with <property> <value> that has a <relation> whose <property> is equal to <value> and other <property> is equal to other <value>?
 		
-		patternText.getTextfragment().add(text0);  // Is there an element with
-		patternText.getTextfragment().add(param0); // <property>
-		patternText.getTextfragment().add(param1);
-		patternText.getTextfragment().add(param2); // <value>		
-		patternText.getTextfragment().add(text1);  // that has a
-		patternText.getTextfragment().add(param5); // <relation>
-		patternText.getTextfragment().add(text2);  // whose
-		patternText.getTextfragment().add(param6); // <property>
-		patternText.getTextfragment().add(param7);
-		patternText.getTextfragment().add(text3);  // is equal to
-		patternText.getTextfragment().add(param8); // <value>
+		patternText.getFragments().add(text0);  // Is there an element with
+		patternText.getFragments().add(param0); // <property>
+		patternText.getFragments().add(param1);
+		patternText.getFragments().add(param2); // <value>		
+		patternText.getFragments().add(text1);  // that has a
+		patternText.getFragments().add(param5); // <relation>
+		patternText.getFragments().add(text2);  // whose
+		patternText.getFragments().add(param6); // <property>
+		patternText.getFragments().add(param7);
+		patternText.getFragments().add(text3);  // is equal to
+		patternText.getFragments().add(param8); // <value>
 		
-		patternText.getTextfragment().add(text4);  // and whose
-		patternText.getTextfragment().add(param9); // <property>
-		patternText.getTextfragment().add(param10);
-		patternText.getTextfragment().add(text5);  // is equal to
-		patternText.getTextfragment().add(param11); // <value>
+		patternText.getFragments().add(text4);  // and whose
+		patternText.getFragments().add(param9); // <property>
+		patternText.getFragments().add(param10);
+		patternText.getFragments().add(text5);  // is equal to
+		patternText.getFragments().add(param11); // <value>
 		
 	
 	}
@@ -555,18 +555,18 @@ public class DemoPatternTexts {
 		// Is there an element with <property> <value> that has <comp> <number> <relation> whose <property> is equal to <value>?
 		// Is there an element with <property> <value> that has <comp> <number> <relation> whose <property> is equal to <value>?
 		
-		patternText.getTextfragment().add(text0);  // Is there an element with
+		patternText.getFragments().add(text0);  // Is there an element with
 		patternText.getParameterPredefinitions().add(paramPredef0); // name
 //		patternText.getParameterPredefinitions().add(paramPredef00); // =
-		patternText.getTextfragment().add(param2); // <value>		
-		patternText.getTextfragment().add(text1);  // that has two children
+		patternText.getFragments().add(param2); // <value>		
+		patternText.getFragments().add(text1);  // that has two children
 		patternText.getParameterPredefinitions().add(paramPredef2); // =
 		patternText.getParameterPredefinitions().add(paramPredef3); // 2
 		patternText.getParameterPredefinitions().add(paramPredef4); // child
-		patternText.getTextfragment().add(text2);  // whose
+		patternText.getFragments().add(text2);  // whose
 		patternText.getParameterPredefinitions().add(paramPredef1); // name
-		patternText.getTextfragment().add(text3);  // is equal to
-		patternText.getTextfragment().add(param8); // <value>
+		patternText.getFragments().add(text3);  // is equal to
+		patternText.getFragments().add(param8); // <value>
 	
 	}
 
@@ -658,18 +658,18 @@ public class DemoPatternTexts {
 		
 		// Is there an element with <property> <value> that has <comp> <number> <relation> whose <property> is equal to <value>?
 		
-		patternText.getTextfragment().add(text0);  // Is there an element with
+		patternText.getFragments().add(text0);  // Is there an element with
 		patternText.getParameterPredefinitions().add(paramPredef0); // name
-		patternText.getTextfragment().add(param2); // <value>		
-		patternText.getTextfragment().add(text1);  // that has
-		patternText.getTextfragment().add(param3); // <comp>
-		patternText.getTextfragment().add(param4); // <number>
-		patternText.getTextfragment().add(param5); // <relation>
-		patternText.getTextfragment().add(text2);  // whose
-		patternText.getTextfragment().add(param6); // <property>
-		patternText.getTextfragment().add(param7);
-		patternText.getTextfragment().add(text3);  // is equal to
-		patternText.getTextfragment().add(param8); // <value>
+		patternText.getFragments().add(param2); // <value>		
+		patternText.getFragments().add(text1);  // that has
+		patternText.getFragments().add(param3); // <comp>
+		patternText.getFragments().add(param4); // <number>
+		patternText.getFragments().add(param5); // <relation>
+		patternText.getFragments().add(text2);  // whose
+		patternText.getFragments().add(param6); // <property>
+		patternText.getFragments().add(param7);
+		patternText.getFragments().add(text3);  // is equal to
+		patternText.getFragments().add(param8); // <value>
 	
 	}
 
@@ -763,19 +763,19 @@ public class DemoPatternTexts {
 		
 		// Is there an element with <property> <value> that has <comp> <number> <relation> whose <property> is equal to <value>?
 		
-		patternText.getTextfragment().add(text0);  // Is there an element with
-		patternText.getTextfragment().add(param0); // <property>
-		patternText.getTextfragment().add(param1);
-		patternText.getTextfragment().add(param2); // <value>		
-		patternText.getTextfragment().add(text1);  // that has
-		patternText.getTextfragment().add(param3); // <comp>
-		patternText.getTextfragment().add(param4); // <number>
-		patternText.getTextfragment().add(param5); // <relation>
-		patternText.getTextfragment().add(text2);  // whose
-		patternText.getTextfragment().add(param6); // <property>
-		patternText.getTextfragment().add(param7);
-		patternText.getTextfragment().add(text3);  // is equal to
-		patternText.getTextfragment().add(param8); // <value>
+		patternText.getFragments().add(text0);  // Is there an element with
+		patternText.getFragments().add(param0); // <property>
+		patternText.getFragments().add(param1);
+		patternText.getFragments().add(param2); // <value>		
+		patternText.getFragments().add(text1);  // that has
+		patternText.getFragments().add(param3); // <comp>
+		patternText.getFragments().add(param4); // <number>
+		patternText.getFragments().add(param5); // <relation>
+		patternText.getFragments().add(text2);  // whose
+		patternText.getFragments().add(param6); // <property>
+		patternText.getFragments().add(param7);
+		patternText.getFragments().add(text3);  // is equal to
+		patternText.getFragments().add(param8); // <value>
 	
 	}
 	

@@ -78,13 +78,13 @@ public interface TextrepresentationPackage extends EPackage {
 	int PATTERN_TEXT__PATTERN = 0;
 
 	/**
-	 * The feature id for the '<em><b>Textfragment</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Fragments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT__TEXTFRAGMENT = 1;
+	int PATTERN_TEXT__FRAGMENTS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -503,15 +503,15 @@ public interface TextrepresentationPackage extends EPackage {
 	EReference getPatternText_Pattern();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.textrepresentation.PatternText#getTextfragment <em>Textfragment</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.textrepresentation.PatternText#getFragments <em>Fragments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Textfragment</em>'.
-	 * @see qualitypatternmodel.textrepresentation.PatternText#getTextfragment()
+	 * @return the meta object for the containment reference list '<em>Fragments</em>'.
+	 * @see qualitypatternmodel.textrepresentation.PatternText#getFragments()
 	 * @see #getPatternText()
 	 * @generated
 	 */
-	EReference getPatternText_Textfragment();
+	EReference getPatternText_Fragments();
 
 	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.textrepresentation.PatternText#getName <em>Name</em>}'.
@@ -793,12 +793,12 @@ public interface TextrepresentationPackage extends EPackage {
 		EReference PATTERN_TEXT__PATTERN = eINSTANCE.getPatternText_Pattern();
 
 		/**
-		 * The meta object literal for the '<em><b>Textfragment</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Fragments</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PATTERN_TEXT__TEXTFRAGMENT = eINSTANCE.getPatternText_Textfragment();
+		EReference PATTERN_TEXT__FRAGMENTS = eINSTANCE.getPatternText_Fragments();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
