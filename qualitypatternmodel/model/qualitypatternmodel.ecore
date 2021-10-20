@@ -755,7 +755,9 @@
     <eClassifiers xsi:type="ecore:EClass" name="LocalXmlDataDatabase" eSuperTypes="#//execution/XmlDataDatabase">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ServerXmlDataDatabase" eSuperTypes="#//execution/XmlDataDatabase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ServerXmlDataDatabase" eSuperTypes="#//execution/XmlDataDatabase">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseXClient" eType="#//execution/BaseXClientWrapper"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Databases">
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlDatabases" upperBound="-1"
           eType="#//execution/XmlDataDatabase" containment="true"/>
@@ -896,6 +898,7 @@
           eType="#//patternstructure/CompletePattern" eOpposite="#//patternstructure/CompletePattern/database"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Databaseformat" abstract="true" interface="true"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="BaseXClientWrapper" instanceClassName="qualitypatternmodel.execution.impl.BaseXClient"/>
   </eSubpackages>
   <eSubpackages name="textrepresentation" nsURI="textrepresentation" nsPrefix="textrepresentation">
     <eClassifiers xsi:type="ecore:EClass" name="PatternText">

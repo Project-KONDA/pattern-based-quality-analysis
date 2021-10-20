@@ -89,6 +89,8 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 				return createQueryExceptionWrapperFromString(eDataType, initialValue);
 			case ExecutionPackage.QUERY_IO_EXCEPTION_WRAPPER:
 				return createQueryIOExceptionWrapperFromString(eDataType, initialValue);
+			case ExecutionPackage.BASE_XCLIENT_WRAPPER:
+				return createBaseXClientWrapperFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -108,6 +110,8 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 				return convertQueryExceptionWrapperToString(eDataType, instanceValue);
 			case ExecutionPackage.QUERY_IO_EXCEPTION_WRAPPER:
 				return convertQueryIOExceptionWrapperToString(eDataType, instanceValue);
+			case ExecutionPackage.BASE_XCLIENT_WRAPPER:
+				return convertBaseXClientWrapperToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -262,6 +266,24 @@ public class ExecutionFactoryImpl extends EFactoryImpl implements ExecutionFacto
 	 * @generated
 	 */
 	public String convertQueryIOExceptionWrapperToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BaseXClient createBaseXClientWrapperFromString(EDataType eDataType, String initialValue) {
+		return (BaseXClient)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertBaseXClientWrapperToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

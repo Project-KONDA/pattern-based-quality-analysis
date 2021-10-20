@@ -171,6 +171,13 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	private EDataType queryIOExceptionWrapperEDataType = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType baseXClientWrapperEDataType = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -575,6 +582,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	@Override
 	public EClass getServerXmlDataDatabase() {
 		return serverXmlDataDatabaseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getServerXmlDataDatabase_BaseXClient() {
+		return (EAttribute)serverXmlDataDatabaseEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1083,6 +1100,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EDataType getBaseXClientWrapper() {
+		return baseXClientWrapperEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ExecutionFactory getExecutionFactory() {
 		return (ExecutionFactory)getEFactoryInstance();
 	}
@@ -1142,6 +1169,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEAttribute(localXmlDataDatabaseEClass, LOCAL_XML_DATA_DATABASE__DATA_PATH);
 
 		serverXmlDataDatabaseEClass = createEClass(SERVER_XML_DATA_DATABASE);
+		createEAttribute(serverXmlDataDatabaseEClass, SERVER_XML_DATA_DATABASE__BASE_XCLIENT);
 
 		databasesEClass = createEClass(DATABASES);
 		createEReference(databasesEClass, DATABASES__XML_DATABASES);
@@ -1202,6 +1230,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		baseXExceptionWrapperEDataType = createEDataType(BASE_XEXCEPTION_WRAPPER);
 		queryExceptionWrapperEDataType = createEDataType(QUERY_EXCEPTION_WRAPPER);
 		queryIOExceptionWrapperEDataType = createEDataType(QUERY_IO_EXCEPTION_WRAPPER);
+		baseXClientWrapperEDataType = createEDataType(BASE_XCLIENT_WRAPPER);
 	}
 
 	/**
@@ -1305,6 +1334,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEAttribute(getLocalXmlDataDatabase_DataPath(), ecorePackage.getEString(), "dataPath", null, 0, 1, LocalXmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serverXmlDataDatabaseEClass, ServerXmlDataDatabase.class, "ServerXmlDataDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getServerXmlDataDatabase_BaseXClient(), this.getBaseXClientWrapper(), "baseXClient", null, 0, 1, ServerXmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(databasesEClass, Databases.class, "Databases", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDatabases_XmlDatabases(), this.getXmlDataDatabase(), null, "xmlDatabases", null, 0, -1, Databases.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1505,6 +1535,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEDataType(baseXExceptionWrapperEDataType, BaseXException.class, "BaseXExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(queryExceptionWrapperEDataType, QueryException.class, "QueryExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(queryIOExceptionWrapperEDataType, QueryIOException.class, "QueryIOExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(baseXClientWrapperEDataType, BaseXClient.class, "BaseXClientWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

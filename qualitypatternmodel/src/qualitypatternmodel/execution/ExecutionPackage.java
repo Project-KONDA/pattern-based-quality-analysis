@@ -1058,13 +1058,22 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_DATA_DATABASE__ATTRIBUTE_NAMES = XML_DATA_DATABASE__ATTRIBUTE_NAMES;
 
 	/**
+	 * The feature id for the '<em><b>Base XClient</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATA_DATABASE__BASE_XCLIENT = XML_DATA_DATABASE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Server Xml Data Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVER_XML_DATA_DATABASE_FEATURE_COUNT = XML_DATA_DATABASE_FEATURE_COUNT + 0;
+	int SERVER_XML_DATA_DATABASE_FEATURE_COUNT = XML_DATA_DATABASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Analyse</em>' operation.
@@ -2318,6 +2327,17 @@ public interface ExecutionPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '<em>Base XClient Wrapper</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.impl.BaseXClient
+	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getBaseXClientWrapper()
+	 * @generated
+	 */
+	int BASE_XCLIENT_WRAPPER = 16;
+
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.Result <em>Result</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2652,6 +2672,17 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getServerXmlDataDatabase();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.execution.ServerXmlDataDatabase#getBaseXClient <em>Base XClient</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Base XClient</em>'.
+	 * @see qualitypatternmodel.execution.ServerXmlDataDatabase#getBaseXClient()
+	 * @see #getServerXmlDataDatabase()
+	 * @generated
+	 */
+	EAttribute getServerXmlDataDatabase_BaseXClient();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.Databases <em>Databases</em>}'.
@@ -3172,6 +3203,17 @@ public interface ExecutionPackage extends EPackage {
 	EDataType getQueryIOExceptionWrapper();
 
 	/**
+	 * Returns the meta object for data type '{@link qualitypatternmodel.execution.impl.BaseXClient <em>Base XClient Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Base XClient Wrapper</em>'.
+	 * @see qualitypatternmodel.execution.impl.BaseXClient
+	 * @model instanceClass="qualitypatternmodel.execution.impl.BaseXClient"
+	 * @generated
+	 */
+	EDataType getBaseXClientWrapper();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3459,6 +3501,14 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SERVER_XML_DATA_DATABASE = eINSTANCE.getServerXmlDataDatabase();
+
+		/**
+		 * The meta object literal for the '<em><b>Base XClient</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVER_XML_DATA_DATABASE__BASE_XCLIENT = eINSTANCE.getServerXmlDataDatabase_BaseXClient();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.DatabasesImpl <em>Databases</em>}' class.
@@ -3881,6 +3931,16 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType QUERY_IO_EXCEPTION_WRAPPER = eINSTANCE.getQueryIOExceptionWrapper();
+
+		/**
+		 * The meta object literal for the '<em>Base XClient Wrapper</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.execution.impl.BaseXClient
+		 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getBaseXClientWrapper()
+		 * @generated
+		 */
+		EDataType BASE_XCLIENT_WRAPPER = eINSTANCE.getBaseXClientWrapper();
 
 	}
 
