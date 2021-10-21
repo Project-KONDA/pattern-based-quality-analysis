@@ -125,11 +125,20 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	public EList<Parameter> validateAgainstSchema() {
 		EList<Parameter> invalidParams = new BasicEList<Parameter>();
 		boolean invalid = true;
+		String valueWithoutPrefix = "";
+		String valueWithPrefix = getValueAsString();
+		String[] split = valueWithPrefix.split(":");
+		if(split.length > 1) {
+			valueWithoutPrefix = split[1];
+		} else {
+			valueWithoutPrefix = split[0];
+		}
 		for(String s : getSuggestions()) {
-			if(s.equals(getValueAsString())){
+			if(s.equals(valueWithoutPrefix)){
 				invalid = false;
 			}
 		}
+		invalid = invalid && getSuggestions().size() > 0;
 		if(invalid) {
 			invalidParams.add(this);
 		}

@@ -120,7 +120,8 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	@Override
 	public EList<Parameter> validateAgainstSchema() {
 		EList<Parameter> invalidParams = new BasicEList<Parameter>();
-		if(!inferSuggestions().contains(getValue())) {
+		EList<RelationKind> suggestions = inferSuggestions();		
+		if(!suggestions.contains(getValue()) && !suggestions.isEmpty()) {
 			invalidParams.add(this);
 		}
 		return invalidParams;

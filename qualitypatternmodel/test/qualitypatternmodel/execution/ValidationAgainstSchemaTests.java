@@ -28,12 +28,8 @@ public class ValidationAgainstSchemaTests {
 	public void before() throws IOException, QueryException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		db = new ServerXmlDataDatabaseImpl("ddb_20190606", "localhost", 1984, "admin", "admin");
 		schemaDb = db.createSchemaDatabaseFromReferencedSchema();		
-		EList<String> elementNames = schemaDb.getElementNames();
-		System.out.println(elementNames.size());
-		for(String e: elementNames) {
-			System.out.println(e);
-		}
-		
+		assertFalse(schemaDb.getElementNames().isEmpty());	
+		assertFalse(db.getElementNames().isEmpty());	
 	}
 	
 	@Test
