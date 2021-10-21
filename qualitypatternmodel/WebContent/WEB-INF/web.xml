@@ -149,5 +149,28 @@
 		<servlet-name>ConcretePatternDescriptionServlet</servlet-name>
 		<url-pattern>/concrete-patterns/description/*</url-pattern>
 	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>DatabasesListServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.DatabasesListServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DatabasesListServlet</servlet-name>
+		<url-pattern>/databases</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>DatabasesRegistrationServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.DatabasesRegistrationServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DatabasesRegistrationServlet</servlet-name>
+		<url-pattern>/databases/registration/*</url-pattern>
+	</servlet-mapping>
+	
 
 </web-app>

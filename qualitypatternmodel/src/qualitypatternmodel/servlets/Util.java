@@ -9,12 +9,16 @@ import java.util.ArrayList;
 public class Util {
 	static final String ABSTRACT_PATTERNS_PATH = "../../abstract-patterns/";
 	static final String CONCRETE_PATTERNS_PATH = "../../concrete-patterns/";
+	static final String DATABASES_PATH = "../../databases/";
+
 
 	public static final String PROJECT_PREFIX_ENDPOINT = "/qualitypatternmodel";
 	
 	public static final String PARAMETER_EXPLANATIONS_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/parameter-explanations";
 	public static final String ABSTRACT_PATTERN_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/abstract-patterns";
 	public static final String CONCRETE_PATTERN_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns";
+	public static final String DATABASES_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/databases";
+
 	public static final String ABSTRACT_PATTERN_TEXT_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/abstract-patterns/text-list/";
 	public static final String INSTANTIATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/abstract-patterns/instantiation/";
 	public static final String CONCRETE_PATTERN_DELETION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/deletion/";
@@ -25,6 +29,9 @@ public class Util {
 	public static final String CONCRETISATION_FINALIZATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/finalization/";
 	public static final String QUERY_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/query/";
 	public static final String FINALIZED_PATTERN_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/finalized-patterns";
+	
+	public static final String DATABASE_REGISTRATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/databases/registration/";
+
 
 	
 	public static String getFileNamesInFolder(String path, Class clas) throws URISyntaxException {
