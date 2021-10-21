@@ -1094,7 +1094,7 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_DATA_DATABASE__ATTRIBUTE_NAMES = XML_DATA_DATABASE__ATTRIBUTE_NAMES;
 
 	/**
-	 * The feature id for the '<em><b>Base XClient</b></em>' attribute.
+	 * The feature id for the '<em><b>Base XClient</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2376,6 +2376,79 @@ public interface ExecutionPackage extends EPackage {
 	int DATABASEFORMAT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.BaseXClientImpl <em>Base XClient</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.impl.BaseXClientImpl
+	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getBaseXClient()
+	 * @generated
+	 */
+	int BASE_XCLIENT = 13;
+
+	/**
+	 * The feature id for the '<em><b>Host</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_XCLIENT__HOST = 0;
+
+	/**
+	 * The feature id for the '<em><b>Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_XCLIENT__PORT = 1;
+
+	/**
+	 * The number of structural features of the '<em>Base XClient</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_XCLIENT_FEATURE_COUNT = 2;
+
+	/**
+	 * The operation id for the '<em>Close</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_XCLIENT___CLOSE = 0;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_XCLIENT___EXECUTE__STRING = 1;
+
+	/**
+	 * The operation id for the '<em>Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_XCLIENT___QUERY__STRING = 2;
+
+	/**
+	 * The number of operations of the '<em>Base XClient</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_XCLIENT_OPERATION_COUNT = 3;
+
+	/**
 	 * The meta object id for the '<em>Base XException Wrapper</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2383,7 +2456,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getBaseXExceptionWrapper()
 	 * @generated
 	 */
-	int BASE_XEXCEPTION_WRAPPER = 13;
+	int BASE_XEXCEPTION_WRAPPER = 14;
 
 	/**
 	 * The meta object id for the '<em>Query Exception Wrapper</em>' data type.
@@ -2393,7 +2466,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getQueryExceptionWrapper()
 	 * @generated
 	 */
-	int QUERY_EXCEPTION_WRAPPER = 14;
+	int QUERY_EXCEPTION_WRAPPER = 15;
 
 
 	/**
@@ -2404,18 +2477,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getQueryIOExceptionWrapper()
 	 * @generated
 	 */
-	int QUERY_IO_EXCEPTION_WRAPPER = 15;
-
-
-	/**
-	 * The meta object id for the '<em>Base XClient Wrapper</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.execution.impl.BaseXClient
-	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getBaseXClientWrapper()
-	 * @generated
-	 */
-	int BASE_XCLIENT_WRAPPER = 16;
+	int QUERY_IO_EXCEPTION_WRAPPER = 16;
 
 
 	/**
@@ -2427,6 +2489,17 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 */
 	int IO_EXCEPTION_WRAPPER = 17;
+
+
+	/**
+	 * The meta object id for the '<em>Query Wrapper</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.impl.BaseXClientImpl.Query
+	 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getQueryWrapper()
+	 * @generated
+	 */
+	int QUERY_WRAPPER = 18;
 
 
 	/**
@@ -2786,15 +2859,15 @@ public interface ExecutionPackage extends EPackage {
 	EClass getServerXmlDataDatabase();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.execution.ServerXmlDataDatabase#getBaseXClient <em>Base XClient</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.execution.ServerXmlDataDatabase#getBaseXClient <em>Base XClient</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Base XClient</em>'.
+	 * @return the meta object for the containment reference '<em>Base XClient</em>'.
 	 * @see qualitypatternmodel.execution.ServerXmlDataDatabase#getBaseXClient()
 	 * @see #getServerXmlDataDatabase()
 	 * @generated
 	 */
-	EAttribute getServerXmlDataDatabase_BaseXClient();
+	EReference getServerXmlDataDatabase_BaseXClient();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.Databases <em>Databases</em>}'.
@@ -3293,6 +3366,68 @@ public interface ExecutionPackage extends EPackage {
 	EClass getDatabaseformat();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.execution.BaseXClient <em>Base XClient</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Base XClient</em>'.
+	 * @see qualitypatternmodel.execution.BaseXClient
+	 * @generated
+	 */
+	EClass getBaseXClient();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.execution.BaseXClient#getHost <em>Host</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Host</em>'.
+	 * @see qualitypatternmodel.execution.BaseXClient#getHost()
+	 * @see #getBaseXClient()
+	 * @generated
+	 */
+	EAttribute getBaseXClient_Host();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.execution.BaseXClient#getPort <em>Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Port</em>'.
+	 * @see qualitypatternmodel.execution.BaseXClient#getPort()
+	 * @see #getBaseXClient()
+	 * @generated
+	 */
+	EAttribute getBaseXClient_Port();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.BaseXClient#close() <em>Close</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Close</em>' operation.
+	 * @see qualitypatternmodel.execution.BaseXClient#close()
+	 * @generated
+	 */
+	EOperation getBaseXClient__Close();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.BaseXClient#execute(java.lang.String) <em>Execute</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Execute</em>' operation.
+	 * @see qualitypatternmodel.execution.BaseXClient#execute(java.lang.String)
+	 * @generated
+	 */
+	EOperation getBaseXClient__Execute__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.BaseXClient#query(java.lang.String) <em>Query</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Query</em>' operation.
+	 * @see qualitypatternmodel.execution.BaseXClient#query(java.lang.String)
+	 * @generated
+	 */
+	EOperation getBaseXClient__Query__String();
+
+	/**
 	 * Returns the meta object for data type '{@link org.basex.core.BaseXException <em>Base XException Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3326,17 +3461,6 @@ public interface ExecutionPackage extends EPackage {
 	EDataType getQueryIOExceptionWrapper();
 
 	/**
-	 * Returns the meta object for data type '{@link qualitypatternmodel.execution.impl.BaseXClient <em>Base XClient Wrapper</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Base XClient Wrapper</em>'.
-	 * @see qualitypatternmodel.execution.impl.BaseXClient
-	 * @model instanceClass="qualitypatternmodel.execution.impl.BaseXClient"
-	 * @generated
-	 */
-	EDataType getBaseXClientWrapper();
-
-	/**
 	 * Returns the meta object for data type '{@link java.io.IOException <em>Io Exception Wrapper</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3346,6 +3470,17 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getIoExceptionWrapper();
+
+	/**
+	 * Returns the meta object for data type '{@link qualitypatternmodel.execution.impl.BaseXClientImpl.Query <em>Query Wrapper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Query Wrapper</em>'.
+	 * @see qualitypatternmodel.execution.impl.BaseXClientImpl.Query
+	 * @model instanceClass="qualitypatternmodel.execution.impl.BaseXClientImpl.Query"
+	 * @generated
+	 */
+	EDataType getQueryWrapper();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3653,12 +3788,12 @@ public interface ExecutionPackage extends EPackage {
 		EClass SERVER_XML_DATA_DATABASE = eINSTANCE.getServerXmlDataDatabase();
 
 		/**
-		 * The meta object literal for the '<em><b>Base XClient</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Base XClient</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SERVER_XML_DATA_DATABASE__BASE_XCLIENT = eINSTANCE.getServerXmlDataDatabase_BaseXClient();
+		EReference SERVER_XML_DATA_DATABASE__BASE_XCLIENT = eINSTANCE.getServerXmlDataDatabase_BaseXClient();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.DatabasesImpl <em>Databases</em>}' class.
@@ -4061,6 +4196,56 @@ public interface ExecutionPackage extends EPackage {
 		EClass DATABASEFORMAT = eINSTANCE.getDatabaseformat();
 
 		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.BaseXClientImpl <em>Base XClient</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.execution.impl.BaseXClientImpl
+		 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getBaseXClient()
+		 * @generated
+		 */
+		EClass BASE_XCLIENT = eINSTANCE.getBaseXClient();
+
+		/**
+		 * The meta object literal for the '<em><b>Host</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BASE_XCLIENT__HOST = eINSTANCE.getBaseXClient_Host();
+
+		/**
+		 * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BASE_XCLIENT__PORT = eINSTANCE.getBaseXClient_Port();
+
+		/**
+		 * The meta object literal for the '<em><b>Close</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BASE_XCLIENT___CLOSE = eINSTANCE.getBaseXClient__Close();
+
+		/**
+		 * The meta object literal for the '<em><b>Execute</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BASE_XCLIENT___EXECUTE__STRING = eINSTANCE.getBaseXClient__Execute__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Query</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BASE_XCLIENT___QUERY__STRING = eINSTANCE.getBaseXClient__Query__String();
+
+		/**
 		 * The meta object literal for the '<em>Base XException Wrapper</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4091,16 +4276,6 @@ public interface ExecutionPackage extends EPackage {
 		EDataType QUERY_IO_EXCEPTION_WRAPPER = eINSTANCE.getQueryIOExceptionWrapper();
 
 		/**
-		 * The meta object literal for the '<em>Base XClient Wrapper</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.execution.impl.BaseXClient
-		 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getBaseXClientWrapper()
-		 * @generated
-		 */
-		EDataType BASE_XCLIENT_WRAPPER = eINSTANCE.getBaseXClientWrapper();
-
-		/**
 		 * The meta object literal for the '<em>Io Exception Wrapper</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4109,6 +4284,16 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType IO_EXCEPTION_WRAPPER = eINSTANCE.getIoExceptionWrapper();
+
+		/**
+		 * The meta object literal for the '<em>Query Wrapper</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.execution.impl.BaseXClientImpl.Query
+		 * @see qualitypatternmodel.execution.impl.ExecutionPackageImpl#getQueryWrapper()
+		 * @generated
+		 */
+		EDataType QUERY_WRAPPER = eINSTANCE.getQueryWrapper();
 
 	}
 

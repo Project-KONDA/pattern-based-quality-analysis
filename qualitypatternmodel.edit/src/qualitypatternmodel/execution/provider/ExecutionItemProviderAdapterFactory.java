@@ -279,6 +279,29 @@ public class ExecutionItemProviderAdapterFactory extends ExecutionAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.execution.BaseXClient} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BaseXClientItemProvider baseXClientItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.execution.BaseXClient}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBaseXClientAdapter() {
+		if (baseXClientItemProvider == null) {
+			baseXClientItemProvider = new BaseXClientItemProvider(this);
+		}
+
+		return baseXClientItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -392,6 +415,7 @@ public class ExecutionItemProviderAdapterFactory extends ExecutionAdapterFactory
 		if (xmlSchemaDatabaseItemProvider != null) xmlSchemaDatabaseItemProvider.dispose();
 		if (localXmlSchemaDatabaseItemProvider != null) localXmlSchemaDatabaseItemProvider.dispose();
 		if (serverXmlSchemaDatabaseItemProvider != null) serverXmlSchemaDatabaseItemProvider.dispose();
+		if (baseXClientItemProvider != null) baseXClientItemProvider.dispose();
 	}
 
 }

@@ -7,14 +7,17 @@ import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import qualitypatternmodel.execution.BaseXClient;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.ServerXmlDataDatabase;
-import qualitypatternmodel.execution.impl.BaseXClient.Query;
+import qualitypatternmodel.execution.impl.BaseXClientImpl.Query;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,23 +34,14 @@ import qualitypatternmodel.execution.impl.BaseXClient.Query;
  */
 public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements ServerXmlDataDatabase {
 	/**
-	 * The default value of the '{@link #getBaseXClient() <em>Base XClient</em>}' attribute.
+	 * The cached value of the '{@link #getBaseXClient() <em>Base XClient</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getBaseXClient()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final BaseXClient BASE_XCLIENT_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getBaseXClient() <em>Base XClient</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBaseXClient()
-	 * @generated
-	 * @ordered
-	 */
-	protected BaseXClient baseXClient = BASE_XCLIENT_EDEFAULT;
+	protected BaseXClient baseXClient;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,7 +55,7 @@ public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Se
 	public ServerXmlDataDatabaseImpl(String name, String host, int port, String username, String password) throws IOException {
 		super();
 		setName(name);
-		setBaseXClient(new BaseXClient(host, port, username, password));		
+		setBaseXClient(new BaseXClientImpl(host, port, username, password));		
 	}
 	
 	@Override
@@ -107,12 +101,48 @@ public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Se
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setBaseXClient(BaseXClient newBaseXClient) {
+	public NotificationChain basicSetBaseXClient(BaseXClient newBaseXClient, NotificationChain msgs) {
 		BaseXClient oldBaseXClient = baseXClient;
 		baseXClient = newBaseXClient;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.SERVER_XML_DATA_DATABASE__BASE_XCLIENT, oldBaseXClient, baseXClient));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExecutionPackage.SERVER_XML_DATA_DATABASE__BASE_XCLIENT, oldBaseXClient, newBaseXClient);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setBaseXClient(BaseXClient newBaseXClient) {
+		if (newBaseXClient != baseXClient) {
+			NotificationChain msgs = null;
+			if (baseXClient != null)
+				msgs = ((InternalEObject)baseXClient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExecutionPackage.SERVER_XML_DATA_DATABASE__BASE_XCLIENT, null, msgs);
+			if (newBaseXClient != null)
+				msgs = ((InternalEObject)newBaseXClient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExecutionPackage.SERVER_XML_DATA_DATABASE__BASE_XCLIENT, null, msgs);
+			msgs = basicSetBaseXClient(newBaseXClient, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.SERVER_XML_DATA_DATABASE__BASE_XCLIENT, newBaseXClient, newBaseXClient));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ExecutionPackage.SERVER_XML_DATA_DATABASE__BASE_XCLIENT:
+				return basicSetBaseXClient(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -153,7 +183,7 @@ public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Se
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ExecutionPackage.SERVER_XML_DATA_DATABASE__BASE_XCLIENT:
-				setBaseXClient(BASE_XCLIENT_EDEFAULT);
+				setBaseXClient((BaseXClient)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -168,25 +198,9 @@ public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Se
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ExecutionPackage.SERVER_XML_DATA_DATABASE__BASE_XCLIENT:
-				return BASE_XCLIENT_EDEFAULT == null ? baseXClient != null : !BASE_XCLIENT_EDEFAULT.equals(baseXClient);
+				return baseXClient != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (baseXClient: ");
-		result.append(baseXClient);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ServerXmlDatabaseImpl

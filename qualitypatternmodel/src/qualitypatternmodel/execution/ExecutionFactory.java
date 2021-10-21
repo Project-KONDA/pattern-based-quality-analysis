@@ -96,6 +96,15 @@ public interface ExecutionFactory extends EFactory {
 	ServerXmlSchemaDatabase createServerXmlSchemaDatabase();
 
 	/**
+	 * Returns a new object of class '<em>Base XClient</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Base XClient</em>'.
+	 * @generated
+	 */
+	BaseXClient createBaseXClient();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -38,6 +38,7 @@ public class ExecutionTests extends TestSuite {
 		suite.addTestSuite(XmlSchemaDatabaseTest.class);
 		suite.addTestSuite(LocalXmlSchemaDatabaseTest.class);
 		suite.addTestSuite(ServerXmlSchemaDatabaseTest.class);
+		suite.addTestSuite(BaseXClientTest.class);
 		return suite;
 	}
 

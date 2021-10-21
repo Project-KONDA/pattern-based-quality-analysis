@@ -763,7 +763,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ServerXmlDataDatabase" eSuperTypes="#//execution/XmlDataDatabase">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseXClient" eType="#//execution/BaseXClientWrapper"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="baseXClient" lowerBound="1"
+          eType="#//execution/BaseXClient" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Databases">
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlDatabases" upperBound="-1"
@@ -906,8 +907,20 @@
           eType="#//patternstructure/CompletePattern" eOpposite="#//patternstructure/CompletePattern/database"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Databaseformat" abstract="true" interface="true"/>
-    <eClassifiers xsi:type="ecore:EDataType" name="BaseXClientWrapper" instanceClassName="qualitypatternmodel.execution.impl.BaseXClient"/>
     <eClassifiers xsi:type="ecore:EDataType" name="IoExceptionWrapper" instanceClassName="java.io.IOException"/>
+    <eClassifiers xsi:type="ecore:EClass" name="BaseXClient">
+      <eOperations name="close" eExceptions="#//execution/IoExceptionWrapper"/>
+      <eOperations name="execute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//execution/IoExceptionWrapper">
+        <eParameters name="command" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="query" eType="#//execution/QueryWrapper" eExceptions="#//execution/IoExceptionWrapper">
+        <eParameters name="query" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="QueryWrapper" instanceClassName="qualitypatternmodel.execution.impl.BaseXClientImpl.Query"/>
   </eSubpackages>
   <eSubpackages name="textrepresentation" nsURI="textrepresentation" nsPrefix="textrepresentation">
     <eClassifiers xsi:type="ecore:EClass" name="PatternText">

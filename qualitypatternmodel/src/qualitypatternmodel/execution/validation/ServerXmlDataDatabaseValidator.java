@@ -4,7 +4,8 @@
  */
 package qualitypatternmodel.execution.validation;
 
-import qualitypatternmodel.execution.impl.BaseXClient;
+import qualitypatternmodel.execution.BaseXClient;
+import qualitypatternmodel.execution.impl.BaseXClientImpl;
 
 
 /**
@@ -17,5 +18,7 @@ public interface ServerXmlDataDatabaseValidator {
 	boolean validate();
 
 	boolean validateBaseXClient(BaseXClient value);
+
+	boolean validateBaseXClient(BaseXClientImpl value);
 
 }

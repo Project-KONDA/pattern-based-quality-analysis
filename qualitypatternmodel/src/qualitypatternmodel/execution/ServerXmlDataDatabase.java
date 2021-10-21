@@ -2,9 +2,6 @@
  */
 package qualitypatternmodel.execution;
 
-import qualitypatternmodel.execution.impl.BaseXClient;
-
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Server Xml Database</b></em>'.
@@ -25,22 +22,22 @@ import qualitypatternmodel.execution.impl.BaseXClient;
 public interface ServerXmlDataDatabase extends XmlDataDatabase {
 
 	/**
-	 * Returns the value of the '<em><b>Base XClient</b></em>' attribute.
+	 * Returns the value of the '<em><b>Base XClient</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Base XClient</em>' attribute.
+	 * @return the value of the '<em>Base XClient</em>' containment reference.
 	 * @see #setBaseXClient(BaseXClient)
 	 * @see qualitypatternmodel.execution.ExecutionPackage#getServerXmlDataDatabase_BaseXClient()
-	 * @model dataType="qualitypatternmodel.execution.BaseXClientWrapper"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	BaseXClient getBaseXClient();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.execution.ServerXmlDataDatabase#getBaseXClient <em>Base XClient</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.execution.ServerXmlDataDatabase#getBaseXClient <em>Base XClient</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Base XClient</em>' attribute.
+	 * @param value the new value of the '<em>Base XClient</em>' containment reference.
 	 * @see #getBaseXClient()
 	 * @generated
 	 */

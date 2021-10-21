@@ -3,6 +3,7 @@
 package qualitypatternmodel.execution.provider;
 
 
+import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 
@@ -146,7 +147,7 @@ public class DatabasesItemProvider
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
@@ -162,10 +163,15 @@ public class DatabasesItemProvider
 				(ExecutionPackage.Literals.DATABASES__XML_DATABASES,
 				 ExecutionFactory.eINSTANCE.createLocalXmlDataDatabase()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ExecutionPackage.Literals.DATABASES__XML_DATABASES,
-				 ExecutionFactory.eINSTANCE.createServerXmlDataDatabase()));
+		try {
+			newChildDescriptors.add
+				(createChildParameter
+					(ExecutionPackage.Literals.DATABASES__XML_DATABASES,
+					 ExecutionFactory.eINSTANCE.createServerXmlDataDatabase()));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		newChildDescriptors.add
 			(createChildParameter

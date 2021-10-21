@@ -578,8 +578,8 @@
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/BaseXExceptionWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/QueryExceptionWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/QueryIOExceptionWrapper"/>
-      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/BaseXClientWrapper"/>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/IoExceptionWrapper"/>
+      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//execution/QueryWrapper"/>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//execution/Result">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/Result/database"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/Result/name"/>
@@ -641,7 +641,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/LocalXmlDataDatabase/dataPath"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/ServerXmlDataDatabase">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/ServerXmlDataDatabase/baseXClient"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/ServerXmlDataDatabase/baseXClient"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/Databases">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/Databases/xmlDatabases"/>
@@ -755,6 +755,17 @@
         </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//execution/Databaseformat"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/BaseXClient">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/BaseXClient/host"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/BaseXClient/port"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/BaseXClient/close"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/BaseXClient/execute">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/BaseXClient/execute/command"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/BaseXClient/query">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/BaseXClient/query/query"/>
+        </genOperations>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Textrepresentation" disposableProviderFactory="true"
         ecorePackage="qualitypatternmodel.ecore#//textrepresentation">

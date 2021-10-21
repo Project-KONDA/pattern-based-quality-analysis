@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 
 import qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl;
+import qualitypatternmodel.execution.BaseXClient;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.Databaseformat;
 import qualitypatternmodel.execution.Databases;
@@ -34,6 +35,7 @@ import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.execution.XmlResult;
 
 import qualitypatternmodel.execution.XmlSchemaDatabase;
+import qualitypatternmodel.execution.impl.BaseXClientImpl.Query;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
@@ -155,6 +157,13 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass baseXClientEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType baseXExceptionWrapperEDataType = null;
 
 	/**
@@ -176,14 +185,14 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType baseXClientWrapperEDataType = null;
+	private EDataType ioExceptionWrapperEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType ioExceptionWrapperEDataType = null;
+	private EDataType queryWrapperEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -618,8 +627,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getServerXmlDataDatabase_BaseXClient() {
-		return (EAttribute)serverXmlDataDatabaseEClass.getEStructuralFeatures().get(0);
+	public EReference getServerXmlDataDatabase_BaseXClient() {
+		return (EReference)serverXmlDataDatabaseEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1108,6 +1117,66 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getBaseXClient() {
+		return baseXClientEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBaseXClient_Host() {
+		return (EAttribute)baseXClientEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBaseXClient_Port() {
+		return (EAttribute)baseXClientEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getBaseXClient__Close() {
+		return baseXClientEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getBaseXClient__Execute__String() {
+		return baseXClientEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getBaseXClient__Query__String() {
+		return baseXClientEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getBaseXExceptionWrapper() {
 		return baseXExceptionWrapperEDataType;
 	}
@@ -1138,8 +1207,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EDataType getBaseXClientWrapper() {
-		return baseXClientWrapperEDataType;
+	public EDataType getIoExceptionWrapper() {
+		return ioExceptionWrapperEDataType;
 	}
 
 	/**
@@ -1148,8 +1217,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EDataType getIoExceptionWrapper() {
-		return ioExceptionWrapperEDataType;
+	public EDataType getQueryWrapper() {
+		return queryWrapperEDataType;
 	}
 
 	/**
@@ -1219,7 +1288,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEAttribute(localXmlDataDatabaseEClass, LOCAL_XML_DATA_DATABASE__DATA_PATH);
 
 		serverXmlDataDatabaseEClass = createEClass(SERVER_XML_DATA_DATABASE);
-		createEAttribute(serverXmlDataDatabaseEClass, SERVER_XML_DATA_DATABASE__BASE_XCLIENT);
+		createEReference(serverXmlDataDatabaseEClass, SERVER_XML_DATA_DATABASE__BASE_XCLIENT);
 
 		databasesEClass = createEClass(DATABASES);
 		createEReference(databasesEClass, DATABASES__XML_DATABASES);
@@ -1277,12 +1346,19 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		databaseformatEClass = createEClass(DATABASEFORMAT);
 
+		baseXClientEClass = createEClass(BASE_XCLIENT);
+		createEAttribute(baseXClientEClass, BASE_XCLIENT__HOST);
+		createEAttribute(baseXClientEClass, BASE_XCLIENT__PORT);
+		createEOperation(baseXClientEClass, BASE_XCLIENT___CLOSE);
+		createEOperation(baseXClientEClass, BASE_XCLIENT___EXECUTE__STRING);
+		createEOperation(baseXClientEClass, BASE_XCLIENT___QUERY__STRING);
+
 		// Create data types
 		baseXExceptionWrapperEDataType = createEDataType(BASE_XEXCEPTION_WRAPPER);
 		queryExceptionWrapperEDataType = createEDataType(QUERY_EXCEPTION_WRAPPER);
 		queryIOExceptionWrapperEDataType = createEDataType(QUERY_IO_EXCEPTION_WRAPPER);
-		baseXClientWrapperEDataType = createEDataType(BASE_XCLIENT_WRAPPER);
 		ioExceptionWrapperEDataType = createEDataType(IO_EXCEPTION_WRAPPER);
+		queryWrapperEDataType = createEDataType(QUERY_WRAPPER);
 	}
 
 	/**
@@ -1396,7 +1472,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEAttribute(getLocalXmlDataDatabase_DataPath(), ecorePackage.getEString(), "dataPath", null, 0, 1, LocalXmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serverXmlDataDatabaseEClass, ServerXmlDataDatabase.class, "ServerXmlDataDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getServerXmlDataDatabase_BaseXClient(), this.getBaseXClientWrapper(), "baseXClient", null, 0, 1, ServerXmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getServerXmlDataDatabase_BaseXClient(), this.getBaseXClient(), null, "baseXClient", null, 1, 1, ServerXmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(databasesEClass, Databases.class, "Databases", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDatabases_XmlDatabases(), this.getXmlDataDatabase(), null, "xmlDatabases", null, 0, -1, Databases.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1611,12 +1687,27 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		initEClass(databaseformatEClass, Databaseformat.class, "Databaseformat", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(baseXClientEClass, BaseXClient.class, "BaseXClient", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBaseXClient_Host(), ecorePackage.getEString(), "host", null, 0, 1, BaseXClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBaseXClient_Port(), ecorePackage.getEInt(), "port", null, 0, 1, BaseXClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getBaseXClient__Close(), null, "close", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIoExceptionWrapper());
+
+		op = initEOperation(getBaseXClient__Execute__String(), ecorePackage.getEString(), "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "command", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIoExceptionWrapper());
+
+		op = initEOperation(getBaseXClient__Query__String(), this.getQueryWrapper(), "query", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "query", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIoExceptionWrapper());
+
 		// Initialize data types
 		initEDataType(baseXExceptionWrapperEDataType, BaseXException.class, "BaseXExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(queryExceptionWrapperEDataType, QueryException.class, "QueryExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(queryIOExceptionWrapperEDataType, QueryIOException.class, "QueryIOExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(baseXClientWrapperEDataType, BaseXClient.class, "BaseXClientWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(ioExceptionWrapperEDataType, IOException.class, "IoExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(queryWrapperEDataType, Query.class, "QueryWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
