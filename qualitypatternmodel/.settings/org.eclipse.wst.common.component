@@ -7,6 +7,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/demo"/>
         <wb-resource deploy-path="/abstract-patterns" source-path="/abstract-patterns"/>
         <wb-resource deploy-path="/concrete-patterns" source-path="/concrete-patterns"/>
+        <wb-resource deploy-path="/databases" source-path="/databases"/>
                 
         <property name="context-root" value="qualitypatternmodel"/>
                 
