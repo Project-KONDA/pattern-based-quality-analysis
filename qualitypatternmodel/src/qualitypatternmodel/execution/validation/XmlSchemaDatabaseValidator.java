@@ -21,4 +21,6 @@ public interface XmlSchemaDatabaseValidator {
 	boolean validateElementNames(EList<String> value);
 	boolean validateAttributeNames(EList<String> value);
 	boolean validateRootElementNames(EList<String> value);
+
+	boolean validatePrefix(String value);
 }

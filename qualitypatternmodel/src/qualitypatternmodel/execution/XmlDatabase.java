@@ -9,6 +9,7 @@ import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->
@@ -84,10 +85,10 @@ public interface XmlDatabase extends EObject {
 	 * @throws QueryException
 	 * @throws QueryIOException
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void analyse() throws BaseXException, QueryException, QueryIOException, IOException;
+	void analyse() throws BaseXException, QueryException, QueryIOException, IOException, InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc --> 
@@ -97,10 +98,10 @@ public interface XmlDatabase extends EObject {
 	 * @throws QueryException
 	 * @throws QueryIOException
 	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper"
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.IoExceptionWrapper qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void init() throws BaseXException, QueryException, QueryIOException, IOException;
+	void init() throws BaseXException, QueryException, QueryIOException, IOException, InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

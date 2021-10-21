@@ -75,10 +75,11 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Xml Schema</em>' reference.
+	 * @throws InvalidityException 
 	 * @see #getXmlSchema()
 	 * @generated
 	 */
-	void setXmlSchema(XmlSchemaDatabase value);
+	void setXmlSchema(XmlSchemaDatabase value) throws InvalidityException;
 
 	/**
 	 * Returns the value of the '<em><b>Element Names</b></em>' map.

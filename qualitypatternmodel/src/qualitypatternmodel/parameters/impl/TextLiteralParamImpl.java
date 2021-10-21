@@ -15,8 +15,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorsPackage;
@@ -138,8 +141,14 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	@Override
 	public EList<String> getSuggestions() {
 		EList<String> suggestions = super.getSuggestions();		
-		if(!getProperties().isEmpty()) {
-			suggestions.addAll(Constants.sortByValue(getAttributeNames()).keySet());
+		for(Property p : getProperties()) {
+			if(p instanceof XmlPropertyImpl) {
+				XmlPropertyImpl xmlProp = (XmlPropertyImpl) p;
+				if(xmlProp.getOption().getValue() == PropertyKind.ATTRIBUTE) {
+					suggestions.addAll(Constants.sortByValue(getAttributeNames()).keySet());
+					break;
+				}
+			}
 		}			
 		return suggestions;
 	}

@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getElementNames <em>Element Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getAttributeNames <em>Attribute Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getRootElementNames <em>Root Element Names</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlSchemaDatabase#getPrefix <em>Prefix</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.execution.ExecutionPackage#getXmlSchemaDatabase()
@@ -78,6 +79,28 @@ public interface XmlSchemaDatabase extends XmlDatabase, Databaseformat {
 	 * @generated
 	 */
 	EList<String> getRootElementNames();
+
+	/**
+	 * Returns the value of the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Prefix</em>' attribute.
+	 * @see #setPrefix(String)
+	 * @see qualitypatternmodel.execution.ExecutionPackage#getXmlSchemaDatabase_Prefix()
+	 * @model
+	 * @generated
+	 */
+	String getPrefix();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.execution.XmlSchemaDatabase#getPrefix <em>Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Prefix</em>' attribute.
+	 * @see #getPrefix()
+	 * @generated
+	 */
+	void setPrefix(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

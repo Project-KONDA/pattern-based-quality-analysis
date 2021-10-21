@@ -14,15 +14,18 @@ import java.util.List;
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.execution.XmlDatabase;
@@ -40,6 +43,7 @@ import qualitypatternmodel.execution.XmlSchemaDatabase;
  *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getElementNames <em>Element Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getAttributeNames <em>Attribute Names</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getRootElementNames <em>Root Element Names</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.XmlSchemaDatabaseImpl#getPrefix <em>Prefix</em>}</li>
  * </ul>
  *
  * @generated
@@ -88,6 +92,26 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	protected EList<String> rootElementNames;
 
 	/**
+	 * The default value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrefix()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PREFIX_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrefix()
+	 * @generated
+	 * @ordered
+	 */
+	protected String prefix = PREFIX_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -101,13 +125,14 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @throws IOException 
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public void analyse() throws QueryException, IOException {
+	public void analyse() throws QueryException, IOException, InvalidityException {
+		retrievePrefix();		
 		
 		if(getElementNames().isEmpty()) {
-			System.out.println("true");
 			retrieveElementNames();
 			updateElementNamesInXmlDatabases();
 		}
@@ -119,7 +144,21 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 			retrieveRootElementNames();
 		}
 		
-		// TODO: add namespace
+	}
+
+	private void retrievePrefix()
+			throws QueryException, QueryIOException, BaseXException, IOException, InvalidityException {
+		EList<String> prefixResult = execute("/*/name()");
+		if(prefixResult.size() != 1) {
+			throw new InvalidityException("Multiple XML schemata declared");
+		}
+		if(prefixResult.get(0).startsWith("xs:")) {
+			setPrefix("xs");
+		} else if (prefixResult.get(0).startsWith("xsd:")) {
+			setPrefix("xsd");
+		} else {
+			throw new InvalidityException("Invalid schema prefix");
+		}
 	}
 
 	private void updateAttributeNamesInXmlDatabases() {
@@ -136,19 +175,19 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 
 	private void retrieveElementNames() throws QueryException, IOException {
 //		open();	
-		List<String> retrievedElementNames = execute("//*[name()=\"xs:element\"]/data(@name)");
+		List<String> retrievedElementNames = execute("//*[name()=\"" + getPrefix() + ":element\"]/data(@name)");
 		getElementNames().addAll(retrievedElementNames);
 	}
 	
 	private void retrieveRootElementNames() throws QueryException, IOException {
 //		open();	
-		List<String> retrievedElementNames = execute("/*/*[name()=\"xs:element\"]/data(@name)");
+		List<String> retrievedElementNames = execute("/*/*[name()=\"" + getPrefix() + ":element\"]/data(@name)");
 		getRootElementNames().addAll(retrievedElementNames);
 	}
 
 	private void retrieveAttributeNames() throws QueryException, IOException {
 //		open();	
-		List<String> retrievedAttributeNames = execute("//*[name()=\"xs:attribute\"]/data(@name)");
+		List<String> retrievedAttributeNames = execute("//*[name()=\"" + getPrefix() + ":attribute\"]/data(@name)");
 		getAttributeNames().addAll(retrievedAttributeNames);
 	}
 	
@@ -187,7 +226,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		return "distinct-values(\r\n" +
 				"  let $ns := \""+getNamespace()+"\"" + 
 				"  let $elements := (\r\n" + 
-				"    for $root in /xs:schema\r\n" + 
+				"    for $root in /" + getPrefix() + ":schema\r\n" + 
 				"    return local:"+methodName+"($root, \""+elementName.replace(getNamespace(), "")+"\", $ns))\r\n" + 
 				"  for $element in $elements\r\n" + 
 				"  return\r\n" + 
@@ -292,6 +331,29 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getPrefix() {
+		return prefix;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPrefix(String newPrefix) {
+		String oldPrefix = prefix;
+		prefix = newPrefix;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.XML_SCHEMA_DATABASE__PREFIX, oldPrefix, prefix));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -332,6 +394,8 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 				return getAttributeNames();
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES:
 				return getRootElementNames();
+			case ExecutionPackage.XML_SCHEMA_DATABASE__PREFIX:
+				return getPrefix();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -361,6 +425,9 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 				getRootElementNames().clear();
 				getRootElementNames().addAll((Collection<? extends String>)newValue);
 				return;
+			case ExecutionPackage.XML_SCHEMA_DATABASE__PREFIX:
+				setPrefix((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -385,6 +452,9 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES:
 				getRootElementNames().clear();
 				return;
+			case ExecutionPackage.XML_SCHEMA_DATABASE__PREFIX:
+				setPrefix(PREFIX_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -405,6 +475,8 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 				return attributeNames != null && !attributeNames.isEmpty();
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES:
 				return rootElementNames != null && !rootElementNames.isEmpty();
+			case ExecutionPackage.XML_SCHEMA_DATABASE__PREFIX:
+				return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals(prefix);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -571,6 +643,8 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		result.append(attributeNames);
 		result.append(", rootElementNames: ");
 		result.append(rootElementNames);
+		result.append(", prefix: ");
+		result.append(prefix);
 		result.append(')');
 		return result.toString();
 	}
@@ -601,7 +675,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 			return true;
 		}
 		
-		String call = "\nfor $root in /xs:schema\r\n" + 
+		String call = "\nfor $root in /" + getPrefix() + ":schema\r\n" + 
 				"return local:"+methodName+"($root, \""+elementName1.replace(getNamespace(), "")+"\", \""+elementName2.replace(getNamespace(), "")+"\", \""+getNamespace()+"\")";
 		
 		String query = checkQuery + call;
@@ -721,7 +795,7 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		// TODO: create/open schema database
 	
 		
-		String namespace = "declare namespace xsd = \"http://www.w3.org/2001/XMLSchema\";\r\n" + 
+		String namespace = "declare namespace " + getPrefix() + " = \"http://www.w3.org/2001/XMLSchema\";\r\n" + 
 				"";
 		
 		/* The following function checks whether there might exist a reference between an element named $n1 and an element named $n2 by analysing the XML schema.
@@ -732,27 +806,27 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		 * 
 		 */
 		
-		String checkRefId = "declare function local:checkRefId($r as element(), $n1 as xs:string, $n2 as xs:string)\r\n" + 
-				"as xs:boolean\r\n" + 
+		String checkRefId = "declare function local:checkRefId($r as element(), $n1 as " + getPrefix() + ":string, $n2 as " + getPrefix() + ":string)\r\n" + 
+				"as " + getPrefix() + ":boolean\r\n" + 
 				"{\r\n" + 
-				"some $ref in $r//xs:keyref[./xs:selector/@xpath = $n1 or matches(./xs:selector/@xpath, \"/\" || $n1 || \"$\")] \r\n" + 
-				"satisfies some $key in $r//xs:key[@name = $ref/@refer]\r\n" + 
-				"satisfies $key/xs:selector/@xpath = $n2 or matches($key/xs:selector/@xpath, \"/\" || $n2 || \"$\")\r\n" + 
+				"some $ref in $r//" + getPrefix() + ":keyref[./" + getPrefix() + ":selector/@xpath = $n1 or matches(./" + getPrefix() + ":selector/@xpath, \"/\" || $n1 || \"$\")] \r\n" + 
+				"satisfies some $key in $r//" + getPrefix() + ":key[@name = $ref/@refer]\r\n" + 
+				"satisfies $key/" + getPrefix() + ":selector/@xpath = $n2 or matches($key/" + getPrefix() + ":selector/@xpath, \"/\" || $n2 || \"$\")\r\n" + 
 				"};";
 		
-		String getRefId = "declare function local:getRefId($r as element(), $n1 as xs:string, $n2 as xs:string)\r\n" + 
-				"as xs:string+\r\n" + 
+		String getRefId = "declare function local:getRefId($r as element(), $n1 as " + getPrefix() + ":string, $n2 as " + getPrefix() + ":string)\r\n" + 
+				"as " + getPrefix() + ":string+\r\n" + 
 				"{\r\n" + 
-				"for $ref in $r//xs:keyref[./xs:selector/@xpath = $n1 or matches(./xs:selector/@xpath, \"/\" || $n1 || \"$\")] \r\n" + 
-				"for $key in $r//xs:key[@name = $ref/@refer]\r\n" + 
-				"where $key/xs:selector/@xpath = $n2 or matches($key/xs:selector/@xpath, \"/\" || $n2 || \"$\")\r\n" + 
-				"return ($ref/xs:field/@xpath, $key/xs:field/@xpath)\r\n" + 
+				"for $ref in $r//" + getPrefix() + ":keyref[./" + getPrefix() + ":selector/@xpath = $n1 or matches(./" + getPrefix() + ":selector/@xpath, \"/\" || $n1 || \"$\")] \r\n" + 
+				"for $key in $r//" + getPrefix() + ":key[@name = $ref/@refer]\r\n" + 
+				"where $key/" + getPrefix() + ":selector/@xpath = $n2 or matches($key/" + getPrefix() + ":selector/@xpath, \"/\" || $n2 || \"$\")\r\n" + 
+				"return ($ref/" + getPrefix() + ":field/@xpath, $key/" + getPrefix() + ":field/@xpath)\r\n" + 
 				"};";
 		
-		String callCheck = "for $x in /xs:schema\r\n" + 
+		String callCheck = "for $x in /" + getPrefix() + ":schema\r\n" + 
 				"return local:checkRefId($x, \""+elementName1+"\",\""+elementName2+"\")";
 		
-		String callGet = "for $x in /xs:schema\r\n" + 
+		String callGet = "for $x in /" + getPrefix() + ":schema\r\n" + 
 				"return local:getRefId($x, \""+elementName1+"\",\""+elementName2+"\")";
 		
 		// TODO: execute query

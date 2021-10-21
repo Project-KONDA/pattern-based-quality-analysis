@@ -49,6 +49,7 @@ public class XmlSchemaDatabaseItemProvider
 			addElementNamesPropertyDescriptor(object);
 			addAttributeNamesPropertyDescriptor(object);
 			addRootElementNamesPropertyDescriptor(object);
+			addPrefixPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -142,6 +143,28 @@ public class XmlSchemaDatabaseItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Prefix feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPrefixPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XmlSchemaDatabase_prefix_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlSchemaDatabase_prefix_feature", "_UI_XmlSchemaDatabase_type"),
+				 ExecutionPackage.Literals.XML_SCHEMA_DATABASE__PREFIX,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns XmlSchemaDatabase.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,6 +205,7 @@ public class XmlSchemaDatabaseItemProvider
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ELEMENT_NAMES:
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ATTRIBUTE_NAMES:
 			case ExecutionPackage.XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES:
+			case ExecutionPackage.XML_SCHEMA_DATABASE__PREFIX:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

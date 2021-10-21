@@ -1418,13 +1418,22 @@ public interface ExecutionPackage extends EPackage {
 	int XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES = XML_DATABASE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_SCHEMA_DATABASE__PREFIX = XML_DATABASE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Xml Schema Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_SCHEMA_DATABASE_FEATURE_COUNT = XML_DATABASE_FEATURE_COUNT + 4;
+	int XML_SCHEMA_DATABASE_FEATURE_COUNT = XML_DATABASE_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Analyse</em>' operation.
@@ -1714,6 +1723,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOCAL_XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES = XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES;
+
+	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_SCHEMA_DATABASE__PREFIX = XML_SCHEMA_DATABASE__PREFIX;
 
 	/**
 	 * The feature id for the '<em><b>Schema Path</b></em>' attribute.
@@ -2021,6 +2039,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES = XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES;
+
+	/**
+	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_SCHEMA_DATABASE__PREFIX = XML_SCHEMA_DATABASE__PREFIX;
 
 	/**
 	 * The number of structural features of the '<em>Server Xml Schema Database</em>' class.
@@ -2890,6 +2917,17 @@ public interface ExecutionPackage extends EPackage {
 	EAttribute getXmlSchemaDatabase_RootElementNames();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.execution.XmlSchemaDatabase#getPrefix <em>Prefix</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Prefix</em>'.
+	 * @see qualitypatternmodel.execution.XmlSchemaDatabase#getPrefix()
+	 * @see #getXmlSchemaDatabase()
+	 * @generated
+	 */
+	EAttribute getXmlSchemaDatabase_Prefix();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlSchemaDatabase#checkFollowingInSchema(java.lang.String, java.lang.String) <em>Check Following In Schema</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3715,6 +3753,14 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute XML_SCHEMA_DATABASE__ROOT_ELEMENT_NAMES = eINSTANCE.getXmlSchemaDatabase_RootElementNames();
+
+		/**
+		 * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XML_SCHEMA_DATABASE__PREFIX = eINSTANCE.getXmlSchemaDatabase_Prefix();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Following In Schema</b></em>' operation.

@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.XmlDatabase;
 
@@ -258,7 +259,7 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	 * @generated
 	 */
 	@Override
-	public void analyse() throws BaseXException, QueryException, QueryIOException, IOException {
+	public void analyse() throws BaseXException, QueryException, QueryIOException, IOException, InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -268,10 +269,11 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @throws IOException 
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public void init() throws BaseXException, QueryException, QueryIOException, IOException {
+	public void init() throws BaseXException, QueryException, QueryIOException, IOException, InvalidityException {
 		if(!context.listDBs().contains(name)) {
 			create();
 		}

@@ -258,7 +258,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 		
 		try {
 			xmlSchema.init();
-		} catch (QueryException | IOException e) {
+		} catch (QueryException | IOException | InvalidityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

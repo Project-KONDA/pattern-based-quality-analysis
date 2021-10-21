@@ -872,14 +872,15 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rootElementNames" upperBound="-1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LocalXmlSchemaDatabase" eSuperTypes="#//execution/XmlSchemaDatabase">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="schemaPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ServerXmlSchemaDatabase" eSuperTypes="#//execution/XmlSchemaDatabase"/>
     <eClassifiers xsi:type="ecore:EClass" name="XmlDatabase" abstract="true">
-      <eOperations name="analyse" eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper #//execution/IoExceptionWrapper"/>
-      <eOperations name="init" eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper #//execution/IoExceptionWrapper"/>
+      <eOperations name="analyse" eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper #//execution/IoExceptionWrapper #//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="init" eExceptions="#//execution/BaseXExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper #//execution/IoExceptionWrapper #//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="open" eExceptions="#//execution/BaseXExceptionWrapper"/>
       <eOperations name="create" eExceptions="#//execution/BaseXExceptionWrapper"/>
       <eOperations name="execute" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

@@ -11,6 +11,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.LocalXmlSchemaDatabase;
 
@@ -76,10 +78,11 @@ public class LocalXmlSchemaDatabaseImpl extends XmlSchemaDatabaseImpl implements
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @throws IOException 
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public void init() throws QueryException, IOException {
+	public void init() throws QueryException, IOException, InvalidityException {
 		super.init();
 //		if(!context.listDBs().contains(name)) {
 //			create();
