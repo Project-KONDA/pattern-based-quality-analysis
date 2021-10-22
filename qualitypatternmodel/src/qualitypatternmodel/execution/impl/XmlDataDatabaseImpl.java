@@ -374,6 +374,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	@Override
 	public void delete() {
 		setXmlSchema(null);
+		getPatterns().clear();
 		DatabasesImpl.getInstance().getXmlDatabases().remove(this);
 	}
 	
