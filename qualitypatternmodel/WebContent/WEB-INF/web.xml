@@ -182,5 +182,17 @@
 		<servlet-name>DatabaseDeletionServlet</servlet-name>
 		<url-pattern>/databases/deletion/*</url-pattern>
 	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>DatabaseSettingServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.DatabaseSettingServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DatabaseSettingServlet</servlet-name>
+		<url-pattern>/databases/set/*</url-pattern>
+	</servlet-mapping>
+	
 
 </web-app>
