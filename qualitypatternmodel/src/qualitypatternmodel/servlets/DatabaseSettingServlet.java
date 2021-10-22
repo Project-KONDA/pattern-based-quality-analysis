@@ -84,6 +84,7 @@ public class DatabaseSettingServlet extends HttpServlet {
 				
 				pattern.setDatabase(database);
 				
+				EMFModelSave.exportToFile(pattern, folderURLPattern.toString() + patternName, "patternstructure");
 				EMFModelSave.exportToFile(databasesContainer, folderURL.toString() + Util.DATABASES_NAME, "execution");
 				response.getOutputStream().println("Successfully set database of pattern '" + patternName + "'.");
 				
