@@ -25,14 +25,17 @@ public class DatabasesRegistrationServletTest {
 	@Test
 	public void doPostTest() throws IOException, JSONException {
 		String name = "ddb_20190606";
+		String localName = "test_db";
 
-		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.DATABASE_REGISTRATION_ENDPOINT + name).openConnection();
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.DATABASE_REGISTRATION_ENDPOINT + localName).openConnection();
 		connection.setRequestMethod("POST");
 		
 		String hostEncoded = URLEncoder.encode("localhost");
 		String parameters = "host=" + hostEncoded;
 		String portEncoded = URLEncoder.encode("1984");
 		parameters += "&port=" + portEncoded;
+		String nameEncoded = URLEncoder.encode(name);
+		parameters += "&name=" + nameEncoded;
 		String userEncoded = URLEncoder.encode("admin");
 		parameters += "&user=" + userEncoded;
 		String passwordEncoded = URLEncoder.encode("admin");
@@ -60,8 +63,8 @@ public class DatabasesRegistrationServletTest {
 		String result2 = ServletTestsUtil.getResult(connection2);		
 		ServletTestsUtil.printResult(connection2, responseCode2, result2);		
 		
-//		JSONArray array = new JSONArray(result);
-//		assertTrue(array.getJSONObject(0).get("Host").equals("1984"));   
+		JSONArray array = new JSONArray(result2);
+		assertTrue(array.getJSONObject(0).get("Host").equals("localhost"));   
 
 	}
 	

@@ -18,7 +18,7 @@ public class XmlDataDatabaseTest {
 	
 	@Before
 	public void before() throws IOException {
-		db = new ServerXmlDataDatabaseImpl("ddb_20190606", "localhost", 1984, "admin", "admin");
+		db = new ServerXmlDataDatabaseImpl("test_db_4", "localhost", 1984, "ddb_20190606", "admin", "admin");
 
 	}
 	

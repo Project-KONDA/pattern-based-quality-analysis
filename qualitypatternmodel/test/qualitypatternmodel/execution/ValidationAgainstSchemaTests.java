@@ -26,7 +26,7 @@ public class ValidationAgainstSchemaTests {
 	
 	@Before
 	public void before() throws IOException, QueryException, InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		db = new ServerXmlDataDatabaseImpl("ddb_20190606", "localhost", 1984, "admin", "admin");
+		db = new ServerXmlDataDatabaseImpl("test_db_3", "localhost", 1984, "ddb_20190606", "admin", "admin");
 		schemaDb = db.createSchemaDatabaseFromReferencedSchema();		
 		assertFalse(schemaDb.getElementNames().isEmpty());	
 		assertFalse(db.getElementNames().isEmpty());	

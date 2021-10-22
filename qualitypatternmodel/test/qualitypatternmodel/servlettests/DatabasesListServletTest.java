@@ -22,7 +22,7 @@ public class DatabasesListServletTest {
 	
 	@Before
 	public void before() throws IOException {
-		db = new ServerXmlDataDatabaseImpl("ddb_20190606", "localhost", 1984, "admin", "admin");
+		db = new ServerXmlDataDatabaseImpl("test_db_2", "localhost", 1984, "ddb_20190606", "admin", "admin");
 
 	}
 
@@ -38,7 +38,7 @@ public class DatabasesListServletTest {
 //		ServletTestsUtil.printResult(connection, responseCode, result);		
 		
 		JSONArray array = new JSONArray(result);
-		assertTrue(array.getJSONObject(0).get("Host").equals("1984"));     	 	     
+		assertTrue(array.getJSONObject(0).get("Host").equals("localhost"));     	 	     
 
 	}
 	
