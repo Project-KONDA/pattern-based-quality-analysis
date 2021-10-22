@@ -35,6 +35,8 @@ public class Util {
 	public static final String DATABASE_REGISTRATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/databases/registration/";
 	public static final String DATABASE_SETTING_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/databases/set/";
 	public static final String DATABASE_DELETION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/databases/deletion/";
+	public static final String DATABASE_GETTING_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/databases/get/";
+
 
 
 

@@ -194,5 +194,16 @@
 		<url-pattern>/databases/set/*</url-pattern>
 	</servlet-mapping>
 	
+	
+		<servlet>
+		<servlet-name>DatabaseGettingServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.DatabaseGettingServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DatabaseGettingServlet</servlet-name>
+		<url-pattern>/databases/get/*</url-pattern>
+	</servlet-mapping>
+	
 
 </web-app>

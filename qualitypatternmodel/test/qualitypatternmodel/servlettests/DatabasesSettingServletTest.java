@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -42,10 +43,22 @@ public class DatabasesSettingServletTest {
 		
 		assertTrue(responseCode >= 200 && responseCode < 300);
 		
-				
 		
-//		JSONArray array = new JSONArray(result);
-//		assertTrue(array.getJSONObject(0).get("Host").equals("localhost"));     	 	     
+		
+		
+		
+		HttpURLConnection connection2 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.DATABASE_GETTING_ENDPOINT + patternName).openConnection();
+		connection2.setRequestMethod("GET");
+		
+		int responseCode2 = connection2.getResponseCode();
+		
+		String result2 = ServletTestsUtil.getResult(connection2);		
+		ServletTestsUtil.printResult(connection2, responseCode2, result2);
+		
+		assertTrue(responseCode2 >= 200 && responseCode2 < 300);		
+		
+		JSONObject obj = new JSONObject(result2);
+		assertTrue(obj.get("LocalName").equals(localName));     	 	     
 
 	}
 	
