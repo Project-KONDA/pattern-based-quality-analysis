@@ -14,9 +14,13 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.execution.BaseXClient;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.ServerXmlDataDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.execution.impl.BaseXClientImpl.Query;
 
 /**
@@ -72,8 +76,16 @@ public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Se
 		super();
 	}
 	
-	public ServerXmlDataDatabaseImpl(String localName, String host, int port, String name, String username, String password) throws IOException {
+	public ServerXmlDataDatabaseImpl(String localName, String host, int port, String name, String username, String password) throws IOException, InvalidityException {
 		super();
+		for(XmlDataDatabase db : DatabasesImpl.getInstance().getXmlDatabases()) {
+			if(db instanceof ServerXmlDataDatabaseImpl) {
+				ServerXmlDataDatabaseImpl serverDb = (ServerXmlDataDatabaseImpl) db;	
+				if(serverDb.getLocalName() != null && serverDb.getLocalName().equals(localName)) {
+					throw new InvalidityException("Local database name already used");
+				}
+			}			
+		}
 		setLocalName(localName);
 		setName(name);
 		setBaseXClient(new BaseXClientImpl(host, port, username, password));		

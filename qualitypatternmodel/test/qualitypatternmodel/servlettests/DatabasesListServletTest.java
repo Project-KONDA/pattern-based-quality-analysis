@@ -11,6 +11,7 @@ import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.execution.ServerXmlDataDatabase;
 import qualitypatternmodel.execution.impl.ServerXmlDataDatabaseImpl;
 import qualitypatternmodel.servlets.Util;
@@ -21,7 +22,7 @@ public class DatabasesListServletTest {
 	ServerXmlDataDatabase db;
 	
 	@Before
-	public void before() throws IOException {
+	public void before() throws IOException, InvalidityException {
 		db = new ServerXmlDataDatabaseImpl("test_db_2", "localhost", 1984, "ddb_20190606", "admin", "admin");
 
 	}

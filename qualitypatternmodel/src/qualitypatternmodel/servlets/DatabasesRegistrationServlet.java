@@ -77,8 +77,20 @@ public class DatabasesRegistrationServlet extends HttpServlet {
 				
 				if(fileURL != null && folderURL != null) {
 					Databases databasesContainer = EMFModelLoad.loadDatabases(fileURL.toString());
-					ServerXmlDataDatabase db = new ServerXmlDataDatabaseImpl(localName, host, port, name, user, password);
-					LocalXmlSchemaDatabase schemaDb = db.createSchemaDatabaseFromReferencedSchema();
+					ServerXmlDataDatabase db = null;
+					try {
+						db = new ServerXmlDataDatabaseImpl(localName, host, port, name, user, password);
+						try {
+							db.createSchemaDatabaseFromReferencedSchema();
+						} catch (InvalidityException e) {
+							response.sendError(404);
+							response.getOutputStream().println("{ \"error\": \"Analysing XML schema failed.\"}");
+						}
+					} catch (InvalidityException e) {
+						response.sendError(409);
+						response.getOutputStream().println("{ \"error\": \"Local database name already used.\"}");	
+					}
+					
 					
 					EMFModelSave.exportToFile(databasesContainer, folderURL.toString() + fileName, "execution");
 					response.getOutputStream().println("Successfully registered database '" + localName + "'.");
@@ -98,12 +110,7 @@ public class DatabasesRegistrationServlet extends HttpServlet {
 //			e.printStackTrace();
 			response.sendError(404);
 			response.getOutputStream().println("{ \"error\": \"Analysing XML schema failed.\"}");
-		} catch (InvalidityException e) {
-			// TODO Auto-generated catch block
-//			e.printStackTrace();
-			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"Analysing XML schema failed.\"}");
-		}			
+		} 		
 		
 		
 
