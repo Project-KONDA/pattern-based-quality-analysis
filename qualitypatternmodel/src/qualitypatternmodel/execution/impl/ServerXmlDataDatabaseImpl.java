@@ -81,6 +81,7 @@ public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Se
 			if(db instanceof ServerXmlDataDatabaseImpl) {
 				ServerXmlDataDatabaseImpl serverDb = (ServerXmlDataDatabaseImpl) db;	
 				if(serverDb.getLocalName() != null && serverDb.getLocalName().equals(localName)) {
+					DatabasesImpl.getInstance().getXmlDatabases().remove(this);
 					throw new InvalidityException("Local database name already used");
 				}
 			}			
