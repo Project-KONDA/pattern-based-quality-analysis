@@ -28,6 +28,7 @@ import qualitypatternmodel.execution.impl.BaseXClientImpl.Query;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.execution.impl.ServerXmlDataDatabaseImpl#getBaseXClient <em>Base XClient</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.ServerXmlDataDatabaseImpl#getLocalName <em>Local Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,6 +45,25 @@ public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Se
 	protected BaseXClient baseXClient;
 
 	/**
+	 * The default value of the '{@link #getLocalName() <em>Local Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocalName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LOCAL_NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getLocalName() <em>Local Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocalName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String localName = LOCAL_NAME_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -52,8 +72,9 @@ public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Se
 		super();
 	}
 	
-	public ServerXmlDataDatabaseImpl(String name, String host, int port, String username, String password) throws IOException {
+	public ServerXmlDataDatabaseImpl(String localName, String host, int port, String name, String username, String password) throws IOException {
 		super();
+		setLocalName(localName);
 		setName(name);
 		setBaseXClient(new BaseXClientImpl(host, port, username, password));		
 	}
@@ -137,6 +158,29 @@ public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Se
 	 * @generated
 	 */
 	@Override
+	public String getLocalName() {
+		return localName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setLocalName(String newLocalName) {
+		String oldLocalName = localName;
+		localName = newLocalName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.SERVER_XML_DATA_DATABASE__LOCAL_NAME, oldLocalName, localName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ExecutionPackage.SERVER_XML_DATA_DATABASE__BASE_XCLIENT:
@@ -155,6 +199,8 @@ public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Se
 		switch (featureID) {
 			case ExecutionPackage.SERVER_XML_DATA_DATABASE__BASE_XCLIENT:
 				return getBaseXClient();
+			case ExecutionPackage.SERVER_XML_DATA_DATABASE__LOCAL_NAME:
+				return getLocalName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -169,6 +215,9 @@ public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Se
 		switch (featureID) {
 			case ExecutionPackage.SERVER_XML_DATA_DATABASE__BASE_XCLIENT:
 				setBaseXClient((BaseXClient)newValue);
+				return;
+			case ExecutionPackage.SERVER_XML_DATA_DATABASE__LOCAL_NAME:
+				setLocalName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -185,6 +234,9 @@ public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Se
 			case ExecutionPackage.SERVER_XML_DATA_DATABASE__BASE_XCLIENT:
 				setBaseXClient((BaseXClient)null);
 				return;
+			case ExecutionPackage.SERVER_XML_DATA_DATABASE__LOCAL_NAME:
+				setLocalName(LOCAL_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -199,8 +251,26 @@ public class ServerXmlDataDatabaseImpl extends XmlDataDatabaseImpl implements Se
 		switch (featureID) {
 			case ExecutionPackage.SERVER_XML_DATA_DATABASE__BASE_XCLIENT:
 				return baseXClient != null;
+			case ExecutionPackage.SERVER_XML_DATA_DATABASE__LOCAL_NAME:
+				return LOCAL_NAME_EDEFAULT == null ? localName != null : !LOCAL_NAME_EDEFAULT.equals(localName);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (localName: ");
+		result.append(localName);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ServerXmlDatabaseImpl

@@ -41,16 +41,16 @@ public class DatabasesListServlet extends HttpServlet {
 				String filePath = Util.DATABASES_PATH + fileName + ".execution";	
 				URL folderURL = getClass().getClassLoader().getResource(Util.DATABASES_PATH);
 				URL fileURL = getClass().getClassLoader().getResource(filePath);		
-				
-				System.out.println(filePath);
-				
+								
 				if(fileURL != null && folderURL != null) {
 					Databases databasesContainer = EMFModelLoad.loadDatabases(fileURL.toString());
 				
 					for (XmlDataDatabase db: databasesContainer.getXmlDatabases()) {
 						if(db instanceof ServerXmlDataDatabase) {
 							ServerXmlDataDatabase serverDatabase = (ServerXmlDataDatabase) db;
-							result += "{\"Host\":";
+							result += "{\"LocalName\":";
+							result += "\"" + serverDatabase.getLocalName() + "\", ";
+							result += "\"Host\":";
 							result += "\"" + serverDatabase.getBaseXClient().getHost() + "\", ";
 							result += "\"Port\":";		
 							result += "\"" + Integer.toString(serverDatabase.getBaseXClient().getPort()) + "\", ";

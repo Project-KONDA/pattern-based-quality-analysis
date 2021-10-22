@@ -765,6 +765,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="ServerXmlDataDatabase" eSuperTypes="#//execution/XmlDataDatabase">
       <eStructuralFeatures xsi:type="ecore:EReference" name="baseXClient" lowerBound="1"
           eType="#//execution/BaseXClient" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="localName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Databases">
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlDatabases" upperBound="-1"

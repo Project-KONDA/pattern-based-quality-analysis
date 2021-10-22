@@ -642,6 +642,7 @@
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/ServerXmlDataDatabase">
         <genFeatures createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/ServerXmlDataDatabase/baseXClient"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/ServerXmlDataDatabase/localName"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/Databases">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/Databases/xmlDatabases"/>

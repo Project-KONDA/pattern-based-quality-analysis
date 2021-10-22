@@ -1130,13 +1130,22 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_DATA_DATABASE__BASE_XCLIENT = XML_DATA_DATABASE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Local Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATA_DATABASE__LOCAL_NAME = XML_DATA_DATABASE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Server Xml Data Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVER_XML_DATA_DATABASE_FEATURE_COUNT = XML_DATA_DATABASE_FEATURE_COUNT + 1;
+	int SERVER_XML_DATA_DATABASE_FEATURE_COUNT = XML_DATA_DATABASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Analyse</em>' operation.
@@ -2933,6 +2942,17 @@ public interface ExecutionPackage extends EPackage {
 	EReference getServerXmlDataDatabase_BaseXClient();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.execution.ServerXmlDataDatabase#getLocalName <em>Local Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Local Name</em>'.
+	 * @see qualitypatternmodel.execution.ServerXmlDataDatabase#getLocalName()
+	 * @see #getServerXmlDataDatabase()
+	 * @generated
+	 */
+	EAttribute getServerXmlDataDatabase_LocalName();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.Databases <em>Databases</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3867,6 +3887,14 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SERVER_XML_DATA_DATABASE__BASE_XCLIENT = eINSTANCE.getServerXmlDataDatabase_BaseXClient();
+
+		/**
+		 * The meta object literal for the '<em><b>Local Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVER_XML_DATA_DATABASE__LOCAL_NAME = eINSTANCE.getServerXmlDataDatabase_LocalName();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.DatabasesImpl <em>Databases</em>}' class.

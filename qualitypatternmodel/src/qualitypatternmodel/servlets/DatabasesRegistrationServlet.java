@@ -45,12 +45,13 @@ public class DatabasesRegistrationServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
 		String requestUrl = request.getRequestURI();
-		String databaseName = requestUrl.substring(Util.DATABASE_REGISTRATION_ENDPOINT.length());	
+		String localName = requestUrl.substring(Util.DATABASE_REGISTRATION_ENDPOINT.length());	
 		
 		
 		String host = request.getParameter("host");
 		String portString = request.getParameter("port");
 		int port = Integer.parseInt(portString);		
+		String name = request.getParameter("name");
 		String user = request.getParameter("user");
 		String password = request.getParameter("password");
 
@@ -76,11 +77,11 @@ public class DatabasesRegistrationServlet extends HttpServlet {
 				
 				if(fileURL != null && folderURL != null) {
 					Databases databasesContainer = EMFModelLoad.loadDatabases(fileURL.toString());
-					ServerXmlDataDatabase db = new ServerXmlDataDatabaseImpl(databaseName, host, port, user, password);
+					ServerXmlDataDatabase db = new ServerXmlDataDatabaseImpl(localName, host, port, name, user, password);
 					LocalXmlSchemaDatabase schemaDb = db.createSchemaDatabaseFromReferencedSchema();
 					
 					EMFModelSave.exportToFile(databasesContainer, folderURL.toString() + fileName, "execution");
-					response.getOutputStream().println("Successfully registered database '" + databaseName + "'.");
+					response.getOutputStream().println("Successfully registered database '" + localName + "'.");
 					
 				} else {
 					response.sendError(404);

@@ -10,6 +10,8 @@ public class Util {
 	static final String ABSTRACT_PATTERNS_PATH = "../../abstract-patterns/";
 	static final String CONCRETE_PATTERNS_PATH = "../../concrete-patterns/";
 	static final String DATABASES_PATH = "../../databases/";
+	
+	static final String DATABASES_NAME = "databases";
 
 
 	public static final String PROJECT_PREFIX_ENDPOINT = "/qualitypatternmodel";
@@ -31,6 +33,8 @@ public class Util {
 	public static final String FINALIZED_PATTERN_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/finalized-patterns";
 	
 	public static final String DATABASE_REGISTRATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/databases/registration/";
+	public static final String DATABASE_SETTING_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/databases/set/";
+
 
 
 	

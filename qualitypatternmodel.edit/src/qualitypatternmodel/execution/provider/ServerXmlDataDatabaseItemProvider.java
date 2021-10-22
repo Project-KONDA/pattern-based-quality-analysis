@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.ServerXmlDataDatabase;
@@ -44,6 +45,7 @@ public class ServerXmlDataDatabaseItemProvider extends XmlDataDatabaseItemProvid
 			super.getPropertyDescriptors(object);
 
 			addBaseXClientPropertyDescriptor(object);
+			addLocalNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -66,6 +68,28 @@ public class ServerXmlDataDatabaseItemProvider extends XmlDataDatabaseItemProvid
 				 false,
 				 false,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Local Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLocalNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ServerXmlDataDatabase_localName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ServerXmlDataDatabase_localName_feature", "_UI_ServerXmlDataDatabase_type"),
+				 ExecutionPackage.Literals.SERVER_XML_DATA_DATABASE__LOCAL_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -109,6 +133,7 @@ public class ServerXmlDataDatabaseItemProvider extends XmlDataDatabaseItemProvid
 
 		switch (notification.getFeatureID(ServerXmlDataDatabase.class)) {
 			case ExecutionPackage.SERVER_XML_DATA_DATABASE__BASE_XCLIENT:
+			case ExecutionPackage.SERVER_XML_DATA_DATABASE__LOCAL_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

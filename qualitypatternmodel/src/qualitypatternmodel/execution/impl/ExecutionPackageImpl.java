@@ -637,6 +637,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getServerXmlDataDatabase_LocalName() {
+		return (EAttribute)serverXmlDataDatabaseEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDatabases() {
 		return databasesEClass;
 	}
@@ -1299,6 +1309,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		serverXmlDataDatabaseEClass = createEClass(SERVER_XML_DATA_DATABASE);
 		createEReference(serverXmlDataDatabaseEClass, SERVER_XML_DATA_DATABASE__BASE_XCLIENT);
+		createEAttribute(serverXmlDataDatabaseEClass, SERVER_XML_DATA_DATABASE__LOCAL_NAME);
 
 		databasesEClass = createEClass(DATABASES);
 		createEReference(databasesEClass, DATABASES__XML_DATABASES);
@@ -1484,6 +1495,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		initEClass(serverXmlDataDatabaseEClass, ServerXmlDataDatabase.class, "ServerXmlDataDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getServerXmlDataDatabase_BaseXClient(), this.getBaseXClient(), null, "baseXClient", null, 1, 1, ServerXmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getServerXmlDataDatabase_LocalName(), ecorePackage.getEString(), "localName", null, 0, 1, ServerXmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(databasesEClass, Databases.class, "Databases", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDatabases_XmlDatabases(), this.getXmlDataDatabase(), null, "xmlDatabases", null, 0, -1, Databases.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

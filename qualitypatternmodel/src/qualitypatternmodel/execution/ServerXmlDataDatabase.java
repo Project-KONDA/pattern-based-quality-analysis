@@ -13,6 +13,7 @@ package qualitypatternmodel.execution;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.execution.ServerXmlDataDatabase#getBaseXClient <em>Base XClient</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.ServerXmlDataDatabase#getLocalName <em>Local Name</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.execution.ExecutionPackage#getServerXmlDataDatabase()
@@ -42,4 +43,26 @@ public interface ServerXmlDataDatabase extends XmlDataDatabase {
 	 * @generated
 	 */
 	void setBaseXClient(BaseXClient value);
+
+	/**
+	 * Returns the value of the '<em><b>Local Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Local Name</em>' attribute.
+	 * @see #setLocalName(String)
+	 * @see qualitypatternmodel.execution.ExecutionPackage#getServerXmlDataDatabase_LocalName()
+	 * @model
+	 * @generated
+	 */
+	String getLocalName();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.execution.ServerXmlDataDatabase#getLocalName <em>Local Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Local Name</em>' attribute.
+	 * @see #getLocalName()
+	 * @generated
+	 */
+	void setLocalName(String value);
 } // ServerXmlDatabase

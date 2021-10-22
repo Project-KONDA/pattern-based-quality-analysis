@@ -19,6 +19,8 @@ public interface ServerXmlDataDatabaseValidator {
 
 	boolean validateBaseXClient(BaseXClient value);
 
+	boolean validateLocalName(String value);
+
 	boolean validateBaseXClient(BaseXClientImpl value);
 
 }
