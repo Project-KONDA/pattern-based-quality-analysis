@@ -49,6 +49,7 @@ public class DatabaseDeletionServlet extends HttpServlet {
 				}						
 			}		
 			if(found) {
+				// TODO: save patterns?
 				EMFModelSave.exportToFile(databasesContainer, folderURL.toString() + Util.DATABASES_NAME, "execution");
 				response.getOutputStream().println("Successfully deleted local database '" + localName + "'.");	
 			} else {
