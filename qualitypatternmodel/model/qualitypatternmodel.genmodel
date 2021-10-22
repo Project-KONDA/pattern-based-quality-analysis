@@ -740,6 +740,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/execute">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/XmlDatabase/execute/query"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/XmlDatabase/close"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//execution/Database">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/Database/results"/>

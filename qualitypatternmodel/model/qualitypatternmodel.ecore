@@ -888,6 +888,7 @@
           eExceptions="#//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper #//execution/BaseXExceptionWrapper #//execution/IoExceptionWrapper">
         <eParameters name="query" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
+      <eOperations name="close" eExceptions="#//execution/BaseXExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>

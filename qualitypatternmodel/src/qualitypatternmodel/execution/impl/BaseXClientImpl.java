@@ -25,10 +25,8 @@ import qualitypatternmodel.execution.ExecutionPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link qualitypatternmodel.execution.impl.BaseXClientImpl#getHost
- * <em>Host</em>}</li>
- * <li>{@link qualitypatternmodel.execution.impl.BaseXClientImpl#getPort
- * <em>Port</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.BaseXClientImpl#getHost <em>Host</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.BaseXClientImpl#getPort <em>Port</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,7 +41,7 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 	 * @generated
 	 * @ordered
 	 */
-	protected static String HOST_EDEFAULT = null;
+	protected static final String HOST_EDEFAULT = null;
 	/** UTF-8 charset. */
 	private static Charset UTF8 = Charset.forName("UTF-8");
 	/** Output stream. */
@@ -65,12 +63,11 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 	 * @generated
 	 * @ordered
 	 */
-	protected static int PORT_EDEFAULT = 0;
+	protected static final int PORT_EDEFAULT = 0;
 	protected int port;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BaseXClientImpl() {
@@ -123,7 +120,6 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -174,112 +170,108 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ExecutionPackage.BASE_XCLIENT__HOST:
-			return getHost();
-		case ExecutionPackage.BASE_XCLIENT__PORT:
-			return getPort();
+			case ExecutionPackage.BASE_XCLIENT__HOST:
+				return getHost();
+			case ExecutionPackage.BASE_XCLIENT__PORT:
+				return getPort();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ExecutionPackage.BASE_XCLIENT__HOST:
-			setHost((String) newValue);
-			return;
-		case ExecutionPackage.BASE_XCLIENT__PORT:
-			setPort((Integer) newValue);
-			return;
+			case ExecutionPackage.BASE_XCLIENT__HOST:
+				setHost((String)newValue);
+				return;
+			case ExecutionPackage.BASE_XCLIENT__PORT:
+				setPort((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ExecutionPackage.BASE_XCLIENT__HOST:
-			setHost(HOST_EDEFAULT);
-			return;
-		case ExecutionPackage.BASE_XCLIENT__PORT:
-			setPort(PORT_EDEFAULT);
-			return;
+			case ExecutionPackage.BASE_XCLIENT__HOST:
+				setHost(HOST_EDEFAULT);
+				return;
+			case ExecutionPackage.BASE_XCLIENT__PORT:
+				setPort(PORT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ExecutionPackage.BASE_XCLIENT__HOST:
-			return HOST_EDEFAULT == null ? host != null : !HOST_EDEFAULT.equals(host);
-		case ExecutionPackage.BASE_XCLIENT__PORT:
-			return port != PORT_EDEFAULT;
+			case ExecutionPackage.BASE_XCLIENT__HOST:
+				return HOST_EDEFAULT == null ? host != null : !HOST_EDEFAULT.equals(host);
+			case ExecutionPackage.BASE_XCLIENT__PORT:
+				return port != PORT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case ExecutionPackage.BASE_XCLIENT___CLOSE:
-			try {
-				close();
-				return null;
-			} catch (Throwable throwable) {
-				throw new InvocationTargetException(throwable);
-			}
-		case ExecutionPackage.BASE_XCLIENT___EXECUTE__STRING:
-			try {
-				return execute((String) arguments.get(0));
-			} catch (Throwable throwable) {
-				throw new InvocationTargetException(throwable);
-			}
-		case ExecutionPackage.BASE_XCLIENT___QUERY__STRING:
-			try {
-				return query((String) arguments.get(0));
-			} catch (Throwable throwable) {
-				throw new InvocationTargetException(throwable);
-			}
+			case ExecutionPackage.BASE_XCLIENT___CLOSE:
+				try {
+					close();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.BASE_XCLIENT___EXECUTE__STRING:
+				try {
+					return execute((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.BASE_XCLIENT___QUERY__STRING:
+				try {
+					return query((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (host: ");

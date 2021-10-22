@@ -435,13 +435,22 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATABASE___EXECUTE__STRING = 4;
 
 	/**
+	 * The operation id for the '<em>Close</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___CLOSE = 5;
+
+	/**
 	 * The number of operations of the '<em>Xml Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATABASE_OPERATION_COUNT = 5;
+	int XML_DATABASE_OPERATION_COUNT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -577,6 +586,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_DATA_DATABASE___EXECUTE__STRING = XML_DATABASE___EXECUTE__STRING;
+
+	/**
+	 * The operation id for the '<em>Close</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___CLOSE = XML_DATABASE___CLOSE;
 
 	/**
 	 * The operation id for the '<em>Execute</em>' operation.
@@ -868,6 +886,15 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATA_DATABASE___EXECUTE__STRING = XML_DATA_DATABASE___EXECUTE__STRING;
 
 	/**
+	 * The operation id for the '<em>Close</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATA_DATABASE___CLOSE = XML_DATA_DATABASE___CLOSE;
+
+	/**
 	 * The operation id for the '<em>Execute</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1155,6 +1182,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_DATA_DATABASE___EXECUTE__STRING = XML_DATA_DATABASE___EXECUTE__STRING;
+
+	/**
+	 * The operation id for the '<em>Close</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATA_DATABASE___CLOSE = XML_DATA_DATABASE___CLOSE;
 
 	/**
 	 * The operation id for the '<em>Execute</em>' operation.
@@ -1481,6 +1517,15 @@ public interface ExecutionPackage extends EPackage {
 	int XML_SCHEMA_DATABASE___EXECUTE__STRING = XML_DATABASE___EXECUTE__STRING;
 
 	/**
+	 * The operation id for the '<em>Close</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_SCHEMA_DATABASE___CLOSE = XML_DATABASE___CLOSE;
+
+	/**
 	 * The operation id for the '<em>Check Following In Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1797,6 +1842,15 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_SCHEMA_DATABASE___EXECUTE__STRING = XML_SCHEMA_DATABASE___EXECUTE__STRING;
 
 	/**
+	 * The operation id for the '<em>Close</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_SCHEMA_DATABASE___CLOSE = XML_SCHEMA_DATABASE___CLOSE;
+
+	/**
 	 * The operation id for the '<em>Check Following In Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2102,6 +2156,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_SCHEMA_DATABASE___EXECUTE__STRING = XML_SCHEMA_DATABASE___EXECUTE__STRING;
+
+	/**
+	 * The operation id for the '<em>Close</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_SCHEMA_DATABASE___CLOSE = XML_SCHEMA_DATABASE___CLOSE;
 
 	/**
 	 * The operation id for the '<em>Check Following In Schema</em>' operation.
@@ -3304,6 +3367,16 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getXmlDatabase__Execute__String();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#close() <em>Close</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Close</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#close()
+	 * @generated
+	 */
+	EOperation getXmlDatabase__Close();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.Database <em>Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4142,6 +4215,14 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_DATABASE___EXECUTE__STRING = eINSTANCE.getXmlDatabase__Execute__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Close</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___CLOSE = eINSTANCE.getXmlDatabase__Close();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.Database <em>Database</em>}' class.

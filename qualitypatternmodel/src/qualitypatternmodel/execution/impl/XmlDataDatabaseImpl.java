@@ -360,6 +360,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			open();				
 			executeAnalysis("distinct-values(//*/name())", getElementNames());
 			executeAnalysis("distinct-values(//*/@*/name()))", getAttributeNames());
+			close();
 //		}		
 	}
 	

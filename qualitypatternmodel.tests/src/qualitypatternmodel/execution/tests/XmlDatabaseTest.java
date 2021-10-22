@@ -17,6 +17,7 @@ import qualitypatternmodel.execution.XmlDatabase;
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#open() <em>Open</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#create() <em>Create</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDatabase#execute(java.lang.String) <em>Execute</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDatabase#close() <em>Close</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -121,6 +122,19 @@ public abstract class XmlDatabaseTest extends TestCase {
 	 * @generated
 	 */
 	public void testExecute__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDatabase#close() <em>Close</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDatabase#close()
+	 * @generated
+	 */
+	public void testClose() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

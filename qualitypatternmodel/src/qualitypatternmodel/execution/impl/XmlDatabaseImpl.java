@@ -5,6 +5,7 @@ package qualitypatternmodel.execution.impl;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import org.basex.core.BaseXException;
+import org.basex.core.cmd.Close;
 import org.basex.core.cmd.Open;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
@@ -231,6 +232,14 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case ExecutionPackage.XML_DATABASE___CLOSE:
+				try {
+					close();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -324,7 +333,18 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	    	  queryResult.add(item.serialize().toString());
 	        }
 	    }
+	    close();
 		return queryResult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void close() throws BaseXException {
+		new Close().execute(context);
 	}
 
 	/**

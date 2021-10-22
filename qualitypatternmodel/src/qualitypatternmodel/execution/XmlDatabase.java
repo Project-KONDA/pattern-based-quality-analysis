@@ -136,4 +136,12 @@ public interface XmlDatabase extends EObject {
 	 */
 	EList<String> execute(String query) throws QueryException, QueryIOException, BaseXException, IOException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.BaseXExceptionWrapper"
+	 * @generated
+	 */
+	void close() throws BaseXException;
+
 } // XmlDatabase
