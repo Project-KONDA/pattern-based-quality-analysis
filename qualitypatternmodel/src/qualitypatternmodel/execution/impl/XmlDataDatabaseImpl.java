@@ -258,16 +258,16 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 //			removeUnusedAttributeNames();			
 		}
 		
-		try {
-			xmlSchema.init();
-		} catch (QueryException | IOException | InvalidityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		setNamespace(xmlSchema.getNamespace());
-		
 		if(newXmlSchema != null) {
+			try {
+				xmlSchema.init();
+			} catch (QueryException | IOException | InvalidityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			setNamespace(xmlSchema.getNamespace());
+			
 			addElementNames(newXmlSchema.getElementNames());
 			addAttributeNames(newXmlSchema.getAttributeNames());
 		}
@@ -370,6 +370,12 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			valueStorage.put(getNamespace() + result.get(i),0);
 		}
 	}	
+	
+	@Override
+	public void delete() {
+		setXmlSchema(null);
+		DatabasesImpl.getInstance().getXmlDatabases().remove(this);
+	}
 	
 
 	/**

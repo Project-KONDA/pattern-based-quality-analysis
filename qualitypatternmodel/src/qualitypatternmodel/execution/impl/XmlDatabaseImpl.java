@@ -240,6 +240,9 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case ExecutionPackage.XML_DATABASE___DELETE:
+				delete();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -345,6 +348,18 @@ public abstract class XmlDatabaseImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void close() throws BaseXException {
 		new Close().execute(context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void delete() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

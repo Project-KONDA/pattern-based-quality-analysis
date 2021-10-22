@@ -144,4 +144,12 @@ public interface XmlDatabase extends EObject {
 	 */
 	void close() throws BaseXException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void delete();
+
 } // XmlDatabase

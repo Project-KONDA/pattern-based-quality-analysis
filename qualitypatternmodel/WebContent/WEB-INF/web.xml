@@ -172,5 +172,15 @@
 		<url-pattern>/databases/registration/*</url-pattern>
 	</servlet-mapping>
 	
+	
+	<servlet>
+		<servlet-name>DatabaseDeletionServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.DatabaseDeletionServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DatabaseDeletionServlet</servlet-name>
+		<url-pattern>/databases/deletion/*</url-pattern>
+	</servlet-mapping>
 
 </web-app>

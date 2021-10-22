@@ -20,7 +20,6 @@ import qualitypatternmodel.execution.BaseXClient;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.ServerXmlDataDatabase;
 import qualitypatternmodel.execution.XmlDataDatabase;
-import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.execution.impl.BaseXClientImpl.Query;
 
 /**

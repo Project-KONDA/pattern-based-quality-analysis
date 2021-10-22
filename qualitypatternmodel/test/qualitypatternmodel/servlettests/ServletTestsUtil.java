@@ -145,4 +145,40 @@ public class ServletTestsUtil {
 		}
 	}
 
+	static void registerDatabase(String localName, String name, String host, String port, String user, String password) throws IOException, MalformedURLException, ProtocolException {
+	
+		HttpURLConnection connection = (HttpURLConnection) new URL(PATH_PREFIX + Util.DATABASE_REGISTRATION_ENDPOINT + localName).openConnection();
+		connection.setRequestMethod("POST");
+		
+		String hostEncoded = URLEncoder.encode(host);
+		String parameters = "host=" + hostEncoded;
+		String portEncoded = URLEncoder.encode(port);
+		parameters += "&port=" + portEncoded;
+		String nameEncoded = URLEncoder.encode(name);
+		parameters += "&name=" + nameEncoded;
+		String userEncoded = URLEncoder.encode(user);
+		parameters += "&user=" + userEncoded;
+		String passwordEncoded = URLEncoder.encode(password);
+		parameters += "&password=" + passwordEncoded;
+		
+		connection.setDoOutput(true);
+	    OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
+	    wr.write(parameters);
+	    wr.flush();
+		
+		int responseCode = connection.getResponseCode();
+		assertTrue(responseCode >= 200 && responseCode < 300);	
+		
+		String result = getResult(connection);		
+		printResult(connection, responseCode, result);
+	}
+
+	public static void deleteDatabase(String localName) throws IOException {
+		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.DATABASE_DELETION_ENDPOINT + localName).openConnection();
+		connection.setRequestMethod("POST");		
+		int responseCode = connection.getResponseCode();
+		assertTrue(responseCode >= 200 && responseCode < 300);
+		
+	}
+
 }

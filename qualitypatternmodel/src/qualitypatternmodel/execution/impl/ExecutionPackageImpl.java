@@ -1077,6 +1077,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getXmlDatabase__Delete() {
+		return xmlDatabaseEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDatabase() {
 		return databaseEClass;
 	}
@@ -1359,6 +1369,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___CREATE);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___EXECUTE__STRING);
 		createEOperation(xmlDatabaseEClass, XML_DATABASE___CLOSE);
+		createEOperation(xmlDatabaseEClass, XML_DATABASE___DELETE);
 
 		databaseEClass = createEClass(DATABASE);
 		createEReference(databaseEClass, DATABASE__RESULTS);
@@ -1684,6 +1695,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		op = initEOperation(getXmlDatabase__Close(), null, "close", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getBaseXExceptionWrapper());
+
+		initEOperation(getXmlDatabase__Delete(), null, "delete", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(databaseEClass, Database.class, "Database", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDatabase_Results(), this.getResult(), this.getResult_Database(), "results", null, 0, -1, Database.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

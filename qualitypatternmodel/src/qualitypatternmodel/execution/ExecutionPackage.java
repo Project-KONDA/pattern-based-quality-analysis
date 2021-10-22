@@ -444,13 +444,22 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATABASE___CLOSE = 5;
 
 	/**
+	 * The operation id for the '<em>Delete</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATABASE___DELETE = 6;
+
+	/**
 	 * The number of operations of the '<em>Xml Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATABASE_OPERATION_COUNT = 6;
+	int XML_DATABASE_OPERATION_COUNT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -595,6 +604,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_DATA_DATABASE___CLOSE = XML_DATABASE___CLOSE;
+
+	/**
+	 * The operation id for the '<em>Delete</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___DELETE = XML_DATABASE___DELETE;
 
 	/**
 	 * The operation id for the '<em>Execute</em>' operation.
@@ -893,6 +911,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOCAL_XML_DATA_DATABASE___CLOSE = XML_DATA_DATABASE___CLOSE;
+
+	/**
+	 * The operation id for the '<em>Delete</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATA_DATABASE___DELETE = XML_DATA_DATABASE___DELETE;
 
 	/**
 	 * The operation id for the '<em>Execute</em>' operation.
@@ -1200,6 +1227,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_DATA_DATABASE___CLOSE = XML_DATA_DATABASE___CLOSE;
+
+	/**
+	 * The operation id for the '<em>Delete</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATA_DATABASE___DELETE = XML_DATA_DATABASE___DELETE;
 
 	/**
 	 * The operation id for the '<em>Execute</em>' operation.
@@ -1535,6 +1571,15 @@ public interface ExecutionPackage extends EPackage {
 	int XML_SCHEMA_DATABASE___CLOSE = XML_DATABASE___CLOSE;
 
 	/**
+	 * The operation id for the '<em>Delete</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_SCHEMA_DATABASE___DELETE = XML_DATABASE___DELETE;
+
+	/**
 	 * The operation id for the '<em>Check Following In Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1860,6 +1905,15 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_SCHEMA_DATABASE___CLOSE = XML_SCHEMA_DATABASE___CLOSE;
 
 	/**
+	 * The operation id for the '<em>Delete</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_SCHEMA_DATABASE___DELETE = XML_SCHEMA_DATABASE___DELETE;
+
+	/**
 	 * The operation id for the '<em>Check Following In Schema</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2174,6 +2228,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_SCHEMA_DATABASE___CLOSE = XML_SCHEMA_DATABASE___CLOSE;
+
+	/**
+	 * The operation id for the '<em>Delete</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_SCHEMA_DATABASE___DELETE = XML_SCHEMA_DATABASE___DELETE;
 
 	/**
 	 * The operation id for the '<em>Check Following In Schema</em>' operation.
@@ -3397,6 +3460,16 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getXmlDatabase__Close();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDatabase#delete() <em>Delete</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Delete</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDatabase#delete()
+	 * @generated
+	 */
+	EOperation getXmlDatabase__Delete();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.Database <em>Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4251,6 +4324,14 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_DATABASE___CLOSE = eINSTANCE.getXmlDatabase__Close();
+
+		/**
+		 * The meta object literal for the '<em><b>Delete</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATABASE___DELETE = eINSTANCE.getXmlDatabase__Delete();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.Database <em>Database</em>}' class.
