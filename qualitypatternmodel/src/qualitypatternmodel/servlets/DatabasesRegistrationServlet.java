@@ -82,6 +82,9 @@ public class DatabasesRegistrationServlet extends HttpServlet {
 						db = new ServerXmlDataDatabaseImpl(localName, host, port, name, user, password);
 						try {
 							db.createSchemaDatabaseFromReferencedSchema();
+							
+							EMFModelSave.exportToFile(databasesContainer, folderURL.toString() + fileName, "execution");
+							response.getOutputStream().println("Successfully registered database '" + localName + "'.");
 						} catch (InvalidityException e) {
 							response.sendError(404);
 							response.getOutputStream().println("{ \"error\": \"Analysing XML schema failed.\"}");
@@ -91,9 +94,6 @@ public class DatabasesRegistrationServlet extends HttpServlet {
 						response.getOutputStream().println("{ \"error\": \"Local database name already used.\"}");	
 					}
 					
-					
-					EMFModelSave.exportToFile(databasesContainer, folderURL.toString() + fileName, "execution");
-					response.getOutputStream().println("Successfully registered database '" + localName + "'.");
 					
 				} else {
 					response.sendError(404);
