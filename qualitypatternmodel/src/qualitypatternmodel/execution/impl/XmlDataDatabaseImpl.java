@@ -252,8 +252,10 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 		xmlSchema = newXmlSchema;
 		
 		if(oldXmlSchema != null) {
-			removeUnusedElementNames();			
-			removeUnusedAttributeNames();			
+			getElementNames().clear();
+			getAttributeNames().clear();
+//			removeUnusedElementNames();			
+//			removeUnusedAttributeNames();			
 		}
 		
 		try {
