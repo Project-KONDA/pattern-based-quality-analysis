@@ -13,7 +13,12 @@ import org.junit.runners.Suite;
    ConcretisationFinalizationServletTest.class,
    ConcretisationServletTest.class,
    ConcretePatternTextServletTest.class,
-   QueryServletTest.class
+   QueryServletTest.class,
+   
+   DatabasesListServletTest.class,
+   DatabasesRegistrationServletTest.class,
+   DatabasesSettingServletTest.class
+   
 })
 
 public class TestSuite {   
