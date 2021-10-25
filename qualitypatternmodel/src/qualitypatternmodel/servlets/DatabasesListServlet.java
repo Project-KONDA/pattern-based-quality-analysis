@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import qualitypatternmodel.execution.Databases;
 import qualitypatternmodel.execution.ServerXmlDataDatabase;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.execution.impl.DatabasesImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
 
@@ -42,8 +43,10 @@ public class DatabasesListServlet extends HttpServlet {
 				URL folderURL = getClass().getClassLoader().getResource(Util.DATABASES_PATH);
 				URL fileURL = getClass().getClassLoader().getResource(filePath);		
 								
-				if(fileURL != null && folderURL != null) {
-					Databases databasesContainer = EMFModelLoad.loadDatabases(fileURL.toString());
+				if(fileURL != null && folderURL != null) {					
+					
+					DatabasesImpl.getInstance().clear();					
+					Databases databasesContainer = EMFModelLoad.loadDatabases(fileURL.toString());					
 				
 					for (XmlDataDatabase db: databasesContainer.getXmlDatabases()) {
 						if(db instanceof ServerXmlDataDatabase) {

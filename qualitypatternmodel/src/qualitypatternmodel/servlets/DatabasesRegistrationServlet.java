@@ -19,6 +19,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.execution.Databases;
 import qualitypatternmodel.execution.LocalXmlSchemaDatabase;
 import qualitypatternmodel.execution.ServerXmlDataDatabase;
+import qualitypatternmodel.execution.impl.DatabasesImpl;
 import qualitypatternmodel.execution.impl.ServerXmlDataDatabaseImpl;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.DateParam;
@@ -76,6 +77,7 @@ public class DatabasesRegistrationServlet extends HttpServlet {
 				URL fileURL = getClass().getClassLoader().getResource(filePath);		
 				
 				if(fileURL != null && folderURL != null) {
+					DatabasesImpl.getInstance().clear();
 					Databases databasesContainer = EMFModelLoad.loadDatabases(fileURL.toString());
 					ServerXmlDataDatabase db = null;
 					try {
