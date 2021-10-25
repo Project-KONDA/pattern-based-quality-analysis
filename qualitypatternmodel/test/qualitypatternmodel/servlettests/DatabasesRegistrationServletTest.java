@@ -36,6 +36,7 @@ public class DatabasesRegistrationServletTest {
 		
 		JSONArray array = new JSONArray(result2);
 		assertTrue(array.getJSONObject(0).get("Host").equals("localhost"));   
+		assertTrue(array.length() == 1);
 
 	}
 	
