@@ -236,4 +236,17 @@ public class ServletTestsUtil {
 		}
 	}
 
+	static void setDatabase(String localDbName, String patternName1) throws IOException, MalformedURLException, ProtocolException {
+		HttpURLConnection connection = (HttpURLConnection) new URL(PATH_PREFIX + Util.DATABASE_SETTING_ENDPOINT + localDbName + "/" + patternName1).openConnection();
+		connection.setRequestMethod("POST");
+		
+		int responseCode = connection.getResponseCode();
+		System.out.println(responseCode);
+		
+		String result = getResult(connection);		
+		printResult(connection, responseCode, result);
+		
+		assertTrue(responseCode >= 200 && responseCode < 300);
+	}
+
 }
