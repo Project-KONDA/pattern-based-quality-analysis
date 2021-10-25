@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:demo="https://github.com/demo" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://github.com/demo" elementFormDefault="qualified" attributeFormDefault="qualified">
+<xs:schema xmlns:demo="demo" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="demo" elementFormDefault="qualified" attributeFormDefault="qualified">
 
 	<xs:element name="data">
 		<xs:complexType>
