@@ -29,8 +29,10 @@ public class Util {
 	public static final String CONCRETISATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/parameter/";
 	public static final String DESCRIPTION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/description/";
 	public static final String CONCRETISATION_FINALIZATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/finalization/";
+	public static final String SCHEMA_VALIDATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/schema-validation/";
 	public static final String QUERY_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/query/";
 	public static final String FINALIZED_PATTERN_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/finalized-patterns";
+
 	
 	public static final String DATABASE_REGISTRATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/databases/registration/";
 	public static final String DATABASE_SETTING_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/databases/set/";

@@ -195,7 +195,7 @@
 	</servlet-mapping>
 	
 	
-		<servlet>
+	<servlet>
 		<servlet-name>DatabaseGettingServlet</servlet-name>
 		<servlet-class>qualitypatternmodel.servlets.DatabaseGettingServlet</servlet-class>
 	</servlet>
@@ -203,6 +203,17 @@
 	<servlet-mapping>
 		<servlet-name>DatabaseGettingServlet</servlet-name>
 		<url-pattern>/databases/get/*</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>SchemaValidationServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.SchemaValidationServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SchemaValidationServlet</servlet-name>
+		<url-pattern>/concrete-patterns/schema-validation/*</url-pattern>
 	</servlet-mapping>
 	
 
