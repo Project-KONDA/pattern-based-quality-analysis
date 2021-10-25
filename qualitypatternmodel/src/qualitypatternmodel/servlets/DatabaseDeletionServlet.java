@@ -91,7 +91,7 @@ public class DatabaseDeletionServlet extends HttpServlet {
 					response.getOutputStream().println("Successfully deleted local database '" + localName + "'.");	
 				} else {
 					response.sendError(404);
-					response.getOutputStream().println("{ \"error\": \"Could not find data base with local name '" + localName + "'.\"}");
+					response.getOutputStream().println("{ \"error\": \"Could not find database with local name '" + localName + "'.\"}");
 				}
 				
 			} catch (URISyntaxException e) {
