@@ -39,7 +39,6 @@ public class SchemaValidationServlet extends HttpServlet {
 			if(problematicParams.isEmpty()) {
 				response.getOutputStream().println("Successfully validated concrete pattern '" + name + "' against its XML schema.");
 			} else {
-				response.sendError(409);
 				String result = "[";
 				for(Parameter p : problematicParams) {					
 					int parameterID = p.getParameterList().getParameters().indexOf(p);

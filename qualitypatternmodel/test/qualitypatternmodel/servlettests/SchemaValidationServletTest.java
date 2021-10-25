@@ -51,14 +51,20 @@ public class SchemaValidationServletTest {
 	}
 	
 	@Test
-	public void doPostTestNegative() throws IOException {	
+	public void doPostTestNegative() throws IOException, JSONException {	
 		ServletTestsUtil.setDatabase(localName2, patternName);
 		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.SCHEMA_VALIDATION_ENDPOINT + patternName).openConnection();
 		connection.setRequestMethod("POST");
 		
 		int responseCode = connection.getResponseCode();		
-		assertFalse(responseCode >= 200 && responseCode < 300);
-	
+		assertTrue(responseCode >= 200 && responseCode < 300);
+		
+		String result = ServletTestsUtil.getResult(connection);		
+		JSONArray array = new JSONArray(result);
+		assertTrue(array.length() == 2);
+		assertTrue(array.getJSONObject(0).get("URL").equals("/concrete-patterns/parameter/card_concrete_finalized/0")); 
+		assertTrue(array.getJSONObject(1).get("URL").equals("/concrete-patterns/parameter/card_concrete_finalized/5")); 
+			
 	}
 	
 	@After
