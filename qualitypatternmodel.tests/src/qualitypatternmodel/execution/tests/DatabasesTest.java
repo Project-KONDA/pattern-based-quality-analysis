@@ -13,6 +13,12 @@ import qualitypatternmodel.execution.ExecutionFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Databases</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.execution.Databases#clear() <em>Clear</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class DatabasesTest extends TestCase {
@@ -84,6 +90,19 @@ public class DatabasesTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.Databases#clear() <em>Clear</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.Databases#clear()
+	 * @generated
+	 */
+	public void testClear() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //DatabasesTest

@@ -1400,13 +1400,22 @@ public interface ExecutionPackage extends EPackage {
 	int DATABASES_FEATURE_COUNT = 2;
 
 	/**
+	 * The operation id for the '<em>Clear</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATABASES___CLEAR = 0;
+
+	/**
 	 * The number of operations of the '<em>Databases</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATABASES_OPERATION_COUNT = 0;
+	int DATABASES_OPERATION_COUNT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -3048,6 +3057,16 @@ public interface ExecutionPackage extends EPackage {
 	EReference getDatabases_XmlSchemata();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.Databases#clear() <em>Clear</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Clear</em>' operation.
+	 * @see qualitypatternmodel.execution.Databases#clear()
+	 * @generated
+	 */
+	EOperation getDatabases__Clear();
+
+	/**
 	 * Returns the meta object for class '{@link java.util.Map.Entry <em>String To Int Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3994,6 +4013,14 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DATABASES__XML_SCHEMATA = eINSTANCE.getDatabases_XmlSchemata();
+
+		/**
+		 * The meta object literal for the '<em><b>Clear</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATABASES___CLEAR = eINSTANCE.getDatabases__Clear();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.StringToIntMapImpl <em>String To Int Map</em>}' class.

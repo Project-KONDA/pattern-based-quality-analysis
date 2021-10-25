@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.execution.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -114,6 +115,17 @@ public class DatabasesImpl extends MinimalEObjectImpl.Container implements Datab
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void clear() {
+		getXmlDatabases().clear();
+		getXmlSchemata().clear();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -196,6 +208,21 @@ public class DatabasesImpl extends MinimalEObjectImpl.Container implements Datab
 				return xmlSchemata != null && !xmlSchemata.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ExecutionPackage.DATABASES___CLEAR:
+				clear();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //DatabasesImpl

@@ -49,4 +49,12 @@ public interface Databases extends EObject {
 	 */
 	EList<XmlSchemaDatabase> getXmlSchemata();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void clear();
+
 } // Databases

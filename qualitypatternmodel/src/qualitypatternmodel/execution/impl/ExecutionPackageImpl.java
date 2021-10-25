@@ -677,6 +677,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getDatabases__Clear() {
+		return databasesEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getStringToIntMap() {
 		return stringToIntMapEClass;
 	}
@@ -1324,6 +1334,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		databasesEClass = createEClass(DATABASES);
 		createEReference(databasesEClass, DATABASES__XML_DATABASES);
 		createEReference(databasesEClass, DATABASES__XML_SCHEMATA);
+		createEOperation(databasesEClass, DATABASES___CLEAR);
 
 		stringToIntMapEClass = createEClass(STRING_TO_INT_MAP);
 		createEAttribute(stringToIntMapEClass, STRING_TO_INT_MAP__KEY);
@@ -1511,6 +1522,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEClass(databasesEClass, Databases.class, "Databases", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDatabases_XmlDatabases(), this.getXmlDataDatabase(), null, "xmlDatabases", null, 0, -1, Databases.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDatabases_XmlSchemata(), this.getXmlSchemaDatabase(), null, "xmlSchemata", null, 0, -1, Databases.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getDatabases__Clear(), null, "clear", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(stringToIntMapEClass, Map.Entry.class, "StringToIntMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringToIntMap_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

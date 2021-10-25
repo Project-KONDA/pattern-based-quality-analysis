@@ -647,6 +647,7 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/Databases">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/Databases/xmlDatabases"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//execution/Databases/xmlSchemata"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/Databases/clear"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/StringToIntMap">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/StringToIntMap/key"/>

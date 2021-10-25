@@ -768,6 +768,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="localName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Databases">
+      <eOperations name="clear"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlDatabases" upperBound="-1"
           eType="#//execution/XmlDataDatabase" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlSchemata" upperBound="-1"
