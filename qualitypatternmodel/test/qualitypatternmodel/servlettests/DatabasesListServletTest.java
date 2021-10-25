@@ -24,7 +24,7 @@ public class DatabasesListServletTest {
 	String localName = "test_db_1";
 	
 	@Before
-	public void before() throws IOException, InvalidityException {
+	public void before() throws IOException, InvalidityException, JSONException {
 		ServletTestsUtil.registerDatabase(localName, "ddb_20190606", "localhost", "1984", "admin", "admin");
 	}
 
@@ -45,7 +45,7 @@ public class DatabasesListServletTest {
 	}
 	
 	@After
-	public void after() throws IOException {		
+	public void after() throws IOException, JSONException {		
 		ServletTestsUtil.deleteDatabase(localName);		
 	}
 	

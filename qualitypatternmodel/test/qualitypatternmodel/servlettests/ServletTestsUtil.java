@@ -1,5 +1,6 @@
 package qualitypatternmodel.servlettests;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,6 +17,7 @@ import java.util.Scanner;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import qualitypatternmodel.servlets.Util;
 
@@ -144,8 +146,12 @@ public class ServletTestsUtil {
 			assertTrue(split[0].contains("\"Value\": \"" + valueEncoded + "\""));
 		}
 	}
+	
+	static void registerDatabase(String localName, String name, String host, String port, String user, String password) throws IOException, MalformedURLException, ProtocolException, JSONException {
+		registerDatabase(localName, name, host, port, user, password, -1);
+	}
 
-	static void registerDatabase(String localName, String name, String host, String port, String user, String password) throws IOException, MalformedURLException, ProtocolException {
+	static void registerDatabase(String localName, String name, String host, String port, String user, String password, int size) throws IOException, MalformedURLException, ProtocolException, JSONException {
 	
 		HttpURLConnection connection = (HttpURLConnection) new URL(PATH_PREFIX + Util.DATABASE_REGISTRATION_ENDPOINT + localName).openConnection();
 		connection.setRequestMethod("POST");
@@ -171,14 +177,63 @@ public class ServletTestsUtil {
 		
 		String result = getResult(connection);		
 		printResult(connection, responseCode, result);
+		
+		checkDatabaseListContains(localName, name, host, port, size); 
+		
 	}
 
-	public static void deleteDatabase(String localName) throws IOException {
+	static void checkDatabaseListContains(String localName, String name, String host, String port, int size)
+			throws IOException, MalformedURLException, ProtocolException, JSONException {
+		HttpURLConnection connection2 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.DATABASES_LIST_ENDPOINT).openConnection();
+		connection2.setRequestMethod("GET");
+		
+		int responseCode2 = connection2.getResponseCode();
+		assertTrue(responseCode2 >= 200 && responseCode2 < 300);
+		
+		String result2 = ServletTestsUtil.getResult(connection2);		
+		ServletTestsUtil.printResult(connection2, responseCode2, result2);		
+		
+		boolean found = false;
+		JSONArray array = new JSONArray(result2);
+		for(int i=0; i<array.length(); i++) {
+			if(array.getJSONObject(i).get("LocalName").equals(localName)){
+				found = true;
+			}
+		}
+		assertTrue(found);
+		
+		if(size > -1) {
+			assertTrue(array.length() == size);
+		}
+	}
+
+	public static void deleteDatabase(String localName) throws IOException, JSONException {
 		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.DATABASE_DELETION_ENDPOINT + localName).openConnection();
 		connection.setRequestMethod("POST");		
 		int responseCode = connection.getResponseCode();
+		System.out.println(responseCode);
 		assertTrue(responseCode >= 200 && responseCode < 300);
 		
+		checkDatabaseListDoesNotContain(localName);
+		
+	}
+
+	static void checkDatabaseListDoesNotContain(String localName)
+			throws IOException, MalformedURLException, ProtocolException, JSONException {
+		HttpURLConnection connection2 = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.DATABASES_LIST_ENDPOINT).openConnection();
+		connection2.setRequestMethod("GET");
+		
+		int responseCode2 = connection2.getResponseCode();
+		assertTrue(responseCode2 >= 200 && responseCode2 < 300);
+		
+		String result2 = ServletTestsUtil.getResult(connection2);		
+		ServletTestsUtil.printResult(connection2, responseCode2, result2);		
+		
+		JSONArray array = new JSONArray(result2);
+		
+		for(int i=0; i<array.length(); i++) {
+			assertFalse(array.getJSONObject(i).get("LocalName").equals(localName));
+		}
 	}
 
 }
