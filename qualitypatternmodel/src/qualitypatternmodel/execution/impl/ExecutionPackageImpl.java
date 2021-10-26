@@ -1187,6 +1187,26 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getBaseXClient_Username() {
+		return (EAttribute)baseXClientEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBaseXClient_Password() {
+		return (EAttribute)baseXClientEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getBaseXClient__Close() {
 		return baseXClientEClass.getEOperations().get(0);
 	}
@@ -1209,6 +1229,26 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	@Override
 	public EOperation getBaseXClient__Query__String() {
 		return baseXClientEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getBaseXClient__IsConnected() {
+		return baseXClientEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getBaseXClient__Connect() {
+		return baseXClientEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -1393,9 +1433,13 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		baseXClientEClass = createEClass(BASE_XCLIENT);
 		createEAttribute(baseXClientEClass, BASE_XCLIENT__HOST);
 		createEAttribute(baseXClientEClass, BASE_XCLIENT__PORT);
+		createEAttribute(baseXClientEClass, BASE_XCLIENT__USERNAME);
+		createEAttribute(baseXClientEClass, BASE_XCLIENT__PASSWORD);
 		createEOperation(baseXClientEClass, BASE_XCLIENT___CLOSE);
 		createEOperation(baseXClientEClass, BASE_XCLIENT___EXECUTE__STRING);
 		createEOperation(baseXClientEClass, BASE_XCLIENT___QUERY__STRING);
+		createEOperation(baseXClientEClass, BASE_XCLIENT___IS_CONNECTED);
+		createEOperation(baseXClientEClass, BASE_XCLIENT___CONNECT);
 
 		// Create data types
 		baseXExceptionWrapperEDataType = createEDataType(BASE_XEXCEPTION_WRAPPER);
@@ -1742,6 +1786,8 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEClass(baseXClientEClass, BaseXClient.class, "BaseXClient", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBaseXClient_Host(), ecorePackage.getEString(), "host", null, 0, 1, BaseXClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBaseXClient_Port(), ecorePackage.getEInt(), "port", null, 0, 1, BaseXClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBaseXClient_Username(), ecorePackage.getEString(), "username", null, 0, 1, BaseXClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBaseXClient_Password(), ecorePackage.getEString(), "password", null, 0, 1, BaseXClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getBaseXClient__Close(), null, "close", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getIoExceptionWrapper());
@@ -1752,6 +1798,11 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		op = initEOperation(getBaseXClient__Query__String(), this.getQueryWrapper(), "query", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "query", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIoExceptionWrapper());
+
+		initEOperation(getBaseXClient__IsConnected(), ecorePackage.getEBoolean(), "isConnected", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getBaseXClient__Connect(), null, "connect", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getIoExceptionWrapper());
 
 		// Initialize data types

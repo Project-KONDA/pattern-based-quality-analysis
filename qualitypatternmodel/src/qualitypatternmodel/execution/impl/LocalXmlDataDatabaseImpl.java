@@ -2,26 +2,14 @@
  */
 package qualitypatternmodel.execution.impl;
 
-import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-
 import org.basex.core.BaseXException;
 import org.basex.core.cmd.CreateDB;
-import org.basex.query.QueryException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.LocalXmlDataDatabase;
-import qualitypatternmodel.execution.Result;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.CompletePattern;
 
 /**
  * <!-- begin-user-doc -->

@@ -762,6 +762,8 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//execution/BaseXClient">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/BaseXClient/host"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/BaseXClient/port"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/BaseXClient/username"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//execution/BaseXClient/password"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/BaseXClient/close"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/BaseXClient/execute">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/BaseXClient/execute/command"/>
@@ -769,6 +771,8 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/BaseXClient/query">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//execution/BaseXClient/query/query"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/BaseXClient/isConnected"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//execution/BaseXClient/connect"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Textrepresentation" disposableProviderFactory="true"

@@ -63,6 +63,8 @@ public class BaseXClientItemProvider
 
 			addHostPropertyDescriptor(object);
 			addPortPropertyDescriptor(object);
+			addUsernamePropertyDescriptor(object);
+			addPasswordPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -112,6 +114,50 @@ public class BaseXClientItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Username feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUsernamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BaseXClient_username_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BaseXClient_username_feature", "_UI_BaseXClient_type"),
+				 ExecutionPackage.Literals.BASE_XCLIENT__USERNAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Password feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPasswordPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BaseXClient_password_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BaseXClient_password_feature", "_UI_BaseXClient_type"),
+				 ExecutionPackage.Literals.BASE_XCLIENT__PASSWORD,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns BaseXClient.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,7 +176,7 @@ public class BaseXClientItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BaseXClient)object).getHost();
+		String label = ((BaseXClient)object).getUsername();
 		return label == null || label.length() == 0 ?
 			getString("_UI_BaseXClient_type") :
 			getString("_UI_BaseXClient_type") + " " + label;
@@ -151,6 +197,8 @@ public class BaseXClientItemProvider
 		switch (notification.getFeatureID(BaseXClient.class)) {
 			case ExecutionPackage.BASE_XCLIENT__HOST:
 			case ExecutionPackage.BASE_XCLIENT__PORT:
+			case ExecutionPackage.BASE_XCLIENT__USERNAME:
+			case ExecutionPackage.BASE_XCLIENT__PASSWORD:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

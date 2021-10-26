@@ -5,6 +5,7 @@ package qualitypatternmodel.execution.impl;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -12,6 +13,7 @@ import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -27,6 +29,8 @@ import qualitypatternmodel.execution.ExecutionPackage;
  * <ul>
  *   <li>{@link qualitypatternmodel.execution.impl.BaseXClientImpl#getHost <em>Host</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.BaseXClientImpl#getPort <em>Port</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.BaseXClientImpl#getUsername <em>Username</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.BaseXClientImpl#getPassword <em>Password</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,14 +49,14 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 	/** UTF-8 charset. */
 	private static Charset UTF8 = Charset.forName("UTF-8");
 	/** Output stream. */
-	private OutputStream out;
+	protected OutputStream out;
 	/** Input stream (buffered). */
-	private BufferedInputStream in;
+	protected BufferedInputStream in;
 
 	/** Socket. */
-	private Socket socket;
+	protected Socket socket;
 	/** Command info. */
-	private String info;
+	protected String info;
 
 	protected String host;
 	/**
@@ -65,6 +69,43 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 	 */
 	protected static final int PORT_EDEFAULT = 0;
 	protected int port;
+
+	/**
+	 * The default value of the '{@link #getUsername() <em>Username</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUsername()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String USERNAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getUsername() <em>Username</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUsername()
+	 * @generated
+	 * @ordered
+	 */
+	protected String username = USERNAME_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getPassword() <em>Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPassword()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PASSWORD_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getPassword() <em>Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPassword()
+	 * @generated
+	 * @ordered
+	 */
+	protected String password = PASSWORD_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -90,32 +131,10 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 		this.host = host;
 		this.port = port;
+		this.username = username;
+		this.password = password;
 
-		socket = new Socket();
-		socket.setTcpNoDelay(true);
-		socket.connect(new InetSocketAddress(host, port), 5000);
-		in = new BufferedInputStream(socket.getInputStream());
-		out = socket.getOutputStream();
-
-		// receive server response
-		final String[] response = receive().split(":");
-		final String code, nonce;
-		if (response.length > 1) {
-			// support for digest authentication
-			code = username + ':' + response[0] + ':' + password;
-			nonce = response[1];
-		} else {
-			// support for cram-md5 (Version < 8.0)
-			code = password;
-			nonce = response[0];
-		}
-
-		send(username);
-		send(md5(md5(code) + nonce));
-
-		// receive success flag
-		if (!ok())
-			throw new IOException("Access denied.");
+		connect();
 	}
 
 	/**
@@ -152,6 +171,9 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 	 */
 	@Override
 	public String execute(final String command) throws IOException {
+		if(!isConnected()) {
+			connect();
+		}
 		final ByteArrayOutputStream os = new ByteArrayOutputStream();
 		execute(command, os);
 		return new String(os.toByteArray(), UTF8);
@@ -165,7 +187,55 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 	 * @throws IOException Exception
 	 */
 	public Query query(final String query) throws IOException {
+		if(!isConnected()) {
+			connect();
+		}
 		return new Query(query);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isConnected() {
+		return out != null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @generated NOT
+	 */
+	@Override
+	public void connect() throws IOException {
+		socket = new Socket();
+		socket.setTcpNoDelay(true);
+		socket.connect(new InetSocketAddress(host, port), 5000);
+		in = new BufferedInputStream(socket.getInputStream());
+		out = socket.getOutputStream();		
+
+		// receive server response
+		final String[] response = receive().split(":");
+		final String code, nonce;
+		if (response.length > 1) {
+			// support for digest authentication
+			code = username + ':' + response[0] + ':' + password;
+			nonce = response[1];
+		} else {
+			// support for cram-md5 (Version < 8.0)
+			code = password;
+			nonce = response[0];
+		}
+
+		send(username);
+		send(md5(md5(code) + nonce));
+
+		// receive success flag
+		if (!ok())
+			throw new IOException("Access denied.");
 	}
 
 	/**
@@ -179,6 +249,10 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 				return getHost();
 			case ExecutionPackage.BASE_XCLIENT__PORT:
 				return getPort();
+			case ExecutionPackage.BASE_XCLIENT__USERNAME:
+				return getUsername();
+			case ExecutionPackage.BASE_XCLIENT__PASSWORD:
+				return getPassword();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -195,6 +269,12 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 				return;
 			case ExecutionPackage.BASE_XCLIENT__PORT:
 				setPort((Integer)newValue);
+				return;
+			case ExecutionPackage.BASE_XCLIENT__USERNAME:
+				setUsername((String)newValue);
+				return;
+			case ExecutionPackage.BASE_XCLIENT__PASSWORD:
+				setPassword((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -213,6 +293,12 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 			case ExecutionPackage.BASE_XCLIENT__PORT:
 				setPort(PORT_EDEFAULT);
 				return;
+			case ExecutionPackage.BASE_XCLIENT__USERNAME:
+				setUsername(USERNAME_EDEFAULT);
+				return;
+			case ExecutionPackage.BASE_XCLIENT__PASSWORD:
+				setPassword(PASSWORD_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -228,6 +314,10 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 				return HOST_EDEFAULT == null ? host != null : !HOST_EDEFAULT.equals(host);
 			case ExecutionPackage.BASE_XCLIENT__PORT:
 				return port != PORT_EDEFAULT;
+			case ExecutionPackage.BASE_XCLIENT__USERNAME:
+				return USERNAME_EDEFAULT == null ? username != null : !USERNAME_EDEFAULT.equals(username);
+			case ExecutionPackage.BASE_XCLIENT__PASSWORD:
+				return PASSWORD_EDEFAULT == null ? password != null : !PASSWORD_EDEFAULT.equals(password);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -261,6 +351,16 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case ExecutionPackage.BASE_XCLIENT___IS_CONNECTED:
+				return isConnected();
+			case ExecutionPackage.BASE_XCLIENT___CONNECT:
+				try {
+					connect();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -278,6 +378,10 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 		result.append(host);
 		result.append(", port: ");
 		result.append(port);
+		result.append(", username: ");
+		result.append(username);
+		result.append(", password: ");
+		result.append(password);
 		result.append(')');
 		return result.toString();
 	}
@@ -377,7 +481,13 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 	 * @throws IOException I/O exception
 	 */
 	private void send(final String string) throws IOException {
-		out.write((string + '\0').getBytes(UTF8));
+
+//		System.out.println("out= " + out);
+//
+//		System.out.println("s= " + (string + '\0'));
+		out
+		.write((string + '\0')
+				.getBytes(UTF8));
 	}
 
 	/**
@@ -630,6 +740,52 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 
 	public void setPort(int port) {
 		this.port = port;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getUsername() {
+		return username;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setUsername(String newUsername) {
+		String oldUsername = username;
+		username = newUsername;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.BASE_XCLIENT__USERNAME, oldUsername, username));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPassword(String newPassword) {
+		String oldPassword = password;
+		password = newPassword;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ExecutionPackage.BASE_XCLIENT__PASSWORD, oldPassword, password));
 	}
 
 } // BaseXClientImpl

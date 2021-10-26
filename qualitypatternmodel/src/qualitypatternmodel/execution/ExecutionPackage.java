@@ -2548,13 +2548,31 @@ public interface ExecutionPackage extends EPackage {
 	int BASE_XCLIENT__PORT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Username</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_XCLIENT__USERNAME = 2;
+
+	/**
+	 * The feature id for the '<em><b>Password</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_XCLIENT__PASSWORD = 3;
+
+	/**
 	 * The number of structural features of the '<em>Base XClient</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BASE_XCLIENT_FEATURE_COUNT = 2;
+	int BASE_XCLIENT_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Close</em>' operation.
@@ -2584,13 +2602,31 @@ public interface ExecutionPackage extends EPackage {
 	int BASE_XCLIENT___QUERY__STRING = 2;
 
 	/**
+	 * The operation id for the '<em>Is Connected</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_XCLIENT___IS_CONNECTED = 3;
+
+	/**
+	 * The operation id for the '<em>Connect</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_XCLIENT___CONNECT = 4;
+
+	/**
 	 * The number of operations of the '<em>Base XClient</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BASE_XCLIENT_OPERATION_COUNT = 3;
+	int BASE_XCLIENT_OPERATION_COUNT = 5;
 
 	/**
 	 * The meta object id for the '<em>Base XException Wrapper</em>' data type.
@@ -3583,6 +3619,28 @@ public interface ExecutionPackage extends EPackage {
 	EAttribute getBaseXClient_Port();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.execution.BaseXClient#getUsername <em>Username</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Username</em>'.
+	 * @see qualitypatternmodel.execution.BaseXClient#getUsername()
+	 * @see #getBaseXClient()
+	 * @generated
+	 */
+	EAttribute getBaseXClient_Username();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.execution.BaseXClient#getPassword <em>Password</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Password</em>'.
+	 * @see qualitypatternmodel.execution.BaseXClient#getPassword()
+	 * @see #getBaseXClient()
+	 * @generated
+	 */
+	EAttribute getBaseXClient_Password();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.execution.BaseXClient#close() <em>Close</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3611,6 +3669,26 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getBaseXClient__Query__String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.BaseXClient#isConnected() <em>Is Connected</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Connected</em>' operation.
+	 * @see qualitypatternmodel.execution.BaseXClient#isConnected()
+	 * @generated
+	 */
+	EOperation getBaseXClient__IsConnected();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.BaseXClient#connect() <em>Connect</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Connect</em>' operation.
+	 * @see qualitypatternmodel.execution.BaseXClient#connect()
+	 * @generated
+	 */
+	EOperation getBaseXClient__Connect();
 
 	/**
 	 * Returns the meta object for data type '{@link org.basex.core.BaseXException <em>Base XException Wrapper</em>}'.
@@ -4439,6 +4517,22 @@ public interface ExecutionPackage extends EPackage {
 		EAttribute BASE_XCLIENT__PORT = eINSTANCE.getBaseXClient_Port();
 
 		/**
+		 * The meta object literal for the '<em><b>Username</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BASE_XCLIENT__USERNAME = eINSTANCE.getBaseXClient_Username();
+
+		/**
+		 * The meta object literal for the '<em><b>Password</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BASE_XCLIENT__PASSWORD = eINSTANCE.getBaseXClient_Password();
+
+		/**
 		 * The meta object literal for the '<em><b>Close</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4461,6 +4555,22 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation BASE_XCLIENT___QUERY__STRING = eINSTANCE.getBaseXClient__Query__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Connected</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BASE_XCLIENT___IS_CONNECTED = eINSTANCE.getBaseXClient__IsConnected();
+
+		/**
+		 * The meta object literal for the '<em><b>Connect</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BASE_XCLIENT___CONNECT = eINSTANCE.getBaseXClient__Connect();
 
 		/**
 		 * The meta object literal for the '<em>Base XException Wrapper</em>' data type.

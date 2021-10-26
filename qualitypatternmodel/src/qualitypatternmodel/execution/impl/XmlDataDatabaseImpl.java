@@ -11,10 +11,7 @@ import java.net.URL;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-
-import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
-import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEMap;

@@ -19,6 +19,8 @@ import qualitypatternmodel.execution.ExecutionFactory;
  *   <li>{@link qualitypatternmodel.execution.BaseXClient#close() <em>Close</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.BaseXClient#execute(java.lang.String) <em>Execute</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.BaseXClient#query(java.lang.String) <em>Query</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.BaseXClient#isConnected() <em>Is Connected</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.BaseXClient#connect() <em>Connect</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -128,6 +130,32 @@ public class BaseXClientTest extends TestCase {
 	 * @generated
 	 */
 	public void testQuery__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.BaseXClient#isConnected() <em>Is Connected</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.BaseXClient#isConnected()
+	 * @generated
+	 */
+	public void testIsConnected() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.BaseXClient#connect() <em>Connect</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.BaseXClient#connect()
+	 * @generated
+	 */
+	public void testConnect() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

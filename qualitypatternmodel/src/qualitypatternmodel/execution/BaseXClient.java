@@ -17,6 +17,8 @@ import qualitypatternmodel.execution.impl.BaseXClientImpl.Query;
  * <ul>
  *   <li>{@link qualitypatternmodel.execution.BaseXClient#getHost <em>Host</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.BaseXClient#getPort <em>Port</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.BaseXClient#getUsername <em>Username</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.BaseXClient#getPassword <em>Password</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.execution.ExecutionPackage#getBaseXClient()
@@ -70,6 +72,50 @@ public interface BaseXClient extends EObject {
 	void setPort(int value);
 
 	/**
+	 * Returns the value of the '<em><b>Username</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Username</em>' attribute.
+	 * @see #setUsername(String)
+	 * @see qualitypatternmodel.execution.ExecutionPackage#getBaseXClient_Username()
+	 * @model
+	 * @generated
+	 */
+	String getUsername();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.execution.BaseXClient#getUsername <em>Username</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Username</em>' attribute.
+	 * @see #getUsername()
+	 * @generated
+	 */
+	void setUsername(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Password</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Password</em>' attribute.
+	 * @see #setPassword(String)
+	 * @see qualitypatternmodel.execution.ExecutionPackage#getBaseXClient_Password()
+	 * @model
+	 * @generated
+	 */
+	String getPassword();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.execution.BaseXClient#getPassword <em>Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Password</em>' attribute.
+	 * @see #getPassword()
+	 * @generated
+	 */
+	void setPassword(String value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.execution.IoExceptionWrapper"
@@ -92,4 +138,20 @@ public interface BaseXClient extends EObject {
 	 * @generated
 	 */
 	Query query(String query) throws IOException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isConnected();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.IoExceptionWrapper"
+	 * @generated
+	 */
+	void connect() throws IOException;
 } // BaseXClient
