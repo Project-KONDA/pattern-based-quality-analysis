@@ -216,5 +216,16 @@
 		<url-pattern>/concrete-patterns/schema-validation/*</url-pattern>
 	</servlet-mapping>
 	
+	
+	<servlet>
+		<servlet-name>PatternApplicationServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.PatternApplicationServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>PatternApplicationServlet</servlet-name>
+		<url-pattern>/finalized-patterns/application</url-pattern>
+	</servlet-mapping>
+	
 
 </web-app>
