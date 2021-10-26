@@ -244,12 +244,13 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	public String generateJSON() {
 		String patternName = getPatternText().getPattern().getName();
 		int parameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(getParameter());
+		String name = getName();
 		String url = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(parameterID);
 		String value = getParameter().getValueAsString();
 		String type = getType();
 		String role = getRole();
-		String exampleValue = getExampleValue();
-		String json = "{\"URL\": \"" + url + "\", \"Type\": \"" + type + "\", \"Role\": \"" + role + "\"";
+		String exampleValue = getExampleValue();		
+		String json = "{\"Name\": \"" + name + "\", \"URL\": \"" + url + "\", \"Type\": \"" + type + "\", \"Role\": \"" + role + "\"";
 		if(value != null) {
 			if(!(getParameter() instanceof TextListParamImpl) && !(getParameter() instanceof NumberParamImpl) && !(getParameter() instanceof BooleanParamImpl)) {
 				value = "\"" + value + "\"";

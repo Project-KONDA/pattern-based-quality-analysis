@@ -30,7 +30,11 @@
 				{
 					"type": "object",
 					"required": ["URL", "Type"],					
-					"properties": {						
+					"properties": {
+						"Name": {
+						  "type": "string",
+						  "description": "Name of the parameter"
+						},						
 						"URL": {
 						  "type": "string",
 						  "description": "URL that allows concretising the parameter"
