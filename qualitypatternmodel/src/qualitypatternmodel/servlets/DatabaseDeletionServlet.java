@@ -91,18 +91,18 @@ public class DatabaseDeletionServlet extends HttpServlet {
 					response.getOutputStream().println("Successfully deleted local database '" + localName + "'.");	
 				} else {
 					response.sendError(404);
-					response.getOutputStream().println("{ \"error\": \"Could not find database with local name '" + localName + "'.\"}");
+					response.getOutputStream().println("{ \"error\": \"Could not find database with local name '" + localName + "'\"}");
 				}
 				
 			} catch (URISyntaxException e) {
 				response.sendError(404);
-				response.getOutputStream().println("{ \"error\": \"Loading concrete pattern folder failed.\"}");
+				response.getOutputStream().println("{ \"error\": \"Loading concrete pattern folder failed\"}");
 			}
 			
 			
 		} else {
 			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"Loading databases folder failed.\"}");
+			response.getOutputStream().println("{ \"error\": \"Loading databases folder failed\"}");
 		}
 					
 	}

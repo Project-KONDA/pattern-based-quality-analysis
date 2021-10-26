@@ -82,14 +82,14 @@ public class DatabaseGettingServlet extends HttpServlet {
 					response.getOutputStream().println(result);
 				} else {
 					response.sendError(404);
-					response.getOutputStream().println("{ \"error\": \"Getting database failed.\"}");
+					response.getOutputStream().println("{ \"error\": \"Getting database failed\"}");
 				}
 			}
 	
 			
 		} else {
 			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"Loading concrete pattern folder failed.\"}");
+			response.getOutputStream().println("{ \"error\": \"Loading concrete pattern folder failed\"}");
 		}
 					
 	

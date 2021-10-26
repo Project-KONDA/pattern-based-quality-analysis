@@ -92,13 +92,13 @@ public class DatabaseSettingServlet extends HttpServlet {
 				
 			} else {
 				response.sendError(404);
-				response.getOutputStream().println("{ \"error\": \"Loading concrete pattern folder failed.\"}");
+				response.getOutputStream().println("{ \"error\": \"Loading concrete pattern folder failed\"}");
 			}
 			
 			
 		} else {
 			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"Loading databases folder failed.\"}");
+			response.getOutputStream().println("{ \"error\": \"Loading databases folder failed\"}");
 		}
 
 

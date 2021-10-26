@@ -62,13 +62,13 @@ public class DatabasesRegistrationServlet extends HttpServlet {
 			
 			if(fileNames == null) {
 				response.sendError(404);
-				response.getOutputStream().println("{ \"error\": \"Loading database folder failed.\"}");
+				response.getOutputStream().println("{ \"error\": \"Loading database folder failed\"}");
 			} else if(fileNames.isEmpty()) {
 				response.sendError(404);
-				response.getOutputStream().println("{ \"error\": \"No databases found.\"}");
+				response.getOutputStream().println("{ \"error\": \"No databases found\"}");
 			} else if(fileNames.size() > 1) {
 				response.sendError(404);
-				response.getOutputStream().println("{ \"error\": \"Too many database containers found.\"}");
+				response.getOutputStream().println("{ \"error\": \"Too many database containers found\"}");
 			} else {
 				String fileName = fileNames.get(0);
 				
@@ -89,29 +89,29 @@ public class DatabasesRegistrationServlet extends HttpServlet {
 							response.getOutputStream().println("Successfully registered database '" + localName + "'.");
 						} catch (InvalidityException e) {
 							response.sendError(404);
-							response.getOutputStream().println("{ \"error\": \"Analysing XML schema failed.\"}");
+							response.getOutputStream().println("{ \"error\": \"Analysing XML schema failed\"}");
 						}
 					} catch (InvalidityException e) {
 						response.sendError(409);
-						response.getOutputStream().println("{ \"error\": \"Local database name already used.\"}");	
+						response.getOutputStream().println("{ \"error\": \"Local database name already used\"}");	
 					}
 					
 					
 				} else {
 					response.sendError(404);
-					response.getOutputStream().println("{ \"error\": \"Loading databases folder failed.\"}");
+					response.getOutputStream().println("{ \"error\": \"Loading databases folder failed\"}");
 				}
 			}			
 			
 			
 		} catch (URISyntaxException e) {
 			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"Loading databases folder failed.\"}");
+			response.getOutputStream().println("{ \"error\": \"Loading databases folder failed\"}");
 		
 		} catch (QueryException e) {
 //			e.printStackTrace();
 			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"Analysing XML schema failed.\"}");
+			response.getOutputStream().println("{ \"error\": \"Analysing XML schema failed\"}");
 		} 		
 		
 		

@@ -28,13 +28,13 @@ public class DatabasesListServlet extends HttpServlet {
 			
 			if(fileNames == null) {
 				response.sendError(404);
-				response.getOutputStream().println("{ \"error\": \"Loading database folder failed.\"}");
+				response.getOutputStream().println("{ \"error\": \"Loading database folder failed\"}");
 			} else if(fileNames.isEmpty()) {
 				response.sendError(404);
-				response.getOutputStream().println("{ \"error\": \"No databases found.\"}");
+				response.getOutputStream().println("{ \"error\": \"No databases found\"}");
 			} else if(fileNames.size() > 1) {
 				response.sendError(404);
-				response.getOutputStream().println("{ \"error\": \"Too many database containers found.\"}");
+				response.getOutputStream().println("{ \"error\": \"Too many database containers found\"}");
 			} else {
 				String fileName = fileNames.get(0);
 				String result = "[";
@@ -64,7 +64,7 @@ public class DatabasesListServlet extends HttpServlet {
 					}					
 				} else {
 					response.sendError(404);
-					response.getOutputStream().println("{ \"error\": \"Loading databases folder failed.\"}");
+					response.getOutputStream().println("{ \"error\": \"Loading databases folder failed\"}");
 				}
 				result += "]";
 				result = result.replace(", ]", "]");
@@ -72,7 +72,7 @@ public class DatabasesListServlet extends HttpServlet {
 			}
 		} catch (URISyntaxException e) {
 			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"Loading databases folder failed.\"}");
+			response.getOutputStream().println("{ \"error\": \"Loading databases folder failed\"}");
 		}			
 	}
 }

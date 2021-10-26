@@ -84,13 +84,13 @@ public class PatternApplicationServlet extends HttpServlet {
 					} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException
 							| QueryException e) {
 						response.sendError(409);
-						response.getOutputStream().println("{ \"error\": \"Pattern invalid.\"}");
+						response.getOutputStream().println("{ \"error\": \"Pattern invalid\"}");
 					}
 										
 					
 				} else {
 					response.sendError(404);
-					response.getOutputStream().println("{ \"error\": \"Concrete pattern not found.\"}");
+					response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
 				}
 				
 			}
@@ -100,7 +100,7 @@ public class PatternApplicationServlet extends HttpServlet {
 				
 		} else {
 			response.sendError(404);
-			response.getOutputStream().println("{ \"error\": \"Loading databases folder failed.\"}");
+			response.getOutputStream().println("{ \"error\": \"Loading databases folder failed\"}");
 		}
 		
 	}	
