@@ -18,7 +18,10 @@ import org.junit.runners.Suite;
    DatabasesListServletTest.class,
    DatabasesRegistrationServletTest.class,
    DatabasesSettingServletTest.class,
-   DatabasesGettingServletTest.class
+   DatabasesGettingServletTest.class,
+   PatternApplicationServletTest.class,
+   SchemaValidationServletTest.class,
+   ParameterExplanationServletTest.class
    
 })
 
