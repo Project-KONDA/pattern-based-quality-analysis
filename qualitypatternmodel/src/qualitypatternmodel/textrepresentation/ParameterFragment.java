@@ -16,6 +16,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getExampleValue <em>Example Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getParameterFragment()
@@ -44,6 +45,28 @@ public interface ParameterFragment extends Fragment, ParameterReference {
 	 * @generated
 	 */
 	void setExampleValue(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getParameterFragment_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

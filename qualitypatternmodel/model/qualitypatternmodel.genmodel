@@ -794,6 +794,7 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/exampleValue"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/name"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getType"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/getRole"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment/isValid">

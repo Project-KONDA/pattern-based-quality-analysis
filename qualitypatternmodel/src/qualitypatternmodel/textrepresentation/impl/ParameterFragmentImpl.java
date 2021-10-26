@@ -51,6 +51,7 @@ import qualitypatternmodel.utility.Constants;
  * <ul>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getParameter <em>Parameter</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getExampleValue <em>Example Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -86,6 +87,26 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * @ordered
 	 */
 	protected String exampleValue = EXAMPLE_VALUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,6 +215,29 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		exampleValue = newExampleValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__EXAMPLE_VALUE, oldExampleValue, exampleValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__NAME, oldName, name));
 	}
 
 	@Override
@@ -398,6 +442,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return basicGetParameter();
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__EXAMPLE_VALUE:
 				return getExampleValue();
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -415,6 +461,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return;
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__EXAMPLE_VALUE:
 				setExampleValue((String)newValue);
+				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -434,6 +483,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__EXAMPLE_VALUE:
 				setExampleValue(EXAMPLE_VALUE_EDEFAULT);
 				return;
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -450,6 +502,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 				return parameter != null;
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__EXAMPLE_VALUE:
 				return EXAMPLE_VALUE_EDEFAULT == null ? exampleValue != null : !EXAMPLE_VALUE_EDEFAULT.equals(exampleValue);
+			case TextrepresentationPackage.PARAMETER_FRAGMENT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -522,6 +576,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (exampleValue: ");
 		result.append(exampleValue);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

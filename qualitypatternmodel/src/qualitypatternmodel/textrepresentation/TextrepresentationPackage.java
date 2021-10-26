@@ -260,13 +260,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_FRAGMENT__EXAMPLE_VALUE = FRAGMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT__NAME = FRAGMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Parameter Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 2;
+	int PARAMETER_FRAGMENT_FEATURE_COUNT = FRAGMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Generate JSON</em>' operation.
@@ -607,6 +616,17 @@ public interface TextrepresentationPackage extends EPackage {
 	EAttribute getParameterFragment_ExampleValue();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#getName()
+	 * @see #getParameterFragment()
+	 * @generated
+	 */
+	EAttribute getParameterFragment_Name();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#getType() <em>Get Type</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -873,6 +893,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PARAMETER_FRAGMENT__EXAMPLE_VALUE = eINSTANCE.getParameterFragment_ExampleValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_FRAGMENT__NAME = eINSTANCE.getParameterFragment_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Type</b></em>' operation.
