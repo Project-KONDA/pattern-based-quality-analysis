@@ -1,5 +1,7 @@
 package qualitypatternmodel.demo;
 
+import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_NAMESPACE;
+
 import java.io.IOException;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
@@ -37,6 +39,8 @@ import qualitypatternmodel.utility.EMFModelSave;
 
 public class DemoPatternTexts {
 	
+	private static final String CARD_PARENT_WITH_MORE_THAN_ONE_CHILD = "parent_with_more_than_one_child";
+
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
 		exportAllDemoPatternTexts();
 	}
@@ -457,31 +461,28 @@ public class DemoPatternTexts {
 	
 	public static CompletePattern getAbstractCardPatternWithText() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = DemoPatterns.getAbstractCardPattern();		
-		addTextualRepresentationCardPattern1(completePattern);		
 		addTextualRepresentationCardPattern2(completePattern);
+		addTextualRepresentationCardPattern1(completePattern);		
 		addTextualRepresentationCardPattern0(completePattern);	
 		return completePattern;
 	}
 	
 	public static void addTextualRepresentationCardPattern2(CompletePattern completePattern) {
 		PatternText patternText = TextrepresentationFactory.eINSTANCE.createPatternText();
-		patternText.setName("variant_2");
+		patternText.setName(CARD_PARENT_WITH_MORE_THAN_ONE_CHILD);
 		completePattern.getText().add(patternText);
 		
-		// Is there an element with <property> = <value> that has <comp> <number> <relation> whose <property> is equal to <value>?
-		// Is there an element with name = <value> that has = 2 child whose name is equal to <value>?
+		// flexible: Is there an element with <property> = <value> that has <comp> <number> <relation> whose <property> is equal to <value>?
+		// Is there a <tag_name_parent> with more than one <tag_name_child> child?
 		
-		// example: Is there an element with name = 'building' that has = 2 child whose name is equal to 'floor'?
-
+		// example: Is there a 'architect' with more than one 'birthyear' child?
 		
 		TextFragment text0 = TextrepresentationFactory.eINSTANCE.createTextFragment();
-		text0.setText("Is there an element with name");
+		text0.setText("Is there a");
 		TextFragment text1 = TextrepresentationFactory.eINSTANCE.createTextFragment();
-		text1.setText("that has two children");
+		text1.setText("with more than one");
 		TextFragment text2 = TextrepresentationFactory.eINSTANCE.createTextFragment();
-		text2.setText(" whose name");
-		TextFragment text3 = TextrepresentationFactory.eINSTANCE.createTextFragment();
-		text3.setText(" is equal to");
+		text2.setText("child?");
 		
 		
 		// Context graph of pattern:
@@ -505,7 +506,8 @@ public class DemoPatternTexts {
 		ParameterFragment param2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		UntypedParameterValue value0 = (UntypedParameterValue) comp0.getArgument2();
 		param2.setParameter(value0);
-		param2.setExampleValue("building");
+		param2.setName("tag_name_parent");
+		param2.setExampleValue(DEMO_NAMESPACE + "architect");
 				
 		
 		// First-order logic condition of pattern:
@@ -516,14 +518,14 @@ public class DemoPatternTexts {
 		// <comp> = 
 		ParameterPredefinition paramPredef2 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		ComparisonOptionParam option2 = countCondition.getOption();
-		option2.setValue(ComparisonOperator.EQUAL);
+		option2.setValue(ComparisonOperator.GREATER);
 		paramPredef2.setParameter(option2);
 		
 		
 		// <number> 2
 		ParameterPredefinition paramPredef3 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		NumberParam numberParam3 = ((NumberElement) countCondition.getArgument2()).getNumberParam();
-		numberParam3.setValue(2.0);
+		numberParam3.setValue(1.0);
 		paramPredef3.setParameter(numberParam3);		
 		
 		
@@ -550,23 +552,19 @@ public class DemoPatternTexts {
 		Comparison comp1 = (Comparison) countPattern.getGraph().getOperatorList().getOperators().get(0);
 		UntypedParameterValue value1 = (UntypedParameterValue) comp1.getArgument2();
 		param8.setParameter(value1);
-		param8.setExampleValue("floor");
-		
-		// Is there an element with <property> <value> that has <comp> <number> <relation> whose <property> is equal to <value>?
-		// Is there an element with <property> <value> that has <comp> <number> <relation> whose <property> is equal to <value>?
-		
-		patternText.getFragments().add(text0);  // Is there an element with
-		patternText.getParameterPredefinitions().add(paramPredef0); // name
-//		patternText.getParameterPredefinitions().add(paramPredef00); // =
-		patternText.getFragments().add(param2); // <value>		
-		patternText.getFragments().add(text1);  // that has two children
-		patternText.getParameterPredefinitions().add(paramPredef2); // =
-		patternText.getParameterPredefinitions().add(paramPredef3); // 2
-		patternText.getParameterPredefinitions().add(paramPredef4); // child
-		patternText.getFragments().add(text2);  // whose
-		patternText.getParameterPredefinitions().add(paramPredef1); // name
-		patternText.getFragments().add(text3);  // is equal to
-		patternText.getFragments().add(param8); // <value>
+		param2.setName("tag_name_child");
+		param8.setExampleValue(DEMO_NAMESPACE + "birthyear");
+				
+		patternText.getFragments().add(text0);  // Is there a
+		patternText.getParameterPredefinitions().add(paramPredef0); // tag
+		patternText.getFragments().add(param2); // <tag_name_parent>		
+		patternText.getFragments().add(text1);  // with more than one
+		patternText.getParameterPredefinitions().add(paramPredef2); // >
+		patternText.getParameterPredefinitions().add(paramPredef3); // 1
+		patternText.getParameterPredefinitions().add(paramPredef4); // child		
+		patternText.getParameterPredefinitions().add(paramPredef1); // tag
+		patternText.getFragments().add(param8); // <tag_name_child>
+		patternText.getFragments().add(text2);  // child?
 	
 	}
 
