@@ -35,15 +35,29 @@ public class FinalizedPatternListServlet extends HttpServlet {
 						CompletePattern pattern = EMFModelLoad.loadCompletePattern(url.toString());
 						String query = pattern.getQuery();
 						if(query != null && !query.equals("")) {
+//							json += "\"" + fileName + "\", ";
+							
+							json += "{\"Name\":";
 							json += "\"" + fileName + "\", ";
+							json += "\"Description\":";
+							
+							if(pattern.getDescription() != null) {
+								json += "\"" + pattern.getDescription() + "\", ";
+							} else {
+								json += "\"" + "\", ";
+							}
+							json += "}, ";
+							
+							
+							
 						}						
 					} else {
 						response.sendError(404);
 						response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
 					}
 				}
-				json = json.substring(0, json.length()-2);
 				json += "]";
+				json = json.replace(", ]", "]");
 				response.getOutputStream().println(json);
 			}
 		} catch (URISyntaxException e) {

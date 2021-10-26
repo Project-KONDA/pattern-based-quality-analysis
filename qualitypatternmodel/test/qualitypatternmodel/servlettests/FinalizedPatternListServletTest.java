@@ -31,8 +31,7 @@ public class FinalizedPatternListServletTest {
 		JSONArray array = new JSONArray(result);
 		List<String> list = ServletTestsUtil.JSONArrayToList(array); 
 		
-		assertFalse(list.contains("card_concrete"));
-		assertTrue(list.contains("card_concrete_finalized"));
+		assertTrue(array.getJSONObject(0).get("Name").equals("card_concrete_finalized"));		
 
 	}
 }
