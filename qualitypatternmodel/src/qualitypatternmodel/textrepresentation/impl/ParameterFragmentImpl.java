@@ -271,7 +271,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	public String getType() {
 //		return getParameter().getClass().toString();
 		
-		Class type = getParameter().getClass();
+		Class type = getParameter().get(0).getClass();
 		if (type.equals(DateParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_DATE;			
 		} else if(type.equals(TimeParamImpl.class)) {
@@ -300,7 +300,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 */
 	@Override
 	public String getRole() {
-		Class type = getParameter().getClass();
+		Class type = getParameter().get(0).getClass();
 		if (type.equals(DateParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_DATE;			
 		} else if(type.equals(TimeParamImpl.class)) {
