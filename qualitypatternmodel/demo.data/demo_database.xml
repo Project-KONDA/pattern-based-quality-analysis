@@ -16,7 +16,7 @@
 		</demo:address>
 	</demo:building>	
 	
-	<demo:building demo:id="102" demo:recorded="2020-11-01T09:00:00" demo:last-modified-date="2020-11-01" demo:last-modified-time="09:00:00">
+	<demo:building demo:id="102" demo:recorded="2020-11-01T09:00:00" demo:last-modified-date="2020-11-01" demo:last-modified-time="09:00:01">
 		<demo:name>Chrysler Building</demo:name>
 		<demo:city>New York City</demo:city>
 		<demo:country>unknown</demo:country>
@@ -54,7 +54,7 @@
 		<demo:endwork>1890</demo:endwork>
 	</demo:painting>
 	
-	<demo:painting demo:id="203" demo:recorded="2020-10-03T09:00:00" demo:modified="true" demo:last-modified-date="2020-10-03" demo:last-modified-time="09:00:00">
+	<demo:painting demo:id="203" demo:recorded="2020-10-03T09:00:00" demo:modified="false" demo:last-modified-date="2020-10-03" demo:last-modified-time="09:00:00">
 		<demo:title>The Last Supper</demo:title>
 		<demo:creator>402</demo:creator>
 		<demo:startwork>1492</demo:startwork>
