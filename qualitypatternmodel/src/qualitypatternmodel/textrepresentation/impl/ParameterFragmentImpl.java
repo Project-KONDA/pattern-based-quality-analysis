@@ -331,8 +331,19 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 */
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException {
+		String firstValue = getParameter().get(0).getValueAsString();
+		EClass firstEClass = getParameter().get(0).eClass();
 		for(Parameter p : getParameter()) {
 			String value = p.getValueAsString();
+			
+			if(!value.equals(firstValue)) {
+				throw new InvalidityException("Referenced parameters have different values");
+			}
+			
+			if(!p.eClass().equals(firstEClass)) {
+				throw new InvalidityException("Referenced parameters are not of same type");
+			}
+			
 			try {
 				if(getExampleValue() != null && abstractionLevel != AbstractionLevel.CONCRETE) {
 					p.setValueFromString(getExampleValue());
