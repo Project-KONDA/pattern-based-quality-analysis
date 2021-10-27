@@ -5,11 +5,11 @@
 	<!--  BUILDINGS -->
 	
 	<demo:building demo:id="101" demo:recorded="2020-11-01T09:00:00" demo:last-modified-date="2020-11-01" demo:last-modified-time="09:00:00">
-		<demo:name>Empire State Building</demo:name>
+		<demo:name >Empire State Building</demo:name>
 		<demo:city>New York City</demo:city>
 		<demo:country>USA</demo:country>	
 		<demo:creator>301</demo:creator>
-		<demo:creator demo:ref="301"/>
+		<demo:creator demo:last-modified-date="2022-11-01" demo:ref="301"/>
 		<demo:address>
 			<demo:city>New York City</demo:city>
 			<demo:country>USA</demo:country>

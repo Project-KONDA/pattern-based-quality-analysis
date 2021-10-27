@@ -22,6 +22,7 @@
 					<xs:simpleContent>
 						<xs:extension base="xs:string">
 							<xs:attribute name="ref" type="xs:integer"/>
+							<xs:attribute name="last-modified-date" type="xs:date"/>
 						</xs:extension>
 					</xs:simpleContent>
 				</xs:complexType>				
