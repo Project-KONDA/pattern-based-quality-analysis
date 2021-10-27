@@ -140,9 +140,9 @@ public class ServletTestsUtil {
 		System.out.println(result3);
 		
 		if(type != null) {
-			assertTrue(result3.contains("\"URL\": \"/concrete-patterns/parameter/" + patternAndParam + "\", \"Type\": \"" + type + "\", \"Role\": \"" + role + "\", \"Value\": \"" + value + "\""));
+			assertTrue(result3.contains("\"URLs\": [\"/concrete-patterns/parameter/" + patternAndParam + "\"], \"Type\": \"" + type + "\", \"Role\": \"" + role + "\", \"Value\": \"" + value + "\""));
 		} else {
-			String[] split = result3.split("\"URL\": \"/concrete-patterns/parameter/" + patternAndParam)[1].split("}");			
+			String[] split = result3.split("\"URLs\": \\[\"/concrete-patterns/parameter/" + patternAndParam)[1].split("}");			
 			assertTrue(split[0].contains("\"Value\": \"" + valueEncoded + "\""));
 		}
 	}

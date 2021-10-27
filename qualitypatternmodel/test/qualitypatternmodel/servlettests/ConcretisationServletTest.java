@@ -19,6 +19,7 @@ import org.junit.After;
 import org.junit.Test;
 import org.junit.jupiter.api.AfterAll;
 
+import qualitypatternmodel.demo.DemoPatternTexts;
 import qualitypatternmodel.servlets.Util;
 
 public class ConcretisationServletTest {
@@ -27,15 +28,15 @@ public class ConcretisationServletTest {
 	@Test
 	public void doPostTest() throws IOException {
 		String concretePatternName = "card_concrete";
-		String parameterId = "10";
-		String value = "DATA";
+		String parameterId = "0";
+		String value = "test_tag";
 		String type = null;
-		ServletTestsUtil.setParameter(concretePatternName, parameterId, value, type, "PropertyOption");		
+		ServletTestsUtil.setParameter(concretePatternName, parameterId, value, type, "Text");		
 	}
 	
 	@Test
 	public void doPostTestUntypedWithPreviousInstantiation() throws IOException, JSONException {
-		ServletTestsUtil.createConcretePattern("card_abstract", "flexible", PATTERN_NAME);	
+		ServletTestsUtil.createConcretePattern("card_abstract", DemoPatternTexts.CARD_FLEXIBLE, PATTERN_NAME);	
 		
 		String parameterId = "5";
 		String value = "example";

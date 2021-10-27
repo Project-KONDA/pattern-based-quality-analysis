@@ -39,9 +39,9 @@ import qualitypatternmodel.utility.EMFModelSave;
 
 public class DemoPatternTexts {
 	
-	private static final String COMP_PARENT_WITH_CHILD_WITH_PROPERTY = "parent_with_child_with_propery";
-	private static final String CARD_FLEXIBLE = "flexible";
-	private static final String CARD_PARENT_WITH_MORE_THAN_ONE_CHILD = "parent_with_more_than_one_child";
+	public static final String COMP_PARENT_WITH_CHILD_WITH_PROPERTY = "parent_with_child_with_propery";
+	public static final String CARD_FLEXIBLE = "flexible";
+	public static final String CARD_PARENT_WITH_MORE_THAN_ONE_CHILD = "parent_with_more_than_one_child";
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, IOException {
 		exportAllDemoPatternTexts();

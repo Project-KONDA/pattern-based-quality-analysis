@@ -21,6 +21,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import qualitypatternmodel.demo.DemoPatternTexts;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.servlets.Util;
 import qualitypatternmodel.utility.EMFModelLoad;
@@ -39,7 +40,7 @@ public class AbstractPatternInstantiationServletTest {
 
 	@Test
 	public void doPostTest() throws IOException, JSONException {		
-		ServletTestsUtil.createConcretePattern("card_abstract", "flexible", PATTERN_NAME);
+		ServletTestsUtil.createConcretePattern("card_abstract", DemoPatternTexts.CARD_FLEXIBLE, PATTERN_NAME);
 	}
 	
 }
