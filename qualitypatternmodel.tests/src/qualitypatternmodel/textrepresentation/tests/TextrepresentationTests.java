@@ -34,6 +34,7 @@ public class TextrepresentationTests extends TestSuite {
 		suite.addTestSuite(PatternTextTest.class);
 		suite.addTestSuite(ParameterFragmentTest.class);
 		suite.addTestSuite(TextFragmentTest.class);
+		suite.addTestSuite(ParameterPredefinitionTest.class);
 		return suite;
 	}
 

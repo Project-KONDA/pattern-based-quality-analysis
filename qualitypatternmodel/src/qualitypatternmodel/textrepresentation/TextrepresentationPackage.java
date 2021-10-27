@@ -296,13 +296,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_FRAGMENT___GET_PREVIEW = FRAGMENT___GET_PREVIEW;
 
 	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL = FRAGMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The operation id for the '<em>Get Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT___GET_TYPE = FRAGMENT_OPERATION_COUNT + 0;
+	int PARAMETER_FRAGMENT___GET_TYPE = FRAGMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Role</em>' operation.
@@ -311,16 +320,7 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FRAGMENT___GET_ROLE = FRAGMENT_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL = FRAGMENT_OPERATION_COUNT + 2;
+	int PARAMETER_FRAGMENT___GET_ROLE = FRAGMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Parameter Fragment</em>' class.
@@ -425,13 +425,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_REFERENCE_FEATURE_COUNT = 1;
 
 	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REFERENCE___IS_VALID__ABSTRACTIONLEVEL = 0;
+
+	/**
 	 * The number of operations of the '<em>Parameter Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_REFERENCE_OPERATION_COUNT = 0;
+	int PARAMETER_REFERENCE_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.ParameterPredefinitionImpl <em>Parameter Predefinition</em>}' class.
@@ -469,6 +478,15 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_PREDEFINITION_FEATURE_COUNT = PARAMETER_REFERENCE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_PREDEFINITION___IS_VALID__ABSTRACTIONLEVEL = PARAMETER_REFERENCE___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The number of operations of the '<em>Parameter Predefinition</em>' class.
@@ -647,16 +665,6 @@ public interface TextrepresentationPackage extends EPackage {
 	EOperation getParameterFragment__GetRole();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Valid</em>' operation.
-	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#isValid(qualitypatternmodel.patternstructure.AbstractionLevel)
-	 * @generated
-	 */
-	EOperation getParameterFragment__IsValid__AbstractionLevel();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.Fragment <em>Fragment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -759,6 +767,16 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getParameterReference_Parameter();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.ParameterReference#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.ParameterReference#isValid(qualitypatternmodel.patternstructure.AbstractionLevel)
+	 * @generated
+	 */
+	EOperation getParameterReference__IsValid__AbstractionLevel();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Object Wrapper</em>}'.
@@ -919,14 +937,6 @@ public interface TextrepresentationPackage extends EPackage {
 		EOperation PARAMETER_FRAGMENT___GET_ROLE = eINSTANCE.getParameterFragment__GetRole();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL = eINSTANCE.getParameterFragment__IsValid__AbstractionLevel();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.FragmentImpl <em>Fragment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1013,6 +1023,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PARAMETER_REFERENCE__PARAMETER = eINSTANCE.getParameterReference_Parameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_REFERENCE___IS_VALID__ABSTRACTIONLEVEL = eINSTANCE.getParameterReference__IsValid__AbstractionLevel();
 
 		/**
 		 * The meta object literal for the '<em>Object Wrapper</em>' data type.

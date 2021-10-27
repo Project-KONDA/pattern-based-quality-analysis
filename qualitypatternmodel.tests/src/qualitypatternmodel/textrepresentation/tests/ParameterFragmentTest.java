@@ -16,7 +16,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
  * <ul>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getType() <em>Get Type</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#getRole() <em>Get Role</em>}</li>
- *   <li>{@link qualitypatternmodel.textrepresentation.ParameterFragment#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ParameterReference#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -102,10 +102,10 @@ public class ParameterFragmentTest extends FragmentTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.textrepresentation.ParameterFragment#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.ParameterReference#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.textrepresentation.ParameterFragment#isValid(qualitypatternmodel.patternstructure.AbstractionLevel)
+	 * @see qualitypatternmodel.textrepresentation.ParameterReference#isValid(qualitypatternmodel.patternstructure.AbstractionLevel)
 	 * @generated
 	 */
 	public void testIsValid__AbstractionLevel() {

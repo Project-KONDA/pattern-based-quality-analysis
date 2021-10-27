@@ -503,6 +503,22 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * @generated
 	 */
 	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == ParameterReference.class) {
+			switch (baseOperationID) {
+				case TextrepresentationPackage.PARAMETER_REFERENCE___IS_VALID__ABSTRACTIONLEVEL: return TextrepresentationPackage.PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case TextrepresentationPackage.PARAMETER_FRAGMENT___GET_TYPE:

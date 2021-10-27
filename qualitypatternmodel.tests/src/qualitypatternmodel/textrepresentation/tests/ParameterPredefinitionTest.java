@@ -13,6 +13,12 @@ import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Parameter Predefinition</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ParameterReference#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class ParameterPredefinitionTest extends TestCase {
@@ -84,6 +90,19 @@ public class ParameterPredefinitionTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.ParameterReference#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.ParameterReference#isValid(qualitypatternmodel.patternstructure.AbstractionLevel)
+	 * @generated
+	 */
+	public void testIsValid__AbstractionLevel() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //ParameterPredefinitionTest

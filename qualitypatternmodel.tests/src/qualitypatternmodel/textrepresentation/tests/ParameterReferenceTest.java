@@ -10,6 +10,12 @@ import qualitypatternmodel.textrepresentation.ParameterReference;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Parameter Reference</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.textrepresentation.ParameterReference#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class ParameterReferenceTest extends TestCase {
@@ -50,6 +56,19 @@ public abstract class ParameterReferenceTest extends TestCase {
 	 */
 	protected ParameterReference getFixture() {
 		return fixture;
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.ParameterReference#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.ParameterReference#isValid(qualitypatternmodel.patternstructure.AbstractionLevel)
+	 * @generated
+	 */
+	public void testIsValid__AbstractionLevel() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //ParameterReferenceTest

@@ -343,16 +343,6 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameterFragment__IsValid__AbstractionLevel() {
-		return parameterFragmentEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getFragment() {
 		return fragmentEClass;
 	}
@@ -453,6 +443,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EOperation getParameterReference__IsValid__AbstractionLevel() {
+		return parameterReferenceEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getObjectWrapper() {
 		return objectWrapperEDataType;
 	}
@@ -502,7 +502,6 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEAttribute(parameterFragmentEClass, PARAMETER_FRAGMENT__NAME);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___GET_TYPE);
 		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___GET_ROLE);
-		createEOperation(parameterFragmentEClass, PARAMETER_FRAGMENT___IS_VALID__ABSTRACTIONLEVEL);
 
 		fragmentEClass = createEClass(FRAGMENT);
 		createEReference(fragmentEClass, FRAGMENT__PATTERN_TEXT);
@@ -517,6 +516,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		parameterReferenceEClass = createEClass(PARAMETER_REFERENCE);
 		createEReference(parameterReferenceEClass, PARAMETER_REFERENCE__PARAMETER);
+		createEOperation(parameterReferenceEClass, PARAMETER_REFERENCE___IS_VALID__ABSTRACTIONLEVEL);
 
 		// Create data types
 		objectWrapperEDataType = createEDataType(OBJECT_WRAPPER);
@@ -587,10 +587,6 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		initEOperation(getParameterFragment__GetRole(), ecorePackage.getEString(), "getRole", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getParameterFragment__IsValid__AbstractionLevel(), null, "isValid", 0, 1, !IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, thePatternstructurePackage.getAbstractionLevel(), "abstractionLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
 		initEClass(fragmentEClass, Fragment.class, "Fragment", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFragment_PatternText(), this.getPatternText(), this.getPatternText_Fragments(), "patternText", null, 1, 1, Fragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -606,6 +602,10 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		initEClass(parameterReferenceEClass, ParameterReference.class, "ParameterReference", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameterReference_Parameter(), theParametersPackage.getParameter(), theParametersPackage.getParameter_ParameterReferences(), "parameter", null, 1, -1, ParameterReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getParameterReference__IsValid__AbstractionLevel(), null, "isValid", 0, 1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, thePatternstructurePackage.getAbstractionLevel(), "abstractionLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		// Initialize data types
 		initEDataType(objectWrapperEDataType, Object.class, "ObjectWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.textrepresentation.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -15,8 +16,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 
@@ -123,6 +126,38 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException {
+		String firstValue = getParameter().get(0).getValueAsString();
+		EClass firstEClass = getParameter().get(0).eClass();
+		for(Parameter p : getParameter()) {
+			String value = p.getValueAsString();
+			
+			if(!value.equals(firstValue)) {
+				throw new InvalidityException("Referenced parameters have different values");
+			}
+			
+			if(!p.eClass().equals(firstEClass)) {
+				throw new InvalidityException("Referenced parameters are not of same type");
+			}
+			
+			try {
+				if(getValue() != null && abstractionLevel != AbstractionLevel.CONCRETE) {
+					p.setValueFromString(getValue());
+					p.setValueFromString(value);
+				}	
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new InvalidityException("Predefined value '" + getValue() + "' has wrong type");
+			}		
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -217,6 +252,26 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case TextrepresentationPackage.PARAMETER_PREDEFINITION___IS_VALID__ABSTRACTIONLEVEL:
+				try {
+					isValid((AbstractionLevel)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
