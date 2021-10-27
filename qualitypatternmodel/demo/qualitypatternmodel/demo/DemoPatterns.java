@@ -179,7 +179,6 @@ public class DemoPatterns {
 		
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();	
 		
-		// <value dateTime>
 		ParameterValue value = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
 		
 		BooleanParam bool = ParametersFactory.eINSTANCE.createBooleanParam();
