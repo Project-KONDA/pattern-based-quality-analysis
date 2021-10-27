@@ -4,10 +4,13 @@ package qualitypatternmodel.execution.impl;
 
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -18,6 +21,7 @@ import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.common.util.EMap;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -537,13 +541,19 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 		String result = ServletTestsUtil.getResult(connection);
 		Date d = new Date();
 		String fileName = d.toString().replace(" ", "_").replace(":", "-");
-		String path = System.getProperty("user.dir") + "\\" + fileName + ".xml";
+
+		String path = this.getClass().getClassLoader().getResource("").getPath();
+	    String fullPath = URLDecoder.decode(path, "UTF-8");
+	    String pathArr[] = fullPath.split("/WEB-INF/classes/");	    
+	    fullPath = pathArr[0];
 		
-		java.io.FileWriter fw = new java.io.FileWriter(path);
+	    String schemaPath = fullPath + "/schemata/" + fileName + ".xml";
+		
+		java.io.FileWriter fw = new java.io.FileWriter(schemaPath);
 	    fw.write(result);
 	    fw.close();
 		
-		LocalXmlSchemaDatabase db = new LocalXmlSchemaDatabaseImpl(fileName, path);		
+		LocalXmlSchemaDatabase db = new LocalXmlSchemaDatabaseImpl(fileName, schemaPath);		
 		setXmlSchema(db);
 		db.create();
 		db.analyse();
