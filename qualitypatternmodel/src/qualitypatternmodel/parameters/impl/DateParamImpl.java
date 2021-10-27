@@ -131,7 +131,7 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 	 */
 	@Override
 	public void specifyValue(String newValue) throws InvalidityException {
-		if(isFormatValid(newValue)) {
+		if(newValue.equals(VALUE_EDEFAULT) || isFormatValid(newValue)) {
 			setValue(newValue);
 		} else {
 			throw new InvalidityException("Date format invalid");

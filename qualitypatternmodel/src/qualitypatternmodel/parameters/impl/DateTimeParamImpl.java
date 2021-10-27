@@ -134,7 +134,7 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 	 */
 	@Override
 	public void specifyValue(String newValue) throws InvalidityException {
-		if(isFormatValid(newValue)) {
+		if(newValue.equals(VALUE_EDEFAULT) || isFormatValid(newValue)) {
 			setValue(newValue);
 		} else {
 			throw new InvalidityException("DateTime format invalid");

@@ -130,7 +130,7 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 	 */
 	@Override
 	public void specifyValue(String newValue) throws InvalidityException {
-		if(isFormatValid(newValue)) {
+		if(newValue.equals(VALUE_EDEFAULT) || isFormatValid(newValue)) {
 			setValue(newValue);
 		} else {
 			throw new InvalidityException("Time format invalid");
@@ -139,7 +139,7 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 
 	static boolean isFormatValid(String newValue) {
 		// hh:mm:ss[Z|(+|-)hh:mm]
-		
+				
 		if(newValue.length() < 8 || newValue.length() > 14) {
 			return false;
 		}
