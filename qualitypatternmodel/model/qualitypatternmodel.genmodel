@@ -783,6 +783,8 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/fragments"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//textrepresentation/PatternText/name"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/parameterPredefinitions"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//textrepresentation/PatternText/fragmentsOrdered"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/generateJSON"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/isValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/PatternText/isValid/abstractionLevel"/>
@@ -790,6 +792,9 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/instantiate"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/delete"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/getPreview"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//textrepresentation/PatternText/addFragment">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//textrepresentation/PatternText/addFragment/fragment"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//textrepresentation/ParameterFragment">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

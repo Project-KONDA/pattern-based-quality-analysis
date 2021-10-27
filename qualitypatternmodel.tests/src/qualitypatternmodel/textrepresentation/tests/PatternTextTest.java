@@ -21,6 +21,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#instantiate() <em>Instantiate</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#delete() <em>Delete</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getPreview() <em>Get Preview</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#addFragment(qualitypatternmodel.textrepresentation.Fragment) <em>Add Fragment</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -156,6 +157,19 @@ public class PatternTextTest extends TestCase {
 	 * @generated
 	 */
 	public void testGetPreview() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.textrepresentation.PatternText#addFragment(qualitypatternmodel.textrepresentation.Fragment) <em>Add Fragment</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.textrepresentation.PatternText#addFragment(qualitypatternmodel.textrepresentation.Fragment)
+	 * @generated
+	 */
+	public void testAddFragment__Fragment() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

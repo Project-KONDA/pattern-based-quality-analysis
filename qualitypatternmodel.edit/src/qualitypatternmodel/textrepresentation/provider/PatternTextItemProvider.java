@@ -66,6 +66,7 @@ public class PatternTextItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addFragmentsOrderedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -88,6 +89,28 @@ public class PatternTextItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Fragments Ordered feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFragmentsOrderedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PatternText_fragmentsOrdered_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PatternText_fragmentsOrdered_feature", "_UI_PatternText_type"),
+				 TextrepresentationPackage.Literals.PATTERN_TEXT__FRAGMENTS_ORDERED,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

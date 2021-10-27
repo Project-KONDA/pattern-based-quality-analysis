@@ -105,13 +105,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PATTERN_TEXT__PARAMETER_PREDEFINITIONS = 3;
 
 	/**
+	 * The feature id for the '<em><b>Fragments Ordered</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT__FRAGMENTS_ORDERED = 4;
+
+	/**
 	 * The number of structural features of the '<em>Pattern Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT_FEATURE_COUNT = 4;
+	int PATTERN_TEXT_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Generate JSON</em>' operation.
@@ -159,13 +168,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PATTERN_TEXT___GET_PREVIEW = 4;
 
 	/**
+	 * The operation id for the '<em>Add Fragment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT___ADD_FRAGMENT__FRAGMENT = 5;
+
+	/**
 	 * The number of operations of the '<em>Pattern Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT_OPERATION_COUNT = 5;
+	int PATTERN_TEXT_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.FragmentImpl <em>Fragment</em>}' class.
@@ -563,6 +581,17 @@ public interface TextrepresentationPackage extends EPackage {
 	EReference getPatternText_ParameterPredefinitions();
 
 	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.textrepresentation.PatternText#getFragmentsOrdered <em>Fragments Ordered</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Fragments Ordered</em>'.
+	 * @see qualitypatternmodel.textrepresentation.PatternText#getFragmentsOrdered()
+	 * @see #getPatternText()
+	 * @generated
+	 */
+	EReference getPatternText_FragmentsOrdered();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#generateJSON() <em>Generate JSON</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -611,6 +640,16 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternText__GetPreview();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#addFragment(qualitypatternmodel.textrepresentation.Fragment) <em>Add Fragment</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Fragment</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.PatternText#addFragment(qualitypatternmodel.textrepresentation.Fragment)
+	 * @generated
+	 */
+	EOperation getPatternText__AddFragment__Fragment();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.ParameterFragment <em>Parameter Fragment</em>}'.
@@ -855,6 +894,14 @@ public interface TextrepresentationPackage extends EPackage {
 		EReference PATTERN_TEXT__PARAMETER_PREDEFINITIONS = eINSTANCE.getPatternText_ParameterPredefinitions();
 
 		/**
+		 * The meta object literal for the '<em><b>Fragments Ordered</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PATTERN_TEXT__FRAGMENTS_ORDERED = eINSTANCE.getPatternText_FragmentsOrdered();
+
+		/**
 		 * The meta object literal for the '<em><b>Generate JSON</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -893,6 +940,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_TEXT___GET_PREVIEW = eINSTANCE.getPatternText__GetPreview();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Fragment</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_TEXT___ADD_FRAGMENT__FRAGMENT = eINSTANCE.getPatternText__AddFragment__Fragment();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl <em>Parameter Fragment</em>}' class.

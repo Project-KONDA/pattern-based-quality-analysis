@@ -24,6 +24,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getFragments <em>Fragments</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getParameterPredefinitions <em>Parameter Predefinitions</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getFragmentsOrdered <em>Fragments Ordered</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getPatternText()
@@ -104,6 +105,18 @@ public interface PatternText extends EObject {
 	EList<ParameterPredefinition> getParameterPredefinitions();
 
 	/**
+	 * Returns the value of the '<em><b>Fragments Ordered</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.textrepresentation.Fragment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fragments Ordered</em>' reference list.
+	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getPatternText_FragmentsOrdered()
+	 * @model required="true"
+	 * @generated
+	 */
+	EList<Fragment> getFragmentsOrdered();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * Returns a JSON representation of <code>this</code> <code>PatternText</code> and its contents.
 	 * 
@@ -145,5 +158,13 @@ public interface PatternText extends EObject {
 	 * @generated
 	 */
 	String getPreview();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addFragment(Fragment fragment);
 
 } // PatternText

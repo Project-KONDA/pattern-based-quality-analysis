@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -55,6 +56,7 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getFragments <em>Fragments</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getParameterPredefinitions <em>Parameter Predefinitions</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.impl.PatternTextImpl#getFragmentsOrdered <em>Fragments Ordered</em>}</li>
  * </ul>
  *
  * @generated
@@ -100,6 +102,16 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @ordered
 	 */
 	protected EList<ParameterPredefinition> parameterPredefinitions;
+
+	/**
+	 * The cached value of the '{@link #getFragmentsOrdered() <em>Fragments Ordered</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFragmentsOrdered()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Fragment> fragmentsOrdered;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -218,6 +230,19 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 * @generated NOT
 	 */
 	@Override
+	public EList<Fragment> getFragmentsOrdered() {
+		if (fragmentsOrdered == null) {
+			fragmentsOrdered = new NonUniqueList<Fragment>(Fragment.class, this, TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS_ORDERED);
+		}
+		return fragmentsOrdered;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
 	public String generateJSON() {
 		String json = "{\n";
 		json += "\n\"PatternName\": \"" + getPattern().getName() + "\",";
@@ -228,7 +253,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		json += "\n\"PatternDescription\": \"" + description + "\",";
 		json += "\n\"PatternTextName\": \"" + getName() + "\","; 
 		json+= "\n\"Fragments\" : [";
-		for(Fragment f : getFragments()) {
+		for(Fragment f : getFragmentsOrdered()) {
 			json += f.generateJSON() + ",\n";
 		}
 		json = json.substring(0, json.length()-2);
@@ -285,6 +310,11 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			}
 		}
 		if(!referencedParameters.containsAll(patternParametersNonPredefinedNotAutomaticTypeNotRootRelation)) {
+			for(Parameter p : patternParametersNonPredefinedNotAutomaticTypeNotRootRelation) {
+				if(!referencedParameters.contains(p)) {
+					System.out.println(p);
+				}
+			}
 			throw new InvalidityException("pattern text does not reference all parameters");
 		}
 		if(!patternParametersNonPredefined.containsAll(referencedParameters)) {
@@ -349,10 +379,21 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	@Override
 	public String getPreview() {
 		String s = "";
-		for(Fragment frag : getFragments()) {
+		for(Fragment frag : getFragmentsOrdered()) {
 			s += frag.getPreview();
 		}
 		return s;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addFragment(Fragment fragment) {		
+		getFragmentsOrdered().add(fragment);
+		getFragments().add(fragment);
 	}
 
 	/**
@@ -422,6 +463,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return getName();
 			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:
 				return getParameterPredefinitions();
+			case TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS_ORDERED:
+				return getFragmentsOrdered();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -449,6 +492,10 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				getParameterPredefinitions().clear();
 				getParameterPredefinitions().addAll((Collection<? extends ParameterPredefinition>)newValue);
 				return;
+			case TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS_ORDERED:
+				getFragmentsOrdered().clear();
+				getFragmentsOrdered().addAll((Collection<? extends Fragment>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -473,6 +520,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:
 				getParameterPredefinitions().clear();
 				return;
+			case TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS_ORDERED:
+				getFragmentsOrdered().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -493,6 +543,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TextrepresentationPackage.PATTERN_TEXT__PARAMETER_PREDEFINITIONS:
 				return parameterPredefinitions != null && !parameterPredefinitions.isEmpty();
+			case TextrepresentationPackage.PATTERN_TEXT__FRAGMENTS_ORDERED:
+				return fragmentsOrdered != null && !fragmentsOrdered.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -528,6 +580,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				return null;
 			case TextrepresentationPackage.PATTERN_TEXT___GET_PREVIEW:
 				return getPreview();
+			case TextrepresentationPackage.PATTERN_TEXT___ADD_FRAGMENT__FRAGMENT:
+				addFragment((Fragment)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
