@@ -3,6 +3,7 @@
 package qualitypatternmodel.textrepresentation.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -197,14 +198,19 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	@Override
 	public String generateJSON() {
 		String patternName = getPatternText().getPattern().getName();
-		int parameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(getParameter());
+		List<String> urls = new ArrayList<String>();
+		for(Parameter p : getParameter()) {
+			int parameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(p);
+			String url = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(parameterID);
+			urls.add(url);
+		}
+		String urlsJSON = generateJSONList(urls);
 		String name = getName();
-		String url = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(parameterID);
 		String value = getParameter().get(0).getValueAsString();
 		String type = getType();
 		String role = getRole();
 		String exampleValue = getExampleValue();		
-		String json = "{\"Name\": \"" + name + "\", \"URL\": \"" + url + "\", \"Type\": \"" + type + "\", \"Role\": \"" + role + "\"";
+		String json = "{\"Name\": \"" + name + "\", \"URLs\": \"" + urlsJSON + "\", \"Type\": \"" + type + "\", \"Role\": \"" + role + "\"";
 		if(value != null) {
 			if(!(getParameter() instanceof TextListParamImpl) && !(getParameter() instanceof NumberParamImpl) && !(getParameter() instanceof BooleanParamImpl)) {
 				value = "\"" + value + "\"";

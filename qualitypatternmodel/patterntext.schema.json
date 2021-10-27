@@ -29,15 +29,16 @@
 				},
 				{
 					"type": "object",
-					"required": ["URL", "Type"],					
+					"required": ["URLs", "Type"],					
 					"properties": {
 						"Name": {
 						  "type": "string",
 						  "description": "Name of the parameter"
 						},						
-						"URL": {
-						  "type": "string",
-						  "description": "URL that allows concretising the parameter"
+						"URLs": {
+						  "type": "array",
+						  "items": {"type": "string"},
+						  "description": "URLs that allow concretising the associated parameters"
 						},
 						"Type": {
 						  "type": "string",
