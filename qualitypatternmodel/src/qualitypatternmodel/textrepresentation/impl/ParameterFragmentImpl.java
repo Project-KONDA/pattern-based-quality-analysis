@@ -3,6 +3,7 @@
 package qualitypatternmodel.textrepresentation.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -15,6 +16,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -58,7 +61,7 @@ import qualitypatternmodel.utility.Constants;
  */
 public class ParameterFragmentImpl extends FragmentImpl implements ParameterFragment {
 	/**
-	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference.
+	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * The parameter represented by this fragment of a textual representation of the pattern.
 	 * <!-- end-user-doc -->
@@ -66,7 +69,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * @generated
 	 * @ordered
 	 */
-	protected Parameter parameter;
+	protected EList<Parameter> parameter;
 
 	/**
 	 * The default value of the '{@link #getExampleValue() <em>Example Value</em>}' attribute.
@@ -119,7 +122,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	
 	@Override
 	public String getPreview() {	
-		return " [" + getParameter().eClass().getName() + "] ";
+		return " [" + getParameter().get(0).eClass().getName() + "] ";
 	}
 
 	/**
@@ -138,62 +141,13 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * @generated
 	 */
 	@Override
-	public Parameter getParameter() {
-		if (parameter != null && parameter.eIsProxy()) {
-			InternalEObject oldParameter = (InternalEObject)parameter;
-			parameter = (Parameter)eResolveProxy(oldParameter);
-			if (parameter != oldParameter) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER, oldParameter, parameter));
-			}
+	public EList<Parameter> getParameter() {
+		if (parameter == null) {
+			parameter = new EObjectWithInverseResolvingEList.ManyInverse<Parameter>(Parameter.class, this, TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER, ParametersPackage.PARAMETER__PARAMETER_REFERENCES);
 		}
 		return parameter;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Parameter basicGetParameter() {
-		return parameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetParameter(Parameter newParameter, NotificationChain msgs) {
-		Parameter oldParameter = parameter;
-		parameter = newParameter;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER, oldParameter, newParameter);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setParameter(Parameter newParameter) {
-		if (newParameter != parameter) {
-			NotificationChain msgs = null;
-			if (parameter != null)
-				msgs = ((InternalEObject)parameter).eInverseRemove(this, ParametersPackage.PARAMETER__PARAMETER_REFERENCES, Parameter.class, msgs);
-			if (newParameter != null)
-				msgs = ((InternalEObject)newParameter).eInverseAdd(this, ParametersPackage.PARAMETER__PARAMETER_REFERENCES, Parameter.class, msgs);
-			msgs = basicSetParameter(newParameter, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER, newParameter, newParameter));
-	}
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -246,7 +200,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		int parameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(getParameter());
 		String name = getName();
 		String url = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(parameterID);
-		String value = getParameter().getValueAsString();
+		String value = getParameter().get(0).getValueAsString();
 		String type = getType();
 		String role = getRole();
 		String exampleValue = getExampleValue();		
@@ -264,7 +218,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			json += ", \"ExampleValue\": " + exampleValue + "";
 		}
 		if(type.equals("Enumeration")) {
-			String options = getParameter().getOptionsAsStringList();
+			String options = getParameter().get(0).getOptionsAsStringList();
 			json += ", \"Options\": " + options + "";
 		}
 		if(getParameter() instanceof ParameterValue) {
@@ -377,16 +331,18 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 */
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException {
-		String value = getParameter().getValueAsString();
-		try {
-			if(getExampleValue() != null && abstractionLevel != AbstractionLevel.CONCRETE) {
-				getParameter().setValueFromString(getExampleValue());
-				getParameter().setValueFromString(value);
-			}	
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new InvalidityException("Example value '" + getExampleValue() + "' has wrong type");
-		}		
+		for(Parameter p : getParameter()) {
+			String value = p.getValueAsString();
+			try {
+				if(getExampleValue() != null && abstractionLevel != AbstractionLevel.CONCRETE) {
+					p.setValueFromString(getExampleValue());
+					p.setValueFromString(value);
+				}	
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new InvalidityException("Example value '" + getExampleValue() + "' has wrong type");
+			}		
+		}
 		
 	}
 
@@ -395,13 +351,12 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER:
-				if (parameter != null)
-					msgs = ((InternalEObject)parameter).eInverseRemove(this, ParametersPackage.PARAMETER__PARAMETER_REFERENCES, Parameter.class, msgs);
-				return basicSetParameter((Parameter)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameter()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -415,7 +370,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER:
-				return basicSetParameter(null, msgs);
+				return ((InternalEList<?>)getParameter()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -439,8 +394,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER:
-				if (resolve) return getParameter();
-				return basicGetParameter();
+				return getParameter();
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__EXAMPLE_VALUE:
 				return getExampleValue();
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__NAME:
@@ -454,11 +408,13 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER:
-				setParameter((Parameter)newValue);
+				getParameter().clear();
+				getParameter().addAll((Collection<? extends Parameter>)newValue);
 				return;
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__EXAMPLE_VALUE:
 				setExampleValue((String)newValue);
@@ -479,7 +435,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER:
-				setParameter((Parameter)null);
+				getParameter().clear();
 				return;
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__EXAMPLE_VALUE:
 				setExampleValue(EXAMPLE_VALUE_EDEFAULT);
@@ -500,7 +456,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__PARAMETER:
-				return parameter != null;
+				return parameter != null && !parameter.isEmpty();
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__EXAMPLE_VALUE:
 				return EXAMPLE_VALUE_EDEFAULT == null ? exampleValue != null : !EXAMPLE_VALUE_EDEFAULT.equals(exampleValue);
 			case TextrepresentationPackage.PARAMETER_FRAGMENT__NAME:

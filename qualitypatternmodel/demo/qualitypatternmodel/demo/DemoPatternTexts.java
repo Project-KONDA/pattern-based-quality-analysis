@@ -150,13 +150,13 @@ public class DemoPatternTexts {
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
 		PropertyOptionParam option = property0.getOption();
 		option.setValue(PropertyKind.TAG);
-		paramPredef0.setParameter(option);
+		paramPredef0.getParameter().add(option);
 		
 		// <value>
 		ParameterFragment param2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
 		UntypedParameterValue value0 = (UntypedParameterValue) comp0.getArgument2();
-		param2.setParameter(value0);
+		param2.getParameter().add(value0);
 		param2.setName("tag_name_parent");
 		param2.setExampleValue(DEMO_NAMESPACE + "building");
 				
@@ -171,7 +171,7 @@ public class DemoPatternTexts {
 		// <relation>
 		ParameterPredefinition paramPredef00 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		paramPredef00.setParameter(navigationElement0Element1.getOption());
+		paramPredef00.getParameter().add(navigationElement0Element1.getOption());
 		paramPredef00.setValue(RelationKind.CHILD.getLiteral());
 		
 		// <property> name
@@ -179,13 +179,13 @@ public class DemoPatternTexts {
 		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		option.setValue(PropertyKind.TAG);
-		paramPredef1.setParameter(property1.getOption());
+		paramPredef1.getParameter().add(property1.getOption());
 		
 		// <value>
 		ParameterFragment param8 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		Comparison comp1 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
 		UntypedParameterValue value1 = (UntypedParameterValue) comp1.getArgument2();
-		param8.setParameter(value1);
+		param8.getParameter().add(value1);
 		param8.setName("tag_name_child");
 		param8.setExampleValue(DEMO_NAMESPACE + "creator");
 				
@@ -193,26 +193,26 @@ public class DemoPatternTexts {
 		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);		
 		ParameterFragment param12 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		ComparisonOptionParam option2 = comp2.getOption();
-		param12.setParameter(option2);
+		param12.getParameter().add(option2);
 		param12.setName("comparison_operator");
 		param12.setExampleValue(ComparisonOperator.GREATER.getLiteral());
 		
 		// <property>
 		ParameterFragment param9 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlProperty property2 = (XmlProperty) element1.getProperties().get(1);
-		param9.setParameter(property2.getOption());
+		param9.getParameter().add(property2.getOption());
 		param9.setName("property");
 		param9.setExampleValue(PropertyKind.ATTRIBUTE.getLiteral());
 		
 		ParameterFragment param10 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		param10.setParameter(property2.getAttributeName());
+		param10.getParameter().add(property2.getAttributeName());
 		param10.setName("attribute_name");
 		param10.setExampleValue(DEMO_NAMESPACE + "last-modified-date");
 		
 		// <value>
 		ParameterFragment param11 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		UntypedParameterValue value2 = (UntypedParameterValue) comp2.getArgument2();
-		param11.setParameter(value2);
+		param11.getParameter().add(value2);
 		param11.setName("value");
 		param11.setExampleValue("2022-01-01");
 		
@@ -268,19 +268,19 @@ public class DemoPatternTexts {
 		ParameterFragment param0 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
-		param0.setParameter(property0.getOption());
+		param0.getParameter().add(property0.getOption());
 		param0.setName("property_1");
 		param0.setExampleValue(PropertyKind.TAG.getLiteral());
 		
 		ParameterFragment param1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		param1.setParameter(property0.getAttributeName());
+		param1.getParameter().add(property0.getAttributeName());
 		param1.setName("attribute_name_1");
 		
 		// <value>
 		ParameterFragment param2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
 		ParameterValue value0 = (ParameterValue) comp0.getArgument2();
-		param2.setParameter(value0);
+		param2.getParameter().add(value0);
 		param2.setName("value_1");
 		param2.setExampleValue(DEMO_NAMESPACE + "data");
 				
@@ -295,7 +295,7 @@ public class DemoPatternTexts {
 		// <relation>
 		ParameterFragment param5 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		param5.setParameter(navigationElement0Element1.getOption());
+		param5.getParameter().add(navigationElement0Element1.getOption());
 		param5.setName("relation_type");
 		param5.setExampleValue(RelationKind.CHILD.getLiteral());
 		
@@ -303,19 +303,19 @@ public class DemoPatternTexts {
 		ParameterFragment param6 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		param6.setParameter(property1.getOption());
+		param6.getParameter().add(property1.getOption());
 		param6.setName("property_2");
 		param6.setExampleValue(PropertyKind.TAG.getLiteral());
 		
 		ParameterFragment param7 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		param7.setParameter(property1.getAttributeName());
+		param7.getParameter().add(property1.getAttributeName());
 		param7.setName("attribute_name_2");
 		
 		// <value>
 		ParameterFragment param8 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		Comparison comp1 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
 		ParameterValue value1 = (ParameterValue) comp1.getArgument2();
-		param8.setParameter(value1);
+		param8.getParameter().add(value1);
 		param8.setName("value_2");
 		param8.setExampleValue(DEMO_NAMESPACE + "painting");
 		
@@ -323,19 +323,19 @@ public class DemoPatternTexts {
 		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);		
 		ParameterFragment param12 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		ComparisonOptionParam option2 = comp2.getOption();
-		param12.setParameter(option2);
+		param12.getParameter().add(option2);
 		param12.setName("comparison_operator");
 		param12.setExampleValue(ComparisonOperator.LESS.getLiteral());
 				
 		// <property>
 		ParameterFragment param9 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlProperty property2 = (XmlProperty) element1.getProperties().get(1);
-		param9.setParameter(property2.getOption());
+		param9.getParameter().add(property2.getOption());
 		param9.setName("property_3");
 		param9.setExampleValue(PropertyKind.ATTRIBUTE.getLiteral());
 		
 		ParameterFragment param10 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		param10.setParameter(property2.getAttributeName());
+		param10.getParameter().add(property2.getAttributeName());
 		param10.setName("attribute_name_3");
 		param10.setExampleValue(DEMO_NAMESPACE + "modified");
 		
@@ -343,7 +343,7 @@ public class DemoPatternTexts {
 		ParameterFragment param11 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 //		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);
 		ParameterValue value2 = (ParameterValue) comp2.getArgument2();
-		param11.setParameter(value2);
+		param11.getParameter().add(value2);
 		param11.setName("value_3");
 		param11.setExampleValue("true");
 		
@@ -403,12 +403,12 @@ public class DemoPatternTexts {
 		ParameterFragment param0 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
-		param0.setParameter(property0.getOption());
+		param0.getParameter().add(property0.getOption());
 		param0.setName("property_1");
 		param0.setExampleValue(PropertyKind.ATTRIBUTE.getLiteral());
 		
 		ParameterFragment param1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		param1.setParameter(property0.getAttributeName());
+		param1.getParameter().add(property0.getAttributeName());
 		param1.setExampleValue("last-modified-date");
 		param1.setName("attribute_name_1");
 		
@@ -416,7 +416,7 @@ public class DemoPatternTexts {
 		ParameterFragment param2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
 		ParameterValue value0 = (ParameterValue) comp0.getArgument2();
-		param2.setParameter(value0);
+		param2.getParameter().add(value0);
 		param2.setName("value_1");
 		param2.setExampleValue("2020-11-01");
 				
@@ -431,7 +431,7 @@ public class DemoPatternTexts {
 		// <relation>
 		ParameterFragment param5 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		param5.setParameter(navigationElement0Element1.getOption());
+		param5.getParameter().add(navigationElement0Element1.getOption());
 		param5.setName("relation_type");
 		param5.setExampleValue(RelationKind.DESCENDANT_OR_SELF.getLiteral());
 		
@@ -439,12 +439,12 @@ public class DemoPatternTexts {
 		ParameterFragment param6 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		param6.setParameter(property1.getOption());
+		param6.getParameter().add(property1.getOption());
 		param6.setName("property_2");
 		param6.setExampleValue(PropertyKind.ATTRIBUTE.getLiteral());
 		
 		ParameterFragment param7 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		param7.setParameter(property1.getAttributeName());
+		param7.getParameter().add(property1.getAttributeName());
 		param7.setName("attribute_name_2");
 		param7.setExampleValue("last-modified-time");
 		
@@ -452,7 +452,7 @@ public class DemoPatternTexts {
 		ParameterFragment param8 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		Comparison comp1 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
 		ParameterValue value1 = (ParameterValue) comp1.getArgument2();
-		param8.setParameter(value1);
+		param8.getParameter().add(value1);
 		param8.setName("value_2");
 		param8.setExampleValue("09:00:00");
 		
@@ -460,26 +460,26 @@ public class DemoPatternTexts {
 		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);		
 		ParameterFragment param12 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		ComparisonOptionParam option2 = comp2.getOption();
-		param12.setParameter(option2);
+		param12.getParameter().add(option2);
 		param12.setName("comparison_operator");
 		param12.setExampleValue(ComparisonOperator.NOTEQUAL.getLiteral());
 				
 		// <property>
 		ParameterFragment param9 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlProperty property2 = (XmlProperty) element1.getProperties().get(1);
-		param9.setParameter(property2.getOption());
+		param9.getParameter().add(property2.getOption());
 		param9.setName("property_3");
 		param9.setExampleValue(PropertyKind.ATTRIBUTE.getLiteral());
 		
 		ParameterFragment param10 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		param10.setParameter(property2.getAttributeName());
+		param10.getParameter().add(property2.getAttributeName());
 		param10.setName("attribute_name_3");
 		param10.setExampleValue("recorded");
 		
 		// <value>
 		ParameterFragment param11 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		ParameterValue value2 = (ParameterValue) comp2.getArgument2();
-		param11.setParameter(value2);
+		param11.getParameter().add(value2);
 		param11.setName("value_3");
 		param11.setExampleValue("2020-11-01T09:00:00");
 		
@@ -540,19 +540,19 @@ public class DemoPatternTexts {
 		ParameterFragment param0 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
-		param0.setParameter(property0.getOption());
+		param0.getParameter().add(property0.getOption());
 		param0.setName("property_1");
 		param0.setExampleValue(PropertyKind.TAG.getLiteral());
 		
 		ParameterFragment param1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		param1.setParameter(property0.getAttributeName());
+		param1.getParameter().add(property0.getAttributeName());
 		param1.setName("attribute_name_1");
 		
 		// <value>
 		ParameterFragment param2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
 		ParameterValue value0 = (ParameterValue) comp0.getArgument2();
-		param2.setParameter(value0);
+		param2.getParameter().add(value0);
 		param2.setName("value_1");
 		param2.setExampleValue(DEMO_NAMESPACE + "building");
 				
@@ -567,7 +567,7 @@ public class DemoPatternTexts {
 		// <relation>
 		ParameterFragment param5 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		param5.setParameter(navigationElement0Element1.getOption());
+		param5.getParameter().add(navigationElement0Element1.getOption());
 		param5.setName("relation_type");
 		param5.setExampleValue(RelationKind.CHILD.getLiteral());
 		
@@ -575,19 +575,19 @@ public class DemoPatternTexts {
 		ParameterFragment param6 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		param6.setParameter(property1.getOption());
+		param6.getParameter().add(property1.getOption());
 		param6.setName("property_2");
 		param6.setExampleValue(PropertyKind.TAG.getLiteral());
 		
 		ParameterFragment param7 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		param7.setParameter(property1.getAttributeName());
+		param7.getParameter().add(property1.getAttributeName());
 		param7.setName("attribute_name_2");
 		
 		// <value>
 		ParameterFragment param8 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		Comparison comp1 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
 		ParameterValue value1 = (ParameterValue) comp1.getArgument2();
-		param8.setParameter(value1);
+		param8.getParameter().add(value1);
 		param8.setName("value_2");
 		param8.setExampleValue(DEMO_NAMESPACE + "creator");
 		
@@ -595,26 +595,26 @@ public class DemoPatternTexts {
 		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);		
 		ParameterFragment param12 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		ComparisonOptionParam option2 = comp2.getOption();
-		param12.setParameter(option2);
+		param12.getParameter().add(option2);
 		param12.setName("comparison_operator");
 		param12.setExampleValue(ComparisonOperator.LESS.getLiteral());
 				
 		// <property>
 		ParameterFragment param9 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlProperty property2 = (XmlProperty) element1.getProperties().get(1);
-		param9.setParameter(property2.getOption());
+		param9.getParameter().add(property2.getOption());
 		param9.setName("property_3");
 		param9.setExampleValue(PropertyKind.ATTRIBUTE.getLiteral());
 		
 		ParameterFragment param10 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		param10.setParameter(property2.getAttributeName());
+		param10.getParameter().add(property2.getAttributeName());
 		param10.setName("attribute_name_3");
 		param10.setExampleValue(DEMO_NAMESPACE + "ref");
 		
 		// <value>
 		ParameterFragment param11 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		ParameterValue value2 = (ParameterValue) comp2.getArgument2();
-		param11.setParameter(value2);
+		param11.getParameter().add(value2);
 		param11.setName("value_3");
 		param11.setExampleValue("300");
 		
@@ -690,19 +690,19 @@ public class DemoPatternTexts {
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
 		PropertyOptionParam option = property0.getOption();
 		option.setValue(PropertyKind.TAG);
-		paramPredef0.setParameter(option);
+		paramPredef0.getParameter().add(option);
 		
 //		// <comp>
 //		ParameterPredefinition paramPredef00 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
 		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);	
 //		comp0.getOption().setValue(ComparisonOperator.EQUAL);
-//		paramPredef00.setParameter(comp0.getOption());
+//		paramPredef00.getParameter().add(comp0.getOption());
 		
 		
 		// <value>
 		ParameterFragment param2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		UntypedParameterValue value0 = (UntypedParameterValue) comp0.getArgument2();
-		param2.setParameter(value0);
+		param2.getParameter().add(value0);
 		param2.setName("tag_name_parent");
 		param2.setExampleValue(DEMO_NAMESPACE + "architect");
 				
@@ -716,14 +716,14 @@ public class DemoPatternTexts {
 		ParameterPredefinition paramPredef2 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		ComparisonOptionParam option2 = countCondition.getOption();
 		option2.setValue(ComparisonOperator.GREATER);
-		paramPredef2.setParameter(option2);
+		paramPredef2.getParameter().add(option2);
 		
 		
 		// <number> 2
 		ParameterPredefinition paramPredef3 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		NumberParam numberParam3 = ((NumberElement) countCondition.getArgument2()).getNumberParam();
 		numberParam3.setValue(1.0);
-		paramPredef3.setParameter(numberParam3);		
+		paramPredef3.getParameter().add(numberParam3);		
 		
 		
 		// Graph of inner pattern:
@@ -733,7 +733,7 @@ public class DemoPatternTexts {
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) countPattern.getGraph().getRelations().get(0);
 		RelationOptionParam option4 = navigationElement0Element1.getOption();
 		option4.setValue(RelationKind.CHILD);
-		paramPredef4.setParameter(option4);
+		paramPredef4.getParameter().add(option4);
 		
 		
 		// <property> name
@@ -741,14 +741,14 @@ public class DemoPatternTexts {
 		XmlElement element1 = (XmlElement) countPattern.getGraph().getElements().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		option.setValue(PropertyKind.TAG);
-		paramPredef1.setParameter(property1.getOption());
+		paramPredef1.getParameter().add(property1.getOption());
 	
 		
 		// <value>
 		ParameterFragment param8 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		Comparison comp1 = (Comparison) countPattern.getGraph().getOperatorList().getOperators().get(0);
 		UntypedParameterValue value1 = (UntypedParameterValue) comp1.getArgument2();
-		param8.setParameter(value1);
+		param8.getParameter().add(value1);
 		param8.setName("tag_name_child");
 		param8.setExampleValue(DEMO_NAMESPACE + "birthyear");
 				
@@ -795,19 +795,19 @@ public class DemoPatternTexts {
 //		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
 //		PropertyOptionParam option = property0.getOption();
 //		option.setValue(PropertyKind.TAG);
-//		paramPredef0.setParameter(option);
+//		paramPredef0.getParameter().add(option);
 //		
 ////		// <comp>
 ////		ParameterPredefinition paramPredef00 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
 //		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);	
 ////		comp0.getOption().setValue(ComparisonOperator.EQUAL);
-////		paramPredef00.setParameter(comp0.getOption());
+////		paramPredef00.getParameter().add(comp0.getOption());
 //
 //		
 //		// <value>
 //		ParameterFragment param2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 //		UntypedParameterValue value0 = (UntypedParameterValue) comp0.getArgument2();
-//		param2.setParameter(value0);
+//		param2.getParameter().add(value0);
 //		param2.setExampleValue("artist");
 //				
 //		
@@ -818,12 +818,12 @@ public class DemoPatternTexts {
 //		
 //		// <comp>
 //		ParameterFragment param3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();		
-//		param3.setParameter(countCondition.getOption());
+//		param3.getParameter().add(countCondition.getOption());
 //		param3.setExampleValue(ComparisonOperator.GREATER.getLiteral());
 //		
 //		// <number>
 //		ParameterFragment param4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-//		param4.setParameter(((NumberElement) countCondition.getArgument2()).getNumberParam()); 
+//		param4.getParameter().add(((NumberElement) countCondition.getArgument2()).getNumberParam()); 
 //		param4.setExampleValue("3");
 //		
 //		
@@ -832,25 +832,25 @@ public class DemoPatternTexts {
 //		// <relation>
 //		ParameterFragment param5 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 //		XmlNavigation navigationElement0Element1 = (XmlNavigation) countPattern.getGraph().getRelations().get(0);
-//		param5.setParameter(navigationElement0Element1.getOption());
+//		param5.getParameter().add(navigationElement0Element1.getOption());
 //		param5.setExampleValue(RelationKind.DESCENDANT.getLiteral());
 //		
 //		// <property>
 //		ParameterFragment param6 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 //		XmlElement element1 = (XmlElement) countPattern.getGraph().getElements().get(1);
 //		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-//		param6.setParameter(property1.getOption());
+//		param6.getParameter().add(property1.getOption());
 //		param6.setExampleValue(PropertyKind.ATTRIBUTE.getLiteral());
 //		
 //		ParameterFragment param7 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-//		param7.setParameter(property1.getAttributeName());
+//		param7.getParameter().add(property1.getAttributeName());
 //		param7.setExampleValue("type");
 //		
 //		// <value>
 //		ParameterFragment param8 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 //		Comparison comp1 = (Comparison) countPattern.getGraph().getOperatorList().getOperators().get(0);
 //		UntypedParameterValue value1 = (UntypedParameterValue) comp1.getArgument2();
-//		param8.setParameter(value1);
+//		param8.getParameter().add(value1);
 //		param8.setExampleValue("sculpture");
 //		
 //		
@@ -902,24 +902,24 @@ public class DemoPatternTexts {
 		ParameterFragment param0 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
-		param0.setParameter(property0.getOption());
+		param0.getParameter().add(property0.getOption());
 		param0.setName("property_1");
 		param0.setExampleValue(PropertyKind.TAG.getLiteral());
 		
 		ParameterFragment param1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		param1.setParameter(property0.getAttributeName());
+		param1.getParameter().add(property0.getAttributeName());
 		param1.setName("attribute_name_1");
 		
 //		// <comp>
 //		ParameterFragment param11 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);		
-//		param11.setParameter(comp0.getOption());
+//		param11.getParameter().add(comp0.getOption());
 //		param11.setExampleValue(ComparisonOperator.EQUAL.getLiteral());
 		
 		// <value>
 		ParameterFragment param2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		UntypedParameterValue value0 = (UntypedParameterValue) comp0.getArgument2();
-		param2.setParameter(value0);
+		param2.getParameter().add(value0);
 		param2.setName("value_1");
 		param2.setExampleValue(DEMO_NAMESPACE + "building");
 				
@@ -931,13 +931,13 @@ public class DemoPatternTexts {
 		
 		// <comp>
 		ParameterFragment param3 = TextrepresentationFactory.eINSTANCE.createParameterFragment();		
-		param3.setParameter(countCondition.getOption());
+		param3.getParameter().add(countCondition.getOption());
 		param3.setName("comparison_operator");
 		param3.setExampleValue(ComparisonOperator.GREATEROREQUAL.getLiteral());
 		
 		// <number>
 		ParameterFragment param4 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		param4.setParameter(((NumberElement) countCondition.getArgument2()).getNumberParam());
+		param4.getParameter().add(((NumberElement) countCondition.getArgument2()).getNumberParam());
 		param4.setName("number");
 		param4.setExampleValue("3");
 		
@@ -947,7 +947,7 @@ public class DemoPatternTexts {
 		// <relation>
 		ParameterFragment param5 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) countPattern.getGraph().getRelations().get(0);
-		param5.setParameter(navigationElement0Element1.getOption());
+		param5.getParameter().add(navigationElement0Element1.getOption());
 		param5.setName("relation_type");
 		param5.setExampleValue(RelationKind.DESCENDANT.getLiteral());
 		
@@ -955,19 +955,19 @@ public class DemoPatternTexts {
 		ParameterFragment param6 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlElement element1 = (XmlElement) countPattern.getGraph().getElements().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		param6.setParameter(property1.getOption());
+		param6.getParameter().add(property1.getOption());
 		param6.setName("property_2");
 		param6.setExampleValue(PropertyKind.DATA.getLiteral());		
 		
 		ParameterFragment param7 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
-		param7.setParameter(property1.getAttributeName());
+		param7.getParameter().add(property1.getAttributeName());
 		param7.setName("attribute_name_2");
 		
 		// <value>
 		ParameterFragment param8 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		Comparison comp1 = (Comparison) countPattern.getGraph().getOperatorList().getOperators().get(0);
 		UntypedParameterValue value1 = (UntypedParameterValue) comp1.getArgument2();
-		param8.setParameter(value1);
+		param8.getParameter().add(value1);
 		param8.setName("value_2");
 		param8.setExampleValue("unknown");
 		

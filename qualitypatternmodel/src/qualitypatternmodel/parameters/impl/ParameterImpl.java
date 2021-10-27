@@ -225,7 +225,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	@Override
 	public EList<ParameterReference> getParameterReferences() {
 		if (parameterReferences == null) {
-			parameterReferences = new EObjectWithInverseResolvingEList<ParameterReference>(ParameterReference.class, this, ParametersPackage.PARAMETER__PARAMETER_REFERENCES, TextrepresentationPackage.PARAMETER_REFERENCE__PARAMETER);
+			parameterReferences = new EObjectWithInverseResolvingEList.ManyInverse<ParameterReference>(ParameterReference.class, this, ParametersPackage.PARAMETER__PARAMETER_REFERENCES, TextrepresentationPackage.PARAMETER_REFERENCE__PARAMETER);
 		}
 		return parameterReferences;
 	}

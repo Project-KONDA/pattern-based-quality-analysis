@@ -972,8 +972,8 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterReference" abstract="true"
         interface="true">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//parameters/Parameter"
-          eOpposite="#//parameters/Parameter/parameterReferences"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
+          upperBound="-1" eType="#//parameters/Parameter" eOpposite="#//parameters/Parameter/parameterReferences"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

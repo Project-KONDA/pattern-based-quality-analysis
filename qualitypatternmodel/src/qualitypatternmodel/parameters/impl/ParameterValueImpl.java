@@ -667,7 +667,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			EList<ParameterReference> fragmentCopy = new BasicEList<ParameterReference>();
 			fragmentCopy.addAll(getParameterReferences());
 			for(ParameterReference fragment : fragmentCopy) {
-				fragment.setParameter(concreteValue);
+				fragment.getParameter().add(concreteValue);
+				fragment.getParameter().remove(this);
 			}
 			
 			concreteValue.setTypeModifiable(true);

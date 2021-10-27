@@ -247,12 +247,12 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		for(Fragment f : getFragments()) {
 			if(f instanceof ParameterFragment) {
 				ParameterFragment p = (ParameterFragment) f;
-				referencedParameters.add(p.getParameter());
+				referencedParameters.addAll(p.getParameter());
 				p.isValid(abstractionLevel);
 			}
 		}
 		for(ParameterPredefinition p : getParameterPredefinitions()) {
-			referencedParameters.add(p.getParameter());			
+			referencedParameters.addAll(p.getParameter());			
 		}
 		
 		List<Parameter> patternParametersNonPredefinedNotAutomaticTypeNotRootRelation = new ArrayList<Parameter>();
@@ -316,7 +316,9 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			}
 		}
 		for(ParameterPredefinition p : getParameterPredefinitions()) {
-			p.getParameter().setValueFromString(p.getValue());
+			for(Parameter param : p.getParameter()) {
+				param.setValueFromString(p.getValue());
+			}			
 		}
 	}
 
@@ -331,11 +333,11 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		for(Fragment fragment : getFragments()) {
 			if(fragment instanceof ParameterFragment) {
 				ParameterFragment parameterFragment = (ParameterFragment) fragment;
-				parameterFragment.setParameter(null);
+				parameterFragment.getParameter().clear();;
 			}
 		}
 		for(ParameterPredefinition p : getParameterPredefinitions()) {
-			p.setParameter(null);		
+			p.getParameter().clear();;		
 		}
 	}
 

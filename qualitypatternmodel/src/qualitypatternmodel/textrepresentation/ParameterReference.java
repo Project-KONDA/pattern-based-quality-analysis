@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.textrepresentation;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import qualitypatternmodel.parameters.Parameter;
@@ -25,26 +26,16 @@ import qualitypatternmodel.parameters.Parameter;
 public interface ParameterReference extends EObject {
 
 	/**
-	 * Returns the value of the '<em><b>Parameter</b></em>' reference.
+	 * Returns the value of the '<em><b>Parameter</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.parameters.Parameter}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.Parameter#getParameterReferences <em>Parameter References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameter</em>' reference.
-	 * @see #setParameter(Parameter)
+	 * @return the value of the '<em>Parameter</em>' reference list.
 	 * @see qualitypatternmodel.textrepresentation.TextrepresentationPackage#getParameterReference_Parameter()
 	 * @see qualitypatternmodel.parameters.Parameter#getParameterReferences
-	 * @model opposite="parameterReferences"
+	 * @model opposite="parameterReferences" required="true"
 	 * @generated
 	 */
-	Parameter getParameter();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.textrepresentation.ParameterReference#getParameter <em>Parameter</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parameter</em>' reference.
-	 * @see #getParameter()
-	 * @generated
-	 */
-	void setParameter(Parameter value);
+	EList<Parameter> getParameter();
 } // ParameterReference

@@ -242,7 +242,7 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_FRAGMENT__PATTERN_TEXT = FRAGMENT__PATTERN_TEXT;
 
 	/**
-	 * The feature id for the '<em><b>Parameter</b></em>' reference.
+	 * The feature id for the '<em><b>Parameter</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -407,7 +407,7 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_REFERENCE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Parameter</b></em>' reference.
+	 * The feature id for the '<em><b>Parameter</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -444,7 +444,7 @@ public interface TextrepresentationPackage extends EPackage {
 	int PARAMETER_PREDEFINITION = 4;
 
 	/**
-	 * The feature id for the '<em><b>Parameter</b></em>' reference.
+	 * The feature id for the '<em><b>Parameter</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -750,10 +750,10 @@ public interface TextrepresentationPackage extends EPackage {
 	EClass getParameterReference();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.textrepresentation.ParameterReference#getParameter <em>Parameter</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.textrepresentation.ParameterReference#getParameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parameter</em>'.
+	 * @return the meta object for the reference list '<em>Parameter</em>'.
 	 * @see qualitypatternmodel.textrepresentation.ParameterReference#getParameter()
 	 * @see #getParameterReference()
 	 * @generated
@@ -1007,7 +1007,7 @@ public interface TextrepresentationPackage extends EPackage {
 		EClass PARAMETER_REFERENCE = eINSTANCE.getParameterReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Parameter</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

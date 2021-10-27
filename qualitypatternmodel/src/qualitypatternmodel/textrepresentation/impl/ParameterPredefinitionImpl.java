@@ -2,15 +2,19 @@
  */
 package qualitypatternmodel.textrepresentation.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.textrepresentation.ParameterPredefinition;
@@ -32,14 +36,14 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  */
 public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container implements ParameterPredefinition {
 	/**
-	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference.
+	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getParameter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Parameter parameter;
+	protected EList<Parameter> parameter;
 
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -86,60 +90,11 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	@Override
-	public Parameter getParameter() {
-		if (parameter != null && parameter.eIsProxy()) {
-			InternalEObject oldParameter = (InternalEObject)parameter;
-			parameter = (Parameter)eResolveProxy(oldParameter);
-			if (parameter != oldParameter) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TextrepresentationPackage.PARAMETER_PREDEFINITION__PARAMETER, oldParameter, parameter));
-			}
+	public EList<Parameter> getParameter() {
+		if (parameter == null) {
+			parameter = new EObjectWithInverseResolvingEList.ManyInverse<Parameter>(Parameter.class, this, TextrepresentationPackage.PARAMETER_PREDEFINITION__PARAMETER, ParametersPackage.PARAMETER__PARAMETER_REFERENCES);
 		}
 		return parameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Parameter basicGetParameter() {
-		return parameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetParameter(Parameter newParameter, NotificationChain msgs) {
-		Parameter oldParameter = parameter;
-		parameter = newParameter;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_PREDEFINITION__PARAMETER, oldParameter, newParameter);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setParameter(Parameter newParameter) {
-		if (newParameter != parameter) {
-			NotificationChain msgs = null;
-			if (parameter != null)
-				msgs = ((InternalEObject)parameter).eInverseRemove(this, ParametersPackage.PARAMETER__PARAMETER_REFERENCES, Parameter.class, msgs);
-			if (newParameter != null)
-				msgs = ((InternalEObject)newParameter).eInverseAdd(this, ParametersPackage.PARAMETER__PARAMETER_REFERENCES, Parameter.class, msgs);
-			msgs = basicSetParameter(newParameter, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TextrepresentationPackage.PARAMETER_PREDEFINITION__PARAMETER, newParameter, newParameter));
 	}
 
 	/**
@@ -170,13 +125,12 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION__PARAMETER:
-				if (parameter != null)
-					msgs = ((InternalEObject)parameter).eInverseRemove(this, ParametersPackage.PARAMETER__PARAMETER_REFERENCES, Parameter.class, msgs);
-				return basicSetParameter((Parameter)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameter()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -190,7 +144,7 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION__PARAMETER:
-				return basicSetParameter(null, msgs);
+				return ((InternalEList<?>)getParameter()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -204,8 +158,7 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION__PARAMETER:
-				if (resolve) return getParameter();
-				return basicGetParameter();
+				return getParameter();
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION__VALUE:
 				return getValue();
 		}
@@ -217,11 +170,13 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION__PARAMETER:
-				setParameter((Parameter)newValue);
+				getParameter().clear();
+				getParameter().addAll((Collection<? extends Parameter>)newValue);
 				return;
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION__VALUE:
 				setValue((String)newValue);
@@ -239,7 +194,7 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION__PARAMETER:
-				setParameter((Parameter)null);
+				getParameter().clear();
 				return;
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION__VALUE:
 				setValue(VALUE_EDEFAULT);
@@ -257,7 +212,7 @@ public class ParameterPredefinitionImpl extends MinimalEObjectImpl.Container imp
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION__PARAMETER:
-				return parameter != null;
+				return parameter != null && !parameter.isEmpty();
 			case TextrepresentationPackage.PARAMETER_PREDEFINITION__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
