@@ -12,6 +12,7 @@ import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
@@ -29,6 +30,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.NumberElement;
+import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.ParameterPredefinition;
@@ -39,6 +41,7 @@ import qualitypatternmodel.utility.EMFModelSave;
 
 public class DemoPatternTexts {
 	
+	private static final String FUNC_PARENT_WITH_TWO_ELEMENTS_WITH_ONE_PROPERTY_EQUAL_ONE_PROPERTY_UNEQUAL = "parent_with_two_elements_with_one_property_equal_one_property_unequal";
 	public static final String COMP_PARENT_WITH_CHILD_WITH_PROPERTY = "parent_with_child_with_propery";
 	public static final String CARD_FLEXIBLE = "flexible";
 	public static final String CARD_PARENT_WITH_MORE_THAN_ONE_CHILD = "parent_with_more_than_one_child";
@@ -85,6 +88,13 @@ public class DemoPatternTexts {
 		CompletePattern cardConcreteFinalized = getConcreteFinalizedCardPatternWithText();
 		cardConcreteFinalized.isValid(AbstractionLevel.CONCRETE);
 		EMFModelSave.exportToFile(cardConcreteFinalized,"instances/demo_with_texts/card_concrete_finalized", "patternstructure");
+		
+		
+		// ------------- FUNC ----------------
+		
+		CompletePattern funcAbstract = getAbstractFuncPatternWithText();
+		funcAbstract.isValid(AbstractionLevel.ABSTRACT);
+		EMFModelSave.exportToFile(funcAbstract,"instances/demo_with_texts/func_abstract", "patternstructure");
 
 	}
 	
@@ -219,20 +229,20 @@ public class DemoPatternTexts {
 		// new new: Is there a <tag_name_parent> that has a <tag_name_child> child whose <property> (<attribute_name>) is <comparison_operator> <value>?
 
 		
-		patternText.getFragments().add(text0);  // Is there a
+		patternText.addFragment(text0);  // Is there a
 		patternText.getParameterPredefinitions().add(paramPredef0); // TAG
-		patternText.getFragments().add(param2); // <tag_name_parent>
-		patternText.getFragments().add(text1);  // that has a
+		patternText.addFragment(param2); // <tag_name_parent>
+		patternText.addFragment(text1);  // that has a
 		patternText.getParameterPredefinitions().add(paramPredef1); // TAG
-		patternText.getFragments().add(param8); // <tag_name_child>		
+		patternText.addFragment(param8); // <tag_name_child>		
 		patternText.getParameterPredefinitions().add(paramPredef00); // CHILD
-		patternText.getFragments().add(text2);  // child whose
-		patternText.getFragments().add(param9); // <property>
-		patternText.getFragments().add(param10); // (<attribute_name>)
-		patternText.getFragments().add(text3);  // is
-		patternText.getFragments().add(param12); // <comparison_operator>
-		patternText.getFragments().add(param11); // <value>
-		patternText.getFragments().add(text4);  // ?
+		patternText.addFragment(text2);  // child whose
+		patternText.addFragment(param9); // <property>
+		patternText.addFragment(param10); // (<attribute_name>)
+		patternText.addFragment(text3);  // is
+		patternText.addFragment(param12); // <comparison_operator>
+		patternText.addFragment(param11); // <value>
+		patternText.addFragment(text4);  // ?
 		
 	}
 	public static void addTextualRepresentationCompBoolPattern0(CompletePattern completePattern) {
@@ -348,25 +358,25 @@ public class DemoPatternTexts {
 		param11.setExampleValue("true");
 		
 				
-		patternText.getFragments().add(text0);  // Is there an element with
-		patternText.getFragments().add(param0); // <property>
-		patternText.getFragments().add(param1);
-		patternText.getFragments().add(text6);  // equal to
-		patternText.getFragments().add(param2); // <value>		
-		patternText.getFragments().add(text1);  // that has a
-		patternText.getFragments().add(param5); // <relation>
-		patternText.getFragments().add(text2);  // whose
-		patternText.getFragments().add(param6); // <property>
-		patternText.getFragments().add(param7);
-		patternText.getFragments().add(text3);  // is equal to
-		patternText.getFragments().add(param8); // <value>		
-		patternText.getFragments().add(text4);  // and whose
-		patternText.getFragments().add(param9); // <property>
-		patternText.getFragments().add(param10);
-		patternText.getFragments().add(text5);  // is
-		patternText.getFragments().add(param12);  // <comp>
-		patternText.getFragments().add(param11); // <value>
-		patternText.getFragments().add(text7);  // ?
+		patternText.addFragment(text0);  // Is there an element with
+		patternText.addFragment(param0); // <property>
+		patternText.addFragment(param1);
+		patternText.addFragment(text6);  // equal to
+		patternText.addFragment(param2); // <value>		
+		patternText.addFragment(text1);  // that has a
+		patternText.addFragment(param5); // <relation>
+		patternText.addFragment(text2);  // whose
+		patternText.addFragment(param6); // <property>
+		patternText.addFragment(param7);
+		patternText.addFragment(text3);  // is equal to
+		patternText.addFragment(param8); // <value>		
+		patternText.addFragment(text4);  // and whose
+		patternText.addFragment(param9); // <property>
+		patternText.addFragment(param10);
+		patternText.addFragment(text5);  // is
+		patternText.addFragment(param12);  // <comp>
+		patternText.addFragment(param11); // <value>
+		patternText.addFragment(text7);  // ?
 			
 	}
 	
@@ -484,25 +494,25 @@ public class DemoPatternTexts {
 		param11.setExampleValue("2020-11-01T09:00:00");
 		
 				
-		patternText.getFragments().add(text0);  // Is there an element with
-		patternText.getFragments().add(param0); // <property>
-		patternText.getFragments().add(param1);
-		patternText.getFragments().add(text6);  // equal to
-		patternText.getFragments().add(param2); // <value>		
-		patternText.getFragments().add(text1);  // that has a
-		patternText.getFragments().add(param5); // <relation>
-		patternText.getFragments().add(text2);  // whose
-		patternText.getFragments().add(param6); // <property>
-		patternText.getFragments().add(param7);
-		patternText.getFragments().add(text3);  // is equal to
-		patternText.getFragments().add(param8); // <value>		
-		patternText.getFragments().add(text4);  // and whose
-		patternText.getFragments().add(param9); // <property>
-		patternText.getFragments().add(param10);
-		patternText.getFragments().add(text5);  // is
-		patternText.getFragments().add(param12);  // <comp>
-		patternText.getFragments().add(param11); // <value>
-		patternText.getFragments().add(text7);  // ?
+		patternText.addFragment(text0);  // Is there an element with
+		patternText.addFragment(param0); // <property>
+		patternText.addFragment(param1);
+		patternText.addFragment(text6);  // equal to
+		patternText.addFragment(param2); // <value>		
+		patternText.addFragment(text1);  // that has a
+		patternText.addFragment(param5); // <relation>
+		patternText.addFragment(text2);  // whose
+		patternText.addFragment(param6); // <property>
+		patternText.addFragment(param7);
+		patternText.addFragment(text3);  // is equal to
+		patternText.addFragment(param8); // <value>		
+		patternText.addFragment(text4);  // and whose
+		patternText.addFragment(param9); // <property>
+		patternText.addFragment(param10);
+		patternText.addFragment(text5);  // is
+		patternText.addFragment(param12);  // <comp>
+		patternText.addFragment(param11); // <value>
+		patternText.addFragment(text7);  // ?
 		
 	
 	}
@@ -619,27 +629,236 @@ public class DemoPatternTexts {
 		param11.setExampleValue("300");
 		
 				
-		patternText.getFragments().add(text0);  // Is there an element with
-		patternText.getFragments().add(param0); // <property>
-		patternText.getFragments().add(param1);
-		patternText.getFragments().add(text6);  // equal to
-		patternText.getFragments().add(param2); // <value>		
-		patternText.getFragments().add(text1);  // that has a
-		patternText.getFragments().add(param5); // <relation>
-		patternText.getFragments().add(text2);  // whose
-		patternText.getFragments().add(param6); // <property>
-		patternText.getFragments().add(param7);
-		patternText.getFragments().add(text3);  // is equal to
-		patternText.getFragments().add(param8); // <value>		
-		patternText.getFragments().add(text4);  // and whose
-		patternText.getFragments().add(param9); // <property>
-		patternText.getFragments().add(param10);
-		patternText.getFragments().add(text5);  // is
-		patternText.getFragments().add(param12);  // <comp>
-		patternText.getFragments().add(param11); // <value>
-		patternText.getFragments().add(text7);  // ?
+		patternText.addFragment(text0);  // Is there an element with
+		patternText.addFragment(param0); // <property>
+		patternText.addFragment(param1);
+		patternText.addFragment(text6);  // equal to
+		patternText.addFragment(param2); // <value>		
+		patternText.addFragment(text1);  // that has a
+		patternText.addFragment(param5); // <relation>
+		patternText.addFragment(text2);  // whose
+		patternText.addFragment(param6); // <property>
+		patternText.addFragment(param7);
+		patternText.addFragment(text3);  // is equal to
+		patternText.addFragment(param8); // <value>		
+		patternText.addFragment(text4);  // and whose
+		patternText.addFragment(param9); // <property>
+		patternText.addFragment(param10);
+		patternText.addFragment(text5);  // is
+		patternText.addFragment(param12);  // <comp>
+		patternText.addFragment(param11); // <value>
+		patternText.addFragment(text7);  // ?
 		
 	
+	}
+	
+	// ------------- FUNC ----------------
+	
+	public static CompletePattern getAbstractFuncPatternWithText() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = DemoPatterns.getAbstractFuncPattern();		
+//		addTextualRepresentationFuncPattern1(completePattern);		
+		addTextualRepresentationFuncPattern0(completePattern);	
+		return completePattern;
+	}
+	
+	
+	public static void addTextualRepresentationFuncPattern0(CompletePattern completePattern) {
+		PatternText patternText = TextrepresentationFactory.eINSTANCE.createPatternText();
+		patternText.setName(FUNC_PARENT_WITH_TWO_ELEMENTS_WITH_ONE_PROPERTY_EQUAL_ONE_PROPERTY_UNEQUAL);
+		completePattern.getText().add(patternText);
+		
+		// Are there two <tag_name>s that each contain a <tag_name_child_1> and a <tag_name_child_2> child 
+		// where the content of both <tag_name_child_1>s is equal but the content of the <tag_name_child_2> is different?
+		
+		// example: Are there two 'address's that each contain a 'city' and a 'country' child 
+		// where the data of both 'city's is equal but the data of the 'country's is different?
+		
+		TextFragment text0 = TextrepresentationFactory.eINSTANCE.createTextFragment();
+		text0.setText("Are there two");
+		TextFragment text1 = TextrepresentationFactory.eINSTANCE.createTextFragment();
+		text1.setText("s that each contain a");
+		TextFragment text2 = TextrepresentationFactory.eINSTANCE.createTextFragment();
+		text2.setText("and a");
+		TextFragment text3 = TextrepresentationFactory.eINSTANCE.createTextFragment();
+		text3.setText("child where the data of both");
+		TextFragment text4 = TextrepresentationFactory.eINSTANCE.createTextFragment();
+		text4.setText("s is equal but the data of the");
+		TextFragment text5 = TextrepresentationFactory.eINSTANCE.createTextFragment();
+		text5.setText("s is different?");
+		
+		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();		
+		Comparison comp0A = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
+		Comparison comp0B = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);
+		Comparison comp1A = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(2);
+		Comparison comp1B = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(3);
+		Comparison compA = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(4);
+		Comparison compB = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(5);
+		Comparison compC = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(6);
+
+
+		
+		// 6 TAG
+		ParameterPredefinition paramPredef0 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
+		
+		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
+		PropertyOptionParam option0 = property0.getOption();
+		option0.setValue(PropertyKind.TAG);
+		paramPredef0.getParameter().add(option0);
+		
+		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
+		PropertyOptionParam option1 = property1.getOption();
+		option1.setValue(PropertyKind.TAG);
+		paramPredef0.getParameter().add(option1);
+		
+		XmlElement element2 = (XmlElement) quantifiedCondition.getGraph().getElements().get(2);
+		XmlProperty property2 = (XmlProperty) element2.getProperties().get(0);
+		PropertyOptionParam option2 = property2.getOption();
+		option2.setValue(PropertyKind.TAG);
+		paramPredef0.getParameter().add(option2);
+		
+		XmlElement element3 = (XmlElement) quantifiedCondition.getGraph().getElements().get(3);
+		XmlProperty property3 = (XmlProperty) element3.getProperties().get(0);
+		PropertyOptionParam option3 = property3.getOption();
+		option3.setValue(PropertyKind.TAG);
+		paramPredef0.getParameter().add(option3);
+		
+		XmlElement element4 = (XmlElement) quantifiedCondition.getGraph().getElements().get(4);
+		XmlProperty property4 = (XmlProperty) element4.getProperties().get(0);
+		PropertyOptionParam option4 = property4.getOption();
+		option4.setValue(PropertyKind.TAG);
+		paramPredef0.getParameter().add(option4);
+		
+		XmlElement element5 = (XmlElement) quantifiedCondition.getGraph().getElements().get(5);
+		XmlProperty property5 = (XmlProperty) element5.getProperties().get(0);
+		PropertyOptionParam option5 = property5.getOption();
+		option5.setValue(PropertyKind.TAG);
+		paramPredef0.getParameter().add(option5);
+		
+		
+		// 4 DATA
+		ParameterPredefinition paramPredef1 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
+
+		XmlElement element6 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlProperty property6 = (XmlProperty) element6.getProperties().get(1);
+		PropertyOptionParam option6 = property6.getOption();
+		option6.setValue(PropertyKind.DATA);
+		paramPredef1.getParameter().add(option6);
+		
+		XmlElement element7 = (XmlElement) quantifiedCondition.getGraph().getElements().get(2);
+		XmlProperty property7 = (XmlProperty) element7.getProperties().get(1);
+		PropertyOptionParam option7 = property7.getOption();
+		option7.setValue(PropertyKind.DATA);
+		paramPredef1.getParameter().add(option7);
+		
+		XmlElement element8 = (XmlElement) quantifiedCondition.getGraph().getElements().get(4);
+		XmlProperty property8 = (XmlProperty) element8.getProperties().get(1);
+		PropertyOptionParam option8 = property8.getOption();
+		option8.setValue(PropertyKind.DATA);
+		paramPredef1.getParameter().add(option8);
+		
+		XmlElement element9 = (XmlElement) quantifiedCondition.getGraph().getElements().get(5);
+		XmlProperty property9 = (XmlProperty) element9.getProperties().get(1);
+		PropertyOptionParam option9 = property9.getOption();
+		option9.setValue(PropertyKind.DATA);
+		paramPredef1.getParameter().add(option9);
+		
+		// 4 CHILD
+		ParameterPredefinition paramPredef2 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
+		
+		XmlNavigation navigation10 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
+		RelationOptionParam option10 = navigation10.getOption();
+		option10.setValue(RelationKind.CHILD);
+		paramPredef2.getParameter().add(option10);
+		
+		XmlNavigation navigation11 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
+		RelationOptionParam option11 = navigation11.getOption();
+		option11.setValue(RelationKind.CHILD);
+		paramPredef2.getParameter().add(option11);
+		
+		XmlNavigation navigation12 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(2);
+		RelationOptionParam option12 = navigation12.getOption();
+		option12.setValue(RelationKind.CHILD);
+		paramPredef2.getParameter().add(option12);
+		
+		XmlNavigation navigation13 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(3);
+		RelationOptionParam option13 = navigation13.getOption();
+		option13.setValue(RelationKind.CHILD);
+		paramPredef2.getParameter().add(option13);
+		
+		// 4 DESCENDANT
+		ParameterPredefinition paramPredef3 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
+		
+		XmlNavigation navigation14 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(5);
+		RelationOptionParam option14 = navigation14.getOption();
+		option14.setValue(RelationKind.DESCENDANT);
+		paramPredef3.getParameter().add(option14);
+		
+		XmlNavigation navigation15 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		RelationOptionParam option15 = navigation15.getOption();
+		option15.setValue(RelationKind.DESCENDANT);
+		paramPredef3.getParameter().add(option15);
+		
+		// 2 STRING
+		ParameterPredefinition paramPredef4 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
+
+		compB.getTypeOption().setValue(ReturnType.STRING);
+		paramPredef4.getParameter().add(compB.getTypeOption());
+		
+		compC.getTypeOption().setValue(ReturnType.STRING);
+		paramPredef4.getParameter().add(compC.getTypeOption());
+
+		
+		
+		// <tag_name>
+		ParameterFragment param0 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+		UntypedParameterValue value0 = (UntypedParameterValue) comp0.getArgument2();
+		UntypedParameterValue value1 = (UntypedParameterValue) comp1A.getArgument2();		
+		param0.getParameter().add(value0);
+		param0.getParameter().add(value1);
+		param0.setName("tag_name");
+		param0.setExampleValue(DEMO_NAMESPACE + "building");	
+		
+		// <tag_name_child_1>
+		ParameterFragment param1 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+		UntypedParameterValue value2 = (UntypedParameterValue) comp0A.getArgument2();
+		UntypedParameterValue value3 = (UntypedParameterValue) comp1B.getArgument2();		
+		param1.getParameter().add(value2);
+		param1.getParameter().add(value3);
+		param1.setName("tag_name_child_1");
+		param1.setExampleValue(DEMO_NAMESPACE + "city");
+		
+		// <tag_name_child_2>
+		ParameterFragment param2 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
+		UntypedParameterValue value4 = (UntypedParameterValue) comp0B.getArgument2();
+		UntypedParameterValue value5 = (UntypedParameterValue) compA.getArgument2();		
+		param2.getParameter().add(value4);
+		param2.getParameter().add(value5);
+		param2.setName("tag_name_child_2");
+		param2.setExampleValue(DEMO_NAMESPACE + "country");
+		
+		
+		patternText.addFragment(text0);  // Are there two
+		patternText.addFragment(param0); // <tag_name>			
+		patternText.addFragment(text1);  // s that each contain a
+		patternText.addFragment(param1); // <tag_name_child_1>			
+		patternText.addFragment(text2);  // and a
+		patternText.addFragment(param2); // <tag_name_child_2>			
+		patternText.addFragment(text3);  // child where the data of both
+		patternText.addFragment(param1); // <tag_name_child_1>		
+		patternText.addFragment(text4);  // s is equal but the data of the
+		patternText.addFragment(param2); // <tag_name_child_2>			
+		patternText.addFragment(text5);  // s is different?
+		
+		patternText.getParameterPredefinitions().add(paramPredef0); // TAG
+		patternText.getParameterPredefinitions().add(paramPredef1); // DATA
+		patternText.getParameterPredefinitions().add(paramPredef2); // CHILD
+		patternText.getParameterPredefinitions().add(paramPredef3); // DESCENDANT
+		patternText.getParameterPredefinitions().add(paramPredef4); // STRING
+
+		
 	}
 	
 	// ------------- CARD ----------------
@@ -752,16 +971,16 @@ public class DemoPatternTexts {
 		param8.setName("tag_name_child");
 		param8.setExampleValue(DEMO_NAMESPACE + "birthyear");
 				
-		patternText.getFragments().add(text0);  // Is there a
+		patternText.addFragment(text0);  // Is there a
 		patternText.getParameterPredefinitions().add(paramPredef0); // tag
-		patternText.getFragments().add(param2); // <tag_name_parent>		
-		patternText.getFragments().add(text1);  // with more than one
+		patternText.addFragment(param2); // <tag_name_parent>		
+		patternText.addFragment(text1);  // with more than one
 		patternText.getParameterPredefinitions().add(paramPredef2); // >
 		patternText.getParameterPredefinitions().add(paramPredef3); // 1
 		patternText.getParameterPredefinitions().add(paramPredef4); // child		
 		patternText.getParameterPredefinitions().add(paramPredef1); // tag
-		patternText.getFragments().add(param8); // <tag_name_child>
-		patternText.getFragments().add(text2);  // child?
+		patternText.addFragment(param8); // <tag_name_child>
+		patternText.addFragment(text2);  // child?
 	
 	}
 
@@ -856,18 +1075,18 @@ public class DemoPatternTexts {
 //		
 //		// Is there an element with <property> <value> that has <comp> <number> <relation> whose <property> is equal to <value>?
 //		
-//		patternText.getFragments().add(text0);  // Is there an element with
+//		patternText.addFragment(text0);  // Is there an element with
 //		patternText.getParameterPredefinitions().add(paramPredef0); // name
-//		patternText.getFragments().add(param2); // <value>		
-//		patternText.getFragments().add(text1);  // that has
-//		patternText.getFragments().add(param3); // <comp>
-//		patternText.getFragments().add(param4); // <number>
-//		patternText.getFragments().add(param5); // <relation>
-//		patternText.getFragments().add(text2);  // whose
-//		patternText.getFragments().add(param6); // <property>
-//		patternText.getFragments().add(param7);
-//		patternText.getFragments().add(text3);  // is equal to
-//		patternText.getFragments().add(param8); // <value>
+//		patternText.addFragment(param2); // <value>		
+//		patternText.addFragment(text1);  // that has
+//		patternText.addFragment(param3); // <comp>
+//		patternText.addFragment(param4); // <number>
+//		patternText.addFragment(param5); // <relation>
+//		patternText.addFragment(text2);  // whose
+//		patternText.addFragment(param6); // <property>
+//		patternText.addFragment(param7);
+//		patternText.addFragment(text3);  // is equal to
+//		patternText.addFragment(param8); // <value>
 //	
 //	}
 
@@ -971,21 +1190,21 @@ public class DemoPatternTexts {
 		param8.setName("value_2");
 		param8.setExampleValue("unknown");
 		
-		patternText.getFragments().add(text0);  // Is there an element with
-		patternText.getFragments().add(param0); // <property_1>
-		patternText.getFragments().add(param1);
-		patternText.getFragments().add(text4);  // equal to
-		patternText.getFragments().add(param2); // <value_1>		
-		patternText.getFragments().add(text1);  // that has
-		patternText.getFragments().add(param3); // <comparison_operator>
-		patternText.getFragments().add(param4); // <number>
-		patternText.getFragments().add(param5); // <relation_type>
-		patternText.getFragments().add(text2);  // element(s) whose
-		patternText.getFragments().add(param6); // <property_2>
-		patternText.getFragments().add(param7);
-		patternText.getFragments().add(text3);  // is equal to
-		patternText.getFragments().add(param8); // <value_2>
-		patternText.getFragments().add(text5);  // ?
+		patternText.addFragment(text0);  // Is there an element with
+		patternText.addFragment(param0); // <property_1>
+		patternText.addFragment(param1);
+		patternText.addFragment(text4);  // equal to
+		patternText.addFragment(param2); // <value_1>		
+		patternText.addFragment(text1);  // that has
+		patternText.addFragment(param3); // <comparison_operator>
+		patternText.addFragment(param4); // <number>
+		patternText.addFragment(param5); // <relation_type>
+		patternText.addFragment(text2);  // element(s) whose
+		patternText.addFragment(param6); // <property_2>
+		patternText.addFragment(param7);
+		patternText.addFragment(text3);  // is equal to
+		patternText.addFragment(param8); // <value_2>
+		patternText.addFragment(text5);  // ?
 	
 	}
 	
