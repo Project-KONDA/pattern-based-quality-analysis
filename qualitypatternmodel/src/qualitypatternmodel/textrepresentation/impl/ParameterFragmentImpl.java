@@ -210,7 +210,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		String type = getType();
 		String role = getRole();
 		String exampleValue = getExampleValue();		
-		String json = "{\"Name\": \"" + name + "\", \"URLs\": \"" + urlsJSON + "\", \"Type\": \"" + type + "\", \"Role\": \"" + role + "\"";
+		String json = "{\"Name\": \"" + name + "\", \"URLs\": " + urlsJSON + ", \"Type\": \"" + type + "\", \"Role\": \"" + role + "\"";
 		if(value != null) {
 			if(!(getParameter() instanceof TextListParamImpl) && !(getParameter() instanceof NumberParamImpl) && !(getParameter() instanceof BooleanParamImpl)) {
 				value = "\"" + value + "\"";
@@ -342,7 +342,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		for(Parameter p : getParameter()) {
 			String value = p.getValueAsString();
 			
-			if(!value.equals(firstValue)) {
+			if(value != null && !value.equals(firstValue) || value == null && firstValue != null) {
 				throw new InvalidityException("Referenced parameters have different values");
 			}
 			
