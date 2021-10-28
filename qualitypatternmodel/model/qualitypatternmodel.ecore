@@ -24,6 +24,7 @@
       </eOperations>
       <eOperations name="getOptionsAsStringList" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="validateAgainstSchema" upperBound="-1" eType="#//parameters/Parameter"/>
+      <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterList" lowerBound="1"
           eType="#//parameters/ParameterList" eOpposite="#//parameters/ParameterList/parameters"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -33,6 +34,9 @@
           upperBound="-1" eType="#//textrepresentation/ParameterReference" eOpposite="#//textrepresentation/ParameterReference/parameter"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ComparisonOptionParam" eSuperTypes="#//parameters/Parameter">
+      <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="newValue" eType="#//operators/ComparisonOperator"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
           eType="#//operators/ComparisonOperator"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
@@ -43,6 +47,9 @@
           eType="#//patternstructure/CountCondition" eOpposite="#//patternstructure/CountCondition/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PropertyOptionParam" eSuperTypes="#//parameters/Parameter">
+      <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="newValue" eType="#//adaptionxml/PropertyKind"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
           eType="#//adaptionxml/PropertyKind"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
@@ -64,6 +71,9 @@
           eType="#//patternstructure/CompletePattern" eOpposite="#//patternstructure/CompletePattern/parameterList"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BooleanParam" eSuperTypes="#//parameters/ParameterValue">
+      <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="newValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"
           defaultValueLiteral="true"/>
@@ -73,11 +83,17 @@
     <eClassifiers xsi:type="ecore:EClass" name="TextListParam" eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="getListDeclaration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getListVar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="newValue" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TextLiteralParam" eSuperTypes="#//parameters/ParameterValue">
+      <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="newValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="matches" upperBound="-1"
@@ -86,6 +102,9 @@
           eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/attributeName"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumberParam" eSuperTypes="#//parameters/ParameterValue">
+      <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="newValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
           defaultValueLiteral="0.0"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="numberArgument" eType="#//patternstructure/NumberElement"
@@ -132,14 +151,14 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeModifiable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DateParam" eSuperTypes="#//parameters/ParameterValue">
-      <eOperations name="specifyValue" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="newValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TimeParam" eSuperTypes="#//parameters/ParameterValue">
-      <eOperations name="specifyValue" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="newValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -151,7 +170,7 @@
       </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DateTimeParam" eSuperTypes="#//parameters/ParameterValue">
-      <eOperations name="specifyValue" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="newValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -282,6 +301,14 @@
       <eOperations name="copy" eType="#//graphstructure/Property"/>
       <eOperations name="addComparison" eType="#//operators/Comparison"/>
       <eOperations name="isOperatorArgument" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="parameterValue" eType="#//parameters/ParameterValue"/>
+      </eOperations>
+      <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="comp" eType="#//operators/Comparison"/>
+      </eOperations>
+      <eOperations name="getEquivalentProperties" upperBound="-1" eType="#//graphstructure/Property"/>
+      <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
           eType="#//graphstructure/Element" eOpposite="#//graphstructure/Element/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="match" upperBound="-1"

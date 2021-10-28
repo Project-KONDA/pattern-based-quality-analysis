@@ -18,6 +18,10 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Property#copy() <em>Copy</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#addComparison() <em>Add Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#isOperatorArgument() <em>Is Operator Argument</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue) <em>Check Comparison Consistency</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#checkComparisonConsistency(qualitypatternmodel.operators.Comparison) <em>Check Comparison Consistency</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#getEquivalentProperties() <em>Get Equivalent Properties</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Property#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
@@ -141,6 +145,58 @@ public class PropertyTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testIsOperatorArgument() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Property#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue) <em>Check Comparison Consistency</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Property#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue)
+	 * @generated
+	 */
+	public void testCheckComparisonConsistency__ParameterValue() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Property#checkComparisonConsistency(qualitypatternmodel.operators.Comparison) <em>Check Comparison Consistency</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Property#checkComparisonConsistency(qualitypatternmodel.operators.Comparison)
+	 * @generated
+	 */
+	public void testCheckComparisonConsistency__Comparison() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Property#getEquivalentProperties() <em>Get Equivalent Properties</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Property#getEquivalentProperties()
+	 * @generated
+	 */
+	public void testGetEquivalentProperties() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Property#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Property#checkComparisonConsistency()
+	 * @generated
+	 */
+	public void testCheckComparisonConsistency() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

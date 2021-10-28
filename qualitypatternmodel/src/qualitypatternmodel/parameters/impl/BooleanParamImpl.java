@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.lang.Boolean;
 
@@ -88,8 +89,8 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	}
 	
 	@Override
-	public void setValueFromString(String value) {
-		setValue(Boolean.parseBoolean(value));
+	public void setValueFromString(String value) throws InvalidityException {
+		setValueIfValid(Boolean.parseBoolean(value));
 	}
 
 
@@ -173,6 +174,23 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 			matches = new EObjectWithInverseResolvingEList<Match>(Match.class, this, ParametersPackage.BOOLEAN_PARAM__MATCHES, OperatorsPackage.MATCH__OPTION);
 		}
 		return matches;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void setValueIfValid(Boolean newValue) throws InvalidityException {
+		Boolean oldValue = getValue();
+		setValue(newValue);		
+		try {
+			checkComparisonConsistency();
+		} catch (Exception e) {
+			setValue(oldValue);
+			throw e;
+		}
 	}
 
 	/**
@@ -272,6 +290,26 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 				return matches != null && !matches.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ParametersPackage.BOOLEAN_PARAM___SET_VALUE_IF_VALID__BOOLEAN:
+				try {
+					setValueIfValid((Boolean)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

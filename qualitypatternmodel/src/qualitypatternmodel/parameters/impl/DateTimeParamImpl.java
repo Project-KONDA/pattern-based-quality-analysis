@@ -71,7 +71,7 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 	
 	@Override
 	public void setValueFromString(String value) throws InvalidityException {
-		specifyValue(value);
+		setValueIfValid(value);
 	}
 		
 	@Override
@@ -133,11 +133,18 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 	 * @generated NOT
 	 */
 	@Override
-	public void specifyValue(String newValue) throws InvalidityException {
+	public void setValueIfValid(String newValue) throws InvalidityException {
+		String oldValue = getValue();
 		if(newValue.equals(VALUE_EDEFAULT) || isFormatValid(newValue)) {
 			setValue(newValue);
 		} else {
 			throw new InvalidityException("DateTime format invalid");
+		}
+		try {
+			checkComparisonConsistency();
+		} catch (Exception e) {
+			setValue(oldValue);
+			throw e;
 		}
 	}
 
@@ -233,9 +240,9 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ParametersPackage.DATE_TIME_PARAM___SPECIFY_VALUE__STRING:
+			case ParametersPackage.DATE_TIME_PARAM___SET_VALUE_IF_VALID__STRING:
 				try {
-					specifyValue((String)arguments.get(0));
+					setValueIfValid((String)arguments.get(0));
 					return null;
 				}
 				catch (Throwable throwable) {

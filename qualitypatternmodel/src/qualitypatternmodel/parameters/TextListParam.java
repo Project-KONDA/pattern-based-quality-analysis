@@ -3,6 +3,7 @@
 package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.exceptions.InvalidityException;
 
 
 /**
@@ -57,4 +58,12 @@ public interface TextListParam extends ParameterValue {
 	 * @generated
 	 */
 	String getListVar();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper" newValueMany="true"
+	 * @generated
+	 */
+	void setValueIfValid(EList<String> newValue) throws InvalidityException;
 } // TextList

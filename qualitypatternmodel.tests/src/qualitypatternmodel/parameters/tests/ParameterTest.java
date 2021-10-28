@@ -19,6 +19,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.parameters.Parameter#setValueFromString(java.lang.String) <em>Set Value From String</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getOptionsAsStringList() <em>Get Options As String List</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#validateAgainstSchema() <em>Validate Against Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -132,6 +133,19 @@ public abstract class ParameterTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testValidateAgainstSchema() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.Parameter#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.Parameter#checkComparisonConsistency()
+	 * @generated
+	 */
+	public void testCheckComparisonConsistency() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

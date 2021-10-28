@@ -10,6 +10,12 @@ import qualitypatternmodel.parameters.ParametersFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Comparison Option</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.parameters.ComparisonOptionParam#setValueIfValid(qualitypatternmodel.operators.ComparisonOperator) <em>Set Value If Valid</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class ComparisonOptionParamTest extends ParameterTest {
@@ -64,6 +70,19 @@ public class ComparisonOptionParamTest extends ParameterTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.ComparisonOptionParam#setValueIfValid(qualitypatternmodel.operators.ComparisonOperator) <em>Set Value If Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.ComparisonOptionParam#setValueIfValid(qualitypatternmodel.operators.ComparisonOperator)
+	 * @generated
+	 */
+	public void testSetValueIfValid__ComparisonOperator() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //ComparisonOptionTest

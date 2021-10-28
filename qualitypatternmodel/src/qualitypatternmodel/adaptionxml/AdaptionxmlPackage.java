@@ -1694,6 +1694,42 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___IS_OPERATOR_ARGUMENT = GraphstructurePackage.PROPERTY___IS_OPERATOR_ARGUMENT;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = GraphstructurePackage.PROPERTY___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.PROPERTY___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Equivalent Properties</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___GET_EQUIVALENT_PROPERTIES = GraphstructurePackage.PROPERTY___GET_EQUIVALENT_PROPERTIES;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.PROPERTY___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
 	 * The number of operations of the '<em>Xml Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

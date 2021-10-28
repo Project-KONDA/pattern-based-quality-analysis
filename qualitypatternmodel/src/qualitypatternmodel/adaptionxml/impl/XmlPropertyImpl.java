@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -167,6 +168,24 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 			}
 		}
 		return name;
+	}
+	
+	@Override
+	public EList<Property> getEquivalentProperties() {
+		EList<Property> equiProperties = new BasicEList<Property>();
+		PropertyKind propertyKind = getOption().getValue();
+		String attributeName = (getAttributeName() == null || getAttributeName().getValue() == null ? "" : getAttributeName().getValue());
+		for(Property p : getElement().getProperties()) {
+			if(p instanceof XmlProperty) {
+				XmlProperty xmlProp = (XmlProperty) p;
+				if(xmlProp.getOption().getValue() == propertyKind) {
+					if(propertyKind != PropertyKind.ATTRIBUTE || attributeName.equals(xmlProp.getAttributeName().getValue())) {
+						equiProperties.add(xmlProp);
+					}
+				}
+			}			
+		}
+		return equiProperties;
 	}
 	
 	@Override

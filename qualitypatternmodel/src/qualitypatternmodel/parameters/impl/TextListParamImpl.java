@@ -136,6 +136,25 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void setValueIfValid(EList<String> newValue) throws InvalidityException {
+		EList<String> oldValue = getValues();
+		getValues().clear();
+		getValues().addAll(newValue);	
+		try {
+			checkComparisonConsistency();
+		} catch (Exception e) {
+			getValues().clear();
+			getValues().addAll(oldValue);
+			throw e;
+		}			
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -200,12 +219,21 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case ParametersPackage.TEXT_LIST_PARAM___GET_LIST_DECLARATION:
 				return getListDeclaration();
 			case ParametersPackage.TEXT_LIST_PARAM___GET_LIST_VAR:
 				return getListVar();
+			case ParametersPackage.TEXT_LIST_PARAM___SET_VALUE_IF_VALID__ELIST:
+				try {
+					setValueIfValid((EList<String>)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

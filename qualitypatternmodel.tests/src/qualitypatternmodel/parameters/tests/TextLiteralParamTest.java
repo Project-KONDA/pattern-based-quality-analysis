@@ -10,6 +10,12 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Text Literal</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#setValueIfValid(java.lang.String) <em>Set Value If Valid</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class TextLiteralParamTest extends ParameterValueTest {
@@ -64,6 +70,19 @@ public class TextLiteralParamTest extends ParameterValueTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.TextLiteralParam#setValueIfValid(java.lang.String) <em>Set Value If Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#setValueIfValid(java.lang.String)
+	 * @generated
+	 */
+	public void testSetValueIfValid__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //TextLiteralTest

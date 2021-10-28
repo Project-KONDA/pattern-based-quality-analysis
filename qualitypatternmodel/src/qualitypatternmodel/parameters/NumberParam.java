@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.parameters;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.NumberElement;
 
 
@@ -70,5 +71,13 @@ public interface NumberParam extends ParameterValue {
 	 * @generated
 	 */
 	void setNumberArgument(NumberElement value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void setValueIfValid(Double newValue) throws InvalidityException;
 
 } // Number

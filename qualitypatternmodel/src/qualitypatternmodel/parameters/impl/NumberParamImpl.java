@@ -2,9 +2,11 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -75,8 +77,8 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	}
 	
 	@Override
-	public void setValueFromString(String value) {
-		setValue(Double.parseDouble(value));
+	public void setValueFromString(String value) throws NumberFormatException, InvalidityException {
+		setValueIfValid(Double.parseDouble(value));
 	}
 	
 	@Override
@@ -206,6 +208,23 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void setValueIfValid(Double newValue) throws InvalidityException {
+		Double oldValue = getValue();
+		setValue(newValue);		
+		try {
+			checkComparisonConsistency();
+		} catch (Exception e) {
+			setValue(oldValue);
+			throw e;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -302,6 +321,26 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 				return numberArgument != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ParametersPackage.NUMBER_PARAM___SET_VALUE_IF_VALID__DOUBLE:
+				try {
+					setValueIfValid((Double)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

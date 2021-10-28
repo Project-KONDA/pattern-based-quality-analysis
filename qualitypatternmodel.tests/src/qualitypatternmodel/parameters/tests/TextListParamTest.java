@@ -15,6 +15,7 @@ import qualitypatternmodel.parameters.TextListParam;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.TextListParam#getListDeclaration() <em>Get List Declaration</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.TextListParam#getListVar() <em>Get List Var</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.TextListParam#setValueIfValid(org.eclipse.emf.common.util.EList) <em>Set Value If Valid</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -94,6 +95,19 @@ public class TextListParamTest extends ParameterValueTest {
 	 * @generated
 	 */
 	public void testGetListVar() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.TextListParam#setValueIfValid(org.eclipse.emf.common.util.EList) <em>Set Value If Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.TextListParam#setValueIfValid(org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	public void testSetValueIfValid__EList() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

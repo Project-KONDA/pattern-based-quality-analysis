@@ -990,13 +990,49 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY___IS_OPERATOR_ARGUMENT = COMPARABLE_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___CHECK_COMPARISON_CONSISTENCY__COMPARISON = COMPARABLE_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Get Equivalent Properties</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_EQUIVALENT_PROPERTIES = COMPARABLE_OPERATION_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___CHECK_COMPARISON_CONSISTENCY = COMPARABLE_OPERATION_COUNT + 8;
+
+	/**
 	 * The number of operations of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 5;
+	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.ElementImpl <em>Element</em>}' class.
@@ -2253,6 +2289,46 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getProperty__IsOperatorArgument();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue) <em>Check Comparison Consistency</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Comparison Consistency</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Property#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue)
+	 * @generated
+	 */
+	EOperation getProperty__CheckComparisonConsistency__ParameterValue();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#checkComparisonConsistency(qualitypatternmodel.operators.Comparison) <em>Check Comparison Consistency</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Comparison Consistency</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Property#checkComparisonConsistency(qualitypatternmodel.operators.Comparison)
+	 * @generated
+	 */
+	EOperation getProperty__CheckComparisonConsistency__Comparison();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#getEquivalentProperties() <em>Get Equivalent Properties</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Equivalent Properties</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Property#getEquivalentProperties()
+	 * @generated
+	 */
+	EOperation getProperty__GetEquivalentProperties();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Comparison Consistency</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Property#checkComparisonConsistency()
+	 * @generated
+	 */
+	EOperation getProperty__CheckComparisonConsistency();
+
+	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2955,6 +3031,38 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PROPERTY___IS_OPERATOR_ARGUMENT = eINSTANCE.getProperty__IsOperatorArgument();
+
+		/**
+		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPERTY___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = eINSTANCE.getProperty__CheckComparisonConsistency__ParameterValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPERTY___CHECK_COMPARISON_CONSISTENCY__COMPARISON = eINSTANCE.getProperty__CheckComparisonConsistency__Comparison();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Equivalent Properties</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPERTY___GET_EQUIVALENT_PROPERTIES = eINSTANCE.getProperty__GetEquivalentProperties();
+
+		/**
+		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPERTY___CHECK_COMPARISON_CONSISTENCY = eINSTANCE.getProperty__CheckComparisonConsistency();
 
 		/**
 		 * The meta object literal for the '<em><b>Match</b></em>' reference list feature.

@@ -304,6 +304,18 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void checkComparisonConsistency() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -462,6 +474,14 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				return getOptionsAsStringList();
 			case ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA:
 				return validateAgainstSchema();
+			case ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY:
+				try {
+					checkComparisonConsistency();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

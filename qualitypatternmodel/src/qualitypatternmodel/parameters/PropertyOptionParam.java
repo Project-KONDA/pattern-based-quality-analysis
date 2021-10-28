@@ -5,6 +5,7 @@ package qualitypatternmodel.parameters;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,5 +81,13 @@ public interface PropertyOptionParam extends Parameter {
 	 * @generated
 	 */
 	EList<XmlProperty> getProperties();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void setValueIfValid(PropertyKind newValue) throws InvalidityException;
 
 } // PropertyOption

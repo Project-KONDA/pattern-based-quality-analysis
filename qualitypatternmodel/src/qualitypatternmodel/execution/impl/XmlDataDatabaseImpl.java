@@ -545,6 +545,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	    fullPath = pathArr[0];
 		
 	    String schemaPath = fullPath + "/schemata/" + fileName + ".xml";
+	    System.out.println(schemaPath);
 		
 		java.io.FileWriter fw = new java.io.FileWriter(schemaPath);
 	    fw.write(result);

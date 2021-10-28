@@ -4,6 +4,7 @@ package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.patternstructure.CountCondition;
@@ -96,5 +97,13 @@ public interface ComparisonOptionParam extends Parameter {
 	 * @generated
 	 */
 	EList<CountCondition> getCountConditions();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void setValueIfValid(ComparisonOperator newValue) throws InvalidityException;
 
 } // CompOption

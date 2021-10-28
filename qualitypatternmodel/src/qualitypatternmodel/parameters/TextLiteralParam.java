@@ -4,6 +4,7 @@ package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.Match;
 
 
@@ -77,5 +78,13 @@ public interface TextLiteralParam extends ParameterValue {
 	 * @generated
 	 */
 	EList<XmlProperty> getProperties();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void setValueIfValid(String newValue) throws InvalidityException;
 
 } // TextLiteral

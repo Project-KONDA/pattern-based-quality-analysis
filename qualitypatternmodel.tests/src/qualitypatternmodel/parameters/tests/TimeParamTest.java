@@ -13,7 +13,7 @@ import qualitypatternmodel.parameters.TimeParam;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.parameters.TimeParam#specifyValue(java.lang.String) <em>Specify Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.TimeParam#setValueIfValid(java.lang.String) <em>Set Value If Valid</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -73,13 +73,13 @@ public class TimeParamTest extends ParameterValueTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.TimeParam#specifyValue(java.lang.String) <em>Specify Value</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.parameters.TimeParam#setValueIfValid(java.lang.String) <em>Set Value If Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.TimeParam#specifyValue(java.lang.String)
+	 * @see qualitypatternmodel.parameters.TimeParam#setValueIfValid(java.lang.String)
 	 * @generated
 	 */
-	public void testSpecifyValue__String() {
+	public void testSetValueIfValid__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

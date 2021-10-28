@@ -56,6 +56,6 @@ public interface DateParam extends ParameterValue {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void specifyValue(String newValue) throws InvalidityException;
+	void setValueIfValid(String newValue) throws InvalidityException;
 
 } // Date

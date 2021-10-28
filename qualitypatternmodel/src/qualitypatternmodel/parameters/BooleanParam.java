@@ -4,6 +4,7 @@ package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.Match;
 
 
@@ -62,5 +63,13 @@ public interface BooleanParam extends ParameterValue {
 	 * @generated
 	 */
 	EList<Match> getMatches();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void setValueIfValid(Boolean newValue) throws InvalidityException;
 
 } // Boolean

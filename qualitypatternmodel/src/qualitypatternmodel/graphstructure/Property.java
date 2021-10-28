@@ -4,8 +4,10 @@ package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.Match;
+import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -61,6 +63,38 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 	 * @generated
 	 */
 	boolean isOperatorArgument();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void checkComparisonConsistency(ParameterValue parameterValue) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void checkComparisonConsistency(Comparison comp) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<Property> getEquivalentProperties();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void checkComparisonConsistency() throws InvalidityException;
 
 	/**
 	 * Returns the value of the '<em><b>Element</b></em>' container reference.

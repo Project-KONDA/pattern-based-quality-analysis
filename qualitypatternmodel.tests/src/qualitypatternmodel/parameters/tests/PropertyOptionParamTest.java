@@ -10,6 +10,12 @@ import qualitypatternmodel.parameters.PropertyOptionParam;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Property Option</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.parameters.PropertyOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.PropertyKind) <em>Set Value If Valid</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class PropertyOptionParamTest extends ParameterTest {
@@ -64,6 +70,19 @@ public class PropertyOptionParamTest extends ParameterTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.PropertyOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.PropertyKind) <em>Set Value If Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.PropertyOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.PropertyKind)
+	 * @generated
+	 */
+	public void testSetValueIfValid__PropertyKind() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //PropertyOptionTest

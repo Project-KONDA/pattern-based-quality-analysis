@@ -374,6 +374,46 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getProperty__CheckComparisonConsistency__ParameterValue() {
+		return propertyEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getProperty__CheckComparisonConsistency__Comparison() {
+		return propertyEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getProperty__GetEquivalentProperties() {
+		return propertyEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getProperty__CheckComparisonConsistency() {
+		return propertyEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getProperty_Match() {
 		return (EReference)propertyEClass.getEStructuralFeatures().get(1);
 	}
@@ -928,6 +968,10 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(propertyEClass, PROPERTY___COPY);
 		createEOperation(propertyEClass, PROPERTY___ADD_COMPARISON);
 		createEOperation(propertyEClass, PROPERTY___IS_OPERATOR_ARGUMENT);
+		createEOperation(propertyEClass, PROPERTY___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE);
+		createEOperation(propertyEClass, PROPERTY___CHECK_COMPARISON_CONSISTENCY__COMPARISON);
+		createEOperation(propertyEClass, PROPERTY___GET_EQUIVALENT_PROPERTIES);
+		createEOperation(propertyEClass, PROPERTY___CHECK_COMPARISON_CONSISTENCY);
 
 		elementEClass = createEClass(ELEMENT);
 		createEReference(elementEClass, ELEMENT__OUTGOING_MAPPINGS);
@@ -1063,6 +1107,19 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEOperation(getProperty__AddComparison(), theOperatorsPackage.getComparison(), "addComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getProperty__IsOperatorArgument(), ecorePackage.getEBoolean(), "isOperatorArgument", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getProperty__CheckComparisonConsistency__ParameterValue(), null, "checkComparisonConsistency", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theParametersPackage.getParameterValue(), "parameterValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getProperty__CheckComparisonConsistency__Comparison(), null, "checkComparisonConsistency", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theOperatorsPackage.getComparison(), "comp", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		initEOperation(getProperty__GetEquivalentProperties(), this.getProperty(), "getEquivalentProperties", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getProperty__CheckComparisonConsistency(), null, "checkComparisonConsistency", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getElement_OutgoingMappings(), thePatternstructurePackage.getElementMapping(), thePatternstructurePackage.getElementMapping_Source(), "outgoingMappings", null, 0, -1, Element.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

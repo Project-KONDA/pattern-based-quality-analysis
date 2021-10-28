@@ -10,6 +10,12 @@ import qualitypatternmodel.parameters.ParametersFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Number</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.parameters.NumberParam#setValueIfValid(java.lang.Double) <em>Set Value If Valid</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class NumberParamTest extends ParameterValueTest {
@@ -64,6 +70,19 @@ public class NumberParamTest extends ParameterValueTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.NumberParam#setValueIfValid(java.lang.Double) <em>Set Value If Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.NumberParam#setValueIfValid(java.lang.Double)
+	 * @generated
+	 */
+	public void testSetValueIfValid__Double() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //NumberTest

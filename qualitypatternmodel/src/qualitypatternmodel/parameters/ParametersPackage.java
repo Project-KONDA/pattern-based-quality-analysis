@@ -368,13 +368,22 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___VALIDATE_AGAINST_SCHEMA = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER___CHECK_COMPARISON_CONSISTENCY = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
+
+	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
+	int PARAMETER_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl <em>Comparison Option Param</em>}' class.
@@ -720,13 +729,31 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER___VALIDATE_AGAINST_SCHEMA;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
+	 * The operation id for the '<em>Set Value If Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON_OPTION_PARAM___SET_VALUE_IF_VALID__COMPARISONOPERATOR = PARAMETER_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Comparison Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION_PARAM_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
+	int COMPARISON_OPTION_PARAM_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.PropertyOptionParamImpl <em>Property Option Param</em>}' class.
@@ -1063,13 +1090,31 @@ public interface ParametersPackage extends EPackage {
 	int PROPERTY_OPTION_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER___VALIDATE_AGAINST_SCHEMA;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
+	 * The operation id for the '<em>Set Value If Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___SET_VALUE_IF_VALID__PROPERTYKIND = PARAMETER_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Property Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_PARAM_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
+	int PROPERTY_OPTION_PARAM_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.ParameterListImpl <em>Parameter List</em>}' class.
@@ -1659,6 +1704,15 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA = PARAMETER___VALIDATE_AGAINST_SCHEMA;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY = PARAMETER___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2155,6 +2209,15 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2299,13 +2362,22 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
+	 * The operation id for the '<em>Set Value If Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM___SET_VALUE_IF_VALID__BOOLEAN = PARAMETER_VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Boolean Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int BOOLEAN_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.TextListParamImpl <em>Text List Param</em>}' class.
@@ -2642,6 +2714,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2804,13 +2885,22 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM___GET_LIST_VAR = PARAMETER_VALUE_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Set Value If Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LIST_PARAM___SET_VALUE_IF_VALID__ELIST = PARAMETER_VALUE_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Text List Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 2;
+	int TEXT_LIST_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl <em>Text Literal Param</em>}' class.
@@ -3165,6 +3255,15 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3309,13 +3408,22 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
+	 * The operation id for the '<em>Set Value If Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM___SET_VALUE_IF_VALID__STRING = PARAMETER_VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Text Literal Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int TEXT_LITERAL_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.NumberParamImpl <em>Number Param</em>}' class.
@@ -3661,6 +3769,15 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3805,13 +3922,22 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
+	 * The operation id for the '<em>Set Value If Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_PARAM___SET_VALUE_IF_VALID__DOUBLE = PARAMETER_VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Number Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int NUMBER_PARAM_OPERATION_COUNT = PARAMETER_VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.DateParamImpl <em>Date Param</em>}' class.
@@ -4148,6 +4274,15 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4292,13 +4427,13 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Specify Value</em>' operation.
+	 * The operation id for the '<em>Set Value If Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_PARAM___SPECIFY_VALUE__STRING = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int DATE_PARAM___SET_VALUE_IF_VALID__STRING = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Date Param</em>' class.
@@ -4644,6 +4779,15 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4788,13 +4932,13 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Specify Value</em>' operation.
+	 * The operation id for the '<em>Set Value If Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_PARAM___SPECIFY_VALUE__STRING = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int TIME_PARAM___SET_VALUE_IF_VALID__STRING = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Time Param</em>' class.
@@ -5129,6 +5273,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNTYPED_PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTYPED_PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -5627,6 +5780,15 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE_TIME_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5771,13 +5933,13 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___REPLACE_VIA_VALUE__STRING_STRING = PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
-	 * The operation id for the '<em>Specify Value</em>' operation.
+	 * The operation id for the '<em>Set Value If Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME_PARAM___SPECIFY_VALUE__STRING = PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int DATE_TIME_PARAM___SET_VALUE_IF_VALID__STRING = PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Date Time Param</em>' class.
@@ -6121,6 +6283,15 @@ public interface ParametersPackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_OPTION_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER___VALIDATE_AGAINST_SCHEMA;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
 	 * The operation id for the '<em>Infer Suggestions</em>' operation.
@@ -6475,6 +6646,15 @@ public interface ParametersPackage extends EPackage {
 	int TYPE_OPTION_PARAM___VALIDATE_AGAINST_SCHEMA = PARAMETER___VALIDATE_AGAINST_SCHEMA;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_OPTION_PARAM___CHECK_COMPARISON_CONSISTENCY = PARAMETER___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
 	 * The number of operations of the '<em>Type Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6627,6 +6807,16 @@ public interface ParametersPackage extends EPackage {
 	EOperation getParameter__ValidateAgainstSchema();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Comparison Consistency</em>' operation.
+	 * @see qualitypatternmodel.parameters.Parameter#checkComparisonConsistency()
+	 * @generated
+	 */
+	EOperation getParameter__CheckComparisonConsistency();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.Parameter#generateDescription() <em>Generate Description</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6691,6 +6881,16 @@ public interface ParametersPackage extends EPackage {
 	EReference getComparisonOptionParam_CountConditions();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ComparisonOptionParam#setValueIfValid(qualitypatternmodel.operators.ComparisonOperator) <em>Set Value If Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Value If Valid</em>' operation.
+	 * @see qualitypatternmodel.parameters.ComparisonOptionParam#setValueIfValid(qualitypatternmodel.operators.ComparisonOperator)
+	 * @generated
+	 */
+	EOperation getComparisonOptionParam__SetValueIfValid__ComparisonOperator();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.PropertyOptionParam <em>Property Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6732,6 +6932,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPropertyOptionParam_Properties();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.PropertyOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.PropertyKind) <em>Set Value If Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Value If Valid</em>' operation.
+	 * @see qualitypatternmodel.parameters.PropertyOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.PropertyKind)
+	 * @generated
+	 */
+	EOperation getPropertyOptionParam__SetValueIfValid__PropertyKind();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.ParameterList <em>Parameter List</em>}'.
@@ -6828,6 +7038,16 @@ public interface ParametersPackage extends EPackage {
 	EReference getBooleanParam_Matches();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.BooleanParam#setValueIfValid(java.lang.Boolean) <em>Set Value If Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Value If Valid</em>' operation.
+	 * @see qualitypatternmodel.parameters.BooleanParam#setValueIfValid(java.lang.Boolean)
+	 * @generated
+	 */
+	EOperation getBooleanParam__SetValueIfValid__Boolean();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.TextListParam <em>Text List Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6867,6 +7087,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getTextListParam__GetListVar();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextListParam#setValueIfValid(org.eclipse.emf.common.util.EList) <em>Set Value If Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Value If Valid</em>' operation.
+	 * @see qualitypatternmodel.parameters.TextListParam#setValueIfValid(org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	EOperation getTextListParam__SetValueIfValid__EList();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.TextLiteralParam <em>Text Literal Param</em>}'.
@@ -6912,6 +7142,16 @@ public interface ParametersPackage extends EPackage {
 	EReference getTextLiteralParam_Properties();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextLiteralParam#setValueIfValid(java.lang.String) <em>Set Value If Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Value If Valid</em>' operation.
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#setValueIfValid(java.lang.String)
+	 * @generated
+	 */
+	EOperation getTextLiteralParam__SetValueIfValid__String();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.NumberParam <em>Number Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6942,6 +7182,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNumberParam_NumberArgument();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.NumberParam#setValueIfValid(java.lang.Double) <em>Set Value If Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Value If Valid</em>' operation.
+	 * @see qualitypatternmodel.parameters.NumberParam#setValueIfValid(java.lang.Double)
+	 * @generated
+	 */
+	EOperation getNumberParam__SetValueIfValid__Double();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.ParameterValue <em>Parameter Value</em>}'.
@@ -7106,14 +7356,14 @@ public interface ParametersPackage extends EPackage {
 	EAttribute getDateParam_Value();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.DateParam#specifyValue(java.lang.String) <em>Specify Value</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.DateParam#setValueIfValid(java.lang.String) <em>Set Value If Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Specify Value</em>' operation.
-	 * @see qualitypatternmodel.parameters.DateParam#specifyValue(java.lang.String)
+	 * @return the meta object for the '<em>Set Value If Valid</em>' operation.
+	 * @see qualitypatternmodel.parameters.DateParam#setValueIfValid(java.lang.String)
 	 * @generated
 	 */
-	EOperation getDateParam__SpecifyValue__String();
+	EOperation getDateParam__SetValueIfValid__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.TimeParam <em>Time Param</em>}'.
@@ -7137,14 +7387,14 @@ public interface ParametersPackage extends EPackage {
 	EAttribute getTimeParam_Value();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TimeParam#specifyValue(java.lang.String) <em>Specify Value</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TimeParam#setValueIfValid(java.lang.String) <em>Set Value If Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Specify Value</em>' operation.
-	 * @see qualitypatternmodel.parameters.TimeParam#specifyValue(java.lang.String)
+	 * @return the meta object for the '<em>Set Value If Valid</em>' operation.
+	 * @see qualitypatternmodel.parameters.TimeParam#setValueIfValid(java.lang.String)
 	 * @generated
 	 */
-	EOperation getTimeParam__SpecifyValue__String();
+	EOperation getTimeParam__SetValueIfValid__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.UntypedParameterValue <em>Untyped Parameter Value</em>}'.
@@ -7188,14 +7438,14 @@ public interface ParametersPackage extends EPackage {
 	EAttribute getDateTimeParam_Value();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.DateTimeParam#specifyValue(java.lang.String) <em>Specify Value</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.DateTimeParam#setValueIfValid(java.lang.String) <em>Set Value If Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Specify Value</em>' operation.
-	 * @see qualitypatternmodel.parameters.DateTimeParam#specifyValue(java.lang.String)
+	 * @return the meta object for the '<em>Set Value If Valid</em>' operation.
+	 * @see qualitypatternmodel.parameters.DateTimeParam#setValueIfValid(java.lang.String)
 	 * @generated
 	 */
-	EOperation getDateTimeParam__SpecifyValue__String();
+	EOperation getDateTimeParam__SetValueIfValid__String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.RelationOptionParam <em>Relation Option Param</em>}'.
@@ -7436,6 +7686,14 @@ public interface ParametersPackage extends EPackage {
 		EOperation PARAMETER___VALIDATE_AGAINST_SCHEMA = eINSTANCE.getParameter__ValidateAgainstSchema();
 
 		/**
+		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER___CHECK_COMPARISON_CONSISTENCY = eINSTANCE.getParameter__CheckComparisonConsistency();
+
+		/**
 		 * The meta object literal for the '<em><b>Generate Description</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7486,6 +7744,14 @@ public interface ParametersPackage extends EPackage {
 		EReference COMPARISON_OPTION_PARAM__COUNT_CONDITIONS = eINSTANCE.getComparisonOptionParam_CountConditions();
 
 		/**
+		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPARISON_OPTION_PARAM___SET_VALUE_IF_VALID__COMPARISONOPERATOR = eINSTANCE.getComparisonOptionParam__SetValueIfValid__ComparisonOperator();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.PropertyOptionParamImpl <em>Property Option Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7518,6 +7784,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROPERTY_OPTION_PARAM__PROPERTIES = eINSTANCE.getPropertyOptionParam_Properties();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPERTY_OPTION_PARAM___SET_VALUE_IF_VALID__PROPERTYKIND = eINSTANCE.getPropertyOptionParam__SetValueIfValid__PropertyKind();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.ParameterListImpl <em>Parameter List</em>}' class.
@@ -7596,6 +7870,14 @@ public interface ParametersPackage extends EPackage {
 		EReference BOOLEAN_PARAM__MATCHES = eINSTANCE.getBooleanParam_Matches();
 
 		/**
+		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_PARAM___SET_VALUE_IF_VALID__BOOLEAN = eINSTANCE.getBooleanParam__SetValueIfValid__Boolean();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.TextListParamImpl <em>Text List Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7628,6 +7910,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TEXT_LIST_PARAM___GET_LIST_VAR = eINSTANCE.getTextListParam__GetListVar();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TEXT_LIST_PARAM___SET_VALUE_IF_VALID__ELIST = eINSTANCE.getTextListParam__SetValueIfValid__EList();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl <em>Text Literal Param</em>}' class.
@@ -7664,6 +7954,14 @@ public interface ParametersPackage extends EPackage {
 		EReference TEXT_LITERAL_PARAM__PROPERTIES = eINSTANCE.getTextLiteralParam_Properties();
 
 		/**
+		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TEXT_LITERAL_PARAM___SET_VALUE_IF_VALID__STRING = eINSTANCE.getTextLiteralParam__SetValueIfValid__String();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.NumberParamImpl <em>Number Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7688,6 +7986,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NUMBER_PARAM__NUMBER_ARGUMENT = eINSTANCE.getNumberParam_NumberArgument();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NUMBER_PARAM___SET_VALUE_IF_VALID__DOUBLE = eINSTANCE.getNumberParam__SetValueIfValid__Double();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.ParameterValueImpl <em>Parameter Value</em>}' class.
@@ -7822,12 +8128,12 @@ public interface ParametersPackage extends EPackage {
 		EAttribute DATE_PARAM__VALUE = eINSTANCE.getDateParam_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Specify Value</b></em>' operation.
+		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation DATE_PARAM___SPECIFY_VALUE__STRING = eINSTANCE.getDateParam__SpecifyValue__String();
+		EOperation DATE_PARAM___SET_VALUE_IF_VALID__STRING = eINSTANCE.getDateParam__SetValueIfValid__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.TimeParamImpl <em>Time Param</em>}' class.
@@ -7848,12 +8154,12 @@ public interface ParametersPackage extends EPackage {
 		EAttribute TIME_PARAM__VALUE = eINSTANCE.getTimeParam_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Specify Value</b></em>' operation.
+		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation TIME_PARAM___SPECIFY_VALUE__STRING = eINSTANCE.getTimeParam__SpecifyValue__String();
+		EOperation TIME_PARAM___SET_VALUE_IF_VALID__STRING = eINSTANCE.getTimeParam__SetValueIfValid__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.UntypedParameterValueImpl <em>Untyped Parameter Value</em>}' class.
@@ -7892,12 +8198,12 @@ public interface ParametersPackage extends EPackage {
 		EAttribute DATE_TIME_PARAM__VALUE = eINSTANCE.getDateTimeParam_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Specify Value</b></em>' operation.
+		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation DATE_TIME_PARAM___SPECIFY_VALUE__STRING = eINSTANCE.getDateTimeParam__SpecifyValue__String();
+		EOperation DATE_TIME_PARAM___SET_VALUE_IF_VALID__STRING = eINSTANCE.getDateTimeParam__SetValueIfValid__String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.RelationOptionParamImpl <em>Relation Option Param</em>}' class.

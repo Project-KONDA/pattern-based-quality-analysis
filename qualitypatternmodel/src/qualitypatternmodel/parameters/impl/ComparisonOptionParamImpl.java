@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,6 +26,7 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.graphstructure.Comparable;
+import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -138,6 +140,20 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	public String getOptionsAsStringList() {
 		List<String> list = getOptions().stream().map(a -> a.getName()).collect(Collectors.toList());
 		return ParameterFragmentImpl.generateJSONList(list);
+	}
+	
+	@Override
+	public void checkComparisonConsistency() throws InvalidityException {
+		for(Comparison comp : getComparisons()) {
+			if(comp.getArgument1() instanceof Property) {
+				Property p = (Property) comp.getArgument1();
+				p.checkComparisonConsistency(comp);
+			}
+			if(comp.getArgument2() instanceof Property) {
+				Property p = (Property) comp.getArgument2();
+				p.checkComparisonConsistency(comp);
+			}
+		}
 	}
 	
 	@Override
@@ -256,6 +272,23 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 			countConditions = new EObjectWithInverseResolvingEList<CountCondition>(CountCondition.class, this, ParametersPackage.COMPARISON_OPTION_PARAM__COUNT_CONDITIONS, PatternstructurePackage.COUNT_CONDITION__OPTION);
 		}
 		return countConditions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void setValueIfValid(ComparisonOperator newValue) throws InvalidityException {
+		ComparisonOperator oldValue = getValue();
+		setValue(newValue);		
+		try {
+			checkComparisonConsistency();
+		} catch (Exception e) {
+			setValue(oldValue);
+			throw e;
+		}
 	}
 
 	/**
@@ -381,6 +414,26 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 				return countConditions != null && !countConditions.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ParametersPackage.COMPARISON_OPTION_PARAM___SET_VALUE_IF_VALID__COMPARISONOPERATOR:
+				try {
+					setValueIfValid((ComparisonOperator)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

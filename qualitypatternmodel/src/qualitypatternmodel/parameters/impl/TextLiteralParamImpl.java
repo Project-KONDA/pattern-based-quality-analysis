@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -104,8 +105,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	}
 	
 	@Override
-	public void setValueFromString(String value) {
-		setValue(value);
+	public void setValueFromString(String value) throws InvalidityException {
+		setValueIfValid(value);
 	}
 	
 	public TextLiteralParamImpl(String value) {
@@ -229,6 +230,23 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void setValueIfValid(String newValue) throws InvalidityException {
+		String oldValue = getValue();
+		setValue(newValue);		
+		try {
+			checkComparisonConsistency();
+		} catch (Exception e) {
+			setValue(oldValue);
+			throw e;
+		}		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -338,6 +356,26 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return properties != null && !properties.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ParametersPackage.TEXT_LITERAL_PARAM___SET_VALUE_IF_VALID__STRING:
+				try {
+					setValueIfValid((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

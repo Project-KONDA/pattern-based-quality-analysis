@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.parameters.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,6 +26,7 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
@@ -122,6 +124,13 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	public String getOptionsAsStringList() {
 		List<String> list = getOptions().stream().map(a -> a.getName()).collect(Collectors.toList());
 		return ParameterFragmentImpl.generateJSONList(list);
+	}
+	
+	@Override
+	public void checkComparisonConsistency() throws InvalidityException {
+		for(Property p : getProperties()) {			
+			p.checkComparisonConsistency();			
+		}
 	}
 	
 	@Override
@@ -226,6 +235,23 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 			properties = new EObjectWithInverseResolvingEList<XmlProperty>(XmlProperty.class, this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES, AdaptionxmlPackage.XML_PROPERTY__OPTION);
 		}
 		return properties;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void setValueIfValid(PropertyKind newValue) throws InvalidityException {
+		PropertyKind oldValue = getValue();
+		setValue(newValue);		
+		try {
+			checkComparisonConsistency();
+		} catch (Exception e) {
+			setValue(oldValue);
+			throw e;
+		}
 	}
 
 	/**
@@ -336,6 +362,26 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 				return properties != null && !properties.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ParametersPackage.PROPERTY_OPTION_PARAM___SET_VALUE_IF_VALID__PROPERTYKIND:
+				try {
+					setValueIfValid((PropertyKind)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
