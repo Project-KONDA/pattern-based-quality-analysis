@@ -243,7 +243,7 @@ public class DemoPatterns {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setName("comp_generic");
-		completePattern.setDescription("Allows detecting elements with a specific property which are related to other elements with two specific properties");
+		completePattern.setDescription("Allows detecting illegal values, i.e. allows detecting elements with a specific property which are related to other elements with two specific properties");
 		
 		// Context graph of pattern:
 		Element element0 = completePattern.getGraph().getElements().get(0);
@@ -365,7 +365,7 @@ public class DemoPatterns {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setName("card_generic");
-		completePattern.setDescription("Allows detecting elements with a specific property which are related to a specific number of elements with a specific property");
+		completePattern.setDescription("Allows detecting violated cardinality constraints, i.e. allows detecting elements with a specific property which are related to a specific number of elements with a specific property");
 		
 		// Context graph of pattern:
 		Element element0 = completePattern.getGraph().getElements().get(0);
@@ -503,6 +503,7 @@ public class DemoPatterns {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setName("func_generic");
+		completePattern.setDescription("Allows detecting a violated functional dependency, i.e. allows detecting two elements that are each related to two further elements where two of these have an equal property but the other two have a different property");
 		
 		// Context graph of pattern:
 		Element element0 = completePattern.getGraph().getElements().get(0);
