@@ -734,4 +734,108 @@ public class DemoPatterns {
 		return getConcreteCardPatternFromAbstract(db, completePattern);
 	}
 	
+	public static CompletePattern getConcreteLidoFuncPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getAbstractFuncPattern();
+		return getConcreteLidoFuncPatternFromAbstract(db, completePattern);
+	}
+	
+	public static CompletePattern getConcreteLidoFuncPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		
+		completePattern.setName("func_concrete");
+		completePattern.setDatabase(db);
+		
+		// Context graph of pattern:
+		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
+		property0.getOption().setValue(PropertyKind.TAG);
+		
+		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
+		TextLiteralParam textValue0 = ParametersFactory.eINSTANCE.createTextLiteralParam();
+		textValue0.setValue(LIDO_NAMESPACE + "termMaterialsTech");
+		value0.replace(textValue0);
+		
+		XmlNavigation navigationRootElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		navigationRootElement0.getOption().setValue(RelationKind.DESCENDANT);
+		
+		// First-order logic condition of pattern:
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
+		
+		// Graph of quantified condition:
+		
+		XmlElement element0A = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlProperty property0A = (XmlProperty) element0A.getProperties().get(1);
+		property0A.getOption().setValue(PropertyKind.TAG);
+		
+		ParameterValue value0A = (ParameterValue) completePattern.getParameterList().getParameters().get(3);
+		TextLiteralParam textValue0A = ParametersFactory.eINSTANCE.createTextLiteralParam();
+		textValue0A.setValue(LIDO_NAMESPACE + "conceptID");
+		value0A.replace(textValue0A);
+		
+		XmlElement element0B = (XmlElement) quantifiedCondition.getGraph().getElements().get(2);
+		XmlProperty property0B = (XmlProperty) element0B.getProperties().get(1);
+		property0B.getOption().setValue(PropertyKind.TAG);
+		
+		ParameterValue value0B = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
+		TextLiteralParam textValue0B = ParametersFactory.eINSTANCE.createTextLiteralParam();
+		textValue0B.setValue(LIDO_NAMESPACE + "term");
+		value0B.replace(textValue0B);
+		
+		
+		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(3);
+		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
+		property1.getOption().setValue(PropertyKind.TAG);
+		
+		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(9);
+		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
+		textValue1.setValue(LIDO_NAMESPACE + "termMaterialsTech");
+		value1.replace(textValue1);
+		
+		
+		XmlElement element1A = (XmlElement) quantifiedCondition.getGraph().getElements().get(4);
+		XmlProperty property1A = (XmlProperty) element1A.getProperties().get(1);
+		property1A.getOption().setValue(PropertyKind.TAG);
+		
+		ParameterValue value1A = (ParameterValue) completePattern.getParameterList().getParameters().get(12);
+		TextLiteralParam textValue1A = ParametersFactory.eINSTANCE.createTextLiteralParam();
+		textValue1A.setValue(LIDO_NAMESPACE + "conceptID");
+		value1A.replace(textValue1A);
+		
+		
+		XmlElement element1B = (XmlElement) quantifiedCondition.getGraph().getElements().get(5);
+		XmlProperty property1B = (XmlProperty) element1B.getProperties().get(1);
+		property1B.getOption().setValue(PropertyKind.TAG);
+		
+		ParameterValue value1B = (ParameterValue) completePattern.getParameterList().getParameters().get(15);
+		TextLiteralParam textValue1B = ParametersFactory.eINSTANCE.createTextLiteralParam();
+		textValue1B.setValue(LIDO_NAMESPACE + "term");
+		value1B.replace(textValue1B);		
+		
+		
+		Comparison compA = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(5);
+		compA.getTypeOption().setValue(ReturnType.STRING);
+		
+		Comparison compB = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(6);
+		compB.getTypeOption().setValue(ReturnType.STRING);		
+		
+		
+		XmlNavigation navigationElement0Element0A = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
+		navigationElement0Element0A.getOption().setValue(RelationKind.CHILD);
+		
+		XmlNavigation navigationElement0Element0B = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
+		navigationElement0Element0B.getOption().setValue(RelationKind.CHILD);	
+		
+		XmlNavigation navigationElement0Element1A = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(2);
+		navigationElement0Element1A.getOption().setValue(RelationKind.CHILD);	
+		
+		XmlNavigation navigationElement0Element1B = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(3);
+		navigationElement0Element1B.getOption().setValue(RelationKind.CHILD);
+		
+		XmlNavigation navigationRootElement1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(5);
+		navigationRootElement1.getOption().setValue(RelationKind.DESCENDANT);	
+				
+		return completePattern;
+	
+	
+	}
+	
 }
