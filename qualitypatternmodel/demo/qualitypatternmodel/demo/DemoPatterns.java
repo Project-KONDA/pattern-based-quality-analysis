@@ -628,9 +628,9 @@ public class DemoPatterns {
 		
 		return completePattern;
 	}
-	
-	public static CompletePattern getConcreteFuncPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getAbstractFuncPattern();
+
+	public static CompletePattern getConcreteFuncPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		
 		completePattern.setName("func_concrete");
 		completePattern.setDatabase(db);
 		
@@ -724,6 +724,13 @@ public class DemoPatterns {
 		navigationRootElement1.getOption().setValue(RelationKind.DESCENDANT);	
 				
 		return completePattern;
+	
+	
+	}
+	
+	public static CompletePattern getConcreteFuncPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getAbstractFuncPattern();
+		return getConcreteCardPatternFromAbstract(db, completePattern);
 	}
 	
 }

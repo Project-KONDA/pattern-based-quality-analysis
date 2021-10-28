@@ -95,6 +95,10 @@ public class DemoPatternTexts {
 		CompletePattern funcAbstract = getAbstractFuncPatternWithText();
 		funcAbstract.isValid(AbstractionLevel.ABSTRACT);
 		EMFModelSave.exportToFile(funcAbstract,"instances/demo_with_texts/func_abstract", "patternstructure");
+		
+		CompletePattern funcConcrete = getConcreteFuncPatternWithText();
+		funcConcrete.isValid(AbstractionLevel.CONCRETE);
+		EMFModelSave.exportToFile(funcConcrete,"instances/demo_with_texts/func_concrete", "patternstructure");
 
 	}
 	
@@ -653,6 +657,11 @@ public class DemoPatternTexts {
 	}
 	
 	// ------------- FUNC ----------------
+	
+	public static CompletePattern getConcreteFuncPatternWithText() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern abstractPattern = getAbstractFuncPatternWithText();
+		return DemoPatterns.getConcreteFuncPatternFromAbstract(null, abstractPattern);
+	}
 	
 	public static CompletePattern getAbstractFuncPatternWithText() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = DemoPatterns.getAbstractFuncPattern();		
