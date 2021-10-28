@@ -632,6 +632,7 @@ public class DemoPatterns {
 	public static CompletePattern getConcreteFuncPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
 		completePattern.setName("func_concrete");
+		completePattern.setDescription("Detects buildings with the same city but different countries");
 		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
