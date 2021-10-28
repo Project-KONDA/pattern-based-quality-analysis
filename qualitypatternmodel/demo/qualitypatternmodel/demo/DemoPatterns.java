@@ -731,7 +731,7 @@ public class DemoPatterns {
 	
 	public static CompletePattern getConcreteFuncPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getAbstractFuncPattern();
-		return getConcreteCardPatternFromAbstract(db, completePattern);
+		return getConcreteFuncPatternFromAbstract(db, completePattern);
 	}
 	
 	public static CompletePattern getConcreteLidoFuncPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
