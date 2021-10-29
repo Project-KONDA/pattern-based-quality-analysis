@@ -178,6 +178,9 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RelationOptionParam" eSuperTypes="#//parameters/Parameter">
       <eOperations name="inferSuggestions" upperBound="-1" eType="#//adaptionxml/RelationKind"/>
+      <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="newValue" eType="#//adaptionxml/RelationKind"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
           eType="#//adaptionxml/RelationKind"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"

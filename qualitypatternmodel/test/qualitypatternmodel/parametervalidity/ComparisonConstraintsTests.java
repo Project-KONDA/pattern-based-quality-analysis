@@ -149,4 +149,93 @@ public class ComparisonConstraintsTests {
 						
 	}
 	
+	@Test
+	public void selfEqualDifferentValuesTag() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = DemoPatterns.getAbstractCompPattern();
+		
+		// Context graph of pattern:
+		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
+		property0.getOption().setValue(PropertyKind.TAG);
+		
+		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
+		TextLiteralParam textValue0 = ParametersFactory.eINSTANCE.createTextLiteralParam();
+		textValue0.setValueIfValid(DEMO_NAMESPACE + "architect");
+		value0.replace(textValue0);
+		
+		// First-order logic condition of pattern:
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
+		
+		// Graph of quantified condition:
+		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
+		property1.getOption().setValueIfValid(PropertyKind.DATA);
+
+		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
+		comp2.getOption().setValueIfValid(ComparisonOperator.NOTEQUAL);
+		
+		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(3);
+		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
+		value1.replace(textValue1);
+		textValue1.setValueIfValid(DEMO_NAMESPACE + "birthyear");
+		
+		
+		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
+		TextLiteralParam textValue1x = ParametersFactory.eINSTANCE.createTextLiteralParam();
+		value2.replace(textValue1x);
+		textValue1x.setValueIfValid(DEMO_NAMESPACE + "irgendwas");		
+		
+		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
+		navigationElement0Element1.getOption().setValueIfValid(RelationKind.SELF);	
+		
+		XmlProperty property2 = (XmlProperty) element1.getProperties().get(1);
+		assertThrows(InvalidityException.class, () -> property2.getOption().setValueIfValid(PropertyKind.TAG));
+						
+	}
+	
+	@Test
+	public void selfEqualDifferentValuesAxis() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = DemoPatterns.getAbstractCompPattern();
+		
+		// Context graph of pattern:
+		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
+		property0.getOption().setValue(PropertyKind.TAG);
+		
+		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
+		TextLiteralParam textValue0 = ParametersFactory.eINSTANCE.createTextLiteralParam();
+		textValue0.setValueIfValid(DEMO_NAMESPACE + "architect");
+		value0.replace(textValue0);
+		
+		// First-order logic condition of pattern:
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
+		
+		// Graph of quantified condition:
+		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
+		property1.getOption().setValueIfValid(PropertyKind.DATA);
+
+		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
+		comp2.getOption().setValueIfValid(ComparisonOperator.NOTEQUAL);
+		
+		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(3);
+		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
+		value1.replace(textValue1);
+		textValue1.setValueIfValid(DEMO_NAMESPACE + "birthyear");
+		
+		
+		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
+		TextLiteralParam textValue1x = ParametersFactory.eINSTANCE.createTextLiteralParam();
+		value2.replace(textValue1x);
+		textValue1x.setValueIfValid(DEMO_NAMESPACE + "irgendwas");		
+		
+		XmlProperty property2 = (XmlProperty) element1.getProperties().get(1);
+		property2.getOption().setValueIfValid(PropertyKind.TAG);
+
+		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
+		assertThrows(InvalidityException.class, () -> navigationElement0Element1.getOption().setValueIfValid(RelationKind.SELF));	
+		
+						
+	}
+	
 }

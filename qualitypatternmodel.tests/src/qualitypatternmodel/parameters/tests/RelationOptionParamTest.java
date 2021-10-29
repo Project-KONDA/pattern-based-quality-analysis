@@ -14,6 +14,7 @@ import qualitypatternmodel.parameters.ParametersFactory;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.RelationOptionParam#inferSuggestions() <em>Infer Suggestions</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.RelationOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.RelationKind) <em>Set Value If Valid</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -80,6 +81,19 @@ public class RelationOptionParamTest extends ParameterTest {
 	 * @generated
 	 */
 	public void testInferSuggestions() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.RelationOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.RelationKind) <em>Set Value If Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.RelationOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.RelationKind)
+	 * @generated
+	 */
+	public void testSetValueIfValid__RelationKind() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

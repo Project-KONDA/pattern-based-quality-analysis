@@ -1065,6 +1065,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getRelationOptionParam__SetValueIfValid__RelationKind() {
+		return relationOptionParamEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTypeOptionParam() {
 		return typeOptionParamEClass;
 	}
@@ -1240,6 +1250,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEAttribute(relationOptionParamEClass, RELATION_OPTION_PARAM__VALUE);
 		createEReference(relationOptionParamEClass, RELATION_OPTION_PARAM__RELATIONS);
 		createEOperation(relationOptionParamEClass, RELATION_OPTION_PARAM___INFER_SUGGESTIONS);
+		createEOperation(relationOptionParamEClass, RELATION_OPTION_PARAM___SET_VALUE_IF_VALID__RELATIONKIND);
 
 		typeOptionParamEClass = createEClass(TYPE_OPTION_PARAM);
 		createEAttribute(typeOptionParamEClass, TYPE_OPTION_PARAM__OPTIONS);
@@ -1494,6 +1505,10 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEReference(getRelationOptionParam_Relations(), theAdaptionxmlPackage.getXmlNavigation(), theAdaptionxmlPackage.getXmlNavigation_Option(), "relations", null, 0, -1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getRelationOptionParam__InferSuggestions(), theAdaptionxmlPackage.getRelationKind(), "inferSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getRelationOptionParam__SetValueIfValid__RelationKind(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theAdaptionxmlPackage.getRelationKind(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(typeOptionParamEClass, TypeOptionParam.class, "TypeOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTypeOptionParam_Options(), theGraphstructurePackage.getReturnType(), "options", null, 0, -1, TypeOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -16,7 +16,9 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -25,6 +27,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.parameters.Parameter;
@@ -175,15 +178,47 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 		EList<Property> equiProperties = new BasicEList<Property>();
 		PropertyKind propertyKind = getOption().getValue();
 		String attributeName = (getAttributeName() == null || getAttributeName().getValue() == null ? "" : getAttributeName().getValue());
-		for(Property p : getElement().getProperties()) {
-			if(p instanceof XmlProperty) {
-				XmlProperty xmlProp = (XmlProperty) p;
-				if(xmlProp.getOption().getValue() == propertyKind) {
-					if(propertyKind != PropertyKind.ATTRIBUTE || attributeName.equals(xmlProp.getAttributeName().getValue())) {
-						equiProperties.add(xmlProp);
+		EList<Element> equivalentElements = new BasicEList<Element>();
+		equivalentElements.add(getElement());
+		for(Relation r : getElement().getIncoming()) {
+			if(r instanceof XmlNavigation) {
+				XmlNavigation nav = (XmlNavigation) r;
+				if(nav.getOriginalOption() != null && nav.getOriginalOption().getValue() == RelationKind.SELF) {
+					equivalentElements.add(r.getSource());					
+					Element e = r.getSource();
+					equivalentElements.add(e);						
+					while(e.getIncomingMapping() != null) {
+						e = e.getIncomingMapping().getSource();
+						equivalentElements.add(e);						
 					}
 				}
-			}			
+			}
+		}
+		for(Relation r : getElement().getOutgoing()) {
+			if(r instanceof XmlNavigation) {
+				XmlNavigation nav = (XmlNavigation) r;
+				if(nav.getOriginalOption() != null && nav.getOriginalOption().getValue() == RelationKind.SELF) {
+					equivalentElements.add(r.getTarget());
+					Element e = r.getSource();
+					equivalentElements.add(e);						
+					while(e.getIncomingMapping() != null) {
+						e = e.getIncomingMapping().getSource();
+						equivalentElements.add(e);						
+					}
+				}
+			}
+		}
+		for(Element e : equivalentElements) {
+			for(Property p : e.getProperties()) {
+				if(p instanceof XmlProperty) {
+					XmlProperty xmlProp = (XmlProperty) p;
+					if(xmlProp.getOption().getValue() == propertyKind) {
+						if(propertyKind != PropertyKind.ATTRIBUTE || attributeName.equals(xmlProp.getAttributeName().getValue())) {
+							equiProperties.add(xmlProp);
+						}
+					}
+				}			
+			}
 		}
 		return equiProperties;
 	}

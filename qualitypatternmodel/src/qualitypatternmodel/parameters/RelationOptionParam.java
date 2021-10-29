@@ -5,6 +5,7 @@ package qualitypatternmodel.parameters;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->
@@ -92,5 +93,13 @@ public interface RelationOptionParam extends Parameter {
 	 * @generated
 	 */
 	EList<RelationKind> inferSuggestions();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void setValueIfValid(RelationKind newValue) throws InvalidityException;
 
 } // AxisOption

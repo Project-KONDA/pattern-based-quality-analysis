@@ -148,6 +148,9 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/RelationOptionParam/relations"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/RelationOptionParam/inferSuggestions"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/RelationOptionParam/setValueIfValid">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/RelationOptionParam/setValueIfValid/newValue"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/TypeOptionParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/TypeOptionParam/options"/>

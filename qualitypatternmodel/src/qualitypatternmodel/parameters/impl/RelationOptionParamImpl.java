@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
@@ -36,6 +37,7 @@ import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -133,10 +135,10 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	}
 	
 	@Override
-	public void setValueFromString(String value) {
+	public void setValueFromString(String value) throws InvalidityException {
 		for(RelationKind kind : RelationKind.values()) {
 			if(kind.getName().equals(value)) {			
-				setValue(kind);
+				setValueIfValid(kind);
 			}
 		}		
 	}
@@ -327,6 +329,39 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 		return suggestions;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated Not
+	 */
+	@Override
+	public void setValueIfValid(RelationKind newValue) throws InvalidityException {
+		if(newValue == RelationKind.SELF) {
+			RelationKind oldValue = getValue();
+			setValue(newValue);		
+			try {
+				checkComparisonConsistency();
+			} catch (Exception e) {
+				setValue(oldValue);
+				throw e;
+			}
+		} else {
+			setValue(newValue);
+		}
+	}
+	
+	@Override
+	public void checkComparisonConsistency() throws InvalidityException {
+		for(XmlNavigation nav : getRelations()) {
+			for(Property p : nav.getSource().getProperties()){
+				p.checkComparisonConsistency();	
+			}
+			for(Property p : nav.getTarget().getProperties()){
+				p.checkComparisonConsistency();	
+			}
+		}
+	}
+
 	private String getTag(Element element) {
 		if(element instanceof XmlElement) {
 			XmlElement xmlElement = (XmlElement) element;
@@ -463,6 +498,14 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 		switch (operationID) {
 			case ParametersPackage.RELATION_OPTION_PARAM___INFER_SUGGESTIONS:
 				return inferSuggestions();
+			case ParametersPackage.RELATION_OPTION_PARAM___SET_VALUE_IF_VALID__RELATIONKIND:
+				try {
+					setValueIfValid((RelationKind)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

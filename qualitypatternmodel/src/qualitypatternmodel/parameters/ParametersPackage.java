@@ -6303,13 +6303,22 @@ public interface ParametersPackage extends EPackage {
 	int RELATION_OPTION_PARAM___INFER_SUGGESTIONS = PARAMETER_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Set Value If Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___SET_VALUE_IF_VALID__RELATIONKIND = PARAMETER_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Relation Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPTION_PARAM_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 1;
+	int RELATION_OPTION_PARAM_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.TypeOptionParamImpl <em>Type Option Param</em>}' class.
@@ -7501,6 +7510,16 @@ public interface ParametersPackage extends EPackage {
 	EOperation getRelationOptionParam__InferSuggestions();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.RelationOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.RelationKind) <em>Set Value If Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Value If Valid</em>' operation.
+	 * @see qualitypatternmodel.parameters.RelationOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.RelationKind)
+	 * @generated
+	 */
+	EOperation getRelationOptionParam__SetValueIfValid__RelationKind();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.TypeOptionParam <em>Type Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8246,6 +8265,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RELATION_OPTION_PARAM___INFER_SUGGESTIONS = eINSTANCE.getRelationOptionParam__InferSuggestions();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RELATION_OPTION_PARAM___SET_VALUE_IF_VALID__RELATIONKIND = eINSTANCE.getRelationOptionParam__SetValueIfValid__RelationKind();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.TypeOptionParamImpl <em>Type Option Param</em>}' class.
