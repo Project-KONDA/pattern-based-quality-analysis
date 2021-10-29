@@ -38,6 +38,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.PropertyOptionParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.ElementMapping;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -179,18 +180,13 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 		PropertyKind propertyKind = getOption().getValue();
 		String attributeName = (getAttributeName() == null || getAttributeName().getValue() == null ? "" : getAttributeName().getValue());
 		EList<Element> equivalentElements = new BasicEList<Element>();
-		equivalentElements.add(getElement());
+		getElement().getEquivalentElements(equivalentElements);
 		for(Relation r : getElement().getIncoming()) {
 			if(r instanceof XmlNavigation) {
 				XmlNavigation nav = (XmlNavigation) r;
 				if(nav.getOriginalOption() != null && nav.getOriginalOption().getValue() == RelationKind.SELF) {
-					equivalentElements.add(r.getSource());					
 					Element e = r.getSource();
-					equivalentElements.add(e);						
-					while(e.getIncomingMapping() != null) {
-						e = e.getIncomingMapping().getSource();
-						equivalentElements.add(e);						
-					}
+					e.getEquivalentElements(equivalentElements);
 				}
 			}
 		}
@@ -198,13 +194,8 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 			if(r instanceof XmlNavigation) {
 				XmlNavigation nav = (XmlNavigation) r;
 				if(nav.getOriginalOption() != null && nav.getOriginalOption().getValue() == RelationKind.SELF) {
-					equivalentElements.add(r.getTarget());
-					Element e = r.getSource();
-					equivalentElements.add(e);						
-					while(e.getIncomingMapping() != null) {
-						e = e.getIncomingMapping().getSource();
-						equivalentElements.add(e);						
-					}
+					Element e = r.getTarget();
+					e.getEquivalentElements(equivalentElements);
 				}
 			}
 		}

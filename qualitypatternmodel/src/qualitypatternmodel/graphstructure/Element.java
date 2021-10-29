@@ -411,4 +411,20 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 */
 	void setGraphSimple(Graph newGraph);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void checkComparisonConsistency(Comparison comp) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model equivalentElementsMany="true"
+	 * @generated
+	 */
+	void getEquivalentElements(EList<Element> equivalentElements);
+
 } // Element

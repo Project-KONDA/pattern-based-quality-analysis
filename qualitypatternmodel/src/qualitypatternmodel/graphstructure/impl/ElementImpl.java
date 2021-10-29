@@ -4,6 +4,7 @@ package qualitypatternmodel.graphstructure.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -25,6 +26,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Adaptable;
+import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -771,6 +773,95 @@ public class ElementImpl extends PatternElementImpl implements Element {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void checkComparisonConsistency(Comparison comp) throws InvalidityException {
+		if(comp == null || comp.getOption() == null) {
+			return;
+		}
+		Element otherElement = null;
+		if(comp.getArgument1().equals(this)) {
+			Comparable argument2 = comp.getArgument2();
+			if(argument2 instanceof Element) {
+				otherElement = (Element) argument2;
+			}
+		} else if(comp.getArgument2().equals(this)) {
+			Comparable argument1 = comp.getArgument1();
+			if(argument1 instanceof Element) {
+				otherElement = (Element) argument1;
+			}
+		} else {
+			return;
+		}
+		if(otherElement == null) {
+			return;
+		}
+		ComparisonOperator op = comp.getOption().getValue();
+		if(op != ComparisonOperator.EQUAL && op != ComparisonOperator.NOTEQUAL) {
+			return;
+		}
+		EList<Element> equivalentToThis = new BasicEList<Element>();
+		EList<Element> equivalentToOther = new BasicEList<Element>();
+								
+		getEquivalentElements(equivalentToThis);
+		otherElement.getEquivalentElements(equivalentToOther);
+		
+		for(Element e : equivalentToThis) {
+			for(Comparison comp1 : e.getComparison1()) {
+				if(!comp.equals(comp1)) {
+					if(equivalentToOther.contains(comp1.getArgument2())) {
+						ComparisonOperator otherOp = comp1.getOption().getValue();
+						if(op == ComparisonOperator.EQUAL && otherOp == ComparisonOperator.NOTEQUAL || op == ComparisonOperator.NOTEQUAL && otherOp == ComparisonOperator.EQUAL) {
+							throw new InvalidityException("Requiring that two elements are equal and unequal will always yield false");
+						}
+					}
+					
+				}
+			}
+			for(Comparison comp2 : e.getComparison2()) {
+				if(!comp.equals(comp2)) {
+					if(equivalentToOther.contains(comp2.getArgument1())) {
+						ComparisonOperator otherOp = comp2.getOption().getValue();
+						if(op == ComparisonOperator.EQUAL && otherOp == ComparisonOperator.NOTEQUAL || op == ComparisonOperator.NOTEQUAL && otherOp == ComparisonOperator.EQUAL) {
+							throw new InvalidityException("Requiring that two elements are equal and unequal will always yield false");
+						}
+					}
+					
+				}
+			}
+		}
+		
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void getEquivalentElements(EList<Element> equivalentElements) {
+		equivalentElements.add(this);
+		if(getIncomingMapping() != null) {
+			Element next = getIncomingMapping().getSource();
+			if(!equivalentElements.contains(next)) {
+				next.getEquivalentElements(equivalentElements);
+			}
+		}
+		if(getOutgoingMappings() != null && !getOutgoingMappings().isEmpty()) {
+			for(ElementMapping m : getOutgoingMappings()) {
+				Element next = m.getTarget();
+				if(!equivalentElements.contains(next)) {
+					next.getEquivalentElements(equivalentElements);
+				}				
+			}
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -1184,6 +1275,17 @@ public class ElementImpl extends PatternElementImpl implements Element {
 				return addNewProperty();
 			case GraphstructurePackage.ELEMENT___SET_GRAPH_SIMPLE__GRAPH:
 				setGraphSimple((Graph)arguments.get(0));
+				return null;
+			case GraphstructurePackage.ELEMENT___CHECK_COMPARISON_CONSISTENCY__COMPARISON:
+				try {
+					checkComparisonConsistency((Comparison)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.ELEMENT___GET_EQUIVALENT_ELEMENTS__ELIST:
+				getEquivalentElements((EList<Element>)arguments.get(0));
 				return null;
 			case GraphstructurePackage.ELEMENT___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();

@@ -26,6 +26,7 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.graphstructure.Comparable;
+import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -152,6 +153,15 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 			if(comp.getArgument2() instanceof Property) {
 				Property p = (Property) comp.getArgument2();
 				p.checkComparisonConsistency(comp);
+			}
+			
+			if(comp.getArgument1() instanceof Element) {
+				Element e = (Element) comp.getArgument1();
+				e.checkComparisonConsistency(comp);
+			}
+			if(comp.getArgument2() instanceof Element) {
+				Element e = (Element) comp.getArgument2();
+				e.checkComparisonConsistency(comp);
 			}
 		}
 	}

@@ -548,6 +548,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___SET_GRAPH_SIMPLE__GRAPH = GraphstructurePackage.ELEMENT___SET_GRAPH_SIMPLE__GRAPH;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.ELEMENT___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Equivalent Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___GET_EQUIVALENT_ELEMENTS__ELIST = GraphstructurePackage.ELEMENT___GET_EQUIVALENT_ELEMENTS__ELIST;
+
+	/**
 	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2224,6 +2242,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___SET_GRAPH_SIMPLE__GRAPH = GraphstructurePackage.ELEMENT___SET_GRAPH_SIMPLE__GRAPH;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.ELEMENT___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Equivalent Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___GET_EQUIVALENT_ELEMENTS__ELIST = GraphstructurePackage.ELEMENT___GET_EQUIVALENT_ELEMENTS__ELIST;
 
 	/**
 	 * The number of operations of the '<em>Xml Root</em>' class.

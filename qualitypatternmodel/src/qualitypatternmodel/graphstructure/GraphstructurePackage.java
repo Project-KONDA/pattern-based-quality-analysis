@@ -1522,13 +1522,31 @@ public interface GraphstructurePackage extends EPackage {
 	int ELEMENT___SET_GRAPH_SIMPLE__GRAPH = COMPARABLE_OPERATION_COUNT + 14;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___CHECK_COMPARISON_CONSISTENCY__COMPARISON = COMPARABLE_OPERATION_COUNT + 15;
+
+	/**
+	 * The operation id for the '<em>Get Equivalent Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___GET_EQUIVALENT_ELEMENTS__ELIST = COMPARABLE_OPERATION_COUNT + 16;
+
+	/**
 	 * The number of operations of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 15;
+	int ELEMENT_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 17;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -2612,6 +2630,26 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getElement__SetGraphSimple__Graph();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#checkComparisonConsistency(qualitypatternmodel.operators.Comparison) <em>Check Comparison Consistency</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Comparison Consistency</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#checkComparisonConsistency(qualitypatternmodel.operators.Comparison)
+	 * @generated
+	 */
+	EOperation getElement__CheckComparisonConsistency__Comparison();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Element#getEquivalentElements(org.eclipse.emf.common.util.EList) <em>Get Equivalent Elements</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Equivalent Elements</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Element#getEquivalentElements(org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	EOperation getElement__GetEquivalentElements__EList();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3281,6 +3319,22 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ELEMENT___SET_GRAPH_SIMPLE__GRAPH = eINSTANCE.getElement__SetGraphSimple__Graph();
+
+		/**
+		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___CHECK_COMPARISON_CONSISTENCY__COMPARISON = eINSTANCE.getElement__CheckComparisonConsistency__Comparison();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Equivalent Elements</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ELEMENT___GET_EQUIVALENT_ELEMENTS__ELIST = eINSTANCE.getElement__GetEquivalentElements__EList();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.

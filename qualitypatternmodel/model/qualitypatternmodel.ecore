@@ -349,6 +349,12 @@
       <eOperations name="setGraphSimple">
         <eParameters name="newGraph" eType="#//graphstructure/Graph"/>
       </eOperations>
+      <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="comp" eType="#//operators/Comparison"/>
+      </eOperations>
+      <eOperations name="getEquivalentElements">
+        <eParameters name="equivalentElements" upperBound="-1" eType="#//graphstructure/Element"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
           eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/ElementMapping"

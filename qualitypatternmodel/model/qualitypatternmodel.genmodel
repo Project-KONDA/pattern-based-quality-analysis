@@ -325,6 +325,12 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/setGraphSimple">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/setGraphSimple/newGraph"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/checkComparisonConsistency">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/checkComparisonConsistency/comp"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getEquivalentElements">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/getEquivalentElements/equivalentElements"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Graph">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/elements"/>
