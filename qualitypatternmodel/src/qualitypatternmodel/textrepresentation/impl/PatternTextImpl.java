@@ -325,6 +325,21 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			throw new InvalidityException("pattern text references parameters multiple times");
 		}
 		
+		List<String> names = new BasicEList<String>();
+		for(Fragment f : getFragments()) {
+			if(f instanceof ParameterFragment) {
+				ParameterFragment frag = (ParameterFragment) f;
+				for(String n : names) {
+					if(n.equals(frag.getName())) {
+						throw new InvalidityException("Parameter fragment names not unique");
+					}
+				}					
+				names.add(frag.getName());
+			}
+		}
+		
+		
+		
 	}
 
 	/**
