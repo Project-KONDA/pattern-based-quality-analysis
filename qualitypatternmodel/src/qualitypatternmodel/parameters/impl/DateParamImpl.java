@@ -144,6 +144,13 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 			throw e;
 		}		
 	}
+	
+	@Override
+	public void validateExampleValue(String val) throws InvalidityException {
+		if(!val.equals(VALUE_EDEFAULT) && !isFormatValid(val)) {			
+			throw new InvalidityException("Date format invalid");
+		}
+	}
 
 	private static boolean isLeapYear(String year) {
 		int yearInt = Integer.parseInt(year);

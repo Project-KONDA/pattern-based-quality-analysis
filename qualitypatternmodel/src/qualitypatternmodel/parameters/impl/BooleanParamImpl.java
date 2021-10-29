@@ -192,6 +192,11 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 			throw e;
 		}
 	}
+	
+	@Override
+	public void validateExampleValue(String val) throws InvalidityException {
+		Boolean.parseBoolean(val);	
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

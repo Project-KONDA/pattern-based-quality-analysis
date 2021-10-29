@@ -405,6 +405,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getParameter__ValidateExampleValue__String() {
+		return parameterEClass.getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getParameter__GenerateDescription() {
 		return parameterEClass.getEOperations().get(1);
 	}
@@ -1172,6 +1182,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(parameterEClass, PARAMETER___GET_OPTIONS_AS_STRING_LIST);
 		createEOperation(parameterEClass, PARAMETER___VALIDATE_AGAINST_SCHEMA);
 		createEOperation(parameterEClass, PARAMETER___CHECK_COMPARISON_CONSISTENCY);
+		createEOperation(parameterEClass, PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING);
 
 		comparisonOptionParamEClass = createEClass(COMPARISON_OPTION_PARAM);
 		createEAttribute(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__OPTIONS);
@@ -1349,6 +1360,10 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEOperation(getParameter__ValidateAgainstSchema(), this.getParameter(), "validateAgainstSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getParameter__CheckComparisonConsistency(), null, "checkComparisonConsistency", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getParameter__ValidateExampleValue__String(), null, "validateExampleValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "val", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(comparisonOptionParamEClass, ComparisonOptionParam.class, "ComparisonOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

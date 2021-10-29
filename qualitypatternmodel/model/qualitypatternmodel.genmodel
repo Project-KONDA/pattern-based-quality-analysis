@@ -33,6 +33,9 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/getOptionsAsStringList"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/validateAgainstSchema"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/checkComparisonConsistency"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/Parameter/validateExampleValue">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/Parameter/validateExampleValue/val"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/ComparisonOptionParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/ComparisonOptionParam/options"/>

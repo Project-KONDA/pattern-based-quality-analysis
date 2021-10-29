@@ -316,6 +316,16 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void validateExampleValue(String val) throws InvalidityException {
+		
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -477,6 +487,14 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			case ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY:
 				try {
 					checkComparisonConsistency();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING:
+				try {
+					validateExampleValue((String)arguments.get(0));
 					return null;
 				}
 				catch (Throwable throwable) {

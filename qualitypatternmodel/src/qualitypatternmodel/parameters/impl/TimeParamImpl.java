@@ -143,6 +143,13 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 			throw e;
 		}		
 	}
+	
+	@Override
+	public void validateExampleValue(String val) throws InvalidityException {
+		if(!val.equals(VALUE_EDEFAULT) && !isFormatValid(val)) {			
+			throw new InvalidityException("Time format invalid");
+		}
+	}
 
 	static boolean isFormatValid(String newValue) {
 		// hh:mm:ss[Z|(+|-)hh:mm]

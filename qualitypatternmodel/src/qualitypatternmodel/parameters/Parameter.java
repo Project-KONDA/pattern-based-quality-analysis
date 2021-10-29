@@ -188,6 +188,14 @@ public interface Parameter extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void validateExampleValue(String val) throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Returns a simple textual description for <code>this</code>.
 	 * 
 	 * @return a simple textual description for <code>this</code>

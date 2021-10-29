@@ -221,6 +221,11 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 			throw e;
 		}
 	}
+	
+	@Override
+	public void validateExampleValue(String val) throws InvalidityException {
+		Double.parseDouble(val);	
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

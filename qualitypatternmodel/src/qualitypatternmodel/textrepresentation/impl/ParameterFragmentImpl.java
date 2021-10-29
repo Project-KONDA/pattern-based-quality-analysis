@@ -352,8 +352,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			
 			try {
 				if(getExampleValue() != null && abstractionLevel != AbstractionLevel.CONCRETE) {
-					p.setValueFromString(getExampleValue());
-					p.setValueFromString(value);
+					p.validateExampleValue(getExampleValue());
 				}	
 			} catch (Exception e) {
 				e.printStackTrace();
