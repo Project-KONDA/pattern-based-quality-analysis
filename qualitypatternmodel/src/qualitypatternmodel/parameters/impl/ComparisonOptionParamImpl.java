@@ -128,10 +128,10 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	}
 	
 	@Override
-	public void setValueFromString(String value) {
+	public void setValueFromString(String value) throws InvalidityException {
 		for(ComparisonOperator operator : ComparisonOperator.values()) {
 			if(operator.getName().equals(value)) {			
-				setValue(operator);
+				setValueIfValid(operator);
 			}
 		}		
 	}

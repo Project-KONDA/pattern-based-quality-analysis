@@ -26,7 +26,6 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.graphstructure.Element;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
@@ -112,10 +111,10 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	}
 	
 	@Override
-	public void setValueFromString(String value) {
+	public void setValueFromString(String value) throws InvalidityException {
 		for(PropertyKind kind : PropertyKind.values()) {
 			if(kind.getName().equals(value)) {			
-				setValue(kind);
+				setValueIfValid(kind);
 			}
 		}		
 	}
