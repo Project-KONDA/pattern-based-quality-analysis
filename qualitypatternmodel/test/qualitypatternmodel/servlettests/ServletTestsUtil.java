@@ -209,7 +209,7 @@ public class ServletTestsUtil {
 
 	public static void deleteDatabase(String localName) throws IOException, JSONException {
 		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.DATABASE_DELETION_ENDPOINT + localName).openConnection();
-		connection.setRequestMethod("POST");		
+		connection.setRequestMethod("DELETE");		
 		int responseCode = connection.getResponseCode();
 		System.out.println(responseCode);
 		assertTrue(responseCode >= 200 && responseCode < 300);

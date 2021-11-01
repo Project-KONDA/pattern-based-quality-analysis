@@ -26,7 +26,7 @@ import qualitypatternmodel.utility.EMFModelSave;
 public class DatabaseDeletionServlet extends HttpServlet {
 
 	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
 		String requestUrl = request.getRequestURI();
 		String localName = requestUrl.substring(Util.DATABASE_DELETION_ENDPOINT.length());
