@@ -23,7 +23,7 @@ public class SchemaValidationServlet extends HttpServlet {
 	
 	
 	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String requestUrl = request.getRequestURI();
 		String name = requestUrl.substring(Util.SCHEMA_VALIDATION_ENDPOINT.length());
 		

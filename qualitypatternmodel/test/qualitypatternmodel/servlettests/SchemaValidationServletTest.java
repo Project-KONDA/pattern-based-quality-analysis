@@ -40,21 +40,21 @@ public class SchemaValidationServletTest {
 	
 	
 	@Test
-	public void doPostTestPositive() throws IOException {	
+	public void doGetTestPositive() throws IOException {	
 		ServletTestsUtil.setDatabase(localName, patternName);
 		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.SCHEMA_VALIDATION_ENDPOINT + patternName).openConnection();
-		connection.setRequestMethod("POST");
+		connection.setRequestMethod("GET");
 		
-		int responseCode = connection.getResponseCode();		
+		int responseCode = connection.getResponseCode();	
 		assertTrue(responseCode >= 200 && responseCode < 300);
 	
 	}
 	
 	@Test
-	public void doPostTestNegative() throws IOException, JSONException {	
+	public void doGetTestNegative() throws IOException, JSONException {	
 		ServletTestsUtil.setDatabase(localName2, patternName);
 		HttpURLConnection connection = (HttpURLConnection) new URL(ServletTestsUtil.PATH_PREFIX + Util.SCHEMA_VALIDATION_ENDPOINT + patternName).openConnection();
-		connection.setRequestMethod("POST");
+		connection.setRequestMethod("GET");
 		
 		int responseCode = connection.getResponseCode();		
 		assertTrue(responseCode >= 200 && responseCode < 300);
