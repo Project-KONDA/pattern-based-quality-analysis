@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.EMFModelLoad;
 
 public class AbstractPatternListServlet extends HttpServlet {
@@ -45,6 +46,14 @@ public class AbstractPatternListServlet extends HttpServlet {
 						} else {
 							result += "\"" + "\", ";
 						}
+						
+						if(pattern.getText().size() > 0) {
+							result += "\"ExampleText\":";							
+							PatternText text = pattern.getText().get(0);
+							String json = text.generateJSON();
+							result += json;
+						}
+								
 					} else {
 						result += "\"" + "\", ";
 					}
