@@ -204,43 +204,44 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			String url = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(parameterID);
 			urls.add(url);
 		}
+		Parameter parameter = getParameter().get(0);
 		String urlsJSON = generateJSONList(urls);
 		String name = getName();
-		String value = getParameter().get(0).getValueAsString();
+		String value = parameter.getValueAsString();
 		String type = getType();
 		String role = getRole();
 		String exampleValue = getExampleValue();		
 		String json = "{\"Name\": \"" + name + "\", \"URLs\": " + urlsJSON + ", \"Type\": \"" + type + "\", \"Role\": \"" + role + "\"";
 		if(value != null) {
-			if(!(getParameter() instanceof TextListParamImpl) && !(getParameter() instanceof NumberParamImpl) && !(getParameter() instanceof BooleanParamImpl)) {
+			if(!(parameter instanceof TextListParamImpl) && !(parameter instanceof NumberParamImpl) && !(parameter instanceof BooleanParamImpl)) {
 				value = "\"" + value + "\"";
 			}
 			json += ", \"Value\": " + value + "";
 		}
 		if(exampleValue != null) {
-			if(!(getParameter() instanceof TextListParamImpl) && !(getParameter() instanceof NumberParamImpl) && !(getParameter() instanceof BooleanParamImpl)) {
+			if(!(parameter instanceof TextListParamImpl) && !(parameter instanceof NumberParamImpl) && !(parameter instanceof BooleanParamImpl)) {
 				exampleValue = "\"" + exampleValue + "\"";
 			}
 			json += ", \"ExampleValue\": " + exampleValue + "";
 		}
 		if(type.equals("Enumeration")) {
-			String options = getParameter().get(0).getOptionsAsStringList();
+			String options = parameter.getOptionsAsStringList();
 			json += ", \"Options\": " + options + "";
 		}
-		if(getParameter() instanceof ParameterValue) {
-			ParameterValue parameterValue = (ParameterValue) getParameter();
+		if(parameter instanceof ParameterValue) {
+			ParameterValue parameterValue = (ParameterValue) parameter;
 			if(parameterValue.isTypeModifiable()) {
 				json += ", \"TypeModifiable\": true";				
 			}
 		}
-		if(getParameter() instanceof TextLiteralParamImpl) {
-			TextLiteralParamImpl textLiteral = (TextLiteralParamImpl) getParameter();
+		if(parameter instanceof TextLiteralParamImpl) {
+			TextLiteralParamImpl textLiteral = (TextLiteralParamImpl) parameter;
 			if(!textLiteral.getProperties().isEmpty() && textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
 				json += ", \"Dependent\": true";
 			}
 		}
-		if(getParameter() instanceof PropertyOptionParamImpl) {
-			PropertyOptionParamImpl propertyOption = (PropertyOptionParamImpl) getParameter();
+		if(parameter instanceof PropertyOptionParamImpl) {
+			PropertyOptionParamImpl propertyOption = (PropertyOptionParamImpl) parameter;
 			for (Property property : propertyOption.getProperties()) {
 				XmlProperty xmlProperty = (XmlProperty) property;
 				TextLiteralParam textLiteral = xmlProperty.getAttributeName();
