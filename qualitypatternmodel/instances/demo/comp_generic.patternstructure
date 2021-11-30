@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="ASCII"?>
-<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_ICusYDcFEeyQP__iNgxTNw" internalId="1" name="comp_generic" counter="2" description="Allows detecting elements with a specific property which are related to other elements with two specific properties">
-  <graph id="_ICusYjcFEeyQP__iNgxTNw" returnElements="_ICusZDcFEeyQP__iNgxTNw" outgoingMorphisms="_ICusbTcFEeyQP__iNgxTNw">
-    <elements id="_ICusZDcFEeyQP__iNgxTNw" outgoingMappings="_ICusbzcFEeyQP__iNgxTNw" resultOf="_ICusYjcFEeyQP__iNgxTNw" name="Element0" predicates="_ICusZTcFEeyQP__iNgxTNw">
-      <properties id="_ICusZjcFEeyQP__iNgxTNw" comparison1="_ICusZTcFEeyQP__iNgxTNw"/>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_CqlZcFHUEeyCX5TV2TAudw" internalId="1" name="comp_generic" counter="2" description="Allows detecting illegal values, i.e. allows detecting elements with a specific property which are related to other elements with two specific properties" abstractName="comp_generic">
+  <graph id="_CqlZclHUEeyCX5TV2TAudw" returnElements="_CqlZdFHUEeyCX5TV2TAudw" outgoingMorphisms="_CqlZfVHUEeyCX5TV2TAudw">
+    <elements id="_CqlZdFHUEeyCX5TV2TAudw" outgoingMappings="_CqlZf1HUEeyCX5TV2TAudw" resultOf="_CqlZclHUEeyCX5TV2TAudw" name="Element0" predicates="_CqlZdVHUEeyCX5TV2TAudw">
+      <properties id="_CqlZdlHUEeyCX5TV2TAudw" comparison1="_CqlZdVHUEeyCX5TV2TAudw"/>
     </elements>
-    <operatorList id="_ICusYzcFEeyQP__iNgxTNw">
-      <operators xsi:type="operators:Comparison" id="_ICusZTcFEeyQP__iNgxTNw" elements="_ICusZDcFEeyQP__iNgxTNw" argument1="_ICusZjcFEeyQP__iNgxTNw" argument2="_ICusZzcFEeyQP__iNgxTNw" option="_ICusaDcFEeyQP__iNgxTNw" typeOption="_ICusaTcFEeyQP__iNgxTNw"/>
+    <operatorList id="_CqlZc1HUEeyCX5TV2TAudw">
+      <operators xsi:type="operators:Comparison" id="_CqlZdVHUEeyCX5TV2TAudw" elements="_CqlZdFHUEeyCX5TV2TAudw" argument1="_CqlZdlHUEeyCX5TV2TAudw" argument2="_CqlZd1HUEeyCX5TV2TAudw" option="_CqlZeFHUEeyCX5TV2TAudw" typeOption="_CqlZeVHUEeyCX5TV2TAudw"/>
     </operatorList>
   </graph>
-  <condition xsi:type="patternstructure:QuantifiedCondition" id="_ICusajcFEeyQP__iNgxTNw">
-    <morphism id="_ICusbTcFEeyQP__iNgxTNw" source="_ICusYjcFEeyQP__iNgxTNw" target="_ICusazcFEeyQP__iNgxTNw">
-      <mappings xsi:type="patternstructure:ElementMapping" id="_ICusbzcFEeyQP__iNgxTNw" source="_ICusZDcFEeyQP__iNgxTNw" target="_ICusbjcFEeyQP__iNgxTNw"/>
+  <condition xsi:type="patternstructure:QuantifiedCondition" id="_CqlZelHUEeyCX5TV2TAudw">
+    <morphism id="_CqlZfVHUEeyCX5TV2TAudw" source="_CqlZclHUEeyCX5TV2TAudw" target="_CqlZe1HUEeyCX5TV2TAudw">
+      <mappings xsi:type="patternstructure:ElementMapping" id="_CqlZf1HUEeyCX5TV2TAudw" source="_CqlZdFHUEeyCX5TV2TAudw" target="_CqlZflHUEeyCX5TV2TAudw"/>
     </morphism>
-    <graph id="_ICusazcFEeyQP__iNgxTNw" returnElements="_ICusbjcFEeyQP__iNgxTNw" incomingMorphism="_ICusbTcFEeyQP__iNgxTNw">
-      <elements id="_ICusbjcFEeyQP__iNgxTNw" incomingMapping="_ICusbzcFEeyQP__iNgxTNw" resultOf="_ICusazcFEeyQP__iNgxTNw" name="Element0" outgoing="_ICvTcTcFEeyQP__iNgxTNw"/>
-      <elements id="_ICvTcDcFEeyQP__iNgxTNw" name="Element1" predicates="_ICvTcjcFEeyQP__iNgxTNw _ICvTdzcFEeyQP__iNgxTNw" incoming="_ICvTcTcFEeyQP__iNgxTNw">
-        <properties id="_ICvTczcFEeyQP__iNgxTNw" comparison1="_ICvTcjcFEeyQP__iNgxTNw"/>
-        <properties id="_ICvTeDcFEeyQP__iNgxTNw" comparison1="_ICvTdzcFEeyQP__iNgxTNw"/>
+    <graph id="_CqlZe1HUEeyCX5TV2TAudw" returnElements="_CqlZflHUEeyCX5TV2TAudw" incomingMorphism="_CqlZfVHUEeyCX5TV2TAudw">
+      <elements id="_CqlZflHUEeyCX5TV2TAudw" incomingMapping="_CqlZf1HUEeyCX5TV2TAudw" resultOf="_CqlZe1HUEeyCX5TV2TAudw" name="Element0" outgoing="_CqlZgVHUEeyCX5TV2TAudw"/>
+      <elements id="_CqlZgFHUEeyCX5TV2TAudw" name="Element1" predicates="_CqlZglHUEeyCX5TV2TAudw _CqlZh1HUEeyCX5TV2TAudw" incoming="_CqlZgVHUEeyCX5TV2TAudw">
+        <properties id="_CqlZg1HUEeyCX5TV2TAudw" comparison1="_CqlZglHUEeyCX5TV2TAudw"/>
+        <properties id="_CqlZiFHUEeyCX5TV2TAudw" comparison1="_CqlZh1HUEeyCX5TV2TAudw"/>
       </elements>
-      <operatorList id="_ICusbDcFEeyQP__iNgxTNw">
-        <operators xsi:type="operators:Comparison" id="_ICvTcjcFEeyQP__iNgxTNw" elements="_ICvTcDcFEeyQP__iNgxTNw" argument1="_ICvTczcFEeyQP__iNgxTNw" argument2="_ICvTdDcFEeyQP__iNgxTNw" option="_ICvTdTcFEeyQP__iNgxTNw" typeOption="_ICvTdjcFEeyQP__iNgxTNw"/>
-        <operators xsi:type="operators:Comparison" id="_ICvTdzcFEeyQP__iNgxTNw" elements="_ICvTcDcFEeyQP__iNgxTNw" argument1="_ICvTeDcFEeyQP__iNgxTNw" argument2="_ICvTeTcFEeyQP__iNgxTNw" option="_ICvTejcFEeyQP__iNgxTNw" typeOption="_ICvTezcFEeyQP__iNgxTNw"/>
+      <operatorList id="_CqlZfFHUEeyCX5TV2TAudw">
+        <operators xsi:type="operators:Comparison" id="_CqlZglHUEeyCX5TV2TAudw" elements="_CqlZgFHUEeyCX5TV2TAudw" argument1="_CqlZg1HUEeyCX5TV2TAudw" argument2="_CqlZhFHUEeyCX5TV2TAudw" option="_CqlZhVHUEeyCX5TV2TAudw" typeOption="_CqlZhlHUEeyCX5TV2TAudw"/>
+        <operators xsi:type="operators:Comparison" id="_CqlZh1HUEeyCX5TV2TAudw" elements="_CqlZgFHUEeyCX5TV2TAudw" argument1="_CqlZiFHUEeyCX5TV2TAudw" argument2="_CqlZiVHUEeyCX5TV2TAudw" option="_CqlZilHUEeyCX5TV2TAudw" typeOption="_CqlZi1HUEeyCX5TV2TAudw"/>
       </operatorList>
-      <relations id="_ICvTcTcFEeyQP__iNgxTNw" source="_ICusbjcFEeyQP__iNgxTNw" target="_ICvTcDcFEeyQP__iNgxTNw"/>
+      <relations id="_CqlZgVHUEeyCX5TV2TAudw" source="_CqlZflHUEeyCX5TV2TAudw" target="_CqlZgFHUEeyCX5TV2TAudw"/>
     </graph>
-    <condition xsi:type="patternstructure:TrueElement" id="_ICvTfDcFEeyQP__iNgxTNw"/>
+    <condition xsi:type="patternstructure:TrueElement" id="_CqlZjFHUEeyCX5TV2TAudw"/>
   </condition>
-  <parameterList id="_ICusYTcFEeyQP__iNgxTNw">
-    <parameters xsi:type="parameters:UntypedParameterValue" id="_ICusZzcFEeyQP__iNgxTNw" comparison2="_ICusZTcFEeyQP__iNgxTNw" typeModifiable="true"/>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_ICusaDcFEeyQP__iNgxTNw" predefined="true" comparisons="_ICusZTcFEeyQP__iNgxTNw">
+  <parameterList id="_CqlZcVHUEeyCX5TV2TAudw">
+    <parameters xsi:type="parameters:UntypedParameterValue" id="_CqlZd1HUEeyCX5TV2TAudw" comparison2="_CqlZdVHUEeyCX5TV2TAudw" typeModifiable="true"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_CqlZeFHUEeyCX5TV2TAudw" predefined="true" comparisons="_CqlZdVHUEeyCX5TV2TAudw">
       <options>=</options>
       <options>!=</options>
     </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_ICusaTcFEeyQP__iNgxTNw" typeComparisons="_ICusZTcFEeyQP__iNgxTNw">
+    <parameters xsi:type="parameters:TypeOptionParam" id="_CqlZeVHUEeyCX5TV2TAudw" typeComparisons="_CqlZdVHUEeyCX5TV2TAudw">
       <options>UNSPECIFIED</options>
       <options>STRING</options>
       <options>BOOLEAN</options>
@@ -42,12 +42,12 @@
       <options>NUMBER</options>
       <options>DATETIME</options>
     </parameters>
-    <parameters xsi:type="parameters:UntypedParameterValue" id="_ICvTdDcFEeyQP__iNgxTNw" comparison2="_ICvTcjcFEeyQP__iNgxTNw" typeModifiable="true"/>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_ICvTdTcFEeyQP__iNgxTNw" predefined="true" comparisons="_ICvTcjcFEeyQP__iNgxTNw">
+    <parameters xsi:type="parameters:UntypedParameterValue" id="_CqlZhFHUEeyCX5TV2TAudw" comparison2="_CqlZglHUEeyCX5TV2TAudw" typeModifiable="true"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_CqlZhVHUEeyCX5TV2TAudw" predefined="true" comparisons="_CqlZglHUEeyCX5TV2TAudw">
       <options>=</options>
       <options>!=</options>
     </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_ICvTdjcFEeyQP__iNgxTNw" typeComparisons="_ICvTcjcFEeyQP__iNgxTNw">
+    <parameters xsi:type="parameters:TypeOptionParam" id="_CqlZhlHUEeyCX5TV2TAudw" typeComparisons="_CqlZglHUEeyCX5TV2TAudw">
       <options>UNSPECIFIED</options>
       <options>STRING</options>
       <options>BOOLEAN</options>
@@ -57,8 +57,8 @@
       <options>NUMBER</options>
       <options>DATETIME</options>
     </parameters>
-    <parameters xsi:type="parameters:UntypedParameterValue" id="_ICvTeTcFEeyQP__iNgxTNw" comparison2="_ICvTdzcFEeyQP__iNgxTNw" typeModifiable="true"/>
-    <parameters xsi:type="parameters:ComparisonOptionParam" id="_ICvTejcFEeyQP__iNgxTNw" comparisons="_ICvTdzcFEeyQP__iNgxTNw">
+    <parameters xsi:type="parameters:UntypedParameterValue" id="_CqlZiVHUEeyCX5TV2TAudw" comparison2="_CqlZh1HUEeyCX5TV2TAudw" typeModifiable="true"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_CqlZilHUEeyCX5TV2TAudw" comparisons="_CqlZh1HUEeyCX5TV2TAudw">
       <options>=</options>
       <options>!=</options>
       <options>></options>
@@ -66,7 +66,7 @@
       <options>>=</options>
       <options>&lt;=</options>
     </parameters>
-    <parameters xsi:type="parameters:TypeOptionParam" id="_ICvTezcFEeyQP__iNgxTNw" typeComparisons="_ICvTdzcFEeyQP__iNgxTNw">
+    <parameters xsi:type="parameters:TypeOptionParam" id="_CqlZi1HUEeyCX5TV2TAudw" typeComparisons="_CqlZh1HUEeyCX5TV2TAudw">
       <options>UNSPECIFIED</options>
       <options>STRING</options>
       <options>BOOLEAN</options>
