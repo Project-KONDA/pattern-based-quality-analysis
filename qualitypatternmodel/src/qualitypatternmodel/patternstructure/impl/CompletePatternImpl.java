@@ -462,7 +462,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void resetQuery() {
