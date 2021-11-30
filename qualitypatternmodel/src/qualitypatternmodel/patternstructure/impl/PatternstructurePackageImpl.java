@@ -873,6 +873,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getCompletePattern__ResetQuery() {
+		return completePatternEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPatternElement() {
 		return patternElementEClass;
 	}
@@ -1489,6 +1499,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___RECORD_VALUES);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL);
 		createEOperation(completePatternEClass, COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA);
+		createEOperation(completePatternEClass, COMPLETE_PATTERN___RESET_QUERY);
 
 		patternElementEClass = createEClass(PATTERN_ELEMENT);
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__ID);
@@ -1702,6 +1713,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEOperation(getCompletePattern__GetAbstractionLevel(), this.getAbstractionLevel(), "getAbstractionLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getCompletePattern__ValidateAgainstSchema(), theParametersPackage.getParameter(), "validateAgainstSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getCompletePattern__ResetQuery(), null, "resetQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(patternElementEClass, PatternElement.class, "PatternElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPatternElement_Id(), ecorePackage.getEString(), "id", null, 1, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

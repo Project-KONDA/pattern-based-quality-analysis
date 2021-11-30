@@ -460,6 +460,18 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void resetQuery() {
+		setQuery(null);
+		setPartialQuery(null);
+	}
+
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1110,6 +1122,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return getAbstractionLevel();
 			case PatternstructurePackage.COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA:
 				return validateAgainstSchema();
+			case PatternstructurePackage.COMPLETE_PATTERN___RESET_QUERY:
+				resetQuery();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -379,4 +379,12 @@ public interface CompletePattern extends Pattern {
 	 */
 	EList<Parameter> validateAgainstSchema();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void resetQuery();
+
 } // Pattern

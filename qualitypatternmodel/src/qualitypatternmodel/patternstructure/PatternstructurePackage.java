@@ -3149,13 +3149,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA = PATTERN_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Reset Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___RESET_QUERY = PATTERN_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 4;
+	int COMPLETE_PATTERN_OPERATION_COUNT = PATTERN_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.
@@ -5418,6 +5427,16 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getCompletePattern__ValidateAgainstSchema();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#resetQuery() <em>Reset Query</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Reset Query</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#resetQuery()
+	 * @generated
+	 */
+	EOperation getCompletePattern__ResetQuery();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6444,6 +6463,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA = eINSTANCE.getCompletePattern__ValidateAgainstSchema();
+
+		/**
+		 * The meta object literal for the '<em><b>Reset Query</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPLETE_PATTERN___RESET_QUERY = eINSTANCE.getCompletePattern__ResetQuery();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.PatternElementImpl <em>Pattern Element</em>}' class.
