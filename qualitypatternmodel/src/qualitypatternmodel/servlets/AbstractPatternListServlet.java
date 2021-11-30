@@ -31,7 +31,7 @@ public class AbstractPatternListServlet extends HttpServlet {
 			} else {
 				String result = "[";
 				for (String name: fileNames) {
-					result += "{\"Name\":";
+					result += "\n{\"Name\":";
 					result += "\"" + name + "\", ";
 					result += "\"Description\":";
 					
@@ -44,24 +44,20 @@ public class AbstractPatternListServlet extends HttpServlet {
 						if(pattern.getDescription() != null) {
 							result += "\"" + pattern.getDescription() + "\", ";
 						} else {
-							result += "\"" + "\", ";
+							result += "\"\", ";
 						}
-						
 						if(pattern.getText().size() > 0) {
-							result += "\"ExampleText\":";							
+							result += "\n\"ExampleText\":";							
 							PatternText text = pattern.getText().get(0);
 							String json = text.generateJSON();
-							result += json;
+							result += json.replace("\n", "\n  ");
 						}
-								
 					} else {
-						result += "\"" + "\", ";
+						result += "\"\", ";
 					}
-					
-					result += "}, ";
+					result += "\n}, ";
 				} 					
-				result += "]";
-				result = result.replace(", ]", "]");
+				result += "\n]";
 				response.getOutputStream().println(result);
 			}
 		} catch (URISyntaxException e) {

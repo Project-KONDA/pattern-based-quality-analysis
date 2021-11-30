@@ -243,8 +243,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	 */
 	@Override
 	public String generateJSON() {
-		String json = "{\n";
-		json += "\n\"PatternName\": \"" + getPattern().getName() + "\",";
+		String name = getPattern().getName();
+		String json = "{\n\"PatternName\": \"" + name + "\",";
 		String abstractName = getPattern().getAbstractName();
 		if (abstractName != null & abstractName != "") {
 			json += "\n\"AbstractPatternName\": \"" + getPattern().getAbstractName() + "\",";
@@ -255,11 +255,10 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		}
 		json += "\n\"PatternDescription\": \"" + description + "\",";
 		json += "\n\"PatternTextName\": \"" + getName() + "\","; 
-		json+= "\n\"Fragments\" : [";
+		json += "\n\"Fragments\" : [\n";
 		for(Fragment f : getFragmentsOrdered()) {
-			json += f.generateJSON() + ",\n";
+			json += "  " + f.generateJSON() + ",\n";
 		}
-		json = json.substring(0, json.length()-2);
 		json += "]\n}";
 		return json;
 	}

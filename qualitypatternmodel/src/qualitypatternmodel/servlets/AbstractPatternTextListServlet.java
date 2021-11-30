@@ -33,10 +33,10 @@ public class AbstractPatternTextListServlet extends HttpServlet {
 				response.sendError(404);
 				response.getOutputStream().println("{ \"error\": \"No pattern texts found\"}");					
 			} else {
-				String result = "[";
+				String result = "[\n";
 				for (PatternText text: texts) {
 					String json = text.generateJSON();
-					result += json + ",";
+					result += json + ",\n";
 				} 					
 				result += "]";
 				result = result.replace(",]", "]");
