@@ -2924,13 +2924,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__DESCRIPTION = PATTERN_FEATURE_COUNT + 12;
 
 	/**
+	 * The feature id for the '<em><b>Abstract Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN__ABSTRACT_NAME = PATTERN_FEATURE_COUNT + 13;
+
+	/**
 	 * The number of structural features of the '<em>Complete Pattern</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 13;
+	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -5387,6 +5396,17 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getCompletePattern_Description();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractName <em>Abstract Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Abstract Name</em>'.
+	 * @see qualitypatternmodel.patternstructure.CompletePattern#getAbstractName()
+	 * @see #getCompletePattern()
+	 * @generated
+	 */
+	EAttribute getCompletePattern_AbstractName();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo(java.lang.Class) <em>Get New Ref No</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6431,6 +6451,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPLETE_PATTERN__DESCRIPTION = eINSTANCE.getCompletePattern_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Abstract Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPLETE_PATTERN__ABSTRACT_NAME = eINSTANCE.getCompletePattern_AbstractName();
 
 		/**
 		 * The meta object literal for the '<em><b>Get New Ref No</b></em>' operation.

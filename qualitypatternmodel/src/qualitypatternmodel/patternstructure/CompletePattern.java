@@ -34,6 +34,7 @@ import qualitypatternmodel.textrepresentation.PatternText;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getCounter <em>Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getText <em>Text</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getDescription <em>Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractName <em>Abstract Name</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern()
@@ -331,6 +332,28 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	void setDescription(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Abstract Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Abstract Name</em>' attribute.
+	 * @see #setAbstractName(String)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_AbstractName()
+	 * @model
+	 * @generated
+	 */
+	String getAbstractName();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractName <em>Abstract Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Abstract Name</em>' attribute.
+	 * @see #getAbstractName()
+	 * @generated
+	 */
+	void setAbstractName(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

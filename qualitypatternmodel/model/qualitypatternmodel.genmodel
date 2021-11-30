@@ -470,6 +470,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/counter"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CompletePattern/text"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/description"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/CompletePattern/abstractName"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/CompletePattern/getNewRefNo">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/CompletePattern/getNewRefNo/type"/>
         </genOperations>
