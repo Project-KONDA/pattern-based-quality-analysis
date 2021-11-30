@@ -10,11 +10,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
 
 public class ConcretePatternListServlet extends HttpServlet {
 
+	
+	String STATUS1 =  "ready";
+	String STATUS2 =  "not finalized";
+	String STATUS3 =  "invalid";
+	String STATUS4 =  "not assigned";
+	String STATUS5 =  "incomplete";
+	String STATUS6 =  "not a pattern";
+	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		try {
@@ -27,29 +39,39 @@ public class ConcretePatternListServlet extends HttpServlet {
 				response.sendError(404);
 				response.getOutputStream().println("{ \"error\": \"No concrete patterns found\"}");
 			} else {					
-				String result = "[";
+				String result = "[\n";
 				for (String name: fileNames) {
-					result += "{\"Name\":";
-					result += "\"" + name + "\", ";
-					result += "\"Description\":";
-					
 					String filePath = Util.CONCRETE_PATTERNS_PATH + name + ".patternstructure";	
 					URL folderURL = getClass().getClassLoader().getResource(Util.CONCRETE_PATTERNS_PATH);
-					URL fileURL = getClass().getClassLoader().getResource(filePath);		
+					URL fileURL = getClass().getClassLoader().getResource(filePath);	
+					CompletePattern pattern = null;
+					String description = "";
+					String status = STATUS6;
 					
-					if(fileURL != null && folderURL != null) {
-						CompletePattern pattern = EMFModelLoad.loadCompletePattern(fileURL.toString());
+					try {
+						pattern = EMFModelLoad.loadCompletePattern(fileURL.toString());
 						if(pattern.getDescription() != null) {
-							result += "\"" + pattern.getDescription() + "\", ";
-						} else {
-							result += "\"" + "\", ";
+							description =  pattern.getDescription();
+						}						
+						try {
+							pattern.isValid(AbstractionLevel.CONCRETE);							
+							if (pattern.getDatabase() != null) {
+								if (pattern.validateAgainstSchema().isEmpty()) {
+									if (pattern.getQuery() != null & !"".equals(pattern.getQuery())) 
+										status = STATUS1;
+									else status = STATUS2;
+								} else status = STATUS3;
+							} else status = STATUS4;
+						} catch (Exception e) {
+							status = STATUS5;
 						}
-					} else {
-						result += "\"" + "\", ";
-					}
-					
-					result += "}, ";
-				} 					
+					} catch (Exception e) {}
+
+					result += "{\"Name\":\"" + name + "\", ";
+					result += "\"Description\":\"" + description + "\", ";	
+					result += "\"Status\":\"" + status + "\"},\n";
+				}
+				
 				result += "]";
 				result = result.replace(", ]", "]");
 				response.getOutputStream().println(result);
