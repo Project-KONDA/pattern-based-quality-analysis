@@ -56,6 +56,7 @@ public class DatabaseDeletionServlet extends HttpServlet {
 								ServerXmlDataDatabase serverDatabase = (ServerXmlDataDatabase) pattern.getDatabase();
 								if(serverDatabase.getLocalName().equals(localName)) {
 									pattern.setDatabase(null);
+									pattern.resetQuery();
 								}
 							}
 						}						
