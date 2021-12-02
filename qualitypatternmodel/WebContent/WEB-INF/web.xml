@@ -130,6 +130,17 @@
 	
 	
 	<servlet>
+		<servlet-name>FinalizedPatternDatabaseServlet</servlet-name>
+		<servlet-class>qualitypatternmodel.servlets.FinalizedPatternDatabaseServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>FinalizedPatternDatabaseServlet</servlet-name>
+		<url-pattern>/finalized-patterns/database/*</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
 		<servlet-name>ParameterExplanationServlet</servlet-name>
 		<servlet-class>qualitypatternmodel.servlets.ParameterExplanationServlet</servlet-class>
 	</servlet>

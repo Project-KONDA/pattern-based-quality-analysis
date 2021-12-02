@@ -33,6 +33,7 @@ public class Util {
 	public static final String SCHEMA_VALIDATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/schema-validation/";
 	public static final String QUERY_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/concrete-patterns/query/";
 	public static final String FINALIZED_PATTERN_LIST_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/finalized-patterns";
+	public static final String FINALIZED_PATTERN_DATABASE_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/finalized-patterns/database/";
 
 	
 	public static final String DATABASE_REGISTRATION_ENDPOINT = PROJECT_PREFIX_ENDPOINT + "/databases/registration/";
