@@ -76,7 +76,7 @@ public class DatabaseGettingServlet extends HttpServlet {
 					result += "\"Port\":";		
 					result += "\"" + Integer.toString(serverDatabase.getBaseXClient().getPort()) + "\", ";
 					result += "\"Name\":";		
-					result += "\"" + serverDatabase.getName() + "\", ";							
+					result += "\"" + serverDatabase.getName() + "\"";							
 					result += "}";
 				
 					response.getOutputStream().println(result);
