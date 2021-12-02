@@ -39,7 +39,7 @@ public class ConcretePatternListServlet extends HttpServlet {
 				response.sendError(404);
 				response.getOutputStream().println("{ \"error\": \"No concrete patterns found\"}");
 			} else {					
-				String result = "[\n";
+				String result = "[";
 				for (String name: fileNames) {
 					String filePath = Util.CONCRETE_PATTERNS_PATH + name + ".patternstructure";	
 					URL folderURL = getClass().getClassLoader().getResource(Util.CONCRETE_PATTERNS_PATH);
@@ -69,11 +69,12 @@ public class ConcretePatternListServlet extends HttpServlet {
 
 					result += "{\"Name\":\"" + name + "\", ";
 					result += "\"Description\":\"" + description + "\", ";	
-					result += "\"Status\":\"" + status + "\"},\n";
+					result += "\"Status\":\"" + status + "\"}, ";
 				}
 				
 				result += "]";
 				result = result.replace(", ]", "]");
+				result = result.replace(", }", "}");
 				response.getOutputStream().println(result);
 				
 			}

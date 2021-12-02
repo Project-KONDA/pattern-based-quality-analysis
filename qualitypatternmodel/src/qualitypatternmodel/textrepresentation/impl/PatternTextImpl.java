@@ -244,22 +244,24 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	@Override
 	public String generateJSON() {
 		String name = getPattern().getName();
-		String json = "{\n\"PatternName\": \"" + name + "\",";
+		String json = "\"PatternName\": \"" + name + "\", ";
 		String abstractName = getPattern().getAbstractName();
 		if (abstractName != null & abstractName != "") {
-			json += "\n\"AbstractPatternName\": \"" + getPattern().getAbstractName() + "\",";
+			json += "\"AbstractPatternName\": \"" + getPattern().getAbstractName() + "\", ";
 		}
 		String description = getPattern().getDescription();
 		if(description == null) {
 			description = "";
 		}
-		json += "\n\"PatternDescription\": \"" + description + "\",";
-		json += "\n\"PatternTextName\": \"" + getName() + "\","; 
-		json += "\n\"Fragments\" : [\n";
+		json += "\"PatternDescription\": \"" + description + "\",";
+		json += "\"PatternTextName\": \"" + getName() + "\","; 
+		json += "\"Fragments\" : [";
 		for(Fragment f : getFragmentsOrdered()) {
-			json += "  " + f.generateJSON() + ",\n";
+			json += "  " + f.generateJSON() + ", ";
 		}
-		json += "]\n}";
+		json += "]}";
+		json = json.replace(", ]", "]");
+		json = json.replace(", }", "}");
 		return json;
 	}
 
