@@ -244,7 +244,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	@Override
 	public String generateJSON() {
 		String name = getPattern().getName();
-		String json = "\"PatternName\": \"" + name + "\", ";
+		String json = "{\"PatternName\": \"" + name + "\", ";
 		String abstractName = getPattern().getAbstractName();
 		if (abstractName != null & abstractName != "") {
 			json += "\"AbstractPatternName\": \"" + getPattern().getAbstractName() + "\", ";
