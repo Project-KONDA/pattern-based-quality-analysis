@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.ServerXmlDataDatabase;
+import qualitypatternmodel.execution.impl.DatabasesImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
 
@@ -37,12 +38,16 @@ public class FinalizedPatternDatabaseServlet extends HttpServlet {
 					String path = Util.CONCRETE_PATTERNS_PATH + fileName + ".patternstructure";		
 					URL url = getClass().getClassLoader().getResource(path);					
 					if(url != null) {
-						CompletePattern pattern = EMFModelLoad.loadCompletePattern(url.toString());
+						String filePathDb = Util.DATABASES_PATH + Util.DATABASES_NAME + ".execution";	
+						URL fileURLDb = getClass().getClassLoader().getResource(filePathDb);						
+						DatabasesImpl.getInstance().clear();
+						CompletePattern pattern = EMFModelLoad.loadCompletePatternAndDatabase(url.toString(), fileURLDb.toString());				
+						Database database = pattern.getDatabase();
+						
 						String query = pattern.getQuery();
-						if(query != null && !query.equals("") ) {
-							Database patternDatabase = pattern.getDatabase();
-							if ( patternDatabase != null) {
-								String serverDBName = ((ServerXmlDataDatabase) pattern.getDatabase()).getLocalName();
+						if(query != null && !query.equals("") ) {							
+							if ( database != null) {
+								String serverDBName = ((ServerXmlDataDatabase) database).getLocalName();
 								if (databaseName.equals(serverDBName)) {
 									json += "{\"Name\":";
 									json += "\"" + fileName + "\", ";

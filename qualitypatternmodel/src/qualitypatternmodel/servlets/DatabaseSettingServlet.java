@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.basex.query.QueryException;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.execution.Databases;
@@ -60,9 +61,9 @@ public class DatabaseSettingServlet extends HttpServlet {
 		
 		if(fileURL != null && folderURL != null) {
 			DatabasesImpl.getInstance().clear();
-			Databases databasesContainer = EMFModelLoad.loadDatabases(fileURL.toString());
+			ResourceSet set = EMFModelLoad.loadDatabasesInResourceSet(fileURL.toString());
 			ServerXmlDataDatabase database = null;
-			for(XmlDataDatabase db : databasesContainer.getXmlDatabases()) {
+			for(XmlDataDatabase db : DatabasesImpl.getInstance().getXmlDatabases()) {
 				if(db instanceof ServerXmlDataDatabase) {
 					ServerXmlDataDatabase serverDb = (ServerXmlDataDatabase) db;
 					if(serverDb.getLocalName().equals(databaseName)) {
@@ -82,12 +83,12 @@ public class DatabaseSettingServlet extends HttpServlet {
 			URL fileURLPattern = getClass().getClassLoader().getResource(filePathPattern);	
 			
 			if(fileURLPattern != null && folderURLPattern != null) {
-				CompletePattern pattern = EMFModelLoad.loadCompletePattern(fileURLPattern.toString());
+				CompletePattern pattern = EMFModelLoad.loadCompletePatternInResourceSet(fileURLPattern.toString(), set);
 				
 				pattern.setDatabase(database);
 				
 				EMFModelSave.exportToFile(pattern, folderURLPattern.toString() + patternName, "patternstructure");
-				EMFModelSave.exportToFile(databasesContainer, folderURL.toString() + Util.DATABASES_NAME, "execution");
+				EMFModelSave.exportToFile(DatabasesImpl.getInstance(), folderURL.toString() + Util.DATABASES_NAME, "execution");
 				response.getOutputStream().println("Successfully set database of pattern '" + patternName + "'.");
 				
 			} else {
