@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
+import qualitypatternmodel.utility.EMFModelSave;
 
 public class ConcretePatternDescriptionServlet extends HttpServlet {
 	
@@ -26,7 +27,9 @@ public class ConcretePatternDescriptionServlet extends HttpServlet {
 		
 		if(fileURL != null && folderURL != null) {
 			CompletePattern pattern = EMFModelLoad.loadCompletePattern(fileURL.toString());			
-			pattern.setDescription(description);														
+			pattern.setDescription(description);	
+			EMFModelSave.exportToFile(pattern, folderURL.toString() + name, "patternstructure");
+			response.getOutputStream().println("Successfully set description of concrete pattern '" + name + "'.");
 		} else {
 			response.sendError(404);
 			response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
