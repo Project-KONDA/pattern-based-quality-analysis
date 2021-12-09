@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ASCII"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_r6N2QFj1EeycTOYbWYNo1w" internalId="1" name="comp_text_generic" counter="2" description="Allows detecting illegal values, i.e. allows detecting elements with a specific property which are related to other elements with two specific properties" abstractName="comp_text_generic">
+  <graph id="_r6OdUVj1EeycTOYbWYNo1w" returnElements="_r6OdU1j1EeycTOYbWYNo1w" outgoingMorphisms="_r6OdXVj1EeycTOYbWYNo1w">
+    <elements id="_r6OdU1j1EeycTOYbWYNo1w" outgoingMappings="_r6OdX1j1EeycTOYbWYNo1w" resultOf="_r6OdUVj1EeycTOYbWYNo1w" name="Element0" predicates="_r6OdVFj1EeycTOYbWYNo1w">
+      <properties id="_r6OdVVj1EeycTOYbWYNo1w" comparison1="_r6OdVFj1EeycTOYbWYNo1w"/>
+    </elements>
+    <operatorList id="_r6OdUlj1EeycTOYbWYNo1w">
+      <operators xsi:type="operators:Comparison" id="_r6OdVFj1EeycTOYbWYNo1w" elements="_r6OdU1j1EeycTOYbWYNo1w" argument1="_r6OdVVj1EeycTOYbWYNo1w" argument2="_r6OdWVj1EeycTOYbWYNo1w" option="_r6OdV1j1EeycTOYbWYNo1w" typeOption="_r6OdWFj1EeycTOYbWYNo1w"/>
+    </operatorList>
+  </graph>
+  <condition xsi:type="patternstructure:QuantifiedCondition" id="_r6OdWlj1EeycTOYbWYNo1w">
+    <morphism id="_r6OdXVj1EeycTOYbWYNo1w" source="_r6OdUVj1EeycTOYbWYNo1w" target="_r6OdW1j1EeycTOYbWYNo1w">
+      <mappings xsi:type="patternstructure:ElementMapping" id="_r6OdX1j1EeycTOYbWYNo1w" source="_r6OdU1j1EeycTOYbWYNo1w" target="_r6OdXlj1EeycTOYbWYNo1w"/>
+    </morphism>
+    <graph id="_r6OdW1j1EeycTOYbWYNo1w" returnElements="_r6OdXlj1EeycTOYbWYNo1w" incomingMorphism="_r6OdXVj1EeycTOYbWYNo1w">
+      <elements id="_r6OdXlj1EeycTOYbWYNo1w" incomingMapping="_r6OdX1j1EeycTOYbWYNo1w" resultOf="_r6OdW1j1EeycTOYbWYNo1w" name="Element0" outgoing="_r6OdYVj1EeycTOYbWYNo1w"/>
+      <elements id="_r6OdYFj1EeycTOYbWYNo1w" name="Element1" predicates="_r6OdYlj1EeycTOYbWYNo1w _r6OdaFj1EeycTOYbWYNo1w" incoming="_r6OdYVj1EeycTOYbWYNo1w">
+        <properties id="_r6OdY1j1EeycTOYbWYNo1w" comparison1="_r6OdYlj1EeycTOYbWYNo1w"/>
+        <properties id="_r6OdaVj1EeycTOYbWYNo1w" comparison1="_r6OdaFj1EeycTOYbWYNo1w"/>
+      </elements>
+      <operatorList id="_r6OdXFj1EeycTOYbWYNo1w">
+        <operators xsi:type="operators:Comparison" id="_r6OdYlj1EeycTOYbWYNo1w" elements="_r6OdYFj1EeycTOYbWYNo1w" argument1="_r6OdY1j1EeycTOYbWYNo1w" argument2="_r6OdZ1j1EeycTOYbWYNo1w" option="_r6OdZVj1EeycTOYbWYNo1w" typeOption="_r6OdZlj1EeycTOYbWYNo1w"/>
+        <operators xsi:type="operators:Comparison" id="_r6OdaFj1EeycTOYbWYNo1w" elements="_r6OdYFj1EeycTOYbWYNo1w" argument1="_r6OdaVj1EeycTOYbWYNo1w" argument2="_r6Odalj1EeycTOYbWYNo1w" option="_r6Oda1j1EeycTOYbWYNo1w" typeOption="_r6OdbFj1EeycTOYbWYNo1w"/>
+      </operatorList>
+      <relations id="_r6OdYVj1EeycTOYbWYNo1w" source="_r6OdXlj1EeycTOYbWYNo1w" target="_r6OdYFj1EeycTOYbWYNo1w"/>
+    </graph>
+    <condition xsi:type="patternstructure:TrueElement" id="_r6PEYFj1EeycTOYbWYNo1w"/>
+  </condition>
+  <parameterList id="_r6OdUFj1EeycTOYbWYNo1w">
+    <parameters xsi:type="parameters:TextLiteralParam" id="_r6OdWVj1EeycTOYbWYNo1w" comparison2="_r6OdVFj1EeycTOYbWYNo1w" typeModifiable="true"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_r6OdV1j1EeycTOYbWYNo1w" predefined="true" comparisons="_r6OdVFj1EeycTOYbWYNo1w">
+      <options>=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_r6OdWFj1EeycTOYbWYNo1w" predefined="true" value="STRING" typeComparisons="_r6OdVFj1EeycTOYbWYNo1w">
+      <options>UNSPECIFIED</options>
+      <options>STRING</options>
+      <options>BOOLEAN</options>
+      <options>ELEMENT</options>
+      <options>DATE</options>
+      <options>TIME</options>
+      <options>NUMBER</options>
+      <options>DATETIME</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_r6OdZ1j1EeycTOYbWYNo1w" comparison2="_r6OdYlj1EeycTOYbWYNo1w" typeModifiable="true"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_r6OdZVj1EeycTOYbWYNo1w" predefined="true" comparisons="_r6OdYlj1EeycTOYbWYNo1w">
+      <options>=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_r6OdZlj1EeycTOYbWYNo1w" predefined="true" value="STRING" typeComparisons="_r6OdYlj1EeycTOYbWYNo1w">
+      <options>UNSPECIFIED</options>
+      <options>STRING</options>
+      <options>BOOLEAN</options>
+      <options>ELEMENT</options>
+      <options>DATE</options>
+      <options>TIME</options>
+      <options>NUMBER</options>
+      <options>DATETIME</options>
+    </parameters>
+    <parameters xsi:type="parameters:UntypedParameterValue" id="_r6Odalj1EeycTOYbWYNo1w" comparison2="_r6OdaFj1EeycTOYbWYNo1w" typeModifiable="true"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_r6Oda1j1EeycTOYbWYNo1w" comparisons="_r6OdaFj1EeycTOYbWYNo1w">
+      <options>=</options>
+      <options>!=</options>
+      <options>></options>
+      <options>&lt;</options>
+      <options>>=</options>
+      <options>&lt;=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_r6OdbFj1EeycTOYbWYNo1w" typeComparisons="_r6OdaFj1EeycTOYbWYNo1w">
+      <options>UNSPECIFIED</options>
+      <options>STRING</options>
+      <options>BOOLEAN</options>
+      <options>ELEMENT</options>
+      <options>DATE</options>
+      <options>TIME</options>
+      <options>NUMBER</options>
+      <options>DATETIME</options>
+    </parameters>
+  </parameterList>
+</patternstructure:CompletePattern>

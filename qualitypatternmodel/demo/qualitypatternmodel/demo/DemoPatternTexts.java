@@ -73,6 +73,12 @@ public class DemoPatternTexts {
 		compTextConcrete.isValid(AbstractionLevel.CONCRETE);
 		EMFModelSave.exportToFile(compTextConcrete,"instances/demo_with_texts/comp_text_concrete", "patternstructure");	
 		
+		// ------------- COMP TEXT LIDO ----------------
+		
+		CompletePattern compTextLidoConcrete = getConcreteLidoCompTextPatternWithText();
+		compTextLidoConcrete.isValid(AbstractionLevel.CONCRETE);
+		EMFModelSave.exportToFile(compTextLidoConcrete,"instances/demo_with_texts/comp_lido_text_concrete", "patternstructure");	
+		
 		// ------------- COMP DATE ----------------
 		
 		CompletePattern compDateAbstract = getAbstractCompDatePatternWithText();
@@ -99,6 +105,10 @@ public class DemoPatternTexts {
 		CompletePattern cardConcreteFinalized = getConcreteFinalizedCardPatternWithText();
 		cardConcreteFinalized.isValid(AbstractionLevel.CONCRETE);
 		EMFModelSave.exportToFile(cardConcreteFinalized,"instances/demo_with_texts/card_concrete_finalized", "patternstructure");
+		
+		CompletePattern cardConcreteLido = getConcreteLidoCardPatternWithText();
+		cardConcreteLido.isValid(AbstractionLevel.CONCRETE);
+		EMFModelSave.exportToFile(cardConcreteLido,"instances/demo_with_texts/card_lido_concrete", "patternstructure");
 		
 		
 		// ------------- FUNC ----------------
@@ -134,6 +144,12 @@ public class DemoPatternTexts {
 	}
 	
 	// ------------- COMP TEXT ----------------
+	
+	public static CompletePattern getConcreteLidoCompTextPatternWithText() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern abstractPattern = getAbstractCompTextPatternWithText();
+		abstractPattern.getText().get(1).delete();
+		return DemoPatterns.getConcreteLidoCompTextPatternFromAbstract(null, abstractPattern);
+	}
 	
 	public static CompletePattern getConcreteCompTextPatternWithText() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern abstractPattern = getAbstractCompTextPatternWithText();
@@ -1143,6 +1159,13 @@ public class DemoPatternTexts {
 	}
 	
 	// ------------- CARD ----------------
+	
+	public static CompletePattern getConcreteLidoCardPatternWithText() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern abstractPattern = getAbstractCardPatternWithText();
+//		abstractPattern.getText().get(2).delete();
+		abstractPattern.getText().get(1).delete();
+		return DemoPatterns.getConcreteLidoCardPatternFromAbstract(null, abstractPattern);
+	}
 	
 	public static CompletePattern getConcreteFinalizedCardPatternWithText() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern concretePattern = getConcreteCardPatternWithText();

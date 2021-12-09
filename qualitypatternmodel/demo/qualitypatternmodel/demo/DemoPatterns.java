@@ -57,9 +57,13 @@ public class DemoPatterns {
 	
 	private static CompletePattern compConcrete;
 	private static CompletePattern compTextConcrete;
+	private static CompletePattern compTextLidoConcrete;
 	private static CompletePattern cardConcrete;
 	private static CompletePattern cardConcreteFinalized;
+	private static CompletePattern cardConcreteLido;
 	private static CompletePattern funcConcrete;
+	private static CompletePattern funcConcreteLido;
+
 	private static LocalXmlDataDatabase database;
 	private static LocalXmlSchemaDatabase schema;
 	private static Databases databases;
@@ -78,9 +82,12 @@ public class DemoPatterns {
         
         compConcrete = getConcreteCompPattern(database);
         compTextConcrete = getConcreteCompTextPattern(database);
+        compTextLidoConcrete = getConcreteLidoCompTextPattern(database);
         cardConcrete = getConcreteCardPattern(database);
         cardConcreteFinalized = getConcreteFinalizedCardPattern(database);
+        cardConcreteLido = getConcreteLidoCardPattern(database);
         funcConcrete = getConcreteFuncPattern(database);
+        funcConcreteLido = getConcreteLidoFuncPattern(database);
         
 		exportAllDemoPatterns();
 		printAllDemoPatternQueries();
@@ -141,6 +148,9 @@ public class DemoPatterns {
 		CompletePattern compTextConcrete = getConcreteCompTextPattern(database);			
 		EMFModelSave.exportToFile(compTextConcrete,"instances/demo/comp_text_concrete", "patternstructure");
 		
+		CompletePattern compTextLidoConcrete = getConcreteLidoCompTextPattern(database);			
+		EMFModelSave.exportToFile(compTextLidoConcrete,"instances/demo/comp_lido_text_concrete", "patternstructure");
+		
 		CompletePattern cardGeneric = getGenericCardPattern();
 		EMFModelSave.exportToFile(cardGeneric,"instances/demo/card_generic", "patternstructure");
 		CompletePattern cardAbstract = getAbstractCardPattern();
@@ -150,12 +160,18 @@ public class DemoPatterns {
 		CompletePattern cardConcreteFinalized = getConcreteFinalizedCardPattern(database);				
 		EMFModelSave.exportToFile(cardConcreteFinalized,"instances/demo/card_concrete_finalized", "patternstructure");
 		
+		CompletePattern cardConcreteLido = getConcreteLidoCardPattern(database);				
+		EMFModelSave.exportToFile(cardConcreteLido,"instances/demo/card_lido_concrete", "patternstructure");
+		
 		CompletePattern funcGeneric = getGenericFuncPattern();
 		EMFModelSave.exportToFile(funcGeneric,"instances/demo/func_generic", "patternstructure");
 		CompletePattern funcAbstract = getAbstractFuncPattern();
 		EMFModelSave.exportToFile(funcAbstract,"instances/demo/func_abstract", "patternstructure");
 		CompletePattern funcConcrete = getConcreteFuncPattern(database);				
 		EMFModelSave.exportToFile(funcConcrete,"instances/demo/func_concrete", "patternstructure");
+		
+		CompletePattern funcLidoConcrete = getConcreteLidoFuncPattern(database);				
+		EMFModelSave.exportToFile(funcLidoConcrete,"instances/demo/func_lido_concrete", "patternstructure");
 		
 		System.out.println(">>> Exported demo patterns to folder 'instances/demo/'");
 	}
@@ -167,10 +183,14 @@ public class DemoPatterns {
 		
 		printPatternQuery(compConcrete);
 		printPatternQuery(compTextConcrete);
+		printPatternQuery(compTextLidoConcrete);
 		
 		printPatternQuery(cardConcrete);
+		printPatternQuery(cardConcreteLido);
+
 		
 		printPatternQuery(funcConcrete);
+		printPatternQuery(funcConcreteLido);
 	}
 	
 	private static void printPatternQuery(CompletePattern pattern)
@@ -368,6 +388,62 @@ public class DemoPatterns {
 		
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
 		navigationElement0Element1.getOption().setValue(RelationKind.CHILD);	
+						
+		return completePattern;
+	}
+	
+	public static CompletePattern getConcreteLidoCompTextPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern abstractPattern = getAbstractCompTextPattern();
+		return getConcreteLidoCompTextPatternFromAbstract(db, abstractPattern);
+	}
+
+	public static CompletePattern getConcreteLidoCompTextPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePattern.setName("comp_lido_concrete");
+		completePattern.setDescription("Allows detecting actors with appellation 'unbekannt'");
+		completePattern.setDatabase(db);
+		
+		// Context graph of pattern:
+		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
+		property0.getOption().setValue(PropertyKind.TAG);
+		
+		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
+		TextLiteralParam textValue0 = ParametersFactory.eINSTANCE.createTextLiteralParam();
+		textValue0.setValue(LIDO_NAMESPACE + "actor");
+		value0.replace(textValue0);
+		
+		XmlNavigation navigationRootElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		navigationRootElement0.getOption().setValue(RelationKind.DESCENDANT);
+		
+		// First-order logic condition of pattern:
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
+		
+		// Graph of quantified condition:
+		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
+		property1.getOption().setValue(PropertyKind.TAG);
+		
+		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(3);
+		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
+		textValue1.setValue(LIDO_NAMESPACE + "genderActor");
+		value1.replace(textValue1);
+		
+		XmlProperty property2 = (XmlProperty) element1.getProperties().get(0);
+		property2.getOption().setValue(PropertyKind.TAG);
+		
+		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
+		TextLiteralParam textValue = ParametersFactory.eINSTANCE.createTextLiteralParam();
+		textValue.setValue("unbekannt");
+		value2.replace(textValue);
+//		NumberParam numberValue = ParametersFactory.eINSTANCE.createNumberParam();
+//		numberValue.setValue(2020.0);
+//		value2.replace(numberValue);
+		
+		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);
+		comp2.getOption().setValue(ComparisonOperator.EQUAL);	
+		
+//		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
+//		navigationElement0Element1.getOption().setValue(RelationKind.DESCENDANT);	
 						
 		return completePattern;
 	}
@@ -616,6 +692,55 @@ public class DemoPatterns {
 		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(5);
 		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
 		textValue1.setValue(DEMO_NAMESPACE + "birthyear");
+		value1.replace(textValue1);	
+		
+		XmlNavigation navigationElement0Element1 = (XmlNavigation) countPattern.getGraph().getRelations().get(0);
+		navigationElement0Element1.getOption().setValue(RelationKind.CHILD);	
+				
+		return completePattern;
+	}
+	
+	public static CompletePattern getConcreteLidoCardPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern abstractPattern = getAbstractCardPattern();
+		return getConcreteLidoCardPatternFromAbstract(db, abstractPattern);
+		
+	}	
+	
+	public static CompletePattern getConcreteLidoCardPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePattern.setName("card_lido_concrete");
+		completePattern.setDescription("Allows detecting artists with more than one nameActorSet");
+		completePattern.setDatabase(db);
+		
+		// Context graph of pattern:
+		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
+		property0.getOption().setValue(PropertyKind.TAG);
+		
+		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
+		TextLiteralParam textValue0 = ParametersFactory.eINSTANCE.createTextLiteralParam();
+		textValue0.setValue(LIDO_NAMESPACE + "actor");
+		value0.replace(textValue0);
+		
+		XmlNavigation navigationRootElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		navigationRootElement0.getOption().setValue(RelationKind.DESCENDANT);
+		
+		// First-order logic condition of pattern:
+		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
+		
+		countCondition.getOption().setValue(ComparisonOperator.GREATER);
+		NumberElement numberElement = (NumberElement) countCondition.getArgument2();
+		numberElement.getNumberParam().setValue(1.0);
+		
+		CountPattern countPattern = countCondition.getCountPattern();
+		
+		// Graph of inner pattern:
+		XmlElement element1 = (XmlElement) countPattern.getGraph().getElements().get(1);
+		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
+		property1.getOption().setValue(PropertyKind.TAG);
+		
+		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(5);
+		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
+		textValue1.setValue(LIDO_NAMESPACE + "nameActorSet");
 		value1.replace(textValue1);	
 		
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) countPattern.getGraph().getRelations().get(0);
@@ -883,8 +1008,9 @@ public class DemoPatterns {
 	
 	public static CompletePattern getConcreteLidoFuncPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
-		completePattern.setName("func_concrete");
+		completePattern.setName("func_lido_concrete");
 		completePattern.setDatabase(db);
+		completePattern.setDescription("Allows detecting a violated functional dependency between a conceptID and term indicating the culture");
 		
 		// Context graph of pattern:
 		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
@@ -893,7 +1019,7 @@ public class DemoPatterns {
 		
 		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
 		TextLiteralParam textValue0 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue0.setValue(LIDO_NAMESPACE + "termMaterialsTech");
+		textValue0.setValue(LIDO_NAMESPACE + "culture");
 		value0.replace(textValue0);
 		
 		XmlNavigation navigationRootElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
@@ -929,7 +1055,7 @@ public class DemoPatterns {
 		
 		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(9);
 		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue1.setValue(LIDO_NAMESPACE + "termMaterialsTech");
+		textValue1.setValue(LIDO_NAMESPACE + "culture");
 		value1.replace(textValue1);
 		
 		

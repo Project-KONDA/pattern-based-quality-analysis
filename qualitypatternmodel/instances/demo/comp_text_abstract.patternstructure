@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="ASCII"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_r6Q5kFj1EeycTOYbWYNo1w" internalId="1" name="comp_text_abstract" adaptionStarted="true" adaptionFinalized="true" propertyCounter="4" relationCounter="2" counter="2" description="Allows detecting illegal values, i.e. allows detecting elements with a specific property which are related to other elements with two specific properties" abstractName="comp_text_abstract">
+  <graph id="_r6Q5klj1EeycTOYbWYNo1w" returnElements="_r6Rgqlj1EeycTOYbWYNo1w" outgoingMorphisms="_r6Q5nlj1EeycTOYbWYNo1w">
+    <elements xsi:type="adaptionxml:XmlElement" id="_r6Rgqlj1EeycTOYbWYNo1w" outgoingMappings="_r6Q5oFj1EeycTOYbWYNo1w" resultOf="_r6Q5klj1EeycTOYbWYNo1w" name="Element0" predicates="_r6Q5lVj1EeycTOYbWYNo1w" incoming="_r6SHwVj1EeycTOYbWYNo1w">
+      <properties xsi:type="adaptionxml:XmlProperty" id="_r6Rgp1j1EeycTOYbWYNo1w" comparison1="_r6Q5lVj1EeycTOYbWYNo1w" name="XmlProperty 1" option="_r6SHsFj1EeycTOYbWYNo1w" attributeName="_r6SHsVj1EeycTOYbWYNo1w"/>
+    </elements>
+    <elements xsi:type="adaptionxml:XmlRoot" id="_r6SHwFj1EeycTOYbWYNo1w" outgoingMappings="_r6SHxFj1EeycTOYbWYNo1w" name="Root" outgoing="_r6SHwVj1EeycTOYbWYNo1w"/>
+    <operatorList id="_r6Q5k1j1EeycTOYbWYNo1w">
+      <operators xsi:type="operators:Comparison" id="_r6Q5lVj1EeycTOYbWYNo1w" elements="_r6Rgqlj1EeycTOYbWYNo1w" argument1="_r6Rgp1j1EeycTOYbWYNo1w" argument2="_r6Q5mlj1EeycTOYbWYNo1w" option="_r6Q5mFj1EeycTOYbWYNo1w" typeOption="_r6Q5mVj1EeycTOYbWYNo1w"/>
+    </operatorList>
+    <relations xsi:type="adaptionxml:XmlNavigation" id="_r6SHwVj1EeycTOYbWYNo1w" outgoingMappings="_r6SHx1j1EeycTOYbWYNo1w" source="_r6SHwFj1EeycTOYbWYNo1w" target="_r6Rgqlj1EeycTOYbWYNo1w" option="_r6SHwlj1EeycTOYbWYNo1w"/>
+  </graph>
+  <condition xsi:type="patternstructure:QuantifiedCondition" id="_r6Q5m1j1EeycTOYbWYNo1w">
+    <morphism id="_r6Q5nlj1EeycTOYbWYNo1w" source="_r6Q5klj1EeycTOYbWYNo1w" target="_r6Q5nFj1EeycTOYbWYNo1w">
+      <mappings xsi:type="patternstructure:ElementMapping" id="_r6Q5oFj1EeycTOYbWYNo1w" source="_r6Rgqlj1EeycTOYbWYNo1w" target="_r6SHslj1EeycTOYbWYNo1w"/>
+      <mappings xsi:type="patternstructure:ElementMapping" id="_r6SHxFj1EeycTOYbWYNo1w" source="_r6SHwFj1EeycTOYbWYNo1w" target="_r6SHw1j1EeycTOYbWYNo1w"/>
+      <mappings xsi:type="patternstructure:RelationMapping" id="_r6SHx1j1EeycTOYbWYNo1w" target="_r6SHxVj1EeycTOYbWYNo1w" source="_r6SHwVj1EeycTOYbWYNo1w"/>
+    </morphism>
+    <graph id="_r6Q5nFj1EeycTOYbWYNo1w" returnElements="_r6SHslj1EeycTOYbWYNo1w" incomingMorphism="_r6Q5nlj1EeycTOYbWYNo1w">
+      <elements xsi:type="adaptionxml:XmlElement" id="_r6SHslj1EeycTOYbWYNo1w" incomingMapping="_r6Q5oFj1EeycTOYbWYNo1w" resultOf="_r6Q5nFj1EeycTOYbWYNo1w" name="Element0" outgoing="_r6SHvlj1EeycTOYbWYNo1w" incoming="_r6SHxVj1EeycTOYbWYNo1w"/>
+      <elements xsi:type="adaptionxml:XmlElement" id="_r6SHuVj1EeycTOYbWYNo1w" name="Element1" predicates="_r6Q5o1j1EeycTOYbWYNo1w _r6RgoVj1EeycTOYbWYNo1w" incoming="_r6SHvlj1EeycTOYbWYNo1w">
+        <properties xsi:type="adaptionxml:XmlProperty" id="_r6SHs1j1EeycTOYbWYNo1w" comparison1="_r6Q5o1j1EeycTOYbWYNo1w" name="XmlProperty 2" option="_r6SHulj1EeycTOYbWYNo1w" attributeName="_r6SHu1j1EeycTOYbWYNo1w"/>
+        <properties xsi:type="adaptionxml:XmlProperty" id="_r6SHtlj1EeycTOYbWYNo1w" comparison1="_r6RgoVj1EeycTOYbWYNo1w" name="XmlProperty 3" option="_r6SHvFj1EeycTOYbWYNo1w" attributeName="_r6SHvVj1EeycTOYbWYNo1w"/>
+      </elements>
+      <elements xsi:type="adaptionxml:XmlRoot" id="_r6SHw1j1EeycTOYbWYNo1w" incomingMapping="_r6SHxFj1EeycTOYbWYNo1w" name="Root" outgoing="_r6SHxVj1EeycTOYbWYNo1w"/>
+      <operatorList id="_r6Q5nVj1EeycTOYbWYNo1w">
+        <operators xsi:type="operators:Comparison" id="_r6Q5o1j1EeycTOYbWYNo1w" elements="_r6SHuVj1EeycTOYbWYNo1w" argument1="_r6SHs1j1EeycTOYbWYNo1w" argument2="_r6RgoFj1EeycTOYbWYNo1w" option="_r6Q5plj1EeycTOYbWYNo1w" typeOption="_r6Q5p1j1EeycTOYbWYNo1w"/>
+        <operators xsi:type="operators:Comparison" id="_r6RgoVj1EeycTOYbWYNo1w" elements="_r6SHuVj1EeycTOYbWYNo1w" argument1="_r6SHtlj1EeycTOYbWYNo1w" argument2="_r6Rgo1j1EeycTOYbWYNo1w" option="_r6RgpFj1EeycTOYbWYNo1w" typeOption="_r6RgpVj1EeycTOYbWYNo1w"/>
+      </operatorList>
+      <relations xsi:type="adaptionxml:XmlNavigation" id="_r6SHvlj1EeycTOYbWYNo1w" source="_r6SHslj1EeycTOYbWYNo1w" target="_r6SHuVj1EeycTOYbWYNo1w" name="XmlNavigation 1" option="_r6SHv1j1EeycTOYbWYNo1w"/>
+      <relations xsi:type="adaptionxml:XmlNavigation" id="_r6SHxVj1EeycTOYbWYNo1w" incomingMapping="_r6SHx1j1EeycTOYbWYNo1w" source="_r6SHw1j1EeycTOYbWYNo1w" target="_r6SHslj1EeycTOYbWYNo1w"/>
+    </graph>
+    <condition xsi:type="patternstructure:TrueElement" id="_r6Rgplj1EeycTOYbWYNo1w"/>
+  </condition>
+  <parameterList id="_r6Q5kVj1EeycTOYbWYNo1w">
+    <parameters xsi:type="parameters:TextLiteralParam" id="_r6Q5mlj1EeycTOYbWYNo1w" comparison2="_r6Q5lVj1EeycTOYbWYNo1w" typeModifiable="true"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_r6Q5mFj1EeycTOYbWYNo1w" predefined="true" comparisons="_r6Q5lVj1EeycTOYbWYNo1w">
+      <options>=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_r6Q5mVj1EeycTOYbWYNo1w" predefined="true" value="STRING" typeComparisons="_r6Q5lVj1EeycTOYbWYNo1w">
+      <options>UNSPECIFIED</options>
+      <options>STRING</options>
+      <options>BOOLEAN</options>
+      <options>ELEMENT</options>
+      <options>DATE</options>
+      <options>TIME</options>
+      <options>NUMBER</options>
+      <options>DATETIME</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_r6RgoFj1EeycTOYbWYNo1w" comparison2="_r6Q5o1j1EeycTOYbWYNo1w" typeModifiable="true"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_r6Q5plj1EeycTOYbWYNo1w" predefined="true" comparisons="_r6Q5o1j1EeycTOYbWYNo1w">
+      <options>=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_r6Q5p1j1EeycTOYbWYNo1w" predefined="true" value="STRING" typeComparisons="_r6Q5o1j1EeycTOYbWYNo1w">
+      <options>UNSPECIFIED</options>
+      <options>STRING</options>
+      <options>BOOLEAN</options>
+      <options>ELEMENT</options>
+      <options>DATE</options>
+      <options>TIME</options>
+      <options>NUMBER</options>
+      <options>DATETIME</options>
+    </parameters>
+    <parameters xsi:type="parameters:UntypedParameterValue" id="_r6Rgo1j1EeycTOYbWYNo1w" comparison2="_r6RgoVj1EeycTOYbWYNo1w" typeModifiable="true"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_r6RgpFj1EeycTOYbWYNo1w" comparisons="_r6RgoVj1EeycTOYbWYNo1w">
+      <options>=</options>
+      <options>!=</options>
+      <options>></options>
+      <options>&lt;</options>
+      <options>>=</options>
+      <options>&lt;=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_r6RgpVj1EeycTOYbWYNo1w" typeComparisons="_r6RgoVj1EeycTOYbWYNo1w">
+      <options>UNSPECIFIED</options>
+      <options>STRING</options>
+      <options>BOOLEAN</options>
+      <options>ELEMENT</options>
+      <options>DATE</options>
+      <options>TIME</options>
+      <options>NUMBER</options>
+      <options>DATETIME</options>
+    </parameters>
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_r6SHsFj1EeycTOYbWYNo1w" properties="_r6Rgp1j1EeycTOYbWYNo1w">
+      <options>TAG</options>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_r6SHsVj1EeycTOYbWYNo1w" properties="_r6Rgp1j1EeycTOYbWYNo1w"/>
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_r6SHulj1EeycTOYbWYNo1w" properties="_r6SHs1j1EeycTOYbWYNo1w">
+      <options>TAG</options>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_r6SHu1j1EeycTOYbWYNo1w" properties="_r6SHs1j1EeycTOYbWYNo1w"/>
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_r6SHvFj1EeycTOYbWYNo1w" properties="_r6SHtlj1EeycTOYbWYNo1w">
+      <options>TAG</options>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_r6SHvVj1EeycTOYbWYNo1w" properties="_r6SHtlj1EeycTOYbWYNo1w"/>
+    <parameters xsi:type="parameters:RelationOptionParam" id="_r6SHv1j1EeycTOYbWYNo1w" relations="_r6SHvlj1EeycTOYbWYNo1w">
+      <options>/child::*</options>
+      <options>/descendant::*</options>
+      <options>/parent::*</options>
+      <options>/ancestor::*</options>
+      <options>/following::*</options>
+      <options>/following-sibling::*</options>
+      <options>/preceding::*</options>
+      <options>/preceding-sibling::*</options>
+      <options>/ancestor-or-self::*</options>
+      <options>/descendant-or-self::*</options>
+      <options>/self::*</options>
+      <options>/*/*</options>
+      <options>/*/*/*</options>
+      <options>/*/*/*/*</options>
+      <options>/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*/*/*</options>
+    </parameters>
+    <parameters xsi:type="parameters:RelationOptionParam" id="_r6SHwlj1EeycTOYbWYNo1w" relations="_r6SHwVj1EeycTOYbWYNo1w">
+      <options>/child::*</options>
+      <options>/descendant::*</options>
+      <options>/parent::*</options>
+      <options>/ancestor::*</options>
+      <options>/following::*</options>
+      <options>/following-sibling::*</options>
+      <options>/preceding::*</options>
+      <options>/preceding-sibling::*</options>
+      <options>/ancestor-or-self::*</options>
+      <options>/descendant-or-self::*</options>
+      <options>/self::*</options>
+      <options>/*/*</options>
+      <options>/*/*/*</options>
+      <options>/*/*/*/*</options>
+      <options>/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*/*/*</options>
+    </parameters>
+  </parameterList>
+</patternstructure:CompletePattern>
