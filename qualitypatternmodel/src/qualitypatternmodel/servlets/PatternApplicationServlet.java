@@ -95,8 +95,9 @@ public class PatternApplicationServlet extends HttpServlet {
 				
 			}
 			json += "]";
-			json = json.replace(", ]", "]");			
-			response.getOutputStream().println(json);
+			json = json.replace(", ]", "]");	
+			response.setCharacterEncoding("UTF-8");
+			response.getWriter().println(json);
 				
 		} else {
 			response.sendError(404);
