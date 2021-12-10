@@ -1735,7 +1735,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		initEOperation(getCompletePattern__GetAbstractionLevel(), this.getAbstractionLevel(), "getAbstractionLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getCompletePattern__ValidateAgainstSchema(), theParametersPackage.getParameter(), "validateAgainstSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getCompletePattern__ValidateAgainstSchema(), theParametersPackage.getParameter(), "validateAgainstSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
 
 		initEOperation(getCompletePattern__ResetQuery(), null, "resetQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
 

@@ -397,10 +397,10 @@ public interface CompletePattern extends Pattern {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	EList<Parameter> validateAgainstSchema();
+	EList<Parameter> validateAgainstSchema() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

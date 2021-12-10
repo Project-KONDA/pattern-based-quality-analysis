@@ -476,7 +476,9 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated NOT
 	 */
 	@Override
-	public EList<Parameter> validateAgainstSchema() {
+	public EList<Parameter> validateAgainstSchema() throws InvalidityException {
+		if (this.getDatabase() == null)
+			throw new InvalidityException("Pattern has no Database assigned!");
 		return getParameterList().validateAgainstSchema();
 	}
 
@@ -1178,7 +1180,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL:
 				return getAbstractionLevel();
 			case PatternstructurePackage.COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA:
-				return validateAgainstSchema();
+				try {
+					return validateAgainstSchema();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case PatternstructurePackage.COMPLETE_PATTERN___RESET_QUERY:
 				resetQuery();
 				return null;

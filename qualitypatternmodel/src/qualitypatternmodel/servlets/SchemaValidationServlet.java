@@ -33,29 +33,32 @@ public class SchemaValidationServlet extends HttpServlet {
 		
 		if(fileURL != null && folderURL != null) {
 			CompletePattern pattern = EMFModelLoad.loadCompletePattern(fileURL.toString());			
-				
-			EList<Parameter> problematicParams = pattern.validateAgainstSchema();
-			if(problematicParams.isEmpty()) {
-				response.getOutputStream().println("Successfully validated concrete pattern '" + name + "' against its XML schema.");
-			} else {
-				String result = "[";
-				for(Parameter p : problematicParams) {					
-					int parameterID = p.getParameterList().getParameters().indexOf(p);
-					String url = "/concrete-patterns/parameter/" + name + "/" + Integer.toString(parameterID);					
-					result += "{\"URL\":";
-					result += "\"" + url + "\"}, ";					
-				}
-				result += "]";
-				result = result.replace(", ]", "]");
-				response.getOutputStream().println(result);
+			
+			EList<Parameter> problematicParams;
+			try {
+				problematicParams = pattern.validateAgainstSchema();
+				if(problematicParams.isEmpty()) {
+					response.getOutputStream().println("Successfully validated concrete pattern '" + name + "' against its XML schema.");
+				} else {
+					String result = "[";
+					for(Parameter p : problematicParams) {					
+						int parameterID = p.getParameterList().getParameters().indexOf(p);
+						String url = "/concrete-patterns/parameter/" + name + "/" + Integer.toString(parameterID);					
+						result += "{\"URL\":";
+						result += "\"" + url + "\"}, ";					
+					}
+					result += "]";
+					result = result.replace(", ]", "]");
+					response.getOutputStream().println(result);
+				}				
+			} catch (InvalidityException e) {
+				response.sendError(404);
+				response.getOutputStream().println("{ \"error\": \"Concrete pattern has no database assigned\"}");				
 			}						
 			
 		} else {
 			response.sendError(404);
 			response.getOutputStream().println("{ \"error\": \"Concrete pattern not found\"}");
 		}
-		
 	}
-
-
 }
