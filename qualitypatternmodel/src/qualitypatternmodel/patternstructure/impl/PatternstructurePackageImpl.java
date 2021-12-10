@@ -1083,6 +1083,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getPatternElement__InitializeTranslation() {
+		return patternElementEClass.getEOperations().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNotCondition() {
 		return notConditionEClass;
 	}
@@ -1534,6 +1544,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___INITIALIZE_TRANSLATION);
 
 		notConditionEClass = createEClass(NOT_CONDITION);
 		createEReference(notConditionEClass, NOT_CONDITION__CONDITION);
@@ -1796,6 +1807,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		op = initEOperation(getPatternElement__UpdateParameters__ParameterList(), null, "updateParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theParametersPackage.getParameterList(), "newParameterList", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPatternElement__InitializeTranslation(), null, "initializeTranslation", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(notConditionEClass, NotCondition.class, "NotCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNotCondition_Condition(), this.getCondition(), this.getCondition_NotCondition(), "condition", null, 0, 1, NotCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

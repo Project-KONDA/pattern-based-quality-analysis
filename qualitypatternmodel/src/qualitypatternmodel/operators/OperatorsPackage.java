@@ -289,6 +289,15 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.COMPARABLE___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___INITIALIZE_TRANSLATION = GraphstructurePackage.COMPARABLE___INITIALIZE_TRANSLATION;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -612,6 +621,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___INITIALIZE_TRANSLATION = OPERATOR___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -955,6 +973,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST = OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___INITIALIZE_TRANSLATION = OPERATOR___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1307,6 +1334,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH___UPDATE_PARAMETERS__PARAMETERLIST = BOOLEAN_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___INITIALIZE_TRANSLATION = BOOLEAN_OPERATOR___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1715,6 +1751,15 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON___UPDATE_PARAMETERS__PARAMETERLIST = BOOLEAN_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___INITIALIZE_TRANSLATION = BOOLEAN_OPERATOR___INITIALIZE_TRANSLATION;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2083,6 +2128,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR_LIST___UPDATE_PARAMETERS__PARAMETERLIST = PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___INITIALIZE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Add</em>' operation.

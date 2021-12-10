@@ -235,6 +235,14 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void initializeTranslation();
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Returns the <code>PatternElement</code> which directly contains <code>this</code>.
 	 * 
 	 * @return the <code>PatternElement</code> which directly contains <code>this</code>

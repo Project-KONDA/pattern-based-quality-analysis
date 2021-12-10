@@ -154,6 +154,13 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		}
 		return result;
 	}
+	
+	@Override
+	public void initializeTranslation() {
+		for(Element element : getElements()) {	
+			element.initializeTranslation();
+		}
+	}
 
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)

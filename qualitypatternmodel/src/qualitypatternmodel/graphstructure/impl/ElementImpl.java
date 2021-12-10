@@ -264,6 +264,11 @@ public class ElementImpl extends PatternElementImpl implements Element {
 		}
 //		getIncomingMapping().getMorphism().getMappings().remove(getIncomingMapping());
 	}
+		
+	@Override
+	public void initializeTranslation() {
+		setTranslated(false);
+	}
 
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)

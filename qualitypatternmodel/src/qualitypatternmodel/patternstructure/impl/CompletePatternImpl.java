@@ -375,6 +375,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 
 	@Override
 	public String generateQuery() throws InvalidityException {
+		initializeTranslation();
 		String res = getParameterList().generateQuery();
 		res += super.generateQuery();
 		return res;

@@ -130,6 +130,16 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		return result;
 
 	}
+	
+	@Override
+	public void initializeTranslation() {
+		if(getGraph() != null) {
+			getGraph().initializeTranslation();
+		}
+		if(getCondition() != null) {
+			getCondition().initializeTranslation();
+		}
+	}
 
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)

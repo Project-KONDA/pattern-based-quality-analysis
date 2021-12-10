@@ -117,6 +117,16 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	protected PatternImpl() {
 		super();
 	}
+	
+	@Override
+	public void initializeTranslation() {
+		if(getGraph() != null) {
+			getGraph().initializeTranslation();
+		}
+		if(getCondition() != null) {
+			getCondition().initializeTranslation();
+		}
+	}
 
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel)

@@ -268,13 +268,22 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = 18;
 
 	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___INITIALIZE_TRANSLATION = 19;
+
+	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 19;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 20;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.MappingImpl <em>Mapping</em>}' class.
@@ -492,6 +501,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MAPPING___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___INITIALIZE_TRANSLATION = PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The number of operations of the '<em>Mapping</em>' class.
@@ -736,6 +754,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_MAPPING___UPDATE_PARAMETERS__PARAMETERLIST = MAPPING___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___INITIALIZE_TRANSLATION = MAPPING___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The number of operations of the '<em>Relation Mapping</em>' class.
@@ -998,6 +1025,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___INITIALIZE_TRANSLATION = PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -1307,6 +1343,15 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___UPDATE_PARAMETERS__PARAMETERLIST = CONDITION___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___INITIALIZE_TRANSLATION = CONDITION___INITIALIZE_TRANSLATION;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1594,6 +1639,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___INITIALIZE_TRANSLATION = PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Check Element Mappings</em>' operation.
@@ -1903,6 +1957,15 @@ public interface PatternstructurePackage extends EPackage {
 	int ELEMENT_MAPPING___UPDATE_PARAMETERS__PARAMETERLIST = MAPPING___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING___INITIALIZE_TRANSLATION = MAPPING___INITIALIZE_TRANSLATION;
+
+	/**
 	 * The number of operations of the '<em>Element Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2192,6 +2255,15 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___UPDATE_PARAMETERS__PARAMETERLIST = CONDITION___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___INITIALIZE_TRANSLATION = CONDITION___INITIALIZE_TRANSLATION;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2463,6 +2535,15 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = CONDITION___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___INITIALIZE_TRANSLATION = CONDITION___INITIALIZE_TRANSLATION;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2723,6 +2804,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PATTERN___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___INITIALIZE_TRANSLATION = PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
@@ -3113,6 +3203,15 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___INITIALIZE_TRANSLATION = PATTERN___INITIALIZE_TRANSLATION;
+
+	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3438,6 +3537,15 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION___UPDATE_PARAMETERS__PARAMETERLIST = CONDITION___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___INITIALIZE_TRANSLATION = CONDITION___INITIALIZE_TRANSLATION;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3736,6 +3844,15 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___UPDATE_PARAMETERS__PARAMETERLIST = CONDITION___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___INITIALIZE_TRANSLATION = CONDITION___INITIALIZE_TRANSLATION;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3989,6 +4106,15 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___INITIALIZE_TRANSLATION = PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
+
+	/**
 	 * The number of operations of the '<em>Count Condition Argument</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4213,6 +4339,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM_CONTAINER___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___INITIALIZE_TRANSLATION = PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Graph</em>' operation.
@@ -4513,6 +4648,15 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN___UPDATE_PARAMETERS__PARAMETERLIST = PATTERN___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___INITIALIZE_TRANSLATION = PATTERN___INITIALIZE_TRANSLATION;
+
+	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4773,6 +4917,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = COUNT_CONDITION_ARGUMENT___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___INITIALIZE_TRANSLATION = COUNT_CONDITION_ARGUMENT___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -5647,6 +5800,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__UpdateParameters__ParameterList();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#initializeTranslation() <em>Initialize Translation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Initialize Translation</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#initializeTranslation()
+	 * @generated
+	 */
+	EOperation getPatternElement__InitializeTranslation();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.NotCondition <em>Not Condition</em>}'.
@@ -6653,6 +6816,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = eINSTANCE.getPatternElement__UpdateParameters__ParameterList();
+
+		/**
+		 * The meta object literal for the '<em><b>Initialize Translation</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___INITIALIZE_TRANSLATION = eINSTANCE.getPatternElement__InitializeTranslation();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.NotConditionImpl <em>Not Condition</em>}' class.

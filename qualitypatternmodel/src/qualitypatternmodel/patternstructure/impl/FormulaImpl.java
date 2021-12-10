@@ -141,6 +141,17 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	@Override
+	public void initializeTranslation() {
+
+		if(getCondition1() != null) {
+			getCondition1().initializeTranslation();
+		}
+		if(getCondition2() != null) {
+			getCondition2().initializeTranslation();
+		}
+	}
+
+	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
 		

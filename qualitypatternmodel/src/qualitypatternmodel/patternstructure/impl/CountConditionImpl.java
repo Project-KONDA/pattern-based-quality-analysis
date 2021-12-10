@@ -105,6 +105,16 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	@Override
+	public void initializeTranslation() {
+		if(getCountPattern() != null) {
+			getCountPattern().initializeTranslation();
+		}
+		if(getArgument2() != null) {
+			getArgument2().initializeTranslation();
+		}
+	}
+	
+	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);

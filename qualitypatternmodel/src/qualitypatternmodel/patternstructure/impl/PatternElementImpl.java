@@ -300,6 +300,16 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void initializeTranslation() {
+
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @throws MissingPatternContainerException 
 	 * @throws Exception 
@@ -569,6 +579,9 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				return null;
 			case PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST:
 				updateParameters((ParameterList)arguments.get(0));
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___INITIALIZE_TRANSLATION:
+				initializeTranslation();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

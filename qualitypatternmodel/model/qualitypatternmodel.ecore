@@ -611,6 +611,7 @@
       <eOperations name="updateParameters">
         <eParameters name="newParameterList" eType="#//parameters/ParameterList"/>
       </eOperations>
+      <eOperations name="initializeTranslation"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalId" lowerBound="1"
