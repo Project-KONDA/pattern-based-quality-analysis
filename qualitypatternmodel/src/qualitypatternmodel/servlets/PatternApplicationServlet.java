@@ -50,6 +50,8 @@ public class PatternApplicationServlet extends HttpServlet {
 						json += "{";
 						json += "\"Pattern\":";
 						json += "\"" + patternName + "\", ";
+						json += "\"Count\":";
+						json += "\"" + result.getProblemNumber() + "\", ";
 						json += "\"Results\":";
 						
 						json += "[";
@@ -65,9 +67,7 @@ public class PatternApplicationServlet extends HttpServlet {
 							json += "\"" + escaped +"\", ";
 						}
 						json += "], ";
-						json = json.replace(", ]", "]");						
-						json += "\"Count\":";
-						json += "\"" + result.getProblemNumber() + "\", ";
+						json = json.replace(", ]", "]");		
 						json += "\"Runtime\":";
 						String time = String.format("%d min, %d sec, %d msec", 
 							    TimeUnit.MILLISECONDS.toMinutes(result.getRuntime()),
