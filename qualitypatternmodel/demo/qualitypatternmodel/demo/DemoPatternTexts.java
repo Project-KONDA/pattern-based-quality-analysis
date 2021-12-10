@@ -77,7 +77,7 @@ public class DemoPatternTexts {
 		
 		CompletePattern compTextLidoConcrete = getConcreteLidoCompTextPatternWithText();
 		compTextLidoConcrete.isValid(AbstractionLevel.CONCRETE);
-		EMFModelSave.exportToFile(compTextLidoConcrete,"instances/demo_with_texts/comp_lido_text_concrete", "patternstructure");	
+		EMFModelSave.exportToFile(compTextLidoConcrete,"instances/demo_with_texts/comp_lido_concrete", "patternstructure");	
 		
 		// ------------- COMP DATE ----------------
 		

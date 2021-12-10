@@ -149,7 +149,7 @@ public class DemoPatterns {
 		EMFModelSave.exportToFile(compTextConcrete,"instances/demo/comp_text_concrete", "patternstructure");
 		
 		CompletePattern compTextLidoConcrete = getConcreteLidoCompTextPattern(database);			
-		EMFModelSave.exportToFile(compTextLidoConcrete,"instances/demo/comp_lido_text_concrete", "patternstructure");
+		EMFModelSave.exportToFile(compTextLidoConcrete,"instances/demo/comp_lido_concrete", "patternstructure");
 		
 		CompletePattern cardGeneric = getGenericCardPattern();
 		EMFModelSave.exportToFile(cardGeneric,"instances/demo/card_generic", "patternstructure");
