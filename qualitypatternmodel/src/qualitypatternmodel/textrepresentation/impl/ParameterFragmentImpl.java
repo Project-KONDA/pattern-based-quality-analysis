@@ -219,9 +219,14 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			json += ", \"Value\": " + value + "";
 		}
 		if(exampleValue != null) {
-			if(!(parameter instanceof TextListParamImpl) && !(parameter instanceof NumberParamImpl) && !(parameter instanceof BooleanParamImpl)) {
-				exampleValue = "\"" + exampleValue + "\"";
-			}
+			try {
+				Double.parseDouble(exampleValue);
+				Integer.parseInt(exampleValue);				
+			} catch (NumberFormatException e) {
+				if(!(exampleValue.equals("true") || exampleValue.equals("false") || exampleValue.matches("^\\[(\".*\",( )?)*(\".*\"(,)?( )?)?\\]$"))) {					
+					exampleValue = "\"" + exampleValue + "\"";
+				}
+			}			
 			json += ", \"ExampleValue\": " + exampleValue + "";
 		}
 		if(type.equals("Enumeration")) {
