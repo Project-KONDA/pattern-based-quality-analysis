@@ -193,7 +193,7 @@ public class DemoPatternTexts {
 		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
 		PropertyOptionParam option = property0.getOption();
-		paramPredef0.setValue(PropertyKind.TAG.toString());
+		paramPredef0.setValue(PropertyKind.TAG.getName());
 		paramPredef0.getParameter().add(option);
 		
 		// <value>
@@ -459,7 +459,7 @@ public class DemoPatternTexts {
 		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
 		PropertyOptionParam option = property0.getOption();
-		paramPredef0.setValue(PropertyKind.TAG.toString());
+		paramPredef0.setValue(PropertyKind.TAG.getName());
 		paramPredef0.getParameter().add(option);
 		
 		// <value>
@@ -1206,13 +1206,19 @@ public class DemoPatternTexts {
 		
 		
 		// Context graph of pattern:
+		// <relation> descendant
+		ParameterPredefinition paramPredef00 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
+		XmlNavigation navigationElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		RelationOptionParam option00 = navigationElement0.getOption();
+		paramPredef00.setValue(RelationKind.DESCENDANT.getName());
+		paramPredef00.getParameter().add(option00);
 		
 		// <property> name
 		ParameterPredefinition paramPredef0 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
 		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
 		PropertyOptionParam option = property0.getOption();
-		paramPredef0.setValue(PropertyKind.TAG.toString());
+		paramPredef0.setValue(PropertyKind.TAG.getName());
 		paramPredef0.getParameter().add(option);
 		
 //		// <comp>
@@ -1238,7 +1244,7 @@ public class DemoPatternTexts {
 		// <comp> = 
 		ParameterPredefinition paramPredef2 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		ComparisonOptionParam option2 = countCondition.getOption();
-		paramPredef2.setValue(ComparisonOperator.GREATER.toString());
+		paramPredef2.setValue(ComparisonOperator.GREATER.getName());
 		paramPredef2.getParameter().add(option2);
 		
 		
@@ -1255,7 +1261,7 @@ public class DemoPatternTexts {
 		ParameterPredefinition paramPredef4 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) countPattern.getGraph().getRelations().get(0);
 		RelationOptionParam option4 = navigationElement0Element1.getOption();
-		paramPredef4.setValue(RelationKind.CHILD.toString());
+		paramPredef4.setValue(RelationKind.CHILD.getName());
 		paramPredef4.getParameter().add(option4);
 		
 		
@@ -1263,7 +1269,7 @@ public class DemoPatternTexts {
 		ParameterPredefinition paramPredef1 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
 		XmlElement element1 = (XmlElement) countPattern.getGraph().getElements().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		paramPredef1.setValue(PropertyKind.TAG.toString());
+		paramPredef1.setValue(PropertyKind.TAG.getName());
 		paramPredef1.getParameter().add(property1.getOption());
 	
 		
@@ -1275,6 +1281,7 @@ public class DemoPatternTexts {
 		param8.setName("tag_name_child");
 		param8.setExampleValue(DEMO_NAMESPACE + "birthyear");
 				
+		patternText.getParameterPredefinitions().add(paramPredef00); // descendant
 		patternText.addFragment(text0);  // Is there a
 		patternText.getParameterPredefinitions().add(paramPredef0); // tag
 		patternText.addFragment(param2); // <tag_name_parent>		
