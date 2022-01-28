@@ -78,14 +78,7 @@ public class ConcretisationServlet extends HttpServlet {
 				} else if(values.length == 1) {
 					try {
 						parameter.setValueFromString(values[0]);
-						EMFModelSave.exportToFile(pattern, folderURL.toString() + name, "patternstructure");
-						if (true) {
-							if(!parameter.getValueAsString().equals(values[0]))
-								throw new Exception("Parameter not set");
-							CompletePattern pattern2 = EMFModelLoad.loadCompletePattern(folderURL.toString() + name);
-							if(!pattern2.getParameterList().getParameters().get(parameterIDInt).getValueAsString().equals(values[0]))
-								throw new Exception("Parameter not saved correctly");
-						}												
+						EMFModelSave.exportToFile(pattern, folderURL.toString() + name, "patternstructure");											
 						response.getOutputStream().println("Successfully set parameter '" + parameterID + "' of concrete pattern with name '" + name + "' to value '" + values[0] + "' .");
 					} catch (InvalidityException e) {
 						response.sendError(400);
