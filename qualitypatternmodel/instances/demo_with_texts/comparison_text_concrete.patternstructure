@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="ASCII"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" xmlns:textrepresentation="textrepresentation" id="_z7w-8IASEey8oNmiEcyIPg" internalId="1" name="comparison_text_concrete" adaptionStarted="true" adaptionFinalized="true" propertyCounter="4" relationCounter="2" counter="2" description="Detect architects born after 2020" abstractName="comparison_text_abstract">
+  <graph id="_z7w-8oASEey8oNmiEcyIPg" returnElements="_z7xmCIASEey8oNmiEcyIPg" outgoingMorphisms="_z7w-_oASEey8oNmiEcyIPg">
+    <elements xsi:type="adaptionxml:XmlElement" id="_z7xmCIASEey8oNmiEcyIPg" outgoingMappings="_z7w_AIASEey8oNmiEcyIPg" resultOf="_z7w-8oASEey8oNmiEcyIPg" name="Element0" predicates="_z7w-9YASEey8oNmiEcyIPg" incoming="_z7xmGoASEey8oNmiEcyIPg">
+      <properties xsi:type="adaptionxml:XmlProperty" id="_z7xmBYASEey8oNmiEcyIPg" comparison1="_z7w-9YASEey8oNmiEcyIPg" name="XmlProperty 1" option="_z7xmCYASEey8oNmiEcyIPg" attributeName="_z7xmCoASEey8oNmiEcyIPg"/>
+    </elements>
+    <elements xsi:type="adaptionxml:XmlRoot" id="_z7xmGYASEey8oNmiEcyIPg" outgoingMappings="_z7yNEYASEey8oNmiEcyIPg" name="Root" outgoing="_z7xmGoASEey8oNmiEcyIPg"/>
+    <operatorList id="_z7w-84ASEey8oNmiEcyIPg">
+      <operators xsi:type="operators:Comparison" id="_z7w-9YASEey8oNmiEcyIPg" elements="_z7xmCIASEey8oNmiEcyIPg" argument1="_z7xmBYASEey8oNmiEcyIPg" argument2="_z7w--oASEey8oNmiEcyIPg" option="_z7w--IASEey8oNmiEcyIPg" typeOption="_z7w--YASEey8oNmiEcyIPg"/>
+    </operatorList>
+    <relations xsi:type="adaptionxml:XmlNavigation" id="_z7xmGoASEey8oNmiEcyIPg" outgoingMappings="_z7yNFIASEey8oNmiEcyIPg" source="_z7xmGYASEey8oNmiEcyIPg" target="_z7xmCIASEey8oNmiEcyIPg" option="_z7xmG4ASEey8oNmiEcyIPg"/>
+  </graph>
+  <condition xsi:type="patternstructure:QuantifiedCondition" id="_z7w--4ASEey8oNmiEcyIPg">
+    <morphism id="_z7w-_oASEey8oNmiEcyIPg" source="_z7w-8oASEey8oNmiEcyIPg" target="_z7w-_IASEey8oNmiEcyIPg">
+      <mappings xsi:type="patternstructure:ElementMapping" id="_z7w_AIASEey8oNmiEcyIPg" source="_z7xmCIASEey8oNmiEcyIPg" target="_z7xmC4ASEey8oNmiEcyIPg"/>
+      <mappings xsi:type="patternstructure:ElementMapping" id="_z7yNEYASEey8oNmiEcyIPg" source="_z7xmGYASEey8oNmiEcyIPg" target="_z7yNEIASEey8oNmiEcyIPg"/>
+      <mappings xsi:type="patternstructure:RelationMapping" id="_z7yNFIASEey8oNmiEcyIPg" target="_z7yNEoASEey8oNmiEcyIPg" source="_z7xmGoASEey8oNmiEcyIPg"/>
+    </morphism>
+    <graph id="_z7w-_IASEey8oNmiEcyIPg" returnElements="_z7xmC4ASEey8oNmiEcyIPg" incomingMorphism="_z7w-_oASEey8oNmiEcyIPg">
+      <elements xsi:type="adaptionxml:XmlElement" id="_z7xmC4ASEey8oNmiEcyIPg" incomingMapping="_z7w_AIASEey8oNmiEcyIPg" resultOf="_z7w-_IASEey8oNmiEcyIPg" name="Element0" outgoing="_z7xmF4ASEey8oNmiEcyIPg" incoming="_z7yNEoASEey8oNmiEcyIPg"/>
+      <elements xsi:type="adaptionxml:XmlElement" id="_z7xmEoASEey8oNmiEcyIPg" name="Element1" predicates="_z7w_A4ASEey8oNmiEcyIPg _z7w_CYASEey8oNmiEcyIPg" incoming="_z7xmF4ASEey8oNmiEcyIPg">
+        <properties xsi:type="adaptionxml:XmlProperty" id="_z7xmDIASEey8oNmiEcyIPg" comparison1="_z7w_A4ASEey8oNmiEcyIPg" name="XmlProperty 2" option="_z7xmE4ASEey8oNmiEcyIPg" attributeName="_z7xmFIASEey8oNmiEcyIPg"/>
+        <properties xsi:type="adaptionxml:XmlProperty" id="_z7xmD4ASEey8oNmiEcyIPg" comparison1="_z7w_CYASEey8oNmiEcyIPg" name="XmlProperty 3" option="_z7xmFYASEey8oNmiEcyIPg" attributeName="_z7xmFoASEey8oNmiEcyIPg"/>
+      </elements>
+      <elements xsi:type="adaptionxml:XmlRoot" id="_z7yNEIASEey8oNmiEcyIPg" incomingMapping="_z7yNEYASEey8oNmiEcyIPg" name="Root" outgoing="_z7yNEoASEey8oNmiEcyIPg"/>
+      <operatorList id="_z7w-_YASEey8oNmiEcyIPg">
+        <operators xsi:type="operators:Comparison" id="_z7w_A4ASEey8oNmiEcyIPg" elements="_z7xmEoASEey8oNmiEcyIPg" argument1="_z7xmDIASEey8oNmiEcyIPg" argument2="_z7w_CIASEey8oNmiEcyIPg" option="_z7w_BoASEey8oNmiEcyIPg" typeOption="_z7w_B4ASEey8oNmiEcyIPg"/>
+        <operators xsi:type="operators:Comparison" id="_z7w_CYASEey8oNmiEcyIPg" elements="_z7xmEoASEey8oNmiEcyIPg" argument1="_z7xmD4ASEey8oNmiEcyIPg" argument2="_z7yNFYASEey8oNmiEcyIPg" option="_z7xmAoASEey8oNmiEcyIPg" typeOption="_z7xmA4ASEey8oNmiEcyIPg"/>
+      </operatorList>
+      <relations xsi:type="adaptionxml:XmlNavigation" id="_z7xmF4ASEey8oNmiEcyIPg" source="_z7xmC4ASEey8oNmiEcyIPg" target="_z7xmEoASEey8oNmiEcyIPg" name="XmlNavigation 1" option="_z7xmGIASEey8oNmiEcyIPg"/>
+      <relations xsi:type="adaptionxml:XmlNavigation" id="_z7yNEoASEey8oNmiEcyIPg" incomingMapping="_z7yNFIASEey8oNmiEcyIPg" source="_z7yNEIASEey8oNmiEcyIPg" target="_z7xmC4ASEey8oNmiEcyIPg"/>
+    </graph>
+    <condition xsi:type="patternstructure:TrueElement" id="_z7xmBIASEey8oNmiEcyIPg"/>
+  </condition>
+  <parameterList id="_z7w-8YASEey8oNmiEcyIPg">
+    <parameters xsi:type="parameters:TextLiteralParam" id="_z7w--oASEey8oNmiEcyIPg" parameterReferences="//@text.0/@fragments.1" comparison2="_z7w-9YASEey8oNmiEcyIPg" typeModifiable="true" value="demo:architect"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_z7w--IASEey8oNmiEcyIPg" predefined="true" comparisons="_z7w-9YASEey8oNmiEcyIPg">
+      <options>=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_z7w--YASEey8oNmiEcyIPg" predefined="true" value="STRING" typeComparisons="_z7w-9YASEey8oNmiEcyIPg">
+      <options>UNSPECIFIED</options>
+      <options>STRING</options>
+      <options>BOOLEAN</options>
+      <options>ELEMENT</options>
+      <options>DATE</options>
+      <options>TIME</options>
+      <options>NUMBER</options>
+      <options>DATETIME</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_z7w_CIASEey8oNmiEcyIPg" parameterReferences="//@text.0/@fragments.3" comparison2="_z7w_A4ASEey8oNmiEcyIPg" typeModifiable="true" value="demo:birthyear"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_z7w_BoASEey8oNmiEcyIPg" predefined="true" comparisons="_z7w_A4ASEey8oNmiEcyIPg">
+      <options>=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_z7w_B4ASEey8oNmiEcyIPg" predefined="true" value="STRING" typeComparisons="_z7w_A4ASEey8oNmiEcyIPg">
+      <options>UNSPECIFIED</options>
+      <options>STRING</options>
+      <options>BOOLEAN</options>
+      <options>ELEMENT</options>
+      <options>DATE</options>
+      <options>TIME</options>
+      <options>NUMBER</options>
+      <options>DATETIME</options>
+    </parameters>
+    <parameters xsi:type="parameters:NumberParam" id="_z7yNFYASEey8oNmiEcyIPg" parameterReferences="//@text.0/@fragments.9" comparison2="_z7w_CYASEey8oNmiEcyIPg" typeModifiable="true" value="2020.0"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_z7xmAoASEey8oNmiEcyIPg" parameterReferences="//@text.0/@fragments.8" value=">" comparisons="_z7w_CYASEey8oNmiEcyIPg">
+      <options>=</options>
+      <options>!=</options>
+      <options>></options>
+      <options>&lt;</options>
+      <options>>=</options>
+      <options>&lt;=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_z7xmA4ASEey8oNmiEcyIPg" predefined="true" value="NUMBER" typeComparisons="_z7w_CYASEey8oNmiEcyIPg">
+      <options>UNSPECIFIED</options>
+      <options>STRING</options>
+      <options>BOOLEAN</options>
+      <options>ELEMENT</options>
+      <options>DATE</options>
+      <options>TIME</options>
+      <options>NUMBER</options>
+      <options>DATETIME</options>
+    </parameters>
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_z7xmCYASEey8oNmiEcyIPg" parameterReferences="//@text.0/@parameterPredefinitions.1" value="TAG" properties="_z7xmBYASEey8oNmiEcyIPg">
+      <options>TAG</options>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_z7xmCoASEey8oNmiEcyIPg" properties="_z7xmBYASEey8oNmiEcyIPg"/>
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_z7xmE4ASEey8oNmiEcyIPg" parameterReferences="//@text.0/@parameterPredefinitions.2" value="TAG" properties="_z7xmDIASEey8oNmiEcyIPg">
+      <options>TAG</options>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_z7xmFIASEey8oNmiEcyIPg" properties="_z7xmDIASEey8oNmiEcyIPg"/>
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_z7xmFYASEey8oNmiEcyIPg" parameterReferences="//@text.0/@fragments.5" properties="_z7xmD4ASEey8oNmiEcyIPg">
+      <options>TAG</options>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_z7xmFoASEey8oNmiEcyIPg" parameterReferences="//@text.0/@fragments.6" properties="_z7xmD4ASEey8oNmiEcyIPg"/>
+    <parameters xsi:type="parameters:RelationOptionParam" id="_z7xmGIASEey8oNmiEcyIPg" parameterReferences="//@text.0/@parameterPredefinitions.3" relations="_z7xmF4ASEey8oNmiEcyIPg">
+      <options>/child::*</options>
+      <options>/descendant::*</options>
+      <options>/parent::*</options>
+      <options>/ancestor::*</options>
+      <options>/following::*</options>
+      <options>/following-sibling::*</options>
+      <options>/preceding::*</options>
+      <options>/preceding-sibling::*</options>
+      <options>/ancestor-or-self::*</options>
+      <options>/descendant-or-self::*</options>
+      <options>/self::*</options>
+      <options>/*/*</options>
+      <options>/*/*/*</options>
+      <options>/*/*/*/*</options>
+      <options>/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*/*/*</options>
+    </parameters>
+    <parameters xsi:type="parameters:RelationOptionParam" id="_z7xmG4ASEey8oNmiEcyIPg" parameterReferences="//@text.0/@parameterPredefinitions.0" value="/descendant::*" relations="_z7xmGoASEey8oNmiEcyIPg">
+      <options>/child::*</options>
+      <options>/descendant::*</options>
+      <options>/parent::*</options>
+      <options>/ancestor::*</options>
+      <options>/following::*</options>
+      <options>/following-sibling::*</options>
+      <options>/preceding::*</options>
+      <options>/preceding-sibling::*</options>
+      <options>/ancestor-or-self::*</options>
+      <options>/descendant-or-self::*</options>
+      <options>/self::*</options>
+      <options>/*/*</options>
+      <options>/*/*/*</options>
+      <options>/*/*/*/*</options>
+      <options>/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*/*/*</options>
+    </parameters>
+  </parameterList>
+  <text name="parent_with_child_with_propery" fragmentsOrdered="//@text.0/@fragments.0 //@text.0/@fragments.1 //@text.0/@fragments.2 //@text.0/@fragments.3 //@text.0/@fragments.4 //@text.0/@fragments.5 //@text.0/@fragments.6 //@text.0/@fragments.7 //@text.0/@fragments.8 //@text.0/@fragments.9 //@text.0/@fragments.10">
+    <fragments xsi:type="textrepresentation:TextFragment" text="Is there a"/>
+    <fragments xsi:type="textrepresentation:ParameterFragment" parameter="_z7w--oASEey8oNmiEcyIPg" exampleValue="demo:building" name="tag_name_parent"/>
+    <fragments xsi:type="textrepresentation:TextFragment" text="that has a"/>
+    <fragments xsi:type="textrepresentation:ParameterFragment" parameter="_z7w_CIASEey8oNmiEcyIPg" exampleValue="demo:creator" name="tag_name_child"/>
+    <fragments xsi:type="textrepresentation:TextFragment" text="child whose"/>
+    <fragments xsi:type="textrepresentation:ParameterFragment" parameter="_z7xmFYASEey8oNmiEcyIPg" exampleValue="ATTRIBUTE" name="property"/>
+    <fragments xsi:type="textrepresentation:ParameterFragment" parameter="_z7xmFoASEey8oNmiEcyIPg" exampleValue="demo:last-modified-date" name="attribute_name"/>
+    <fragments xsi:type="textrepresentation:TextFragment" text="is"/>
+    <fragments xsi:type="textrepresentation:ParameterFragment" parameter="_z7xmAoASEey8oNmiEcyIPg" exampleValue="GREATER" name="comparison_operator"/>
+    <fragments xsi:type="textrepresentation:ParameterFragment" parameter="_z7yNFYASEey8oNmiEcyIPg" exampleValue="2022-01-01" name="value"/>
+    <fragments xsi:type="textrepresentation:TextFragment" text="?"/>
+    <parameterPredefinitions parameter="_z7xmG4ASEey8oNmiEcyIPg" value="DESCENDANT"/>
+    <parameterPredefinitions parameter="_z7xmCYASEey8oNmiEcyIPg" value="TAG"/>
+    <parameterPredefinitions parameter="_z7xmE4ASEey8oNmiEcyIPg" value="TAG"/>
+    <parameterPredefinitions parameter="_z7xmGIASEey8oNmiEcyIPg" value="CHILD"/>
+  </text>
+</patternstructure:CompletePattern>
