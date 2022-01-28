@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="ASCII"?>
+<patternstructure:CompletePattern xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adaptionxml="adaptionxml" xmlns:execution="execution" xmlns:operators="operators" xmlns:parameters="parameters" xmlns:patternstructure="patternstructure" id="_mvcHkIASEeya-rNCXluqEA" internalId="1" name="cardinality_concrete" adaptionStarted="true" adaptionFinalized="true" propertyCounter="3" relationCounter="2" counter="2" description="Detect artists with multiple birth years" abstractName="cardinality_abstract">
+  <graph id="_mvcHkoASEeya-rNCXluqEA" returnElements="_mvcuo4ASEeya-rNCXluqEA" outgoingMorphisms="_mvcHnYASEeya-rNCXluqEA">
+    <elements xsi:type="adaptionxml:XmlElement" id="_mvcuo4ASEeya-rNCXluqEA" outgoingMappings="_mvcHoYASEeya-rNCXluqEA" resultOf="_mvcHkoASEeya-rNCXluqEA" name="Element0" predicates="_mvcHlYASEeya-rNCXluqEA" incoming="_mvcusIASEeya-rNCXluqEA">
+      <properties xsi:type="adaptionxml:XmlProperty" id="_mvcuoIASEeya-rNCXluqEA" comparison1="_mvcHlYASEeya-rNCXluqEA" name="XmlProperty 1" option="_mvcupIASEeya-rNCXluqEA" attributeName="_mvcupYASEeya-rNCXluqEA"/>
+    </elements>
+    <elements xsi:type="adaptionxml:XmlRoot" id="_mvcur4ASEeya-rNCXluqEA" outgoingMappings="_mvcus4ASEeya-rNCXluqEA" name="Root" outgoing="_mvcusIASEeya-rNCXluqEA"/>
+    <operatorList id="_mvcHk4ASEeya-rNCXluqEA">
+      <operators xsi:type="operators:Comparison" id="_mvcHlYASEeya-rNCXluqEA" elements="_mvcuo4ASEeya-rNCXluqEA" argument1="_mvcuoIASEeya-rNCXluqEA" argument2="_mvcut4ASEeya-rNCXluqEA" option="_mvcHmIASEeya-rNCXluqEA" typeOption="_mvcHmYASEeya-rNCXluqEA"/>
+    </operatorList>
+    <relations xsi:type="adaptionxml:XmlNavigation" id="_mvcusIASEeya-rNCXluqEA" outgoingMappings="_mvcutoASEeya-rNCXluqEA" source="_mvcur4ASEeya-rNCXluqEA" target="_mvcuo4ASEeya-rNCXluqEA" option="_mvcusYASEeya-rNCXluqEA"/>
+  </graph>
+  <condition xsi:type="patternstructure:CountCondition" id="_mvcHmoASEeya-rNCXluqEA" option="_mvcHm4ASEeya-rNCXluqEA">
+    <countPattern id="_mvcHnIASEeya-rNCXluqEA">
+      <graph id="_mvcHnoASEeya-rNCXluqEA" returnElements="_mvcupoASEeya-rNCXluqEA" incomingMorphism="_mvcHnYASEeya-rNCXluqEA">
+        <elements xsi:type="adaptionxml:XmlElement" id="_mvcupoASEeya-rNCXluqEA" incomingMapping="_mvcHoYASEeya-rNCXluqEA" resultOf="_mvcHnoASEeya-rNCXluqEA" name="Element0" outgoing="_mvcurYASEeya-rNCXluqEA" incoming="_mvcutIASEeya-rNCXluqEA"/>
+        <elements xsi:type="adaptionxml:XmlElement" id="_mvcuqoASEeya-rNCXluqEA" name="Element1" predicates="_mvcHqIASEeya-rNCXluqEA" incoming="_mvcurYASEeya-rNCXluqEA">
+          <properties xsi:type="adaptionxml:XmlProperty" id="_mvcup4ASEeya-rNCXluqEA" comparison1="_mvcHqIASEeya-rNCXluqEA" name="XmlProperty 2" option="_mvcuq4ASEeya-rNCXluqEA" attributeName="_mvcurIASEeya-rNCXluqEA"/>
+        </elements>
+        <elements xsi:type="adaptionxml:XmlRoot" id="_mvcusoASEeya-rNCXluqEA" incomingMapping="_mvcus4ASEeya-rNCXluqEA" name="Root" outgoing="_mvcutIASEeya-rNCXluqEA"/>
+        <operatorList id="_mvcHn4ASEeya-rNCXluqEA">
+          <operators xsi:type="operators:Comparison" id="_mvcHqIASEeya-rNCXluqEA" elements="_mvcuqoASEeya-rNCXluqEA" argument1="_mvcup4ASEeya-rNCXluqEA" argument2="_mvcuuIASEeya-rNCXluqEA" option="_mvcHq4ASEeya-rNCXluqEA" typeOption="_mvcHrIASEeya-rNCXluqEA"/>
+        </operatorList>
+        <relations xsi:type="adaptionxml:XmlNavigation" id="_mvcurYASEeya-rNCXluqEA" source="_mvcupoASEeya-rNCXluqEA" target="_mvcuqoASEeya-rNCXluqEA" name="XmlNavigation 1" option="_mvcuroASEeya-rNCXluqEA"/>
+        <relations xsi:type="adaptionxml:XmlNavigation" id="_mvcutIASEeya-rNCXluqEA" incomingMapping="_mvcutoASEeya-rNCXluqEA" source="_mvcusoASEeya-rNCXluqEA" target="_mvcupoASEeya-rNCXluqEA"/>
+      </graph>
+      <condition xsi:type="patternstructure:TrueElement" id="_mvcHooASEeya-rNCXluqEA"/>
+      <morphism id="_mvcHnYASEeya-rNCXluqEA" source="_mvcHkoASEeya-rNCXluqEA" target="_mvcHnoASEeya-rNCXluqEA">
+        <mappings xsi:type="patternstructure:ElementMapping" id="_mvcHoYASEeya-rNCXluqEA" source="_mvcuo4ASEeya-rNCXluqEA" target="_mvcupoASEeya-rNCXluqEA"/>
+        <mappings xsi:type="patternstructure:ElementMapping" id="_mvcus4ASEeya-rNCXluqEA" source="_mvcur4ASEeya-rNCXluqEA" target="_mvcusoASEeya-rNCXluqEA"/>
+        <mappings xsi:type="patternstructure:RelationMapping" id="_mvcutoASEeya-rNCXluqEA" target="_mvcutIASEeya-rNCXluqEA" source="_mvcusIASEeya-rNCXluqEA"/>
+      </morphism>
+    </countPattern>
+    <argument2 xsi:type="patternstructure:NumberElement" id="_mvcHo4ASEeya-rNCXluqEA" numberParam="_mvcHpYASEeya-rNCXluqEA"/>
+  </condition>
+  <parameterList id="_mvcHkYASEeya-rNCXluqEA">
+    <parameters xsi:type="parameters:TextLiteralParam" id="_mvcut4ASEeya-rNCXluqEA" comparison2="_mvcHlYASEeya-rNCXluqEA" typeModifiable="true" value="demo:artist"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_mvcHmIASEeya-rNCXluqEA" predefined="true" comparisons="_mvcHlYASEeya-rNCXluqEA">
+      <options>=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_mvcHmYASEeya-rNCXluqEA" predefined="true" value="STRING" typeComparisons="_mvcHlYASEeya-rNCXluqEA">
+      <options>UNSPECIFIED</options>
+      <options>STRING</options>
+      <options>BOOLEAN</options>
+      <options>ELEMENT</options>
+      <options>DATE</options>
+      <options>TIME</options>
+      <options>NUMBER</options>
+      <options>DATETIME</options>
+    </parameters>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_mvcHm4ASEeya-rNCXluqEA" value=">" countConditions="_mvcHmoASEeya-rNCXluqEA">
+      <options>=</options>
+      <options>></options>
+      <options>&lt;</options>
+      <options>>=</options>
+      <options>&lt;=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:NumberParam" id="_mvcHpYASEeya-rNCXluqEA" value="1.0" numberArgument="_mvcHo4ASEeya-rNCXluqEA"/>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_mvcuuIASEeya-rNCXluqEA" comparison2="_mvcHqIASEeya-rNCXluqEA" typeModifiable="true" value="demo:birthyear"/>
+    <parameters xsi:type="parameters:ComparisonOptionParam" id="_mvcHq4ASEeya-rNCXluqEA" predefined="true" comparisons="_mvcHqIASEeya-rNCXluqEA">
+      <options>=</options>
+      <options>!=</options>
+    </parameters>
+    <parameters xsi:type="parameters:TypeOptionParam" id="_mvcHrIASEeya-rNCXluqEA" predefined="true" value="STRING" typeComparisons="_mvcHqIASEeya-rNCXluqEA">
+      <options>UNSPECIFIED</options>
+      <options>STRING</options>
+      <options>BOOLEAN</options>
+      <options>ELEMENT</options>
+      <options>DATE</options>
+      <options>TIME</options>
+      <options>NUMBER</options>
+      <options>DATETIME</options>
+    </parameters>
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_mvcupIASEeya-rNCXluqEA" value="TAG" properties="_mvcuoIASEeya-rNCXluqEA">
+      <options>TAG</options>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_mvcupYASEeya-rNCXluqEA" properties="_mvcuoIASEeya-rNCXluqEA"/>
+    <parameters xsi:type="parameters:PropertyOptionParam" id="_mvcuq4ASEeya-rNCXluqEA" value="TAG" properties="_mvcup4ASEeya-rNCXluqEA">
+      <options>TAG</options>
+      <options>DATA</options>
+      <options>ATTRIBUTE</options>
+    </parameters>
+    <parameters xsi:type="parameters:TextLiteralParam" id="_mvcurIASEeya-rNCXluqEA" properties="_mvcup4ASEeya-rNCXluqEA"/>
+    <parameters xsi:type="parameters:RelationOptionParam" id="_mvcuroASEeya-rNCXluqEA" relations="_mvcurYASEeya-rNCXluqEA">
+      <options>/child::*</options>
+      <options>/descendant::*</options>
+      <options>/parent::*</options>
+      <options>/ancestor::*</options>
+      <options>/following::*</options>
+      <options>/following-sibling::*</options>
+      <options>/preceding::*</options>
+      <options>/preceding-sibling::*</options>
+      <options>/ancestor-or-self::*</options>
+      <options>/descendant-or-self::*</options>
+      <options>/self::*</options>
+      <options>/*/*</options>
+      <options>/*/*/*</options>
+      <options>/*/*/*/*</options>
+      <options>/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*/*/*</options>
+    </parameters>
+    <parameters xsi:type="parameters:RelationOptionParam" id="_mvcusYASEeya-rNCXluqEA" value="/descendant::*" relations="_mvcusIASEeya-rNCXluqEA">
+      <options>/child::*</options>
+      <options>/descendant::*</options>
+      <options>/parent::*</options>
+      <options>/ancestor::*</options>
+      <options>/following::*</options>
+      <options>/following-sibling::*</options>
+      <options>/preceding::*</options>
+      <options>/preceding-sibling::*</options>
+      <options>/ancestor-or-self::*</options>
+      <options>/descendant-or-self::*</options>
+      <options>/self::*</options>
+      <options>/*/*</options>
+      <options>/*/*/*</options>
+      <options>/*/*/*/*</options>
+      <options>/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*/*</options>
+      <options>/*/*/*/*/*/*/*/*/*</options>
+    </parameters>
+  </parameterList>
+  <database xsi:type="execution:LocalXmlDataDatabase" href="instances/demo/databases.execution#//@xmlDatabases.0"/>
+</patternstructure:CompletePattern>

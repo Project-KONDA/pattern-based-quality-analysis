@@ -129,49 +129,49 @@ public class DemoPatterns {
 		EMFModelSave.exportToFile(databases,"instances/demo/databases", "execution");
 		
 		CompletePattern compDateAbstract = getAbstractCompDatePattern();
-		EMFModelSave.exportToFile(compDateAbstract,"instances/demo/comp_date_abstract", "patternstructure");
+		EMFModelSave.exportToFile(compDateAbstract,"instances/demo/comparison_date_abstract", "patternstructure");
 		
 		CompletePattern compBoolAbstract = getAbstractCompBoolPattern();
-		EMFModelSave.exportToFile(compBoolAbstract,"instances/demo/comp_bool_abstract", "patternstructure");	
+		EMFModelSave.exportToFile(compBoolAbstract,"instances/demo/comparison_bool_abstract", "patternstructure");	
 		
 		CompletePattern compGeneric = getGenericCompPattern();
-		EMFModelSave.exportToFile(compGeneric,"instances/demo/comp_generic", "patternstructure");
+		EMFModelSave.exportToFile(compGeneric,"instances/demo/comparison_generic", "patternstructure");
 		CompletePattern compAbstract = getAbstractCompPattern();
-		EMFModelSave.exportToFile(compAbstract,"instances/demo/comp_abstract", "patternstructure");
+		EMFModelSave.exportToFile(compAbstract,"instances/demo/comparison_abstract", "patternstructure");
 		CompletePattern compConcrete = getConcreteCompPattern(database);			
-		EMFModelSave.exportToFile(compConcrete,"instances/demo/comp_concrete", "patternstructure");
+		EMFModelSave.exportToFile(compConcrete,"instances/demo/comparison_concrete", "patternstructure");
 		
 		CompletePattern compTextGeneric = getGenericCompTextPattern();
-		EMFModelSave.exportToFile(compTextGeneric,"instances/demo/comp_text_generic", "patternstructure");
+		EMFModelSave.exportToFile(compTextGeneric,"instances/demo/comparison_text_generic", "patternstructure");
 		CompletePattern compTextAbstract = getAbstractCompTextPattern();
-		EMFModelSave.exportToFile(compTextAbstract,"instances/demo/comp_text_abstract", "patternstructure");
+		EMFModelSave.exportToFile(compTextAbstract,"instances/demo/comparison_text_abstract", "patternstructure");
 		CompletePattern compTextConcrete = getConcreteCompTextPattern(database);			
-		EMFModelSave.exportToFile(compTextConcrete,"instances/demo/comp_text_concrete", "patternstructure");
+		EMFModelSave.exportToFile(compTextConcrete,"instances/demo/comparison_text_concrete", "patternstructure");
 		
 		CompletePattern compTextLidoConcrete = getConcreteLidoCompTextPattern(database);			
-		EMFModelSave.exportToFile(compTextLidoConcrete,"instances/demo/comp_lido_concrete", "patternstructure");
+		EMFModelSave.exportToFile(compTextLidoConcrete,"instances/demo/comparison_lido_concrete", "patternstructure");
 		
 		CompletePattern cardGeneric = getGenericCardPattern();
-		EMFModelSave.exportToFile(cardGeneric,"instances/demo/card_generic", "patternstructure");
+		EMFModelSave.exportToFile(cardGeneric,"instances/demo/cardinality_generic", "patternstructure");
 		CompletePattern cardAbstract = getAbstractCardPattern();
-		EMFModelSave.exportToFile(cardAbstract,"instances/demo/card_abstract", "patternstructure");
+		EMFModelSave.exportToFile(cardAbstract,"instances/demo/cardinality_abstract", "patternstructure");
 		CompletePattern cardConcrete = getConcreteCardPattern(database);				
-		EMFModelSave.exportToFile(cardConcrete,"instances/demo/card_concrete", "patternstructure");
+		EMFModelSave.exportToFile(cardConcrete,"instances/demo/cardinality_concrete", "patternstructure");
 		CompletePattern cardConcreteFinalized = getConcreteFinalizedCardPattern(database);				
-		EMFModelSave.exportToFile(cardConcreteFinalized,"instances/demo/card_concrete_finalized", "patternstructure");
+		EMFModelSave.exportToFile(cardConcreteFinalized,"instances/demo/cardinality_concrete_finalized", "patternstructure");
 		
 		CompletePattern cardConcreteLido = getConcreteLidoCardPattern(database);				
-		EMFModelSave.exportToFile(cardConcreteLido,"instances/demo/card_lido_concrete", "patternstructure");
+		EMFModelSave.exportToFile(cardConcreteLido,"instances/demo/cardinality_lido_concrete", "patternstructure");
 		
 		CompletePattern funcGeneric = getGenericFuncPattern();
-		EMFModelSave.exportToFile(funcGeneric,"instances/demo/func_generic", "patternstructure");
+		EMFModelSave.exportToFile(funcGeneric,"instances/demo/functional_dependency_generic", "patternstructure");
 		CompletePattern funcAbstract = getAbstractFuncPattern();
-		EMFModelSave.exportToFile(funcAbstract,"instances/demo/func_abstract", "patternstructure");
+		EMFModelSave.exportToFile(funcAbstract,"instances/demo/functional_dependency_abstract", "patternstructure");
 		CompletePattern funcConcrete = getConcreteFuncPattern(database);				
-		EMFModelSave.exportToFile(funcConcrete,"instances/demo/func_concrete", "patternstructure");
+		EMFModelSave.exportToFile(funcConcrete,"instances/demo/functional_dependency_concrete", "patternstructure");
 		
 		CompletePattern funcLidoConcrete = getConcreteLidoFuncPattern(database);				
-		EMFModelSave.exportToFile(funcLidoConcrete,"instances/demo/func_lido_concrete", "patternstructure");
+		EMFModelSave.exportToFile(funcLidoConcrete,"instances/demo/functional_dependency_lido_concrete", "patternstructure");
 		
 		System.out.println(">>> Exported demo patterns to folder 'instances/demo/'");
 	}
@@ -204,8 +204,8 @@ public class DemoPatterns {
 	
 	public static CompletePattern getAbstractCompBoolPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericCompPattern();
-		completePattern.setName("comp_bool_abstract");
-		completePattern.setAbstractName("comp_bool_abstract");
+		completePattern.setName("comparison_bool_abstract");
+		completePattern.setAbstractName("comparison_bool_abstract");
 		completePattern.setDescription("Allows detecting elements with a specific property which are related to other elements with a specific property and a specific boolean property");
 		
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();	
@@ -231,8 +231,8 @@ public class DemoPatterns {
 	
 	public static CompletePattern getAbstractCompDatePattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericCompPattern();
-		completePattern.setName("comp_date_abstract");
-		completePattern.setAbstractName("comp_date_abstract");
+		completePattern.setName("comparison_date_abstract");
+		completePattern.setAbstractName("comparison_date_abstract");
 		completePattern.setDescription("Allows detecting elements with a specific date property which are related to other elements with specific time and dateTime properties");
 		
 		// <value date>
@@ -274,8 +274,8 @@ public class DemoPatterns {
 	public static CompletePattern getGenericCompPattern() {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		completePattern.setName("comp_generic");
-		completePattern.setAbstractName("comp_generic");
+		completePattern.setName("comparison_generic");
+		completePattern.setAbstractName("comparison_generic");
 		completePattern.setDescription("Allows detecting illegal values, i.e. allows detecting elements with a specific property which are related to other elements with two specific properties");
 		
 		// Context graph of pattern:
@@ -325,8 +325,8 @@ public class DemoPatterns {
 	
 	public static CompletePattern getAbstractCompPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericCompPattern();
-		completePattern.setName("comp_abstract");
-		completePattern.setAbstractName("comp_abstract");
+		completePattern.setName("comparison_abstract");
+		completePattern.setAbstractName("comparison_abstract");
 		
 		completePattern.createXMLAdaption();
 		
@@ -345,7 +345,7 @@ public class DemoPatterns {
 	}
 
 	public static CompletePattern getConcreteCompPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePattern.setName("comp_concrete");
+		completePattern.setName("comparison_concrete");
 		completePattern.setDescription("Detect architects born after 2020");
 		completePattern.setDatabase(db);
 		
@@ -398,7 +398,7 @@ public class DemoPatterns {
 	}
 
 	public static CompletePattern getConcreteLidoCompTextPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePattern.setName("comp_lido_concrete");
+		completePattern.setName("comparison_lido_concrete");
 		completePattern.setDescription("Allows detecting actors with appellation 'unbekannt'");
 		completePattern.setDatabase(db);
 		
@@ -453,8 +453,8 @@ public class DemoPatterns {
 	public static CompletePattern getGenericCompTextPattern() {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		completePattern.setName("comp_text_generic");
-		completePattern.setAbstractName("comp_text_generic");
+		completePattern.setName("comparison_text_generic");
+		completePattern.setAbstractName("comparison_text_generic");
 		completePattern.setDescription("Allows detecting illegal values, i.e. allows detecting elements with a specific property which are related to other elements with two specific properties");
 		
 		// Context graph of pattern:
@@ -507,8 +507,8 @@ public class DemoPatterns {
 	
 	public static CompletePattern getAbstractCompTextPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericCompTextPattern();
-		completePattern.setName("comp_text_abstract");
-		completePattern.setAbstractName("comp_text_abstract");
+		completePattern.setName("comparison_text_abstract");
+		completePattern.setAbstractName("comparison_text_abstract");
 		
 		completePattern.createXMLAdaption();
 		
@@ -527,7 +527,7 @@ public class DemoPatterns {
 	}
 	
 	public static CompletePattern getConcreteCompTextPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePattern.setName("comp_text_concrete");
+		completePattern.setName("comparison_text_concrete");
 		completePattern.setDescription("Detect architects born after 2020");
 		completePattern.setDatabase(db);
 		
@@ -578,8 +578,8 @@ public class DemoPatterns {
 	public static CompletePattern getGenericCardPattern() {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		completePattern.setName("card_generic");
-		completePattern.setAbstractName("card_generic");
+		completePattern.setName("cardinality_generic");
+		completePattern.setAbstractName("cardinality_generic");
 		completePattern.setDescription("Allows detecting violated cardinality constraints, i.e. allows detecting elements with a specific property which are related to a specific number of elements with a specific property");
 		
 		// Context graph of pattern:
@@ -637,8 +637,8 @@ public class DemoPatterns {
 	
 	public static CompletePattern getAbstractCardPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericCardPattern();
-		completePattern.setName("card_abstract");
-		completePattern.setAbstractName("card_abstract");
+		completePattern.setName("cardinality_abstract");
+		completePattern.setAbstractName("cardinality_abstract");
 		
 		completePattern.createXMLAdaption();
 		
@@ -658,7 +658,7 @@ public class DemoPatterns {
 	}	
 	
 	public static CompletePattern getConcreteCardPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePattern.setName("card_concrete");
+		completePattern.setName("cardinality_concrete");
 		completePattern.setDescription("Detect artists with multiple birth years");
 		completePattern.setDatabase(db);
 		
@@ -707,7 +707,7 @@ public class DemoPatterns {
 	}	
 	
 	public static CompletePattern getConcreteLidoCardPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePattern.setName("card_lido_concrete");
+		completePattern.setName("cardinality_lido_concrete");
 		completePattern.setDescription("Allows detecting artists with more than one nameActorSet");
 		completePattern.setDatabase(db);
 		
@@ -755,7 +755,7 @@ public class DemoPatterns {
 	}
 	
 	public static CompletePattern getConcreteFinalizedCardPatternFromConcrete(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePattern.setName("card_concrete_finalized");
+		completePattern.setName("cardinality_concrete_finalized");
 		completePattern.isValid(AbstractionLevel.CONCRETE);
 		completePattern.generateQuery();
 		return completePattern;
@@ -767,8 +767,8 @@ public class DemoPatterns {
 	public static CompletePattern getGenericFuncPattern() {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		completePattern.setName("func_generic");
-		completePattern.setAbstractName("func_generic");
+		completePattern.setName("functional_dependency_generic");
+		completePattern.setAbstractName("functional_dependency_generic");
 		completePattern.setDescription("Allows detecting a violated functional dependency, i.e. allows detecting two elements that are each related to two further elements where two of these have an equal property but the other two have a different property");
 		
 		// Context graph of pattern:
@@ -879,8 +879,8 @@ public class DemoPatterns {
 	
 	public static CompletePattern getAbstractFuncPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getGenericFuncPattern();
-		completePattern.setName("func_abstract");
-		completePattern.setAbstractName("func_abstract");
+		completePattern.setName("functional_dependency_abstract");
+		completePattern.setAbstractName("functional_dependency_abstract");
 		
 		completePattern.createXMLAdaption();
 		
@@ -898,7 +898,7 @@ public class DemoPatterns {
 
 	public static CompletePattern getConcreteFuncPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
-		completePattern.setName("func_concrete");
+		completePattern.setName("functional_dependency_concrete");
 		completePattern.setDescription("Detects buildings with the same city but different countries");
 		completePattern.setDatabase(db);
 		
@@ -1008,7 +1008,7 @@ public class DemoPatterns {
 	
 	public static CompletePattern getConcreteLidoFuncPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
-		completePattern.setName("func_lido_concrete");
+		completePattern.setName("functional_dependency_lido_concrete");
 		completePattern.setDatabase(db);
 		completePattern.setDescription("Allows detecting a violated functional dependency between a conceptID and term indicating the culture");
 		

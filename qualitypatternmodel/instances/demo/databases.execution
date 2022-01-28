@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <execution:Databases xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:execution="execution">
-  <xmlDatabases xsi:type="execution:LocalXmlDataDatabase" name="demo_database" namespace="demo:" patterns="_DYV8kH9hEey2JeukFT_VSA _DYzPkX9hEey2JeukFT_VSA _DY0dun9hEey2JeukFT_VSA _DY1E239hEey2JeukFT_VSA _DY7yf39hEey2JeukFT_VSA _DY9noH9hEey2JeukFT_VSA _DY-11X9hEey2JeukFT_VSA _DZBSBX9hEey2JeukFT_VSA" xmlSchema="//@xmlSchemata.0" dataPath="demo.data/demo_database.xml">
+  <xmlDatabases xsi:type="execution:LocalXmlDataDatabase" name="demo_database" namespace="demo:" patterns="_mtOhEIASEeya-rNCXluqEA _mttpQYASEeya-rNCXluqEA _mtu3c4ASEeya-rNCXluqEA _mtwFiIASEeya-rNCXluqEA _mt2zPoASEeya-rNCXluqEA _mt4oYIASEeya-rNCXluqEA _mt52j4ASEeya-rNCXluqEA _mt8S3IASEeya-rNCXluqEA" xmlSchema="//@xmlSchemata.0" dataPath="demo.data/demo_database.xml">
     <elementNames key="data" value="0"/>
     <elementNames key="building" value="0"/>
     <elementNames key="painting" value="0"/>

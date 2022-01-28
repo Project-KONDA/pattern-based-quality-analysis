@@ -57,73 +57,73 @@ public class DemoPatternTexts {
 		
 		CompletePattern compAbstract = getAbstractCompPatternWithText();
 		compAbstract.isValid(AbstractionLevel.ABSTRACT);
-		EMFModelSave.exportToFile(compAbstract,"instances/demo_with_texts/comp_abstract", "patternstructure");	
+		EMFModelSave.exportToFile(compAbstract,"instances/demo_with_texts/comparison_abstract", "patternstructure");	
 		
 		CompletePattern compConcrete = getConcreteCompPatternWithText();
 		compConcrete.isValid(AbstractionLevel.CONCRETE);
-		EMFModelSave.exportToFile(compConcrete,"instances/demo_with_texts/comp_concrete", "patternstructure");	
+		EMFModelSave.exportToFile(compConcrete,"instances/demo_with_texts/comparison_concrete", "patternstructure");	
 		
 		// ------------- COMP TEXT ----------------
 		
 		CompletePattern compTextAbstract = getAbstractCompTextPatternWithText();
 		compTextAbstract.isValid(AbstractionLevel.ABSTRACT);
-		EMFModelSave.exportToFile(compTextAbstract,"instances/demo_with_texts/comp_text_abstract", "patternstructure");	
+		EMFModelSave.exportToFile(compTextAbstract,"instances/demo_with_texts/comparison_text_abstract", "patternstructure");	
 		
 		CompletePattern compTextConcrete = getConcreteCompTextPatternWithText();
 		compTextConcrete.isValid(AbstractionLevel.CONCRETE);
-		EMFModelSave.exportToFile(compTextConcrete,"instances/demo_with_texts/comp_text_concrete", "patternstructure");	
+		EMFModelSave.exportToFile(compTextConcrete,"instances/demo_with_texts/comparison_text_concrete", "patternstructure");	
 		
 		// ------------- COMP TEXT LIDO ----------------
 		
 		CompletePattern compTextLidoConcrete = getConcreteLidoCompTextPatternWithText();
 		compTextLidoConcrete.isValid(AbstractionLevel.CONCRETE);
-		EMFModelSave.exportToFile(compTextLidoConcrete,"instances/demo_with_texts/comp_lido_concrete", "patternstructure");	
+		EMFModelSave.exportToFile(compTextLidoConcrete,"instances/demo_with_texts/comparison_lido_concrete", "patternstructure");	
 		
 		// ------------- COMP DATE ----------------
 		
 		CompletePattern compDateAbstract = getAbstractCompDatePatternWithText();
 		compDateAbstract.isValid(AbstractionLevel.ABSTRACT);
-		EMFModelSave.exportToFile(compDateAbstract,"instances/demo_with_texts/comp_date_abstract", "patternstructure");	
+		EMFModelSave.exportToFile(compDateAbstract,"instances/demo_with_texts/comparison_date_abstract", "patternstructure");	
 		
 		// ------------- COMP BOOL ----------------
 		
 		CompletePattern compBoolAbstract = getAbstractCompBoolPatternWithText();
 		compBoolAbstract.isValid(AbstractionLevel.ABSTRACT);
-		EMFModelSave.exportToFile(compBoolAbstract,"instances/demo_with_texts/comp_bool_abstract", "patternstructure");	
+		EMFModelSave.exportToFile(compBoolAbstract,"instances/demo_with_texts/comparison_bool_abstract", "patternstructure");	
 		
 		
 		// ------------- CARD ----------------
 		
 		CompletePattern cardAbstract = getAbstractCardPatternWithText();
 		cardAbstract.isValid(AbstractionLevel.ABSTRACT);
-		EMFModelSave.exportToFile(cardAbstract,"instances/demo_with_texts/card_abstract", "patternstructure");
+		EMFModelSave.exportToFile(cardAbstract,"instances/demo_with_texts/cardinality_abstract", "patternstructure");
 		
 		CompletePattern cardConcrete = getConcreteCardPatternWithText();
 		cardConcrete.isValid(AbstractionLevel.CONCRETE);
-		EMFModelSave.exportToFile(cardConcrete,"instances/demo_with_texts/card_concrete", "patternstructure");
+		EMFModelSave.exportToFile(cardConcrete,"instances/demo_with_texts/cardinality_concrete", "patternstructure");
 		
 		CompletePattern cardConcreteFinalized = getConcreteFinalizedCardPatternWithText();
 		cardConcreteFinalized.isValid(AbstractionLevel.CONCRETE);
-		EMFModelSave.exportToFile(cardConcreteFinalized,"instances/demo_with_texts/card_concrete_finalized", "patternstructure");
+		EMFModelSave.exportToFile(cardConcreteFinalized,"instances/demo_with_texts/cardinality_concrete_finalized", "patternstructure");
 		
 		CompletePattern cardConcreteLido = getConcreteLidoCardPatternWithText();
 		cardConcreteLido.isValid(AbstractionLevel.CONCRETE);
-		EMFModelSave.exportToFile(cardConcreteLido,"instances/demo_with_texts/card_lido_concrete", "patternstructure");
+		EMFModelSave.exportToFile(cardConcreteLido,"instances/demo_with_texts/cardinality_lido_concrete", "patternstructure");
 		
 		
 		// ------------- FUNC ----------------
 		
 		CompletePattern funcAbstract = getAbstractFuncPatternWithText();
 		funcAbstract.isValid(AbstractionLevel.ABSTRACT);
-		EMFModelSave.exportToFile(funcAbstract,"instances/demo_with_texts/func_abstract", "patternstructure");
+		EMFModelSave.exportToFile(funcAbstract,"instances/demo_with_texts/functional_dependency_abstract", "patternstructure");
 		
 		CompletePattern funcConcrete = getConcreteFuncPatternWithText();
 		funcConcrete.isValid(AbstractionLevel.CONCRETE);
-		EMFModelSave.exportToFile(funcConcrete,"instances/demo_with_texts/func_concrete", "patternstructure");
+		EMFModelSave.exportToFile(funcConcrete,"instances/demo_with_texts/functional_dependency_concrete", "patternstructure");
 		
 		CompletePattern funcLidoConcrete = getConcreteLidoFuncPatternWithText();
 		funcLidoConcrete.isValid(AbstractionLevel.CONCRETE);
-		EMFModelSave.exportToFile(funcLidoConcrete,"instances/demo_with_texts/func_lido_concrete", "patternstructure");
+		EMFModelSave.exportToFile(funcLidoConcrete,"instances/demo_with_texts/functional_dependency_lido_concrete", "patternstructure");
 
 	}
 	
