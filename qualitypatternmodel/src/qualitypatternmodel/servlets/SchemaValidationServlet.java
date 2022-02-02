@@ -31,8 +31,12 @@ public class SchemaValidationServlet extends HttpServlet {
 		URL folderURL = getClass().getClassLoader().getResource(Util.CONCRETE_PATTERNS_PATH);
 		URL fileURL = getClass().getClassLoader().getResource(filePath);	
 		
+		String filePathDb = Util.DATABASES_PATH + Util.DATABASES_NAME + ".execution";	
+		URL folderURLDb = getClass().getClassLoader().getResource(Util.DATABASES_PATH);
+		URL fileURLDb = getClass().getClassLoader().getResource(filePathDb);
+		
 		if(fileURL != null && folderURL != null) {
-			CompletePattern pattern = EMFModelLoad.loadCompletePattern(fileURL.toString());			
+			CompletePattern pattern = EMFModelLoad.loadCompletePatternAndDatabase(fileURL.toString(), fileURLDb.toString());		
 			
 			EList<Parameter> problematicParams;
 			try {
