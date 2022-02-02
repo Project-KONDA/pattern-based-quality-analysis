@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-            
+                
+    
     
     <wb-module deploy-name="qualitypatternmodel">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
@@ -10,15 +11,20 @@
         <wb-resource deploy-path="/concrete-patterns" source-path="/concrete-patterns"/>
         <wb-resource deploy-path="/databases" source-path="/databases"/>
         <wb-resource deploy-path="/schemata" source-path="/schemata"/>
-                        
+        <wb-resource deploy-path="/WEB-INF/queries" source-path="/queries"/>
+                                
+        
         
         <property name="context-root" value="qualitypatternmodel"/>
-                        
+                                
+        
         
         <property name="java-output-path" value="/qualitypatternmodel/bin"/>
-                    
+                            
+    
     
     </wb-module>
-        
+            
+
 
 </project-modules>

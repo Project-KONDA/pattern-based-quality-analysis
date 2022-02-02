@@ -4,12 +4,14 @@ package qualitypatternmodel.execution.impl;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.List;
+import java.util.Scanner;
 
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
@@ -217,9 +219,13 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		return result;
 	}
 	
-	private static String readFile(String path, Charset encoding) throws IOException {
-		byte[] encoded = Files.readAllBytes(Paths.get(path));
-		return new String(encoded, encoding);
+	private static String readFile(String path, Charset encoding) throws IOException {		
+		path = "../" + path;		
+		URL fileURL = XmlSchemaDatabaseImpl.class.getClassLoader().getResource(path);		
+		Scanner scanner = new Scanner(fileURL.openStream(), "UTF-8");
+		String out = scanner.useDelimiter("\\A").next();
+		scanner.close();
+		return out;
 	}
 	
 	private String distinctNamesQuery (String methodName, String elementName) {
