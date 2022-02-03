@@ -132,7 +132,8 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	 */
 	@Override
 	public void analyse() throws QueryException, IOException, InvalidityException {
-		retrievePrefix();		
+		retrievePrefix();
+		retrieveNamespace();
 		
 		if(getElementNames().isEmpty()) {
 			retrieveElementNames();
@@ -144,6 +145,29 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 		}
 		if(getRootElementNames().isEmpty()) {			
 			retrieveRootElementNames();
+		}
+		
+	}
+	
+	private void retrieveNamespace() throws QueryIOException, BaseXException, QueryException, IOException {
+		String path = "queries/GetNamespace.xq";
+		
+		String checkQuery;
+		try {
+			checkQuery = readFile(path, StandardCharsets.US_ASCII);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+			return;
+		}
+				
+		checkQuery = checkQuery.replace("xs:", getPrefix() + ":");
+		
+		
+		List<String> queryResult = execute(checkQuery);
+		if(queryResult.size() == 1) {	
+			setNamespace(queryResult.get(0) + ":");
 		}
 		
 	}
