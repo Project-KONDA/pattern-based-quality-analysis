@@ -681,11 +681,15 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 			return true;
 		}
 		
-		String call = "\nfor $root in /" + getPrefix() + ":schema\r\n" + 
-				"return local:"+methodName+"($root, \""+elementName1.replace(getNamespace(), "")+"\", \""+elementName2.replace(getNamespace(), "")+"\", \""+getNamespace()+"\")";
+		String ns = "declare namespace " + getPrefix() + " = \"http://www.w3.org/2001/XMLSchema\";\n";
 		
-		String query = checkQuery + call;
+		String call = "\nfor $root in /" + getPrefix() + ":schema\r\n" + "return local:" + methodName + "($root, \""
+				+ (getNamespace() == null ? elementName1 : elementName1.replace(getNamespace(), "")) + "\", \"" + (getNamespace() == null ? elementName2 : elementName2.replace(getNamespace(), ""))
+				+ "\", \"" + getNamespace() + "\")";
 		
+		
+		String query = ns + checkQuery.replace("xs:", getPrefix() + ":") + call;
+				
 		List<String> queryResult = execute(query);
 		if(queryResult.size() == 1) {			
 			if(queryResult.get(0).equals("false")) {
