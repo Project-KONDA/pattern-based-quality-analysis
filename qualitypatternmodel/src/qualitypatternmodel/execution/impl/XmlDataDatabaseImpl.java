@@ -554,7 +554,6 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 		LocalXmlSchemaDatabase db = new LocalXmlSchemaDatabaseImpl(fileName, schemaPath);		
 		setXmlSchema(db);
 		db.create();
-		db.analyse();
 		return db;
 		
 	}
