@@ -38,7 +38,6 @@ The graphical user interface is implemented in the project called ```patterncrea
 * [XQuery](https://www.w3.org/XML/Query/)
 * [BaseX](https://basex.org)
 * [everit-org/json-schema](https://github.com/everit-org/json-schema)
-* [damnhandy/Handy-URI-Templates](https://github.com/damnhandy/Handy-URI-Templates)
 
 
 
