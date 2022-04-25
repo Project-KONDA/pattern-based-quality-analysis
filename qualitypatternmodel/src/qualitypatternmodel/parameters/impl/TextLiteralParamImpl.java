@@ -20,7 +20,7 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorsPackage;
@@ -142,7 +142,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	@Override
 	public EList<String> getSuggestions() {
 		EList<String> suggestions = super.getSuggestions();		
-		for(Property p : getProperties()) {
+		for(PrimitiveNode p : getProperties()) {
 			if(p instanceof XmlPropertyImpl) {
 				XmlPropertyImpl xmlProp = (XmlPropertyImpl) p;
 				if(xmlProp.getOption().getValue() == PropertyKind.ATTRIBUTE) {

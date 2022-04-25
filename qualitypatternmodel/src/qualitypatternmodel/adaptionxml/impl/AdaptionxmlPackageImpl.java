@@ -489,7 +489,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		xmlElementEClass.getESuperTypes().add(theGraphstructurePackage.getNode());
 		xmlNavigationEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
 		xmlReferenceEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
-		xmlPropertyEClass.getESuperTypes().add(theGraphstructurePackage.getProperty());
+		xmlPropertyEClass.getESuperTypes().add(theGraphstructurePackage.getPrimitiveNode());
 		xmlRootEClass.getESuperTypes().add(theGraphstructurePackage.getNode());
 
 		// Initialize classes, features, and operations; add parameters

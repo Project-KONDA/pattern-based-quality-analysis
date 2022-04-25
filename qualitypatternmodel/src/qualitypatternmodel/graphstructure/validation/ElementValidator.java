@@ -7,7 +7,7 @@ package qualitypatternmodel.graphstructure.validation;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.graphstructure.Node;
@@ -44,7 +44,7 @@ public interface ElementValidator {
 
 	boolean validatePredicatesAreBeingTranslated(boolean value);
 
-	boolean validateProperties(EList<Property> value);
+	boolean validateProperties(EList<PrimitiveNode> value);
 
 	boolean validatePredicates(EList<BooleanOperator> value);
 

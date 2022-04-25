@@ -31,13 +31,13 @@ public interface GraphstructureFactory extends EFactory {
 	Relation createRelation();
 
 	/**
-	 * Returns a new object of class '<em>Property</em>'.
+	 * Returns a new object of class '<em>Primitive Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Property</em>'.
+	 * @return a new object of class '<em>Primitive Node</em>'.
 	 * @generated
 	 */
-	Property createProperty();
+	PrimitiveNode createPrimitiveNode();
 
 	/**
 	 * Returns a new object of class '<em>Node</em>'.

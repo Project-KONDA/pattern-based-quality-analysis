@@ -22,7 +22,7 @@ import qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl;
 import qualitypatternmodel.execution.impl.LocalXmlSchemaDatabaseImpl;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
@@ -790,7 +790,7 @@ public class DemoPatterns {
 		Node element0A = GraphstructureFactory.eINSTANCE.createNode();
 		element0A.setName("Element0A");
 		element0A.setGraph(quantifiedCondition.getGraph());		
-		Property property0A = element0A.addNewProperty();
+		PrimitiveNode property0A = element0A.addNewProperty();
 		
 		Relation relation0A = GraphstructureFactory.eINSTANCE.createRelation();
 		relation0A.setGraph(quantifiedCondition.getGraph());		
@@ -806,7 +806,7 @@ public class DemoPatterns {
 		Node element0B = GraphstructureFactory.eINSTANCE.createNode();
 		element0B.setName("Element0B");
 		element0B.setGraph(quantifiedCondition.getGraph());		
-		Property property0B = element0B.addNewProperty();
+		PrimitiveNode property0B = element0B.addNewProperty();
 		
 		Relation relation0B = GraphstructureFactory.eINSTANCE.createRelation();
 		relation0B.setGraph(quantifiedCondition.getGraph());		
@@ -827,7 +827,7 @@ public class DemoPatterns {
 		Node element1A = GraphstructureFactory.eINSTANCE.createNode();
 		element1A.setName("Element1A");
 		element1A.setGraph(quantifiedCondition.getGraph());	
-		Property property1A = element1A.addNewProperty();
+		PrimitiveNode property1A = element1A.addNewProperty();
 		
 		Relation relation1A = GraphstructureFactory.eINSTANCE.createRelation();
 		relation1A.setGraph(quantifiedCondition.getGraph());		
@@ -843,7 +843,7 @@ public class DemoPatterns {
 		Node element1B = GraphstructureFactory.eINSTANCE.createNode();
 		element1B.setName("Element1B");
 		element1B.setGraph(quantifiedCondition.getGraph());	
-		Property property1B = element1B.addNewProperty();
+		PrimitiveNode property1B = element1B.addNewProperty();
 		
 		Relation relation1B = GraphstructureFactory.eINSTANCE.createRelation();
 		relation1B.setGraph(quantifiedCondition.getGraph());		

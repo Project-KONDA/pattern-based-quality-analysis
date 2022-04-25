@@ -4,7 +4,7 @@
  */
 package qualitypatternmodel.operators.validation;
 
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 
@@ -17,7 +17,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 public interface MatchValidator {
 	boolean validate();
 
-	boolean validateProperty(Property value);
+	boolean validateProperty(PrimitiveNode value);
 	boolean validateOption1(BooleanParam value);
 
 	boolean validateRegularExpression(TextLiteralParam value);

@@ -10,7 +10,7 @@ import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -80,13 +80,13 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GraphstructurePackage.PROPERTY: {
-				Property property = (Property)theEObject;
-				T result = caseProperty(property);
-				if (result == null) result = caseNode(property);
-				if (result == null) result = caseComparable(property);
-				if (result == null) result = caseAdaptable(property);
-				if (result == null) result = casePatternElement(property);
+			case GraphstructurePackage.PRIMITIVE_NODE: {
+				PrimitiveNode primitiveNode = (PrimitiveNode)theEObject;
+				T result = casePrimitiveNode(primitiveNode);
+				if (result == null) result = caseNode(primitiveNode);
+				if (result == null) result = caseComparable(primitiveNode);
+				if (result == null) result = caseAdaptable(primitiveNode);
+				if (result == null) result = casePatternElement(primitiveNode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -150,17 +150,17 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Primitive Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Property</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Primitive Node</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProperty(Property object) {
+	public T casePrimitiveNode(PrimitiveNode object) {
 		return null;
 	}
 

@@ -15,10 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -26,12 +23,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.impl.NodeImpl;
-import qualitypatternmodel.graphstructure.impl.PropertyImpl;
+import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -41,11 +33,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.PropertyOptionParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.ElementMapping;
-import qualitypatternmodel.patternstructure.Morphism;
-import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.patternstructure.impl.ElementMappingImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,7 +51,7 @@ import qualitypatternmodel.patternstructure.impl.ElementMappingImpl;
  *
  * @generated
  */
-public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
+public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
 	 * <!-- begin-user-doc -->

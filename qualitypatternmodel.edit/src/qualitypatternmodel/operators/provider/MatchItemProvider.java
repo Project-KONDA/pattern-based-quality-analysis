@@ -41,7 +41,7 @@ public class MatchItemProvider extends BooleanOperatorItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPropertyPropertyDescriptor(object);
+			addPrimitiveNodePropertyDescriptor(object);
 			addOptionPropertyDescriptor(object);
 			addRegularExpressionPropertyDescriptor(object);
 		}
@@ -49,19 +49,19 @@ public class MatchItemProvider extends BooleanOperatorItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Property feature.
+	 * This adds a property descriptor for the Primitive Node feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPropertyPropertyDescriptor(Object object) {
+	protected void addPrimitiveNodePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Match_property_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Match_property_feature", "_UI_Match_type"),
-				 OperatorsPackage.Literals.MATCH__PROPERTY,
+				 getString("_UI_Match_primitiveNode_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Match_primitiveNode_feature", "_UI_Match_type"),
+				 OperatorsPackage.Literals.MATCH__PRIMITIVE_NODE,
 				 true,
 				 false,
 				 true,
@@ -152,7 +152,6 @@ public class MatchItemProvider extends BooleanOperatorItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

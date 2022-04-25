@@ -7,7 +7,7 @@ import junit.textui.TestRunner;
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 
-import qualitypatternmodel.graphstructure.tests.PropertyTest;
+import qualitypatternmodel.graphstructure.tests.PrimitiveNodeTest;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +15,7 @@ import qualitypatternmodel.graphstructure.tests.PropertyTest;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XmlPropertyTest extends PropertyTest {
+public class XmlPropertyTest extends PrimitiveNodeTest {
 
 	/**
 	 * <!-- begin-user-doc -->

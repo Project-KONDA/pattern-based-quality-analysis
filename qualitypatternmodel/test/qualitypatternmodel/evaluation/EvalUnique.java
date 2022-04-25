@@ -13,7 +13,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
@@ -198,10 +198,10 @@ public class EvalUnique {
 		countPattern.getGraph().getReturnNodes().add(e5G2);
 		e5G2.addPrimitiveComparison();
 		
-		Property previous = graphFactory.createProperty();
+		PrimitiveNode previous = graphFactory.createProperty();
 		previous.setElement(e3G2);
 		
-		Property other = graphFactory.createProperty();
+		PrimitiveNode other = graphFactory.createProperty();
 		other.setElement(e5G2);
 			
 		Comparison comparison = operatorsFactory.createComparison();		
@@ -296,10 +296,10 @@ public class EvalUnique {
 		relation2.setTarget(nextToElement2);
 		nextToElement2.addPrimitiveComparison();
 		
-		Property propertyNextToReturn = graphFactory.createProperty();
+		PrimitiveNode propertyNextToReturn = graphFactory.createProperty();
 		propertyNextToReturn.setElement(nextToReturn.getOutgoingMappings().get(0).getTarget().getOutgoingMappings().get(0).getTarget());
 		
-		Property propertyNextToElement2 = graphFactory.createProperty();
+		PrimitiveNode propertyNextToElement2 = graphFactory.createProperty();
 		propertyNextToElement2.setElement(nextToElement2);
 			
 		Comparison comparison = operatorsFactory.createComparison();		

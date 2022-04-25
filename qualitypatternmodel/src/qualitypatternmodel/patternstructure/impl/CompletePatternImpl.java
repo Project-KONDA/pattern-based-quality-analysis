@@ -24,7 +24,7 @@ import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
-import qualitypatternmodel.graphstructure.impl.PropertyImpl;
+import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.operators.impl.OperatorImpl;
 import qualitypatternmodel.parameters.Parameter;
@@ -391,7 +391,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		getElementCounter();
 		if (NodeImpl.class.isAssignableFrom(type)) 
 			return elementCounter++;
-		if (PropertyImpl.class.isAssignableFrom(type))
+		if (PrimitiveNodeImpl.class.isAssignableFrom(type))
 			return propertyCounter++;
 		if (RelationImpl.class.isAssignableFrom(type))
 			return relationCounter++;

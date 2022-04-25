@@ -19,24 +19,14 @@ import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.operators.Match;
-import qualitypatternmodel.operators.OperatorList;
-import qualitypatternmodel.operators.impl.ComparisonImpl;
-import qualitypatternmodel.operators.impl.MatchImpl;
-import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.CompletePattern;
 
 /**
  * <!-- begin-user-doc -->
@@ -143,9 +133,9 @@ public class XmlElementImpl extends NodeImpl implements XmlElement {
 			}
 		}
 		
-		for(Property property : getProperties()) {
-			if(!property.isOperatorArgument()) {
-				xPredicates += "[" + "exists(" + property.generateQuery() + ")" + "]";
+		for(PrimitiveNode primitiveNode : getProperties()) {
+			if(!primitiveNode.isOperatorArgument()) {
+				xPredicates += "[" + "exists(" + primitiveNode.generateQuery() + ")" + "]";
 			}
 		}
 		

@@ -10,10 +10,10 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.graphstructure.Property} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.graphstructure.PrimitiveNode} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -86,16 +86,16 @@ public class PropertyItemProvider extends NodeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Property property = (Property) object;
+		PrimitiveNode primitiveNode = (PrimitiveNode) object;
 		
 //		String elementName = getString("_UI_Element_type") + " \"" + property.getElement().getInternalId()+"\"";
-		String elementName = getString("_UI_Element_type") + " \"" + property.getElement().getName()+"\"";
+		String elementName = getString("_UI_Element_type") + " \"" + primitiveNode.getElement().getName()+"\"";
 //		if(property.getElement().getName() != null && !property.getElement().getName().equals("")) {
 //			elementName = getString("_UI_Element_type") + " \"" + property.getElement().getName()+"\"";
 //		}
 		
 //		if(property.getName() != null && !property.getName().equals("")) {
-			return getString("_UI_Property_type") + " \"" + property.getName() + "\" (of " + elementName + ")";
+			return getString("_UI_Property_type") + " \"" + primitiveNode.getName() + "\" (of " + elementName + ")";
 //		} else {
 //			return getString("_UI_Property_type") + " \"" + property.getInternalId() + "\" (" + elementName + ")";	
 //		}

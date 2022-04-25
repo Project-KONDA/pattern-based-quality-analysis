@@ -13,7 +13,7 @@ import qualitypatternmodel.adaptionxml.*;
 
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -115,8 +115,8 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 				return createRelationAdapter();
 			}
 			@Override
-			public Adapter caseProperty(Property object) {
-				return createPropertyAdapter();
+			public Adapter casePrimitiveNode(PrimitiveNode object) {
+				return createPrimitiveNodeAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -279,16 +279,16 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.graphstructure.Property <em>Property</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.graphstructure.PrimitiveNode <em>Primitive Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.graphstructure.Property
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode
 	 * @generated
 	 */
-	public Adapter createPropertyAdapter() {
+	public Adapter createPrimitiveNodeAdapter() {
 		return null;
 	}
 

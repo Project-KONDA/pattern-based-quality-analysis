@@ -17,7 +17,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorsPackage;
@@ -39,7 +39,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.operators.impl.MatchImpl#getProperty <em>Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.impl.MatchImpl#getPrimitiveNode <em>Primitive Node</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.impl.MatchImpl#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.impl.MatchImpl#getRegularExpression <em>Regular Expression</em>}</li>
  * </ul>
@@ -48,15 +48,14 @@ import qualitypatternmodel.patternstructure.PatternElement;
  */
 public class MatchImpl extends BooleanOperatorImpl implements Match {
 	/**
-	 * The cached value of the '{@link #getProperty() <em>Property</em>}' reference.
+	 * The cached value of the '{@link #getPrimitiveNode() <em>Primitive Node</em>}' reference.
 	 * <!-- begin-user-doc -->
-	 * The <code>Property</code> that is matched to a regular expression.
 	 * <!-- end-user-doc -->
-	 * @see #getProperty()
+	 * @see #getPrimitiveNode()
 	 * @generated
 	 * @ordered
 	 */
-	protected Property property;
+	protected PrimitiveNode primitiveNode;
 
 	/**
 	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
@@ -92,11 +91,11 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	
 	@Override
 	public String generateQuery() throws InvalidityException {
-		if(option!=null && regularExpression != null && regularExpression.getValue() != null && property != null) {
+		if(option!=null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
 			if (option.getValue()){				
-				return property.generateQuery() + "[matches(., \"" + regularExpression.getValue() + "\")]";				
+				return primitiveNode.generateQuery() + "[matches(., \"" + regularExpression.getValue() + "\")]";				
 			} else {
-				return property.generateQuery() + "[not(matches(., \"" + regularExpression.getValue() + "\"))]";
+				return primitiveNode.generateQuery() + "[not(matches(., \"" + regularExpression.getValue() + "\"))]";
 			}	
 		} else {
 			throw new InvalidityException("invalid option");
@@ -109,8 +108,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		option.isValid(abstractionLevel);		
 		regularExpression.isValid(abstractionLevel);
 		
-		if(property != null) {
-			property.isValid(abstractionLevel);
+		if(primitiveNode != null) {
+			primitiveNode.isValid(abstractionLevel);
 		}
 	}
 	
@@ -119,7 +118,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			throw new InvalidityException("options null");
 		if (regularExpression == null)
 			throw new InvalidityException("regularExpression null");
-		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && property == null)
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && primitiveNode == null)
 			throw new InvalidityException("property null");		
 		
 		super.isValidLocal(abstractionLevel);
@@ -138,7 +137,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 
 	@Override
 	public boolean isTranslatable() {
-		return property.isTranslatable();
+		return primitiveNode.isTranslatable();
 	}
 	
 	/**
@@ -149,13 +148,13 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 */
 	@Override
 	public EList<Node> getAllArgumentElements() {		
-		return property.getAllArgumentElements();
+		return primitiveNode.getAllArgumentElements();
 	}
 	
 	@Override
 	public EList<Comparable> getArguments(){
 		EList<Comparable> list = new BasicEList<Comparable>();		
-		list.add(property);
+		list.add(primitiveNode);
 		list.add(regularExpression);
 		list.add(option);
 		return list;
@@ -197,16 +196,16 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	@Override
-	public Property getProperty() {
-		if (property != null && property.eIsProxy()) {
-			InternalEObject oldProperty = (InternalEObject)property;
-			property = (Property)eResolveProxy(oldProperty);
-			if (property != oldProperty) {
+	public PrimitiveNode getPrimitiveNode() {
+		if (primitiveNode != null && primitiveNode.eIsProxy()) {
+			InternalEObject oldPrimitiveNode = (InternalEObject)primitiveNode;
+			primitiveNode = (PrimitiveNode)eResolveProxy(oldPrimitiveNode);
+			if (primitiveNode != oldPrimitiveNode) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OperatorsPackage.MATCH__PROPERTY, oldProperty, property));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, OperatorsPackage.MATCH__PRIMITIVE_NODE, oldPrimitiveNode, primitiveNode));
 			}
 		}
-		return property;
+		return primitiveNode;
 	}
 
 	/**
@@ -214,8 +213,23 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Property basicGetProperty() {
-		return property;
+	public PrimitiveNode basicGetPrimitiveNode() {
+		return primitiveNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPrimitiveNode(PrimitiveNode newPrimitiveNode, NotificationChain msgs) {
+		PrimitiveNode oldPrimitiveNode = primitiveNode;
+		primitiveNode = newPrimitiveNode;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PRIMITIVE_NODE, oldPrimitiveNode, newPrimitiveNode);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -223,9 +237,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetProperty(Property newProperty, NotificationChain msgs) {
-		Property oldProperty = property;
-		property = newProperty;
+	public NotificationChain basicSetProperty(PrimitiveNode newProperty, NotificationChain msgs) {
+		PrimitiveNode oldProperty = primitiveNode;
+		primitiveNode = newProperty;
 		if(newProperty != null || oldProperty != null) {
 			for(BooleanOperator boolOp : getRootBooleanOperators()) {
 				if(newProperty != null) {
@@ -237,7 +251,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			}
 		}
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PROPERTY, oldProperty, newProperty);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PRIMITIVE_NODE, oldProperty, newProperty);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -249,18 +263,18 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated
 	 */
 	@Override
-	public void setProperty(Property newProperty) {
-		if (newProperty != property) {
+	public void setPrimitiveNode(PrimitiveNode newPrimitiveNode) {
+		if (newPrimitiveNode != primitiveNode) {
 			NotificationChain msgs = null;
-			if (property != null)
-				msgs = ((InternalEObject)property).eInverseRemove(this, GraphstructurePackage.PROPERTY__MATCH, Property.class, msgs);
-			if (newProperty != null)
-				msgs = ((InternalEObject)newProperty).eInverseAdd(this, GraphstructurePackage.PROPERTY__MATCH, Property.class, msgs);
-			msgs = basicSetProperty(newProperty, msgs);
+			if (primitiveNode != null)
+				msgs = ((InternalEObject)primitiveNode).eInverseRemove(this, GraphstructurePackage.PRIMITIVE_NODE__MATCH, PrimitiveNode.class, msgs);
+			if (newPrimitiveNode != null)
+				msgs = ((InternalEObject)newPrimitiveNode).eInverseAdd(this, GraphstructurePackage.PRIMITIVE_NODE__MATCH, PrimitiveNode.class, msgs);
+			msgs = basicSetPrimitiveNode(newPrimitiveNode, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PROPERTY, newProperty, newProperty));
+			eNotify(new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PRIMITIVE_NODE, newPrimitiveNode, newPrimitiveNode));
 	}
 
 	/**
@@ -339,7 +353,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 */
 	@Override
 	public Node getElement() {
-		return getProperty();
+		return getPrimitiveNode();
 	}
 	
 	@Override
@@ -360,10 +374,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case OperatorsPackage.MATCH__PROPERTY:
-				if (property != null)
-					msgs = ((InternalEObject)property).eInverseRemove(this, GraphstructurePackage.PROPERTY__MATCH, Property.class, msgs);
-				return basicSetProperty((Property)otherEnd, msgs);
+			case OperatorsPackage.MATCH__PRIMITIVE_NODE:
+				if (primitiveNode != null)
+					msgs = ((InternalEObject)primitiveNode).eInverseRemove(this, GraphstructurePackage.PRIMITIVE_NODE__MATCH, PrimitiveNode.class, msgs);
+				return basicSetPrimitiveNode((PrimitiveNode)otherEnd, msgs);
 			case OperatorsPackage.MATCH__OPTION:
 				if (option != null)
 					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.BOOLEAN_PARAM__MATCHES, BooleanParam.class, msgs);
@@ -384,8 +398,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case OperatorsPackage.MATCH__PROPERTY:
-				return basicSetProperty(null, msgs);
+			case OperatorsPackage.MATCH__PRIMITIVE_NODE:
+				return basicSetPrimitiveNode(null, msgs);
 			case OperatorsPackage.MATCH__OPTION:
 				return basicSetOption(null, msgs);
 			case OperatorsPackage.MATCH__REGULAR_EXPRESSION:
@@ -471,9 +485,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case OperatorsPackage.MATCH__PROPERTY:
-				if (resolve) return getProperty();
-				return basicGetProperty();
+			case OperatorsPackage.MATCH__PRIMITIVE_NODE:
+				if (resolve) return getPrimitiveNode();
+				return basicGetPrimitiveNode();
 			case OperatorsPackage.MATCH__OPTION:
 				if (resolve) return getOption();
 				return basicGetOption();
@@ -493,8 +507,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case OperatorsPackage.MATCH__PROPERTY:
-				setProperty((Property)newValue);
+			case OperatorsPackage.MATCH__PRIMITIVE_NODE:
+				setPrimitiveNode((PrimitiveNode)newValue);
 				return;
 			case OperatorsPackage.MATCH__OPTION:
 				setOption((BooleanParam)newValue);
@@ -514,8 +528,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case OperatorsPackage.MATCH__PROPERTY:
-				setProperty((Property)null);
+			case OperatorsPackage.MATCH__PRIMITIVE_NODE:
+				setPrimitiveNode((PrimitiveNode)null);
 				return;
 			case OperatorsPackage.MATCH__OPTION:
 				setOption((BooleanParam)null);
@@ -535,8 +549,8 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case OperatorsPackage.MATCH__PROPERTY:
-				return property != null;
+			case OperatorsPackage.MATCH__PRIMITIVE_NODE:
+				return primitiveNode != null;
 			case OperatorsPackage.MATCH__OPTION:
 				return option != null;
 			case OperatorsPackage.MATCH__REGULAR_EXPRESSION:
@@ -564,7 +578,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		String res = "MATCH (" + getInternalId() + ") [";
 		if (!getOption().getValue()) res += "not ";
 		res += getOption().getInternalId() + "]";
-		res += "[" + getProperty().getInternalId() + ", " + getRegularExpression().getInternalId() + "]";
+		res += "[" + getPrimitiveNode().getInternalId() + ", " + getRegularExpression().getInternalId() + "]";
 		return res;
 	}
 

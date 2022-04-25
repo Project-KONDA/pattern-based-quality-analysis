@@ -201,7 +201,7 @@
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//operators/NumberOperator"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//operators/Match">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Match/property"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Match/primitiveNode"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Match/option"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -261,19 +261,19 @@
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/getOriginalID"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Property">
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Property/match"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/addComparison"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/isOperatorArgument"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/checkComparisonConsistency">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Property/checkComparisonConsistency/parameterValue"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/match"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/addComparison"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/isOperatorArgument"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/checkComparisonConsistency">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/checkComparisonConsistency/parameterValue"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/checkComparisonConsistency.1">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Property/checkComparisonConsistency.1/comp"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/checkComparisonConsistency.1">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/checkComparisonConsistency.1/comp"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/getEquivalentProperties"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/checkComparisonConsistency.2"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/getEquivalentProperties"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/checkComparisonConsistency.2"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Node">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

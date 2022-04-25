@@ -8,7 +8,7 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlProperty;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.parameters.PropertyOptionParam}.
@@ -24,7 +24,7 @@ public interface PropertyOptionParamValidator {
 
 	boolean validateProperties(EList<XmlProperty> value);
 
-	boolean validateProperty(Property value);
+	boolean validateProperty(PrimitiveNode value);
 
 	boolean validateSelection(PropertyKind value);
 }

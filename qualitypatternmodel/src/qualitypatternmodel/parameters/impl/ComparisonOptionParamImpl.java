@@ -27,7 +27,7 @@ import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -146,12 +146,12 @@ public class ComparisonOptionParamImpl extends ParameterImpl implements Comparis
 	@Override
 	public void checkComparisonConsistency() throws InvalidityException {
 		for(Comparison comp : getComparisons()) {
-			if(comp.getArgument1() instanceof Property) {
-				Property p = (Property) comp.getArgument1();
+			if(comp.getArgument1() instanceof PrimitiveNode) {
+				PrimitiveNode p = (PrimitiveNode) comp.getArgument1();
 				p.checkComparisonConsistency(comp);
 			}
-			if(comp.getArgument2() instanceof Property) {
-				Property p = (Property) comp.getArgument2();
+			if(comp.getArgument2() instanceof PrimitiveNode) {
+				PrimitiveNode p = (PrimitiveNode) comp.getArgument2();
 				p.checkComparisonConsistency(comp);
 			}
 			

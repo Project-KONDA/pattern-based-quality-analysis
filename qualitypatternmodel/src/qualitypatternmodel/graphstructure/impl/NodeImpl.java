@@ -28,7 +28,7 @@ import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.BooleanOperator;
@@ -284,10 +284,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 	@Override
 	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		EList<Property> propertiesCopy = new BasicEList<Property>();
+		EList<PrimitiveNode> propertiesCopy = new BasicEList<PrimitiveNode>();
 		propertiesCopy.addAll(getProperties());
-		for(Property property : propertiesCopy) {
-			property.createXMLAdaption();
+		for(PrimitiveNode primitiveNode : propertiesCopy) {
+			primitiveNode.createXMLAdaption();
 		}
 		if(!(this instanceof XmlElement) && !(this instanceof XmlRoot)) {
 			XmlElement xmlElement = new XmlElementImpl();
@@ -328,10 +328,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			xmlElement.getComparison2().addAll(getComparison2());
 			getComparison2().clear();	
 			
-			EList<Property> propertiesCopy2 = new BasicEList<Property>();
+			EList<PrimitiveNode> propertiesCopy2 = new BasicEList<PrimitiveNode>();
 			propertiesCopy2.addAll(getProperties());
-			for(Property property : propertiesCopy2) {
-				property.setElement(xmlElement);
+			for(PrimitiveNode primitiveNode : propertiesCopy2) {
+				primitiveNode.setElement(xmlElement);
 			}		
 			
 			setGraph(null);
@@ -825,7 +825,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated
 	 */
 	@Override
-	public Property makePrimitive() {
+	public PrimitiveNode makePrimitive() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -1451,7 +1451,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	
 				oplist.add(match);	
 				match.createParameters();
-				match.setProperty(makePrimitive());
+				match.setPrimitiveNode(makePrimitive());
 									
 				if(regex != null) {
 					match.getRegularExpression().setValue(regex);
@@ -1486,7 +1486,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
-		if (this instanceof Property)
+		if (this instanceof PrimitiveNode)
 			patternElements.add(this);			
 		return patternElements;
 	}

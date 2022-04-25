@@ -3,7 +3,7 @@
 package qualitypatternmodel.operators;
 
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 
@@ -17,7 +17,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.operators.Match#getProperty <em>Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.Match#getPrimitiveNode <em>Primitive Node</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.Match#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.Match#getRegularExpression <em>Regular Expression</em>}</li>
  * </ul>
@@ -28,28 +28,28 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  */
 public interface Match extends BooleanOperator {
 	/**
-	 * Returns the value of the '<em><b>Property</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}'.
+	 * Returns the value of the '<em><b>Primitive Node</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getMatch <em>Match</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property</em>' reference.
-	 * @see #setProperty(Property)
-	 * @see qualitypatternmodel.operators.OperatorsPackage#getMatch_Property()
-	 * @see qualitypatternmodel.graphstructure.Property#getMatch
+	 * @return the value of the '<em>Primitive Node</em>' reference.
+	 * @see #setPrimitiveNode(PrimitiveNode)
+	 * @see qualitypatternmodel.operators.OperatorsPackage#getMatch_PrimitiveNode()
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getMatch
 	 * @model opposite="match"
 	 * @generated
 	 */
-	Property getProperty();
+	PrimitiveNode getPrimitiveNode();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.operators.Match#getProperty <em>Property</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.operators.Match#getPrimitiveNode <em>Primitive Node</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Property</em>' reference.
-	 * @see #getProperty()
+	 * @param value the new value of the '<em>Primitive Node</em>' reference.
+	 * @see #getPrimitiveNode()
 	 * @generated
 	 */
-	void setProperty(Property value);
+	void setPrimitiveNode(PrimitiveNode value);
 
 	/**
 	 * Returns the value of the '<em><b>Regular Expression</b></em>' reference.

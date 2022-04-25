@@ -89,7 +89,6 @@ public class XmlElementItemProvider extends NodeItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

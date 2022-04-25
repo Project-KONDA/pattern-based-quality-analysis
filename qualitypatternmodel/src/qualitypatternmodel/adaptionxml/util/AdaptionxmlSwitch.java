@@ -11,7 +11,7 @@ import qualitypatternmodel.adaptionxml.*;
 
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -104,7 +104,7 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 			case AdaptionxmlPackage.XML_PROPERTY: {
 				XmlProperty xmlProperty = (XmlProperty)theEObject;
 				T result = caseXmlProperty(xmlProperty);
-				if (result == null) result = caseProperty(xmlProperty);
+				if (result == null) result = casePrimitiveNode(xmlProperty);
 				if (result == null) result = caseNode(xmlProperty);
 				if (result == null) result = caseComparable(xmlProperty);
 				if (result == null) result = caseAdaptable(xmlProperty);
@@ -277,17 +277,17 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Primitive Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Property</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Primitive Node</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProperty(Property object) {
+	public T casePrimitiveNode(PrimitiveNode object) {
 		return null;
 	}
 

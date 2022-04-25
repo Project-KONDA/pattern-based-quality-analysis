@@ -14,7 +14,7 @@ import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.Node;
@@ -64,7 +64,7 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case GraphstructurePackage.RELATION: return createRelation();
-			case GraphstructurePackage.PROPERTY: return createProperty();
+			case GraphstructurePackage.PRIMITIVE_NODE: return createPrimitiveNode();
 			case GraphstructurePackage.NODE: return createNode();
 			case GraphstructurePackage.GRAPH: return createGraph();
 			case GraphstructurePackage.COMPLEX_NODE: return createComplexNode();
@@ -120,9 +120,9 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public Property createProperty() {
-		PropertyImpl property = new PropertyImpl();
-		return property;
+	public PrimitiveNode createPrimitiveNode() {
+		PrimitiveNodeImpl primitiveNode = new PrimitiveNodeImpl();
+		return primitiveNode;
 	}
 
 	/**

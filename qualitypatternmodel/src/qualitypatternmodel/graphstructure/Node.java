@@ -366,7 +366,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model
 	 * @generated
 	 */
-	Property makePrimitive();
+	PrimitiveNode makePrimitive();
 
 	/**
 	 * <!-- begin-user-doc -->

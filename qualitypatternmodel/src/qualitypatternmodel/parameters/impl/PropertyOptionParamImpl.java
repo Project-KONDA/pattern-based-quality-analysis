@@ -25,7 +25,7 @@ import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
@@ -127,7 +127,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	
 	@Override
 	public void checkComparisonConsistency() throws InvalidityException {
-		for(Property p : getProperties()) {			
+		for(PrimitiveNode p : getProperties()) {			
 			p.checkComparisonConsistency();			
 		}
 	}
@@ -410,8 +410,8 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	public String generateDescription() {
 		String res = "Angabe des Eigenschaft-Types";
 		try {
-			for(Property property : getProperties()) {
-				Node e = property;
+			for(PrimitiveNode primitiveNode : getProperties()) {
+				Node e = primitiveNode;
 				res += " von " + e.getName();
 			
 			}

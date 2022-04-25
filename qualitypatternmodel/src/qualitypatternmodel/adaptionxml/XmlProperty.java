@@ -3,7 +3,7 @@
 package qualitypatternmodel.adaptionxml;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 
@@ -27,7 +27,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * @model
  * @generated
  */
-public interface XmlProperty extends Property {
+public interface XmlProperty extends PrimitiveNode {
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.PropertyOptionParam#getProperties <em>Properties</em>}'.

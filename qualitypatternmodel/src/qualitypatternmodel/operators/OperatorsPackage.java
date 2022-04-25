@@ -1138,13 +1138,13 @@ public interface OperatorsPackage extends EPackage {
 	int MATCH__NODES = BOOLEAN_OPERATOR__NODES;
 
 	/**
-	 * The feature id for the '<em><b>Property</b></em>' reference.
+	 * The feature id for the '<em><b>Primitive Node</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH__PROPERTY = BOOLEAN_OPERATOR_FEATURE_COUNT + 0;
+	int MATCH__PRIMITIVE_NODE = BOOLEAN_OPERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Option</b></em>' reference.
@@ -2321,15 +2321,15 @@ public interface OperatorsPackage extends EPackage {
 	EClass getMatch();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.operators.Match#getProperty <em>Property</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.operators.Match#getPrimitiveNode <em>Primitive Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Property</em>'.
-	 * @see qualitypatternmodel.operators.Match#getProperty()
+	 * @return the meta object for the reference '<em>Primitive Node</em>'.
+	 * @see qualitypatternmodel.operators.Match#getPrimitiveNode()
 	 * @see #getMatch()
 	 * @generated
 	 */
-	EReference getMatch_Property();
+	EReference getMatch_PrimitiveNode();
 
 	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.operators.Match#getOption <em>Option</em>}'.
@@ -2662,12 +2662,12 @@ public interface OperatorsPackage extends EPackage {
 		EClass MATCH = eINSTANCE.getMatch();
 
 		/**
-		 * The meta object literal for the '<em><b>Property</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Primitive Node</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MATCH__PROPERTY = eINSTANCE.getMatch_Property();
+		EReference MATCH__PRIMITIVE_NODE = eINSTANCE.getMatch_PrimitiveNode();
 
 		/**
 		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.

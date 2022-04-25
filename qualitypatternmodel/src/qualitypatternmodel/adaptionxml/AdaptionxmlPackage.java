@@ -1385,7 +1385,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__ID = GraphstructurePackage.PROPERTY__ID;
+	int XML_PROPERTY__ID = GraphstructurePackage.PRIMITIVE_NODE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -1394,7 +1394,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__INTERNAL_ID = GraphstructurePackage.PROPERTY__INTERNAL_ID;
+	int XML_PROPERTY__INTERNAL_ID = GraphstructurePackage.PRIMITIVE_NODE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1403,7 +1403,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__COMPARISON1 = GraphstructurePackage.PROPERTY__COMPARISON1;
+	int XML_PROPERTY__COMPARISON1 = GraphstructurePackage.PRIMITIVE_NODE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -1412,7 +1412,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__COMPARISON2 = GraphstructurePackage.PROPERTY__COMPARISON2;
+	int XML_PROPERTY__COMPARISON2 = GraphstructurePackage.PRIMITIVE_NODE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Mappings</b></em>' reference list.
@@ -1421,7 +1421,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__OUTGOING_MAPPINGS = GraphstructurePackage.PROPERTY__OUTGOING_MAPPINGS;
+	int XML_PROPERTY__OUTGOING_MAPPINGS = GraphstructurePackage.PRIMITIVE_NODE__OUTGOING_MAPPINGS;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Mapping</b></em>' reference.
@@ -1430,7 +1430,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__INCOMING_MAPPING = GraphstructurePackage.PROPERTY__INCOMING_MAPPING;
+	int XML_PROPERTY__INCOMING_MAPPING = GraphstructurePackage.PRIMITIVE_NODE__INCOMING_MAPPING;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -1439,7 +1439,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__GRAPH = GraphstructurePackage.PROPERTY__GRAPH;
+	int XML_PROPERTY__GRAPH = GraphstructurePackage.PRIMITIVE_NODE__GRAPH;
 
 	/**
 	 * The feature id for the '<em><b>Result Of</b></em>' reference.
@@ -1448,7 +1448,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__RESULT_OF = GraphstructurePackage.PROPERTY__RESULT_OF;
+	int XML_PROPERTY__RESULT_OF = GraphstructurePackage.PRIMITIVE_NODE__RESULT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1457,7 +1457,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__NAME = GraphstructurePackage.PROPERTY__NAME;
+	int XML_PROPERTY__NAME = GraphstructurePackage.PRIMITIVE_NODE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Translated</b></em>' attribute.
@@ -1466,7 +1466,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__TRANSLATED = GraphstructurePackage.PROPERTY__TRANSLATED;
+	int XML_PROPERTY__TRANSLATED = GraphstructurePackage.PRIMITIVE_NODE__TRANSLATED;
 
 	/**
 	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
@@ -1475,7 +1475,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__PREDICATES_ARE_BEING_TRANSLATED = GraphstructurePackage.PROPERTY__PREDICATES_ARE_BEING_TRANSLATED;
+	int XML_PROPERTY__PREDICATES_ARE_BEING_TRANSLATED = GraphstructurePackage.PRIMITIVE_NODE__PREDICATES_ARE_BEING_TRANSLATED;
 
 	/**
 	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
@@ -1484,7 +1484,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__PREDICATES = GraphstructurePackage.PROPERTY__PREDICATES;
+	int XML_PROPERTY__PREDICATES = GraphstructurePackage.PRIMITIVE_NODE__PREDICATES;
 
 	/**
 	 * The feature id for the '<em><b>Incoming</b></em>' reference list.
@@ -1493,7 +1493,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__INCOMING = GraphstructurePackage.PROPERTY__INCOMING;
+	int XML_PROPERTY__INCOMING = GraphstructurePackage.PRIMITIVE_NODE__INCOMING;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
@@ -1502,7 +1502,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__OUTGOING = GraphstructurePackage.PROPERTY__OUTGOING;
+	int XML_PROPERTY__OUTGOING = GraphstructurePackage.PRIMITIVE_NODE__OUTGOING;
 
 	/**
 	 * The feature id for the '<em><b>Match</b></em>' reference list.
@@ -1511,7 +1511,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__MATCH = GraphstructurePackage.PROPERTY__MATCH;
+	int XML_PROPERTY__MATCH = GraphstructurePackage.PRIMITIVE_NODE__MATCH;
 
 	/**
 	 * The feature id for the '<em><b>Option</b></em>' reference.
@@ -1520,7 +1520,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__OPTION = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 0;
+	int XML_PROPERTY__OPTION = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Attribute Name</b></em>' reference.
@@ -1529,7 +1529,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__ATTRIBUTE_NAME = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 1;
+	int XML_PROPERTY__ATTRIBUTE_NAME = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Incoming References</b></em>' reference list.
@@ -1538,7 +1538,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__INCOMING_REFERENCES = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 2;
+	int XML_PROPERTY__INCOMING_REFERENCES = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing References</b></em>' reference list.
@@ -1547,7 +1547,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__OUTGOING_REFERENCES = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 3;
+	int XML_PROPERTY__OUTGOING_REFERENCES = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Xml Property</em>' class.
@@ -1556,7 +1556,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_FEATURE_COUNT = GraphstructurePackage.PROPERTY_FEATURE_COUNT + 4;
+	int XML_PROPERTY_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -1565,7 +1565,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GENERATE_QUERY = GraphstructurePackage.PROPERTY___GENERATE_QUERY;
+	int XML_PROPERTY___GENERATE_QUERY = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -1574,7 +1574,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_ALL_PARAMETERS = GraphstructurePackage.PROPERTY___GET_ALL_PARAMETERS;
+	int XML_PROPERTY___GET_ALL_PARAMETERS = GraphstructurePackage.PRIMITIVE_NODE___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1583,7 +1583,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___PREPARE_TRANSLATION = GraphstructurePackage.PROPERTY___PREPARE_TRANSLATION;
+	int XML_PROPERTY___PREPARE_TRANSLATION = GraphstructurePackage.PRIMITIVE_NODE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1592,7 +1592,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___IS_VALID__ABSTRACTIONLEVEL = GraphstructurePackage.PROPERTY___IS_VALID__ABSTRACTIONLEVEL;
+	int XML_PROPERTY___IS_VALID__ABSTRACTIONLEVEL = GraphstructurePackage.PRIMITIVE_NODE___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1601,7 +1601,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.PROPERTY___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int XML_PROPERTY___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.PRIMITIVE_NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1610,7 +1610,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_CONTAINER = GraphstructurePackage.PROPERTY___GET_CONTAINER;
+	int XML_PROPERTY___GET_CONTAINER = GraphstructurePackage.PRIMITIVE_NODE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1619,7 +1619,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_ANCESTOR__CLASS = GraphstructurePackage.PROPERTY___GET_ANCESTOR__CLASS;
+	int XML_PROPERTY___GET_ANCESTOR__CLASS = GraphstructurePackage.PRIMITIVE_NODE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -1628,7 +1628,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___MY_TO_STRING = GraphstructurePackage.PROPERTY___MY_TO_STRING;
+	int XML_PROPERTY___MY_TO_STRING = GraphstructurePackage.PRIMITIVE_NODE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -1637,7 +1637,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___PREPARE_PARAMETER_UPDATES = GraphstructurePackage.PROPERTY___PREPARE_PARAMETER_UPDATES;
+	int XML_PROPERTY___PREPARE_PARAMETER_UPDATES = GraphstructurePackage.PRIMITIVE_NODE___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -1646,7 +1646,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_PARAMETER_LIST = GraphstructurePackage.PROPERTY___GET_PARAMETER_LIST;
+	int XML_PROPERTY___GET_PARAMETER_LIST = GraphstructurePackage.PRIMITIVE_NODE___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -1655,7 +1655,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_OPERATOR_LIST = GraphstructurePackage.PROPERTY___GET_OPERATOR_LIST;
+	int XML_PROPERTY___GET_OPERATOR_LIST = GraphstructurePackage.PRIMITIVE_NODE___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Create XML Adaption</em>' operation.
@@ -1664,7 +1664,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___CREATE_XML_ADAPTION = GraphstructurePackage.PROPERTY___CREATE_XML_ADAPTION;
+	int XML_PROPERTY___CREATE_XML_ADAPTION = GraphstructurePackage.PRIMITIVE_NODE___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
@@ -1673,7 +1673,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___FINALIZE_XML_ADAPTION = GraphstructurePackage.PROPERTY___FINALIZE_XML_ADAPTION;
+	int XML_PROPERTY___FINALIZE_XML_ADAPTION = GraphstructurePackage.PRIMITIVE_NODE___FINALIZE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -1682,7 +1682,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.PROPERTY___RECORD_VALUES__XMLDATADATABASE;
+	int XML_PROPERTY___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.PRIMITIVE_NODE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -1691,7 +1691,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___RELATIONS_XML_ADAPTED = GraphstructurePackage.PROPERTY___RELATIONS_XML_ADAPTED;
+	int XML_PROPERTY___RELATIONS_XML_ADAPTED = GraphstructurePackage.PRIMITIVE_NODE___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -1700,7 +1700,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = GraphstructurePackage.PROPERTY___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int XML_PROPERTY___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = GraphstructurePackage.PRIMITIVE_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -1709,7 +1709,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.PROPERTY___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int XML_PROPERTY___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.PRIMITIVE_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -1718,7 +1718,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.PROPERTY___UPDATE_PARAMETERS__PARAMETERLIST;
+	int XML_PROPERTY___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.PRIMITIVE_NODE___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -1727,7 +1727,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___INITIALIZE_TRANSLATION = GraphstructurePackage.PROPERTY___INITIALIZE_TRANSLATION;
+	int XML_PROPERTY___INITIALIZE_TRANSLATION = GraphstructurePackage.PRIMITIVE_NODE___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1736,7 +1736,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_RETURN_TYPE = GraphstructurePackage.PROPERTY___GET_RETURN_TYPE;
+	int XML_PROPERTY___GET_RETURN_TYPE = GraphstructurePackage.PRIMITIVE_NODE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -1745,7 +1745,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___IS_TRANSLATABLE = GraphstructurePackage.PROPERTY___IS_TRANSLATABLE;
+	int XML_PROPERTY___IS_TRANSLATABLE = GraphstructurePackage.PRIMITIVE_NODE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -1754,7 +1754,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_ALL_ARGUMENT_ELEMENTS = GraphstructurePackage.PROPERTY___GET_ALL_ARGUMENT_ELEMENTS;
+	int XML_PROPERTY___GET_ALL_ARGUMENT_ELEMENTS = GraphstructurePackage.PRIMITIVE_NODE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1763,7 +1763,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int XML_PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.PRIMITIVE_NODE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
@@ -1772,7 +1772,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = GraphstructurePackage.PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+	int XML_PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = GraphstructurePackage.PRIMITIVE_NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -1781,7 +1781,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___CREATE_PARAMETERS = GraphstructurePackage.PROPERTY___CREATE_PARAMETERS;
+	int XML_PROPERTY___CREATE_PARAMETERS = GraphstructurePackage.PRIMITIVE_NODE___CREATE_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
@@ -1790,7 +1790,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_ORIGINAL_ID = GraphstructurePackage.PROPERTY___GET_ORIGINAL_ID;
+	int XML_PROPERTY___GET_ORIGINAL_ID = GraphstructurePackage.PRIMITIVE_NODE___GET_ORIGINAL_ID;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
@@ -1799,7 +1799,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___ADD_PRIMITIVE_MATCH__STRING = GraphstructurePackage.PROPERTY___ADD_PRIMITIVE_MATCH__STRING;
+	int XML_PROPERTY___ADD_PRIMITIVE_MATCH__STRING = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_MATCH__STRING;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1808,7 +1808,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___ADD_PRIMITIVE_COMPARISON__STRING = GraphstructurePackage.PROPERTY___ADD_PRIMITIVE_COMPARISON__STRING;
+	int XML_PROPERTY___ADD_PRIMITIVE_COMPARISON__STRING = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_COMPARISON__STRING;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
@@ -1817,7 +1817,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___ADD_PRIMITIVE_MATCH = GraphstructurePackage.PROPERTY___ADD_PRIMITIVE_MATCH;
+	int XML_PROPERTY___ADD_PRIMITIVE_MATCH = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_MATCH;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1826,7 +1826,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___ADD_PRIMITIVE_COMPARISON = GraphstructurePackage.PROPERTY___ADD_PRIMITIVE_COMPARISON;
+	int XML_PROPERTY___ADD_PRIMITIVE_COMPARISON = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -1835,7 +1835,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_ALL_OPERATORS = GraphstructurePackage.PROPERTY___GET_ALL_OPERATORS;
+	int XML_PROPERTY___GET_ALL_OPERATORS = GraphstructurePackage.PRIMITIVE_NODE___GET_ALL_OPERATORS;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1844,7 +1844,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE = GraphstructurePackage.PROPERTY___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE;
+	int XML_PROPERTY___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1853,7 +1853,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = GraphstructurePackage.PROPERTY___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE;
+	int XML_PROPERTY___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE;
 
 	/**
 	 * The operation id for the '<em>Set Graph Simple</em>' operation.
@@ -1862,7 +1862,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___SET_GRAPH_SIMPLE__GRAPH = GraphstructurePackage.PROPERTY___SET_GRAPH_SIMPLE__GRAPH;
+	int XML_PROPERTY___SET_GRAPH_SIMPLE__GRAPH = GraphstructurePackage.PRIMITIVE_NODE___SET_GRAPH_SIMPLE__GRAPH;
 
 	/**
 	 * The operation id for the '<em>Get Equivalent Elements</em>' operation.
@@ -1871,7 +1871,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_EQUIVALENT_ELEMENTS__ELIST = GraphstructurePackage.PROPERTY___GET_EQUIVALENT_ELEMENTS__ELIST;
+	int XML_PROPERTY___GET_EQUIVALENT_ELEMENTS__ELIST = GraphstructurePackage.PRIMITIVE_NODE___GET_EQUIVALENT_ELEMENTS__ELIST;
 
 	/**
 	 * The operation id for the '<em>Make Primitive</em>' operation.
@@ -1880,7 +1880,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___MAKE_PRIMITIVE = GraphstructurePackage.PROPERTY___MAKE_PRIMITIVE;
+	int XML_PROPERTY___MAKE_PRIMITIVE = GraphstructurePackage.PRIMITIVE_NODE___MAKE_PRIMITIVE;
 
 	/**
 	 * The operation id for the '<em>Make Complex</em>' operation.
@@ -1889,7 +1889,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___MAKE_COMPLEX = GraphstructurePackage.PROPERTY___MAKE_COMPLEX;
+	int XML_PROPERTY___MAKE_COMPLEX = GraphstructurePackage.PRIMITIVE_NODE___MAKE_COMPLEX;
 
 	/**
 	 * The operation id for the '<em>Add Target Node</em>' operation.
@@ -1898,7 +1898,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___ADD_TARGET_NODE = GraphstructurePackage.PROPERTY___ADD_TARGET_NODE;
+	int XML_PROPERTY___ADD_TARGET_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADD_TARGET_NODE;
 
 	/**
 	 * The operation id for the '<em>Add Outgoing</em>' operation.
@@ -1907,7 +1907,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___ADD_OUTGOING__NODE = GraphstructurePackage.PROPERTY___ADD_OUTGOING__NODE;
+	int XML_PROPERTY___ADD_OUTGOING__NODE = GraphstructurePackage.PRIMITIVE_NODE___ADD_OUTGOING__NODE;
 
 	/**
 	 * The operation id for the '<em>Add Comparison</em>' operation.
@@ -1916,7 +1916,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___ADD_COMPARISON = GraphstructurePackage.PROPERTY___ADD_COMPARISON;
+	int XML_PROPERTY___ADD_COMPARISON = GraphstructurePackage.PRIMITIVE_NODE___ADD_COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Is Operator Argument</em>' operation.
@@ -1925,7 +1925,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___IS_OPERATOR_ARGUMENT = GraphstructurePackage.PROPERTY___IS_OPERATOR_ARGUMENT;
+	int XML_PROPERTY___IS_OPERATOR_ARGUMENT = GraphstructurePackage.PRIMITIVE_NODE___IS_OPERATOR_ARGUMENT;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -1934,7 +1934,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = GraphstructurePackage.PROPERTY___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE;
+	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -1943,7 +1943,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.PROPERTY___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
+	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Get Equivalent Properties</em>' operation.
@@ -1952,7 +1952,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_EQUIVALENT_PROPERTIES = GraphstructurePackage.PROPERTY___GET_EQUIVALENT_PROPERTIES;
+	int XML_PROPERTY___GET_EQUIVALENT_PROPERTIES = GraphstructurePackage.PRIMITIVE_NODE___GET_EQUIVALENT_PROPERTIES;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -1961,7 +1961,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.PROPERTY___CHECK_COMPARISON_CONSISTENCY;
+	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
 	 * The number of operations of the '<em>Xml Property</em>' class.
@@ -1970,7 +1970,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPERATION_COUNT = GraphstructurePackage.PROPERTY_OPERATION_COUNT + 0;
+	int XML_PROPERTY_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlRootImpl <em>Xml Root</em>}' class.

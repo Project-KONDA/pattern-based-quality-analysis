@@ -683,16 +683,6 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPARABLE_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PropertyImpl <em>Property</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.impl.PropertyImpl
-	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getProperty()
-	 * @generated
-	 */
-	int PROPERTY = 1;
-
-	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.NodeImpl <em>Node</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1207,13 +1197,23 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 17;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl
+	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getPrimitiveNode()
+	 * @generated
+	 */
+	int PRIMITIVE_NODE = 1;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__ID = NODE__ID;
+	int PRIMITIVE_NODE__ID = NODE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -1222,7 +1222,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__INTERNAL_ID = NODE__INTERNAL_ID;
+	int PRIMITIVE_NODE__INTERNAL_ID = NODE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -1231,7 +1231,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__COMPARISON1 = NODE__COMPARISON1;
+	int PRIMITIVE_NODE__COMPARISON1 = NODE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -1240,7 +1240,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__COMPARISON2 = NODE__COMPARISON2;
+	int PRIMITIVE_NODE__COMPARISON2 = NODE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Mappings</b></em>' reference list.
@@ -1249,7 +1249,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__OUTGOING_MAPPINGS = NODE__OUTGOING_MAPPINGS;
+	int PRIMITIVE_NODE__OUTGOING_MAPPINGS = NODE__OUTGOING_MAPPINGS;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Mapping</b></em>' reference.
@@ -1258,7 +1258,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__INCOMING_MAPPING = NODE__INCOMING_MAPPING;
+	int PRIMITIVE_NODE__INCOMING_MAPPING = NODE__INCOMING_MAPPING;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -1267,7 +1267,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__GRAPH = NODE__GRAPH;
+	int PRIMITIVE_NODE__GRAPH = NODE__GRAPH;
 
 	/**
 	 * The feature id for the '<em><b>Result Of</b></em>' reference.
@@ -1276,7 +1276,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__RESULT_OF = NODE__RESULT_OF;
+	int PRIMITIVE_NODE__RESULT_OF = NODE__RESULT_OF;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1285,7 +1285,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__NAME = NODE__NAME;
+	int PRIMITIVE_NODE__NAME = NODE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Translated</b></em>' attribute.
@@ -1294,7 +1294,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__TRANSLATED = NODE__TRANSLATED;
+	int PRIMITIVE_NODE__TRANSLATED = NODE__TRANSLATED;
 
 	/**
 	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
@@ -1303,7 +1303,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__PREDICATES_ARE_BEING_TRANSLATED = NODE__PREDICATES_ARE_BEING_TRANSLATED;
+	int PRIMITIVE_NODE__PREDICATES_ARE_BEING_TRANSLATED = NODE__PREDICATES_ARE_BEING_TRANSLATED;
 
 	/**
 	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
@@ -1312,7 +1312,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__PREDICATES = NODE__PREDICATES;
+	int PRIMITIVE_NODE__PREDICATES = NODE__PREDICATES;
 
 	/**
 	 * The feature id for the '<em><b>Incoming</b></em>' reference list.
@@ -1321,7 +1321,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__INCOMING = NODE__INCOMING;
+	int PRIMITIVE_NODE__INCOMING = NODE__INCOMING;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
@@ -1330,7 +1330,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__OUTGOING = NODE__OUTGOING;
+	int PRIMITIVE_NODE__OUTGOING = NODE__OUTGOING;
 
 	/**
 	 * The feature id for the '<em><b>Match</b></em>' reference list.
@@ -1339,16 +1339,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__MATCH = NODE_FEATURE_COUNT + 0;
+	int PRIMITIVE_NODE__MATCH = NODE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Property</em>' class.
+	 * The number of structural features of the '<em>Primitive Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
+	int PRIMITIVE_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -1357,7 +1357,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GENERATE_QUERY = NODE___GENERATE_QUERY;
+	int PRIMITIVE_NODE___GENERATE_QUERY = NODE___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -1366,7 +1366,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_ALL_PARAMETERS = NODE___GET_ALL_PARAMETERS;
+	int PRIMITIVE_NODE___GET_ALL_PARAMETERS = NODE___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1375,7 +1375,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___PREPARE_TRANSLATION = NODE___PREPARE_TRANSLATION;
+	int PRIMITIVE_NODE___PREPARE_TRANSLATION = NODE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1384,7 +1384,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___IS_VALID__ABSTRACTIONLEVEL = NODE___IS_VALID__ABSTRACTIONLEVEL;
+	int PRIMITIVE_NODE___IS_VALID__ABSTRACTIONLEVEL = NODE___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1393,7 +1393,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int PRIMITIVE_NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1402,7 +1402,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_CONTAINER = NODE___GET_CONTAINER;
+	int PRIMITIVE_NODE___GET_CONTAINER = NODE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1411,7 +1411,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_ANCESTOR__CLASS = NODE___GET_ANCESTOR__CLASS;
+	int PRIMITIVE_NODE___GET_ANCESTOR__CLASS = NODE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -1420,7 +1420,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___MY_TO_STRING = NODE___MY_TO_STRING;
+	int PRIMITIVE_NODE___MY_TO_STRING = NODE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -1429,7 +1429,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___PREPARE_PARAMETER_UPDATES = NODE___PREPARE_PARAMETER_UPDATES;
+	int PRIMITIVE_NODE___PREPARE_PARAMETER_UPDATES = NODE___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -1438,7 +1438,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_PARAMETER_LIST = NODE___GET_PARAMETER_LIST;
+	int PRIMITIVE_NODE___GET_PARAMETER_LIST = NODE___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -1447,7 +1447,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_OPERATOR_LIST = NODE___GET_OPERATOR_LIST;
+	int PRIMITIVE_NODE___GET_OPERATOR_LIST = NODE___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Create XML Adaption</em>' operation.
@@ -1456,7 +1456,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___CREATE_XML_ADAPTION = NODE___CREATE_XML_ADAPTION;
+	int PRIMITIVE_NODE___CREATE_XML_ADAPTION = NODE___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
@@ -1465,7 +1465,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___FINALIZE_XML_ADAPTION = NODE___FINALIZE_XML_ADAPTION;
+	int PRIMITIVE_NODE___FINALIZE_XML_ADAPTION = NODE___FINALIZE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -1474,7 +1474,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___RECORD_VALUES__XMLDATADATABASE = NODE___RECORD_VALUES__XMLDATADATABASE;
+	int PRIMITIVE_NODE___RECORD_VALUES__XMLDATADATABASE = NODE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -1483,7 +1483,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___RELATIONS_XML_ADAPTED = NODE___RELATIONS_XML_ADAPTED;
+	int PRIMITIVE_NODE___RELATIONS_XML_ADAPTED = NODE___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -1492,7 +1492,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int PRIMITIVE_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -1501,7 +1501,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int PRIMITIVE_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -1510,7 +1510,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___UPDATE_PARAMETERS__PARAMETERLIST = NODE___UPDATE_PARAMETERS__PARAMETERLIST;
+	int PRIMITIVE_NODE___UPDATE_PARAMETERS__PARAMETERLIST = NODE___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -1519,7 +1519,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___INITIALIZE_TRANSLATION = NODE___INITIALIZE_TRANSLATION;
+	int PRIMITIVE_NODE___INITIALIZE_TRANSLATION = NODE___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1528,7 +1528,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_RETURN_TYPE = NODE___GET_RETURN_TYPE;
+	int PRIMITIVE_NODE___GET_RETURN_TYPE = NODE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -1537,7 +1537,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___IS_TRANSLATABLE = NODE___IS_TRANSLATABLE;
+	int PRIMITIVE_NODE___IS_TRANSLATABLE = NODE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -1546,7 +1546,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_ALL_ARGUMENT_ELEMENTS = NODE___GET_ALL_ARGUMENT_ELEMENTS;
+	int PRIMITIVE_NODE___GET_ALL_ARGUMENT_ELEMENTS = NODE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1555,7 +1555,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = NODE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int PRIMITIVE_NODE___VALIDATE__DIAGNOSTICCHAIN_MAP = NODE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
@@ -1564,7 +1564,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+	int PRIMITIVE_NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -1573,7 +1573,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___CREATE_PARAMETERS = NODE___CREATE_PARAMETERS;
+	int PRIMITIVE_NODE___CREATE_PARAMETERS = NODE___CREATE_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
@@ -1582,7 +1582,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_ORIGINAL_ID = NODE___GET_ORIGINAL_ID;
+	int PRIMITIVE_NODE___GET_ORIGINAL_ID = NODE___GET_ORIGINAL_ID;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
@@ -1591,7 +1591,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___ADD_PRIMITIVE_MATCH__STRING = NODE___ADD_PRIMITIVE_MATCH__STRING;
+	int PRIMITIVE_NODE___ADD_PRIMITIVE_MATCH__STRING = NODE___ADD_PRIMITIVE_MATCH__STRING;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1600,7 +1600,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___ADD_PRIMITIVE_COMPARISON__STRING = NODE___ADD_PRIMITIVE_COMPARISON__STRING;
+	int PRIMITIVE_NODE___ADD_PRIMITIVE_COMPARISON__STRING = NODE___ADD_PRIMITIVE_COMPARISON__STRING;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
@@ -1609,7 +1609,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___ADD_PRIMITIVE_MATCH = NODE___ADD_PRIMITIVE_MATCH;
+	int PRIMITIVE_NODE___ADD_PRIMITIVE_MATCH = NODE___ADD_PRIMITIVE_MATCH;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1618,7 +1618,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___ADD_PRIMITIVE_COMPARISON = NODE___ADD_PRIMITIVE_COMPARISON;
+	int PRIMITIVE_NODE___ADD_PRIMITIVE_COMPARISON = NODE___ADD_PRIMITIVE_COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -1627,7 +1627,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_ALL_OPERATORS = NODE___GET_ALL_OPERATORS;
+	int PRIMITIVE_NODE___GET_ALL_OPERATORS = NODE___GET_ALL_OPERATORS;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1636,7 +1636,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE = NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE;
+	int PRIMITIVE_NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE = NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1645,7 +1645,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE;
+	int PRIMITIVE_NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE;
 
 	/**
 	 * The operation id for the '<em>Set Graph Simple</em>' operation.
@@ -1654,7 +1654,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___SET_GRAPH_SIMPLE__GRAPH = NODE___SET_GRAPH_SIMPLE__GRAPH;
+	int PRIMITIVE_NODE___SET_GRAPH_SIMPLE__GRAPH = NODE___SET_GRAPH_SIMPLE__GRAPH;
 
 	/**
 	 * The operation id for the '<em>Get Equivalent Elements</em>' operation.
@@ -1663,7 +1663,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_EQUIVALENT_ELEMENTS__ELIST = NODE___GET_EQUIVALENT_ELEMENTS__ELIST;
+	int PRIMITIVE_NODE___GET_EQUIVALENT_ELEMENTS__ELIST = NODE___GET_EQUIVALENT_ELEMENTS__ELIST;
 
 	/**
 	 * The operation id for the '<em>Make Primitive</em>' operation.
@@ -1672,7 +1672,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___MAKE_PRIMITIVE = NODE___MAKE_PRIMITIVE;
+	int PRIMITIVE_NODE___MAKE_PRIMITIVE = NODE___MAKE_PRIMITIVE;
 
 	/**
 	 * The operation id for the '<em>Make Complex</em>' operation.
@@ -1681,7 +1681,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___MAKE_COMPLEX = NODE___MAKE_COMPLEX;
+	int PRIMITIVE_NODE___MAKE_COMPLEX = NODE___MAKE_COMPLEX;
 
 	/**
 	 * The operation id for the '<em>Add Target Node</em>' operation.
@@ -1690,7 +1690,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___ADD_TARGET_NODE = NODE___ADD_TARGET_NODE;
+	int PRIMITIVE_NODE___ADD_TARGET_NODE = NODE___ADD_TARGET_NODE;
 
 	/**
 	 * The operation id for the '<em>Add Outgoing</em>' operation.
@@ -1699,7 +1699,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___ADD_OUTGOING__NODE = NODE___ADD_OUTGOING__NODE;
+	int PRIMITIVE_NODE___ADD_OUTGOING__NODE = NODE___ADD_OUTGOING__NODE;
 
 	/**
 	 * The operation id for the '<em>Add Comparison</em>' operation.
@@ -1708,7 +1708,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___ADD_COMPARISON = NODE_OPERATION_COUNT + 0;
+	int PRIMITIVE_NODE___ADD_COMPARISON = NODE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Operator Argument</em>' operation.
@@ -1717,7 +1717,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___IS_OPERATOR_ARGUMENT = NODE_OPERATION_COUNT + 1;
+	int PRIMITIVE_NODE___IS_OPERATOR_ARGUMENT = NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -1726,7 +1726,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = NODE_OPERATION_COUNT + 2;
+	int PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = NODE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -1735,7 +1735,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___CHECK_COMPARISON_CONSISTENCY__COMPARISON = NODE_OPERATION_COUNT + 3;
+	int PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON = NODE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Equivalent Properties</em>' operation.
@@ -1744,7 +1744,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___GET_EQUIVALENT_PROPERTIES = NODE_OPERATION_COUNT + 4;
+	int PRIMITIVE_NODE___GET_EQUIVALENT_PROPERTIES = NODE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -1753,16 +1753,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY___CHECK_COMPARISON_CONSISTENCY = NODE_OPERATION_COUNT + 5;
+	int PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY = NODE_OPERATION_COUNT + 5;
 
 	/**
-	 * The number of operations of the '<em>Property</em>' class.
+	 * The number of operations of the '<em>Primitive Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPERATION_COUNT = NODE_OPERATION_COUNT + 6;
+	int PRIMITIVE_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -3004,74 +3004,85 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getRelation__GetOriginalID();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Property <em>Property</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.PrimitiveNode <em>Primitive Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Property</em>'.
-	 * @see qualitypatternmodel.graphstructure.Property
+	 * @return the meta object for class '<em>Primitive Node</em>'.
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode
 	 * @generated
 	 */
-	EClass getProperty();
+	EClass getPrimitiveNode();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#addComparison() <em>Add Comparison</em>}' operation.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getMatch <em>Match</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Match</em>'.
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getMatch()
+	 * @see #getPrimitiveNode()
+	 * @generated
+	 */
+	EReference getPrimitiveNode_Match();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#addComparison() <em>Add Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Comparison</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Property#addComparison()
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#addComparison()
 	 * @generated
 	 */
-	EOperation getProperty__AddComparison();
+	EOperation getPrimitiveNode__AddComparison();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#isOperatorArgument() <em>Is Operator Argument</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#isOperatorArgument() <em>Is Operator Argument</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Is Operator Argument</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Property#isOperatorArgument()
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#isOperatorArgument()
 	 * @generated
 	 */
-	EOperation getProperty__IsOperatorArgument();
+	EOperation getPrimitiveNode__IsOperatorArgument();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue) <em>Check Comparison Consistency</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue) <em>Check Comparison Consistency</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Check Comparison Consistency</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Property#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue)
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue)
 	 * @generated
 	 */
-	EOperation getProperty__CheckComparisonConsistency__ParameterValue();
+	EOperation getPrimitiveNode__CheckComparisonConsistency__ParameterValue();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#checkComparisonConsistency(qualitypatternmodel.operators.Comparison) <em>Check Comparison Consistency</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency(qualitypatternmodel.operators.Comparison) <em>Check Comparison Consistency</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Check Comparison Consistency</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Property#checkComparisonConsistency(qualitypatternmodel.operators.Comparison)
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency(qualitypatternmodel.operators.Comparison)
 	 * @generated
 	 */
-	EOperation getProperty__CheckComparisonConsistency__Comparison();
+	EOperation getPrimitiveNode__CheckComparisonConsistency__Comparison();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#getEquivalentProperties() <em>Get Equivalent Properties</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getEquivalentProperties() <em>Get Equivalent Properties</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Equivalent Properties</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Property#getEquivalentProperties()
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getEquivalentProperties()
 	 * @generated
 	 */
-	EOperation getProperty__GetEquivalentProperties();
+	EOperation getPrimitiveNode__GetEquivalentProperties();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Check Comparison Consistency</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Property#checkComparisonConsistency()
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency()
 	 * @generated
 	 */
-	EOperation getProperty__CheckComparisonConsistency();
+	EOperation getPrimitiveNode__CheckComparisonConsistency();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Node <em>Node</em>}'.
@@ -3342,17 +3353,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNode__AddOutgoing__Node();
-
-	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Match</em>'.
-	 * @see qualitypatternmodel.graphstructure.Property#getMatch()
-	 * @see #getProperty()
-	 * @generated
-	 */
-	EReference getProperty_Match();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
@@ -3744,14 +3744,22 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation RELATION___GET_ORIGINAL_ID = eINSTANCE.getRelation__GetOriginalID();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.PropertyImpl <em>Property</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.graphstructure.impl.PropertyImpl
-		 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getProperty()
+		 * @see qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl
+		 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getPrimitiveNode()
 		 * @generated
 		 */
-		EClass PROPERTY = eINSTANCE.getProperty();
+		EClass PRIMITIVE_NODE = eINSTANCE.getPrimitiveNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Match</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PRIMITIVE_NODE__MATCH = eINSTANCE.getPrimitiveNode_Match();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Comparison</b></em>' operation.
@@ -3759,7 +3767,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PROPERTY___ADD_COMPARISON = eINSTANCE.getProperty__AddComparison();
+		EOperation PRIMITIVE_NODE___ADD_COMPARISON = eINSTANCE.getPrimitiveNode__AddComparison();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Operator Argument</b></em>' operation.
@@ -3767,7 +3775,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PROPERTY___IS_OPERATOR_ARGUMENT = eINSTANCE.getProperty__IsOperatorArgument();
+		EOperation PRIMITIVE_NODE___IS_OPERATOR_ARGUMENT = eINSTANCE.getPrimitiveNode__IsOperatorArgument();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.
@@ -3775,7 +3783,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PROPERTY___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = eINSTANCE.getProperty__CheckComparisonConsistency__ParameterValue();
+		EOperation PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = eINSTANCE.getPrimitiveNode__CheckComparisonConsistency__ParameterValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.
@@ -3783,7 +3791,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PROPERTY___CHECK_COMPARISON_CONSISTENCY__COMPARISON = eINSTANCE.getProperty__CheckComparisonConsistency__Comparison();
+		EOperation PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON = eINSTANCE.getPrimitiveNode__CheckComparisonConsistency__Comparison();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Equivalent Properties</b></em>' operation.
@@ -3791,7 +3799,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PROPERTY___GET_EQUIVALENT_PROPERTIES = eINSTANCE.getProperty__GetEquivalentProperties();
+		EOperation PRIMITIVE_NODE___GET_EQUIVALENT_PROPERTIES = eINSTANCE.getPrimitiveNode__GetEquivalentProperties();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.
@@ -3799,7 +3807,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PROPERTY___CHECK_COMPARISON_CONSISTENCY = eINSTANCE.getProperty__CheckComparisonConsistency();
+		EOperation PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY = eINSTANCE.getPrimitiveNode__CheckComparisonConsistency();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.NodeImpl <em>Node</em>}' class.
@@ -4010,14 +4018,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NODE___ADD_OUTGOING__NODE = eINSTANCE.getNode__AddOutgoing__Node();
-
-		/**
-		 * The meta object literal for the '<em><b>Match</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPERTY__MATCH = eINSTANCE.getProperty_Match();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.

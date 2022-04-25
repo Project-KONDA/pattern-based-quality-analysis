@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -247,8 +247,8 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		}
 		if(parameter instanceof PropertyOptionParamImpl) {
 			PropertyOptionParamImpl propertyOption = (PropertyOptionParamImpl) parameter;
-			for (Property property : propertyOption.getProperties()) {
-				XmlProperty xmlProperty = (XmlProperty) property;
+			for (PrimitiveNode primitiveNode : propertyOption.getProperties()) {
+				XmlProperty xmlProperty = (XmlProperty) primitiveNode;
 				TextLiteralParam textLiteral = xmlProperty.getAttributeName();
 				if(textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
 					int dependentParameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(textLiteral);

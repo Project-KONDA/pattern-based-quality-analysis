@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.parameters.Parameter;
@@ -305,7 +305,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 					TypeOptionParam t = (TypeOptionParam) p;
 					boolean automaticType = true;
 					for(Comparison c : t.getTypeComparisons()) {
-						automaticType &= !(c.getArgument1() instanceof Property && c.getArgument2() instanceof Property);
+						automaticType &= !(c.getArgument1() instanceof PrimitiveNode && c.getArgument2() instanceof PrimitiveNode);
 					}
 					if(!automaticType) {
 						patternParametersNonPredefinedNotAutomaticTypeNotRootRelation.add(p);

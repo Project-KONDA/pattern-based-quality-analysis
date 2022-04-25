@@ -6,7 +6,7 @@ package qualitypatternmodel.parameters.validation;
 
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.adaptionxml.XmlProperty;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.operators.Match;
 
 
@@ -27,5 +27,5 @@ public interface TextLiteralParamValidator {
 
 	boolean validateMatch(Match value);
 
-	boolean validateProperty(Property value);
+	boolean validateProperty(PrimitiveNode value);
 }

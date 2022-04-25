@@ -16,8 +16,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlProperty;
-import qualitypatternmodel.graphstructure.provider.PropertyItemProvider;
-
+import qualitypatternmodel.graphstructure.provider.PrimitiveNodeItemProvider;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
@@ -26,7 +25,7 @@ import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XmlPropertyItemProvider extends PropertyItemProvider {
+public class XmlPropertyItemProvider extends PrimitiveNodeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -184,7 +183,6 @@ public class XmlPropertyItemProvider extends PropertyItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

@@ -36,7 +36,7 @@ import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -353,8 +353,8 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	public void checkComparisonConsistency() throws InvalidityException {
 		for(XmlNavigation nav : getRelations()) {			
 			Node target = nav.getTarget();
-			if(target instanceof Property){
-				((Property) target).checkComparisonConsistency();	
+			if(target instanceof PrimitiveNode){
+				((PrimitiveNode) target).checkComparisonConsistency();	
 			}
 		}
 	}

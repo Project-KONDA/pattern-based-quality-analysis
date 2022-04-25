@@ -7,7 +7,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
@@ -58,11 +58,11 @@ public class EvalComp {
 		
 		graph1.getNodes().get(0).addPrimitiveComparison();
 		graph2.getNodes().get(1).addPrimitiveComparison();
-		Property p = graph2.getNodes().get(1).addNewProperty();
+		PrimitiveNode p = graph2.getNodes().get(1).addNewProperty();
 		
 		XmlElementImpl e = new XmlElementImpl();
 		graph2.getNodes().add(e);
-		Property p2 = e.addNewProperty();
+		PrimitiveNode p2 = e.addNewProperty();
 		
 		XmlNavigationImpl r = new XmlNavigationImpl();
 		graph2.getRelations().add(r);

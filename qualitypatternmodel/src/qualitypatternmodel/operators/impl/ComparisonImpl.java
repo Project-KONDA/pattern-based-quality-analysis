@@ -20,10 +20,10 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.impl.PropertyImpl;
+import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
@@ -210,9 +210,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
 
-		if (argument1 instanceof PropertyImpl || argument1 instanceof OperatorImpl || argument1 instanceof ParameterValueImpl)
+		if (argument1 instanceof PrimitiveNodeImpl || argument1 instanceof OperatorImpl || argument1 instanceof ParameterValueImpl)
 			argument1.isValid(abstractionLevel);
-		if (argument2 instanceof PropertyImpl || argument2 instanceof OperatorImpl || argument2 instanceof ParameterValueImpl)
+		if (argument2 instanceof PrimitiveNodeImpl || argument2 instanceof OperatorImpl || argument2 instanceof ParameterValueImpl)
 			argument2.isValid(abstractionLevel);
 		option.isValid(abstractionLevel);
 		typeOption.isValid(abstractionLevel);
@@ -297,16 +297,16 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			res.add((Parameter) argument1);
 		} else if (argument1 instanceof Operator) {
 			res.addAll(((Operator) argument1).getAllParameters());
-		} else if (argument1 instanceof Property) {
-			res.addAll(((Property) argument1).getAllParameters());
+		} else if (argument1 instanceof PrimitiveNode) {
+			res.addAll(((PrimitiveNode) argument1).getAllParameters());
 		}
 		
 		if (argument2 instanceof Parameter) {
 			res.add((Parameter) argument2);
 		} else if (argument2 instanceof Operator) {
 			res.addAll(((Operator) argument2).getAllParameters());
-		} else if (argument2 instanceof Property) {
-			res.addAll(((Property) argument2).getAllParameters());
+		} else if (argument2 instanceof PrimitiveNode) {
+			res.addAll(((PrimitiveNode) argument2).getAllParameters());
 		}
 		
 		if (getOption() != null) {
@@ -481,7 +481,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			qualitypatternmodel.graphstructure.Comparable otherArgument) {
 		if(getTypeOption() != null) {
 			if (newArgument == null) {
-				if (otherArgument == null || otherArgument instanceof Property || otherArgument instanceof UntypedParameterValue) {
+				if (otherArgument == null || otherArgument instanceof PrimitiveNode || otherArgument instanceof UntypedParameterValue) {
 					getTypeOption().setValue(ReturnType.UNSPECIFIED);
 					if(!getTypeOption().getOptions().contains(ReturnType.UNSPECIFIED)) {
 						getTypeOption().getOptions().add(ReturnType.UNSPECIFIED);
@@ -742,7 +742,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 */
 	@Override
 	public boolean isPrimitive() {
-		if(!(getArgument1() instanceof Property) && !(getArgument2() instanceof Property)) {			
+		if(!(getArgument1() instanceof PrimitiveNode) && !(getArgument2() instanceof PrimitiveNode)) {			
 			return false;
 		}
 		if(!(getArgument1() instanceof Parameter) && !(getArgument2() instanceof Parameter)) {			
@@ -759,11 +759,11 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	@Override
 	public Node getElement() {
 		if(isPrimitive()) {
-			if(getArgument1() instanceof Property) {
-				return (Property) getArgument1();
+			if(getArgument1() instanceof PrimitiveNode) {
+				return (PrimitiveNode) getArgument1();
 			}
-			if(getArgument2() instanceof Property) {
-				return (Property) getArgument2();
+			if(getArgument2() instanceof PrimitiveNode) {
+				return (PrimitiveNode) getArgument2();
 			}
 		} 
 		return null;

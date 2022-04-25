@@ -31,7 +31,7 @@ import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
@@ -739,14 +739,14 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	@Override
 	public void checkComparisonConsistency() throws InvalidityException {
 		for(Comparison comp : getComparison1()) {
-			if(comp.getArgument2() instanceof Property) {
-				Property prop = (Property) comp.getArgument2();
+			if(comp.getArgument2() instanceof PrimitiveNode) {
+				PrimitiveNode prop = (PrimitiveNode) comp.getArgument2();
 				prop.checkComparisonConsistency(this);
 			}
 		}
 		for(Comparison comp : getComparison2()) {
-			if(comp.getArgument1() instanceof Property) {
-				Property prop = (Property) comp.getArgument1();
+			if(comp.getArgument1() instanceof PrimitiveNode) {
+				PrimitiveNode prop = (PrimitiveNode) comp.getArgument1();
 				prop.checkComparisonConsistency(this);
 			}
 		}

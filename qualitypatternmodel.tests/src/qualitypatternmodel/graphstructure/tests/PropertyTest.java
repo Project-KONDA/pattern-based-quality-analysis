@@ -5,7 +5,7 @@ package qualitypatternmodel.graphstructure.tests;
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,11 +14,11 @@ import qualitypatternmodel.graphstructure.Property;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Property#addComparison() <em>Add Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Property#isOperatorArgument() <em>Is Operator Argument</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Property#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue) <em>Check Comparison Consistency</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Property#getEquivalentProperties() <em>Get Equivalent Properties</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Property#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#addComparison() <em>Add Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#isOperatorArgument() <em>Is Operator Argument</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue) <em>Check Comparison Consistency</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#getEquivalentProperties() <em>Get Equivalent Properties</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -51,8 +51,8 @@ public class PropertyTest extends NodeTest {
 	 * @generated
 	 */
 	@Override
-	protected Property getFixture() {
-		return (Property)fixture;
+	protected PrimitiveNode getFixture() {
+		return (PrimitiveNode)fixture;
 	}
 
 	/**
@@ -78,10 +78,10 @@ public class PropertyTest extends NodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Property#addComparison() <em>Add Comparison</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#addComparison() <em>Add Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Property#addComparison()
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#addComparison()
 	 * @generated
 	 */
 	public void testAddComparison() {
@@ -91,10 +91,10 @@ public class PropertyTest extends NodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Property#isOperatorArgument() <em>Is Operator Argument</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#isOperatorArgument() <em>Is Operator Argument</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Property#isOperatorArgument()
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#isOperatorArgument()
 	 * @generated
 	 */
 	public void testIsOperatorArgument() {
@@ -104,10 +104,10 @@ public class PropertyTest extends NodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Property#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue) <em>Check Comparison Consistency</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue) <em>Check Comparison Consistency</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Property#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue)
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue)
 	 * @generated
 	 */
 	public void testCheckComparisonConsistency__ParameterValue() {
@@ -117,10 +117,10 @@ public class PropertyTest extends NodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Property#getEquivalentProperties() <em>Get Equivalent Properties</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getEquivalentProperties() <em>Get Equivalent Properties</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Property#getEquivalentProperties()
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getEquivalentProperties()
 	 * @generated
 	 */
 	public void testGetEquivalentProperties() {
@@ -130,10 +130,10 @@ public class PropertyTest extends NodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Property#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Property#checkComparisonConsistency()
+	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency()
 	 * @generated
 	 */
 	public void testCheckComparisonConsistency() {

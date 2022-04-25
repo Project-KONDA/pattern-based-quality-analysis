@@ -13,7 +13,7 @@ import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Property;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.graphstructure.Node;
@@ -110,8 +110,8 @@ public class GraphstructureValidator extends EObjectValidator {
 		switch (classifierID) {
 			case GraphstructurePackage.RELATION:
 				return validateRelation((Relation)value, diagnostics, context);
-			case GraphstructurePackage.PROPERTY:
-				return validateProperty((Property)value, diagnostics, context);
+			case GraphstructurePackage.PRIMITIVE_NODE:
+				return validatePrimitiveNode((PrimitiveNode)value, diagnostics, context);
 			case GraphstructurePackage.NODE:
 				return validateNode((Node)value, diagnostics, context);
 			case GraphstructurePackage.GRAPH:
@@ -153,17 +153,17 @@ public class GraphstructureValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateProperty(Property property, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(property, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(property, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(property, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(property, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(property, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(property, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(property, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(property, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(property, diagnostics, context);
-		if (result || diagnostics != null) result &= validateComparable_validate(property, diagnostics, context);
+	public boolean validatePrimitiveNode(PrimitiveNode primitiveNode, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(primitiveNode, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(primitiveNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(primitiveNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(primitiveNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(primitiveNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(primitiveNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(primitiveNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(primitiveNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(primitiveNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validateComparable_validate(primitiveNode, diagnostics, context);
 		return result;
 	}
 
