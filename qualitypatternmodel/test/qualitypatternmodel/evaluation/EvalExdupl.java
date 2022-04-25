@@ -9,7 +9,7 @@ import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -57,7 +57,7 @@ public class EvalExdupl {
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = Test00.getBasePattern();
-		completePattern.getGraph().getReturnElements().get(0).addPrimitiveComparison();
+		completePattern.getGraph().getReturnNodes().get(0).addPrimitiveComparison();
 		
 		CountCondition countCondition = factory.createCountCondition();
 		completePattern.setCondition(countCondition);		
@@ -73,13 +73,13 @@ public class EvalExdupl {
 		countCondition.setCountPattern(countPattern);
 		countCondition.setArgument2(numberElement);
 		
-		Element returnInCPattern = countPattern.getGraph().getElements().get(0);
+		Node returnInCPattern = countPattern.getGraph().getNodes().get(0);
 		
-		Element otherRecord = graphFactory.createElement();
+		Node otherRecord = graphFactory.createNode();
 		otherRecord.setGraph(countPattern.getGraph());
 		otherRecord.addPrimitiveComparison();			
-		countPattern.getGraph().getReturnElements().clear();
-		countPattern.getGraph().getReturnElements().add(otherRecord);
+		countPattern.getGraph().getReturnNodes().clear();
+		countPattern.getGraph().getReturnNodes().add(otherRecord);
 				
 		Condition truecondition = factory.createTrueElement();
 		countPattern.setCondition(truecondition);
@@ -116,7 +116,7 @@ public class EvalExdupl {
 //		Element e0InReturnGraph = completePattern.getGraph().getElements().get(0);
 ////		e0InReturnGraph.addPrimitiveComparison();
 //		
-//		Element ret = graphFactory.createElement();
+//		Element ret = graphFactory.createNode();
 //		ret.setGraph(completePattern.getGraph());
 //		ret.addPrimitiveComparison();	
 //		Relation relation = graphFactory.createRelation();
@@ -143,11 +143,11 @@ public class EvalExdupl {
 //		Element e0InCPattern = countPattern.getGraph().getElements().get(0);
 //		Element retInCPattern = countPattern.getGraph().getElements().get(1);
 //		
-//		Element parentInCPattern = graphFactory.createElement();
+//		Element parentInCPattern = graphFactory.createNode();
 //		parentInCPattern.setGraph(countPattern.getGraph());
 ////		parentInCPattern.addPrimitiveComparison();		
 //		
-//		Element otherRecord = graphFactory.createElement();
+//		Element otherRecord = graphFactory.createNode();
 //		otherRecord.setGraph(countPattern.getGraph());
 //		otherRecord.addPrimitiveComparison();		
 //		Relation relation2 = graphFactory.createRelation();
@@ -183,7 +183,7 @@ public class EvalExdupl {
 		
 		CompletePattern completePattern = getExactDuplicatesAbstract();
 		
-		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
+		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);	
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
@@ -195,7 +195,7 @@ public class EvalExdupl {
 		CountPattern countPattern = countCondition.getCountPattern();
 		Graph graph1 = countPattern.getGraph();
 		
-		Element element2 = graph1.getElements().get(1);	
+		Node element2 = graph1.getNodes().get(1);	
 		((XmlNavigation) graph1.getRelations().get(1)).getOption().setValue(RelationKind.THREECHILD);
 		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
@@ -215,7 +215,7 @@ public class EvalExdupl {
 		
 		CompletePattern completePattern = getExactDuplicatesAbstract();
 		
-		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
+		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);	
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.TWOCHILD);
 //		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
@@ -227,7 +227,7 @@ public class EvalExdupl {
 		CountPattern countPattern = countCondition.getCountPattern();
 		Graph graph1 = countPattern.getGraph();
 		
-		Element element2 = graph1.getElements().get(1);	
+		Node element2 = graph1.getNodes().get(1);	
 		((XmlNavigation) graph1.getRelations().get(1)).getOption().setValue(RelationKind.TWOCHILD);
 //		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);

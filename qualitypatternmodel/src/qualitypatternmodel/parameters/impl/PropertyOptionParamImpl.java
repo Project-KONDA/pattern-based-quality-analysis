@@ -26,7 +26,7 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Property;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.PropertyOptionParam;
@@ -411,7 +411,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 		String res = "Angabe des Eigenschaft-Types";
 		try {
 			for(Property property : getProperties()) {
-				Element e = property.getElement();
+				Node e = property.getElement();
 				res += " von " + e.getName();
 			
 			}

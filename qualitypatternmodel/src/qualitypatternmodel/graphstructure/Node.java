@@ -25,24 +25,24 @@ import qualitypatternmodel.patternstructure.ElementMapping;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getOutgoingMappings <em>Outgoing Mappings</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getIncomingMapping <em>Incoming Mapping</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getGraph <em>Graph</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getResultOf <em>Result Of</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getName <em>Name</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#isTranslated <em>Translated</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getProperties <em>Properties</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getPredicates <em>Predicates</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getOutgoing <em>Outgoing</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getIncoming <em>Incoming</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#getOutgoingMappings <em>Outgoing Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#getIncomingMapping <em>Incoming Mapping</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#getGraph <em>Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#getResultOf <em>Result Of</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#getName <em>Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#isTranslated <em>Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#getProperties <em>Properties</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#getPredicates <em>Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#getOutgoing <em>Outgoing</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#getIncoming <em>Incoming</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement()
+ * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode()
  * @model
  * @generated
  */
-public interface Element extends qualitypatternmodel.graphstructure.Comparable, PatternElement, Adaptable {
+public interface Node extends qualitypatternmodel.graphstructure.Comparable, PatternElement, Adaptable {
 	/**
 	 * Returns the value of the '<em><b>Incoming Mapping</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.ElementMapping#getTarget <em>Target</em>}'.
@@ -50,7 +50,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Incoming Mapping</em>' reference.
 	 * @see #setIncomingMapping(ElementMapping)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_IncomingMapping()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_IncomingMapping()
 	 * @see qualitypatternmodel.patternstructure.ElementMapping#getTarget
 	 * @model opposite="target"
 	 * @generated
@@ -58,7 +58,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	ElementMapping getIncomingMapping();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getIncomingMapping <em>Incoming Mapping</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Node#getIncomingMapping <em>Incoming Mapping</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Incoming Mapping</em>' reference.
@@ -74,7 +74,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Outgoing Mappings</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_OutgoingMappings()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_OutgoingMappings()
 	 * @see qualitypatternmodel.patternstructure.ElementMapping#getSource
 	 * @model opposite="source"
 	 * @generated
@@ -83,20 +83,20 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * Returns the value of the '<em><b>Graph</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getElements <em>Elements</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getNodes <em>Nodes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Graph</em>' container reference.
 	 * @see #setGraph(Graph)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Graph()
-	 * @see qualitypatternmodel.graphstructure.Graph#getElements
-	 * @model opposite="elements" required="true" transient="false"
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_Graph()
+	 * @see qualitypatternmodel.graphstructure.Graph#getNodes
+	 * @model opposite="nodes" required="true" transient="false"
 	 * @generated
 	 */
 	Graph getGraph();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getGraph <em>Graph</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Node#getGraph <em>Graph</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Graph</em>' container reference.
@@ -107,20 +107,20 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 
 	/**
 	 * Returns the value of the '<em><b>Result Of</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getReturnElements <em>Return Elements</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getReturnNodes <em>Return Nodes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Result Of</em>' reference.
 	 * @see #setResultOf(Graph)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_ResultOf()
-	 * @see qualitypatternmodel.graphstructure.Graph#getReturnElements
-	 * @model opposite="returnElements"
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_ResultOf()
+	 * @see qualitypatternmodel.graphstructure.Graph#getReturnNodes
+	 * @model opposite="returnNodes"
 	 * @generated
 	 */
 	Graph getResultOf();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getResultOf <em>Result Of</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Node#getResultOf <em>Result Of</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Result Of</em>' reference.
@@ -135,14 +135,14 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Name()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_Name()
 	 * @model
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Node#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.
@@ -157,14 +157,14 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Translated</em>' attribute.
 	 * @see #setTranslated(boolean)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Translated()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_Translated()
 	 * @model required="true"
 	 * @generated
 	 */
 	boolean isTranslated();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#isTranslated <em>Translated</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Node#isTranslated <em>Translated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Translated</em>' attribute.
@@ -179,14 +179,14 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Predicates Are Being Translated</em>' attribute.
 	 * @see #setPredicatesAreBeingTranslated(boolean)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_PredicatesAreBeingTranslated()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_PredicatesAreBeingTranslated()
 	 * @model required="true"
 	 * @generated
 	 */
 	boolean isPredicatesAreBeingTranslated();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Element#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Node#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Predicates Are Being Translated</em>' attribute.
@@ -202,7 +202,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Properties</em>' containment reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Properties()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_Properties()
 	 * @see qualitypatternmodel.graphstructure.Property#getElement
 	 * @model opposite="element" containment="true"
 	 * @generated
@@ -212,13 +212,13 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	/**
 	 * Returns the value of the '<em><b>Predicates</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.operators.BooleanOperator}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.BooleanOperator#getElements <em>Elements</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.BooleanOperator#getNodes <em>Nodes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Predicates</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Predicates()
-	 * @see qualitypatternmodel.operators.BooleanOperator#getElements
-	 * @model opposite="elements"
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_Predicates()
+	 * @see qualitypatternmodel.operators.BooleanOperator#getNodes
+	 * @model opposite="nodes"
 	 * @generated
 	 */
 	EList<BooleanOperator> getPredicates();
@@ -230,7 +230,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Outgoing</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Outgoing()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_Outgoing()
 	 * @see qualitypatternmodel.graphstructure.Relation#getSource
 	 * @model opposite="source"
 	 * @generated
@@ -244,7 +244,7 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Incoming</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getElement_Incoming()
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_Incoming()
 	 * @see qualitypatternmodel.graphstructure.Relation#getTarget
 	 * @model opposite="target"
 	 * @generated
@@ -425,6 +425,6 @@ public interface Element extends qualitypatternmodel.graphstructure.Comparable, 
 	 * @model equivalentElementsMany="true"
 	 * @generated
 	 */
-	void getEquivalentElements(EList<Element> equivalentElements);
+	void getEquivalentElements(EList<Node> equivalentElements);
 
 } // Element

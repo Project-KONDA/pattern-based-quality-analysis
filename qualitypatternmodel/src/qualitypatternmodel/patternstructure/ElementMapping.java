@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.patternstructure;
 
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,17 +25,17 @@ import qualitypatternmodel.graphstructure.Element;
 public interface ElementMapping extends Mapping {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getOutgoingMappings <em>Outgoing Mappings</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Node#getOutgoingMappings <em>Outgoing Mappings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
-	 * @see #setSource(Element)
+	 * @see #setSource(Node)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getElementMapping_Source()
-	 * @see qualitypatternmodel.graphstructure.Element#getOutgoingMappings
+	 * @see qualitypatternmodel.graphstructure.Node#getOutgoingMappings
 	 * @model opposite="outgoingMappings" required="true"
 	 * @generated
 	 */
-	Element getSource();
+	Node getSource();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.ElementMapping#getSource <em>Source</em>}' reference.
@@ -45,21 +45,21 @@ public interface ElementMapping extends Mapping {
 	 * @see #getSource()
 	 * @generated
 	 */
-	void setSource(Element value);
+	void setSource(Node value);
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getIncomingMapping <em>Incoming Mapping</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Node#getIncomingMapping <em>Incoming Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
-	 * @see #setTarget(Element)
+	 * @see #setTarget(Node)
 	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getElementMapping_Target()
-	 * @see qualitypatternmodel.graphstructure.Element#getIncomingMapping
+	 * @see qualitypatternmodel.graphstructure.Node#getIncomingMapping
 	 * @model opposite="incomingMapping" required="true"
 	 * @generated
 	 */
-	Element getTarget();
+	Node getTarget();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.ElementMapping#getTarget <em>Target</em>}' reference.
@@ -69,6 +69,6 @@ public interface ElementMapping extends Mapping {
 	 * @see #getTarget()
 	 * @generated
 	 */
-	void setTarget(Element value);
+	void setTarget(Node value);
 
 } // SingleElementMapping

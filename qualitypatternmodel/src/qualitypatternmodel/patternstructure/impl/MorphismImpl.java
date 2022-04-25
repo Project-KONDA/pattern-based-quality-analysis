@@ -28,7 +28,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.Mapping;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.MorphismContainer;
@@ -340,10 +340,10 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 		for(Mapping mapping : getMappings()) {
 			if(mapping instanceof ElementMapping) {
 				ElementMapping elementMapping = (ElementMapping) mapping;
-				if(!getSource().getElements().contains(elementMapping.getSource())) {
+				if(!getSource().getNodes().contains(elementMapping.getSource())) {
 					throw new InvalidityException("wrong ElementMapping from");
 				}
-				if(!getTarget().getElements().contains(elementMapping.getTarget())) {
+				if(!getTarget().getNodes().contains(elementMapping.getTarget())) {
 					throw new InvalidityException("wrong ElementMapping to");
 				}
 			}
@@ -379,19 +379,19 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 */
 	@Override
 	public void checkElementMappingsUniqueness() throws InvalidityException {
-		List<Element> elements = new ArrayList<Element>();
+		List<Node> nodes = new ArrayList<Node>();
 		for(Mapping mapping : getMappings()) {
 			if(mapping instanceof ElementMapping) {
 				ElementMapping elementMapping = (ElementMapping) mapping;
-				elements.add(elementMapping.getSource());
+				nodes.add(elementMapping.getSource());
 			}
 		}
-		Set<Element> set = new HashSet<Element>(elements);
-		if(elements.size() != set.size()) {
+		Set<Node> set = new HashSet<Node>(nodes);
+		if(nodes.size() != set.size()) {
 			throw new InvalidityException("mapping source not unique");
 		}
 		
-		if(elements.size() != getSource().getElements().size()) {
+		if(nodes.size() != getSource().getNodes().size()) {
 			throw new InvalidityException("mappings not complete");
 		}
 	}
@@ -402,7 +402,7 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	 * @generated NOT
 	 */
 	@Override
-	public ElementMapping addMapping(Element from, Element to) {
+	public ElementMapping addMapping(Node from, Node to) {
 		ElementMapping em = new ElementMappingImpl();
 		getMappings().add(em);
 		em.setSource(from);
@@ -649,8 +649,8 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.MORPHISM___ADD_MAPPING__ELEMENT_ELEMENT:
-				return addMapping((Element)arguments.get(0), (Element)arguments.get(1));
+			case PatternstructurePackage.MORPHISM___ADD_MAPPING__NODE_NODE:
+				return addMapping((Node)arguments.get(0), (Node)arguments.get(1));
 			case PatternstructurePackage.MORPHISM___ADD_MAPPING__RELATION_RELATION:
 				return addMapping((Relation)arguments.get(0), (Relation)arguments.get(1));
 			case PatternstructurePackage.MORPHISM___REMOVE_INCONSISTENT_MAPPINGS:

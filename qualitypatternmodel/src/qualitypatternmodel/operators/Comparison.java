@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.operators;
 
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
 
@@ -119,7 +119,7 @@ public interface Comparison extends BooleanOperator {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	Element getElement();
+	Node getElement();
 
 	/**
 	 * <!-- begin-user-doc -->

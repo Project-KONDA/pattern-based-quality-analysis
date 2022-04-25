@@ -20,7 +20,7 @@ import qualitypatternmodel.execution.Result;
 import qualitypatternmodel.execution.impl.DatabasesImpl;
 import qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl;
 import qualitypatternmodel.execution.impl.LocalXmlSchemaDatabaseImpl;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
@@ -279,7 +279,7 @@ public class DemoPatterns {
 		completePattern.setDescription("Allows detecting illegal values, i.e. allows detecting elements with a specific property which are related to other elements with two specific properties");
 		
 		// Context graph of pattern:
-		Element element0 = completePattern.getGraph().getElements().get(0);
+		Node element0 = completePattern.getGraph().getNodes().get(0);
 		element0.setName("Element0");
 		element0.addPrimitiveComparison();
 		
@@ -292,9 +292,9 @@ public class DemoPatterns {
 		completePattern.setCondition(quantifiedCondition);
 		
 		// Graph of quantified condition:		
-		Element element0Copy = quantifiedCondition.getGraph().getElements().get(0);
+		Node element0Copy = quantifiedCondition.getGraph().getNodes().get(0);
 		
-		Element element1 = GraphstructureFactory.eINSTANCE.createElement();
+		Node element1 = GraphstructureFactory.eINSTANCE.createNode();
 		element1.setName("Element1");
 		element1.setGraph(quantifiedCondition.getGraph());		
 		
@@ -350,7 +350,7 @@ public class DemoPatterns {
 		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
-		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
 		property0.getOption().setValue(PropertyKind.TAG);
 		
@@ -366,7 +366,7 @@ public class DemoPatterns {
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
-		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		property1.getOption().setValue(PropertyKind.TAG);
 		
@@ -403,7 +403,7 @@ public class DemoPatterns {
 		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
-		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
 		property0.getOption().setValue(PropertyKind.TAG);
 		
@@ -419,7 +419,7 @@ public class DemoPatterns {
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
-		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		property1.getOption().setValue(PropertyKind.TAG);
 		
@@ -458,7 +458,7 @@ public class DemoPatterns {
 		completePattern.setDescription("Allows detecting illegal values, i.e. allows detecting elements with a specific property which are related to other elements with two specific properties");
 		
 		// Context graph of pattern:
-		Element element0 = completePattern.getGraph().getElements().get(0);
+		Node element0 = completePattern.getGraph().getNodes().get(0);
 		element0.setName("Element0");
 		UntypedParameterValue untypedArgument = element0.addPrimitiveComparison();
 		untypedArgument.replace(ParametersFactory.eINSTANCE.createTextLiteralParam());
@@ -472,9 +472,9 @@ public class DemoPatterns {
 		completePattern.setCondition(quantifiedCondition);
 		
 		// Graph of quantified condition:		
-		Element element0Copy = quantifiedCondition.getGraph().getElements().get(0);
+		Node element0Copy = quantifiedCondition.getGraph().getNodes().get(0);
 		
-		Element element1 = GraphstructureFactory.eINSTANCE.createElement();
+		Node element1 = GraphstructureFactory.eINSTANCE.createNode();
 		element1.setName("Element1");
 		element1.setGraph(quantifiedCondition.getGraph());		
 		
@@ -532,7 +532,7 @@ public class DemoPatterns {
 		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
-		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
 		property0.getOption().setValue(PropertyKind.TAG);
 		
@@ -547,7 +547,7 @@ public class DemoPatterns {
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
-		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		property1.getOption().setValue(PropertyKind.TAG);
 		
@@ -583,7 +583,7 @@ public class DemoPatterns {
 		completePattern.setDescription("Allows detecting violated cardinality constraints, i.e. allows detecting elements with a specific property which are related to a specific number of elements with a specific property");
 		
 		// Context graph of pattern:
-		Element element0 = completePattern.getGraph().getElements().get(0);
+		Node element0 = completePattern.getGraph().getNodes().get(0);
 		element0.setName("Element0");
 		element0.addPrimitiveComparison();
 		
@@ -615,9 +615,9 @@ public class DemoPatterns {
 		numberElement.setNumberParam(numberParam);		
 		
 		// Graph of inner pattern:
-		Element element0Copy = countPattern.getGraph().getElements().get(0);
+		Node element0Copy = countPattern.getGraph().getNodes().get(0);
 		
-		Element element1 = GraphstructureFactory.eINSTANCE.createElement();
+		Node element1 = GraphstructureFactory.eINSTANCE.createNode();
 		element1.setName("Element1");
 		element1.setGraph(countPattern.getGraph());		
 		
@@ -663,7 +663,7 @@ public class DemoPatterns {
 		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
-		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
 		property0.getOption().setValue(PropertyKind.TAG);
 		
@@ -685,7 +685,7 @@ public class DemoPatterns {
 		CountPattern countPattern = countCondition.getCountPattern();
 		
 		// Graph of inner pattern:
-		XmlElement element1 = (XmlElement) countPattern.getGraph().getElements().get(1);
+		XmlElement element1 = (XmlElement) countPattern.getGraph().getNodes().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		property1.getOption().setValue(PropertyKind.TAG);
 		
@@ -712,7 +712,7 @@ public class DemoPatterns {
 		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
-		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
 		property0.getOption().setValue(PropertyKind.TAG);
 		
@@ -734,7 +734,7 @@ public class DemoPatterns {
 		CountPattern countPattern = countCondition.getCountPattern();
 		
 		// Graph of inner pattern:
-		XmlElement element1 = (XmlElement) countPattern.getGraph().getElements().get(1);
+		XmlElement element1 = (XmlElement) countPattern.getGraph().getNodes().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		property1.getOption().setValue(PropertyKind.TAG);
 		
@@ -772,7 +772,7 @@ public class DemoPatterns {
 		completePattern.setDescription("Allows detecting a violated functional dependency, i.e. allows detecting two elements that are each related to two further elements where two of these have an equal property but the other two have a different property");
 		
 		// Context graph of pattern:
-		Element element0 = completePattern.getGraph().getElements().get(0);
+		Node element0 = completePattern.getGraph().getNodes().get(0);
 		element0.setName("Element0");
 		element0.addPrimitiveComparison();
 		
@@ -785,9 +785,9 @@ public class DemoPatterns {
 		completePattern.setCondition(quantifiedCondition);
 		
 		// Graph of quantified condition:		
-		Element element0Copy = quantifiedCondition.getGraph().getElements().get(0);
+		Node element0Copy = quantifiedCondition.getGraph().getNodes().get(0);
 		
-		Element element0A = GraphstructureFactory.eINSTANCE.createElement();
+		Node element0A = GraphstructureFactory.eINSTANCE.createNode();
 		element0A.setName("Element0A");
 		element0A.setGraph(quantifiedCondition.getGraph());		
 		Property property0A = element0A.addNewProperty();
@@ -803,7 +803,7 @@ public class DemoPatterns {
 		comp0A.getOption().setValue(ComparisonOperator.EQUAL);
 		comp0A.getOption().setPredefined(true);
 		
-		Element element0B = GraphstructureFactory.eINSTANCE.createElement();
+		Node element0B = GraphstructureFactory.eINSTANCE.createNode();
 		element0B.setName("Element0B");
 		element0B.setGraph(quantifiedCondition.getGraph());		
 		Property property0B = element0B.addNewProperty();
@@ -819,12 +819,12 @@ public class DemoPatterns {
 		comp0B.getOption().setValue(ComparisonOperator.EQUAL);
 		comp0B.getOption().setPredefined(true);
 		
-		Element element1 = GraphstructureFactory.eINSTANCE.createElement();
+		Node element1 = GraphstructureFactory.eINSTANCE.createNode();
 		element1.setName("Element1");
 		element1.setGraph(quantifiedCondition.getGraph());	
 		element1.addPrimitiveComparison();
 		
-		Element element1A = GraphstructureFactory.eINSTANCE.createElement();
+		Node element1A = GraphstructureFactory.eINSTANCE.createNode();
 		element1A.setName("Element1A");
 		element1A.setGraph(quantifiedCondition.getGraph());	
 		Property property1A = element1A.addNewProperty();
@@ -840,7 +840,7 @@ public class DemoPatterns {
 		comp1A.getOption().setValue(ComparisonOperator.EQUAL);
 		comp1A.getOption().setPredefined(true);
 		
-		Element element1B = GraphstructureFactory.eINSTANCE.createElement();
+		Node element1B = GraphstructureFactory.eINSTANCE.createNode();
 		element1B.setName("Element1B");
 		element1B.setGraph(quantifiedCondition.getGraph());	
 		Property property1B = element1B.addNewProperty();
@@ -903,7 +903,7 @@ public class DemoPatterns {
 		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
-		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
 		property0.getOption().setValue(PropertyKind.TAG);
 		
@@ -920,7 +920,7 @@ public class DemoPatterns {
 		
 		// Graph of quantified condition:
 		
-		XmlElement element0A = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlElement element0A = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 		XmlProperty property0A = (XmlProperty) element0A.getProperties().get(1);
 		property0A.getOption().setValue(PropertyKind.TAG);
 		
@@ -929,7 +929,7 @@ public class DemoPatterns {
 		textValue0A.setValue(DEMO_NAMESPACE + "city");
 		value0A.replace(textValue0A);
 		
-		XmlElement element0B = (XmlElement) quantifiedCondition.getGraph().getElements().get(2);
+		XmlElement element0B = (XmlElement) quantifiedCondition.getGraph().getNodes().get(2);
 		XmlProperty property0B = (XmlProperty) element0B.getProperties().get(1);
 		property0B.getOption().setValue(PropertyKind.TAG);
 		
@@ -939,7 +939,7 @@ public class DemoPatterns {
 		value0B.replace(textValue0B);
 		
 		
-		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(3);
+		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(3);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		property1.getOption().setValue(PropertyKind.TAG);
 		
@@ -949,7 +949,7 @@ public class DemoPatterns {
 		value1.replace(textValue1);
 		
 		
-		XmlElement element1A = (XmlElement) quantifiedCondition.getGraph().getElements().get(4);
+		XmlElement element1A = (XmlElement) quantifiedCondition.getGraph().getNodes().get(4);
 		XmlProperty property1A = (XmlProperty) element1A.getProperties().get(1);
 		property1A.getOption().setValue(PropertyKind.TAG);
 		
@@ -959,7 +959,7 @@ public class DemoPatterns {
 		value1A.replace(textValue1A);
 		
 		
-		XmlElement element1B = (XmlElement) quantifiedCondition.getGraph().getElements().get(5);
+		XmlElement element1B = (XmlElement) quantifiedCondition.getGraph().getNodes().get(5);
 		XmlProperty property1B = (XmlProperty) element1B.getProperties().get(1);
 		property1B.getOption().setValue(PropertyKind.TAG);
 		
@@ -1013,7 +1013,7 @@ public class DemoPatterns {
 		completePattern.setDescription("Allows detecting a violated functional dependency between a conceptID and term indicating the culture");
 		
 		// Context graph of pattern:
-		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
 		property0.getOption().setValue(PropertyKind.TAG);
 		
@@ -1030,7 +1030,7 @@ public class DemoPatterns {
 		
 		// Graph of quantified condition:
 		
-		XmlElement element0A = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlElement element0A = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 		XmlProperty property0A = (XmlProperty) element0A.getProperties().get(1);
 		property0A.getOption().setValue(PropertyKind.TAG);
 		
@@ -1039,7 +1039,7 @@ public class DemoPatterns {
 		textValue0A.setValue(LIDO_NAMESPACE + "conceptID");
 		value0A.replace(textValue0A);
 		
-		XmlElement element0B = (XmlElement) quantifiedCondition.getGraph().getElements().get(2);
+		XmlElement element0B = (XmlElement) quantifiedCondition.getGraph().getNodes().get(2);
 		XmlProperty property0B = (XmlProperty) element0B.getProperties().get(1);
 		property0B.getOption().setValue(PropertyKind.TAG);
 		
@@ -1049,7 +1049,7 @@ public class DemoPatterns {
 		value0B.replace(textValue0B);
 		
 		
-		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(3);
+		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(3);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		property1.getOption().setValue(PropertyKind.TAG);
 		
@@ -1059,7 +1059,7 @@ public class DemoPatterns {
 		value1.replace(textValue1);
 		
 		
-		XmlElement element1A = (XmlElement) quantifiedCondition.getGraph().getElements().get(4);
+		XmlElement element1A = (XmlElement) quantifiedCondition.getGraph().getNodes().get(4);
 		XmlProperty property1A = (XmlProperty) element1A.getProperties().get(1);
 		property1A.getOption().setValue(PropertyKind.TAG);
 		
@@ -1069,7 +1069,7 @@ public class DemoPatterns {
 		value1A.replace(textValue1A);
 		
 		
-		XmlElement element1B = (XmlElement) quantifiedCondition.getGraph().getElements().get(5);
+		XmlElement element1B = (XmlElement) quantifiedCondition.getGraph().getNodes().get(5);
 		XmlProperty property1B = (XmlProperty) element1B.getProperties().get(1);
 		property1B.getOption().setValue(PropertyKind.TAG);
 		

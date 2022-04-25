@@ -35,7 +35,7 @@ import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -361,9 +361,9 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 		}
 	}
 
-	private String getTag(Element element) {
-		if(element instanceof XmlElement) {
-			XmlElement xmlElement = (XmlElement) element;
+	private String getTag(Node node) {
+		if(node instanceof XmlElement) {
+			XmlElement xmlElement = (XmlElement) node;
 			if(xmlElement.getTagComparisons().size() == 1) {
 				Comparison tagComparison = xmlElement.getTagComparisons().get(0);
 				if(tagComparison.getArgument1() instanceof TextLiteralParam) {
@@ -536,8 +536,8 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 		String res = "Beziehung: XPath-Achse";
 		try {			
 			for(Relation relation : getRelations()) {
-				Element to = relation.getTarget();
-				Element from = relation.getSource();
+				Node to = relation.getTarget();
+				Node from = relation.getSource();
 				res += " zur Navigation von " + from.getName() + " zu " + to.getName();		
 			}
 					

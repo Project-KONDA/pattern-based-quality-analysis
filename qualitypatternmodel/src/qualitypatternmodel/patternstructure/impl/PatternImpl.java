@@ -21,7 +21,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.Parameter;
@@ -152,14 +152,14 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	
 	@Override
 	public String generateQuery() throws InvalidityException {
-		if (graph.getReturnElements() == null || graph.getReturnElements().isEmpty()) {
+		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
 			throw new InvalidityException("return elements missing");
 		}
 		String forClauses = graph.generateQuery();
 		String whereClause = WHERE + condition.generateQuery().replace("\n", "\n  ");
 
 		String returnClause = RETURN + "(";
-		EList<Element> returnElements = graph.getReturnElements();
+		EList<Node> returnElements = graph.getReturnNodes();
 		for (int i = 0; i < returnElements.size(); i++) {
 			if (i != 0)
 				returnClause += ", ";

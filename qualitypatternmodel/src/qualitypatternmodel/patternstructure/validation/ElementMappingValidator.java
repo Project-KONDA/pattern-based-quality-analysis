@@ -4,7 +4,7 @@
  */
 package qualitypatternmodel.patternstructure.validation;
 
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.patternstructure.ElementMapping}.
@@ -15,10 +15,10 @@ import qualitypatternmodel.graphstructure.Element;
 public interface ElementMappingValidator {
 	boolean validate();
 
-	boolean validateSource(Element value);
+	boolean validateSource(Node value);
 
-	boolean validateTarget(Element value);
+	boolean validateTarget(Node value);
 
-	boolean validateFrom(Element value);
-	boolean validateTo(Element value);
+	boolean validateFrom(Node value);
+	boolean validateTo(Node value);
 }

@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -41,7 +41,7 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	 * @generated
 	 * @ordered
 	 */
-	protected Element source;
+	protected Node source;
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>To</em>}' reference. <!--
@@ -53,7 +53,7 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	 * @generated
 	 * @ordered
 	 */
-	protected Element target;
+	protected Node target;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -87,11 +87,11 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 		Boolean delSource = getSource() != null
 				&& (newMorphism == null
 //				|| newMorphism.getSource() == null // maybe check consistency in Morphism.setSource() 
-				|| !newMorphism.getSource().getElements().contains(getSource()));
+				|| !newMorphism.getSource().getNodes().contains(getSource()));
 		Boolean delTarget = getTarget() != null
 				&& (newMorphism == null
 //				|| newMorphism.getTarget() == null // maybe check consistency in Morphism.setTarget() 
-				|| !newMorphism.getTarget().getElements().contains(getTarget()));
+				|| !newMorphism.getTarget().getNodes().contains(getTarget()));
 		if (delSource) setSource(null);
 		if (delTarget) setTarget(null);
 		return super.basicSetMorphism(newMorphism, msgs);
@@ -102,10 +102,10 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	 * @generated
 	 */
 	@Override
-	public Element getSource() {
+	public Node getSource() {
 		if (source != null && source.eIsProxy()) {
 			InternalEObject oldSource = (InternalEObject)source;
-			source = (Element)eResolveProxy(oldSource);
+			source = (Node)eResolveProxy(oldSource);
 			if (source != oldSource) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.ELEMENT_MAPPING__SOURCE, oldSource, source));
@@ -118,7 +118,7 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element basicGetSource() {
+	public Node basicGetSource() {
 		return source;
 	}
 
@@ -126,8 +126,8 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetSource(Element newSource, NotificationChain msgs) {
-		Element oldFrom = source;
+	public NotificationChain basicSetSource(Node newSource, NotificationChain msgs) {
+		Node oldFrom = source;
 		source = newSource;
 		if (newSource != null && getTarget() != null) {
 			newSource.setName(getTarget().getName());
@@ -144,13 +144,13 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	 * @generated
 	 */
 	@Override
-	public void setSource(Element newSource) {
+	public void setSource(Node newSource) {
 		if (newSource != source) {
 			NotificationChain msgs = null;
 			if (source != null)
-				msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.ELEMENT__OUTGOING_MAPPINGS, Element.class, msgs);
+				msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.NODE__OUTGOING_MAPPINGS, Node.class, msgs);
 			if (newSource != null)
-				msgs = ((InternalEObject)newSource).eInverseAdd(this, GraphstructurePackage.ELEMENT__OUTGOING_MAPPINGS, Element.class, msgs);
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, GraphstructurePackage.NODE__OUTGOING_MAPPINGS, Node.class, msgs);
 			msgs = basicSetSource(newSource, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -163,10 +163,10 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	 * @generated
 	 */
 	@Override
-	public Element getTarget() {
+	public Node getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject)target;
-			target = (Element)eResolveProxy(oldTarget);
+			target = (Node)eResolveProxy(oldTarget);
 			if (target != oldTarget) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PatternstructurePackage.ELEMENT_MAPPING__TARGET, oldTarget, target));
@@ -179,7 +179,7 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element basicGetTarget() {
+	public Node basicGetTarget() {
 		return target;
 	}
 
@@ -187,8 +187,8 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetTarget(Element newTarget, NotificationChain msgs) {
-		Element oldTo = target;
+	public NotificationChain basicSetTarget(Node newTarget, NotificationChain msgs) {
+		Node oldTo = target;
 		target = newTarget;
 		if (newTarget != null && getSource() != null) {
 			newTarget.setName(getSource().getName());
@@ -205,13 +205,13 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	 * @generated
 	 */
 	@Override
-	public void setTarget(Element newTarget) {
+	public void setTarget(Node newTarget) {
 		if (newTarget != target) {
 			NotificationChain msgs = null;
 			if (target != null)
-				msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.ELEMENT__INCOMING_MAPPING, Element.class, msgs);
+				msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.NODE__INCOMING_MAPPING, Node.class, msgs);
 			if (newTarget != null)
-				msgs = ((InternalEObject)newTarget).eInverseAdd(this, GraphstructurePackage.ELEMENT__INCOMING_MAPPING, Element.class, msgs);
+				msgs = ((InternalEObject)newTarget).eInverseAdd(this, GraphstructurePackage.NODE__INCOMING_MAPPING, Node.class, msgs);
 			msgs = basicSetTarget(newTarget, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -228,12 +228,12 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 		switch (featureID) {
 			case PatternstructurePackage.ELEMENT_MAPPING__SOURCE:
 				if (source != null)
-					msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.ELEMENT__OUTGOING_MAPPINGS, Element.class, msgs);
-				return basicSetSource((Element)otherEnd, msgs);
+					msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.NODE__OUTGOING_MAPPINGS, Node.class, msgs);
+				return basicSetSource((Node)otherEnd, msgs);
 			case PatternstructurePackage.ELEMENT_MAPPING__TARGET:
 				if (target != null)
-					msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.ELEMENT__INCOMING_MAPPING, Element.class, msgs);
-				return basicSetTarget((Element)otherEnd, msgs);
+					msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.NODE__INCOMING_MAPPING, Node.class, msgs);
+				return basicSetTarget((Node)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -278,10 +278,10 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case PatternstructurePackage.ELEMENT_MAPPING__SOURCE:
-				setSource((Element)newValue);
+				setSource((Node)newValue);
 				return;
 			case PatternstructurePackage.ELEMENT_MAPPING__TARGET:
-				setTarget((Element)newValue);
+				setTarget((Node)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -295,10 +295,10 @@ public class ElementMappingImpl extends MappingImpl implements ElementMapping {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case PatternstructurePackage.ELEMENT_MAPPING__SOURCE:
-				setSource((Element)null);
+				setSource((Node)null);
 				return;
 			case PatternstructurePackage.ELEMENT_MAPPING__TARGET:
-				setTarget((Element)null);
+				setTarget((Node)null);
 				return;
 		}
 		super.eUnset(featureID);

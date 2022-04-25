@@ -22,7 +22,7 @@ import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,25 +32,23 @@ import qualitypatternmodel.graphstructure.Element;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.operators.impl.BooleanOperatorImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.impl.BooleanOperatorImpl#getNodes <em>Nodes</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class BooleanOperatorImpl extends OperatorImpl implements BooleanOperator {
 	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
+	 * The cached value of the '{@link #getNodes() <em>Nodes</em>}' reference list.
 	 * <!-- begin-user-doc -->
-	 * A list of all <code>Elements</code> that are direct or indirect arguments of <code>this</code> or
-	 * contain <code>Properties</code> that serve as direct or indirect arguments.
 	 * <!-- end-user-doc -->
-	 * @see #getElements()
+	 * @see #getNodes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Element> elements;
-	
-	private EMap<Element,Integer> elementCount;
+	protected EList<Node> nodes;
+
+	private EMap<Node,Integer> elementCount;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -64,16 +62,16 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 
 		if (getComparison1().isEmpty() && getComparison2().isEmpty()) {
 			// this is root operator, thus does not serve as an argument to another operator
-			EList<Element> arguments = getAllArgumentElements();
-			if (!arguments.containsAll(elements)) {
+			EList<Node> arguments = getAllArgumentElements();
+			if (!arguments.containsAll(nodes)) {
 				throw new InvalidityException("invalid predicate owner" + " (" + getInternalId() + ")");
 			}
-			if (!elements.containsAll(arguments)) {
+			if (!nodes.containsAll(arguments)) {
 				throw new InvalidityException("invalid predicate argument" + " (" + getInternalId() + ")");
 			}
 		} else {
 			// this serves as an argument to another operator
-			if(!elements.isEmpty()) {
+			if(!nodes.isEmpty()) {
 				throw new InvalidityException("invalid predicate owner" + " (" + getInternalId() + ")");
 			}
 		}
@@ -100,27 +98,26 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 * @generated
 	 */
 	@Override
-	public EList<Element> getElements() {
-		if (elements == null) {
-			elements = new EObjectWithInverseResolvingEList.ManyInverse<Element>(Element.class, this, OperatorsPackage.BOOLEAN_OPERATOR__ELEMENTS, GraphstructurePackage.ELEMENT__PREDICATES);
+	public EList<Node> getNodes() {
+		if (nodes == null) {
+			nodes = new EObjectWithInverseResolvingEList.ManyInverse<Node>(Node.class, this, OperatorsPackage.BOOLEAN_OPERATOR__NODES, GraphstructurePackage.NODE__PREDICATES);
 		}
-		return elements;
+		return nodes;
 	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
-	public void addElement(Element element) {
-		if(getElementCount().containsKey(element)) {
-			getElementCount().put(element, getElementCount().get(element)+1);
+	public void addElement(Node node) {
+		if(getElementCount().containsKey(node)) {
+			getElementCount().put(node, getElementCount().get(node)+1);
 		} else {
-			getElementCount().put(element, 1);
+			getElementCount().put(node, 1);
 		}
-		if(!getElements().contains(element)) {
-			getElements().add(element);
+		if(!getNodes().contains(node)) {
+			getNodes().add(node);
 		}
 	}
 
@@ -130,13 +127,13 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	 * @generated NOT
 	 */
 	@Override
-	public void removeElement(Element element) {
-		if(getElementCount().containsKey(element)) {			
-			if(getElementCount().get(element) == 1) {
-				getElements().remove(element);
-				getElementCount().removeKey(element);
+	public void removeElement(Node node) {
+		if(getElementCount().containsKey(node)) {			
+			if(getElementCount().get(node) == 1) {
+				getNodes().remove(node);
+				getElementCount().removeKey(node);
 			} else {
-				getElementCount().put(element, getElementCount().get(element)-1);
+				getElementCount().put(node, getElementCount().get(node)-1);
 			}			
 		}
 	}
@@ -149,7 +146,7 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	@Override
 	public NotificationChain basicSetOperatorList(OperatorList newOperatorList, NotificationChain msgs) {
 		if(getOperatorList() != null && !getOperatorList().equals(newOperatorList)) {			
-			getElements().clear();
+			getNodes().clear();
 		}
 		msgs = super.basicSetOperatorList(newOperatorList, msgs);		
 		createParameters();		
@@ -168,8 +165,8 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case OperatorsPackage.BOOLEAN_OPERATOR__ELEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
+			case OperatorsPackage.BOOLEAN_OPERATOR__NODES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNodes()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -182,8 +179,8 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case OperatorsPackage.BOOLEAN_OPERATOR__ELEMENTS:
-				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+			case OperatorsPackage.BOOLEAN_OPERATOR__NODES:
+				return ((InternalEList<?>)getNodes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -196,8 +193,8 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case OperatorsPackage.BOOLEAN_OPERATOR__ELEMENTS:
-				return getElements();
+			case OperatorsPackage.BOOLEAN_OPERATOR__NODES:
+				return getNodes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -211,9 +208,9 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case OperatorsPackage.BOOLEAN_OPERATOR__ELEMENTS:
-				getElements().clear();
-				getElements().addAll((Collection<? extends Element>)newValue);
+			case OperatorsPackage.BOOLEAN_OPERATOR__NODES:
+				getNodes().clear();
+				getNodes().addAll((Collection<? extends Node>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -227,8 +224,8 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case OperatorsPackage.BOOLEAN_OPERATOR__ELEMENTS:
-				getElements().clear();
+			case OperatorsPackage.BOOLEAN_OPERATOR__NODES:
+				getNodes().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -242,8 +239,8 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case OperatorsPackage.BOOLEAN_OPERATOR__ELEMENTS:
-				return elements != null && !elements.isEmpty();
+			case OperatorsPackage.BOOLEAN_OPERATOR__NODES:
+				return nodes != null && !nodes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -256,11 +253,11 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case OperatorsPackage.BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT:
-				addElement((Element)arguments.get(0));
+			case OperatorsPackage.BOOLEAN_OPERATOR___ADD_ELEMENT__NODE:
+				addElement((Node)arguments.get(0));
 				return null;
-			case OperatorsPackage.BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT:
-				removeElement((Element)arguments.get(0));
+			case OperatorsPackage.BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE:
+				removeElement((Node)arguments.get(0));
 				return null;
 			case OperatorsPackage.BOOLEAN_OPERATOR___CREATE_PARAMETERS:
 				createParameters();
@@ -269,9 +266,9 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 		return super.eInvoke(operationID, arguments);
 	}
 
-	private EMap<Element, Integer> getElementCount() {
+	private EMap<Node, Integer> getElementCount() {
 		if(elementCount == null) {
-			elementCount = new BasicEMap<Element, Integer>();
+			elementCount = new BasicEMap<Node, Integer>();
 		}
 		return elementCount;
 	}

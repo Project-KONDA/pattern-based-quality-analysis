@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.BooleanOperator;
@@ -180,7 +180,7 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 	 * @generated NOT
 	 */
 	@Override
-	abstract public EList<Element> getAllArgumentElements();
+	abstract public EList<Node> getAllArgumentElements();
 
 /**
 	 * <!-- begin-user-doc -->

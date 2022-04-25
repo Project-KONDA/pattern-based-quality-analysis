@@ -32,8 +32,8 @@ public class Test02Return {
 		CompletePattern completePattern = Test00.getBasePattern();
 		
 		Graph graph = completePattern.getGraph();
-		Element element1 = completePattern.getGraph().getElements().get(0);
-		Element element2 = graphFactory.createElement();		
+		Node element1 = completePattern.getGraph().getNodes().get(0);
+		Node element2 = graphFactory.createNode();		
 		element2.setGraph(graph);
 		element2.setResultOf(graph);
 		Relation relation = graphFactory.createRelation();
@@ -42,7 +42,7 @@ public class Test02Return {
 		relation.setTarget(element2);		
 		
 		completePattern.createXMLAdaption();
-		completePattern.getGraph().getElements().get(1).getIncoming().get(0).adaptAsXMLNavigation();		
+		completePattern.getGraph().getNodes().get(1).getIncoming().get(0).adaptAsXMLNavigation();		
 		completePattern.finalizeXMLAdaption();
 				
 		return completePattern;
@@ -55,8 +55,8 @@ public class Test02Return {
 		CompletePattern completePattern = Test00.getBasePattern();
 		
 		Graph graph = completePattern.getGraph();
-		Element element1 = completePattern.getGraph().getElements().get(0);
-		Element element2 = graphFactory.createElement();		
+		Node element1 = completePattern.getGraph().getNodes().get(0);
+		Node element2 = graphFactory.createNode();		
 		element2.setGraph(graph);
 		element2.setResultOf(graph);
 		Relation relation = graphFactory.createRelation();
@@ -65,7 +65,7 @@ public class Test02Return {
 		relation.setTarget(element2);		
 		
 		completePattern.createXMLAdaption();
-		XmlReference reference = completePattern.getGraph().getElements().get(1).getIncoming().get(0).adaptAsXMLReference();	
+		XmlReference reference = completePattern.getGraph().getNodes().get(1).getIncoming().get(0).adaptAsXMLReference();	
 		reference.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();
 		

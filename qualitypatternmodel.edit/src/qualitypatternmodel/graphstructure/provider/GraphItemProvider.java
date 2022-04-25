@@ -52,7 +52,7 @@ public class GraphItemProvider extends PatternElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addReturnElementsPropertyDescriptor(object);
+			addReturnNodesPropertyDescriptor(object);
 //			addGraphDepthPropertyDescriptor(object);
 //			addReturnGraphPropertyDescriptor(object);
 //			addGetAllElementsPropertyDescriptor(object);
@@ -62,19 +62,19 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Return Elements feature.
+	 * This adds a property descriptor for the Return Nodes feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addReturnElementsPropertyDescriptor(Object object) {
+	protected void addReturnNodesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Graph_returnElements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_returnElements_feature", "_UI_Graph_type"),
-				 GraphstructurePackage.Literals.GRAPH__RETURN_ELEMENTS,
+				 getString("_UI_Graph_returnNodes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_returnNodes_feature", "_UI_Graph_type"),
+				 GraphstructurePackage.Literals.GRAPH__RETURN_NODES,
 				 true,
 				 false,
 				 true,
@@ -139,7 +139,7 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__ELEMENTS);
+			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__NODES);
 			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__OPERATOR_LIST);
 			childrenFeatures.add(GraphstructurePackage.Literals.GRAPH__RELATIONS);
 		}
@@ -197,7 +197,7 @@ public class GraphItemProvider extends PatternElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Graph.class)) {
-			case GraphstructurePackage.GRAPH__ELEMENTS:
+			case GraphstructurePackage.GRAPH__NODES:
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 			case GraphstructurePackage.GRAPH__RELATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -219,17 +219,17 @@ public class GraphItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.GRAPH__ELEMENTS,
-				 GraphstructureFactory.eINSTANCE.createElement()));
+				(GraphstructurePackage.Literals.GRAPH__NODES,
+				 GraphstructureFactory.eINSTANCE.createNode()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.GRAPH__ELEMENTS,
+				(GraphstructurePackage.Literals.GRAPH__NODES,
 				 AdaptionxmlFactory.eINSTANCE.createXmlElement()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.GRAPH__ELEMENTS,
+				(GraphstructurePackage.Literals.GRAPH__NODES,
 				 AdaptionxmlFactory.eINSTANCE.createXmlRoot()));
 
 		newChildDescriptors.add

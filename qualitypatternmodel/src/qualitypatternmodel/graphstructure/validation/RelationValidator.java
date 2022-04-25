@@ -7,7 +7,7 @@ package qualitypatternmodel.graphstructure.validation;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionxml.RelationKind;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
@@ -26,9 +26,9 @@ public interface RelationValidator {
 
 	boolean validateGraph(Graph value);
 
-	boolean validateSource(Element value);
+	boolean validateSource(Node value);
 
-	boolean validateTarget(Element value);
+	boolean validateTarget(Node value);
 
 	boolean validateName(String value);
 
@@ -37,7 +37,7 @@ public interface RelationValidator {
 
 	boolean validateMappingTo(RelationMapping value);
 	boolean validateAxis(RelationKind value);
-	boolean validateRelationTo(Element value);
+	boolean validateRelationTo(Node value);
 
 	boolean validateGraphDepth(int value);
 }

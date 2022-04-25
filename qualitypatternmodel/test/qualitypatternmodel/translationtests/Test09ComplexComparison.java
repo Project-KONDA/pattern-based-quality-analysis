@@ -42,7 +42,7 @@ public class Test09ComplexComparison {
 		OperatorsFactory operatorFactory = OperatorsFactory.eINSTANCE;
 
 		CompletePattern completePattern = Test00.getBasePattern();
-		Element ret = completePattern.getGraph().getElements().get(0);
+		Node ret = completePattern.getGraph().getNodes().get(0);
 		
 		Property p1 = graphFactory.createProperty();
 		Property p2 = graphFactory.createProperty();
@@ -74,16 +74,16 @@ public class Test09ComplexComparison {
 		OperatorsFactory operatorsFactory = OperatorsFactory.eINSTANCE;
 
 		CompletePattern completePattern = Test00.getBasePattern();
-		Element ret = completePattern.getGraph().getElements().get(0);
+		Node ret = completePattern.getGraph().getNodes().get(0);
 
-		Element se1 = graphFactory.createElement();
+		Node se1 = graphFactory.createNode();
 		se1.setGraph(completePattern.getGraph());
 		Relation relation = graphFactory.createRelation();
 		relation.setGraph(completePattern.getGraph());
 		relation.setSource(ret);
 		relation.setTarget(se1);
 		
-		Element se2 = graphFactory.createElement();
+		Node se2 = graphFactory.createNode();
 		se2.setGraph(completePattern.getGraph());
 		Relation relation2 = graphFactory.createRelation();
 		relation2.setGraph(completePattern.getGraph());
@@ -122,16 +122,16 @@ public class Test09ComplexComparison {
 		OperatorsFactory functionFactory = OperatorsFactory.eINSTANCE;
 
 		CompletePattern completePattern = Test00.getBasePattern();
-		Element ret = completePattern.getGraph().getElements().get(0);
+		Node ret = completePattern.getGraph().getNodes().get(0);
 
-		Element se1 = graphFactory.createElement();
+		Node se1 = graphFactory.createNode();
 		se1.setGraph(completePattern.getGraph());
 		Relation relation = graphFactory.createRelation();
 		relation.setGraph(completePattern.getGraph());
 		relation.setSource(ret);
 		relation.setTarget(se1);
 		
-		Element se2 = graphFactory.createElement();
+		Node se2 = graphFactory.createNode();
 		se2.setGraph(completePattern.getGraph());
 		Relation relation2 = graphFactory.createRelation();
 		relation2.setGraph(completePattern.getGraph());
@@ -162,7 +162,7 @@ public class Test09ComplexComparison {
 		CompletePattern completePattern = Test00.getBasePattern();
 		ParameterList varlist = completePattern.getParameterList();
 		OperatorList oplist = completePattern.getGraph().getOperatorList();
-		Element se = completePattern.getGraph().getElements().get(0);
+		Node se = completePattern.getGraph().getNodes().get(0);
 
 		TextLiteralParam tl2 = inputsFactory.createTextLiteralParam();
 		tl2.setValue("building");

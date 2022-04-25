@@ -21,7 +21,7 @@ import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -85,8 +85,8 @@ public class EvalAppdupl {
 		
 		CompletePattern completePattern = Test00.getBasePattern();
 		Graph g0 = completePattern.getGraph();
-		g0.getElements().get(0).setName("First");
-		g0.getElements().get(0).addPrimitiveComparison("wer");
+		g0.getNodes().get(0).setName("First");
+		g0.getNodes().get(0).addPrimitiveComparison("wer");
 		
 		CountCondition cc = factory.createCountCondition();
 		completePattern.setCondition(cc);
@@ -97,53 +97,53 @@ public class EvalAppdupl {
 		cc.setArgument2(ne);
 		
 		Graph cpg = cp.getGraph();
-		Element e = graphfactory.createElement();
-		cpg.getElements().add(e);
-		cpg.getReturnElements().clear();
-		cpg.getReturnElements().add(e);
+		Node e = graphfactory.createNode();
+		cpg.getNodes().add(e);
+		cpg.getReturnNodes().clear();
+		cpg.getReturnNodes().add(e);
 		e.addPrimitiveComparison("wer");
 		e.setName("Counted");
 
 		QuantifiedCondition cpqc = factory.createQuantifiedCondition();
 		cp.setCondition(cpqc);
 		Graph cpqcg = cpqc.getGraph();		
-		Element e1 = cpqcg.getElements().get(0);
-		Element e2 = cpqcg.getElements().get(1);
+		Node e1 = cpqcg.getNodes().get(0);
+		Node e2 = cpqcg.getNodes().get(1);
 		
 		TrueElement trueElement = factory.createTrueElement();
 		cpqc.setCondition(trueElement);
 
-		Element e1a = graphfactory.createElement();
+		Node e1a = graphfactory.createNode();
 		e1a.setGraph(cpqcg);
 		cpqcg.addRelation(e1, e1a);
 		Property e1ap = e1a.addNewProperty();
 		e1a.addPrimitiveComparison();
 		e1a.setName("1A");		
-		Element e1b = graphfactory.createElement();
+		Node e1b = graphfactory.createNode();
 		e1b.setGraph(cpqcg);
 		cpqcg.addRelation(e1, e1b);
 		Property e1bp = e1b.addNewProperty();
 		e1b.addPrimitiveComparison();
 		e1b.setName("1B");		
-		Element e1c = graphfactory.createElement();
+		Node e1c = graphfactory.createNode();
 		e1c.setGraph(cpqcg);
 		cpqcg.addRelation(e1, e1c);
 		Property e1cp = e1c.addNewProperty();
 		e1c.addPrimitiveComparison();
 		e1c.setName("1C");
-		Element e2a = graphfactory.createElement();
+		Node e2a = graphfactory.createNode();
 		e2a.setGraph(cpqcg);
 		cpqcg.addRelation(e2, e2a);
 		Property e2ap = e2a.addNewProperty();
 		e2a.addPrimitiveComparison();
 		e2a.setName("2A");
-		Element e2b = graphfactory.createElement();
+		Node e2b = graphfactory.createNode();
 		e2b.setGraph(cpqcg);
 		cpqcg.addRelation(e2, e2b);
 		Property e2bp = e2b.addNewProperty();
 		e2b.addPrimitiveComparison();
 		e2b.setName("2B");
-		Element e2c = graphfactory.createElement();
+		Node e2c = graphfactory.createNode();
 		e2c.setGraph(cpqcg);
 		cpqcg.addRelation(e2, e2c);
 		Property e2cp = e2c.addNewProperty();

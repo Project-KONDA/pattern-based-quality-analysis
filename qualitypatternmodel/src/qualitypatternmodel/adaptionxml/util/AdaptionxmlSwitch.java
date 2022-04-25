@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import qualitypatternmodel.adaptionxml.*;
 
 import qualitypatternmodel.graphstructure.Adaptable;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 
@@ -76,7 +76,7 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 			case AdaptionxmlPackage.XML_ELEMENT: {
 				XmlElement xmlElement = (XmlElement)theEObject;
 				T result = caseXmlElement(xmlElement);
-				if (result == null) result = caseElement(xmlElement);
+				if (result == null) result = caseNode(xmlElement);
 				if (result == null) result = caseComparable(xmlElement);
 				if (result == null) result = caseAdaptable(xmlElement);
 				if (result == null) result = casePatternElement(xmlElement);
@@ -114,7 +114,7 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 			case AdaptionxmlPackage.XML_ROOT: {
 				XmlRoot xmlRoot = (XmlRoot)theEObject;
 				T result = caseXmlRoot(xmlRoot);
-				if (result == null) result = caseElement(xmlRoot);
+				if (result == null) result = caseNode(xmlRoot);
 				if (result == null) result = caseComparable(xmlRoot);
 				if (result == null) result = caseAdaptable(xmlRoot);
 				if (result == null) result = casePatternElement(xmlRoot);
@@ -246,17 +246,17 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Node</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseElement(Element object) {
+	public T caseNode(Node object) {
 		return null;
 	}
 

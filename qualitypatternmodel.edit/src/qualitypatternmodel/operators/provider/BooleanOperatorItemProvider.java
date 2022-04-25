@@ -42,25 +42,25 @@ public class BooleanOperatorItemProvider extends OperatorItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addElementsPropertyDescriptor(object);
+			addNodesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Elements feature.
+	 * This adds a property descriptor for the Nodes feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addElementsPropertyDescriptor(Object object) {
+	protected void addNodesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BooleanOperator_elements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BooleanOperator_elements_feature", "_UI_BooleanOperator_type"),
-				 OperatorsPackage.Literals.BOOLEAN_OPERATOR__ELEMENTS,
+				 getString("_UI_BooleanOperator_nodes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BooleanOperator_nodes_feature", "_UI_BooleanOperator_type"),
+				 OperatorsPackage.Literals.BOOLEAN_OPERATOR__NODES,
 				 true,
 				 false,
 				 true,
@@ -92,6 +92,7 @@ public class BooleanOperatorItemProvider extends OperatorItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

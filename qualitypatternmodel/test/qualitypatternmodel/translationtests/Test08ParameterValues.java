@@ -39,12 +39,12 @@ public class Test08ParameterValues {
 	
 	public static CompletePattern getConcreteComparisonPattern(PropertyKind propertyKind, ParameterValue parameterValue) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = Test00.getBasePattern();
-		completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.EQUAL, parameterValue);
+		completePattern.getGraph().getNodes().get(0).addPrimitiveComparison(ComparisonOperator.EQUAL, parameterValue);
 //		completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.NOTEQUAL, parameter);
 		
 		completePattern.createXMLAdaption();
 		
-		XmlProperty property = (XmlProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0);
+		XmlProperty property = (XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0);
 		property.getAttributeName().setValue("*");
 		property.getOption().getOptions().add(propertyKind);
 		property.getOption().setValue(propertyKind);

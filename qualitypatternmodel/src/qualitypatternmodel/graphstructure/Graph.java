@@ -21,11 +21,11 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getElements <em>Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getNodes <em>Nodes</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getOperatorList <em>Operator List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedCondition <em>Quantified Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getPattern <em>Pattern</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnElements <em>Return Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnNodes <em>Return Nodes</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getOutgoingMorphisms <em>Outgoing Morphisms</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getIncomingMorphism <em>Incoming Morphism</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getRelations <em>Relations</em>}</li>
@@ -37,32 +37,18 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  */
 public interface Graph extends PatternElement {
 	/**
-	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Element}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getGraph <em>Graph</em>}'.
+	 * Returns the value of the '<em><b>Nodes</b></em>' containment reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Node}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Node#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Elements</em>' containment reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_Elements()
-	 * @see qualitypatternmodel.graphstructure.Element#getGraph
+	 * @return the value of the '<em>Nodes</em>' containment reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_Nodes()
+	 * @see qualitypatternmodel.graphstructure.Node#getGraph
 	 * @model opposite="graph" containment="true" required="true"
 	 * @generated
 	 */
-	EList<Element> getElements();
-
-	/**
-	 * Returns the value of the '<em><b>Return Elements</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Element}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getResultOf <em>Result Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Return Elements</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_ReturnElements()
-	 * @see qualitypatternmodel.graphstructure.Element#getResultOf
-	 * @model opposite="resultOf" required="true"
-	 * @generated
-	 */
-	EList<Element> getReturnElements();
+	EList<Node> getNodes();
 
 	/**
 	 * Returns the value of the '<em><b>Outgoing Morphisms</b></em>' reference list.
@@ -157,7 +143,7 @@ public interface Graph extends PatternElement {
 	 * @model
 	 * @generated
 	 */
-	Relation addRelation(Element from, Element to);
+	Relation addRelation(Node from, Node to);
 
 	/**
 	 * Returns the value of the '<em><b>Quantified Condition</b></em>' container reference.
@@ -206,6 +192,20 @@ public interface Graph extends PatternElement {
 	 * @generated
 	 */
 	void setPattern(Pattern value);
+
+	/**
+	 * Returns the value of the '<em><b>Return Nodes</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Node}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Node#getResultOf <em>Result Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Return Nodes</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_ReturnNodes()
+	 * @see qualitypatternmodel.graphstructure.Node#getResultOf
+	 * @model opposite="resultOf" required="true"
+	 * @generated
+	 */
+	EList<Node> getReturnNodes();
 
 	/**
 	 * <!-- begin-user-doc -->

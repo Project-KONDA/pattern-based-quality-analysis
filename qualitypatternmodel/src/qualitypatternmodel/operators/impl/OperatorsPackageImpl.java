@@ -220,7 +220,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getBooleanOperator_Elements() {
+	public EReference getBooleanOperator_Nodes() {
 		return (EReference)booleanOperatorEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -230,7 +230,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getBooleanOperator__AddElement__Element() {
+	public EOperation getBooleanOperator__AddElement__Node() {
 		return booleanOperatorEClass.getEOperations().get(0);
 	}
 
@@ -240,7 +240,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getBooleanOperator__RemoveElement__Element() {
+	public EOperation getBooleanOperator__RemoveElement__Node() {
 		return booleanOperatorEClass.getEOperations().get(1);
 	}
 
@@ -574,9 +574,9 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 
 		// Create classes and their features
 		booleanOperatorEClass = createEClass(BOOLEAN_OPERATOR);
-		createEReference(booleanOperatorEClass, BOOLEAN_OPERATOR__ELEMENTS);
-		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT);
-		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT);
+		createEReference(booleanOperatorEClass, BOOLEAN_OPERATOR__NODES);
+		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___ADD_ELEMENT__NODE);
+		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE);
 		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___CREATE_PARAMETERS);
 
 		operatorEClass = createEClass(OPERATOR);
@@ -661,13 +661,13 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(booleanOperatorEClass, BooleanOperator.class, "BooleanOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBooleanOperator_Elements(), theGraphstructurePackage.getElement(), theGraphstructurePackage.getElement_Predicates(), "elements", null, 0, -1, BooleanOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBooleanOperator_Nodes(), theGraphstructurePackage.getNode(), theGraphstructurePackage.getNode_Predicates(), "nodes", null, 0, -1, BooleanOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getBooleanOperator__AddElement__Element(), null, "addElement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theGraphstructurePackage.getElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getBooleanOperator__AddElement__Node(), null, "addElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getNode(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getBooleanOperator__RemoveElement__Element(), null, "removeElement", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theGraphstructurePackage.getElement(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getBooleanOperator__RemoveElement__Node(), null, "removeElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theGraphstructurePackage.getNode(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getBooleanOperator__CreateParameters(), null, "createParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -703,7 +703,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		initEReference(getMatch_Option(), theParametersPackage.getBooleanParam(), theParametersPackage.getBooleanParam_Matches(), "option", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMatch_RegularExpression(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_Matches(), "regularExpression", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getMatch__GetElement(), theGraphstructurePackage.getElement(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getMatch__GetElement(), theGraphstructurePackage.getNode(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getMatch__Copy(), this.getMatch(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -715,7 +715,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 
 		initEOperation(getComparison__IsPrimitive(), ecorePackage.getEBoolean(), "isPrimitive", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getComparison__GetElement(), theGraphstructurePackage.getElement(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getComparison__GetElement(), theGraphstructurePackage.getNode(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getComparison__Copy(), this.getComparison(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
 

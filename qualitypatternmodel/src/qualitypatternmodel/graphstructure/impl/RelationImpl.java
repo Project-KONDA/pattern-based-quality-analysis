@@ -29,7 +29,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -94,7 +94,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated
 	 * @ordered
 	 */
-	protected Element source;
+	protected Node source;
 
 	/**
 	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
@@ -105,7 +105,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated
 	 * @ordered
 	 */
-	protected Element target;
+	protected Node target;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -169,7 +169,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			Relation mappedRelation = mapping.getTarget();
 			
 			// Source
-			Element mappedSource = mappedRelation.getSource();
+			Node mappedSource = mappedRelation.getSource();
 			if (getSource() != null && mappedSource.getIncomingMapping().getSource() != null) {
 				if(!mappedSource.getIncomingMapping().getSource().equals(getSource())) {
 					throw new InvalidityException("mapping of source invalid");
@@ -182,7 +182,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			}
 			
 			// Target
-			Element mappedTarget = mappedRelation.getTarget();
+			Node mappedTarget = mappedRelation.getTarget();
 			if (getTarget() != null && mappedTarget.getIncomingMapping().getSource() != null) {
 				if(!mappedTarget.getIncomingMapping().getSource().equals(getTarget())) {
 					throw new InvalidityException("mapping of target invalid");
@@ -349,10 +349,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated
 	 */
 	@Override
-	public Element getSource() {
+	public Node getSource() {
 		if (source != null && source.eIsProxy()) {
 			InternalEObject oldSource = (InternalEObject)source;
-			source = (Element)eResolveProxy(oldSource);
+			source = (Node)eResolveProxy(oldSource);
 			if (source != oldSource) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.RELATION__SOURCE, oldSource, source));
@@ -366,7 +366,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element basicGetSource() {
+	public Node basicGetSource() {
 		return source;
 	}
 
@@ -375,8 +375,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetSource(Element newSource, NotificationChain msgs) {
-		Element oldSource = source;
+	public NotificationChain basicSetSource(Node newSource, NotificationChain msgs) {
+		Node oldSource = source;
 		source = newSource;
 		
 		if(newSource != null) {
@@ -409,15 +409,15 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	@Override
-	public void setSource(Element newSource) {
+	public void setSource(Node newSource) {
 				
 		if (newSource != source) {			
 			if(!(getGraph() != null && newSource != null && newSource.getGraph() != null && !getGraph().equals(newSource.getGraph()))) {									
 				NotificationChain msgs = null;
 				if (source != null)
-					msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.ELEMENT__OUTGOING, Element.class, msgs);
+					msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.NODE__OUTGOING, Node.class, msgs);
 				if (newSource != null)
-					msgs = ((InternalEObject)newSource).eInverseAdd(this, GraphstructurePackage.ELEMENT__OUTGOING, Element.class, msgs);
+					msgs = ((InternalEObject)newSource).eInverseAdd(this, GraphstructurePackage.NODE__OUTGOING, Node.class, msgs);
 				msgs = basicSetSource(newSource, msgs);
 				if (msgs != null) msgs.dispatch();
 			}
@@ -434,10 +434,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated
 	 */
 	@Override
-	public Element getTarget() {
+	public Node getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject)target;
-			target = (Element)eResolveProxy(oldTarget);
+			target = (Node)eResolveProxy(oldTarget);
 			if (target != oldTarget) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.RELATION__TARGET, oldTarget, target));
@@ -451,7 +451,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Element basicGetTarget() {
+	public Node basicGetTarget() {
 		return target;
 	}
 
@@ -460,8 +460,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetTarget(Element newTarget, NotificationChain msgs) {
-		Element oldTarget = target;
+	public NotificationChain basicSetTarget(Node newTarget, NotificationChain msgs) {
+		Node oldTarget = target;
 		target = newTarget;
 		
 		if(newTarget != null) {
@@ -494,14 +494,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	@Override
-	public void setTarget(Element newTarget) {
+	public void setTarget(Node newTarget) {
 		if (newTarget != target) {
 			if(!(getGraph() != null && newTarget != null && newTarget.getGraph() != null && !getGraph().equals(newTarget.getGraph()))) {
 				NotificationChain msgs = null;
 				if (target != null)
-					msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.ELEMENT__INCOMING, Element.class, msgs);
+					msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.NODE__INCOMING, Node.class, msgs);
 				if (newTarget != null)
-					msgs = ((InternalEObject)newTarget).eInverseAdd(this, GraphstructurePackage.ELEMENT__INCOMING, Element.class, msgs);
+					msgs = ((InternalEObject)newTarget).eInverseAdd(this, GraphstructurePackage.NODE__INCOMING, Node.class, msgs);
 				msgs = basicSetTarget(newTarget, msgs);
 				if (msgs != null) msgs.dispatch();
 			}
@@ -776,12 +776,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return basicSetGraph((Graph)otherEnd, msgs);
 			case GraphstructurePackage.RELATION__SOURCE:
 				if (source != null)
-					msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.ELEMENT__OUTGOING, Element.class, msgs);
-				return basicSetSource((Element)otherEnd, msgs);
+					msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.NODE__OUTGOING, Node.class, msgs);
+				return basicSetSource((Node)otherEnd, msgs);
 			case GraphstructurePackage.RELATION__TARGET:
 				if (target != null)
-					msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.ELEMENT__INCOMING, Element.class, msgs);
-				return basicSetTarget((Element)otherEnd, msgs);
+					msgs = ((InternalEObject)target).eInverseRemove(this, GraphstructurePackage.NODE__INCOMING, Node.class, msgs);
+				return basicSetTarget((Node)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -866,10 +866,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				setGraph((Graph)newValue);
 				return;
 			case GraphstructurePackage.RELATION__SOURCE:
-				setSource((Element)newValue);
+				setSource((Node)newValue);
 				return;
 			case GraphstructurePackage.RELATION__TARGET:
-				setTarget((Element)newValue);
+				setTarget((Node)newValue);
 				return;
 			case GraphstructurePackage.RELATION__NAME:
 				setName((String)newValue);
@@ -895,10 +895,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				setGraph((Graph)null);
 				return;
 			case GraphstructurePackage.RELATION__SOURCE:
-				setSource((Element)null);
+				setSource((Node)null);
 				return;
 			case GraphstructurePackage.RELATION__TARGET:
-				setTarget((Element)null);
+				setTarget((Node)null);
 				return;
 			case GraphstructurePackage.RELATION__NAME:
 				setName(NAME_EDEFAULT);

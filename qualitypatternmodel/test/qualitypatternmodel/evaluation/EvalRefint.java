@@ -24,7 +24,7 @@ import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
@@ -64,12 +64,12 @@ public class EvalRefint {
 		n.setCondition(qc2);
 		qc2.setCondition(t);
 		
-		Element e1g0 = completePattern.getGraph().getElements().get(0);
+		Node e1g0 = completePattern.getGraph().getNodes().get(0);
 		e1g0.addPrimitiveComparison();
 		
-		Element e1g1 = qc1.getGraph().getElements().get(0);	
+		Node e1g1 = qc1.getGraph().getNodes().get(0);	
 		
-		Element e2g1 = qc1.getGraph().getElements().get(1);	
+		Node e2g1 = qc1.getGraph().getNodes().get(1);	
 		e2g1.addPrimitiveComparison();
 		
 		Relation relation = graphFactory.createRelation();
@@ -77,13 +77,13 @@ public class EvalRefint {
 		relation.setSource(e1g1);
 		relation.setTarget(e2g1);
 		
-		Element e2g2 = qc2.getGraph().getElements().get(1);
+		Node e2g2 = qc2.getGraph().getNodes().get(1);
 		
-		Element e3g2 = graphFactory.createElement();
+		Node e3g2 = graphFactory.createNode();
 		e3g2.setGraph(qc2.getGraph());
 		e3g2.addPrimitiveComparison();
 		
-		Element e4g2 = graphFactory.createElement();
+		Node e4g2 = graphFactory.createNode();
 		e4g2.setGraph(qc2.getGraph());
 		e4g2.addPrimitiveComparison();
 		
@@ -113,7 +113,7 @@ public class EvalRefint {
 		
 		CompletePattern completePattern = getRefintAbstractMidas();
 		
-		Element returnInReturnGraph = completePattern.getGraph().getElements().get(0);
+		Node returnInReturnGraph = completePattern.getGraph().getNodes().get(0);
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
@@ -122,7 +122,7 @@ public class EvalRefint {
 		((XmlProperty) returnInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
-		Element element1 = graph1.getElements().get(1);
+		Node element1 = graph1.getNodes().get(1);
 		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(RelationKind.TWOCHILD);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("3600");
@@ -131,8 +131,8 @@ public class EvalRefint {
 		((XmlProperty) element1.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Graph graph2 = ((QuantifiedCondition) ((NotCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition()).getCondition()).getGraph();
-		Element element1InGraph2 = graph2.getElements().get(1);
-		Element element2 = graph2.getElements().get(2);		
+		Node element1InGraph2 = graph2.getNodes().get(1);
+		Node element2 = graph2.getNodes().get(2);		
 		((XmlNavigation) graph2.getRelations().get(4)).getOption().setValue(RelationKind.THREECHILD);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("wer");
@@ -140,7 +140,7 @@ public class EvalRefint {
 		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
-		Element element3 = graph2.getElements().get(3);
+		Node element3 = graph2.getNodes().get(3);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("3600");
 		((UntypedParameterValue) ((Comparison) element3.getPredicates().get(0)).getArgument2()).replace(concreteInputValue4);
@@ -173,12 +173,12 @@ public class EvalRefint {
 		n.setCondition(qc2);
 		qc2.setCondition(t);
 		
-		Element e1g0 = completePattern.getGraph().getElements().get(0);
+		Node e1g0 = completePattern.getGraph().getNodes().get(0);
 		e1g0.addPrimitiveComparison();
 		
-		Element e1g1 = qc1.getGraph().getElements().get(0);	
+		Node e1g1 = qc1.getGraph().getNodes().get(0);	
 		
-		Element e2g1 = qc1.getGraph().getElements().get(1);	
+		Node e2g1 = qc1.getGraph().getNodes().get(1);	
 		e2g1.addPrimitiveComparison();
 		
 		Relation relation = graphFactory.createRelation();
@@ -186,9 +186,9 @@ public class EvalRefint {
 		relation.setSource(e1g1);
 		relation.setTarget(e2g1);
 		
-		Element e2g2 = qc2.getGraph().getElements().get(1);
+		Node e2g2 = qc2.getGraph().getNodes().get(1);
 		
-		Element e3g2 = graphFactory.createElement();
+		Node e3g2 = graphFactory.createNode();
 		e3g2.setGraph(qc2.getGraph());
 		e3g2.addPrimitiveComparison();		
 		
@@ -212,22 +212,22 @@ public class EvalRefint {
 		
 		CompletePattern completePattern = getRefintAbstractRunningExample();
 		
-		XmlElement returnInReturnGraph = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlElement returnInReturnGraph = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("building");
 		((UntypedParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
 		((XmlProperty) returnInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
-		Element element1 = graph1.getElements().get(1);
+		Node element1 = graph1.getNodes().get(1);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("creator");
 		((UntypedParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2);
 		((XmlProperty) element1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
 		Graph graph2 = ((QuantifiedCondition) ((NotCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition()).getCondition()).getGraph();
-		Element element1InGraph2 = graph2.getElements().get(1);
-		Element element2 = graph2.getElements().get(2);
+		Node element1InGraph2 = graph2.getNodes().get(1);
+		Node element2 = graph2.getNodes().get(2);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("artist");
 		((UntypedParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue3);

@@ -9,7 +9,7 @@ import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -49,7 +49,7 @@ public class EvalContrel {
 		OperatorsFactory operatorsFactory = OperatorsFactory.eINSTANCE;		
 		
 		CompletePattern pattern = factory.createCompletePattern();
-		pattern.getGraph().getReturnElements().get(0).addPrimitiveComparison();
+		pattern.getGraph().getReturnNodes().get(0).addPrimitiveComparison();
 		QuantifiedCondition qc = factory.createQuantifiedCondition();
 		pattern.setCondition(qc);
 		TrueElement trueElement = factory.createTrueElement();
@@ -57,8 +57,8 @@ public class EvalContrel {
 		
 		Graph graph = qc.getGraph();		
 		
-		Element returnInG = graph.getElements().get(0);
-		Element id1 = graphFactory.createElement();
+		Node returnInG = graph.getNodes().get(0);
+		Node id1 = graphFactory.createNode();
 		id1.setGraph(graph);
 		Relation relation = graphFactory.createRelation();
 		relation.setGraph(graph);
@@ -69,7 +69,7 @@ public class EvalContrel {
 		id1Prop.setElement(id1);
 		id1Prop.createParameters();
 		
-		Element ref1 = graphFactory.createElement();
+		Node ref1 = graphFactory.createNode();
 		ref1.setGraph(graph);
 		Relation relation2 = graphFactory.createRelation();
 		relation2.setGraph(graph);
@@ -80,7 +80,7 @@ public class EvalContrel {
 		ref1Prop.setElement(ref1);
 		ref1Prop.createParameters();
 		
-		Element val1 = graphFactory.createElement();
+		Node val1 = graphFactory.createNode();
 		val1.setGraph(graph);
 		Relation relation3 = graphFactory.createRelation();
 		relation3.setGraph(graph);
@@ -91,11 +91,11 @@ public class EvalContrel {
 		val1Prop.setElement(val1);
 		val1Prop.createParameters();
 		
-		Element element2 = graphFactory.createElement();
+		Node element2 = graphFactory.createNode();
 		element2.setGraph(graph);
 		element2.addPrimitiveComparison();
 		
-		Element id2 = graphFactory.createElement();
+		Node id2 = graphFactory.createNode();
 		id2.setGraph(graph);
 		Relation relation4 = graphFactory.createRelation();
 		relation4.setGraph(graph);
@@ -106,7 +106,7 @@ public class EvalContrel {
 		id2Prop.setElement(id2);
 		id2Prop.createParameters();
 		
-		Element ref2 = graphFactory.createElement();
+		Node ref2 = graphFactory.createNode();
 		ref2.setGraph(graph);
 		Relation relation5 = graphFactory.createRelation();
 		relation5.setGraph(graph);
@@ -117,7 +117,7 @@ public class EvalContrel {
 		ref2Prop.setElement(ref2);
 		ref2Prop.createParameters();
 		
-		Element val2 = graphFactory.createElement();
+		Node val2 = graphFactory.createNode();
 		val2.setGraph(graph);
 		Relation relation6 = graphFactory.createRelation();
 		relation6.setGraph(graph);
@@ -167,7 +167,7 @@ public class EvalContrel {
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = getContrelAbstract();
-		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
+		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);	
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
 		
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
@@ -181,7 +181,7 @@ public class EvalContrel {
 //		Element root = graph1.getRootElement();
 //		Element returnElementInGraph1 = graph1.getElements().get(0);
 		
-		Element id1 = graph1.getElements().get(1);
+		Node id1 = graph1.getNodes().get(1);
 		Comparison id1Comp1 = (Comparison) id1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1.setValue("3100");
@@ -191,7 +191,7 @@ public class EvalContrel {
 		((XmlProperty) id1.getProperties().get(1)).getAttributeName().setValue("Value");
 		((XmlProperty) id1.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
-		Element ref1 = graph1.getElements().get(2);
+		Node ref1 = graph1.getNodes().get(2);
 		Comparison ref1Comp1 = (Comparison) ref1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("ku35");
@@ -201,7 +201,7 @@ public class EvalContrel {
 		((XmlProperty) ref1.getProperties().get(1)).getAttributeName().setValue("Value");
 		((XmlProperty) ref1.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
-		Element val1 = graph1.getElements().get(3);	
+		Node val1 = graph1.getNodes().get(3);	
 		Comparison val1Comp1 = (Comparison) val1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("3600");
@@ -211,7 +211,7 @@ public class EvalContrel {
 		((XmlProperty) val1.getProperties().get(1)).getAttributeName().setValue("Value");
 		((XmlProperty) val1.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
-		Element element2 = graph1.getElements().get(4);
+		Node element2 = graph1.getNodes().get(4);
 		((XmlNavigation) graph1.getRelations().get(7)).getOption().setValue(RelationKind.THREECHILD);
 		Comparison element2Comp1 = (Comparison) element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
@@ -220,7 +220,7 @@ public class EvalContrel {
 		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
-		Element id2 = graph1.getElements().get(5);	
+		Node id2 = graph1.getNodes().get(5);	
 		Comparison id2Comp1 = (Comparison) id2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue5 = parametersFactory.createTextLiteralParam();
 		concreteInputValue5.setValue("3600");
@@ -230,7 +230,7 @@ public class EvalContrel {
 		((XmlProperty) id2.getProperties().get(1)).getAttributeName().setValue("Value");
 		((XmlProperty) id2.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);		
 		
-		Element ref2 = graph1.getElements().get(6);
+		Node ref2 = graph1.getNodes().get(6);
 		Comparison ref2Comp1 = (Comparison) ref2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue6 = parametersFactory.createTextLiteralParam();
 		concreteInputValue6.setValue("we30");
@@ -240,7 +240,7 @@ public class EvalContrel {
 		((XmlProperty) ref2.getProperties().get(1)).getAttributeName().setValue("Value");
 		((XmlProperty) ref2.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);		
 		
-		Element val2 = graph1.getElements().get(7);	
+		Node val2 = graph1.getNodes().get(7);	
 		Comparison val2Comp1 = (Comparison) val2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue7 = parametersFactory.createTextLiteralParam();
 		concreteInputValue7.setValue("3100");

@@ -14,7 +14,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.Operator;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
@@ -61,11 +61,11 @@ public class Test12Count {
 		countPattern.getGraph().getRelations().get(0).adaptAsXMLNavigation();
 		completePattern.finalizeXMLAdaption();
 		
-		((XmlProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
-		((XmlProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
+		((XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
-		((XmlProperty) countPattern.getGraph().getElements().get(1).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
-		((XmlProperty) countPattern.getGraph().getElements().get(1).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) countPattern.getGraph().getNodes().get(1).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
+		((XmlProperty) countPattern.getGraph().getNodes().get(1).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
 		UntypedParameterValue untypedParameterValue = (UntypedParameterValue) completePattern.getParameterList().getParameters().get(0);
 		TextLiteralParam text = ParametersFactory.eINSTANCE.createTextLiteralParam();
@@ -89,7 +89,7 @@ public class Test12Count {
 		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = Test00.getBasePattern();
-		completePattern.getGraph().getReturnElements().get(0).addPrimitiveComparison();
+		completePattern.getGraph().getReturnNodes().get(0).addPrimitiveComparison();
 		
 		CountCondition countCondition = factory.createCountCondition();
 		completePattern.setCondition(countCondition);		
@@ -102,8 +102,8 @@ public class Test12Count {
 		countCondition.setCountPattern(countpattern);
 		countCondition.setArgument2(numberElement);
 		
-		Element returnInCPattern = countpattern.getGraph().getElements().get(0);
-		Element nextToReturnInCPattern = graphstructureFactory.createElement();
+		Node returnInCPattern = countpattern.getGraph().getNodes().get(0);
+		Node nextToReturnInCPattern = graphstructureFactory.createNode();
 		nextToReturnInCPattern.setGraph(countpattern.getGraph());
 		nextToReturnInCPattern.addPrimitiveComparison();
 		
@@ -112,8 +112,8 @@ public class Test12Count {
 		relation.setSource(returnInCPattern);
 		relation.setTarget(nextToReturnInCPattern);
 			
-		countpattern.getGraph().getReturnElements().clear();
-		countpattern.getGraph().getReturnElements().add(nextToReturnInCPattern);
+		countpattern.getGraph().getReturnNodes().clear();
+		countpattern.getGraph().getReturnNodes().add(nextToReturnInCPattern);
 				
 		Condition truecondition = factory.createTrueElement();
 		countpattern.setCondition(truecondition);		
@@ -130,7 +130,7 @@ public class Test12Count {
 		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
-		completePattern.getGraph().getElements().get(0).addPrimitiveComparison();
+		completePattern.getGraph().getNodes().get(0).addPrimitiveComparison();
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		CountCondition countCondition = factory.createCountCondition();
@@ -144,9 +144,9 @@ public class Test12Count {
 		countCondition.setCountPattern(countPattern);
 		countCondition.setArgument2(numberElement);
 		
-		Element element2InCPattern = countPattern.getGraph().getElements().get(1);
+		Node element2InCPattern = countPattern.getGraph().getNodes().get(1);
 		element2InCPattern.addPrimitiveComparison();
-		Element nextToElement2InCPattern = graphstructureFactory.createElement();
+		Node nextToElement2InCPattern = graphstructureFactory.createNode();
 		nextToElement2InCPattern.setGraph(countPattern.getGraph());
 		nextToElement2InCPattern.addPrimitiveComparison();
 		
@@ -155,8 +155,8 @@ public class Test12Count {
 		relation.setSource(element2InCPattern);
 		relation.setTarget(nextToElement2InCPattern);
 		
-		countPattern.getGraph().getReturnElements().clear();
-		countPattern.getGraph().getReturnElements().add(nextToElement2InCPattern);
+		countPattern.getGraph().getReturnNodes().clear();
+		countPattern.getGraph().getReturnNodes().add(nextToElement2InCPattern);
 		
 		Condition truecondition = factory.createTrueElement();
 		countPattern.setCondition(truecondition);
@@ -166,14 +166,14 @@ public class Test12Count {
 		completePattern.finalizeXMLAdaption();
 		
 		
-		((XmlProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
-		((XmlProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
+		((XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
-		((XmlProperty) countPattern.getGraph().getElements().get(1).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
-		((XmlProperty) countPattern.getGraph().getElements().get(1).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) countPattern.getGraph().getNodes().get(1).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
+		((XmlProperty) countPattern.getGraph().getNodes().get(1).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
-		((XmlProperty) countPattern.getGraph().getElements().get(2).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
-		((XmlProperty) countPattern.getGraph().getElements().get(2).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) countPattern.getGraph().getNodes().get(2).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
+		((XmlProperty) countPattern.getGraph().getNodes().get(2).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 				
 		UntypedParameterValue untypedParameterValue = (UntypedParameterValue) completePattern.getParameterList().getParameters().get(0);
 		TextLiteralParam text = ParametersFactory.eINSTANCE.createTextLiteralParam();
@@ -227,8 +227,8 @@ public class Test12Count {
 
 		countCondition.setArgument2(numberElement);
 		
-		Element returnInCPattern = countPattern.getGraph().getReturnElements().get(0);
-		Element nextToElement2InCPattern = graphstructureFactory.createElement();
+		Node returnInCPattern = countPattern.getGraph().getReturnNodes().get(0);
+		Node nextToElement2InCPattern = graphstructureFactory.createNode();
 		nextToElement2InCPattern.setGraph(countPattern.getGraph());
 		nextToElement2InCPattern.addPrimitiveComparison();
 		
@@ -237,8 +237,8 @@ public class Test12Count {
 		relation.setSource(returnInCPattern);
 		relation.setTarget(nextToElement2InCPattern);
 		
-		countPattern.getGraph().getReturnElements().clear();
-		countPattern.getGraph().getReturnElements().add(nextToElement2InCPattern);
+		countPattern.getGraph().getReturnNodes().clear();
+		countPattern.getGraph().getReturnNodes().add(nextToElement2InCPattern);
 		
 		Condition truecondition = factory.createTrueElement();
 		countPattern.setCondition(truecondition);
@@ -247,8 +247,8 @@ public class Test12Count {
 		countPattern.getGraph().getRelations().get(0).adaptAsXMLNavigation();
 		completePattern.finalizeXMLAdaption();		
 		
-		((XmlProperty) countPattern.getGraph().getElements().get(1).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
-		((XmlProperty) countPattern.getGraph().getElements().get(1).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) countPattern.getGraph().getNodes().get(1).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
+		((XmlProperty) countPattern.getGraph().getNodes().get(1).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
 		UntypedParameterValue untypedParameterValue = (UntypedParameterValue) completePattern.getParameterList().getParameters().get(2);
 		TextLiteralParam text = ParametersFactory.eINSTANCE.createTextLiteralParam();
@@ -270,7 +270,7 @@ public class Test12Count {
 		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.getGraph().getReturnElements().get(0).addPrimitiveComparison();
+		completePattern.getGraph().getReturnNodes().get(0).addPrimitiveComparison();
 		Formula formula = factory.createFormula();
 		completePattern.setCondition(formula);
 		formula.setOperator(LogicalOperator.AND);		
@@ -287,8 +287,8 @@ public class Test12Count {
 		countCondition.setCountPattern(countPattern);
 		countCondition.setArgument2(numberElement);
 		
-		Element returnInCPattern = countPattern.getGraph().getReturnElements().get(0);
-		Element nextToElement2InCPattern = graphstructureFactory.createElement();
+		Node returnInCPattern = countPattern.getGraph().getReturnNodes().get(0);
+		Node nextToElement2InCPattern = graphstructureFactory.createNode();
 		nextToElement2InCPattern.setGraph(countPattern.getGraph());
 		nextToElement2InCPattern.addPrimitiveComparison();
 		
@@ -297,7 +297,7 @@ public class Test12Count {
 		relation.setSource(returnInCPattern);
 		relation.setTarget(nextToElement2InCPattern);
 		
-		Element element3 = graphstructureFactory.createElement();
+		Node element3 = graphstructureFactory.createNode();
 		element3.setGraph(countPattern.getGraph());
 		element3.addPrimitiveComparison();
 		
@@ -306,14 +306,14 @@ public class Test12Count {
 		relation2.setSource(nextToElement2InCPattern);
 		relation2.setTarget(element3);
 		
-		countPattern.getGraph().getReturnElements().clear();
-		countPattern.getGraph().getReturnElements().add(nextToElement2InCPattern);
+		countPattern.getGraph().getReturnNodes().clear();
+		countPattern.getGraph().getReturnNodes().add(nextToElement2InCPattern);
 		
 		Condition truecondition = factory.createTrueElement();
 		countPattern.setCondition(truecondition);
 		
-		Element returnInQC = quantifiedCondition2.getGraph().getReturnElements().get(0);
-		Element nextToElement2InQC = graphstructureFactory.createElement();
+		Node returnInQC = quantifiedCondition2.getGraph().getReturnNodes().get(0);
+		Node nextToElement2InQC = graphstructureFactory.createNode();
 		nextToElement2InQC.setGraph(quantifiedCondition2.getGraph());
 		nextToElement2InQC.addPrimitiveComparison();
 		
@@ -332,17 +332,17 @@ public class Test12Count {
 		completePattern.finalizeXMLAdaption();
 		
 		
-		((XmlProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
-		((XmlProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
+		((XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
-		((XmlProperty) countPattern.getGraph().getElements().get(1).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
-		((XmlProperty) countPattern.getGraph().getElements().get(1).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) countPattern.getGraph().getNodes().get(1).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
+		((XmlProperty) countPattern.getGraph().getNodes().get(1).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
-		((XmlProperty) countPattern.getGraph().getElements().get(2).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
-		((XmlProperty) countPattern.getGraph().getElements().get(2).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) countPattern.getGraph().getNodes().get(2).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
+		((XmlProperty) countPattern.getGraph().getNodes().get(2).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
-		((XmlProperty) quantifiedCondition2.getGraph().getElements().get(1).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
-		((XmlProperty) quantifiedCondition2.getGraph().getElements().get(1).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) quantifiedCondition2.getGraph().getNodes().get(1).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
+		((XmlProperty) quantifiedCondition2.getGraph().getNodes().get(1).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 					
 		UntypedParameterValue untypedParameterValue = (UntypedParameterValue) completePattern.getParameterList().getParameters().get(0);
 		TextLiteralParam text = ParametersFactory.eINSTANCE.createTextLiteralParam();
@@ -387,7 +387,7 @@ public class Test12Count {
 		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.getGraph().getReturnElements().get(0).addPrimitiveComparison();
+		completePattern.getGraph().getReturnNodes().get(0).addPrimitiveComparison();
 		QuantifiedCondition quantifiedCondition1 = factory.createQuantifiedCondition();
 		Formula formula = factory.createFormula();
 		completePattern.setCondition(quantifiedCondition1);
@@ -395,8 +395,8 @@ public class Test12Count {
 		formula.setOperator(LogicalOperator.AND);		
 		
 		Graph graph = quantifiedCondition1.getGraph();
-		Element returnInQc1 = graph.getElements().get(0);
-		Element element1 = graphstructureFactory.createElement();
+		Node returnInQc1 = graph.getNodes().get(0);
+		Node element1 = graphstructureFactory.createNode();
 		element1.setGraph(graph);
 		element1.addPrimitiveComparison();
 		
@@ -417,11 +417,11 @@ public class Test12Count {
 		countCondition.setCountPattern(countPattern);
 		countCondition.setArgument2(numberElement);
 		
-		Element element1InCPattern = countPattern.getGraph().getElements().get(1);
-		Element nextToElement2InCPattern = graphstructureFactory.createElement();
+		Node element1InCPattern = countPattern.getGraph().getNodes().get(1);
+		Node nextToElement2InCPattern = graphstructureFactory.createNode();
 		nextToElement2InCPattern.setGraph(countPattern.getGraph());
 		nextToElement2InCPattern.addPrimitiveComparison();
-		Element element3 = graphstructureFactory.createElement();
+		Node element3 = graphstructureFactory.createNode();
 		element3.setGraph(countPattern.getGraph());
 		element3.addPrimitiveComparison();
 		
@@ -435,14 +435,14 @@ public class Test12Count {
 		relation1.setSource(nextToElement2InCPattern);
 		relation1.setTarget(element3);
 		
-		countPattern.getGraph().getReturnElements().clear();
-		countPattern.getGraph().getReturnElements().add(nextToElement2InCPattern);
+		countPattern.getGraph().getReturnNodes().clear();
+		countPattern.getGraph().getReturnNodes().add(nextToElement2InCPattern);
 		
 		Condition truecondition = factory.createTrueElement();
 		countPattern.setCondition(truecondition);
 		
-		Element element1InQC = quantifiedCondition2.getGraph().getElements().get(1);
-		Element nextToElement2InQC = graphstructureFactory.createElement();
+		Node element1InQC = quantifiedCondition2.getGraph().getNodes().get(1);
+		Node nextToElement2InQC = graphstructureFactory.createNode();
 		nextToElement2InQC.setGraph(quantifiedCondition2.getGraph());
 		nextToElement2InQC.addPrimitiveComparison();
 		
@@ -461,20 +461,20 @@ public class Test12Count {
 		quantifiedCondition2.getGraph().getRelations().get(0).adaptAsXMLNavigation();
 		completePattern.finalizeXMLAdaption();
 		
-		((XmlProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
-		((XmlProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
+		((XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
-		((XmlProperty) quantifiedCondition1.getGraph().getElements().get(1).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
-		((XmlProperty) quantifiedCondition1.getGraph().getElements().get(1).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) quantifiedCondition1.getGraph().getNodes().get(1).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
+		((XmlProperty) quantifiedCondition1.getGraph().getNodes().get(1).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
-		((XmlProperty) countPattern.getGraph().getElements().get(2).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
-		((XmlProperty) countPattern.getGraph().getElements().get(2).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) countPattern.getGraph().getNodes().get(2).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
+		((XmlProperty) countPattern.getGraph().getNodes().get(2).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
-		((XmlProperty) countPattern.getGraph().getElements().get(3).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
-		((XmlProperty) countPattern.getGraph().getElements().get(3).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) countPattern.getGraph().getNodes().get(3).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
+		((XmlProperty) countPattern.getGraph().getNodes().get(3).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
-		((XmlProperty) quantifiedCondition2.getGraph().getElements().get(2).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
-		((XmlProperty) quantifiedCondition2.getGraph().getElements().get(2).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) quantifiedCondition2.getGraph().getNodes().get(2).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
+		((XmlProperty) quantifiedCondition2.getGraph().getNodes().get(2).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
 		UntypedParameterValue untypedParameterValue = (UntypedParameterValue) completePattern.getParameterList().getParameters().get(0);
 		TextLiteralParam text = ParametersFactory.eINSTANCE.createTextLiteralParam();
@@ -528,7 +528,7 @@ public class Test12Count {
 //		QuantifiedCondition quantifiedCondition2 = factory.createQuantifiedCondition();
 //		quantifiedCondition.setCondition(quantifiedCondition2);
 //		
-//		Element singleElement2InGraph2 = graphstructureFactory.createElement();
+//		Element singleElement2InGraph2 = graphstructureFactory.createNode();
 //		singleElement2InGraph2.setPreviousElement(quantifiedCondition2.getGraph().getReturnElements().get(0).getNextElements().get(0));
 //		
 //		

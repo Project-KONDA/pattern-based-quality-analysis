@@ -81,8 +81,8 @@ public class Test06NotElement {
 		TrueElement t = factory.createTrueElement();
 		qc.setCondition(t);
 		
-		Element e0 = qc.getGraph().getElements().get(0);
-		Element e1 = graphFactory.createElement();
+		Node e0 = qc.getGraph().getNodes().get(0);
+		Node e1 = graphFactory.createNode();
 		e1.setGraph(qc.getGraph());
 		Relation relation = graphFactory.createRelation();
 		relation.setGraph(qc.getGraph());
@@ -128,7 +128,7 @@ public class Test06NotElement {
 		n.setCondition(qc2);
 		qc2.setCondition(t);
 		
-		Element e2 = graphFactory.createElement();
+		Node e2 = graphFactory.createNode();
 		e2.setGraph(qc2.getGraph());
 		return completePattern;
 		

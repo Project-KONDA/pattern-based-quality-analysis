@@ -31,6 +31,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement, org.eclipse.emf.common.util.EList) <em>Trigger Parameter Updates</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement) <em>Trigger Parameter Updates</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#updateParameters(qualitypatternmodel.parameters.ParameterList) <em>Update Parameters</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.PatternElement#initializeTranslation() <em>Initialize Translation</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -278,6 +279,19 @@ public abstract class PatternElementTest extends TestCase {
 	 * @generated
 	 */
 	public void testUpdateParameters__ParameterList() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.PatternElement#initializeTranslation() <em>Initialize Translation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.PatternElement#initializeTranslation()
+	 * @generated
+	 */
+	public void testInitializeTranslation() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

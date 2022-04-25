@@ -22,7 +22,7 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.impl.ElementImpl;
+import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
@@ -45,7 +45,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  *
  * @generated
  */
-public class XmlElementImpl extends ElementImpl implements XmlElement {
+public class XmlElementImpl extends NodeImpl implements XmlElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

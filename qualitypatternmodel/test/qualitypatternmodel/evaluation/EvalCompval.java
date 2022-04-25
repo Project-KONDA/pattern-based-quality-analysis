@@ -11,7 +11,7 @@ import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -54,12 +54,12 @@ public class EvalCompval {
 	public static CompletePattern getCompvalAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelation();
-		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);
+		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
 		returnElementInReturnGraph.addPrimitiveComparison();
 
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
-		Element next1 = graph1.getElements().get(1);
+		Node next1 = graph1.getNodes().get(1);
 		next1.addPrimitiveComparison();
 		next1.addPrimitiveComparison();
 
@@ -76,16 +76,16 @@ public class EvalCompval {
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 
 		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelation();
-		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);
+		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
 		returnElementInReturnGraph.addPrimitiveComparison();
 
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
-		Element element1 = graph1.getElements().get(1);
+		Node element1 = graph1.getNodes().get(1);
 		element1.addPrimitiveComparison();
 		
 
-		Element element2 = graphFactory.createElement();
+		Node element2 = graphFactory.createNode();
 		element2.setGraph(graph1);
 		element2.addPrimitiveComparison();
 		element2.addPrimitiveComparison();
@@ -113,7 +113,7 @@ public class EvalCompval {
 
 		CompletePattern completePattern = getCompvalThreeElementsAbstract();
 
-		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);
+		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(returnElementAxis);
 
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates()
@@ -130,7 +130,7 @@ public class EvalCompval {
 
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
-		Element element2 = graph1.getElements().get(1);
+		Node element2 = graph1.getNodes().get(1);
 		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(element2Axis);
 
 		Comparison comp1 = (Comparison) element2.getPredicates().get(0);
@@ -142,7 +142,7 @@ public class EvalCompval {
 		}
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(attribute2Kind);
 
-		Element element3 = graph1.getElements().get(2);
+		Node element3 = graph1.getNodes().get(2);
 		((XmlNavigation) graph1.getRelations().get(1)).getOption().setValue(element3Axis);
 
 		Comparison comp2 = (Comparison) element3.getPredicates().get(0);
@@ -175,7 +175,7 @@ public class EvalCompval {
 
 		CompletePattern completePattern = getCompvalAbstract();
 
-		Element element2 = concretize(returnElementType, returnElementAxis, attribute1Name, attribute1Kind,
+		Node element2 = concretize(returnElementType, returnElementAxis, attribute1Name, attribute1Kind,
 				element2Type, element2Axis, attribute2Name, attribute2Kind, attribute3Name, attribute3Kind, parametersFactory,
 				completePattern);
 
@@ -198,7 +198,7 @@ public class EvalCompval {
 
 		CompletePattern completePattern = getCompvalAbstract();
 
-		Element element2 = concretize(returnElementType, returnElementAxis, attribute1Name, attribute1Kind,
+		Node element2 = concretize(returnElementType, returnElementAxis, attribute1Name, attribute1Kind,
 				element2Type, element2Axis, attribute2Name, attribute2Kind, attribute3Name, attribute3Kind, parametersFactory,
 				completePattern);
 
@@ -213,12 +213,12 @@ public class EvalCompval {
 		return completePattern;
 	}
 
-	private static Element concretize(String returnElementType, RelationKind returnElementAxis, String attribute1Name,
+	private static Node concretize(String returnElementType, RelationKind returnElementAxis, String attribute1Name,
 			PropertyKind attribute1Kind, String element2Type, RelationKind element2Axis, String attribute2Name, PropertyKind attribute2Kind,
 			String attribute3Name, PropertyKind attribute3Kind, ParametersFactory parametersFactory,
 			CompletePattern completePattern) {
 
-		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);
+		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(returnElementAxis);
 
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates()
@@ -235,7 +235,7 @@ public class EvalCompval {
 
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
-		Element element2 = graph1.getElements().get(1);
+		Node element2 = graph1.getNodes().get(1);
 		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(element2Axis);
 
 		Comparison comp1 = (Comparison) element2.getPredicates().get(0);
@@ -324,12 +324,12 @@ public class EvalCompval {
 		n.setCondition(qc2);
 		qc2.setCondition(t);
 		
-		Element e1g0 = completePattern.getGraph().getElements().get(0);
+		Node e1g0 = completePattern.getGraph().getNodes().get(0);
 		e1g0.addPrimitiveComparison();
 		
-		Element e1g1 = qc1.getGraph().getElements().get(0);	
+		Node e1g1 = qc1.getGraph().getNodes().get(0);	
 		
-		Element e2g1 = qc1.getGraph().getElements().get(1);	
+		Node e2g1 = qc1.getGraph().getNodes().get(1);	
 		e2g1.addPrimitiveComparison();
 		
 		Relation relation = graphFactory.createRelation();
@@ -337,7 +337,7 @@ public class EvalCompval {
 		relation.setSource(e1g1);
 		relation.setTarget(e2g1);
 		
-		Element e2g2 = qc2.getGraph().getElements().get(1);
+		Node e2g2 = qc2.getGraph().getNodes().get(1);
 		e2g2.addPrimitiveComparison();
 		
 		completePattern.createXMLAdaption();
@@ -354,7 +354,7 @@ public class EvalCompval {
 		
 		CompletePattern completePattern = getCompsetAbstract();
 		
-		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
+		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);	
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(returnElementAxis);
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -367,7 +367,7 @@ public class EvalCompval {
 		
 		QuantifiedCondition condition = (QuantifiedCondition) completePattern.getCondition();
 		Graph graph1 = condition.getGraph();
-		Element nextToReturnElementInGraph1 =  graph1.getElements().get(1);
+		Node nextToReturnElementInGraph1 =  graph1.getNodes().get(1);
 		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(element2Axis);
 		
 		Comparison comparison1 = (Comparison) nextToReturnElementInGraph1.getPredicates().get(0);
@@ -382,7 +382,7 @@ public class EvalCompval {
 		NotCondition notCondition = (NotCondition) condition.getCondition();
 		QuantifiedCondition condition2 = (QuantifiedCondition) notCondition.getCondition();
 		Graph graph2 = condition2.getGraph();
-		Element nextToReturnElementInGraph2 = graph2.getElements().get(1);
+		Node nextToReturnElementInGraph2 = graph2.getNodes().get(1);
 		
 		Comparison comparison2 = (Comparison) nextToReturnElementInGraph2.getPredicates().get(0);
 		TextListParam concreteInputValue2 = parametersFactory.createTextListParam();

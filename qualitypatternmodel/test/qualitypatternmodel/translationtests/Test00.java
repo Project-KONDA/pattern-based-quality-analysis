@@ -10,7 +10,7 @@ import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.adaptionxml.RelationKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.*;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -87,7 +87,7 @@ public class Test00 {
 	
 	public static CompletePattern getBasePatternCond(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
-		Element se = completePattern.getGraph().getReturnElements().get(0);
+		Node se = completePattern.getGraph().getReturnNodes().get(0);
 		se.addPrimitiveComparison(comp);
 		completePattern.createXMLAdaption();
 		completePattern.finalizeXMLAdaption();
@@ -103,7 +103,7 @@ public class Test00 {
 	
 	public static CompletePattern getBasePatternMatch(String regex) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
-		Element se = completePattern.getGraph().getReturnElements().get(0);
+		Node se = completePattern.getGraph().getReturnNodes().get(0);
 		se.addPrimitiveMatch(regex);
 		completePattern.createXMLAdaption();
 		completePattern.finalizeXMLAdaption();

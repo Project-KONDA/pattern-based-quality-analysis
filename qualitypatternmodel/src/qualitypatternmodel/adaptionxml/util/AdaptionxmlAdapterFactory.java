@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 import qualitypatternmodel.adaptionxml.*;
 
 import qualitypatternmodel.graphstructure.Adaptable;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 
@@ -107,8 +107,8 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 				return createAdaptableAdapter();
 			}
 			@Override
-			public Adapter caseElement(Element object) {
-				return createElementAdapter();
+			public Adapter caseNode(Node object) {
+				return createNodeAdapter();
 			}
 			@Override
 			public Adapter caseRelation(Relation object) {
@@ -251,16 +251,16 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.graphstructure.Element <em>Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.graphstructure.Node <em>Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.graphstructure.Element
+	 * @see qualitypatternmodel.graphstructure.Node
 	 * @generated
 	 */
-	public Adapter createElementAdapter() {
+	public Adapter createNodeAdapter() {
 		return null;
 	}
 

@@ -25,7 +25,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
@@ -178,13 +178,13 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 		EList<Property> equiProperties = new BasicEList<Property>();
 		PropertyKind propertyKind = getOption().getValue();
 		String attributeName = (getAttributeName() == null || getAttributeName().getValue() == null ? "" : getAttributeName().getValue());
-		EList<Element> equivalentElements = new BasicEList<Element>();
+		EList<Node> equivalentElements = new BasicEList<Node>();
 		getElement().getEquivalentElements(equivalentElements);
 		for(Relation r : getElement().getIncoming()) {
 			if(r instanceof XmlNavigation) {
 				XmlNavigation nav = (XmlNavigation) r;
 				if(nav.getOriginalOption() != null && nav.getOriginalOption().getValue() == RelationKind.SELF) {
-					Element e = r.getSource();
+					Node e = r.getSource();
 					e.getEquivalentElements(equivalentElements);
 				}
 			}
@@ -193,12 +193,12 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 			if(r instanceof XmlNavigation) {
 				XmlNavigation nav = (XmlNavigation) r;
 				if(nav.getOriginalOption() != null && nav.getOriginalOption().getValue() == RelationKind.SELF) {
-					Element e = r.getTarget();
+					Node e = r.getTarget();
 					e.getEquivalentElements(equivalentElements);
 				}
 			}
 		}
-		for(Element e : equivalentElements) {
+		for(Node e : equivalentElements) {
 			for(Property p : e.getProperties()) {
 				if(p instanceof XmlProperty) {
 					XmlProperty xmlProp = (XmlProperty) p;
@@ -290,7 +290,7 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 	}
 	
 	@Override
-	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {			
+	public NotificationChain basicSetElement(Node newElement, NotificationChain msgs) {			
 		NotificationChain res = super.basicSetElement(newElement, msgs);		
 		createParameters();
 		return res;

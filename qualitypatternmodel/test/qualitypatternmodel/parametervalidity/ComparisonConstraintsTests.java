@@ -33,7 +33,7 @@ public class ComparisonConstraintsTests {
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
-		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		property1.getOption().setValueIfValid(PropertyKind.TAG);
 		
@@ -60,7 +60,7 @@ public class ComparisonConstraintsTests {
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
-		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		property1.getOption().setValueIfValid(PropertyKind.TAG);
 		
@@ -94,7 +94,7 @@ public class ComparisonConstraintsTests {
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
-		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		property1.getOption().setValueIfValid(PropertyKind.TAG);
 		
@@ -122,7 +122,7 @@ public class ComparisonConstraintsTests {
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
-		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		property1.getOption().setValueIfValid(PropertyKind.TAG);
 		
@@ -154,7 +154,7 @@ public class ComparisonConstraintsTests {
 		CompletePattern completePattern = DemoPatterns.getAbstractCompPattern();
 		
 		// Context graph of pattern:
-		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
 		property0.getOption().setValue(PropertyKind.TAG);
 		
@@ -167,7 +167,7 @@ public class ComparisonConstraintsTests {
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
-		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		property1.getOption().setValueIfValid(PropertyKind.DATA);
 
@@ -198,7 +198,7 @@ public class ComparisonConstraintsTests {
 		CompletePattern completePattern = DemoPatterns.getAbstractCompPattern();
 		
 		// Context graph of pattern:
-		XmlElement element0 = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
 		property0.getOption().setValue(PropertyKind.TAG);
 		
@@ -211,7 +211,7 @@ public class ComparisonConstraintsTests {
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
-		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
 		property1.getOption().setValueIfValid(PropertyKind.DATA);
 

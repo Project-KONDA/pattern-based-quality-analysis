@@ -443,13 +443,13 @@ public interface OperatorsPackage extends EPackage {
 	int BOOLEAN_OPERATOR__OPERATOR_LIST = OPERATOR__OPERATOR_LIST;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' reference list.
+	 * The feature id for the '<em><b>Nodes</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR__ELEMENTS = OPERATOR_FEATURE_COUNT + 0;
+	int BOOLEAN_OPERATOR__NODES = OPERATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Boolean Operator</em>' class.
@@ -719,7 +719,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT = OPERATOR_OPERATION_COUNT + 0;
+	int BOOLEAN_OPERATOR___ADD_ELEMENT__NODE = OPERATOR_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Remove Element</em>' operation.
@@ -728,7 +728,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT = OPERATOR_OPERATION_COUNT + 1;
+	int BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE = OPERATOR_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -1129,13 +1129,13 @@ public interface OperatorsPackage extends EPackage {
 	int MATCH__OPERATOR_LIST = BOOLEAN_OPERATOR__OPERATOR_LIST;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' reference list.
+	 * The feature id for the '<em><b>Nodes</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH__ELEMENTS = BOOLEAN_OPERATOR__ELEMENTS;
+	int MATCH__NODES = BOOLEAN_OPERATOR__NODES;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' reference.
@@ -1432,7 +1432,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH___ADD_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT;
+	int MATCH___ADD_ELEMENT__NODE = BOOLEAN_OPERATOR___ADD_ELEMENT__NODE;
 
 	/**
 	 * The operation id for the '<em>Remove Element</em>' operation.
@@ -1441,7 +1441,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH___REMOVE_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT;
+	int MATCH___REMOVE_ELEMENT__NODE = BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -1535,13 +1535,13 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON__OPERATOR_LIST = BOOLEAN_OPERATOR__OPERATOR_LIST;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' reference list.
+	 * The feature id for the '<em><b>Nodes</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON__ELEMENTS = BOOLEAN_OPERATOR__ELEMENTS;
+	int COMPARISON__NODES = BOOLEAN_OPERATOR__NODES;
 
 	/**
 	 * The feature id for the '<em><b>Argument1</b></em>' reference.
@@ -1847,7 +1847,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON___ADD_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT;
+	int COMPARISON___ADD_ELEMENT__NODE = BOOLEAN_OPERATOR___ADD_ELEMENT__NODE;
 
 	/**
 	 * The operation id for the '<em>Remove Element</em>' operation.
@@ -1856,7 +1856,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON___REMOVE_ELEMENT__ELEMENT = BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT;
+	int COMPARISON___REMOVE_ELEMENT__NODE = BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -2188,35 +2188,35 @@ public interface OperatorsPackage extends EPackage {
 	EClass getBooleanOperator();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.operators.BooleanOperator#getElements <em>Elements</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.operators.BooleanOperator#getNodes <em>Nodes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Elements</em>'.
-	 * @see qualitypatternmodel.operators.BooleanOperator#getElements()
+	 * @return the meta object for the reference list '<em>Nodes</em>'.
+	 * @see qualitypatternmodel.operators.BooleanOperator#getNodes()
 	 * @see #getBooleanOperator()
 	 * @generated
 	 */
-	EReference getBooleanOperator_Elements();
+	EReference getBooleanOperator_Nodes();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.operators.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element) <em>Add Element</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.operators.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Node) <em>Add Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Element</em>' operation.
-	 * @see qualitypatternmodel.operators.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Element)
+	 * @see qualitypatternmodel.operators.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Node)
 	 * @generated
 	 */
-	EOperation getBooleanOperator__AddElement__Element();
+	EOperation getBooleanOperator__AddElement__Node();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.operators.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element) <em>Remove Element</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.operators.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Node) <em>Remove Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Remove Element</em>' operation.
-	 * @see qualitypatternmodel.operators.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Element)
+	 * @see qualitypatternmodel.operators.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Node)
 	 * @generated
 	 */
-	EOperation getBooleanOperator__RemoveElement__Element();
+	EOperation getBooleanOperator__RemoveElement__Node();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.operators.BooleanOperator#createParameters() <em>Create Parameters</em>}' operation.
@@ -2563,12 +2563,12 @@ public interface OperatorsPackage extends EPackage {
 		EClass BOOLEAN_OPERATOR = eINSTANCE.getBooleanOperator();
 
 		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Nodes</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BOOLEAN_OPERATOR__ELEMENTS = eINSTANCE.getBooleanOperator_Elements();
+		EReference BOOLEAN_OPERATOR__NODES = eINSTANCE.getBooleanOperator_Nodes();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Element</b></em>' operation.
@@ -2576,7 +2576,7 @@ public interface OperatorsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOLEAN_OPERATOR___ADD_ELEMENT__ELEMENT = eINSTANCE.getBooleanOperator__AddElement__Element();
+		EOperation BOOLEAN_OPERATOR___ADD_ELEMENT__NODE = eINSTANCE.getBooleanOperator__AddElement__Node();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove Element</b></em>' operation.
@@ -2584,7 +2584,7 @@ public interface OperatorsPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOLEAN_OPERATOR___REMOVE_ELEMENT__ELEMENT = eINSTANCE.getBooleanOperator__RemoveElement__Element();
+		EOperation BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE = eINSTANCE.getBooleanOperator__RemoveElement__Node();
 
 		/**
 		 * The meta object literal for the '<em><b>Create Parameters</b></em>' operation.

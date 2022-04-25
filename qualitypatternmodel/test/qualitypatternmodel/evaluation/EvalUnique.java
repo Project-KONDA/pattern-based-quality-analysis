@@ -9,7 +9,7 @@ import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -85,7 +85,7 @@ public class EvalUnique {
 //		
 //		Element returnInCPattern = countPattern.getGraph().getReturnElements().get(0);
 //		Element rootInCPattern = countPattern.getGraph().getRootElement();
-//		Element nextToRootInCPattern = graphFactory.createElement();
+//		Element nextToRootInCPattern = graphFactory.createNode();
 //		nextToRootInCPattern.setPreviousElement(rootInCPattern);
 //		countPattern.getGraph().getReturnElements().clear();
 //		countPattern.getGraph().getReturnElements().add(nextToRootInCPattern);
@@ -124,7 +124,7 @@ public class EvalUnique {
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = Test00.getBasePattern();
-		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
+		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);	
 		returnElementInReturnGraph.addPrimitiveComparison();
 		
 		
@@ -133,9 +133,9 @@ public class EvalUnique {
 		
 		Graph graph1 = quantifiedCondition.getGraph();
 		
-		Element returnG1 = graph1.getElements().get(0);
+		Node returnG1 = graph1.getNodes().get(0);
 		
-		Element e1G1 = graphFactory.createElement();
+		Node e1G1 = graphFactory.createNode();
 		e1G1.setGraph(graph1);
 		e1G1.addPrimitiveComparison();
 		Relation r1G1 = graphFactory.createRelation();
@@ -143,7 +143,7 @@ public class EvalUnique {
 		r1G1.setSource(returnG1);
 		r1G1.setTarget(e1G1);
 		
-		Element e2G1 = graphFactory.createElement();
+		Node e2G1 = graphFactory.createNode();
 		e2G1.setGraph(graph1);
 		e2G1.addPrimitiveComparison();
 		Relation r2G1 = graphFactory.createRelation();
@@ -151,7 +151,7 @@ public class EvalUnique {
 		r2G1.setSource(e1G1);
 		r2G1.setTarget(e2G1);
 		
-		Element e3G1 = graphFactory.createElement();
+		Node e3G1 = graphFactory.createNode();
 		e3G1.setGraph(graph1);
 		e3G1.addPrimitiveComparison();
 		Relation r3G1 = graphFactory.createRelation();
@@ -175,12 +175,12 @@ public class EvalUnique {
 		
 		Graph graph2 = countPattern.getGraph();
 		
-		Element returnInCPattern = countPattern.getGraph().getElements().get(0);
-		Element e1G2 = countPattern.getGraph().getElements().get(1);
-		Element e2G2 = countPattern.getGraph().getElements().get(2);
-		Element e3G2 = countPattern.getGraph().getElements().get(3);		
+		Node returnInCPattern = countPattern.getGraph().getNodes().get(0);
+		Node e1G2 = countPattern.getGraph().getNodes().get(1);
+		Node e2G2 = countPattern.getGraph().getNodes().get(2);
+		Node e3G2 = countPattern.getGraph().getNodes().get(3);		
 		
-		Element e4G2 = graphFactory.createElement();
+		Node e4G2 = graphFactory.createNode();
 		e4G2.setGraph(graph2);
 		Relation r4G2 = graphFactory.createRelation();
 		r4G2.setGraph(graph2);
@@ -188,14 +188,14 @@ public class EvalUnique {
 		r4G2.setTarget(e4G2);		
 		e4G2.addPrimitiveComparison();
 		
-		Element e5G2 = graphFactory.createElement();
+		Node e5G2 = graphFactory.createNode();
 		e5G2.setGraph(graph2);
 		Relation r5G2 = graphFactory.createRelation();
 		r5G2.setGraph(graph2);
 		r5G2.setSource(e4G2);
 		r5G2.setTarget(e5G2);
-		countPattern.getGraph().getReturnElements().clear();
-		countPattern.getGraph().getReturnElements().add(e5G2);
+		countPattern.getGraph().getReturnNodes().clear();
+		countPattern.getGraph().getReturnNodes().add(e5G2);
 		e5G2.addPrimitiveComparison();
 		
 		Property previous = graphFactory.createProperty();
@@ -240,7 +240,7 @@ public class EvalUnique {
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = Test00.getBasePattern();
-		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
+		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);	
 		returnElementInReturnGraph.addPrimitiveComparison();
 		
 		QuantifiedCondition qCond = patternStructureFactory.createQuantifiedCondition();
@@ -264,16 +264,16 @@ public class EvalUnique {
 		countCondition.setCountPattern(countPattern);
 		countCondition.setArgument2(numberElement);
 		
-		Element returnInQCond = qCond.getGraph().getElements().get(0);
-		Element returnInCPattern = countPattern.getGraph().getElements().get(0);
-		Element element2 = graphFactory.createElement();
+		Node returnInQCond = qCond.getGraph().getNodes().get(0);
+		Node returnInCPattern = countPattern.getGraph().getNodes().get(0);
+		Node element2 = graphFactory.createNode();
 		element2.setGraph(countPattern.getGraph());
 		element2.setName("Element2");
-		countPattern.getGraph().getReturnElements().clear();
-		countPattern.getGraph().getReturnElements().add(element2);
+		countPattern.getGraph().getReturnNodes().clear();
+		countPattern.getGraph().getReturnNodes().add(element2);
 		element2.addPrimitiveComparison();
 		
-		Element nextToReturn = graphFactory.createElement();
+		Node nextToReturn = graphFactory.createNode();
 		nextToReturn.setGraph(qCond.getGraph());
 		nextToReturn.setName("Field1");
 		Relation relation = graphFactory.createRelation();
@@ -288,7 +288,7 @@ public class EvalUnique {
 		TrueElement trueElement = patternStructureFactory.createTrueElement();
 		countQCond.setCondition(trueElement);
 		
-		Element nextToElement2 = graphFactory.createElement();
+		Node nextToElement2 = graphFactory.createNode();
 		nextToElement2.setGraph(countQCond.getGraph());
 		Relation relation2 = graphFactory.createRelation();
 		relation2.setGraph(countQCond.getGraph());
@@ -335,7 +335,7 @@ public class EvalUnique {
 //		Element e0InReturnGraph = completePattern.getGraph().getElements().get(0);	
 ////		e0InReturnGraph.addPrimitiveComparison();
 //		
-//		Element ret = graphFactory.createElement();
+//		Element ret = graphFactory.createNode();
 //		ret.setGraph(completePattern.getGraph());
 //		ret.addPrimitiveComparison();	
 //		Relation relation0 = graphFactory.createRelation();
@@ -349,7 +349,7 @@ public class EvalUnique {
 //		completePattern.setCondition(quantifiedCondition);	
 //		
 //		Element retInQC = quantifiedCondition.getGraph().getElements().get(1);
-//		Element child = graphFactory.createElement();
+//		Element child = graphFactory.createNode();
 //		child.setGraph(quantifiedCondition.getGraph());
 //		child.addPrimitiveComparison();	
 //		Relation relation = graphFactory.createRelation();
@@ -372,10 +372,10 @@ public class EvalUnique {
 //		countCondition.setArgument2(numberElement);
 //		
 //		Element childInCPattern = countPattern.getGraph().getElements().get(2);
-//		Element element2 = graphFactory.createElement();
+//		Element element2 = graphFactory.createNode();
 //		element2.setGraph(countPattern.getGraph());
 //		
-//		Element element3 = graphFactory.createElement();
+//		Element element3 = graphFactory.createNode();
 //		element3.setGraph(countPattern.getGraph());
 //		Relation relation1 = graphFactory.createRelation();
 //		relation1.setGraph(countPattern.getGraph());
@@ -393,7 +393,7 @@ public class EvalUnique {
 //		
 //		Element e2InQcC = quantifiedConditionCount.getGraph().getElements().get(2);
 //		
-//		Element nextToReturn = graphFactory.createElement();
+//		Element nextToReturn = graphFactory.createNode();
 //		nextToReturn.setGraph(quantifiedConditionCount.getGraph());
 //		Relation relation2 = graphFactory.createRelation();
 //		relation2.setGraph(quantifiedConditionCount.getGraph());
@@ -401,7 +401,7 @@ public class EvalUnique {
 //		relation2.setTarget(nextToReturn);
 //		nextToReturn.addPrimitiveComparison();
 //		
-////		Element nextToElement2 = graphFactory.createElement();
+////		Element nextToElement2 = graphFactory.createNode();
 ////		nextToElement2.setGraph(countPattern.getGraph());
 ////		Relation relation2 = graphFactory.createRelation();
 ////		relation2.setGraph(countPattern.getGraph());
@@ -443,7 +443,7 @@ public class EvalUnique {
 		CompletePattern completePattern = getUniqueAbstract();
 		
 		
-		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
+		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);	
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
@@ -462,7 +462,7 @@ public class EvalUnique {
 		QuantifiedCondition countQCond = (QuantifiedCondition) countPattern.getCondition();
 		Graph graphCountQCond = countQCond.getGraph();
 			
-		Element element2 = graphCountPattern.getElements().get(1);	
+		Node element2 = graphCountPattern.getNodes().get(1);	
 		((XmlNavigation) countPattern.getGraph().getRelations().get(2)).getOption().setValue(RelationKind.THREECHILD);
 		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
@@ -470,7 +470,7 @@ public class EvalUnique {
 		concreteInputValue2.setValue("wer");
 		((UntypedParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2);
 		
-		Element nextToReturn = graphQCond.getElements().get(1);
+		Node nextToReturn = graphQCond.getNodes().get(1);
 		XmlProperty propNextToReturn = (XmlProperty) nextToReturn.getProperties().get(0);
 		propNextToReturn.getAttributeName().setValue("Type");
 		propNextToReturn.getOption().setValue(PropertyKind.ATTRIBUTE);
@@ -478,7 +478,7 @@ public class EvalUnique {
 		concreteInputValue3.setValue("3600");
 		((UntypedParameterValue) ((Comparison) nextToReturn.getPredicates().get(0)).getArgument2()).replace(concreteInputValue3);
 		
-		Element nextToElement2 = graphCountQCond.getElements().get(3);
+		Node nextToElement2 = graphCountQCond.getNodes().get(3);
 		((XmlProperty) nextToElement2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) nextToElement2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
@@ -486,7 +486,7 @@ public class EvalUnique {
 		((UntypedParameterValue) ((Comparison) nextToElement2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue4);
 		
 		
-		Element nextToReturn2 = nextToReturn.getOutgoingMappings().get(0).getTarget().getOutgoingMappings().get(0).getTarget();
+		Node nextToReturn2 = nextToReturn.getOutgoingMappings().get(0).getTarget().getOutgoingMappings().get(0).getTarget();
 		XmlProperty prop2NextToReturn = (XmlProperty) nextToReturn2.getProperties().get(0);
 		prop2NextToReturn.getOption().setValue(PropertyKind.ATTRIBUTE);
 		prop2NextToReturn.getAttributeName().setValue("Value");
@@ -505,7 +505,7 @@ public class EvalUnique {
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = getUniqueComplexAbstract();
-		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
+		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);	
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(returnRel);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -515,21 +515,21 @@ public class EvalUnique {
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();	
 		Graph graph1 = quantifiedCondition.getGraph();
 		
-		Element e1G1 = graph1.getElements().get(1);	
+		Node e1G1 = graph1.getNodes().get(1);	
 		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(retToE1Rel);
 		((XmlProperty) e1G1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue1G1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1G1.setValue(e1Name);
 		((UntypedParameterValue) ((Comparison) e1G1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue1G1);
 		
-		Element e2G1 = graph1.getElements().get(2);	
+		Node e2G1 = graph1.getNodes().get(2);	
 		((XmlNavigation) graph1.getRelations().get(1)).getOption().setValue(RelationKind.CHILD);
 		((XmlProperty) e2G1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue2G1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2G1.setValue(e2Name);
 		((UntypedParameterValue) ((Comparison) e2G1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2G1);
 		
-		Element e3G1 = graph1.getElements().get(3);	
+		Node e3G1 = graph1.getNodes().get(3);	
 		((XmlNavigation) graph1.getRelations().get(2)).getOption().setValue(RelationKind.CHILD);
 		((XmlProperty) e3G1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue3G1 = parametersFactory.createTextLiteralParam();
@@ -541,16 +541,16 @@ public class EvalUnique {
 		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
 		Graph graph2 = countPattern.getGraph();
 		
-		Element e3G2 = graph2.getElements().get(3);	
+		Node e3G2 = graph2.getNodes().get(3);	
 		
-		Element e4G2 = graph2.getElements().get(4);	
+		Node e4G2 = graph2.getNodes().get(4);	
 		((XmlNavigation) graph2.getRelations().get(3)).getOption().setValue(RelationKind.CHILD);
 		((XmlProperty) e4G2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue4G2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4G2.setValue(e2Name);
 		((UntypedParameterValue) ((Comparison) e4G2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue4G2);
 		
-		Element e5G2 = graph2.getElements().get(5);
+		Node e5G2 = graph2.getNodes().get(5);
 		((XmlNavigation) graph2.getRelations().get(4)).getOption().setValue(RelationKind.CHILD);
 		((XmlProperty) e5G2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue5G2 = parametersFactory.createTextLiteralParam();
@@ -577,7 +577,7 @@ public class EvalUnique {
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = getUniqueAbstract();
-		Element returnElementInReturnGraph = completePattern.getGraph().getReturnElements().get(0);	
+		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);	
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(returnRel);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -589,26 +589,26 @@ public class EvalUnique {
 		CountPattern countPattern = (CountPattern) countCondition.getCountPattern();
 		QuantifiedCondition countQCon = (QuantifiedCondition) countPattern.getCondition();
 		
-		Element element2 = countPattern.getGraph().getElements().get(1);	
+		Node element2 = countPattern.getGraph().getNodes().get(1);	
 		((XmlNavigation) countPattern.getGraph().getRelations().get(2)).getOption().setValue(returnRel);
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue(returnElementName);
 		((UntypedParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2);
 		
-		Element nextToReturn = qCond.getGraph().getElements().get(1);
+		Node nextToReturn = qCond.getGraph().getNodes().get(1);
 		((XmlProperty) nextToReturn.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue(elementName);
 		((UntypedParameterValue) ((Comparison) nextToReturn.getPredicates().get(0)).getArgument2()).replace(concreteInputValue3);
 		
-		Element nextToElement2 = countQCon.getGraph().getElements().get(3);
+		Node nextToElement2 = countQCon.getGraph().getNodes().get(3);
 		((XmlProperty) nextToElement2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue(elementName);
 		((UntypedParameterValue) ((Comparison) nextToElement2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue4);
 		
-		Element nextToReturn2 = countQCon.getGraph().getElements().get(2);
+		Node nextToReturn2 = countQCon.getGraph().getNodes().get(2);
 		((XmlProperty) nextToReturn2.getProperties().get(0)).getOption().setValue(PropertyKind.DATA);
 		
 		((XmlProperty) nextToElement2.getProperties().get(1)).getOption().setValue(PropertyKind.DATA);

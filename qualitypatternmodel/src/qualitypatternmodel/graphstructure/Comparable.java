@@ -94,6 +94,6 @@ public interface Comparable extends PatternElement {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<Element> getAllArgumentElements();
+	EList<Node> getAllArgumentElements();
 
 } // GraphElement

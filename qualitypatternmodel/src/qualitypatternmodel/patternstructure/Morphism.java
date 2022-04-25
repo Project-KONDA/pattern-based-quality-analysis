@@ -5,7 +5,7 @@ package qualitypatternmodel.patternstructure;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Relation;
 
@@ -174,7 +174,7 @@ public interface Morphism extends PatternElement {
 	 * @model
 	 * @generated
 	 */
-	ElementMapping addMapping(Element from, Element to);
+	ElementMapping addMapping(Node from, Node to);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -45,20 +45,20 @@ public class EvalExnex {
 		QuantifiedCondition qc2 = ((QuantifiedCondition)((NotCondition) qc1.getCondition()).getCondition());
 
 		Graph g0 = completePattern.getGraph();
-		g0.getElements().get(0).addPrimitiveComparison();
+		g0.getNodes().get(0).addPrimitiveComparison();
 		
 		Graph g1 = qc1.getGraph();
 		Relation r1 = new RelationImpl();
 		g1.getRelations().add(r1);
-		r1.setSource(g1.getElements().get(0));
-		r1.setTarget(g1.getElements().get(1));
-		g1.getElements().get(1).addPrimitiveComparison();
+		r1.setSource(g1.getNodes().get(0));
+		r1.setTarget(g1.getNodes().get(1));
+		g1.getNodes().get(1).addPrimitiveComparison();
 		
 		Graph g2 = qc2.getGraph();
 		Relation r2 = new RelationImpl();
 		g2.getRelations().add(r2);
-		r2.setSource(g2.getElements().get(1));
-		r2.setTarget(g2.getElements().get(2));
+		r2.setSource(g2.getNodes().get(1));
+		r2.setTarget(g2.getNodes().get(2));
 		
 		completePattern.createXMLAdaption();
 		EList<Relation> rels1 = qc1.getGraph().getRelations();
@@ -78,21 +78,21 @@ public class EvalExnex {
 		QuantifiedCondition qc2 = ((QuantifiedCondition)((NotCondition) qc1.getCondition()).getCondition());
 
 		Graph g0 = completePattern.getGraph();
-		g0.getElements().get(0).addPrimitiveComparison();
+		g0.getNodes().get(0).addPrimitiveComparison();
 		
 		Graph g1 = qc1.getGraph();
 		Relation r1 = new RelationImpl();
 		g1.getRelations().add(r1);
-		r1.setSource(g1.getElements().get(0));
-		r1.setTarget(g1.getElements().get(1));
-		g1.getElements().get(1).addPrimitiveComparison();
+		r1.setSource(g1.getNodes().get(0));
+		r1.setTarget(g1.getNodes().get(1));
+		g1.getNodes().get(1).addPrimitiveComparison();
 		
 		Graph g2 = qc2.getGraph();
 		Relation r2 = new RelationImpl();
 		g2.getRelations().add(r2);
-		r2.setSource(g2.getElements().get(1));
-		r2.setTarget(g2.getElements().get(2));
-		g2.getElements().get(2).addPrimitiveComparison();
+		r2.setSource(g2.getNodes().get(1));
+		r2.setTarget(g2.getNodes().get(2));
+		g2.getNodes().get(2).addPrimitiveComparison();
 		
 		completePattern.createXMLAdaption();
 		EList<Relation> rels1 = qc1.getGraph().getRelations();

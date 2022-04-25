@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.adaptionxml;
 
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,5 +16,5 @@ import qualitypatternmodel.graphstructure.Element;
  * @model
  * @generated
  */
-public interface XmlRoot extends Element {
+public interface XmlRoot extends Node {
 } // XMLRoot

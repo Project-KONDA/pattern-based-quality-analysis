@@ -43,7 +43,7 @@ import qualitypatternmodel.parameters.impl.NumberParamImpl;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.TimeParamImpl;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -182,7 +182,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * 
 	 */
 	@Override
-	public EList<Element> getAllArgumentElements() {		
+	public EList<Node> getAllArgumentElements() {		
 		return getElement().getAllArgumentElements();
 	}
 	
@@ -233,9 +233,9 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * @generated
 	 */
 	@Override
-	public Element getElement() {
+	public Node getElement() {
 		if (eContainerFeatureID() != GraphstructurePackage.PROPERTY__ELEMENT) return null;
-		return (Element)eInternalContainer();
+		return (Node)eInternalContainer();
 	}
 
 	/**
@@ -244,7 +244,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * @generated
 	 */
 	@Override
-	public void setElement(Element newElement) {
+	public void setElement(Node newElement) {
 		if (newElement != eInternalContainer() || (eContainerFeatureID() != GraphstructurePackage.PROPERTY__ELEMENT && newElement != null)) {
 			if (EcoreUtil.isAncestor(this, newElement))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -252,7 +252,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newElement != null)
-				msgs = ((InternalEObject)newElement).eInverseAdd(this, GraphstructurePackage.ELEMENT__PROPERTIES, Element.class, msgs);
+				msgs = ((InternalEObject)newElement).eInverseAdd(this, GraphstructurePackage.NODE__PROPERTIES, Node.class, msgs);
 			msgs = basicSetElement(newElement, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -265,7 +265,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetElement(Element newElement, NotificationChain msgs) {
+	public NotificationChain basicSetElement(Node newElement, NotificationChain msgs) {
 		triggerParameterUpdates(newElement);
 		
 		if (newElement == null || getElement() != null && !newElement.equals(getElement())) {
@@ -802,7 +802,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 			case GraphstructurePackage.PROPERTY__ELEMENT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetElement((Element)otherEnd, msgs);
+				return basicSetElement((Node)otherEnd, msgs);
 			case GraphstructurePackage.PROPERTY__MATCH:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMatch()).basicAdd(otherEnd, msgs);
 		}
@@ -838,7 +838,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case GraphstructurePackage.PROPERTY__ELEMENT:
-				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.ELEMENT__PROPERTIES, Element.class, msgs);
+				return eInternalContainer().eInverseRemove(this, GraphstructurePackage.NODE__PROPERTIES, Node.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -881,7 +881,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				getComparison2().addAll((Collection<? extends Comparison>)newValue);
 				return;
 			case GraphstructurePackage.PROPERTY__ELEMENT:
-				setElement((Element)newValue);
+				setElement((Node)newValue);
 				return;
 			case GraphstructurePackage.PROPERTY__MATCH:
 				getMatch().clear();
@@ -908,7 +908,7 @@ public class PropertyImpl extends PatternElementImpl implements Property {
 				getComparison2().clear();
 				return;
 			case GraphstructurePackage.PROPERTY__ELEMENT:
-				setElement((Element)null);
+				setElement((Node)null);
 				return;
 			case GraphstructurePackage.PROPERTY__MATCH:
 				getMatch().clear();

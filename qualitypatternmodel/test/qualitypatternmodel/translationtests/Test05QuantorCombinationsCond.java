@@ -37,30 +37,30 @@ public class Test05QuantorCombinationsCond {
 		Graph graph2 = qcond2.getGraph();
 		
 		// comparisons
-		Element e0 = graph0.getElements().get(0);
+		Node e0 = graph0.getNodes().get(0);
 		e0.addPrimitiveComparison("101");
-		Element e1 = graph1.getElements().get(0);
+		Node e1 = graph1.getNodes().get(0);
 		e1.addPrimitiveComparison("demo:building");
 		e1.addPrimitiveComparison("abc");
 		((Comparison) graph1.getOperatorList().getOperators().get(1)).getOption().setValue(ComparisonOperator.NOTEQUAL);
 		
-		Element e2 = graph1.getElements().get(1);
+		Node e2 = graph1.getNodes().get(1);
 		e2.addPrimitiveComparison("USA");
-		Element se = graph2.getElements().get(2);
+		Node se = graph2.getNodes().get(2);
 		se.addPrimitiveComparison("demo:country");
 		
 		completePattern.createXMLAdaption();
 		
-		XmlProperty property = (XmlProperty) graph0.getElements().get(0).getProperties().get(0);
+		XmlProperty property = (XmlProperty) graph0.getNodes().get(0).getProperties().get(0);
 		property.getAttributeName().setValue("demo:id");
 		property.getOption().getOptions().add(PropertyKind.ATTRIBUTE);
 		property.getOption().setValue(PropertyKind.ATTRIBUTE);
 	
-		XmlProperty property1 = (XmlProperty) graph1.getElements().get(0).getProperties().get(0);
+		XmlProperty property1 = (XmlProperty) graph1.getNodes().get(0).getProperties().get(0);
 		property1.getOption().getOptions().add(PropertyKind.TAG);
 		property1.getOption().setValue(PropertyKind.TAG);
 		
-		XmlProperty property2 = (XmlProperty) graph1.getElements().get(0).getProperties().get(1);
+		XmlProperty property2 = (XmlProperty) graph1.getNodes().get(0).getProperties().get(1);
 		property2.getOption().getOptions().add(PropertyKind.TAG);
 		property2.getOption().setValue(PropertyKind.TAG);
 		
@@ -69,7 +69,7 @@ public class Test05QuantorCombinationsCond {
 		ref.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();		
 		
-		((XmlProperty) graph2.getElements().get(2).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) graph2.getNodes().get(2).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.TWOCHILD);
 		((XmlNavigation) graph2.getRelations().get(3)).getOption().setValue(RelationKind.THREECHILD);
 		

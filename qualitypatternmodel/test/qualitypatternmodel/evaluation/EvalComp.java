@@ -21,7 +21,7 @@ import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -56,17 +56,17 @@ public class EvalComp {
 		Graph graph1 = completePattern.getGraph();
 		Graph graph2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		
-		graph1.getElements().get(0).addPrimitiveComparison();
-		graph2.getElements().get(1).addPrimitiveComparison();
-		Property p = graph2.getElements().get(1).addNewProperty();
+		graph1.getNodes().get(0).addPrimitiveComparison();
+		graph2.getNodes().get(1).addPrimitiveComparison();
+		Property p = graph2.getNodes().get(1).addNewProperty();
 		
 		XmlElementImpl e = new XmlElementImpl();
-		graph2.getElements().add(e);
+		graph2.getNodes().add(e);
 		Property p2 = e.addNewProperty();
 		
 		XmlNavigationImpl r = new XmlNavigationImpl();
 		graph2.getRelations().add(r);
-		r.setSource(graph2.getElements().get(0));
+		r.setSource(graph2.getNodes().get(0));
 		r.setTarget(e);
 		e.addPrimitiveComparison();
 				

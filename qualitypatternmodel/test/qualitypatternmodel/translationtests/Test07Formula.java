@@ -55,16 +55,16 @@ public class Test07Formula {
 		form.setCondition2(qc2);
 		qc2.setCondition(te2);
 
-		Element e0qc1 = qc1.getGraph().getElements().get(0);
-		Element e1 = graphFactory.createElement();
+		Node e0qc1 = qc1.getGraph().getNodes().get(0);
+		Node e1 = graphFactory.createNode();
 		e1.setGraph(qc1.getGraph());
 		Relation relation1 = graphFactory.createRelation();
 		relation1.setGraph(qc1.getGraph());
 		relation1.setSource(e0qc1);
 		relation1.setTarget(e1);
 		
-		Element e0qc2 = qc2.getGraph().getElements().get(0);
-		Element e2 = graphFactory.createElement();
+		Node e0qc2 = qc2.getGraph().getNodes().get(0);
+		Node e2 = graphFactory.createNode();
 		e2.setGraph(qc2.getGraph());
 		Relation relation2 = graphFactory.createRelation();
 		relation2.setGraph(qc2.getGraph());
@@ -87,7 +87,7 @@ public class Test07Formula {
 		
 		((XmlNavigation) pattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.TWOCHILD);
 		QuantifiedCondition q1 = ((QuantifiedCondition)((Formula) pattern.getCondition()).getCondition2());
-		XmlProperty xp = ((XmlProperty) q1.getGraph().getElements().get(0).getProperties().get(0));
+		XmlProperty xp = ((XmlProperty) q1.getGraph().getNodes().get(0).getProperties().get(0));
 		xp.getOption().setValue(PropertyKind.ATTRIBUTE);
 		xp.getAttributeName().setValue("demo:id");;
 		

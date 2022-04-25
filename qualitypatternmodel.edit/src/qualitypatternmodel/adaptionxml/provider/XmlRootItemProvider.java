@@ -14,8 +14,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.adaptionxml.XmlRoot;
-import qualitypatternmodel.graphstructure.provider.ElementItemProvider;
-
+import qualitypatternmodel.graphstructure.provider.NodeItemProvider;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
@@ -24,7 +23,7 @@ import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XmlRootItemProvider extends ElementItemProvider {
+public class XmlRootItemProvider extends NodeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -86,6 +85,7 @@ public class XmlRootItemProvider extends ElementItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

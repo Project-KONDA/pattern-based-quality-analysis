@@ -71,17 +71,17 @@ public interface Relation extends PatternElement, Adaptable {
 
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getOutgoing <em>Outgoing</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Node#getOutgoing <em>Outgoing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
-	 * @see #setSource(Element)
+	 * @see #setSource(Node)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Source()
-	 * @see qualitypatternmodel.graphstructure.Element#getOutgoing
+	 * @see qualitypatternmodel.graphstructure.Node#getOutgoing
 	 * @model opposite="outgoing"
 	 * @generated
 	 */
-	Element getSource();
+	Node getSource();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getSource <em>Source</em>}' reference.
@@ -91,21 +91,21 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @see #getSource()
 	 * @generated
 	 */
-	void setSource(Element value);
+	void setSource(Node value);
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Element#getIncoming <em>Incoming</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Node#getIncoming <em>Incoming</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
-	 * @see #setTarget(Element)
+	 * @see #setTarget(Node)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Target()
-	 * @see qualitypatternmodel.graphstructure.Element#getIncoming
+	 * @see qualitypatternmodel.graphstructure.Node#getIncoming
 	 * @model opposite="incoming"
 	 * @generated
 	 */
-	Element getTarget();
+	Node getTarget();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getTarget <em>Target</em>}' reference.
@@ -115,7 +115,7 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @see #getTarget()
 	 * @generated
 	 */
-	void setTarget(Element value);
+	void setTarget(Node value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

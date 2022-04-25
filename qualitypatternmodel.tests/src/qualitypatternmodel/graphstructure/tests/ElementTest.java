@@ -5,7 +5,7 @@ package qualitypatternmodel.graphstructure.tests;
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
 /**
@@ -15,21 +15,21 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getOriginalID() <em>Get Original ID</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveMatch(java.lang.String) <em>Add Primitive Match</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(java.lang.String) <em>Add Primitive Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveMatch() <em>Add Primitive Match</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison() <em>Add Primitive Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getAllOperators() <em>Get All Operators</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#copyProperty(qualitypatternmodel.graphstructure.Property) <em>Copy Property</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#copyPrimitiveComparison(qualitypatternmodel.operators.Comparison) <em>Copy Primitive Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#copyMatch(qualitypatternmodel.operators.Match) <em>Copy Match</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#addNewProperty() <em>Add New Property</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#checkComparisonConsistency(qualitypatternmodel.operators.Comparison) <em>Check Comparison Consistency</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Element#getEquivalentElements(org.eclipse.emf.common.util.EList) <em>Get Equivalent Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#getOriginalID() <em>Get Original ID</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveMatch(java.lang.String) <em>Add Primitive Match</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveComparison(java.lang.String) <em>Add Primitive Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveMatch() <em>Add Primitive Match</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveComparison() <em>Add Primitive Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#getAllOperators() <em>Get All Operators</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveComparison(qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveComparison(qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#copyProperty(qualitypatternmodel.graphstructure.Property) <em>Copy Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#copyPrimitiveComparison(qualitypatternmodel.operators.Comparison) <em>Copy Primitive Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#copyMatch(qualitypatternmodel.operators.Match) <em>Copy Match</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addNewProperty() <em>Add New Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency(qualitypatternmodel.operators.Comparison) <em>Check Comparison Consistency</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#getEquivalentElements(org.eclipse.emf.common.util.EList) <em>Get Equivalent Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
@@ -67,8 +67,8 @@ public class ElementTest extends PatternElementTest {
 	 * @generated
 	 */
 	@Override
-	protected Element getFixture() {
-		return (Element)fixture;
+	protected Node getFixture() {
+		return (Node)fixture;
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class ElementTest extends PatternElementTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(GraphstructureFactory.eINSTANCE.createElement());
+		setFixture(GraphstructureFactory.eINSTANCE.createNode());
 	}
 
 	/**
@@ -94,10 +94,10 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getOriginalID() <em>Get Original ID</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#getOriginalID() <em>Get Original ID</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#getOriginalID()
+	 * @see qualitypatternmodel.graphstructure.Node#getOriginalID()
 	 * @generated
 	 */
 	public void testGetOriginalID() {
@@ -107,10 +107,10 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveMatch(java.lang.String) <em>Add Primitive Match</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveMatch(java.lang.String) <em>Add Primitive Match</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveMatch(java.lang.String)
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveMatch(java.lang.String)
 	 * @generated
 	 */
 	public void testAddPrimitiveMatch__String() {
@@ -120,10 +120,10 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(java.lang.String) <em>Add Primitive Comparison</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveComparison(java.lang.String) <em>Add Primitive Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(java.lang.String)
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveComparison(java.lang.String)
 	 * @generated
 	 */
 	public void testAddPrimitiveComparison__String() {
@@ -133,10 +133,10 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveMatch() <em>Add Primitive Match</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveMatch() <em>Add Primitive Match</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveMatch()
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveMatch()
 	 * @generated
 	 */
 	public void testAddPrimitiveMatch() {
@@ -146,10 +146,10 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison() <em>Add Primitive Comparison</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveComparison() <em>Add Primitive Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison()
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveComparison()
 	 * @generated
 	 */
 	public void testAddPrimitiveComparison() {
@@ -159,10 +159,10 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getAllOperators() <em>Get All Operators</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#getAllOperators() <em>Get All Operators</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#getAllOperators()
+	 * @see qualitypatternmodel.graphstructure.Node#getAllOperators()
 	 * @generated
 	 */
 	public void testGetAllOperators() {
@@ -172,10 +172,10 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveComparison(qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue)
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveComparison(qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue)
 	 * @generated
 	 */
 	public void testAddPrimitiveComparison__ComparisonOperator_ParameterValue() {
@@ -185,10 +185,10 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveComparison(qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#addPrimitiveComparison(qualitypatternmodel.parameters.ParameterValue)
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveComparison(qualitypatternmodel.parameters.ParameterValue)
 	 * @generated
 	 */
 	public void testAddPrimitiveComparison__ParameterValue() {
@@ -198,10 +198,10 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#copyProperty(qualitypatternmodel.graphstructure.Property) <em>Copy Property</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#copyProperty(qualitypatternmodel.graphstructure.Property) <em>Copy Property</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#copyProperty(qualitypatternmodel.graphstructure.Property)
+	 * @see qualitypatternmodel.graphstructure.Node#copyProperty(qualitypatternmodel.graphstructure.Property)
 	 * @generated
 	 */
 	public void testCopyProperty__Property() {
@@ -211,10 +211,10 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#copyPrimitiveComparison(qualitypatternmodel.operators.Comparison) <em>Copy Primitive Comparison</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#copyPrimitiveComparison(qualitypatternmodel.operators.Comparison) <em>Copy Primitive Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#copyPrimitiveComparison(qualitypatternmodel.operators.Comparison)
+	 * @see qualitypatternmodel.graphstructure.Node#copyPrimitiveComparison(qualitypatternmodel.operators.Comparison)
 	 * @generated
 	 */
 	public void testCopyPrimitiveComparison__Comparison() {
@@ -224,10 +224,10 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#copyMatch(qualitypatternmodel.operators.Match) <em>Copy Match</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#copyMatch(qualitypatternmodel.operators.Match) <em>Copy Match</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#copyMatch(qualitypatternmodel.operators.Match)
+	 * @see qualitypatternmodel.graphstructure.Node#copyMatch(qualitypatternmodel.operators.Match)
 	 * @generated
 	 */
 	public void testCopyMatch__Match() {
@@ -237,10 +237,10 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#addNewProperty() <em>Add New Property</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addNewProperty() <em>Add New Property</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#addNewProperty()
+	 * @see qualitypatternmodel.graphstructure.Node#addNewProperty()
 	 * @generated
 	 */
 	public void testAddNewProperty() {
@@ -250,10 +250,10 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#setGraphSimple(qualitypatternmodel.graphstructure.Graph)
+	 * @see qualitypatternmodel.graphstructure.Node#setGraphSimple(qualitypatternmodel.graphstructure.Graph)
 	 * @generated
 	 */
 	public void testSetGraphSimple__Graph() {
@@ -263,10 +263,10 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#checkComparisonConsistency(qualitypatternmodel.operators.Comparison) <em>Check Comparison Consistency</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency(qualitypatternmodel.operators.Comparison) <em>Check Comparison Consistency</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#checkComparisonConsistency(qualitypatternmodel.operators.Comparison)
+	 * @see qualitypatternmodel.graphstructure.Node#checkComparisonConsistency(qualitypatternmodel.operators.Comparison)
 	 * @generated
 	 */
 	public void testCheckComparisonConsistency__Comparison() {
@@ -276,10 +276,10 @@ public class ElementTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Element#getEquivalentElements(org.eclipse.emf.common.util.EList) <em>Get Equivalent Elements</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#getEquivalentElements(org.eclipse.emf.common.util.EList) <em>Get Equivalent Elements</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Element#getEquivalentElements(org.eclipse.emf.common.util.EList)
+	 * @see qualitypatternmodel.graphstructure.Node#getEquivalentElements(org.eclipse.emf.common.util.EList)
 	 * @generated
 	 */
 	public void testGetEquivalentElements__EList() {

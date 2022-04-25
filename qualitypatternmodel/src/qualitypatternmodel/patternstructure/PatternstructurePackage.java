@@ -1692,7 +1692,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___ADD_MAPPING__ELEMENT_ELEMENT = PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int MORPHISM___ADD_MAPPING__NODE_NODE = PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Add Mapping</em>' operation.
@@ -5260,14 +5260,14 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getMorphism__CheckElementMappingsUniqueness();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Element, qualitypatternmodel.graphstructure.Element) <em>Add Mapping</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Node, qualitypatternmodel.graphstructure.Node) <em>Add Mapping</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Mapping</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Element, qualitypatternmodel.graphstructure.Element)
+	 * @see qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Node, qualitypatternmodel.graphstructure.Node)
 	 * @generated
 	 */
-	EOperation getMorphism__AddMapping__Element_Element();
+	EOperation getMorphism__AddMapping__Node_Node();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Relation, qualitypatternmodel.graphstructure.Relation) <em>Add Mapping</em>}' operation.
@@ -6395,7 +6395,7 @@ public interface PatternstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation MORPHISM___ADD_MAPPING__ELEMENT_ELEMENT = eINSTANCE.getMorphism__AddMapping__Element_Element();
+		EOperation MORPHISM___ADD_MAPPING__NODE_NODE = eINSTANCE.getMorphism__AddMapping__Node_Node();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Mapping</b></em>' operation.

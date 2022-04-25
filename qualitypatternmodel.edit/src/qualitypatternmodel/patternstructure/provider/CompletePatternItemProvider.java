@@ -297,6 +297,28 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Abstract Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAbstractNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CompletePattern_abstractName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_abstractName_feature", "_UI_CompletePattern_type"),
+				 PatternstructurePackage.Literals.COMPLETE_PATTERN__ABSTRACT_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -377,6 +399,7 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
 			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
 			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
+			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:

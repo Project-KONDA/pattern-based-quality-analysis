@@ -52,8 +52,8 @@ public class Test01Axis {
 		
 		CompletePattern completePattern = Test00.getBasePattern();
 		Graph graph = completePattern.getGraph();
-		Element element1 = completePattern.getGraph().getElements().get(0);
-		Element element2 = graphFactory.createElement();
+		Node element1 = completePattern.getGraph().getNodes().get(0);
+		Node element2 = graphFactory.createNode();
 		element2.setGraph(graph);
 		Relation relation = graphFactory.createRelation();
 		relation.setGraph(graph);
@@ -61,7 +61,7 @@ public class Test01Axis {
 		relation.setTarget(element2);		
 		
 		completePattern.createXMLAdaption();
-		XmlNavigation navigation = graph.getElements().get(1).getIncoming().get(0).adaptAsXMLNavigation();		
+		XmlNavigation navigation = graph.getNodes().get(1).getIncoming().get(0).adaptAsXMLNavigation();		
 		completePattern.finalizeXMLAdaption();			
 		
 		RelationOptionParam axisOption = navigation.getOption();

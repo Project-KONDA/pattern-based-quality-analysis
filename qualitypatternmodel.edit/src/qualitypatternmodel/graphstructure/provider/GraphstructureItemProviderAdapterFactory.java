@@ -118,26 +118,26 @@ public class GraphstructureItemProviderAdapterFactory extends GraphstructureAdap
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.graphstructure.Element} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.graphstructure.Node} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ElementItemProvider elementItemProvider;
+	protected NodeItemProvider nodeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.graphstructure.Element}.
+	 * This creates an adapter for a {@link qualitypatternmodel.graphstructure.Node}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createElementAdapter() {
-		if (elementItemProvider == null) {
-			elementItemProvider = new ElementItemProvider(this);
+	public Adapter createNodeAdapter() {
+		if (nodeItemProvider == null) {
+			nodeItemProvider = new NodeItemProvider(this);
 		}
 
-		return elementItemProvider;
+		return nodeItemProvider;
 	}
 
 	/**
@@ -270,7 +270,7 @@ public class GraphstructureItemProviderAdapterFactory extends GraphstructureAdap
 	public void dispose() {
 		if (relationItemProvider != null) relationItemProvider.dispose();
 		if (propertyItemProvider != null) propertyItemProvider.dispose();
-		if (elementItemProvider != null) elementItemProvider.dispose();
+		if (nodeItemProvider != null) nodeItemProvider.dispose();
 		if (graphItemProvider != null) graphItemProvider.dispose();
 	}
 

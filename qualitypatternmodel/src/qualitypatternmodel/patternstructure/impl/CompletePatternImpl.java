@@ -28,7 +28,7 @@ import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.operators.impl.OperatorImpl;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.graphstructure.impl.ElementImpl;
+import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
@@ -338,10 +338,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		setParameterList(new ParameterListImpl(this));
 		setGraph(new GraphImpl());
 		
-		ElementImpl element = new ElementImpl();
+		NodeImpl element = new NodeImpl();
 		element.setGraph(getGraph());
 
-		getGraph().getReturnElements().add(element);
+		getGraph().getReturnNodes().add(element);
 		
 		getInternalId();
 	}	
@@ -389,7 +389,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	@Override
 	public int getNewRefNo(Class type) {
 		getElementCounter();
-		if (ElementImpl.class.isAssignableFrom(type)) 
+		if (NodeImpl.class.isAssignableFrom(type)) 
 			return elementCounter++;
 		if (PropertyImpl.class.isAssignableFrom(type))
 			return propertyCounter++;

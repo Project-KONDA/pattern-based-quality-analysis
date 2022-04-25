@@ -37,8 +37,8 @@ public class Test10Reference {
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		Graph graph = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
-		Element element0 = graph.getElements().get(0);
-		Element element1 = graph.getElements().get(1);
+		Node element0 = graph.getNodes().get(0);
+		Node element1 = graph.getNodes().get(1);
 				
 		Relation relation = graphstructureFactory.createRelation();
 		relation.setGraph(graph);
@@ -66,9 +66,9 @@ public class Test10Reference {
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		Graph graph = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
-		Element element0 = graph.getElements().get(0);
-		Element element1 = graph.getElements().get(1);
-		Element element2 = graphstructureFactory.createElement();
+		Node element0 = graph.getNodes().get(0);
+		Node element1 = graph.getNodes().get(1);
+		Node element2 = graphstructureFactory.createNode();
 		element2.setGraph(graph);
 				
 		Relation relation = graphstructureFactory.createRelation();
@@ -107,8 +107,8 @@ public class Test10Reference {
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		Graph graph = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
-		Element element0 = graph.getElements().get(0);
-		Element element1 = graph.getElements().get(1);
+		Node element0 = graph.getNodes().get(0);
+		Node element1 = graph.getNodes().get(1);
 				
 		Relation relation = graphstructureFactory.createRelation();
 		relation.setGraph(graph);
@@ -141,8 +141,8 @@ public class Test10Reference {
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		Graph graph = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
-		Element element0 = graph.getElements().get(0);
-		Element element1 = graph.getElements().get(1);
+		Node element0 = graph.getNodes().get(0);
+		Node element1 = graph.getNodes().get(1);
 				
 		Relation relation = graphstructureFactory.createRelation();
 		relation.setGraph(graph);

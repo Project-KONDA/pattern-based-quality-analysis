@@ -9,7 +9,7 @@ import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -51,7 +51,7 @@ public class EvalMandatt {
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.getGraph().getElements().get(0).addPrimitiveComparison();
+		completePattern.getGraph().getNodes().get(0).addPrimitiveComparison();
 		Formula form = factory.createFormula();
 		completePattern.setCondition(form);
 		form.setOperator(LogicalOperator.OR);
@@ -64,8 +64,8 @@ public class EvalMandatt {
 		qcN.setCondition(te1);		
 		
 		Graph graph1 = qcN.getGraph();
-		Element returnInGraph1 = graph1.getElements().get(0);
-		Element element2 = graphFactory.createElement();
+		Node returnInGraph1 = graph1.getNodes().get(0);
+		Node element2 = graphFactory.createNode();
 		element2.setGraph(graph1);
 		Relation relation = graphFactory.createRelation();
 		relation.setGraph(graph1);
@@ -79,8 +79,8 @@ public class EvalMandatt {
 		qc1.setCondition(te2);
 		
 		Graph graph2 = qc1.getGraph();
-		Element returnInGraph2 = graph2.getElements().get(0);
-		Element element3 = graphFactory.createElement();
+		Node returnInGraph2 = graph2.getNodes().get(0);
+		Node element3 = graphFactory.createNode();
 		element3.setGraph(graph2);
 		Relation relation2 = graphFactory.createRelation();
 		relation2.setGraph(graph2);
@@ -104,14 +104,14 @@ public class EvalMandatt {
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.getGraph().getElements().get(0).addPrimitiveComparison();		
+		completePattern.getGraph().getNodes().get(0).addPrimitiveComparison();		
 		
 		QuantifiedCondition qc0 = factory.createQuantifiedCondition();
 		completePattern.setCondition(qc0);		
 		
 		Graph graph0 = qc0.getGraph();
-		Element returnInGraph0 = graph0.getElements().get(0);
-		Element element0 = graphFactory.createElement();
+		Node returnInGraph0 = graph0.getNodes().get(0);
+		Node element0 = graphFactory.createNode();
 		element0.setGraph(graph0);
 		Relation relation0 = graphFactory.createRelation();
 		relation0.setGraph(graph0);
@@ -132,9 +132,9 @@ public class EvalMandatt {
 	
 		Graph graph1 = qcN.getGraph();
 		
-		Element returnInGraph1 = graph1.getElements().get(0);
-		Element e0InGraph1 = graph1.getElements().get(1);
-		Element element2 = graphFactory.createElement();
+		Node returnInGraph1 = graph1.getNodes().get(0);
+		Node e0InGraph1 = graph1.getNodes().get(1);
+		Node element2 = graphFactory.createNode();
 		element2.setGraph(graph1);
 		Relation relation = graphFactory.createRelation();
 		relation.setGraph(graph1);
@@ -142,7 +142,7 @@ public class EvalMandatt {
 		relation.setTarget(element2);
 		element2.addPrimitiveComparison();
 		
-		Element element5 = graphFactory.createElement();
+		Node element5 = graphFactory.createNode();
 		element5.setGraph(graph1);
 		Relation relation4 = graphFactory.createRelation();
 		relation4.setGraph(graph1);
@@ -156,9 +156,9 @@ public class EvalMandatt {
 		qc1.setCondition(te2);
 				
 		Graph graph2 = qc1.getGraph();
-		Element returnInGraph2 = graph2.getElements().get(0);
-		Element e0InGraph2 = graph2.getElements().get(1);
-		Element element3 = graphFactory.createElement();
+		Node returnInGraph2 = graph2.getNodes().get(0);
+		Node e0InGraph2 = graph2.getNodes().get(1);
+		Node element3 = graphFactory.createNode();
 		element3.setGraph(graph2);
 		Relation relation2 = graphFactory.createRelation();
 		relation2.setGraph(graph2);
@@ -167,7 +167,7 @@ public class EvalMandatt {
 //		element3.addPrimitiveComparison();
 		element3.addPrimitiveComparison();	
 		
-		Element element4 = graphFactory.createElement();
+		Node element4 = graphFactory.createNode();
 		element4.setGraph(graph2);
 		Relation relation3 = graphFactory.createRelation();
 		relation3.setGraph(graph2);
@@ -194,7 +194,7 @@ public class EvalMandatt {
 		
 		CompletePattern completePattern = getMandattAbstract();
 		
-		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
+		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);	
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
 		
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
@@ -210,7 +210,7 @@ public class EvalMandatt {
 		QuantifiedCondition qc2 = (QuantifiedCondition) formula.getCondition2();
 		
 		Graph graph1 = qc1.getGraph();
-		Element next1ToReturnElementInGraph1 = graph1.getElements().get(1);
+		Node next1ToReturnElementInGraph1 = graph1.getNodes().get(1);
 		Comparison comparison1 = (Comparison) next1ToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1.setValue("3162");
@@ -219,7 +219,7 @@ public class EvalMandatt {
 		((XmlProperty) next1ToReturnElementInGraph1.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Graph graph2 = qc2.getGraph();
-		Element next1ToReturnElementInGraph2 = graph2.getElements().get(1);
+		Node next1ToReturnElementInGraph2 = graph2.getNodes().get(1);
 		
 		Comparison comparison2 = (Comparison) next1ToReturnElementInGraph2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
@@ -244,7 +244,7 @@ public class EvalMandatt {
 		
 		CompletePattern completePattern = getMandattAbstract();
 		
-		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
+		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);	
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.TWOCHILD);
 				
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
@@ -259,7 +259,7 @@ public class EvalMandatt {
 		QuantifiedCondition qc2 = (QuantifiedCondition) formula.getCondition2();
 		
 		Graph graph1 = qc1.getGraph();
-		Element next1ToReturnElementInGraph1 = graph1.getElements().get(1);
+		Node next1ToReturnElementInGraph1 = graph1.getNodes().get(1);
 		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(RelationKind.FIVECHILD);
 		Comparison comparison1 = (Comparison) next1ToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
@@ -268,7 +268,7 @@ public class EvalMandatt {
 		((XmlProperty) next1ToReturnElementInGraph1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
 		Graph graph2 = qc2.getGraph();
-		Element next1ToReturnElementInGraph2 = graph2.getElements().get(1);
+		Node next1ToReturnElementInGraph2 = graph2.getNodes().get(1);
 		((XmlNavigation) graph2.getRelations().get(0)).getOption().setValue(RelationKind.FIVECHILD);
 		
 		Comparison comparison2 = (Comparison) next1ToReturnElementInGraph2.getPredicates().get(0);
@@ -296,7 +296,7 @@ public class EvalMandatt {
 		
 		CompletePattern completePattern = getMandattAbstractThreeElements();
 		
-		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);	
+		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);	
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.TWOCHILD);
 				
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
@@ -314,7 +314,7 @@ public class EvalMandatt {
 		QuantifiedCondition qc2 = (QuantifiedCondition) formula.getCondition2();
 		
 		Graph graph0 = qc0.getGraph();
-		Element element1InG0 = graph0.getElements().get(1);
+		Node element1InG0 = graph0.getNodes().get(1);
 		((XmlNavigation) graph0.getRelations().get(0)).getOption().setValue(RelationKind.SEVENCHILD);
 		Comparison comparison = (Comparison) element1InG0.getPredicates().get(0);
 		TextLiteralParam concreteInputValue0 = parametersFactory.createTextLiteralParam();
@@ -324,7 +324,7 @@ public class EvalMandatt {
 		
 		Graph graph1 = qc1.getGraph();
 		
-		Element element2InG1 = graph1.getElements().get(2);
+		Node element2InG1 = graph1.getNodes().get(2);
 		((XmlNavigation) graph1.getRelations().get(1)).getOption().setValue(RelationKind.CHILD);
 		Comparison comparison1 = (Comparison) element2InG1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
@@ -332,7 +332,7 @@ public class EvalMandatt {
 		((UntypedParameterValue) comparison1.getArguments().get(1)).replace(concreteInputValue1);
 		((XmlProperty) element2InG1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
-		Element next1ToReturnElementInGraph1 = graph1.getElements().get(3);
+		Node next1ToReturnElementInGraph1 = graph1.getNodes().get(3);
 		((XmlNavigation) graph1.getRelations().get(1)).getOption().setValue(RelationKind.CHILD);
 		Comparison comparison2G1 = (Comparison) next1ToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2G1 = parametersFactory.createTextLiteralParam();
@@ -342,7 +342,7 @@ public class EvalMandatt {
 		
 		Graph graph2 = qc2.getGraph();
 		
-		Element element2 = graph2.getElements().get(2);
+		Node element2 = graph2.getNodes().get(2);
 		((XmlNavigation) graph2.getRelations().get(1)).getOption().setValue(RelationKind.CHILD);
 		
 		Comparison comparison2 = (Comparison) element2.getPredicates().get(0);
@@ -351,7 +351,7 @@ public class EvalMandatt {
 		((UntypedParameterValue) comparison2.getArguments().get(1)).replace(concreteInputValue2);
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
-		Element element3 = graph2.getElements().get(3);
+		Node element3 = graph2.getNodes().get(3);
 		((XmlNavigation) graph2.getRelations().get(2)).getOption().setValue(RelationKind.CHILD);
 		
 		Comparison comparison3 = (Comparison) element3.getPredicates().get(0);

@@ -34,7 +34,7 @@ import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.impl.OperatorListImpl;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CountPattern;
@@ -57,11 +57,11 @@ import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getNodes <em>Nodes</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getOperatorList <em>Operator List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getQuantifiedCondition <em>Quantified Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getPattern <em>Pattern</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getReturnElements <em>Return Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getReturnNodes <em>Return Nodes</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getOutgoingMorphisms <em>Outgoing Morphisms</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getIncomingMorphism <em>Incoming Morphism</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getRelations <em>Relations</em>}</li>
@@ -71,15 +71,14 @@ import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
  */
 public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * The cached value of the '{@link #getNodes() <em>Nodes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
-	 * The nodes of this <code>Graph</code>.
 	 * <!-- end-user-doc -->
-	 * @see #getElements()
+	 * @see #getNodes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Element> elements;
+	protected EList<Node> nodes;
 
 	/**
 	 * The cached value of the '{@link #getOperatorList() <em>Operator List</em>}' containment reference.
@@ -93,15 +92,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	protected OperatorList operatorList;
 
 	/**
-	 * The cached value of the '{@link #getReturnElements() <em>Return Elements</em>}' reference list.
+	 * The cached value of the '{@link #getReturnNodes() <em>Return Nodes</em>}' reference list.
 	 * <!-- begin-user-doc -->
-	 * A list of all <code>Elements</code> that the pattern returns if its first-order logic condition is satisfied.
 	 * <!-- end-user-doc -->
-	 * @see #getReturnElements()
+	 * @see #getReturnNodes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Element> returnElements;
+	protected EList<Node> returnNodes;
 
 	/**
 	 * The cached value of the '{@link #getOutgoingMorphisms() <em>Outgoing Morphisms</em>}' reference list.
@@ -147,9 +145,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public String generateQuery() throws InvalidityException {
 		String result = "";
-		for(Element element : getElements()) {
-			if(element instanceof XmlRoot) {
-				result += element.generateQuery();
+		for(Node node : getNodes()) {
+			if(node instanceof XmlRoot) {
+				result += node.generateQuery();
 			}
 		}
 		return result;
@@ -157,8 +155,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	
 	@Override
 	public void initializeTranslation() {
-		for(Element element : getElements()) {	
-			element.initializeTranslation();
+		for(Node node : getNodes()) {	
+			node.initializeTranslation();
 		}
 	}
 
@@ -166,8 +164,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
-		for(Element element : getElements()) {
-			element.isValid(abstractionLevel);
+		for(Node node : getNodes()) {
+			node.isValid(abstractionLevel);
 		}
 		for(Relation relation: getRelations()) {
 			relation.isValid(abstractionLevel);
@@ -178,26 +176,26 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, MissingPatternContainerException {
 		
 		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC 
-				&& (returnElements == null || returnElements.isEmpty()))
+				&& (returnNodes == null || returnNodes.isEmpty()))
 			throw new InvalidityException("returnElement empty (" + getInternalId() + ")");
 		
 		if (operatorList == null)
 			throw new InvalidityException("operatorList null (" + getInternalId() + ")");
 		
-		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getElements().isEmpty())
+		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getNodes().isEmpty())
 			throw new InvalidityException("no element in graph (" + getInternalId() + ")");
 			
 
-		for (Element returnElement : returnElements) {
-			if (!returnElement.getGraph().equals(this)) {
+		for (Node returnNode : returnNodes) {
+			if (!returnNode.getGraph().equals(this)) {
 				throw new InvalidityException("returnElement not contained in this graph (" + getInternalId() + ")");
 			}
 		}
 		
 		if ( abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
 			// SEMI_GENERIC or GENERIC 
-			for(Element element : getElements()) {
-				if(!element.getClass().equals(ElementImpl.class)) {
+			for(Node node : getNodes()) {
+				if(!node.getClass().equals(NodeImpl.class)) {
 					throw new InvalidityException("Generic pattern contains non-generic class (" + getInternalId() + ")");
 				}				
 			}
@@ -212,16 +210,16 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if ( abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {	
 			// ABSTRACT, SEMI_CONCRETE or CONCRETE 		
 			int noRoot = 0;		
-			for(Element element : getElements()) {
-				if(element instanceof XmlRoot) {
+			for(Node node : getNodes()) {
+				if(node instanceof XmlRoot) {
 					noRoot++;
 				}
 			}
 			
 			if (noRoot != 1)
 				throw new InvalidityException("too many or too few XMLRoot (" + getInternalId() + ")");
-			for(Element element : getElements()) {
-				if(element.getClass().equals(ElementImpl.class)) {
+			for(Node node : getNodes()) {
+				if(node.getClass().equals(NodeImpl.class)) {
 					throw new InvalidityException("Non-generic pattern contains generic Element (" + getInternalId() + ")");
 				}
 			}
@@ -246,10 +244,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	
 	@Override
 	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		EList<Element> elementsCopy = new BasicEList<Element>();
-		elementsCopy.addAll(getElements());
-		for(Element element : elementsCopy) {
-			element.createXMLAdaption();
+		EList<Node> elementsCopy = new BasicEList<Node>();
+		elementsCopy.addAll(getNodes());
+		for(Node node : elementsCopy) {
+			node.createXMLAdaption();
 		}				
 		return this;
 	}
@@ -257,9 +255,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public void finalizeXMLAdaption() {
 		XmlRoot root = null;
-		for(Element element : getElements()) {
-			if(element instanceof XmlRoot) {
-				root = (XmlRoot) element;
+		for(Node node : getNodes()) {
+			if(node instanceof XmlRoot) {
+				root = (XmlRoot) node;
 			}
 		}
 		if(root == null) {	
@@ -270,9 +268,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					Morphism morph = ((MorphismContainer) getContainer()).getMorphism();
 					Graph previousGraph = morph.getSource();
 					XmlRoot previousRoot = null;
-					for(Element element : previousGraph.getElements()) {
-						if(element instanceof XmlRoot) {
-							previousRoot = (XmlRoot) element;
+					for(Node node : previousGraph.getNodes()) {
+						if(node instanceof XmlRoot) {
+							previousRoot = (XmlRoot) node;
 						}
 					}
 					morph.addMapping(previousRoot, root);
@@ -286,7 +284,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 							previousXmlNavigation.setSource(root);
 							EList<ElementMapping> emaps = previousRelation.getTarget().getOutgoingMappings();
 							for (ElementMapping em : emaps) {
-								if (getElements().contains(em.getTarget())) {
+								if (getNodes().contains(em.getTarget())) {
 									previousXmlNavigation.setTarget(em.getTarget());	
 								}
 							}					
@@ -296,10 +294,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}
 			} catch (MissingPatternContainerException e) {}
 		}
-		for(Element element : getElements()) {
-			if(element instanceof XmlElement) {
+		for(Node node : getNodes()) {
+			if(node instanceof XmlElement) {
 				boolean hasIncomingNavigation = false;
-				for(Relation relation : element.getIncoming()) {
+				for(Relation relation : node.getIncoming()) {
 					if(relation instanceof XmlNavigation) {
 						hasIncomingNavigation = true;
 					}
@@ -309,7 +307,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					navigation.setGraphSimple(this);
 					navigation.createParameters();					
 					navigation.setSource(root);
-					navigation.setTarget(element);
+					navigation.setTarget(node);
 				}
 			}
 		}
@@ -317,8 +315,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	@Override
 	public void prepareTranslation() {
-		for(Element element : getElements()) {
-			element.prepareTranslation();
+		for(Node node : getNodes()) {
+			node.prepareTranslation();
 		}
 		for(Relation relation: getRelations()) {
 			relation.prepareTranslation();
@@ -327,7 +325,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	
 	@Override
 	public void recordValues(XmlDataDatabase database) {
-		for(Element e : getElements()) {
+		for(Node e : getNodes()) {
 			e.recordValues(database);
 		}
 	}
@@ -335,8 +333,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
-		for(Element element : getElements()) {
-			res.addAll(element.getAllParameters());
+		for(Node node : getNodes()) {
+			res.addAll(node.getAllParameters());
 		}
 		for(Relation relation: getRelations()) {
 			res.addAll(relation.getAllParameters());
@@ -347,8 +345,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public EList<Operator> getAllOperators() {
 		EList<Operator> res = new BasicEList<Operator>();
-		for(Element element : getElements()) {
-			res.addAll(element.getAllOperators());
+		for(Node node : getNodes()) {
+			res.addAll(node.getAllOperators());
 		}
 		return res;
 	}
@@ -384,10 +382,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			newMapping.setSource(relation);
 			newMapping.setTarget(newRelation);			
 			
-			Element source = relation.getSource();
-			Element target = relation.getTarget();
+			Node source = relation.getSource();
+			Node target = relation.getTarget();
 			
-			Element mappedSource;
+			Node mappedSource;
 			if (source != null) {
 				for(ElementMapping mapping : source.getOutgoingMappings()) {
 					if(mapping.getMorphism().equals(morphism)) {
@@ -397,7 +395,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}
 			}
 			
-			Element mappedTarget;
+			Node mappedTarget;
 			if (target != null) {
 				for(ElementMapping mapping : target.getOutgoingMappings()) {
 					if(mapping.getMorphism().equals(morphism)) {
@@ -410,10 +408,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	private void copyElements(Graph targetGraph) {
-		for(Element element : getElements()) {
-			Element newElement = new ElementImpl();		
+		for(Node node : getNodes()) {
+			Node newElement = new NodeImpl();		
 			newElement.setGraph(targetGraph);
-			if(element.getResultOf() != null) {
+			if(node.getResultOf() != null) {
 				newElement.setResultOf(targetGraph);
 			}
 			ElementMapping newMapping = new ElementMappingImpl();
@@ -423,7 +421,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				((CountPattern) targetGraph.getPattern()).getMorphism().getMappings().add(newMapping);
 			}
 			
-			newMapping.setSource(element);
+			newMapping.setSource(node);
 			newMapping.setTarget(newElement);			
 		}
 	}
@@ -436,8 +434,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__ELEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.GRAPH__NODES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNodes()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				if (operatorList != null)
 					msgs = ((InternalEObject)operatorList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GraphstructurePackage.GRAPH__OPERATOR_LIST, null, msgs);
@@ -450,8 +448,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetPattern((Pattern)otherEnd, msgs);
-			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReturnElements()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.GRAPH__RETURN_NODES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReturnNodes()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.GRAPH__OUTGOING_MORPHISMS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutgoingMorphisms()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.GRAPH__INCOMING_MORPHISM:
@@ -479,36 +477,24 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @generated
 	 */
 	@Override
-	public EList<Element> getElements() {
-		if (elements == null) {
-			elements = new EObjectContainmentWithInverseEList<Element>(Element.class, this, GraphstructurePackage.GRAPH__ELEMENTS, GraphstructurePackage.ELEMENT__GRAPH);
+	public EList<Node> getNodes() {
+		if (nodes == null) {
+			nodes = new EObjectContainmentWithInverseEList<Node>(Node.class, this, GraphstructurePackage.GRAPH__NODES, GraphstructurePackage.NODE__GRAPH);
 		}
-		return elements;
+		return nodes;
 	}
-	
+
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
-		for(Element element : getElements()) {
-			patternElements.add(element);
+		for(Node node : getNodes()) {
+			patternElements.add(node);
 		}
 		for(Relation relation: getRelations()) {
 			patternElements.add(relation);
 		}
 		patternElements.add(getOperatorList());
 		return patternElements;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Element> getReturnElements() {
-		if (returnElements == null) {
-			returnElements = new EObjectWithInverseResolvingEList<Element>(Element.class, this, GraphstructurePackage.GRAPH__RETURN_ELEMENTS, GraphstructurePackage.ELEMENT__RESULT_OF);
-		}
-		return returnElements;
 	}
 
 	/**
@@ -656,7 +642,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @generated NOT
 	 */
 	@Override
-	public Relation addRelation(Element from, Element to) {
+	public Relation addRelation(Node from, Node to) {
 		
 		Relation r = new RelationImpl();
 		r.setGraph(this);
@@ -751,22 +737,35 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Node> getReturnNodes() {
+		if (returnNodes == null) {
+			returnNodes = new EObjectWithInverseResolvingEList<Node>(Node.class, this, GraphstructurePackage.GRAPH__RETURN_NODES, GraphstructurePackage.NODE__RESULT_OF);
+		}
+		return returnNodes;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__ELEMENTS:
-				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.GRAPH__NODES:
+				return ((InternalEList<?>)getNodes()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				return basicSetOperatorList(null, msgs);
 			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				return basicSetQuantifiedCondition(null, msgs);
 			case GraphstructurePackage.GRAPH__PATTERN:
 				return basicSetPattern(null, msgs);
-			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
-				return ((InternalEList<?>)getReturnElements()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.GRAPH__RETURN_NODES:
+				return ((InternalEList<?>)getReturnNodes()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.GRAPH__OUTGOING_MORPHISMS:
 				return ((InternalEList<?>)getOutgoingMorphisms()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.GRAPH__INCOMING_MORPHISM:
@@ -799,16 +798,16 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__ELEMENTS:
-				return getElements();
+			case GraphstructurePackage.GRAPH__NODES:
+				return getNodes();
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				return getOperatorList();
 			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				return getQuantifiedCondition();
 			case GraphstructurePackage.GRAPH__PATTERN:
 				return getPattern();
-			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
-				return getReturnElements();
+			case GraphstructurePackage.GRAPH__RETURN_NODES:
+				return getReturnNodes();
 			case GraphstructurePackage.GRAPH__OUTGOING_MORPHISMS:
 				return getOutgoingMorphisms();
 			case GraphstructurePackage.GRAPH__INCOMING_MORPHISM:
@@ -828,9 +827,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__ELEMENTS:
-				getElements().clear();
-				getElements().addAll((Collection<? extends Element>)newValue);
+			case GraphstructurePackage.GRAPH__NODES:
+				getNodes().clear();
+				getNodes().addAll((Collection<? extends Node>)newValue);
 				return;
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				setOperatorList((OperatorList)newValue);
@@ -841,9 +840,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__PATTERN:
 				setPattern((Pattern)newValue);
 				return;
-			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
-				getReturnElements().clear();
-				getReturnElements().addAll((Collection<? extends Element>)newValue);
+			case GraphstructurePackage.GRAPH__RETURN_NODES:
+				getReturnNodes().clear();
+				getReturnNodes().addAll((Collection<? extends Node>)newValue);
 				return;
 			case GraphstructurePackage.GRAPH__OUTGOING_MORPHISMS:
 				getOutgoingMorphisms().clear();
@@ -867,8 +866,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__ELEMENTS:
-				getElements().clear();
+			case GraphstructurePackage.GRAPH__NODES:
+				getNodes().clear();
 				return;
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				setOperatorList((OperatorList)null);
@@ -879,8 +878,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__PATTERN:
 				setPattern((Pattern)null);
 				return;
-			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
-				getReturnElements().clear();
+			case GraphstructurePackage.GRAPH__RETURN_NODES:
+				getReturnNodes().clear();
 				return;
 			case GraphstructurePackage.GRAPH__OUTGOING_MORPHISMS:
 				getOutgoingMorphisms().clear();
@@ -902,16 +901,16 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GraphstructurePackage.GRAPH__ELEMENTS:
-				return elements != null && !elements.isEmpty();
+			case GraphstructurePackage.GRAPH__NODES:
+				return nodes != null && !nodes.isEmpty();
 			case GraphstructurePackage.GRAPH__OPERATOR_LIST:
 				return operatorList != null;
 			case GraphstructurePackage.GRAPH__QUANTIFIED_CONDITION:
 				return getQuantifiedCondition() != null;
 			case GraphstructurePackage.GRAPH__PATTERN:
 				return getPattern() != null;
-			case GraphstructurePackage.GRAPH__RETURN_ELEMENTS:
-				return returnElements != null && !returnElements.isEmpty();
+			case GraphstructurePackage.GRAPH__RETURN_NODES:
+				return returnNodes != null && !returnNodes.isEmpty();
 			case GraphstructurePackage.GRAPH__OUTGOING_MORPHISMS:
 				return outgoingMorphisms != null && !outgoingMorphisms.isEmpty();
 			case GraphstructurePackage.GRAPH__INCOMING_MORPHISM:
@@ -941,8 +940,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}
 			case GraphstructurePackage.GRAPH___IS_RETURN_GRAPH:
 				return isReturnGraph();
-			case GraphstructurePackage.GRAPH___ADD_RELATION__ELEMENT_ELEMENT:
-				return addRelation((Element)arguments.get(0), (Element)arguments.get(1));
+			case GraphstructurePackage.GRAPH___ADD_RELATION__NODE_NODE:
+				return addRelation((Node)arguments.get(0), (Node)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -953,7 +952,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if (isReturnGraph())
 			res += "Return-";
 		res += "Graph [" + getInternalId() + "]";
-		for (Element e : getElements()) {
+		for (Node e : getNodes()) {
 			res += "\n| > " + e.myToString().replace("\n", "\n|   ");
 		}
 		for (Relation r : getRelations()) {

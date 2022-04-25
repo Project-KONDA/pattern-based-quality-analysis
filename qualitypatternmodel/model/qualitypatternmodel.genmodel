@@ -175,7 +175,7 @@
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//operators/OperatorCycleExceptionWrapper"/>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//operators/BooleanOperator">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/BooleanOperator/elements"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/BooleanOperator/nodes"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/BooleanOperator/addElement">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//operators/BooleanOperator/addElement/element"/>
         </genOperations>
@@ -279,69 +279,68 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/getEquivalentProperties"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/checkComparisonConsistency.2"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Element">
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Node">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Element/outgoingMappings"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/outgoingMappings"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Element/incomingMapping"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/incomingMapping"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/graph"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Element/graph"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/resultOf"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Node/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Node/translated"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Node/predicatesAreBeingTranslated"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/properties"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Element/resultOf"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Element/name"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Element/translated"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Element/predicatesAreBeingTranslated"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Element/properties"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/predicates"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Element/predicates"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/outgoing"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Element/outgoing"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Element/incoming"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getOriginalID"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveMatch">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveMatch/regex"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/incoming"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/getOriginalID"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatch">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatch/regex"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveComparison">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveComparison/value"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison/value"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveMatch.1"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveComparison.1"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getAllOperators"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveComparison.2">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveComparison.2/operator"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveComparison.2/input"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatch.1"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison.1"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/getAllOperators"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison.2">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison.2/operator"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison.2/input"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveComparison.3">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/addPrimitiveComparison.3/input"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison.3">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison.3/input"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/copyProperty">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/copyProperty/property"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/copyProperty">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/copyProperty/property"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/copyPrimitiveComparison">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/copyPrimitiveComparison/comparison"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/copyPrimitiveComparison">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/copyPrimitiveComparison/comparison"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/copyMatch">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/copyMatch/match"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/copyMatch">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/copyMatch/match"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/addNewProperty"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/setGraphSimple">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/setGraphSimple/newGraph"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addNewProperty"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/setGraphSimple">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/setGraphSimple/newGraph"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/checkComparisonConsistency">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/checkComparisonConsistency/comp"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/checkComparisonConsistency">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/checkComparisonConsistency/comp"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Element/getEquivalentElements">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Element/getEquivalentElements/equivalentElements"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/getEquivalentElements">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/getEquivalentElements/equivalentElements"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Graph">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/elements"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/nodes"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/operatorList"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/quantifiedCondition"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/pattern"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/returnElements"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/returnNodes"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/outgoingMorphisms"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

@@ -21,7 +21,7 @@ import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.Formula;
 import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.NotCondition;
@@ -49,17 +49,17 @@ public class EvalMandstruc {
 		
 		CompletePattern completePattern = Test06NotElement.getPatternNotExistsAbstract();
 		
-		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);			
+		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);			
 		returnElementInReturnGraph.addPrimitiveComparison();
 		
 		NotCondition not = (NotCondition) completePattern.getCondition();
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) not.getCondition();
 		Graph graph1 = quantifiedCondition.getGraph();
 		
-		Element element2 = graph1.getElements().get(1);
+		Node element2 = graph1.getNodes().get(1);
 		element2.addPrimitiveComparison();
 		
-		Element element3 = graphFactory.createElement();
+		Node element3 = graphFactory.createNode();
 		element3.setGraph(graph1);
 		element3.addPrimitiveComparison();
 		Relation relation = graphFactory.createRelation();
@@ -81,7 +81,7 @@ public class EvalMandstruc {
 		
 		CompletePattern completePattern = getMandstrucThreeElementsAbstract();
 		
-		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -96,7 +96,7 @@ public class EvalMandstruc {
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) not.getCondition();
 		Graph graph1 = quantifiedCondition.getGraph();
 		
-		XmlElement element2 = (XmlElement) graph1.getElements().get(1);
+		XmlElement element2 = (XmlElement) graph1.getNodes().get(1);
 		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(RelationKind.CHILD);
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
@@ -105,7 +105,7 @@ public class EvalMandstruc {
 		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");		
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
-		XmlElement element3 = (XmlElement) graph1.getElements().get(2);
+		XmlElement element3 = (XmlElement) graph1.getNodes().get(2);
 		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(RelationKind.CHILD);
 		BooleanOperator comparisonElement3 = element3.getPredicates().get(0);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
@@ -148,12 +148,12 @@ public class EvalMandstruc {
 //		quantifiedCondition2.setCondition(t2);
 //		
 //		Graph graph1 = quantifiedCondition1.getGraph();
-//		Element element1 = graphFactory.createElement();
+//		Element element1 = graphFactory.createNode();
 //		graph1.getReturnElements().get(0).getNextElements().add(element1);
 //		element1.addPrimitiveComparison();
 //		
 //		Graph graph2 = quantifiedCondition2.getGraph();
-//		Element element2 = graphFactory.createElement();
+//		Element element2 = graphFactory.createNode();
 //		graph2.getReturnElements().get(0).getNextElements().add(element2);
 //		element2.addPrimitiveComparison();		
 //		

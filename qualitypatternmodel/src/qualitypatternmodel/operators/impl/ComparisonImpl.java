@@ -22,7 +22,7 @@ import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
@@ -258,7 +258,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			throw new InvalidityException("input value type unspecified" + " (" + getInternalId() + ")");
 		}
 
-		if (argument1 instanceof Element && argument2 instanceof Element) {
+		if (argument1 instanceof Node && argument2 instanceof Node) {
 			if (option.getValue() != ComparisonOperator.EQUAL && option.getValue() != ComparisonOperator.NOTEQUAL) {
 				throw new InvalidityException(
 						"invalid comparison operator for arguments of type Element" + " (" + getInternalId() + ")");
@@ -337,8 +337,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * 
 	 */
 	@Override
-	public EList<Element> getAllArgumentElements() {
-		EList<Element> arguments = new BasicEList<Element>();
+	public EList<Node> getAllArgumentElements() {
+		EList<Node> arguments = new BasicEList<Node>();
 		if(argument1 != null) {
 			arguments.addAll(argument1.getAllArgumentElements());
 		}
@@ -490,10 +490,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				}				
 			} else {
 				
-				if (newArgument instanceof Element || newArgument instanceof BooleanOperator || newArgument instanceof NumberOperator || newArgument instanceof ParameterValue) {
+				if (newArgument instanceof Node || newArgument instanceof BooleanOperator || newArgument instanceof NumberOperator || newArgument instanceof ParameterValue) {
 					ReturnType returnType = null;
 					
-					if (newArgument instanceof Element) {
+					if (newArgument instanceof Node) {
 						returnType = ReturnType.ELEMENT;
 					}
 					if (newArgument instanceof BooleanOperator) {
@@ -549,13 +549,13 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	private void moveElementsFromRootOperatorToOldArgument(qualitypatternmodel.graphstructure.Comparable oldArgument, BooleanOperator rootOperator) {
 		BooleanOperator oldArgumentOperator = (BooleanOperator) oldArgument;
-		EList<Element> rootOperatorElements = new BasicEList<Element>();
-		rootOperatorElements.addAll(rootOperator.getElements());
+		EList<Node> rootOperatorElements = new BasicEList<Node>();
+		rootOperatorElements.addAll(rootOperator.getNodes());
 		// rootOperator.getElements() is already empty at this point in case THIS gets DELETED!
 		
-		EList<Element> argumentElements = oldArgumentOperator.getAllArgumentElements();
+		EList<Node> argumentElements = oldArgumentOperator.getAllArgumentElements();
 		if(argumentElements.size() > 0) {
-			for (Element argumentElement : argumentElements) {
+			for (Node argumentElement : argumentElements) {
 					oldArgumentOperator.addElement(argumentElement);
 					rootOperator.removeElement(argumentElement);
 			}
@@ -567,22 +567,22 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		if (oldArgument != null && oldArgument instanceof Property && ((Property) oldArgument).getElement() != null) {
 			rootOperator.removeElement(((Property) oldArgument).getElement());
 		}
-		if (oldArgument != null && oldArgument instanceof Element) {
-			rootOperator.removeElement((Element) oldArgument);
+		if (oldArgument != null && oldArgument instanceof Node) {
+			rootOperator.removeElement((Node) oldArgument);
 		}
 	}
 
 	private void moveElementsFromNewArgumentToRootOperator(qualitypatternmodel.graphstructure.Comparable newArgument,
 			EList<BooleanOperator> rootBooleanOperators) {
 		BooleanOperator argumentOperator = (BooleanOperator) newArgument;
-		EList<Element> argumentOperatorElements = new BasicEList<Element>();
-		argumentOperatorElements.addAll(argumentOperator.getElements());
+		EList<Node> argumentOperatorElements = new BasicEList<Node>();
+		argumentOperatorElements.addAll(argumentOperator.getNodes());
 		if(argumentOperatorElements.size() > 0) {
-			for (Element element : argumentOperatorElements) {
-				argumentOperator.removeElement(element);
+			for (Node node : argumentOperatorElements) {
+				argumentOperator.removeElement(node);
 				if(rootBooleanOperators.size() > 0) {
 					for (BooleanOperator rootBoolenOperator : rootBooleanOperators) {
-						rootBoolenOperator.addElement(element);
+						rootBoolenOperator.addElement(node);
 					}
 				}
 			}
@@ -591,10 +591,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	private void addNewArgumentElementsToRootOperator(qualitypatternmodel.graphstructure.Comparable newArgument,
 			EList<BooleanOperator> rootBooleanOperators) {
-		if (newArgument instanceof Element) {
+		if (newArgument instanceof Node) {
 			for (BooleanOperator boolOp : rootBooleanOperators) {
 				if (newArgument != null) {
-					boolOp.addElement((Element) newArgument);
+					boolOp.addElement((Node) newArgument);
 				}
 			}
 		}
@@ -767,7 +767,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * @generated NOT
 	 */
 	@Override
-	public Element getElement() {
+	public Node getElement() {
 		if(isPrimitive()) {
 			if(getArgument1() instanceof Property) {
 				return ((Property) getArgument1()).getElement();

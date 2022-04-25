@@ -18,7 +18,7 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkRelationMappings() <em>Check Relation Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkRelationMappingsUniqueness() <em>Check Relation Mappings Uniqueness</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness() <em>Check Element Mappings Uniqueness</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Element, qualitypatternmodel.graphstructure.Element) <em>Add Mapping</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Node, qualitypatternmodel.graphstructure.Node) <em>Add Mapping</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Relation, qualitypatternmodel.graphstructure.Relation) <em>Add Mapping</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#removeInconsistentMappings() <em>Remove Inconsistent Mappings</em>}</li>
  * </ul>
@@ -132,13 +132,13 @@ public class MorphismTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Element, qualitypatternmodel.graphstructure.Element) <em>Add Mapping</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Node, qualitypatternmodel.graphstructure.Node) <em>Add Mapping</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Element, qualitypatternmodel.graphstructure.Element)
+	 * @see qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Node, qualitypatternmodel.graphstructure.Node)
 	 * @generated
 	 */
-	public void testAddMapping__Element_Element() {
+	public void testAddMapping__Node_Node() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

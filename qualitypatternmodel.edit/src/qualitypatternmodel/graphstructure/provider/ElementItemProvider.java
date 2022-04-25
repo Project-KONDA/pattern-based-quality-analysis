@@ -16,12 +16,12 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.graphstructure.Element} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.graphstructure.Node} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -121,7 +121,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Element_outgoingMappings_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Element_outgoingMappings_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__OUTGOING_MAPPINGS,
+				 GraphstructurePackage.Literals.NODE__OUTGOING_MAPPINGS,
 				 true,
 				 false,
 				 true,
@@ -143,7 +143,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Element_incomingMapping_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Element_incomingMapping_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__INCOMING_MAPPING,
+				 GraphstructurePackage.Literals.NODE__INCOMING_MAPPING,
 				 true,
 				 false,
 				 true,
@@ -165,7 +165,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Element_graph_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Element_graph_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__GRAPH,
+				 GraphstructurePackage.Literals.NODE__GRAPH,
 				 true,
 				 false,
 				 true,
@@ -187,7 +187,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Element_resultOf_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Element_resultOf_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__RESULT_OF,
+				 GraphstructurePackage.Literals.NODE__RESULT_OF,
 				 true,
 				 false,
 				 true,
@@ -209,7 +209,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Element_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Element_name_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__NAME,
+				 GraphstructurePackage.Literals.NODE__NAME,
 				 true,
 				 false,
 				 false,
@@ -231,7 +231,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Element_translated_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Element_translated_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__TRANSLATED,
+				 GraphstructurePackage.Literals.NODE__TRANSLATED,
 				 true,
 				 false,
 				 false,
@@ -253,7 +253,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Element_predicatesAreBeingTranslated_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Element_predicatesAreBeingTranslated_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED,
+				 GraphstructurePackage.Literals.NODE__PREDICATES_ARE_BEING_TRANSLATED,
 				 true,
 				 false,
 				 false,
@@ -275,7 +275,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Element_predicates_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Element_predicates_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__PREDICATES,
+				 GraphstructurePackage.Literals.NODE__PREDICATES,
 				 true,
 				 false,
 				 true,
@@ -297,7 +297,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Element_outgoing_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Element_outgoing_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__OUTGOING,
+				 GraphstructurePackage.Literals.NODE__OUTGOING,
 				 true,
 				 false,
 				 true,
@@ -319,7 +319,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Element_incoming_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Element_incoming_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.ELEMENT__INCOMING,
+				 GraphstructurePackage.Literals.NODE__INCOMING,
 				 true,
 				 false,
 				 true,
@@ -340,7 +340,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphstructurePackage.Literals.ELEMENT__PROPERTIES);
+			childrenFeatures.add(GraphstructurePackage.Literals.NODE__PROPERTIES);
 		}
 		return childrenFeatures;
 	}
@@ -377,8 +377,8 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Element element = (Element) object;
-		return getString("_UI_Element_type") + " " + element.getInternalId();
+		Node node = (Node) object;
+		return getString("_UI_Element_type") + " " + node.getInternalId();
 		
 //		String label = ((Element)object).getId();
 //		return label == null || label.length() == 0 ?
@@ -398,13 +398,13 @@ public class ElementItemProvider extends PatternElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Element.class)) {
-			case GraphstructurePackage.ELEMENT__NAME:
-			case GraphstructurePackage.ELEMENT__TRANSLATED:
-			case GraphstructurePackage.ELEMENT__PREDICATES_ARE_BEING_TRANSLATED:
+		switch (notification.getFeatureID(Node.class)) {
+			case GraphstructurePackage.NODE__NAME:
+			case GraphstructurePackage.NODE__TRANSLATED:
+			case GraphstructurePackage.NODE__PREDICATES_ARE_BEING_TRANSLATED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case GraphstructurePackage.ELEMENT__PROPERTIES:
+			case GraphstructurePackage.NODE__PROPERTIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -424,12 +424,12 @@ public class ElementItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.ELEMENT__PROPERTIES,
+				(GraphstructurePackage.Literals.NODE__PROPERTIES,
 				 GraphstructureFactory.eINSTANCE.createProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GraphstructurePackage.Literals.ELEMENT__PROPERTIES,
+				(GraphstructurePackage.Literals.NODE__PROPERTIES,
 				 AdaptionxmlFactory.eINSTANCE.createXmlProperty()));
 	}
 

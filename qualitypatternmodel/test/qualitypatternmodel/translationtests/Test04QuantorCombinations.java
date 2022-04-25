@@ -45,7 +45,7 @@ public class Test04QuantorCombinations {
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		QuantifiedCondition quantifiedCondition2 = (QuantifiedCondition) quantifiedCondition.getCondition();
 		
-		XmlProperty prop0 = (XmlProperty) quantifiedCondition2.getGraph().getElements().get(1).getProperties().get(0);
+		XmlProperty prop0 = (XmlProperty) quantifiedCondition2.getGraph().getNodes().get(1).getProperties().get(0);
 		prop0.getOption().setValue(PropertyKind.ATTRIBUTE);
 		prop0.getAttributeName().setValue("demo:id");
 		
@@ -74,8 +74,8 @@ public class Test04QuantorCombinations {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
-		Element e1q1 = qcond.getGraph().getElements().get(0);
-		Element e2q1 = qcond.getGraph().getElements().get(1);
+		Node e1q1 = qcond.getGraph().getNodes().get(0);
+		Node e2q1 = qcond.getGraph().getNodes().get(1);
 		
 		Relation relation2 = graphFactory.createRelation();		
 		relation2.setGraph(qcond.getGraph());
@@ -83,10 +83,10 @@ public class Test04QuantorCombinations {
 		relation2.setTarget(e2q1);
 		
 		
-		Element se3 = graphFactory.createElement();
-		qcond2.getGraph().getElements().add(se3);
+		Node se3 = graphFactory.createNode();
+		qcond2.getGraph().getNodes().add(se3);
 		
-		Element e2q2 = qcond2.getGraph().getElements().get(1);
+		Node e2q2 = qcond2.getGraph().getNodes().get(1);
 		
 		Relation relation = graphFactory.createRelation();	
 		relation.setGraph(qcond2.getGraph());
@@ -112,7 +112,7 @@ public class Test04QuantorCombinations {
 		CompletePattern completePattern = getPatternExistsInExistsFinal();
 		((QuantifiedCondition) completePattern.getCondition()).setQuantifier(Quantifier.FORALL);
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		quantifiedCondition.getGraph().getElements().get(1).addPrimitiveComparison("demo:artist");;
+		quantifiedCondition.getGraph().getNodes().get(1).addPrimitiveComparison("demo:artist");;
 		
 		return completePattern;
 	}

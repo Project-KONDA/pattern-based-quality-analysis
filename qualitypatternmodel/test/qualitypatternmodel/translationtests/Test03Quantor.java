@@ -54,8 +54,8 @@ public class Test03Quantor {
 		QuantifiedCondition cond = (QuantifiedCondition) completePattern.getCondition();
 		Graph graph2 = cond.getGraph();
 		
-		Element e0g2 = graph2.getElements().get(0);
-		Element e1g2 = graph2.getElements().get(1);
+		Node e0g2 = graph2.getNodes().get(0);
+		Node e1g2 = graph2.getNodes().get(1);
 		
 		Relation relation = graphFactory.createRelation();
 		relation.setGraph(graph2);
@@ -82,7 +82,7 @@ public class Test03Quantor {
 		completePattern.setCondition(cond);
 				
 		// EXISTS additional graph structure
-		Element se2 = graphFactory.createElement();
+		Node se2 = graphFactory.createNode();
 		se2.setGraph(cond.getGraph());	
 				
 		return completePattern;
@@ -101,9 +101,9 @@ public class Test03Quantor {
 		completePattern.setCondition(cond);
 				
 		// EXISTS additional graph structure
-		Element se1 = cond.getGraph().getElements().get(0);	
+		Node se1 = cond.getGraph().getNodes().get(0);	
 		
-		Element se2 = graphFactory.createElement();
+		Node se2 = graphFactory.createNode();
 		se2.setGraph(cond.getGraph());
 		
 		Relation relation = graphFactory.createRelation();
@@ -144,7 +144,7 @@ public class Test03Quantor {
 		
 		CompletePattern completePattern = getPatternExists();
 		Graph graph2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
-		Element last = graph2.getElements().get(1);
+		Node last = graph2.getNodes().get(1);
 		last.addPrimitiveComparison("New York City");
 		
 		return completePattern;

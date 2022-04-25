@@ -13,7 +13,7 @@ import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -51,11 +51,11 @@ public class EvalMatch {
 		GraphstructurePackage.eINSTANCE.eClass();
 
 		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelationFinal();
-		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		returnElementInReturnGraph.addPrimitiveComparison();
 
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		XmlElement element2 = (XmlElement) quantifiedCondition.getGraph().getElements().get(1);
+		XmlElement element2 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 
 		element2.addPrimitiveComparison();
 		element2.addPrimitiveMatch();
@@ -68,15 +68,15 @@ public class EvalMatch {
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 
 		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelation();
-		Element returnElementInReturnGraph = completePattern.getGraph().getElements().get(0);
+		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
 		returnElementInReturnGraph.addPrimitiveComparison();
 
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 
-		Element element2 = quantifiedCondition.getGraph().getElements().get(1);
+		Node element2 = quantifiedCondition.getGraph().getNodes().get(1);
 		element2.addPrimitiveComparison();
 
-		Element element3 = graphFactory.createElement();
+		Node element3 = graphFactory.createNode();
 		element3.setGraph(quantifiedCondition.getGraph());
 //		element3.addPrimitiveComparison(); 		
 		element3.addPrimitiveMatch();
@@ -103,7 +103,7 @@ public class EvalMatch {
 
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 
-		Element element3 = quantifiedCondition.getGraph().getElements().get(2);
+		Node element3 = quantifiedCondition.getGraph().getNodes().get(2);
 		element3.addPrimitiveComparison();	
 
 		return completePattern;
@@ -152,7 +152,7 @@ public class EvalMatch {
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 
 		CompletePattern completePattern = getMatchAbstractThreeElements();
-		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(returnElementAxis);
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -165,7 +165,7 @@ public class EvalMatch {
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(attribute1Kind);
 
 		QuantifiedCondition qc = (QuantifiedCondition) completePattern.getCondition();
-		XmlElement element2 = (XmlElement) qc.getGraph().getElements().get(1);
+		XmlElement element2 = (XmlElement) qc.getGraph().getNodes().get(1);
 		((XmlNavigation) qc.getGraph().getRelations().get(0)).getOption().setValue(element2Axis);
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
@@ -176,7 +176,7 @@ public class EvalMatch {
 		}
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(attribute2Kind);
 
-		XmlElement element3 = (XmlElement) qc.getGraph().getElements().get(2);
+		XmlElement element3 = (XmlElement) qc.getGraph().getNodes().get(2);
 		((XmlNavigation) qc.getGraph().getRelations().get(1)).getOption().setValue(element3Axis);
 		
 		BooleanOperator matchElement2 = element3.getPredicates().get(0);
@@ -200,7 +200,7 @@ public class EvalMatch {
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 
 		CompletePattern completePattern = getMatchAbstractThreeElementsTwoConditions();
-		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(returnElementAxis);
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -213,7 +213,7 @@ public class EvalMatch {
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(attribute1Kind);
 
 		QuantifiedCondition qc = (QuantifiedCondition) completePattern.getCondition();
-		XmlElement element2 = (XmlElement) qc.getGraph().getElements().get(1);
+		XmlElement element2 = (XmlElement) qc.getGraph().getNodes().get(1);
 		((XmlNavigation) qc.getGraph().getRelations().get(0)).getOption().setValue(element2Axis);
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
@@ -224,7 +224,7 @@ public class EvalMatch {
 		}
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(attribute2Kind);
 
-		XmlElement element3 = (XmlElement) qc.getGraph().getElements().get(2);
+		XmlElement element3 = (XmlElement) qc.getGraph().getNodes().get(2);
 		((XmlNavigation) qc.getGraph().getRelations().get(1)).getOption().setValue(element3Axis);
 		
 		BooleanOperator comparisonElement3 = element3.getPredicates().get(1);
@@ -255,7 +255,7 @@ public class EvalMatch {
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 
 		CompletePattern completePattern = getMatchAbstract();
-		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getElements().get(0);
+		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(returnElementAxis);
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -269,7 +269,7 @@ public class EvalMatch {
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(attribute1Kind);
 
 		QuantifiedCondition qc = (QuantifiedCondition) completePattern.getCondition();
-		XmlElement element2 = (XmlElement) qc.getGraph().getElements().get(1);
+		XmlElement element2 = (XmlElement) qc.getGraph().getNodes().get(1);
 		((XmlNavigation) qc.getGraph().getRelations().get(0)).getOption().setValue(element2Axis);
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();

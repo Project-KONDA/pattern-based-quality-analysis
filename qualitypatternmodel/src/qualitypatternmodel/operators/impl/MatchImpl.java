@@ -16,7 +16,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Comparable;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Match;
@@ -148,7 +148,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * 
 	 */
 	@Override
-	public EList<Element> getAllArgumentElements() {		
+	public EList<Node> getAllArgumentElements() {		
 		return property.getAllArgumentElements();
 	}
 	
@@ -338,7 +338,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 * @generated NOT
 	 */
 	@Override
-	public Element getElement() {
+	public Node getElement() {
 		return getProperty().getElement();
 	}
 

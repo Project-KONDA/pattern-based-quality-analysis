@@ -33,8 +33,8 @@ public class SuggestionGeneration {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
 		CompletePattern completePattern = Test00.getBasePatternCondConcrete("*");
-		((XmlProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
-		((XmlProperty) completePattern.getGraph().getElements().get(0).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
+		((XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
         
 		try {
 			completePattern.isValid(AbstractionLevel.CONCRETE);

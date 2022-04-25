@@ -29,7 +29,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.XmlDataDatabase;
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
@@ -294,8 +294,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 * @generated NOT
 	 */
 	@Override
-	public EList<Element> getAllArgumentElements() {
-		return new BasicEList<Element>();
+	public EList<Node> getAllArgumentElements() {
+		return new BasicEList<Node>();
 	}
 
 	/**
@@ -990,8 +990,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 						isTagProperty = true;
 					}
 				}
-				if(isTagProperty && comparison.getElements().size() == 1 && comparison.getElements().get(0) instanceof XmlElement) {
-					tagComparisonElements.add((XmlElement) comparison.getElements().get(0));
+				if(isTagProperty && comparison.getNodes().size() == 1 && comparison.getNodes().get(0) instanceof XmlElement) {
+					tagComparisonElements.add((XmlElement) comparison.getNodes().get(0));
 				}
 			}
 		}

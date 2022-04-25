@@ -19,7 +19,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getAllOperators() <em>Get All Operators</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#copyGraph(qualitypatternmodel.graphstructure.Graph) <em>Copy Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph() <em>Is Return Graph</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.Element, qualitypatternmodel.graphstructure.Element) <em>Add Relation</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.Node, qualitypatternmodel.graphstructure.Node) <em>Add Relation</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -118,13 +118,13 @@ public class GraphTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.Element, qualitypatternmodel.graphstructure.Element) <em>Add Relation</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.Node, qualitypatternmodel.graphstructure.Node) <em>Add Relation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.Element, qualitypatternmodel.graphstructure.Element)
+	 * @see qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.Node, qualitypatternmodel.graphstructure.Node)
 	 * @generated
 	 */
-	public void testAddRelation__Element_Element() {
+	public void testAddRelation__Node_Node() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

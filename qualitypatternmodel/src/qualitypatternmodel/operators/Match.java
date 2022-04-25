@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.operators;
 
-import qualitypatternmodel.graphstructure.Element;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
@@ -82,7 +82,7 @@ public interface Match extends BooleanOperator {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	Element getElement();
+	Node getElement();
 
 	/**
 	 * <!-- begin-user-doc -->
