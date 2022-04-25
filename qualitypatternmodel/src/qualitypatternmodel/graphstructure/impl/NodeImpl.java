@@ -321,14 +321,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			propertiesCopy2.addAll(getProperties());
 			for(PrimitiveNode primitiveNode : propertiesCopy2) {
 				primitiveNode.setElement(xmlElement);
-			}		
+			}
 			
 			setGraph(null);
 			
 			return xmlElement;
 		}
 		return this;		
-		
 	}
 	
 	@Override
@@ -752,7 +751,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 							throw new InvalidityException("Requiring that two elements are equal and unequal will always yield false");
 						}
 					}
-					
 				}
 			}
 			for(Comparison comp2 : e.getComparison2()) {
@@ -763,7 +761,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 							throw new InvalidityException("Requiring that two elements are equal and unequal will always yield false");
 						}
 					}
-					
 				}
 			}
 		}
@@ -798,49 +795,132 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public PrimitiveNode makePrimitive() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (this instanceof ComplexNode)
+			throw new UnsupportedOperationException();
+		if (this instanceof PrimitiveNode)
+			return (PrimitiveNode) this;
+		
+		PrimitiveNode newComplex = new PrimitiveNodeImpl();
+		
+		// TODO
+		
+		// Graph
+		// Outgoing Relations
+		// Incoming Relations
+		// Outgoing Mapping
+		// Incoming Mapping
+		// Return Element
+		// Comparison 1
+		// Comparison 2
+		// Predicates
+		
+		return newComplex;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public ComplexNode makeComplex() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (this instanceof ComplexNode)
+			return (ComplexNode) this;
+		if (this instanceof PrimitiveNode)
+			throw new UnsupportedOperationException();
+		
+		ComplexNode newComplex = new ComplexNodeImpl();
+
+		// this is copy paste from xml adaptation
+		newComplex.setGraphSimple(getGraph());				
+		
+		newComplex.setResultOf(getResultOf());
+		
+		newComplex.getPredicates().addAll(getPredicates());
+		getPredicates().clear();
+		
+		newComplex.getOutgoingMappings().addAll(getOutgoingMappings());
+		getOutgoingMappings().clear();
+		newComplex.setIncomingMapping(getIncomingMapping());
+		setIncomingMapping(null);
+		
+		if(getName().matches("Element [0-9]+")) {
+			newComplex.setName(getName().replace("Element", "XmlElement"));
+		} else {
+			newComplex.setName(getName());
+		}
+		
+		setResultOf(null);
+		
+		EList<Relation> outgoingCopy = new BasicEList<Relation>();
+		if (this instanceof ComplexNode)
+			outgoingCopy.addAll(((ComplexNode) this).getOutgoing());
+		for(Relation relation : outgoingCopy) {
+			relation.setSource(newComplex);
+		}
+		
+		EList<Relation> incomingCopy = new BasicEList<Relation>();
+		incomingCopy.addAll(getIncoming());
+		for(Relation relation : incomingCopy) {
+			relation.setTarget(newComplex);
+		}
+		
+		newComplex.getComparison1().addAll(getComparison1());
+		getComparison1().clear();
+		newComplex.getComparison2().addAll(getComparison2());
+		getComparison2().clear();	
+		
+		EList<PrimitiveNode> propertiesCopy2 = new BasicEList<PrimitiveNode>();
+		propertiesCopy2.addAll(getProperties());
+		for(PrimitiveNode primitiveNode : propertiesCopy2) {
+			primitiveNode.setElement(newComplex);
+		}
+		
+		setGraph(null);
+		
+		return newComplex;
+		
+		// TODO
+		
+		// Graph
+		// Outgoing Relations
+		// Incoming Relations
+		// Outgoing Mapping
+		// Incoming Mapping
+		// Return Element
+		// Comparison 1
+		// Comparison 2
+		// Predicates
+		
+		return newComplex;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void addTargetNode() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Graph myGraph = getGraph();
+		Node newNode = new NodeImpl();
+		newNode.setGraph(myGraph);
+		myGraph.addRelation(makeComplex(), newNode);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void addOutgoing(Node node) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Graph myGraph = this.getGraph(); 
+		myGraph.addRelation(makeComplex(), node);
 	}
 
 	/**
