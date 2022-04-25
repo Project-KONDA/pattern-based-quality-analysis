@@ -8,7 +8,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.UntypedParameterValue;
@@ -32,10 +31,9 @@ import qualitypatternmodel.patternstructure.ElementMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Node#getProperties <em>Properties</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getPredicates <em>Predicates</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Node#getOutgoing <em>Outgoing</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getIncoming <em>Incoming</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#getOutgoing <em>Outgoing</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode()
@@ -196,20 +194,6 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	void setPredicatesAreBeingTranslated(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
-	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Property}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Properties</em>' containment reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_Properties()
-	 * @see qualitypatternmodel.graphstructure.Property#getElement
-	 * @model opposite="element" containment="true"
-	 * @generated
-	 */
-	EList<Property> getProperties();
-
-	/**
 	 * Returns the value of the '<em><b>Predicates</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.operators.BooleanOperator}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.BooleanOperator#getNodes <em>Nodes</em>}'.
@@ -348,57 +332,6 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Copies <code>property</code> and adds it to <code>properties</code>.
-	 * 
-	 * @return the copy of <code>property</code>
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	Property copyProperty(Property property);
-
-	/**
-	 * <!-- begin-user-doc --> 
-	 * Copies <code>comparison</code>.
-	 * 
-	 * Creates a new <code>Comparison</code> that has the same <code>Parameter</code> as an argument and
-	 * a copy of the original <code>Property</code> argument as an argument.
-	 * 
-	 * @param comparison the <code>Comparison</code> to be copied
-	 * @throws InvalidityException if <code>comparison</code> does not compare a <code>Property</code> and a <code>Parameter</code>
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	void copyPrimitiveComparison(Comparison comparison) throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Copies <code>match</code>.
-	 * 
-	 * Creates a new <code>Match</code> that references a copy of the originally referenced <code>Property</code>
-	 * and inserts this <code>Property</code> into <code>properties</code>.
-	 * 
-	 * @param match the <code>Match</code> to be copied
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void copyMatch(Match match);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Returns a new <code>Property</code> inserted into <code>properties</code> of <code>this</code>.
-	 * 
-	 * @return the newly created <code>Property</code>
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	Property addNewProperty();
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * Sets <code>graph</code> of <code>this</code> to <code>newGraph</code> 
 	 * without updating corresponding <code>Elements</code> in previous and following <code>Graphs</code>,
 	 * updating referenced <code>Parameters</code>,
@@ -426,5 +359,37 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @generated
 	 */
 	void getEquivalentElements(EList<Node> equivalentElements);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Property makePrimitive();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	ComplexNode makeComplex();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addTargetNode();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addOutgoing(Node node);
 
 } // Element

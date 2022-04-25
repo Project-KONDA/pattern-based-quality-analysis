@@ -352,10 +352,10 @@ public class RelationOptionParamImpl extends ParameterImpl implements RelationOp
 	@Override
 	public void checkComparisonConsistency() throws InvalidityException {
 		for(XmlNavigation nav : getRelations()) {
-			for(Property p : nav.getSource().getProperties()){
+			for(Property p : nav.getSource()){
 				p.checkComparisonConsistency();	
 			}
-			for(Property p : nav.getTarget().getProperties()){
+			for(Property p : nav.getTarget()){
 				p.checkComparisonConsistency();	
 			}
 		}

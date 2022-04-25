@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 import qualitypatternmodel.graphstructure.Adaptable;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
@@ -82,6 +83,7 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 			case GraphstructurePackage.PROPERTY: {
 				Property property = (Property)theEObject;
 				T result = caseProperty(property);
+				if (result == null) result = caseNode(property);
 				if (result == null) result = caseComparable(property);
 				if (result == null) result = caseAdaptable(property);
 				if (result == null) result = casePatternElement(property);
@@ -115,6 +117,16 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 				Adaptable adaptable = (Adaptable)theEObject;
 				T result = caseAdaptable(adaptable);
 				if (result == null) result = casePatternElement(adaptable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GraphstructurePackage.COMPLEX_NODE: {
+				ComplexNode complexNode = (ComplexNode)theEObject;
+				T result = caseComplexNode(complexNode);
+				if (result == null) result = caseNode(complexNode);
+				if (result == null) result = caseComparable(complexNode);
+				if (result == null) result = caseAdaptable(complexNode);
+				if (result == null) result = casePatternElement(complexNode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -209,6 +221,21 @@ public class GraphstructureSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAdaptable(Adaptable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Complex Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Complex Node</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComplexNode(ComplexNode object) {
 		return null;
 	}
 

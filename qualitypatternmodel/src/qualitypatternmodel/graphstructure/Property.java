@@ -8,7 +8,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.parameters.ParameterValue;
-import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,26 +19,14 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Property#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty()
  * @model
  * @generated
  */
-public interface Property extends qualitypatternmodel.graphstructure.Comparable, PatternElement, Adaptable {
-	/**
-	 * <!-- begin-user-doc -->
-	 * Returns a copy of <code>this</code> that references the same <code>Parameters</code> as <code>this</code>.
-	 * 
-	 * @return the copy of <code>this</code>
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	Property copy();
+public interface Property extends Node {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,30 +84,6 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 	void checkComparisonConsistency() throws InvalidityException;
 
 	/**
-	 * Returns the value of the '<em><b>Element</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Node#getProperties <em>Properties</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element</em>' container reference.
-	 * @see #setElement(Node)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_Element()
-	 * @see qualitypatternmodel.graphstructure.Node#getProperties
-	 * @model opposite="properties" required="true" transient="false"
-	 * @generated
-	 */
-	Node getElement();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Element</em>' container reference.
-	 * @see #getElement()
-	 * @generated
-	 */
-	void setElement(Node value);
-
-	/**
 	 * Returns the value of the '<em><b>Match</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.operators.Match}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.Match#getProperty <em>Property</em>}'.
@@ -133,27 +96,5 @@ public interface Property extends qualitypatternmodel.graphstructure.Comparable,
 	 * @generated
 	 */
 	EList<Match> getMatch();
-
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getProperty_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Property#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
 
 } // Property

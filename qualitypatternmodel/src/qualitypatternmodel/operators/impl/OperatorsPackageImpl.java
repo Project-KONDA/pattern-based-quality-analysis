@@ -400,16 +400,6 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getMatch__Copy() {
-		return matchEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getComparison() {
 		return comparisonEClass;
 	}
@@ -595,7 +585,6 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		createEReference(matchEClass, MATCH__OPTION);
 		createEReference(matchEClass, MATCH__REGULAR_EXPRESSION);
 		createEOperation(matchEClass, MATCH___GET_ELEMENT);
-		createEOperation(matchEClass, MATCH___COPY);
 
 		comparisonEClass = createEClass(COMPARISON);
 		createEReference(comparisonEClass, COMPARISON__ARGUMENT1);
@@ -704,8 +693,6 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		initEReference(getMatch_RegularExpression(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_Matches(), "regularExpression", null, 1, 1, Match.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getMatch__GetElement(), theGraphstructurePackage.getNode(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getMatch__Copy(), this.getMatch(), "copy", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(comparisonEClass, Comparison.class, "Comparison", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComparison_Argument1(), theGraphstructurePackage.getComparable(), theGraphstructurePackage.getComparable_Comparison1(), "argument1", null, 0, 1, Comparison.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

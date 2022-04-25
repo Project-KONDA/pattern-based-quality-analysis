@@ -693,375 +693,6 @@ public interface GraphstructurePackage extends EPackage {
 	int PROPERTY = 1;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__ID = COMPARABLE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__INTERNAL_ID = COMPARABLE__INTERNAL_ID;
-
-	/**
-	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__COMPARISON1 = COMPARABLE__COMPARISON1;
-
-	/**
-	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__COMPARISON2 = COMPARABLE__COMPARISON2;
-
-	/**
-	 * The feature id for the '<em><b>Element</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__ELEMENT = COMPARABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Match</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__MATCH = COMPARABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__NAME = COMPARABLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Property</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___GENERATE_QUERY = COMPARABLE___GENERATE_QUERY;
-
-	/**
-	 * The operation id for the '<em>Get All Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___GET_ALL_PARAMETERS = COMPARABLE___GET_ALL_PARAMETERS;
-
-	/**
-	 * The operation id for the '<em>Prepare Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___PREPARE_TRANSLATION = COMPARABLE___PREPARE_TRANSLATION;
-
-	/**
-	 * The operation id for the '<em>Is Valid</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___IS_VALID__ABSTRACTIONLEVEL = COMPARABLE___IS_VALID__ABSTRACTIONLEVEL;
-
-	/**
-	 * The operation id for the '<em>Is Valid Local</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___IS_VALID_LOCAL__ABSTRACTIONLEVEL = COMPARABLE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
-
-	/**
-	 * The operation id for the '<em>Get Container</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___GET_CONTAINER = COMPARABLE___GET_CONTAINER;
-
-	/**
-	 * The operation id for the '<em>Get Ancestor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___GET_ANCESTOR__CLASS = COMPARABLE___GET_ANCESTOR__CLASS;
-
-	/**
-	 * The operation id for the '<em>My To String</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___MY_TO_STRING = COMPARABLE___MY_TO_STRING;
-
-	/**
-	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___PREPARE_PARAMETER_UPDATES = COMPARABLE___PREPARE_PARAMETER_UPDATES;
-
-	/**
-	 * The operation id for the '<em>Get Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___GET_PARAMETER_LIST = COMPARABLE___GET_PARAMETER_LIST;
-
-	/**
-	 * The operation id for the '<em>Get Operator List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___GET_OPERATOR_LIST = COMPARABLE___GET_OPERATOR_LIST;
-
-	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___CREATE_XML_ADAPTION = COMPARABLE___CREATE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___FINALIZE_XML_ADAPTION = COMPARABLE___FINALIZE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Record Values</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___RECORD_VALUES__XMLDATADATABASE = COMPARABLE___RECORD_VALUES__XMLDATADATABASE;
-
-	/**
-	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___RELATIONS_XML_ADAPTED = COMPARABLE___RELATIONS_XML_ADAPTED;
-
-	/**
-	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = COMPARABLE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
-
-	/**
-	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = COMPARABLE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
-
-	/**
-	 * The operation id for the '<em>Update Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___UPDATE_PARAMETERS__PARAMETERLIST = COMPARABLE___UPDATE_PARAMETERS__PARAMETERLIST;
-
-	/**
-	 * The operation id for the '<em>Initialize Translation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___INITIALIZE_TRANSLATION = COMPARABLE___INITIALIZE_TRANSLATION;
-
-	/**
-	 * The operation id for the '<em>Get Return Type</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___GET_RETURN_TYPE = COMPARABLE___GET_RETURN_TYPE;
-
-	/**
-	 * The operation id for the '<em>Is Translatable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___IS_TRANSLATABLE = COMPARABLE___IS_TRANSLATABLE;
-
-	/**
-	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___GET_ALL_ARGUMENT_ELEMENTS = COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP;
-
-	/**
-	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = COMPARABLE_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Create Parameters</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___CREATE_PARAMETERS = COMPARABLE_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Copy</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___COPY = COMPARABLE_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Add Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___ADD_COMPARISON = COMPARABLE_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Is Operator Argument</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___IS_OPERATOR_ARGUMENT = COMPARABLE_OPERATION_COUNT + 4;
-
-	/**
-	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___CHECK_COMPARISON_CONSISTENCY__COMPARISON = COMPARABLE_OPERATION_COUNT + 6;
-
-	/**
-	 * The operation id for the '<em>Get Equivalent Properties</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___GET_EQUIVALENT_PROPERTIES = COMPARABLE_OPERATION_COUNT + 7;
-
-	/**
-	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY___CHECK_COMPARISON_CONSISTENCY = COMPARABLE_OPERATION_COUNT + 8;
-
-	/**
-	 * The number of operations of the '<em>Property</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 9;
-
-	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.NodeImpl <em>Node</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1171,22 +802,22 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE__PREDICATES_ARE_BEING_TRANSLATED = COMPARABLE_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE__PROPERTIES = COMPARABLE_FEATURE_COUNT + 7;
-
-	/**
 	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__PREDICATES = COMPARABLE_FEATURE_COUNT + 8;
+	int NODE__PREDICATES = COMPARABLE_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Incoming</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE__INCOMING = COMPARABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
@@ -1198,22 +829,13 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE__OUTGOING = COMPARABLE_FEATURE_COUNT + 9;
 
 	/**
-	 * The feature id for the '<em><b>Incoming</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE__INCOMING = COMPARABLE_FEATURE_COUNT + 10;
-
-	/**
 	 * The number of structural features of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 11;
+	int NODE_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -1513,49 +1135,13 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = COMPARABLE_OPERATION_COUNT + 9;
 
 	/**
-	 * The operation id for the '<em>Copy Property</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE___COPY_PROPERTY__PROPERTY = COMPARABLE_OPERATION_COUNT + 10;
-
-	/**
-	 * The operation id for the '<em>Copy Primitive Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE___COPY_PRIMITIVE_COMPARISON__COMPARISON = COMPARABLE_OPERATION_COUNT + 11;
-
-	/**
-	 * The operation id for the '<em>Copy Match</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE___COPY_MATCH__MATCH = COMPARABLE_OPERATION_COUNT + 12;
-
-	/**
-	 * The operation id for the '<em>Add New Property</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE___ADD_NEW_PROPERTY = COMPARABLE_OPERATION_COUNT + 13;
-
-	/**
 	 * The operation id for the '<em>Set Graph Simple</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___SET_GRAPH_SIMPLE__GRAPH = COMPARABLE_OPERATION_COUNT + 14;
+	int NODE___SET_GRAPH_SIMPLE__GRAPH = COMPARABLE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -1564,7 +1150,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON = COMPARABLE_OPERATION_COUNT + 15;
+	int NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON = COMPARABLE_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Get Equivalent Elements</em>' operation.
@@ -1573,7 +1159,43 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___GET_EQUIVALENT_ELEMENTS__ELIST = COMPARABLE_OPERATION_COUNT + 16;
+	int NODE___GET_EQUIVALENT_ELEMENTS__ELIST = COMPARABLE_OPERATION_COUNT + 12;
+
+	/**
+	 * The operation id for the '<em>Make Primitive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___MAKE_PRIMITIVE = COMPARABLE_OPERATION_COUNT + 13;
+
+	/**
+	 * The operation id for the '<em>Make Complex</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___MAKE_COMPLEX = COMPARABLE_OPERATION_COUNT + 14;
+
+	/**
+	 * The operation id for the '<em>Add Target Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___ADD_TARGET_NODE = COMPARABLE_OPERATION_COUNT + 15;
+
+	/**
+	 * The operation id for the '<em>Add Outgoing</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___ADD_OUTGOING__NODE = COMPARABLE_OPERATION_COUNT + 16;
 
 	/**
 	 * The number of operations of the '<em>Node</em>' class.
@@ -1583,6 +1205,564 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 17;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__ID = NODE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__INTERNAL_ID = NODE__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__COMPARISON1 = NODE__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__COMPARISON2 = NODE__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing Mappings</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__OUTGOING_MAPPINGS = NODE__OUTGOING_MAPPINGS;
+
+	/**
+	 * The feature id for the '<em><b>Incoming Mapping</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__INCOMING_MAPPING = NODE__INCOMING_MAPPING;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__GRAPH = NODE__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Result Of</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__RESULT_OF = NODE__RESULT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__NAME = NODE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Translated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__TRANSLATED = NODE__TRANSLATED;
+
+	/**
+	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__PREDICATES_ARE_BEING_TRANSLATED = NODE__PREDICATES_ARE_BEING_TRANSLATED;
+
+	/**
+	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__PREDICATES = NODE__PREDICATES;
+
+	/**
+	 * The feature id for the '<em><b>Incoming</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__INCOMING = NODE__INCOMING;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__OUTGOING = NODE__OUTGOING;
+
+	/**
+	 * The feature id for the '<em><b>Match</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__MATCH = NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GENERATE_QUERY = NODE___GENERATE_QUERY;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_ALL_PARAMETERS = NODE___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___PREPARE_TRANSLATION = NODE___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_VALID__ABSTRACTIONLEVEL = NODE___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_CONTAINER = NODE___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_ANCESTOR__CLASS = NODE___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___MY_TO_STRING = NODE___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___PREPARE_PARAMETER_UPDATES = NODE___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_PARAMETER_LIST = NODE___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_OPERATOR_LIST = NODE___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___CREATE_XML_ADAPTION = NODE___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___FINALIZE_XML_ADAPTION = NODE___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___RECORD_VALUES__XMLDATADATABASE = NODE___RECORD_VALUES__XMLDATADATABASE;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___RELATIONS_XML_ADAPTED = NODE___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___UPDATE_PARAMETERS__PARAMETERLIST = NODE___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___INITIALIZE_TRANSLATION = NODE___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_RETURN_TYPE = NODE___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_TRANSLATABLE = NODE___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_ALL_ARGUMENT_ELEMENTS = NODE___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = NODE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___CREATE_PARAMETERS = NODE___CREATE_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Get Original ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_ORIGINAL_ID = NODE___GET_ORIGINAL_ID;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___ADD_PRIMITIVE_MATCH__STRING = NODE___ADD_PRIMITIVE_MATCH__STRING;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___ADD_PRIMITIVE_COMPARISON__STRING = NODE___ADD_PRIMITIVE_COMPARISON__STRING;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___ADD_PRIMITIVE_MATCH = NODE___ADD_PRIMITIVE_MATCH;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___ADD_PRIMITIVE_COMPARISON = NODE___ADD_PRIMITIVE_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_ALL_OPERATORS = NODE___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE = NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE;
+
+	/**
+	 * The operation id for the '<em>Set Graph Simple</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___SET_GRAPH_SIMPLE__GRAPH = NODE___SET_GRAPH_SIMPLE__GRAPH;
+
+	/**
+	 * The operation id for the '<em>Get Equivalent Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_EQUIVALENT_ELEMENTS__ELIST = NODE___GET_EQUIVALENT_ELEMENTS__ELIST;
+
+	/**
+	 * The operation id for the '<em>Make Primitive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___MAKE_PRIMITIVE = NODE___MAKE_PRIMITIVE;
+
+	/**
+	 * The operation id for the '<em>Make Complex</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___MAKE_COMPLEX = NODE___MAKE_COMPLEX;
+
+	/**
+	 * The operation id for the '<em>Add Target Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___ADD_TARGET_NODE = NODE___ADD_TARGET_NODE;
+
+	/**
+	 * The operation id for the '<em>Add Outgoing</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___ADD_OUTGOING__NODE = NODE___ADD_OUTGOING__NODE;
+
+	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___ADD_COMPARISON = NODE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___IS_OPERATOR_ARGUMENT = NODE_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = NODE_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___CHECK_COMPARISON_CONSISTENCY__COMPARISON = NODE_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Equivalent Properties</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___GET_EQUIVALENT_PROPERTIES = NODE_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY___CHECK_COMPARISON_CONSISTENCY = NODE_OPERATION_COUNT + 5;
+
+	/**
+	 * The number of operations of the '<em>Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPERATION_COUNT = NODE_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -2163,6 +2343,520 @@ public interface GraphstructurePackage extends EPackage {
 	int ADAPTABLE_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.ComplexNodeImpl <em>Complex Node</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.impl.ComplexNodeImpl
+	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getComplexNode()
+	 * @generated
+	 */
+	int COMPLEX_NODE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE__ID = NODE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE__INTERNAL_ID = NODE__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE__COMPARISON1 = NODE__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE__COMPARISON2 = NODE__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing Mappings</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE__OUTGOING_MAPPINGS = NODE__OUTGOING_MAPPINGS;
+
+	/**
+	 * The feature id for the '<em><b>Incoming Mapping</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE__INCOMING_MAPPING = NODE__INCOMING_MAPPING;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE__GRAPH = NODE__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Result Of</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE__RESULT_OF = NODE__RESULT_OF;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE__NAME = NODE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Translated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE__TRANSLATED = NODE__TRANSLATED;
+
+	/**
+	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE__PREDICATES_ARE_BEING_TRANSLATED = NODE__PREDICATES_ARE_BEING_TRANSLATED;
+
+	/**
+	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE__PREDICATES = NODE__PREDICATES;
+
+	/**
+	 * The feature id for the '<em><b>Incoming</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE__INCOMING = NODE__INCOMING;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE__OUTGOING = NODE__OUTGOING;
+
+	/**
+	 * The number of structural features of the '<em>Complex Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GENERATE_QUERY = NODE___GENERATE_QUERY;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GET_ALL_PARAMETERS = NODE___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___PREPARE_TRANSLATION = NODE___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___IS_VALID__ABSTRACTIONLEVEL = NODE___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GET_CONTAINER = NODE___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GET_ANCESTOR__CLASS = NODE___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___MY_TO_STRING = NODE___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___PREPARE_PARAMETER_UPDATES = NODE___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GET_PARAMETER_LIST = NODE___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GET_OPERATOR_LIST = NODE___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___CREATE_XML_ADAPTION = NODE___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___FINALIZE_XML_ADAPTION = NODE___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___RECORD_VALUES__XMLDATADATABASE = NODE___RECORD_VALUES__XMLDATADATABASE;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___RELATIONS_XML_ADAPTED = NODE___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___UPDATE_PARAMETERS__PARAMETERLIST = NODE___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___INITIALIZE_TRANSLATION = NODE___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GET_RETURN_TYPE = NODE___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___IS_TRANSLATABLE = NODE___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GET_ALL_ARGUMENT_ELEMENTS = NODE___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___VALIDATE__DIAGNOSTICCHAIN_MAP = NODE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___CREATE_PARAMETERS = NODE___CREATE_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Get Original ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GET_ORIGINAL_ID = NODE___GET_ORIGINAL_ID;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADD_PRIMITIVE_MATCH__STRING = NODE___ADD_PRIMITIVE_MATCH__STRING;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADD_PRIMITIVE_COMPARISON__STRING = NODE___ADD_PRIMITIVE_COMPARISON__STRING;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Match</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADD_PRIMITIVE_MATCH = NODE___ADD_PRIMITIVE_MATCH;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADD_PRIMITIVE_COMPARISON = NODE___ADD_PRIMITIVE_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GET_ALL_OPERATORS = NODE___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE = NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE;
+
+	/**
+	 * The operation id for the '<em>Set Graph Simple</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___SET_GRAPH_SIMPLE__GRAPH = NODE___SET_GRAPH_SIMPLE__GRAPH;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON = NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Equivalent Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GET_EQUIVALENT_ELEMENTS__ELIST = NODE___GET_EQUIVALENT_ELEMENTS__ELIST;
+
+	/**
+	 * The operation id for the '<em>Make Primitive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___MAKE_PRIMITIVE = NODE___MAKE_PRIMITIVE;
+
+	/**
+	 * The operation id for the '<em>Make Complex</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___MAKE_COMPLEX = NODE___MAKE_COMPLEX;
+
+	/**
+	 * The operation id for the '<em>Add Target Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADD_TARGET_NODE = NODE___ADD_TARGET_NODE;
+
+	/**
+	 * The operation id for the '<em>Add Outgoing</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADD_OUTGOING__NODE = NODE___ADD_OUTGOING__NODE;
+
+	/**
+	 * The number of operations of the '<em>Complex Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.ReturnType <em>Return Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2170,7 +2864,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getReturnType()
 	 * @generated
 	 */
-	int RETURN_TYPE = 6;
+	int RETURN_TYPE = 7;
 
 
 	/**
@@ -2320,27 +3014,6 @@ public interface GraphstructurePackage extends EPackage {
 	EClass getProperty();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.graphstructure.Property#getElement <em>Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Element</em>'.
-	 * @see qualitypatternmodel.graphstructure.Property#getElement()
-	 * @see #getProperty()
-	 * @generated
-	 */
-	EReference getProperty_Element();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#copy() <em>Copy</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Copy</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Property#copy()
-	 * @generated
-	 */
-	EOperation getProperty__Copy();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Property#addComparison() <em>Add Comparison</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2488,17 +3161,6 @@ public interface GraphstructurePackage extends EPackage {
 	EAttribute getNode_PredicatesAreBeingTranslated();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.graphstructure.Node#getProperties <em>Properties</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Properties</em>'.
-	 * @see qualitypatternmodel.graphstructure.Node#getProperties()
-	 * @see #getNode()
-	 * @generated
-	 */
-	EReference getNode_Properties();
-
-	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Node#getPredicates <em>Predicates</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2612,46 +3274,6 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getNode__AddPrimitiveComparison__ParameterValue();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#copyProperty(qualitypatternmodel.graphstructure.Property) <em>Copy Property</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Copy Property</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Node#copyProperty(qualitypatternmodel.graphstructure.Property)
-	 * @generated
-	 */
-	EOperation getNode__CopyProperty__Property();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#copyPrimitiveComparison(qualitypatternmodel.operators.Comparison) <em>Copy Primitive Comparison</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Copy Primitive Comparison</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Node#copyPrimitiveComparison(qualitypatternmodel.operators.Comparison)
-	 * @generated
-	 */
-	EOperation getNode__CopyPrimitiveComparison__Comparison();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#copyMatch(qualitypatternmodel.operators.Match) <em>Copy Match</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Copy Match</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Node#copyMatch(qualitypatternmodel.operators.Match)
-	 * @generated
-	 */
-	EOperation getNode__CopyMatch__Match();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addNewProperty() <em>Add New Property</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add New Property</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Node#addNewProperty()
-	 * @generated
-	 */
-	EOperation getNode__AddNewProperty();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2682,6 +3304,46 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getNode__GetEquivalentElements__EList();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#makePrimitive() <em>Make Primitive</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Make Primitive</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#makePrimitive()
+	 * @generated
+	 */
+	EOperation getNode__MakePrimitive();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#makeComplex() <em>Make Complex</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Make Complex</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#makeComplex()
+	 * @generated
+	 */
+	EOperation getNode__MakeComplex();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addTargetNode() <em>Add Target Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Target Node</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#addTargetNode()
+	 * @generated
+	 */
+	EOperation getNode__AddTargetNode();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addOutgoing(qualitypatternmodel.graphstructure.Node) <em>Add Outgoing</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Outgoing</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#addOutgoing(qualitypatternmodel.graphstructure.Node)
+	 * @generated
+	 */
+	EOperation getNode__AddOutgoing__Node();
+
+	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Property#getMatch <em>Match</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2691,17 +3353,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProperty_Match();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Property#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see qualitypatternmodel.graphstructure.Property#getName()
-	 * @see #getProperty()
-	 * @generated
-	 */
-	EAttribute getProperty_Name();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
@@ -2944,6 +3595,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getAdaptable__CreateParameters();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.ComplexNode <em>Complex Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Complex Node</em>'.
+	 * @see qualitypatternmodel.graphstructure.ComplexNode
+	 * @generated
+	 */
+	EClass getComplexNode();
+
+	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.graphstructure.ReturnType <em>Return Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3093,22 +3754,6 @@ public interface GraphstructurePackage extends EPackage {
 		EClass PROPERTY = eINSTANCE.getProperty();
 
 		/**
-		 * The meta object literal for the '<em><b>Element</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPERTY__ELEMENT = eINSTANCE.getProperty_Element();
-
-		/**
-		 * The meta object literal for the '<em><b>Copy</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PROPERTY___COPY = eINSTANCE.getProperty__Copy();
-
-		/**
 		 * The meta object literal for the '<em><b>Add Comparison</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3223,14 +3868,6 @@ public interface GraphstructurePackage extends EPackage {
 		EAttribute NODE__PREDICATES_ARE_BEING_TRANSLATED = eINSTANCE.getNode_PredicatesAreBeingTranslated();
 
 		/**
-		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NODE__PROPERTIES = eINSTANCE.getNode_Properties();
-
-		/**
 		 * The meta object literal for the '<em><b>Predicates</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3319,38 +3956,6 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = eINSTANCE.getNode__AddPrimitiveComparison__ParameterValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Copy Property</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NODE___COPY_PROPERTY__PROPERTY = eINSTANCE.getNode__CopyProperty__Property();
-
-		/**
-		 * The meta object literal for the '<em><b>Copy Primitive Comparison</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NODE___COPY_PRIMITIVE_COMPARISON__COMPARISON = eINSTANCE.getNode__CopyPrimitiveComparison__Comparison();
-
-		/**
-		 * The meta object literal for the '<em><b>Copy Match</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NODE___COPY_MATCH__MATCH = eINSTANCE.getNode__CopyMatch__Match();
-
-		/**
-		 * The meta object literal for the '<em><b>Add New Property</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NODE___ADD_NEW_PROPERTY = eINSTANCE.getNode__AddNewProperty();
-
-		/**
 		 * The meta object literal for the '<em><b>Set Graph Simple</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3375,20 +3980,44 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation NODE___GET_EQUIVALENT_ELEMENTS__ELIST = eINSTANCE.getNode__GetEquivalentElements__EList();
 
 		/**
+		 * The meta object literal for the '<em><b>Make Primitive</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___MAKE_PRIMITIVE = eINSTANCE.getNode__MakePrimitive();
+
+		/**
+		 * The meta object literal for the '<em><b>Make Complex</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___MAKE_COMPLEX = eINSTANCE.getNode__MakeComplex();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Target Node</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___ADD_TARGET_NODE = eINSTANCE.getNode__AddTargetNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Outgoing</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___ADD_OUTGOING__NODE = eINSTANCE.getNode__AddOutgoing__Node();
+
+		/**
 		 * The meta object literal for the '<em><b>Match</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PROPERTY__MATCH = eINSTANCE.getProperty_Match();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROPERTY__NAME = eINSTANCE.getProperty_Name();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -3579,6 +4208,16 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ADAPTABLE___CREATE_PARAMETERS = eINSTANCE.getAdaptable__CreateParameters();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.ComplexNodeImpl <em>Complex Node</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.graphstructure.impl.ComplexNodeImpl
+		 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getComplexNode()
+		 * @generated
+		 */
+		EClass COMPLEX_NODE = eINSTANCE.getComplexNode();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.ReturnType <em>Return Type</em>}' enum.

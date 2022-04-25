@@ -1462,22 +1462,13 @@ public interface OperatorsPackage extends EPackage {
 	int MATCH___GET_ELEMENT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Copy</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATCH___COPY = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
-
-	/**
 	 * The number of operations of the '<em>Match</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 2;
+	int MATCH_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.impl.ComparisonImpl <em>Comparison</em>}' class.
@@ -2373,16 +2364,6 @@ public interface OperatorsPackage extends EPackage {
 	EOperation getMatch__GetElement();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.operators.Match#copy() <em>Copy</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Copy</em>' operation.
-	 * @see qualitypatternmodel.operators.Match#copy()
-	 * @generated
-	 */
-	EOperation getMatch__Copy();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.operators.Comparison <em>Comparison</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2711,14 +2692,6 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation MATCH___GET_ELEMENT = eINSTANCE.getMatch__GetElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Copy</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation MATCH___COPY = eINSTANCE.getMatch__Copy();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.operators.impl.ComparisonImpl <em>Comparison</em>}' class.

@@ -11,7 +11,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -24,6 +23,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Adaptable;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
@@ -73,10 +73,9 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getPredicates <em>Predicates</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getOutgoing <em>Outgoing</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getIncoming <em>Incoming</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getOutgoing <em>Outgoing</em>}</li>
  * </ul>
  *
  * @generated
@@ -205,17 +204,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	protected boolean predicatesAreBeingTranslated = PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * A list of <code>Properties</code> of <code>this</code> that are expected to exist and may serve as an argument to an <code>Operator</code>.
-	 * <!-- end-user-doc -->
-	 * @see #getProperties()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Property> properties;
-
-	/**
 	 * The cached value of the '{@link #getPredicates() <em>Predicates</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * A list of <code>BooleanOperators</code> that have <code>this</code> or one of its <code>properties</code> as a direct or indirect argument.
@@ -227,17 +215,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	protected EList<BooleanOperator> predicates;
 
 	/**
-	 * The cached value of the '{@link #getOutgoing() <em>Outgoing</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * A list of outgoing <code>Relations</code>.
-	 * <!-- end-user-doc -->
-	 * @see #getOutgoing()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Relation> outgoing;
-
-	/**
 	 * The cached value of the '{@link #getIncoming() <em>Incoming</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * A list of incoming <code>Relations</code>.
@@ -247,6 +224,17 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @ordered
 	 */
 	protected EList<Relation> incoming;
+
+	/**
+	 * The cached value of the '{@link #getOutgoing() <em>Outgoing</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * A list of outgoing <code>Relations</code>.
+	 * <!-- end-user-doc -->
+	 * @see #getOutgoing()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Relation> outgoing;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -292,22 +280,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		for (BooleanOperator predicate : getPredicates())
 			if (predicate == null)
 				throw new InvalidityException("predicate null (" + predicate + ")");
-		
-		if ( abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE) {
-			for(Property property : getProperties()) {
-				if(!property.getClass().equals(PropertyImpl.class)) {
-					throw new InvalidityException("Generic pattern contains non-generic class (" + getInternalId() + ")");
-				}
-			}
-		} 
-
-		if ( abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
-			for(Property property : getProperties()) {
-				if(property.getClass().equals(PropertyImpl.class)) {
-					throw new InvalidityException("Non-generic pattern contains generic Property (" + getInternalId() + ")");
-				}				
-			}			
-		}		
 	}
 
 	@Override
@@ -598,19 +570,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated
 	 */
 	@Override
-	public EList<Property> getProperties() {
-		if (properties == null) {
-			properties = new EObjectContainmentWithInverseEList<Property>(Property.class, this, GraphstructurePackage.NODE__PROPERTIES, GraphstructurePackage.PROPERTY__ELEMENT);
-		}
-		return properties;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<BooleanOperator> getPredicates() {
 		if (predicates == null) {
 			predicates = new EObjectWithInverseResolvingEList.ManyInverse<BooleanOperator>(BooleanOperator.class, this, GraphstructurePackage.NODE__PREDICATES, OperatorsPackage.BOOLEAN_OPERATOR__NODES);
@@ -868,6 +827,54 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated
 	 */
 	@Override
+	public Property makePrimitive() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ComplexNode makeComplex() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void addTargetNode() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void addOutgoing(Node node) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Graph getResultOf() {
 		if (resultOf != null && resultOf.eIsProxy()) {
 			InternalEObject oldResultOf = (InternalEObject)resultOf;
@@ -975,14 +982,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				if (resultOf != null)
 					msgs = ((InternalEObject)resultOf).eInverseRemove(this, GraphstructurePackage.GRAPH__RETURN_NODES, Graph.class, msgs);
 				return basicSetResultOf((Graph)otherEnd, msgs);
-			case GraphstructurePackage.NODE__PROPERTIES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.NODE__PREDICATES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPredicates()).basicAdd(otherEnd, msgs);
-			case GraphstructurePackage.NODE__OUTGOING:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutgoing()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.NODE__INCOMING:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIncoming()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.NODE__OUTGOING:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutgoing()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -1006,14 +1011,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return basicSetGraph(null, msgs);
 			case GraphstructurePackage.NODE__RESULT_OF:
 				return basicSetResultOf(null, msgs);
-			case GraphstructurePackage.NODE__PROPERTIES:
-				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.NODE__PREDICATES:
 				return ((InternalEList<?>)getPredicates()).basicRemove(otherEnd, msgs);
-			case GraphstructurePackage.NODE__OUTGOING:
-				return ((InternalEList<?>)getOutgoing()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.NODE__INCOMING:
 				return ((InternalEList<?>)getIncoming()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.NODE__OUTGOING:
+				return ((InternalEList<?>)getOutgoing()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1058,14 +1061,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return isTranslated();
 			case GraphstructurePackage.NODE__PREDICATES_ARE_BEING_TRANSLATED:
 				return isPredicatesAreBeingTranslated();
-			case GraphstructurePackage.NODE__PROPERTIES:
-				return getProperties();
 			case GraphstructurePackage.NODE__PREDICATES:
 				return getPredicates();
-			case GraphstructurePackage.NODE__OUTGOING:
-				return getOutgoing();
 			case GraphstructurePackage.NODE__INCOMING:
 				return getIncoming();
+			case GraphstructurePackage.NODE__OUTGOING:
+				return getOutgoing();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1108,21 +1109,17 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE__PREDICATES_ARE_BEING_TRANSLATED:
 				setPredicatesAreBeingTranslated((Boolean)newValue);
 				return;
-			case GraphstructurePackage.NODE__PROPERTIES:
-				getProperties().clear();
-				getProperties().addAll((Collection<? extends Property>)newValue);
-				return;
 			case GraphstructurePackage.NODE__PREDICATES:
 				getPredicates().clear();
 				getPredicates().addAll((Collection<? extends BooleanOperator>)newValue);
 				return;
-			case GraphstructurePackage.NODE__OUTGOING:
-				getOutgoing().clear();
-				getOutgoing().addAll((Collection<? extends Relation>)newValue);
-				return;
 			case GraphstructurePackage.NODE__INCOMING:
 				getIncoming().clear();
 				getIncoming().addAll((Collection<? extends Relation>)newValue);
+				return;
+			case GraphstructurePackage.NODE__OUTGOING:
+				getOutgoing().clear();
+				getOutgoing().addAll((Collection<? extends Relation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1162,17 +1159,14 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE__PREDICATES_ARE_BEING_TRANSLATED:
 				setPredicatesAreBeingTranslated(PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT);
 				return;
-			case GraphstructurePackage.NODE__PROPERTIES:
-				getProperties().clear();
-				return;
 			case GraphstructurePackage.NODE__PREDICATES:
 				getPredicates().clear();
 				return;
-			case GraphstructurePackage.NODE__OUTGOING:
-				getOutgoing().clear();
-				return;
 			case GraphstructurePackage.NODE__INCOMING:
 				getIncoming().clear();
+				return;
+			case GraphstructurePackage.NODE__OUTGOING:
+				getOutgoing().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -1203,14 +1197,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return translated != TRANSLATED_EDEFAULT;
 			case GraphstructurePackage.NODE__PREDICATES_ARE_BEING_TRANSLATED:
 				return predicatesAreBeingTranslated != PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
-			case GraphstructurePackage.NODE__PROPERTIES:
-				return properties != null && !properties.isEmpty();
 			case GraphstructurePackage.NODE__PREDICATES:
 				return predicates != null && !predicates.isEmpty();
-			case GraphstructurePackage.NODE__OUTGOING:
-				return outgoing != null && !outgoing.isEmpty();
 			case GraphstructurePackage.NODE__INCOMING:
 				return incoming != null && !incoming.isEmpty();
+			case GraphstructurePackage.NODE__OUTGOING:
+				return outgoing != null && !outgoing.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1261,21 +1253,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE:
 				addPrimitiveComparison((ParameterValue)arguments.get(0));
 				return null;
-			case GraphstructurePackage.NODE___COPY_PROPERTY__PROPERTY:
-				return copyProperty((Property)arguments.get(0));
-			case GraphstructurePackage.NODE___COPY_PRIMITIVE_COMPARISON__COMPARISON:
-				try {
-					copyPrimitiveComparison((Comparison)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.NODE___COPY_MATCH__MATCH:
-				copyMatch((Match)arguments.get(0));
-				return null;
-			case GraphstructurePackage.NODE___ADD_NEW_PROPERTY:
-				return addNewProperty();
 			case GraphstructurePackage.NODE___SET_GRAPH_SIMPLE__GRAPH:
 				setGraphSimple((Graph)arguments.get(0));
 				return null;
@@ -1289,6 +1266,16 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				}
 			case GraphstructurePackage.NODE___GET_EQUIVALENT_ELEMENTS__ELIST:
 				getEquivalentElements((EList<Node>)arguments.get(0));
+				return null;
+			case GraphstructurePackage.NODE___MAKE_PRIMITIVE:
+				return makePrimitive();
+			case GraphstructurePackage.NODE___MAKE_COMPLEX:
+				return makeComplex();
+			case GraphstructurePackage.NODE___ADD_TARGET_NODE:
+				addTargetNode();
+				return null;
+			case GraphstructurePackage.NODE___ADD_OUTGOING__NODE:
+				addOutgoing((Node)arguments.get(0));
 				return null;
 			case GraphstructurePackage.NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
@@ -1314,8 +1301,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		res += this.getClass().getSimpleName();
 		if (getName() != null) res +=  " " + getName();
 		res += " [" + getInternalId() + "]";
-		for (Property prop : getProperties())
-			res += "\n  " + prop.myToString();
 		return res;
 	}
 
@@ -1335,9 +1320,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 			EList<Parameter> res = new BasicEList<Parameter>();
-			for (Property p : getProperties()) {
-				res.addAll(p.getAllParameters());
-			}
 			for (Operator op : getPredicates()) {
 				res.addAll(op.getAllParameters());
 			}
@@ -1365,17 +1347,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			ParameterList varlist = completePattern.getParameterList();
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
-			
-			Property property = new PropertyImpl();			
-			getProperties().add(property);
-			property.createParameters();
-	
+				
 			UntypedParameterValue untypedParameterValue = new UntypedParameterValueImpl();
 			varlist.add(untypedParameterValue);
 	
 			oplist.add(comparison);	
 			comparison.createParameters();
-			comparison.setArgument1(property);
+			comparison.setArgument1(makePrimitive());
 			comparison.setArgument2(untypedParameterValue);						
 			
 			return untypedParameterValue;
@@ -1400,20 +1378,16 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			ParameterList varlist = completePattern.getParameterList();
 			Graph graph = getGraph();
 			OperatorList oplist = graph.getOperatorList();
-			
-			Property property = new PropertyImpl();
-			getProperties().add(property);
-//			property.createParameters();
-//			property.getOption().setValue(PropertyLocation.TAG);
-			
+						
 			TextLiteralParamImpl textlit = new TextLiteralParamImpl();
 			varlist.add(textlit);
 			textlit.setValue(value);
 	
 			oplist.add(comparison);	
 			comparison.createParameters();
-			comparison.setArgument1(property);
-			comparison.setArgument2(textlit);			
+			comparison.setArgument1(makePrimitive());
+			comparison.setArgument2(textlit);
+						
 		} catch (Exception e) {
 			System.out.println("Adding Condition Failed: " + e.getMessage());
 			e.printStackTrace();
@@ -1443,15 +1417,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			ParameterList varlist = completePattern.getParameterList();
 			Graph graph = (Graph) getAncestor(Graph.class);
 			OperatorList oplist = graph.getOperatorList();
-			Property property1 = new PropertyImpl();			
-			getProperties().add(property1);
-			
 			varlist.add(parameter);
 	
 			oplist.add(comparison);	
 			comparison.createParameters();
 			comparison.getOption().setValue(operator);
-			comparison.setArgument1(property1);
+			comparison.setArgument1(makePrimitive());
 			comparison.setArgument2(parameter);				
 		} catch (Exception e) {
 			System.out.println("Adding Condition Failed: " + e.getMessage());
@@ -1479,13 +1450,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			try {			
 				Graph graph = (Graph) getAncestor(Graph.class);
 				OperatorList oplist = graph.getOperatorList();
-				
-				Property property = new PropertyImpl();
-				getProperties().add(property);				
 	
 				oplist.add(match);	
 				match.createParameters();
-				match.setProperty(property);
+				match.setProperty(makePrimitive());
 									
 				if(regex != null) {
 					match.getRegularExpression().setValue(regex);
@@ -1520,80 +1488,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
-		for(Property p : getProperties()) {
-			patternElements.add(p);			
-		}
+		if (this instanceof Property)
+			patternElements.add(this);			
 		return patternElements;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public Property copyProperty(Property property) {
-		Property newProperty = property.copy();	
-		getProperties().add(newProperty);		
-		return newProperty;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
-	 * @generated NOT
-	 */
-	@Override
-	public void copyPrimitiveComparison(Comparison comparison) throws InvalidityException {
-		if(!(comparison.getArgument1() instanceof Property) && !(comparison.getArgument2() instanceof Property)) {			
-			throw new InvalidityException("comparison not primitive");
-		}
-		if(!(comparison.getArgument1() instanceof Parameter) && !(comparison.getArgument2() instanceof Parameter)) {			
-			throw new InvalidityException("comparison not primitive");
-		}
-		Comparison newComparison = comparison.copy();
-		if(comparison.getArgument1() instanceof Property) {
-			Property property = (Property) comparison.getArgument1();
-			Property newProperty = copyProperty(property);
-			getProperties().add(newProperty);	
-			newComparison.setArgument1(newProperty);
-		} else {
-			newComparison.setArgument1(comparison.getArgument1());
-		}
-		if(comparison.getArgument2() instanceof Property) {
-			Property property = (Property) comparison.getArgument2();
-			Property newProperty = copyProperty(property);
-			getProperties().add(newProperty);
-			newComparison.setArgument2(newProperty);
-		} else {
-			newComparison.setArgument2(comparison.getArgument2());
-		}		
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void copyMatch(Match match) {
-		Match newMatch = match.copy();
-		getProperties().add(newMatch.getProperty());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public Property addNewProperty() {
-		Property prop = new PropertyImpl();
-		getProperties().add(prop);
-		prop.createParameters();
-		return prop;
-	}
 
 	/**
 	 * <!-- begin-user-doc -->

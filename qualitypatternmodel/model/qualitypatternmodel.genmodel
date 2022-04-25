@@ -207,7 +207,6 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//operators/Match/regularExpression"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/Match/getElement"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//operators/Match/copy"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//operators/Comparison">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -263,11 +262,8 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/getOriginalID"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Property">
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Property/element"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Property/match"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Property/name"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/copy"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/addComparison"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/isOperatorArgument"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Property/checkComparisonConsistency">
@@ -290,13 +286,12 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Node/name"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Node/translated"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Node/predicatesAreBeingTranslated"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/properties"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/predicates"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/outgoing"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/incoming"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/outgoing"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/getOriginalID"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatch">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatch/regex"/>
@@ -314,16 +309,6 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison.3">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveComparison.3/input"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/copyProperty">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/copyProperty/property"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/copyPrimitiveComparison">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/copyPrimitiveComparison/comparison"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/copyMatch">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/copyMatch/match"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addNewProperty"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/setGraphSimple">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/setGraphSimple/newGraph"/>
         </genOperations>
@@ -332,6 +317,12 @@
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/getEquivalentElements">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/getEquivalentElements/equivalentElements"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/makePrimitive"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/makeComplex"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addTargetNode"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addOutgoing">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addOutgoing/node"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Graph">
@@ -373,6 +364,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Adaptable/removeParametersFromParameterList"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Adaptable/createParameters"/>
       </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/ComplexNode"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Patternstructure" basePackage="qualitypatternmodel"
         disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//patternstructure">

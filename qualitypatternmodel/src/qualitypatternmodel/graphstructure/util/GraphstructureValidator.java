@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import qualitypatternmodel.graphstructure.Adaptable;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Property;
@@ -119,6 +120,8 @@ public class GraphstructureValidator extends EObjectValidator {
 				return validateComparable((qualitypatternmodel.graphstructure.Comparable)value, diagnostics, context);
 			case GraphstructurePackage.ADAPTABLE:
 				return validateAdaptable((Adaptable)value, diagnostics, context);
+			case GraphstructurePackage.COMPLEX_NODE:
+				return validateComplexNode((ComplexNode)value, diagnostics, context);
 			case GraphstructurePackage.RETURN_TYPE:
 				return validateReturnType((ReturnType)value, diagnostics, context);
 			default:
@@ -247,6 +250,25 @@ public class GraphstructureValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(adaptable, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(adaptable, diagnostics, context);
 		if (result || diagnostics != null) result &= patternstructureValidator.validatePatternElement_validate(adaptable, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateComplexNode(ComplexNode complexNode, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(complexNode, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(complexNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(complexNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(complexNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(complexNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(complexNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(complexNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(complexNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(complexNode, diagnostics, context);
+		if (result || diagnostics != null) result &= validateComparable_validate(complexNode, diagnostics, context);
 		return result;
 	}
 

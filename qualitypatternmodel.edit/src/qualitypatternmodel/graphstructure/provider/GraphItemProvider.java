@@ -225,7 +225,22 @@ public class GraphItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__NODES,
+				 GraphstructureFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__NODES,
+				 GraphstructureFactory.eINSTANCE.createComplexNode()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__NODES,
 				 AdaptionxmlFactory.eINSTANCE.createXmlElement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__NODES,
+				 AdaptionxmlFactory.eINSTANCE.createXmlProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter

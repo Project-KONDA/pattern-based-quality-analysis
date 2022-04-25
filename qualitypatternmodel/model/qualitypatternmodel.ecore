@@ -240,7 +240,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="NumberOperator" abstract="true" eSuperTypes="#//operators/Operator"/>
     <eClassifiers xsi:type="ecore:EClass" name="Match" eSuperTypes="#//operators/BooleanOperator">
       <eOperations name="getElement" eType="#//graphstructure/Node"/>
-      <eOperations name="copy" eType="#//operators/Match"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//graphstructure/Property"
           eOpposite="#//graphstructure/Property/match"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
@@ -303,8 +302,7 @@
           eOpposite="#//graphstructure/Node/incoming"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
-      <eOperations name="copy" eType="#//graphstructure/Property"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//graphstructure/Node">
       <eOperations name="addComparison" eType="#//operators/Comparison"/>
       <eOperations name="isOperatorArgument" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
@@ -315,11 +313,8 @@
       </eOperations>
       <eOperations name="getEquivalentProperties" upperBound="-1" eType="#//graphstructure/Property"/>
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="element" lowerBound="1"
-          eType="#//graphstructure/Node" eOpposite="#//graphstructure/Node/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="match" upperBound="-1"
           eType="#//operators/Match" eOpposite="#//operators/Match/property"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -339,16 +334,6 @@
       <eOperations name="addPrimitiveComparison">
         <eParameters name="input" eType="#//parameters/ParameterValue"/>
       </eOperations>
-      <eOperations name="copyProperty" eType="#//graphstructure/Property">
-        <eParameters name="property" eType="#//graphstructure/Property"/>
-      </eOperations>
-      <eOperations name="copyPrimitiveComparison" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="comparison" eType="#//operators/Comparison"/>
-      </eOperations>
-      <eOperations name="copyMatch">
-        <eParameters name="match" eType="#//operators/Match"/>
-      </eOperations>
-      <eOperations name="addNewProperty" eType="#//graphstructure/Property"/>
       <eOperations name="setGraphSimple">
         <eParameters name="newGraph" eType="#//graphstructure/Graph"/>
       </eOperations>
@@ -357,6 +342,12 @@
       </eOperations>
       <eOperations name="getEquivalentElements">
         <eParameters name="equivalentElements" upperBound="-1" eType="#//graphstructure/Node"/>
+      </eOperations>
+      <eOperations name="makePrimitive" eType="#//graphstructure/Property"/>
+      <eOperations name="makeComplex" eType="#//graphstructure/ComplexNode"/>
+      <eOperations name="addTargetNode"/>
+      <eOperations name="addOutgoing">
+        <eParameters name="node" eType="#//graphstructure/Node"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
           eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/source"/>
@@ -371,14 +362,12 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="predicatesAreBeingTranslated"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-          eType="#//graphstructure/Property" containment="true" eOpposite="#//graphstructure/Property/element"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="predicates" upperBound="-1"
           eType="#//operators/BooleanOperator" eOpposite="#//operators/BooleanOperator/nodes"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" upperBound="-1"
-          eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" upperBound="-1"
           eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/target"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" upperBound="-1"
+          eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/source"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Graph" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"/>
@@ -441,6 +430,7 @@
       <eOperations name="removeParametersFromParameterList"/>
       <eOperations name="createParameters"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ComplexNode" eSuperTypes="#//graphstructure/Node"/>
   </eSubpackages>
   <eSubpackages name="patternstructure" nsURI="patternstructure" nsPrefix="patternstructure">
     <eClassifiers xsi:type="ecore:EClass" name="RelationMapping" eSuperTypes="#//patternstructure/Mapping">

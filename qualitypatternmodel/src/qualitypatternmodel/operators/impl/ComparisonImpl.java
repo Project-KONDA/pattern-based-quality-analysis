@@ -564,9 +564,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	private void removeOldArgumentElementsFromRootOperator(qualitypatternmodel.graphstructure.Comparable oldArgument, BooleanOperator rootOperator) {
-		if (oldArgument != null && oldArgument instanceof Property && ((Property) oldArgument).getElement() != null) {
-			rootOperator.removeElement(((Property) oldArgument).getElement());
-		}
 		if (oldArgument != null && oldArgument instanceof Node) {
 			rootOperator.removeElement((Node) oldArgument);
 		}
@@ -595,13 +592,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			for (BooleanOperator boolOp : rootBooleanOperators) {
 				if (newArgument != null) {
 					boolOp.addElement((Node) newArgument);
-				}
-			}
-		}
-		if (newArgument instanceof Property && ((Property) newArgument).getElement() != null) {
-			for (BooleanOperator boolOp : rootBooleanOperators) {
-				if (newArgument != null) {
-					boolOp.addElement(((Property) newArgument).getElement());
 				}
 			}
 		}
@@ -770,10 +760,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	public Node getElement() {
 		if(isPrimitive()) {
 			if(getArgument1() instanceof Property) {
-				return ((Property) getArgument1()).getElement();
+				return (Property) getArgument1();
 			}
 			if(getArgument2() instanceof Property) {
-				return ((Property) getArgument2()).getElement();
+				return (Property) getArgument2();
 			}
 		} 
 		return null;

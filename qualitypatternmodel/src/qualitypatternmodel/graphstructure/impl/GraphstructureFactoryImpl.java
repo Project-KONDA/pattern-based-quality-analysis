@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -66,6 +67,7 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 			case GraphstructurePackage.PROPERTY: return createProperty();
 			case GraphstructurePackage.NODE: return createNode();
 			case GraphstructurePackage.GRAPH: return createGraph();
+			case GraphstructurePackage.COMPLEX_NODE: return createComplexNode();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -143,6 +145,17 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	public Graph createGraph() {
 		GraphImpl graph = new GraphImpl();
 		return graph;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ComplexNode createComplexNode() {
+		ComplexNodeImpl complexNode = new ComplexNodeImpl();
+		return complexNode;
 	}
 
 	/**

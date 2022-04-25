@@ -85,19 +85,6 @@ public interface Match extends BooleanOperator {
 	Node getElement();
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * Returns a copy of <code>this</code> that references the same <code>option</code> and
-	 * <code>regularExpression</code> as well as a copy of <code>property</code>.
-	 * 
-	 * @return a copy of <code>this</code> that references the same <code>option</code> and
-	 * <code>regularExpression</code> as well as a copy of <code>property</code>
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	Match copy();
-
-	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.BooleanParam#getMatches <em>Matches</em>}'.
 	 * <!-- begin-user-doc -->

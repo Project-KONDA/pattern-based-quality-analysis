@@ -411,7 +411,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 		String res = "Angabe des Eigenschaft-Types";
 		try {
 			for(Property property : getProperties()) {
-				Node e = property.getElement();
+				Node e = property;
 				res += " von " + e.getName();
 			
 			}

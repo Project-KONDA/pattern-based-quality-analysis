@@ -229,10 +229,10 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		if(newProperty != null || oldProperty != null) {
 			for(BooleanOperator boolOp : getRootBooleanOperators()) {
 				if(newProperty != null) {
-					boolOp.addElement(newProperty.getElement());
+					boolOp.addElement(newProperty);
 				}
 				if(oldProperty != null) {
-					boolOp.removeElement(oldProperty.getElement());
+					boolOp.removeElement(oldProperty);
 				}
 			}
 		}
@@ -339,22 +339,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	 */
 	@Override
 	public Node getElement() {
-		return getProperty().getElement();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public Match copy() {
-		Match newMatch = new MatchImpl();
-		newMatch.setOption(getOption());
-		newMatch.setRegularExpression(getRegularExpression());		
-		Property newProperty = getProperty().copy();
-		newMatch.setProperty(newProperty);
-		return newMatch;
+		return getProperty();
 	}
 	
 	@Override
@@ -570,8 +555,6 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		switch (operationID) {
 			case OperatorsPackage.MATCH___GET_ELEMENT:
 				return getElement();
-			case OperatorsPackage.MATCH___COPY:
-				return copy();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

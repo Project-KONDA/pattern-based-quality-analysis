@@ -105,6 +105,7 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				XmlProperty xmlProperty = (XmlProperty)theEObject;
 				T result = caseXmlProperty(xmlProperty);
 				if (result == null) result = caseProperty(xmlProperty);
+				if (result == null) result = caseNode(xmlProperty);
 				if (result == null) result = caseComparable(xmlProperty);
 				if (result == null) result = caseAdaptable(xmlProperty);
 				if (result == null) result = casePatternElement(xmlProperty);

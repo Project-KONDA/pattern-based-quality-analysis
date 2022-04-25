@@ -164,6 +164,29 @@ public class GraphstructureItemProviderAdapterFactory extends GraphstructureAdap
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.graphstructure.ComplexNode} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComplexNodeItemProvider complexNodeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.graphstructure.ComplexNode}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createComplexNodeAdapter() {
+		if (complexNodeItemProvider == null) {
+			complexNodeItemProvider = new ComplexNodeItemProvider(this);
+		}
+
+		return complexNodeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -272,6 +295,7 @@ public class GraphstructureItemProviderAdapterFactory extends GraphstructureAdap
 		if (propertyItemProvider != null) propertyItemProvider.dispose();
 		if (nodeItemProvider != null) nodeItemProvider.dispose();
 		if (graphItemProvider != null) graphItemProvider.dispose();
+		if (complexNodeItemProvider != null) complexNodeItemProvider.dispose();
 	}
 
 }
