@@ -71,17 +71,17 @@ public interface Relation extends PatternElement, Adaptable {
 
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Node#getOutgoing <em>Outgoing</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.ComplexNode#getOutgoing <em>Outgoing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
-	 * @see #setSource(Node)
+	 * @see #setSource(ComplexNode)
 	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Source()
-	 * @see qualitypatternmodel.graphstructure.Node#getOutgoing
+	 * @see qualitypatternmodel.graphstructure.ComplexNode#getOutgoing
 	 * @model opposite="outgoing"
 	 * @generated
 	 */
-	Node getSource();
+	ComplexNode getSource();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getSource <em>Source</em>}' reference.
@@ -91,7 +91,7 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @see #getSource()
 	 * @generated
 	 */
-	void setSource(Node value);
+	void setSource(ComplexNode value);
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.

@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.adaptionxml;
 
-import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.ComplexNode;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,5 +16,5 @@ import qualitypatternmodel.graphstructure.Node;
  * @model
  * @generated
  */
-public interface XmlRoot extends Node {
+public interface XmlRoot extends ComplexNode {
 } // XMLRoot

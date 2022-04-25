@@ -59,7 +59,6 @@ public class NodeItemProvider extends PatternElementItemProvider {
 			addPredicatesAreBeingTranslatedPropertyDescriptor(object);
 			addPredicatesPropertyDescriptor(object);
 			addIncomingPropertyDescriptor(object);
-			addOutgoingPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -254,28 +253,6 @@ public class NodeItemProvider extends PatternElementItemProvider {
 				 getString("_UI_Node_predicates_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Node_predicates_feature", "_UI_Node_type"),
 				 GraphstructurePackage.Literals.NODE__PREDICATES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Outgoing feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOutgoingPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Node_outgoing_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Node_outgoing_feature", "_UI_Node_type"),
-				 GraphstructurePackage.Literals.NODE__OUTGOING,
 				 true,
 				 false,
 				 true,

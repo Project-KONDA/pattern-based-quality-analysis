@@ -75,7 +75,6 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getIncoming <em>Incoming</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getOutgoing <em>Outgoing</em>}</li>
  * </ul>
  *
  * @generated
@@ -226,17 +225,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	protected EList<Relation> incoming;
 
 	/**
-	 * The cached value of the '{@link #getOutgoing() <em>Outgoing</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * A list of outgoing <code>Relations</code>.
-	 * <!-- end-user-doc -->
-	 * @see #getOutgoing()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Relation> outgoing;
-
-	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated NOT
@@ -312,7 +300,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			setResultOf(null);
 			
 			EList<Relation> outgoingCopy = new BasicEList<Relation>();
-			outgoingCopy.addAll(getOutgoing());
+			if (this instanceof ComplexNode)
+				outgoingCopy.addAll(((ComplexNode) this).getOutgoing());
 			for(Relation relation : outgoingCopy) {
 				relation.setSource(xmlElement);
 			}
@@ -581,19 +570,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated
 	 */
 	@Override
-	public EList<Relation> getOutgoing() {
-		if (outgoing == null) {
-			outgoing = new EObjectWithInverseResolvingEList<Relation>(Relation.class, this, GraphstructurePackage.NODE__OUTGOING, GraphstructurePackage.RELATION__SOURCE);
-		}
-		return outgoing;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<Relation> getIncoming() {
 		if (incoming == null) {
 			incoming = new EObjectWithInverseResolvingEList<Relation>(Relation.class, this, GraphstructurePackage.NODE__INCOMING, GraphstructurePackage.RELATION__TARGET);
@@ -651,7 +627,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	private void deleteRelations(Graph newGraph) {
 		EList<Relation> relations = new BasicEList<Relation>();
 		relations.addAll(getIncoming());
-		relations.addAll(getOutgoing());
+		relations.addAll(((ComplexNode) this).getOutgoing());
 		for (Relation rel : relations) {
 			if(rel.getGraph() != null && !rel.getGraph().equals(newGraph)) {
 				rel.setGraph(null);			
@@ -984,8 +960,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPredicates()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.NODE__INCOMING:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIncoming()).basicAdd(otherEnd, msgs);
-			case GraphstructurePackage.NODE__OUTGOING:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutgoing()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -1013,8 +987,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return ((InternalEList<?>)getPredicates()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.NODE__INCOMING:
 				return ((InternalEList<?>)getIncoming()).basicRemove(otherEnd, msgs);
-			case GraphstructurePackage.NODE__OUTGOING:
-				return ((InternalEList<?>)getOutgoing()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1063,8 +1035,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return getPredicates();
 			case GraphstructurePackage.NODE__INCOMING:
 				return getIncoming();
-			case GraphstructurePackage.NODE__OUTGOING:
-				return getOutgoing();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1115,10 +1085,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				getIncoming().clear();
 				getIncoming().addAll((Collection<? extends Relation>)newValue);
 				return;
-			case GraphstructurePackage.NODE__OUTGOING:
-				getOutgoing().clear();
-				getOutgoing().addAll((Collection<? extends Relation>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1163,9 +1129,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE__INCOMING:
 				getIncoming().clear();
 				return;
-			case GraphstructurePackage.NODE__OUTGOING:
-				getOutgoing().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1199,8 +1162,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return predicates != null && !predicates.isEmpty();
 			case GraphstructurePackage.NODE__INCOMING:
 				return incoming != null && !incoming.isEmpty();
-			case GraphstructurePackage.NODE__OUTGOING:
-				return outgoing != null && !outgoing.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -168,8 +168,7 @@ public class XmlPropertyItemProvider extends PrimitiveNodeItemProvider {
 //			getString("_UI_XmlProperty_type") + " " + label;
 		
 		XmlProperty property = (XmlProperty) object;
-		String elementName = getString("_UI_XmlElement_type") + " \"" + property.getElement().getName()+"\"";
-		return getString("_UI_XmlProperty_type") + " \"" + property.getName() + "\" (of " + elementName + ")";
+		return getString("_UI_XmlProperty_type") + " \"" + property.getName();
 	}
 
 
@@ -183,6 +182,7 @@ public class XmlPropertyItemProvider extends PrimitiveNodeItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

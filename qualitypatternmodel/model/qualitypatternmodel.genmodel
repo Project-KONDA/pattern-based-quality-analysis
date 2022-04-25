@@ -290,8 +290,6 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/predicates"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/incoming"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Node/outgoing"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/getOriginalID"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatch">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addPrimitiveMatch/regex"/>
@@ -364,7 +362,10 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Adaptable/removeParametersFromParameterList"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Adaptable/createParameters"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/ComplexNode"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/ComplexNode">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/ComplexNode/outgoing"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Patternstructure" basePackage="qualitypatternmodel"
         disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//patternstructure">

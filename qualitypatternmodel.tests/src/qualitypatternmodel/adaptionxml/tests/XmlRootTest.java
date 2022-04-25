@@ -6,7 +6,7 @@ import junit.textui.TestRunner;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.adaptionxml.XmlRoot;
-import qualitypatternmodel.graphstructure.tests.NodeTest;
+import qualitypatternmodel.graphstructure.tests.ComplexNodeTest;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +14,7 @@ import qualitypatternmodel.graphstructure.tests.NodeTest;
  * <!-- end-user-doc -->
  * @generated
  */
-public class XmlRootTest extends NodeTest {
+public class XmlRootTest extends ComplexNodeTest {
 
 	/**
 	 * <!-- begin-user-doc -->

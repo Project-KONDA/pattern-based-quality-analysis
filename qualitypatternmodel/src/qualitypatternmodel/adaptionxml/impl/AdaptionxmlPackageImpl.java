@@ -486,11 +486,11 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		xmlElementEClass.getESuperTypes().add(theGraphstructurePackage.getNode());
+		xmlElementEClass.getESuperTypes().add(theGraphstructurePackage.getComplexNode());
 		xmlNavigationEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
 		xmlReferenceEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
 		xmlPropertyEClass.getESuperTypes().add(theGraphstructurePackage.getPrimitiveNode());
-		xmlRootEClass.getESuperTypes().add(theGraphstructurePackage.getNode());
+		xmlRootEClass.getESuperTypes().add(theGraphstructurePackage.getComplexNode());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(xmlElementEClass, XmlElement.class, "XmlElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

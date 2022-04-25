@@ -296,8 +296,8 @@
           eType="#//patternstructure/RelationMapping" eOpposite="#//patternstructure/RelationMapping/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="graph" lowerBound="1"
           eType="#//graphstructure/Graph" eOpposite="#//graphstructure/Graph/relations"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//graphstructure/Node"
-          eOpposite="#//graphstructure/Node/outgoing"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//graphstructure/ComplexNode"
+          eOpposite="#//graphstructure/ComplexNode/outgoing"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//graphstructure/Node"
           eOpposite="#//graphstructure/Node/incoming"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -366,8 +366,6 @@
           eType="#//operators/BooleanOperator" eOpposite="#//operators/BooleanOperator/nodes"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incoming" upperBound="-1"
           eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/target"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" upperBound="-1"
-          eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/source"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Graph" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"/>
@@ -430,7 +428,10 @@
       <eOperations name="removeParametersFromParameterList"/>
       <eOperations name="createParameters"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ComplexNode" eSuperTypes="#//graphstructure/Node"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ComplexNode" eSuperTypes="#//graphstructure/Node">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" upperBound="-1"
+          eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/source"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="patternstructure" nsURI="patternstructure" nsPrefix="patternstructure">
     <eClassifiers xsi:type="ecore:EClass" name="RelationMapping" eSuperTypes="#//patternstructure/Mapping">
@@ -666,7 +667,7 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="adaptionxml" nsURI="adaptionxml" nsPrefix="adaptionxml">
-    <eClassifiers xsi:type="ecore:EClass" name="XmlElement" eSuperTypes="#//graphstructure/Node">
+    <eClassifiers xsi:type="ecore:EClass" name="XmlElement" eSuperTypes="#//graphstructure/ComplexNode">
       <eOperations name="getXQueryRepresentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getXQueryVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -724,7 +725,7 @@
       <eLiterals name="EIGHTCHILD" value="17" literal="/*/*/*/*/*/*/*/*"/>
       <eLiterals name="NINECHILD" value="18" literal="/*/*/*/*/*/*/*/*/*"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="XmlRoot" eSuperTypes="#//graphstructure/Node"/>
+    <eClassifiers xsi:type="ecore:EClass" name="XmlRoot" eSuperTypes="#//graphstructure/ComplexNode"/>
   </eSubpackages>
   <eSubpackages name="execution" nsURI="execution" nsPrefix="execution">
     <eClassifiers xsi:type="ecore:EClass" name="Result" abstract="true">

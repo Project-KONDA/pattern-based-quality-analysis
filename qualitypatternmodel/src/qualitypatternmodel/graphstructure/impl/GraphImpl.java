@@ -27,6 +27,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
@@ -390,7 +391,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				for(ElementMapping mapping : source.getOutgoingMappings()) {
 					if(mapping.getMorphism().equals(morphism)) {
 						mappedSource = mapping.getTarget();
-						newRelation.setSource(mappedSource);
+						newRelation.setSource(((ComplexNode) mappedSource));
 					}
 				}
 			}
@@ -646,7 +647,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		
 		Relation r = new RelationImpl();
 		r.setGraph(this);
-		r.setSource(from);
+		r.setSource(((ComplexNode) from));
 		r.setTarget(to);
 		return r;
 	}

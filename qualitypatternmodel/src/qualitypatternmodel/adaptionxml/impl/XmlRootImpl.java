@@ -12,7 +12,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.impl.NodeImpl;
+import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
@@ -22,7 +22,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
  *
  * @generated
  */
-public class XmlRootImpl extends NodeImpl implements XmlRoot {
+public class XmlRootImpl extends ComplexNodeImpl implements XmlRoot {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

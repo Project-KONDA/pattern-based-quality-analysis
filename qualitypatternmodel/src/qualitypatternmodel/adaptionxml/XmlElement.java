@@ -5,7 +5,7 @@ package qualitypatternmodel.adaptionxml;
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
 
-import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.operators.Comparison;
 
 /**
@@ -19,7 +19,7 @@ import qualitypatternmodel.operators.Comparison;
  * @model
  * @generated
  */
-public interface XmlElement extends Node {
+public interface XmlElement extends ComplexNode {
 	/**
 	 * <!-- begin-user-doc -->
 	 * Returns the context-dependent representation of <code>this</code> in the XQuery expression that is being generated.

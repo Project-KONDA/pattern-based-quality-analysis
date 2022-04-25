@@ -33,7 +33,6 @@ import qualitypatternmodel.patternstructure.ElementMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.Node#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getIncoming <em>Incoming</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Node#getOutgoing <em>Outgoing</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode()
@@ -206,20 +205,6 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @generated
 	 */
 	EList<BooleanOperator> getPredicates();
-
-	/**
-	 * Returns the value of the '<em><b>Outgoing</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Relation}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Relation#getSource <em>Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Outgoing</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_Outgoing()
-	 * @see qualitypatternmodel.graphstructure.Relation#getSource
-	 * @model opposite="source"
-	 * @generated
-	 */
-	EList<Relation> getOutgoing();
 
 	/**
 	 * Returns the value of the '<em><b>Incoming</b></em>' reference list.

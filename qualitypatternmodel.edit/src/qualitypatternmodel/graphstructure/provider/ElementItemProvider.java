@@ -297,7 +297,7 @@ public class ElementItemProvider extends PatternElementItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_Element_outgoing_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Element_outgoing_feature", "_UI_Element_type"),
-				 GraphstructurePackage.Literals.NODE__OUTGOING,
+				 GraphstructurePackage.Literals.COMPLEX_NODE__OUTGOING,
 				 true,
 				 false,
 				 true,
@@ -326,23 +326,6 @@ public class ElementItemProvider extends PatternElementItemProvider {
 				 null,
 				 null,
 				 null));
-	}
-
-	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(GraphstructurePackage.Literals.NODE__PROPERTIES);
-		}
-		return childrenFeatures;
 	}
 
 	/**
@@ -384,53 +367,6 @@ public class ElementItemProvider extends PatternElementItemProvider {
 //		return label == null || label.length() == 0 ?
 //			getString("_UI_Element_type") :
 //			getString("_UI_Element_type") + " " + label;
-	}
-
-
-	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
-
-		switch (notification.getFeatureID(Node.class)) {
-			case GraphstructurePackage.NODE__NAME:
-			case GraphstructurePackage.NODE__TRANSLATED:
-			case GraphstructurePackage.NODE__PREDICATES_ARE_BEING_TRANSLATED:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case GraphstructurePackage.NODE__PROPERTIES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
-
-	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraphstructurePackage.Literals.NODE__PROPERTIES,
-				 GraphstructureFactory.eINSTANCE.createProperty()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GraphstructurePackage.Literals.NODE__PROPERTIES,
-				 AdaptionxmlFactory.eINSTANCE.createXmlProperty()));
 	}
 
 	/**

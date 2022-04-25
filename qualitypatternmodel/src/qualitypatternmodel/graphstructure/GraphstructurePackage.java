@@ -810,22 +810,13 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE__INCOMING = COMPARABLE_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE__OUTGOING = COMPARABLE_FEATURE_COUNT + 9;
-
-	/**
 	 * The number of structural features of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 10;
+	int NODE_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -1322,15 +1313,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMITIVE_NODE__INCOMING = NODE__INCOMING;
-
-	/**
-	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_NODE__OUTGOING = NODE__OUTGOING;
 
 	/**
 	 * The feature id for the '<em><b>Match</b></em>' reference list.
@@ -2476,7 +2458,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_NODE__OUTGOING = NODE__OUTGOING;
+	int COMPLEX_NODE__OUTGOING = NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Complex Node</em>' class.
@@ -2485,7 +2467,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 0;
+	int COMPLEX_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -3183,17 +3165,6 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getNode_Predicates();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Node#getOutgoing <em>Outgoing</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Outgoing</em>'.
-	 * @see qualitypatternmodel.graphstructure.Node#getOutgoing()
-	 * @see #getNode()
-	 * @generated
-	 */
-	EReference getNode_Outgoing();
-
-	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Node#getIncoming <em>Incoming</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3605,6 +3576,17 @@ public interface GraphstructurePackage extends EPackage {
 	EClass getComplexNode();
 
 	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.ComplexNode#getOutgoing <em>Outgoing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Outgoing</em>'.
+	 * @see qualitypatternmodel.graphstructure.ComplexNode#getOutgoing()
+	 * @see #getComplexNode()
+	 * @generated
+	 */
+	EReference getComplexNode_Outgoing();
+
+	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.graphstructure.ReturnType <em>Return Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3882,14 +3864,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference NODE__PREDICATES = eINSTANCE.getNode_Predicates();
-
-		/**
-		 * The meta object literal for the '<em><b>Outgoing</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NODE__OUTGOING = eINSTANCE.getNode_Outgoing();
 
 		/**
 		 * The meta object literal for the '<em><b>Incoming</b></em>' reference list feature.
@@ -4218,6 +4192,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EClass COMPLEX_NODE = eINSTANCE.getComplexNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Outgoing</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPLEX_NODE__OUTGOING = eINSTANCE.getComplexNode_Outgoing();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.ReturnType <em>Return Type</em>}' enum.

@@ -21,7 +21,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.impl.NodeImpl;
+import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
@@ -35,7 +35,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
  *
  * @generated
  */
-public class XmlElementImpl extends NodeImpl implements XmlElement {
+public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
