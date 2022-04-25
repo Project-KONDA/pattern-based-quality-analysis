@@ -344,9 +344,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	
 	@Override
 	public void recordValues(XmlDataDatabase database) {
-		for(Property p : getProperties()) {
-			p.recordValues(database);
-		}
+		return;
 	}
 	
 	@Override

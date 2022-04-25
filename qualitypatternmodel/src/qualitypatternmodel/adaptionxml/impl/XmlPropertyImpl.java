@@ -25,9 +25,12 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.graphstructure.Graph;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Property;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.graphstructure.impl.PropertyImpl;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.parameters.Parameter;
@@ -38,7 +41,11 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.PropertyOptionParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.ElementMapping;
+import qualitypatternmodel.patternstructure.Morphism;
+import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.patternstructure.impl.ElementMappingImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -289,12 +296,12 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 		}
 	}
 	
+	
 	@Override
-	public NotificationChain basicSetElement(Node newElement, NotificationChain msgs) {			
-		NotificationChain res = super.basicSetElement(newElement, msgs);		
+	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
+		NotificationChain res = super.basicSetGraph(newGraph, msgs);		
 		createParameters();
 		return res;
-		
 	}
 	
 	@Override
@@ -318,13 +325,6 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 		parameterList.remove(attributeName);		
 	}
 
-	@Override
-	public Property copy() {
-		XmlProperty property = new XmlPropertyImpl();
-		property.setOption(getOption());
-		property.setAttributeName(getAttributeName());
-		return property;
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
