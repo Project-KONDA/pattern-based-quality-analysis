@@ -127,13 +127,7 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 			if (getSourceProperty() == null)
 				throw new InvalidityException("source property null (" + getInternalId() + ")" );
 			if (getTargetProperty() == null)
-				throw new InvalidityException("target property null (" + getInternalId() + ")" );			
-			if(!getSourceProperty().getElement().equals(getSource())) {
-				throw new InvalidityException("source and sourceProperty not conform (" + getInternalId() + ")" );
-			}
-			if(!getTargetProperty().getElement().equals(getTarget())) {
-				throw new InvalidityException("target and targetProperty not conform (" + getInternalId() + ")" );
-			}			
+				throw new InvalidityException("target property null (" + getInternalId() + ")" );				
 		} else {
 			if(getSourceProperty() != null) {
 				throw new InvalidityException("source property not null");

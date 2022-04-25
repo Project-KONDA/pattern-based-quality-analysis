@@ -180,45 +180,6 @@ public class XmlPropertyImpl extends PropertyImpl implements XmlProperty {
 		return name;
 	}
 	
-	@Override
-	public EList<Property> getEquivalentProperties() {
-		EList<Property> equiProperties = new BasicEList<Property>();
-		PropertyKind propertyKind = getOption().getValue();
-		String attributeName = (getAttributeName() == null || getAttributeName().getValue() == null ? "" : getAttributeName().getValue());
-		EList<Node> equivalentElements = new BasicEList<Node>();
-		getElement().getEquivalentElements(equivalentElements);
-		for(Relation r : getElement().getIncoming()) {
-			if(r instanceof XmlNavigation) {
-				XmlNavigation nav = (XmlNavigation) r;
-				if(nav.getOriginalOption() != null && nav.getOriginalOption().getValue() == RelationKind.SELF) {
-					Node e = r.getSource();
-					e.getEquivalentElements(equivalentElements);
-				}
-			}
-		}
-		for(Relation r : getElement().getOutgoing()) {
-			if(r instanceof XmlNavigation) {
-				XmlNavigation nav = (XmlNavigation) r;
-				if(nav.getOriginalOption() != null && nav.getOriginalOption().getValue() == RelationKind.SELF) {
-					Node e = r.getTarget();
-					e.getEquivalentElements(equivalentElements);
-				}
-			}
-		}
-		for(Node e : equivalentElements) {
-			for(Property p : e.getProperties()) {
-				if(p instanceof XmlProperty) {
-					XmlProperty xmlProp = (XmlProperty) p;
-					if(xmlProp.getOption().getValue() == propertyKind) {
-						if(propertyKind != PropertyKind.ATTRIBUTE || attributeName.equals(xmlProp.getAttributeName().getValue())) {
-							equiProperties.add(xmlProp);
-						}
-					}
-				}			
-			}
-		}
-		return equiProperties;
-	}
 	
 	@Override
 	public void recordValues(XmlDataDatabase database) {
