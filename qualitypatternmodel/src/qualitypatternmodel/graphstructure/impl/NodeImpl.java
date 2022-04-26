@@ -15,11 +15,6 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import com.sun.jdi.PrimitiveValue;
-
-import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlRoot;
-import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -914,12 +909,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		}		
 		
 		for(Comparison comp : getComparison1()) {
-			if(comp.getArgument2() instanceof PrimitiveValue) {
+			if(comp.getArgument2() instanceof ParameterValue) {
 				throw new InvalidityException("Node with primitive comparison can not be turned into generic Node");	
 			}
 		}
 		for(Comparison comp : getComparison2()) {
-			if(comp.getArgument1() instanceof PrimitiveValue) {
+			if(comp.getArgument1() instanceof ParameterValue) {
 				throw new InvalidityException("Node with primitive comparison can not be turned into generic Node");	
 			}
 		}
