@@ -225,6 +225,15 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	public NotificationChain basicSetPrimitiveNode(PrimitiveNode newPrimitiveNode, NotificationChain msgs) {
 		PrimitiveNode oldPrimitiveNode = primitiveNode;
 		primitiveNode = newPrimitiveNode;
+		
+		if(oldPrimitiveNode instanceof PrimitiveNode && newPrimitiveNode == null) {
+			try {
+				((Node) oldPrimitiveNode).makeGeneric();
+			} catch (InvalidityException e) {
+				// there is another reason why this node needs to be PrimitiveNode
+			}
+		}
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PRIMITIVE_NODE, oldPrimitiveNode, newPrimitiveNode);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
