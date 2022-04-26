@@ -220,7 +220,7 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetPrimitiveNode(PrimitiveNode newPrimitiveNode, NotificationChain msgs) {
 		PrimitiveNode oldPrimitiveNode = primitiveNode;

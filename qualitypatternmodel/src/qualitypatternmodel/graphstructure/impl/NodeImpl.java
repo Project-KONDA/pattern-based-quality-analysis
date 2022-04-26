@@ -274,62 +274,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 	@Override
 	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		EList<PrimitiveNode> propertiesCopy = new BasicEList<PrimitiveNode>();
-		propertiesCopy.addAll(getProperties());
-		for(PrimitiveNode primitiveNode : propertiesCopy) {
-			primitiveNode.createXMLAdaption();
-		}
-		if(!(this instanceof XmlElement) && !(this instanceof XmlRoot)) {
-			XmlElement xmlElement = new XmlElementImpl();
-			xmlElement.setGraphSimple(getGraph());				
-			
-			xmlElement.setResultOf(getResultOf());
-			
-			xmlElement.getPredicates().addAll(getPredicates());
-			getPredicates().clear();
-			
-			xmlElement.getOutgoingMappings().addAll(getOutgoingMappings());
-			getOutgoingMappings().clear();
-			xmlElement.setIncomingMapping(getIncomingMapping());
-			setIncomingMapping(null);
-			
-			if(getName().matches("Element [0-9]+")) {
-				xmlElement.setName(getName().replace("Element", "XmlElement"));
-			} else {
-				xmlElement.setName(getName());
-			}
-			
-			setResultOf(null);
-			
-			EList<Relation> outgoingCopy = new BasicEList<Relation>();
-			if (this instanceof ComplexNode)
-				outgoingCopy.addAll(((ComplexNode) this).getOutgoing());
-			for(Relation relation : outgoingCopy) {
-				relation.setSource(xmlElement);
-			}
-			
-			EList<Relation> incomingCopy = new BasicEList<Relation>();
-			incomingCopy.addAll(getIncoming());
-			for(Relation relation : incomingCopy) {
-				relation.setTarget(xmlElement);
-			}
-			
-			xmlElement.getComparison1().addAll(getComparison1());
-			getComparison1().clear();
-			xmlElement.getComparison2().addAll(getComparison2());
-			getComparison2().clear();	
-			
-			EList<PrimitiveNode> propertiesCopy2 = new BasicEList<PrimitiveNode>();
-			propertiesCopy2.addAll(getProperties());
-			for(PrimitiveNode primitiveNode : propertiesCopy2) {
-				primitiveNode.setElement(xmlElement);
-			}
-			
-			setGraph(null);
-			
-			return xmlElement;
-		}
-		return this;		
+		throw new InvalidityException("Node " + this.id + " is still generic");
 	}
 	
 	@Override
