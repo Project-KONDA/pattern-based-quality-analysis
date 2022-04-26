@@ -439,12 +439,33 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			NotificationChain msgs) {		
 		Comparable oldArgument1 = argument1;
 		argument1 = newArgument1;
-
-		setTypeAccordingToArgument(newArgument1, getArgument2());
+		
+		if(oldArgument1 instanceof Node && newArgument1 == null) {
+			try {
+				((Node) oldArgument1).makeGeneric();
+			} catch (InvalidityException e) {
+				// no problem
+			}
+		}
+		if(argument2 instanceof Node && newArgument1 == null) {
+			try {
+				((Node) argument2).makeGeneric();
+			} catch (InvalidityException e) {
+				// no problem
+			}
+		}
 
 		try {
 			isCycleFree();
-		} catch (OperatorCycleException e1) {
+			
+			if(newArgument1 instanceof Node && argument2 instanceof PrimitiveValue) {				
+				((Node) newArgument1).makePrimitive();
+			}
+			if(newArgument1 instanceof PrimitiveValue && argument2 instanceof Node){
+				((Node) argument2).makePrimitive();
+			}				
+			
+		} catch (OperatorCycleException | InvalidityException e1) {
 			argument1 = oldArgument1;
 			if (newArgument1 != null) {
 				newArgument1.getComparison1().remove(this); // undo eInverseAdd
@@ -454,6 +475,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}
 			return msgs;
 		}
+		
+		setTypeAccordingToArgument(newArgument1, getArgument2());
 
 		adaptOperatorElementAssociation(newArgument1, oldArgument1);		
 					
@@ -467,12 +490,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			varlist.add(newParameter);				
 		}
 		
-		if(newArgument1 instanceof Node && argument2 instanceof PrimitiveValue) {				
-			((Node) newArgument1).makePrimitive();
-		}
-		if(newArgument1 instanceof PrimitiveValue && argument2 instanceof Node){
-			((Node) argument2).makePrimitive();
-		}		
+			
 
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
@@ -870,12 +888,32 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			NotificationChain msgs) {
 		Comparable oldArgument2 = argument2;
 		argument2 = newArgument2;
-
-		setTypeAccordingToArgument(newArgument2, getArgument2());
+		
+		if(oldArgument2 instanceof Node && newArgument2 == null) {
+			try {
+				((Node) oldArgument2).makeGeneric();
+			} catch (InvalidityException e) {
+				// no problem
+			}
+		}
+		if(argument1 instanceof Node && newArgument2 == null) {
+			try {
+				((Node) argument1).makeGeneric();
+			} catch (InvalidityException e) {
+				// no problem
+			}
+		}
 
 		try {
 			isCycleFree();
-		} catch (OperatorCycleException e1) {
+			
+			if(newArgument2 instanceof Node && argument1 instanceof PrimitiveValue) {				
+				((Node) newArgument2).makePrimitive();
+			}
+			if(newArgument2 instanceof PrimitiveValue && argument1 instanceof Node){
+				((Node) argument1).makePrimitive();
+			}
+		} catch (OperatorCycleException | InvalidityException e1) {
 			argument2 = oldArgument2;
 			if (newArgument2 != null) {
 				newArgument2.getComparison2().remove(this); // undo eInverseAdd
@@ -885,6 +923,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}
 			return msgs;
 		}
+		
+		setTypeAccordingToArgument(newArgument2, getArgument2());
 
 		adaptOperatorElementAssociation(newArgument2, oldArgument2);		
 		
@@ -898,12 +938,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			varlist.add(newParameter);				
 		}		
 		
-		if(newArgument2 instanceof Node && argument1 instanceof PrimitiveValue) {				
-			((Node) newArgument2).makePrimitive();
-		}
-		if(newArgument2 instanceof PrimitiveValue && argument1 instanceof Node){
-			((Node) argument1).makePrimitive();
-		}
 
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
