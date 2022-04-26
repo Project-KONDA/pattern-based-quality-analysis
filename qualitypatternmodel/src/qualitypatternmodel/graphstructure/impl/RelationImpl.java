@@ -379,6 +379,15 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public NotificationChain basicSetSource(ComplexNode newSource, NotificationChain msgs) {
 		ComplexNode oldSource = source;
 		source = newSource;
+		
+		if(oldSource instanceof Node && newSource == null) {
+			try {
+				((Node) oldSource).makeGeneric();
+			} catch (InvalidityException e) {
+				// no problem
+			}
+		}
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__SOURCE, oldSource, newSource);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
