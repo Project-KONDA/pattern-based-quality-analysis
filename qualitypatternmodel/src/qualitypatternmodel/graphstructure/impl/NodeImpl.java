@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import com.sun.jdi.PrimitiveValue;
+
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
@@ -795,27 +797,29 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public PrimitiveNode makePrimitive() {
-		return getOriginalNode().makePrimitiveRecursive();			
+	public PrimitiveNode makePrimitive() throws InvalidityException {
+		Node originalNode = getOriginalNode();
+		originalNode.checkPrimitive();
+		return originalNode.makePrimitiveRecursive();			
 	}
 	
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public PrimitiveNode makePrimitiveRecursive() {		
-		if (this instanceof ComplexNode)
-			throw new UnsupportedOperationException();
+	public PrimitiveNode makePrimitiveRecursive() throws InvalidityException {		
 		if (this instanceof PrimitiveNode) {
 			for(ElementMapping mapping : getOutgoingMappings()) {
 				mapping.getTarget().makePrimitiveRecursive();
-			}	
+			}
 			return (PrimitiveNode) this;
 		}
 		
@@ -860,30 +864,166 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		return newPrimitive;
 	}
 	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
-	public ComplexNode makeComplexRecursive() {
+	public void checkPrimitive() throws InvalidityException {
+		if (this instanceof ComplexNode)
+			throw new InvalidityException("ComplexNode can not be turned into PrimitiveNode");
+		for(ElementMapping mapping : getOutgoingMappings()) {
+			mapping.getTarget().checkPrimitive();
+		}					
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * @generated NOT
+	 */
+	@Override
+	public Node makeGeneric() throws InvalidityException {
+		Node originalNode = getOriginalNode();
+		originalNode.checkGeneric();
+		return originalNode.makeGenericRecursive();
+		
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * @generated NOT
+	 */
+	@Override
+	public Node makeGenericRecursive() throws InvalidityException {
+		if(getClass().equals(NodeImpl.class)) {
+			for(ElementMapping mapping : getOutgoingMappings()) {
+				mapping.getTarget().makeGenericRecursive();
+			}
+			return this;
+		}
+		
+		Node newNode = new NodeImpl();
+
+		newNode.setGraphSimple(getGraph());				
+		
+		newNode.setResultOf(getResultOf());
+		
+		newNode.getPredicates().addAll(getPredicates());
+		getPredicates().clear();
+		
+		newNode.getOutgoingMappings().addAll(getOutgoingMappings());		
+		for(ElementMapping mapping : newNode.getOutgoingMappings()) {
+			mapping.getTarget().makeGenericRecursive();
+		}		
+		getOutgoingMappings().clear();
+		newNode.setIncomingMapping(getIncomingMapping());
+		setIncomingMapping(null);			
+		
+		if(getName().matches("ComplexNode [0-9]+")) {
+			newNode.setName(getName().replace("ComplexNode", "Node"));
+		} if(getName().matches("PrimitiveNode [0-9]+")) {
+			newNode.setName(getName().replace("PrimitiveNode", "Node"));
+		} else {
+			newNode.setName(getName());
+		}
+		
+		setResultOf(null);
+		
+		EList<Relation> incomingCopy = new BasicEList<Relation>();
+		incomingCopy.addAll(getIncoming());
+		for(Relation relation : incomingCopy) {
+			relation.setTarget(newNode);
+		}
+		
+		newNode.getComparison1().addAll(getComparison1());
+		getComparison1().clear();
+		newNode.getComparison2().addAll(getComparison2());
+		getComparison2().clear();	
+		
+		setGraph(null);
+		return newNode;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void checkGeneric() throws InvalidityException {
+				
+		if(this instanceof ComplexNode && !((ComplexNode) this).getOutgoing().isEmpty()) {
+			throw new InvalidityException("ComplexNode with outgoing relations can not be turned into generic Node");
+		}
+		
+		if(this instanceof PrimitiveNode && !((PrimitiveNode) this).getMatch().isEmpty()) {
+			throw new InvalidityException("PrimitiveNode with match can not be turned into generic Node");
+		}		
+		
+		for(Comparison comp : getComparison1()) {
+			if(comp.getArgument2() instanceof PrimitiveValue) {
+				throw new InvalidityException("Node with primitive comparison can not be turned into generic Node");	
+			}
+		}
+		for(Comparison comp : getComparison2()) {
+			if(comp.getArgument1() instanceof PrimitiveValue) {
+				throw new InvalidityException("Node with primitive comparison can not be turned into generic Node");	
+			}
+		}
+		
+		for(ElementMapping mapping : getOutgoingMappings()) {
+			mapping.getTarget().checkGeneric();
+		}
+		
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void checkComplex() throws InvalidityException {		
+		if (this instanceof PrimitiveNode)
+			throw new InvalidityException("PrimitiveNode cannot be turned into ComplexNode");
+		for(Comparison comp: getComparison1()) {
+			if(comp.getArgument2() instanceof ParameterValue) {
+				throw new InvalidityException("Node with primitive comparison cannot be turned into ComplexNode");
+			}
+		}
+		for(Comparison comp: getComparison2()) {
+			if(comp.getArgument1() instanceof ParameterValue) {
+				throw new InvalidityException("Node with primitive comparison cannot be turned into ComplexNode");
+			}
+		}
+		for(ElementMapping mapping : getOutgoingMappings()) {
+			mapping.getTarget().checkComplex();
+		}
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * @generated NOT
+	 */
+	@Override
+	public ComplexNode makeComplexRecursive() throws InvalidityException {
 		if (this instanceof ComplexNode) {
 			for(ElementMapping mapping : getOutgoingMappings()) {
 				mapping.getTarget().makeComplexRecursive();
 			}
 			return (ComplexNode) this;
-		}
-		if (this instanceof PrimitiveNode)
-			throw new UnsupportedOperationException();
-		for(Comparison comp: getComparison1()) {
-			if(comp.getArgument2() instanceof ParameterValue) {
-				throw new UnsupportedOperationException();
-			}
-		}
-		for(Comparison comp: getComparison2()) {
-			if(comp.getArgument1() instanceof ParameterValue) {
-				throw new UnsupportedOperationException();
-			}
 		}
 	
 		ComplexNode newComplex = new ComplexNodeImpl();
@@ -937,20 +1077,24 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public ComplexNode makeComplex() {		
-		return getOriginalNode().makeComplexRecursive();			
+	public ComplexNode makeComplex() throws InvalidityException {		
+		Node originalNode = getOriginalNode();
+		originalNode.checkComplex();
+		return originalNode.makeComplexRecursive();			
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public void addTargetNode() {
+	public void addTargetNode() throws InvalidityException {
 		Graph myGraph = getGraph();
 		Node newNode = new NodeImpl();
 		newNode.setGraph(myGraph);
@@ -960,10 +1104,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public void addOutgoing(Node node) {
+	public void addOutgoing(Node node) throws InvalidityException {
 		Graph myGraph = this.getGraph(); 
 		myGraph.addRelation(makeComplex(), node);
 	}
@@ -1335,24 +1480,54 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE___GET_ORIGINAL_ID:
 				return getOriginalID();
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_MATCH__STRING:
-				addPrimitiveMatch((String)arguments.get(0));
-				return null;
+				try {
+					addPrimitiveMatch((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON__STRING:
-				addPrimitiveComparison((String)arguments.get(0));
-				return null;
+				try {
+					addPrimitiveComparison((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_MATCH:
-				addPrimitiveMatch();
-				return null;
+				try {
+					addPrimitiveMatch();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON:
-				return addPrimitiveComparison();
+				try {
+					return addPrimitiveComparison();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.NODE___GET_ALL_OPERATORS:
 				return getAllOperators();
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE:
-				addPrimitiveComparison((ComparisonOperator)arguments.get(0), (ParameterValue)arguments.get(1));
-				return null;
+				try {
+					addPrimitiveComparison((ComparisonOperator)arguments.get(0), (ParameterValue)arguments.get(1));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE:
-				addPrimitiveComparison((ParameterValue)arguments.get(0));
-				return null;
+				try {
+					addPrimitiveComparison((ParameterValue)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.NODE___SET_GRAPH_SIMPLE__GRAPH:
 				setGraphSimple((Graph)arguments.get(0));
 				return null;
@@ -1368,21 +1543,89 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				getEquivalentElements((EList<Node>)arguments.get(0));
 				return null;
 			case GraphstructurePackage.NODE___MAKE_PRIMITIVE:
-				return makePrimitive();
+				try {
+					return makePrimitive();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.NODE___MAKE_COMPLEX:
-				return makeComplex();
+				try {
+					return makeComplex();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.NODE___ADD_TARGET_NODE:
-				addTargetNode();
-				return null;
+				try {
+					addTargetNode();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.NODE___ADD_OUTGOING__NODE:
-				addOutgoing((Node)arguments.get(0));
-				return null;
+				try {
+					addOutgoing((Node)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.NODE___GET_ORIGINAL_NODE:
 				return getOriginalNode();
 			case GraphstructurePackage.NODE___MAKE_COMPLEX_RECURSIVE:
-				return makeComplexRecursive();
+				try {
+					return makeComplexRecursive();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.NODE___MAKE_PRIMITIVE_RECURSIVE:
-				return makePrimitiveRecursive();
+				try {
+					return makePrimitiveRecursive();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___MAKE_GENERIC:
+				try {
+					return makeGeneric();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___MAKE_GENERIC_RECURSIVE:
+				try {
+					return makeGenericRecursive();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___CHECK_GENERIC:
+				try {
+					checkGeneric();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___CHECK_PRIMITIVE:
+				try {
+					checkPrimitive();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___CHECK_COMPLEX:
+				try {
+					checkComplex();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;

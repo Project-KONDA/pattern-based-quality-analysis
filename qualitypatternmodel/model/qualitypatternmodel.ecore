@@ -318,20 +318,21 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eOperations name="addPrimitiveMatch">
+      <eOperations name="addPrimitiveMatch" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="regex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eOperations name="addPrimitiveComparison">
+      <eOperations name="addPrimitiveComparison" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eOperations name="addPrimitiveMatch"/>
-      <eOperations name="addPrimitiveComparison" eType="#//parameters/UntypedParameterValue"/>
+      <eOperations name="addPrimitiveMatch" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="addPrimitiveComparison" eType="#//parameters/UntypedParameterValue"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getAllOperators" upperBound="-1" eType="#//operators/Operator"/>
-      <eOperations name="addPrimitiveComparison">
+      <eOperations name="addPrimitiveComparison" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="operator" eType="#//operators/ComparisonOperator"/>
         <eParameters name="input" eType="#//parameters/ParameterValue"/>
       </eOperations>
-      <eOperations name="addPrimitiveComparison">
+      <eOperations name="addPrimitiveComparison" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="input" eType="#//parameters/ParameterValue"/>
       </eOperations>
       <eOperations name="setGraphSimple">
@@ -343,15 +344,22 @@
       <eOperations name="getEquivalentElements">
         <eParameters name="equivalentElements" upperBound="-1" eType="#//graphstructure/Node"/>
       </eOperations>
-      <eOperations name="makePrimitive" eType="#//graphstructure/PrimitiveNode"/>
-      <eOperations name="makeComplex" eType="#//graphstructure/ComplexNode"/>
-      <eOperations name="addTargetNode"/>
-      <eOperations name="addOutgoing">
+      <eOperations name="makePrimitive" eType="#//graphstructure/PrimitiveNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="makeComplex" eType="#//graphstructure/ComplexNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="addTargetNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="addOutgoing" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="node" eType="#//graphstructure/Node"/>
       </eOperations>
       <eOperations name="getOriginalNode" eType="#//graphstructure/Node"/>
-      <eOperations name="makeComplexRecursive" eType="#//graphstructure/ComplexNode"/>
-      <eOperations name="makePrimitiveRecursive" eType="#//graphstructure/PrimitiveNode"/>
+      <eOperations name="makeComplexRecursive" eType="#//graphstructure/ComplexNode"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="makePrimitiveRecursive" eType="#//graphstructure/PrimitiveNode"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="makeGeneric" eType="#//graphstructure/Node" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="makeGenericRecursive" eType="#//graphstructure/Node" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="checkGeneric" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="checkPrimitive" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="checkComplex" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
           eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/ElementMapping"

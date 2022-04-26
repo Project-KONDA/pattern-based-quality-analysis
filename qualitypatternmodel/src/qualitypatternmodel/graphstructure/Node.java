@@ -237,10 +237,10 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * 
 	 * @param regex the regular expression for the new <code>Match</code> operator
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void addPrimitiveMatch(String regex);
+	void addPrimitiveMatch(String regex) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -250,20 +250,20 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * 
 	 * @param the value that the newly created <code>Property</code> is compared with by the newly created <code>Comparison</code>
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void addPrimitiveComparison(String value);
+	void addPrimitiveComparison(String value) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * Creates a <code>Property</code> and a <code>Match</code> operator
 	 * that references the new <code>Property</code>.
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void addPrimitiveMatch();
+	void addPrimitiveMatch() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -274,10 +274,10 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @return the <code>UntypedParameterValue</code> that the newly
 	 * created <code>Property</code> is compared with by the newly created <code>Comparison</code>
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	UntypedParameterValue addPrimitiveComparison();
+	UntypedParameterValue addPrimitiveComparison() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -299,10 +299,10 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @param operator the <code>ComparisonOperator</code> underlying the newly created <code>Comparison</code>
 	 * @param input the <code>ParameterValue</code> that is compared to the new <code>Property</code> by the new <code>Comparison</code>
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void addPrimitiveComparison(ComparisonOperator operator, ParameterValue input);
+	void addPrimitiveComparison(ComparisonOperator operator, ParameterValue input) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -310,10 +310,10 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * a <code>Comparison</code> that compares the new <code>Property</code>
 	 * with <code>input</code>.	
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void addPrimitiveComparison(ParameterValue input);
+	void addPrimitiveComparison(ParameterValue input) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -348,34 +348,34 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	PrimitiveNode makePrimitive();
+	PrimitiveNode makePrimitive() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	ComplexNode makeComplex();
+	ComplexNode makeComplex() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void addTargetNode();
+	void addTargetNode() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	void addOutgoing(Node node);
+	void addOutgoing(Node node) throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -388,17 +388,57 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	ComplexNode makeComplexRecursive();
+	ComplexNode makeComplexRecursive() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	PrimitiveNode makePrimitiveRecursive();
+	PrimitiveNode makePrimitiveRecursive() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	Node makeGeneric() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	Node makeGenericRecursive() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void checkGeneric() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void checkPrimitive() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void checkComplex() throws InvalidityException;
 
 } // Element

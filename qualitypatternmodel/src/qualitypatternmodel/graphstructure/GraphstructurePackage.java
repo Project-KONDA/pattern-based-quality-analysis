@@ -1206,13 +1206,58 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___MAKE_PRIMITIVE_RECURSIVE = COMPARABLE_OPERATION_COUNT + 19;
 
 	/**
+	 * The operation id for the '<em>Make Generic</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___MAKE_GENERIC = COMPARABLE_OPERATION_COUNT + 20;
+
+	/**
+	 * The operation id for the '<em>Make Generic Recursive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___MAKE_GENERIC_RECURSIVE = COMPARABLE_OPERATION_COUNT + 21;
+
+	/**
+	 * The operation id for the '<em>Check Generic</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___CHECK_GENERIC = COMPARABLE_OPERATION_COUNT + 22;
+
+	/**
+	 * The operation id for the '<em>Check Primitive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___CHECK_PRIMITIVE = COMPARABLE_OPERATION_COUNT + 23;
+
+	/**
+	 * The operation id for the '<em>Check Complex</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___CHECK_COMPLEX = COMPARABLE_OPERATION_COUNT + 24;
+
+	/**
 	 * The number of operations of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 20;
+	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 25;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.
@@ -1736,6 +1781,51 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMITIVE_NODE___MAKE_PRIMITIVE_RECURSIVE = NODE___MAKE_PRIMITIVE_RECURSIVE;
+
+	/**
+	 * The operation id for the '<em>Make Generic</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___MAKE_GENERIC = NODE___MAKE_GENERIC;
+
+	/**
+	 * The operation id for the '<em>Make Generic Recursive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___MAKE_GENERIC_RECURSIVE = NODE___MAKE_GENERIC_RECURSIVE;
+
+	/**
+	 * The operation id for the '<em>Check Generic</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___CHECK_GENERIC = NODE___CHECK_GENERIC;
+
+	/**
+	 * The operation id for the '<em>Check Primitive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___CHECK_PRIMITIVE = NODE___CHECK_PRIMITIVE;
+
+	/**
+	 * The operation id for the '<em>Check Complex</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___CHECK_COMPLEX = NODE___CHECK_COMPLEX;
 
 	/**
 	 * The operation id for the '<em>Add Comparison</em>' operation.
@@ -2911,6 +3001,51 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___MAKE_PRIMITIVE_RECURSIVE = NODE___MAKE_PRIMITIVE_RECURSIVE;
 
 	/**
+	 * The operation id for the '<em>Make Generic</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___MAKE_GENERIC = NODE___MAKE_GENERIC;
+
+	/**
+	 * The operation id for the '<em>Make Generic Recursive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___MAKE_GENERIC_RECURSIVE = NODE___MAKE_GENERIC_RECURSIVE;
+
+	/**
+	 * The operation id for the '<em>Check Generic</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___CHECK_GENERIC = NODE___CHECK_GENERIC;
+
+	/**
+	 * The operation id for the '<em>Check Primitive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___CHECK_PRIMITIVE = NODE___CHECK_PRIMITIVE;
+
+	/**
+	 * The operation id for the '<em>Check Complex</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___CHECK_COMPLEX = NODE___CHECK_COMPLEX;
+
+	/**
 	 * The number of operations of the '<em>Complex Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3435,6 +3570,56 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNode__MakePrimitiveRecursive();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#makeGeneric() <em>Make Generic</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Make Generic</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#makeGeneric()
+	 * @generated
+	 */
+	EOperation getNode__MakeGeneric();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#makeGenericRecursive() <em>Make Generic Recursive</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Make Generic Recursive</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#makeGenericRecursive()
+	 * @generated
+	 */
+	EOperation getNode__MakeGenericRecursive();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#checkGeneric() <em>Check Generic</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Generic</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#checkGeneric()
+	 * @generated
+	 */
+	EOperation getNode__CheckGeneric();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#checkPrimitive() <em>Check Primitive</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Primitive</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#checkPrimitive()
+	 * @generated
+	 */
+	EOperation getNode__CheckPrimitive();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#checkComplex() <em>Check Complex</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Check Complex</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#checkComplex()
+	 * @generated
+	 */
+	EOperation getNode__CheckComplex();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
@@ -4127,6 +4312,46 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NODE___MAKE_PRIMITIVE_RECURSIVE = eINSTANCE.getNode__MakePrimitiveRecursive();
+
+		/**
+		 * The meta object literal for the '<em><b>Make Generic</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___MAKE_GENERIC = eINSTANCE.getNode__MakeGeneric();
+
+		/**
+		 * The meta object literal for the '<em><b>Make Generic Recursive</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___MAKE_GENERIC_RECURSIVE = eINSTANCE.getNode__MakeGenericRecursive();
+
+		/**
+		 * The meta object literal for the '<em><b>Check Generic</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___CHECK_GENERIC = eINSTANCE.getNode__CheckGeneric();
+
+		/**
+		 * The meta object literal for the '<em><b>Check Primitive</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___CHECK_PRIMITIVE = eINSTANCE.getNode__CheckPrimitive();
+
+		/**
+		 * The meta object literal for the '<em><b>Check Complex</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___CHECK_COMPLEX = eINSTANCE.getNode__CheckComplex();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.

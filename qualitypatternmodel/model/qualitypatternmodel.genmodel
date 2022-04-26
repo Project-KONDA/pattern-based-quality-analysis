@@ -325,6 +325,11 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/getOriginalNode"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/makeComplexRecursive"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/makePrimitiveRecursive"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/makeGeneric"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/makeGenericRecursive"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/checkGeneric"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/checkPrimitive"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/checkComplex"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Graph">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/nodes"/>

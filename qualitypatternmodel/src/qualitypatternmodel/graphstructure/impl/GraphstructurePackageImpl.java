@@ -692,6 +692,56 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getNode__MakeGeneric() {
+		return nodeEClass.getEOperations().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__MakeGenericRecursive() {
+		return nodeEClass.getEOperations().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__CheckGeneric() {
+		return nodeEClass.getEOperations().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__CheckPrimitive() {
+		return nodeEClass.getEOperations().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__CheckComplex() {
+		return nodeEClass.getEOperations().get(22);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getGraph() {
 		return graphEClass;
 	}
@@ -1026,6 +1076,11 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(nodeEClass, NODE___GET_ORIGINAL_NODE);
 		createEOperation(nodeEClass, NODE___MAKE_COMPLEX_RECURSIVE);
 		createEOperation(nodeEClass, NODE___MAKE_PRIMITIVE_RECURSIVE);
+		createEOperation(nodeEClass, NODE___MAKE_GENERIC);
+		createEOperation(nodeEClass, NODE___MAKE_GENERIC_RECURSIVE);
+		createEOperation(nodeEClass, NODE___CHECK_GENERIC);
+		createEOperation(nodeEClass, NODE___CHECK_PRIMITIVE);
+		createEOperation(nodeEClass, NODE___CHECK_COMPLEX);
 
 		graphEClass = createEClass(GRAPH);
 		createEReference(graphEClass, GRAPH__NODES);
@@ -1162,22 +1217,28 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		op = initEOperation(getNode__AddPrimitiveMatch__String(), null, "addPrimitiveMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "regex", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getNode__AddPrimitiveComparison__String(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEOperation(getNode__AddPrimitiveMatch(), null, "addPrimitiveMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__AddPrimitiveMatch(), null, "addPrimitiveMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEOperation(getNode__AddPrimitiveComparison(), theParametersPackage.getUntypedParameterValue(), "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__AddPrimitiveComparison(), theParametersPackage.getUntypedParameterValue(), "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEOperation(getNode__GetAllOperators(), theOperatorsPackage.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getNode__AddPrimitiveComparison__ComparisonOperator_ParameterValue(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theOperatorsPackage.getComparisonOperator(), "operator", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theParametersPackage.getParameterValue(), "input", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getNode__AddPrimitiveComparison__ParameterValue(), null, "addPrimitiveComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theParametersPackage.getParameterValue(), "input", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getNode__SetGraphSimple__Graph(), null, "setGraphSimple", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGraph(), "newGraph", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1189,20 +1250,41 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getNode__GetEquivalentElements__EList(), null, "getEquivalentElements", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getNode(), "equivalentElements", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getNode__MakePrimitive(), this.getPrimitiveNode(), "makePrimitive", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__MakePrimitive(), this.getPrimitiveNode(), "makePrimitive", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEOperation(getNode__MakeComplex(), this.getComplexNode(), "makeComplex", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__MakeComplex(), this.getComplexNode(), "makeComplex", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEOperation(getNode__AddTargetNode(), null, "addTargetNode", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__AddTargetNode(), null, "addTargetNode", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getNode__AddOutgoing__Node(), null, "addOutgoing", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getNode(), "node", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEOperation(getNode__GetOriginalNode(), this.getNode(), "getOriginalNode", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getNode__MakeComplexRecursive(), this.getComplexNode(), "makeComplexRecursive", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__MakeComplexRecursive(), this.getComplexNode(), "makeComplexRecursive", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEOperation(getNode__MakePrimitiveRecursive(), this.getPrimitiveNode(), "makePrimitiveRecursive", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__MakePrimitiveRecursive(), this.getPrimitiveNode(), "makePrimitiveRecursive", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getNode__MakeGeneric(), this.getNode(), "makeGeneric", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getNode__MakeGenericRecursive(), this.getNode(), "makeGenericRecursive", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getNode__CheckGeneric(), null, "checkGeneric", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getNode__CheckPrimitive(), null, "checkPrimitive", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getNode__CheckComplex(), null, "checkComplex", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(graphEClass, Graph.class, "Graph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGraph_Nodes(), this.getNode(), this.getNode_Graph(), "nodes", null, 1, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
