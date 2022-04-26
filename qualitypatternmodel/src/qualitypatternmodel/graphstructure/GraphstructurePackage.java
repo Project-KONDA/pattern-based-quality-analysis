@@ -1179,13 +1179,40 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___ADD_OUTGOING__NODE = COMPARABLE_OPERATION_COUNT + 16;
 
 	/**
+	 * The operation id for the '<em>Get Original Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___GET_ORIGINAL_NODE = COMPARABLE_OPERATION_COUNT + 17;
+
+	/**
+	 * The operation id for the '<em>Make Complex Recursive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___MAKE_COMPLEX_RECURSIVE = COMPARABLE_OPERATION_COUNT + 18;
+
+	/**
+	 * The operation id for the '<em>Make Primitive Recursive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___MAKE_PRIMITIVE_RECURSIVE = COMPARABLE_OPERATION_COUNT + 19;
+
+	/**
 	 * The number of operations of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 17;
+	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 20;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.
@@ -1682,6 +1709,33 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMITIVE_NODE___ADD_OUTGOING__NODE = NODE___ADD_OUTGOING__NODE;
+
+	/**
+	 * The operation id for the '<em>Get Original Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___GET_ORIGINAL_NODE = NODE___GET_ORIGINAL_NODE;
+
+	/**
+	 * The operation id for the '<em>Make Complex Recursive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___MAKE_COMPLEX_RECURSIVE = NODE___MAKE_COMPLEX_RECURSIVE;
+
+	/**
+	 * The operation id for the '<em>Make Primitive Recursive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___MAKE_PRIMITIVE_RECURSIVE = NODE___MAKE_PRIMITIVE_RECURSIVE;
 
 	/**
 	 * The operation id for the '<em>Add Comparison</em>' operation.
@@ -2830,6 +2884,33 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___ADD_OUTGOING__NODE = NODE___ADD_OUTGOING__NODE;
 
 	/**
+	 * The operation id for the '<em>Get Original Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GET_ORIGINAL_NODE = NODE___GET_ORIGINAL_NODE;
+
+	/**
+	 * The operation id for the '<em>Make Complex Recursive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___MAKE_COMPLEX_RECURSIVE = NODE___MAKE_COMPLEX_RECURSIVE;
+
+	/**
+	 * The operation id for the '<em>Make Primitive Recursive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___MAKE_PRIMITIVE_RECURSIVE = NODE___MAKE_PRIMITIVE_RECURSIVE;
+
+	/**
 	 * The number of operations of the '<em>Complex Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3324,6 +3405,36 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNode__AddOutgoing__Node();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#getOriginalNode() <em>Get Original Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Original Node</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#getOriginalNode()
+	 * @generated
+	 */
+	EOperation getNode__GetOriginalNode();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#makeComplexRecursive() <em>Make Complex Recursive</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Make Complex Recursive</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#makeComplexRecursive()
+	 * @generated
+	 */
+	EOperation getNode__MakeComplexRecursive();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#makePrimitiveRecursive() <em>Make Primitive Recursive</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Make Primitive Recursive</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#makePrimitiveRecursive()
+	 * @generated
+	 */
+	EOperation getNode__MakePrimitiveRecursive();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
@@ -3992,6 +4103,30 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NODE___ADD_OUTGOING__NODE = eINSTANCE.getNode__AddOutgoing__Node();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Original Node</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___GET_ORIGINAL_NODE = eINSTANCE.getNode__GetOriginalNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Make Complex Recursive</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___MAKE_COMPLEX_RECURSIVE = eINSTANCE.getNode__MakeComplexRecursive();
+
+		/**
+		 * The meta object literal for the '<em><b>Make Primitive Recursive</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___MAKE_PRIMITIVE_RECURSIVE = eINSTANCE.getNode__MakePrimitiveRecursive();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.

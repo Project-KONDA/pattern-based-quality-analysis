@@ -349,6 +349,9 @@
       <eOperations name="addOutgoing">
         <eParameters name="node" eType="#//graphstructure/Node"/>
       </eOperations>
+      <eOperations name="getOriginalNode" eType="#//graphstructure/Node"/>
+      <eOperations name="makeComplexRecursive" eType="#//graphstructure/ComplexNode"/>
+      <eOperations name="makePrimitiveRecursive" eType="#//graphstructure/PrimitiveNode"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
           eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/ElementMapping"

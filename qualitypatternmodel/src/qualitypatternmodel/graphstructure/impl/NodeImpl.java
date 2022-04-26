@@ -799,27 +799,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 */
 	@Override
 	public PrimitiveNode makePrimitive() {
-		if (this instanceof ComplexNode)
-			throw new UnsupportedOperationException();
-		if (this instanceof PrimitiveNode)
-			return (PrimitiveNode) this;
-		
-		PrimitiveNode newComplex = new PrimitiveNodeImpl();
-		
-		// TODO
-		
-		// Graph
-		// Outgoing Relations
-		// Incoming Relations
-		// Outgoing Mapping
-		// Incoming Mapping
-		// Return Element
-		// Comparison 1
-		// Comparison 2
-		// Predicates
-		
-		return newComplex;
+		return getOriginalNode().makePrimitiveRecursive();			
 	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -827,15 +809,85 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public ComplexNode makeComplex() {
+	public PrimitiveNode makePrimitiveRecursive() {		
 		if (this instanceof ComplexNode)
+			throw new UnsupportedOperationException();
+		if (this instanceof PrimitiveNode) {
+			for(ElementMapping mapping : getOutgoingMappings()) {
+				mapping.getTarget().makePrimitiveRecursive();
+			}	
+			return (PrimitiveNode) this;
+		}
+		
+		PrimitiveNode newPrimitive = new PrimitiveNodeImpl();
+		
+		newPrimitive.setGraphSimple(getGraph());				
+		
+		newPrimitive.setResultOf(getResultOf());
+		
+		newPrimitive.getPredicates().addAll(getPredicates());
+		getPredicates().clear();
+		
+		newPrimitive.getOutgoingMappings().addAll(getOutgoingMappings());		
+		for(ElementMapping mapping : newPrimitive.getOutgoingMappings()) {
+			mapping.getTarget().makePrimitiveRecursive();
+		}		
+		getOutgoingMappings().clear();
+		newPrimitive.setIncomingMapping(getIncomingMapping());
+		setIncomingMapping(null);
+		
+		if(getName().matches("Element [0-9]+")) {
+			newPrimitive.setName(getName().replace("Element", "PrimitiveNode"));
+		} else {
+			newPrimitive.setName(getName());
+		}
+		
+		setResultOf(null);
+		
+		EList<Relation> incomingCopy = new BasicEList<Relation>();
+		incomingCopy.addAll(getIncoming());
+		for(Relation relation : incomingCopy) {
+			relation.setTarget(newPrimitive);
+		}
+		
+		newPrimitive.getComparison1().addAll(getComparison1());
+		getComparison1().clear();
+		newPrimitive.getComparison2().addAll(getComparison2());
+		getComparison2().clear();	
+		
+		setGraph(null);
+		
+		return newPrimitive;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public ComplexNode makeComplexRecursive() {
+		if (this instanceof ComplexNode) {
+			for(ElementMapping mapping : getOutgoingMappings()) {
+				mapping.getTarget().makeComplexRecursive();
+			}
 			return (ComplexNode) this;
+		}
 		if (this instanceof PrimitiveNode)
 			throw new UnsupportedOperationException();
-		
+		for(Comparison comp: getComparison1()) {
+			if(comp.getArgument2() instanceof ParameterValue) {
+				throw new UnsupportedOperationException();
+			}
+		}
+		for(Comparison comp: getComparison2()) {
+			if(comp.getArgument1() instanceof ParameterValue) {
+				throw new UnsupportedOperationException();
+			}
+		}
+	
 		ComplexNode newComplex = new ComplexNodeImpl();
 
-		// this is copy paste from xml adaptation
 		newComplex.setGraphSimple(getGraph());				
 		
 		newComplex.setResultOf(getResultOf());
@@ -843,13 +895,16 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		newComplex.getPredicates().addAll(getPredicates());
 		getPredicates().clear();
 		
-		newComplex.getOutgoingMappings().addAll(getOutgoingMappings());
+		newComplex.getOutgoingMappings().addAll(getOutgoingMappings());		
+		for(ElementMapping mapping : newComplex.getOutgoingMappings()) {
+			mapping.getTarget().makeComplexRecursive();
+		}		
 		getOutgoingMappings().clear();
 		newComplex.setIncomingMapping(getIncomingMapping());
-		setIncomingMapping(null);
+		setIncomingMapping(null);			
 		
 		if(getName().matches("Element [0-9]+")) {
-			newComplex.setName(getName().replace("Element", "XmlElement"));
+			newComplex.setName(getName().replace("Element", "ComplexNode"));
 		} else {
 			newComplex.setName(getName());
 		}
@@ -874,29 +929,19 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		newComplex.getComparison2().addAll(getComparison2());
 		getComparison2().clear();	
 		
-		EList<PrimitiveNode> propertiesCopy2 = new BasicEList<PrimitiveNode>();
-		propertiesCopy2.addAll(getProperties());
-		for(PrimitiveNode primitiveNode : propertiesCopy2) {
-			primitiveNode.setElement(newComplex);
-		}
-		
 		setGraph(null);
-		
 		return newComplex;
 		
-		// TODO
-		
-		// Graph
-		// Outgoing Relations
-		// Incoming Relations
-		// Outgoing Mapping
-		// Incoming Mapping
-		// Return Element
-		// Comparison 1
-		// Comparison 2
-		// Predicates
-		
-		return newComplex;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public ComplexNode makeComplex() {		
+		return getOriginalNode().makeComplexRecursive();			
 	}
 
 	/**
@@ -922,6 +967,22 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		Graph myGraph = this.getGraph(); 
 		myGraph.addRelation(makeComplex(), node);
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Node getOriginalNode() {
+		if (incomingMapping == null) {
+			return this;
+		} else {
+			return incomingMapping.getSource().getOriginalNode();
+		}
+	}
+
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1316,6 +1377,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE___ADD_OUTGOING__NODE:
 				addOutgoing((Node)arguments.get(0));
 				return null;
+			case GraphstructurePackage.NODE___GET_ORIGINAL_NODE:
+				return getOriginalNode();
+			case GraphstructurePackage.NODE___MAKE_COMPLEX_RECURSIVE:
+				return makeComplexRecursive();
+			case GraphstructurePackage.NODE___MAKE_PRIMITIVE_RECURSIVE:
+				return makePrimitiveRecursive();
 			case GraphstructurePackage.NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;

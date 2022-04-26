@@ -377,4 +377,28 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 */
 	void addOutgoing(Node node);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Node getOriginalNode();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	ComplexNode makeComplexRecursive();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	PrimitiveNode makePrimitiveRecursive();
+
 } // Element
