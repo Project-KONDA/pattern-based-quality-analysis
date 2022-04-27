@@ -325,6 +325,15 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR___GET_ALL_ARGUMENT_ELEMENTS = GraphstructurePackage.COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___IS_OPERATOR_ARGUMENT = GraphstructurePackage.COMPARABLE___IS_OPERATOR_ARGUMENT;
+
+	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -657,6 +666,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS = OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___IS_OPERATOR_ARGUMENT = OPERATOR___IS_OPERATOR_ARGUMENT;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -1009,6 +1027,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS = OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___IS_OPERATOR_ARGUMENT = OPERATOR___IS_OPERATOR_ARGUMENT;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -1370,6 +1397,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH___GET_ALL_ARGUMENT_ELEMENTS = BOOLEAN_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___IS_OPERATOR_ARGUMENT = BOOLEAN_OPERATOR___IS_OPERATOR_ARGUMENT;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -1776,6 +1812,15 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARISON___GET_ALL_ARGUMENT_ELEMENTS = BOOLEAN_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___IS_OPERATOR_ARGUMENT = BOOLEAN_OPERATOR___IS_OPERATOR_ARGUMENT;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.

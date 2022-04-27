@@ -304,7 +304,6 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PrimitiveNode" eSuperTypes="#//graphstructure/Node">
       <eOperations name="addComparison" eType="#//operators/Comparison"/>
-      <eOperations name="isOperatorArgument" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="parameterValue" eType="#//parameters/ParameterValue"/>
       </eOperations>
@@ -419,6 +418,7 @@
           </eGenericType>
         </eParameters>
       </eOperations>
+      <eOperations name="isOperatorArgument" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="comparison1" upperBound="-1"
           eType="#//operators/Comparison" eOpposite="#//operators/Comparison/argument1"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="comparison2" upperBound="-1"

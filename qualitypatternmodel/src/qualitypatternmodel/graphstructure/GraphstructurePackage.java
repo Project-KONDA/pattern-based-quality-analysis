@@ -674,13 +674,22 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARABLE___IS_OPERATOR_ARGUMENT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Comparable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARABLE_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int COMPARABLE_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.NodeImpl <em>Node</em>}' class.
@@ -1024,6 +1033,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int NODE___VALIDATE__DIAGNOSTICCHAIN_MAP = COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___IS_OPERATOR_ARGUMENT = COMPARABLE___IS_OPERATOR_ARGUMENT;
 
 	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
@@ -1612,6 +1630,15 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___VALIDATE__DIAGNOSTICCHAIN_MAP = NODE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___IS_OPERATOR_ARGUMENT = NODE___IS_OPERATOR_ARGUMENT;
+
+	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1837,13 +1864,13 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___ADD_COMPARISON = NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE___IS_OPERATOR_ARGUMENT = NODE_OPERATION_COUNT + 1;
+	int PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -1852,16 +1879,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = NODE_OPERATION_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON = NODE_OPERATION_COUNT + 3;
+	int PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON = NODE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Equivalent Properties</em>' operation.
@@ -1870,7 +1888,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE___GET_EQUIVALENT_PROPERTIES = NODE_OPERATION_COUNT + 4;
+	int PRIMITIVE_NODE___GET_EQUIVALENT_PROPERTIES = NODE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -1879,7 +1897,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY = NODE_OPERATION_COUNT + 5;
+	int PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY = NODE_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Primitive Node</em>' class.
@@ -1888,7 +1906,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 6;
+	int PRIMITIVE_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -2821,6 +2839,15 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___VALIDATE__DIAGNOSTICCHAIN_MAP = NODE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___IS_OPERATOR_ARGUMENT = NODE___IS_OPERATOR_ARGUMENT;
+
+	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3231,16 +3258,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPrimitiveNode__AddComparison();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#isOperatorArgument() <em>Is Operator Argument</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Operator Argument</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#isOperatorArgument()
-	 * @generated
-	 */
-	EOperation getPrimitiveNode__IsOperatorArgument();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue) <em>Check Comparison Consistency</em>}' operation.
@@ -3832,6 +3849,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getComparable__Validate__DiagnosticChain_Map();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Comparable#isOperatorArgument() <em>Is Operator Argument</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Operator Argument</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Comparable#isOperatorArgument()
+	 * @generated
+	 */
+	EOperation getComparable__IsOperatorArgument();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Adaptable <em>Adaptable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4046,14 +4073,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PRIMITIVE_NODE___ADD_COMPARISON = eINSTANCE.getPrimitiveNode__AddComparison();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Operator Argument</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PRIMITIVE_NODE___IS_OPERATOR_ARGUMENT = eINSTANCE.getPrimitiveNode__IsOperatorArgument();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.
@@ -4516,6 +4535,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getComparable__Validate__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Operator Argument</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPARABLE___IS_OPERATOR_ARGUMENT = eINSTANCE.getComparable__IsOperatorArgument();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.Adaptable <em>Adaptable</em>}' class.

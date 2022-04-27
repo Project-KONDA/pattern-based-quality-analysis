@@ -20,12 +20,8 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.operators.BooleanOperator;
-import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**

@@ -151,11 +151,6 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		return comparison;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
 	@Override
 	public boolean isOperatorArgument() {
 		return !getComparison1().isEmpty() || !getComparison2().isEmpty() || !getMatch().isEmpty();
@@ -727,8 +722,6 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		switch (operationID) {
 			case GraphstructurePackage.PRIMITIVE_NODE___ADD_COMPARISON:
 				return addComparison();
-			case GraphstructurePackage.PRIMITIVE_NODE___IS_OPERATOR_ARGUMENT:
-				return isOperatorArgument();
 			case GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE:
 				try {
 					checkComparisonConsistency((ParameterValue)arguments.get(0));

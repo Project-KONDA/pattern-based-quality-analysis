@@ -301,6 +301,16 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isOperatorArgument() {
+		return !getComparison1().isEmpty() || !getComparison2().isEmpty();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -459,6 +469,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				case GraphstructurePackage.COMPARABLE___IS_TRANSLATABLE: return ParametersPackage.PARAMETER_VALUE___IS_TRANSLATABLE;
 				case GraphstructurePackage.COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS: return ParametersPackage.PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
 				case GraphstructurePackage.COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP: return ParametersPackage.PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+				case GraphstructurePackage.COMPARABLE___IS_OPERATOR_ARGUMENT: return ParametersPackage.PARAMETER_VALUE___IS_OPERATOR_ARGUMENT;
 				default: return -1;
 			}
 		}
@@ -510,6 +521,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				return isTranslatable();
 			case ParametersPackage.PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS:
 				return getAllArgumentElements();
+			case ParametersPackage.PARAMETER_VALUE___IS_OPERATOR_ARGUMENT:
+				return isOperatorArgument();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -87,6 +87,14 @@ public interface Comparable extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isOperatorArgument();
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Returns a list of all <code>Elements</code> that directly or indirectly (via a <code>Property</code>) represent <code>this</code> comparison argument.
 	 * 
 	 * @return a list of all <code>Elements</code> that directly or indirectly (via a <code>Property</code>) represent <code>this</code> comparison argument

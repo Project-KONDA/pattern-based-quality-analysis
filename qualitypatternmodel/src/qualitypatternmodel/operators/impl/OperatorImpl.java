@@ -185,6 +185,16 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isOperatorArgument() {
+		return !getComparison1().isEmpty() || !getComparison2().isEmpty();
+	}
+
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -441,6 +451,8 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 				return isTranslatable();
 			case OperatorsPackage.OPERATOR___GET_ALL_ARGUMENT_ELEMENTS:
 				return getAllArgumentElements();
+			case OperatorsPackage.OPERATOR___IS_OPERATOR_ARGUMENT:
+				return isOperatorArgument();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

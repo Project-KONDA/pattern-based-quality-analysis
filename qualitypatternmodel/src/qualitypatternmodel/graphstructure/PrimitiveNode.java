@@ -42,17 +42,6 @@ public interface PrimitiveNode extends Node {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Returns <code>true</code> if <code>this</code> serves as an argument of a <code>Operator</code>.
-	 * 
-	 * @return <code>true</code> if <code>this</code> serves as an argument of a <code>Operator</code>
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	boolean isOperatorArgument();
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated

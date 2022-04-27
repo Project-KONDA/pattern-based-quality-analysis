@@ -294,6 +294,15 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isOperatorArgument() {
+		return !getComparison1().isEmpty() || !getComparison2().isEmpty();
+	}
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -565,6 +574,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		return msgs;
 	}
 	
+	public NotificationChain basicSetGraphSimple(Graph newGraph, NotificationChain msgs) {		
+		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.NODE__GRAPH, msgs);
+		return msgs;
+	}
+	
 	private void deleteRelations(Graph newGraph) {
 		EList<Relation> relations = new BasicEList<Relation>();
 		relations.addAll(getIncoming());
@@ -574,11 +588,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				rel.setGraph(null);			
 			}
 		}
-	}
-	
-	public NotificationChain basicSetGraphSimple(Graph newGraph, NotificationChain msgs) {		
-		msgs = eBasicSetContainer((InternalEObject)newGraph, GraphstructurePackage.NODE__GRAPH, msgs);
-		return msgs;
 	}
 
 	private void setGraphForCorrespondingElements(Graph newGraph) {
@@ -1575,6 +1584,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return isTranslatable();
 			case GraphstructurePackage.NODE___GET_ALL_ARGUMENT_ELEMENTS:
 				return getAllArgumentElements();
+			case GraphstructurePackage.NODE___IS_OPERATOR_ARGUMENT:
+				return isOperatorArgument();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -265,7 +265,6 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/match"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/addComparison"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/isOperatorArgument"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/checkComparisonConsistency">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode/checkComparisonConsistency/parameterValue"/>
         </genOperations>
@@ -365,6 +364,7 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Comparable/validate/diagnostics"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Comparable/validate/context"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Comparable/isOperatorArgument"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//graphstructure/Adaptable">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Adaptable/removeParametersFromParameterList"/>

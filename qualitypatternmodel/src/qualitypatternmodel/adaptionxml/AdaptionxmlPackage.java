@@ -413,6 +413,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.COMPLEX_NODE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___IS_OPERATOR_ARGUMENT = GraphstructurePackage.COMPLEX_NODE___IS_OPERATOR_ARGUMENT;
+
+	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1829,6 +1838,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.PRIMITIVE_NODE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___IS_OPERATOR_ARGUMENT = GraphstructurePackage.PRIMITIVE_NODE___IS_OPERATOR_ARGUMENT;
+
+	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2052,15 +2070,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___ADD_COMPARISON = GraphstructurePackage.PRIMITIVE_NODE___ADD_COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Is Operator Argument</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY___IS_OPERATOR_ARGUMENT = GraphstructurePackage.PRIMITIVE_NODE___IS_OPERATOR_ARGUMENT;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -2458,6 +2467,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.COMPLEX_NODE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___IS_OPERATOR_ARGUMENT = GraphstructurePackage.COMPLEX_NODE___IS_OPERATOR_ARGUMENT;
 
 	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
