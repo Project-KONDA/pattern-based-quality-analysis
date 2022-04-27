@@ -137,20 +137,6 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		return GraphstructurePackage.Literals.PRIMITIVE_NODE;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public Comparison addComparison() {
-		Comparison comparison = new ComparisonImpl();
-		comparison.setOperatorList(getGraph().getOperatorList());
-		comparison.createParameters();
-		comparison.setArgument1(this);
-		return comparison;
-	}
-
 	@Override
 	public boolean isOperatorArgument() {
 		return !getComparison1().isEmpty() || !getComparison2().isEmpty() || !getMatch().isEmpty();
