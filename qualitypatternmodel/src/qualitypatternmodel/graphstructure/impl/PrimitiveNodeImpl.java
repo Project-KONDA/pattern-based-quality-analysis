@@ -26,6 +26,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
@@ -345,6 +346,17 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 			checkComparisonConsistency(comp);
 		}			
 	}
+	
+	@Override
+	public void addTargetNode() throws InvalidityException {
+		throw new InvalidityException("PrimitiveNodes can not have subnodes.");
+	}
+	
+	@Override
+	public void addOutgoing(Node node) throws InvalidityException {
+		throw new InvalidityException("PrimitiveNodes can not have subnodes.");
+	}
+	
 
 	private void checkPropertyPropertyComparisonConstraints(ComparisonOperator op, ComparisonOperator otherOp)
 			throws InvalidityException {
