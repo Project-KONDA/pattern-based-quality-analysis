@@ -12,8 +12,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import com.sun.jdi.PrimitiveValue;
-
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -458,10 +456,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		try {
 			isCycleFree();
 			
-			if(newArgument1 instanceof Node && argument2 instanceof PrimitiveValue) {				
+			if(newArgument1 instanceof Node && argument2 instanceof ParameterValue) {				
 				((Node) newArgument1).makePrimitive();
 			}
-			if(newArgument1 instanceof PrimitiveValue && argument2 instanceof Node){
+			if(newArgument1 instanceof ParameterValue && argument2 instanceof Node){
 				((Node) argument2).makePrimitive();
 			}				
 			
@@ -907,10 +905,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		try {
 			isCycleFree();
 			
-			if(newArgument2 instanceof Node && argument1 instanceof PrimitiveValue) {				
+			if(newArgument2 instanceof Node && argument1 instanceof ParameterValue) {				
 				((Node) newArgument2).makePrimitive();
 			}
-			if(newArgument2 instanceof PrimitiveValue && argument1 instanceof Node){
+			if(newArgument2 instanceof ParameterValue && argument1 instanceof Node){
 				((Node) argument1).makePrimitive();
 			}
 		} catch (OperatorCycleException | InvalidityException e1) {
