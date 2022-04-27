@@ -303,7 +303,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PrimitiveNode" eSuperTypes="#//graphstructure/Node">
-      <eOperations name="addComparison" eType="#//operators/Comparison"/>
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="parameterValue" eType="#//parameters/ParameterValue"/>
       </eOperations>
@@ -339,9 +338,7 @@
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="comp" eType="#//operators/Comparison"/>
       </eOperations>
-      <eOperations name="getEquivalentElements">
-        <eParameters name="equivalentElements" upperBound="-1" eType="#//graphstructure/Node"/>
-      </eOperations>
+      <eOperations name="getEquivalentNodes" upperBound="-1" eType="#//graphstructure/Node"/>
       <eOperations name="makePrimitive" eType="#//graphstructure/PrimitiveNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="makeComplex" eType="#//graphstructure/ComplexNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="addTargetNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>

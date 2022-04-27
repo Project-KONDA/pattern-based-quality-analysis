@@ -184,8 +184,8 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		if(effectedComp == null || op == null) {
 			return;
 		}
-		EList<PrimitiveNode> equivalentProperties = getEquivalentProperties();
-		for(PrimitiveNode equiProp : equivalentProperties) {
+		EList<Node> equivalentProperties = getEquivalentNodes();
+		for(Node equiProp : equivalentProperties) {
 			for(Comparison compOther : equiProp.getComparison1()) {
 				if(compOther == null) {
 					return;
@@ -259,9 +259,9 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				checkComparisonConsistency(param);
 			} else if(argument2 instanceof PrimitiveNode) {
 				PrimitiveNode otherProp = (PrimitiveNode) argument2;
-				EList<PrimitiveNode> equivalentProperties = getEquivalentProperties();
-				EList<PrimitiveNode> otherEquivalentProperties = otherProp.getEquivalentProperties();
-				for(PrimitiveNode equiProp : equivalentProperties) {
+				EList<Node> equivalentProperties = getEquivalentNodes();
+				EList<Node> otherEquivalentProperties = otherProp.getEquivalentNodes();
+				for(Node equiProp : equivalentProperties) {
 					for(Comparison compOther : equiProp.getComparison1()) {
 						if(!compOther.equals(comp)) {
 							if(otherEquivalentProperties.contains(compOther.getArgument2())) {
@@ -288,9 +288,9 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				checkComparisonConsistency(param);
 			} else if(argument1 instanceof PrimitiveNode) {
 				PrimitiveNode otherProp = (PrimitiveNode) argument1;
-				EList<PrimitiveNode> equivalentProperties = getEquivalentProperties();
-				EList<PrimitiveNode> otherEquivalentProperties = otherProp.getEquivalentProperties();
-				for(PrimitiveNode equiProp : equivalentProperties) {
+				EList<Node> equivalentProperties = getEquivalentNodes();
+				EList<Node> otherEquivalentProperties = otherProp.getEquivalentNodes();
+				for(Node equiProp : equivalentProperties) {
 					for(Comparison compOther : equiProp.getComparison1()) {
 						if(!compOther.equals(comp)) {
 							if(otherEquivalentProperties.contains(compOther.getArgument2())) {
@@ -708,8 +708,6 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case GraphstructurePackage.PRIMITIVE_NODE___ADD_COMPARISON:
-				return addComparison();
 			case GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE:
 				try {
 					checkComparisonConsistency((ParameterValue)arguments.get(0));

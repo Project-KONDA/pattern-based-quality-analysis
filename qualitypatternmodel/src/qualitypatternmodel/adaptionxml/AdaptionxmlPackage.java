@@ -530,13 +530,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
 
 	/**
-	 * The operation id for the '<em>Get Equivalent Elements</em>' operation.
+	 * The operation id for the '<em>Get Equivalent Nodes</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___GET_EQUIVALENT_ELEMENTS__ELIST = GraphstructurePackage.COMPLEX_NODE___GET_EQUIVALENT_ELEMENTS__ELIST;
+	int XML_ELEMENT___GET_EQUIVALENT_NODES = GraphstructurePackage.COMPLEX_NODE___GET_EQUIVALENT_NODES;
 
 	/**
 	 * The operation id for the '<em>Make Primitive</em>' operation.
@@ -1946,13 +1946,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___SET_GRAPH_SIMPLE__GRAPH = GraphstructurePackage.PRIMITIVE_NODE___SET_GRAPH_SIMPLE__GRAPH;
 
 	/**
-	 * The operation id for the '<em>Get Equivalent Elements</em>' operation.
+	 * The operation id for the '<em>Get Equivalent Nodes</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_EQUIVALENT_ELEMENTS__ELIST = GraphstructurePackage.PRIMITIVE_NODE___GET_EQUIVALENT_ELEMENTS__ELIST;
+	int XML_PROPERTY___GET_EQUIVALENT_NODES = GraphstructurePackage.PRIMITIVE_NODE___GET_EQUIVALENT_NODES;
 
 	/**
 	 * The operation id for the '<em>Make Primitive</em>' operation.
@@ -2061,15 +2061,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___CHECK_COMPLEX = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPLEX;
-
-	/**
-	 * The operation id for the '<em>Add Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY___ADD_COMPARISON = GraphstructurePackage.PRIMITIVE_NODE___ADD_COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -2577,13 +2568,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
 
 	/**
-	 * The operation id for the '<em>Get Equivalent Elements</em>' operation.
+	 * The operation id for the '<em>Get Equivalent Nodes</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___GET_EQUIVALENT_ELEMENTS__ELIST = GraphstructurePackage.COMPLEX_NODE___GET_EQUIVALENT_ELEMENTS__ELIST;
+	int XML_ROOT___GET_EQUIVALENT_NODES = GraphstructurePackage.COMPLEX_NODE___GET_EQUIVALENT_NODES;
 
 	/**
 	 * The operation id for the '<em>Make Primitive</em>' operation.

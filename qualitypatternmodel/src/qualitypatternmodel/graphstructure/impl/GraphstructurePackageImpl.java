@@ -352,7 +352,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getPrimitiveNode__AddComparison() {
+	public EOperation getPrimitiveNode__CheckComparisonConsistency__ParameterValue() {
 		return primitiveNodeEClass.getEOperations().get(0);
 	}
 
@@ -362,7 +362,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getPrimitiveNode__CheckComparisonConsistency__ParameterValue() {
+	public EOperation getPrimitiveNode__CheckComparisonConsistency__Comparison() {
 		return primitiveNodeEClass.getEOperations().get(1);
 	}
 
@@ -372,18 +372,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getPrimitiveNode__CheckComparisonConsistency__Comparison() {
-		return primitiveNodeEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getPrimitiveNode__CheckComparisonConsistency() {
-		return primitiveNodeEClass.getEOperations().get(3);
+		return primitiveNodeEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -592,7 +582,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getNode__GetEquivalentElements__EList() {
+	public EOperation getNode__GetEquivalentNodes() {
 		return nodeEClass.getEOperations().get(10);
 	}
 
@@ -1031,7 +1021,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		primitiveNodeEClass = createEClass(PRIMITIVE_NODE);
 		createEReference(primitiveNodeEClass, PRIMITIVE_NODE__MATCH);
-		createEOperation(primitiveNodeEClass, PRIMITIVE_NODE___ADD_COMPARISON);
 		createEOperation(primitiveNodeEClass, PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE);
 		createEOperation(primitiveNodeEClass, PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON);
 		createEOperation(primitiveNodeEClass, PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY);
@@ -1056,7 +1045,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(nodeEClass, NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE);
 		createEOperation(nodeEClass, NODE___SET_GRAPH_SIMPLE__GRAPH);
 		createEOperation(nodeEClass, NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON);
-		createEOperation(nodeEClass, NODE___GET_EQUIVALENT_ELEMENTS__ELIST);
+		createEOperation(nodeEClass, NODE___GET_EQUIVALENT_NODES);
 		createEOperation(nodeEClass, NODE___MAKE_PRIMITIVE);
 		createEOperation(nodeEClass, NODE___MAKE_COMPLEX);
 		createEOperation(nodeEClass, NODE___ADD_TARGET_NODE);
@@ -1174,8 +1163,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEClass(primitiveNodeEClass, PrimitiveNode.class, "PrimitiveNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPrimitiveNode_Match(), theOperatorsPackage.getMatch(), theOperatorsPackage.getMatch_PrimitiveNode(), "match", null, 0, -1, PrimitiveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getPrimitiveNode__AddComparison(), theOperatorsPackage.getComparison(), "addComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		op = initEOperation(getPrimitiveNode__CheckComparisonConsistency__ParameterValue(), null, "checkComparisonConsistency", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theParametersPackage.getParameterValue(), "parameterValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
@@ -1232,8 +1219,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEParameter(op, theOperatorsPackage.getComparison(), "comp", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getNode__GetEquivalentElements__EList(), null, "getEquivalentElements", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getNode(), "equivalentElements", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getNode__GetEquivalentNodes(), this.getNode(), "getEquivalentNodes", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getNode__MakePrimitive(), this.getPrimitiveNode(), "makePrimitive", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());

@@ -30,18 +30,6 @@ public interface PrimitiveNode extends Node {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Returns a new <code>Comparison</code> that has <code>this</code> as an argument and
-	 * is added to the <code>predicates</code> of <code>element</code>.
-	 * 
-	 * @return the new <code>Comparison</code> that has <code>this</code> as an argument
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	Comparison addComparison();
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated

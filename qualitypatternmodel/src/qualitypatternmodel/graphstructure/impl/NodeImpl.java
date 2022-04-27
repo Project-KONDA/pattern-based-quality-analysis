@@ -687,11 +687,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		if(op != ComparisonOperator.EQUAL && op != ComparisonOperator.NOTEQUAL) {
 			return;
 		}
-		EList<Node> equivalentToThis = new BasicEList<Node>();
-		EList<Node> equivalentToOther = new BasicEList<Node>();
-								
-		getEquivalentElements(equivalentToThis);
-		otherElement.getEquivalentElements(equivalentToOther);
+		EList<Node> equivalentToThis = getEquivalentNodes();
+		EList<Node> equivalentToOther = otherElement.getEquivalentNodes();		
 		
 		for(Node e : equivalentToThis) {
 			for(Comparison comp1 : e.getComparison1()) {
@@ -725,22 +722,24 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public void getEquivalentElements(EList<Node> equivalentElements) {
+	public EList<Node> getEquivalentNodes() {
+		EList<Node> equivalentElements = new BasicEList<Node>();
 		equivalentElements.add(this);
 		if(getIncomingMapping() != null) {
 			Node next = getIncomingMapping().getSource();
 			if(!equivalentElements.contains(next)) {
-				next.getEquivalentElements(equivalentElements);
+				equivalentElements.addAll(next.getEquivalentNodes());
 			}
 		}
 		if(getOutgoingMappings() != null && !getOutgoingMappings().isEmpty()) {
 			for(ElementMapping m : getOutgoingMappings()) {
 				Node next = m.getTarget();
 				if(!equivalentElements.contains(next)) {
-					next.getEquivalentElements(equivalentElements);
+					equivalentElements.addAll(next.getEquivalentNodes());
 				}				
 			}
 		}
+		return equivalentElements;
 	}
 
 	/**
@@ -1485,9 +1484,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___GET_EQUIVALENT_ELEMENTS__ELIST:
-				getEquivalentElements((EList<Node>)arguments.get(0));
-				return null;
+			case GraphstructurePackage.NODE___GET_EQUIVALENT_NODES:
+				return getEquivalentNodes();
 			case GraphstructurePackage.NODE___MAKE_PRIMITIVE:
 				try {
 					return makePrimitive();

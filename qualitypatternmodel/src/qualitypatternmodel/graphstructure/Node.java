@@ -340,10 +340,10 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model equivalentElementsMany="true"
+	 * @model kind="operation"
 	 * @generated
 	 */
-	void getEquivalentElements(EList<Node> equivalentElements);
+	EList<Node> getEquivalentNodes();
 
 	/**
 	 * <!-- begin-user-doc -->
