@@ -2090,15 +2090,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
 
 	/**
-	 * The operation id for the '<em>Get Equivalent Properties</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY___GET_EQUIVALENT_PROPERTIES = GraphstructurePackage.PRIMITIVE_NODE___GET_EQUIVALENT_PROPERTIES;
-
-	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

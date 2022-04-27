@@ -1882,22 +1882,13 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON = NODE_OPERATION_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Equivalent Properties</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_NODE___GET_EQUIVALENT_PROPERTIES = NODE_OPERATION_COUNT + 3;
-
-	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY = NODE_OPERATION_COUNT + 4;
+	int PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY = NODE_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Primitive Node</em>' class.
@@ -1906,7 +1897,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 5;
+	int PRIMITIVE_NODE_OPERATION_COUNT = NODE_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
@@ -3280,16 +3271,6 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getPrimitiveNode__CheckComparisonConsistency__Comparison();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getEquivalentProperties() <em>Get Equivalent Properties</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Equivalent Properties</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getEquivalentProperties()
-	 * @generated
-	 */
-	EOperation getPrimitiveNode__GetEquivalentProperties();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4089,14 +4070,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON = eINSTANCE.getPrimitiveNode__CheckComparisonConsistency__Comparison();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Equivalent Properties</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PRIMITIVE_NODE___GET_EQUIVALENT_PROPERTIES = eINSTANCE.getPrimitiveNode__GetEquivalentProperties();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.

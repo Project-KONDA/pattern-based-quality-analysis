@@ -382,18 +382,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getPrimitiveNode__GetEquivalentProperties() {
-		return primitiveNodeEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getPrimitiveNode__CheckComparisonConsistency() {
-		return primitiveNodeEClass.getEOperations().get(4);
+		return primitiveNodeEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -1044,7 +1034,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(primitiveNodeEClass, PRIMITIVE_NODE___ADD_COMPARISON);
 		createEOperation(primitiveNodeEClass, PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE);
 		createEOperation(primitiveNodeEClass, PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON);
-		createEOperation(primitiveNodeEClass, PRIMITIVE_NODE___GET_EQUIVALENT_PROPERTIES);
 		createEOperation(primitiveNodeEClass, PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY);
 
 		nodeEClass = createEClass(NODE);
@@ -1194,8 +1183,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getPrimitiveNode__CheckComparisonConsistency__Comparison(), null, "checkComparisonConsistency", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theOperatorsPackage.getComparison(), "comp", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
-		initEOperation(getPrimitiveNode__GetEquivalentProperties(), this.getPrimitiveNode(), "getEquivalentProperties", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getPrimitiveNode__CheckComparisonConsistency(), null, "checkComparisonConsistency", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());

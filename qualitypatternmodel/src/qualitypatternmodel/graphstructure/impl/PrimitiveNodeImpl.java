@@ -318,18 +318,6 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<PrimitiveNode> getEquivalentProperties() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -730,8 +718,6 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.PRIMITIVE_NODE___GET_EQUIVALENT_PROPERTIES:
-				return getEquivalentProperties();
 			case GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY:
 				try {
 					checkComparisonConsistency();
