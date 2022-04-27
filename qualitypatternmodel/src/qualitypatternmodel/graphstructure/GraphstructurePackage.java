@@ -1278,13 +1278,22 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___CHECK_COMPLEX = COMPARABLE_OPERATION_COUNT + 24;
 
 	/**
+	 * The operation id for the '<em>Add Incomming</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___ADD_INCOMMING__NODE = COMPARABLE_OPERATION_COUNT + 25;
+
+	/**
 	 * The number of operations of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 25;
+	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 26;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.
@@ -1862,6 +1871,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMITIVE_NODE___CHECK_COMPLEX = NODE___CHECK_COMPLEX;
+
+	/**
+	 * The operation id for the '<em>Add Incomming</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___ADD_INCOMMING__NODE = NODE___ADD_INCOMMING__NODE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3064,6 +3082,15 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___CHECK_COMPLEX = NODE___CHECK_COMPLEX;
 
 	/**
+	 * The operation id for the '<em>Add Incomming</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADD_INCOMMING__NODE = NODE___ADD_INCOMMING__NODE;
+
+	/**
 	 * The number of operations of the '<em>Complex Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3618,6 +3645,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNode__CheckComplex();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addIncomming(qualitypatternmodel.graphstructure.Node) <em>Add Incomming</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Incomming</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#addIncomming(qualitypatternmodel.graphstructure.Node)
+	 * @generated
+	 */
+	EOperation getNode__AddIncomming__Node();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
@@ -4344,6 +4381,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NODE___CHECK_COMPLEX = eINSTANCE.getNode__CheckComplex();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Incomming</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___ADD_INCOMMING__NODE = eINSTANCE.getNode__AddIncomming__Node();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.

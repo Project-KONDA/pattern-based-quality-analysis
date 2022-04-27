@@ -6,7 +6,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
-
+import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 
 /**
@@ -24,6 +25,12 @@ public class XmlPropertyNavigationImpl extends RelationImpl implements XmlProper
 	 */
 	protected XmlPropertyNavigationImpl() {
 		super();
+	}
+	
+	@Override
+	public void setTarget(Node newTarget) {
+		assert (newTarget == null || newTarget instanceof PrimitiveNode);
+		super.setTarget(newTarget);
 	}
 
 	/**

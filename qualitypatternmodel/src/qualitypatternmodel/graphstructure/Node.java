@@ -441,4 +441,12 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 */
 	void checkComplex() throws InvalidityException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addIncomming(Node node);
+
 } // Element

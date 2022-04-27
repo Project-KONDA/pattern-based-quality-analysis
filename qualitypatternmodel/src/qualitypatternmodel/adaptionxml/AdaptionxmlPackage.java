@@ -647,6 +647,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___CHECK_COMPLEX = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPLEX;
 
 	/**
+	 * The operation id for the '<em>Add Incomming</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADD_INCOMMING__NODE = GraphstructurePackage.COMPLEX_NODE___ADD_INCOMMING__NODE;
+
+	/**
 	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2081,6 +2090,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___CHECK_COMPLEX = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPLEX;
 
 	/**
+	 * The operation id for the '<em>Add Incomming</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADD_INCOMMING__NODE = GraphstructurePackage.PRIMITIVE_NODE___ADD_INCOMMING__NODE;
+
+	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2701,6 +2719,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___CHECK_COMPLEX = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPLEX;
+
+	/**
+	 * The operation id for the '<em>Add Incomming</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADD_INCOMMING__NODE = GraphstructurePackage.COMPLEX_NODE___ADD_INCOMMING__NODE;
 
 	/**
 	 * The number of operations of the '<em>Xml Root</em>' class.

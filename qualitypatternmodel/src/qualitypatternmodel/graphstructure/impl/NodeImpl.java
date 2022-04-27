@@ -960,6 +960,17 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addIncomming(Node node) {
+		Graph myGraph = this.getGraph(); 
+		myGraph.addRelation(node, this);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
@@ -1570,6 +1581,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case GraphstructurePackage.NODE___ADD_INCOMMING__NODE:
+				addIncomming((Node)arguments.get(0));
+				return null;
 			case GraphstructurePackage.NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;
