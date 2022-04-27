@@ -228,4 +228,12 @@ public interface Relation extends PatternElement, Adaptable {
 	 */
 	int getOriginalID();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Relation getOriginalRelation();
+
 } // Relation

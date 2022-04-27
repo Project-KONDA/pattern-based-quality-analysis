@@ -67,6 +67,15 @@ public interface AdaptionxmlFactory extends EFactory {
 	XmlRoot createXmlRoot();
 
 	/**
+	 * Returns a new object of class '<em>Xml Property Navigation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Xml Property Navigation</em>'.
+	 * @generated
+	 */
+	XmlPropertyNavigation createXmlPropertyNavigation();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

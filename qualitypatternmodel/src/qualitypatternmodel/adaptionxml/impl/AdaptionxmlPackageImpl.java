@@ -18,6 +18,7 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 
@@ -82,6 +83,13 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	private EClass xmlRootEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass xmlPropertyNavigationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -380,6 +388,16 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EClass getXmlPropertyNavigation() {
+		return xmlPropertyNavigationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getPropertyKind() {
 		return propertyKindEEnum;
 	}
@@ -447,6 +465,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		xmlRootEClass = createEClass(XML_ROOT);
 
+		xmlPropertyNavigationEClass = createEClass(XML_PROPERTY_NAVIGATION);
+
 		// Create enums
 		propertyKindEEnum = createEEnum(PROPERTY_KIND);
 		relationKindEEnum = createEEnum(RELATION_KIND);
@@ -491,6 +511,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		xmlReferenceEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
 		xmlPropertyEClass.getESuperTypes().add(theGraphstructurePackage.getPrimitiveNode());
 		xmlRootEClass.getESuperTypes().add(theGraphstructurePackage.getComplexNode());
+		xmlPropertyNavigationEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(xmlElementEClass, XmlElement.class, "XmlElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -525,6 +546,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		initEReference(getXmlProperty_OutgoingReferences(), this.getXmlReference(), this.getXmlReference_SourceProperty(), "outgoingReferences", null, 0, -1, XmlProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(xmlRootEClass, XmlRoot.class, "XmlRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(xmlPropertyNavigationEClass, XmlPropertyNavigation.class, "XmlPropertyNavigation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(propertyKindEEnum, PropertyKind.class, "PropertyKind");

@@ -260,6 +260,7 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Relation/setGraphSimple/newGraph"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/getOriginalID"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/getOriginalRelation"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -610,6 +611,7 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlProperty/outgoingReferences"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlRoot"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyNavigation"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Execution" basePackage="qualitypatternmodel" disposableProviderFactory="true"
         ecorePackage="qualitypatternmodel.ecore#//execution">

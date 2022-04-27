@@ -290,6 +290,7 @@
         <eParameters name="newGraph" eType="#//graphstructure/Graph"/>
       </eOperations>
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eOperations name="getOriginalRelation" eType="#//graphstructure/Relation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/RelationMapping"
           eOpposite="#//patternstructure/RelationMapping/target"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
@@ -733,6 +734,7 @@
       <eLiterals name="NINECHILD" value="18" literal="/*/*/*/*/*/*/*/*/*"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlRoot" eSuperTypes="#//graphstructure/ComplexNode"/>
+    <eClassifiers xsi:type="ecore:EClass" name="XmlPropertyNavigation" eSuperTypes="#//graphstructure/Relation"/>
   </eSubpackages>
   <eSubpackages name="execution" nsURI="execution" nsPrefix="execution">
     <eClassifiers xsi:type="ecore:EClass" name="Result" abstract="true">

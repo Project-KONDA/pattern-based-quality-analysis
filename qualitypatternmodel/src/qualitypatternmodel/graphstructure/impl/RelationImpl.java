@@ -556,6 +556,20 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Relation getOriginalRelation() {
+		if (incomingMapping == null) {
+			return this;
+		} else {
+			return incomingMapping.getSource().getOriginalRelation();
+		}		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -986,6 +1000,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return null;
 			case GraphstructurePackage.RELATION___GET_ORIGINAL_ID:
 				return getOriginalID();
+			case GraphstructurePackage.RELATION___GET_ORIGINAL_RELATION:
+				return getOriginalRelation();
 			case GraphstructurePackage.RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;

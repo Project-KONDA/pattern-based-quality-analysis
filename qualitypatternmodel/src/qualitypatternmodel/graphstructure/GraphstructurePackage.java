@@ -403,13 +403,22 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___GET_ORIGINAL_ID = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
+	 * The operation id for the '<em>Get Original Relation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___GET_ORIGINAL_RELATION = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
+
+	/**
 	 * The number of operations of the '<em>Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
+	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}' class.
@@ -3211,6 +3220,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getRelation__GetOriginalID();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#getOriginalRelation() <em>Get Original Relation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Original Relation</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Relation#getOriginalRelation()
+	 * @generated
+	 */
+	EOperation getRelation__GetOriginalRelation();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.PrimitiveNode <em>Primitive Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4009,6 +4028,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RELATION___GET_ORIGINAL_ID = eINSTANCE.getRelation__GetOriginalID();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Original Relation</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RELATION___GET_ORIGINAL_RELATION = eINSTANCE.getRelation__GetOriginalRelation();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.

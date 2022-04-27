@@ -343,17 +343,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	 */
 	@Override
 	public RelationOptionParam getOriginalOption() {
-		if (incomingMapping == null) {
-			return this.getOption();
-		} else {
-			Relation mappingSource = incomingMapping.getSource();
-			if(mappingSource instanceof XmlNavigation) {
-				XmlNavigation prev = (XmlNavigation) mappingSource;
-				return prev.getOriginalOption();
-			}			
-		}
-		return null;		
-			
+		return ((XmlNavigation) getOriginalRelation()).getOption();		
 	}
 
 	/**
