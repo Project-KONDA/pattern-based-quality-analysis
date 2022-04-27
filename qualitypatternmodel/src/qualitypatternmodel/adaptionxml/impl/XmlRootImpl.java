@@ -11,6 +11,9 @@ import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.ComplexNode;
+import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -81,6 +84,52 @@ public class XmlRootImpl extends ComplexNodeImpl implements XmlRoot {
 			}
 		}
 		return name;
+	}
+	
+	@Override
+	public Node makeGeneric() throws InvalidityException{
+		throw new InvalidityException("This node can not become generic!");
+	}
+	
+	@Override
+	public Node makeGenericRecursive() throws InvalidityException{
+		throw new InvalidityException("This node can not become generic!");
+	}
+	
+	@Override
+	public void checkGeneric() throws InvalidityException{
+		throw new InvalidityException("This node can not become generic!");
+	}
+	
+	@Override
+	
+	public ComplexNode makeComplex() throws InvalidityException{
+		throw new InvalidityException("This node can not become generic!");
+	}
+	
+	@Override
+	public ComplexNode makeComplexRecursive() throws InvalidityException{
+		throw new InvalidityException("This node can not become generic!");
+	}
+	
+	@Override
+	public void checkComplex() throws InvalidityException{
+		throw new InvalidityException("This node can not become generic!");
+	}
+	
+	@Override
+	public PrimitiveNode makePrimitive() throws InvalidityException{
+		throw new InvalidityException("This node can not become generic!");
+	}
+	
+	@Override
+	public PrimitiveNode makePrimitiveRecursive() throws InvalidityException{
+		throw new InvalidityException("This node can not become generic!");
+	}
+	
+	@Override
+	public void checkPrimitive() throws InvalidityException{
+		throw new InvalidityException("This node can not become generic!");
 	}
 	
 	/**
