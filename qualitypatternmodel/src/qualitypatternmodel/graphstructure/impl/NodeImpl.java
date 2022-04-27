@@ -830,8 +830,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		Node originalNode = getOriginalNode();
 		originalNode.checkGeneric();
 		return originalNode.makeGenericRecursive();
-		
-		
 	}
 
 	/**
@@ -1039,7 +1037,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		Node newNode = new NodeImpl();
 		newNode.setGraph(myGraph);
 		myGraph.addRelation(makeComplex(), newNode);
-		this.makeComplex();
 	}
 
 	/**
@@ -1052,7 +1049,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public void addOutgoing(Node node) throws InvalidityException {
 		Graph myGraph = this.getGraph(); 
 		myGraph.addRelation(makeComplex(), node);
-		this.makeComplex();
 	}
 
 	/**
@@ -1068,8 +1064,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			return incomingMapping.getSource().getOriginalNode();
 		}
 	}
-
-	
+		
 
 	/**
 	 * <!-- begin-user-doc -->
