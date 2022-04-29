@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlProperty;
-import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -973,146 +972,14 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void checkComplex() throws InvalidityException {		
-		if (this instanceof PrimitiveNode)
-			throw new InvalidityException("PrimitiveNode cannot be turned into ComplexNode");
-		for(Comparison comp: getComparison1()) {
-			if(comp.getArgument2() instanceof ParameterValue) {
-				throw new InvalidityException("Node with primitive comparison cannot be turned into ComplexNode");
-			}
-		}
-		for(Comparison comp: getComparison2()) {
-			if(comp.getArgument1() instanceof ParameterValue) {
-				throw new InvalidityException("Node with primitive comparison cannot be turned into ComplexNode");
-			}
-		}
-		for(ElementMapping mapping : getOutgoingMappings()) {
-			mapping.getTarget().checkComplex();
-		}
-		
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void addIncomming(Node node) {
-		Graph myGraph = this.getGraph(); 
-		myGraph.addRelation(node, this);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public XmlElement adaptAsXmlElement() throws InvalidityException {
-			XmlElementImpl xmlElement = new XmlElementImpl();
-			xmlElement.typeModifiable = true;
-			xmlElement.setGraphSimple(getGraph());				
-			
-			xmlElement.setResultOf(getResultOf());
-			
-			xmlElement.getPredicates().addAll(getPredicates());
-			getPredicates().clear();
-			
-			xmlElement.getOutgoingMappings().addAll(getOutgoingMappings());
-			getOutgoingMappings().clear();
-			xmlElement.setIncomingMapping(getIncomingMapping());
-			setIncomingMapping(null);
-			
-			if(getName().matches("Element [0-9]+")) {
-				xmlElement.setName(getName().replace("Element", "XmlElement"));
-			} else {
-				xmlElement.setName(getName());
-			}
-			
-			setResultOf(null);
-			
-			EList<Relation> outgoingCopy = new BasicEList<Relation>();
-			if (this instanceof ComplexNode)
-				outgoingCopy.addAll(((ComplexNode) this).getOutgoing());
-			for(Relation relation : outgoingCopy) {
-				relation.setSource(xmlElement);
-			}
-			
-			EList<Relation> incomingCopy = new BasicEList<Relation>();
-			incomingCopy.addAll(getIncoming());
-			for(Relation relation : incomingCopy) {
-				relation.setTarget(xmlElement);
-			}
-			
-			xmlElement.getComparison1().addAll(getComparison1());
-			getComparison1().clear();
-			xmlElement.getComparison2().addAll(getComparison2());
-			getComparison2().clear();	
-			
-			
-			setGraph(null);
-			
-			return xmlElement;
-		
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public XmlProperty adaptAsXmlProperty() throws InvalidityException {				
-		
-		XmlPropertyImpl xmlProperty = new XmlPropertyImpl();	
-		xmlProperty.typeModifiable = true;
-		xmlProperty.setGraphSimple(getGraph());			
-		
-		xmlProperty.setResultOf(getResultOf());
-		
-		xmlProperty.getPredicates().addAll(getPredicates());
-		getPredicates().clear();
-		
-		xmlProperty.getOutgoingMappings().addAll(getOutgoingMappings());
-		getOutgoingMappings().clear();
-		xmlProperty.setIncomingMapping(getIncomingMapping());
-		setIncomingMapping(null);
-		
-		if(getName().matches("Property [0-9]+")) {
-			xmlProperty.setName(getName().replace("Property", "XmlProperty"));
-		} else {
-			xmlProperty.setName(getName());
-		}
-		
-		xmlProperty.createParameters();
-		
-		setResultOf(null);
-		
-		if(this instanceof PrimitiveNode) {
-			xmlProperty.getMatch().addAll(((PrimitiveNode) this).getMatch());
-			((PrimitiveNode) this).getMatch().clear();		
-		}
-		
-		EList<Relation> incomingCopy = new BasicEList<Relation>();
-		incomingCopy.addAll(getIncoming());
-		for(Relation relation : incomingCopy) {
-			relation.setTarget(xmlProperty);
-		}
-		
-		xmlProperty.getComparison1().addAll(getComparison1());
-		getComparison1().clear();
-		xmlProperty.getComparison2().addAll(getComparison2());
-		getComparison2().clear();
-
-		setGraph(null);
-		
-		return xmlProperty;
-	
+	public ComplexNode makeComplex() throws InvalidityException {		
+		Node originalNode = getOriginalNode();
+		originalNode.checkComplex();
+		return originalNode.makeComplexRecursive();			
 	}
 
 	/**
@@ -1181,14 +1048,162 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void checkComplex() throws InvalidityException {		
+		if (this instanceof PrimitiveNode)
+			throw new InvalidityException("PrimitiveNode cannot be turned into ComplexNode");
+		for(Comparison comp: getComparison1()) {
+			if(comp.getArgument2() instanceof ParameterValue) {
+				throw new InvalidityException("Node with primitive comparison cannot be turned into ComplexNode");
+			}
+		}
+		for(Comparison comp: getComparison2()) {
+			if(comp.getArgument1() instanceof ParameterValue) {
+				throw new InvalidityException("Node with primitive comparison cannot be turned into ComplexNode");
+			}
+		}
+		for(ElementMapping mapping : getOutgoingMappings()) {
+			mapping.getTarget().checkComplex();
+		}
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void addIncomming(Node node) {
+		Graph myGraph = this.getGraph(); 
+		myGraph.addRelation(node, this);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public ComplexNode makeComplex() throws InvalidityException {		
-		Node originalNode = getOriginalNode();
-		originalNode.checkComplex();
-		return originalNode.makeComplexRecursive();			
+	public XmlElement adaptAsXmlElement() throws InvalidityException {
+		return ((NodeImpl) getOriginalNode()).adaptAsXmlElementRecursive();
+	}
+	
+	private XmlElement adaptAsXmlElementRecursive() throws InvalidityException {
+		XmlElementImpl xmlElement = new XmlElementImpl();
+		xmlElement.typeModifiable = true;
+		xmlElement.setGraphSimple(getGraph());				
+				
+		xmlElement.setResultOf(getResultOf());
+		
+		xmlElement.getPredicates().addAll(getPredicates());
+		getPredicates().clear();
+		
+		xmlElement.getOutgoingMappings().addAll(getOutgoingMappings());
+		getOutgoingMappings().clear();
+		xmlElement.setIncomingMapping(getIncomingMapping());
+		setIncomingMapping(null);
+		
+		if(getName().matches("Element [0-9]+")) {
+			xmlElement.setName(getName().replace("Element", "XmlElement"));
+		} else {
+			xmlElement.setName(getName());
+		}
+		
+		setResultOf(null);
+		
+		EList<Relation> outgoingCopy = new BasicEList<Relation>();
+		if (this instanceof ComplexNode)
+			outgoingCopy.addAll(((ComplexNode) this).getOutgoing());
+		for(Relation relation : outgoingCopy) {
+			relation.setSource(xmlElement);
+		}
+		
+		EList<Relation> incomingCopy = new BasicEList<Relation>();
+		incomingCopy.addAll(getIncoming());
+		for(Relation relation : incomingCopy) {
+			relation.setTarget(xmlElement);
+		}
+		
+		xmlElement.getComparison1().addAll(getComparison1());
+		getComparison1().clear();
+		xmlElement.getComparison2().addAll(getComparison2());
+		getComparison2().clear();	
+		
+		
+		setGraph(null);
+		
+		for (ElementMapping map: xmlElement.getOutgoingMappings()) {
+			((NodeImpl) map.getTarget()).adaptAsXmlElementRecursive();
+		}
+		
+		return xmlElement;				
+	}
+
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public XmlProperty adaptAsXmlProperty() throws InvalidityException {
+		return ((NodeImpl) getOriginalNode()).adaptAsXmlPropertyRecursive();
+	}
+	
+	private XmlProperty adaptAsXmlPropertyRecursive() throws InvalidityException {			
+		
+		XmlPropertyImpl xmlProperty = new XmlPropertyImpl();	
+		xmlProperty.typeModifiable = true;
+		xmlProperty.setGraphSimple(getGraph());			
+		
+		xmlProperty.setResultOf(getResultOf());
+		
+		xmlProperty.getPredicates().addAll(getPredicates());
+		getPredicates().clear();
+		
+		xmlProperty.getOutgoingMappings().addAll(getOutgoingMappings());
+		getOutgoingMappings().clear();
+		xmlProperty.setIncomingMapping(getIncomingMapping());
+		setIncomingMapping(null);
+		
+		if(getName().matches("Property [0-9]+")) {
+			xmlProperty.setName(getName().replace("Property", "XmlProperty"));
+		} else {
+			xmlProperty.setName(getName());
+		}
+		
+		xmlProperty.createParameters();
+		
+		setResultOf(null);
+		
+		if(this instanceof PrimitiveNode) {
+			xmlProperty.getMatch().addAll(((PrimitiveNode) this).getMatch());
+			((PrimitiveNode) this).getMatch().clear();		
+		}
+		
+		EList<Relation> incomingCopy = new BasicEList<Relation>();
+		incomingCopy.addAll(getIncoming());
+		for(Relation relation : incomingCopy) {
+			relation.setTarget(xmlProperty);
+			relation.adaptAsXMLPropertyNavigation();
+		}
+		
+		xmlProperty.getComparison1().addAll(getComparison1());
+		getComparison1().clear();
+		xmlProperty.getComparison2().addAll(getComparison2());
+		getComparison2().clear();
+
+		setGraph(null);
+		
+		for (ElementMapping map: xmlProperty.getOutgoingMappings()) {
+			((NodeImpl) map.getTarget()).adaptAsXmlPropertyRecursive();
+		}
+		
+		return xmlProperty;
 	}
 
 	/**
