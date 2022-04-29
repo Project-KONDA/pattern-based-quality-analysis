@@ -72,6 +72,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getIncoming <em>Incoming</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#isTypeModifiable <em>Type Modifiable</em>}</li>
  * </ul>
  *
  * @generated
@@ -220,6 +221,26 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @ordered
 	 */
 	protected EList<Relation> incoming;
+
+	/**
+	 * The default value of the '{@link #isTypeModifiable() <em>Type Modifiable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTypeModifiable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean TYPE_MODIFIABLE_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isTypeModifiable() <em>Type Modifiable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTypeModifiable()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean typeModifiable = TYPE_MODIFIABLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -528,6 +549,16 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isTypeModifiable() {
+		return typeModifiable;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -771,7 +802,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			return (PrimitiveNode) this;
 		}
 		
-		PrimitiveNode newPrimitive = new PrimitiveNodeImpl();
+		PrimitiveNodeImpl newPrimitive = new PrimitiveNodeImpl();
+		newPrimitive.typeModifiable = false;
 		
 		newPrimitive.setGraphSimple(getGraph());				
 		
@@ -1277,6 +1309,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return getPredicates();
 			case GraphstructurePackage.NODE__INCOMING:
 				return getIncoming();
+			case GraphstructurePackage.NODE__TYPE_MODIFIABLE:
+				return isTypeModifiable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1404,6 +1438,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return predicates != null && !predicates.isEmpty();
 			case GraphstructurePackage.NODE__INCOMING:
 				return incoming != null && !incoming.isEmpty();
+			case GraphstructurePackage.NODE__TYPE_MODIFIABLE:
+				return typeModifiable != TYPE_MODIFIABLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1790,6 +1826,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		result.append(translated);
 		result.append(", predicatesAreBeingTranslated: ");
 		result.append(predicatesAreBeingTranslated);
+		result.append(", typeModifiable: ");
+		result.append(typeModifiable);
 		result.append(')');
 		return result.toString();
 	}

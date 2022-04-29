@@ -78,6 +78,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		super();
 	}
 	
+	
 	@Override
 	public void isValid (AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		if (getClass().equals(PrimitiveNodeImpl.class) && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE)

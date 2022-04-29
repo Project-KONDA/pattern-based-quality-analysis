@@ -266,6 +266,11 @@ public class GraphItemProvider extends PatternElementItemProvider {
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__RELATIONS,
 				 AdaptionxmlFactory.eINSTANCE.createXmlReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__RELATIONS,
+				 AdaptionxmlFactory.eINSTANCE.createXmlPropertyNavigation()));
 	}
 
 	/**

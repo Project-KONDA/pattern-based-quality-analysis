@@ -187,6 +187,29 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XmlPropertyNavigation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected XmlPropertyNavigationItemProvider xmlPropertyNavigationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XmlPropertyNavigation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createXmlPropertyNavigationAdapter() {
+		if (xmlPropertyNavigationItemProvider == null) {
+			xmlPropertyNavigationItemProvider = new XmlPropertyNavigationItemProvider(this);
+		}
+
+		return xmlPropertyNavigationItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -296,6 +319,7 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 		if (xmlReferenceItemProvider != null) xmlReferenceItemProvider.dispose();
 		if (xmlPropertyItemProvider != null) xmlPropertyItemProvider.dispose();
 		if (xmlRootItemProvider != null) xmlRootItemProvider.dispose();
+		if (xmlPropertyNavigationItemProvider != null) xmlPropertyNavigationItemProvider.dispose();
 	}
 
 }

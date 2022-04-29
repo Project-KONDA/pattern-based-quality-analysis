@@ -22,6 +22,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsXMLReference() <em>Adapt As XML Reference</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getOriginalID() <em>Get Original ID</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#getOriginalRelation() <em>Get Original Relation</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  * </ul>
@@ -155,6 +156,19 @@ public class RelationTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGetOriginalID() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#getOriginalRelation() <em>Get Original Relation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Relation#getOriginalRelation()
+	 * @generated
+	 */
+	public void testGetOriginalRelation() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

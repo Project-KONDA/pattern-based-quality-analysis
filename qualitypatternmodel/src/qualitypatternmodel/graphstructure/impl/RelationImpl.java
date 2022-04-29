@@ -57,6 +57,7 @@ import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getSource <em>Source</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#isTypeModifiable <em>Type Modifiable</em>}</li>
  * </ul>
  *
  * @generated
@@ -130,6 +131,26 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isTypeModifiable() <em>Type Modifiable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTypeModifiable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean TYPE_MODIFIABLE_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isTypeModifiable() <em>Type Modifiable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTypeModifiable()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean typeModifiable = TYPE_MODIFIABLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -606,6 +627,16 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isTypeModifiable() {
+		return typeModifiable;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -875,6 +906,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return basicGetTarget();
 			case GraphstructurePackage.RELATION__NAME:
 				return getName();
+			case GraphstructurePackage.RELATION__TYPE_MODIFIABLE:
+				return isTypeModifiable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -958,6 +991,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return target != null;
 			case GraphstructurePackage.RELATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case GraphstructurePackage.RELATION__TYPE_MODIFIABLE:
+				return typeModifiable != TYPE_MODIFIABLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1025,6 +1060,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", typeModifiable: ");
+		result.append(typeModifiable);
 		result.append(')');
 		return result.toString();
 	}

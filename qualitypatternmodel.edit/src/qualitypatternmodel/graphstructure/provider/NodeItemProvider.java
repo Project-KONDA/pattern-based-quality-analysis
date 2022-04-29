@@ -59,6 +59,7 @@ public class NodeItemProvider extends PatternElementItemProvider {
 			addPredicatesAreBeingTranslatedPropertyDescriptor(object);
 			addPredicatesPropertyDescriptor(object);
 			addIncomingPropertyDescriptor(object);
+			addTypeModifiablePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -284,6 +285,28 @@ public class NodeItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Type Modifiable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypeModifiablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Node_typeModifiable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Node_typeModifiable_feature", "_UI_Node_type"),
+				 GraphstructurePackage.Literals.NODE__TYPE_MODIFIABLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Node.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -324,6 +347,7 @@ public class NodeItemProvider extends PatternElementItemProvider {
 			case GraphstructurePackage.NODE__NAME:
 			case GraphstructurePackage.NODE__TRANSLATED:
 			case GraphstructurePackage.NODE__PREDICATES_ARE_BEING_TRANSLATED:
+			case GraphstructurePackage.NODE__TYPE_MODIFIABLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

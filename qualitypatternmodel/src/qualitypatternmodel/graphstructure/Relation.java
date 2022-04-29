@@ -24,6 +24,7 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getSource <em>Source</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getTarget <em>Target</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getName <em>Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#isTypeModifiable <em>Type Modifiable</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation()
@@ -138,6 +139,18 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Type Modifiable</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type Modifiable</em>' attribute.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_TypeModifiable()
+	 * @model default="true" changeable="false"
+	 * @generated
+	 */
+	boolean isTypeModifiable();
 
 	/**
 	 * Returns the value of the '<em><b>Incoming Mapping</b></em>' reference.

@@ -272,6 +272,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EAttribute getRelation_TypeModifiable() {
+		return (EAttribute)relationEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getRelation__RemoveRelationFromPreviousGraphs() {
 		return relationEClass.getEOperations().get(0);
 	}
@@ -484,6 +494,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	@Override
 	public EReference getNode_Incoming() {
 		return (EReference)nodeEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNode_TypeModifiable() {
+		return (EAttribute)nodeEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1032,6 +1052,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEReference(relationEClass, RELATION__SOURCE);
 		createEReference(relationEClass, RELATION__TARGET);
 		createEAttribute(relationEClass, RELATION__NAME);
+		createEAttribute(relationEClass, RELATION__TYPE_MODIFIABLE);
 		createEOperation(relationEClass, RELATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS);
 		createEOperation(relationEClass, RELATION___REMOVE_MAPPINGS_TO_NEXT);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_NAVIGATION);
@@ -1056,6 +1077,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEAttribute(nodeEClass, NODE__PREDICATES_ARE_BEING_TRANSLATED);
 		createEReference(nodeEClass, NODE__PREDICATES);
 		createEReference(nodeEClass, NODE__INCOMING);
+		createEAttribute(nodeEClass, NODE__TYPE_MODIFIABLE);
 		createEOperation(nodeEClass, NODE___GET_ORIGINAL_ID);
 		createEOperation(nodeEClass, NODE___ADD_PRIMITIVE_MATCH__STRING);
 		createEOperation(nodeEClass, NODE___ADD_PRIMITIVE_COMPARISON__STRING);
@@ -1168,6 +1190,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEReference(getRelation_Source(), this.getComplexNode(), this.getComplexNode_Outgoing(), "source", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRelation_Target(), this.getNode(), this.getNode_Incoming(), "target", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRelation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRelation_TypeModifiable(), ecorePackage.getEBoolean(), "typeModifiable", "true", 0, 1, Relation.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getRelation__RemoveRelationFromPreviousGraphs(), null, "removeRelationFromPreviousGraphs", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1208,6 +1231,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEAttribute(getNode_PredicatesAreBeingTranslated(), ecorePackage.getEBoolean(), "predicatesAreBeingTranslated", null, 1, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_Predicates(), theOperatorsPackage.getBooleanOperator(), theOperatorsPackage.getBooleanOperator_Nodes(), "predicates", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_Incoming(), this.getRelation(), this.getRelation_Target(), "incoming", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNode_TypeModifiable(), ecorePackage.getEBoolean(), "typeModifiable", "true", 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getNode__GetOriginalID(), ecorePackage.getEInt(), "getOriginalID", 1, 1, IS_UNIQUE, IS_ORDERED);
 

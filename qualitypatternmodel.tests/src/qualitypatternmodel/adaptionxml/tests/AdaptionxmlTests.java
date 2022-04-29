@@ -36,6 +36,7 @@ public class AdaptionxmlTests extends TestSuite {
 		suite.addTestSuite(XmlReferenceTest.class);
 		suite.addTestSuite(XmlPropertyTest.class);
 		suite.addTestSuite(XmlRootTest.class);
+		suite.addTestSuite(XmlPropertyNavigationTest.class);
 		return suite;
 	}
 

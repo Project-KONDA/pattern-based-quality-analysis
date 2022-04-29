@@ -14,10 +14,7 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#addComparison() <em>Add Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#isOperatorArgument() <em>Is Operator Argument</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue) <em>Check Comparison Consistency</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#getEquivalentProperties() <em>Get Equivalent Properties</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
  * </ul>
  * </p>
@@ -78,32 +75,6 @@ public class PrimitiveNodeTest extends NodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#addComparison() <em>Add Comparison</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#addComparison()
-	 * @generated
-	 */
-	public void testAddComparison() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#isOperatorArgument() <em>Is Operator Argument</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#isOperatorArgument()
-	 * @generated
-	 */
-	public void testIsOperatorArgument() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue) <em>Check Comparison Consistency</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -111,19 +82,6 @@ public class PrimitiveNodeTest extends NodeTest {
 	 * @generated
 	 */
 	public void testCheckComparisonConsistency__ParameterValue() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#getEquivalentProperties() <em>Get Equivalent Properties</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#getEquivalentProperties()
-	 * @generated
-	 */
-	public void testGetEquivalentProperties() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

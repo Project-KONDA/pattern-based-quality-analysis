@@ -26,7 +26,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveComparison(qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency(qualitypatternmodel.operators.Comparison) <em>Check Comparison Consistency</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Node#getEquivalentElements(org.eclipse.emf.common.util.EList) <em>Get Equivalent Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#getEquivalentNodes() <em>Get Equivalent Nodes</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#makePrimitive() <em>Make Primitive</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#makeComplex() <em>Make Complex</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addTargetNode() <em>Add Target Node</em>}</li>
@@ -39,11 +39,13 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Node#checkGeneric() <em>Check Generic</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#checkPrimitive() <em>Check Primitive</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#checkComplex() <em>Check Complex</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addIncomming(qualitypatternmodel.graphstructure.Node) <em>Add Incomming</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isOperatorArgument() <em>Is Operator Argument</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -233,13 +235,13 @@ public class NodeTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#getEquivalentElements(org.eclipse.emf.common.util.EList) <em>Get Equivalent Elements</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#getEquivalentNodes() <em>Get Equivalent Nodes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Node#getEquivalentElements(org.eclipse.emf.common.util.EList)
+	 * @see qualitypatternmodel.graphstructure.Node#getEquivalentNodes()
 	 * @generated
 	 */
-	public void testGetEquivalentElements__EList() {
+	public void testGetEquivalentNodes() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
@@ -402,6 +404,19 @@ public class NodeTest extends PatternElementTest {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addIncomming(qualitypatternmodel.graphstructure.Node) <em>Add Incomming</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Node#addIncomming(qualitypatternmodel.graphstructure.Node)
+	 * @generated
+	 */
+	public void testAddIncomming__Node() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -461,6 +476,19 @@ public class NodeTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testGetAllArgumentElements() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Comparable#isOperatorArgument() <em>Is Operator Argument</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Comparable#isOperatorArgument()
+	 * @generated
+	 */
+	public void testIsOperatorArgument() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

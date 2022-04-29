@@ -33,6 +33,7 @@ import qualitypatternmodel.patternstructure.ElementMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.Node#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getIncoming <em>Incoming</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#isTypeModifiable <em>Type Modifiable</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode()
@@ -219,6 +220,18 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @generated
 	 */
 	EList<Relation> getIncoming();
+
+	/**
+	 * Returns the value of the '<em><b>Type Modifiable</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type Modifiable</em>' attribute.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_TypeModifiable()
+	 * @model default="true" changeable="false"
+	 * @generated
+	 */
+	boolean isTypeModifiable();
 
 	/**
 	 * <!-- begin-user-doc -->
