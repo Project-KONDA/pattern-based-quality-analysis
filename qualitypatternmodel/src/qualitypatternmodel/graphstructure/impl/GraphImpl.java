@@ -19,9 +19,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlPropertyNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlRootImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -249,12 +252,20 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		elementsCopy.addAll(getNodes());
 		for(Node node : elementsCopy) {
 			node.createXMLAdaption();
-		}				
+		}	
+		EList<Relation> relationsCopy = new BasicEList<Relation>();
+		relationsCopy.addAll(getRelations());
+		for(Relation relation : relationsCopy) {
+			relation.createXMLAdaption();
+		}
+		createXmlRoot();
+		
 		return this;
 	}
 	
-	@Override
-	public void finalizeXMLAdaption() {
+	private void createXmlRoot() {
+		// previously called finalizeXMLAdaption()
+		
 		XmlRoot root = null;
 		for(Node node : getNodes()) {
 			if(node instanceof XmlRoot) {
@@ -304,7 +315,23 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					}
 				}
 				if(!hasIncomingNavigation) {			
-					XmlNavigation navigation = new XmlNavigationImpl();					
+					XmlNavigationImpl navigation = new XmlNavigationImpl();
+					navigation.typeModifiable = false;
+					navigation.setGraphSimple(this);
+					navigation.createParameters();					
+					navigation.setSource(root);
+					navigation.setTarget(node);
+				}
+			} else if(node instanceof XmlProperty) {
+				boolean hasIncomingNavigation = false;
+				for(Relation relation : node.getIncoming()) {
+					if(relation instanceof XmlPropertyNavigation) {
+						hasIncomingNavigation = true;
+					}
+				}
+				if(!hasIncomingNavigation) {			
+					XmlPropertyNavigationImpl navigation = new XmlPropertyNavigationImpl();
+					navigation.typeModifiable = false;
 					navigation.setGraphSimple(this);
 					navigation.createParameters();					
 					navigation.setSource(root);
