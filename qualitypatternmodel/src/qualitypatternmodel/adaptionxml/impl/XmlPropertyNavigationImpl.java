@@ -21,9 +21,9 @@ public class XmlPropertyNavigationImpl extends RelationImpl implements XmlProper
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected XmlPropertyNavigationImpl() {
+	public XmlPropertyNavigationImpl() {
 		super();
 	}
 	

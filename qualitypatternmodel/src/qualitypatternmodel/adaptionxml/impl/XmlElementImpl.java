@@ -29,6 +29,7 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -161,6 +162,16 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		
 		predicatesAreBeingTranslated = false;
 		return xPredicates;
+	}
+	
+	@Override
+	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		throw new InvalidityException("XmlElement cannot be adapted to XML");
+	}
+	
+	@Override
+	public XmlElement adaptAsXmlElement() throws InvalidityException {
+		throw new InvalidityException("XmlElement cannot be adapted to XML");
 	}
 
 	

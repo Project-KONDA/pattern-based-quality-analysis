@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -90,33 +92,27 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {}	
 	
 	@Override
-	public PatternElement createXMLAdaption() {
-		if(!(this instanceof XmlProperty)) {
-			XmlProperty xmlProperty = new XmlPropertyImpl();			 
-			xmlProperty.setElement(getElement());
-			
-			if(getName().matches("Property [0-9]+")) {
-				xmlProperty.setName(getName().replace("Property", "XmlProperty"));
-			} else {
-				xmlProperty.setName(getName());
-			}
-			
-			xmlProperty.createParameters();
-			
-			xmlProperty.getMatch().addAll(getMatch());
-			getMatch().clear();			
-			
-			xmlProperty.getComparison1().addAll(getComparison1());
-			getComparison1().clear();
-			xmlProperty.getComparison2().addAll(getComparison2());
-			getComparison2().clear();
-
-			setElement(null);
-			
-			return xmlProperty;
+	public PatternElement createXMLAdaption() throws InvalidityException {
+		return adaptAsXmlProperty();
+	}
+	
+	@Override
+	public XmlProperty adaptAsXmlProperty() throws InvalidityException {
+		XmlProperty xmlProperty = super.adaptAsXmlProperty();
+		if(xmlProperty instanceof XmlPropertyImpl) {
+			((XmlPropertyImpl) xmlProperty).typeModifiable = false;
 		}
-		return this;
-	}	
+		return xmlProperty;
+	}
+	
+	@Override
+	public XmlElement adaptAsXmlElement() throws InvalidityException {
+		if(isTypeModifiable()) {
+			return super.adaptAsXmlElement();
+		} else {
+			throw new InvalidityException("This PrimitiveNode cannot be adapted as an XmlElement");
+		}
+	}
 	
 	@Override
 	public ReturnType getReturnType() {

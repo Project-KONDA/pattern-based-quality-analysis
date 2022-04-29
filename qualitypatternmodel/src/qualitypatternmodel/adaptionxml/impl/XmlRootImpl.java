@@ -5,7 +5,9 @@ package qualitypatternmodel.adaptionxml.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -17,6 +19,7 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -84,6 +87,21 @@ public class XmlRootImpl extends ComplexNodeImpl implements XmlRoot {
 			}
 		}
 		return name;
+	}
+	
+	@Override
+	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		throw new InvalidityException("XmlRoot cannot be adapted to XML");
+	}
+	
+	@Override
+	public XmlElement adaptAsXmlElement() throws InvalidityException {
+		throw new InvalidityException("XmlRoot cannot be adapted as XmlElement");
+	}
+	
+	@Override
+	public XmlProperty adaptAsXmlProperty() throws InvalidityException {
+		throw new InvalidityException("XmlRoot cannot be adapted as XmlProperty");
 	}
 	
 	@Override

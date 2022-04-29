@@ -331,6 +331,8 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addIncomming">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addIncomming/node"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsXmlElement"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsXmlProperty"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Graph">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/nodes"/>

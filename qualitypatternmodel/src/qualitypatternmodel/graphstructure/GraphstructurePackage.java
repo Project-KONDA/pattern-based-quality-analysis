@@ -1305,13 +1305,31 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___ADD_INCOMMING__NODE = COMPARABLE_OPERATION_COUNT + 25;
 
 	/**
+	 * The operation id for the '<em>Adapt As Xml Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___ADAPT_AS_XML_ELEMENT = COMPARABLE_OPERATION_COUNT + 26;
+
+	/**
+	 * The operation id for the '<em>Adapt As Xml Property</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___ADAPT_AS_XML_PROPERTY = COMPARABLE_OPERATION_COUNT + 27;
+
+	/**
 	 * The number of operations of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 26;
+	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 28;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.
@@ -1907,6 +1925,24 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMITIVE_NODE___ADD_INCOMMING__NODE = NODE___ADD_INCOMMING__NODE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Xml Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___ADAPT_AS_XML_ELEMENT = NODE___ADAPT_AS_XML_ELEMENT;
+
+	/**
+	 * The operation id for the '<em>Adapt As Xml Property</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___ADAPT_AS_XML_PROPERTY = NODE___ADAPT_AS_XML_PROPERTY;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3127,6 +3163,24 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___ADD_INCOMMING__NODE = NODE___ADD_INCOMMING__NODE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Xml Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADAPT_AS_XML_ELEMENT = NODE___ADAPT_AS_XML_ELEMENT;
+
+	/**
+	 * The operation id for the '<em>Adapt As Xml Property</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADAPT_AS_XML_PROPERTY = NODE___ADAPT_AS_XML_PROPERTY;
+
+	/**
 	 * The number of operations of the '<em>Complex Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3713,6 +3767,26 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNode__AddIncomming__Node();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#adaptAsXmlElement() <em>Adapt As Xml Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Adapt As Xml Element</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#adaptAsXmlElement()
+	 * @generated
+	 */
+	EOperation getNode__AdaptAsXmlElement();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#adaptAsXmlProperty() <em>Adapt As Xml Property</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Adapt As Xml Property</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#adaptAsXmlProperty()
+	 * @generated
+	 */
+	EOperation getNode__AdaptAsXmlProperty();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
@@ -4463,6 +4537,22 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NODE___ADD_INCOMMING__NODE = eINSTANCE.getNode__AddIncomming__Node();
+
+		/**
+		 * The meta object literal for the '<em><b>Adapt As Xml Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___ADAPT_AS_XML_ELEMENT = eINSTANCE.getNode__AdaptAsXmlElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Adapt As Xml Property</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___ADAPT_AS_XML_PROPERTY = eINSTANCE.getNode__AdaptAsXmlProperty();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.

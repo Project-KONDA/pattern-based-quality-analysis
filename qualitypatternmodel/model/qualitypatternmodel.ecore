@@ -361,6 +361,8 @@
       <eOperations name="addIncomming">
         <eParameters name="node" eType="#//graphstructure/Node"/>
       </eOperations>
+      <eOperations name="adaptAsXmlElement" eType="#//adaptionxml/XmlElement" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="adaptAsXmlProperty" eType="#//adaptionxml/XmlProperty" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
           eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/ElementMapping"

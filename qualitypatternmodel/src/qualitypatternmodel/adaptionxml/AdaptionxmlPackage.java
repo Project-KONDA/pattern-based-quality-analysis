@@ -665,6 +665,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___ADD_INCOMMING__NODE = GraphstructurePackage.COMPLEX_NODE___ADD_INCOMMING__NODE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Xml Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADAPT_AS_XML_ELEMENT = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_XML_ELEMENT;
+
+	/**
+	 * The operation id for the '<em>Adapt As Xml Property</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADAPT_AS_XML_PROPERTY = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_XML_PROPERTY;
+
+	/**
 	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2135,6 +2153,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___ADD_INCOMMING__NODE = GraphstructurePackage.PRIMITIVE_NODE___ADD_INCOMMING__NODE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Xml Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADAPT_AS_XML_ELEMENT = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_XML_ELEMENT;
+
+	/**
+	 * The operation id for the '<em>Adapt As Xml Property</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADAPT_AS_XML_PROPERTY = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_XML_PROPERTY;
+
+	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2773,6 +2809,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___ADD_INCOMMING__NODE = GraphstructurePackage.COMPLEX_NODE___ADD_INCOMMING__NODE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Xml Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADAPT_AS_XML_ELEMENT = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_XML_ELEMENT;
+
+	/**
+	 * The operation id for the '<em>Adapt As Xml Property</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADAPT_AS_XML_PROPERTY = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_XML_PROPERTY;
 
 	/**
 	 * The number of operations of the '<em>Xml Root</em>' class.

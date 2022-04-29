@@ -4,7 +4,6 @@ package qualitypatternmodel.graphstructure.impl;
 
 import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
@@ -13,14 +12,13 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlRoot;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -59,62 +57,27 @@ public class ComplexNodeImpl extends NodeImpl implements ComplexNode {
 
 	@Override
 	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		EList<PrimitiveNode> propertiesCopy = new BasicEList<PrimitiveNode>();
-		for(PrimitiveNode primitiveNode : propertiesCopy) {
-			primitiveNode.createXMLAdaption();
-		}
-		if(!(this instanceof XmlElement) && !(this instanceof XmlRoot)) {
-			XmlElement xmlElement = new XmlElementImpl();
-			xmlElement.setGraphSimple(getGraph());				
-			
-			xmlElement.setResultOf(getResultOf());
-			
-			xmlElement.getPredicates().addAll(getPredicates());
-			getPredicates().clear();
-			
-			xmlElement.getOutgoingMappings().addAll(getOutgoingMappings());
-			getOutgoingMappings().clear();
-			xmlElement.setIncomingMapping(getIncomingMapping());
-			setIncomingMapping(null);
-			
-			if(getName().matches("Element [0-9]+")) {
-				xmlElement.setName(getName().replace("Element", "XmlElement"));
-			} else {
-				xmlElement.setName(getName());
-			}
-			
-			setResultOf(null);
-			
-			EList<Relation> outgoingCopy = new BasicEList<Relation>();
-			if (this instanceof ComplexNode)
-				outgoingCopy.addAll(((ComplexNode) this).getOutgoing());
-			for(Relation relation : outgoingCopy) {
-				relation.setSource(xmlElement);
-			}
-			
-			EList<Relation> incomingCopy = new BasicEList<Relation>();
-			incomingCopy.addAll(getIncoming());
-			for(Relation relation : incomingCopy) {
-				relation.setTarget(xmlElement);
-			}
-			
-			xmlElement.getComparison1().addAll(getComparison1());
-			getComparison1().clear();
-			xmlElement.getComparison2().addAll(getComparison2());
-			getComparison2().clear();	
-			
-			EList<PrimitiveNode> propertiesCopy2 = new BasicEList<PrimitiveNode>();
-			propertiesCopy2.addAll(getProperties());
-			for(PrimitiveNode primitiveNode : propertiesCopy2) {
-				primitiveNode.setElement(xmlElement);
-			}
-			
-			setGraph(null);
-			
-			return xmlElement;
-		}
-		return this;		
+		return adaptAsXmlElement();
 	}
+	
+	@Override
+	public XmlProperty adaptAsXmlProperty() throws InvalidityException {
+		if(isTypeModifiable()) {
+			return super.adaptAsXmlProperty();
+		} else {
+			throw new InvalidityException("This ComplexNode cannot be adapted as an XmlProperty");
+		}
+	}
+	
+	@Override
+	public XmlElement adaptAsXmlElement() throws InvalidityException {
+		XmlElement xmlElement = super.adaptAsXmlElement();
+		if(xmlElement instanceof XmlElementImpl) {
+			((XmlElementImpl) xmlElement).typeModifiable = false;
+		}
+		return xmlElement;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
