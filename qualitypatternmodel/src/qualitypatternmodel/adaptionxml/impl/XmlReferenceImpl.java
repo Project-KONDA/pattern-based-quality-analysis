@@ -135,6 +135,12 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 		}
 		return name;
 	}
+
+	
+	@Override
+	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return this;
+	}
 	
 	@Override
 	public XmlReference adaptAsXMLReference() {

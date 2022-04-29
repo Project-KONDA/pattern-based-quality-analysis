@@ -166,12 +166,12 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	
 	@Override
 	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		throw new InvalidityException("XmlElement cannot be adapted to XML");
+		return this;
 	}
 	
 	@Override
 	public XmlElement adaptAsXmlElement() throws InvalidityException {
-		throw new InvalidityException("XmlElement cannot be adapted to XML");
+		return this;
 	}
 
 	

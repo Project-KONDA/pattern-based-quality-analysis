@@ -160,13 +160,13 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	
 	@Override
 	public PatternElement createXMLAdaption() throws InvalidityException {
-		throw new InvalidityException("XmlProperty cannot be adapted to XML");
+		return this;
 	}
 	
 	
 	@Override
 	public XmlProperty adaptAsXmlProperty() throws InvalidityException {
-		throw new InvalidityException("XmlProperty cannot be adapted to XML");
+		return this;
 	}
 	
 	@Override

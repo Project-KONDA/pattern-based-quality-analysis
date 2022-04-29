@@ -167,6 +167,11 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	}
 	
 	@Override
+	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return this;
+	}
+	
+	@Override
 	public XmlNavigation adaptAsXMLNavigation() {
 		return this;
 	}
