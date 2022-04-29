@@ -395,9 +395,7 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	@Override
 	public String myToString() {
 		String res = super.myToString() + " [";
-		if (getSourceProperty() != null) res += getSourceProperty().getInternalId(); else res += "-";
-		res += " to ";
-		if (getTargetProperty() != null) res += getTargetProperty().getInternalId(); else res += "-";
+		if (getProperty() != null) res += getProperty().getInternalId(); else res += "-";
 		res += "]";
 		return res;
 	}
