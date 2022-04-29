@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
@@ -216,11 +217,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 						throw new InvalidityException("one target of mapping empty " + getId());					
 			}
 		}	
-	}	
-	
-	@Override
-	public PatternElement createXMLAdaption() {
-		throw new UnsupportedOperationException("Relation cannot be adapted automatically. Use adaptAsXMLNavigation() or adaptAsXMLReference() instead.");
 	}
 
 	@Override
@@ -591,6 +587,18 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public XmlPropertyNavigation adaptAsXMLPropertyNavigation() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -676,7 +684,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -694,6 +703,16 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__INCOMING_MAPPING, newIncomingMapping, newIncomingMapping));
 	}
 
+	
+	@Override
+	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		if (getTarget() instanceof XmlProperty) {
+			return adaptAsXMLPropertyNavigation();
+		} else {
+			return adaptAsXMLNavigation();
+		}
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -701,10 +720,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 */
 	@Override
 	public XmlNavigation adaptAsXMLNavigation() {
-		if(!(this instanceof XmlNavigation)) {
+		return ((RelationImpl) getOriginalRelation()).adaptAsXMLNavigationRecursive();
+	}
+	
+	public XmlNavigation adaptAsXMLNavigationRecursive() {
+		if (!(this instanceof XmlNavigation)) {
 			XmlNavigation navigation = new XmlNavigationImpl();
 
-			if(getName().matches("Relation [0-9]+")) {
+			if (getName().matches("Relation [0-9]+")) {
 				navigation.setName(getName().replace("Relation", "XmlNavigation"));
 			} else if(getName().matches("XmlReference [0-9]+")) {
 				navigation.setName(getName().replace("XmlReference", "XmlNavigation"));
@@ -714,7 +737,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			
 			navigation.setGraphSimple(getGraph());
 			
-			if(getIncomingMapping() == null) {
+			if (getIncomingMapping() == null) {
 				navigation.createParameters();
 			}
 			
@@ -723,10 +746,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		
 			navigation.getOutgoingMappings().addAll(getOutgoingMappings());
 			
-			for(RelationMapping mapping : navigation.getOutgoingMappings()) {
-				mapping.getTarget().adaptAsXMLNavigation();
-			}
-			
 			navigation.setIncomingMapping(getIncomingMapping());
 			
 			getOutgoingMappings().clear();
@@ -734,6 +753,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			setTarget(null);			
 			setIncomingMapping(null);
 			setGraph(null);
+			
+			for (RelationMapping mapping : navigation.getOutgoingMappings()) {
+				((RelationImpl) mapping.getTarget()).adaptAsXMLNavigationRecursive();
+			}
 			
 			return navigation;
 		}
@@ -747,6 +770,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 */
 	@Override
 	public XmlReference adaptAsXMLReference() {
+		return ((RelationImpl) getOriginalRelation()).adaptAsXMLReferenceRecursive();
+	}
+	
+	public XmlReference adaptAsXMLReferenceRecursive() {
 		if(!(this instanceof XmlReference)) {
 			XmlReference reference = new XmlReferenceImpl();			
 			reference.setGraphSimple(getGraph());
@@ -763,22 +790,22 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			reference.setTarget(getTarget());			
 			
 			if(getIncomingMapping() == null) {
-				XmlProperty sourceProperty = new XmlPropertyImpl();
-				sourceProperty.setElement(reference.getSource());
-				sourceProperty.createParameters();
+				XmlProperty property = new XmlPropertyImpl();
+							
+				Graph graph = getGraph();
 				
-				XmlProperty targetProperty = new XmlPropertyImpl();
-				targetProperty.setElement(reference.getTarget());
-				targetProperty.createParameters();
+				graph.getNodes().add(property);
+				graph.addRelation(getSource(), property).adaptAsXMLPropertyNavigation();
+				graph.addRelation(getTarget(), property).adaptAsXMLPropertyNavigation();
+				property.createParameters();
 				
-				reference.setSourceProperty(sourceProperty);			
-				reference.setTargetProperty(targetProperty);
+				reference.setProperty(property);			
 			}
 			
 			reference.getOutgoingMappings().addAll(getOutgoingMappings());
 			
 			for(RelationMapping mapping : reference.getOutgoingMappings()) {
-				mapping.getTarget().adaptAsXMLReference();
+				((RelationImpl) mapping.getTarget()).adaptAsXMLReferenceRecursive();
 			}
 			
 			reference.setIncomingMapping(getIncomingMapping());			
@@ -1038,6 +1065,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return getOriginalID();
 			case GraphstructurePackage.RELATION___GET_ORIGINAL_RELATION:
 				return getOriginalRelation();
+			case GraphstructurePackage.RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION:
+				return adaptAsXMLPropertyNavigation();
 			case GraphstructurePackage.RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;

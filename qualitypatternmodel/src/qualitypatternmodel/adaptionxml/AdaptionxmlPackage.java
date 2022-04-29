@@ -1098,6 +1098,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___GET_ORIGINAL_RELATION = GraphstructurePackage.RELATION___GET_ORIGINAL_RELATION;
 
 	/**
+	 * The operation id for the '<em>Adapt As XML Property Navigation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___ADAPT_AS_XML_PROPERTY_NAVIGATION = GraphstructurePackage.RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION;
+
+	/**
 	 * The operation id for the '<em>Get Original Option</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1216,22 +1225,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE__TYPE = GraphstructurePackage.RELATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Target Property</b></em>' reference.
+	 * The feature id for the '<em><b>Property</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE__TARGET_PROPERTY = GraphstructurePackage.RELATION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Source Property</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_REFERENCE__SOURCE_PROPERTY = GraphstructurePackage.RELATION_FEATURE_COUNT + 2;
+	int XML_REFERENCE__PROPERTY = GraphstructurePackage.RELATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Xml Reference</em>' class.
@@ -1240,7 +1240,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE_FEATURE_COUNT = GraphstructurePackage.RELATION_FEATURE_COUNT + 3;
+	int XML_REFERENCE_FEATURE_COUNT = GraphstructurePackage.RELATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -1504,6 +1504,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___GET_ORIGINAL_RELATION = GraphstructurePackage.RELATION___GET_ORIGINAL_RELATION;
 
 	/**
+	 * The operation id for the '<em>Adapt As XML Property Navigation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___ADAPT_AS_XML_PROPERTY_NAVIGATION = GraphstructurePackage.RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION;
+
+	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1685,22 +1694,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY__ATTRIBUTE_NAME = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Incoming References</b></em>' reference list.
+	 * The feature id for the '<em><b>References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__INCOMING_REFERENCES = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Outgoing References</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY__OUTGOING_REFERENCES = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 3;
+	int XML_PROPERTY__REFERENCES = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Xml Property</em>' class.
@@ -1709,7 +1709,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 4;
+	int XML_PROPERTY_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -3199,6 +3199,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_NAVIGATION___GET_ORIGINAL_RELATION = GraphstructurePackage.RELATION___GET_ORIGINAL_RELATION;
 
 	/**
+	 * The operation id for the '<em>Adapt As XML Property Navigation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_NAVIGATION___ADAPT_AS_XML_PROPERTY_NAVIGATION = GraphstructurePackage.RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION;
+
+	/**
 	 * The number of operations of the '<em>Xml Property Navigation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3319,28 +3328,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	EClass getXmlReference();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlReference#getSourceProperty <em>Source Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source Property</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlReference#getSourceProperty()
-	 * @see #getXmlReference()
-	 * @generated
-	 */
-	EReference getXmlReference_SourceProperty();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlReference#getTargetProperty <em>Target Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target Property</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlReference#getTargetProperty()
-	 * @see #getXmlReference()
-	 * @generated
-	 */
-	EReference getXmlReference_TargetProperty();
-
-	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionxml.XmlReference#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3350,6 +3337,17 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getXmlReference_Type();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlReference#getProperty <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Property</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlReference#getProperty()
+	 * @see #getXmlReference()
+	 * @generated
+	 */
+	EReference getXmlReference_Property();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlReference#isTranslatable() <em>Is Translatable</em>}' operation.
@@ -3394,26 +3392,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlProperty_AttributeName();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionxml.XmlProperty#getIncomingReferences <em>Incoming References</em>}'.
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionxml.XmlProperty#getReferences <em>References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Incoming References</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getIncomingReferences()
+	 * @return the meta object for the reference list '<em>References</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getReferences()
 	 * @see #getXmlProperty()
 	 * @generated
 	 */
-	EReference getXmlProperty_IncomingReferences();
-
-	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionxml.XmlProperty#getOutgoingReferences <em>Outgoing References</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Outgoing References</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getOutgoingReferences()
-	 * @see #getXmlProperty()
-	 * @generated
-	 */
-	EReference getXmlProperty_OutgoingReferences();
+	EReference getXmlProperty_References();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlRoot <em>Xml Root</em>}'.
@@ -3557,28 +3544,20 @@ public interface AdaptionxmlPackage extends EPackage {
 		EClass XML_REFERENCE = eINSTANCE.getXmlReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Source Property</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference XML_REFERENCE__SOURCE_PROPERTY = eINSTANCE.getXmlReference_SourceProperty();
-
-		/**
-		 * The meta object literal for the '<em><b>Target Property</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference XML_REFERENCE__TARGET_PROPERTY = eINSTANCE.getXmlReference_TargetProperty();
-
-		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute XML_REFERENCE__TYPE = eINSTANCE.getXmlReference_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Property</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XML_REFERENCE__PROPERTY = eINSTANCE.getXmlReference_Property();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Translatable</b></em>' operation.
@@ -3615,20 +3594,12 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference XML_PROPERTY__ATTRIBUTE_NAME = eINSTANCE.getXmlProperty_AttributeName();
 
 		/**
-		 * The meta object literal for the '<em><b>Incoming References</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>References</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference XML_PROPERTY__INCOMING_REFERENCES = eINSTANCE.getXmlProperty_IncomingReferences();
-
-		/**
-		 * The meta object literal for the '<em><b>Outgoing References</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference XML_PROPERTY__OUTGOING_REFERENCES = eINSTANCE.getXmlProperty_OutgoingReferences();
+		EReference XML_PROPERTY__REFERENCES = eINSTANCE.getXmlProperty_References();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlRootImpl <em>Xml Root</em>}' class.

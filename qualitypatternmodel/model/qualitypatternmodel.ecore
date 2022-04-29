@@ -291,6 +291,7 @@
       </eOperations>
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eOperations name="getOriginalRelation" eType="#//graphstructure/Relation"/>
+      <eOperations name="adaptAsXMLPropertyNavigation" eType="#//adaptionxml/XmlPropertyNavigation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/RelationMapping"
           eOpposite="#//patternstructure/RelationMapping/target"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
@@ -701,20 +702,16 @@
       <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="targetProperty" eType="#//adaptionxml/XmlProperty"
-          eOpposite="#//adaptionxml/XmlProperty/incomingReferences"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceProperty" eType="#//adaptionxml/XmlProperty"
-          eOpposite="#//adaptionxml/XmlProperty/outgoingReferences"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
+          eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/references"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlProperty" eSuperTypes="#//graphstructure/PrimitiveNode">
       <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/PropertyOptionParam"
           eOpposite="#//parameters/PropertyOptionParam/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" eType="#//parameters/TextLiteralParam"
           eOpposite="#//parameters/TextLiteralParam/properties"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="incomingReferences" upperBound="-1"
-          eType="#//adaptionxml/XmlReference" eOpposite="#//adaptionxml/XmlReference/targetProperty"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingReferences" upperBound="-1"
-          eType="#//adaptionxml/XmlReference" eOpposite="#//adaptionxml/XmlReference/sourceProperty"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
+          eType="#//adaptionxml/XmlReference" eOpposite="#//adaptionxml/XmlReference/property"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="PropertyKind">
       <eLiterals name="DATA" literal="DATA"/>

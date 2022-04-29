@@ -352,6 +352,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getRelation__AdaptAsXMLPropertyNavigation() {
+		return relationEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPrimitiveNode() {
 		return primitiveNodeEClass;
 	}
@@ -1080,6 +1090,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(relationEClass, RELATION___SET_GRAPH_SIMPLE__GRAPH);
 		createEOperation(relationEClass, RELATION___GET_ORIGINAL_ID);
 		createEOperation(relationEClass, RELATION___GET_ORIGINAL_RELATION);
+		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION);
 
 		primitiveNodeEClass = createEClass(PRIMITIVE_NODE);
 		createEReference(primitiveNodeEClass, PRIMITIVE_NODE__MATCH);
@@ -1228,6 +1239,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		initEOperation(getRelation__GetOriginalID(), ecorePackage.getEInt(), "getOriginalID", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRelation__GetOriginalRelation(), this.getRelation(), "getOriginalRelation", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getRelation__AdaptAsXMLPropertyNavigation(), theAdaptionxmlPackage.getXmlPropertyNavigation(), "adaptAsXMLPropertyNavigation", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(primitiveNodeEClass, PrimitiveNode.class, "PrimitiveNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPrimitiveNode_Match(), theOperatorsPackage.getMatch(), theOperatorsPackage.getMatch_PrimitiveNode(), "match", null, 0, -1, PrimitiveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -262,6 +262,7 @@
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/getOriginalID"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/getOriginalRelation"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXMLPropertyNavigation"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -602,9 +603,7 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlReference">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlReference/type"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlReference/targetProperty"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlReference/sourceProperty"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlReference/property"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlReference/isTranslatable"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlProperty">
@@ -613,9 +612,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlProperty/attributeName"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlProperty/incomingReferences"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlProperty/outgoingReferences"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlProperty/references"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlRoot"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyNavigation"/>

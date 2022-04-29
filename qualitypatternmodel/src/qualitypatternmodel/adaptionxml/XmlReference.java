@@ -17,8 +17,7 @@ import qualitypatternmodel.graphstructure.ReturnType;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlReference#getType <em>Type</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlReference#getTargetProperty <em>Target Property</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlReference#getSourceProperty <em>Source Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlReference#getProperty <em>Property</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlReference()
@@ -26,54 +25,6 @@ import qualitypatternmodel.graphstructure.ReturnType;
  * @generated
  */
 public interface XmlReference extends Relation {
-	/**
-	 * Returns the value of the '<em><b>Source Property</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlProperty#getOutgoingReferences <em>Outgoing References</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Source Property</em>' reference.
-	 * @see #setSourceProperty(XmlProperty)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlReference_SourceProperty()
-	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getOutgoingReferences
-	 * @model opposite="outgoingReferences"
-	 * @generated
-	 */
-	XmlProperty getSourceProperty();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlReference#getSourceProperty <em>Source Property</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source Property</em>' reference.
-	 * @see #getSourceProperty()
-	 * @generated
-	 */
-	void setSourceProperty(XmlProperty value);
-
-	/**
-	 * Returns the value of the '<em><b>Target Property</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlProperty#getIncomingReferences <em>Incoming References</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Target Property</em>' reference.
-	 * @see #setTargetProperty(XmlProperty)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlReference_TargetProperty()
-	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getIncomingReferences
-	 * @model opposite="incomingReferences"
-	 * @generated
-	 */
-	XmlProperty getTargetProperty();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlReference#getTargetProperty <em>Target Property</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target Property</em>' reference.
-	 * @see #getTargetProperty()
-	 * @generated
-	 */
-	void setTargetProperty(XmlProperty value);
-
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link qualitypatternmodel.graphstructure.ReturnType}.
@@ -98,6 +49,30 @@ public interface XmlReference extends Relation {
 	 * @generated
 	 */
 	void setType(ReturnType value);
+
+	/**
+	 * Returns the value of the '<em><b>Property</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlProperty#getReferences <em>References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Property</em>' reference.
+	 * @see #setProperty(XmlProperty)
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlReference_Property()
+	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getReferences
+	 * @model opposite="references" required="true"
+	 * @generated
+	 */
+	XmlProperty getProperty();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlReference#getProperty <em>Property</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Property</em>' reference.
+	 * @see #getProperty()
+	 * @generated
+	 */
+	void setProperty(XmlProperty value);
 
 	/**
 	 * <!-- begin-user-doc -->

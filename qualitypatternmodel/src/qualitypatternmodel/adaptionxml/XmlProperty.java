@@ -19,8 +19,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlProperty#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlProperty#getAttributeName <em>Attribute Name</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlProperty#getIncomingReferences <em>Incoming References</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlProperty#getOutgoingReferences <em>Outgoing References</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlProperty#getReferences <em>References</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlProperty()
@@ -77,31 +76,17 @@ public interface XmlProperty extends PrimitiveNode {
 	void setAttributeName(TextLiteralParam value);
 
 	/**
-	 * Returns the value of the '<em><b>Incoming References</b></em>' reference list.
+	 * Returns the value of the '<em><b>References</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XmlReference}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlReference#getTargetProperty <em>Target Property</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlReference#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Incoming References</em>' reference list.
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlProperty_IncomingReferences()
-	 * @see qualitypatternmodel.adaptionxml.XmlReference#getTargetProperty
-	 * @model opposite="targetProperty"
+	 * @return the value of the '<em>References</em>' reference list.
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlProperty_References()
+	 * @see qualitypatternmodel.adaptionxml.XmlReference#getProperty
+	 * @model opposite="property"
 	 * @generated
 	 */
-	EList<XmlReference> getIncomingReferences();
-
-	/**
-	 * Returns the value of the '<em><b>Outgoing References</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XmlReference}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlReference#getSourceProperty <em>Source Property</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Outgoing References</em>' reference list.
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlProperty_OutgoingReferences()
-	 * @see qualitypatternmodel.adaptionxml.XmlReference#getSourceProperty
-	 * @model opposite="sourceProperty"
-	 * @generated
-	 */
-	EList<XmlReference> getOutgoingReferences();
+	EList<XmlReference> getReferences();
 
 } // XMLProperty

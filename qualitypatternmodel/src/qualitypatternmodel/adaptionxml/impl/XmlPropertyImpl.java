@@ -48,8 +48,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl#getAttributeName <em>Attribute Name</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl#getIncomingReferences <em>Incoming References</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl#getOutgoingReferences <em>Outgoing References</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl#getReferences <em>References</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,26 +78,14 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	protected TextLiteralParam attributeName;
 
 	/**
-	 * The cached value of the '{@link #getIncomingReferences() <em>Incoming References</em>}' reference list.
+	 * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
 	 * <!-- begin-user-doc -->
-	 * A list of <code>XmlReferences</code> that have <code>this</code> as their <code>target</code>.
 	 * <!-- end-user-doc -->
-	 * @see #getIncomingReferences()
+	 * @see #getReferences()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<XmlReference> incomingReferences;
-
-	/**
-	 * The cached value of the '{@link #getOutgoingReferences() <em>Outgoing References</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * A list of <code>XmlReferences</code> that have <code>this</code> as their <code>source</code>.
-	 * <!-- end-user-doc -->
-	 * @see #getOutgoingReferences()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<XmlReference> outgoingReferences;
+	protected EList<XmlReference> references;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -489,24 +476,11 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	 * @generated
 	 */
 	@Override
-	public EList<XmlReference> getIncomingReferences() {
-		if (incomingReferences == null) {
-			incomingReferences = new EObjectWithInverseResolvingEList<XmlReference>(XmlReference.class, this, AdaptionxmlPackage.XML_PROPERTY__INCOMING_REFERENCES, AdaptionxmlPackage.XML_REFERENCE__TARGET_PROPERTY);
+	public EList<XmlReference> getReferences() {
+		if (references == null) {
+			references = new EObjectWithInverseResolvingEList<XmlReference>(XmlReference.class, this, AdaptionxmlPackage.XML_PROPERTY__REFERENCES, AdaptionxmlPackage.XML_REFERENCE__PROPERTY);
 		}
-		return incomingReferences;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<XmlReference> getOutgoingReferences() {
-		if (outgoingReferences == null) {
-			outgoingReferences = new EObjectWithInverseResolvingEList<XmlReference>(XmlReference.class, this, AdaptionxmlPackage.XML_PROPERTY__OUTGOING_REFERENCES, AdaptionxmlPackage.XML_REFERENCE__SOURCE_PROPERTY);
-		}
-		return outgoingReferences;
+		return references;
 	}
 
 	/**
@@ -526,10 +500,8 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 				if (attributeName != null)
 					msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, TextLiteralParam.class, msgs);
 				return basicSetAttributeName((TextLiteralParam)otherEnd, msgs);
-			case AdaptionxmlPackage.XML_PROPERTY__INCOMING_REFERENCES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIncomingReferences()).basicAdd(otherEnd, msgs);
-			case AdaptionxmlPackage.XML_PROPERTY__OUTGOING_REFERENCES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutgoingReferences()).basicAdd(otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferences()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -546,10 +518,8 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 				return basicSetOption(null, msgs);
 			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
 				return basicSetAttributeName(null, msgs);
-			case AdaptionxmlPackage.XML_PROPERTY__INCOMING_REFERENCES:
-				return ((InternalEList<?>)getIncomingReferences()).basicRemove(otherEnd, msgs);
-			case AdaptionxmlPackage.XML_PROPERTY__OUTGOING_REFERENCES:
-				return ((InternalEList<?>)getOutgoingReferences()).basicRemove(otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:
+				return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -568,10 +538,8 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
 				if (resolve) return getAttributeName();
 				return basicGetAttributeName();
-			case AdaptionxmlPackage.XML_PROPERTY__INCOMING_REFERENCES:
-				return getIncomingReferences();
-			case AdaptionxmlPackage.XML_PROPERTY__OUTGOING_REFERENCES:
-				return getOutgoingReferences();
+			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:
+				return getReferences();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -591,13 +559,9 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
 				setAttributeName((TextLiteralParam)newValue);
 				return;
-			case AdaptionxmlPackage.XML_PROPERTY__INCOMING_REFERENCES:
-				getIncomingReferences().clear();
-				getIncomingReferences().addAll((Collection<? extends XmlReference>)newValue);
-				return;
-			case AdaptionxmlPackage.XML_PROPERTY__OUTGOING_REFERENCES:
-				getOutgoingReferences().clear();
-				getOutgoingReferences().addAll((Collection<? extends XmlReference>)newValue);
+			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:
+				getReferences().clear();
+				getReferences().addAll((Collection<? extends XmlReference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -617,11 +581,8 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
 				setAttributeName((TextLiteralParam)null);
 				return;
-			case AdaptionxmlPackage.XML_PROPERTY__INCOMING_REFERENCES:
-				getIncomingReferences().clear();
-				return;
-			case AdaptionxmlPackage.XML_PROPERTY__OUTGOING_REFERENCES:
-				getOutgoingReferences().clear();
+			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:
+				getReferences().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -639,10 +600,8 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 				return option != null;
 			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
 				return attributeName != null;
-			case AdaptionxmlPackage.XML_PROPERTY__INCOMING_REFERENCES:
-				return incomingReferences != null && !incomingReferences.isEmpty();
-			case AdaptionxmlPackage.XML_PROPERTY__OUTGOING_REFERENCES:
-				return outgoingReferences != null && !outgoingReferences.isEmpty();
+			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:
+				return references != null && !references.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
