@@ -17,6 +17,8 @@ import qualitypatternmodel.parameters.tests.ParameterTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.PropertyKind) <em>Set Value If Valid</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -83,6 +85,32 @@ public class PropertyOptionParamTest extends ParameterTest {
 	 * @generated
 	 */
 	public void testSetValueIfValid__PropertyKind() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList()
+	 * @generated
+	 */
+	public void testRemoveParametersFromParameterList() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Adaptable#createParameters()
+	 * @generated
+	 */
+	public void testCreateParameters() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

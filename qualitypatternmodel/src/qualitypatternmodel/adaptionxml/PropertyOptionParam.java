@@ -5,6 +5,7 @@ package qualitypatternmodel.adaptionxml;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TextLiteralParam;
 
@@ -28,7 +29,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * @model
  * @generated
  */
-public interface PropertyOptionParam extends Parameter {
+public interface PropertyOptionParam extends Parameter, Adaptable {
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' attribute list.
 	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.PropertyKind}.

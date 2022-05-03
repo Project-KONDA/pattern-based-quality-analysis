@@ -4,6 +4,7 @@ package qualitypatternmodel.adaptionxml;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.parameters.ParameterValue;
 
 /**
@@ -25,7 +26,7 @@ import qualitypatternmodel.parameters.ParameterValue;
  * @model
  * @generated
  */
-public interface PathParam extends ParameterValue {
+public interface PathParam extends ParameterValue, Adaptable {
 	/**
 	 * Returns the value of the '<em><b>Xml Navigation</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getPathParam <em>Path Param</em>}'.

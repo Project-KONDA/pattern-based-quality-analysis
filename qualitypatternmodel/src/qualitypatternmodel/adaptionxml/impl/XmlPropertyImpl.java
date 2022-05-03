@@ -29,7 +29,6 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;

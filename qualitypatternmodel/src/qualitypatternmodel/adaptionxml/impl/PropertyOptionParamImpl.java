@@ -26,6 +26,8 @@ import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Adaptable;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
@@ -169,8 +171,6 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 			if(getAttributeName() == null) {
 				TextLiteralParam textLiteral = new TextLiteralParamImpl();
 				setAttributeName(textLiteral);
-			} else {
-				parameterList.add(getAttributeName());
 			}	
 		}
 	}
@@ -374,6 +374,18 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public void removeParametersFromParameterList() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -517,6 +529,23 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @generated
 	 */
 	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == Adaptable.class) {
+			switch (baseOperationID) {
+				case GraphstructurePackage.ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST: return AdaptionxmlPackage.PROPERTY_OPTION_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+				case GraphstructurePackage.ADAPTABLE___CREATE_PARAMETERS: return AdaptionxmlPackage.PROPERTY_OPTION_PARAM___CREATE_PARAMETERS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM___SET_VALUE_IF_VALID__PROPERTYKIND:
@@ -527,6 +556,12 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
+				removeParametersFromParameterList();
+				return null;
+			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM___CREATE_PARAMETERS:
+				createParameters();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

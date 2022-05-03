@@ -748,8 +748,11 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		xmlPropertyNavigationEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
 		axisOptionParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
 		propertyOptionParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
+		propertyOptionParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
 		pathParamEClass.getESuperTypes().add(theParametersPackage.getParameterValue());
+		pathParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
 		axisPairEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
+		axisPairEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(xmlElementEClass, XmlElement.class, "XmlElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

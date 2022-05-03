@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -26,7 +27,10 @@ import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Adaptable;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.impl.ParameterValueImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 
@@ -334,6 +338,38 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public void removeParametersFromParameterList() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void createParameters() {	
+		ParameterList parameterList = getParameterList();		
+		if(parameterList != null) {
+			if(getPropertyOptionParam() == null) {
+				PropertyOptionParam option = new PropertyOptionParamImpl();	
+				setPropertyOptionParam(option);
+			}
+			if(getAxisPairs().isEmpty()) {
+				AxisPair axisPair = new AxisPairImpl();
+				getAxisPairs().add(axisPair);				
+			} 
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -466,6 +502,41 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 				return xmlPropertyNavigation != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == Adaptable.class) {
+			switch (baseOperationID) {
+				case GraphstructurePackage.ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST: return AdaptionxmlPackage.PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+				case GraphstructurePackage.ADAPTABLE___CREATE_PARAMETERS: return AdaptionxmlPackage.PATH_PARAM___CREATE_PARAMETERS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case AdaptionxmlPackage.PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
+				removeParametersFromParameterList();
+				return null;
+			case AdaptionxmlPackage.PATH_PARAM___CREATE_PARAMETERS:
+				createParameters();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	@Override

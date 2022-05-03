@@ -148,6 +148,7 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				PropertyOptionParam propertyOptionParam = (PropertyOptionParam)theEObject;
 				T result = casePropertyOptionParam(propertyOptionParam);
 				if (result == null) result = caseParameter(propertyOptionParam);
+				if (result == null) result = caseAdaptable(propertyOptionParam);
 				if (result == null) result = casePatternElement(propertyOptionParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -156,6 +157,7 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				PathParam pathParam = (PathParam)theEObject;
 				T result = casePathParam(pathParam);
 				if (result == null) result = caseParameterValue(pathParam);
+				if (result == null) result = caseAdaptable(pathParam);
 				if (result == null) result = caseParameter(pathParam);
 				if (result == null) result = caseComparable(pathParam);
 				if (result == null) result = casePatternElement(pathParam);
@@ -165,6 +167,7 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 			case AdaptionxmlPackage.AXIS_PAIR: {
 				AxisPair axisPair = (AxisPair)theEObject;
 				T result = caseAxisPair(axisPair);
+				if (result == null) result = caseAdaptable(axisPair);
 				if (result == null) result = casePatternElement(axisPair);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -19,7 +20,10 @@ import qualitypatternmodel.adaptionxml.PathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Adaptable;
+import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -104,6 +108,8 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 		}
 		return res;
 	}
+	
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -254,6 +260,29 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 	 * @generated
 	 */
 	@Override
+	public void removeParametersFromParameterList() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void createParameters() {	
+		ParameterList parameterList = getParameterList();		
+		if(parameterList != null) {
+			if(getAxisOptionParam() == null) {
+				AxisOptionParam axis = new AxisOptionParamImpl();
+				setAxisOptionParam(axis);
+			}	
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AdaptionxmlPackage.AXIS_PAIR__TEXT_LITERAL_PARAM:
@@ -380,6 +409,41 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 				return getPathParam() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == Adaptable.class) {
+			switch (baseOperationID) {
+				case GraphstructurePackage.ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST: return AdaptionxmlPackage.AXIS_PAIR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+				case GraphstructurePackage.ADAPTABLE___CREATE_PARAMETERS: return AdaptionxmlPackage.AXIS_PAIR___CREATE_PARAMETERS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case AdaptionxmlPackage.AXIS_PAIR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
+				removeParametersFromParameterList();
+				return null;
+			case AdaptionxmlPackage.AXIS_PAIR___CREATE_PARAMETERS:
+				createParameters();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //AxisPairImpl

@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.adaptionxml;
 
+import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -23,7 +24,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @model
  * @generated
  */
-public interface AxisPair extends PatternElement {
+public interface AxisPair extends PatternElement, Adaptable {
 	/**
 	 * Returns the value of the '<em><b>Text Literal Param</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getAxisPair <em>Axis Pair</em>}'.

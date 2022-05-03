@@ -3941,13 +3941,31 @@ public interface AdaptionxmlPackage extends EPackage {
 	int PROPERTY_OPTION_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
+	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = ParametersPackage.PARAMETER_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___CREATE_PARAMETERS = ParametersPackage.PARAMETER_OPERATION_COUNT + 1;
+
+	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_PARAM___SET_VALUE_IF_VALID__PROPERTYKIND = ParametersPackage.PARAMETER_OPERATION_COUNT + 0;
+	int PROPERTY_OPTION_PARAM___SET_VALUE_IF_VALID__PROPERTYKIND = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Property Option Param</em>' class.
@@ -3956,7 +3974,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 1;
+	int PROPERTY_OPTION_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.PathParamImpl <em>Path Param</em>}' class.
@@ -4500,13 +4518,31 @@ public interface AdaptionxmlPackage extends EPackage {
 	int PATH_PARAM___REPLACE_VIA_VALUE__STRING_STRING = ParametersPackage.PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
 
 	/**
+	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = ParametersPackage.PARAMETER_VALUE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_PARAM___CREATE_PARAMETERS = ParametersPackage.PARAMETER_VALUE_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_VALUE_OPERATION_COUNT + 0;
+	int PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_VALUE_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.AxisPairImpl <em>Axis Pair</em>}' class.
@@ -4753,13 +4789,31 @@ public interface AdaptionxmlPackage extends EPackage {
 	int AXIS_PAIR___INITIALIZE_TRANSLATION = PatternstructurePackage.PATTERN_ELEMENT___INITIALIZE_TRANSLATION;
 
 	/**
+	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_PAIR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_PAIR___CREATE_PARAMETERS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Axis Pair</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_PAIR_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
+	int AXIS_PAIR_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}' enum.
