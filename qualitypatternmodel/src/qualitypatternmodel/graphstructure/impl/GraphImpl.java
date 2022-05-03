@@ -316,7 +316,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}
 				if(!hasIncomingNavigation) {			
 					XmlNavigationImpl navigation = new XmlNavigationImpl();
-					navigation.typeModifiable = false;
 					navigation.setGraphSimple(this);
 					navigation.createParameters();					
 					navigation.setSource(root);
@@ -331,7 +330,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}
 				if(!hasIncomingNavigation) {			
 					XmlPropertyNavigationImpl navigation = new XmlPropertyNavigationImpl();
-					navigation.typeModifiable = false;
 					navigation.setGraphSimple(this);
 					navigation.createParameters();					
 					navigation.setSource(root);

@@ -49,8 +49,7 @@ public class XmlPropertyItemProvider extends PrimitiveNodeItemProvider {
 
 			addOptionPropertyDescriptor(object);
 			addAttributeNamePropertyDescriptor(object);
-			addIncomingReferencesPropertyDescriptor(object);
-			addOutgoingReferencesPropertyDescriptor(object);
+			addReferencesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -100,41 +99,19 @@ public class XmlPropertyItemProvider extends PrimitiveNodeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Incoming References feature.
+	 * This adds a property descriptor for the References feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIncomingReferencesPropertyDescriptor(Object object) {
+	protected void addReferencesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XmlProperty_incomingReferences_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XmlProperty_incomingReferences_feature", "_UI_XmlProperty_type"),
-				 AdaptionxmlPackage.Literals.XML_PROPERTY__INCOMING_REFERENCES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Outgoing References feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOutgoingReferencesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XmlProperty_outgoingReferences_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XmlProperty_outgoingReferences_feature", "_UI_XmlProperty_type"),
-				 AdaptionxmlPackage.Literals.XML_PROPERTY__OUTGOING_REFERENCES,
+				 getString("_UI_XmlProperty_references_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlProperty_references_feature", "_UI_XmlProperty_type"),
+				 AdaptionxmlPackage.Literals.XML_PROPERTY__REFERENCES,
 				 true,
 				 false,
 				 true,

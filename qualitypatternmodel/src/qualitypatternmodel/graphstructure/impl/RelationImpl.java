@@ -23,6 +23,7 @@ import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlPropertyNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -58,7 +59,6 @@ import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getSource <em>Source</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getName <em>Name</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#isTypeModifiable <em>Type Modifiable</em>}</li>
  * </ul>
  *
  * @generated
@@ -132,26 +132,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isTypeModifiable() <em>Type Modifiable</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isTypeModifiable()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean TYPE_MODIFIABLE_EDEFAULT = true;
-
-	/**
-	 * The cached value of the '{@link #isTypeModifiable() <em>Type Modifiable</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isTypeModifiable()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean typeModifiable = TYPE_MODIFIABLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -587,13 +567,54 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @throws InvalidityException 
+	 * @generated NOT
 	 */
 	@Override
-	public XmlPropertyNavigation adaptAsXMLPropertyNavigation() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public XmlPropertyNavigation adaptAsXMLPropertyNavigation() throws InvalidityException {
+		return ((RelationImpl) getOriginalRelation()).adaptAsXMLPropertyNavigationRecursive();
+	}
+	
+	public XmlPropertyNavigation adaptAsXMLPropertyNavigationRecursive() throws InvalidityException {
+		if (!(this instanceof XmlPropertyNavigation)) {
+			XmlPropertyNavigation navigation = new XmlPropertyNavigationImpl();
+
+			if (getName().matches("Relation [0-9]+")) {
+				navigation.setName(getName().replace("Relation", "XmlPropertyNavigation"));
+			} else if(getName().matches("XmlReference [0-9]+")) {
+				navigation.setName(getName().replace("XmlReference", "XmlPropertyNavigation"));
+			} else {
+				navigation.setName(getName());
+			}
+			
+			navigation.setGraphSimple(getGraph());
+			
+			if (getIncomingMapping() == null) {
+				navigation.createParameters();
+			}
+			
+			navigation.setSource(getSource());
+			navigation.setTarget(getTarget());
+		
+			navigation.getOutgoingMappings().addAll(getOutgoingMappings());
+			
+			navigation.setIncomingMapping(getIncomingMapping());
+			
+			getOutgoingMappings().clear();
+			setSource(null);
+			setTarget(null);			
+			setIncomingMapping(null);
+			setGraph(null);
+			
+			for (RelationMapping mapping : navigation.getOutgoingMappings()) {
+				((RelationImpl) mapping.getTarget()).adaptAsXMLPropertyNavigationRecursive();
+			}
+			
+			target.adaptAsXmlProperty();
+			
+			return navigation;
+		}
+		return (XmlPropertyNavigation) this;
 	}
 
 	/**
@@ -632,16 +653,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				}			
 			}
 		}		
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isTypeModifiable() {
-		return typeModifiable;
 	}
 
 	/**
@@ -716,14 +727,15 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public XmlNavigation adaptAsXMLNavigation() {
+	public XmlNavigation adaptAsXMLNavigation() throws InvalidityException {
 		return ((RelationImpl) getOriginalRelation()).adaptAsXMLNavigationRecursive();
 	}
 	
-	public XmlNavigation adaptAsXMLNavigationRecursive() {
+	public XmlNavigation adaptAsXMLNavigationRecursive() throws InvalidityException {
 		if (!(this instanceof XmlNavigation)) {
 			XmlNavigation navigation = new XmlNavigationImpl();
 
@@ -758,6 +770,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				((RelationImpl) mapping.getTarget()).adaptAsXMLNavigationRecursive();
 			}
 			
+			target.adaptAsXmlElement();
+			
 			return navigation;
 		}
 		return (XmlNavigation) this;
@@ -766,14 +780,15 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public XmlReference adaptAsXMLReference() {
+	public XmlReference adaptAsXMLReference() throws InvalidityException {
 		return ((RelationImpl) getOriginalRelation()).adaptAsXMLReferenceRecursive();
 	}
 	
-	public XmlReference adaptAsXMLReferenceRecursive() {
+	public XmlReference adaptAsXMLReferenceRecursive() throws InvalidityException {
 		if(!(this instanceof XmlReference)) {
 			XmlReference reference = new XmlReferenceImpl();			
 			reference.setGraphSimple(getGraph());
@@ -815,6 +830,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			setTarget(null);
 			setIncomingMapping(null);
 			setGraph(null);
+			
+			target.adaptAsXmlElement();
 			
 			return reference;
 		}
@@ -933,8 +950,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return basicGetTarget();
 			case GraphstructurePackage.RELATION__NAME:
 				return getName();
-			case GraphstructurePackage.RELATION__TYPE_MODIFIABLE:
-				return isTypeModifiable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1018,8 +1033,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return target != null;
 			case GraphstructurePackage.RELATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case GraphstructurePackage.RELATION__TYPE_MODIFIABLE:
-				return typeModifiable != TYPE_MODIFIABLE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1055,9 +1068,19 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				removeMappingsToNext();
 				return null;
 			case GraphstructurePackage.RELATION___ADAPT_AS_XML_NAVIGATION:
-				return adaptAsXMLNavigation();
+				try {
+					return adaptAsXMLNavigation();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.RELATION___ADAPT_AS_XML_REFERENCE:
-				return adaptAsXMLReference();
+				try {
+					return adaptAsXMLReference();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.RELATION___SET_GRAPH_SIMPLE__GRAPH:
 				setGraphSimple((Graph)arguments.get(0));
 				return null;
@@ -1066,7 +1089,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION___GET_ORIGINAL_RELATION:
 				return getOriginalRelation();
 			case GraphstructurePackage.RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION:
-				return adaptAsXMLPropertyNavigation();
+				try {
+					return adaptAsXMLPropertyNavigation();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;
@@ -1089,8 +1117,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", typeModifiable: ");
-		result.append(typeModifiable);
 		result.append(')');
 		return result.toString();
 	}

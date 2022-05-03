@@ -284,14 +284,17 @@
     <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="removeRelationFromPreviousGraphs"/>
       <eOperations name="removeMappingsToNext"/>
-      <eOperations name="adaptAsXMLNavigation" eType="#//adaptionxml/XmlNavigation"/>
-      <eOperations name="adaptAsXMLReference" eType="#//adaptionxml/XmlReference"/>
+      <eOperations name="adaptAsXMLNavigation" eType="#//adaptionxml/XmlNavigation"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="adaptAsXMLReference" eType="#//adaptionxml/XmlReference"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="setGraphSimple">
         <eParameters name="newGraph" eType="#//graphstructure/Graph"/>
       </eOperations>
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eOperations name="getOriginalRelation" eType="#//graphstructure/Relation"/>
-      <eOperations name="adaptAsXMLPropertyNavigation" eType="#//adaptionxml/XmlPropertyNavigation"/>
+      <eOperations name="adaptAsXMLPropertyNavigation" eType="#//adaptionxml/XmlPropertyNavigation"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/RelationMapping"
           eOpposite="#//patternstructure/RelationMapping/target"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
@@ -303,8 +306,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//graphstructure/Node"
           eOpposite="#//graphstructure/Node/incoming"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeModifiable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-          changeable="false" defaultValueLiteral="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PrimitiveNode" eSuperTypes="#//graphstructure/Node">
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper">

@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.RelationMapping;
 
@@ -25,7 +26,6 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getSource <em>Source</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getTarget <em>Target</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getName <em>Name</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#isTypeModifiable <em>Type Modifiable</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation()
@@ -142,18 +142,6 @@ public interface Relation extends PatternElement, Adaptable {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Type Modifiable</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type Modifiable</em>' attribute.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_TypeModifiable()
-	 * @model default="true" changeable="false"
-	 * @generated
-	 */
-	boolean isTypeModifiable();
-
-	/**
 	 * Returns the value of the '<em><b>Incoming Mapping</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.RelationMapping#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
@@ -203,10 +191,10 @@ public interface Relation extends PatternElement, Adaptable {
 	 * 
 	 * @return the <code>XmlNavigation</code> that replaces <code>this</code> in the pattern
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	XmlNavigation adaptAsXMLNavigation();
+	XmlNavigation adaptAsXMLNavigation() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -215,10 +203,10 @@ public interface Relation extends PatternElement, Adaptable {
 	 * 
 	 * @return the <code>XmlReference</code> that replaces <code>this</code> in the pattern
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	XmlReference adaptAsXMLReference();
+	XmlReference adaptAsXMLReference() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -253,9 +241,9 @@ public interface Relation extends PatternElement, Adaptable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	XmlPropertyNavigation adaptAsXMLPropertyNavigation();
+	XmlPropertyNavigation adaptAsXMLPropertyNavigation() throws InvalidityException;
 
 } // Relation

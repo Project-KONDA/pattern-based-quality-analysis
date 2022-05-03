@@ -73,15 +73,23 @@ public class XmlPropertyNavigationImpl extends RelationImpl implements XmlProper
 	}
 	
 	@Override
-	public XmlNavigation adaptAsXMLNavigation() {
-		removeParametersFromParameterList();
-		return super.adaptAsXMLNavigation();
+	public XmlNavigation adaptAsXMLNavigation() throws InvalidityException {
+		if(target.isTypeModifiable()) {
+			removeParametersFromParameterList();
+			return super.adaptAsXMLNavigation();
+		} else {
+			throw new InvalidityException("XmlPropertyNavigation with a non-modifiable target cannot be adapted as an XmlNavigation.");
+		}
 	}
 	
 	@Override
-	public XmlReference adaptAsXMLReference() {
-		removeParametersFromParameterList();
-		return super.adaptAsXMLReference();
+	public XmlReference adaptAsXMLReference() throws InvalidityException {
+		if(target.isTypeModifiable()) {
+			removeParametersFromParameterList();
+			return super.adaptAsXMLReference();
+		} else {
+			throw new InvalidityException("XmlPropertyNavigation with a non-modifiable target cannot be adapted as an XmlReference.");
+		}
 	}
 	
 	@Override

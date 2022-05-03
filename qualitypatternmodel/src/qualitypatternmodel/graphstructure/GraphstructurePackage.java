@@ -142,22 +142,13 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION__NAME = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION__TYPE_MODIFIABLE = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 6;
-
-	/**
 	 * The number of structural features of the '<em>Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 7;
+	int RELATION_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -3286,17 +3277,6 @@ public interface GraphstructurePackage extends EPackage {
 	EAttribute getRelation_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Relation#isTypeModifiable <em>Type Modifiable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type Modifiable</em>'.
-	 * @see qualitypatternmodel.graphstructure.Relation#isTypeModifiable()
-	 * @see #getRelation()
-	 * @generated
-	 */
-	EAttribute getRelation_TypeModifiable();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#removeRelationFromPreviousGraphs() <em>Remove Relation From Previous Graphs</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4168,14 +4148,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RELATION__NAME = eINSTANCE.getRelation_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Type Modifiable</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RELATION__TYPE_MODIFIABLE = eINSTANCE.getRelation_TypeModifiable();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove Relation From Previous Graphs</b></em>' operation.

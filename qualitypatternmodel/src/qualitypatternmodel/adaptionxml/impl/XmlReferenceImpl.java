@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -148,7 +149,7 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	}
 	
 	@Override
-	public XmlNavigation adaptAsXMLNavigation() {
+	public XmlNavigation adaptAsXMLNavigation() throws InvalidityException {
 		if(getProperty() != null) {
 			getProperty().removeParametersFromParameterList();
 			getProperty().setGraph(null);
@@ -156,6 +157,16 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 		}
 		
 		return super.adaptAsXMLNavigation();		
+	}
+	
+	@Override
+	public XmlPropertyNavigation adaptAsXMLPropertyNavigation() throws InvalidityException {
+		if(target.isTypeModifiable()) {
+			removeParametersFromParameterList();
+			return super.adaptAsXMLPropertyNavigation();
+		} else {
+			throw new InvalidityException("XmlReference with a non-modifiable target cannot be adapted as an XmlPropertyNavigation.");
+		}
 	}
 	
 	@Override

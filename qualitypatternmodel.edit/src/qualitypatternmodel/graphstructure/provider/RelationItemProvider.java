@@ -52,7 +52,6 @@ public class RelationItemProvider extends PatternElementItemProvider {
 			addSourcePropertyDescriptor(object);
 			addTargetPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addTypeModifiablePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -168,28 +167,6 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Type Modifiable feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTypeModifiablePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Relation_typeModifiable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_typeModifiable_feature", "_UI_Relation_type"),
-				 GraphstructurePackage.Literals.RELATION__TYPE_MODIFIABLE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns Relation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,7 +207,6 @@ public class RelationItemProvider extends PatternElementItemProvider {
 
 		switch (notification.getFeatureID(Relation.class)) {
 			case GraphstructurePackage.RELATION__NAME:
-			case GraphstructurePackage.RELATION__TYPE_MODIFIABLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

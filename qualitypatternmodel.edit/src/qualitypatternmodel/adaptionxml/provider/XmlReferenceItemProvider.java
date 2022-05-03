@@ -50,54 +50,9 @@ public class XmlReferenceItemProvider extends RelationItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addTypePropertyDescriptor(object);
-			addTargetPropertyPropertyDescriptor(object);
-			addSourcePropertyPropertyDescriptor(object);
+			addPropertyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Source Property feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSourcePropertyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XmlReference_sourceProperty_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XmlReference_sourceProperty_feature", "_UI_XmlReference_type"),
-				 AdaptionxmlPackage.Literals.XML_REFERENCE__SOURCE_PROPERTY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Target Property feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTargetPropertyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XmlReference_targetProperty_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XmlReference_targetProperty_feature", "_UI_XmlReference_type"),
-				 AdaptionxmlPackage.Literals.XML_REFERENCE__TARGET_PROPERTY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -118,6 +73,28 @@ public class XmlReferenceItemProvider extends RelationItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Property feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPropertyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XmlReference_property_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlReference_property_feature", "_UI_XmlReference_type"),
+				 AdaptionxmlPackage.Literals.XML_REFERENCE__PROPERTY,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

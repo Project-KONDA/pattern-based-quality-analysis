@@ -810,15 +810,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION__NAME = GraphstructurePackage.RELATION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_NAVIGATION__TYPE_MODIFIABLE = GraphstructurePackage.RELATION__TYPE_MODIFIABLE;
-
-	/**
 	 * The feature id for the '<em><b>Option</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1205,15 +1196,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_REFERENCE__NAME = GraphstructurePackage.RELATION__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_REFERENCE__TYPE_MODIFIABLE = GraphstructurePackage.RELATION__TYPE_MODIFIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -2918,15 +2900,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY_NAVIGATION__NAME = GraphstructurePackage.RELATION__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY_NAVIGATION__TYPE_MODIFIABLE = GraphstructurePackage.RELATION__TYPE_MODIFIABLE;
 
 	/**
 	 * The number of structural features of the '<em>Xml Property Navigation</em>' class.
