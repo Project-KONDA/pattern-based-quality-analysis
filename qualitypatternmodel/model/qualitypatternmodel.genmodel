@@ -571,7 +571,7 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/pathParam"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/getOriginalOption"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/getOriginalPathParam"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlReference">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlReference/type"/>

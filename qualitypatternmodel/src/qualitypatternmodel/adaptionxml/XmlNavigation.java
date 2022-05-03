@@ -52,6 +52,6 @@ public interface XmlNavigation extends Relation {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	AxisOptionParam getOriginalOption();
+	PathParam getOriginalPathParam();
 
 } // XMLNavigation

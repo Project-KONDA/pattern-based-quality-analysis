@@ -353,8 +353,12 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	 * @generated NOT
 	 */
 	@Override
-	public AxisOptionParam getOriginalOption() {
-		return ((XmlNavigation) getOriginalRelation()).getOption();		
+	public PathParam getOriginalPathParam() {
+		if (getIncomingMapping() == null) {
+			return getPathParam();
+		} else {
+			return ((XmlNavigation) getOriginalRelation()).getOriginalPathParam();		
+		}
 	}
 
 	/**
@@ -454,8 +458,8 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionxmlPackage.XML_NAVIGATION___GET_ORIGINAL_OPTION:
-				return getOriginalOption();
+			case AdaptionxmlPackage.XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM:
+				return getOriginalPathParam();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

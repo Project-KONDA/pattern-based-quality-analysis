@@ -674,7 +674,7 @@
       <eOperations name="getTagComparisons" upperBound="-1" eType="#//operators/Comparison"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlNavigation" eSuperTypes="#//graphstructure/Relation">
-      <eOperations name="getOriginalOption" eType="#//adaptionxml/AxisOptionParam"/>
+      <eOperations name="getOriginalPathParam" eType="#//adaptionxml/PathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pathParam" lowerBound="1"
           eType="#//adaptionxml/PathParam" eOpposite="#//adaptionxml/PathParam/xmlNavigation"/>
     </eClassifiers>

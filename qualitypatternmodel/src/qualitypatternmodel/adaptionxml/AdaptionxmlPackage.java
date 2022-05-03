@@ -1100,13 +1100,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___ADAPT_AS_XML_PROPERTY_NAVIGATION = GraphstructurePackage.RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION;
 
 	/**
-	 * The operation id for the '<em>Get Original Option</em>' operation.
+	 * The operation id for the '<em>Get Original Path Param</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___GET_ORIGINAL_OPTION = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
+	int XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Xml Navigation</em>' class.
@@ -4853,14 +4853,14 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlNavigation_PathParam();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getOriginalOption() <em>Get Original Option</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getOriginalPathParam() <em>Get Original Path Param</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Original Option</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlNavigation#getOriginalOption()
+	 * @return the meta object for the '<em>Get Original Path Param</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlNavigation#getOriginalPathParam()
 	 * @generated
 	 */
-	EOperation getXmlNavigation__GetOriginalOption();
+	EOperation getXmlNavigation__GetOriginalPathParam();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlReference <em>Xml Reference</em>}'.
@@ -5284,12 +5284,12 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference XML_NAVIGATION__PATH_PARAM = eINSTANCE.getXmlNavigation_PathParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Original Option</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Original Path Param</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation XML_NAVIGATION___GET_ORIGINAL_OPTION = eINSTANCE.getXmlNavigation__GetOriginalOption();
+		EOperation XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM = eINSTANCE.getXmlNavigation__GetOriginalPathParam();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl <em>Xml Reference</em>}' class.
