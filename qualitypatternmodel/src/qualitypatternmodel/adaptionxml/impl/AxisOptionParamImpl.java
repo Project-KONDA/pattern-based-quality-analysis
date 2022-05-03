@@ -191,10 +191,10 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	@Override
 	public EList<AxisKind> getOptions() {
 		if (options == null) {
-			options = new EDataTypeUniqueEList<AxisKind>(AxisKind.class, this, AdaptionxmlPackage.RELATION_OPTION_PARAM__OPTIONS);
+			options = new EDataTypeUniqueEList<AxisKind>(AxisKind.class, this, AdaptionxmlPackage.AXIS_OPTION_PARAM__OPTIONS);
 		}
 		else if (options.size() > 1){
-			EList<AxisKind> options2 = new EDataTypeUniqueEList<AxisKind>(AxisKind.class, this, AdaptionxmlPackage.RELATION_OPTION_PARAM__OPTIONS);
+			EList<AxisKind> options2 = new EDataTypeUniqueEList<AxisKind>(AxisKind.class, this, AdaptionxmlPackage.AXIS_OPTION_PARAM__OPTIONS);
 			for (AxisKind cop: options) {
 				if (!options2.contains(cop)) {
 					options2.add(cop);				
