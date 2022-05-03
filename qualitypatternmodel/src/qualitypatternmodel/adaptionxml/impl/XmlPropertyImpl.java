@@ -237,27 +237,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 		return res;
 	}
 	
-	@Override
-	public EList<PatternElement> prepareParameterUpdates() {
-		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
-		patternElements.add(getAttributeName());
-		patternElements.add(getOption());
-		setAttributeName(null);
-		setOption(null);
-		return patternElements;		
-	}	
-	
-	@Override
-	public void removeParametersFromParameterList() {
-		PropertyOptionParam option = getOption();
-		setOption(null);
-		TextLiteralParam attributeName = getAttributeName();
-		setAttributeName(null);
-		ParameterList parameterList = getParameterList();		
-		parameterList.remove(option);		
-		parameterList.remove(attributeName);		
-	}
-	
 
 	@Override
 	public Node makeGeneric() throws InvalidityException{

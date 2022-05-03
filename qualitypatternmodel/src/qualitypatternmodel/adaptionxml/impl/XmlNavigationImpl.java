@@ -235,9 +235,9 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	 * @generated NOT
 	 */
 	@Override
-	public void removeParametersFromParameterList() {
-		AxisOptionParam option = getOption();
-		setOption(null);
+	public void removeParametersFromParameterList() {		
+		PathParam option = pathParam;
+		setPathParam(null);
 		ParameterList parameterList = getParameterList();	
 		if(parameterList != null) {
 			parameterList.remove(option);
@@ -247,8 +247,8 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	@Override
 	public EList<PatternElement> prepareParameterUpdates() {
 		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
-		patternElements.add(getOption());
-		setOption(null);
+		patternElements.add(pathParam);
+		setPathParam(null);
 		return patternElements;		
 	}
 	

@@ -119,8 +119,21 @@ public class XmlPropertyNavigationImpl extends RelationImpl implements XmlProper
 	}
 	
 	@Override
-	public void removeParametersFromParameterList() {
-		// TODO
+	public void removeParametersFromParameterList() {		
+		PathParam option = pathParam;
+		setPathParam(null);
+		ParameterList parameterList = getParameterList();	
+		if(parameterList != null) {
+			parameterList.remove(option);
+		}
+	}
+	
+	@Override
+	public EList<PatternElement> prepareParameterUpdates() {
+		EList<PatternElement> patternElements = new BasicEList<PatternElement>();
+		patternElements.add(pathParam);
+		setPathParam(null);
+		return patternElements;		
 	}
 	
 	@Override
