@@ -153,9 +153,9 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
 		if (getIncomingMapping() == null && pathParam == null)
-			throw new InvalidityException("axis missing");
+			throw new InvalidityException("pathParam missing");
 		if (getIncomingMapping() != null && pathParam != null)
-			throw new InvalidityException("axis redundant");
+			throw new InvalidityException("pathParam redundant");
 	}	
 	
 	@Override

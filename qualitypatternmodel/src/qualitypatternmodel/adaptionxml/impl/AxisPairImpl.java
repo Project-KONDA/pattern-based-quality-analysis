@@ -19,9 +19,12 @@ import qualitypatternmodel.adaptionxml.AxisOptionParam;
 import qualitypatternmodel.adaptionxml.AxisPair;
 import qualitypatternmodel.adaptionxml.PathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,6 +69,24 @@ public class AxisPairImpl extends MinimalEObjectImpl.Container implements AxisPa
 	 */
 	protected AxisPairImpl() {
 		super();
+	}
+	
+	@Override
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
+			throw new InvalidityException("non-generic class in generic pattern");
+		super.isValid(abstractionLevel);
+		if (textLiteralParam != null) 
+			textLiteralParam.isValid(abstractionLevel);
+		if (axisOptionParam != null) 
+			axisOptionParam.isValid(abstractionLevel);
+	}
+	
+	
+	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
+		super.isValidLocal(abstractionLevel);
+		
 	}
 	
 	@Override

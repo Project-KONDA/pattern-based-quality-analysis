@@ -24,8 +24,11 @@ import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.impl.ParameterValueImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
  * <!-- begin-user-doc -->
@@ -91,6 +94,24 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 	 */
 	protected PathParamImpl() {
 		super();
+	}
+	
+	@Override
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
+			throw new InvalidityException("non-generic class in generic pattern");
+		super.isValid(abstractionLevel);
+		if (axisPair != null) 
+			axisPair.isValid(abstractionLevel);
+		if (xmlPropertyNavigation != null) 
+			xmlPropertyNavigation.isValid(abstractionLevel);
+	}
+	
+	
+	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
+		super.isValidLocal(abstractionLevel);
+		
 	}
 	
 	@Override

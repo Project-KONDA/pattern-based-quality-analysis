@@ -121,7 +121,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
 			throw new InvalidityException("non-generic class in generic pattern");
 		super.isValid(abstractionLevel);
-		option.isValid(abstractionLevel);
 		getAttributeName().isValid(abstractionLevel);
 	}
 	
