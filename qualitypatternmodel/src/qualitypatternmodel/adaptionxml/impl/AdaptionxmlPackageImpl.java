@@ -550,7 +550,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EReference getPathParam_AxisPair() {
+	public EReference getPathParam_AxisPairs() {
 		return (EReference)pathParamEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -693,7 +693,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		pathParamEClass = createEClass(PATH_PARAM);
 		createEReference(pathParamEClass, PATH_PARAM__XML_NAVIGATION);
 		createEReference(pathParamEClass, PATH_PARAM__PROPERTY_OPTION_PARAM);
-		createEReference(pathParamEClass, PATH_PARAM__AXIS_PAIR);
+		createEReference(pathParamEClass, PATH_PARAM__AXIS_PAIRS);
 		createEReference(pathParamEClass, PATH_PARAM__XML_PROPERTY_NAVIGATION);
 
 		axisPairEClass = createEClass(AXIS_PAIR);
@@ -808,13 +808,13 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		initEClass(pathParamEClass, PathParam.class, "PathParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPathParam_XmlNavigation(), this.getXmlNavigation(), this.getXmlNavigation_PathParam(), "xmlNavigation", null, 0, 1, PathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPathParam_PropertyOptionParam(), this.getPropertyOptionParam(), this.getPropertyOptionParam_PathParam(), "propertyOptionParam", null, 0, 1, PathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPathParam_AxisPair(), this.getAxisPair(), this.getAxisPair_PathParam(), "axisPair", null, 1, -1, PathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPathParam_AxisPairs(), this.getAxisPair(), this.getAxisPair_PathParam(), "axisPairs", null, 1, -1, PathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPathParam_XmlPropertyNavigation(), this.getXmlPropertyNavigation(), this.getXmlPropertyNavigation_PathParam(), "xmlPropertyNavigation", null, 0, 1, PathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(axisPairEClass, AxisPair.class, "AxisPair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAxisPair_TextLiteralParam(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_AxisPair(), "textLiteralParam", null, 1, 1, AxisPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAxisPair_AxisOptionParam(), this.getAxisOptionParam(), this.getAxisOptionParam_AxisPair(), "axisOptionParam", null, 1, 1, AxisPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAxisPair_PathParam(), this.getPathParam(), this.getPathParam_AxisPair(), "pathParam", null, 1, 1, AxisPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAxisPair_PathParam(), this.getPathParam(), this.getPathParam_AxisPairs(), "pathParam", null, 1, 1, AxisPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(propertyKindEEnum, PropertyKind.class, "PropertyKind");

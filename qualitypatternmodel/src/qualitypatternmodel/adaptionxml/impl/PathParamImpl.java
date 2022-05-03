@@ -40,7 +40,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.PathParamImpl#getXmlNavigation <em>Xml Navigation</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.PathParamImpl#getPropertyOptionParam <em>Property Option Param</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.PathParamImpl#getAxisPair <em>Axis Pair</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.PathParamImpl#getAxisPairs <em>Axis Pairs</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.PathParamImpl#getXmlPropertyNavigation <em>Xml Property Navigation</em>}</li>
  * </ul>
  *
@@ -68,14 +68,14 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 	protected PropertyOptionParam propertyOptionParam;
 
 	/**
-	 * The cached value of the '{@link #getAxisPair() <em>Axis Pair</em>}' containment reference list.
+	 * The cached value of the '{@link #getAxisPairs() <em>Axis Pairs</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAxisPair()
+	 * @see #getAxisPairs()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AxisPair> axisPair;
+	protected EList<AxisPair> axisPairs;
 
 	/**
 	 * The cached value of the '{@link #getXmlPropertyNavigation() <em>Xml Property Navigation</em>}' reference.
@@ -101,8 +101,8 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
 			throw new InvalidityException("non-generic class in generic pattern");
 		super.isValid(abstractionLevel);
-		if (axisPair != null) {
-			for(AxisPair a : axisPair) {
+		if (axisPairs != null) {
+			for(AxisPair a : axisPairs) {
 				a.isValid(abstractionLevel);
 			}
 		}
@@ -116,17 +116,17 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 		super.isValidLocal(abstractionLevel);
 		if (propertyOptionParam == null) 
 			throw new InvalidityException("propertyOptionParam is null");
-		if (axisPair == null) 
+		if (axisPairs == null) 
 			throw new InvalidityException("axisPair is null");
-		if (axisPair.isEmpty()) 
+		if (axisPairs.isEmpty()) 
 			throw new InvalidityException("axisPair is empty");
 	}
 	
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();		
-		if (axisPair != null) {
-			for(AxisPair a : axisPair) {
+		if (axisPairs != null) {
+			for(AxisPair a : axisPairs) {
 				res.addAll(a.getAllParameters());
 			}			
 		}
@@ -259,11 +259,11 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 	 * @generated
 	 */
 	@Override
-	public EList<AxisPair> getAxisPair() {
-		if (axisPair == null) {
-			axisPair = new EObjectContainmentWithInverseEList<AxisPair>(AxisPair.class, this, AdaptionxmlPackage.PATH_PARAM__AXIS_PAIR, AdaptionxmlPackage.AXIS_PAIR__PATH_PARAM);
+	public EList<AxisPair> getAxisPairs() {
+		if (axisPairs == null) {
+			axisPairs = new EObjectContainmentWithInverseEList<AxisPair>(AxisPair.class, this, AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS, AdaptionxmlPackage.AXIS_PAIR__PATH_PARAM);
 		}
-		return axisPair;
+		return axisPairs;
 	}
 
 	/**
@@ -345,8 +345,8 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 				if (propertyOptionParam != null)
 					msgs = ((InternalEObject)propertyOptionParam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM, null, msgs);
 				return basicSetPropertyOptionParam((PropertyOptionParam)otherEnd, msgs);
-			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIR:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAxisPair()).basicAdd(otherEnd, msgs);
+			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAxisPairs()).basicAdd(otherEnd, msgs);
 			case AdaptionxmlPackage.PATH_PARAM__XML_PROPERTY_NAVIGATION:
 				if (xmlPropertyNavigation != null)
 					msgs = ((InternalEObject)xmlPropertyNavigation).eInverseRemove(this, AdaptionxmlPackage.XML_PROPERTY_NAVIGATION__PATH_PARAM, XmlPropertyNavigation.class, msgs);
@@ -367,8 +367,8 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 				return basicSetXmlNavigation(null, msgs);
 			case AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM:
 				return basicSetPropertyOptionParam(null, msgs);
-			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIR:
-				return ((InternalEList<?>)getAxisPair()).basicRemove(otherEnd, msgs);
+			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS:
+				return ((InternalEList<?>)getAxisPairs()).basicRemove(otherEnd, msgs);
 			case AdaptionxmlPackage.PATH_PARAM__XML_PROPERTY_NAVIGATION:
 				return basicSetXmlPropertyNavigation(null, msgs);
 		}
@@ -388,8 +388,8 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 				return basicGetXmlNavigation();
 			case AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM:
 				return getPropertyOptionParam();
-			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIR:
-				return getAxisPair();
+			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS:
+				return getAxisPairs();
 			case AdaptionxmlPackage.PATH_PARAM__XML_PROPERTY_NAVIGATION:
 				if (resolve) return getXmlPropertyNavigation();
 				return basicGetXmlPropertyNavigation();
@@ -412,9 +412,9 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 			case AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM:
 				setPropertyOptionParam((PropertyOptionParam)newValue);
 				return;
-			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIR:
-				getAxisPair().clear();
-				getAxisPair().addAll((Collection<? extends AxisPair>)newValue);
+			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS:
+				getAxisPairs().clear();
+				getAxisPairs().addAll((Collection<? extends AxisPair>)newValue);
 				return;
 			case AdaptionxmlPackage.PATH_PARAM__XML_PROPERTY_NAVIGATION:
 				setXmlPropertyNavigation((XmlPropertyNavigation)newValue);
@@ -437,8 +437,8 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 			case AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM:
 				setPropertyOptionParam((PropertyOptionParam)null);
 				return;
-			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIR:
-				getAxisPair().clear();
+			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS:
+				getAxisPairs().clear();
 				return;
 			case AdaptionxmlPackage.PATH_PARAM__XML_PROPERTY_NAVIGATION:
 				setXmlPropertyNavigation((XmlPropertyNavigation)null);
@@ -459,8 +459,8 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 				return xmlNavigation != null;
 			case AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM:
 				return propertyOptionParam != null;
-			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIR:
-				return axisPair != null && !axisPair.isEmpty();
+			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS:
+				return axisPairs != null && !axisPairs.isEmpty();
 			case AdaptionxmlPackage.PATH_PARAM__XML_PROPERTY_NAVIGATION:
 				return xmlPropertyNavigation != null;
 		}

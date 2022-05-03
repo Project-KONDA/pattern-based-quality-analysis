@@ -240,7 +240,7 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newPathParam != null)
-				msgs = ((InternalEObject)newPathParam).eInverseAdd(this, AdaptionxmlPackage.PATH_PARAM__AXIS_PAIR, PathParam.class, msgs);
+				msgs = ((InternalEObject)newPathParam).eInverseAdd(this, AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS, PathParam.class, msgs);
 			msgs = basicSetPathParam(newPathParam, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -299,7 +299,7 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case AdaptionxmlPackage.AXIS_PAIR__PATH_PARAM:
-				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.PATH_PARAM__AXIS_PAIR, PathParam.class, msgs);
+				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS, PathParam.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

@@ -115,7 +115,7 @@ public class PathParamItemProvider extends ParameterValueItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AdaptionxmlPackage.Literals.PATH_PARAM__PROPERTY_OPTION_PARAM);
-			childrenFeatures.add(AdaptionxmlPackage.Literals.PATH_PARAM__AXIS_PAIR);
+			childrenFeatures.add(AdaptionxmlPackage.Literals.PATH_PARAM__AXIS_PAIRS);
 		}
 		return childrenFeatures;
 	}
@@ -172,7 +172,7 @@ public class PathParamItemProvider extends ParameterValueItemProvider {
 
 		switch (notification.getFeatureID(PathParam.class)) {
 			case AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM:
-			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIR:
+			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -197,7 +197,7 @@ public class PathParamItemProvider extends ParameterValueItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionxmlPackage.Literals.PATH_PARAM__AXIS_PAIR,
+				(AdaptionxmlPackage.Literals.PATH_PARAM__AXIS_PAIRS,
 				 AdaptionxmlFactory.eINSTANCE.createAxisPair()));
 	}
 

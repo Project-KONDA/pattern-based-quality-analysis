@@ -4068,13 +4068,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int PATH_PARAM__PROPERTY_OPTION_PARAM = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Axis Pair</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Axis Pairs</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM__AXIS_PAIR = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 2;
+	int PATH_PARAM__AXIS_PAIRS = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Xml Property Navigation</b></em>' reference.
@@ -5116,15 +5116,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getPathParam_PropertyOptionParam();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionxml.PathParam#getAxisPair <em>Axis Pair</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionxml.PathParam#getAxisPairs <em>Axis Pairs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Axis Pair</em>'.
-	 * @see qualitypatternmodel.adaptionxml.PathParam#getAxisPair()
+	 * @return the meta object for the containment reference list '<em>Axis Pairs</em>'.
+	 * @see qualitypatternmodel.adaptionxml.PathParam#getAxisPairs()
 	 * @see #getPathParam()
 	 * @generated
 	 */
-	EReference getPathParam_AxisPair();
+	EReference getPathParam_AxisPairs();
 
 	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.PathParam#getXmlPropertyNavigation <em>Xml Property Navigation</em>}'.
@@ -5498,12 +5498,12 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference PATH_PARAM__PROPERTY_OPTION_PARAM = eINSTANCE.getPathParam_PropertyOptionParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Axis Pair</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Axis Pairs</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PATH_PARAM__AXIS_PAIR = eINSTANCE.getPathParam_AxisPair();
+		EReference PATH_PARAM__AXIS_PAIRS = eINSTANCE.getPathParam_AxisPairs();
 
 		/**
 		 * The meta object literal for the '<em><b>Xml Property Navigation</b></em>' reference feature.

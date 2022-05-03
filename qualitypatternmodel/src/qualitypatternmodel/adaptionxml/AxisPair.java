@@ -74,14 +74,14 @@ public interface AxisPair extends PatternElement {
 
 	/**
 	 * Returns the value of the '<em><b>Path Param</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.PathParam#getAxisPair <em>Axis Pair</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.PathParam#getAxisPairs <em>Axis Pairs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Path Param</em>' container reference.
 	 * @see #setPathParam(PathParam)
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getAxisPair_PathParam()
-	 * @see qualitypatternmodel.adaptionxml.PathParam#getAxisPair
-	 * @model opposite="axisPair" required="true" transient="false"
+	 * @see qualitypatternmodel.adaptionxml.PathParam#getAxisPairs
+	 * @model opposite="axisPairs" required="true" transient="false"
 	 * @generated
 	 */
 	PathParam getPathParam();

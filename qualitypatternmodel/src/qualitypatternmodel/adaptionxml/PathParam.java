@@ -17,7 +17,7 @@ import qualitypatternmodel.parameters.ParameterValue;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.PathParam#getXmlNavigation <em>Xml Navigation</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.PathParam#getPropertyOptionParam <em>Property Option Param</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.PathParam#getAxisPair <em>Axis Pair</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.PathParam#getAxisPairs <em>Axis Pairs</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.PathParam#getXmlPropertyNavigation <em>Xml Property Navigation</em>}</li>
  * </ul>
  *
@@ -75,18 +75,18 @@ public interface PathParam extends ParameterValue {
 	void setPropertyOptionParam(PropertyOptionParam value);
 
 	/**
-	 * Returns the value of the '<em><b>Axis Pair</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Axis Pairs</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.AxisPair}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.AxisPair#getPathParam <em>Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Axis Pair</em>' containment reference list.
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPathParam_AxisPair()
+	 * @return the value of the '<em>Axis Pairs</em>' containment reference list.
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPathParam_AxisPairs()
 	 * @see qualitypatternmodel.adaptionxml.AxisPair#getPathParam
 	 * @model opposite="pathParam" containment="true" required="true"
 	 * @generated
 	 */
-	EList<AxisPair> getAxisPair();
+	EList<AxisPair> getAxisPairs();
 
 	/**
 	 * Returns the value of the '<em><b>Xml Property Navigation</b></em>' reference.
