@@ -144,17 +144,17 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
 			throw new InvalidityException("non-generic class in generic pattern");
 		super.isValid(abstractionLevel);
-		if (option != null) 
-			option.isValid(abstractionLevel);
+		if (pathParam != null) 
+			pathParam.isValid(abstractionLevel);
 	}
 	
 	
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
-		if (getIncomingMapping() == null && option == null)
+		if (getIncomingMapping() == null && pathParam == null)
 			throw new InvalidityException("axis missing");
-		if (getIncomingMapping() != null && option != null)
+		if (getIncomingMapping() != null && pathParam != null)
 			throw new InvalidityException("axis redundant");
 	}	
 	
@@ -219,11 +219,11 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		if (getIncomingMapping() == null) {		
 			ParameterList parameterList = getParameterList();
 			if(parameterList != null) {
-				if (getOption() == null) {
-					AxisOptionParam axisOptionParam = new AxisOptionParamImpl();
-					setOption(axisOptionParam);
+				if (getPathParam() == null) {
+					PathParam axisOptionParam = new PathParamImpl();
+					setPathParam(axisOptionParam);
 				} else {
-					parameterList.add(getOption());
+					parameterList.add(getPathParam());
 				}		
 			}
 		}

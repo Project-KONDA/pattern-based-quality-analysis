@@ -68,7 +68,7 @@ public class RelationOptionParamItemProvider extends ParameterItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_RelationOptionParam_options_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RelationOptionParam_options_feature", "_UI_RelationOptionParam_type"),
-				 AdaptionxmlPackage.Literals.RELATION_OPTION_PARAM__OPTIONS,
+				 AdaptionxmlPackage.Literals.AXIS_OPTION_PARAM__OPTIONS,
 				 true,
 				 false,
 				 false,
@@ -90,7 +90,7 @@ public class RelationOptionParamItemProvider extends ParameterItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_RelationOptionParam_value_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RelationOptionParam_value_feature", "_UI_RelationOptionParam_type"),
-				 AdaptionxmlPackage.Literals.RELATION_OPTION_PARAM__VALUE,
+				 AdaptionxmlPackage.Literals.AXIS_OPTION_PARAM__VALUE,
 				 true,
 				 false,
 				 false,
@@ -112,7 +112,7 @@ public class RelationOptionParamItemProvider extends ParameterItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_RelationOptionParam_relations_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RelationOptionParam_relations_feature", "_UI_RelationOptionParam_type"),
-				 AdaptionxmlPackage.Literals.RELATION_OPTION_PARAM__RELATIONS,
+				 AdaptionxmlPackage.Literals.AXIS_OPTION_PARAM__AXIS_PAIR,
 				 true,
 				 false,
 				 true,
@@ -156,8 +156,8 @@ public class RelationOptionParamItemProvider extends ParameterItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AxisOptionParam.class)) {
-			case AdaptionxmlPackage.RELATION_OPTION_PARAM__OPTIONS:
-			case AdaptionxmlPackage.RELATION_OPTION_PARAM__VALUE:
+			case AdaptionxmlPackage.AXIS_OPTION_PARAM__OPTIONS:
+			case AdaptionxmlPackage.AXIS_OPTION_PARAM__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
