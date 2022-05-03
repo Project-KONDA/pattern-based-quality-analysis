@@ -165,6 +165,7 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 			case AdaptionxmlPackage.AXIS_PAIR: {
 				AxisPair axisPair = (AxisPair)theEObject;
 				T result = caseAxisPair(axisPair);
+				if (result == null) result = casePatternElement(axisPair);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

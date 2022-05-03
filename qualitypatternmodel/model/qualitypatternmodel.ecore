@@ -747,7 +747,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPropertyNavigation"
           eType="#//adaptionxml/XmlPropertyNavigation" eOpposite="#//adaptionxml/XmlPropertyNavigation/pathParam"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AxisPair">
+    <eClassifiers xsi:type="ecore:EClass" name="AxisPair" eSuperTypes="#//patternstructure/PatternElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="textLiteralParam" lowerBound="1"
           eType="#//parameters/TextLiteralParam" containment="true" eOpposite="#//parameters/TextLiteralParam/axisPair"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="axisOptionParam" lowerBound="1"

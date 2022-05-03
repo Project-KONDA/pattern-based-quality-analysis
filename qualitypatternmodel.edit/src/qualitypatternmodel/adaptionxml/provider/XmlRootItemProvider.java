@@ -85,7 +85,6 @@ public class XmlRootItemProvider extends ComplexNodeItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

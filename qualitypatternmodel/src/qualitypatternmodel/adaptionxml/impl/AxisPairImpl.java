@@ -10,8 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
@@ -25,6 +23,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +40,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
  *
  * @generated
  */
-public class AxisPairImpl extends MinimalEObjectImpl.Container implements AxisPair {
+public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 	/**
 	 * The cached value of the '{@link #getTextLiteralParam() <em>Text Literal Param</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -85,7 +84,12 @@ public class AxisPairImpl extends MinimalEObjectImpl.Container implements AxisPa
 	
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		super.isValidLocal(abstractionLevel);
+		if (textLiteralParam == null) {
+			throw new InvalidityException("textLiteralParam null");
+		}
+		if (axisOptionParam == null) {
+			throw new InvalidityException("axisOptionParam null");
+		}
 		
 	}
 	

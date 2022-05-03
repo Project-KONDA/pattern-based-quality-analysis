@@ -2,9 +2,8 @@
  */
 package qualitypatternmodel.adaptionxml;
 
-import org.eclipse.emf.ecore.EObject;
-
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +23,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * @model
  * @generated
  */
-public interface AxisPair extends EObject {
+public interface AxisPair extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Text Literal Param</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getAxisPair <em>Axis Pair</em>}'.

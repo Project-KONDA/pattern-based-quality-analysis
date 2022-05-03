@@ -2,12 +2,11 @@
  */
 package qualitypatternmodel.adaptionxml.tests;
 
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.adaptionxml.AxisPair;
+import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,15 +14,7 @@ import qualitypatternmodel.adaptionxml.AxisPair;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AxisPairTest extends TestCase {
-
-	/**
-	 * The fixture for this Axis Pair test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AxisPair fixture = null;
+public class AxisPairTest extends PatternElementTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,23 +36,14 @@ public class AxisPairTest extends TestCase {
 	}
 
 	/**
-	 * Sets the fixture for this Axis Pair test case.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(AxisPair fixture) {
-		this.fixture = fixture;
-	}
-
-	/**
 	 * Returns the fixture for this Axis Pair test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected AxisPair getFixture() {
-		return fixture;
+		return (AxisPair)fixture;
 	}
 
 	/**

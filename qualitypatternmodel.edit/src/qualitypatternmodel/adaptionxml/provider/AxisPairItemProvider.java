@@ -12,14 +12,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
@@ -29,6 +22,7 @@ import qualitypatternmodel.adaptionxml.AxisPair;
 import qualitypatternmodel.parameters.ParametersFactory;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
+import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.adaptionxml.AxisPair} object.
@@ -37,13 +31,7 @@ import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
  * @generated
  */
 public class AxisPairItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends PatternElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -119,7 +107,10 @@ public class AxisPairItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AxisPair_type");
+		String label = ((AxisPair)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AxisPair_type") :
+			getString("_UI_AxisPair_type") + " " + label;
 	}
 
 

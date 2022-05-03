@@ -101,24 +101,34 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
 			throw new InvalidityException("non-generic class in generic pattern");
 		super.isValid(abstractionLevel);
-		if (axisPair != null) 
-			axisPair.isValid(abstractionLevel);
-		if (xmlPropertyNavigation != null) 
-			xmlPropertyNavigation.isValid(abstractionLevel);
+		if (axisPair != null) {
+			for(AxisPair a : axisPair) {
+				a.isValid(abstractionLevel);
+			}
+		}
+		if (propertyOptionParam != null) 
+			propertyOptionParam.isValid(abstractionLevel);
 	}
 	
 	
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
-		
+		if (propertyOptionParam == null) 
+			throw new InvalidityException("propertyOptionParam is null");
+		if (axisPair == null) 
+			throw new InvalidityException("axisPair is null");
+		if (axisPair.isEmpty()) 
+			throw new InvalidityException("axisPair is empty");
 	}
 	
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();		
 		if (axisPair != null) {
-			res.addAll(axisPair.getAllParameters());
+			for(AxisPair a : axisPair) {
+				res.addAll(a.getAllParameters());
+			}			
 		}
 		if (propertyOptionParam != null) {
 			res.add(propertyOptionParam);
