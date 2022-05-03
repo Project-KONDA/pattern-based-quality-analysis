@@ -48,15 +48,6 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/ComparisonOptionParam/setValueIfValid/newValue"/>
         </genOperations>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/PropertyOptionParam">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/PropertyOptionParam/options"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/PropertyOptionParam/value"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/PropertyOptionParam/properties"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/PropertyOptionParam/setValueIfValid">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/PropertyOptionParam/setValueIfValid/newValue"/>
-        </genOperations>
-      </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/ParameterList">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/ParameterList/parameters"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/ParameterList/pattern"/>
@@ -143,16 +134,6 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/DateTimeParam/value"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/DateTimeParam/setValueIfValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/DateTimeParam/setValueIfValid/newValue"/>
-        </genOperations>
-      </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/RelationOptionParam">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/RelationOptionParam/options"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/RelationOptionParam/value"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/RelationOptionParam/relations"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/RelationOptionParam/inferSuggestions"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/RelationOptionParam/setValueIfValid">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/RelationOptionParam/setValueIfValid/newValue"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/TypeOptionParam">
@@ -615,6 +596,25 @@
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlRoot"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyNavigation"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/RelationOptionParam">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/RelationOptionParam/options"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/RelationOptionParam/value"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/RelationOptionParam/relations"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/RelationOptionParam/inferSuggestions"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/RelationOptionParam/setValueIfValid">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/RelationOptionParam/setValueIfValid/newValue"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/PropertyOptionParam">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/PropertyOptionParam/options"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/PropertyOptionParam/value"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/PropertyOptionParam/properties"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/PropertyOptionParam/setValueIfValid">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/PropertyOptionParam/setValueIfValid/newValue"/>
+        </genOperations>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Execution" basePackage="qualitypatternmodel" disposableProviderFactory="true"
         ecorePackage="qualitypatternmodel.ecore#//execution">

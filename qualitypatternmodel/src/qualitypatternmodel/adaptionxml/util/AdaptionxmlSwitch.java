@@ -15,6 +15,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -134,6 +135,22 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case AdaptionxmlPackage.RELATION_OPTION_PARAM: {
+				RelationOptionParam relationOptionParam = (RelationOptionParam)theEObject;
+				T result = caseRelationOptionParam(relationOptionParam);
+				if (result == null) result = caseParameter(relationOptionParam);
+				if (result == null) result = casePatternElement(relationOptionParam);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM: {
+				PropertyOptionParam propertyOptionParam = (PropertyOptionParam)theEObject;
+				T result = casePropertyOptionParam(propertyOptionParam);
+				if (result == null) result = caseParameter(propertyOptionParam);
+				if (result == null) result = casePatternElement(propertyOptionParam);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -225,6 +242,36 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseXmlPropertyNavigation(XmlPropertyNavigation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Relation Option Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Relation Option Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRelationOptionParam(RelationOptionParam object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Property Option Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Property Option Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePropertyOptionParam(PropertyOptionParam object) {
 		return null;
 	}
 
@@ -330,6 +377,21 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePrimitiveNode(PrimitiveNode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameter(Parameter object) {
 		return null;
 	}
 

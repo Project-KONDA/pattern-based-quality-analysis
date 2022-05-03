@@ -20,7 +20,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
 import qualitypatternmodel.parameters.util.ParametersAdapterFactory;
 
 /**
@@ -92,29 +91,6 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 		}
 
 		return comparisonOptionParamItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.PropertyOptionParam} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PropertyOptionParamItemProvider propertyOptionParamItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.parameters.PropertyOptionParam}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPropertyOptionParamAdapter() {
-		if (propertyOptionParamItemProvider == null) {
-			propertyOptionParamItemProvider = new PropertyOptionParamItemProvider(this);
-		}
-
-		return propertyOptionParamItemProvider;
 	}
 
 	/**
@@ -325,29 +301,6 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.RelationOptionParam} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RelationOptionParamItemProvider relationOptionParamItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.parameters.RelationOptionParam}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRelationOptionParamAdapter() {
-		if (relationOptionParamItemProvider == null) {
-			relationOptionParamItemProvider = new RelationOptionParamItemProvider(this);
-		}
-
-		return relationOptionParamItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.TypeOptionParam} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -476,7 +429,6 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 	@Override
 	public void dispose() {
 		if (comparisonOptionParamItemProvider != null) comparisonOptionParamItemProvider.dispose();
-		if (propertyOptionParamItemProvider != null) propertyOptionParamItemProvider.dispose();
 		if (parameterListItemProvider != null) parameterListItemProvider.dispose();
 		if (booleanParamItemProvider != null) booleanParamItemProvider.dispose();
 		if (textListParamItemProvider != null) textListParamItemProvider.dispose();
@@ -486,7 +438,6 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 		if (timeParamItemProvider != null) timeParamItemProvider.dispose();
 		if (untypedParameterValueItemProvider != null) untypedParameterValueItemProvider.dispose();
 		if (dateTimeParamItemProvider != null) dateTimeParamItemProvider.dispose();
-		if (relationOptionParamItemProvider != null) relationOptionParamItemProvider.dispose();
 		if (typeOptionParamItemProvider != null) typeOptionParamItemProvider.dispose();
 	}
 

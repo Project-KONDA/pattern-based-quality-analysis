@@ -22,7 +22,6 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.impl.OperatorsPackageImpl;
-import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.DateParam;
@@ -33,7 +32,6 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
-import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextListParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
@@ -66,13 +64,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	private EClass comparisonOptionParamEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass propertyOptionParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -143,13 +134,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	private EClass dateTimeParamEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass relationOptionParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -477,56 +461,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	@Override
 	public EOperation getComparisonOptionParam__SetValueIfValid__ComparisonOperator() {
 		return comparisonOptionParamEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getPropertyOptionParam() {
-		return propertyOptionParamEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getPropertyOptionParam_Options() {
-		return (EAttribute)propertyOptionParamEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getPropertyOptionParam_Value() {
-		return (EAttribute)propertyOptionParamEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getPropertyOptionParam_Properties() {
-		return (EReference)propertyOptionParamEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getPropertyOptionParam__SetValueIfValid__PropertyKind() {
-		return propertyOptionParamEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1025,66 +959,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EClass getRelationOptionParam() {
-		return relationOptionParamEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getRelationOptionParam_Options() {
-		return (EAttribute)relationOptionParamEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getRelationOptionParam_Value() {
-		return (EAttribute)relationOptionParamEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getRelationOptionParam_Relations() {
-		return (EReference)relationOptionParamEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getRelationOptionParam__InferSuggestions() {
-		return relationOptionParamEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getRelationOptionParam__SetValueIfValid__RelationKind() {
-		return relationOptionParamEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getTypeOptionParam() {
 		return typeOptionParamEClass;
 	}
@@ -1191,12 +1065,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEReference(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__COUNT_CONDITIONS);
 		createEOperation(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM___SET_VALUE_IF_VALID__COMPARISONOPERATOR);
 
-		propertyOptionParamEClass = createEClass(PROPERTY_OPTION_PARAM);
-		createEAttribute(propertyOptionParamEClass, PROPERTY_OPTION_PARAM__OPTIONS);
-		createEAttribute(propertyOptionParamEClass, PROPERTY_OPTION_PARAM__VALUE);
-		createEReference(propertyOptionParamEClass, PROPERTY_OPTION_PARAM__PROPERTIES);
-		createEOperation(propertyOptionParamEClass, PROPERTY_OPTION_PARAM___SET_VALUE_IF_VALID__PROPERTYKIND);
-
 		parameterListEClass = createEClass(PARAMETER_LIST);
 		createEReference(parameterListEClass, PARAMETER_LIST__PARAMETERS);
 		createEReference(parameterListEClass, PARAMETER_LIST__PATTERN);
@@ -1256,13 +1124,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEAttribute(dateTimeParamEClass, DATE_TIME_PARAM__VALUE);
 		createEOperation(dateTimeParamEClass, DATE_TIME_PARAM___SET_VALUE_IF_VALID__STRING);
 
-		relationOptionParamEClass = createEClass(RELATION_OPTION_PARAM);
-		createEAttribute(relationOptionParamEClass, RELATION_OPTION_PARAM__OPTIONS);
-		createEAttribute(relationOptionParamEClass, RELATION_OPTION_PARAM__VALUE);
-		createEReference(relationOptionParamEClass, RELATION_OPTION_PARAM__RELATIONS);
-		createEOperation(relationOptionParamEClass, RELATION_OPTION_PARAM___INFER_SUGGESTIONS);
-		createEOperation(relationOptionParamEClass, RELATION_OPTION_PARAM___SET_VALUE_IF_VALID__RELATIONKIND);
-
 		typeOptionParamEClass = createEClass(TYPE_OPTION_PARAM);
 		createEAttribute(typeOptionParamEClass, TYPE_OPTION_PARAM__OPTIONS);
 		createEAttribute(typeOptionParamEClass, TYPE_OPTION_PARAM__VALUE);
@@ -1312,7 +1173,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		// Add supertypes to classes
 		parameterEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		comparisonOptionParamEClass.getESuperTypes().add(this.getParameter());
-		propertyOptionParamEClass.getESuperTypes().add(this.getParameter());
 		parameterListEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		booleanParamEClass.getESuperTypes().add(this.getParameterValue());
 		textListParamEClass.getESuperTypes().add(this.getParameterValue());
@@ -1324,7 +1184,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		timeParamEClass.getESuperTypes().add(this.getParameterValue());
 		untypedParameterValueEClass.getESuperTypes().add(this.getParameterValue());
 		dateTimeParamEClass.getESuperTypes().add(this.getParameterValue());
-		relationOptionParamEClass.getESuperTypes().add(this.getParameter());
 		typeOptionParamEClass.getESuperTypes().add(this.getParameter());
 
 		// Initialize classes, features, and operations; add parameters
@@ -1374,15 +1233,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		op = initEOperation(getComparisonOptionParam__SetValueIfValid__ComparisonOperator(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theOperatorsPackage.getComparisonOperator(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
-		initEClass(propertyOptionParamEClass, PropertyOptionParam.class, "PropertyOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPropertyOptionParam_Options(), theAdaptionxmlPackage.getPropertyKind(), "options", null, 0, -1, PropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPropertyOptionParam_Value(), theAdaptionxmlPackage.getPropertyKind(), "value", null, 1, 1, PropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPropertyOptionParam_Properties(), theAdaptionxmlPackage.getXmlProperty(), theAdaptionxmlPackage.getXmlProperty_Option(), "properties", null, 0, -1, PropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getPropertyOptionParam__SetValueIfValid__PropertyKind(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theAdaptionxmlPackage.getPropertyKind(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(parameterListEClass, ParameterList.class, "ParameterList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1512,17 +1362,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		op = initEOperation(getDateTimeParam__SetValueIfValid__String(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
-		initEClass(relationOptionParamEClass, RelationOptionParam.class, "RelationOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRelationOptionParam_Options(), theAdaptionxmlPackage.getRelationKind(), "options", null, 0, -1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRelationOptionParam_Value(), theAdaptionxmlPackage.getRelationKind(), "value", null, 1, 1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRelationOptionParam_Relations(), theAdaptionxmlPackage.getXmlNavigation(), theAdaptionxmlPackage.getXmlNavigation_Option(), "relations", null, 0, -1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getRelationOptionParam__InferSuggestions(), theAdaptionxmlPackage.getRelationKind(), "inferSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getRelationOptionParam__SetValueIfValid__RelationKind(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theAdaptionxmlPackage.getRelationKind(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(typeOptionParamEClass, TypeOptionParam.class, "TypeOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

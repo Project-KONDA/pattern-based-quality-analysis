@@ -6,9 +6,8 @@ package qualitypatternmodel.adaptionxml.validation;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlReference;
-
-import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 
 /**

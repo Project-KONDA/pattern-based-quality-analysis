@@ -3,7 +3,6 @@
 package qualitypatternmodel.adaptionxml;
 
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.parameters.RelationOptionParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,13 +24,13 @@ import qualitypatternmodel.parameters.RelationOptionParam;
 public interface XmlNavigation extends Relation {
 	/**
 	 * Returns the value of the '<em><b>Option</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.RelationOptionParam#getRelations <em>Relations</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.RelationOptionParam#getRelations <em>Relations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Option</em>' reference.
 	 * @see #setOption(RelationOptionParam)
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlNavigation_Option()
-	 * @see qualitypatternmodel.parameters.RelationOptionParam#getRelations
+	 * @see qualitypatternmodel.adaptionxml.RelationOptionParam#getRelations
 	 * @model opposite="relations"
 	 * @generated
 	 */

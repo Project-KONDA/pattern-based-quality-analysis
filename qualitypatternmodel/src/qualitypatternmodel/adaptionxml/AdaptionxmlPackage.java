@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.parameters.ParametersPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -3190,6 +3191,773 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_NAVIGATION_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.RelationOptionParamImpl <em>Relation Option Param</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.impl.RelationOptionParamImpl
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getRelationOptionParam()
+	 * @generated
+	 */
+	int RELATION_OPTION_PARAM = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM__ID = ParametersPackage.PARAMETER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM__INTERNAL_ID = ParametersPackage.PARAMETER__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM__PARAMETER_LIST = ParametersPackage.PARAMETER__PARAMETER_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM__DESCRIPTION = ParametersPackage.PARAMETER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM__PREDEFINED = ParametersPackage.PARAMETER__PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM__PARAMETER_REFERENCES = ParametersPackage.PARAMETER__PARAMETER_REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Options</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM__OPTIONS = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM__VALUE = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Relations</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM__RELATIONS = ParametersPackage.PARAMETER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Relation Option Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___GENERATE_QUERY = ParametersPackage.PARAMETER___GENERATE_QUERY;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___GET_ALL_PARAMETERS = ParametersPackage.PARAMETER___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___PREPARE_TRANSLATION = ParametersPackage.PARAMETER___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___IS_VALID__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___GET_CONTAINER = ParametersPackage.PARAMETER___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.PARAMETER___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___MY_TO_STRING = ParametersPackage.PARAMETER___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___PREPARE_PARAMETER_UPDATES = ParametersPackage.PARAMETER___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___GET_PARAMETER_LIST = ParametersPackage.PARAMETER___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___GET_OPERATOR_LIST = ParametersPackage.PARAMETER___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___FINALIZE_XML_ADAPTION = ParametersPackage.PARAMETER___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.PARAMETER___RECORD_VALUES__XMLDATADATABASE;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ParametersPackage.PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = ParametersPackage.PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.PARAMETER___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___INPUT_IS_VALID = ParametersPackage.PARAMETER___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = ParametersPackage.PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___IS_USED = ParametersPackage.PARAMETER___IS_USED;
+
+	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___GET_VALUE_AS_STRING = ParametersPackage.PARAMETER___GET_VALUE_AS_STRING;
+
+	/**
+	 * The operation id for the '<em>Set Value From String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___SET_VALUE_FROM_STRING__STRING = ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___VALIDATE_AGAINST_SCHEMA = ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
+	 * The operation id for the '<em>Validate Example Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Infer Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___INFER_SUGGESTIONS = ParametersPackage.PARAMETER_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Set Value If Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM___SET_VALUE_IF_VALID__RELATIONKIND = ParametersPackage.PARAMETER_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Relation Option Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_OPTION_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl <em>Property Option Param</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getPropertyOptionParam()
+	 * @generated
+	 */
+	int PROPERTY_OPTION_PARAM = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM__ID = ParametersPackage.PARAMETER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM__INTERNAL_ID = ParametersPackage.PARAMETER__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM__PARAMETER_LIST = ParametersPackage.PARAMETER__PARAMETER_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM__DESCRIPTION = ParametersPackage.PARAMETER__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM__PREDEFINED = ParametersPackage.PARAMETER__PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM__PARAMETER_REFERENCES = ParametersPackage.PARAMETER__PARAMETER_REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Options</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM__OPTIONS = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM__VALUE = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM__PROPERTIES = ParametersPackage.PARAMETER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Property Option Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___GENERATE_QUERY = ParametersPackage.PARAMETER___GENERATE_QUERY;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___GET_ALL_PARAMETERS = ParametersPackage.PARAMETER___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___PREPARE_TRANSLATION = ParametersPackage.PARAMETER___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___IS_VALID__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___GET_CONTAINER = ParametersPackage.PARAMETER___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.PARAMETER___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___MY_TO_STRING = ParametersPackage.PARAMETER___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___PREPARE_PARAMETER_UPDATES = ParametersPackage.PARAMETER___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___GET_PARAMETER_LIST = ParametersPackage.PARAMETER___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___GET_OPERATOR_LIST = ParametersPackage.PARAMETER___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___FINALIZE_XML_ADAPTION = ParametersPackage.PARAMETER___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.PARAMETER___RECORD_VALUES__XMLDATADATABASE;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ParametersPackage.PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = ParametersPackage.PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.PARAMETER___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___INPUT_IS_VALID = ParametersPackage.PARAMETER___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = ParametersPackage.PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___IS_USED = ParametersPackage.PARAMETER___IS_USED;
+
+	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___GET_VALUE_AS_STRING = ParametersPackage.PARAMETER___GET_VALUE_AS_STRING;
+
+	/**
+	 * The operation id for the '<em>Set Value From String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___SET_VALUE_FROM_STRING__STRING = ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___VALIDATE_AGAINST_SCHEMA = ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
+	 * The operation id for the '<em>Validate Example Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Set Value If Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM___SET_VALUE_IF_VALID__PROPERTYKIND = ParametersPackage.PARAMETER_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Property Option Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3197,7 +3965,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getPropertyKind()
 	 * @generated
 	 */
-	int PROPERTY_KIND = 6;
+	int PROPERTY_KIND = 8;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.RelationKind <em>Relation Kind</em>}' enum.
@@ -3207,7 +3975,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getRelationKind()
 	 * @generated
 	 */
-	int RELATION_KIND = 7;
+	int RELATION_KIND = 9;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlElement <em>Xml Element</em>}'.
@@ -3394,6 +4162,122 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getXmlPropertyNavigation();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.RelationOptionParam <em>Relation Option Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Relation Option Param</em>'.
+	 * @see qualitypatternmodel.adaptionxml.RelationOptionParam
+	 * @generated
+	 */
+	EClass getRelationOptionParam();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.adaptionxml.RelationOptionParam#getOptions <em>Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Options</em>'.
+	 * @see qualitypatternmodel.adaptionxml.RelationOptionParam#getOptions()
+	 * @see #getRelationOptionParam()
+	 * @generated
+	 */
+	EAttribute getRelationOptionParam_Options();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionxml.RelationOptionParam#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see qualitypatternmodel.adaptionxml.RelationOptionParam#getValue()
+	 * @see #getRelationOptionParam()
+	 * @generated
+	 */
+	EAttribute getRelationOptionParam_Value();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionxml.RelationOptionParam#getRelations <em>Relations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Relations</em>'.
+	 * @see qualitypatternmodel.adaptionxml.RelationOptionParam#getRelations()
+	 * @see #getRelationOptionParam()
+	 * @generated
+	 */
+	EReference getRelationOptionParam_Relations();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.RelationOptionParam#inferSuggestions() <em>Infer Suggestions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Infer Suggestions</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.RelationOptionParam#inferSuggestions()
+	 * @generated
+	 */
+	EOperation getRelationOptionParam__InferSuggestions();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.RelationOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.RelationKind) <em>Set Value If Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Value If Valid</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.RelationOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.RelationKind)
+	 * @generated
+	 */
+	EOperation getRelationOptionParam__SetValueIfValid__RelationKind();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam <em>Property Option Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Property Option Param</em>'.
+	 * @see qualitypatternmodel.adaptionxml.PropertyOptionParam
+	 * @generated
+	 */
+	EClass getPropertyOptionParam();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getOptions <em>Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Options</em>'.
+	 * @see qualitypatternmodel.adaptionxml.PropertyOptionParam#getOptions()
+	 * @see #getPropertyOptionParam()
+	 * @generated
+	 */
+	EAttribute getPropertyOptionParam_Options();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see qualitypatternmodel.adaptionxml.PropertyOptionParam#getValue()
+	 * @see #getPropertyOptionParam()
+	 * @generated
+	 */
+	EAttribute getPropertyOptionParam_Value();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Properties</em>'.
+	 * @see qualitypatternmodel.adaptionxml.PropertyOptionParam#getProperties()
+	 * @see #getPropertyOptionParam()
+	 * @generated
+	 */
+	EReference getPropertyOptionParam_Properties();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.PropertyKind) <em>Set Value If Valid</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Value If Valid</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.PropertyOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.PropertyKind)
+	 * @generated
+	 */
+	EOperation getPropertyOptionParam__SetValueIfValid__PropertyKind();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}'.
@@ -3593,6 +4477,98 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass XML_PROPERTY_NAVIGATION = eINSTANCE.getXmlPropertyNavigation();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.RelationOptionParamImpl <em>Relation Option Param</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionxml.impl.RelationOptionParamImpl
+		 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getRelationOptionParam()
+		 * @generated
+		 */
+		EClass RELATION_OPTION_PARAM = eINSTANCE.getRelationOptionParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Options</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RELATION_OPTION_PARAM__OPTIONS = eINSTANCE.getRelationOptionParam_Options();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RELATION_OPTION_PARAM__VALUE = eINSTANCE.getRelationOptionParam_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Relations</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATION_OPTION_PARAM__RELATIONS = eINSTANCE.getRelationOptionParam_Relations();
+
+		/**
+		 * The meta object literal for the '<em><b>Infer Suggestions</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RELATION_OPTION_PARAM___INFER_SUGGESTIONS = eINSTANCE.getRelationOptionParam__InferSuggestions();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RELATION_OPTION_PARAM___SET_VALUE_IF_VALID__RELATIONKIND = eINSTANCE.getRelationOptionParam__SetValueIfValid__RelationKind();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl <em>Property Option Param</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl
+		 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getPropertyOptionParam()
+		 * @generated
+		 */
+		EClass PROPERTY_OPTION_PARAM = eINSTANCE.getPropertyOptionParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Options</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY_OPTION_PARAM__OPTIONS = eINSTANCE.getPropertyOptionParam_Options();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY_OPTION_PARAM__VALUE = eINSTANCE.getPropertyOptionParam_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Properties</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY_OPTION_PARAM__PROPERTIES = eINSTANCE.getPropertyOptionParam_Properties();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPERTY_OPTION_PARAM___SET_VALUE_IF_VALID__PROPERTYKIND = eINSTANCE.getPropertyOptionParam__SetValueIfValid__PropertyKind();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}' enum.

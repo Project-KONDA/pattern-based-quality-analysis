@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.RelationOptionParam;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
@@ -30,9 +31,6 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.RelationOptionParam;
-import qualitypatternmodel.parameters.impl.RelationOptionParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.Quantifier;
@@ -341,9 +339,9 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		if (newOption != option) {
 			NotificationChain msgs = null;
 			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.RELATION_OPTION_PARAM__RELATIONS, RelationOptionParam.class, msgs);
+				msgs = ((InternalEObject)option).eInverseRemove(this, AdaptionxmlPackage.RELATION_OPTION_PARAM__RELATIONS, RelationOptionParam.class, msgs);
 			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.RELATION_OPTION_PARAM__RELATIONS, RelationOptionParam.class, msgs);
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, AdaptionxmlPackage.RELATION_OPTION_PARAM__RELATIONS, RelationOptionParam.class, msgs);
 			msgs = basicSetOption(newOption, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -371,7 +369,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		switch (featureID) {
 			case AdaptionxmlPackage.XML_NAVIGATION__OPTION:
 				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.RELATION_OPTION_PARAM__RELATIONS, RelationOptionParam.class, msgs);
+					msgs = ((InternalEObject)option).eInverseRemove(this, AdaptionxmlPackage.RELATION_OPTION_PARAM__RELATIONS, RelationOptionParam.class, msgs);
 				return basicSetOption((RelationOptionParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);

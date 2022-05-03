@@ -11,6 +11,7 @@ import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.operators.impl.*;
 import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.RelationOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;

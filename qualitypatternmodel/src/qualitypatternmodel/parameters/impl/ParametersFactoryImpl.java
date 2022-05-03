@@ -11,20 +11,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import qualitypatternmodel.parameters.*;
-import qualitypatternmodel.parameters.RelationOptionParam;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
-import qualitypatternmodel.parameters.DateParam;
-import qualitypatternmodel.parameters.DateTimeParam;
-import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.parameters.PropertyOptionParam;
-import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.TimeParam;
-import qualitypatternmodel.parameters.UntypedParameterValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,7 +58,6 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ParametersPackage.COMPARISON_OPTION_PARAM: return createComparisonOptionParam();
-			case ParametersPackage.PROPERTY_OPTION_PARAM: return createPropertyOptionParam();
 			case ParametersPackage.PARAMETER_LIST: return createParameterList();
 			case ParametersPackage.BOOLEAN_PARAM: return createBooleanParam();
 			case ParametersPackage.TEXT_LIST_PARAM: return createTextListParam();
@@ -81,7 +67,6 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 			case ParametersPackage.TIME_PARAM: return createTimeParam();
 			case ParametersPackage.UNTYPED_PARAMETER_VALUE: return createUntypedParameterValue();
 			case ParametersPackage.DATE_TIME_PARAM: return createDateTimeParam();
-			case ParametersPackage.RELATION_OPTION_PARAM: return createRelationOptionParam();
 			case ParametersPackage.TYPE_OPTION_PARAM: return createTypeOptionParam();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -131,17 +116,6 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	public ComparisonOptionParam createComparisonOptionParam() {
 		ComparisonOptionParamImpl comparisonOptionParam = new ComparisonOptionParamImpl();
 		return comparisonOptionParam;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public PropertyOptionParam createPropertyOptionParam() {
-		PropertyOptionParamImpl propertyOptionParam = new PropertyOptionParamImpl();
-		return propertyOptionParam;
 	}
 
 	/**
@@ -241,17 +215,6 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	public DateTimeParam createDateTimeParam() {
 		DateTimeParamImpl dateTimeParam = new DateTimeParamImpl();
 		return dateTimeParam;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public RelationOptionParam createRelationOptionParam() {
-		RelationOptionParamImpl relationOptionParam = new RelationOptionParamImpl();
-		return relationOptionParam;
 	}
 
 	/**

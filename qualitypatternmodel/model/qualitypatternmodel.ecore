@@ -49,17 +49,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="countConditions" upperBound="-1"
           eType="#//patternstructure/CountCondition" eOpposite="#//patternstructure/CountCondition/option"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PropertyOptionParam" eSuperTypes="#//parameters/Parameter">
-      <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="newValue" eType="#//adaptionxml/PropertyKind"/>
-      </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
-          eType="#//adaptionxml/PropertyKind"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
-          eType="#//adaptionxml/PropertyKind"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-          eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/option"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterList" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="add">
         <eParameters name="parameter" eType="#//parameters/Parameter"/>
@@ -178,18 +167,6 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RelationOptionParam" eSuperTypes="#//parameters/Parameter">
-      <eOperations name="inferSuggestions" upperBound="-1" eType="#//adaptionxml/RelationKind"/>
-      <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="newValue" eType="#//adaptionxml/RelationKind"/>
-      </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
-          eType="#//adaptionxml/RelationKind"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
-          eType="#//adaptionxml/RelationKind"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
-          eType="#//adaptionxml/XmlNavigation" eOpposite="#//adaptionxml/XmlNavigation/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="StringToIntEMap" instanceClassName="org.eclipse.emf.common.util.EMap">
       <eTypeParameters name="K"/>
@@ -695,9 +672,9 @@
       <eOperations name="getTagComparisons" upperBound="-1" eType="#//operators/Comparison"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlNavigation" eSuperTypes="#//graphstructure/Relation">
-      <eOperations name="getOriginalOption" eType="#//parameters/RelationOptionParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/RelationOptionParam"
-          eOpposite="#//parameters/RelationOptionParam/relations"/>
+      <eOperations name="getOriginalOption" eType="#//adaptionxml/RelationOptionParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//adaptionxml/RelationOptionParam"
+          eOpposite="#//adaptionxml/RelationOptionParam/relations"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlReference" eSuperTypes="#//graphstructure/Relation">
       <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -707,8 +684,8 @@
           eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/references"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlProperty" eSuperTypes="#//graphstructure/PrimitiveNode">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//parameters/PropertyOptionParam"
-          eOpposite="#//parameters/PropertyOptionParam/properties"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="option" eType="#//adaptionxml/PropertyOptionParam"
+          eOpposite="#//adaptionxml/PropertyOptionParam/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" eType="#//parameters/TextLiteralParam"
           eOpposite="#//parameters/TextLiteralParam/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
@@ -742,6 +719,29 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlRoot" eSuperTypes="#//graphstructure/ComplexNode"/>
     <eClassifiers xsi:type="ecore:EClass" name="XmlPropertyNavigation" eSuperTypes="#//graphstructure/Relation"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RelationOptionParam" eSuperTypes="#//parameters/Parameter">
+      <eOperations name="inferSuggestions" upperBound="-1" eType="#//adaptionxml/RelationKind"/>
+      <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="newValue" eType="#//adaptionxml/RelationKind"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
+          eType="#//adaptionxml/RelationKind"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="#//adaptionxml/RelationKind"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relations" upperBound="-1"
+          eType="#//adaptionxml/XmlNavigation" eOpposite="#//adaptionxml/XmlNavigation/option"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PropertyOptionParam" eSuperTypes="#//parameters/Parameter">
+      <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="newValue" eType="#//adaptionxml/PropertyKind"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" upperBound="-1"
+          eType="#//adaptionxml/PropertyKind"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="#//adaptionxml/PropertyKind"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+          eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/option"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="execution" nsURI="execution" nsPrefix="execution">
     <eClassifiers xsi:type="ecore:EClass" name="Result" abstract="true">

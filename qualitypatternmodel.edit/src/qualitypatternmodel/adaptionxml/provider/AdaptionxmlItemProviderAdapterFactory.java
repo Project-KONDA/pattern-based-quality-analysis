@@ -210,6 +210,52 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.RelationOptionParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RelationOptionParamItemProvider relationOptionParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.RelationOptionParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRelationOptionParamAdapter() {
+		if (relationOptionParamItemProvider == null) {
+			relationOptionParamItemProvider = new RelationOptionParamItemProvider(this);
+		}
+
+		return relationOptionParamItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.PropertyOptionParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PropertyOptionParamItemProvider propertyOptionParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.PropertyOptionParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPropertyOptionParamAdapter() {
+		if (propertyOptionParamItemProvider == null) {
+			propertyOptionParamItemProvider = new PropertyOptionParamItemProvider(this);
+		}
+
+		return propertyOptionParamItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -320,6 +366,8 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 		if (xmlPropertyItemProvider != null) xmlPropertyItemProvider.dispose();
 		if (xmlRootItemProvider != null) xmlRootItemProvider.dispose();
 		if (xmlPropertyNavigationItemProvider != null) xmlPropertyNavigationItemProvider.dispose();
+		if (relationOptionParamItemProvider != null) relationOptionParamItemProvider.dispose();
+		if (propertyOptionParamItemProvider != null) propertyOptionParamItemProvider.dispose();
 	}
 
 }

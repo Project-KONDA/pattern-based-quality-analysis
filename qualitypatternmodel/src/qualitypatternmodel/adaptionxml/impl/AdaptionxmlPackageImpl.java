@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.RelationOptionParam;
 import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -90,6 +92,20 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	private EClass xmlPropertyNavigationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass relationOptionParamEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propertyOptionParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -378,6 +394,116 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EClass getRelationOptionParam() {
+		return relationOptionParamEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRelationOptionParam_Options() {
+		return (EAttribute)relationOptionParamEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRelationOptionParam_Value() {
+		return (EAttribute)relationOptionParamEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getRelationOptionParam_Relations() {
+		return (EReference)relationOptionParamEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getRelationOptionParam__InferSuggestions() {
+		return relationOptionParamEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getRelationOptionParam__SetValueIfValid__RelationKind() {
+		return relationOptionParamEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getPropertyOptionParam() {
+		return propertyOptionParamEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPropertyOptionParam_Options() {
+		return (EAttribute)propertyOptionParamEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPropertyOptionParam_Value() {
+		return (EAttribute)propertyOptionParamEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getPropertyOptionParam_Properties() {
+		return (EReference)propertyOptionParamEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPropertyOptionParam__SetValueIfValid__PropertyKind() {
+		return propertyOptionParamEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getPropertyKind() {
 		return propertyKindEEnum;
 	}
@@ -445,6 +571,19 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		xmlPropertyNavigationEClass = createEClass(XML_PROPERTY_NAVIGATION);
 
+		relationOptionParamEClass = createEClass(RELATION_OPTION_PARAM);
+		createEAttribute(relationOptionParamEClass, RELATION_OPTION_PARAM__OPTIONS);
+		createEAttribute(relationOptionParamEClass, RELATION_OPTION_PARAM__VALUE);
+		createEReference(relationOptionParamEClass, RELATION_OPTION_PARAM__RELATIONS);
+		createEOperation(relationOptionParamEClass, RELATION_OPTION_PARAM___INFER_SUGGESTIONS);
+		createEOperation(relationOptionParamEClass, RELATION_OPTION_PARAM___SET_VALUE_IF_VALID__RELATIONKIND);
+
+		propertyOptionParamEClass = createEClass(PROPERTY_OPTION_PARAM);
+		createEAttribute(propertyOptionParamEClass, PROPERTY_OPTION_PARAM__OPTIONS);
+		createEAttribute(propertyOptionParamEClass, PROPERTY_OPTION_PARAM__VALUE);
+		createEReference(propertyOptionParamEClass, PROPERTY_OPTION_PARAM__PROPERTIES);
+		createEOperation(propertyOptionParamEClass, PROPERTY_OPTION_PARAM___SET_VALUE_IF_VALID__PROPERTYKIND);
+
 		// Create enums
 		propertyKindEEnum = createEEnum(PROPERTY_KIND);
 		relationKindEEnum = createEEnum(RELATION_KIND);
@@ -490,6 +629,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		xmlPropertyEClass.getESuperTypes().add(theGraphstructurePackage.getPrimitiveNode());
 		xmlRootEClass.getESuperTypes().add(theGraphstructurePackage.getComplexNode());
 		xmlPropertyNavigationEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
+		relationOptionParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
+		propertyOptionParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(xmlElementEClass, XmlElement.class, "XmlElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -505,9 +646,9 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		initEOperation(getXmlElement__GetTagComparisons(), theOperatorsPackage.getComparison(), "getTagComparisons", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(xmlNavigationEClass, XmlNavigation.class, "XmlNavigation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getXmlNavigation_Option(), theParametersPackage.getRelationOptionParam(), theParametersPackage.getRelationOptionParam_Relations(), "option", null, 0, 1, XmlNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlNavigation_Option(), this.getRelationOptionParam(), this.getRelationOptionParam_Relations(), "option", null, 0, 1, XmlNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getXmlNavigation__GetOriginalOption(), theParametersPackage.getRelationOptionParam(), "getOriginalOption", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getXmlNavigation__GetOriginalOption(), this.getRelationOptionParam(), "getOriginalOption", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(xmlReferenceEClass, XmlReference.class, "XmlReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getXmlReference_Type(), theGraphstructurePackage.getReturnType(), "type", null, 0, 1, XmlReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -517,13 +658,33 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(xmlPropertyEClass, XmlProperty.class, "XmlProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getXmlProperty_Option(), theParametersPackage.getPropertyOptionParam(), theParametersPackage.getPropertyOptionParam_Properties(), "option", null, 0, 1, XmlProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getXmlProperty_Option(), this.getPropertyOptionParam(), this.getPropertyOptionParam_Properties(), "option", null, 0, 1, XmlProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXmlProperty_AttributeName(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_Properties(), "attributeName", null, 0, 1, XmlProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXmlProperty_References(), this.getXmlReference(), this.getXmlReference_Property(), "references", null, 0, -1, XmlProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(xmlRootEClass, XmlRoot.class, "XmlRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(xmlPropertyNavigationEClass, XmlPropertyNavigation.class, "XmlPropertyNavigation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(relationOptionParamEClass, RelationOptionParam.class, "RelationOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRelationOptionParam_Options(), this.getRelationKind(), "options", null, 0, -1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRelationOptionParam_Value(), this.getRelationKind(), "value", null, 1, 1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelationOptionParam_Relations(), this.getXmlNavigation(), this.getXmlNavigation_Option(), "relations", null, 0, -1, RelationOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getRelationOptionParam__InferSuggestions(), this.getRelationKind(), "inferSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getRelationOptionParam__SetValueIfValid__RelationKind(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getRelationKind(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		initEClass(propertyOptionParamEClass, PropertyOptionParam.class, "PropertyOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPropertyOptionParam_Options(), this.getPropertyKind(), "options", null, 0, -1, PropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPropertyOptionParam_Value(), this.getPropertyKind(), "value", null, 1, 1, PropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPropertyOptionParam_Properties(), this.getXmlProperty(), this.getXmlProperty_Option(), "properties", null, 0, -1, PropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getPropertyOptionParam__SetValueIfValid__PropertyKind(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getPropertyKind(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		// Initialize enums and add enum literals
 		initEEnum(propertyKindEEnum, PropertyKind.class, "PropertyKind");

@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import qualitypatternmodel.adaptionxml.RelationOptionParam;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -31,7 +32,6 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;

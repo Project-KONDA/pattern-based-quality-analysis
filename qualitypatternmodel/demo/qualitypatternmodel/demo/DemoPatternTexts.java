@@ -5,7 +5,9 @@ import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_NAMESPACE;
 import java.io.IOException;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.RelationOptionParam;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -21,8 +23,6 @@ import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.PropertyOptionParam;
-import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TimeParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;

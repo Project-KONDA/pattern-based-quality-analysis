@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -31,9 +32,7 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.impl.PropertyOptionParamImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -392,9 +391,9 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 		if (newOption != option) {
 			NotificationChain msgs = null;
 			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES, PropertyOptionParam.class, msgs);
+				msgs = ((InternalEObject)option).eInverseRemove(this, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PROPERTIES, PropertyOptionParam.class, msgs);
 			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES, PropertyOptionParam.class, msgs);
+				msgs = ((InternalEObject)newOption).eInverseAdd(this, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PROPERTIES, PropertyOptionParam.class, msgs);
 			msgs = basicSetOption(newOption, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -494,7 +493,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 		switch (featureID) {
 			case AdaptionxmlPackage.XML_PROPERTY__OPTION:
 				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, ParametersPackage.PROPERTY_OPTION_PARAM__PROPERTIES, PropertyOptionParam.class, msgs);
+					msgs = ((InternalEObject)option).eInverseRemove(this, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PROPERTIES, PropertyOptionParam.class, msgs);
 				return basicSetOption((PropertyOptionParam)otherEnd, msgs);
 			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
 				if (attributeName != null)

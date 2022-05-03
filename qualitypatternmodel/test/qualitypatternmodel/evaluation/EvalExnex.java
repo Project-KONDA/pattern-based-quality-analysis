@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.RelationOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -15,8 +17,6 @@ import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.PropertyOptionParam;
-import qualitypatternmodel.parameters.RelationOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;

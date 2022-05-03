@@ -76,6 +76,24 @@ public interface AdaptionxmlFactory extends EFactory {
 	XmlPropertyNavigation createXmlPropertyNavigation();
 
 	/**
+	 * Returns a new object of class '<em>Relation Option Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Relation Option Param</em>'.
+	 * @generated
+	 */
+	RelationOptionParam createRelationOptionParam();
+
+	/**
+	 * Returns a new object of class '<em>Property Option Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Property Option Param</em>'.
+	 * @generated
+	 */
+	PropertyOptionParam createPropertyOptionParam();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

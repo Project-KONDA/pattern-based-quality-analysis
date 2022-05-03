@@ -3,7 +3,7 @@
 package qualitypatternmodel.parameters.tests;
 
 import junit.textui.TestRunner;
-import qualitypatternmodel.parameters.RelationOptionParam;
+import qualitypatternmodel.adaptionxml.RelationOptionParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 
 /**
@@ -13,8 +13,8 @@ import qualitypatternmodel.parameters.ParametersFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.parameters.RelationOptionParam#inferSuggestions() <em>Infer Suggestions</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.RelationOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.RelationKind) <em>Set Value If Valid</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.RelationOptionParam#inferSuggestions() <em>Infer Suggestions</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.RelationOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.RelationKind) <em>Set Value If Valid</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -74,10 +74,10 @@ public class RelationOptionParamTest extends ParameterTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.RelationOptionParam#inferSuggestions() <em>Infer Suggestions</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.RelationOptionParam#inferSuggestions() <em>Infer Suggestions</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.RelationOptionParam#inferSuggestions()
+	 * @see qualitypatternmodel.adaptionxml.RelationOptionParam#inferSuggestions()
 	 * @generated
 	 */
 	public void testInferSuggestions() {
@@ -87,10 +87,10 @@ public class RelationOptionParamTest extends ParameterTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.RelationOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.RelationKind) <em>Set Value If Valid</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.RelationOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.RelationKind) <em>Set Value If Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.RelationOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.RelationKind)
+	 * @see qualitypatternmodel.adaptionxml.RelationOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.RelationKind)
 	 * @generated
 	 */
 	public void testSetValueIfValid__RelationKind() {

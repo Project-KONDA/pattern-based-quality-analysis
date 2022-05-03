@@ -31,15 +31,6 @@ public interface ParametersFactory extends EFactory {
 	ComparisonOptionParam createComparisonOptionParam();
 
 	/**
-	 * Returns a new object of class '<em>Property Option Param</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Property Option Param</em>'.
-	 * @generated
-	 */
-	PropertyOptionParam createPropertyOptionParam();
-
-	/**
 	 * Returns a new object of class '<em>Parameter List</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,15 +110,6 @@ public interface ParametersFactory extends EFactory {
 	 * @generated
 	 */
 	DateTimeParam createDateTimeParam();
-
-	/**
-	 * Returns a new object of class '<em>Relation Option Param</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Relation Option Param</em>'.
-	 * @generated
-	 */
-	RelationOptionParam createRelationOptionParam();
 
 	/**
 	 * Returns a new object of class '<em>Type Option Param</em>'.

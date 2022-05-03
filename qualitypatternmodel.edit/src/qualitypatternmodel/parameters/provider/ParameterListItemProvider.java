@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
@@ -144,11 +145,6 @@ public class ParameterListItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 ParametersFactory.eINSTANCE.createPropertyOptionParam()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
 				 ParametersFactory.eINSTANCE.createBooleanParam()));
 
 		newChildDescriptors.add
@@ -189,12 +185,17 @@ public class ParameterListItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 ParametersFactory.eINSTANCE.createRelationOptionParam()));
+				 ParametersFactory.eINSTANCE.createTypeOptionParam()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 ParametersFactory.eINSTANCE.createTypeOptionParam()));
+				 AdaptionxmlFactory.eINSTANCE.createRelationOptionParam()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
+				 AdaptionxmlFactory.eINSTANCE.createPropertyOptionParam()));
 	}
 
 	/**

@@ -3,8 +3,8 @@
 package qualitypatternmodel.parameters.tests;
 
 import junit.textui.TestRunner;
+import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.PropertyOptionParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,7 +13,7 @@ import qualitypatternmodel.parameters.PropertyOptionParam;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.parameters.PropertyOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.PropertyKind) <em>Set Value If Valid</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.PropertyKind) <em>Set Value If Valid</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -73,10 +73,10 @@ public class PropertyOptionParamTest extends ParameterTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.PropertyOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.PropertyKind) <em>Set Value If Valid</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.PropertyKind) <em>Set Value If Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.PropertyOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.PropertyKind)
+	 * @see qualitypatternmodel.adaptionxml.PropertyOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.PropertyKind)
 	 * @generated
 	 */
 	public void testSetValueIfValid__PropertyKind() {

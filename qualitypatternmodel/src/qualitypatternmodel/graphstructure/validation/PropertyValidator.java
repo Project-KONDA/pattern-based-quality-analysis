@@ -6,9 +6,9 @@ package qualitypatternmodel.graphstructure.validation;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.operators.Match;
-import qualitypatternmodel.parameters.PropertyOptionParam;
 import qualitypatternmodel.parameters.TextLiteralParam;
 
 /**

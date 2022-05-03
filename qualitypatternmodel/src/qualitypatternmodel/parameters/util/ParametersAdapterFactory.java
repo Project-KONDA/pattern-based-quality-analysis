@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
-
 import qualitypatternmodel.parameters.*;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -77,10 +76,6 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 				return createComparisonOptionParamAdapter();
 			}
 			@Override
-			public Adapter casePropertyOptionParam(PropertyOptionParam object) {
-				return createPropertyOptionParamAdapter();
-			}
-			@Override
 			public Adapter caseParameterList(ParameterList object) {
 				return createParameterListAdapter();
 			}
@@ -119,10 +114,6 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDateTimeParam(DateTimeParam object) {
 				return createDateTimeParamAdapter();
-			}
-			@Override
-			public Adapter caseRelationOptionParam(RelationOptionParam object) {
-				return createRelationOptionParamAdapter();
 			}
 			@Override
 			public Adapter caseTypeOptionParam(TypeOptionParam object) {
@@ -181,20 +172,6 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComparisonOptionParamAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.PropertyOptionParam <em>Property Option Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.PropertyOptionParam
-	 * @generated
-	 */
-	public Adapter createPropertyOptionParamAdapter() {
 		return null;
 	}
 
@@ -335,20 +312,6 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDateTimeParamAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.RelationOptionParam <em>Relation Option Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.RelationOptionParam
-	 * @generated
-	 */
-	public Adapter createRelationOptionParamAdapter() {
 		return null;
 	}
 

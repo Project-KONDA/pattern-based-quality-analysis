@@ -11,7 +11,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
-
 import qualitypatternmodel.graphstructure.util.GraphstructureValidator;
 import qualitypatternmodel.parameters.*;
 import qualitypatternmodel.patternstructure.util.PatternstructureValidator;
@@ -118,8 +117,6 @@ public class ParametersValidator extends EObjectValidator {
 				return validateParameter((Parameter)value, diagnostics, context);
 			case ParametersPackage.COMPARISON_OPTION_PARAM:
 				return validateComparisonOptionParam((ComparisonOptionParam)value, diagnostics, context);
-			case ParametersPackage.PROPERTY_OPTION_PARAM:
-				return validatePropertyOptionParam((PropertyOptionParam)value, diagnostics, context);
 			case ParametersPackage.PARAMETER_LIST:
 				return validateParameterList((ParameterList)value, diagnostics, context);
 			case ParametersPackage.BOOLEAN_PARAM:
@@ -140,8 +137,6 @@ public class ParametersValidator extends EObjectValidator {
 				return validateUntypedParameterValue((UntypedParameterValue)value, diagnostics, context);
 			case ParametersPackage.DATE_TIME_PARAM:
 				return validateDateTimeParam((DateTimeParam)value, diagnostics, context);
-			case ParametersPackage.RELATION_OPTION_PARAM:
-				return validateRelationOptionParam((RelationOptionParam)value, diagnostics, context);
 			case ParametersPackage.TYPE_OPTION_PARAM:
 				return validateTypeOptionParam((TypeOptionParam)value, diagnostics, context);
 			case ParametersPackage.STRING_TO_INT_EMAP:
@@ -198,25 +193,6 @@ public class ParametersValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(comparisonOptionParam, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(comparisonOptionParam, diagnostics, context);
 		if (result || diagnostics != null) result &= validateParameter_validate(comparisonOptionParam, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePropertyOptionParam(PropertyOptionParam propertyOptionParam, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(propertyOptionParam, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(propertyOptionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(propertyOptionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(propertyOptionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(propertyOptionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(propertyOptionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(propertyOptionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(propertyOptionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(propertyOptionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validateParameter_validate(propertyOptionParam, diagnostics, context);
 		return result;
 	}
 
@@ -407,25 +383,6 @@ public class ParametersValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(dateTimeParam, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(dateTimeParam, diagnostics, context);
 		if (result || diagnostics != null) result &= validateParameter_validate(dateTimeParam, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateRelationOptionParam(RelationOptionParam relationOptionParam, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(relationOptionParam, diagnostics, context)) return false;
-		boolean result = validate_EveryMultiplicityConforms(relationOptionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(relationOptionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(relationOptionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(relationOptionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(relationOptionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(relationOptionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(relationOptionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(relationOptionParam, diagnostics, context);
-		if (result || diagnostics != null) result &= validateParameter_validate(relationOptionParam, diagnostics, context);
 		return result;
 	}
 

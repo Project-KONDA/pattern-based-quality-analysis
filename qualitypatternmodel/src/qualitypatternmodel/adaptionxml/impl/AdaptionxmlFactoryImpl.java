@@ -63,6 +63,8 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 			case AdaptionxmlPackage.XML_PROPERTY: return createXmlProperty();
 			case AdaptionxmlPackage.XML_ROOT: return createXmlRoot();
 			case AdaptionxmlPackage.XML_PROPERTY_NAVIGATION: return createXmlPropertyNavigation();
+			case AdaptionxmlPackage.RELATION_OPTION_PARAM: return createRelationOptionParam();
+			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM: return createPropertyOptionParam();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -166,6 +168,28 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	public XmlPropertyNavigation createXmlPropertyNavigation() {
 		XmlPropertyNavigationImpl xmlPropertyNavigation = new XmlPropertyNavigationImpl();
 		return xmlPropertyNavigation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RelationOptionParam createRelationOptionParam() {
+		RelationOptionParamImpl relationOptionParam = new RelationOptionParamImpl();
+		return relationOptionParam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PropertyOptionParam createPropertyOptionParam() {
+		PropertyOptionParamImpl propertyOptionParam = new PropertyOptionParamImpl();
+		return propertyOptionParam;
 	}
 
 	/**
