@@ -78,8 +78,8 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 			source = sourceElement.getXQueryVariable();
 		}
 		String xPathExpression = "";
-		if (option != null && getIncomingMapping() == null) {
-			xPathExpression = source + option.generateQuery();
+		if (pathParam != null && getIncomingMapping() == null) {
+			xPathExpression = source + pathParam.generateQuery();
 		} else if(getIncomingMapping() == null) {
 			throw new InvalidityException("option null");
 		}
@@ -465,11 +465,11 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 
 	@Override
 	public String myToString() {
-		String res = super.myToString() + " ";
-		if (getOption() != null) {
-			return res + "(" + getOption().getValue().getLiteral() + "[" + getOption().getInternalId() + "])";
+		String res = super.myToString();
+		if (getPathParam() != null) {
+			return res + " (" + getPathParam().myToString() + ")";
 		} else {
-			return res + "(prev.)";
+			return res + " (prev.)";
 		}
 	}
 } //XMLNavigationImpl

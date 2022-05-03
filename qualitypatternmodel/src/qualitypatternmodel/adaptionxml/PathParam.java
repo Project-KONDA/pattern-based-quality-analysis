@@ -5,6 +5,7 @@ package qualitypatternmodel.adaptionxml;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.graphstructure.Adaptable;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.parameters.ParameterValue;
 
 /**
@@ -112,5 +113,13 @@ public interface PathParam extends ParameterValue, Adaptable {
 	 * @generated
 	 */
 	void setXmlPropertyNavigation(XmlPropertyNavigation value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Relation getRelation();
 
 } // PathParam

@@ -29,6 +29,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.impl.ParameterValueImpl;
@@ -339,6 +340,18 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 	 * @generated
 	 */
 	@Override
+	public Relation getRelation() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public void removeParametersFromParameterList() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -529,6 +542,8 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case AdaptionxmlPackage.PATH_PARAM___GET_RELATION:
+				return getRelation();
 			case AdaptionxmlPackage.PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;

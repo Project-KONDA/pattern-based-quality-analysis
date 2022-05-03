@@ -24,6 +24,7 @@ import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl;
 import qualitypatternmodel.adaptionxml.impl.AxisOptionParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
@@ -247,19 +248,18 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		}
 		if(parameter instanceof PropertyOptionParamImpl) {
 			PropertyOptionParamImpl propertyOption = (PropertyOptionParamImpl) parameter;
-			for (PrimitiveNode primitiveNode : propertyOption.getProperties()) {
-				XmlProperty xmlProperty = (XmlProperty) primitiveNode;
-				TextLiteralParam textLiteral = xmlProperty.getAttributeName();
-				if(textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
-					int dependentParameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(textLiteral);
-					String id = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(dependentParameterID);
-					String cond = PropertyKind.ATTRIBUTE.getLiteral();
-					json += ", \"Enable\": {";
-					json += "\"Parameter\": \"" + id + "\"";
-					json += ", \"If\": \"" + cond + "\"";
-					json += "}";
+			Node node = propertyOption.getPathParam().getRelation().getTarget();
+			XmlProperty xmlProperty = (XmlProperty) node;
+			TextLiteralParam textLiteral = propertyOption.getAttributeName();
+			if(textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
+				int dependentParameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(textLiteral);
+				String id = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(dependentParameterID);
+				String cond = PropertyKind.ATTRIBUTE.getLiteral();
+				json += ", \"Enable\": {";
+				json += "\"Parameter\": \"" + id + "\"";
+				json += ", \"If\": \"" + cond + "\"";
+				json += "}";
 				
-				}
 			}			
 		}
 		

@@ -3,20 +3,13 @@
 package qualitypatternmodel.adaptionxml.impl;
 
 import java.util.Collection;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.PropertyOptionParam;
-import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -28,10 +21,6 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -70,35 +59,35 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	
 	@Override
 	public String generateQuery() throws InvalidityException {		
-		if(option == null || option.getValue() == null) {
-			throw new InvalidityException("propertyOptions invalid");
-		}				
-		String propertyElementTranslation;
-		if(getElement() instanceof XmlElement) {
-			XmlElement xmlElement = (XmlElement) getElement();
-			propertyElementTranslation = xmlElement.getXQueryRepresentation();
-		} else {
-			throw new InvalidityException("XMLProperty container of invalid type");
-		}
-		
-		switch (option.getValue()) {
-		case ATTRIBUTE:
-			if (attributeName == null || attributeName.getValue() == null) {
-				throw new InvalidityException("attributeName invalid");
-			} else {
-				if (attributeName.getValue().contains(":")) {
-					return propertyElementTranslation + "/@*[name()=\"" + attributeName.getValue() + "\"]";
-				} 
-				return propertyElementTranslation + "/@" + attributeName.getValue() + "";				
-			}
-		case DATA:
-			return propertyElementTranslation + "/text()";
-		case TAG:
-			return propertyElementTranslation + "/name()";
-		default:
-			throw new InvalidityException("error in location specification");
-		}
-		
+//		if(option == null || option.getValue() == null) {
+//			throw new InvalidityException("propertyOptions invalid");
+//		}				
+//		String propertyElementTranslation;
+//		if(getElement() instanceof XmlElement) {
+//			XmlElement xmlElement = (XmlElement) getElement();
+//			propertyElementTranslation = xmlElement.getXQueryRepresentation();
+//		} else {
+//			throw new InvalidityException("XMLProperty container of invalid type");
+//		}
+//		
+//		switch (option.getValue()) {
+//		case ATTRIBUTE:
+//			if (attributeName == null || attributeName.getValue() == null) {
+//				throw new InvalidityException("attributeName invalid");
+//			} else {
+//				if (attributeName.getValue().contains(":")) {
+//					return propertyElementTranslation + "/@*[name()=\"" + attributeName.getValue() + "\"]";
+//				} 
+//				return propertyElementTranslation + "/@" + attributeName.getValue() + "";				
+//			}
+//		case DATA:
+//			return propertyElementTranslation + "/text()";
+//		case TAG:
+//			return propertyElementTranslation + "/name()";
+//		default:
+//			throw new InvalidityException("error in location specification");
+//		}
+		return "";
 	}
 	
 	@Override
@@ -138,38 +127,38 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	
 	@Override
 	public void recordValues(XmlDataDatabase database) {
-		if(getOption() != null && getOption().getValue() != null) {			
-			EList<Comparison> comps = new BasicEList<Comparison>();
-			comps.addAll(getComparison1());
-			comps.addAll(getComparison2());
-			for(Comparison comp : comps) {
-				String value = null;
-				if(comp.getArgument1() instanceof TextLiteralParam) {						
-					value = ((TextLiteralParam) comp.getArgument1()).getValue(); 
-				} else if (comp.getArgument2() instanceof TextLiteralParam) {
-					value = ((TextLiteralParam) comp.getArgument2()).getValue(); 
-				}
-				// TODO: support other parameter types as well
-				if(value != null && comp.getOption() != null && comp.getOption().getValue() != null) {
-					switch (getOption().getValue()) {
-					case ATTRIBUTE:
-						if(getAttributeName() != null && getAttributeName().getValue() != null) {
-							database.recordAttributeName(getAttributeName().getValue());
-						}
-						database.recordAttributeValue(value);						
-						break;
-					case TAG:
-						database.recordElementName(value);			
-						break;
-					case DATA:
-						database.recordDataValue(value);
-						break;
-					default:
-						break;
-					}					
-				}
-			}			
-		}
+//		if(getOption() != null && getOption().getValue() != null) {			
+//			EList<Comparison> comps = new BasicEList<Comparison>();
+//			comps.addAll(getComparison1());
+//			comps.addAll(getComparison2());
+//			for(Comparison comp : comps) {
+//				String value = null;
+//				if(comp.getArgument1() instanceof TextLiteralParam) {						
+//					value = ((TextLiteralParam) comp.getArgument1()).getValue(); 
+//				} else if (comp.getArgument2() instanceof TextLiteralParam) {
+//					value = ((TextLiteralParam) comp.getArgument2()).getValue(); 
+//				}
+//				// TODO: support other parameter types as well
+//				if(value != null && comp.getOption() != null && comp.getOption().getValue() != null) {
+//					switch (getOption().getValue()) {
+//					case ATTRIBUTE:
+//						if(getAttributeName() != null && getAttributeName().getValue() != null) {
+//							database.recordAttributeName(getAttributeName().getValue());
+//						}
+//						database.recordAttributeValue(value);						
+//						break;
+//					case TAG:
+//						database.recordElementName(value);			
+//						break;
+//					case DATA:
+//						database.recordDataValue(value);
+//						break;
+//					default:
+//						break;
+//					}					
+//				}
+//			}			
+//		}
 	}
 	
 	@Override
@@ -244,26 +233,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 		return AdaptionxmlPackage.Literals.XML_PROPERTY;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public NotificationChain basicSetAttributeName(TextLiteralParam newAttributeName, NotificationChain msgs) {
-		TextLiteralParam oldAttributeName = attributeName;
-		
-		ParameterList varlist = getParameterList();
-		varlist.remove(oldAttributeName);
-		varlist.add(newAttributeName);			
-
-		attributeName = newAttributeName;
-
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME, oldAttributeName, newAttributeName);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -371,10 +340,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 
 	@Override
 	public String myToString() {
-		String res = super.myToString() + " ";
-		res += getOption().getValue().getLiteral() + "[" + getOption().getInternalId() + "]";
-		res += " ('" + getAttributeName().getValue() + "'[" + getAttributeName().getInternalId() + "])";
-		return res;
+		return super.myToString();
 	}
 
 } //XMLPropertyImpl

@@ -570,6 +570,16 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EOperation getPathParam__GetRelation() {
+		return pathParamEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getAxisPair() {
 		return axisPairEClass;
 	}
@@ -695,6 +705,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		createEReference(pathParamEClass, PATH_PARAM__PROPERTY_OPTION_PARAM);
 		createEReference(pathParamEClass, PATH_PARAM__AXIS_PAIRS);
 		createEReference(pathParamEClass, PATH_PARAM__XML_PROPERTY_NAVIGATION);
+		createEOperation(pathParamEClass, PATH_PARAM___GET_RELATION);
 
 		axisPairEClass = createEClass(AXIS_PAIR);
 		createEReference(axisPairEClass, AXIS_PAIR__TEXT_LITERAL_PARAM);
@@ -813,6 +824,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		initEReference(getPathParam_PropertyOptionParam(), this.getPropertyOptionParam(), this.getPropertyOptionParam_PathParam(), "propertyOptionParam", null, 0, 1, PathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPathParam_AxisPairs(), this.getAxisPair(), this.getAxisPair_PathParam(), "axisPairs", null, 1, -1, PathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPathParam_XmlPropertyNavigation(), this.getXmlPropertyNavigation(), this.getXmlPropertyNavigation_PathParam(), "xmlPropertyNavigation", null, 0, 1, PathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getPathParam__GetRelation(), theGraphstructurePackage.getRelation(), "getRelation", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(axisPairEClass, AxisPair.class, "AxisPair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAxisPair_TextLiteralParam(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_AxisPair(), "textLiteralParam", null, 1, 1, AxisPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

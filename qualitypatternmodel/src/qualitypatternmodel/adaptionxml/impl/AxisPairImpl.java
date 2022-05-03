@@ -446,4 +446,10 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 		return super.eInvoke(operationID, arguments);
 	}
 
+	@Override
+	public String myToString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 } //AxisPairImpl

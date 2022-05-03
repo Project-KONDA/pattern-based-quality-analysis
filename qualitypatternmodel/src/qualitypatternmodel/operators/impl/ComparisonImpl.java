@@ -179,19 +179,19 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			String castedArg1 = "";
 			String castedArg2 = "";
 			
-			if(argument1 instanceof XmlProperty && ((XmlProperty) argument1).getOption().getValue() == PropertyKind.ATTRIBUTE) {				
-				some1 = "some $arg1 in " + argument1Translated + " satisfies ";
-				castedArg1 = conversionStartArgument1 + "$arg1" + conversionEndArgument1;			
-			} else {
-				castedArg1 = conversionStartArgument1 + argument1Translated + conversionEndArgument1;
-			}
+//			if(argument1 instanceof XmlProperty && ((XmlProperty) argument1).getOption().getValue() == PropertyKind.ATTRIBUTE) {				
+//				some1 = "some $arg1 in " + argument1Translated + " satisfies ";
+//				castedArg1 = conversionStartArgument1 + "$arg1" + conversionEndArgument1;			
+//			} else {
+			castedArg1 = conversionStartArgument1 + argument1Translated + conversionEndArgument1;
+//			}
 			
-			if(argument2 instanceof XmlProperty && ((XmlProperty) argument2).getOption().getValue() == PropertyKind.ATTRIBUTE) {						
-				some2 = "some $arg2 in " + argument2Translated + " satisfies ";
-				castedArg2 = conversionStartArgument2 + "$arg2" + conversionEndArgument2;					
-			} else {
-				castedArg2 = conversionStartArgument2 + argument2Translated + conversionEndArgument2;	
-			}
+//			if(argument2 instanceof XmlProperty && ((XmlProperty) argument2).getOption().getValue() == PropertyKind.ATTRIBUTE) {						
+//				some2 = "some $arg2 in " + argument2Translated + " satisfies ";
+//				castedArg2 = conversionStartArgument2 + "$arg2" + conversionEndArgument2;					
+//			} else {
+			castedArg2 = conversionStartArgument2 + argument2Translated + conversionEndArgument2;	
+//			}
 			return some1 + some2 + tryStatement + castedArg1 + operator.getLiteral() + castedArg2 + catchTypeCastingError;
 			
 		} else {

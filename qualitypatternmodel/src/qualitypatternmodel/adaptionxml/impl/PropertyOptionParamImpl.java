@@ -29,7 +29,6 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.ParameterList;
@@ -177,7 +176,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	
 	@Override
 	public boolean isUsed() {
-		return !getProperties().isEmpty();
+		return !(getPathParam() == null) && !(getPathParam().getRelation() == null);
 	}
 
 	/**
@@ -320,11 +319,17 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetAttributeName(TextLiteralParam newAttributeName, NotificationChain msgs) {
 		TextLiteralParam oldAttributeName = attributeName;
+		
+		ParameterList varlist = getParameterList();
+		varlist.remove(oldAttributeName);
+		varlist.add(newAttributeName);			
+
 		attributeName = newAttributeName;
+
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, oldAttributeName, newAttributeName);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -586,20 +591,23 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	
 	@Override 
 	public String myToString() {
-		return "prop [" + getInternalId() + "] " + getValue();
+		String res = "PropertyOptionParamImpl [" + getInternalId() + "] ";
+		res += getValue().getLiteral() + "[" + getAttributeName().getInternalId() + "]";
+		res += " ('" + getAttributeName().getValue() + "'[" + getAttributeName().getInternalId() + "])";;
+		return res;
+//		return "prop [" + getInternalId() + "] " + getValue();
 	}
 
 	@Override
 	public String generateDescription() {
 		String res = "Angabe des Eigenschaft-Types";
 		try {
-			for(PrimitiveNode primitiveNode : getProperties()) {
-				Node e = primitiveNode;
-				res += " von " + e.getName();
-			
-			}
-			
+			res += " von " + getPathParam().getXmlNavigation().getName();
 		} catch (Exception e) {}
+		try {
+			res += " von " + getPathParam().getXmlPropertyNavigation().getName();
+		} catch (Exception e) {}
+		
 		return res;
 //		setDescription(res);
 	}

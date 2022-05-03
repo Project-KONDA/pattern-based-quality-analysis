@@ -614,6 +614,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/PathParam/axisPairs"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/PathParam/xmlPropertyNavigation"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/PathParam/getRelation"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/AxisPair">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/AxisPair/textLiteralParam"/>

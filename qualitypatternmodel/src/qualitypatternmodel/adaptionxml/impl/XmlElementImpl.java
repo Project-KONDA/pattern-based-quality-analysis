@@ -136,11 +136,11 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 			}
 		}
 		
-		for(PrimitiveNode primitiveNode : getProperties()) {
-			if(!primitiveNode.isOperatorArgument()) {
-				xPredicates += "[" + "exists(" + primitiveNode.generateQuery() + ")" + "]";
-			}
-		}
+//		for(PrimitiveNode primitiveNode : getProperties()) {
+//			if(!primitiveNode.isOperatorArgument()) {
+//				xPredicates += "[" + "exists(" + primitiveNode.generateQuery() + ")" + "]";
+//			}
+//		}
 		
 		// translate XMLReferences:
 		for (Relation relation : getIncoming()) {

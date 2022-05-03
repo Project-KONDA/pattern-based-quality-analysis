@@ -28,7 +28,6 @@ import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.AxisOptionParam;
 import qualitypatternmodel.adaptionxml.AxisPair;
 import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.execution.Database;
@@ -160,7 +159,14 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	
 	@Override
 	public boolean isUsed() {
-		return !getRelations().isEmpty();
+		
+		if (getAxisPair() == null)
+			return false;
+		else if (getAxisPair().getPathParam() == null) 
+			return false;
+		else 
+			return !(getAxisPair().getPathParam().getXmlNavigation() == null) 
+					|| !(getAxisPair().getPathParam().getXmlPropertyNavigation() == null);
 	}
 
 	/**
@@ -178,9 +184,9 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {
-		if(newVariableList == null) {
-			getRelations().clear();
-		}
+//		if(newVariableList == null) {
+//			getRelations().clear();
+//		}
 		return super.basicSetParameterList(newVariableList, msgs);
 	}
 
@@ -278,70 +284,67 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	@Override
 	public EList<AxisKind> inferSuggestions() {
 		EList<AxisKind> suggestions = new BasicEList<AxisKind>();		
-		for(XmlNavigation xmlNavigation : getRelations()) {
-			String sourceTag = getTag(xmlNavigation.getSource());	
-			String targetTag = getTag(xmlNavigation.getTarget());
-			if(sourceTag != null && targetTag != null) {
-				try {
-					Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-					if(db instanceof XmlDataDatabase) {
-						XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
+		Relation relation = getAxisPair().getPathParam().getRelation();
+		String sourceTag = getTag(relation.getSource());	
+		String targetTag = getTag(relation.getTarget());
+		if(sourceTag != null && targetTag != null) {
+			try {
+				Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
+				if(db instanceof XmlDataDatabase) {
+					XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
+					
+					try {
 						
-						try {
-							
-							if(xmlDataDatabase.getXmlSchema().checkChildInSchema(sourceTag, targetTag)) {
-								suggestions.add(AxisKind.CHILD);
-								suggestions.add(AxisKind.DESCENDANT);
-							} else if(xmlDataDatabase.getXmlSchema().checkDescendantInSchema(sourceTag, targetTag)) {
-								suggestions.add(AxisKind.DESCENDANT);
-							}
-							
-							if(xmlDataDatabase.getXmlSchema().checkParentInSchema(sourceTag, targetTag)) {
-								suggestions.add(AxisKind.PARENT);
-								suggestions.add(AxisKind.ANCESTOR);
-							} else if(xmlDataDatabase.getXmlSchema().checkAncestorInSchema(sourceTag, targetTag)) {
-								suggestions.add(AxisKind.ANCESTOR);
-							}
-							
-							if(xmlDataDatabase.getXmlSchema().checkFollowingSiblingInSchema(sourceTag, targetTag)) {
-								suggestions.add(AxisKind.FOLLOWING_SIBLING);
-								suggestions.add(AxisKind.FOLLOWING);
-							} else if(xmlDataDatabase.getXmlSchema().checkFollowingInSchema(sourceTag, targetTag)) {
-								suggestions.add(AxisKind.FOLLOWING);
-							}
-							
-							// TODO:
+						if(xmlDataDatabase.getXmlSchema().checkChildInSchema(sourceTag, targetTag)) {
+							suggestions.add(AxisKind.CHILD);
+							suggestions.add(AxisKind.DESCENDANT);
+						} else if(xmlDataDatabase.getXmlSchema().checkDescendantInSchema(sourceTag, targetTag)) {
+							suggestions.add(AxisKind.DESCENDANT);
+						}
+						
+						if(xmlDataDatabase.getXmlSchema().checkParentInSchema(sourceTag, targetTag)) {
+							suggestions.add(AxisKind.PARENT);
+							suggestions.add(AxisKind.ANCESTOR);
+						} else if(xmlDataDatabase.getXmlSchema().checkAncestorInSchema(sourceTag, targetTag)) {
+							suggestions.add(AxisKind.ANCESTOR);
+						}
+						
+						if(xmlDataDatabase.getXmlSchema().checkFollowingSiblingInSchema(sourceTag, targetTag)) {
+							suggestions.add(AxisKind.FOLLOWING_SIBLING);
+							suggestions.add(AxisKind.FOLLOWING);
+						} else if(xmlDataDatabase.getXmlSchema().checkFollowingInSchema(sourceTag, targetTag)) {
+							suggestions.add(AxisKind.FOLLOWING);
+						}
+						
+						// TODO:
 //							if(xmlDatabase.getXmlSchema().checkPrecedingSiblingInSchema(sourceTag, targetTag)) {
 //								suggestions.add(RelationKind.PRECEDING_SIBLING);
 //								suggestions.add(RelationKind.PRECEDING);
 //							} else if(xmlDatabase.getXmlSchema().checkPrecedingInSchema(sourceTag, targetTag)) {
 //								suggestions.add(RelationKind.PRECEDING);
 //							}
-							
-							suggestions.add(AxisKind.SELF);
-							suggestions.add(AxisKind.DESCENDANT_OR_SELF);
-							suggestions.add(AxisKind.ANCESTOR_OR_SELF);
-														
-						} catch (BaseXException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						} catch (QueryIOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						} catch (QueryException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}						
-					}
-				} catch (MissingPatternContainerException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+						
+						suggestions.add(AxisKind.SELF);
+						suggestions.add(AxisKind.DESCENDANT_OR_SELF);
+						suggestions.add(AxisKind.ANCESTOR_OR_SELF);
+													
+					} catch (BaseXException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (QueryIOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (QueryException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}						
 				}
-				
-				
+			} catch (MissingPatternContainerException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}		
 		return suggestions;
@@ -370,11 +373,10 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	
 	@Override
 	public void checkComparisonConsistency() throws InvalidityException {
-		for(XmlNavigation nav : getRelations()) {			
-			Node target = nav.getTarget();
-			if(target instanceof PrimitiveNode){
-				((PrimitiveNode) target).checkComparisonConsistency();	
-			}
+		Relation relation = getAxisPair().getPathParam().getRelation();
+		Node target = relation.getTarget();
+		if(target instanceof PrimitiveNode){
+			((PrimitiveNode) target).checkComparisonConsistency();	
 		}
 	}
 
@@ -567,12 +569,10 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	public String generateDescription() {
 		String res = "Beziehung: XPath-Achse";
 		try {			
-			for(Relation relation : getRelations()) {
-				Node to = relation.getTarget();
-				Node from = relation.getSource();
-				res += " zur Navigation von " + from.getName() + " zu " + to.getName();		
-			}
-					
+			Relation relation = getAxisPair().getPathParam().getRelation();
+			Node to = relation.getTarget();
+			Node from = relation.getSource();
+			res += " zur Navigation von " + from.getName() + " zu " + to.getName();		
 		} catch (Exception e) {}
 		return res;
 //		setDescription(res);

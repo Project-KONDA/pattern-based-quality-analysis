@@ -4536,13 +4536,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int PATH_PARAM___CREATE_PARAMETERS = ParametersPackage.PARAMETER_VALUE_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get Relation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_PARAM___GET_RELATION = ParametersPackage.PARAMETER_VALUE_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_VALUE_OPERATION_COUNT + 2;
+	int PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_VALUE_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.AxisPairImpl <em>Axis Pair</em>}' class.
@@ -5192,6 +5201,16 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getPathParam_XmlPropertyNavigation();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.PathParam#getRelation() <em>Get Relation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Relation</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.PathParam#getRelation()
+	 * @generated
+	 */
+	EOperation getPathParam__GetRelation();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.AxisPair <em>Axis Pair</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5566,6 +5585,14 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PATH_PARAM__XML_PROPERTY_NAVIGATION = eINSTANCE.getPathParam_XmlPropertyNavigation();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Relation</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATH_PARAM___GET_RELATION = eINSTANCE.getPathParam__GetRelation();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.AxisPairImpl <em>Axis Pair</em>}' class.
