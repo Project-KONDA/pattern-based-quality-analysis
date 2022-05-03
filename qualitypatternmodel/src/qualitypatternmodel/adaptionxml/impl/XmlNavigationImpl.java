@@ -200,9 +200,9 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	 */
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
-		EList<Parameter> res = new BasicEList<Parameter>();
-		if (getOption() != null) {
-			res.add(option);
+		EList<Parameter> res = new BasicEList<Parameter>();		
+		if (pathParam != null) {
+			res.addAll(pathParam.getAllParameters());
 		} else if (getIncomingMapping() == null) {
 			throw new InvalidityException("option null" + " (" + getInternalId() + ")");
 		}

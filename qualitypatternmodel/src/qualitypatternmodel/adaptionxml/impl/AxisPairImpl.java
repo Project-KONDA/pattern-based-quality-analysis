@@ -4,7 +4,8 @@ package qualitypatternmodel.adaptionxml.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -17,7 +18,8 @@ import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.AxisOptionParam;
 import qualitypatternmodel.adaptionxml.AxisPair;
 import qualitypatternmodel.adaptionxml.PathParam;
-
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 
@@ -64,6 +66,18 @@ public class AxisPairImpl extends MinimalEObjectImpl.Container implements AxisPa
 	 */
 	protected AxisPairImpl() {
 		super();
+	}
+	
+	@Override
+	public EList<Parameter> getAllParameters() throws InvalidityException {
+		EList<Parameter> res = new BasicEList<Parameter>();		
+		if (textLiteralParam != null) {
+			res.add(textLiteralParam);
+		}
+		if (axisOptionParam != null) {
+			res.add(axisOptionParam);
+		}
+		return res;
 	}
 
 	/**

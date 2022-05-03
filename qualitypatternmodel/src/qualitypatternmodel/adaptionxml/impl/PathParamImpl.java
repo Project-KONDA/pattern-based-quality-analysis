@@ -6,7 +6,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -23,7 +23,8 @@ import qualitypatternmodel.adaptionxml.PathParam;
 import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
-
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.impl.ParameterValueImpl;
 
 /**
@@ -90,6 +91,18 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 	 */
 	protected PathParamImpl() {
 		super();
+	}
+	
+	@Override
+	public EList<Parameter> getAllParameters() throws InvalidityException {
+		EList<Parameter> res = new BasicEList<Parameter>();		
+		if (axisPair != null) {
+			res.addAll(axisPair.getAllParameters());
+		}
+		if (propertyOptionParam != null) {
+			res.add(propertyOptionParam);
+		}
+		return res;
 	}
 
 	/**
@@ -421,6 +434,18 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 				return xmlPropertyNavigation != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	@Override
+	public String generateDescription() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String myToString() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 } //PathParamImpl

@@ -119,6 +119,17 @@ public class XmlPropertyNavigationImpl extends RelationImpl implements XmlProper
 	}
 	
 	@Override
+	public EList<Parameter> getAllParameters() throws InvalidityException {
+		EList<Parameter> res = new BasicEList<Parameter>();		
+		if (pathParam != null) {
+			res.addAll(pathParam.getAllParameters());
+		} else if (getIncomingMapping() == null) {
+			throw new InvalidityException("pathParam null" + " (" + getInternalId() + ")");
+		}
+		return res;
+	}
+	
+	@Override
 	public void setTarget(Node newTarget) {
 		assert (newTarget == null || newTarget instanceof PrimitiveNode);
 		super.setTarget(newTarget);
