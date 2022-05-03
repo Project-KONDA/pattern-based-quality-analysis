@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.AxisPair;
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
@@ -90,7 +90,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<XmlProperty> properties;
+	protected EList<PropertyOptionParam> properties;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -223,9 +223,9 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * @generated
 	 */
 	@Override
-	public EList<XmlProperty> getProperties() {
+	public EList<PropertyOptionParam> getProperties() {
 		if (properties == null) {
-			properties = new EObjectWithInverseResolvingEList<XmlProperty>(XmlProperty.class, this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME);
+			properties = new EObjectWithInverseResolvingEList<PropertyOptionParam>(PropertyOptionParam.class, this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME);
 		}
 		return properties;
 	}	
@@ -381,7 +381,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return;
 			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES:
 				getProperties().clear();
-				getProperties().addAll((Collection<? extends XmlProperty>)newValue);
+				getProperties().addAll((Collection<? extends PropertyOptionParam>)newValue);
 				return;
 			case ParametersPackage.TEXT_LITERAL_PARAM__AXIS_PAIR:
 				setAxisPair((AxisPair)newValue);

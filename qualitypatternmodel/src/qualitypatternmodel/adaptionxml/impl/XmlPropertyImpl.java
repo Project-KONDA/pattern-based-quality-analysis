@@ -31,7 +31,6 @@ import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -45,25 +44,12 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl#getAttributeName <em>Attribute Name</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl#getReferences <em>References</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
-	/**
-	 * The cached value of the '{@link #getAttributeName() <em>Attribute Name</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * A <code>TextLiteralParam</code> that specifies the attribute name in case 
-	 * <code>this</code> is of type <code>PropertyKind.ATTRIBUTE</code>.
-	 * <!-- end-user-doc -->
-	 * @see #getAttributeName()
-	 * @generated
-	 * @ordered
-	 */
-	protected TextLiteralParam attributeName;
-
 	/**
 	 * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -121,14 +107,12 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
 			throw new InvalidityException("non-generic class in generic pattern");
 		super.isValid(abstractionLevel);
-		getAttributeName().isValid(abstractionLevel);
 	}
 	
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException{
 		super.isValidLocal(abstractionLevel);
-		if (getAttributeName() == null)
-			throw new InvalidityException("attributeName null");
+		
 	}
 	
 	@Override
@@ -193,22 +177,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	public boolean isTranslatable() {
 		// TODO
 		return true;
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public EList<Parameter> getAllParameters() throws InvalidityException {
-		EList<Parameter> res = new BasicEList<Parameter>();	
-		if(getAttributeName() != null) {
-			res.add(getAttributeName());
-		}
-		if(getOption() != null) {
-			res.add(getOption());
-		}
-		return res;
-	}
+	}	
 	
 	@Override
 	public void createParameters() {	
@@ -298,33 +267,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public TextLiteralParam getAttributeName() {
-		if (attributeName != null && attributeName.eIsProxy()) {
-			InternalEObject oldAttributeName = (InternalEObject)attributeName;
-			attributeName = (TextLiteralParam)eResolveProxy(oldAttributeName);
-			if (attributeName != oldAttributeName) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME, oldAttributeName, attributeName));
-			}
-		}
-		return attributeName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TextLiteralParam basicGetAttributeName() {
-		return attributeName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetAttributeName(TextLiteralParam newAttributeName, NotificationChain msgs) {
@@ -349,26 +291,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	 * @generated
 	 */
 	@Override
-	public void setAttributeName(TextLiteralParam newAttributeName) {
-		if (newAttributeName != attributeName) {
-			NotificationChain msgs = null;
-			if (attributeName != null)
-				msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, TextLiteralParam.class, msgs);
-			if (newAttributeName != null)
-				msgs = ((InternalEObject)newAttributeName).eInverseAdd(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, TextLiteralParam.class, msgs);
-			msgs = basicSetAttributeName(newAttributeName, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME, newAttributeName, newAttributeName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<XmlReference> getReferences() {
 		if (references == null) {
 			references = new EObjectWithInverseResolvingEList<XmlReference>(XmlReference.class, this, AdaptionxmlPackage.XML_PROPERTY__REFERENCES, AdaptionxmlPackage.XML_REFERENCE__PROPERTY);
@@ -385,10 +307,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
-				if (attributeName != null)
-					msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, TextLiteralParam.class, msgs);
-				return basicSetAttributeName((TextLiteralParam)otherEnd, msgs);
 			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferences()).basicAdd(otherEnd, msgs);
 		}
@@ -403,8 +321,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
-				return basicSetAttributeName(null, msgs);
 			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:
 				return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
 		}
@@ -419,9 +335,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
-				if (resolve) return getAttributeName();
-				return basicGetAttributeName();
 			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:
 				return getReferences();
 		}
@@ -437,9 +350,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
-				setAttributeName((TextLiteralParam)newValue);
-				return;
 			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:
 				getReferences().clear();
 				getReferences().addAll((Collection<? extends XmlReference>)newValue);
@@ -456,9 +366,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
-				setAttributeName((TextLiteralParam)null);
-				return;
 			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:
 				getReferences().clear();
 				return;
@@ -474,8 +381,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
-				return attributeName != null;
 			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:
 				return references != null && !references.isEmpty();
 		}

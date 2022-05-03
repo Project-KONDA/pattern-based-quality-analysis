@@ -49,6 +49,7 @@ public class PropertyOptionParamItemProvider extends ParameterItemProvider {
 
 			addOptionsPropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
+			addAttributeNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -93,6 +94,28 @@ public class PropertyOptionParamItemProvider extends ParameterItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Attribute Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAttributeNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropertyOptionParam_attributeName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropertyOptionParam_attributeName_feature", "_UI_PropertyOptionParam_type"),
+				 AdaptionxmlPackage.Literals.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

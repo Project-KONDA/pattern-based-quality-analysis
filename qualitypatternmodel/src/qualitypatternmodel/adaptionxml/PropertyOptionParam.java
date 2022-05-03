@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.TextLiteralParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,6 +21,7 @@ import qualitypatternmodel.parameters.Parameter;
  *   <li>{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getOptions <em>Options</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getPathParam <em>Path Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getAttributeName <em>Attribute Name</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPropertyOptionParam()
@@ -90,6 +92,30 @@ public interface PropertyOptionParam extends Parameter {
 	 * @generated
 	 */
 	void setPathParam(PathParam value);
+
+	/**
+	 * Returns the value of the '<em><b>Attribute Name</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Attribute Name</em>' reference.
+	 * @see #setAttributeName(TextLiteralParam)
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPropertyOptionParam_AttributeName()
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getProperties
+	 * @model opposite="properties"
+	 * @generated
+	 */
+	TextLiteralParam getAttributeName();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getAttributeName <em>Attribute Name</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Attribute Name</em>' reference.
+	 * @see #getAttributeName()
+	 * @generated
+	 */
+	void setAttributeName(TextLiteralParam value);
 
 	/**
 	 * <!-- begin-user-doc -->

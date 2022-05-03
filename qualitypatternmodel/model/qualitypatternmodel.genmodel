@@ -581,8 +581,6 @@
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlProperty">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlProperty/attributeName"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlProperty/references"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlRoot"/>
@@ -603,6 +601,8 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/PropertyOptionParam/options"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/PropertyOptionParam/value"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/PropertyOptionParam/pathParam"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/PropertyOptionParam/attributeName"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/PropertyOptionParam/setValueIfValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/PropertyOptionParam/setValueIfValid/newValue"/>
         </genOperations>

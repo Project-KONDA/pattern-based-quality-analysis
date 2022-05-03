@@ -91,7 +91,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="matches" upperBound="-1"
           eType="#//operators/Match" eOpposite="#//operators/Match/regularExpression"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-          eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/attributeName"/>
+          eType="#//adaptionxml/PropertyOptionParam" eOpposite="#//adaptionxml/PropertyOptionParam/attributeName"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="axisPair" eType="#//adaptionxml/AxisPair"
           eOpposite="#//adaptionxml/AxisPair/textLiteralParam"/>
     </eClassifiers>
@@ -686,8 +686,6 @@
           eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/references"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlProperty" eSuperTypes="#//graphstructure/PrimitiveNode">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" eType="#//parameters/TextLiteralParam"
-          eOpposite="#//parameters/TextLiteralParam/properties"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
           eType="#//adaptionxml/XmlReference" eOpposite="#//adaptionxml/XmlReference/property"/>
     </eClassifiers>
@@ -726,7 +724,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="axisPair" lowerBound="1"
           eType="#//adaptionxml/AxisPair" eOpposite="#//adaptionxml/AxisPair/axisOptionParam"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PropertyOptionParam" eSuperTypes="#//parameters/Parameter">
+    <eClassifiers xsi:type="ecore:EClass" name="PropertyOptionParam" eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="newValue" eType="#//adaptionxml/PropertyKind"/>
       </eOperations>
@@ -736,8 +734,10 @@
           eType="#//adaptionxml/PropertyKind"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pathParam" lowerBound="1"
           eType="#//adaptionxml/PathParam" eOpposite="#//adaptionxml/PathParam/propertyOptionParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" eType="#//parameters/TextLiteralParam"
+          eOpposite="#//parameters/TextLiteralParam/properties"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PathParam" eSuperTypes="#//parameters/ParameterValue">
+    <eClassifiers xsi:type="ecore:EClass" name="PathParam" eSuperTypes="#//parameters/ParameterValue #//graphstructure/Adaptable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlNavigation" eType="#//adaptionxml/XmlNavigation"
           eOpposite="#//adaptionxml/XmlNavigation/pathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="propertyOptionParam"
@@ -747,7 +747,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPropertyNavigation"
           eType="#//adaptionxml/XmlPropertyNavigation" eOpposite="#//adaptionxml/XmlPropertyNavigation/pathParam"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AxisPair" eSuperTypes="#//patternstructure/PatternElement">
+    <eClassifiers xsi:type="ecore:EClass" name="AxisPair" eSuperTypes="#//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="textLiteralParam" lowerBound="1"
           eType="#//parameters/TextLiteralParam" containment="true" eOpposite="#//parameters/TextLiteralParam/axisPair"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="axisOptionParam" lowerBound="1"

@@ -24,10 +24,15 @@ import qualitypatternmodel.adaptionxml.PathParam;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 
@@ -42,6 +47,7 @@ import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl#getOptions <em>Options</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl#getPathParam <em>Path Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl#getAttributeName <em>Attribute Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,6 +84,16 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @ordered
 	 */
 	protected PropertyKind value = VALUE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAttributeName() <em>Attribute Name</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAttributeName()
+	 * @generated
+	 * @ordered
+	 */
+	protected TextLiteralParam attributeName;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -125,17 +141,38 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	}
 	
 	@Override
+	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
+		super.isValid(abstractionLevel);
+		getAttributeName().isValid(abstractionLevel);
+	}
+	
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		if (getOptions() == null) 
 			throw new InvalidityException("options null");
 		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getOptions().isEmpty()) 
 			throw new InvalidityException("not enough options");
 		super.isValidLocal(abstractionLevel);
+		if (getAttributeName() == null)
+			throw new InvalidityException("attributeName null");
 	}
 	
 	@Override
 	public boolean inputIsValid() {
 		return getValue() != null && getOptions().contains(getValue());
+	}
+	
+	@Override
+	public void createParameters() {	
+		ParameterList parameterList = getParameterList();		
+		if(parameterList != null) {
+			if(getAttributeName() == null) {
+				TextLiteralParam textLiteral = new TextLiteralParamImpl();
+				setAttributeName(textLiteral);
+			} else {
+				parameterList.add(getAttributeName());
+			}	
+		}
 	}
 	
 	@Override
@@ -256,6 +293,68 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TextLiteralParam getAttributeName() {
+		if (attributeName != null && attributeName.eIsProxy()) {
+			InternalEObject oldAttributeName = (InternalEObject)attributeName;
+			attributeName = (TextLiteralParam)eResolveProxy(oldAttributeName);
+			if (attributeName != oldAttributeName) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, oldAttributeName, attributeName));
+			}
+		}
+		return attributeName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TextLiteralParam basicGetAttributeName() {
+		return attributeName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAttributeName(TextLiteralParam newAttributeName, NotificationChain msgs) {
+		TextLiteralParam oldAttributeName = attributeName;
+		attributeName = newAttributeName;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, oldAttributeName, newAttributeName);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAttributeName(TextLiteralParam newAttributeName) {
+		if (newAttributeName != attributeName) {
+			NotificationChain msgs = null;
+			if (attributeName != null)
+				msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, TextLiteralParam.class, msgs);
+			if (newAttributeName != null)
+				msgs = ((InternalEObject)newAttributeName).eInverseAdd(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, TextLiteralParam.class, msgs);
+			msgs = basicSetAttributeName(newAttributeName, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, newAttributeName, newAttributeName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -283,6 +382,10 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetPathParam((PathParam)otherEnd, msgs);
+			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME:
+				if (attributeName != null)
+					msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, TextLiteralParam.class, msgs);
+				return basicSetAttributeName((TextLiteralParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -297,6 +400,8 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 		switch (featureID) {
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM:
 				return basicSetPathParam(null, msgs);
+			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME:
+				return basicSetAttributeName(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -329,6 +434,9 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 				return getValue();
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM:
 				return getPathParam();
+			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME:
+				if (resolve) return getAttributeName();
+				return basicGetAttributeName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -352,6 +460,9 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM:
 				setPathParam((PathParam)newValue);
 				return;
+			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME:
+				setAttributeName((TextLiteralParam)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -373,6 +484,9 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM:
 				setPathParam((PathParam)null);
 				return;
+			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME:
+				setAttributeName((TextLiteralParam)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -391,6 +505,8 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 				return value != VALUE_EDEFAULT;
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM:
 				return getPathParam() != null;
+			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME:
+				return attributeName != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -47,32 +47,9 @@ public class XmlPropertyItemProvider extends PrimitiveNodeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addAttributeNamePropertyDescriptor(object);
 			addReferencesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Attribute Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAttributeNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XmlProperty_attributeName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XmlProperty_attributeName_feature", "_UI_XmlProperty_type"),
-				 AdaptionxmlPackage.Literals.XML_PROPERTY__ATTRIBUTE_NAME,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

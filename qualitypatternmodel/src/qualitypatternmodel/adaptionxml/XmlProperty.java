@@ -4,7 +4,6 @@ package qualitypatternmodel.adaptionxml;
 
 import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.parameters.TextLiteralParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +15,6 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlProperty#getAttributeName <em>Attribute Name</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlProperty#getReferences <em>References</em>}</li>
  * </ul>
  *
@@ -25,30 +23,6 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * @generated
  */
 public interface XmlProperty extends PrimitiveNode {
-	/**
-	 * Returns the value of the '<em><b>Attribute Name</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getProperties <em>Properties</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Attribute Name</em>' reference.
-	 * @see #setAttributeName(TextLiteralParam)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlProperty_AttributeName()
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getProperties
-	 * @model opposite="properties"
-	 * @generated
-	 */
-	TextLiteralParam getAttributeName();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlProperty#getAttributeName <em>Attribute Name</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Attribute Name</em>' reference.
-	 * @see #getAttributeName()
-	 * @generated
-	 */
-	void setAttributeName(TextLiteralParam value);
-
 	/**
 	 * Returns the value of the '<em><b>References</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XmlReference}.

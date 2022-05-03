@@ -1660,22 +1660,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY__MATCH = GraphstructurePackage.PRIMITIVE_NODE__MATCH;
 
 	/**
-	 * The feature id for the '<em><b>Attribute Name</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY__ATTRIBUTE_NAME = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__REFERENCES = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
+	int XML_PROPERTY__REFERENCES = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Xml Property</em>' class.
@@ -1684,7 +1675,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 2;
+	int XML_PROPERTY_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -3671,13 +3662,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int PROPERTY_OPTION_PARAM__PATH_PARAM = ParametersPackage.PARAMETER_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Attribute Name</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME = ParametersPackage.PARAMETER_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Property Option Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 3;
+	int PROPERTY_OPTION_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -4915,17 +4915,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	EClass getXmlProperty();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlProperty#getAttributeName <em>Attribute Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Attribute Name</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getAttributeName()
-	 * @see #getXmlProperty()
-	 * @generated
-	 */
-	EReference getXmlProperty_AttributeName();
-
-	/**
 	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionxml.XmlProperty#getReferences <em>References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5072,6 +5061,17 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPropertyOptionParam_PathParam();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getAttributeName <em>Attribute Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Attribute Name</em>'.
+	 * @see qualitypatternmodel.adaptionxml.PropertyOptionParam#getAttributeName()
+	 * @see #getPropertyOptionParam()
+	 * @generated
+	 */
+	EReference getPropertyOptionParam_AttributeName();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#setValueIfValid(qualitypatternmodel.adaptionxml.PropertyKind) <em>Set Value If Valid</em>}' operation.
@@ -5336,14 +5336,6 @@ public interface AdaptionxmlPackage extends EPackage {
 		EClass XML_PROPERTY = eINSTANCE.getXmlProperty();
 
 		/**
-		 * The meta object literal for the '<em><b>Attribute Name</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference XML_PROPERTY__ATTRIBUTE_NAME = eINSTANCE.getXmlProperty_AttributeName();
-
-		/**
 		 * The meta object literal for the '<em><b>References</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5462,6 +5454,14 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROPERTY_OPTION_PARAM__PATH_PARAM = eINSTANCE.getPropertyOptionParam_PathParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Attribute Name</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME = eINSTANCE.getPropertyOptionParam_AttributeName();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
