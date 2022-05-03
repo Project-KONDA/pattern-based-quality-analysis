@@ -178,25 +178,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 		return true;
 	}	
 	
-	@Override
-	public void createParameters() {	
-		ParameterList parameterList = getParameterList();		
-		if(parameterList != null) {
-			if(getOption() == null) {
-				PropertyOptionParam option = new PropertyOptionParamImpl();	
-				setOption(option);
-			} else {
-				parameterList.add(getOption());
-			}
-			if(getAttributeName() == null) {
-				TextLiteralParam textLiteral = new TextLiteralParamImpl();
-				setAttributeName(textLiteral);
-			} else {
-				parameterList.add(getAttributeName());
-			}	
-		}
-	}
-	
 	
 	@Override
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
