@@ -47,33 +47,10 @@ public class XmlPropertyItemProvider extends PrimitiveNodeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOptionPropertyDescriptor(object);
 			addAttributeNamePropertyDescriptor(object);
 			addReferencesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Option feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_XmlProperty_option_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XmlProperty_option_feature", "_UI_XmlProperty_type"),
-				 AdaptionxmlPackage.Literals.XML_PROPERTY__OPTION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -159,6 +136,7 @@ public class XmlPropertyItemProvider extends PrimitiveNodeItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

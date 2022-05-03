@@ -3,7 +3,7 @@ package qualitypatternmodel.evaluation;
 import java.util.ArrayList;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -123,8 +123,8 @@ public class EvalCard {
 		return completePattern;
 	}
 	
-	private static CompletePattern getCardThreeElementsLidoConcrete(RelationKind returnRelation, String returnElementName, 
-			RelationKind returnToE1Rel, String e1Name, RelationKind e1ToE2Rel, String e2Name) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getCardThreeElementsLidoConcrete(AxisKind returnRelation, String returnElementName, 
+			AxisKind returnToE1Rel, String e1Name, AxisKind e1ToE2Rel, String e2Name) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -223,7 +223,7 @@ public class EvalCard {
 		CompletePattern pattern = getCardAbstractMidas();
 		
 		XmlElement returnElementInReturnGraph = (XmlElement) pattern.getGraph().getReturnNodes().get(0);	
-		((XmlNavigation) pattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
+		((XmlNavigation) pattern.getGraph().getRelations().get(0)).getOption().setValue(AxisKind.THREECHILD);
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
@@ -240,7 +240,7 @@ public class EvalCard {
 		Graph graph1 = countPattern.getGraph();
 		
 		XmlElement nextToReturnElementInGraph1 = (XmlElement) graph1.getNodes().get(1);	
-		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT_OR_SELF);
+		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(AxisKind.DESCENDANT_OR_SELF);
 		Comparison comparisonNextToReturnElementInGraph1 = (Comparison) nextToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("h1:Block");
@@ -277,6 +277,6 @@ public class EvalCard {
 	}
 	
 	public static CompletePattern getCardLidoActorName() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
-		return getCardThreeElementsLidoConcrete(RelationKind.TWOCHILD, "lido:lido", RelationKind.EIGHTCHILD, "lido:nameActorSet", RelationKind.CHILD, "lido:appellationValue");
+		return getCardThreeElementsLidoConcrete(AxisKind.TWOCHILD, "lido:lido", AxisKind.EIGHTCHILD, "lido:nameActorSet", AxisKind.CHILD, "lido:appellationValue");
 	}
 }

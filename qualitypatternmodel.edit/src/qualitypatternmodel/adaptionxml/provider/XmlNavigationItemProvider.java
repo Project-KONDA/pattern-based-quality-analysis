@@ -48,25 +48,25 @@ public class XmlNavigationItemProvider extends RelationItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOptionPropertyDescriptor(object);
+			addPathParamPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Option feature.
+	 * This adds a property descriptor for the Path Param feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOptionPropertyDescriptor(Object object) {
+	protected void addPathParamPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XmlNavigation_option_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XmlNavigation_option_feature", "_UI_XmlNavigation_type"),
-				 AdaptionxmlPackage.Literals.XML_NAVIGATION__OPTION,
+				 getString("_UI_XmlNavigation_pathParam_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlNavigation_pathParam_feature", "_UI_XmlNavigation_type"),
+				 AdaptionxmlPackage.Literals.XML_NAVIGATION__PATH_PARAM,
 				 true,
 				 false,
 				 true,
@@ -109,6 +109,7 @@ public class XmlNavigationItemProvider extends RelationItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+		super.notifyChanged(notification);
 	}
 
 	/**

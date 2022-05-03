@@ -190,12 +190,17 @@ public class ParameterListItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 AdaptionxmlFactory.eINSTANCE.createRelationOptionParam()));
+				 AdaptionxmlFactory.eINSTANCE.createAxisOptionParam()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
 				 AdaptionxmlFactory.eINSTANCE.createPropertyOptionParam()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
+				 AdaptionxmlFactory.eINSTANCE.createPathParam()));
 	}
 
 	/**

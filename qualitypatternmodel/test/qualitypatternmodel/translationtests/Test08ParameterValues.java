@@ -11,7 +11,7 @@ import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.operators.impl.*;
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -51,7 +51,7 @@ public class Test08ParameterValues {
 		
 		completePattern.finalizeXMLAdaption();
 		
-		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getOption().setValue(AxisKind.DESCENDANT);
 		
 		return completePattern;
 	}

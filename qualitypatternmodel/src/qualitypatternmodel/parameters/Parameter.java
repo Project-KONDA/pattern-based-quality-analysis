@@ -40,7 +40,7 @@ public interface Parameter extends PatternElement {
 	 * @see #setParameterList(ParameterList)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getParameter_ParameterList()
 	 * @see qualitypatternmodel.parameters.ParameterList#getParameters
-	 * @model opposite="parameters" required="true" transient="false"
+	 * @model opposite="parameters" transient="false"
 	 * @generated
 	 */
 	ParameterList getParameterList();

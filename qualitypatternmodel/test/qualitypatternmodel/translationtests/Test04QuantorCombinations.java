@@ -8,7 +8,7 @@ import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -50,7 +50,7 @@ public class Test04QuantorCombinations {
 		prop0.getAttributeName().setValue("demo:id");
 		
 		XmlNavigation nav1 = (XmlNavigation) quantifiedCondition2.getGraph().getRelations().get(3);
-		nav1.getOption().setValue(RelationKind.DESCENDANT);
+		nav1.getOption().setValue(AxisKind.DESCENDANT);
 		
 //		Comparison comp = (Comparison) quantifiedCondition2.getGraph().getOperatorList().getOperators().get(0);
 //		comp.getOption().setValue(ComparisonOperator.NOTEQUAL);

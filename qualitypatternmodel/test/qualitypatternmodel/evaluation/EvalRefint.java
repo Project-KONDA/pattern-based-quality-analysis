@@ -16,7 +16,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -114,7 +114,7 @@ public class EvalRefint {
 		CompletePattern completePattern = getRefintAbstractMidas();
 		
 		Node returnInReturnGraph = completePattern.getGraph().getNodes().get(0);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(AxisKind.THREECHILD);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
 		((UntypedParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
@@ -123,7 +123,7 @@ public class EvalRefint {
 		
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Node element1 = graph1.getNodes().get(1);
-		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(RelationKind.TWOCHILD);
+		((XmlNavigation) graph1.getRelations().get(0)).getOption().setValue(AxisKind.TWOCHILD);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("3600");
 		((UntypedParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2);
@@ -133,7 +133,7 @@ public class EvalRefint {
 		Graph graph2 = ((QuantifiedCondition) ((NotCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition()).getCondition()).getGraph();
 		Node element1InGraph2 = graph2.getNodes().get(1);
 		Node element2 = graph2.getNodes().get(2);		
-		((XmlNavigation) graph2.getRelations().get(4)).getOption().setValue(RelationKind.THREECHILD);
+		((XmlNavigation) graph2.getRelations().get(4)).getOption().setValue(AxisKind.THREECHILD);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("wer");
 		((UntypedParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue3);

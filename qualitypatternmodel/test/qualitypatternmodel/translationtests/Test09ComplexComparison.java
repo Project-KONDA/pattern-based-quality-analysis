@@ -11,7 +11,7 @@ import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.operators.impl.*;
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -61,8 +61,8 @@ public class Test09ComplexComparison {
 		completePattern.createXMLAdaption();
 		completePattern.finalizeXMLAdaption();
 		
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().getOptions().add(RelationKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().getOptions().add(AxisKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(AxisKind.DESCENDANT);
 
 		return completePattern;
 	}
@@ -109,8 +109,8 @@ public class Test09ComplexComparison {
 		completePattern.getGraph().getRelations().get(0).adaptAsXMLNavigation();
 		completePattern.finalizeXMLAdaption();
 		
-		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getOption().getOptions().add(RelationKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getOption().setValue(RelationKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getOption().getOptions().add(AxisKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getOption().setValue(AxisKind.DESCENDANT);
 
 		return completePattern;
 	}

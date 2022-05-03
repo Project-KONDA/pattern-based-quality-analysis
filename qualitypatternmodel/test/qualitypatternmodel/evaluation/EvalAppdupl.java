@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.resource.Resource;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.PropertyOptionParam;
-import qualitypatternmodel.adaptionxml.RelationKind;
-import qualitypatternmodel.adaptionxml.RelationOptionParam;
+import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.AxisOptionParam;
 import qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl;
-import qualitypatternmodel.adaptionxml.impl.RelationOptionParamImpl;
+import qualitypatternmodel.adaptionxml.impl.AxisOptionParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -205,8 +205,8 @@ public class EvalAppdupl {
 		CompletePattern completePattern = getCARD3Abstract();
 		
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
-		((RelationOptionParamImpl) params.get(67)).setValue(RelationKind.THREECHILD);
-		((RelationOptionParamImpl) params.get(66)).setValue(RelationKind.THREECHILD);
+		((AxisOptionParamImpl) params.get(67)).setValue(AxisKind.THREECHILD);
+		((AxisOptionParamImpl) params.get(66)).setValue(AxisKind.THREECHILD);
 		((TextLiteralParamImpl) params.get(59)).setValue("Type");
 		((PropertyOptionParamImpl) params.get(58)).setValue(PropertyKind.ATTRIBUTE);
 		((TextLiteralParamImpl) params.get(57)).setValue("Value");

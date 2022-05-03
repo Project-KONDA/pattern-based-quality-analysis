@@ -45,7 +45,6 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl#getOption <em>Option</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl#getAttributeName <em>Attribute Name</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl#getReferences <em>References</em>}</li>
  * </ul>
@@ -53,17 +52,6 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
-	/**
-	 * The cached value of the '{@link #getOption() <em>Option</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * A <code>PropertyOptionParam</code> that specifies the type of <code>this</code>.
-	 * <!-- end-user-doc -->
-	 * @see #getOption()
-	 * @generated
-	 * @ordered
-	 */
-	protected PropertyOptionParam option;
-
 	/**
 	 * The cached value of the '{@link #getAttributeName() <em>Attribute Name</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -334,33 +322,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public PropertyOptionParam getOption() {
-		if (option != null && option.eIsProxy()) {
-			InternalEObject oldOption = (InternalEObject)option;
-			option = (PropertyOptionParam)eResolveProxy(oldOption);
-			if (option != oldOption) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionxmlPackage.XML_PROPERTY__OPTION, oldOption, option));
-			}
-		}
-		return option;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PropertyOptionParam basicGetOption() {
-		return option;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetOption(PropertyOptionParam newOption, NotificationChain msgs) {
@@ -379,26 +340,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setOption(PropertyOptionParam newOption) {
-		if (newOption != option) {
-			NotificationChain msgs = null;
-			if (option != null)
-				msgs = ((InternalEObject)option).eInverseRemove(this, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PROPERTIES, PropertyOptionParam.class, msgs);
-			if (newOption != null)
-				msgs = ((InternalEObject)newOption).eInverseAdd(this, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PROPERTIES, PropertyOptionParam.class, msgs);
-			msgs = basicSetOption(newOption, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PROPERTY__OPTION, newOption, newOption));
 	}
 
 	/**
@@ -491,10 +432,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_PROPERTY__OPTION:
-				if (option != null)
-					msgs = ((InternalEObject)option).eInverseRemove(this, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PROPERTIES, PropertyOptionParam.class, msgs);
-				return basicSetOption((PropertyOptionParam)otherEnd, msgs);
 			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
 				if (attributeName != null)
 					msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, TextLiteralParam.class, msgs);
@@ -513,8 +450,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_PROPERTY__OPTION:
-				return basicSetOption(null, msgs);
 			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
 				return basicSetAttributeName(null, msgs);
 			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:
@@ -531,9 +466,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_PROPERTY__OPTION:
-				if (resolve) return getOption();
-				return basicGetOption();
 			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
 				if (resolve) return getAttributeName();
 				return basicGetAttributeName();
@@ -552,9 +484,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_PROPERTY__OPTION:
-				setOption((PropertyOptionParam)newValue);
-				return;
 			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
 				setAttributeName((TextLiteralParam)newValue);
 				return;
@@ -574,9 +503,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_PROPERTY__OPTION:
-				setOption((PropertyOptionParam)null);
-				return;
 			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
 				setAttributeName((TextLiteralParam)null);
 				return;
@@ -595,8 +521,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_PROPERTY__OPTION:
-				return option != null;
 			case AdaptionxmlPackage.XML_PROPERTY__ATTRIBUTE_NAME:
 				return attributeName != null;
 			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:

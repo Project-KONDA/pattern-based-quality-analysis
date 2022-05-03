@@ -11,7 +11,7 @@ import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.operators.impl.*;
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -85,13 +85,13 @@ public class Test07Formula {
 	public static CompletePattern getFormulaPatternConcrete(LogicalOperator op) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = getFormulaPattern(op);
 		
-		((XmlNavigation) pattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.TWOCHILD);
+		((XmlNavigation) pattern.getGraph().getRelations().get(0)).getOption().setValue(AxisKind.TWOCHILD);
 		QuantifiedCondition q1 = ((QuantifiedCondition)((Formula) pattern.getCondition()).getCondition2());
 		XmlProperty xp = ((XmlProperty) q1.getGraph().getNodes().get(0).getProperties().get(0));
 		xp.getOption().setValue(PropertyKind.ATTRIBUTE);
 		xp.getAttributeName().setValue("demo:id");;
 		
-		((XmlNavigation) q1.getGraph().getRelations().get(2)).getOption().setValue(RelationKind.THREECHILD);
+		((XmlNavigation) q1.getGraph().getRelations().get(2)).getOption().setValue(AxisKind.THREECHILD);
 		
 		
 		return pattern;		

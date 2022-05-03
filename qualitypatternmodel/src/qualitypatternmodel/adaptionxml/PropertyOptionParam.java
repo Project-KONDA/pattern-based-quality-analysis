@@ -19,7 +19,7 @@ import qualitypatternmodel.parameters.Parameter;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getOptions <em>Options</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getProperties <em>Properties</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getPathParam <em>Path Param</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPropertyOptionParam()
@@ -68,19 +68,28 @@ public interface PropertyOptionParam extends Parameter {
 	void setValue(PropertyKind value);
 
 	/**
-	 * Returns the value of the '<em><b>Properties</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XmlProperty}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlProperty#getOption <em>Option</em>}'.
+	 * Returns the value of the '<em><b>Path Param</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.PathParam#getPropertyOptionParam <em>Property Option Param</em>}'.
 	 * <!-- begin-user-doc -->
-	 * Returns a list of <code>XmlProperty</code>s that reference <code>this</code>.
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Properties</em>' reference list.
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPropertyOptionParam_Properties()
-	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getOption
-	 * @model opposite="option"
+	 * @return the value of the '<em>Path Param</em>' container reference.
+	 * @see #setPathParam(PathParam)
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPropertyOptionParam_PathParam()
+	 * @see qualitypatternmodel.adaptionxml.PathParam#getPropertyOptionParam
+	 * @model opposite="propertyOptionParam" required="true" transient="false"
 	 * @generated
 	 */
-	EList<XmlProperty> getProperties();
+	PathParam getPathParam();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getPathParam <em>Path Param</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Path Param</em>' container reference.
+	 * @see #getPathParam()
+	 * @generated
+	 */
+	void setPathParam(PathParam value);
 
 	/**
 	 * <!-- begin-user-doc -->

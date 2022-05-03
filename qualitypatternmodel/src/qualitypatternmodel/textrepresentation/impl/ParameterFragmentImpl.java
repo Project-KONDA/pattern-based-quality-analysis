@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl;
-import qualitypatternmodel.adaptionxml.impl.RelationOptionParamImpl;
+import qualitypatternmodel.adaptionxml.impl.AxisOptionParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.Parameter;
@@ -323,7 +323,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return Constants.PARAMETER_TYPE_TEXT_LIST;
 		} else if (type.equals(UntypedParameterValueImpl.class)) {
 			return Constants.PARAMETER_TYPE_UNTYPED;
-		} else if (type.equals(RelationOptionParamImpl.class)) {
+		} else if (type.equals(AxisOptionParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_RELATION;
 		} else if (type.equals(PropertyOptionParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_PROPERTY;

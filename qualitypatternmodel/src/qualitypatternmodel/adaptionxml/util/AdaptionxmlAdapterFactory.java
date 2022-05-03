@@ -18,6 +18,7 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -101,12 +102,20 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 				return createXmlPropertyNavigationAdapter();
 			}
 			@Override
-			public Adapter caseRelationOptionParam(RelationOptionParam object) {
-				return createRelationOptionParamAdapter();
+			public Adapter caseAxisOptionParam(AxisOptionParam object) {
+				return createAxisOptionParamAdapter();
 			}
 			@Override
 			public Adapter casePropertyOptionParam(PropertyOptionParam object) {
 				return createPropertyOptionParamAdapter();
+			}
+			@Override
+			public Adapter casePathParam(PathParam object) {
+				return createPathParamAdapter();
+			}
+			@Override
+			public Adapter caseAxisPair(AxisPair object) {
+				return createAxisPairAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -139,6 +148,10 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseParameter(Parameter object) {
 				return createParameterAdapter();
+			}
+			@Override
+			public Adapter caseParameterValue(ParameterValue object) {
+				return createParameterValueAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -245,16 +258,16 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.RelationOptionParam <em>Relation Option Param</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.AxisOptionParam <em>Axis Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionxml.RelationOptionParam
+	 * @see qualitypatternmodel.adaptionxml.AxisOptionParam
 	 * @generated
 	 */
-	public Adapter createRelationOptionParamAdapter() {
+	public Adapter createAxisOptionParamAdapter() {
 		return null;
 	}
 
@@ -269,6 +282,34 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPropertyOptionParamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.PathParam <em>Path Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionxml.PathParam
+	 * @generated
+	 */
+	public Adapter createPathParamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.AxisPair <em>Axis Pair</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionxml.AxisPair
+	 * @generated
+	 */
+	public Adapter createAxisPairAdapter() {
 		return null;
 	}
 
@@ -381,6 +422,20 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.ParameterValue <em>Parameter Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.parameters.ParameterValue
+	 * @generated
+	 */
+	public Adapter createParameterValueAdapter() {
 		return null;
 	}
 

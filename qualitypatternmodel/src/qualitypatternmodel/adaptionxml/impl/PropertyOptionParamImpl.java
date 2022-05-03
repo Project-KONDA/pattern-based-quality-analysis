@@ -18,17 +18,14 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.PathParam;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.PropertyOptionParam;
-import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
@@ -44,7 +41,7 @@ import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl#getOptions <em>Options</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl#getValue <em>Value</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl#getPathParam <em>Path Param</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,17 +78,6 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @ordered
 	 */
 	protected PropertyKind value = VALUE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <code>XmlProperties</code> that are specified through <code>this</code>.
-	 * <!-- end-user-doc -->
-	 * @see #getProperties()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<XmlProperty> properties;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -230,11 +216,41 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @generated
 	 */
 	@Override
-	public EList<XmlProperty> getProperties() {
-		if (properties == null) {
-			properties = new EObjectWithInverseResolvingEList<XmlProperty>(XmlProperty.class, this, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PROPERTIES, AdaptionxmlPackage.XML_PROPERTY__OPTION);
+	public PathParam getPathParam() {
+		if (eContainerFeatureID() != AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM) return null;
+		return (PathParam)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPathParam(PathParam newPathParam, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newPathParam, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPathParam(PathParam newPathParam) {
+		if (newPathParam != eInternalContainer() || (eContainerFeatureID() != AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM && newPathParam != null)) {
+			if (EcoreUtil.isAncestor(this, newPathParam))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newPathParam != null)
+				msgs = ((InternalEObject)newPathParam).eInverseAdd(this, AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM, PathParam.class, msgs);
+			msgs = basicSetPathParam(newPathParam, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return properties;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM, newPathParam, newPathParam));
 	}
 
 	/**
@@ -263,8 +279,10 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PROPERTIES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
+			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetPathParam((PathParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -277,10 +295,24 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PROPERTIES:
-				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM:
+				return basicSetPathParam(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM:
+				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM, PathParam.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -295,8 +327,8 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 				return getOptions();
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__VALUE:
 				return getValue();
-			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PROPERTIES:
-				return getProperties();
+			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM:
+				return getPathParam();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -317,9 +349,8 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__VALUE:
 				setValue((PropertyKind)newValue);
 				return;
-			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PROPERTIES:
-				getProperties().clear();
-				getProperties().addAll((Collection<? extends XmlProperty>)newValue);
+			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM:
+				setPathParam((PathParam)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -339,8 +370,8 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
-			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PROPERTIES:
-				getProperties().clear();
+			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM:
+				setPathParam((PathParam)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -358,8 +389,8 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 				return options != null && !options.isEmpty();
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__VALUE:
 				return value != VALUE_EDEFAULT;
-			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PROPERTIES:
-				return properties != null && !properties.isEmpty();
+			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM:
+				return getPathParam() != null;
 		}
 		return super.eIsSet(featureID);
 	}

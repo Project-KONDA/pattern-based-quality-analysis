@@ -6,8 +6,8 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.PropertyOptionParam;
-import qualitypatternmodel.adaptionxml.RelationKind;
-import qualitypatternmodel.adaptionxml.RelationOptionParam;
+import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.AxisOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -110,9 +110,9 @@ public class EvalExnex {
 		CompletePattern completePattern = getExNExAbstract();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 
-		((RelationOptionParam) params.get(12)).setValue(RelationKind.THREECHILD);
-		((RelationOptionParam) params.get(11)).setValue(RelationKind.CHILD);
-		((RelationOptionParam) params.get(10)).setValue(RelationKind.CHILD);
+		((AxisOptionParam) params.get(12)).setValue(AxisKind.THREECHILD);
+		((AxisOptionParam) params.get(11)).setValue(AxisKind.CHILD);
+		((AxisOptionParam) params.get(10)).setValue(AxisKind.CHILD);
 		((TextLiteralParam) params.get(9)).setValue("Type");
 		((PropertyOptionParam) params.get(8)).setValue(PropertyKind.ATTRIBUTE);
 		((TextLiteralParam) params.get(7)).setValue("Type");
@@ -129,9 +129,9 @@ public class EvalExnex {
 		CompletePattern completePattern = getExNExAbstractWithComp();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 
-		((RelationOptionParam) params.get(17)).setValue(RelationKind.TWOCHILD);
-		((RelationOptionParam) params.get(16)).setValue(RelationKind.CHILD);
-		((RelationOptionParam) params.get(15)).setValue(RelationKind.SEVENCHILD);
+		((AxisOptionParam) params.get(17)).setValue(AxisKind.TWOCHILD);
+		((AxisOptionParam) params.get(16)).setValue(AxisKind.CHILD);
+		((AxisOptionParam) params.get(15)).setValue(AxisKind.SEVENCHILD);
 //		((TextLiteralParam) params.get(14)).setValue("Type");
 		((PropertyOptionParam) params.get(13)).setValue(PropertyKind.TAG);
 //		((TextLiteralParam) params.get(12)).setValue("Type");

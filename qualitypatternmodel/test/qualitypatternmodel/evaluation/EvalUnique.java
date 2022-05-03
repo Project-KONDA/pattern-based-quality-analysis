@@ -3,7 +3,7 @@ package qualitypatternmodel.evaluation;
 import java.util.ArrayList;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -444,7 +444,7 @@ public class EvalUnique {
 		
 		
 		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.THREECHILD);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(AxisKind.THREECHILD);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -463,7 +463,7 @@ public class EvalUnique {
 		Graph graphCountQCond = countQCond.getGraph();
 			
 		Node element2 = graphCountPattern.getNodes().get(1);	
-		((XmlNavigation) countPattern.getGraph().getRelations().get(2)).getOption().setValue(RelationKind.THREECHILD);
+		((XmlNavigation) countPattern.getGraph().getRelations().get(2)).getOption().setValue(AxisKind.THREECHILD);
 		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
@@ -500,7 +500,7 @@ public class EvalUnique {
 		return completePattern;
 	}
 	
-	private static CompletePattern getUniqueComplexLidoConcrete(RelationKind returnRel, String returnElementName, RelationKind retToE1Rel, String e1Name, String e2Name, String e3Name) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getUniqueComplexLidoConcrete(AxisKind returnRel, String returnElementName, AxisKind retToE1Rel, String e1Name, String e2Name, String e3Name) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -523,14 +523,14 @@ public class EvalUnique {
 		((UntypedParameterValue) ((Comparison) e1G1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue1G1);
 		
 		Node e2G1 = graph1.getNodes().get(2);	
-		((XmlNavigation) graph1.getRelations().get(1)).getOption().setValue(RelationKind.CHILD);
+		((XmlNavigation) graph1.getRelations().get(1)).getOption().setValue(AxisKind.CHILD);
 		((XmlProperty) e2G1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue2G1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2G1.setValue(e2Name);
 		((UntypedParameterValue) ((Comparison) e2G1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2G1);
 		
 		Node e3G1 = graph1.getNodes().get(3);	
-		((XmlNavigation) graph1.getRelations().get(2)).getOption().setValue(RelationKind.CHILD);
+		((XmlNavigation) graph1.getRelations().get(2)).getOption().setValue(AxisKind.CHILD);
 		((XmlProperty) e3G1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue3G1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3G1.setValue(e3Name);
@@ -544,14 +544,14 @@ public class EvalUnique {
 		Node e3G2 = graph2.getNodes().get(3);	
 		
 		Node e4G2 = graph2.getNodes().get(4);	
-		((XmlNavigation) graph2.getRelations().get(3)).getOption().setValue(RelationKind.CHILD);
+		((XmlNavigation) graph2.getRelations().get(3)).getOption().setValue(AxisKind.CHILD);
 		((XmlProperty) e4G2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue4G2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4G2.setValue(e2Name);
 		((UntypedParameterValue) ((Comparison) e4G2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue4G2);
 		
 		Node e5G2 = graph2.getNodes().get(5);
-		((XmlNavigation) graph2.getRelations().get(4)).getOption().setValue(RelationKind.CHILD);
+		((XmlNavigation) graph2.getRelations().get(4)).getOption().setValue(AxisKind.CHILD);
 		((XmlProperty) e5G2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue5G2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue5G2.setValue(e3Name);
@@ -572,7 +572,7 @@ public class EvalUnique {
 		return completePattern;
 	}
 	
-	private static CompletePattern getUniqueLidoConcrete(RelationKind returnRel, String returnElementName, String elementName) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getUniqueLidoConcrete(AxisKind returnRel, String returnElementName, String elementName) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
@@ -622,15 +622,15 @@ public class EvalUnique {
 	
 	static CompletePattern getUniqueLidoLidoRecId() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		// not used for evaluation anymore
-		return getUniqueLidoConcrete(RelationKind.TWOCHILD, "lido:lido", "lido:lidoRecID");
+		return getUniqueLidoConcrete(AxisKind.TWOCHILD, "lido:lido", "lido:lidoRecID");
 	}
 	
 	static CompletePattern getUniqueLidoObjectPublishedId() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
-		return getUniqueLidoConcrete(RelationKind.TWOCHILD, "lido:lido", "lido:objectPublishedID");
+		return getUniqueLidoConcrete(AxisKind.TWOCHILD, "lido:lido", "lido:objectPublishedID");
 	}
 	
 	static CompletePattern getUniqueComplexLidoNameActorSet() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
-		return getUniqueComplexLidoConcrete(RelationKind.TWOCHILD, "lido:lido", RelationKind.SEVENCHILD, "lido:actor", "lido:nameActorSet", "lido:appellationValue");
+		return getUniqueComplexLidoConcrete(AxisKind.TWOCHILD, "lido:lido", AxisKind.SEVENCHILD, "lido:actor", "lido:nameActorSet", "lido:appellationValue");
 	}
 	
 //	private static CompletePattern getUniqueLidoEfficientConcrete() {		

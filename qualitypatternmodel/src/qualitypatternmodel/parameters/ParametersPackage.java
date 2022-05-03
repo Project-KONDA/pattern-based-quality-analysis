@@ -2786,13 +2786,22 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM__PROPERTIES = PARAMETER_VALUE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Axis Pair</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM__AXIS_PAIR = PARAMETER_VALUE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Text Literal Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 3;
+	int TEXT_LITERAL_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -6683,6 +6692,17 @@ public interface ParametersPackage extends EPackage {
 	EReference getTextLiteralParam_Properties();
 
 	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getAxisPair <em>Axis Pair</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Axis Pair</em>'.
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getAxisPair()
+	 * @see #getTextLiteralParam()
+	 * @generated
+	 */
+	EReference getTextLiteralParam_AxisPair();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextLiteralParam#setValueIfValid(java.lang.String) <em>Set Value If Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7406,6 +7426,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TEXT_LITERAL_PARAM__PROPERTIES = eINSTANCE.getTextLiteralParam_Properties();
+
+		/**
+		 * The meta object literal for the '<em><b>Axis Pair</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEXT_LITERAL_PARAM__AXIS_PAIR = eINSTANCE.getTextLiteralParam_AxisPair();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.

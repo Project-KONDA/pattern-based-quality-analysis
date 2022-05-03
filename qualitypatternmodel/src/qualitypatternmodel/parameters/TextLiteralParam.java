@@ -3,6 +3,7 @@
 package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.adaptionxml.AxisPair;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.Match;
@@ -21,6 +22,7 @@ import qualitypatternmodel.operators.Match;
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getMatches <em>Matches</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getProperties <em>Properties</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getAxisPair <em>Axis Pair</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam()
@@ -78,6 +80,30 @@ public interface TextLiteralParam extends ParameterValue {
 	 * @generated
 	 */
 	EList<XmlProperty> getProperties();
+
+	/**
+	 * Returns the value of the '<em><b>Axis Pair</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.AxisPair#getTextLiteralParam <em>Text Literal Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Axis Pair</em>' container reference.
+	 * @see #setAxisPair(AxisPair)
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_AxisPair()
+	 * @see qualitypatternmodel.adaptionxml.AxisPair#getTextLiteralParam
+	 * @model opposite="textLiteralParam" transient="false"
+	 * @generated
+	 */
+	AxisPair getAxisPair();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.parameters.TextLiteralParam#getAxisPair <em>Axis Pair</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Axis Pair</em>' container reference.
+	 * @see #getAxisPair()
+	 * @generated
+	 */
+	void setAxisPair(AxisPair value);
 
 	/**
 	 * <!-- begin-user-doc -->

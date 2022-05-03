@@ -16,6 +16,7 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -135,11 +136,11 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AdaptionxmlPackage.RELATION_OPTION_PARAM: {
-				RelationOptionParam relationOptionParam = (RelationOptionParam)theEObject;
-				T result = caseRelationOptionParam(relationOptionParam);
-				if (result == null) result = caseParameter(relationOptionParam);
-				if (result == null) result = casePatternElement(relationOptionParam);
+			case AdaptionxmlPackage.AXIS_OPTION_PARAM: {
+				AxisOptionParam axisOptionParam = (AxisOptionParam)theEObject;
+				T result = caseAxisOptionParam(axisOptionParam);
+				if (result == null) result = caseParameter(axisOptionParam);
+				if (result == null) result = casePatternElement(axisOptionParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -148,6 +149,22 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				T result = casePropertyOptionParam(propertyOptionParam);
 				if (result == null) result = caseParameter(propertyOptionParam);
 				if (result == null) result = casePatternElement(propertyOptionParam);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AdaptionxmlPackage.PATH_PARAM: {
+				PathParam pathParam = (PathParam)theEObject;
+				T result = casePathParam(pathParam);
+				if (result == null) result = caseParameterValue(pathParam);
+				if (result == null) result = caseParameter(pathParam);
+				if (result == null) result = caseComparable(pathParam);
+				if (result == null) result = casePatternElement(pathParam);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AdaptionxmlPackage.AXIS_PAIR: {
+				AxisPair axisPair = (AxisPair)theEObject;
+				T result = caseAxisPair(axisPair);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -246,17 +263,17 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Relation Option Param</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Axis Option Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Relation Option Param</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Axis Option Param</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRelationOptionParam(RelationOptionParam object) {
+	public T caseAxisOptionParam(AxisOptionParam object) {
 		return null;
 	}
 
@@ -272,6 +289,36 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePropertyOptionParam(PropertyOptionParam object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Path Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Path Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePathParam(PathParam object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Axis Pair</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Axis Pair</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAxisPair(AxisPair object) {
 		return null;
 	}
 
@@ -392,6 +439,21 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseParameter(Parameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterValue(ParameterValue object) {
 		return null;
 	}
 

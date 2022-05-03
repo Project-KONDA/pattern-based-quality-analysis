@@ -16,8 +16,8 @@ import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.impl.ComparisonImpl;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.PropertyOptionParam;
-import qualitypatternmodel.adaptionxml.RelationKind;
-import qualitypatternmodel.adaptionxml.RelationOptionParam;
+import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.AxisOptionParam;
 import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -133,7 +133,7 @@ public class EvalComp {
 		((UntypedParameterValue) params.get(4)).replace(new TextLiteralParamImpl("kue"));
 		((TextLiteralParam) params.get(3)).setValue("Type");
 		((PropertyOptionParam) params.get(2)).setValue(PropertyKind.ATTRIBUTE);
-		((RelationOptionParam) params.get(1)).setValue(RelationKind.THREECHILD);
+		((AxisOptionParam) params.get(1)).setValue(AxisKind.THREECHILD);
 		
 //		completePattern.myToString();
 //		Graph returnGraph = completePattern.getGraph();

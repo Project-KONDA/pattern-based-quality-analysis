@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import qualitypatternmodel.adaptionxml.RelationOptionParam;
+import qualitypatternmodel.adaptionxml.AxisOptionParam;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -290,8 +290,8 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 			if(!p.isPredefined()) {
 				patternParametersNonPredefined.add(p);
 				if(!(p instanceof TypeOptionParam)) {					
-					if(p instanceof RelationOptionParam) {
-						RelationOptionParam r = (RelationOptionParam) p;
+					if(p instanceof AxisOptionParam) {
+						AxisOptionParam r = (AxisOptionParam) p;
 						boolean rootRelation = true;
 						for(Relation relation : r.getRelations()) {
 							rootRelation &= relation.getSource() instanceof XmlRoot;

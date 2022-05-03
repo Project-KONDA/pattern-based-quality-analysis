@@ -63,8 +63,10 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 			case AdaptionxmlPackage.XML_PROPERTY: return createXmlProperty();
 			case AdaptionxmlPackage.XML_ROOT: return createXmlRoot();
 			case AdaptionxmlPackage.XML_PROPERTY_NAVIGATION: return createXmlPropertyNavigation();
-			case AdaptionxmlPackage.RELATION_OPTION_PARAM: return createRelationOptionParam();
+			case AdaptionxmlPackage.AXIS_OPTION_PARAM: return createAxisOptionParam();
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM: return createPropertyOptionParam();
+			case AdaptionxmlPackage.PATH_PARAM: return createPathParam();
+			case AdaptionxmlPackage.AXIS_PAIR: return createAxisPair();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -80,8 +82,8 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 		switch (eDataType.getClassifierID()) {
 			case AdaptionxmlPackage.PROPERTY_KIND:
 				return createPropertyKindFromString(eDataType, initialValue);
-			case AdaptionxmlPackage.RELATION_KIND:
-				return createRelationKindFromString(eDataType, initialValue);
+			case AdaptionxmlPackage.AXIS_KIND:
+				return createAxisKindFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -97,8 +99,8 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 		switch (eDataType.getClassifierID()) {
 			case AdaptionxmlPackage.PROPERTY_KIND:
 				return convertPropertyKindToString(eDataType, instanceValue);
-			case AdaptionxmlPackage.RELATION_KIND:
-				return convertRelationKindToString(eDataType, instanceValue);
+			case AdaptionxmlPackage.AXIS_KIND:
+				return convertAxisKindToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -176,9 +178,9 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * @generated
 	 */
 	@Override
-	public RelationOptionParam createRelationOptionParam() {
-		RelationOptionParamImpl relationOptionParam = new RelationOptionParamImpl();
-		return relationOptionParam;
+	public AxisOptionParam createAxisOptionParam() {
+		AxisOptionParamImpl axisOptionParam = new AxisOptionParamImpl();
+		return axisOptionParam;
 	}
 
 	/**
@@ -190,6 +192,28 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	public PropertyOptionParam createPropertyOptionParam() {
 		PropertyOptionParamImpl propertyOptionParam = new PropertyOptionParamImpl();
 		return propertyOptionParam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PathParam createPathParam() {
+		PathParamImpl pathParam = new PathParamImpl();
+		return pathParam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AxisPair createAxisPair() {
+		AxisPairImpl axisPair = new AxisPairImpl();
+		return axisPair;
 	}
 
 	/**
@@ -217,8 +241,8 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RelationKind createRelationKindFromString(EDataType eDataType, String initialValue) {
-		RelationKind result = RelationKind.get(initialValue);
+	public AxisKind createAxisKindFromString(EDataType eDataType, String initialValue) {
+		AxisKind result = AxisKind.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -228,7 +252,7 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertRelationKindToString(EDataType eDataType, Object instanceValue) {
+	public String convertAxisKindToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

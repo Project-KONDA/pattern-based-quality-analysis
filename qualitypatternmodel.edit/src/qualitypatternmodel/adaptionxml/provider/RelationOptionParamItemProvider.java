@@ -16,12 +16,12 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.RelationOptionParam;
+import qualitypatternmodel.adaptionxml.AxisOptionParam;
 import qualitypatternmodel.parameters.provider.ParameterItemProvider;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionxml.RelationOptionParam} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionxml.AxisOptionParam} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -140,7 +140,7 @@ public class RelationOptionParamItemProvider extends ParameterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		RelationOptionParam relationOption = (RelationOptionParam)object;
+		AxisOptionParam relationOption = (AxisOptionParam)object;
 		return "Relation Option " + relationOption.getInternalId() + " " + relationOption.getValue().getName();
 	}
 
@@ -155,7 +155,7 @@ public class RelationOptionParamItemProvider extends ParameterItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(RelationOptionParam.class)) {
+		switch (notification.getFeatureID(AxisOptionParam.class)) {
 			case AdaptionxmlPackage.RELATION_OPTION_PARAM__OPTIONS:
 			case AdaptionxmlPackage.RELATION_OPTION_PARAM__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

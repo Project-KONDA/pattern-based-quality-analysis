@@ -4,7 +4,7 @@
  */
 package qualitypatternmodel.adaptionxml.validation;
 
-import qualitypatternmodel.adaptionxml.RelationOptionParam;
+import qualitypatternmodel.adaptionxml.AxisOptionParam;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.adaptionxml.XmlNavigation}.
@@ -15,5 +15,5 @@ import qualitypatternmodel.adaptionxml.RelationOptionParam;
 public interface XmlNavigationValidator {
 	boolean validate();
 
-	boolean validateOption(RelationOptionParam value);
+	boolean validateOption(AxisOptionParam value);
 }

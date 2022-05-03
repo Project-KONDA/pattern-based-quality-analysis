@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -810,48 +810,48 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 								if (db instanceof XmlDataDatabase) {
 									XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
 
-									if (outgoingNavigation.getOption().getValue() == RelationKind.CHILD) {
+									if (outgoingNavigation.getOption().getValue() == AxisKind.CHILD) {
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getParentsInSchema(tag));
 									}
-									if (outgoingNavigation.getOption().getValue() == RelationKind.DESCENDANT) {
+									if (outgoingNavigation.getOption().getValue() == AxisKind.DESCENDANT) {
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getAncestorsInSchema(tag));
 									}
 
-									if (outgoingNavigation.getOption().getValue() == RelationKind.PARENT) {
+									if (outgoingNavigation.getOption().getValue() == AxisKind.PARENT) {
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getChildrenInSchema(tag));
 									}
-									if (outgoingNavigation.getOption().getValue() == RelationKind.ANCESTOR) {
+									if (outgoingNavigation.getOption().getValue() == AxisKind.ANCESTOR) {
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(tag));
 									}
 
 									if (outgoingNavigation.getOption()
-											.getValue() == RelationKind.FOLLOWING_SIBLING) {
+											.getValue() == AxisKind.FOLLOWING_SIBLING) {
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getPrecedingSiblingsInSchema(tag));
 									}
-									if (outgoingNavigation.getOption().getValue() == RelationKind.FOLLOWING) {
+									if (outgoingNavigation.getOption().getValue() == AxisKind.FOLLOWING) {
 										// TODO
 									}
 
-									if (outgoingNavigation.getOption().getValue() == RelationKind.PRECEDING) {
+									if (outgoingNavigation.getOption().getValue() == AxisKind.PRECEDING) {
 										// TODO
 									}
 									if (outgoingNavigation.getOption()
-											.getValue() == RelationKind.PRECEDING_SIBLING) {
+											.getValue() == AxisKind.PRECEDING_SIBLING) {
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getFollowingSiblingsInSchema(tag));
 									}
 
-									if (outgoingNavigation.getOption().getValue() == RelationKind.SELF) {
+									if (outgoingNavigation.getOption().getValue() == AxisKind.SELF) {
 										suggestions.add(tag);
 									}
 
 									if (outgoingNavigation.getOption()
-											.getValue() == RelationKind.DESCENDANT_OR_SELF) {
+											.getValue() == AxisKind.DESCENDANT_OR_SELF) {
 										suggestions.add(tag);
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getAncestorsInSchema(tag));
 									}
 
 									if (outgoingNavigation.getOption()
-											.getValue() == RelationKind.ANCESTOR_OR_SELF) {
+											.getValue() == AxisKind.ANCESTOR_OR_SELF) {
 										suggestions.add(tag);
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(tag));
 									}
@@ -897,48 +897,48 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 								if (db instanceof XmlDataDatabase) {
 									XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
 
-									if (incomingNavigation.getOption().getValue() == RelationKind.CHILD) {
+									if (incomingNavigation.getOption().getValue() == AxisKind.CHILD) {
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getChildrenInSchema(tag));
 									}
-									if (incomingNavigation.getOption().getValue() == RelationKind.DESCENDANT) {
+									if (incomingNavigation.getOption().getValue() == AxisKind.DESCENDANT) {
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(tag));
 									}
 
-									if (incomingNavigation.getOption().getValue() == RelationKind.PARENT) {
+									if (incomingNavigation.getOption().getValue() == AxisKind.PARENT) {
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getParentsInSchema(tag));
 									}
-									if (incomingNavigation.getOption().getValue() == RelationKind.ANCESTOR) {
+									if (incomingNavigation.getOption().getValue() == AxisKind.ANCESTOR) {
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getAncestorsInSchema(tag));
 									}
 
 									if (incomingNavigation.getOption()
-											.getValue() == RelationKind.FOLLOWING_SIBLING) {
+											.getValue() == AxisKind.FOLLOWING_SIBLING) {
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getFollowingSiblingsInSchema(tag));
 									}
-									if (incomingNavigation.getOption().getValue() == RelationKind.FOLLOWING) {
+									if (incomingNavigation.getOption().getValue() == AxisKind.FOLLOWING) {
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getFollowingInSchema(tag));
 									}
 
-									if (incomingNavigation.getOption().getValue() == RelationKind.PRECEDING) {
+									if (incomingNavigation.getOption().getValue() == AxisKind.PRECEDING) {
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getPrecedingInSchema(tag));
 									}
 									if (incomingNavigation.getOption()
-											.getValue() == RelationKind.PRECEDING_SIBLING) {
+											.getValue() == AxisKind.PRECEDING_SIBLING) {
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getPrecedingSiblingsInSchema(tag));
 									}
 
-									if (incomingNavigation.getOption().getValue() == RelationKind.SELF) {
+									if (incomingNavigation.getOption().getValue() == AxisKind.SELF) {
 										suggestions.add(tag);
 									}
 
 									if (incomingNavigation.getOption()
-											.getValue() == RelationKind.DESCENDANT_OR_SELF) {
+											.getValue() == AxisKind.DESCENDANT_OR_SELF) {
 										suggestions.add(tag);
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(tag));
 									}
 
 									if (incomingNavigation.getOption()
-											.getValue() == RelationKind.ANCESTOR_OR_SELF) {
+											.getValue() == AxisKind.ANCESTOR_OR_SELF) {
 										suggestions.add(tag);
 										suggestions.addAll(xmlDataDatabase.getXmlSchema().getAncestorsInSchema(tag));
 									}
@@ -959,10 +959,10 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 							
 							for(String rootElementName : xmlDataDatabase.getXmlSchema().getRootElementNames()) {
 
-								if (incomingNavigation.getOption().getValue() == RelationKind.CHILD) {
+								if (incomingNavigation.getOption().getValue() == AxisKind.CHILD) {
 									suggestions.addAll(xmlDataDatabase.getXmlSchema().getChildrenInSchema(rootElementName));
 								}
-								if (incomingNavigation.getOption().getValue() == RelationKind.DESCENDANT) {
+								if (incomingNavigation.getOption().getValue() == AxisKind.DESCENDANT) {
 									suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(rootElementName));
 								}
 							}

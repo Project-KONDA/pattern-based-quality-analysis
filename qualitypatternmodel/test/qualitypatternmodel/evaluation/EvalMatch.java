@@ -6,7 +6,7 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -143,9 +143,9 @@ public class EvalMatch {
 //	}
 
 	public static CompletePattern getMatchThreeElementsConcrete(String returnElementType,
-			RelationKind returnElementAxis, String attribute1Name, PropertyKind attribute1Kind, 
-			String element2Type, RelationKind element2Axis, String attribute2Name, PropertyKind attribute2Kind, 
-			RelationKind element3Axis, 
+			AxisKind returnElementAxis, String attribute1Name, PropertyKind attribute1Kind, 
+			String element2Type, AxisKind element2Axis, String attribute2Name, PropertyKind attribute2Kind, 
+			AxisKind element3Axis, 
 			String attributeMatchName, PropertyKind attributeMatchKind, String regex) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ParametersPackage.eINSTANCE.eClass();
@@ -191,9 +191,9 @@ public class EvalMatch {
 	}
 	
 	public static CompletePattern getMatchThreeElementsTwoConditionsConcrete(String returnElementType,
-			RelationKind returnElementAxis, String attribute1Name, PropertyKind attribute1Kind, 
-			String element2Type, RelationKind element2Axis, String attribute2Name, PropertyKind attribute2Kind, 
-			String element3Type, RelationKind element3Axis, String attribute3Name, PropertyKind attribute3Kind, 			
+			AxisKind returnElementAxis, String attribute1Name, PropertyKind attribute1Kind, 
+			String element2Type, AxisKind element2Axis, String attribute2Name, PropertyKind attribute2Kind, 
+			String element3Type, AxisKind element3Axis, String attribute3Name, PropertyKind attribute3Kind, 			
 			String attributeMatchName, PropertyKind attributeMatchKind, String regex) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ParametersPackage.eINSTANCE.eClass();
@@ -247,8 +247,8 @@ public class EvalMatch {
 		return completePattern;
 	}
 
-	public static CompletePattern getMatchConcrete(String returnElementType, RelationKind returnElementAxis,
-			String attribute1Name, PropertyKind attribute1Kind, String element2Type, RelationKind element2Axis,
+	public static CompletePattern getMatchConcrete(String returnElementType, AxisKind returnElementAxis,
+			String attribute1Name, PropertyKind attribute1Kind, String element2Type, AxisKind element2Axis,
 			String attribute2Name, PropertyKind attribute2Kind, String attribute3Name, PropertyKind attribute3Kind,
 			String regex) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
@@ -292,72 +292,72 @@ public class EvalMatch {
 	}
 
 	public static CompletePattern getMatchMidas5064() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getMatchConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5064",
-				RelationKind.TWOCHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE,
+		return getMatchConcrete("obj", AxisKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5064",
+				AxisKind.TWOCHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE,
 				".*[a-zA-Z ]{10}.*");
 	}
 
 	public static CompletePattern getMatchMidas5360() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getMatchConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5360",
-				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE,
+		return getMatchConcrete("obj", AxisKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5360",
+				AxisKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE,
 				"^[0-9]+(,[0-9]+)?( x [0-9]+(,[0-9]+)?)? (m|mm)( \\([a-zA-Z‰¸ˆƒ‹÷ ]+\\))?$");
 	}
 
 	public static CompletePattern getMatchMidas3270() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getMatchConcrete("kue", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3270",
-				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "\\?$");
+		return getMatchConcrete("kue", AxisKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3270",
+				AxisKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "\\?$");
 	}
 
 	public static CompletePattern getMatchMidas3270Imprecise() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getMatchConcrete("kue", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3270",
-				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "[0-9]/[0-9]");
+		return getMatchConcrete("kue", AxisKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3270",
+				AxisKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "[0-9]/[0-9]");
 	}
 
 	public static CompletePattern getMatchMidas3100Abbreviation() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getMatchConcrete("kue", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3100",
-				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "\\.");
+		return getMatchConcrete("kue", AxisKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3100",
+				AxisKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "\\.");
 	}
 
 	public static CompletePattern getMatchMidas5060() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getMatchConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5060",
-				RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "^[0-9/]+$");
+		return getMatchConcrete("obj", AxisKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5060",
+				AxisKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "^[0-9/]+$");
 	}
 
 	public static CompletePattern getMatchMidasOb30Child() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getMatchThreeElementsConcrete("obj", RelationKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE,
-				"ob30", RelationKind.CHILD, "Type", PropertyKind.ATTRIBUTE, RelationKind.CHILD, "Type",
+		return getMatchThreeElementsConcrete("obj", AxisKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE,
+				"ob30", AxisKind.CHILD, "Type", PropertyKind.ATTRIBUTE, AxisKind.CHILD, "Type",
 				PropertyKind.ATTRIBUTE, "^[12456789]");
 	}
 
 	public static CompletePattern getMatchLidoMeasurementValue() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getMatchConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:measurementValue",
-				RelationKind.SEVENCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, "[a-zA-Z¸ˆ‰‹÷ƒ]");
+		return getMatchConcrete("lido:lido", AxisKind.TWOCHILD, null, PropertyKind.TAG, "lido:measurementValue",
+				AxisKind.SEVENCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, "[a-zA-Z¸ˆ‰‹÷ƒ]");
 	}
 
 	public static CompletePattern getMatchLidoMeasurementUnit() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getMatchConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:measurementUnit",
-				RelationKind.SEVENCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, "[0-9]");
+		return getMatchConcrete("lido:lido", AxisKind.TWOCHILD, null, PropertyKind.TAG, "lido:measurementUnit",
+				AxisKind.SEVENCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, "[0-9]");
 	}
 
 	public static CompletePattern getMatchLidoEarliestDate() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getMatchConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:earliestDate",
-				RelationKind.SEVENCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, "^[0-9]{4}$");
+		return getMatchConcrete("lido:lido", AxisKind.TWOCHILD, null, PropertyKind.TAG, "lido:earliestDate",
+				AxisKind.SEVENCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, "^[0-9]{4}$");
 	}
 
 	public static CompletePattern getMatchLidoNamePlaceSet() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getMatchConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:namePlaceSet",
-				RelationKind.SEVENCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, ",");
+		return getMatchConcrete("lido:lido", AxisKind.TWOCHILD, null, PropertyKind.TAG, "lido:namePlaceSet",
+				AxisKind.SEVENCHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, ",");
 	}
 
 	public static CompletePattern getMatchLidoAppellationValue() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getMatchConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, "lido:appellationValue",
-				RelationKind.DESCENDANT, null, PropertyKind.TAG, null, PropertyKind.DATA, "\\?$");
+		return getMatchConcrete("lido:lido", AxisKind.TWOCHILD, null, PropertyKind.TAG, "lido:appellationValue",
+				AxisKind.DESCENDANT, null, PropertyKind.TAG, null, PropertyKind.DATA, "\\?$");
 	}
 	
 	public static CompletePattern getMatchLidoNameActorSetAbbreviation() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getMatchThreeElementsTwoConditionsConcrete("lido:lido", RelationKind.TWOCHILD, null, PropertyKind.TAG, 
-				"lido:nameActorSet", RelationKind.EIGHTCHILD, null, PropertyKind.TAG, 
-				"lido:appellationValue", RelationKind.CHILD, null, PropertyKind.TAG, 
+		return getMatchThreeElementsTwoConditionsConcrete("lido:lido", AxisKind.TWOCHILD, null, PropertyKind.TAG, 
+				"lido:nameActorSet", AxisKind.EIGHTCHILD, null, PropertyKind.TAG, 
+				"lido:appellationValue", AxisKind.CHILD, null, PropertyKind.TAG, 
 				null, PropertyKind.DATA, "\\.");
 	}
 

@@ -8,7 +8,7 @@ import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.parameters.*;
 import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.RelationKind;
+import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -70,8 +70,8 @@ public class Test05QuantorCombinationsCond {
 		completePattern.finalizeXMLAdaption();		
 		
 		((XmlProperty) graph2.getNodes().get(2).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
-		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getOption().setValue(RelationKind.TWOCHILD);
-		((XmlNavigation) graph2.getRelations().get(3)).getOption().setValue(RelationKind.THREECHILD);
+		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getOption().setValue(AxisKind.TWOCHILD);
+		((XmlNavigation) graph2.getRelations().get(3)).getOption().setValue(AxisKind.THREECHILD);
 		
 		return completePattern;
 	}

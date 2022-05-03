@@ -210,26 +210,26 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.RelationOptionParam} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.AxisOptionParam} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RelationOptionParamItemProvider relationOptionParamItemProvider;
+	protected AxisOptionParamItemProvider axisOptionParamItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.RelationOptionParam}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.AxisOptionParam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createRelationOptionParamAdapter() {
-		if (relationOptionParamItemProvider == null) {
-			relationOptionParamItemProvider = new RelationOptionParamItemProvider(this);
+	public Adapter createAxisOptionParamAdapter() {
+		if (axisOptionParamItemProvider == null) {
+			axisOptionParamItemProvider = new AxisOptionParamItemProvider(this);
 		}
 
-		return relationOptionParamItemProvider;
+		return axisOptionParamItemProvider;
 	}
 
 	/**
@@ -253,6 +253,52 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 		}
 
 		return propertyOptionParamItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.PathParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PathParamItemProvider pathParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.PathParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPathParamAdapter() {
+		if (pathParamItemProvider == null) {
+			pathParamItemProvider = new PathParamItemProvider(this);
+		}
+
+		return pathParamItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.AxisPair} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AxisPairItemProvider axisPairItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.AxisPair}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAxisPairAdapter() {
+		if (axisPairItemProvider == null) {
+			axisPairItemProvider = new AxisPairItemProvider(this);
+		}
+
+		return axisPairItemProvider;
 	}
 
 	/**
@@ -366,8 +412,10 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 		if (xmlPropertyItemProvider != null) xmlPropertyItemProvider.dispose();
 		if (xmlRootItemProvider != null) xmlRootItemProvider.dispose();
 		if (xmlPropertyNavigationItemProvider != null) xmlPropertyNavigationItemProvider.dispose();
-		if (relationOptionParamItemProvider != null) relationOptionParamItemProvider.dispose();
+		if (axisOptionParamItemProvider != null) axisOptionParamItemProvider.dispose();
 		if (propertyOptionParamItemProvider != null) propertyOptionParamItemProvider.dispose();
+		if (pathParamItemProvider != null) pathParamItemProvider.dispose();
+		if (axisPairItemProvider != null) axisPairItemProvider.dispose();
 	}
 
 }

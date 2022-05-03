@@ -14,7 +14,7 @@ import qualitypatternmodel.graphstructure.Relation;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlNavigation#getOption <em>Option</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlNavigation#getPathParam <em>Path Param</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlNavigation()
@@ -23,28 +23,28 @@ import qualitypatternmodel.graphstructure.Relation;
  */
 public interface XmlNavigation extends Relation {
 	/**
-	 * Returns the value of the '<em><b>Option</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.RelationOptionParam#getRelations <em>Relations</em>}'.
+	 * Returns the value of the '<em><b>Path Param</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.PathParam#getXmlNavigation <em>Xml Navigation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Option</em>' reference.
-	 * @see #setOption(RelationOptionParam)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlNavigation_Option()
-	 * @see qualitypatternmodel.adaptionxml.RelationOptionParam#getRelations
-	 * @model opposite="relations"
+	 * @return the value of the '<em>Path Param</em>' reference.
+	 * @see #setPathParam(PathParam)
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlNavigation_PathParam()
+	 * @see qualitypatternmodel.adaptionxml.PathParam#getXmlNavigation
+	 * @model opposite="xmlNavigation" required="true"
 	 * @generated
 	 */
-	RelationOptionParam getOption();
+	PathParam getPathParam();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getOption <em>Option</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getPathParam <em>Path Param</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Option</em>' reference.
-	 * @see #getOption()
+	 * @param value the new value of the '<em>Path Param</em>' reference.
+	 * @see #getPathParam()
 	 * @generated
 	 */
-	void setOption(RelationOptionParam value);
+	void setPathParam(PathParam value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -52,6 +52,6 @@ public interface XmlNavigation extends Relation {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	RelationOptionParam getOriginalOption();
+	AxisOptionParam getOriginalOption();
 
 } // XMLNavigation
