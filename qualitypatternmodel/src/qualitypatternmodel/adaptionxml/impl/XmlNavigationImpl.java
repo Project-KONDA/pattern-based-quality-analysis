@@ -204,7 +204,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		if (pathParam != null) {
 			res.addAll(pathParam.getAllParameters());
 		} else if (getIncomingMapping() == null) {
-			throw new InvalidityException("option null" + " (" + getInternalId() + ")");
+			throw new InvalidityException("pathParam null" + " (" + getInternalId() + ")");
 		}
 		return res;
 	}
@@ -308,10 +308,17 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetPathParam(PathParam newPathParam, NotificationChain msgs) {
 		PathParam oldPathParam = pathParam;
+		
+		ParameterList varlist = getParameterList();
+		if(varlist != null) {
+			varlist.remove(oldPathParam);			
+			varlist.add(newPathParam);				
+		}
+		
 		pathParam = newPathParam;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM, oldPathParam, newPathParam);
@@ -338,29 +345,6 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM, newPathParam, newPathParam));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public NotificationChain basicSetOption(AxisOptionParam newOption, NotificationChain msgs) {
-		AxisOptionParam oldOption = option;
-				
-		ParameterList varlist = getParameterList();
-		if(varlist != null) {
-			varlist.remove(oldOption);			
-			varlist.add(newOption);				
-		}
-		
-		option = newOption;
-		
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_NAVIGATION__OPTION, oldOption, newOption);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
 	}
 
 	/**
