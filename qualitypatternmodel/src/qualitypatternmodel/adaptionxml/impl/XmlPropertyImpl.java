@@ -127,8 +127,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException{
 		super.isValidLocal(abstractionLevel);
-		if (option == null) 
-			throw new InvalidityException("options invalid");
 		if (getAttributeName() == null)
 			throw new InvalidityException("attributeName null");
 	}
@@ -316,29 +314,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	protected EClass eStaticClass() {
 		return AdaptionxmlPackage.Literals.XML_PROPERTY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public NotificationChain basicSetOption(PropertyOptionParam newOption, NotificationChain msgs) {
-		PropertyOptionParam oldOption = option;
-		
-		ParameterList varlist = getParameterList();
-		if(varlist != null) {
-			varlist.remove(oldOption);
-			varlist.add(newOption);			
-		}
-		
-		option = newOption;
-		
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PROPERTY__OPTION, oldOption, newOption);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
 	}
 
 	/**

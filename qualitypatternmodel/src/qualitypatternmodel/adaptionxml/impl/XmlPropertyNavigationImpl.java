@@ -22,6 +22,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -78,6 +79,8 @@ public class XmlPropertyNavigationImpl extends RelationImpl implements XmlProper
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
+		if (pathParam == null) 
+			throw new InvalidityException("pathParam invalid");
 		// TODO
 		// if (getIncomingMapping() == null && option == null)
 		//	throw new InvalidityException("axis missing");
@@ -177,10 +180,17 @@ public class XmlPropertyNavigationImpl extends RelationImpl implements XmlProper
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetPathParam(PathParam newPathParam, NotificationChain msgs) {
 		PathParam oldPathParam = pathParam;
+		
+		ParameterList varlist = getParameterList();
+		if(varlist != null) {
+			varlist.remove(oldPathParam);
+			varlist.add(newPathParam);			
+		}
+		
 		pathParam = newPathParam;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PROPERTY_NAVIGATION__PATH_PARAM, oldPathParam, newPathParam);
