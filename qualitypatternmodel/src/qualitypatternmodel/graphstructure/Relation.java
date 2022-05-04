@@ -93,7 +93,7 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @see #getSource()
 	 * @generated
 	 */
-	void setSource(ComplexNode value);
+	void setSource(Node value);
 
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.

@@ -389,8 +389,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	@Override
-	public void setSource(ComplexNode newSource) {
-		
+	public void setSource(Node newSource) {
 		if (newSource != source) {			
 			if(!(getGraph() != null && newSource != null && newSource.getGraph() != null && !getGraph().equals(newSource.getGraph()))) {									
 				NotificationChain msgs = null;
@@ -398,6 +397,15 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 					msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.COMPLEX_NODE__OUTGOING, Node.class, msgs);
 				if (newSource != null)
 					msgs = ((InternalEObject)newSource).eInverseAdd(this, GraphstructurePackage.COMPLEX_NODE__OUTGOING, Node.class, msgs);
+				if (!(newSource instanceof ComplexNode)) {
+					try {
+						newSource.makeComplex();
+					} catch (InvalidityException e) {
+						if (eNotificationRequired())
+							eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__SOURCE, source, source));
+						return;
+					}
+				}
 				msgs = basicSetSource(newSource, msgs);
 				if (msgs != null) msgs.dispatch();
 			}
