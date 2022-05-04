@@ -96,22 +96,22 @@ public class EvalFunc {
 		graph1.getOperatorList().add(comparisonA);
 //		comparisonA.createParameters();
 		PrimitiveNode propertyAReturn = graphFactory.createPrimitiveNode();
-		propertyAReturn.setElement(fieldAReturn);
+		propertyAReturn.addIncomming(fieldAReturn);
 //		propertyAReturn.createParameters();
 		comparisonA.setArgument1(propertyAReturn);
 		PrimitiveNode propertyAOtherRecord = propertyAReturn.copy();
-		propertyAOtherRecord.setElement(fieldAOtherRecord);
+		propertyAOtherRecord.addIncomming(fieldAOtherRecord);
 		comparisonA.setArgument2(propertyAOtherRecord);		
 		
 		Comparison comparisonB = operatorsFactory.createComparison(); 
 		graph1.getOperatorList().add(comparisonB);
 //		comparisonB.createParameters();
 		PrimitiveNode propertyBReturn = graphFactory.createPrimitiveNode();
-		propertyBReturn.setElement(fieldBReturn);
+		propertyBReturn.addIncomming(fieldBReturn);
 //		propertyBReturn.createParameters();
 		comparisonB.setArgument1(propertyBReturn);
 		PrimitiveNode propertyBOtherRecord = propertyBReturn.copy();
-		propertyBOtherRecord.setElement(fieldBOtherRecord);
+		propertyBOtherRecord.addIncomming(fieldBOtherRecord);
 		comparisonB.setArgument2(propertyBOtherRecord);		
 		
 		completePattern.createXMLAdaption();
@@ -183,11 +183,11 @@ public class EvalFunc {
 //		comparisonA.createParameters();
 		comparisonA.getTypeOption().setValue(ReturnType.STRING);
 		PrimitiveNode propertyAReturn = graphFactory.createPrimitiveNode();
-		propertyAReturn.setElement(fieldAReturn);
+		propertyAReturn.addIncomming(fieldAReturn);
 //		propertyAReturn.createParameters();
 		comparisonA.setArgument1(propertyAReturn);
 		PrimitiveNode propertyAOtherRecord = propertyAReturn.copy();
-		propertyAOtherRecord.setElement(fieldAOtherRecord);
+		propertyAOtherRecord.addIncomming(fieldAOtherRecord);
 		comparisonA.setArgument2(propertyAOtherRecord);		
 		
 		Comparison comparisonB = operatorsFactory.createComparison(); 		
@@ -195,11 +195,11 @@ public class EvalFunc {
 //		comparisonB.createParameters();
 		comparisonB.getTypeOption().setValue(ReturnType.STRING);
 		PrimitiveNode propertyBReturn = graphFactory.createPrimitiveNode();
-		propertyBReturn.setElement(fieldBReturn);
+		propertyBReturn.addIncomming(fieldBReturn);
 //		propertyBReturn.createParameters();
 		comparisonB.setArgument1(propertyBReturn);
 		PrimitiveNode propertyBOtherRecord = propertyBReturn.copy();
-		propertyBOtherRecord.setElement(fieldBOtherRecord);
+		propertyBOtherRecord.addIncomming(fieldBOtherRecord);
 		comparisonB.setArgument2(propertyBOtherRecord);		
 		
 		completePattern.createXMLAdaption();
@@ -219,7 +219,7 @@ public class EvalFunc {
 		
 		CompletePattern completePattern = getFuncAbstract();
 		Node returnInReturnGraph = completePattern.getGraph().getNodes().get(0);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(AxisKind.THREECHILD);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.THREECHILD);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("wer");
 		((UntypedParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
@@ -249,7 +249,7 @@ public class EvalFunc {
 		((XmlProperty) elementB1.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Node element1 = graph2.getNodes().get(3);
-		((XmlNavigation) graph2.getRelations().get(5)).getOption().setValue(AxisKind.THREECHILD);
+		((XmlNavigation) graph2.getRelations().get(5)).getPathParam().setValue(AxisKind.THREECHILD);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("wer");
 		((UntypedParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue4);
@@ -291,7 +291,7 @@ public class EvalFunc {
 		CompletePattern completePattern = getFuncAbstractLido();
 		Node returnInReturnGraph = completePattern.getGraph().getNodes().get(0);
 		XmlNavigation relation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		relation.getOption().setValue(AxisKind.TWOCHILD);
+		relation.getPathParam().setValue(AxisKind.TWOCHILD);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("lido:lido");
 		((UntypedParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
@@ -300,7 +300,7 @@ public class EvalFunc {
 		Graph graph2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Node below = graph2.getNodes().get(1);
 		XmlNavigation relation2 = (XmlNavigation) graph2.getRelations().get(0);
-		relation2.getOption().setValue(AxisKind.SEVENCHILD);
+		relation2.getPathParam().setValue(AxisKind.SEVENCHILD);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1.setValue("lido:termMaterialsTech");
 		((UntypedParameterValue) ((Comparison) below.getPredicates().get(0)).getArgument2()).replace(concreteInputValue1);
@@ -325,7 +325,7 @@ public class EvalFunc {
 		Node element1 = graph2.getNodes().get(4);
 		// HERE
 		XmlNavigation relation3 = (XmlNavigation) graph2.getRelations().get(6);
-		relation3.getOption().setValue(AxisKind.NINECHILD);
+		relation3.getPathParam().setValue(AxisKind.NINECHILD);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("lido:termMaterialsTech");
 		((UntypedParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue4);

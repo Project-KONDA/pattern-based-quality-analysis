@@ -70,8 +70,8 @@ public class Test05QuantorCombinationsCond {
 		completePattern.finalizeXMLAdaption();		
 		
 		((XmlProperty) graph2.getNodes().get(2).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
-		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getOption().setValue(AxisKind.TWOCHILD);
-		((XmlNavigation) graph2.getRelations().get(3)).getOption().setValue(AxisKind.THREECHILD);
+		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.TWOCHILD);
+		((XmlNavigation) graph2.getRelations().get(3)).getPathParam().setValue(AxisKind.THREECHILD);
 		
 		return completePattern;
 	}

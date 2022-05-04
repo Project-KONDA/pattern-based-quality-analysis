@@ -66,7 +66,7 @@ public class EvalContrel {
 		relation.setTarget(id1);
 		id1.addPrimitiveComparison();
 		PrimitiveNode id1Prop = graphFactory.createPrimitiveNode();
-		id1Prop.setElement(id1);
+		id1Prop.addIncomming(id1);
 		id1Prop.createParameters();
 		
 		Node ref1 = graphFactory.createNode();
@@ -77,7 +77,7 @@ public class EvalContrel {
 		relation2.setTarget(ref1);
 		ref1.addPrimitiveComparison();
 		PrimitiveNode ref1Prop = graphFactory.createPrimitiveNode();
-		ref1Prop.setElement(ref1);
+		ref1Prop.addIncomming(ref1);
 		ref1Prop.createParameters();
 		
 		Node val1 = graphFactory.createNode();
@@ -88,7 +88,7 @@ public class EvalContrel {
 		relation3.setTarget(val1);
 		val1.addPrimitiveComparison();
 		PrimitiveNode val1Prop = graphFactory.createPrimitiveNode();
-		val1Prop.setElement(val1);
+		val1Prop.addIncomming(val1);
 		val1Prop.createParameters();
 		
 		Node element2 = graphFactory.createNode();
@@ -103,7 +103,7 @@ public class EvalContrel {
 		relation4.setTarget(id2);
 		id2.addPrimitiveComparison();
 		PrimitiveNode id2Prop = graphFactory.createPrimitiveNode();
-		id2Prop.setElement(id2);
+		id2Prop.addIncomming(id2);
 		id2Prop.createParameters();
 		
 		Node ref2 = graphFactory.createNode();
@@ -114,7 +114,7 @@ public class EvalContrel {
 		relation5.setTarget(ref2);
 		ref2.addPrimitiveComparison();
 		PrimitiveNode ref2Prop = graphFactory.createPrimitiveNode();
-		ref2Prop.setElement(ref2);
+		ref2Prop.addIncomming(ref2);
 		ref2Prop.createParameters();
 		
 		Node val2 = graphFactory.createNode();
@@ -125,7 +125,7 @@ public class EvalContrel {
 		relation6.setTarget(val2);
 		val2.addPrimitiveComparison();
 		PrimitiveNode val2Prop = graphFactory.createPrimitiveNode();
-		val2Prop.setElement(val2);
+		val2Prop.addIncomming(val2);
 		val2Prop.createParameters();
 				
 		Comparison compId1Val2 = operatorsFactory.createComparison();
@@ -168,7 +168,7 @@ public class EvalContrel {
 		
 		CompletePattern completePattern = getContrelAbstract();
 		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(AxisKind.THREECHILD);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.THREECHILD);
 		
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -212,7 +212,7 @@ public class EvalContrel {
 		((XmlProperty) val1.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Node element2 = graph1.getNodes().get(4);
-		((XmlNavigation) graph1.getRelations().get(7)).getOption().setValue(AxisKind.THREECHILD);
+		((XmlNavigation) graph1.getRelations().get(7)).getPathParam().setValue(AxisKind.THREECHILD);
 		Comparison element2Comp1 = (Comparison) element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("wer");

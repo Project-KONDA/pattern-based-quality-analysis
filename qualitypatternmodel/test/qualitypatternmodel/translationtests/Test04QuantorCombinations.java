@@ -50,7 +50,7 @@ public class Test04QuantorCombinations {
 		prop0.getAttributeName().setValue("demo:id");
 		
 		XmlNavigation nav1 = (XmlNavigation) quantifiedCondition2.getGraph().getRelations().get(3);
-		nav1.getOption().setValue(AxisKind.DESCENDANT);
+		nav1.getPathParam().setValue(AxisKind.DESCENDANT);
 		
 //		Comparison comp = (Comparison) quantifiedCondition2.getGraph().getOperatorList().getOperators().get(0);
 //		comp.getOption().setValue(ComparisonOperator.NOTEQUAL);

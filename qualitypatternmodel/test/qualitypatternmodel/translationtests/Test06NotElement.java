@@ -99,7 +99,7 @@ public class Test06NotElement {
 		((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getRelations().get(0).adaptAsXMLNavigation();
 		completePattern.finalizeXMLAdaption();	
 		
-		((XmlNavigation)(completePattern.getGraph().getRelations().get(0))).getOption().setValue(AxisKind.THREECHILD);;
+		((XmlNavigation)(completePattern.getGraph().getRelations().get(0))).getPathParam().setValue(AxisKind.THREECHILD);;
 		
 		return completePattern;
 	}
@@ -144,9 +144,9 @@ public class Test06NotElement {
 		completePattern.createXMLAdaption();
 		completePattern.finalizeXMLAdaption();	
 		
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(AxisKind.TWOCHILD);
-		((XmlNavigation) q1.getGraph().getRelations().get(1)).getOption().setValue(AxisKind.CHILD);
-		((XmlNavigation) q2.getGraph().getRelations().get(2)).getOption().setValue(AxisKind.ANCESTOR);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.TWOCHILD);
+		((XmlNavigation) q1.getGraph().getRelations().get(1)).getPathParam().setValue(AxisKind.CHILD);
+		((XmlNavigation) q2.getGraph().getRelations().get(2)).getPathParam().setValue(AxisKind.ANCESTOR);
 		return completePattern; 
 	}
 	public static CompletePattern getPatternForallNotForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
@@ -158,8 +158,8 @@ public class Test06NotElement {
 		qc1.setQuantifier(Quantifier.FORALL);
 		qc2.setQuantifier(Quantifier.FORALL);
 
-		((XmlNavigation)qc1.getGraph().getRelations().get(1)).getOption().setValue(AxisKind.PARENT);
-		((XmlNavigation)qc2.getGraph().getRelations().get(2)).getOption().setValue(AxisKind.CHILD);
+		((XmlNavigation)qc1.getGraph().getRelations().get(1)).getPathParam().setValue(AxisKind.PARENT);
+		((XmlNavigation)qc2.getGraph().getRelations().get(2)).getPathParam().setValue(AxisKind.CHILD);
 		
 		return completePattern;
 	}

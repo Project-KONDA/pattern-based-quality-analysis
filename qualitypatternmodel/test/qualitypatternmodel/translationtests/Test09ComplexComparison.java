@@ -61,8 +61,8 @@ public class Test09ComplexComparison {
 		completePattern.createXMLAdaption();
 		completePattern.finalizeXMLAdaption();
 		
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getOption().setValue(AxisKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.DESCENDANT);
 
 		return completePattern;
 	}
@@ -109,8 +109,8 @@ public class Test09ComplexComparison {
 		completePattern.getGraph().getRelations().get(0).adaptAsXMLNavigation();
 		completePattern.finalizeXMLAdaption();
 		
-		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getOption().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getOption().setValue(AxisKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().setValue(AxisKind.DESCENDANT);
 
 		return completePattern;
 	}

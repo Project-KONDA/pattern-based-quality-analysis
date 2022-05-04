@@ -375,7 +375,7 @@ public class DemoPatterns {
 		value0.replace(textValue0);
 		
 		XmlNavigation navigationRootElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		navigationRootElement0.getOption().setValue(AxisKind.DESCENDANT);
+		navigationRootElement0.getPathParam().setValue(AxisKind.DESCENDANT);
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
@@ -402,7 +402,7 @@ public class DemoPatterns {
 		comp2.getOption().setValue(ComparisonOperator.GREATER);	
 		
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		navigationElement0Element1.getOption().setValue(AxisKind.CHILD);	
+		navigationElement0Element1.getPathParam().setValue(AxisKind.CHILD);	
 						
 		return completePattern;
 	}
@@ -428,7 +428,7 @@ public class DemoPatterns {
 		value0.replace(textValue0);
 		
 		XmlNavigation navigationRootElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		navigationRootElement0.getOption().setValue(AxisKind.DESCENDANT);
+		navigationRootElement0.getPathParam().setValue(AxisKind.DESCENDANT);
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
@@ -573,7 +573,7 @@ public class DemoPatterns {
 		textValue0.setValue(DEMO_NAMESPACE + "architect");
 		
 		XmlNavigation navigationRootElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		navigationRootElement0.getOption().setValue(AxisKind.DESCENDANT);
+		navigationRootElement0.getPathParam().setValue(AxisKind.DESCENDANT);
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
@@ -599,7 +599,7 @@ public class DemoPatterns {
 		comp2.getOption().setValue(ComparisonOperator.GREATER);	
 		
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		navigationElement0Element1.getOption().setValue(AxisKind.CHILD);	
+		navigationElement0Element1.getPathParam().setValue(AxisKind.CHILD);	
 						
 		return completePattern;
 	}
@@ -715,7 +715,7 @@ public class DemoPatterns {
 		value0.replace(textValue0);
 		
 		XmlNavigation navigationRootElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		navigationRootElement0.getOption().setValue(AxisKind.DESCENDANT);
+		navigationRootElement0.getPathParam().setValue(AxisKind.DESCENDANT);
 		
 		// First-order logic condition of pattern:
 		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
@@ -737,7 +737,7 @@ public class DemoPatterns {
 		value1.replace(textValue1);	
 		
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) countPattern.getGraph().getRelations().get(0);
-		navigationElement0Element1.getOption().setValue(AxisKind.CHILD);	
+		navigationElement0Element1.getPathParam().setValue(AxisKind.CHILD);	
 				
 		return completePattern;
 	}
@@ -764,7 +764,7 @@ public class DemoPatterns {
 		value0.replace(textValue0);
 		
 		XmlNavigation navigationRootElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		navigationRootElement0.getOption().setValue(AxisKind.DESCENDANT);
+		navigationRootElement0.getPathParam().setValue(AxisKind.DESCENDANT);
 		
 		// First-order logic condition of pattern:
 		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
@@ -786,7 +786,7 @@ public class DemoPatterns {
 		value1.replace(textValue1);	
 		
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) countPattern.getGraph().getRelations().get(0);
-		navigationElement0Element1.getOption().setValue(AxisKind.CHILD);	
+		navigationElement0Element1.getPathParam().setValue(AxisKind.CHILD);	
 				
 		return completePattern;
 	}
@@ -955,7 +955,7 @@ public class DemoPatterns {
 		value0.replace(textValue0);
 		
 		XmlNavigation navigationRootElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		navigationRootElement0.getOption().setValue(AxisKind.DESCENDANT);
+		navigationRootElement0.getPathParam().setValue(AxisKind.DESCENDANT);
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
@@ -1019,19 +1019,19 @@ public class DemoPatterns {
 		
 		
 		XmlNavigation navigationElement0Element0A = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		navigationElement0Element0A.getOption().setValue(AxisKind.CHILD);
+		navigationElement0Element0A.getPathParam().setValue(AxisKind.CHILD);
 		
 		XmlNavigation navigationElement0Element0B = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
-		navigationElement0Element0B.getOption().setValue(AxisKind.CHILD);	
+		navigationElement0Element0B.getPathParam().setValue(AxisKind.CHILD);	
 		
 		XmlNavigation navigationElement0Element1A = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(2);
-		navigationElement0Element1A.getOption().setValue(AxisKind.CHILD);	
+		navigationElement0Element1A.getPathParam().setValue(AxisKind.CHILD);	
 		
 		XmlNavigation navigationElement0Element1B = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(3);
-		navigationElement0Element1B.getOption().setValue(AxisKind.CHILD);
+		navigationElement0Element1B.getPathParam().setValue(AxisKind.CHILD);
 		
 		XmlNavigation navigationRootElement1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(5);
-		navigationRootElement1.getOption().setValue(AxisKind.DESCENDANT);	
+		navigationRootElement1.getPathParam().setValue(AxisKind.DESCENDANT);	
 				
 		return completePattern;
 	
@@ -1065,7 +1065,7 @@ public class DemoPatterns {
 		value0.replace(textValue0);
 		
 		XmlNavigation navigationRootElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		navigationRootElement0.getOption().setValue(AxisKind.DESCENDANT);
+		navigationRootElement0.getPathParam().setValue(AxisKind.DESCENDANT);
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
@@ -1129,19 +1129,19 @@ public class DemoPatterns {
 		
 		
 		XmlNavigation navigationElement0Element0A = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		navigationElement0Element0A.getOption().setValue(AxisKind.CHILD);
+		navigationElement0Element0A.getPathParam().setValue(AxisKind.CHILD);
 		
 		XmlNavigation navigationElement0Element0B = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
-		navigationElement0Element0B.getOption().setValue(AxisKind.CHILD);	
+		navigationElement0Element0B.getPathParam().setValue(AxisKind.CHILD);	
 		
 		XmlNavigation navigationElement0Element1A = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(2);
-		navigationElement0Element1A.getOption().setValue(AxisKind.CHILD);	
+		navigationElement0Element1A.getPathParam().setValue(AxisKind.CHILD);	
 		
 		XmlNavigation navigationElement0Element1B = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(3);
-		navigationElement0Element1B.getOption().setValue(AxisKind.CHILD);
+		navigationElement0Element1B.getPathParam().setValue(AxisKind.CHILD);
 		
 		XmlNavigation navigationRootElement1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(5);
-		navigationRootElement1.getOption().setValue(AxisKind.DESCENDANT);	
+		navigationRootElement1.getPathParam().setValue(AxisKind.DESCENDANT);	
 				
 		return completePattern;
 	

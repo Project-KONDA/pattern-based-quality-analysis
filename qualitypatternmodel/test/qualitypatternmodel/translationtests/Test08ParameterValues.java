@@ -51,7 +51,7 @@ public class Test08ParameterValues {
 		
 		completePattern.finalizeXMLAdaption();
 		
-		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getOption().setValue(AxisKind.DESCENDANT);
+		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.DESCENDANT);
 		
 		return completePattern;
 	}

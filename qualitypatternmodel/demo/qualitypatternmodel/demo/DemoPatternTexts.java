@@ -8,6 +8,7 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.AxisOptionParam;
+import qualitypatternmodel.adaptionxml.PathParam;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -190,7 +191,7 @@ public class DemoPatternTexts {
 		// <relation> descendant
 		ParameterPredefinition paramPredef000 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		XmlNavigation navigationElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		AxisOptionParam option00 = navigationElement0.getOption();
+		PathParam option00 = navigationElement0.getPathParam();
 		paramPredef000.setValue(AxisKind.DESCENDANT.getName());
 		paramPredef000.getParameter().add(option00);
 		
@@ -221,7 +222,7 @@ public class DemoPatternTexts {
 		// <relation>
 		ParameterPredefinition paramPredef00 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		paramPredef00.getParameter().add(navigationElement0Element1.getOption());
+		paramPredef00.getParameter().add(navigationElement0Element1.getPathParam());
 		paramPredef00.setValue(AxisKind.CHILD.getName());
 		
 		// <property> name
@@ -317,7 +318,7 @@ public class DemoPatternTexts {
 		// <relation> descendant
 		ParameterPredefinition paramPredef00 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		XmlNavigation navigationElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		AxisOptionParam option00 = navigationElement0.getOption();
+		PathParam option00 = navigationElement0.getPathParam();
 		paramPredef00.setValue(AxisKind.DESCENDANT.getName());
 		paramPredef00.getParameter().add(option00);
 		
@@ -352,7 +353,7 @@ public class DemoPatternTexts {
 		// <relation>
 		ParameterFragment param5 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		param5.getParameter().add(navigationElement0Element1.getOption());
+		param5.getParameter().add(navigationElement0Element1.getPathParam());
 		param5.setName("relation_type");
 		param5.setExampleValue(AxisKind.CHILD.getName());
 		
@@ -470,7 +471,7 @@ public class DemoPatternTexts {
 		// <relation> descendant
 		ParameterPredefinition paramPredef000 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		XmlNavigation navigationElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		AxisOptionParam option00 = navigationElement0.getOption();
+		PathParam option00 = navigationElement0.getPathParam();
 		paramPredef000.setValue(AxisKind.DESCENDANT.getName());
 		paramPredef000.getParameter().add(option00);
 		
@@ -501,7 +502,7 @@ public class DemoPatternTexts {
 		// <relation>
 		ParameterPredefinition paramPredef00 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		paramPredef00.getParameter().add(navigationElement0Element1.getOption());
+		paramPredef00.getParameter().add(navigationElement0Element1.getPathParam());
 		paramPredef00.setValue(AxisKind.CHILD.getName());
 		
 		// <property> name
@@ -597,7 +598,7 @@ public class DemoPatternTexts {
 		// <relation> descendant
 		ParameterPredefinition paramPredef00 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		XmlNavigation navigationElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		AxisOptionParam option00 = navigationElement0.getOption();
+		PathParam option00 = navigationElement0.getPathParam();
 		paramPredef00.setValue(AxisKind.DESCENDANT.getName());
 		paramPredef00.getParameter().add(option00);
 		
@@ -632,7 +633,7 @@ public class DemoPatternTexts {
 		// <relation>
 		ParameterFragment param5 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		param5.getParameter().add(navigationElement0Element1.getOption());
+		param5.getParameter().add(navigationElement0Element1.getPathParam());
 		param5.setName("relation_type");
 		param5.setExampleValue(AxisKind.CHILD.getName());
 		
@@ -740,7 +741,7 @@ public class DemoPatternTexts {
 		// <relation> descendant
 		ParameterPredefinition paramPredef00 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		XmlNavigation navigationElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		AxisOptionParam option00 = navigationElement0.getOption();
+		PathParam option00 = navigationElement0.getPathParam();
 		paramPredef00.setValue(AxisKind.DESCENDANT.getName());
 		paramPredef00.getParameter().add(option00);
 		
@@ -776,7 +777,7 @@ public class DemoPatternTexts {
 		// <relation>
 		ParameterFragment param5 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		param5.getParameter().add(navigationElement0Element1.getOption());
+		param5.getParameter().add(navigationElement0Element1.getPathParam());
 		param5.setName("relation_type");
 		param5.setExampleValue(AxisKind.DESCENDANT_OR_SELF.getName());
 		
@@ -886,7 +887,7 @@ public class DemoPatternTexts {
 		// <relation> descendant
 		ParameterPredefinition paramPredef000 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		XmlNavigation navigationElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		AxisOptionParam option00 = navigationElement0.getOption();
+		PathParam option00 = navigationElement0.getPathParam();
 		paramPredef000.setValue(AxisKind.DESCENDANT.getName());
 		paramPredef000.getParameter().add(option00);
 		
@@ -921,7 +922,7 @@ public class DemoPatternTexts {
 		// <relation>
 		ParameterFragment param5 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		param5.getParameter().add(navigationElement0Element1.getOption());
+		param5.getParameter().add(navigationElement0Element1.getPathParam());
 		param5.setName("relation_type");
 		param5.setExampleValue(AxisKind.CHILD.getName());
 		
@@ -1124,32 +1125,32 @@ public class DemoPatternTexts {
 		ParameterPredefinition paramPredef2 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
 		
 		XmlNavigation navigation10 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		AxisOptionParam option10 = navigation10.getOption();
+		PathParam option10 = navigation10.getPathParam();
 		paramPredef2.setValue(AxisKind.CHILD.getName());
 		paramPredef2.getParameter().add(option10);
 		
 		XmlNavigation navigation11 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
-		AxisOptionParam option11 = navigation11.getOption();
+		PathParam option11 = navigation11.getPathParam();
 		paramPredef2.getParameter().add(option11);
 		
 		XmlNavigation navigation12 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(2);
-		AxisOptionParam option12 = navigation12.getOption();
+		PathParam option12 = navigation12.getPathParam();
 		paramPredef2.getParameter().add(option12);
 		
 		XmlNavigation navigation13 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(3);
-		AxisOptionParam option13 = navigation13.getOption();
+		PathParam option13 = navigation13.getPathParam();
 		paramPredef2.getParameter().add(option13);
 		
 		// 4 DESCENDANT
 		ParameterPredefinition paramPredef3 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();
 		
 		XmlNavigation navigation14 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(5);
-		AxisOptionParam option14 = navigation14.getOption();
+		PathParam option14 = navigation14.getPathParam();
 		paramPredef3.setValue(AxisKind.DESCENDANT.getName());
 		paramPredef3.getParameter().add(option14);
 		
 		XmlNavigation navigation15 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		AxisOptionParam option15 = navigation15.getOption();
+		PathParam option15 = navigation15.getPathParam();
 		paramPredef3.getParameter().add(option15);
 		
 		// 2 STRING
@@ -1263,7 +1264,7 @@ public class DemoPatternTexts {
 		// <relation> descendant
 		ParameterPredefinition paramPredef00 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		XmlNavigation navigationElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		AxisOptionParam option00 = navigationElement0.getOption();
+		PathParam option00 = navigationElement0.getPathParam();
 		paramPredef00.setValue(AxisKind.DESCENDANT.getName());
 		paramPredef00.getParameter().add(option00);
 		
@@ -1314,7 +1315,7 @@ public class DemoPatternTexts {
 		// <relation> child
 		ParameterPredefinition paramPredef4 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) countPattern.getGraph().getRelations().get(0);
-		AxisOptionParam option4 = navigationElement0Element1.getOption();
+		PathParam option4 = navigationElement0Element1.getPathParam();
 		paramPredef4.setValue(AxisKind.CHILD.getName());
 		paramPredef4.getParameter().add(option4);
 		
@@ -1484,7 +1485,7 @@ public class DemoPatternTexts {
 		// <relation> descendant
 		ParameterPredefinition paramPredef00 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		XmlNavigation navigationElement0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		AxisOptionParam option00 = navigationElement0.getOption();
+		PathParam option00 = navigationElement0.getPathParam();
 		paramPredef00.setValue(AxisKind.DESCENDANT.getName());
 		paramPredef00.getParameter().add(option00);
 				
@@ -1537,7 +1538,7 @@ public class DemoPatternTexts {
 		// <relation>
 		ParameterFragment param5 = TextrepresentationFactory.eINSTANCE.createParameterFragment();
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) countPattern.getGraph().getRelations().get(0);
-		param5.getParameter().add(navigationElement0Element1.getOption());
+		param5.getParameter().add(navigationElement0Element1.getPathParam());
 		param5.setName("relation_type");
 		param5.setExampleValue(AxisKind.DESCENDANT.getName());
 		
