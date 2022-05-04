@@ -346,6 +346,10 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Checks the given comparison concerning contradictions with other comparisons, e.g. equal and unequal at the same time.
+	 * 
+	 * @param comp the <code>Comparison</code> to be checked
+	 * @throws InvalidityException if contradicting comparisons are found
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
@@ -482,6 +486,9 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Checks related comparisons concerning contradictions, e.g. equal and unequal at the same time.
+	 * 
+	 * @throws InvalidityException if contradicting comparisons are found
 	 * <!-- end-user-doc -->
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
