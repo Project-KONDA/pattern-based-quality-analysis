@@ -25,7 +25,6 @@ import qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl;
 import qualitypatternmodel.adaptionxml.impl.AxisOptionParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;

@@ -480,4 +480,12 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 */
 	XmlProperty adaptAsXmlProperty() throws InvalidityException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	void checkComparisonConsistency() throws InvalidityException;
+
 } // Element

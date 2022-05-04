@@ -17,9 +17,13 @@ import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -76,6 +80,61 @@ public class ComplexNodeImpl extends NodeImpl implements ComplexNode {
 			((XmlElementImpl) xmlElement).typeModifiable = false;
 		}
 		return xmlElement;
+	}
+	
+	@Override
+	public void checkComparisonConsistency(Comparison comp) throws InvalidityException {
+		if(comp == null || comp.getOption() == null) {
+			return;
+		}
+		Node otherElement = null;
+		if(comp.getArgument1().equals(this)) {
+			Comparable argument2 = comp.getArgument2();
+			if(argument2 instanceof Node) {
+				otherElement = (Node) argument2;
+			}
+		} else if(comp.getArgument2().equals(this)) {
+			Comparable argument1 = comp.getArgument1();
+			if(argument1 instanceof Node) {
+				otherElement = (Node) argument1;
+			}
+		} else {
+			return;
+		}
+		if(otherElement == null) {
+			return;
+		}
+		ComparisonOperator op = comp.getOption().getValue();
+		if(op != ComparisonOperator.EQUAL && op != ComparisonOperator.NOTEQUAL) {
+			return;
+		}
+		EList<Node> equivalentToThis = getEquivalentNodes();
+		EList<Node> equivalentToOther = otherElement.getEquivalentNodes();		
+		
+		for(Node e : equivalentToThis) {
+			for(Comparison comp1 : e.getComparison1()) {
+				if(!comp.equals(comp1)) {
+					if(equivalentToOther.contains(comp1.getArgument2())) {
+						ComparisonOperator otherOp = comp1.getOption().getValue();
+						if(op == ComparisonOperator.EQUAL && otherOp == ComparisonOperator.NOTEQUAL || op == ComparisonOperator.NOTEQUAL && otherOp == ComparisonOperator.EQUAL) {
+							throw new InvalidityException("Requiring that two elements are equal and unequal will always yield false");
+						}
+					}
+				}
+			}
+			for(Comparison comp2 : e.getComparison2()) {
+				if(!comp.equals(comp2)) {
+					if(equivalentToOther.contains(comp2.getArgument1())) {
+						ComparisonOperator otherOp = comp2.getOption().getValue();
+						if(op == ComparisonOperator.EQUAL && otherOp == ComparisonOperator.NOTEQUAL || op == ComparisonOperator.NOTEQUAL && otherOp == ComparisonOperator.EQUAL) {
+							throw new InvalidityException("Requiring that two elements are equal and unequal will always yield false");
+						}
+					}
+				}
+			}
+		}
+		
+		
 	}
 	
 	/**

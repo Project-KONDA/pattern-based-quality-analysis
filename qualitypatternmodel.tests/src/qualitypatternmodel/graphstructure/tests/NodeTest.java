@@ -42,6 +42,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addIncomming(qualitypatternmodel.graphstructure.Node) <em>Add Incomming</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#adaptAsXmlElement() <em>Adapt As Xml Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#adaptAsXmlProperty() <em>Adapt As Xml Property</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
@@ -439,6 +440,19 @@ public class NodeTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testAdaptAsXmlProperty() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Node#checkComparisonConsistency()
+	 * @generated
+	 */
+	public void testCheckComparisonConsistency() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

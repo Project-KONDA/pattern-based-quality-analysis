@@ -25,7 +25,6 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.ComplexNode;
-import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -698,58 +697,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public void checkComparisonConsistency(Comparison comp) throws InvalidityException {
-		if(comp == null || comp.getOption() == null) {
-			return;
-		}
-		Node otherElement = null;
-		if(comp.getArgument1().equals(this)) {
-			Comparable argument2 = comp.getArgument2();
-			if(argument2 instanceof Node) {
-				otherElement = (Node) argument2;
-			}
-		} else if(comp.getArgument2().equals(this)) {
-			Comparable argument1 = comp.getArgument1();
-			if(argument1 instanceof Node) {
-				otherElement = (Node) argument1;
-			}
-		} else {
-			return;
-		}
-		if(otherElement == null) {
-			return;
-		}
-		ComparisonOperator op = comp.getOption().getValue();
-		if(op != ComparisonOperator.EQUAL && op != ComparisonOperator.NOTEQUAL) {
-			return;
-		}
-		EList<Node> equivalentToThis = getEquivalentNodes();
-		EList<Node> equivalentToOther = otherElement.getEquivalentNodes();		
-		
-		for(Node e : equivalentToThis) {
-			for(Comparison comp1 : e.getComparison1()) {
-				if(!comp.equals(comp1)) {
-					if(equivalentToOther.contains(comp1.getArgument2())) {
-						ComparisonOperator otherOp = comp1.getOption().getValue();
-						if(op == ComparisonOperator.EQUAL && otherOp == ComparisonOperator.NOTEQUAL || op == ComparisonOperator.NOTEQUAL && otherOp == ComparisonOperator.EQUAL) {
-							throw new InvalidityException("Requiring that two elements are equal and unequal will always yield false");
-						}
-					}
-				}
-			}
-			for(Comparison comp2 : e.getComparison2()) {
-				if(!comp.equals(comp2)) {
-					if(equivalentToOther.contains(comp2.getArgument1())) {
-						ComparisonOperator otherOp = comp2.getOption().getValue();
-						if(op == ComparisonOperator.EQUAL && otherOp == ComparisonOperator.NOTEQUAL || op == ComparisonOperator.NOTEQUAL && otherOp == ComparisonOperator.EQUAL) {
-							throw new InvalidityException("Requiring that two elements are equal and unequal will always yield false");
-						}
-					}
-				}
-			}
-		}
-		
-		
+	public void checkComparisonConsistency(Comparison comp) throws InvalidityException {		
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -1155,6 +1104,21 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		return ((NodeImpl) getOriginalNode()).adaptAsXmlPropertyRecursive();
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public void checkComparisonConsistency() throws InvalidityException {
+		for(Comparison comp : getComparison1()) {
+			checkComparisonConsistency(comp);
+		}
+		for(Comparison comp : getComparison2()) {
+			checkComparisonConsistency(comp);
+		}			
+	}
+
 	private XmlProperty adaptAsXmlPropertyRecursive() throws InvalidityException {			
 		
 		XmlPropertyImpl xmlProperty = new XmlPropertyImpl();	
@@ -1761,6 +1725,14 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE___ADAPT_AS_XML_PROPERTY:
 				try {
 					return adaptAsXmlProperty();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___CHECK_COMPARISON_CONSISTENCY:
+				try {
+					checkComparisonConsistency();
+					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

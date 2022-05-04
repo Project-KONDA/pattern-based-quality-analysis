@@ -685,6 +685,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___ADAPT_AS_XML_PROPERTY = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_XML_PROPERTY;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
 	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1993,6 +2002,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___SET_GRAPH_SIMPLE__GRAPH = GraphstructurePackage.PRIMITIVE_NODE___SET_GRAPH_SIMPLE__GRAPH;
 
 	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
+
+	/**
 	 * The operation id for the '<em>Get Equivalent Nodes</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2143,25 +2161,16 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE;
-
-	/**
-	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
-
-	/**
-	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE;
 
 	/**
 	 * The number of operations of the '<em>Xml Property</em>' class.
@@ -2793,6 +2802,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___ADAPT_AS_XML_PROPERTY = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_XML_PROPERTY;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
 	 * The number of operations of the '<em>Xml Root</em>' class.

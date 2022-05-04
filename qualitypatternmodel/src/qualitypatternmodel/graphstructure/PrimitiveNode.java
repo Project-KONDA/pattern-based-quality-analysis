@@ -5,7 +5,6 @@ package qualitypatternmodel.graphstructure;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.parameters.ParameterValue;
 
@@ -35,22 +34,6 @@ public interface PrimitiveNode extends Node {
 	 * @generated
 	 */
 	void checkComparisonConsistency(ParameterValue parameterValue) throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	void checkComparisonConsistency(Comparison comp) throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	void checkComparisonConsistency() throws InvalidityException;
 
 	/**
 	 * Returns the value of the '<em><b>Match</b></em>' reference list.

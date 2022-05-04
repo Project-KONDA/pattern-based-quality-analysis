@@ -290,10 +290,6 @@
       <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="parameterValue" eType="#//parameters/ParameterValue"/>
       </eOperations>
-      <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="comp" eType="#//operators/Comparison"/>
-      </eOperations>
-      <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="match" upperBound="-1"
           eType="#//operators/Match" eOpposite="#//operators/Match/primitiveNode"/>
     </eClassifiers>
@@ -344,6 +340,7 @@
       </eOperations>
       <eOperations name="adaptAsXmlElement" eType="#//adaptionxml/XmlElement" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsXmlProperty" eType="#//adaptionxml/XmlProperty" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
           eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/ElementMapping"

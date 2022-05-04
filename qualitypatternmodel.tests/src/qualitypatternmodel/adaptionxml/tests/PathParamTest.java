@@ -16,6 +16,7 @@ import qualitypatternmodel.parameters.tests.ParameterValueTest;
  * <p>
  * The following operations are tested:
  * <ul>
+ *   <li>{@link qualitypatternmodel.adaptionxml.PathParam#getRelation() <em>Get Relation</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  * </ul>
@@ -74,6 +75,19 @@ public class PathParamTest extends ParameterValueTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.PathParam#getRelation() <em>Get Relation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.PathParam#getRelation()
+	 * @generated
+	 */
+	public void testGetRelation() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**

@@ -15,7 +15,6 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency(qualitypatternmodel.parameters.ParameterValue) <em>Check Comparison Consistency</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -82,19 +81,6 @@ public class PrimitiveNodeTest extends NodeTest {
 	 * @generated
 	 */
 	public void testCheckComparisonConsistency__ParameterValue() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.PrimitiveNode#checkComparisonConsistency()
-	 * @generated
-	 */
-	public void testCheckComparisonConsistency() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

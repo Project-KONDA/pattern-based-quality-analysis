@@ -11,8 +11,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;

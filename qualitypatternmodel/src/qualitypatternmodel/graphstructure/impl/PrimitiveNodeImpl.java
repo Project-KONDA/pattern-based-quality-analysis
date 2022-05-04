@@ -216,11 +216,6 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		}		
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
 	@Override
 	public void checkComparisonConsistency(Comparison comp) throws InvalidityException {
 		ComparisonOperator op = comp.getOption().getValue();
@@ -295,21 +290,6 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				}
 			}			
 		}		
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void checkComparisonConsistency() throws InvalidityException {
-		for(Comparison comp : getComparison1()) {
-			checkComparisonConsistency(comp);
-		}
-		for(Comparison comp : getComparison2()) {
-			checkComparisonConsistency(comp);
-		}			
 	}
 	
 	@Override
@@ -693,14 +673,6 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 			case GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE:
 				try {
 					checkComparisonConsistency((ParameterValue)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY:
-				try {
-					checkComparisonConsistency();
 					return null;
 				}
 				catch (Throwable throwable) {

@@ -382,26 +382,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getPrimitiveNode__CheckComparisonConsistency__Comparison() {
-		return primitiveNodeEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getPrimitiveNode__CheckComparisonConsistency() {
-		return primitiveNodeEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getNode() {
 		return nodeEClass;
 	}
@@ -772,6 +752,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getNode__CheckComparisonConsistency() {
+		return nodeEClass.getEOperations().get(26);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getGraph() {
 		return graphEClass;
 	}
@@ -1084,8 +1074,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		primitiveNodeEClass = createEClass(PRIMITIVE_NODE);
 		createEReference(primitiveNodeEClass, PRIMITIVE_NODE__MATCH);
 		createEOperation(primitiveNodeEClass, PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE);
-		createEOperation(primitiveNodeEClass, PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON);
-		createEOperation(primitiveNodeEClass, PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY);
 
 		nodeEClass = createEClass(NODE);
 		createEReference(nodeEClass, NODE__OUTGOING_MAPPINGS);
@@ -1124,6 +1112,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(nodeEClass, NODE___ADD_INCOMMING__NODE);
 		createEOperation(nodeEClass, NODE___ADAPT_AS_XML_ELEMENT);
 		createEOperation(nodeEClass, NODE___ADAPT_AS_XML_PROPERTY);
+		createEOperation(nodeEClass, NODE___CHECK_COMPARISON_CONSISTENCY);
 
 		graphEClass = createEClass(GRAPH);
 		createEReference(graphEClass, GRAPH__NODES);
@@ -1240,13 +1229,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEParameter(op, theParametersPackage.getParameterValue(), "parameterValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getPrimitiveNode__CheckComparisonConsistency__Comparison(), null, "checkComparisonConsistency", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theOperatorsPackage.getComparison(), "comp", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
-		op = initEOperation(getPrimitiveNode__CheckComparisonConsistency(), null, "checkComparisonConsistency", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
 		initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNode_OutgoingMappings(), thePatternstructurePackage.getElementMapping(), thePatternstructurePackage.getElementMapping_Source(), "outgoingMappings", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_IncomingMapping(), thePatternstructurePackage.getElementMapping(), thePatternstructurePackage.getElementMapping_Target(), "incomingMapping", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1338,6 +1320,9 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getNode__AdaptAsXmlProperty(), theAdaptionxmlPackage.getXmlProperty(), "adaptAsXmlProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getNode__CheckComparisonConsistency(), null, "checkComparisonConsistency", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(graphEClass, Graph.class, "Graph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
