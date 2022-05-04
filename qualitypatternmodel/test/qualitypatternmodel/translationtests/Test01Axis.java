@@ -41,8 +41,8 @@ public class Test01Axis {
 		completePattern.finalizeXMLAdaption();
 		XmlNavigation relation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
 		PathParam axisOption = relation.getPathParam();
-		EList<AxisKind> axisOptions = axisOption.getOptions();
-		if(!axisOptions.contains(axisKind)) axisOptions.add(axisKind);
+//		EList<AxisKind> axisOptions = axisOption.getOptions();
+//		if(!axisOptions.contains(axisKind)) axisOptions.add(axisKind);
 		axisOption.setAxis(axisKind, "");
 		return completePattern;
 	}
@@ -66,8 +66,8 @@ public class Test01Axis {
 		completePattern.finalizeXMLAdaption();			
 		
 		PathParam axisOption = navigation.getPathParam();
-		EList<AxisKind> axisOptions = axisOption.getOptions();
-		if(!axisOptions.contains(axisKind)) axisOptions.add(axisKind);
+//		EList<AxisKind> axisOptions = axisOption.getOptions();
+//		if(!axisOptions.contains(axisKind)) axisOptions.add(axisKind);
 		axisOption.setAxis(axisKind, "");
 		return completePattern;
 	}

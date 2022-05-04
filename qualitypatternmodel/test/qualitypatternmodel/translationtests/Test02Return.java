@@ -69,19 +69,19 @@ public class Test02Return {
 		reference.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();
 		
-		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
+//		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
 		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
-		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
+//		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
 		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
-		reference.getSourceProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
-		reference.getSourceProperty().getOption().setValue(PropertyKind.ATTRIBUTE);
-		reference.getSourceProperty().getAttributeName().setValue("demo:id");
+//		reference.getSourceProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
+		reference.getSourcePropertyPath().getPropertyOptionParam().setValue(PropertyKind.ATTRIBUTE);
+		reference.getSourcePropertyPath().getPropertyOptionParam().getAttributeName().setValue("demo:id");
 		
-		reference.getTargetProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
-		reference.getTargetProperty().getOption().setValue(PropertyKind.ATTRIBUTE);
-		reference.getTargetProperty().getAttributeName().setValue("demo:id");
+//		reference.getTargetProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
+		reference.getSourcePropertyPath().getPropertyOptionParam().setValue(PropertyKind.ATTRIBUTE);
+		reference.getTargetPropertyPath().getPropertyOptionParam().getAttributeName().setValue("demo:id");
 				
 		return completePattern;
 	}
