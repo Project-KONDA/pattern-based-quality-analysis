@@ -85,4 +85,20 @@ public interface XmlReference extends Relation {
 	 */
 	boolean isTranslatable() throws InvalidityException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	PathParam getSourcePropertyPath();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	PathParam getTargetPropertyPath();
+
 } // XMLReference

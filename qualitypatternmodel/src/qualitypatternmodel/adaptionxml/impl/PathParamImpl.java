@@ -375,31 +375,28 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated  NOT
 	 */
 	@Override
 	public void setAxis(AxisKind axis, String tag) {
-		if (!getAxisPairs().isEmpty()) {
-			getAxisPairs().clear();
-		}
+		getAxisPairs().clear();
 		addAxis(axis, tag);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void addAxis(AxisKind axis, String tag) {
-		AxisOptionParam axisParam = new AxisOptionParamImpl();
-		axisParam.setValue(axis);
-		
+		AxisOptionParam axisOption = new AxisOptionParamImpl();
+		axisOption.setValue(axis);
 		TextLiteralParam text = new TextLiteralParamImpl();
 		text.setValue(tag);
 		
 		AxisPair pair = new AxisPairImpl();
-		pair.setAxisOptionParam(axisParam);
+		pair.setAxisOptionParam(axisOption);
 		pair.setTextLiteralParam(text);
 		getAxisPairs().add(pair);
 	}

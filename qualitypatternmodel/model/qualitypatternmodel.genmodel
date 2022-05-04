@@ -579,6 +579,8 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlReference/property"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlReference/isTranslatable"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlReference/getSourcePropertyPath"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlReference/getTargetPropertyPath"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlProperty">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

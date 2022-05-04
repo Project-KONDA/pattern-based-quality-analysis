@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.PathParam;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
@@ -174,6 +175,26 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 		return getProperty() != null && getProperty().isTranslatable();
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public PathParam getSourcePropertyPath() {
+		return ((XmlPropertyNavigation) getSource().getRelationsTo(getProperty())).getPathParam();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public PathParam getTargetPropertyPath() {
+		return ((XmlPropertyNavigation) getTarget().getRelationsTo(getProperty())).getPathParam();
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -383,6 +404,10 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case AdaptionxmlPackage.XML_REFERENCE___GET_SOURCE_PROPERTY_PATH:
+				return getSourcePropertyPath();
+			case AdaptionxmlPackage.XML_REFERENCE___GET_TARGET_PROPERTY_PATH:
+				return getTargetPropertyPath();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

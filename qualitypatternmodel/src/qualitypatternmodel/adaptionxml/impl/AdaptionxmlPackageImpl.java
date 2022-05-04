@@ -360,6 +360,26 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EOperation getXmlReference__GetSourcePropertyPath() {
+		return xmlReferenceEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlReference__GetTargetPropertyPath() {
+		return xmlReferenceEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getXmlProperty() {
 		return xmlPropertyEClass;
 	}
@@ -758,6 +778,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		createEAttribute(xmlReferenceEClass, XML_REFERENCE__TYPE);
 		createEReference(xmlReferenceEClass, XML_REFERENCE__PROPERTY);
 		createEOperation(xmlReferenceEClass, XML_REFERENCE___IS_TRANSLATABLE);
+		createEOperation(xmlReferenceEClass, XML_REFERENCE___GET_SOURCE_PROPERTY_PATH);
+		createEOperation(xmlReferenceEClass, XML_REFERENCE___GET_TARGET_PROPERTY_PATH);
 
 		xmlPropertyEClass = createEClass(XML_PROPERTY);
 		createEReference(xmlPropertyEClass, XML_PROPERTY__REFERENCES);
@@ -879,6 +901,10 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		op = initEOperation(getXmlReference__IsTranslatable(), ecorePackage.getEBoolean(), "isTranslatable", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		initEOperation(getXmlReference__GetSourcePropertyPath(), this.getPathParam(), "getSourcePropertyPath", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getXmlReference__GetTargetPropertyPath(), this.getPathParam(), "getTargetPropertyPath", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(xmlPropertyEClass, XmlProperty.class, "XmlProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getXmlProperty_References(), this.getXmlReference(), this.getXmlReference_Property(), "references", null, 0, -1, XmlProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

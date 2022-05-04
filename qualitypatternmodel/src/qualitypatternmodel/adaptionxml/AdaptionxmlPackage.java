@@ -1533,13 +1533,31 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___IS_TRANSLATABLE = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Source Property Path</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___GET_SOURCE_PROPERTY_PATH = GraphstructurePackage.RELATION_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Target Property Path</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___GET_TARGET_PROPERTY_PATH = GraphstructurePackage.RELATION_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Xml Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 1;
+	int XML_REFERENCE_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl <em>Xml Property</em>}' class.
@@ -5095,6 +5113,26 @@ public interface AdaptionxmlPackage extends EPackage {
 	EOperation getXmlReference__IsTranslatable();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlReference#getSourcePropertyPath() <em>Get Source Property Path</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Source Property Path</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlReference#getSourcePropertyPath()
+	 * @generated
+	 */
+	EOperation getXmlReference__GetSourcePropertyPath();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlReference#getTargetPropertyPath() <em>Get Target Property Path</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Target Property Path</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlReference#getTargetPropertyPath()
+	 * @generated
+	 */
+	EOperation getXmlReference__GetTargetPropertyPath();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlProperty <em>Xml Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5602,6 +5640,22 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_REFERENCE___IS_TRANSLATABLE = eINSTANCE.getXmlReference__IsTranslatable();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Source Property Path</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_REFERENCE___GET_SOURCE_PROPERTY_PATH = eINSTANCE.getXmlReference__GetSourcePropertyPath();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Target Property Path</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_REFERENCE___GET_TARGET_PROPERTY_PATH = eINSTANCE.getXmlReference__GetTargetPropertyPath();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl <em>Xml Property</em>}' class.
