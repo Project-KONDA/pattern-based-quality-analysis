@@ -740,8 +740,8 @@
           eOpposite="#//adaptionxml/XmlNavigation/pathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="propertyOptionParam"
           eType="#//adaptionxml/PropertyOptionParam" containment="true" eOpposite="#//adaptionxml/PropertyOptionParam/pathParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="axisPairs" lowerBound="1"
-          upperBound="-1" eType="#//adaptionxml/AxisPair" containment="true" eOpposite="#//adaptionxml/AxisPair/pathParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="axisPairs" upperBound="-1"
+          eType="#//adaptionxml/AxisPair" containment="true" eOpposite="#//adaptionxml/AxisPair/pathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPropertyNavigation"
           eType="#//adaptionxml/XmlPropertyNavigation" eOpposite="#//adaptionxml/XmlPropertyNavigation/pathParam"/>
     </eClassifiers>

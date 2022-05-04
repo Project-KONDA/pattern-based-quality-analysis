@@ -75,6 +75,18 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 	}
 	
 	@Override
+	public String generateQuery() throws InvalidityException {
+		String query = getAxisOptionParam().generateQuery();
+		if (getTextLiteralParam() != null) {
+			String literal = getTextLiteralParam().generateQuery();
+			if ( !(literal.equals("\"\"")) && !(literal.equals("\"*\""))) {
+				query += "[name()=" + literal + "]";
+			}
+		}
+		return query; 
+	}
+	
+	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
 			throw new InvalidityException("non-generic class in generic pattern");
@@ -88,9 +100,9 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 	
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (textLiteralParam == null) {
-			throw new InvalidityException("textLiteralParam null");
-		}
+//		if (textLiteralParam == null) {
+//			throw new InvalidityException("textLiteralParam null");
+//		}
 		if (axisOptionParam == null) {
 			throw new InvalidityException("axisOptionParam null");
 		}
@@ -110,7 +122,6 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 	}
 	
 	
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -85,7 +85,7 @@ public interface PathParam extends ParameterValue, Adaptable {
 	 * @return the value of the '<em>Axis Pairs</em>' containment reference list.
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPathParam_AxisPairs()
 	 * @see qualitypatternmodel.adaptionxml.AxisPair#getPathParam
-	 * @model opposite="pathParam" containment="true" required="true"
+	 * @model opposite="pathParam" containment="true"
 	 * @generated
 	 */
 	EList<AxisPair> getAxisPairs();

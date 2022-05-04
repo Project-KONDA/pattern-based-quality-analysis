@@ -127,18 +127,24 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 			propertyOptionParam.isValid(abstractionLevel);
 	}
 	
-	
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
-		if (getXmlPropertyNavigation() != null && propertyOptionParam == null) 
-			throw new InvalidityException("propertyOptionParam is null for XmlPropertyNavigation");
-		if (getXmlNavigation() != null && propertyOptionParam != null) 
-			throw new InvalidityException("propertyOptionParam is existent for XmlNavigation");
-		if (axisPairs == null) 
-			throw new InvalidityException("axisPair is null");
-		if (axisPairs.isEmpty()) 
-			throw new InvalidityException("axisPair is empty");
+		if (getRelation() == null)
+			throw new InvalidityException("PathParam is not assigned to a Relation");
+		if (getXmlPropertyNavigation() != null)
+			if (propertyOptionParam == null) {
+				throw new InvalidityException("propertyOptionParam is null for XmlPropertyNavigation");
+			}				
+		if (getXmlNavigation() != null) {
+			if (propertyOptionParam != null) {
+				throw new InvalidityException("propertyOptionParam is existent for XmlNavigation");
+			}
+			if (axisPairs == null) 
+				throw new InvalidityException("axisPair is null");
+			if (axisPairs.isEmpty()) 
+				throw new InvalidityException("axisPair is empty");							
+		}
 	}
 	
 	@Override
