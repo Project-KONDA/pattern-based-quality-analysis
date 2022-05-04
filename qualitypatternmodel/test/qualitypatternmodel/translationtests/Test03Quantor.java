@@ -145,7 +145,12 @@ public class Test03Quantor {
 		CompletePattern completePattern = getPatternExists();
 		Graph graph2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Node last = graph2.getNodes().get(1);
-		last.addPrimitiveComparison("New York City");
+		try {
+			last.addPrimitiveComparison("New York City");
+		} catch (InvalidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return completePattern;
 	}

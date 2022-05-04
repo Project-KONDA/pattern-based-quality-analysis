@@ -198,10 +198,10 @@ public class EvalUnique {
 		countPattern.getGraph().getReturnNodes().add(e5G2);
 		e5G2.addPrimitiveComparison();
 		
-		PrimitiveNode previous = graphFactory.createProperty();
+		PrimitiveNode previous = graphFactory.createPrimitiveNode();
 		previous.setElement(e3G2);
 		
-		PrimitiveNode other = graphFactory.createProperty();
+		PrimitiveNode other = graphFactory.createPrimitiveNode();
 		other.setElement(e5G2);
 			
 		Comparison comparison = operatorsFactory.createComparison();		
@@ -296,10 +296,10 @@ public class EvalUnique {
 		relation2.setTarget(nextToElement2);
 		nextToElement2.addPrimitiveComparison();
 		
-		PrimitiveNode propertyNextToReturn = graphFactory.createProperty();
+		PrimitiveNode propertyNextToReturn = graphFactory.createPrimitiveNode();
 		propertyNextToReturn.setElement(nextToReturn.getOutgoingMappings().get(0).getTarget().getOutgoingMappings().get(0).getTarget());
 		
-		PrimitiveNode propertyNextToElement2 = graphFactory.createProperty();
+		PrimitiveNode propertyNextToElement2 = graphFactory.createPrimitiveNode();
 		propertyNextToElement2.setElement(nextToElement2);
 			
 		Comparison comparison = operatorsFactory.createComparison();		

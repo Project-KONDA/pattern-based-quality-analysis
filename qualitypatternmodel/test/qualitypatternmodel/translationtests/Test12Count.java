@@ -89,7 +89,12 @@ public class Test12Count {
 		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = Test00.getBasePattern();
-		completePattern.getGraph().getReturnNodes().get(0).addPrimitiveComparison();
+		try {
+			completePattern.getGraph().getReturnNodes().get(0).addPrimitiveComparison();
+		} catch (InvalidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		CountCondition countCondition = factory.createCountCondition();
 		completePattern.setCondition(countCondition);		
@@ -105,7 +110,12 @@ public class Test12Count {
 		Node returnInCPattern = countpattern.getGraph().getNodes().get(0);
 		Node nextToReturnInCPattern = graphstructureFactory.createNode();
 		nextToReturnInCPattern.setGraph(countpattern.getGraph());
-		nextToReturnInCPattern.addPrimitiveComparison();
+		try {
+			nextToReturnInCPattern.addPrimitiveComparison();
+		} catch (InvalidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		Relation relation = graphstructureFactory.createRelation();
 		relation.setGraph(countpattern.getGraph());
