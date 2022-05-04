@@ -1119,6 +1119,26 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		}			
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Relation> getRelationsTo(Node node) {
+		BasicEList<Relation> relations = new BasicEList<Relation>();
+		for (Relation incomming: getIncoming()) {
+			if (incomming.getSource().equals(node))
+				relations.add(incomming);
+		}
+		if (this instanceof ComplexNode) {
+			for (Relation outgoing: ((ComplexNode) this).getOutgoing())
+				if (outgoing.getTarget().equals(node))
+					relations.add(outgoing);
+		}
+		return relations;
+	}
+
 	private XmlProperty adaptAsXmlPropertyRecursive() throws InvalidityException {			
 		
 		XmlPropertyImpl xmlProperty = new XmlPropertyImpl();	
@@ -1736,6 +1756,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case GraphstructurePackage.NODE___GET_RELATIONS_TO__NODE:
+				return getRelationsTo((Node)arguments.get(0));
 			case GraphstructurePackage.NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;

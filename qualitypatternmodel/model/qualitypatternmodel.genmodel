@@ -312,6 +312,9 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsXmlElement"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsXmlProperty"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/checkComparisonConsistency.1"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/getRelationsTo">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/getRelationsTo/node"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Graph">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/nodes"/>

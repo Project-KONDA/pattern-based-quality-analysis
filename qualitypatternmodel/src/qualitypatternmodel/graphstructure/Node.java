@@ -495,4 +495,12 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 */
 	void checkComparisonConsistency() throws InvalidityException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<Relation> getRelationsTo(Node node);
+
 } // Element

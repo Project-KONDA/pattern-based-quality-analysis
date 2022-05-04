@@ -2,14 +2,11 @@
  */
 package qualitypatternmodel.parameters.impl;
 
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import org.basex.query.QueryException;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
@@ -20,24 +17,17 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.AxisPair;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.execution.Database;
-import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 import qualitypatternmodel.utility.Constants;
-import static qualitypatternmodel.adaptionxml.AxisKind.*;
 
 /**
  * <!-- begin-user-doc -->

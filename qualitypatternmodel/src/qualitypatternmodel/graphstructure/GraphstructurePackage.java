@@ -1332,13 +1332,22 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___CHECK_COMPARISON_CONSISTENCY = COMPARABLE_OPERATION_COUNT + 28;
 
 	/**
+	 * The operation id for the '<em>Get Relations To</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___GET_RELATIONS_TO__NODE = COMPARABLE_OPERATION_COUNT + 29;
+
+	/**
 	 * The number of operations of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 29;
+	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 30;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.
@@ -1970,6 +1979,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY = NODE___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
+	 * The operation id for the '<em>Get Relations To</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___GET_RELATIONS_TO__NODE = NODE___GET_RELATIONS_TO__NODE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3199,6 +3217,15 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY = NODE___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
+	 * The operation id for the '<em>Get Relations To</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___GET_RELATIONS_TO__NODE = NODE___GET_RELATIONS_TO__NODE;
+
+	/**
 	 * The number of operations of the '<em>Complex Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3794,6 +3821,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNode__CheckComparisonConsistency();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#getRelationsTo(qualitypatternmodel.graphstructure.Node) <em>Get Relations To</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Relations To</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#getRelationsTo(qualitypatternmodel.graphstructure.Node)
+	 * @generated
+	 */
+	EOperation getNode__GetRelationsTo__Node();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Graph <em>Graph</em>}'.
@@ -4552,6 +4589,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NODE___CHECK_COMPARISON_CONSISTENCY = eINSTANCE.getNode__CheckComparisonConsistency();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Relations To</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___GET_RELATIONS_TO__NODE = eINSTANCE.getNode__GetRelationsTo__Node();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.GraphImpl <em>Graph</em>}' class.
