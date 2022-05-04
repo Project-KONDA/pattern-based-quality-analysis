@@ -144,6 +144,10 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 			throw new InvalidityException("options null");
 		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getOptions().isEmpty())
 			throw new InvalidityException("not enough options");
+		
+		if(getParameterList() != null) {
+			throw new InvalidityException("AxisOptionParam contained in ParameterList instead of AxisPair");
+		}
 		super.isValidLocal(abstractionLevel);
 	}
 
@@ -184,10 +188,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {
-//		if(newVariableList == null) {
-//			getRelations().clear();
-//		}
-		return super.basicSetParameterList(newVariableList, msgs);
+		throw new UnsupportedOperationException();
 	}
 
 	/**

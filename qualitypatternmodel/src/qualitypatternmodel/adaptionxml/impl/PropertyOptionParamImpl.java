@@ -154,6 +154,9 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 		super.isValidLocal(abstractionLevel);
 		if (getAttributeName() == null)
 			throw new InvalidityException("attributeName null");
+		if(getParameterList() != null) {
+			throw new InvalidityException("PropertyOptionParam contained in ParameterList instead of PathParam");
+		}
 	}
 	
 	@Override
@@ -183,10 +186,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {		
-		if(newVariableList == null) {
-			getProperties().clear();
-		}
-		return super.basicSetParameterList(newVariableList, msgs);
+		throw new UnsupportedOperationException();
 	}
 	
 	/**
