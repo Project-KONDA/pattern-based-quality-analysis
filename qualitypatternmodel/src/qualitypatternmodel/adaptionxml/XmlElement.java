@@ -73,4 +73,12 @@ public interface XmlElement extends ComplexNode {
 	 */
 	EList<Comparison> getTagComparisons();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getTagFromComparisons();
+
 } // XMLElement

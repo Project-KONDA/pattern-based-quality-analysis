@@ -730,13 +730,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___GET_TAG_COMPARISONS = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get Tag From Comparisons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___GET_TAG_FROM_COMPARISONS = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Xml Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 4;
+	int XML_ELEMENT_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl <em>Xml Navigation</em>}' class.
@@ -4834,13 +4843,58 @@ public interface AdaptionxmlPackage extends EPackage {
 	int AXIS_PAIR___CREATE_PARAMETERS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get Next Axis Pairs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_PAIR___GET_NEXT_AXIS_PAIRS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Previous Axis Pairs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_PAIR___GET_PREVIOUS_AXIS_PAIRS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Infer Element Tag Suggestions From Outgoing Relations</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Infer Element Tag Suggestions From Incoming Relations</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
+
+	/**
 	 * The number of operations of the '<em>Axis Pair</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_PAIR_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
+	int AXIS_PAIR_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}' enum.
@@ -4911,6 +4965,16 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getXmlElement__GetTagComparisons();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlElement#getTagFromComparisons() <em>Get Tag From Comparisons</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Tag From Comparisons</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#getTagFromComparisons()
+	 * @generated
+	 */
+	EOperation getXmlElement__GetTagFromComparisons();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlNavigation <em>Xml Navigation</em>}'.
@@ -5272,6 +5336,56 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getAxisPair_PathParam();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.AxisPair#getNextAxisPairs() <em>Get Next Axis Pairs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Next Axis Pairs</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.AxisPair#getNextAxisPairs()
+	 * @generated
+	 */
+	EOperation getAxisPair__GetNextAxisPairs();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.AxisPair#getPreviousAxisPairs() <em>Get Previous Axis Pairs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Previous Axis Pairs</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.AxisPair#getPreviousAxisPairs()
+	 * @generated
+	 */
+	EOperation getAxisPair__GetPreviousAxisPairs();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestions()
+	 * @generated
+	 */
+	EOperation getAxisPair__InferElementTagSuggestions();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestionsFromOutgoingRelations() <em>Infer Element Tag Suggestions From Outgoing Relations</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Infer Element Tag Suggestions From Outgoing Relations</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestionsFromOutgoingRelations()
+	 * @generated
+	 */
+	EOperation getAxisPair__InferElementTagSuggestionsFromOutgoingRelations();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestionsFromIncomingRelations() <em>Infer Element Tag Suggestions From Incoming Relations</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Infer Element Tag Suggestions From Incoming Relations</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestionsFromIncomingRelations()
+	 * @generated
+	 */
+	EOperation getAxisPair__InferElementTagSuggestionsFromIncomingRelations();
+
+	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5355,6 +5469,14 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_ELEMENT___GET_TAG_COMPARISONS = eINSTANCE.getXmlElement__GetTagComparisons();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Tag From Comparisons</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_ELEMENT___GET_TAG_FROM_COMPARISONS = eINSTANCE.getXmlElement__GetTagFromComparisons();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl <em>Xml Navigation</em>}' class.
@@ -5645,6 +5767,46 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference AXIS_PAIR__PATH_PARAM = eINSTANCE.getAxisPair_PathParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Next Axis Pairs</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation AXIS_PAIR___GET_NEXT_AXIS_PAIRS = eINSTANCE.getAxisPair__GetNextAxisPairs();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Previous Axis Pairs</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation AXIS_PAIR___GET_PREVIOUS_AXIS_PAIRS = eINSTANCE.getAxisPair__GetPreviousAxisPairs();
+
+		/**
+		 * The meta object literal for the '<em><b>Infer Element Tag Suggestions</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS = eINSTANCE.getAxisPair__InferElementTagSuggestions();
+
+		/**
+		 * The meta object literal for the '<em><b>Infer Element Tag Suggestions From Outgoing Relations</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS = eINSTANCE.getAxisPair__InferElementTagSuggestionsFromOutgoingRelations();
+
+		/**
+		 * The meta object literal for the '<em><b>Infer Element Tag Suggestions From Incoming Relations</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS = eINSTANCE.getAxisPair__InferElementTagSuggestionsFromIncomingRelations();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}' enum.

@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Iterator;
-
 import org.basex.query.QueryException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -23,6 +21,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.PathParam;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -805,209 +804,67 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	@Override
 	public EList<String> inferElementTagSuggestions() {
 		EList<String> suggestions = new BasicEList<String>();
-		for(XmlElement element : getTagComparisonElements()) {			
-			analyseIncomingRelations(suggestions, element);			
-			analyseOutgoingRelations(suggestions, element);			
+		
+		EList<Comparison> comparisons = getComparison1();
+		comparisons.addAll(getComparison2());
+		for (Comparison comp : comparisons) {
+			if(comp.getOption().getValue() == ComparisonOperator.EQUAL) {				
+				XmlProperty tagNode = null;
+				if(comp.getArgument1().equals(this)) {
+					if(comp.getArgument2() instanceof XmlProperty) {
+						tagNode = (XmlProperty) comp.getArgument2();
+					}
+				}
+				if(comp.getArgument2().equals(this)) {
+					if(comp.getArgument1() instanceof XmlProperty) {
+						tagNode = (XmlProperty) comp.getArgument1();			
+					}
+				}
+				if(tagNode != null) {
+					for (Relation r : tagNode.getIncoming()) {
+						PathParam pathParam = null;					
+						if(r instanceof XmlNavigation) {
+							XmlNavigation nav = (XmlNavigation) r;
+							pathParam = nav.getOriginalPathParam();
+							if(pathParam.getAxisPairs().isEmpty()) {
+								for (Relation previousRelation : nav.getSource().getIncoming()) {
+									if(previousRelation instanceof XmlNavigation) {
+										XmlNavigation previousNav = (XmlNavigation) previousRelation;
+										PathParam previousPathParam = previousNav.getOriginalPathParam();
+										TextLiteralParam text = previousPathParam.getAxisPairs().get(previousPathParam.getAxisPairs().size()-1).getTextLiteralParam();
+										if(text != null) {
+											EList<String> newSuggestions = text.inferElementTagSuggestions();
+											if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
+												suggestions.addAll(newSuggestions);
+											} else {
+												suggestions.retainAll(newSuggestions);
+											}
+										}
+									}
+								}
+								
+							} else {
+								TextLiteralParam text = pathParam.getAxisPairs().get(pathParam.getAxisPairs().size()-1).getTextLiteralParam();
+								if(text != null) {
+									EList<String> newSuggestions = text.inferElementTagSuggestions();
+									if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
+										suggestions.addAll(newSuggestions);
+									} else {
+										suggestions.retainAll(newSuggestions);
+									}
+								}
+							}
+							
+						}
+					}
+				}			
+				
+			}
 		}
+		
 		return suggestions;
 	}
 	
-	/**
-	 * Calculates suggestions for the tag name of <code>element</code> based on
-	 * specified outgoing <code>XmlNavigations</code> to <code>XmlElements</code>
-	 * with an already specified tag name  via the XML schema of the database associated with the pattern.
-	 * 
-	 * @param suggestions a list of suggestions to which newly calculated suggestions are appended
-	 * @param element the <code>XmlElement</code> for which tag suggestions are calculated
-	 */
-	private void analyseOutgoingRelations(EList<String> suggestions, XmlElement element) {
-		for(Relation outgoingRelation : element.getOutgoing()) {
-			if(outgoingRelation instanceof XmlNavigation) {
-				XmlNavigation outgoingNavigation = (XmlNavigation) outgoingRelation;					
-				if(outgoingNavigation.getOption() != null && outgoingNavigation.getTarget() instanceof XmlElement) {
-					XmlElement target = (XmlElement) outgoingNavigation.getTarget();
-					for(Comparison tagComparison : target.getTagComparisons()) {
-						TextLiteralParam text = null;
-						if(tagComparison.getArgument1() instanceof TextLiteralParam){
-							text = (TextLiteralParam) tagComparison.getArgument1();								
-						}
-						if(tagComparison.getArgument2() instanceof TextLiteralParam){
-							text = (TextLiteralParam) tagComparison.getArgument2();								
-						}
-						if(text != null && text.getValue() != null && !text.getValue().equals("")) {
-							String tag = text.getValue();										
-							Database db;
-							try {
-								db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-								if (db instanceof XmlDataDatabase) {
-									XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
-
-									if (outgoingNavigation.getOption().getValue() == AxisKind.CHILD) {
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getParentsInSchema(tag));
-									}
-									if (outgoingNavigation.getOption().getValue() == AxisKind.DESCENDANT) {
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getAncestorsInSchema(tag));
-									}
-
-									if (outgoingNavigation.getOption().getValue() == AxisKind.PARENT) {
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getChildrenInSchema(tag));
-									}
-									if (outgoingNavigation.getOption().getValue() == AxisKind.ANCESTOR) {
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(tag));
-									}
-
-									if (outgoingNavigation.getOption()
-											.getValue() == AxisKind.FOLLOWING_SIBLING) {
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getPrecedingSiblingsInSchema(tag));
-									}
-									if (outgoingNavigation.getOption().getValue() == AxisKind.FOLLOWING) {
-										// TODO
-									}
-
-									if (outgoingNavigation.getOption().getValue() == AxisKind.PRECEDING) {
-										// TODO
-									}
-									if (outgoingNavigation.getOption()
-											.getValue() == AxisKind.PRECEDING_SIBLING) {
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getFollowingSiblingsInSchema(tag));
-									}
-
-									if (outgoingNavigation.getOption().getValue() == AxisKind.SELF) {
-										suggestions.add(tag);
-									}
-
-									if (outgoingNavigation.getOption()
-											.getValue() == AxisKind.DESCENDANT_OR_SELF) {
-										suggestions.add(tag);
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getAncestorsInSchema(tag));
-									}
-
-									if (outgoingNavigation.getOption()
-											.getValue() == AxisKind.ANCESTOR_OR_SELF) {
-										suggestions.add(tag);
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(tag));
-									}
-								}
-							} catch (MissingPatternContainerException | QueryException | IOException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}								
-						}
-					}
-				}					
-			}
-		}
-	}
-
-	/**
-	 * Calculates suggestions for the tag name of <code>element</code> based on
-	 * specified incoming <code>XmlNavigations</code> from <code>XmlElements</code>
-	 * with an already specified tag name via the XML schema of the database associated with the pattern.
-	 * 
-	 * @param suggestions a list of suggestions to which newly calculated suggestions are appended
-	 * @param element the <code>XmlElement</code> for which tag suggestions are calculated
-	 */
-	private void analyseIncomingRelations(EList<String> suggestions, XmlElement element) {
-		for(Relation incomingRelation : element.getIncoming()) {
-			if(incomingRelation instanceof XmlNavigation) {
-				XmlNavigation incomingNavigation = (XmlNavigation) incomingRelation;					
-				if(incomingNavigation.getOption() != null && incomingNavigation.getSource() instanceof XmlElement) {
-					XmlElement source = (XmlElement) incomingNavigation.getSource();
-					for(Comparison tagComparison : source.getTagComparisons()) {
-						TextLiteralParam text = null;
-						if(tagComparison.getArgument1() instanceof TextLiteralParam){
-							text = (TextLiteralParam) tagComparison.getArgument1();								
-						}
-						if(tagComparison.getArgument2() instanceof TextLiteralParam){
-							text = (TextLiteralParam) tagComparison.getArgument2();								
-						}
-						if(text != null && text.getValue() != null && !text.getValue().equals("")) {
-							String tag = text.getValue();										
-							Database db;
-							try {
-								db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-								if (db instanceof XmlDataDatabase) {
-									XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
-
-									if (incomingNavigation.getOption().getValue() == AxisKind.CHILD) {
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getChildrenInSchema(tag));
-									}
-									if (incomingNavigation.getOption().getValue() == AxisKind.DESCENDANT) {
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(tag));
-									}
-
-									if (incomingNavigation.getOption().getValue() == AxisKind.PARENT) {
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getParentsInSchema(tag));
-									}
-									if (incomingNavigation.getOption().getValue() == AxisKind.ANCESTOR) {
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getAncestorsInSchema(tag));
-									}
-
-									if (incomingNavigation.getOption()
-											.getValue() == AxisKind.FOLLOWING_SIBLING) {
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getFollowingSiblingsInSchema(tag));
-									}
-									if (incomingNavigation.getOption().getValue() == AxisKind.FOLLOWING) {
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getFollowingInSchema(tag));
-									}
-
-									if (incomingNavigation.getOption().getValue() == AxisKind.PRECEDING) {
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getPrecedingInSchema(tag));
-									}
-									if (incomingNavigation.getOption()
-											.getValue() == AxisKind.PRECEDING_SIBLING) {
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getPrecedingSiblingsInSchema(tag));
-									}
-
-									if (incomingNavigation.getOption().getValue() == AxisKind.SELF) {
-										suggestions.add(tag);
-									}
-
-									if (incomingNavigation.getOption()
-											.getValue() == AxisKind.DESCENDANT_OR_SELF) {
-										suggestions.add(tag);
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(tag));
-									}
-
-									if (incomingNavigation.getOption()
-											.getValue() == AxisKind.ANCESTOR_OR_SELF) {
-										suggestions.add(tag);
-										suggestions.addAll(xmlDataDatabase.getXmlSchema().getAncestorsInSchema(tag));
-									}
-								}
-							} catch (MissingPatternContainerException | QueryException | IOException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}								
-						}
-					}
-				} else if(incomingNavigation.getOption() != null && incomingNavigation.getSource() instanceof XmlRoot) {			
-					
-					Database db;
-					try {
-						db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-						if (db instanceof XmlDataDatabase) {
-							XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
-							
-							for(String rootElementName : xmlDataDatabase.getXmlSchema().getRootElementNames()) {
-
-								if (incomingNavigation.getOption().getValue() == AxisKind.CHILD) {
-									suggestions.addAll(xmlDataDatabase.getXmlSchema().getChildrenInSchema(rootElementName));
-								}
-								if (incomingNavigation.getOption().getValue() == AxisKind.DESCENDANT) {
-									suggestions.addAll(xmlDataDatabase.getXmlSchema().getDescendantsInSchema(rootElementName));
-								}
-							}
-						}
-					} catch (MissingPatternContainerException | QueryException | IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
-				}
-			}
-		}
-	}
 
 	/**
 	 * <!-- begin-user-doc -->

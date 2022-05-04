@@ -3,9 +3,12 @@
 package qualitypatternmodel.execution;
 
 import java.io.IOException;
+import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
+import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
+import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
@@ -231,5 +234,29 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 	 * @generated
 	 */
 	String findXSDURL() throws IOException, QueryException, InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.IoExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.BaseXExceptionWrapper"
+	 * @generated
+	 */
+	EList<String> getSuggestionsFromAxisPreviousTag(AxisKind axisKind, String previousTag) throws IOException, QueryException, QueryIOException, BaseXException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.IoExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.BaseXExceptionWrapper"
+	 * @generated
+	 */
+	EList<String> getSuggestionsFromAxisNextTag(AxisKind axisKind, String previousTag) throws IOException, QueryException, QueryIOException, BaseXException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.IoExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.BaseXExceptionWrapper"
+	 * @generated
+	 */
+	EList<String> getSuggestionsFromAxisPreviousRoot(AxisKind axisKind) throws IOException, QueryException, QueryIOException, BaseXException;
 
 } // XmlDatabase

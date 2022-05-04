@@ -597,6 +597,36 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getXmlDataDatabase__GetSuggestionsFromAxisPreviousTag__AxisKind_String() {
+		return xmlDataDatabaseEClass.getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDataDatabase__GetSuggestionsFromAxisNextTag__AxisKind_String() {
+		return xmlDataDatabaseEClass.getEOperations().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDataDatabase__GetSuggestionsFromAxisPreviousRoot__AxisKind() {
+		return xmlDataDatabaseEClass.getEOperations().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getLocalXmlDataDatabase() {
 		return localXmlDataDatabaseEClass;
 	}
@@ -1363,6 +1393,9 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST);
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___CREATE_SCHEMA_DATABASE_FROM_REFERENCED_SCHEMA);
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___FIND_XSDURL);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND);
 
 		localXmlDataDatabaseEClass = createEClass(LOCAL_XML_DATA_DATABASE);
 		createEAttribute(localXmlDataDatabaseEClass, LOCAL_XML_DATA_DATABASE__DATA_PATH);
@@ -1474,6 +1507,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		// Obtain other dependent packages
 		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
+		AdaptionxmlPackage theAdaptionxmlPackage = (AdaptionxmlPackage)EPackage.Registry.INSTANCE.getEPackage(AdaptionxmlPackage.eNS_URI);
 		OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
 
 		// Create type parameters
@@ -1555,6 +1589,29 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		addEException(op, this.getIoExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getXmlDataDatabase__GetSuggestionsFromAxisPreviousTag__AxisKind_String(), ecorePackage.getEString(), "getSuggestionsFromAxisPreviousTag", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theAdaptionxmlPackage.getAxisKind(), "axisKind", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "previousTag", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIoExceptionWrapper());
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
+		addEException(op, this.getBaseXExceptionWrapper());
+
+		op = initEOperation(getXmlDataDatabase__GetSuggestionsFromAxisNextTag__AxisKind_String(), ecorePackage.getEString(), "getSuggestionsFromAxisNextTag", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theAdaptionxmlPackage.getAxisKind(), "axisKind", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "previousTag", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIoExceptionWrapper());
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
+		addEException(op, this.getBaseXExceptionWrapper());
+
+		op = initEOperation(getXmlDataDatabase__GetSuggestionsFromAxisPreviousRoot__AxisKind(), ecorePackage.getEString(), "getSuggestionsFromAxisPreviousRoot", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theAdaptionxmlPackage.getAxisKind(), "axisKind", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIoExceptionWrapper());
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
+		addEException(op, this.getBaseXExceptionWrapper());
 
 		initEClass(localXmlDataDatabaseEClass, LocalXmlDataDatabase.class, "LocalXmlDataDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLocalXmlDataDatabase_DataPath(), ecorePackage.getEString(), "dataPath", null, 0, 1, LocalXmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

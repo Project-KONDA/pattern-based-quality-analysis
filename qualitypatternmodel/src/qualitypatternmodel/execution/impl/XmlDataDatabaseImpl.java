@@ -10,9 +10,13 @@ import java.net.URLDecoder;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+
+import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
+import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.BasicEMap;
 import org.eclipse.emf.common.util.EList;
 
@@ -25,6 +29,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
+import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -38,6 +43,8 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.servlettests.ServletTestsUtil;
+import static qualitypatternmodel.adaptionxml.AxisKind.*;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -588,6 +595,126 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @throws QueryException 
+	 * @throws QueryIOException 
+	 * @throws BaseXException 
+	 * @generated NOT
+	 */
+	@Override
+	public EList<String> getSuggestionsFromAxisPreviousTag(AxisKind axisKind, String previousTag) throws BaseXException, QueryIOException, QueryException, IOException {
+		EList<String> suggestions = new BasicEList<String>();
+
+		switch (axisKind) {
+		case CHILD:
+			return getXmlSchema().getChildrenInSchema(previousTag);
+		case DESCENDANT:
+			return getXmlSchema().getDescendantsInSchema(previousTag);			
+		case PARENT:
+			return getXmlSchema().getParentsInSchema(previousTag);
+		case ANCESTOR:
+			return getXmlSchema().getAncestorsInSchema(previousTag);
+		case FOLLOWING_SIBLING:
+			return getXmlSchema().getFollowingSiblingsInSchema(previousTag);
+		case FOLLOWING:
+			return getXmlSchema().getFollowingInSchema(previousTag);
+		case PRECEDING:
+			return getXmlSchema().getPrecedingInSchema(previousTag);
+		case PRECEDING_SIBLING:
+			return getXmlSchema().getPrecedingSiblingsInSchema(previousTag);
+		case SELF:
+			suggestions.add(previousTag);
+			return suggestions;
+		case DESCENDANT_OR_SELF:
+			suggestions.add(previousTag);
+			suggestions.addAll(getXmlSchema().getDescendantsInSchema(previousTag));
+			return suggestions;
+		case ANCESTOR_OR_SELF:
+			suggestions.add(previousTag);
+			suggestions.addAll(getXmlSchema().getAncestorsInSchema(previousTag));
+			return suggestions;
+		default:
+			return suggestions;
+		}							
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @throws QueryException 
+	 * @throws QueryIOException 
+	 * @throws BaseXException 
+	 * @generated NOT
+	 */
+	@Override
+	public EList<String> getSuggestionsFromAxisNextTag(AxisKind axisKind, String nextTag) throws BaseXException, QueryIOException, QueryException, IOException {
+		EList<String> suggestions = new BasicEList<String>();
+
+		switch (axisKind) {
+		case CHILD:
+			return getXmlSchema().getParentsInSchema(nextTag);
+		case DESCENDANT:
+			return getXmlSchema().getAncestorsInSchema(nextTag);			
+		case PARENT:
+			return getXmlSchema().getChildrenInSchema(nextTag);
+		case ANCESTOR:
+			return getXmlSchema().getDescendantsInSchema(nextTag);
+		case FOLLOWING_SIBLING:
+			return getXmlSchema().getPrecedingSiblingsInSchema(nextTag);
+		case FOLLOWING:
+			// TODO	
+			return suggestions;
+		case PRECEDING:
+			// TODO
+			return suggestions;
+		case PRECEDING_SIBLING:
+			return getXmlSchema().getFollowingSiblingsInSchema(nextTag);
+		case SELF:
+			suggestions.add(nextTag);
+			return suggestions;
+		case DESCENDANT_OR_SELF:
+			suggestions.add(nextTag);
+			suggestions.addAll(getXmlSchema().getAncestorsInSchema(nextTag));
+			return suggestions;
+		case ANCESTOR_OR_SELF:
+			suggestions.add(nextTag);
+			suggestions.addAll(getXmlSchema().getDescendantsInSchema(nextTag));
+			return suggestions;
+		default:
+			return suggestions;
+		}					
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @throws QueryException 
+	 * @throws QueryIOException 
+	 * @throws BaseXException 
+	 * @generated NOT
+	 */
+	@Override
+	public EList<String> getSuggestionsFromAxisPreviousRoot(AxisKind axisKind) throws BaseXException, QueryIOException, QueryException, IOException {
+		EList<String> suggestions = new BasicEList<String>();
+		
+		for(String rootElementName : getXmlSchema().getRootElementNames()) {
+			switch (axisKind) {
+			case CHILD:
+				suggestions.addAll(getXmlSchema().getChildrenInSchema(rootElementName));
+			case DESCENDANT:
+				suggestions.addAll(getXmlSchema().getDescendantsInSchema(rootElementName));
+			default:
+				break;
+			}
+		}
+		return suggestions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -858,6 +985,27 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			case ExecutionPackage.XML_DATA_DATABASE___FIND_XSDURL:
 				try {
 					return findXSDURL();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING:
+				try {
+					return getSuggestionsFromAxisPreviousTag((AxisKind)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING:
+				try {
+					return getSuggestionsFromAxisNextTag((AxisKind)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND:
+				try {
+					return getSuggestionsFromAxisPreviousRoot((AxisKind)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

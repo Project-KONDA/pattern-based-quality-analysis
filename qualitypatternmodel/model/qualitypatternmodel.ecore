@@ -669,6 +669,7 @@
       <eOperations name="translatePredicates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getTagComparisons" upperBound="-1" eType="#//operators/Comparison"/>
+      <eOperations name="getTagFromComparisons" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlNavigation" eSuperTypes="#//graphstructure/Relation">
       <eOperations name="getOriginalPathParam" eType="#//adaptionxml/PathParam"/>
@@ -746,6 +747,13 @@
           eType="#//adaptionxml/XmlPropertyNavigation" eOpposite="#//adaptionxml/XmlPropertyNavigation/pathParam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AxisPair" eSuperTypes="#//patternstructure/PatternElement #//graphstructure/Adaptable">
+      <eOperations name="getNextAxisPairs" upperBound="-1" eType="#//adaptionxml/AxisPair"/>
+      <eOperations name="getPreviousAxisPairs" upperBound="-1" eType="#//adaptionxml/AxisPair"/>
+      <eOperations name="inferElementTagSuggestions" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="inferElementTagSuggestionsFromOutgoingRelations" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="inferElementTagSuggestionsFromIncomingRelations" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="textLiteralParam" lowerBound="1"
           eType="#//parameters/TextLiteralParam" containment="true" eOpposite="#//parameters/TextLiteralParam/axisPair"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="axisOptionParam" lowerBound="1"
@@ -809,6 +817,20 @@
           eExceptions="#//execution/IoExceptionWrapper #//patternstructure/InvalidityExceptionWrapper #//execution/QueryExceptionWrapper"/>
       <eOperations name="findXSDURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//execution/IoExceptionWrapper #//execution/QueryExceptionWrapper #//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="getSuggestionsFromAxisPreviousTag" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//execution/IoExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper #//execution/BaseXExceptionWrapper">
+        <eParameters name="axisKind" eType="#//adaptionxml/AxisKind"/>
+        <eParameters name="previousTag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getSuggestionsFromAxisNextTag" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//execution/IoExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper #//execution/BaseXExceptionWrapper">
+        <eParameters name="axisKind" eType="#//adaptionxml/AxisKind"/>
+        <eParameters name="previousTag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="getSuggestionsFromAxisPreviousRoot" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//execution/IoExceptionWrapper #//execution/QueryExceptionWrapper #//execution/QueryIOExceptionWrapper #//execution/BaseXExceptionWrapper">
+        <eParameters name="axisKind" eType="#//adaptionxml/AxisKind"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="recordedAttributeValues"
           upperBound="-1" eType="#//execution/StringToIntMap" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="recordedDataValues" upperBound="-1"

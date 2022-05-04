@@ -280,6 +280,16 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EOperation getXmlElement__GetTagFromComparisons() {
+		return xmlElementEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getXmlNavigation() {
 		return xmlNavigationEClass;
 	}
@@ -620,6 +630,56 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EOperation getAxisPair__GetNextAxisPairs() {
+		return axisPairEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getAxisPair__GetPreviousAxisPairs() {
+		return axisPairEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getAxisPair__InferElementTagSuggestions() {
+		return axisPairEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getAxisPair__InferElementTagSuggestionsFromOutgoingRelations() {
+		return axisPairEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getAxisPair__InferElementTagSuggestionsFromIncomingRelations() {
+		return axisPairEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getPropertyKind() {
 		return propertyKindEEnum;
 	}
@@ -668,6 +728,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		createEOperation(xmlElementEClass, XML_ELEMENT___GET_XQUERY_VARIABLE);
 		createEOperation(xmlElementEClass, XML_ELEMENT___TRANSLATE_PREDICATES);
 		createEOperation(xmlElementEClass, XML_ELEMENT___GET_TAG_COMPARISONS);
+		createEOperation(xmlElementEClass, XML_ELEMENT___GET_TAG_FROM_COMPARISONS);
 
 		xmlNavigationEClass = createEClass(XML_NAVIGATION);
 		createEReference(xmlNavigationEClass, XML_NAVIGATION__PATH_PARAM);
@@ -711,6 +772,11 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		createEReference(axisPairEClass, AXIS_PAIR__TEXT_LITERAL_PARAM);
 		createEReference(axisPairEClass, AXIS_PAIR__AXIS_OPTION_PARAM);
 		createEReference(axisPairEClass, AXIS_PAIR__PATH_PARAM);
+		createEOperation(axisPairEClass, AXIS_PAIR___GET_NEXT_AXIS_PAIRS);
+		createEOperation(axisPairEClass, AXIS_PAIR___GET_PREVIOUS_AXIS_PAIRS);
+		createEOperation(axisPairEClass, AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS);
+		createEOperation(axisPairEClass, AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS);
+		createEOperation(axisPairEClass, AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS);
 
 		// Create enums
 		propertyKindEEnum = createEEnum(PROPERTY_KIND);
@@ -778,6 +844,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		initEOperation(getXmlElement__GetTagComparisons(), theOperatorsPackage.getComparison(), "getTagComparisons", 0, -1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getXmlElement__GetTagFromComparisons(), ecorePackage.getEString(), "getTagFromComparisons", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(xmlNavigationEClass, XmlNavigation.class, "XmlNavigation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getXmlNavigation_PathParam(), this.getPathParam(), this.getPathParam_XmlNavigation(), "pathParam", null, 1, 1, XmlNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -831,6 +899,16 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		initEReference(getAxisPair_TextLiteralParam(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_AxisPair(), "textLiteralParam", null, 1, 1, AxisPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAxisPair_AxisOptionParam(), this.getAxisOptionParam(), this.getAxisOptionParam_AxisPair(), "axisOptionParam", null, 1, 1, AxisPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAxisPair_PathParam(), this.getPathParam(), this.getPathParam_AxisPairs(), "pathParam", null, 1, 1, AxisPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getAxisPair__GetNextAxisPairs(), this.getAxisPair(), "getNextAxisPairs", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAxisPair__GetPreviousAxisPairs(), this.getAxisPair(), "getPreviousAxisPairs", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAxisPair__InferElementTagSuggestions(), ecorePackage.getEString(), "inferElementTagSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAxisPair__InferElementTagSuggestionsFromOutgoingRelations(), ecorePackage.getEString(), "inferElementTagSuggestionsFromOutgoingRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAxisPair__InferElementTagSuggestionsFromIncomingRelations(), ecorePackage.getEString(), "inferElementTagSuggestionsFromIncomingRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(propertyKindEEnum, PropertyKind.class, "PropertyKind");

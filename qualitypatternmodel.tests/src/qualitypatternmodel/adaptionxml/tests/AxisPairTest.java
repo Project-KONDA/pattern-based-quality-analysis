@@ -15,6 +15,11 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
+ *   <li>{@link qualitypatternmodel.adaptionxml.AxisPair#getNextAxisPairs() <em>Get Next Axis Pairs</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.AxisPair#getPreviousAxisPairs() <em>Get Previous Axis Pairs</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestionsFromOutgoingRelations() <em>Infer Element Tag Suggestions From Outgoing Relations</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestionsFromIncomingRelations() <em>Infer Element Tag Suggestions From Incoming Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  * </ul>
@@ -73,6 +78,71 @@ public class AxisPairTest extends PatternElementTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.AxisPair#getNextAxisPairs() <em>Get Next Axis Pairs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.AxisPair#getNextAxisPairs()
+	 * @generated
+	 */
+	public void testGetNextAxisPairs() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.AxisPair#getPreviousAxisPairs() <em>Get Previous Axis Pairs</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.AxisPair#getPreviousAxisPairs()
+	 * @generated
+	 */
+	public void testGetPreviousAxisPairs() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestions()
+	 * @generated
+	 */
+	public void testInferElementTagSuggestions() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestionsFromOutgoingRelations() <em>Infer Element Tag Suggestions From Outgoing Relations</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestionsFromOutgoingRelations()
+	 * @generated
+	 */
+	public void testInferElementTagSuggestionsFromOutgoingRelations() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestionsFromIncomingRelations() <em>Infer Element Tag Suggestions From Incoming Relations</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestionsFromIncomingRelations()
+	 * @generated
+	 */
+	public void testInferElementTagSuggestionsFromIncomingRelations() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**

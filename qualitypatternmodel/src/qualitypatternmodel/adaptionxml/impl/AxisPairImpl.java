@@ -2,7 +2,10 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+
+import org.basex.query.QueryException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -17,16 +20,26 @@ import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.AxisOptionParam;
 import qualitypatternmodel.adaptionxml.AxisPair;
 import qualitypatternmodel.adaptionxml.PathParam;
+import qualitypatternmodel.adaptionxml.XmlElement;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
+import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.execution.Database;
+import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.CompletePattern;
+import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -268,6 +281,208 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<AxisPair> getNextAxisPairs() {
+		int index = getPathParam().getAxisPairs().indexOf(this);
+		EList<AxisPair> axisPairs = new BasicEList<AxisPair>();		
+		if(index < getPathParam().getAxisPairs().size()-1) {
+			axisPairs.add(getPathParam().getAxisPairs().get(index+1));
+		} else if(getPathParam().getPropertyOptionParam() == null && getPathParam().getRelation() instanceof XmlNavigation) {
+			XmlElement element = (XmlElement) getPathParam().getRelation().getTarget();			
+			for(Relation r : element.getOutgoing()) {
+				if(r instanceof XmlNavigation) {
+					XmlNavigation nav = (XmlNavigation) r;
+					axisPairs.add(nav.getPathParam().getAxisPairs().get(0));
+				}
+				if(r instanceof XmlPropertyNavigation) {
+					XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
+					axisPairs.add(nav.getPathParam().getAxisPairs().get(0));
+				}
+			}
+		}
+		return axisPairs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<AxisPair> getPreviousAxisPairs() {
+		int index = getPathParam().getAxisPairs().indexOf(this);
+		EList<AxisPair> axisPairs = new BasicEList<AxisPair>();
+		if(index > 0) {
+			axisPairs.add(getPathParam().getAxisPairs().get(index-1));
+		} else if(index == 0 && getPathParam().getRelation() != null && getPathParam().getRelation().getSource() != null) {
+			if(getPathParam().getRelation().getSource() instanceof XmlElement) {
+				for(Relation r : getPathParam().getRelation().getSource().getIncoming()) {
+					if(r instanceof XmlNavigation) {
+						XmlNavigation nav = (XmlNavigation) r;
+						axisPairs.add(nav.getPathParam().getAxisPairs().get(nav.getPathParam().getAxisPairs().size()-1));
+					}
+					if(r instanceof XmlPropertyNavigation) {
+						XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
+						axisPairs.add(nav.getPathParam().getAxisPairs().get(nav.getPathParam().getAxisPairs().size()-1));
+					}
+				}						
+			} 
+		}		
+		return axisPairs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<String> inferElementTagSuggestions() {
+		EList<String> suggestions = new BasicEList<String>();
+		
+		EList<String> suggestionsFromIncoming = inferElementTagSuggestionsFromIncomingRelations();
+		if(suggestions.isEmpty() || suggestionsFromIncoming.isEmpty()) {
+			suggestions.addAll(suggestionsFromIncoming);
+		} else {
+			suggestions.retainAll(suggestionsFromIncoming);
+		}		
+		
+		EList<String> suggestionsFromOutgoing = inferElementTagSuggestionsFromOutgoingRelations();		
+		if(suggestions.isEmpty() || suggestionsFromOutgoing.isEmpty()) {
+			suggestions.addAll(suggestionsFromOutgoing);
+		} else {
+			suggestions.retainAll(suggestionsFromOutgoing);
+		}
+				
+		return suggestions;			
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<String> inferElementTagSuggestionsFromOutgoingRelations() {
+		EList<String> suggestions = new BasicEList<String>();
+		EList<AxisPair> nextAxisPairs = getNextAxisPairs();
+		for(AxisPair next : nextAxisPairs) {		
+			if(next != null && next.getAxisOptionParam() != null && next.getAxisOptionParam().getValue() != null
+					&& next.getTextLiteralParam() != null && next.getTextLiteralParam().getValue() != null) {
+	
+				AxisKind axis = next.getAxisOptionParam().getValue();
+				String nextTag = next.getTextLiteralParam().getValue();			
+				
+				if(next.getTextLiteralParam().getValue().contentEquals("") || next.getTextLiteralParam().getValue().contentEquals("*")) {
+					int index = getPathParam().getAxisPairs().indexOf(this);
+					if(index == getPathParam().getAxisPairs().size()-1 && getPathParam().getRelation() != null && getPathParam().getRelation().getTarget() instanceof XmlElement) {
+						XmlElement xmlElement = (XmlElement) getPathParam().getRelation().getTarget();
+						nextTag = xmlElement.getTagFromComparisons();					
+					}
+				}
+				if(nextTag != null) {
+					
+					try {			
+						Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
+						if (db instanceof XmlDataDatabase) {
+							XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
+							
+							EList<String> nextSuggestions = xmlDataDatabase.getSuggestionsFromAxisNextTag(axis, nextTag);
+							
+							if(suggestions.isEmpty() || nextSuggestions.isEmpty()) {
+								suggestions.addAll(nextSuggestions);
+							} else {
+								suggestions.retainAll(nextSuggestions);						
+							}
+						}
+						
+					} catch (MissingPatternContainerException | QueryException | IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();				
+					}
+					
+					
+				}
+			}		
+		}
+		return suggestions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<String> inferElementTagSuggestionsFromIncomingRelations() {
+		if(getAxisOptionParam() == null || getAxisOptionParam().getValue() == null) {
+			return new BasicEList<String>();
+		}
+		AxisKind axis = getAxisOptionParam().getValue();
+		
+		int index = getPathParam().getAxisPairs().indexOf(this);
+		
+		if (index == 0 && getPathParam().getRelation() != null && getPathParam().getRelation().getSource() instanceof XmlRoot) {
+			try {
+				Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
+				if (db instanceof XmlDataDatabase) {
+					XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
+					return xmlDataDatabase.getSuggestionsFromAxisPreviousRoot(axis);
+				}
+			} catch (MissingPatternContainerException | QueryException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();					
+			}
+			
+			
+		} else {
+			EList<String> suggestions = new BasicEList<String>();
+			EList<AxisPair> previousAxisPairs = getPreviousAxisPairs();
+			for(AxisPair previous : previousAxisPairs) {
+			
+				if(previous != null && previous.getTextLiteralParam() != null && previous.getTextLiteralParam().getValue() != null) {
+					
+					String previousTag = previous.getTextLiteralParam().getValue();
+					
+					if(previous.getTextLiteralParam().getValue().equals("") || previous.getTextLiteralParam().getValue().equals("*")) {
+						if(index == 0 && getPathParam().getRelation() != null && getPathParam().getRelation().getSource() instanceof XmlElement) {
+							XmlElement xmlElement = (XmlElement) getPathParam().getRelation().getSource();
+							previousTag = xmlElement.getTagFromComparisons();	
+						}					
+					}	
+					
+					if(previousTag != null) {	
+						
+						try {
+							Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
+							if (db instanceof XmlDataDatabase) {
+								XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;	
+								EList<String> previousSuggestions = xmlDataDatabase.getSuggestionsFromAxisPreviousTag(axis, previousTag);
+													
+								if(suggestions.isEmpty() || previousSuggestions.isEmpty()) {
+									suggestions.addAll(previousSuggestions);
+								} else {
+									suggestions.retainAll(previousSuggestions);						
+								}
+							}
+						} catch (MissingPatternContainerException | QueryException | IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();						
+						}						
+					}
+				}	
+			}
+			return suggestions;
+		}
+
+		return new BasicEList<String>();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -447,6 +662,16 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case AdaptionxmlPackage.AXIS_PAIR___GET_NEXT_AXIS_PAIRS:
+				return getNextAxisPairs();
+			case AdaptionxmlPackage.AXIS_PAIR___GET_PREVIOUS_AXIS_PAIRS:
+				return getPreviousAxisPairs();
+			case AdaptionxmlPackage.AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS:
+				return inferElementTagSuggestions();
+			case AdaptionxmlPackage.AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS:
+				return inferElementTagSuggestionsFromOutgoingRelations();
+			case AdaptionxmlPackage.AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS:
+				return inferElementTagSuggestionsFromIncomingRelations();
 			case AdaptionxmlPackage.AXIS_PAIR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;

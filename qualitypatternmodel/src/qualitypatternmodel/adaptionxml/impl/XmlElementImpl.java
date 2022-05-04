@@ -15,6 +15,7 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -209,6 +210,47 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		return tagComparisons;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getTagFromComparisons() {
+		for(Relation r : getOutgoing()) {
+			if(r instanceof XmlPropertyNavigation) {
+				XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
+				if(nav.getPathParam() != null && nav.getPathParam().getPropertyOptionParam() != null 
+						&& nav.getPathParam().getPropertyOptionParam().getValue() == PropertyKind.TAG) {
+					Node target = nav.getTarget();
+					if(target instanceof XmlProperty) {
+						XmlProperty prop = (XmlProperty) target;
+						for(BooleanOperator boolOp : prop.getPredicates()){
+							if(boolOp instanceof Comparison) {
+								Comparison comp = (Comparison) boolOp;
+								if(comp.getOption().getValue() == ComparisonOperator.EQUAL) {
+									if(comp.getArgument1().equals(prop)) {
+										if(comp.getArgument2() instanceof TextLiteralParam) {
+											TextLiteralParam text = (TextLiteralParam) comp.getArgument2();
+											return text.getValue();
+										}
+									}
+									if(comp.getArgument2().equals(prop)) {
+										if(comp.getArgument1() instanceof TextLiteralParam) {
+											TextLiteralParam text = (TextLiteralParam) comp.getArgument1();
+											return text.getValue();
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+
 	@Override
 	public String getXQueryVariable() {
 		return VARIABLE + getOriginalID();
@@ -286,6 +328,8 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 				}
 			case AdaptionxmlPackage.XML_ELEMENT___GET_TAG_COMPARISONS:
 				return getTagComparisons();
+			case AdaptionxmlPackage.XML_ELEMENT___GET_TAG_FROM_COMPARISONS:
+				return getTagFromComparisons();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

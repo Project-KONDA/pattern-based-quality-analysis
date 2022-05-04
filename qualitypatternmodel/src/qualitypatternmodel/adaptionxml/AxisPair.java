@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.adaptionxml;
 
+import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -96,5 +97,45 @@ public interface AxisPair extends PatternElement, Adaptable {
 	 * @generated
 	 */
 	void setPathParam(PathParam value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<AxisPair> getNextAxisPairs();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<AxisPair> getPreviousAxisPairs();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<String> inferElementTagSuggestions();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<String> inferElementTagSuggestionsFromOutgoingRelations();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<String> inferElementTagSuggestionsFromIncomingRelations();
 
 } // AxisPair
