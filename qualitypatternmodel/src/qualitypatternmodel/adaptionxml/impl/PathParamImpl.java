@@ -102,6 +102,18 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 	}
 	
 	@Override
+	public String generateQuery() throws InvalidityException {
+		String query = "";
+		for(AxisPair axisPair : getAxisPairs()) {
+			query += axisPair.generateQuery();
+		}
+		if(getPropertyOptionParam() != null) {
+			query += getPropertyOptionParam().generateQuery();
+		}
+		return query;
+	}
+	
+	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
 			throw new InvalidityException("non-generic class in generic pattern");
