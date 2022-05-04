@@ -281,7 +281,12 @@ public class DemoPatterns {
 		// Context graph of pattern:
 		Node element0 = completePattern.getGraph().getNodes().get(0);
 		element0.setName("Element0");
-		element0.addPrimitiveComparison();
+		try {
+			element0.addPrimitiveComparison();
+		} catch (InvalidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
 		comp0.getOption().setValue(ComparisonOperator.EQUAL);
@@ -303,8 +308,18 @@ public class DemoPatterns {
 		relation.setSource(element0Copy);
 		relation.setTarget(element1);
 		
-		element1.addPrimitiveComparison();
-		element1.addPrimitiveComparison();
+		try {
+			element1.addPrimitiveComparison();
+		} catch (InvalidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			element1.addPrimitiveComparison();
+		} catch (InvalidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		Comparison comp1 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
 		comp1.getOption().setValue(ComparisonOperator.EQUAL);
@@ -460,7 +475,13 @@ public class DemoPatterns {
 		// Context graph of pattern:
 		Node element0 = completePattern.getGraph().getNodes().get(0);
 		element0.setName("Element0");
-		UntypedParameterValue untypedArgument = element0.addPrimitiveComparison();
+		UntypedParameterValue untypedArgument = null;
+		try {
+			untypedArgument = element0.addPrimitiveComparison();
+		} catch (InvalidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		untypedArgument.replace(ParametersFactory.eINSTANCE.createTextLiteralParam());
 		
 		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
@@ -483,10 +504,21 @@ public class DemoPatterns {
 		relation.setSource(element0Copy);
 		relation.setTarget(element1);
 		
-		UntypedParameterValue untypedArgument2 = element1.addPrimitiveComparison();
+		UntypedParameterValue untypedArgument2 = null;
+		try {
+			untypedArgument2 = element1.addPrimitiveComparison();
+		} catch (InvalidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		untypedArgument2.replace(ParametersFactory.eINSTANCE.createTextLiteralParam());
 
-		element1.addPrimitiveComparison();
+		try {
+			element1.addPrimitiveComparison();
+		} catch (InvalidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		Comparison comp1 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
 		comp1.getOption().setValue(ComparisonOperator.EQUAL);
@@ -585,7 +617,12 @@ public class DemoPatterns {
 		// Context graph of pattern:
 		Node element0 = completePattern.getGraph().getNodes().get(0);
 		element0.setName("Element0");
-		element0.addPrimitiveComparison();
+		try {
+			element0.addPrimitiveComparison();
+		} catch (InvalidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
 		comp0.getOption().setValue(ComparisonOperator.EQUAL);
@@ -626,7 +663,12 @@ public class DemoPatterns {
 		relation.setSource(element0Copy);
 		relation.setTarget(element1);
 		
-		element1.addPrimitiveComparison();
+		try {
+			element1.addPrimitiveComparison();
+		} catch (InvalidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		Comparison comp1 = (Comparison) countPattern.getGraph().getOperatorList().getOperators().get(0);
 		comp1.getOption().setValue(ComparisonOperator.EQUAL);

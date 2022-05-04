@@ -65,7 +65,7 @@ public class EvalContrel {
 		relation.setSource(returnInG);
 		relation.setTarget(id1);
 		id1.addPrimitiveComparison();
-		PrimitiveNode id1Prop = graphFactory.createProperty();
+		PrimitiveNode id1Prop = graphFactory.createPrimitiveNode();
 		id1Prop.setElement(id1);
 		id1Prop.createParameters();
 		
@@ -76,7 +76,7 @@ public class EvalContrel {
 		relation2.setSource(returnInG);
 		relation2.setTarget(ref1);
 		ref1.addPrimitiveComparison();
-		PrimitiveNode ref1Prop = graphFactory.createProperty();
+		PrimitiveNode ref1Prop = graphFactory.createPrimitiveNode();
 		ref1Prop.setElement(ref1);
 		ref1Prop.createParameters();
 		
@@ -87,7 +87,7 @@ public class EvalContrel {
 		relation3.setSource(ref1);
 		relation3.setTarget(val1);
 		val1.addPrimitiveComparison();
-		PrimitiveNode val1Prop = graphFactory.createProperty();
+		PrimitiveNode val1Prop = graphFactory.createPrimitiveNode();
 		val1Prop.setElement(val1);
 		val1Prop.createParameters();
 		
@@ -102,7 +102,7 @@ public class EvalContrel {
 		relation4.setSource(element2);
 		relation4.setTarget(id2);
 		id2.addPrimitiveComparison();
-		PrimitiveNode id2Prop = graphFactory.createProperty();
+		PrimitiveNode id2Prop = graphFactory.createPrimitiveNode();
 		id2Prop.setElement(id2);
 		id2Prop.createParameters();
 		
@@ -113,7 +113,7 @@ public class EvalContrel {
 		relation5.setSource(element2);
 		relation5.setTarget(ref2);
 		ref2.addPrimitiveComparison();
-		PrimitiveNode ref2Prop = graphFactory.createProperty();
+		PrimitiveNode ref2Prop = graphFactory.createPrimitiveNode();
 		ref2Prop.setElement(ref2);
 		ref2Prop.createParameters();
 		
@@ -124,7 +124,7 @@ public class EvalContrel {
 		relation6.setSource(ref2);
 		relation6.setTarget(val2);
 		val2.addPrimitiveComparison();
-		PrimitiveNode val2Prop = graphFactory.createProperty();
+		PrimitiveNode val2Prop = graphFactory.createPrimitiveNode();
 		val2Prop.setElement(val2);
 		val2Prop.createParameters();
 				

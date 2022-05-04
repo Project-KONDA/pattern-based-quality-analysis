@@ -44,8 +44,8 @@ public class Test09ComplexComparison {
 		CompletePattern completePattern = Test00.getBasePattern();
 		Node ret = completePattern.getGraph().getNodes().get(0);
 		
-		PrimitiveNode p1 = graphFactory.createProperty();
-		PrimitiveNode p2 = graphFactory.createProperty();
+		PrimitiveNode p1 = graphFactory.createPrimitiveNode();
+		PrimitiveNode p2 = graphFactory.createPrimitiveNode();
 		
 		Comparison comp = operatorFactory.createComparison();
 		
@@ -90,8 +90,8 @@ public class Test09ComplexComparison {
 		relation2.setSource(ret);
 		relation2.setTarget(se2);
 		
-		PrimitiveNode p1 = graphFactory.createProperty();
-		PrimitiveNode p2 = graphFactory.createProperty();
+		PrimitiveNode p1 = graphFactory.createPrimitiveNode();
+		PrimitiveNode p2 = graphFactory.createPrimitiveNode();
 		
 		Comparison comp = operatorsFactory.createComparison();
 		

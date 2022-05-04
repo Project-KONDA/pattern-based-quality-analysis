@@ -95,7 +95,7 @@ public class EvalFunc {
 		Comparison comparisonA = operatorsFactory.createComparison();
 		graph1.getOperatorList().add(comparisonA);
 //		comparisonA.createParameters();
-		PrimitiveNode propertyAReturn = graphFactory.createProperty();
+		PrimitiveNode propertyAReturn = graphFactory.createPrimitiveNode();
 		propertyAReturn.setElement(fieldAReturn);
 //		propertyAReturn.createParameters();
 		comparisonA.setArgument1(propertyAReturn);
@@ -106,7 +106,7 @@ public class EvalFunc {
 		Comparison comparisonB = operatorsFactory.createComparison(); 
 		graph1.getOperatorList().add(comparisonB);
 //		comparisonB.createParameters();
-		PrimitiveNode propertyBReturn = graphFactory.createProperty();
+		PrimitiveNode propertyBReturn = graphFactory.createPrimitiveNode();
 		propertyBReturn.setElement(fieldBReturn);
 //		propertyBReturn.createParameters();
 		comparisonB.setArgument1(propertyBReturn);
@@ -182,7 +182,7 @@ public class EvalFunc {
 		graph1.getOperatorList().add(comparisonA);
 //		comparisonA.createParameters();
 		comparisonA.getTypeOption().setValue(ReturnType.STRING);
-		PrimitiveNode propertyAReturn = graphFactory.createProperty();
+		PrimitiveNode propertyAReturn = graphFactory.createPrimitiveNode();
 		propertyAReturn.setElement(fieldAReturn);
 //		propertyAReturn.createParameters();
 		comparisonA.setArgument1(propertyAReturn);
@@ -194,7 +194,7 @@ public class EvalFunc {
 		graph1.getOperatorList().add(comparisonB);
 //		comparisonB.createParameters();
 		comparisonB.getTypeOption().setValue(ReturnType.STRING);
-		PrimitiveNode propertyBReturn = graphFactory.createProperty();
+		PrimitiveNode propertyBReturn = graphFactory.createPrimitiveNode();
 		propertyBReturn.setElement(fieldBReturn);
 //		propertyBReturn.createParameters();
 		comparisonB.setArgument1(propertyBReturn);
