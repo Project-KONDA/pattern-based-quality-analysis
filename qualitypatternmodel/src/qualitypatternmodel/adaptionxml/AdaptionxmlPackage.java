@@ -4599,13 +4599,31 @@ public interface AdaptionxmlPackage extends EPackage {
 	int PATH_PARAM___GET_RELATION = ParametersPackage.PARAMETER_VALUE_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Set Axis</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_PARAM___SET_AXIS__AXISKIND_STRING = ParametersPackage.PARAMETER_VALUE_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Add Axis</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATH_PARAM___ADD_AXIS__AXISKIND_STRING = ParametersPackage.PARAMETER_VALUE_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_VALUE_OPERATION_COUNT + 3;
+	int PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_VALUE_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.AxisPairImpl <em>Axis Pair</em>}' class.
@@ -5320,6 +5338,26 @@ public interface AdaptionxmlPackage extends EPackage {
 	EOperation getPathParam__GetRelation();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.PathParam#setAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String) <em>Set Axis</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Axis</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.PathParam#setAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String)
+	 * @generated
+	 */
+	EOperation getPathParam__SetAxis__AxisKind_String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.PathParam#addAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String) <em>Add Axis</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Axis</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.PathParam#addAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String)
+	 * @generated
+	 */
+	EOperation getPathParam__AddAxis__AxisKind_String();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.AxisPair <em>Axis Pair</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5760,6 +5798,22 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATH_PARAM___GET_RELATION = eINSTANCE.getPathParam__GetRelation();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Axis</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATH_PARAM___SET_AXIS__AXISKIND_STRING = eINSTANCE.getPathParam__SetAxis__AxisKind_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Axis</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATH_PARAM___ADD_AXIS__AXISKIND_STRING = eINSTANCE.getPathParam__AddAxis__AxisKind_String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.AxisPairImpl <em>Axis Pair</em>}' class.

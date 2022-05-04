@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.AxisOptionParam;
 import qualitypatternmodel.adaptionxml.AxisPair;
 import qualitypatternmodel.adaptionxml.PathParam;
 import qualitypatternmodel.adaptionxml.PropertyOptionParam;
@@ -32,7 +34,9 @@ import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.ParameterValueImpl;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
@@ -374,6 +378,38 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 	 * @generated
 	 */
 	@Override
+	public void setAxis(AxisKind axis, String tag) {
+		if (!getAxisPairs().isEmpty()) {
+			getAxisPairs().clear();
+		}
+		addAxis(axis, tag);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void addAxis(AxisKind axis, String tag) {
+		AxisOptionParam axisParam = new AxisOptionParamImpl();
+		axisParam.setValue(axis);
+		
+		TextLiteralParam text = new TextLiteralParamImpl();
+		text.setValue(tag);
+		
+		AxisPair pair = new AxisPairImpl();
+		pair.setAxisOptionParam(axisParam);
+		pair.setTextLiteralParam(text);
+		getAxisPairs().add(pair);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public void removeParametersFromParameterList() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -571,6 +607,12 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 		switch (operationID) {
 			case AdaptionxmlPackage.PATH_PARAM___GET_RELATION:
 				return getRelation();
+			case AdaptionxmlPackage.PATH_PARAM___SET_AXIS__AXISKIND_STRING:
+				setAxis((AxisKind)arguments.get(0), (String)arguments.get(1));
+				return null;
+			case AdaptionxmlPackage.PATH_PARAM___ADD_AXIS__AXISKIND_STRING:
+				addAxis((AxisKind)arguments.get(0), (String)arguments.get(1));
+				return null;
 			case AdaptionxmlPackage.PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;

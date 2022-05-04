@@ -590,6 +590,26 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EOperation getPathParam__SetAxis__AxisKind_String() {
+		return pathParamEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPathParam__AddAxis__AxisKind_String() {
+		return pathParamEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getAxisPair() {
 		return axisPairEClass;
 	}
@@ -767,6 +787,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		createEReference(pathParamEClass, PATH_PARAM__AXIS_PAIRS);
 		createEReference(pathParamEClass, PATH_PARAM__XML_PROPERTY_NAVIGATION);
 		createEOperation(pathParamEClass, PATH_PARAM___GET_RELATION);
+		createEOperation(pathParamEClass, PATH_PARAM___SET_AXIS__AXISKIND_STRING);
+		createEOperation(pathParamEClass, PATH_PARAM___ADD_AXIS__AXISKIND_STRING);
 
 		axisPairEClass = createEClass(AXIS_PAIR);
 		createEReference(axisPairEClass, AXIS_PAIR__TEXT_LITERAL_PARAM);
@@ -894,6 +916,14 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		initEReference(getPathParam_XmlPropertyNavigation(), this.getXmlPropertyNavigation(), this.getXmlPropertyNavigation_PathParam(), "xmlPropertyNavigation", null, 0, 1, PathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getPathParam__GetRelation(), theGraphstructurePackage.getRelation(), "getRelation", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getPathParam__SetAxis__AxisKind_String(), null, "setAxis", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAxisKind(), "axis", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "tag", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getPathParam__AddAxis__AxisKind_String(), null, "addAxis", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getAxisKind(), "axis", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "tag", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(axisPairEClass, AxisPair.class, "AxisPair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAxisPair_TextLiteralParam(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_AxisPair(), "textLiteralParam", null, 1, 1, AxisPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

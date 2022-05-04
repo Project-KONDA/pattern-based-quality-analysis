@@ -122,4 +122,20 @@ public interface PathParam extends ParameterValue, Adaptable {
 	 */
 	Relation getRelation();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void setAxis(AxisKind axis, String tag);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addAxis(AxisKind axis, String tag);
+
 } // PathParam

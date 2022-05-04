@@ -740,6 +740,14 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PathParam" eSuperTypes="#//parameters/ParameterValue #//graphstructure/Adaptable">
       <eOperations name="getRelation" eType="#//graphstructure/Relation"/>
+      <eOperations name="setAxis">
+        <eParameters name="axis" eType="#//adaptionxml/AxisKind"/>
+        <eParameters name="tag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="addAxis">
+        <eParameters name="axis" eType="#//adaptionxml/AxisKind"/>
+        <eParameters name="tag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlNavigation" eType="#//adaptionxml/XmlNavigation"
           eOpposite="#//adaptionxml/XmlNavigation/pathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="propertyOptionParam"
