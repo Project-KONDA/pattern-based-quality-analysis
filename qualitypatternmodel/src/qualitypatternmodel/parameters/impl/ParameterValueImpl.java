@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
+
 import org.basex.query.QueryException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -24,6 +26,7 @@ import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -225,16 +228,45 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			if(comparison.isPrimitive()) {
 				if(comparison.getArgument1() instanceof XmlProperty) {
 					XmlProperty property = (XmlProperty) comparison.getArgument1();
-					if(property.getOption() != null) {
-						propertyKinds.add(property.getOption().getValue());				
+					for(Relation r : property.getIncoming()) {
+						if (r instanceof XmlNavigation) {
+							XmlNavigation nav = (XmlNavigation) r;
+							if(nav.getPathParam() != null && nav.getPathParam().getPropertyOptionParam() != null) {
+								propertyKinds.add(nav.getPathParam().getPropertyOptionParam().getValue());
+							}
+						}
+						if (r instanceof XmlPropertyNavigation) {
+							XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
+							if(nav.getPathParam() != null && nav.getPathParam().getPropertyOptionParam() != null) {
+								propertyKinds.add(nav.getPathParam().getPropertyOptionParam().getValue());
+							}
+						}
 					}
+					
 				}
 				if(comparison.getArgument2() instanceof XmlProperty) {
 					XmlProperty property = (XmlProperty) comparison.getArgument2();
-					if(property.getOption() != null) {
-						propertyKinds.add(property.getOption().getValue());
+					for(Relation r : property.getIncoming()) {
+						if (r instanceof XmlNavigation) {
+							XmlNavigation nav = (XmlNavigation) r;
+							if(nav.getPathParam() != null && nav.getPathParam().getPropertyOptionParam() != null) {
+								propertyKinds.add(nav.getPathParam().getPropertyOptionParam().getValue());
+							}
+						}
+						if (r instanceof XmlPropertyNavigation) {
+							XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
+							if(nav.getPathParam() != null && nav.getPathParam().getPropertyOptionParam() != null) {
+								propertyKinds.add(nav.getPathParam().getPropertyOptionParam().getValue());
+							}
+						}
 					}
 				}				
+			}
+		}
+		if(this instanceof TextLiteralParam) {
+			TextLiteralParam text = (TextLiteralParam) this;
+			if(text.getAxisPair() != null) {
+				propertyKinds.add(PropertyKind.TAG);
 			}
 		}
 		return propertyKinds;
