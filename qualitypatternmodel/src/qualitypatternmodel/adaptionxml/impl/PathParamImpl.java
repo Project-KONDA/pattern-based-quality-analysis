@@ -389,13 +389,18 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 	public void createParameters() {	
 		ParameterList parameterList = getParameterList();		
 		if(parameterList != null) {
-			if(getPropertyOptionParam() == null) {
-				PropertyOptionParam option = new PropertyOptionParamImpl();	
-				setPropertyOptionParam(option);
+			if (getXmlNavigation() != null) {
+				if(getAxisPairs().isEmpty()) {
+					AxisPair axisPair = new AxisPairImpl();
+					getAxisPairs().add(axisPair);
+					axisPair.createParameters();
+				}
 			}
-			if(getAxisPairs().isEmpty()) {
-				AxisPair axisPair = new AxisPairImpl();
-				getAxisPairs().add(axisPair);				
+			if (getXmlPropertyNavigation() != null) {
+				if(getPropertyOptionParam() == null) {
+					PropertyOptionParam option = new PropertyOptionParamImpl();	
+					setPropertyOptionParam(option);
+				}
 			} 
 		}
 	}

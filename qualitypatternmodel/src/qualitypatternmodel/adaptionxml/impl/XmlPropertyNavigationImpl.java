@@ -145,6 +145,25 @@ public class XmlPropertyNavigationImpl extends RelationImpl implements XmlProper
 			throw new InvalidityException("pathParam null" + " (" + getInternalId() + ")");
 		}
 		return res;
+	}	
+	
+	@Override
+	public void createParameters() {	
+		if (getIncomingMapping() == null) {
+			ParameterList parameterList = getParameterList();
+			if(parameterList != null) {
+				PathParam pp = getPathParam();
+				if (pp == null) {
+					pp = new PathParamImpl();
+					setPathParam(pp);
+					parameterList.add(pp);
+					pp.createParameters();
+				}
+				if (!pp.getParameterList().equals(parameterList)){
+					parameterList.add(pp);
+				}
+			}
+		}
 	}
 	
 	@Override

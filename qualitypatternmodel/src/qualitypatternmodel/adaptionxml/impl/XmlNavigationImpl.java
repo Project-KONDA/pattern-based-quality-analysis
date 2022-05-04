@@ -208,22 +208,21 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		return res;
 	}
 	
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
 	@Override
 	public void createParameters() {	
-		if (getIncomingMapping() == null) {		
+		if (getIncomingMapping() == null) {
 			ParameterList parameterList = getParameterList();
 			if(parameterList != null) {
-				if (getPathParam() == null) {
-					PathParam axisOptionParam = new PathParamImpl();
-					setPathParam(axisOptionParam);
-				} else {
-					parameterList.add(getPathParam());
-				}		
+				PathParam pp = getPathParam();
+				if (pp == null) {
+					pp = new PathParamImpl();
+					setPathParam(pp);
+					parameterList.add(pp);
+					pp.createParameters();
+				}
+				if (!pp.getParameterList().equals(parameterList)){
+					parameterList.add(pp);
+				}
 			}
 		}
 	}
