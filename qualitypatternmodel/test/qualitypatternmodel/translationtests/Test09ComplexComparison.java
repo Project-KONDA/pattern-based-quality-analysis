@@ -158,6 +158,8 @@ public class Test09ComplexComparison {
 		OperatorsFactory functionFactory = OperatorsFactory.eINSTANCE;
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory inputsFactory = ParametersFactory.eINSTANCE;
+		GraphstructurePackage.eINSTANCE.eClass();
+		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = Test00.getBasePattern();
 		ParameterList varlist = completePattern.getParameterList();
@@ -189,7 +191,9 @@ public class Test09ComplexComparison {
 		comp0.setArgument1(comp1);
 		comp0.setArgument2(comp2);
 
-		comp1.setArgument1(se.addNewProperty());
+		PrimitiveNode p = graphFactory.createPrimitiveNode();
+		se.addOutgoing(p);
+		comp1.setArgument1(p);
 		comp1.setArgument2(tl2);
 		comp2.setArgument1(tl3);
 		comp2.setArgument2(tl4);

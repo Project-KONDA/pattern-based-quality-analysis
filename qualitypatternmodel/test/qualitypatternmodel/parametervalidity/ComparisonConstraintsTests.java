@@ -234,8 +234,6 @@ public class ComparisonConstraintsTests {
 
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
 		assertThrows(InvalidityException.class, () -> navigationElement0Element1.getPathParam().setAxis(AxisKind.SELF, ""));	
-		
-						
 	}
 	
 }

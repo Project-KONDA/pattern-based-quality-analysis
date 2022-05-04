@@ -25,6 +25,7 @@ import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorsFactory;
@@ -806,7 +807,7 @@ public class DemoPatterns {
 	
 	// ---------- FUNC pattern ----------
 
-	public static CompletePattern getGenericFuncPattern() {
+	public static CompletePattern getGenericFuncPattern() throws InvalidityException {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setName("functional_dependency_generic");
@@ -831,8 +832,9 @@ public class DemoPatterns {
 		
 		Node element0A = GraphstructureFactory.eINSTANCE.createNode();
 		element0A.setName("Element0A");
-		element0A.setGraph(quantifiedCondition.getGraph());		
-		PrimitiveNode property0A = element0A.addNewProperty();
+		element0A.setGraph(quantifiedCondition.getGraph());	
+		PrimitiveNode property0A = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
+		element0A.addOutgoing(property0A);
 		
 		Relation relation0A = GraphstructureFactory.eINSTANCE.createRelation();
 		relation0A.setGraph(quantifiedCondition.getGraph());		
@@ -847,8 +849,9 @@ public class DemoPatterns {
 		
 		Node element0B = GraphstructureFactory.eINSTANCE.createNode();
 		element0B.setName("Element0B");
-		element0B.setGraph(quantifiedCondition.getGraph());		
-		PrimitiveNode property0B = element0B.addNewProperty();
+		element0B.setGraph(quantifiedCondition.getGraph());
+		PrimitiveNode property0B = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
+		element0B.addOutgoing(property0B);
 		
 		Relation relation0B = GraphstructureFactory.eINSTANCE.createRelation();
 		relation0B.setGraph(quantifiedCondition.getGraph());		
@@ -869,7 +872,8 @@ public class DemoPatterns {
 		Node element1A = GraphstructureFactory.eINSTANCE.createNode();
 		element1A.setName("Element1A");
 		element1A.setGraph(quantifiedCondition.getGraph());	
-		PrimitiveNode property1A = element1A.addNewProperty();
+		PrimitiveNode property1A = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
+		element1A.addOutgoing(property0B);
 		
 		Relation relation1A = GraphstructureFactory.eINSTANCE.createRelation();
 		relation1A.setGraph(quantifiedCondition.getGraph());		
@@ -885,7 +889,8 @@ public class DemoPatterns {
 		Node element1B = GraphstructureFactory.eINSTANCE.createNode();
 		element1B.setName("Element1B");
 		element1B.setGraph(quantifiedCondition.getGraph());	
-		PrimitiveNode property1B = element1B.addNewProperty();
+		PrimitiveNode property1B = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
+		element1B.addOutgoing(property1B);
 		
 		Relation relation1B = GraphstructureFactory.eINSTANCE.createRelation();
 		relation1B.setGraph(quantifiedCondition.getGraph());		
@@ -1019,7 +1024,7 @@ public class DemoPatterns {
 		
 		
 		XmlNavigation navigationElement0Element0A = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		navigationElement0Element0A.getPathParam().setAxis((AxisKind.CHILD, "");
+		navigationElement0Element0A.getPathParam().setAxis(AxisKind.CHILD, "");
 		
 		XmlNavigation navigationElement0Element0B = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
 		navigationElement0Element0B.getPathParam().setAxis(AxisKind.CHILD, "");	

@@ -58,11 +58,13 @@ public class EvalComp {
 		
 		graph1.getNodes().get(0).addPrimitiveComparison();
 		graph2.getNodes().get(1).addPrimitiveComparison();
-		PrimitiveNode p = graph2.getNodes().get(1).addNewProperty();
+		PrimitiveNode p = graphFactory.createPrimitiveNode(); 
+		graph2.getNodes().get(1).addOutgoing(p);
 		
 		XmlElementImpl e = new XmlElementImpl();
 		graph2.getNodes().add(e);
-		PrimitiveNode p2 = e.addNewProperty();
+		PrimitiveNode p2 = graphFactory.createPrimitiveNode();
+		e.addOutgoing(p2);
 		
 		XmlNavigationImpl r = new XmlNavigationImpl();
 		graph2.getRelations().add(r);
