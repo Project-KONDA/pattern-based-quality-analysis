@@ -70,10 +70,10 @@ public class Test02Return {
 		completePattern.finalizeXMLAdaption();
 		
 		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getPathParam().setValue(AxisKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().setValue(AxisKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 		reference.getSourceProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
 		reference.getSourceProperty().getOption().setValue(PropertyKind.ATTRIBUTE);

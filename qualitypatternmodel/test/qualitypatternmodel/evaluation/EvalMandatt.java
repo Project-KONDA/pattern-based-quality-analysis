@@ -325,7 +325,7 @@ public class EvalMandatt {
 		Graph graph1 = qc1.getGraph();
 		
 		Node element2InG1 = graph1.getNodes().get(2);
-		((XmlNavigation) graph1.getRelations().get(1)).getPathParam().setValue(AxisKind.CHILD);
+		((XmlNavigation) graph1.getRelations().get(1)).getPathParam().setAxis(AxisKind.CHILD, "");
 		Comparison comparison1 = (Comparison) element2InG1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1.setValue("lido:nameActorSet");
@@ -333,7 +333,7 @@ public class EvalMandatt {
 		((XmlProperty) element2InG1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
 		Node next1ToReturnElementInGraph1 = graph1.getNodes().get(3);
-		((XmlNavigation) graph1.getRelations().get(1)).getPathParam().setValue(AxisKind.CHILD);
+		((XmlNavigation) graph1.getRelations().get(1)).getPathParam().setAxis(AxisKind.CHILD, "");
 		Comparison comparison2G1 = (Comparison) next1ToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2G1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2G1.setValue("lido:appellationValue");
@@ -343,7 +343,7 @@ public class EvalMandatt {
 		Graph graph2 = qc2.getGraph();
 		
 		Node element2 = graph2.getNodes().get(2);
-		((XmlNavigation) graph2.getRelations().get(1)).getPathParam().setValue(AxisKind.CHILD);
+		((XmlNavigation) graph2.getRelations().get(1)).getPathParam().setAxis(AxisKind.CHILD, "");
 		
 		Comparison comparison2 = (Comparison) element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
@@ -352,7 +352,7 @@ public class EvalMandatt {
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
 		Node element3 = graph2.getNodes().get(3);
-		((XmlNavigation) graph2.getRelations().get(2)).getPathParam().setValue(AxisKind.CHILD);
+		((XmlNavigation) graph2.getRelations().get(2)).getPathParam().setAxis(AxisKind.CHILD, "");
 		
 		Comparison comparison3 = (Comparison) element3.getPredicates().get(0);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();

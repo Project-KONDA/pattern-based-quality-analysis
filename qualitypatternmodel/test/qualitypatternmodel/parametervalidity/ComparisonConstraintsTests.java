@@ -186,7 +186,7 @@ public class ComparisonConstraintsTests {
 		textValue1x.setValueIfValid(DEMO_NAMESPACE + "irgendwas");		
 		
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		navigationElement0Element1.getPathParam().setValueIfValid(AxisKind.SELF);	
+		navigationElement0Element1.getPathParam().setAxis(AxisKind.SELF, "");	
 		
 		XmlProperty property2 = (XmlProperty) element1.getProperties().get(1);
 		assertThrows(InvalidityException.class, () -> property2.getOption().setValueIfValid(PropertyKind.TAG));
@@ -233,7 +233,7 @@ public class ComparisonConstraintsTests {
 		property2.getOption().setValueIfValid(PropertyKind.TAG);
 
 		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		assertThrows(InvalidityException.class, () -> navigationElement0Element1.getPathParam().setValueIfValid(AxisKind.SELF));	
+		assertThrows(InvalidityException.class, () -> navigationElement0Element1.getPathParam().setAxis(AxisKind.SELF, ""));	
 		
 						
 	}

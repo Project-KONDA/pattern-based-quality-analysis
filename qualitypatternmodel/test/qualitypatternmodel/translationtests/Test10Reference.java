@@ -51,10 +51,10 @@ public class Test10Reference {
 		completePattern.finalizeXMLAdaption();
 		
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(2)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(2)).getPathParam().setValue(AxisKind.DESCENDANT);
+		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 		return completePattern;		
 	}
@@ -89,13 +89,13 @@ public class Test10Reference {
 		completePattern.finalizeXMLAdaption();
 		
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.DESCENDANT);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(3)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(3)).getPathParam().setValue(AxisKind.DESCENDANT);
+		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(3)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(4)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(4)).getPathParam().setValue(AxisKind.DESCENDANT);
+		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(4)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 		return completePattern;		
 	}

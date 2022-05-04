@@ -43,7 +43,7 @@ public class Test01Axis {
 		PathParam axisOption = relation.getPathParam();
 		EList<AxisKind> axisOptions = axisOption.getOptions();
 		if(!axisOptions.contains(axisKind)) axisOptions.add(axisKind);
-		axisOption.setValue(axisKind);
+		axisOption.setAxis(axisKind, "");
 		return completePattern;
 	}
 	
@@ -68,7 +68,7 @@ public class Test01Axis {
 		PathParam axisOption = navigation.getPathParam();
 		EList<AxisKind> axisOptions = axisOption.getOptions();
 		if(!axisOptions.contains(axisKind)) axisOptions.add(axisKind);
-		axisOption.setValue(axisKind);
+		axisOption.setAxis(axisKind, "");
 		return completePattern;
 	}
 
