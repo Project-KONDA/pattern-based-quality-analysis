@@ -131,9 +131,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	
 	@Override
 	public void checkComparisonConsistency() throws InvalidityException {
-		for(PrimitiveNode p : getProperties()) {			
-			p.checkComparisonConsistency();			
-		}
+		getPathParam().getRelation().getTarget().checkComparisonConsistency();
 	}
 	
 	@Override
