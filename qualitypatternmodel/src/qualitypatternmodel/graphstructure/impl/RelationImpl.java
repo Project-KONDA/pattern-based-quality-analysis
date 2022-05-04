@@ -371,46 +371,47 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public NotificationChain basicSetSource(ComplexNode newSource, NotificationChain msgs) {
-		ComplexNode oldSource = source;
-		source = newSource;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__SOURCE, oldSource, newSource);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	@Override
+	public void setSource(Node newSource) {
+		if (newSource != source) {
+			NotificationChain msgs = null;
+			if (source != null)
+				msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.COMPLEX_NODE__OUTGOING, ComplexNode.class, msgs);
+			if (newSource != null)
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, GraphstructurePackage.COMPLEX_NODE__OUTGOING, ComplexNode.class, msgs);
+			if (!(newSource instanceof ComplexNode)) {
+				try {
+					newSource.makeComplex();
+				} catch (InvalidityException e) {
+					if (eNotificationRequired())
+						eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__SOURCE, newSource, newSource));
+					return;
+				}
+			}
+			msgs = basicSetSource((ComplexNode) newSource, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return msgs;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__SOURCE, newSource, newSource));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
-	public void setSource(Node newSource) {
-		if (newSource != source) {			
-			if(!(getGraph() != null && newSource != null && newSource.getGraph() != null && !getGraph().equals(newSource.getGraph()))) {									
-				NotificationChain msgs = null;
-				if (source != null)
-					msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.COMPLEX_NODE__OUTGOING, Node.class, msgs);
-				if (newSource != null)
-					msgs = ((InternalEObject)newSource).eInverseAdd(this, GraphstructurePackage.COMPLEX_NODE__OUTGOING, Node.class, msgs);
-				if (!(newSource instanceof ComplexNode)) {
-					try {
-						newSource.makeComplex();
-					} catch (InvalidityException e) {
-						if (eNotificationRequired())
-							eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__SOURCE, source, source));
-						return;
-					}
-				}
-				msgs = basicSetSource(newSource, msgs);
-				if (msgs != null) msgs.dispatch();
-			}
-			else if (eNotificationRequired())
-				eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__SOURCE, source, source));
+	public void setSource(ComplexNode newSource) {
+		if (newSource != source) {
+			NotificationChain msgs = null;
+			if (source != null)
+				msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.COMPLEX_NODE__OUTGOING, ComplexNode.class, msgs);
+			if (newSource != null)
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, GraphstructurePackage.COMPLEX_NODE__OUTGOING, ComplexNode.class, msgs);
+			msgs = basicSetSource(newSource, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__SOURCE, newSource, newSource));
@@ -421,7 +422,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetSource(Node newSource, NotificationChain msgs) {
+	public NotificationChain basicSetSource(ComplexNode newSource, NotificationChain msgs) {
 		Node oldSource = source;
 		source = (ComplexNode) newSource;
 		

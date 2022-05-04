@@ -93,6 +93,16 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @see #getSource()
 	 * @generated
 	 */
+	void setSource(ComplexNode value);
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#getSource <em>Source</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source</em>' reference. Will become ComplexNode if it is not yet.
+	 * @see #getSource()
+	 * @generated NOT
+	 */
 	void setSource(Node value);
 
 	/**
