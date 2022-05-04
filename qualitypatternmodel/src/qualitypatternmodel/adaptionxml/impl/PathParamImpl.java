@@ -351,13 +351,15 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Relation getRelation() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (getXmlNavigation() != null) {
+			return getXmlNavigation();
+		} else {
+			return getXmlPropertyNavigation(); 
+		}
 	}
 
 	/**
