@@ -145,14 +145,11 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	@Override
 	public EList<String> getSuggestions() {
 		EList<String> suggestions = super.getSuggestions();		
-		for(PrimitiveNode p : getProperties()) {
-			if(p instanceof XmlPropertyImpl) {
-				XmlPropertyImpl xmlProp = (XmlPropertyImpl) p;
-				if(xmlProp.getOption().getValue() == PropertyKind.ATTRIBUTE) {
-					suggestions.addAll(Constants.sortByValue(getAttributeNames()).keySet());
-					break;
-				}
-			}
+		for(PropertyOptionParam p : getProperties()) {			
+			if(p.getValue() == PropertyKind.ATTRIBUTE) {
+				suggestions.addAll(Constants.sortByValue(getAttributeNames()).keySet());
+				break;
+			}			
 		}			
 		return suggestions;
 	}
