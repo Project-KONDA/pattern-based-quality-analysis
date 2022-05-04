@@ -1,30 +1,15 @@
 package qualitypatternmodel.servlettests;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.io.File;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.nio.file.Paths;
-import java.util.List;
-
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import qualitypatternmodel.demo.DemoPatternTexts;
-import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.servlets.Util;
-import qualitypatternmodel.utility.EMFModelLoad;
 
 public class AbstractPatternInstantiationServletTest {
 	

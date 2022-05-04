@@ -3,17 +3,11 @@ package playground;
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.core.cmd.CreateDB;
-import org.basex.core.cmd.XQuery;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.basex.query.QueryProcessor;
 import org.basex.query.iter.Iter;
 import org.basex.query.value.item.Item;
-import org.eclipse.emf.common.util.Diagnostic;
-
-import qualitypatternmodel.testutility.EMFValidationPreparation;
-import qualitypatternmodel.utility.EMFModelLoad;
-
 import static qualitypatternmodel.testutility.DatabaseConstants.*;
 
 public class BaseXExecutionIterator {

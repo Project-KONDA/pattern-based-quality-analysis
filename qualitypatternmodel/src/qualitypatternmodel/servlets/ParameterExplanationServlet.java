@@ -1,20 +1,12 @@
 package qualitypatternmodel.servlets;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.eclipse.emf.common.util.EList;
-
-import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.utility.Constants;
-import qualitypatternmodel.utility.EMFModelLoad;
 
 public class ParameterExplanationServlet extends HttpServlet {
 

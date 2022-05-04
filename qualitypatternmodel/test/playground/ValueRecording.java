@@ -1,20 +1,14 @@
 package playground;
 
-import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.ExecutionFactory;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.XmlDataDatabase;
-import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.testutility.EMFValidationPreparation;
 import qualitypatternmodel.translationtests.Test00;
-import qualitypatternmodel.utility.EMFModelLoad;
 
 public class ValueRecording {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

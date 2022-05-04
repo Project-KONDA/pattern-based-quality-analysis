@@ -1,46 +1,17 @@
 package qualitypatternmodel.servlets;
 
-import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_NAMESPACE;
-
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.basex.query.QueryException;
-
-import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.execution.Database;
-import qualitypatternmodel.execution.Databases;
-import qualitypatternmodel.execution.LocalXmlSchemaDatabase;
 import qualitypatternmodel.execution.ServerXmlDataDatabase;
-import qualitypatternmodel.execution.XmlDataDatabase;
-import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.execution.impl.DatabasesImpl;
-import qualitypatternmodel.execution.impl.ServerXmlDataDatabaseImpl;
-import qualitypatternmodel.parameters.BooleanParam;
-import qualitypatternmodel.parameters.DateParam;
-import qualitypatternmodel.parameters.DateTimeParam;
-import qualitypatternmodel.parameters.NumberParam;
-import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParameterValue;
-import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.TimeParam;
-import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.parameters.impl.ParameterValueImpl;
-import qualitypatternmodel.parameters.impl.TextListParamImpl;
-import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
-import qualitypatternmodel.utility.EMFModelSave;
 
 public class DatabaseGettingServlet extends HttpServlet {
 	

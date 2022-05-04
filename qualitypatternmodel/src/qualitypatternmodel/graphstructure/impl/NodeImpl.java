@@ -1561,7 +1561,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated
 	 */
 	@Override
-	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case GraphstructurePackage.NODE___GET_ORIGINAL_ID:

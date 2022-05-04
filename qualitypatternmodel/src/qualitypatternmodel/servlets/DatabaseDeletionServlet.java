@@ -14,10 +14,8 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
-import qualitypatternmodel.execution.Databases;
 import qualitypatternmodel.execution.ServerXmlDataDatabase;
 import qualitypatternmodel.execution.XmlDataDatabase;
-import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.execution.impl.DatabasesImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;

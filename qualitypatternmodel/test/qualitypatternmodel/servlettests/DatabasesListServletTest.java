@@ -3,10 +3,7 @@ package qualitypatternmodel.servlettests;
 import static org.junit.Assert.assertTrue;
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.ProtocolException;
 import java.net.URL;
-import java.util.List;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.junit.After;
@@ -14,10 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.execution.ServerXmlDataDatabase;
-import qualitypatternmodel.execution.impl.ServerXmlDataDatabaseImpl;
 import qualitypatternmodel.servlets.Util;
-import qualitypatternmodel.utility.Constants;
 
 public class DatabasesListServletTest {
 	

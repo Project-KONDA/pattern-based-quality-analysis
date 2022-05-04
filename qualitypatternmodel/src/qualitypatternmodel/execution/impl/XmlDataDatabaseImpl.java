@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.execution.impl;
 
-import static org.junit.Assert.assertTrue;
-
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.HttpURLConnection;

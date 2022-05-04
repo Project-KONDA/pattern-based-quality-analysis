@@ -2,11 +2,6 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
-import static qualitypatternmodel.utility.Constants.AND;
-import static qualitypatternmodel.utility.Constants.NOT;
-import static qualitypatternmodel.utility.Constants.OR;
-import static qualitypatternmodel.utility.Constants.addMissingBrackets;
-
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;

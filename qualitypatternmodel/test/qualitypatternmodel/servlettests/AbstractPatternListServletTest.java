@@ -4,14 +4,11 @@ import static org.junit.Assert.assertTrue;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.List;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.junit.Test;
 
 import qualitypatternmodel.servlets.Util;
-import qualitypatternmodel.utility.Constants;
 
 public class AbstractPatternListServletTest {
 

@@ -1,25 +1,14 @@
 package qualitypatternmodel.servlettests;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
-import java.util.stream.Collectors;
-
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.junit.Before;
 import org.junit.Test;
 
 import qualitypatternmodel.servlets.Util;

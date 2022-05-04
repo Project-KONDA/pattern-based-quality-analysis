@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
-import static qualitypatternmodel.utility.Constants.*;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;

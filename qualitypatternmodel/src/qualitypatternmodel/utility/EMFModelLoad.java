@@ -5,16 +5,13 @@ import java.util.Map;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import qualitypatternmodel.execution.Databases;
 import qualitypatternmodel.execution.ExecutionPackage;
-import qualitypatternmodel.execution.ServerXmlDataDatabase;
 import qualitypatternmodel.execution.XmlDatabase;
 import qualitypatternmodel.execution.impl.DatabasesImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;

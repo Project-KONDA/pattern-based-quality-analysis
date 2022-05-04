@@ -4,19 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.patternstructure.impl.*;
 import qualitypatternmodel.testutility.PatternTestPair;
-import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
-import qualitypatternmodel.operators.impl.*;
 import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.AxisOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.*;
-import qualitypatternmodel.parameters.impl.*;
 
 public class Test11Match {
 

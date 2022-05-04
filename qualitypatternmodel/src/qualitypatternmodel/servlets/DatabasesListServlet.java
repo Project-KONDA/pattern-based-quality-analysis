@@ -1,10 +1,7 @@
 package qualitypatternmodel.servlets;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +11,6 @@ import qualitypatternmodel.execution.Databases;
 import qualitypatternmodel.execution.ServerXmlDataDatabase;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.execution.impl.DatabasesImpl;
-import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
 
 public class DatabasesListServlet extends HttpServlet {
