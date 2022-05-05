@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -257,6 +258,20 @@ public class XmlPropertyNavigationImpl extends RelationImpl implements XmlProper
 	 * @generated
 	 */
 	@Override
+	public PathParam getOriginalPathParam() {
+		if (getIncomingMapping() == null) {
+			return getPathParam();
+		} else {
+			return ((XmlNavigation) getIncomingMapping().getSource()).getOriginalPathParam();
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AdaptionxmlPackage.XML_PROPERTY_NAVIGATION__PATH_PARAM:
@@ -338,6 +353,20 @@ public class XmlPropertyNavigationImpl extends RelationImpl implements XmlProper
 				return pathParam != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case AdaptionxmlPackage.XML_PROPERTY_NAVIGATION___GET_ORIGINAL_PATH_PARAM:
+				return getOriginalPathParam();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //XmlPropertyNavigationImpl

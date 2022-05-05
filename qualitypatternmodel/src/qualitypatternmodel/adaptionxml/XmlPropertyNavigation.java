@@ -45,4 +45,12 @@ public interface XmlPropertyNavigation extends Relation {
 	 * @generated
 	 */
 	void setPathParam(PathParam value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	PathParam getOriginalPathParam();
 } // XmlPropertyNavigation

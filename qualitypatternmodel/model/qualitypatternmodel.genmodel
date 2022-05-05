@@ -588,6 +588,7 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyNavigation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlPropertyNavigation/pathParam"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyNavigation/getOriginalPathParam"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/AxisOptionParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/AxisOptionParam/options"/>

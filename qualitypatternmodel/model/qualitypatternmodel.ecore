@@ -710,6 +710,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlRoot" eSuperTypes="#//graphstructure/ComplexNode"/>
     <eClassifiers xsi:type="ecore:EClass" name="XmlPropertyNavigation" eSuperTypes="#//graphstructure/Relation">
+      <eOperations name="getOriginalPathParam" eType="#//adaptionxml/PathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pathParam" lowerBound="1"
           eType="#//adaptionxml/PathParam" eOpposite="#//adaptionxml/PathParam/xmlPropertyNavigation"/>
     </eClassifiers>
