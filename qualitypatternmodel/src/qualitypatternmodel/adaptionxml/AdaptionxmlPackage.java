@@ -4500,15 +4500,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int PATH_PARAM___IS_IN_DATA_COMPARISON = ParametersPackage.PARAMETER_VALUE___IS_IN_DATA_COMPARISON;
 
 	/**
-	 * The operation id for the '<em>Get Tag Comparison Elements</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH_PARAM___GET_TAG_COMPARISON_ELEMENTS = ParametersPackage.PARAMETER_VALUE___GET_TAG_COMPARISON_ELEMENTS;
-
-	/**
 	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

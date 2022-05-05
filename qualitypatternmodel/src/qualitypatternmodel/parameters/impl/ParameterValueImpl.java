@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.PathParam;
-import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
@@ -517,8 +516,6 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				return isInAttributeComparison();
 			case ParametersPackage.PARAMETER_VALUE___IS_IN_DATA_COMPARISON:
 				return isInDataComparison();
-			case ParametersPackage.PARAMETER_VALUE___GET_TAG_COMPARISON_ELEMENTS:
-				return getTagComparisonElements();
 			case ParametersPackage.PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS:
 				return inferElementTagSuggestions();
 			case ParametersPackage.PARAMETER_VALUE___GET_ELEMENT_TAGS:
@@ -859,41 +856,6 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		}
 		
 		return suggestions;
-	}
-	
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<XmlElement> getTagComparisonElements() {
-		EList<XmlElement> tagComparisonElements = new BasicEList<XmlElement>();
-		EList<Comparison> comparisons = new BasicEList<Comparison>();
-		comparisons.addAll(getComparison1());
-		comparisons.addAll(getComparison2());
-		for(Comparison comparison : comparisons) {
-			if(comparison.getOption() != null && comparison.getOption().getValue() == ComparisonOperator.EQUAL && comparison.isPrimitive()) {
-				boolean isTagProperty = false;
-				if(comparison.getArgument1() instanceof XmlProperty) {
-					XmlProperty property = (XmlProperty) comparison.getArgument1();
-					if(property.getOption().getValue() == PropertyKind.TAG) {
-						isTagProperty = true;
-					}
-				}
-				if(comparison.getArgument2() instanceof XmlProperty) {
-					XmlProperty property = (XmlProperty) comparison.getArgument2();
-					if(property.getOption().getValue() == PropertyKind.TAG) {
-						isTagProperty = true;
-					}
-				}
-				if(isTagProperty && comparison.getNodes().size() == 1 && comparison.getNodes().get(0) instanceof XmlElement) {
-					tagComparisonElements.add((XmlElement) comparison.getNodes().get(0));
-				}
-			}
-		}
-		return tagComparisonElements;
 	}
 
 } //XSTypeImpl

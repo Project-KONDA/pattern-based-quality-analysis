@@ -769,7 +769,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameterValue__GetTagComparisonElements() {
+	public EOperation getParameterValue__InferElementTagSuggestions() {
 		return parameterValueEClass.getEOperations().get(3);
 	}
 
@@ -779,7 +779,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameterValue__InferElementTagSuggestions() {
+	public EOperation getParameterValue__GetElementTags() {
 		return parameterValueEClass.getEOperations().get(4);
 	}
 
@@ -789,7 +789,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameterValue__GetElementTags() {
+	public EOperation getParameterValue__GetAttributeNames() {
 		return parameterValueEClass.getEOperations().get(5);
 	}
 
@@ -799,7 +799,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameterValue__GetAttributeNames() {
+	public EOperation getParameterValue__GetDataValues() {
 		return parameterValueEClass.getEOperations().get(6);
 	}
 
@@ -809,7 +809,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameterValue__GetDataValues() {
+	public EOperation getParameterValue__GetAttributeValues() {
 		return parameterValueEClass.getEOperations().get(7);
 	}
 
@@ -819,7 +819,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameterValue__GetAttributeValues() {
+	public EOperation getParameterValue__GetSuggestions() {
 		return parameterValueEClass.getEOperations().get(8);
 	}
 
@@ -829,7 +829,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameterValue__GetSuggestions() {
+	public EOperation getParameterValue__Replace__ParameterValue() {
 		return parameterValueEClass.getEOperations().get(9);
 	}
 
@@ -839,18 +839,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameterValue__Replace__ParameterValue() {
-		return parameterValueEClass.getEOperations().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getParameterValue__ReplaceViaValue__String_String() {
-		return parameterValueEClass.getEOperations().get(11);
+		return parameterValueEClass.getEOperations().get(10);
 	}
 
 	/**
@@ -1110,7 +1100,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_TAG_COMPARISON);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_DATA_COMPARISON);
-		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_TAG_COMPARISON_ELEMENTS);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_ELEMENT_TAGS);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_ATTRIBUTE_NAMES);
@@ -1303,8 +1292,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEOperation(getParameterValue__IsInAttributeComparison(), ecorePackage.getEBoolean(), "isInAttributeComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getParameterValue__IsInDataComparison(), ecorePackage.getEBoolean(), "isInDataComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getParameterValue__GetTagComparisonElements(), theAdaptionxmlPackage.getXmlElement(), "getTagComparisonElements", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getParameterValue__InferElementTagSuggestions(), ecorePackage.getEString(), "inferElementTagSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 

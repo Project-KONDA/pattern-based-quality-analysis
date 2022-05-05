@@ -4,8 +4,6 @@ package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
-
-import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
@@ -175,17 +173,4 @@ public interface ParameterValue extends Parameter, qualitypatternmodel.graphstru
 	 * @generated
 	 */
 	EList<String> inferElementTagSuggestions();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Returns a list of <code>XmlElements</code> that contain an <code>XmlProperty</code> of type TAG
-	 * that is compared with <code>this</code>.
-	 * 
-	 * @return a list of <code>XmlElements</code> that contain an <code>XmlProperty</code> of type TAG
-	 * that is compared with <code>this</code>
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<XmlElement> getTagComparisonElements();
 } // XSType

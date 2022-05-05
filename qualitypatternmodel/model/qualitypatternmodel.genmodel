@@ -99,7 +99,6 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/isInTagComparison"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/isInAttributeComparison"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/isInDataComparison"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/getTagComparisonElements"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/inferElementTagSuggestions"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/getElementTags"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/getAttributeNames"/>

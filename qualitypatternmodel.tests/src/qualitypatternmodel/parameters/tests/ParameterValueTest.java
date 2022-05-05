@@ -14,7 +14,6 @@ import qualitypatternmodel.parameters.ParameterValue;
  *   <li>{@link qualitypatternmodel.parameters.ParameterValue#isInTagComparison() <em>Is In Tag Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ParameterValue#isInAttributeComparison() <em>Is In Attribute Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ParameterValue#isInDataComparison() <em>Is In Data Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getTagComparisonElements() <em>Get Tag Comparison Elements</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ParameterValue#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getElementTags() <em>Get Element Tags</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getAttributeNames() <em>Get Attribute Names</em>}</li>
@@ -88,19 +87,6 @@ public abstract class ParameterValueTest extends ParameterTest {
 	 * @generated
 	 */
 	public void testIsInDataComparison() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#getTagComparisonElements() <em>Get Tag Comparison Elements</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.ParameterValue#getTagComparisonElements()
-	 * @generated
-	 */
-	public void testGetTagComparisonElements() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
