@@ -627,6 +627,16 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getXmlDataDatabase__GetSuggestionsFromSourceTargetTag__String_String() {
+		return xmlDataDatabaseEClass.getEOperations().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getLocalXmlDataDatabase() {
 		return localXmlDataDatabaseEClass;
 	}
@@ -1396,6 +1406,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING);
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING);
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING);
 
 		localXmlDataDatabaseEClass = createEClass(LOCAL_XML_DATA_DATABASE);
 		createEAttribute(localXmlDataDatabaseEClass, LOCAL_XML_DATA_DATABASE__DATA_PATH);
@@ -1608,6 +1619,14 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		op = initEOperation(getXmlDataDatabase__GetSuggestionsFromAxisPreviousRoot__AxisKind(), ecorePackage.getEString(), "getSuggestionsFromAxisPreviousRoot", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theAdaptionxmlPackage.getAxisKind(), "axisKind", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIoExceptionWrapper());
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
+		addEException(op, this.getBaseXExceptionWrapper());
+
+		op = initEOperation(getXmlDataDatabase__GetSuggestionsFromSourceTargetTag__String_String(), theAdaptionxmlPackage.getAxisKind(), "getSuggestionsFromSourceTargetTag", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "sourceTag", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "targetTag", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getIoExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());

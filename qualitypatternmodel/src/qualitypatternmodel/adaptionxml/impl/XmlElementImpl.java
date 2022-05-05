@@ -5,8 +5,6 @@ package qualitypatternmodel.adaptionxml.impl;
 import static qualitypatternmodel.utility.Constants.VARIABLE;
 
 import java.lang.reflect.InvocationTargetException;
-
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
@@ -174,42 +172,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	public XmlElement adaptAsXmlElement() throws InvalidityException {
 		return this;
 	}
-
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public EList<Comparison> getTagComparisons() {
-		EList<Comparison> tagComparisons = new BasicEList<Comparison>();
-		for(BooleanOperator predicate : getPredicates()) {
-			if(predicate instanceof Comparison) {
-				Comparison comparison = (Comparison) predicate;
-				if(comparison.isPrimitive() && comparison.getOption() != null && comparison.getOption().getValue() == ComparisonOperator.EQUAL) {
-					if(comparison.getArgument1() instanceof XmlProperty) {
-						XmlProperty property = (XmlProperty) comparison.getArgument1();
-						if(property.getOption().getValue() == PropertyKind.TAG) {
-							if(comparison.getArgument2() instanceof TextLiteralParam) {
-								tagComparisons.add(comparison);
-							}
-						}
-					}
-					if(comparison.getArgument2() instanceof XmlProperty) {
-						XmlProperty property = (XmlProperty) comparison.getArgument2();
-						if(property.getOption().getValue() == PropertyKind.TAG) {
-							if(comparison.getArgument1() instanceof TextLiteralParam) {
-								tagComparisons.add(comparison);
-							}
-						}
-					}
-				}
-			}
-		}
-		return tagComparisons;
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -326,8 +289,6 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionxmlPackage.XML_ELEMENT___GET_TAG_COMPARISONS:
-				return getTagComparisons();
 			case AdaptionxmlPackage.XML_ELEMENT___GET_TAG_FROM_COMPARISONS:
 				return getTagFromComparisons();
 		}

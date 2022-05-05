@@ -20,6 +20,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestionsFromOutgoingRelations() <em>Infer Element Tag Suggestions From Outgoing Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.AxisPair#inferElementTagSuggestionsFromIncomingRelations() <em>Infer Element Tag Suggestions From Incoming Relations</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.AxisPair#inferAxisSuggestions() <em>Infer Axis Suggestions</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  * </ul>
@@ -140,6 +141,19 @@ public class AxisPairTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testInferElementTagSuggestionsFromIncomingRelations() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.AxisPair#inferAxisSuggestions() <em>Infer Axis Suggestions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.AxisPair#inferAxisSuggestions()
+	 * @generated
+	 */
+	public void testInferAxisSuggestions() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

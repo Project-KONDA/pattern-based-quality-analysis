@@ -138,4 +138,12 @@ public interface AxisPair extends PatternElement, Adaptable {
 	 */
 	EList<String> inferElementTagSuggestionsFromIncomingRelations();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<AxisKind> inferAxisSuggestions();
+
 } // AxisPair

@@ -730,22 +730,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___TRANSLATE_PREDICATES = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Tag Comparisons</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___GET_TAG_COMPARISONS = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 3;
-
-	/**
 	 * The operation id for the '<em>Get Tag From Comparisons</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___GET_TAG_FROM_COMPARISONS = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 4;
+	int XML_ELEMENT___GET_TAG_FROM_COMPARISONS = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Xml Element</em>' class.
@@ -754,7 +745,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 5;
+	int XML_ELEMENT_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl <em>Xml Navigation</em>}' class.
@@ -4951,13 +4942,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
+	 * The operation id for the '<em>Infer Axis Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AXIS_PAIR___INFER_AXIS_SUGGESTIONS = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
+
+	/**
 	 * The number of operations of the '<em>Axis Pair</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_PAIR_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
+	int AXIS_PAIR_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}' enum.
@@ -5018,16 +5018,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getXmlElement__TranslatePredicates();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlElement#getTagComparisons() <em>Get Tag Comparisons</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Tag Comparisons</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlElement#getTagComparisons()
-	 * @generated
-	 */
-	EOperation getXmlElement__GetTagComparisons();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlElement#getTagFromComparisons() <em>Get Tag From Comparisons</em>}' operation.
@@ -5489,6 +5479,16 @@ public interface AdaptionxmlPackage extends EPackage {
 	EOperation getAxisPair__InferElementTagSuggestionsFromIncomingRelations();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.AxisPair#inferAxisSuggestions() <em>Infer Axis Suggestions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Infer Axis Suggestions</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.AxisPair#inferAxisSuggestions()
+	 * @generated
+	 */
+	EOperation getAxisPair__InferAxisSuggestions();
+
+	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5564,14 +5564,6 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_ELEMENT___TRANSLATE_PREDICATES = eINSTANCE.getXmlElement__TranslatePredicates();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Tag Comparisons</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation XML_ELEMENT___GET_TAG_COMPARISONS = eINSTANCE.getXmlElement__GetTagComparisons();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Tag From Comparisons</b></em>' operation.
@@ -5942,6 +5934,14 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS = eINSTANCE.getAxisPair__InferElementTagSuggestionsFromIncomingRelations();
+
+		/**
+		 * The meta object literal for the '<em><b>Infer Axis Suggestions</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation AXIS_PAIR___INFER_AXIS_SUGGESTIONS = eINSTANCE.getAxisPair__InferAxisSuggestions();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}' enum.

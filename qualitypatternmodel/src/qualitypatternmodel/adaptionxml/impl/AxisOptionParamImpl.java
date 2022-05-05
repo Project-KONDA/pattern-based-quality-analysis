@@ -2,15 +2,10 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import org.basex.core.BaseXException;
-import org.basex.query.QueryException;
-import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -27,22 +22,14 @@ import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.AxisOptionParam;
 import qualitypatternmodel.adaptionxml.AxisPair;
-import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.execution.Database;
-import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
-import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 import qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl;
 
 /**
@@ -284,71 +271,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	 */
 	@Override
 	public EList<AxisKind> inferSuggestions() {
-		EList<AxisKind> suggestions = new BasicEList<AxisKind>();		
-		Relation relation = getAxisPair().getPathParam().getRelation();
-		String sourceTag = getTag(relation.getSource());	
-		String targetTag = getTag(relation.getTarget());
-		if(sourceTag != null && targetTag != null) {
-			try {
-				Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
-				if(db instanceof XmlDataDatabase) {
-					XmlDataDatabase xmlDataDatabase = (XmlDataDatabase) db;
-					
-					try {
-						
-						if(xmlDataDatabase.getXmlSchema().checkChildInSchema(sourceTag, targetTag)) {
-							suggestions.add(AxisKind.CHILD);
-							suggestions.add(AxisKind.DESCENDANT);
-						} else if(xmlDataDatabase.getXmlSchema().checkDescendantInSchema(sourceTag, targetTag)) {
-							suggestions.add(AxisKind.DESCENDANT);
-						}
-						
-						if(xmlDataDatabase.getXmlSchema().checkParentInSchema(sourceTag, targetTag)) {
-							suggestions.add(AxisKind.PARENT);
-							suggestions.add(AxisKind.ANCESTOR);
-						} else if(xmlDataDatabase.getXmlSchema().checkAncestorInSchema(sourceTag, targetTag)) {
-							suggestions.add(AxisKind.ANCESTOR);
-						}
-						
-						if(xmlDataDatabase.getXmlSchema().checkFollowingSiblingInSchema(sourceTag, targetTag)) {
-							suggestions.add(AxisKind.FOLLOWING_SIBLING);
-							suggestions.add(AxisKind.FOLLOWING);
-						} else if(xmlDataDatabase.getXmlSchema().checkFollowingInSchema(sourceTag, targetTag)) {
-							suggestions.add(AxisKind.FOLLOWING);
-						}
-						
-						// TODO:
-//							if(xmlDatabase.getXmlSchema().checkPrecedingSiblingInSchema(sourceTag, targetTag)) {
-//								suggestions.add(RelationKind.PRECEDING_SIBLING);
-//								suggestions.add(RelationKind.PRECEDING);
-//							} else if(xmlDatabase.getXmlSchema().checkPrecedingInSchema(sourceTag, targetTag)) {
-//								suggestions.add(RelationKind.PRECEDING);
-//							}
-						
-						suggestions.add(AxisKind.SELF);
-						suggestions.add(AxisKind.DESCENDANT_OR_SELF);
-						suggestions.add(AxisKind.ANCESTOR_OR_SELF);
-													
-					} catch (BaseXException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (QueryIOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (QueryException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}						
-				}
-			} catch (MissingPatternContainerException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}		
-		return suggestions;
+		return getAxisPair().inferAxisSuggestions();
 	}
 
 	/**
@@ -381,27 +304,6 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 		}
 	}
 
-	private String getTag(Node node) {
-		if(node instanceof XmlElement) {
-			XmlElement xmlElement = (XmlElement) node;
-			if(xmlElement.getTagComparisons().size() == 1) {
-				Comparison tagComparison = xmlElement.getTagComparisons().get(0);
-				if(tagComparison.getArgument1() instanceof TextLiteralParam) {
-					TextLiteralParam text = (TextLiteralParam) tagComparison.getArgument1();
-					if(text != null && text.getValue() != null && !text.getValue().equals("")) {
-						return text.getValue();
-					}
-				}
-				if(tagComparison.getArgument2() instanceof TextLiteralParam) {
-					TextLiteralParam text = (TextLiteralParam) tagComparison.getArgument2();
-					if(text != null && text.getValue() != null && !text.getValue().equals("")) {
-						return text.getValue();
-					}
-				}
-			}				
-		}
-		return null;
-	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

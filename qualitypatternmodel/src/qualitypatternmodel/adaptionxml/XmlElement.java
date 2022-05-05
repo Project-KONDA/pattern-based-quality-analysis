@@ -2,11 +2,9 @@
  */
 package qualitypatternmodel.adaptionxml;
 
-import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 import qualitypatternmodel.graphstructure.ComplexNode;
-import qualitypatternmodel.operators.Comparison;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,19 +57,6 @@ public interface XmlElement extends ComplexNode {
 	 * @generated
 	 */
 	String translatePredicates() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Returns a list of all associated <code>predicates</code> that require the XML tag <code>Property</code>
-	 * of <code>this</code> to be equal to a given text literal.
-	 * 
-	 * @return a list of all associated <code>predicates</code> that require the XML tag <code>Property</code>
-	 * of <code>this</code> to be equal to a given text literal
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<Comparison> getTagComparisons();
 
 	/**
 	 * <!-- begin-user-doc -->

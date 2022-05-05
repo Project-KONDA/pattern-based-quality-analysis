@@ -715,6 +715,57 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<AxisKind> getSuggestionsFromSourceTargetTag(String sourceTag, String targetTag) throws IOException, QueryException, QueryIOException, BaseXException {
+		EList<AxisKind> suggestions = new BasicEList<AxisKind>();
+
+		if(getXmlSchema().checkChildInSchema(sourceTag, targetTag)) {
+			suggestions.add(AxisKind.CHILD);
+			suggestions.add(AxisKind.DESCENDANT);
+			suggestions.add(AxisKind.DESCENDANT_OR_SELF);
+		} else if(getXmlSchema().checkDescendantInSchema(sourceTag, targetTag)) {
+			suggestions.add(AxisKind.DESCENDANT);
+			suggestions.add(AxisKind.DESCENDANT_OR_SELF);
+		}
+		
+		if(getXmlSchema().checkParentInSchema(sourceTag, targetTag)) {
+			suggestions.add(AxisKind.PARENT);
+			suggestions.add(AxisKind.ANCESTOR);
+			suggestions.add(AxisKind.ANCESTOR_OR_SELF);
+		} else if(getXmlSchema().checkAncestorInSchema(sourceTag, targetTag)) {
+			suggestions.add(AxisKind.ANCESTOR);
+			suggestions.add(AxisKind.ANCESTOR_OR_SELF);
+		}
+		
+		if(getXmlSchema().checkFollowingSiblingInSchema(sourceTag, targetTag)) {
+			suggestions.add(AxisKind.FOLLOWING_SIBLING);
+			suggestions.add(AxisKind.FOLLOWING);
+		} else if(getXmlSchema().checkFollowingInSchema(sourceTag, targetTag)) {
+			suggestions.add(AxisKind.FOLLOWING);
+		}
+		
+		// TODO:
+//			if(xmlDatabase.getXmlSchema().checkPrecedingSiblingInSchema(sourceTag, targetTag)) {
+//				suggestions.add(RelationKind.PRECEDING_SIBLING);
+//				suggestions.add(RelationKind.PRECEDING);
+//			} else if(xmlDatabase.getXmlSchema().checkPrecedingInSchema(sourceTag, targetTag)) {
+//				suggestions.add(RelationKind.PRECEDING);
+//			}
+		
+		if(sourceTag.equals(targetTag)) {
+			suggestions.add(AxisKind.SELF);
+			suggestions.add(AxisKind.DESCENDANT_OR_SELF);
+			suggestions.add(AxisKind.ANCESTOR_OR_SELF);
+		}
+		
+		return suggestions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -1006,6 +1057,13 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			case ExecutionPackage.XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND:
 				try {
 					return getSuggestionsFromAxisPreviousRoot((AxisKind)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING:
+				try {
+					return getSuggestionsFromSourceTargetTag((String)arguments.get(0), (String)arguments.get(1));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

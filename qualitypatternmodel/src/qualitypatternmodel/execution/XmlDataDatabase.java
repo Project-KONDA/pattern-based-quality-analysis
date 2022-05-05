@@ -259,4 +259,12 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 	 */
 	EList<String> getSuggestionsFromAxisPreviousRoot(AxisKind axisKind) throws IOException, QueryException, QueryIOException, BaseXException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.execution.IoExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.BaseXExceptionWrapper"
+	 * @generated
+	 */
+	EList<AxisKind> getSuggestionsFromSourceTargetTag(String sourceTag, String targetTag) throws IOException, QueryException, QueryIOException, BaseXException;
+
 } // XmlDatabase

@@ -17,6 +17,8 @@ import qualitypatternmodel.parameters.tests.ParameterValueTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.PathParam#getRelation() <em>Get Relation</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.PathParam#setAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String) <em>Set Axis</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.PathParam#addAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String) <em>Add Axis</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  * </ul>
@@ -85,6 +87,32 @@ public class PathParamTest extends ParameterValueTest {
 	 * @generated
 	 */
 	public void testGetRelation() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.PathParam#setAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String) <em>Set Axis</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.PathParam#setAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String)
+	 * @generated
+	 */
+	public void testSetAxis__AxisKind_String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.PathParam#addAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String) <em>Add Axis</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.PathParam#addAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String)
+	 * @generated
+	 */
+	public void testAddAxis__AxisKind_String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

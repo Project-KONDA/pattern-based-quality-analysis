@@ -768,13 +768,22 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND = XML_DATABASE_OPERATION_COUNT + 16;
 
 	/**
+	 * The operation id for the '<em>Get Suggestions From Source Target Tag</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING = XML_DATABASE_OPERATION_COUNT + 17;
+
+	/**
 	 * The number of operations of the '<em>Xml Data Database</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATA_DATABASE_OPERATION_COUNT = XML_DATABASE_OPERATION_COUNT + 17;
+	int XML_DATA_DATABASE_OPERATION_COUNT = XML_DATABASE_OPERATION_COUNT + 18;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl <em>Local Xml Data Database</em>}' class.
@@ -1100,6 +1109,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOCAL_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions From Source Target Tag</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING;
 
 	/**
 	 * The number of operations of the '<em>Local Xml Data Database</em>' class.
@@ -1443,6 +1461,15 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions From Source Target Tag</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING;
 
 	/**
 	 * The number of operations of the '<em>Server Xml Data Database</em>' class.
@@ -3119,6 +3146,16 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getXmlDataDatabase__GetSuggestionsFromAxisPreviousRoot__AxisKind();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromSourceTargetTag(java.lang.String, java.lang.String) <em>Get Suggestions From Source Target Tag</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Suggestions From Source Target Tag</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromSourceTargetTag(java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlDataDatabase__GetSuggestionsFromSourceTargetTag__String_String();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.LocalXmlDataDatabase <em>Local Xml Data Database</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4156,6 +4193,14 @@ public interface ExecutionPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND = eINSTANCE.getXmlDataDatabase__GetSuggestionsFromAxisPreviousRoot__AxisKind();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Suggestions From Source Target Tag</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING = eINSTANCE.getXmlDataDatabase__GetSuggestionsFromSourceTargetTag__String_String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl <em>Local Xml Data Database</em>}' class.

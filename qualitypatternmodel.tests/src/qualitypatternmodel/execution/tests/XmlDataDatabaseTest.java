@@ -29,6 +29,7 @@ import qualitypatternmodel.execution.XmlDataDatabase;
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisPreviousTag(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String) <em>Get Suggestions From Axis Previous Tag</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisNextTag(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String) <em>Get Suggestions From Axis Next Tag</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisPreviousRoot(qualitypatternmodel.adaptionxml.AxisKind) <em>Get Suggestions From Axis Previous Root</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromSourceTargetTag(java.lang.String, java.lang.String) <em>Get Suggestions From Source Target Tag</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.Database#execute(qualitypatternmodel.patternstructure.CompletePattern, java.lang.String, java.lang.String) <em>Execute</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.Database#countMatches(qualitypatternmodel.patternstructure.CompletePattern) <em>Count Matches</em>}</li>
  * </ul>
@@ -279,6 +280,19 @@ public class XmlDataDatabaseTest extends XmlDatabaseTest {
 	 * @generated
 	 */
 	public void testGetSuggestionsFromAxisPreviousRoot__AxisKind() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromSourceTargetTag(java.lang.String, java.lang.String) <em>Get Suggestions From Source Target Tag</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromSourceTargetTag(java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	public void testGetSuggestionsFromSourceTargetTag__String_String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
