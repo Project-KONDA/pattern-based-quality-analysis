@@ -373,17 +373,18 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 					&& next.getTextLiteralParam() != null && next.getTextLiteralParam().getValue() != null) {
 	
 				AxisKind axis = next.getAxisOptionParam().getValue();
-				String nextTag = next.getTextLiteralParam().getValue();			
+				String nextTag = null;			
 				
-				if(next.getTextLiteralParam().getValue().contentEquals("") || next.getTextLiteralParam().getValue().contentEquals("*")) {
-					int index = getPathParam().getAxisPairs().indexOf(this);
-					if(index == getPathParam().getAxisPairs().size()-1 && getPathParam().getRelation() != null && getPathParam().getRelation().getTarget() instanceof XmlElement) {
+				if(next.getTextLiteralParam().getValue().equals("") || next.getTextLiteralParam().getValue().equals("*")) {
+					boolean nextIsLast = next.getPathParam().getAxisPairs().get(next.getPathParam().getAxisPairs().size()-1).equals(next);
+					if(nextIsLast && getPathParam().getRelation() != null && getPathParam().getRelation().getTarget() instanceof XmlElement) {
 						XmlElement xmlElement = (XmlElement) getPathParam().getRelation().getTarget();
 						nextTag = xmlElement.getTagFromComparisons();					
 					}
+				} else {
+					nextTag = next.getTextLiteralParam().getValue();
 				}
 				if(nextTag != null) {
-					
 					try {			
 						Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
 						if (db instanceof XmlDataDatabase) {
@@ -402,7 +403,6 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 						// TODO Auto-generated catch block
 						e.printStackTrace();				
 					}
-					
 					
 				}
 			}		
@@ -443,15 +443,16 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 			for(AxisPair previous : previousAxisPairs) {
 			
 				if(previous != null && previous.getTextLiteralParam() != null && previous.getTextLiteralParam().getValue() != null) {
-					
-					String previousTag = previous.getTextLiteralParam().getValue();
-					
+					String previousTag = null;
 					if(previous.getTextLiteralParam().getValue().equals("") || previous.getTextLiteralParam().getValue().equals("*")) {
-						if(index == 0 && getPathParam().getRelation() != null && getPathParam().getRelation().getSource() instanceof XmlElement) {
-							XmlElement xmlElement = (XmlElement) getPathParam().getRelation().getSource();
+						boolean previousIsLast = previous.getPathParam().getAxisPairs().get(previous.getPathParam().getAxisPairs().size()-1).equals(previous);
+						if(previousIsLast && previous.getPathParam().getRelation() != null && previous.getPathParam().getRelation().getTarget() instanceof XmlElement) {
+							XmlElement xmlElement = (XmlElement) previous.getPathParam().getRelation().getTarget();
 							previousTag = xmlElement.getTagFromComparisons();	
 						}					
-					}	
+					} else {
+						previousTag = previous.getTextLiteralParam().getValue();
+					}
 					
 					if(previousTag != null) {	
 						
