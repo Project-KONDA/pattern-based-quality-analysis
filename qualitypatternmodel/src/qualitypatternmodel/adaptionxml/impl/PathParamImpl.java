@@ -108,8 +108,10 @@ public class PathParamImpl extends ParameterValueImpl implements PathParam {
 	@Override
 	public String generateQuery() throws InvalidityException {
 		String query = "";
-		for(AxisPair axisPair : getAxisPairs()) {
-			query += axisPair.generateQuery();
+		if(getAxisPairs() != null) {
+			for(AxisPair axisPair : getAxisPairs()) {
+				query += axisPair.generateQuery();
+			}
 		}
 		if(getPropertyOptionParam() != null) {
 			query += getPropertyOptionParam().generateQuery();
