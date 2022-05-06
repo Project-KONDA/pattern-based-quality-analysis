@@ -748,6 +748,394 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 4;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl <em>Xml Navigation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlNavigation()
+	 * @generated
+	 */
+	int XML_NAVIGATION = 10;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION__ID = GraphstructurePackage.RELATION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION__INTERNAL_ID = GraphstructurePackage.RELATION__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Incoming Mapping</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION__INCOMING_MAPPING = GraphstructurePackage.RELATION__INCOMING_MAPPING;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing Mappings</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION__OUTGOING_MAPPINGS = GraphstructurePackage.RELATION__OUTGOING_MAPPINGS;
+
+	/**
+	 * The feature id for the '<em><b>Graph</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION__GRAPH = GraphstructurePackage.RELATION__GRAPH;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION__SOURCE = GraphstructurePackage.RELATION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION__TARGET = GraphstructurePackage.RELATION__TARGET;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION__NAME = GraphstructurePackage.RELATION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Path Param</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION__PATH_PARAM = GraphstructurePackage.RELATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Xml Navigation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION_FEATURE_COUNT = GraphstructurePackage.RELATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___GENERATE_QUERY = GraphstructurePackage.RELATION___GENERATE_QUERY;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___GET_ALL_PARAMETERS = GraphstructurePackage.RELATION___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___PREPARE_TRANSLATION = GraphstructurePackage.RELATION___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___IS_VALID__ABSTRACTIONLEVEL = GraphstructurePackage.RELATION___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.RELATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___GET_CONTAINER = GraphstructurePackage.RELATION___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___GET_ANCESTOR__CLASS = GraphstructurePackage.RELATION___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___MY_TO_STRING = GraphstructurePackage.RELATION___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.RELATION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___PREPARE_PARAMETER_UPDATES = GraphstructurePackage.RELATION___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___GET_PARAMETER_LIST = GraphstructurePackage.RELATION___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___GET_OPERATOR_LIST = GraphstructurePackage.RELATION___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___CREATE_XML_ADAPTION = GraphstructurePackage.RELATION___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___FINALIZE_XML_ADAPTION = GraphstructurePackage.RELATION___FINALIZE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.RELATION___RECORD_VALUES__XMLDATADATABASE;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___RELATIONS_XML_ADAPTED = GraphstructurePackage.RELATION___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = GraphstructurePackage.RELATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.RELATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.RELATION___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___INITIALIZE_TRANSLATION = GraphstructurePackage.RELATION___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = GraphstructurePackage.RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___CREATE_PARAMETERS = GraphstructurePackage.RELATION___CREATE_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Remove Relation From Previous Graphs</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS = GraphstructurePackage.RELATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS;
+
+	/**
+	 * The operation id for the '<em>Remove Mappings To Next</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___REMOVE_MAPPINGS_TO_NEXT = GraphstructurePackage.RELATION___REMOVE_MAPPINGS_TO_NEXT;
+
+	/**
+	 * The operation id for the '<em>Adapt As XML Element Navigation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___ADAPT_AS_XML_ELEMENT_NAVIGATION = GraphstructurePackage.RELATION___ADAPT_AS_XML_ELEMENT_NAVIGATION;
+
+	/**
+	 * The operation id for the '<em>Adapt As XML Reference</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___ADAPT_AS_XML_REFERENCE = GraphstructurePackage.RELATION___ADAPT_AS_XML_REFERENCE;
+
+	/**
+	 * The operation id for the '<em>Set Graph Simple</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___SET_GRAPH_SIMPLE__GRAPH = GraphstructurePackage.RELATION___SET_GRAPH_SIMPLE__GRAPH;
+
+	/**
+	 * The operation id for the '<em>Get Original ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___GET_ORIGINAL_ID = GraphstructurePackage.RELATION___GET_ORIGINAL_ID;
+
+	/**
+	 * The operation id for the '<em>Get Original Relation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___GET_ORIGINAL_RELATION = GraphstructurePackage.RELATION___GET_ORIGINAL_RELATION;
+
+	/**
+	 * The operation id for the '<em>Adapt As XML Property Navigation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___ADAPT_AS_XML_PROPERTY_NAVIGATION = GraphstructurePackage.RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION;
+
+	/**
+	 * The operation id for the '<em>Get Original Path Param</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Xml Navigation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl <em>Xml Element Navigation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -764,7 +1152,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION__ID = GraphstructurePackage.RELATION__ID;
+	int XML_ELEMENT_NAVIGATION__ID = XML_NAVIGATION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -773,7 +1161,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION__INTERNAL_ID = GraphstructurePackage.RELATION__INTERNAL_ID;
+	int XML_ELEMENT_NAVIGATION__INTERNAL_ID = XML_NAVIGATION__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Mapping</b></em>' reference.
@@ -782,7 +1170,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION__INCOMING_MAPPING = GraphstructurePackage.RELATION__INCOMING_MAPPING;
+	int XML_ELEMENT_NAVIGATION__INCOMING_MAPPING = XML_NAVIGATION__INCOMING_MAPPING;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Mappings</b></em>' reference list.
@@ -791,7 +1179,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION__OUTGOING_MAPPINGS = GraphstructurePackage.RELATION__OUTGOING_MAPPINGS;
+	int XML_ELEMENT_NAVIGATION__OUTGOING_MAPPINGS = XML_NAVIGATION__OUTGOING_MAPPINGS;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -800,7 +1188,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION__GRAPH = GraphstructurePackage.RELATION__GRAPH;
+	int XML_ELEMENT_NAVIGATION__GRAPH = XML_NAVIGATION__GRAPH;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -809,7 +1197,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION__SOURCE = GraphstructurePackage.RELATION__SOURCE;
+	int XML_ELEMENT_NAVIGATION__SOURCE = XML_NAVIGATION__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -818,7 +1206,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION__TARGET = GraphstructurePackage.RELATION__TARGET;
+	int XML_ELEMENT_NAVIGATION__TARGET = XML_NAVIGATION__TARGET;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -827,7 +1215,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION__NAME = GraphstructurePackage.RELATION__NAME;
+	int XML_ELEMENT_NAVIGATION__NAME = XML_NAVIGATION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Path Param</b></em>' reference.
@@ -836,7 +1224,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION__PATH_PARAM = GraphstructurePackage.RELATION_FEATURE_COUNT + 0;
+	int XML_ELEMENT_NAVIGATION__PATH_PARAM = XML_NAVIGATION__PATH_PARAM;
 
 	/**
 	 * The number of structural features of the '<em>Xml Element Navigation</em>' class.
@@ -845,7 +1233,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION_FEATURE_COUNT = GraphstructurePackage.RELATION_FEATURE_COUNT + 1;
+	int XML_ELEMENT_NAVIGATION_FEATURE_COUNT = XML_NAVIGATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -854,7 +1242,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___GENERATE_QUERY = GraphstructurePackage.RELATION___GENERATE_QUERY;
+	int XML_ELEMENT_NAVIGATION___GENERATE_QUERY = XML_NAVIGATION___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -863,7 +1251,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___GET_ALL_PARAMETERS = GraphstructurePackage.RELATION___GET_ALL_PARAMETERS;
+	int XML_ELEMENT_NAVIGATION___GET_ALL_PARAMETERS = XML_NAVIGATION___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -872,7 +1260,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___PREPARE_TRANSLATION = GraphstructurePackage.RELATION___PREPARE_TRANSLATION;
+	int XML_ELEMENT_NAVIGATION___PREPARE_TRANSLATION = XML_NAVIGATION___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -881,7 +1269,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___IS_VALID__ABSTRACTIONLEVEL = GraphstructurePackage.RELATION___IS_VALID__ABSTRACTIONLEVEL;
+	int XML_ELEMENT_NAVIGATION___IS_VALID__ABSTRACTIONLEVEL = XML_NAVIGATION___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -890,7 +1278,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.RELATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int XML_ELEMENT_NAVIGATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = XML_NAVIGATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -899,7 +1287,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___GET_CONTAINER = GraphstructurePackage.RELATION___GET_CONTAINER;
+	int XML_ELEMENT_NAVIGATION___GET_CONTAINER = XML_NAVIGATION___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -908,7 +1296,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___GET_ANCESTOR__CLASS = GraphstructurePackage.RELATION___GET_ANCESTOR__CLASS;
+	int XML_ELEMENT_NAVIGATION___GET_ANCESTOR__CLASS = XML_NAVIGATION___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -917,7 +1305,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___MY_TO_STRING = GraphstructurePackage.RELATION___MY_TO_STRING;
+	int XML_ELEMENT_NAVIGATION___MY_TO_STRING = XML_NAVIGATION___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -926,7 +1314,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.RELATION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int XML_ELEMENT_NAVIGATION___VALIDATE__DIAGNOSTICCHAIN_MAP = XML_NAVIGATION___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -935,7 +1323,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___PREPARE_PARAMETER_UPDATES = GraphstructurePackage.RELATION___PREPARE_PARAMETER_UPDATES;
+	int XML_ELEMENT_NAVIGATION___PREPARE_PARAMETER_UPDATES = XML_NAVIGATION___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -944,7 +1332,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___GET_PARAMETER_LIST = GraphstructurePackage.RELATION___GET_PARAMETER_LIST;
+	int XML_ELEMENT_NAVIGATION___GET_PARAMETER_LIST = XML_NAVIGATION___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -953,7 +1341,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___GET_OPERATOR_LIST = GraphstructurePackage.RELATION___GET_OPERATOR_LIST;
+	int XML_ELEMENT_NAVIGATION___GET_OPERATOR_LIST = XML_NAVIGATION___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Create XML Adaption</em>' operation.
@@ -962,7 +1350,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___CREATE_XML_ADAPTION = GraphstructurePackage.RELATION___CREATE_XML_ADAPTION;
+	int XML_ELEMENT_NAVIGATION___CREATE_XML_ADAPTION = XML_NAVIGATION___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
@@ -971,7 +1359,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___FINALIZE_XML_ADAPTION = GraphstructurePackage.RELATION___FINALIZE_XML_ADAPTION;
+	int XML_ELEMENT_NAVIGATION___FINALIZE_XML_ADAPTION = XML_NAVIGATION___FINALIZE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -980,7 +1368,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.RELATION___RECORD_VALUES__XMLDATADATABASE;
+	int XML_ELEMENT_NAVIGATION___RECORD_VALUES__XMLDATADATABASE = XML_NAVIGATION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -989,7 +1377,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___RELATIONS_XML_ADAPTED = GraphstructurePackage.RELATION___RELATIONS_XML_ADAPTED;
+	int XML_ELEMENT_NAVIGATION___RELATIONS_XML_ADAPTED = XML_NAVIGATION___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -998,7 +1386,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = GraphstructurePackage.RELATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int XML_ELEMENT_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = XML_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -1007,7 +1395,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.RELATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int XML_ELEMENT_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = XML_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -1016,7 +1404,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.RELATION___UPDATE_PARAMETERS__PARAMETERLIST;
+	int XML_ELEMENT_NAVIGATION___UPDATE_PARAMETERS__PARAMETERLIST = XML_NAVIGATION___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -1025,7 +1413,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___INITIALIZE_TRANSLATION = GraphstructurePackage.RELATION___INITIALIZE_TRANSLATION;
+	int XML_ELEMENT_NAVIGATION___INITIALIZE_TRANSLATION = XML_NAVIGATION___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
@@ -1034,7 +1422,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = GraphstructurePackage.RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+	int XML_ELEMENT_NAVIGATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = XML_NAVIGATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -1043,7 +1431,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___CREATE_PARAMETERS = GraphstructurePackage.RELATION___CREATE_PARAMETERS;
+	int XML_ELEMENT_NAVIGATION___CREATE_PARAMETERS = XML_NAVIGATION___CREATE_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Remove Relation From Previous Graphs</em>' operation.
@@ -1052,7 +1440,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS = GraphstructurePackage.RELATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS;
+	int XML_ELEMENT_NAVIGATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS = XML_NAVIGATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS;
 
 	/**
 	 * The operation id for the '<em>Remove Mappings To Next</em>' operation.
@@ -1061,16 +1449,16 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___REMOVE_MAPPINGS_TO_NEXT = GraphstructurePackage.RELATION___REMOVE_MAPPINGS_TO_NEXT;
+	int XML_ELEMENT_NAVIGATION___REMOVE_MAPPINGS_TO_NEXT = XML_NAVIGATION___REMOVE_MAPPINGS_TO_NEXT;
 
 	/**
-	 * The operation id for the '<em>Adapt As XML Navigation</em>' operation.
+	 * The operation id for the '<em>Adapt As XML Element Navigation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___ADAPT_AS_XML_NAVIGATION = GraphstructurePackage.RELATION___ADAPT_AS_XML_NAVIGATION;
+	int XML_ELEMENT_NAVIGATION___ADAPT_AS_XML_ELEMENT_NAVIGATION = XML_NAVIGATION___ADAPT_AS_XML_ELEMENT_NAVIGATION;
 
 	/**
 	 * The operation id for the '<em>Adapt As XML Reference</em>' operation.
@@ -1079,7 +1467,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___ADAPT_AS_XML_REFERENCE = GraphstructurePackage.RELATION___ADAPT_AS_XML_REFERENCE;
+	int XML_ELEMENT_NAVIGATION___ADAPT_AS_XML_REFERENCE = XML_NAVIGATION___ADAPT_AS_XML_REFERENCE;
 
 	/**
 	 * The operation id for the '<em>Set Graph Simple</em>' operation.
@@ -1088,7 +1476,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___SET_GRAPH_SIMPLE__GRAPH = GraphstructurePackage.RELATION___SET_GRAPH_SIMPLE__GRAPH;
+	int XML_ELEMENT_NAVIGATION___SET_GRAPH_SIMPLE__GRAPH = XML_NAVIGATION___SET_GRAPH_SIMPLE__GRAPH;
 
 	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
@@ -1097,7 +1485,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___GET_ORIGINAL_ID = GraphstructurePackage.RELATION___GET_ORIGINAL_ID;
+	int XML_ELEMENT_NAVIGATION___GET_ORIGINAL_ID = XML_NAVIGATION___GET_ORIGINAL_ID;
 
 	/**
 	 * The operation id for the '<em>Get Original Relation</em>' operation.
@@ -1106,7 +1494,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___GET_ORIGINAL_RELATION = GraphstructurePackage.RELATION___GET_ORIGINAL_RELATION;
+	int XML_ELEMENT_NAVIGATION___GET_ORIGINAL_RELATION = XML_NAVIGATION___GET_ORIGINAL_RELATION;
 
 	/**
 	 * The operation id for the '<em>Adapt As XML Property Navigation</em>' operation.
@@ -1115,7 +1503,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___ADAPT_AS_XML_PROPERTY_NAVIGATION = GraphstructurePackage.RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION;
+	int XML_ELEMENT_NAVIGATION___ADAPT_AS_XML_PROPERTY_NAVIGATION = XML_NAVIGATION___ADAPT_AS_XML_PROPERTY_NAVIGATION;
 
 	/**
 	 * The operation id for the '<em>Get Original Path Param</em>' operation.
@@ -1124,7 +1512,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___GET_ORIGINAL_PATH_PARAM = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
+	int XML_ELEMENT_NAVIGATION___GET_ORIGINAL_PATH_PARAM = XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM;
 
 	/**
 	 * The number of operations of the '<em>Xml Element Navigation</em>' class.
@@ -1133,7 +1521,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 1;
+	int XML_ELEMENT_NAVIGATION_OPERATION_COUNT = XML_NAVIGATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl <em>Xml Reference</em>}' class.
@@ -1461,13 +1849,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___REMOVE_MAPPINGS_TO_NEXT = GraphstructurePackage.RELATION___REMOVE_MAPPINGS_TO_NEXT;
 
 	/**
-	 * The operation id for the '<em>Adapt As XML Navigation</em>' operation.
+	 * The operation id for the '<em>Adapt As XML Element Navigation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___ADAPT_AS_XML_NAVIGATION = GraphstructurePackage.RELATION___ADAPT_AS_XML_NAVIGATION;
+	int XML_REFERENCE___ADAPT_AS_XML_ELEMENT_NAVIGATION = GraphstructurePackage.RELATION___ADAPT_AS_XML_ELEMENT_NAVIGATION;
 
 	/**
 	 * The operation id for the '<em>Adapt As XML Reference</em>' operation.
@@ -2883,7 +3271,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION__ID = GraphstructurePackage.RELATION__ID;
+	int XML_PROPERTY_NAVIGATION__ID = XML_NAVIGATION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -2892,7 +3280,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION__INTERNAL_ID = GraphstructurePackage.RELATION__INTERNAL_ID;
+	int XML_PROPERTY_NAVIGATION__INTERNAL_ID = XML_NAVIGATION__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Mapping</b></em>' reference.
@@ -2901,7 +3289,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION__INCOMING_MAPPING = GraphstructurePackage.RELATION__INCOMING_MAPPING;
+	int XML_PROPERTY_NAVIGATION__INCOMING_MAPPING = XML_NAVIGATION__INCOMING_MAPPING;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Mappings</b></em>' reference list.
@@ -2910,7 +3298,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION__OUTGOING_MAPPINGS = GraphstructurePackage.RELATION__OUTGOING_MAPPINGS;
+	int XML_PROPERTY_NAVIGATION__OUTGOING_MAPPINGS = XML_NAVIGATION__OUTGOING_MAPPINGS;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -2919,7 +3307,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION__GRAPH = GraphstructurePackage.RELATION__GRAPH;
+	int XML_PROPERTY_NAVIGATION__GRAPH = XML_NAVIGATION__GRAPH;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
@@ -2928,7 +3316,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION__SOURCE = GraphstructurePackage.RELATION__SOURCE;
+	int XML_PROPERTY_NAVIGATION__SOURCE = XML_NAVIGATION__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Target</b></em>' reference.
@@ -2937,7 +3325,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION__TARGET = GraphstructurePackage.RELATION__TARGET;
+	int XML_PROPERTY_NAVIGATION__TARGET = XML_NAVIGATION__TARGET;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2946,7 +3334,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION__NAME = GraphstructurePackage.RELATION__NAME;
+	int XML_PROPERTY_NAVIGATION__NAME = XML_NAVIGATION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Path Param</b></em>' reference.
@@ -2955,7 +3343,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION__PATH_PARAM = GraphstructurePackage.RELATION_FEATURE_COUNT + 0;
+	int XML_PROPERTY_NAVIGATION__PATH_PARAM = XML_NAVIGATION__PATH_PARAM;
 
 	/**
 	 * The number of structural features of the '<em>Xml Property Navigation</em>' class.
@@ -2964,7 +3352,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION_FEATURE_COUNT = GraphstructurePackage.RELATION_FEATURE_COUNT + 1;
+	int XML_PROPERTY_NAVIGATION_FEATURE_COUNT = XML_NAVIGATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -2973,7 +3361,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___GENERATE_QUERY = GraphstructurePackage.RELATION___GENERATE_QUERY;
+	int XML_PROPERTY_NAVIGATION___GENERATE_QUERY = XML_NAVIGATION___GENERATE_QUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -2982,7 +3370,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___GET_ALL_PARAMETERS = GraphstructurePackage.RELATION___GET_ALL_PARAMETERS;
+	int XML_PROPERTY_NAVIGATION___GET_ALL_PARAMETERS = XML_NAVIGATION___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2991,7 +3379,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___PREPARE_TRANSLATION = GraphstructurePackage.RELATION___PREPARE_TRANSLATION;
+	int XML_PROPERTY_NAVIGATION___PREPARE_TRANSLATION = XML_NAVIGATION___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -3000,7 +3388,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___IS_VALID__ABSTRACTIONLEVEL = GraphstructurePackage.RELATION___IS_VALID__ABSTRACTIONLEVEL;
+	int XML_PROPERTY_NAVIGATION___IS_VALID__ABSTRACTIONLEVEL = XML_NAVIGATION___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -3009,7 +3397,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.RELATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int XML_PROPERTY_NAVIGATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL = XML_NAVIGATION___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -3018,7 +3406,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___GET_CONTAINER = GraphstructurePackage.RELATION___GET_CONTAINER;
+	int XML_PROPERTY_NAVIGATION___GET_CONTAINER = XML_NAVIGATION___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -3027,7 +3415,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___GET_ANCESTOR__CLASS = GraphstructurePackage.RELATION___GET_ANCESTOR__CLASS;
+	int XML_PROPERTY_NAVIGATION___GET_ANCESTOR__CLASS = XML_NAVIGATION___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -3036,7 +3424,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___MY_TO_STRING = GraphstructurePackage.RELATION___MY_TO_STRING;
+	int XML_PROPERTY_NAVIGATION___MY_TO_STRING = XML_NAVIGATION___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -3045,7 +3433,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.RELATION___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int XML_PROPERTY_NAVIGATION___VALIDATE__DIAGNOSTICCHAIN_MAP = XML_NAVIGATION___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -3054,7 +3442,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___PREPARE_PARAMETER_UPDATES = GraphstructurePackage.RELATION___PREPARE_PARAMETER_UPDATES;
+	int XML_PROPERTY_NAVIGATION___PREPARE_PARAMETER_UPDATES = XML_NAVIGATION___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -3063,7 +3451,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___GET_PARAMETER_LIST = GraphstructurePackage.RELATION___GET_PARAMETER_LIST;
+	int XML_PROPERTY_NAVIGATION___GET_PARAMETER_LIST = XML_NAVIGATION___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -3072,7 +3460,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___GET_OPERATOR_LIST = GraphstructurePackage.RELATION___GET_OPERATOR_LIST;
+	int XML_PROPERTY_NAVIGATION___GET_OPERATOR_LIST = XML_NAVIGATION___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Create XML Adaption</em>' operation.
@@ -3081,7 +3469,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___CREATE_XML_ADAPTION = GraphstructurePackage.RELATION___CREATE_XML_ADAPTION;
+	int XML_PROPERTY_NAVIGATION___CREATE_XML_ADAPTION = XML_NAVIGATION___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
@@ -3090,7 +3478,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___FINALIZE_XML_ADAPTION = GraphstructurePackage.RELATION___FINALIZE_XML_ADAPTION;
+	int XML_PROPERTY_NAVIGATION___FINALIZE_XML_ADAPTION = XML_NAVIGATION___FINALIZE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -3099,7 +3487,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.RELATION___RECORD_VALUES__XMLDATADATABASE;
+	int XML_PROPERTY_NAVIGATION___RECORD_VALUES__XMLDATADATABASE = XML_NAVIGATION___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -3108,7 +3496,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___RELATIONS_XML_ADAPTED = GraphstructurePackage.RELATION___RELATIONS_XML_ADAPTED;
+	int XML_PROPERTY_NAVIGATION___RELATIONS_XML_ADAPTED = XML_NAVIGATION___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -3117,7 +3505,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = GraphstructurePackage.RELATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int XML_PROPERTY_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = XML_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -3126,7 +3514,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.RELATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int XML_PROPERTY_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = XML_NAVIGATION___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -3135,7 +3523,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.RELATION___UPDATE_PARAMETERS__PARAMETERLIST;
+	int XML_PROPERTY_NAVIGATION___UPDATE_PARAMETERS__PARAMETERLIST = XML_NAVIGATION___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -3144,7 +3532,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___INITIALIZE_TRANSLATION = GraphstructurePackage.RELATION___INITIALIZE_TRANSLATION;
+	int XML_PROPERTY_NAVIGATION___INITIALIZE_TRANSLATION = XML_NAVIGATION___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
@@ -3153,7 +3541,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = GraphstructurePackage.RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+	int XML_PROPERTY_NAVIGATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = XML_NAVIGATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -3162,7 +3550,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___CREATE_PARAMETERS = GraphstructurePackage.RELATION___CREATE_PARAMETERS;
+	int XML_PROPERTY_NAVIGATION___CREATE_PARAMETERS = XML_NAVIGATION___CREATE_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Remove Relation From Previous Graphs</em>' operation.
@@ -3171,7 +3559,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS = GraphstructurePackage.RELATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS;
+	int XML_PROPERTY_NAVIGATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS = XML_NAVIGATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS;
 
 	/**
 	 * The operation id for the '<em>Remove Mappings To Next</em>' operation.
@@ -3180,16 +3568,16 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___REMOVE_MAPPINGS_TO_NEXT = GraphstructurePackage.RELATION___REMOVE_MAPPINGS_TO_NEXT;
+	int XML_PROPERTY_NAVIGATION___REMOVE_MAPPINGS_TO_NEXT = XML_NAVIGATION___REMOVE_MAPPINGS_TO_NEXT;
 
 	/**
-	 * The operation id for the '<em>Adapt As XML Navigation</em>' operation.
+	 * The operation id for the '<em>Adapt As XML Element Navigation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___ADAPT_AS_XML_NAVIGATION = GraphstructurePackage.RELATION___ADAPT_AS_XML_NAVIGATION;
+	int XML_PROPERTY_NAVIGATION___ADAPT_AS_XML_ELEMENT_NAVIGATION = XML_NAVIGATION___ADAPT_AS_XML_ELEMENT_NAVIGATION;
 
 	/**
 	 * The operation id for the '<em>Adapt As XML Reference</em>' operation.
@@ -3198,7 +3586,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___ADAPT_AS_XML_REFERENCE = GraphstructurePackage.RELATION___ADAPT_AS_XML_REFERENCE;
+	int XML_PROPERTY_NAVIGATION___ADAPT_AS_XML_REFERENCE = XML_NAVIGATION___ADAPT_AS_XML_REFERENCE;
 
 	/**
 	 * The operation id for the '<em>Set Graph Simple</em>' operation.
@@ -3207,7 +3595,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___SET_GRAPH_SIMPLE__GRAPH = GraphstructurePackage.RELATION___SET_GRAPH_SIMPLE__GRAPH;
+	int XML_PROPERTY_NAVIGATION___SET_GRAPH_SIMPLE__GRAPH = XML_NAVIGATION___SET_GRAPH_SIMPLE__GRAPH;
 
 	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
@@ -3216,7 +3604,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___GET_ORIGINAL_ID = GraphstructurePackage.RELATION___GET_ORIGINAL_ID;
+	int XML_PROPERTY_NAVIGATION___GET_ORIGINAL_ID = XML_NAVIGATION___GET_ORIGINAL_ID;
 
 	/**
 	 * The operation id for the '<em>Get Original Relation</em>' operation.
@@ -3225,7 +3613,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___GET_ORIGINAL_RELATION = GraphstructurePackage.RELATION___GET_ORIGINAL_RELATION;
+	int XML_PROPERTY_NAVIGATION___GET_ORIGINAL_RELATION = XML_NAVIGATION___GET_ORIGINAL_RELATION;
 
 	/**
 	 * The operation id for the '<em>Adapt As XML Property Navigation</em>' operation.
@@ -3234,7 +3622,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___ADAPT_AS_XML_PROPERTY_NAVIGATION = GraphstructurePackage.RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION;
+	int XML_PROPERTY_NAVIGATION___ADAPT_AS_XML_PROPERTY_NAVIGATION = XML_NAVIGATION___ADAPT_AS_XML_PROPERTY_NAVIGATION;
 
 	/**
 	 * The operation id for the '<em>Get Original Path Param</em>' operation.
@@ -3243,7 +3631,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___GET_ORIGINAL_PATH_PARAM = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
+	int XML_PROPERTY_NAVIGATION___GET_ORIGINAL_PATH_PARAM = XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM;
 
 	/**
 	 * The number of operations of the '<em>Xml Property Navigation</em>' class.
@@ -3252,7 +3640,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 1;
+	int XML_PROPERTY_NAVIGATION_OPERATION_COUNT = XML_NAVIGATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.AxisOptionParamImpl <em>Axis Option Param</em>}' class.
@@ -4113,22 +4501,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int PATH_PARAM__PARAMETER_REFERENCES = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Xml Navigation</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH_PARAM__XML_NAVIGATION = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Property Option Param</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM__PROPERTY_OPTION_PARAM = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 5;
+	int PATH_PARAM__PROPERTY_OPTION_PARAM = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Axis Pairs</b></em>' containment reference list.
@@ -4137,16 +4516,16 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM__AXIS_PAIRS = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 6;
+	int PATH_PARAM__AXIS_PAIRS = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Xml Property Navigation</b></em>' reference.
+	 * The feature id for the '<em><b>Xml Navigation</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM__XML_PROPERTY_NAVIGATION = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
+	int PATH_PARAM__XML_NAVIGATION = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Path Param</em>' class.
@@ -4155,7 +4534,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM_FEATURE_COUNT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 8;
+	int PATH_PARAM_FEATURE_COUNT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -4437,22 +4816,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 9;
 
 	/**
-	 * The operation id for the '<em>Get Relation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH_PARAM___GET_RELATION = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 10;
-
-	/**
 	 * The operation id for the '<em>Set Axis</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___SET_AXIS__AXISKIND_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 11;
+	int PATH_PARAM___SET_AXIS__AXISKIND_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Add Axis</em>' operation.
@@ -4461,7 +4831,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___ADD_AXIS__AXISKIND_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 12;
+	int PATH_PARAM___ADD_AXIS__AXISKIND_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 11;
 
 	/**
 	 * The number of operations of the '<em>Path Param</em>' class.
@@ -4470,7 +4840,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 13;
+	int PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 12;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.AxisPairImpl <em>Axis Pair</em>}' class.
@@ -4805,7 +5175,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getPropertyKind()
 	 * @generated
 	 */
-	int PROPERTY_KIND = 10;
+	int PROPERTY_KIND = 11;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.AxisKind <em>Axis Kind</em>}' enum.
@@ -4815,7 +5185,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getAxisKind()
 	 * @generated
 	 */
-	int AXIS_KIND = 11;
+	int AXIS_KIND = 12;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlElement <em>Xml Element</em>}'.
@@ -4876,27 +5246,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getXmlElementNavigation();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlElementNavigation#getPathParam <em>Path Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Path Param</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlElementNavigation#getPathParam()
-	 * @see #getXmlElementNavigation()
-	 * @generated
-	 */
-	EReference getXmlElementNavigation_PathParam();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlElementNavigation#getOriginalPathParam() <em>Get Original Path Param</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Original Path Param</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlElementNavigation#getOriginalPathParam()
-	 * @generated
-	 */
-	EOperation getXmlElementNavigation__GetOriginalPathParam();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlReference <em>Xml Reference</em>}'.
@@ -5000,27 +5349,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getXmlPropertyNavigation();
-
-	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlPropertyNavigation#getPathParam <em>Path Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Path Param</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlPropertyNavigation#getPathParam()
-	 * @see #getXmlPropertyNavigation()
-	 * @generated
-	 */
-	EReference getXmlPropertyNavigation_PathParam();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlPropertyNavigation#getOriginalPathParam() <em>Get Original Path Param</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Original Path Param</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlPropertyNavigation#getOriginalPathParam()
-	 * @generated
-	 */
-	EOperation getXmlPropertyNavigation__GetOriginalPathParam();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.AxisOptionParam <em>Axis Option Param</em>}'.
@@ -5160,17 +5488,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	EClass getPathParam();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.PathParam#getXmlNavigation <em>Xml Navigation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Xml Navigation</em>'.
-	 * @see qualitypatternmodel.adaptionxml.PathParam#getXmlNavigation()
-	 * @see #getPathParam()
-	 * @generated
-	 */
-	EReference getPathParam_XmlNavigation();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionxml.PathParam#getPropertyOptionParam <em>Property Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5193,25 +5510,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getPathParam_AxisPairs();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.PathParam#getXmlPropertyNavigation <em>Xml Property Navigation</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.PathParam#getXmlNavigation <em>Xml Navigation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Xml Property Navigation</em>'.
-	 * @see qualitypatternmodel.adaptionxml.PathParam#getXmlPropertyNavigation()
+	 * @return the meta object for the reference '<em>Xml Navigation</em>'.
+	 * @see qualitypatternmodel.adaptionxml.PathParam#getXmlNavigation()
 	 * @see #getPathParam()
 	 * @generated
 	 */
-	EReference getPathParam_XmlPropertyNavigation();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.PathParam#getRelation() <em>Get Relation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Relation</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.PathParam#getRelation()
-	 * @generated
-	 */
-	EOperation getPathParam__GetRelation();
+	EReference getPathParam_XmlNavigation();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.PathParam#setAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String) <em>Set Axis</em>}' operation.
@@ -5337,6 +5644,37 @@ public interface AdaptionxmlPackage extends EPackage {
 	EOperation getAxisPair__InferAxisSuggestions();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlNavigation <em>Xml Navigation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Xml Navigation</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlNavigation
+	 * @generated
+	 */
+	EClass getXmlNavigation();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getPathParam <em>Path Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Path Param</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlNavigation#getPathParam()
+	 * @see #getXmlNavigation()
+	 * @generated
+	 */
+	EReference getXmlNavigation_PathParam();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getOriginalPathParam() <em>Get Original Path Param</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Original Path Param</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlNavigation#getOriginalPathParam()
+	 * @generated
+	 */
+	EOperation getXmlNavigation__GetOriginalPathParam();
+
+	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5432,22 +5770,6 @@ public interface AdaptionxmlPackage extends EPackage {
 		EClass XML_ELEMENT_NAVIGATION = eINSTANCE.getXmlElementNavigation();
 
 		/**
-		 * The meta object literal for the '<em><b>Path Param</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference XML_ELEMENT_NAVIGATION__PATH_PARAM = eINSTANCE.getXmlElementNavigation_PathParam();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Original Path Param</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation XML_ELEMENT_NAVIGATION___GET_ORIGINAL_PATH_PARAM = eINSTANCE.getXmlElementNavigation__GetOriginalPathParam();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl <em>Xml Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5534,22 +5856,6 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass XML_PROPERTY_NAVIGATION = eINSTANCE.getXmlPropertyNavigation();
-
-		/**
-		 * The meta object literal for the '<em><b>Path Param</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference XML_PROPERTY_NAVIGATION__PATH_PARAM = eINSTANCE.getXmlPropertyNavigation_PathParam();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Original Path Param</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation XML_PROPERTY_NAVIGATION___GET_ORIGINAL_PATH_PARAM = eINSTANCE.getXmlPropertyNavigation__GetOriginalPathParam();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.AxisOptionParamImpl <em>Axis Option Param</em>}' class.
@@ -5662,14 +5968,6 @@ public interface AdaptionxmlPackage extends EPackage {
 		EClass PATH_PARAM = eINSTANCE.getPathParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Xml Navigation</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PATH_PARAM__XML_NAVIGATION = eINSTANCE.getPathParam_XmlNavigation();
-
-		/**
 		 * The meta object literal for the '<em><b>Property Option Param</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5686,20 +5984,12 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference PATH_PARAM__AXIS_PAIRS = eINSTANCE.getPathParam_AxisPairs();
 
 		/**
-		 * The meta object literal for the '<em><b>Xml Property Navigation</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Xml Navigation</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PATH_PARAM__XML_PROPERTY_NAVIGATION = eINSTANCE.getPathParam_XmlPropertyNavigation();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Relation</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PATH_PARAM___GET_RELATION = eINSTANCE.getPathParam__GetRelation();
+		EReference PATH_PARAM__XML_NAVIGATION = eINSTANCE.getPathParam_XmlNavigation();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Axis</b></em>' operation.
@@ -5798,6 +6088,32 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation AXIS_PAIR___INFER_AXIS_SUGGESTIONS = eINSTANCE.getAxisPair__InferAxisSuggestions();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl <em>Xml Navigation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl
+		 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlNavigation()
+		 * @generated
+		 */
+		EClass XML_NAVIGATION = eINSTANCE.getXmlNavigation();
+
+		/**
+		 * The meta object literal for the '<em><b>Path Param</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference XML_NAVIGATION__PATH_PARAM = eINSTANCE.getXmlNavigation_PathParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Original Path Param</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM = eINSTANCE.getXmlNavigation__GetOriginalPathParam();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}' enum.

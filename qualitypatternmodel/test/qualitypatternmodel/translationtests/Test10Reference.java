@@ -121,7 +121,7 @@ public class Test10Reference {
 		relation2.setTarget(element1);	
 		
 		completePattern.createXMLAdaption();
-		graph.getRelations().get(0).adaptAsXMLNavigation();
+		graph.getRelations().get(0).adaptAsXMLElementNavigation();
 		XmlReference reference = graph.getRelations().get(0).adaptAsXMLReference();	
 		reference.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();

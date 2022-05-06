@@ -184,7 +184,7 @@ public class EvalAppdupl {
 		
 		completePattern.createXMLAdaption();
 		EList<Relation> rels1 = cpqcg.getRelations();
-		for (int i = rels1.size()-1; i>=0; i--) rels1.get(i).adaptAsXMLNavigation();
+		for (int i = rels1.size()-1; i>=0; i--) rels1.get(i).adaptAsXMLElementNavigation();
 		completePattern.finalizeXMLAdaption();	
 		
 //		for (int i = completePattern.getParameterList().getParameters().size()-1; i>=0; i--) {

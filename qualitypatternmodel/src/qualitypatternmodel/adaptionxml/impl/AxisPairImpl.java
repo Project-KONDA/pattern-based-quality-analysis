@@ -21,6 +21,7 @@ import qualitypatternmodel.adaptionxml.AxisPair;
 import qualitypatternmodel.adaptionxml.PathParam;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -288,8 +289,8 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 		EList<AxisPair> axisPairs = new BasicEList<AxisPair>();		
 		if(index < getPathParam().getAxisPairs().size()-1) {
 			axisPairs.add(getPathParam().getAxisPairs().get(index+1));
-		} else if(getPathParam().getPropertyOptionParam() == null && getPathParam().getRelation() instanceof XmlElementNavigation) {
-			XmlElement element = (XmlElement) getPathParam().getRelation().getTarget();			
+		} else if(getPathParam().getPropertyOptionParam() == null && getPathParam().getXmlNavigation() instanceof XmlElementNavigation) {
+			XmlElement element = (XmlElement) getPathParam().getXmlNavigation().getTarget();			
 			for(Relation r : element.getOutgoing()) {
 				if(r instanceof XmlElementNavigation) {
 					XmlElementNavigation nav = (XmlElementNavigation) r;
@@ -315,15 +316,11 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 		EList<AxisPair> axisPairs = new BasicEList<AxisPair>();
 		if(index > 0) {
 			axisPairs.add(getPathParam().getAxisPairs().get(index-1));
-		} else if(index == 0 && getPathParam().getRelation() != null && getPathParam().getRelation().getSource() != null) {
-			if(getPathParam().getRelation().getSource() instanceof XmlElement) {
-				for(Relation r : getPathParam().getRelation().getSource().getIncoming()) {
-					if(r instanceof XmlElementNavigation) {
-						XmlElementNavigation nav = (XmlElementNavigation) r;
-						axisPairs.add(nav.getPathParam().getAxisPairs().get(nav.getPathParam().getAxisPairs().size()-1));
-					}
-					if(r instanceof XmlPropertyNavigation) {
-						XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
+		} else if(index == 0 && getPathParam().getXmlNavigation() != null && getPathParam().getXmlNavigation().getSource() != null) {
+			if(getPathParam().getXmlNavigation().getSource() instanceof XmlElement) {
+				for(Relation r : getPathParam().getXmlNavigation().getSource().getIncoming()) {
+					if(r instanceof XmlNavigation) {
+						XmlNavigation nav = (XmlNavigation) r;
 						axisPairs.add(nav.getPathParam().getAxisPairs().get(nav.getPathParam().getAxisPairs().size()-1));
 					}
 				}						
@@ -376,8 +373,8 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 				
 				if(next.getTextLiteralParam().getValue().equals("") || next.getTextLiteralParam().getValue().equals("*")) {
 					boolean nextIsLast = next.getPathParam().getAxisPairs().get(next.getPathParam().getAxisPairs().size()-1).equals(next);
-					if(nextIsLast && getPathParam().getRelation() != null && getPathParam().getRelation().getTarget() instanceof XmlElement) {
-						XmlElement xmlElement = (XmlElement) getPathParam().getRelation().getTarget();
+					if(nextIsLast && getPathParam().getXmlNavigation() != null && getPathParam().getXmlNavigation().getTarget() instanceof XmlElement) {
+						XmlElement xmlElement = (XmlElement) getPathParam().getXmlNavigation().getTarget();
 						nextTag = xmlElement.getTagFromComparisons();					
 					}
 				} else {
@@ -423,7 +420,7 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 		
 		int index = getPathParam().getAxisPairs().indexOf(this);
 		
-		if (index == 0 && getPathParam().getRelation() != null && getPathParam().getRelation().getSource() instanceof XmlRoot) {
+		if (index == 0 && getPathParam().getXmlNavigation() != null && getPathParam().getXmlNavigation().getSource() instanceof XmlRoot) {
 			try {
 				Database db = ((CompletePattern) getAncestor(CompletePatternImpl.class)).getDatabase();
 				if (db instanceof XmlDataDatabase) {
@@ -445,8 +442,8 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 					String previousTag = null;
 					if(previous.getTextLiteralParam().getValue().equals("") || previous.getTextLiteralParam().getValue().equals("*")) {
 						boolean previousIsLast = previous.getPathParam().getAxisPairs().get(previous.getPathParam().getAxisPairs().size()-1).equals(previous);
-						if(previousIsLast && previous.getPathParam().getRelation() != null && previous.getPathParam().getRelation().getTarget() instanceof XmlElement) {
-							XmlElement xmlElement = (XmlElement) previous.getPathParam().getRelation().getTarget();
+						if(previousIsLast && previous.getPathParam().getXmlNavigation() != null && previous.getPathParam().getXmlNavigation().getTarget() instanceof XmlElement) {
+							XmlElement xmlElement = (XmlElement) previous.getPathParam().getXmlNavigation().getTarget();
 							previousTag = xmlElement.getTagFromComparisons();	
 						}					
 					} else {
@@ -503,8 +500,8 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 				String sourceTag = null;
 				if(previous.getTextLiteralParam().getValue().equals("") || previous.getTextLiteralParam().getValue().equals("*")) {
 					boolean previousIsLast = previous.getPathParam().getAxisPairs().get(previous.getPathParam().getAxisPairs().size()-1).equals(previous);
-					if(previousIsLast && previous.getPathParam().getRelation() != null && previous.getPathParam().getRelation().getTarget() instanceof XmlElement) {
-						XmlElement xmlElement = (XmlElement) previous.getPathParam().getRelation().getTarget();
+					if(previousIsLast && previous.getPathParam().getXmlNavigation() != null && previous.getPathParam().getXmlNavigation().getTarget() instanceof XmlElement) {
+						XmlElement xmlElement = (XmlElement) previous.getPathParam().getXmlNavigation().getTarget();
 						sourceTag = xmlElement.getTagFromComparisons();	
 					}
 				} else {	

@@ -235,7 +235,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Relation/name"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/removeRelationFromPreviousGraphs"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/removeMappingsToNext"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXMLNavigation"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXMLElementNavigation"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXMLReference"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/setGraphSimple">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Relation/setGraphSimple/newGraph"/>
@@ -567,11 +567,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/translatePredicates"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/getTagFromComparisons"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlElementNavigation">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlElementNavigation/pathParam"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElementNavigation/getOriginalPathParam"/>
-      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlElementNavigation"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlReference">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlReference/type"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -585,11 +581,7 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlProperty/references"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlRoot"/>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyNavigation">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlPropertyNavigation/pathParam"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyNavigation/getOriginalPathParam"/>
-      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyNavigation"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/AxisOptionParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/AxisOptionParam/options"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/AxisOptionParam/value"/>
@@ -610,13 +602,10 @@
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/PathParam">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/PathParam/xmlNavigation"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/PathParam/propertyOptionParam"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/PathParam/axisPairs"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/PathParam/xmlPropertyNavigation"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/PathParam/getRelation"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/PathParam/xmlNavigation"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/PathParam/setAxis">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/PathParam/setAxis/axis"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/PathParam/setAxis/tag"/>
@@ -636,6 +625,11 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/AxisPair/inferElementTagSuggestionsFromOutgoingRelations"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/AxisPair/inferElementTagSuggestionsFromIncomingRelations"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/AxisPair/inferAxisSuggestions"/>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/pathParam"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/getOriginalPathParam"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Execution" basePackage="qualitypatternmodel" disposableProviderFactory="true"

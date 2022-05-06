@@ -89,6 +89,7 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 			case AdaptionxmlPackage.XML_ELEMENT_NAVIGATION: {
 				XmlElementNavigation xmlElementNavigation = (XmlElementNavigation)theEObject;
 				T result = caseXmlElementNavigation(xmlElementNavigation);
+				if (result == null) result = caseXmlNavigation(xmlElementNavigation);
 				if (result == null) result = caseRelation(xmlElementNavigation);
 				if (result == null) result = caseAdaptable(xmlElementNavigation);
 				if (result == null) result = casePatternElement(xmlElementNavigation);
@@ -129,6 +130,7 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 			case AdaptionxmlPackage.XML_PROPERTY_NAVIGATION: {
 				XmlPropertyNavigation xmlPropertyNavigation = (XmlPropertyNavigation)theEObject;
 				T result = caseXmlPropertyNavigation(xmlPropertyNavigation);
+				if (result == null) result = caseXmlNavigation(xmlPropertyNavigation);
 				if (result == null) result = caseRelation(xmlPropertyNavigation);
 				if (result == null) result = caseAdaptable(xmlPropertyNavigation);
 				if (result == null) result = casePatternElement(xmlPropertyNavigation);
@@ -166,6 +168,15 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				T result = caseAxisPair(axisPair);
 				if (result == null) result = caseAdaptable(axisPair);
 				if (result == null) result = casePatternElement(axisPair);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AdaptionxmlPackage.XML_NAVIGATION: {
+				XmlNavigation xmlNavigation = (XmlNavigation)theEObject;
+				T result = caseXmlNavigation(xmlNavigation);
+				if (result == null) result = caseRelation(xmlNavigation);
+				if (result == null) result = caseAdaptable(xmlNavigation);
+				if (result == null) result = casePatternElement(xmlNavigation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -320,6 +331,21 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAxisPair(AxisPair object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Xml Navigation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Xml Navigation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseXmlNavigation(XmlNavigation object) {
 		return null;
 	}
 

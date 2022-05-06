@@ -220,7 +220,7 @@ public class DemoPatterns {
 		completePattern.createXMLAdaption();
 		
 		// Specify relation between Element 0 and Element 1:
-		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 		
 		completePattern.finalizeXMLAdaption();
 		
@@ -263,7 +263,7 @@ public class DemoPatterns {
 		completePattern.createXMLAdaption();
 		
 		// Specify relation between Element 0 and Element 1:
-		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 		
 		completePattern.finalizeXMLAdaption();
 		
@@ -348,7 +348,7 @@ public class DemoPatterns {
 		
 		// Specify relation between Element 0 and Element 1:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 		
 		completePattern.finalizeXMLAdaption();
 		
@@ -547,7 +547,7 @@ public class DemoPatterns {
 		
 		// Specify relation between Element 0 and Element 1:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 		
 		completePattern.finalizeXMLAdaption();
 		
@@ -687,7 +687,7 @@ public class DemoPatterns {
 		
 		// Specify relation between Element 0 and Element 1:
 		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
-		countCondition.getCountPattern().getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		countCondition.getCountPattern().getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 		
 		completePattern.finalizeXMLAdaption();
 				
@@ -933,10 +933,10 @@ public class DemoPatterns {
 		
 		// Specify relations:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();		
-		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLNavigation();
-		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLNavigation();
-		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLNavigation();
-		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLNavigation();		
+		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
+		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
+		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
+		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();		
 	
 		completePattern.finalizeXMLAdaption();	
 		

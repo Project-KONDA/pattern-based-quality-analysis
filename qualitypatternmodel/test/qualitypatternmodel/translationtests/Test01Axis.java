@@ -62,7 +62,7 @@ public class Test01Axis {
 		relation.setTarget(element2);		
 		
 		completePattern.createXMLAdaption();
-		XmlElementNavigation navigation = graph.getNodes().get(1).getIncoming().get(0).adaptAsXMLNavigation();		
+		XmlElementNavigation navigation = graph.getNodes().get(1).getIncoming().get(0).adaptAsXMLElementNavigation();		
 		completePattern.finalizeXMLAdaption();			
 		
 		PathParam axisOption = navigation.getPathParam();

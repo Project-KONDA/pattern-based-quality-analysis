@@ -88,11 +88,11 @@ public class RelationSwitch {
 		referenceg2.setTarget(e3g2);
 		
 		completePattern.createXMLAdaption();
-		relation.adaptAsXMLNavigation();
+		relation.adaptAsXMLElementNavigation();
 		XmlReference xmlReference = referenceg2.adaptAsXMLReference();
 		xmlReference.setType(ReturnType.STRING);
 		
-		Relation nav = xmlReference.adaptAsXMLNavigation();
+		Relation nav = xmlReference.adaptAsXMLElementNavigation();
 		nav.adaptAsXMLReference();
 		
 		completePattern.finalizeXMLAdaption();	

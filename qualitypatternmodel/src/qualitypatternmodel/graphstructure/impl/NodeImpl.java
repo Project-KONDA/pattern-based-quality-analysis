@@ -1075,7 +1075,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		incomingCopy.addAll(getIncoming());
 		for(Relation relation : incomingCopy) {
 			relation.setTarget(xmlElement);
-			relation.adaptAsXMLNavigation();
+			relation.adaptAsXMLElementNavigation();
 		}
 		
 		xmlElement.getComparison1().addAll(getComparison1());

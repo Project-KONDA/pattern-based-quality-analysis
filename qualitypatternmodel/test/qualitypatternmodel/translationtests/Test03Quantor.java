@@ -63,7 +63,7 @@ public class Test03Quantor {
 		relation.setTarget(e1g2);		
 		
 		completePattern.createXMLAdaption();
-		relation.adaptAsXMLNavigation();
+		relation.adaptAsXMLElementNavigation();
 		completePattern.finalizeXMLAdaption();	
 		
 		return completePattern;
@@ -120,7 +120,7 @@ public class Test03Quantor {
 		QuantifiedCondition cond = (QuantifiedCondition) completePattern.getCondition();
 		
 		completePattern.createXMLAdaption();
-		cond.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		cond.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 		completePattern.finalizeXMLAdaption();	
 				
 		return completePattern;

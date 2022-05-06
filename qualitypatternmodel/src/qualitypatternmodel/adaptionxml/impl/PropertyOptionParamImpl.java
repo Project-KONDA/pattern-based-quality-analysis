@@ -130,7 +130,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	
 	@Override
 	public void checkComparisonConsistency() throws InvalidityException {
-		getPathParam().getRelation().getTarget().checkComparisonConsistency();
+		getPathParam().getXmlNavigation().getTarget().checkComparisonConsistency();
 	}
 	
 	@Override
@@ -176,7 +176,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	
 	@Override
 	public boolean isUsed() {
-		return !(getPathParam() == null) && !(getPathParam().getRelation() == null);
+		return !(getPathParam() == null) && !(getPathParam().getXmlNavigation() == null);
 	}
 
 	/**
@@ -599,9 +599,6 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 		String res = "Angabe des Eigenschaft-Types";
 		try {
 			res += " von " + getPathParam().getXmlNavigation().getName();
-		} catch (Exception e) {}
-		try {
-			res += " von " + getPathParam().getXmlPropertyNavigation().getName();
 		} catch (Exception e) {}
 		
 		return res;

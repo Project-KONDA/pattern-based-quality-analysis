@@ -42,7 +42,7 @@ public class Test02Return {
 		relation.setTarget(element2);		
 		
 		completePattern.createXMLAdaption();
-		completePattern.getGraph().getNodes().get(1).getIncoming().get(0).adaptAsXMLNavigation();		
+		completePattern.getGraph().getNodes().get(1).getIncoming().get(0).adaptAsXMLElementNavigation();		
 		completePattern.finalizeXMLAdaption();
 				
 		return completePattern;

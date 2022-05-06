@@ -5,7 +5,6 @@ package qualitypatternmodel.adaptionxml;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.graphstructure.Adaptable;
-import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.parameters.Parameter;
 
 /**
@@ -17,10 +16,9 @@ import qualitypatternmodel.parameters.Parameter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.PathParam#getXmlNavigation <em>Xml Navigation</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.PathParam#getPropertyOptionParam <em>Property Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.PathParam#getAxisPairs <em>Axis Pairs</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.PathParam#getXmlPropertyNavigation <em>Xml Property Navigation</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.PathParam#getXmlNavigation <em>Xml Navigation</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPathParam()
@@ -28,30 +26,6 @@ import qualitypatternmodel.parameters.Parameter;
  * @generated
  */
 public interface PathParam extends Adaptable, Parameter {
-	/**
-	 * Returns the value of the '<em><b>Xml Navigation</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlElementNavigation#getPathParam <em>Path Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Xml Navigation</em>' reference.
-	 * @see #setXmlNavigation(XmlElementNavigation)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPathParam_XmlNavigation()
-	 * @see qualitypatternmodel.adaptionxml.XmlElementNavigation#getPathParam
-	 * @model opposite="pathParam"
-	 * @generated
-	 */
-	XmlElementNavigation getXmlNavigation();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.PathParam#getXmlNavigation <em>Xml Navigation</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Xml Navigation</em>' reference.
-	 * @see #getXmlNavigation()
-	 * @generated
-	 */
-	void setXmlNavigation(XmlElementNavigation value);
-
 	/**
 	 * Returns the value of the '<em><b>Property Option Param</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getPathParam <em>Path Param</em>}'.
@@ -91,36 +65,28 @@ public interface PathParam extends Adaptable, Parameter {
 	EList<AxisPair> getAxisPairs();
 
 	/**
-	 * Returns the value of the '<em><b>Xml Property Navigation</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlPropertyNavigation#getPathParam <em>Path Param</em>}'.
+	 * Returns the value of the '<em><b>Xml Navigation</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getPathParam <em>Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Xml Property Navigation</em>' reference.
-	 * @see #setXmlPropertyNavigation(XmlPropertyNavigation)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPathParam_XmlPropertyNavigation()
-	 * @see qualitypatternmodel.adaptionxml.XmlPropertyNavigation#getPathParam
+	 * @return the value of the '<em>Xml Navigation</em>' reference.
+	 * @see #setXmlNavigation(XmlNavigation)
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPathParam_XmlNavigation()
+	 * @see qualitypatternmodel.adaptionxml.XmlNavigation#getPathParam
 	 * @model opposite="pathParam"
 	 * @generated
 	 */
-	XmlPropertyNavigation getXmlPropertyNavigation();
+	XmlNavigation getXmlNavigation();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.PathParam#getXmlPropertyNavigation <em>Xml Property Navigation</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.PathParam#getXmlNavigation <em>Xml Navigation</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Xml Property Navigation</em>' reference.
-	 * @see #getXmlPropertyNavigation()
+	 * @param value the new value of the '<em>Xml Navigation</em>' reference.
+	 * @see #getXmlNavigation()
 	 * @generated
 	 */
-	void setXmlPropertyNavigation(XmlPropertyNavigation value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	Relation getRelation();
+	void setXmlNavigation(XmlNavigation value);
 
 	/**
 	 * <!-- begin-user-doc -->

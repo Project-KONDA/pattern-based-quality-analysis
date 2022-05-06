@@ -115,10 +115,10 @@ public class EvalFunc {
 		comparisonB.setArgument2(propertyBOtherRecord);		
 		
 		completePattern.createXMLAdaption();
-		graph1.getRelations().get(0).adaptAsXMLNavigation();
-		relation.adaptAsXMLNavigation();
-		relation2.adaptAsXMLNavigation();
-		relation3.adaptAsXMLNavigation();
+		graph1.getRelations().get(0).adaptAsXMLElementNavigation();
+		relation.adaptAsXMLElementNavigation();
+		relation2.adaptAsXMLElementNavigation();
+		relation3.adaptAsXMLElementNavigation();
 		completePattern.finalizeXMLAdaption();
 		
 		return completePattern;
@@ -203,11 +203,11 @@ public class EvalFunc {
 		comparisonB.setArgument2(propertyBOtherRecord);		
 		
 		completePattern.createXMLAdaption();
-		graph1.getRelations().get(0).adaptAsXMLNavigation();
-		relation.adaptAsXMLNavigation();
-		relation2.adaptAsXMLNavigation();
-		relation3.adaptAsXMLNavigation();
-		relation4.adaptAsXMLNavigation();
+		graph1.getRelations().get(0).adaptAsXMLElementNavigation();
+		relation.adaptAsXMLElementNavigation();
+		relation2.adaptAsXMLElementNavigation();
+		relation3.adaptAsXMLElementNavigation();
+		relation4.adaptAsXMLElementNavigation();
 		completePattern.finalizeXMLAdaption();
 		
 		return completePattern;

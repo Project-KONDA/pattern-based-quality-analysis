@@ -68,8 +68,8 @@ public class EvalMandstruc {
 		relation.setTarget(element3);	
 		
 		completePattern.createXMLAdaption();
-		graph1.getRelations().get(0).adaptAsXMLNavigation();
-		relation.adaptAsXMLNavigation();
+		graph1.getRelations().get(0).adaptAsXMLElementNavigation();
+		relation.adaptAsXMLElementNavigation();
 		completePattern.finalizeXMLAdaption();	
 		
 		return completePattern;

@@ -64,7 +64,7 @@ public class Test05QuantorCombinationsCond {
 		property2.getOption().getOptions().add(PropertyKind.TAG);
 		property2.getOption().setValue(PropertyKind.TAG);
 		
-		qcond.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		qcond.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 		XmlReference ref = qcond2.getGraph().getRelations().get(0).adaptAsXMLReference();
 		ref.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();		

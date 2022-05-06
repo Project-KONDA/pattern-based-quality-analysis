@@ -367,13 +367,13 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___REMOVE_MAPPINGS_TO_NEXT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Adapt As XML Navigation</em>' operation.
+	 * The operation id for the '<em>Adapt As XML Element Navigation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___ADAPT_AS_XML_NAVIGATION = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int RELATION___ADAPT_AS_XML_ELEMENT_NAVIGATION = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Adapt As XML Reference</em>' operation.
@@ -3342,14 +3342,14 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getRelation__RemoveMappingsToNext();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsXMLNavigation() <em>Adapt As XML Navigation</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsXMLElementNavigation() <em>Adapt As XML Element Navigation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Adapt As XML Navigation</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsXMLNavigation()
+	 * @return the meta object for the '<em>Adapt As XML Element Navigation</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsXMLElementNavigation()
 	 * @generated
 	 */
-	EOperation getRelation__AdaptAsXMLNavigation();
+	EOperation getRelation__AdaptAsXMLElementNavigation();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsXMLReference() <em>Adapt As XML Reference</em>}' operation.
@@ -4211,12 +4211,12 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation RELATION___REMOVE_MAPPINGS_TO_NEXT = eINSTANCE.getRelation__RemoveMappingsToNext();
 
 		/**
-		 * The meta object literal for the '<em><b>Adapt As XML Navigation</b></em>' operation.
+		 * The meta object literal for the '<em><b>Adapt As XML Element Navigation</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RELATION___ADAPT_AS_XML_NAVIGATION = eINSTANCE.getRelation__AdaptAsXMLNavigation();
+		EOperation RELATION___ADAPT_AS_XML_ELEMENT_NAVIGATION = eINSTANCE.getRelation__AdaptAsXMLElementNavigation();
 
 		/**
 		 * The meta object literal for the '<em><b>Adapt As XML Reference</b></em>' operation.

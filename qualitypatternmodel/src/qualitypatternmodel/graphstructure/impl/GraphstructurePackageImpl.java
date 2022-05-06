@@ -292,7 +292,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getRelation__AdaptAsXMLNavigation() {
+	public EOperation getRelation__AdaptAsXMLElementNavigation() {
 		return relationEClass.getEOperations().get(2);
 	}
 
@@ -1074,7 +1074,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEAttribute(relationEClass, RELATION__NAME);
 		createEOperation(relationEClass, RELATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS);
 		createEOperation(relationEClass, RELATION___REMOVE_MAPPINGS_TO_NEXT);
-		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_NAVIGATION);
+		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_ELEMENT_NAVIGATION);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_REFERENCE);
 		createEOperation(relationEClass, RELATION___SET_GRAPH_SIMPLE__GRAPH);
 		createEOperation(relationEClass, RELATION___GET_ORIGINAL_ID);
@@ -1217,7 +1217,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		initEOperation(getRelation__RemoveMappingsToNext(), null, "removeMappingsToNext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getRelation__AdaptAsXMLNavigation(), theAdaptionxmlPackage.getXmlElementNavigation(), "adaptAsXMLNavigation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getRelation__AdaptAsXMLElementNavigation(), theAdaptionxmlPackage.getXmlElementNavigation(), "adaptAsXMLElementNavigation", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getRelation__AdaptAsXMLReference(), theAdaptionxmlPackage.getXmlReference(), "adaptAsXMLReference", 0, 1, IS_UNIQUE, IS_ORDERED);

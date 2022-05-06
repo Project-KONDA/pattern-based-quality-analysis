@@ -244,7 +244,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		}
 		if(parameter instanceof PropertyOptionParamImpl) {
 			PropertyOptionParamImpl propertyOption = (PropertyOptionParamImpl) parameter;
-			Node node = propertyOption.getPathParam().getRelation().getTarget();
+			Node node = propertyOption.getPathParam().getXmlNavigation().getTarget();
 			XmlProperty xmlProperty = (XmlProperty) node;
 			TextLiteralParam textLiteral = propertyOption.getAttributeName();
 			if(textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {

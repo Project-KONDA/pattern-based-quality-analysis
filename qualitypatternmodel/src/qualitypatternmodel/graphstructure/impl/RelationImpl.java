@@ -729,7 +729,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if (getTarget() instanceof XmlProperty) {
 			return adaptAsXMLPropertyNavigation();
 		} else {
-			return adaptAsXMLNavigation();
+			return adaptAsXMLElementNavigation();
 		}
 	}
 	
@@ -740,7 +740,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	@Override
-	public XmlElementNavigation adaptAsXMLNavigation() throws InvalidityException {
+	public XmlElementNavigation adaptAsXMLElementNavigation() throws InvalidityException {
 		return ((RelationImpl) getOriginalRelation()).adaptAsXMLNavigationRecursive();
 	}
 	
@@ -1076,9 +1076,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION___REMOVE_MAPPINGS_TO_NEXT:
 				removeMappingsToNext();
 				return null;
-			case GraphstructurePackage.RELATION___ADAPT_AS_XML_NAVIGATION:
+			case GraphstructurePackage.RELATION___ADAPT_AS_XML_ELEMENT_NAVIGATION:
 				try {
-					return adaptAsXMLNavigation();
+					return adaptAsXMLElementNavigation();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

@@ -150,14 +150,14 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	}
 	
 	@Override
-	public XmlElementNavigation adaptAsXMLNavigation() throws InvalidityException {
+	public XmlElementNavigation adaptAsXMLElementNavigation() throws InvalidityException {
 		if(getProperty() != null) {
 			getProperty().removeParametersFromParameterList();
 			getProperty().setGraph(null);
 			setProperty(null);
 		}
 		
-		return super.adaptAsXMLNavigation();		
+		return super.adaptAsXMLElementNavigation();		
 	}
 	
 	@Override

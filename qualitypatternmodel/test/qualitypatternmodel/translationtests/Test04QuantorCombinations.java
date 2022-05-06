@@ -34,7 +34,7 @@ public class Test04QuantorCombinations {
 		QuantifiedCondition qcond2 = (QuantifiedCondition) qcond.getCondition();
 		
 		completePattern.createXMLAdaption();
-		qcond.getGraph().getRelations().get(0).adaptAsXMLNavigation();
+		qcond.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 		XmlReference ref = qcond2.getGraph().getRelations().get(0).adaptAsXMLReference();
 		ref.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();		

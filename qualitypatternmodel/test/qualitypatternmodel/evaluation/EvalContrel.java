@@ -151,12 +151,12 @@ public class EvalContrel {
 		compRefValue.getOption().setValue(ComparisonOperator.NOTEQUAL);		
 		
 		pattern.createXMLAdaption();
-		relation.adaptAsXMLNavigation();
-		relation2.adaptAsXMLNavigation();
-		relation3.adaptAsXMLNavigation();
-		relation4.adaptAsXMLNavigation();
-		relation5.adaptAsXMLNavigation();
-		relation6.adaptAsXMLNavigation();
+		relation.adaptAsXMLElementNavigation();
+		relation2.adaptAsXMLElementNavigation();
+		relation3.adaptAsXMLElementNavigation();
+		relation4.adaptAsXMLElementNavigation();
+		relation5.adaptAsXMLElementNavigation();
+		relation6.adaptAsXMLElementNavigation();
 		pattern.finalizeXMLAdaption();
 		
 		return pattern;

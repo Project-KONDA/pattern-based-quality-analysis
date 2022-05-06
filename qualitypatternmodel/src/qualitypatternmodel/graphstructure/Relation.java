@@ -204,7 +204,7 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	XmlElementNavigation adaptAsXMLNavigation() throws InvalidityException;
+	XmlElementNavigation adaptAsXMLElementNavigation() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
