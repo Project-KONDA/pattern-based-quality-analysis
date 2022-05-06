@@ -5,7 +5,7 @@ import java.util.List;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.adaptionxml.AxisKind;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -134,7 +134,7 @@ public class Test03Quantor {
 		completePattern.finalizeXMLAdaption();	
 		
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		XmlNavigation nav = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
+		XmlElementNavigation nav = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(1);
 		nav.getPathParam().setValue(AxisKind.THREECHILD);
 		
 		return completePattern;

@@ -58,7 +58,7 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case AdaptionxmlPackage.XML_ELEMENT: return createXmlElement();
-			case AdaptionxmlPackage.XML_NAVIGATION: return createXmlNavigation();
+			case AdaptionxmlPackage.XML_ELEMENT_NAVIGATION: return createXmlElementNavigation();
 			case AdaptionxmlPackage.XML_REFERENCE: return createXmlReference();
 			case AdaptionxmlPackage.XML_PROPERTY: return createXmlProperty();
 			case AdaptionxmlPackage.XML_ROOT: return createXmlRoot();
@@ -123,9 +123,9 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * @generated
 	 */
 	@Override
-	public XmlNavigation createXmlNavigation() {
-		XmlNavigationImpl xmlNavigation = new XmlNavigationImpl();
-		return xmlNavigation;
+	public XmlElementNavigation createXmlElementNavigation() {
+		XmlElementNavigationImpl xmlElementNavigation = new XmlElementNavigationImpl();
+		return xmlElementNavigation;
 	}
 
 	/**

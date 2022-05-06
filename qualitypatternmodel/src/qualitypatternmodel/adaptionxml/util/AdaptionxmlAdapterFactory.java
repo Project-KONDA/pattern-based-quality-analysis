@@ -18,7 +18,6 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -82,8 +81,8 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 				return createXmlElementAdapter();
 			}
 			@Override
-			public Adapter caseXmlNavigation(XmlNavigation object) {
-				return createXmlNavigationAdapter();
+			public Adapter caseXmlElementNavigation(XmlElementNavigation object) {
+				return createXmlElementNavigationAdapter();
 			}
 			@Override
 			public Adapter caseXmlReference(XmlReference object) {
@@ -150,10 +149,6 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 				return createParameterAdapter();
 			}
 			@Override
-			public Adapter caseParameterValue(ParameterValue object) {
-				return createParameterValueAdapter();
-			}
-			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -188,16 +183,16 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XmlNavigation <em>Xml Navigation</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XmlElementNavigation <em>Xml Element Navigation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionxml.XmlNavigation
+	 * @see qualitypatternmodel.adaptionxml.XmlElementNavigation
 	 * @generated
 	 */
-	public Adapter createXmlNavigationAdapter() {
+	public Adapter createXmlElementNavigationAdapter() {
 		return null;
 	}
 
@@ -422,20 +417,6 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.ParameterValue <em>Parameter Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.ParameterValue
-	 * @generated
-	 */
-	public Adapter createParameterValueAdapter() {
 		return null;
 	}
 

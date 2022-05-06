@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.PathParam;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -223,8 +223,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				if(comparison.getArgument1() instanceof XmlProperty) {
 					XmlProperty property = (XmlProperty) comparison.getArgument1();
 					for(Relation r : property.getIncoming()) {
-						if (r instanceof XmlNavigation) {
-							XmlNavigation nav = (XmlNavigation) r;
+						if (r instanceof XmlElementNavigation) {
+							XmlElementNavigation nav = (XmlElementNavigation) r;
 							if(nav.getPathParam() != null && nav.getPathParam().getPropertyOptionParam() != null) {
 								propertyKinds.add(nav.getPathParam().getPropertyOptionParam().getValue());
 							}
@@ -241,8 +241,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				if(comparison.getArgument2() instanceof XmlProperty) {
 					XmlProperty property = (XmlProperty) comparison.getArgument2();
 					for(Relation r : property.getIncoming()) {
-						if (r instanceof XmlNavigation) {
-							XmlNavigation nav = (XmlNavigation) r;
+						if (r instanceof XmlElementNavigation) {
+							XmlElementNavigation nav = (XmlElementNavigation) r;
 							if(nav.getPathParam() != null && nav.getPathParam().getPropertyOptionParam() != null) {
 								propertyKinds.add(nav.getPathParam().getPropertyOptionParam().getValue());
 							}
@@ -816,13 +816,13 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				if(tagNode != null) {
 					for (Relation r : tagNode.getIncoming()) {
 						PathParam pathParam = null;					
-						if(r instanceof XmlNavigation) {
-							XmlNavigation nav = (XmlNavigation) r;
+						if(r instanceof XmlElementNavigation) {
+							XmlElementNavigation nav = (XmlElementNavigation) r;
 							pathParam = nav.getOriginalPathParam();
 							if(pathParam.getAxisPairs().isEmpty()) {
 								for (Relation previousRelation : nav.getSource().getIncoming()) {
-									if(previousRelation instanceof XmlNavigation) {
-										XmlNavigation previousNav = (XmlNavigation) previousRelation;
+									if(previousRelation instanceof XmlElementNavigation) {
+										XmlElementNavigation previousNav = (XmlElementNavigation) previousRelation;
 										PathParam previousPathParam = previousNav.getOriginalPathParam();
 										TextLiteralParam text = previousPathParam.getAxisPairs().get(previousPathParam.getAxisPairs().size()-1).getTextLiteralParam();
 										if(text != null) {

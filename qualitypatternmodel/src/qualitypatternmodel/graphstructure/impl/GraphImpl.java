@@ -18,12 +18,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.XmlRoot;
-import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlRootImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -239,7 +239,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public boolean relationsXmlAdapted() {
 		for(Relation relation : getRelations()) {
-			if(!(relation instanceof XmlReference) && !(relation instanceof XmlNavigation)) {
+			if(!(relation instanceof XmlReference) && !(relation instanceof XmlElementNavigation)) {
 				return false;
 			}
 		}
@@ -290,7 +290,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					previousRoot = (XmlRoot) root.getIncomingMapping().getSource();
 					for (Relation previousRelation : previousGraph.getRelations()) {
 						if (previousRelation.getSource().equals(previousRoot)) {
-							Relation previousXmlNavigation = new XmlNavigationImpl();
+							Relation previousXmlNavigation = new XmlElementNavigationImpl();
 							previousXmlNavigation.setGraphSimple(this);
 							previousXmlNavigation.createParameters();	
 							previousXmlNavigation.setSource(root);
@@ -310,12 +310,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			if(node instanceof XmlElement) {
 				boolean hasIncomingNavigation = false;
 				for(Relation relation : node.getIncoming()) {
-					if(relation instanceof XmlNavigation) {
+					if(relation instanceof XmlElementNavigation) {
 						hasIncomingNavigation = true;
 					}
 				}
 				if(!hasIncomingNavigation) {			
-					XmlNavigationImpl navigation = new XmlNavigationImpl();
+					XmlElementNavigationImpl navigation = new XmlElementNavigationImpl();
 					navigation.setGraphSimple(this);
 					navigation.createParameters();					
 					navigation.setSource(root);

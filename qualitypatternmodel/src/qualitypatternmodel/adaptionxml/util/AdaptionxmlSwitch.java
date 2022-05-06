@@ -16,7 +16,6 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -87,12 +86,12 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AdaptionxmlPackage.XML_NAVIGATION: {
-				XmlNavigation xmlNavigation = (XmlNavigation)theEObject;
-				T result = caseXmlNavigation(xmlNavigation);
-				if (result == null) result = caseRelation(xmlNavigation);
-				if (result == null) result = caseAdaptable(xmlNavigation);
-				if (result == null) result = casePatternElement(xmlNavigation);
+			case AdaptionxmlPackage.XML_ELEMENT_NAVIGATION: {
+				XmlElementNavigation xmlElementNavigation = (XmlElementNavigation)theEObject;
+				T result = caseXmlElementNavigation(xmlElementNavigation);
+				if (result == null) result = caseRelation(xmlElementNavigation);
+				if (result == null) result = caseAdaptable(xmlElementNavigation);
+				if (result == null) result = casePatternElement(xmlElementNavigation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -156,10 +155,8 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 			case AdaptionxmlPackage.PATH_PARAM: {
 				PathParam pathParam = (PathParam)theEObject;
 				T result = casePathParam(pathParam);
-				if (result == null) result = caseParameterValue(pathParam);
 				if (result == null) result = caseAdaptable(pathParam);
 				if (result == null) result = caseParameter(pathParam);
-				if (result == null) result = caseComparable(pathParam);
 				if (result == null) result = casePatternElement(pathParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -192,17 +189,17 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Xml Navigation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Xml Element Navigation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Xml Navigation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Xml Element Navigation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseXmlNavigation(XmlNavigation object) {
+	public T caseXmlElementNavigation(XmlElementNavigation object) {
 		return null;
 	}
 
@@ -443,21 +440,6 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseParameter(Parameter object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseParameterValue(ParameterValue object) {
 		return null;
 	}
 

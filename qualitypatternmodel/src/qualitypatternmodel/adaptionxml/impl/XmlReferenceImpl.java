@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.PathParam;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -150,7 +150,7 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	}
 	
 	@Override
-	public XmlNavigation adaptAsXMLNavigation() throws InvalidityException {
+	public XmlElementNavigation adaptAsXMLNavigation() throws InvalidityException {
 		if(getProperty() != null) {
 			getProperty().removeParametersFromParameterList();
 			getProperty().setGraph(null);

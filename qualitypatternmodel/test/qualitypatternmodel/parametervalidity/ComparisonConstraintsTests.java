@@ -8,7 +8,7 @@ import org.junit.Test;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.demo.DemoPatterns;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -185,7 +185,7 @@ public class ComparisonConstraintsTests {
 		value2.replace(textValue1x);
 		textValue1x.setValueIfValid(DEMO_NAMESPACE + "irgendwas");		
 		
-		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
+		XmlElementNavigation navigationElement0Element1 = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(0);
 		navigationElement0Element1.getPathParam().setAxis(AxisKind.SELF, "");	
 		
 		XmlProperty property2 = (XmlProperty) element1.getProperties().get(1);
@@ -232,7 +232,7 @@ public class ComparisonConstraintsTests {
 		XmlProperty property2 = (XmlProperty) element1.getProperties().get(1);
 		property2.getOption().setValueIfValid(PropertyKind.TAG);
 
-		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
+		XmlElementNavigation navigationElement0Element1 = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(0);
 		assertThrows(InvalidityException.class, () -> navigationElement0Element1.getPathParam().setAxis(AxisKind.SELF, ""));	
 	}
 	

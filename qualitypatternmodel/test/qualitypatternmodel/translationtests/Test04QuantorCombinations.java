@@ -9,10 +9,10 @@ import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.AxisKind;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
-import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl;
 import qualitypatternmodel.exceptions.*;
 
 public class Test04QuantorCombinations {
@@ -39,7 +39,7 @@ public class Test04QuantorCombinations {
 		ref.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();		
 		
-		XmlNavigation navRoot = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		XmlElementNavigation navRoot = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
 //		navRoot.getOption().setValue(RelationKind.DESCENDANT);
 		
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
@@ -49,7 +49,7 @@ public class Test04QuantorCombinations {
 		prop0.getOption().setValue(PropertyKind.ATTRIBUTE);
 		prop0.getAttributeName().setValue("demo:id");
 		
-		XmlNavigation nav1 = (XmlNavigation) quantifiedCondition2.getGraph().getRelations().get(3);
+		XmlElementNavigation nav1 = (XmlElementNavigation) quantifiedCondition2.getGraph().getRelations().get(3);
 		nav1.getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 //		Comparison comp = (Comparison) quantifiedCondition2.getGraph().getOperatorList().getOperators().get(0);

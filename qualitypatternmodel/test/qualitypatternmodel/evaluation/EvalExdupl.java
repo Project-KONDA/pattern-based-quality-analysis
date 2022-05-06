@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.AxisKind;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -184,7 +184,7 @@ public class EvalExdupl {
 		CompletePattern completePattern = getExactDuplicatesAbstract();
 		
 		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.THREECHILD);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -196,7 +196,7 @@ public class EvalExdupl {
 		Graph graph1 = countPattern.getGraph();
 		
 		Node element2 = graph1.getNodes().get(1);	
-		((XmlNavigation) graph1.getRelations().get(1)).getPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) graph1.getRelations().get(1)).getPathParam().setValue(AxisKind.THREECHILD);
 		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
@@ -216,7 +216,7 @@ public class EvalExdupl {
 		CompletePattern completePattern = getExactDuplicatesAbstract();
 		
 		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.TWOCHILD);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.TWOCHILD);
 //		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -228,7 +228,7 @@ public class EvalExdupl {
 		Graph graph1 = countPattern.getGraph();
 		
 		Node element2 = graph1.getNodes().get(1);	
-		((XmlNavigation) graph1.getRelations().get(1)).getPathParam().setValue(AxisKind.TWOCHILD);
+		((XmlElementNavigation) graph1.getRelations().get(1)).getPathParam().setValue(AxisKind.TWOCHILD);
 //		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();

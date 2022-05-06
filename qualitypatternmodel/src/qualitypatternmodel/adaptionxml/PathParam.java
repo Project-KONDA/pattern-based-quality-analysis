@@ -6,7 +6,7 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.parameters.ParameterValue;
+import qualitypatternmodel.parameters.Parameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,20 +27,20 @@ import qualitypatternmodel.parameters.ParameterValue;
  * @model
  * @generated
  */
-public interface PathParam extends ParameterValue, Adaptable {
+public interface PathParam extends Adaptable, Parameter {
 	/**
 	 * Returns the value of the '<em><b>Xml Navigation</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getPathParam <em>Path Param</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlElementNavigation#getPathParam <em>Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Xml Navigation</em>' reference.
-	 * @see #setXmlNavigation(XmlNavigation)
+	 * @see #setXmlNavigation(XmlElementNavigation)
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPathParam_XmlNavigation()
-	 * @see qualitypatternmodel.adaptionxml.XmlNavigation#getPathParam
+	 * @see qualitypatternmodel.adaptionxml.XmlElementNavigation#getPathParam
 	 * @model opposite="pathParam"
 	 * @generated
 	 */
-	XmlNavigation getXmlNavigation();
+	XmlElementNavigation getXmlNavigation();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.PathParam#getXmlNavigation <em>Xml Navigation</em>}' reference.
@@ -50,7 +50,7 @@ public interface PathParam extends ParameterValue, Adaptable {
 	 * @see #getXmlNavigation()
 	 * @generated
 	 */
-	void setXmlNavigation(XmlNavigation value);
+	void setXmlNavigation(XmlElementNavigation value);
 
 	/**
 	 * Returns the value of the '<em><b>Property Option Param</b></em>' containment reference.

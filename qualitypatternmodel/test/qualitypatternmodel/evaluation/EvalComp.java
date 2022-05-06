@@ -19,7 +19,7 @@ import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.AxisOptionParam;
 import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
-import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -66,7 +66,7 @@ public class EvalComp {
 		PrimitiveNode p2 = graphFactory.createPrimitiveNode();
 		e.addOutgoing(p2);
 		
-		XmlNavigationImpl r = new XmlNavigationImpl();
+		XmlElementNavigationImpl r = new XmlElementNavigationImpl();
 		graph2.getRelations().add(r);
 		r.setSource(graph2.getNodes().get(0));
 		r.setTarget(e);

@@ -12,7 +12,7 @@ import qualitypatternmodel.operators.*;
 import qualitypatternmodel.operators.impl.*;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.AxisKind;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -62,7 +62,7 @@ public class Test09ComplexComparison {
 		completePattern.finalizeXMLAdaption();
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 
 		return completePattern;
 	}
@@ -110,7 +110,7 @@ public class Test09ComplexComparison {
 		completePattern.finalizeXMLAdaption();
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 
 		return completePattern;
 	}

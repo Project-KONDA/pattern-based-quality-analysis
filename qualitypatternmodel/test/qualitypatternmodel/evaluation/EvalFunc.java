@@ -10,7 +10,7 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.AxisKind;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -219,7 +219,7 @@ public class EvalFunc {
 		
 		CompletePattern completePattern = getFuncAbstract();
 		Node returnInReturnGraph = completePattern.getGraph().getNodes().get(0);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.THREECHILD);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("wer");
 		((UntypedParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
@@ -249,7 +249,7 @@ public class EvalFunc {
 		((XmlProperty) elementB1.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Node element1 = graph2.getNodes().get(3);
-		((XmlNavigation) graph2.getRelations().get(5)).getPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) graph2.getRelations().get(5)).getPathParam().setValue(AxisKind.THREECHILD);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("wer");
 		((UntypedParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue4);
@@ -290,7 +290,7 @@ public class EvalFunc {
 		
 		CompletePattern completePattern = getFuncAbstractLido();
 		Node returnInReturnGraph = completePattern.getGraph().getNodes().get(0);
-		XmlNavigation relation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		XmlElementNavigation relation = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
 		relation.getPathParam().setValue(AxisKind.TWOCHILD);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("lido:lido");
@@ -299,7 +299,7 @@ public class EvalFunc {
 				
 		Graph graph2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Node below = graph2.getNodes().get(1);
-		XmlNavigation relation2 = (XmlNavigation) graph2.getRelations().get(0);
+		XmlElementNavigation relation2 = (XmlElementNavigation) graph2.getRelations().get(0);
 		relation2.getPathParam().setValue(AxisKind.SEVENCHILD);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1.setValue("lido:termMaterialsTech");
@@ -324,7 +324,7 @@ public class EvalFunc {
 		
 		Node element1 = graph2.getNodes().get(4);
 		// HERE
-		XmlNavigation relation3 = (XmlNavigation) graph2.getRelations().get(6);
+		XmlElementNavigation relation3 = (XmlElementNavigation) graph2.getRelations().get(6);
 		relation3.getPathParam().setValue(AxisKind.NINECHILD);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("lido:termMaterialsTech");

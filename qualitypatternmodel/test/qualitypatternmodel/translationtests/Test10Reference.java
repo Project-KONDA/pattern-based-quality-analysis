@@ -9,7 +9,7 @@ import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.AxisKind;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -51,10 +51,10 @@ public class Test10Reference {
 		completePattern.finalizeXMLAdaption();
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 //		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(2)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlElementNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 		return completePattern;		
 	}
@@ -89,13 +89,13 @@ public class Test10Reference {
 		completePattern.finalizeXMLAdaption();
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 //		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(3)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(3)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlElementNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(3)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 //		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(4)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(4)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlElementNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(4)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 		return completePattern;		
 	}
@@ -126,7 +126,7 @@ public class Test10Reference {
 		reference.setType(ReturnType.STRING);
 		completePattern.finalizeXMLAdaption();
 		
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.TWOCHILD);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.TWOCHILD);
 		
 		reference.getSourcePropertyPath().getPropertyOptionParam().setValue(PropertyKind.ATTRIBUTE);
 		reference.getSourcePropertyPath().getPropertyOptionParam().getAttributeName().setValue("demo:id");;
@@ -185,8 +185,8 @@ public class Test10Reference {
 		reference2.getTargetPropertyPath().getPropertyOptionParam().setValue(PropertyKind.DATA);
 		completePattern.finalizeXMLAdaption();
 
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.THREECHILD);
-		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition())
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) ((QuantifiedCondition) completePattern.getCondition())
 				.getGraph().getRelations().get(4)).getPathParam().setValue(AxisKind.THREECHILD);
 		
 		return completePattern;		

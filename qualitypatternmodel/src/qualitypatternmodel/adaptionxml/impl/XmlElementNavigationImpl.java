@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.PathParam;
 import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -44,12 +44,12 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl#getPathParam <em>Path Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl#getPathParam <em>Path Param</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
+public class XmlElementNavigationImpl extends RelationImpl implements XmlElementNavigation {
 	/**
 	 * The cached value of the '{@link #getPathParam() <em>Path Param</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -64,7 +64,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public XmlNavigationImpl() {
+	public XmlElementNavigationImpl() {
 		super();
 	}
 	
@@ -179,7 +179,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	}
 	
 	@Override
-	public XmlNavigation adaptAsXMLNavigation() {
+	public XmlElementNavigation adaptAsXMLNavigation() {
 		return this;
 	}
 	
@@ -273,7 +273,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AdaptionxmlPackage.Literals.XML_NAVIGATION;
+		return AdaptionxmlPackage.Literals.XML_ELEMENT_NAVIGATION;
 	}
 
 	/**
@@ -288,7 +288,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 			pathParam = (PathParam)eResolveProxy(oldPathParam);
 			if (pathParam != oldPathParam) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM, oldPathParam, pathParam));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionxmlPackage.XML_ELEMENT_NAVIGATION__PATH_PARAM, oldPathParam, pathParam));
 			}
 		}
 		return pathParam;
@@ -319,7 +319,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		
 		pathParam = newPathParam;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM, oldPathParam, newPathParam);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_ELEMENT_NAVIGATION__PATH_PARAM, oldPathParam, newPathParam);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -342,7 +342,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM, newPathParam, newPathParam));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_ELEMENT_NAVIGATION__PATH_PARAM, newPathParam, newPathParam));
 	}
 
 	/**
@@ -355,7 +355,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 		if (getIncomingMapping() == null) {
 			return getPathParam();
 		} else {
-			return ((XmlNavigation) getOriginalRelation()).getOriginalPathParam();		
+			return ((XmlElementNavigation) getOriginalRelation()).getOriginalPathParam();		
 		}
 	}
 
@@ -367,7 +367,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM:
+			case AdaptionxmlPackage.XML_ELEMENT_NAVIGATION__PATH_PARAM:
 				if (pathParam != null)
 					msgs = ((InternalEObject)pathParam).eInverseRemove(this, AdaptionxmlPackage.PATH_PARAM__XML_NAVIGATION, PathParam.class, msgs);
 				return basicSetPathParam((PathParam)otherEnd, msgs);
@@ -383,7 +383,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM:
+			case AdaptionxmlPackage.XML_ELEMENT_NAVIGATION__PATH_PARAM:
 				return basicSetPathParam(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -397,7 +397,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM:
+			case AdaptionxmlPackage.XML_ELEMENT_NAVIGATION__PATH_PARAM:
 				if (resolve) return getPathParam();
 				return basicGetPathParam();
 		}
@@ -412,7 +412,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM:
+			case AdaptionxmlPackage.XML_ELEMENT_NAVIGATION__PATH_PARAM:
 				setPathParam((PathParam)newValue);
 				return;
 		}
@@ -427,7 +427,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM:
+			case AdaptionxmlPackage.XML_ELEMENT_NAVIGATION__PATH_PARAM:
 				setPathParam((PathParam)null);
 				return;
 		}
@@ -442,7 +442,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM:
+			case AdaptionxmlPackage.XML_ELEMENT_NAVIGATION__PATH_PARAM:
 				return pathParam != null;
 		}
 		return super.eIsSet(featureID);
@@ -456,7 +456,7 @@ public class XmlNavigationImpl extends RelationImpl implements XmlNavigation {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionxmlPackage.XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM:
+			case AdaptionxmlPackage.XML_ELEMENT_NAVIGATION___GET_ORIGINAL_PATH_PARAM:
 				return getOriginalPathParam();
 		}
 		return super.eInvoke(operationID, arguments);

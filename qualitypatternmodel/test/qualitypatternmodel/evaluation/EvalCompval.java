@@ -6,7 +6,7 @@ import java.util.List;
 
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.AxisKind;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -114,7 +114,7 @@ public class EvalCompval {
 		CompletePattern completePattern = getCompvalThreeElementsAbstract();
 
 		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(returnElementAxis, "");
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(returnElementAxis, "");
 
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates()
 				.get(0);
@@ -131,7 +131,7 @@ public class EvalCompval {
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
 		Node element2 = graph1.getNodes().get(1);
-		((XmlNavigation) graph1.getRelations().get(0)).getPathParam().setAxis(element2Axis, "");
+		((XmlElementNavigation) graph1.getRelations().get(0)).getPathParam().setAxis(element2Axis, "");
 
 		Comparison comp1 = (Comparison) element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
@@ -143,7 +143,7 @@ public class EvalCompval {
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(attribute2Kind);
 
 		Node element3 = graph1.getNodes().get(2);
-		((XmlNavigation) graph1.getRelations().get(1)).getPathParam().setAxis(element3Axis, "");
+		((XmlElementNavigation) graph1.getRelations().get(1)).getPathParam().setAxis(element3Axis, "");
 
 		Comparison comp2 = (Comparison) element3.getPredicates().get(0);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
@@ -219,7 +219,7 @@ public class EvalCompval {
 			CompletePattern completePattern) {
 
 		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(returnElementAxis, "");
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(returnElementAxis, "");
 
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates()
 				.get(0);
@@ -236,7 +236,7 @@ public class EvalCompval {
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
 		Node element2 = graph1.getNodes().get(1);
-		((XmlNavigation) graph1.getRelations().get(0)).getPathParam().setAxis(element2Axis, "");
+		((XmlElementNavigation) graph1.getRelations().get(0)).getPathParam().setAxis(element2Axis, "");
 
 		Comparison comp1 = (Comparison) element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
@@ -355,7 +355,7 @@ public class EvalCompval {
 		CompletePattern completePattern = getCompsetAbstract();
 		
 		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);	
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(returnElementAxis, "");
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(returnElementAxis, "");
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementType);
@@ -368,7 +368,7 @@ public class EvalCompval {
 		QuantifiedCondition condition = (QuantifiedCondition) completePattern.getCondition();
 		Graph graph1 = condition.getGraph();
 		Node nextToReturnElementInGraph1 =  graph1.getNodes().get(1);
-		((XmlNavigation) graph1.getRelations().get(0)).getPathParam().setAxis(element2Axis, "");
+		((XmlElementNavigation) graph1.getRelations().get(0)).getPathParam().setAxis(element2Axis, "");
 		
 		Comparison comparison1 = (Comparison) nextToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();

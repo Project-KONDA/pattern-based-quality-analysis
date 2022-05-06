@@ -1217,7 +1217,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		initEOperation(getRelation__RemoveMappingsToNext(), null, "removeMappingsToNext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getRelation__AdaptAsXMLNavigation(), theAdaptionxmlPackage.getXmlNavigation(), "adaptAsXMLNavigation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getRelation__AdaptAsXMLNavigation(), theAdaptionxmlPackage.getXmlElementNavigation(), "adaptAsXMLNavigation", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getRelation__AdaptAsXMLReference(), theAdaptionxmlPackage.getXmlReference(), "adaptAsXMLReference", 0, 1, IS_UNIQUE, IS_ORDERED);

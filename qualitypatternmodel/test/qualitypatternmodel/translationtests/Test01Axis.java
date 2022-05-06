@@ -15,7 +15,7 @@ import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.AxisOptionParam;
 import qualitypatternmodel.adaptionxml.PathParam;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.*;
 
@@ -39,7 +39,7 @@ public class Test01Axis {
 		CompletePattern completePattern = Test00.getBasePattern();
 		completePattern.createXMLAdaption();
 		completePattern.finalizeXMLAdaption();
-		XmlNavigation relation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		XmlElementNavigation relation = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
 		PathParam axisOption = relation.getPathParam();
 //		EList<AxisKind> axisOptions = axisOption.getOptions();
 //		if(!axisOptions.contains(axisKind)) axisOptions.add(axisKind);
@@ -62,7 +62,7 @@ public class Test01Axis {
 		relation.setTarget(element2);		
 		
 		completePattern.createXMLAdaption();
-		XmlNavigation navigation = graph.getNodes().get(1).getIncoming().get(0).adaptAsXMLNavigation();		
+		XmlElementNavigation navigation = graph.getNodes().get(1).getIncoming().get(0).adaptAsXMLNavigation();		
 		completePattern.finalizeXMLAdaption();			
 		
 		PathParam axisOption = navigation.getPathParam();

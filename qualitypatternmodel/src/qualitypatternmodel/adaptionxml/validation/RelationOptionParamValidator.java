@@ -7,7 +7,7 @@ package qualitypatternmodel.adaptionxml.validation;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionxml.AxisKind;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 
 /**
  * A sample validator interface for {@link qualitypatternmodel.adaptionxml.AxisOptionParam}.
@@ -20,5 +20,5 @@ public interface RelationOptionParamValidator {
 
 	boolean validateOptions(EList<AxisKind> value);
 	boolean validateValue(AxisKind value);
-	boolean validateRelations(EList<XmlNavigation> value);
+	boolean validateRelations(EList<XmlElementNavigation> value);
 }

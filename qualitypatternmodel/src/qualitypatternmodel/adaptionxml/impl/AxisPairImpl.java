@@ -20,7 +20,7 @@ import qualitypatternmodel.adaptionxml.AxisOptionParam;
 import qualitypatternmodel.adaptionxml.AxisPair;
 import qualitypatternmodel.adaptionxml.PathParam;
 import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -288,11 +288,11 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 		EList<AxisPair> axisPairs = new BasicEList<AxisPair>();		
 		if(index < getPathParam().getAxisPairs().size()-1) {
 			axisPairs.add(getPathParam().getAxisPairs().get(index+1));
-		} else if(getPathParam().getPropertyOptionParam() == null && getPathParam().getRelation() instanceof XmlNavigation) {
+		} else if(getPathParam().getPropertyOptionParam() == null && getPathParam().getRelation() instanceof XmlElementNavigation) {
 			XmlElement element = (XmlElement) getPathParam().getRelation().getTarget();			
 			for(Relation r : element.getOutgoing()) {
-				if(r instanceof XmlNavigation) {
-					XmlNavigation nav = (XmlNavigation) r;
+				if(r instanceof XmlElementNavigation) {
+					XmlElementNavigation nav = (XmlElementNavigation) r;
 					axisPairs.add(nav.getPathParam().getAxisPairs().get(0));
 				}
 				if(r instanceof XmlPropertyNavigation) {
@@ -318,8 +318,8 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 		} else if(index == 0 && getPathParam().getRelation() != null && getPathParam().getRelation().getSource() != null) {
 			if(getPathParam().getRelation().getSource() instanceof XmlElement) {
 				for(Relation r : getPathParam().getRelation().getSource().getIncoming()) {
-					if(r instanceof XmlNavigation) {
-						XmlNavigation nav = (XmlNavigation) r;
+					if(r instanceof XmlElementNavigation) {
+						XmlElementNavigation nav = (XmlElementNavigation) r;
 						axisPairs.add(nav.getPathParam().getAxisPairs().get(nav.getPathParam().getAxisPairs().size()-1));
 					}
 					if(r instanceof XmlPropertyNavigation) {

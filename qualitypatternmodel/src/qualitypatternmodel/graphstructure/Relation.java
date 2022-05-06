@@ -3,7 +3,7 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -204,7 +204,7 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	XmlNavigation adaptAsXMLNavigation() throws InvalidityException;
+	XmlElementNavigation adaptAsXMLNavigation() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

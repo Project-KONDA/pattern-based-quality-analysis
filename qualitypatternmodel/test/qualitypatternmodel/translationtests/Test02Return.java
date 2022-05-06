@@ -7,7 +7,7 @@ import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.AxisKind;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -70,10 +70,10 @@ public class Test02Return {
 		completePattern.finalizeXMLAdaption();
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(1)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 //		reference.getSourceProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
 		reference.getSourcePropertyPath().getPropertyOptionParam().setValue(PropertyKind.ATTRIBUTE);

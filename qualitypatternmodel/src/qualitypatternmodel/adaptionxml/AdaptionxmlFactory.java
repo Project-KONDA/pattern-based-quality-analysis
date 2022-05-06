@@ -31,13 +31,13 @@ public interface AdaptionxmlFactory extends EFactory {
 	XmlElement createXmlElement();
 
 	/**
-	 * Returns a new object of class '<em>Xml Navigation</em>'.
+	 * Returns a new object of class '<em>Xml Element Navigation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Xml Navigation</em>'.
+	 * @return a new object of class '<em>Xml Element Navigation</em>'.
 	 * @generated
 	 */
-	XmlNavigation createXmlNavigation();
+	XmlElementNavigation createXmlElementNavigation();
 
 	/**
 	 * Returns a new object of class '<em>Xml Reference</em>'.

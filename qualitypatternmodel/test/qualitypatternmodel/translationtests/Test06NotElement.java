@@ -11,7 +11,7 @@ import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.operators.impl.*;
 import qualitypatternmodel.adaptionxml.AxisKind;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -99,7 +99,7 @@ public class Test06NotElement {
 		((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getRelations().get(0).adaptAsXMLNavigation();
 		completePattern.finalizeXMLAdaption();	
 		
-		((XmlNavigation)(completePattern.getGraph().getRelations().get(0))).getPathParam().setValue(AxisKind.THREECHILD);;
+		((XmlElementNavigation)(completePattern.getGraph().getRelations().get(0))).getPathParam().setValue(AxisKind.THREECHILD);;
 		
 		return completePattern;
 	}
@@ -144,9 +144,9 @@ public class Test06NotElement {
 		completePattern.createXMLAdaption();
 		completePattern.finalizeXMLAdaption();	
 		
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.TWOCHILD);
-		((XmlNavigation) q1.getGraph().getRelations().get(1)).getPathParam().setAxis(AxisKind.CHILD, "");
-		((XmlNavigation) q2.getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.ANCESTOR, "");
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.TWOCHILD);
+		((XmlElementNavigation) q1.getGraph().getRelations().get(1)).getPathParam().setAxis(AxisKind.CHILD, "");
+		((XmlElementNavigation) q2.getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.ANCESTOR, "");
 		return completePattern; 
 	}
 	public static CompletePattern getPatternForallNotForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
@@ -158,8 +158,8 @@ public class Test06NotElement {
 		qc1.setQuantifier(Quantifier.FORALL);
 		qc2.setQuantifier(Quantifier.FORALL);
 
-		((XmlNavigation)qc1.getGraph().getRelations().get(1)).getPathParam().setAxis(AxisKind.PARENT, "");
-		((XmlNavigation)qc2.getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.CHILD, "");
+		((XmlElementNavigation)qc1.getGraph().getRelations().get(1)).getPathParam().setAxis(AxisKind.PARENT, "");
+		((XmlElementNavigation)qc2.getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.CHILD, "");
 		
 		return completePattern;
 	}

@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -73,7 +73,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		translated = true;
 		String query = "";
 		for(Relation relation : getOutgoing()) {
-			if(relation instanceof XmlNavigation) {
+			if(relation instanceof XmlElementNavigation) {
 				query += relation.generateQuery();
 			}
 		}		
@@ -97,7 +97,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		}
 		boolean hasIncomingXMLNavigation = false;
 		for(Relation relation : getIncoming()) {
-			if(relation instanceof XmlNavigation) {
+			if(relation instanceof XmlElementNavigation) {
 				if(hasIncomingXMLNavigation) {
 					throw new InvalidityException("too many incoming XMLNavigations at XMLElement " + getId());
 				} else {

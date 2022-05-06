@@ -8,7 +8,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.adaptionxml.AxisKind;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.exceptions.*;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.Parameter;
@@ -96,8 +96,8 @@ public class Test00 {
 	
 	public static CompletePattern getBasePatternCondConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternCond(comp);
-		XmlNavigation xmlNavigation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		xmlNavigation.getPathParam().setAxis(AxisKind.DESCENDANT, "");		
+		XmlElementNavigation xmlElementNavigation = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
+		xmlElementNavigation.getPathParam().setAxis(AxisKind.DESCENDANT, "");		
 		return completePattern;		
 	}
 	
@@ -112,8 +112,8 @@ public class Test00 {
 	
 	public static CompletePattern getBasePatternMatchConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternMatch(comp);
-		XmlNavigation xmlNavigation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		xmlNavigation.getPathParam().setAxis(AxisKind.DESCENDANT, "");		
+		XmlElementNavigation xmlElementNavigation = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
+		xmlElementNavigation.getPathParam().setAxis(AxisKind.DESCENDANT, "");		
 		return completePattern;		
 	}
 	

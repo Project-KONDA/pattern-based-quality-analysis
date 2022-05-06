@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
-import qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl;
@@ -740,13 +740,13 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	@Override
-	public XmlNavigation adaptAsXMLNavigation() throws InvalidityException {
+	public XmlElementNavigation adaptAsXMLNavigation() throws InvalidityException {
 		return ((RelationImpl) getOriginalRelation()).adaptAsXMLNavigationRecursive();
 	}
 	
-	public XmlNavigation adaptAsXMLNavigationRecursive() throws InvalidityException {
-		if (!(this instanceof XmlNavigation)) {
-			XmlNavigation navigation = new XmlNavigationImpl();
+	public XmlElementNavigation adaptAsXMLNavigationRecursive() throws InvalidityException {
+		if (!(this instanceof XmlElementNavigation)) {
+			XmlElementNavigation navigation = new XmlElementNavigationImpl();
 
 			if (getName().matches("Relation [0-9]+")) {
 				navigation.setName(getName().replace("Relation", "XmlNavigation"));
@@ -783,7 +783,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			
 			return navigation;
 		}
-		return (XmlNavigation) this;
+		return (XmlElementNavigation) this;
 	}
 
 	/**

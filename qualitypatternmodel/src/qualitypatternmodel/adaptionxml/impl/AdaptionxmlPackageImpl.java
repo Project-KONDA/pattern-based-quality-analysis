@@ -20,7 +20,7 @@ import qualitypatternmodel.adaptionxml.PathParam;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -65,7 +65,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass xmlNavigationEClass = null;
+	private EClass xmlElementNavigationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -280,8 +280,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EClass getXmlNavigation() {
-		return xmlNavigationEClass;
+	public EClass getXmlElementNavigation() {
+		return xmlElementNavigationEClass;
 	}
 
 	/**
@@ -290,8 +290,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EReference getXmlNavigation_PathParam() {
-		return (EReference)xmlNavigationEClass.getEStructuralFeatures().get(0);
+	public EReference getXmlElementNavigation_PathParam() {
+		return (EReference)xmlElementNavigationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -300,8 +300,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlNavigation__GetOriginalPathParam() {
-		return xmlNavigationEClass.getEOperations().get(0);
+	public EOperation getXmlElementNavigation__GetOriginalPathParam() {
+		return xmlElementNavigationEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -779,9 +779,9 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		createEOperation(xmlElementEClass, XML_ELEMENT___TRANSLATE_PREDICATES);
 		createEOperation(xmlElementEClass, XML_ELEMENT___GET_TAG_FROM_COMPARISONS);
 
-		xmlNavigationEClass = createEClass(XML_NAVIGATION);
-		createEReference(xmlNavigationEClass, XML_NAVIGATION__PATH_PARAM);
-		createEOperation(xmlNavigationEClass, XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM);
+		xmlElementNavigationEClass = createEClass(XML_ELEMENT_NAVIGATION);
+		createEReference(xmlElementNavigationEClass, XML_ELEMENT_NAVIGATION__PATH_PARAM);
+		createEOperation(xmlElementNavigationEClass, XML_ELEMENT_NAVIGATION___GET_ORIGINAL_PATH_PARAM);
 
 		xmlReferenceEClass = createEClass(XML_REFERENCE);
 		createEAttribute(xmlReferenceEClass, XML_REFERENCE__TYPE);
@@ -872,7 +872,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		// Add supertypes to classes
 		xmlElementEClass.getESuperTypes().add(theGraphstructurePackage.getComplexNode());
-		xmlNavigationEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
+		xmlElementNavigationEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
 		xmlReferenceEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
 		xmlPropertyEClass.getESuperTypes().add(theGraphstructurePackage.getPrimitiveNode());
 		xmlRootEClass.getESuperTypes().add(theGraphstructurePackage.getComplexNode());
@@ -880,8 +880,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		axisOptionParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
 		propertyOptionParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
 		propertyOptionParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
-		pathParamEClass.getESuperTypes().add(theParametersPackage.getParameterValue());
 		pathParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
+		pathParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
 		axisPairEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		axisPairEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
 
@@ -898,10 +898,10 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		initEOperation(getXmlElement__GetTagFromComparisons(), ecorePackage.getEString(), "getTagFromComparisons", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(xmlNavigationEClass, XmlNavigation.class, "XmlNavigation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getXmlNavigation_PathParam(), this.getPathParam(), this.getPathParam_XmlNavigation(), "pathParam", null, 1, 1, XmlNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(xmlElementNavigationEClass, XmlElementNavigation.class, "XmlElementNavigation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getXmlElementNavigation_PathParam(), this.getPathParam(), this.getPathParam_XmlNavigation(), "pathParam", null, 1, 1, XmlElementNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getXmlNavigation__GetOriginalPathParam(), this.getPathParam(), "getOriginalPathParam", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getXmlElementNavigation__GetOriginalPathParam(), this.getPathParam(), "getOriginalPathParam", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(xmlReferenceEClass, XmlReference.class, "XmlReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getXmlReference_Type(), theGraphstructurePackage.getReturnType(), "type", null, 0, 1, XmlReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -946,7 +946,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(pathParamEClass, PathParam.class, "PathParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPathParam_XmlNavigation(), this.getXmlNavigation(), this.getXmlNavigation_PathParam(), "xmlNavigation", null, 0, 1, PathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPathParam_XmlNavigation(), this.getXmlElementNavigation(), this.getXmlElementNavigation_PathParam(), "xmlNavigation", null, 0, 1, PathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPathParam_PropertyOptionParam(), this.getPropertyOptionParam(), this.getPropertyOptionParam_PathParam(), "propertyOptionParam", null, 0, 1, PathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPathParam_AxisPairs(), this.getAxisPair(), this.getAxisPair_PathParam(), "axisPairs", null, 0, -1, PathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPathParam_XmlPropertyNavigation(), this.getXmlPropertyNavigation(), this.getXmlPropertyNavigation_PathParam(), "xmlPropertyNavigation", null, 0, 1, PathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

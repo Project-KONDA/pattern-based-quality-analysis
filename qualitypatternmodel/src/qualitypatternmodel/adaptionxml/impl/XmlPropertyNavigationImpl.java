@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.PathParam;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -100,7 +100,7 @@ public class XmlPropertyNavigationImpl extends RelationImpl implements XmlProper
 	}
 	
 	@Override
-	public XmlNavigation adaptAsXMLNavigation() throws InvalidityException {
+	public XmlElementNavigation adaptAsXMLNavigation() throws InvalidityException {
 		if(target.isTypeModifiable()) {
 			removeParametersFromParameterList();
 			return super.adaptAsXMLNavigation();
@@ -259,11 +259,9 @@ public class XmlPropertyNavigationImpl extends RelationImpl implements XmlProper
 	 */
 	@Override
 	public PathParam getOriginalPathParam() {
-		if (getIncomingMapping() == null) {
-			return getPathParam();
-		} else {
-			return ((XmlNavigation) getIncomingMapping().getSource()).getOriginalPathParam();
-		}
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

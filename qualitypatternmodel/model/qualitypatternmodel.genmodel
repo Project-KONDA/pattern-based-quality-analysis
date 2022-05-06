@@ -567,10 +567,10 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/translatePredicates"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/getTagFromComparisons"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation">
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlElementNavigation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/pathParam"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/getOriginalPathParam"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlElementNavigation/pathParam"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElementNavigation/getOriginalPathParam"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlReference">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlReference/type"/>
