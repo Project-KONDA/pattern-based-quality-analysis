@@ -83,19 +83,21 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 
 	@Override
 	public String generateQuery() throws InvalidityException {
-		if(getProperty() != null) {
-			String conversionStartArgument1 = getType().getConversion();
-			String conversionEndArgument1 = getType().getConversionEnd();
-
-			String conversionStartArgument2 = getType().getConversion();
-			String conversionEndArgument2 = getType().getConversionEnd();
-					
-			ComparisonOperator operator = ComparisonOperator.EQUAL;				
-			return conversionStartArgument1 + getSourcePropertyPath().generateQuery() + conversionEndArgument1 + operator.getLiteral() 
-			+ conversionStartArgument2 +  getSourcePropertyPath().generateQuery() + conversionEndArgument2;
-		} else {
-			throw new InvalidityException("invalid arguments for Reference" + " (" + getInternalId() + ")");
-		}		
+//		if(getProperty() != null) {
+//			String conversionStartArgument1 = getType().getConversion();
+//			String conversionEndArgument1 = getType().getConversionEnd();
+//
+//			String conversionStartArgument2 = getType().getConversion();
+//			String conversionEndArgument2 = getType().getConversionEnd();
+//					
+//			ComparisonOperator operator = ComparisonOperator.EQUAL;				
+//			return conversionStartArgument1 + getSourcePropertyPath().generateQuery() + conversionEndArgument1 + operator.getLiteral() 
+//			+ conversionStartArgument2 +  getSourcePropertyPath().generateQuery() + conversionEndArgument2;
+//		} else {
+//			throw new InvalidityException("invalid arguments for Reference" + " (" + getInternalId() + ")");
+//		}
+		throw new InvalidityException("XmlReference can not be translated");
+//		return "";
 	}
 	
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

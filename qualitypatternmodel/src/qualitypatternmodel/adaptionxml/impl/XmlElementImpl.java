@@ -12,6 +12,7 @@ import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -73,7 +74,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		translated = true;
 		String query = "";
 		for(Relation relation : getOutgoing()) {
-			if(relation instanceof XmlElementNavigation) {
+			if(relation instanceof XmlNavigation) {
 				query += relation.generateQuery();
 			}
 		}		
@@ -142,22 +143,22 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 //		}
 		
 		// translate XMLReferences:
-		for (Relation relation : getIncoming()) {
-			if(relation instanceof XmlReference) {
-				XmlReference reference = (XmlReference) relation;
-				if (reference.isTranslatable()) {
-					xPredicates += "[" + relation.generateQuery() + "]";
-				}
-			}			
-		}
-		for (Relation relation : getOutgoing()) {
-			if(relation instanceof XmlReference) {
-				XmlReference reference = (XmlReference) relation;
-				if (reference.isTranslatable()) {
-					xPredicates += "[" + relation.generateQuery() + "]";
-				}
-			}			
-		}
+//		for (Relation relation : getIncoming()) {
+//			if(relation instanceof XmlReference) {
+//				XmlReference reference = (XmlReference) relation;
+//				if (reference.isTranslatable()) {
+//					xPredicates += "[" + relation.generateQuery() + "]";
+//				}
+//			}			
+//		}
+//		for (Relation relation : getOutgoing()) {
+//			if(relation instanceof XmlReference) {
+//				XmlReference reference = (XmlReference) relation;
+//				if (reference.isTranslatable()) {
+//					xPredicates += "[" + relation.generateQuery() + "]";
+//				}
+//			}			
+//		}
 		
 		predicatesAreBeingTranslated = false;
 		return xPredicates;
