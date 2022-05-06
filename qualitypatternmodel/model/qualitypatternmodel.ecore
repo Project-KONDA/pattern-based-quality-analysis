@@ -664,12 +664,7 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="adaptionxml" nsURI="adaptionxml" nsPrefix="adaptionxml">
-    <eClassifiers xsi:type="ecore:EClass" name="XmlElement" eSuperTypes="#//graphstructure/ComplexNode">
-      <eOperations name="getXQueryRepresentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getXQueryVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="translatePredicates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+    <eClassifiers xsi:type="ecore:EClass" name="XmlElement" eSuperTypes="#//graphstructure/ComplexNode #//adaptionxml/XmlTranslatableNode">
       <eOperations name="getTagFromComparisons" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlElementNavigation" eSuperTypes="#//adaptionxml/XmlNavigation"/>
@@ -682,7 +677,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
           eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/references"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="XmlProperty" eSuperTypes="#//graphstructure/PrimitiveNode">
+    <eClassifiers xsi:type="ecore:EClass" name="XmlProperty" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionxml/XmlTranslatableNode">
       <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
           eType="#//adaptionxml/XmlReference" eOpposite="#//adaptionxml/XmlReference/property"/>
     </eClassifiers>
@@ -767,6 +762,14 @@
       <eOperations name="getOriginalPathParam" eType="#//adaptionxml/PathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pathParam" eType="#//adaptionxml/PathParam"
           eOpposite="#//adaptionxml/PathParam/xmlNavigation"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="XmlTranslatableNode" abstract="true"
+        interface="true">
+      <eOperations name="getXQueryRepresentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="translatePredicates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="getXQueryVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="execution" nsURI="execution" nsPrefix="execution">

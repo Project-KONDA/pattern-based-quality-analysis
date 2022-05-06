@@ -15,7 +15,7 @@ import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
-import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.adaptionxml.XmlTranslatableNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -136,6 +136,8 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 			}
 		}
 		
+		// TODO: translate multiple incoming relations into predicate(s)
+		
 //		for(PrimitiveNode primitiveNode : getProperties()) {
 //			if(!primitiveNode.isOperatorArgument()) {
 //				xPredicates += "[" + "exists(" + primitiveNode.generateQuery() + ")" + "]";
@@ -220,6 +222,24 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		return VARIABLE + getOriginalID();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == XmlTranslatableNode.class) {
+			switch (baseOperationID) {
+				case AdaptionxmlPackage.XML_TRANSLATABLE_NODE___GET_XQUERY_REPRESENTATION: return AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_REPRESENTATION;
+				case AdaptionxmlPackage.XML_TRANSLATABLE_NODE___TRANSLATE_PREDICATES: return AdaptionxmlPackage.XML_ELEMENT___TRANSLATE_PREDICATES;
+				case AdaptionxmlPackage.XML_TRANSLATABLE_NODE___GET_XQUERY_VARIABLE: return AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_VARIABLE;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
 	@Override
 	public Node makeGeneric() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
@@ -274,6 +294,8 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case AdaptionxmlPackage.XML_ELEMENT___GET_TAG_FROM_COMPARISONS:
+				return getTagFromComparisons();
 			case AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_REPRESENTATION:
 				try {
 					return getXQueryRepresentation();
@@ -281,8 +303,6 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_VARIABLE:
-				return getXQueryVariable();
 			case AdaptionxmlPackage.XML_ELEMENT___TRANSLATE_PREDICATES:
 				try {
 					return translatePredicates();
@@ -290,8 +310,8 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionxmlPackage.XML_ELEMENT___GET_TAG_FROM_COMPARISONS:
-				return getTagFromComparisons();
+			case AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_VARIABLE:
+				return getXQueryVariable();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

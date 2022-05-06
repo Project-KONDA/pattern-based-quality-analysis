@@ -2,6 +2,9 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import static qualitypatternmodel.utility.Constants.VARIABLE;
+
 import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -12,6 +15,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.adaptionxml.XmlTranslatableNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -21,6 +25,7 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
+import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -101,6 +106,66 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException{
 		super.isValidLocal(abstractionLevel);
 		
+	}
+	
+	@Override
+	public String getXQueryVariable() {
+		return VARIABLE + getOriginalID();
+	}
+
+	
+	@Override
+	public String getXQueryRepresentation() throws InvalidityException {
+		if (predicatesAreBeingTranslated) {
+			return ".";
+		} else {
+			if (translated) {
+				return getXQueryVariable();
+			} else {
+				throw new InvalidityException("element not yet translated");
+			}
+		}
+	}
+	
+	@Override
+	public String translatePredicates() throws InvalidityException {
+		String xPredicates = "";
+		predicatesAreBeingTranslated = true;
+		
+		for (BooleanOperator predicate : predicates) {
+			if (predicate.isTranslatable()) {
+				xPredicates += "[" + predicate.generateQuery() + "]";
+			}
+		}
+		
+		// TODO: translate multiple incoming relations into predicate(s)
+		
+//		for(PrimitiveNode primitiveNode : getProperties()) {
+//			if(!primitiveNode.isOperatorArgument()) {
+//				xPredicates += "[" + "exists(" + primitiveNode.generateQuery() + ")" + "]";
+//			}
+//		}
+		
+		// translate XMLReferences:
+//		for (Relation relation : getIncoming()) {
+//			if(relation instanceof XmlReference) {
+//				XmlReference reference = (XmlReference) relation;
+//				if (reference.isTranslatable()) {
+//					xPredicates += "[" + relation.generateQuery() + "]";
+//				}
+//			}			
+//		}
+//		for (Relation relation : getOutgoing()) {
+//			if(relation instanceof XmlReference) {
+//				XmlReference reference = (XmlReference) relation;
+//				if (reference.isTranslatable()) {
+//					xPredicates += "[" + relation.generateQuery() + "]";
+//				}
+//			}			
+//		}
+		
+		predicatesAreBeingTranslated = false;
+		return xPredicates;
 	}
 	
 	@Override
@@ -337,6 +402,52 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	}
 
 	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == XmlTranslatableNode.class) {
+			switch (baseOperationID) {
+				case AdaptionxmlPackage.XML_TRANSLATABLE_NODE___GET_XQUERY_REPRESENTATION: return AdaptionxmlPackage.XML_PROPERTY___GET_XQUERY_REPRESENTATION;
+				case AdaptionxmlPackage.XML_TRANSLATABLE_NODE___TRANSLATE_PREDICATES: return AdaptionxmlPackage.XML_PROPERTY___TRANSLATE_PREDICATES;
+				case AdaptionxmlPackage.XML_TRANSLATABLE_NODE___GET_XQUERY_VARIABLE: return AdaptionxmlPackage.XML_PROPERTY___GET_XQUERY_VARIABLE;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case AdaptionxmlPackage.XML_PROPERTY___GET_XQUERY_REPRESENTATION:
+				try {
+					return getXQueryRepresentation();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case AdaptionxmlPackage.XML_PROPERTY___TRANSLATE_PREDICATES:
+				try {
+					return translatePredicates();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case AdaptionxmlPackage.XML_PROPERTY___GET_XQUERY_VARIABLE:
+				return getXQueryVariable();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
 
 	@Override
 	public String myToString() {

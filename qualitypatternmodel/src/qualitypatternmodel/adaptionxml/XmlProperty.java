@@ -22,7 +22,7 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
  * @model
  * @generated
  */
-public interface XmlProperty extends PrimitiveNode {
+public interface XmlProperty extends PrimitiveNode, XmlTranslatableNode {
 	/**
 	 * Returns the value of the '<em><b>References</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XmlReference}.

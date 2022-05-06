@@ -7,15 +7,13 @@ import junit.textui.TestRunner;
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 
-import qualitypatternmodel.graphstructure.tests.RelationTest;
-
 /**
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Xml Property Navigation</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class XmlPropertyNavigationTest extends RelationTest {
+public class XmlPropertyNavigationTest extends XmlNavigationTest {
 
 	/**
 	 * <!-- begin-user-doc -->

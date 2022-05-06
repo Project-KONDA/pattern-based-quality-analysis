@@ -2,23 +2,11 @@
  */
 package qualitypatternmodel.adaptionxml.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.PathParam;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParameterList;
-import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.patternstructure.RelationMapping;
 
 /**
  * <!-- begin-user-doc -->

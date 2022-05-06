@@ -15,14 +15,16 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.PathParam;
 
-import qualitypatternmodel.parameters.provider.ParameterValueItemProvider;
+import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
+import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.adaptionxml.PathParam} object.
@@ -30,7 +32,7 @@ import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PathParamItemProvider extends ParameterValueItemProvider {
+public class PathParamItemProvider extends PatternElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -52,10 +54,78 @@ public class PathParamItemProvider extends ParameterValueItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDescriptionPropertyDescriptor(object);
+			addPredefinedPropertyDescriptor(object);
+			addParameterReferencesPropertyDescriptor(object);
 			addXmlNavigationPropertyDescriptor(object);
-			addXmlPropertyNavigationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Parameter_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_description_feature", "_UI_Parameter_type"),
+				 ParametersPackage.Literals.PARAMETER__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Predefined feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPredefinedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Parameter_predefined_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_predefined_feature", "_UI_Parameter_type"),
+				 ParametersPackage.Literals.PARAMETER__PREDEFINED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Parameter References feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addParameterReferencesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Parameter_parameterReferences_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_parameterReferences_feature", "_UI_Parameter_type"),
+				 ParametersPackage.Literals.PARAMETER__PARAMETER_REFERENCES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -72,28 +142,6 @@ public class PathParamItemProvider extends ParameterValueItemProvider {
 				 getString("_UI_PathParam_xmlNavigation_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PathParam_xmlNavigation_feature", "_UI_PathParam_type"),
 				 AdaptionxmlPackage.Literals.PATH_PARAM__XML_NAVIGATION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Xml Property Navigation feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addXmlPropertyNavigationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_PathParam_xmlPropertyNavigation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PathParam_xmlPropertyNavigation_feature", "_UI_PathParam_type"),
-				 AdaptionxmlPackage.Literals.PATH_PARAM__XML_PROPERTY_NAVIGATION,
 				 true,
 				 false,
 				 true,
@@ -171,6 +219,10 @@ public class PathParamItemProvider extends ParameterValueItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(PathParam.class)) {
+			case AdaptionxmlPackage.PATH_PARAM__DESCRIPTION:
+			case AdaptionxmlPackage.PATH_PARAM__PREDEFINED:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM:
 			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

@@ -32,7 +32,7 @@ public class AdaptionxmlTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new AdaptionxmlTests("adaptionxml Tests");
 		suite.addTestSuite(XmlElementTest.class);
-		suite.addTestSuite(XmlNavigationTest.class);
+		suite.addTestSuite(XmlElementNavigationTest.class);
 		suite.addTestSuite(XmlReferenceTest.class);
 		suite.addTestSuite(XmlPropertyTest.class);
 		suite.addTestSuite(XmlRootTest.class);

@@ -121,6 +121,10 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 				return createXmlNavigationAdapter();
 			}
 			@Override
+			public Adapter caseXmlTranslatableNode(XmlTranslatableNode object) {
+				return createXmlTranslatableNodeAdapter();
+			}
+			@Override
 			public Adapter casePatternElement(PatternElement object) {
 				return createPatternElementAdapter();
 			}
@@ -323,6 +327,20 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createXmlNavigationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode <em>Xml Translatable Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionxml.XmlTranslatableNode
+	 * @generated
+	 */
+	public Adapter createXmlTranslatableNodeAdapter() {
 		return null;
 	}
 

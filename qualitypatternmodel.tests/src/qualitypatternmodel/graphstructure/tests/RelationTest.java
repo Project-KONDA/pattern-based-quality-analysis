@@ -18,7 +18,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#removeRelationFromPreviousGraphs() <em>Remove Relation From Previous Graphs</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#removeMappingsToNext() <em>Remove Mappings To Next</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsXMLNavigation() <em>Adapt As XML Navigation</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsXMLElementNavigation() <em>Adapt As XML Element Navigation</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsXMLReference() <em>Adapt As XML Reference</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getOriginalID() <em>Get Original ID</em>}</li>
@@ -111,13 +111,13 @@ public class RelationTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsXMLNavigation() <em>Adapt As XML Navigation</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsXMLElementNavigation() <em>Adapt As XML Element Navigation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsXMLNavigation()
+	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsXMLElementNavigation()
 	 * @generated
 	 */
-	public void testAdaptAsXMLNavigation() {
+	public void testAdaptAsXMLElementNavigation() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -95,26 +95,26 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XmlNavigation} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XmlElementNavigation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected XmlNavigationItemProvider xmlNavigationItemProvider;
+	protected XmlElementNavigationItemProvider xmlElementNavigationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XmlNavigation}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XmlElementNavigation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createXmlNavigationAdapter() {
-		if (xmlNavigationItemProvider == null) {
-			xmlNavigationItemProvider = new XmlNavigationItemProvider(this);
+	public Adapter createXmlElementNavigationAdapter() {
+		if (xmlElementNavigationItemProvider == null) {
+			xmlElementNavigationItemProvider = new XmlElementNavigationItemProvider(this);
 		}
 
-		return xmlNavigationItemProvider;
+		return xmlElementNavigationItemProvider;
 	}
 
 	/**
@@ -407,7 +407,7 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 	@Override
 	public void dispose() {
 		if (xmlElementItemProvider != null) xmlElementItemProvider.dispose();
-		if (xmlNavigationItemProvider != null) xmlNavigationItemProvider.dispose();
+		if (xmlElementNavigationItemProvider != null) xmlElementNavigationItemProvider.dispose();
 		if (xmlReferenceItemProvider != null) xmlReferenceItemProvider.dispose();
 		if (xmlPropertyItemProvider != null) xmlPropertyItemProvider.dispose();
 		if (xmlRootItemProvider != null) xmlRootItemProvider.dispose();

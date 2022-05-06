@@ -712,22 +712,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___GET_XQUERY_REPRESENTATION = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___GET_XQUERY_VARIABLE = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
-
-	/**
 	 * The operation id for the '<em>Translate Predicates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___TRANSLATE_PREDICATES = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 2;
+	int XML_ELEMENT___TRANSLATE_PREDICATES = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___GET_XQUERY_VARIABLE = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Tag From Comparisons</em>' operation.
@@ -2597,13 +2597,40 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE;
 
 	/**
+	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___GET_XQUERY_REPRESENTATION = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Translate Predicates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___TRANSLATE_PREDICATES = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___GET_XQUERY_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Xml Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 0;
+	int XML_PROPERTY_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlRootImpl <em>Xml Root</em>}' class.
@@ -5168,6 +5195,61 @@ public interface AdaptionxmlPackage extends EPackage {
 	int AXIS_PAIR_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode <em>Xml Translatable Node</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XmlTranslatableNode
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlTranslatableNode()
+	 * @generated
+	 */
+	int XML_TRANSLATABLE_NODE = 11;
+
+	/**
+	 * The number of structural features of the '<em>Xml Translatable Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_TRANSLATABLE_NODE_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_TRANSLATABLE_NODE___GET_XQUERY_REPRESENTATION = 0;
+
+	/**
+	 * The operation id for the '<em>Translate Predicates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_TRANSLATABLE_NODE___TRANSLATE_PREDICATES = 1;
+
+	/**
+	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_TRANSLATABLE_NODE___GET_XQUERY_VARIABLE = 2;
+
+	/**
+	 * The number of operations of the '<em>Xml Translatable Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_TRANSLATABLE_NODE_OPERATION_COUNT = 3;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5175,7 +5257,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getPropertyKind()
 	 * @generated
 	 */
-	int PROPERTY_KIND = 11;
+	int PROPERTY_KIND = 12;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.AxisKind <em>Axis Kind</em>}' enum.
@@ -5185,7 +5267,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getAxisKind()
 	 * @generated
 	 */
-	int AXIS_KIND = 12;
+	int AXIS_KIND = 13;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlElement <em>Xml Element</em>}'.
@@ -5196,36 +5278,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getXmlElement();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation() <em>Get XQuery Representation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get XQuery Representation</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation()
-	 * @generated
-	 */
-	EOperation getXmlElement__GetXQueryRepresentation();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get XQuery Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlElement#getXQueryVariable()
-	 * @generated
-	 */
-	EOperation getXmlElement__GetXQueryVariable();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlElement#translatePredicates() <em>Translate Predicates</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Translate Predicates</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlElement#translatePredicates()
-	 * @generated
-	 */
-	EOperation getXmlElement__TranslatePredicates();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlElement#getTagFromComparisons() <em>Get Tag From Comparisons</em>}' operation.
@@ -5675,6 +5727,46 @@ public interface AdaptionxmlPackage extends EPackage {
 	EOperation getXmlNavigation__GetOriginalPathParam();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode <em>Xml Translatable Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Xml Translatable Node</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlTranslatableNode
+	 * @generated
+	 */
+	EClass getXmlTranslatableNode();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode#getXQueryRepresentation() <em>Get XQuery Representation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get XQuery Representation</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlTranslatableNode#getXQueryRepresentation()
+	 * @generated
+	 */
+	EOperation getXmlTranslatableNode__GetXQueryRepresentation();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode#translatePredicates() <em>Translate Predicates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Translate Predicates</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlTranslatableNode#translatePredicates()
+	 * @generated
+	 */
+	EOperation getXmlTranslatableNode__TranslatePredicates();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get XQuery Variable</em>' operation.
+	 * @see qualitypatternmodel.adaptionxml.XmlTranslatableNode#getXQueryVariable()
+	 * @generated
+	 */
+	EOperation getXmlTranslatableNode__GetXQueryVariable();
+
+	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5726,30 +5818,6 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass XML_ELEMENT = eINSTANCE.getXmlElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Get XQuery Representation</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation XML_ELEMENT___GET_XQUERY_REPRESENTATION = eINSTANCE.getXmlElement__GetXQueryRepresentation();
-
-		/**
-		 * The meta object literal for the '<em><b>Get XQuery Variable</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation XML_ELEMENT___GET_XQUERY_VARIABLE = eINSTANCE.getXmlElement__GetXQueryVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Translate Predicates</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation XML_ELEMENT___TRANSLATE_PREDICATES = eINSTANCE.getXmlElement__TranslatePredicates();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Tag From Comparisons</b></em>' operation.
@@ -6114,6 +6182,40 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM = eINSTANCE.getXmlNavigation__GetOriginalPathParam();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode <em>Xml Translatable Node</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionxml.XmlTranslatableNode
+		 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlTranslatableNode()
+		 * @generated
+		 */
+		EClass XML_TRANSLATABLE_NODE = eINSTANCE.getXmlTranslatableNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Get XQuery Representation</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_TRANSLATABLE_NODE___GET_XQUERY_REPRESENTATION = eINSTANCE.getXmlTranslatableNode__GetXQueryRepresentation();
+
+		/**
+		 * The meta object literal for the '<em><b>Translate Predicates</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_TRANSLATABLE_NODE___TRANSLATE_PREDICATES = eINSTANCE.getXmlTranslatableNode__TranslatePredicates();
+
+		/**
+		 * The meta object literal for the '<em><b>Get XQuery Variable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_TRANSLATABLE_NODE___GET_XQUERY_VARIABLE = eINSTANCE.getXmlTranslatableNode__GetXQueryVariable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}' enum.
