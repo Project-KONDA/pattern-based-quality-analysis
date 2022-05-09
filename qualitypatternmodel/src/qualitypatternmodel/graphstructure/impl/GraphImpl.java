@@ -199,7 +199,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		if ( abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
 			// SEMI_GENERIC or GENERIC 
 			for(Node node : getNodes()) {
-				if(!node.getClass().equals(NodeImpl.class)) {
+				if(!node.getClass().equals(NodeImpl.class) && !node.getClass().equals(ComplexNodeImpl.class) && !node.getClass().equals(PrimitiveNodeImpl.class)) {
 					throw new InvalidityException("Generic pattern contains non-generic class (" + getInternalId() + ")");
 				}				
 			}
