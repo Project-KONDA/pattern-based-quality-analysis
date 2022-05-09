@@ -941,6 +941,9 @@ public class PathParamImpl extends PatternElementImpl implements PathParam {
 		for(AxisPair axisPair : getAxisPairs()) {
 			res += axisPair.myToString();
 		}
+		if (getXmlNavigation() instanceof XmlPropertyNavigation){
+			res += getPropertyOptionParam().myToString();
+		}
 		return res;
 	}
 

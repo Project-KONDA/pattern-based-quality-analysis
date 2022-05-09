@@ -351,8 +351,7 @@ public class TypeOptionParamImpl extends ParameterImpl implements TypeOptionPara
 
 	@Override
 	public String myToString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "type [" + getInternalId() + "] " + getValueAsString();
 	}
 
 } //TypeOptionParamImpl
