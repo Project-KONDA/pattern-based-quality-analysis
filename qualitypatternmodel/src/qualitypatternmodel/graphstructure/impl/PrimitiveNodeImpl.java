@@ -689,11 +689,6 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	}
 
 	@Override
-	public boolean isTranslatable() {
-		return false;
-	}
-
-	@Override
 	public void removeParametersFromParameterList() {
 
 	}

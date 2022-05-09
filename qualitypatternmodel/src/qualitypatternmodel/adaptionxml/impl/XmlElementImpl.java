@@ -196,6 +196,11 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	}
 	
 	@Override
+	public boolean isTranslatable() {
+		return translated;
+	}
+	
+	@Override
 	public String translatePredicates() throws InvalidityException {
 		String xPredicates = "";
 		predicatesAreBeingTranslated = true;

@@ -220,8 +220,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 
 	@Override
 	public boolean isTranslatable() {
-		// TODO
-		return true;
+		return translated;
 	}
 
 	@Override

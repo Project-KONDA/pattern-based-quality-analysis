@@ -304,7 +304,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	
 	@Override
 	public boolean isTranslatable() {
-		return translated;
+		return false;
 	}
 
 	/**
