@@ -738,8 +738,27 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public PrimitiveNode makePrimitive() throws InvalidityException {
 		Node originalNode = getOriginalNode();
+		Graph graph = getGraph();
 		originalNode.checkPrimitive();
-		return originalNode.makePrimitiveRecursive();			
+		PrimitiveNode primitiveOriginal = originalNode.makePrimitiveRecursive();
+		for(Node n: graph.getNodes()) {
+			if(n instanceof PrimitiveNode) {
+				PrimitiveNode primitive = (PrimitiveNode) n;
+				Node next = n;
+				while(next != null) {
+					if(!next.equals(primitiveOriginal)) {
+						if(next.getIncomingMapping() == null) {
+							throw new InvalidityException("primitive correspondent node not found");
+						} else {
+							next = next.getIncomingMapping().getSource();
+						}
+					} else {
+						return primitive;
+					}
+				}
+			}
+		}	
+		throw new InvalidityException("primitive correspondent node not found");
 	}
 	
 
@@ -930,7 +949,27 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public ComplexNode makeComplex() throws InvalidityException {		
 		Node originalNode = getOriginalNode();
 		originalNode.checkComplex();
-		return originalNode.makeComplexRecursive();			
+		Graph graph = getGraph();
+		ComplexNode complexOriginal = originalNode.makeComplexRecursive();
+		
+		for(Node n: graph.getNodes()) {
+			if(n instanceof ComplexNode) {
+				ComplexNode complex = (ComplexNode) n;
+				Node next = n;
+				while(next != null) {
+					if(!next.equals(complexOriginal)) {
+						if(next.getIncomingMapping() == null) {
+							throw new InvalidityException("complex correspondent node not found");
+						} else {
+							next = next.getIncomingMapping().getSource();
+						}
+					} else {
+						return complex;
+					}
+				}
+			}
+		}
+		throw new InvalidityException("complex correspondent node not found");
 	}
 
 	/**
