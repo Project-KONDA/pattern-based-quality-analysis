@@ -178,6 +178,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 					}
 					
 					// At least one casted Property
+					// TODO: cast automatically, thus remove typeOption
 					String some1 = "";
 					String some2 = "";
 					String castedArg1 = "";
