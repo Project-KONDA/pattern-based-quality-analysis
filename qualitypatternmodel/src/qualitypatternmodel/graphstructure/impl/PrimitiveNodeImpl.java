@@ -30,6 +30,7 @@ import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
@@ -293,12 +294,12 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	}
 	
 	@Override
-	public void addTargetNode() throws InvalidityException {
+	public Node addTargetNode() throws InvalidityException {
 		throw new InvalidityException("PrimitiveNodes can not have subnodes.");
 	}
 	
 	@Override
-	public void addOutgoing(Node node) throws InvalidityException {
+	public Relation addOutgoing(Node node) throws InvalidityException {
 		throw new InvalidityException("PrimitiveNodes can not have subnodes.");
 	}
 	

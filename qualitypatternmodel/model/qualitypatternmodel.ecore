@@ -324,8 +324,8 @@
       <eOperations name="getEquivalentNodes" upperBound="-1" eType="#//graphstructure/Node"/>
       <eOperations name="makePrimitive" eType="#//graphstructure/PrimitiveNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="makeComplex" eType="#//graphstructure/ComplexNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="addTargetNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="addOutgoing" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="addTargetNode" eType="#//graphstructure/Node" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="addOutgoing" eType="#//graphstructure/Relation" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="node" eType="#//graphstructure/Node"/>
       </eOperations>
       <eOperations name="getOriginalNode" eType="#//graphstructure/Node"/>
@@ -338,7 +338,7 @@
       <eOperations name="checkGeneric" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="checkPrimitive" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="checkComplex" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="addIncomming">
+      <eOperations name="addIncomming" eType="#//graphstructure/Relation">
         <eParameters name="node" eType="#//graphstructure/Node"/>
       </eOperations>
       <eOperations name="adaptAsXmlElement" eType="#//adaptionxml/XmlElement" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>

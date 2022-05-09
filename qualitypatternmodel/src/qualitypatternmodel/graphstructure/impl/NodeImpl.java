@@ -1063,12 +1063,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return 
 	 * @generated NOT
 	 */
 	@Override
-	public void addIncomming(Node node) {
+	public Relation addIncomming(Node node) {
 		Graph myGraph = this.getGraph(); 
-		myGraph.addRelation(node, this);
+		return myGraph.addRelation(node, this);
 	}
 
 	/**
@@ -1235,27 +1236,30 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return 
 	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public void addTargetNode() throws InvalidityException {
+	public Node addTargetNode() throws InvalidityException {
 		Graph myGraph = getGraph();
 		Node newNode = new NodeImpl();
 		newNode.setGraph(myGraph);
 		myGraph.addRelation(makeComplex(), newNode);
+		return newNode;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return 
 	 * @throws InvalidityException 
 	 * @generated NOT
 	 */
 	@Override
-	public void addOutgoing(Node node) throws InvalidityException {
+	public Relation addOutgoing(Node node) throws InvalidityException {
 		Graph myGraph = this.getGraph(); 
-		myGraph.addRelation(makeComplex(), node);
+		return myGraph.addRelation(makeComplex(), node);
 	}
 
 	/**
@@ -1704,16 +1708,14 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				}
 			case GraphstructurePackage.NODE___ADD_TARGET_NODE:
 				try {
-					addTargetNode();
-					return null;
+					return addTargetNode();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
 			case GraphstructurePackage.NODE___ADD_OUTGOING__NODE:
 				try {
-					addOutgoing((Node)arguments.get(0));
-					return null;
+					return addOutgoing((Node)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -1773,8 +1775,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 					throw new InvocationTargetException(throwable);
 				}
 			case GraphstructurePackage.NODE___ADD_INCOMMING__NODE:
-				addIncomming((Node)arguments.get(0));
-				return null;
+				return addIncomming((Node)arguments.get(0));
 			case GraphstructurePackage.NODE___ADAPT_AS_XML_ELEMENT:
 				try {
 					return adaptAsXmlElement();
