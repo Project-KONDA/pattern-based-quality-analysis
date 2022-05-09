@@ -14,6 +14,8 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.graphstructure.provider.PrimitiveNodeItemProvider;
@@ -47,9 +49,32 @@ public class XmlPropertyItemProvider extends PrimitiveNodeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addVariablesPropertyDescriptor(object);
 			addReferencesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Variables feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVariablesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XmlNode_variables_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlNode_variables_feature", "_UI_XmlNode_type"),
+				 AdaptionxmlPackage.Literals.XML_NODE__VARIABLES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -113,6 +138,13 @@ public class XmlPropertyItemProvider extends PrimitiveNodeItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(XmlProperty.class)) {
+			case AdaptionxmlPackage.XML_PROPERTY__VARIABLES:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 	/**

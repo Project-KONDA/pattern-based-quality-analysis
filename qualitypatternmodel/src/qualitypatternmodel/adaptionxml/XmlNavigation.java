@@ -15,6 +15,8 @@ import qualitypatternmodel.graphstructure.Relation;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlNavigation#getPathParam <em>Path Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlNavigation#getSourceVariable <em>Source Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlNavigation#getVariableCounter <em>Variable Counter</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlNavigation()
@@ -47,28 +49,57 @@ public interface XmlNavigation extends Relation {
 	void setPathParam(PathParam value);
 
 	/**
+	 * Returns the value of the '<em><b>Source Variable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Variable</em>' attribute.
+	 * @see #setSourceVariable(String)
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlNavigation_SourceVariable()
+	 * @model
+	 * @generated
+	 */
+	String getSourceVariable();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getSourceVariable <em>Source Variable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Variable</em>' attribute.
+	 * @see #getSourceVariable()
+	 * @generated
+	 */
+	void setSourceVariable(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Variable Counter</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Variable Counter</em>' attribute.
+	 * @see #setVariableCounter(int)
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlNavigation_VariableCounter()
+	 * @model default="0"
+	 * @generated
+	 */
+	int getVariableCounter();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getVariableCounter <em>Variable Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Variable Counter</em>' attribute.
+	 * @see #getVariableCounter()
+	 * @generated
+	 */
+	void setVariableCounter(int value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
 	PathParam getOriginalPathParam();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	String getXQueryVariable();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	String getXQueryRepresentation() throws InvalidityException;
 
 	String generateQuery() throws InvalidityException;
 

@@ -629,13 +629,13 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/pathParam"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/sourceVariable"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/variableCounter"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/getOriginalPathParam"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/getXQueryVariable"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/getXQueryRepresentation"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlNode">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlNode/variables"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNode/translatePredicates"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNode/getXQueryVariable"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNode/getXQueryRepresentation"/>
       </genClasses>
     </nestedGenPackages>

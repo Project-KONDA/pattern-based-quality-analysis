@@ -685,28 +685,28 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EAttribute getXmlNavigation_SourceVariable() {
+		return (EAttribute)xmlNavigationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getXmlNavigation_VariableCounter() {
+		return (EAttribute)xmlNavigationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getXmlNavigation__GetOriginalPathParam() {
 		return xmlNavigationEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getXmlNavigation__GetXQueryVariable() {
-		return xmlNavigationEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getXmlNavigation__GetXQueryRepresentation() {
-		return xmlNavigationEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -725,6 +725,16 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EAttribute getXmlNode_Variables() {
+		return (EAttribute)xmlNodeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getXmlNode__TranslatePredicates() {
 		return xmlNodeEClass.getEOperations().get(0);
 	}
@@ -735,18 +745,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlNode__GetXQueryVariable() {
-		return xmlNodeEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getXmlNode__GetXQueryRepresentation() {
-		return xmlNodeEClass.getEOperations().get(2);
+		return xmlNodeEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -852,13 +852,13 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		xmlNavigationEClass = createEClass(XML_NAVIGATION);
 		createEReference(xmlNavigationEClass, XML_NAVIGATION__PATH_PARAM);
+		createEAttribute(xmlNavigationEClass, XML_NAVIGATION__SOURCE_VARIABLE);
+		createEAttribute(xmlNavigationEClass, XML_NAVIGATION__VARIABLE_COUNTER);
 		createEOperation(xmlNavigationEClass, XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM);
-		createEOperation(xmlNavigationEClass, XML_NAVIGATION___GET_XQUERY_VARIABLE);
-		createEOperation(xmlNavigationEClass, XML_NAVIGATION___GET_XQUERY_REPRESENTATION);
 
 		xmlNodeEClass = createEClass(XML_NODE);
+		createEAttribute(xmlNodeEClass, XML_NODE__VARIABLES);
 		createEOperation(xmlNodeEClass, XML_NODE___TRANSLATE_PREDICATES);
-		createEOperation(xmlNodeEClass, XML_NODE___GET_XQUERY_VARIABLE);
 		createEOperation(xmlNodeEClass, XML_NODE___GET_XQUERY_REPRESENTATION);
 
 		// Create enums
@@ -995,23 +995,18 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		initEClass(xmlNavigationEClass, XmlNavigation.class, "XmlNavigation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getXmlNavigation_PathParam(), this.getPathParam(), this.getPathParam_XmlNavigation(), "pathParam", null, 0, 1, XmlNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getXmlNavigation_SourceVariable(), ecorePackage.getEString(), "sourceVariable", null, 0, 1, XmlNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getXmlNavigation_VariableCounter(), ecorePackage.getEInt(), "variableCounter", "0", 0, 1, XmlNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getXmlNavigation__GetOriginalPathParam(), this.getPathParam(), "getOriginalPathParam", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getXmlNavigation__GetXQueryVariable(), ecorePackage.getEString(), "getXQueryVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getXmlNavigation__GetXQueryRepresentation(), ecorePackage.getEString(), "getXQueryRepresentation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
 		initEClass(xmlNodeEClass, XmlNode.class, "XmlNode", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getXmlNode_Variables(), ecorePackage.getEString(), "variables", null, 0, -1, XmlNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getXmlNode__TranslatePredicates(), ecorePackage.getEString(), "translatePredicates", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getXmlNode__GetXQueryVariable(), ecorePackage.getEString(), "getXQueryVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
-		op = initEOperation(getXmlNode__GetXQueryRepresentation(), ecorePackage.getEString(), "getXQueryRepresentation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlNode__GetXQueryRepresentation(), ecorePackage.getEString(), "getXQueryRepresentation", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		// Initialize enums and add enum literals

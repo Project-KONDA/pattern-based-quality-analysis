@@ -5,11 +5,14 @@ package qualitypatternmodel.adaptionxml.impl;
 import static qualitypatternmodel.utility.Constants.VARIABLE;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
@@ -41,12 +44,22 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlElementImpl#getVariables <em>Variables</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlElementImpl#isXQueryDeepEqual <em>XQuery Deep Equal</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
+	/**
+	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariables()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> variables;
 	/**
 	 * The default value of the '{@link #isXQueryDeepEqual() <em>XQuery Deep Equal</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -102,6 +115,19 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	 * @generated
 	 */
 	@Override
+	public EList<String> getVariables() {
+		if (variables == null) {
+			variables = new EDataTypeUniqueEList<String>(String.class, this, AdaptionxmlPackage.XML_ELEMENT__VARIABLES);
+		}
+		return variables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public boolean isXQueryDeepEqual() {
 		return xQueryDeepEqual;
 	}
@@ -123,11 +149,18 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	public String generateQuery() throws InvalidityException {
 		translated = true;
 		String query = "";
-		for(Relation relation : getOutgoing()) {
-			if(relation instanceof XmlNavigation) {
-				query += relation.generateQuery();
-			}
-		}		
+		if(getVariables().isEmpty()) {
+			throw new InvalidityException("XmlElement without variables cannot be translated");
+		}
+		if(xQueryDeepEqual || getVariables().size() == 1) {
+			for(Relation relation : getOutgoing()) {
+				if(relation instanceof XmlNavigation) {
+					XmlNavigation nav = (XmlNavigation) relation;
+					nav.setSourceVariable(getVariables().get(getVariables().size()-1));
+					query += relation.generateQuery();
+				}
+			}		
+		}
 		return query;					
 	}
 
@@ -172,35 +205,19 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 				xPredicates += "[" + predicate.generateQuery() + "]";
 			}
 		}
-				
-		for(Relation r : getIncoming()) {
-			if(r.isTranslated()) {
-				if(r instanceof XmlNavigation) {
-					XmlNavigation nav = (XmlNavigation) r;
-					xPredicates += "[. is " + nav.getXQueryRepresentation() + "]";
-				}
+		
+		if(xQueryDeepEqual) {
+			for(String otherVar : getVariables()) {
+				xPredicates += "[deep-equal(.," + otherVar + ")]"; 
 			}
+		} else {
+			for(String v : getVariables()) {
+				xPredicates += "[. is " + v + "]";				
+			}			
 		}
 		
 		predicatesAreBeingTranslated = false;
 		return xPredicates;
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @throws InvalidityException 
-	 * @generated NOT
-	 */
-	@Override
-	public String getXQueryVariable() throws InvalidityException {
-		for(Relation r : getIncoming()) {
-			if(r.isTranslated() && r instanceof XmlNavigation) {
-				XmlNavigation nav = (XmlNavigation) r;
-				return nav.getXQueryVariable();
-			}
-		}
-		throw new InvalidityException("XmlElement does not have XQuery variable");
 	}
 
 	/**
@@ -209,14 +226,16 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	 * @generated NOT
 	 */
 	@Override
-	public String getXQueryRepresentation() throws InvalidityException {
+	public EList<String> getXQueryRepresentation() throws InvalidityException {
 		if (predicatesAreBeingTranslated) {
-			return ".";
+			BasicEList<String> list = new BasicEList<String>();
+			list.add(".");
+			return list;
 		} else {
 			if (translated) {
-				return getXQueryVariable();
+				return getVariables();
 			} else {
-				throw new InvalidityException("XmlNavigation not yet translated");
+				throw new InvalidityException("XmlElement not yet translated");
 			}
 		}
 	}
@@ -229,6 +248,8 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case AdaptionxmlPackage.XML_ELEMENT__VARIABLES:
+				return getVariables();
 			case AdaptionxmlPackage.XML_ELEMENT__XQUERY_DEEP_EQUAL:
 				return isXQueryDeepEqual();
 		}
@@ -240,9 +261,14 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case AdaptionxmlPackage.XML_ELEMENT__VARIABLES:
+				getVariables().clear();
+				getVariables().addAll((Collection<? extends String>)newValue);
+				return;
 			case AdaptionxmlPackage.XML_ELEMENT__XQUERY_DEEP_EQUAL:
 				setXQueryDeepEqual((Boolean)newValue);
 				return;
@@ -258,6 +284,9 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case AdaptionxmlPackage.XML_ELEMENT__VARIABLES:
+				getVariables().clear();
+				return;
 			case AdaptionxmlPackage.XML_ELEMENT__XQUERY_DEEP_EQUAL:
 				setXQueryDeepEqual(XQUERY_DEEP_EQUAL_EDEFAULT);
 				return;
@@ -273,6 +302,8 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case AdaptionxmlPackage.XML_ELEMENT__VARIABLES:
+				return variables != null && !variables.isEmpty();
 			case AdaptionxmlPackage.XML_ELEMENT__XQUERY_DEEP_EQUAL:
 				return xQueryDeepEqual != XQUERY_DEEP_EQUAL_EDEFAULT;
 		}
@@ -285,11 +316,42 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == XmlNode.class) {
+			switch (derivedFeatureID) {
+				case AdaptionxmlPackage.XML_ELEMENT__VARIABLES: return AdaptionxmlPackage.XML_NODE__VARIABLES;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == XmlNode.class) {
+			switch (baseFeatureID) {
+				case AdaptionxmlPackage.XML_NODE__VARIABLES: return AdaptionxmlPackage.XML_ELEMENT__VARIABLES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == XmlNode.class) {
 			switch (baseOperationID) {
 				case AdaptionxmlPackage.XML_NODE___TRANSLATE_PREDICATES: return AdaptionxmlPackage.XML_ELEMENT___TRANSLATE_PREDICATES;
-				case AdaptionxmlPackage.XML_NODE___GET_XQUERY_VARIABLE: return AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_VARIABLE;
 				case AdaptionxmlPackage.XML_NODE___GET_XQUERY_REPRESENTATION: return AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_REPRESENTATION;
 				default: return -1;
 			}
@@ -411,13 +473,6 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_VARIABLE:
-				try {
-					return getXQueryVariable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_REPRESENTATION:
 				try {
 					return getXQueryRepresentation();
@@ -439,7 +494,9 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (xQueryDeepEqual: ");
+		result.append(" (variables: ");
+		result.append(variables);
+		result.append(", xQueryDeepEqual: ");
 		result.append(xQueryDeepEqual);
 		result.append(')');
 		return result.toString();

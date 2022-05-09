@@ -16,6 +16,9 @@ import qualitypatternmodel.graphstructure.tests.ComplexNodeTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#getTagFromComparisons() <em>Get Tag From Comparisons</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlNode#translatePredicates() <em>Translate Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlNode#getXQueryVariable() <em>Get XQuery Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlNode#getXQueryRepresentation() <em>Get XQuery Representation</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -82,6 +85,45 @@ public class XmlElementTest extends ComplexNodeTest {
 	 * @generated
 	 */
 	public void testGetTagFromComparisons() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlNode#translatePredicates() <em>Translate Predicates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XmlNode#translatePredicates()
+	 * @generated
+	 */
+	public void testTranslatePredicates() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlNode#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XmlNode#getXQueryVariable()
+	 * @generated
+	 */
+	public void testGetXQueryVariable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlNode#getXQueryRepresentation() <em>Get XQuery Representation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XmlNode#getXQueryRepresentation()
+	 * @generated
+	 */
+	public void testGetXQueryRepresentation() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

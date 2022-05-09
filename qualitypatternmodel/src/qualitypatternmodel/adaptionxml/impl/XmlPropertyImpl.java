@@ -7,9 +7,11 @@ import static qualitypatternmodel.utility.Constants.VARIABLE;
 
 import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
@@ -38,12 +40,22 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl#getVariables <em>Variables</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl#getReferences <em>References</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
+	/**
+	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariables()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> variables;
 	/**
 	 * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -120,14 +132,9 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 			}
 		}
 		
-		for(Relation r : getIncoming()) {
-			if(r.isTranslated()) {
-				if(r instanceof XmlNavigation) {
-					XmlNavigation nav = (XmlNavigation) r;
-					// TODO: maybe cast
-					xPredicates += "[. = " + nav.getXQueryRepresentation() + "]";
-				}
-			}
+		for(String v : getVariables()) {
+			// TODO: maybe cast
+			xPredicates += "[. = " + v + "]";				
 		}
 
 		predicatesAreBeingTranslated = false;
@@ -140,30 +147,16 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	 * @generated NOT
 	 */
 	@Override
-	public String getXQueryVariable() throws InvalidityException {
-		for(Relation r : getIncoming()) {
-			if(r.isTranslated() && r instanceof XmlNavigation) {
-				XmlNavigation nav = (XmlNavigation) r;
-				return nav.getXQueryVariable();
-			}
-		}
-		throw new InvalidityException("XmlElement does not have XQuery variable");
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public String getXQueryRepresentation() throws InvalidityException {
+	public EList<String> getXQueryRepresentation() throws InvalidityException {
 		if (predicatesAreBeingTranslated) {
-			return ".";
+			BasicEList<String> list = new BasicEList<String>();
+			list.add(".");
+			return list;
 		} else {
 			if (translated) {
-				return getXQueryVariable();
+				return getVariables();
 			} else {
-				throw new InvalidityException("XmlNavigation not yet translated");
+				throw new InvalidityException("XmlProperty not yet translated");
 			}
 		}
 	}
@@ -294,6 +287,19 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getVariables() {
+		if (variables == null) {
+			variables = new EDataTypeUniqueEList<String>(String.class, this, AdaptionxmlPackage.XML_PROPERTY__VARIABLES);
+		}
+		return variables;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -339,6 +345,8 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case AdaptionxmlPackage.XML_PROPERTY__VARIABLES:
+				return getVariables();
 			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:
 				return getReferences();
 		}
@@ -353,6 +361,10 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case AdaptionxmlPackage.XML_PROPERTY__VARIABLES:
+				getVariables().clear();
+				getVariables().addAll((Collection<? extends String>)newValue);
+				return;
 			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:
 				getReferences().clear();
 				getReferences().addAll((Collection<? extends XmlReference>)newValue);
@@ -368,6 +380,9 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case AdaptionxmlPackage.XML_PROPERTY__VARIABLES:
+				getVariables().clear();
+				return;
 			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:
 				getReferences().clear();
 				return;
@@ -382,6 +397,8 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case AdaptionxmlPackage.XML_PROPERTY__VARIABLES:
+				return variables != null && !variables.isEmpty();
 			case AdaptionxmlPackage.XML_PROPERTY__REFERENCES:
 				return references != null && !references.isEmpty();
 		}
@@ -394,11 +411,42 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == XmlNode.class) {
+			switch (derivedFeatureID) {
+				case AdaptionxmlPackage.XML_PROPERTY__VARIABLES: return AdaptionxmlPackage.XML_NODE__VARIABLES;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == XmlNode.class) {
+			switch (baseFeatureID) {
+				case AdaptionxmlPackage.XML_NODE__VARIABLES: return AdaptionxmlPackage.XML_PROPERTY__VARIABLES;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == XmlNode.class) {
 			switch (baseOperationID) {
 				case AdaptionxmlPackage.XML_NODE___TRANSLATE_PREDICATES: return AdaptionxmlPackage.XML_PROPERTY___TRANSLATE_PREDICATES;
-				case AdaptionxmlPackage.XML_NODE___GET_XQUERY_VARIABLE: return AdaptionxmlPackage.XML_PROPERTY___GET_XQUERY_VARIABLE;
 				case AdaptionxmlPackage.XML_NODE___GET_XQUERY_REPRESENTATION: return AdaptionxmlPackage.XML_PROPERTY___GET_XQUERY_REPRESENTATION;
 				default: return -1;
 			}
@@ -421,13 +469,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionxmlPackage.XML_PROPERTY___GET_XQUERY_VARIABLE:
-				try {
-					return getXQueryVariable();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case AdaptionxmlPackage.XML_PROPERTY___GET_XQUERY_REPRESENTATION:
 				try {
 					return getXQueryRepresentation();
@@ -437,6 +478,22 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 				}
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (variables: ");
+		result.append(variables);
+		result.append(')');
+		return result.toString();
 	}
 
 	@Override

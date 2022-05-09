@@ -25,6 +25,7 @@ import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.PathParam;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -47,6 +48,8 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl#getPathParam <em>Path Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl#getSourceVariable <em>Source Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl#getVariableCounter <em>Variable Counter</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,6 +66,45 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	protected PathParam pathParam;
 
 	/**
+	 * The default value of the '{@link #getSourceVariable() <em>Source Variable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceVariable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_VARIABLE_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getSourceVariable() <em>Source Variable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceVariable()
+	 * @generated
+	 * @ordered
+	 */
+	protected String sourceVariable = SOURCE_VARIABLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getVariableCounter() <em>Variable Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariableCounter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int VARIABLE_COUNTER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getVariableCounter() <em>Variable Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariableCounter()
+	 * @generated
+	 * @ordered
+	 */
+	protected int variableCounter = VARIABLE_COUNTER_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -73,16 +115,10 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 
 	@Override
 	public String generateQuery() throws InvalidityException {
-		String query = "";
 		
-		String source = "";
-		if(getSource() instanceof XmlElement) {
-			XmlElement sourceElement = (XmlElement) getSource();
-			source = sourceElement.getXQueryVariable();
-		}
 		String xPathExpression = "";
 		if (pathParam != null && getIncomingMapping() == null) {
-			xPathExpression = source + pathParam.generateQuery();
+			xPathExpression = getSourceVariable() + pathParam.generateQuery();
 		} else if(getIncomingMapping() == null) {
 			throw new InvalidityException("option null");
 		}
@@ -97,14 +133,15 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 			predicatesAreBeingTranslated = false;
 		} else {
 			throw new InvalidityException("target of relation not XMLElement");
-		}	
+		}
 		
-		String variable = getXQueryVariable();
+		String variable = generateNextXQueryVariable();
 		
 		if(getGraph() == null) {
 			throw new InvalidityException("container Graph null");
 		}
 		
+		String query = "";
 		if (getGraph().isReturnGraph()) {
 			query += FOR + variable + IN; 			
 			if (getTarget().getIncomingMapping() == null) {
@@ -141,9 +178,20 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		
 		translated = true;
 		
+		if(getTarget() instanceof XmlNode) {
+			XmlNode node = (XmlNode) getTarget();
+			node.getVariables().add(variable);
+		}
+		
 		query += getTarget().generateQuery();
 		
 		return query;
+	}
+
+	private String generateNextXQueryVariable() {
+		String variable = VARIABLE + getOriginalID() + getVariableCounter();
+		setVariableCounter(getVariableCounter()+1);
+		return variable;
 	}
 	
 	@Override
@@ -323,6 +371,52 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getSourceVariable() {
+		return sourceVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSourceVariable(String newSourceVariable) {
+		String oldSourceVariable = sourceVariable;
+		sourceVariable = newSourceVariable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_NAVIGATION__SOURCE_VARIABLE, oldSourceVariable, sourceVariable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int getVariableCounter() {
+		return variableCounter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setVariableCounter(int newVariableCounter) {
+		int oldVariableCounter = variableCounter;
+		variableCounter = newVariableCounter;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_NAVIGATION__VARIABLE_COUNTER, oldVariableCounter, variableCounter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -331,34 +425,6 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 			return getPathParam();
 		} else {
 			return ((XmlNavigation) getOriginalRelation()).getOriginalPathParam();		
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public String getXQueryVariable() {
-		return VARIABLE + getOriginalID();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public String getXQueryRepresentation() throws InvalidityException {
-		if (predicatesAreBeingTranslated) {
-			return ".";
-		} else {
-			if (translated) {
-				return getXQueryVariable();
-			} else {
-				throw new InvalidityException("XmlNavigation not yet translated");
-			}
 		}
 	}
 
@@ -403,6 +469,10 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 			case AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM:
 				if (resolve) return getPathParam();
 				return basicGetPathParam();
+			case AdaptionxmlPackage.XML_NAVIGATION__SOURCE_VARIABLE:
+				return getSourceVariable();
+			case AdaptionxmlPackage.XML_NAVIGATION__VARIABLE_COUNTER:
+				return getVariableCounter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -417,6 +487,12 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		switch (featureID) {
 			case AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM:
 				setPathParam((PathParam)newValue);
+				return;
+			case AdaptionxmlPackage.XML_NAVIGATION__SOURCE_VARIABLE:
+				setSourceVariable((String)newValue);
+				return;
+			case AdaptionxmlPackage.XML_NAVIGATION__VARIABLE_COUNTER:
+				setVariableCounter((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -433,6 +509,12 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 			case AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM:
 				setPathParam((PathParam)null);
 				return;
+			case AdaptionxmlPackage.XML_NAVIGATION__SOURCE_VARIABLE:
+				setSourceVariable(SOURCE_VARIABLE_EDEFAULT);
+				return;
+			case AdaptionxmlPackage.XML_NAVIGATION__VARIABLE_COUNTER:
+				setVariableCounter(VARIABLE_COUNTER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -447,6 +529,10 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		switch (featureID) {
 			case AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM:
 				return pathParam != null;
+			case AdaptionxmlPackage.XML_NAVIGATION__SOURCE_VARIABLE:
+				return SOURCE_VARIABLE_EDEFAULT == null ? sourceVariable != null : !SOURCE_VARIABLE_EDEFAULT.equals(sourceVariable);
+			case AdaptionxmlPackage.XML_NAVIGATION__VARIABLE_COUNTER:
+				return variableCounter != VARIABLE_COUNTER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -461,17 +547,26 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		switch (operationID) {
 			case AdaptionxmlPackage.XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM:
 				return getOriginalPathParam();
-			case AdaptionxmlPackage.XML_NAVIGATION___GET_XQUERY_VARIABLE:
-				return getXQueryVariable();
-			case AdaptionxmlPackage.XML_NAVIGATION___GET_XQUERY_REPRESENTATION:
-				try {
-					return getXQueryRepresentation();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (sourceVariable: ");
+		result.append(sourceVariable);
+		result.append(", variableCounter: ");
+		result.append(variableCounter);
+		result.append(')');
+		return result.toString();
 	}
 
 	@Override

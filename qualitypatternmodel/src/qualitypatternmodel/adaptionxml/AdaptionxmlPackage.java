@@ -208,13 +208,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT__OUTGOING = GraphstructurePackage.COMPLEX_NODE__OUTGOING;
 
 	/**
+	 * The feature id for the '<em><b>Variables</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT__VARIABLES = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>XQuery Deep Equal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT__XQUERY_DEEP_EQUAL = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
+	int XML_ELEMENT__XQUERY_DEEP_EQUAL = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Xml Element</em>' class.
@@ -223,7 +232,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 1;
+	int XML_ELEMENT_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -721,22 +730,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___TRANSLATE_PREDICATES = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___GET_XQUERY_VARIABLE = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
-
-	/**
 	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___GET_XQUERY_REPRESENTATION = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 2;
+	int XML_ELEMENT___GET_XQUERY_REPRESENTATION = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Tag From Comparisons</em>' operation.
@@ -745,7 +745,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___GET_TAG_FROM_COMPARISONS = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 3;
+	int XML_ELEMENT___GET_TAG_FROM_COMPARISONS = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Xml Element</em>' class.
@@ -754,7 +754,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 4;
+	int XML_ELEMENT_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl <em>Xml Navigation</em>}' class.
@@ -866,13 +866,31 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION__PATH_PARAM = GraphstructurePackage.RELATION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Source Variable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION__SOURCE_VARIABLE = GraphstructurePackage.RELATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Variable Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION__VARIABLE_COUNTER = GraphstructurePackage.RELATION_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Xml Navigation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION_FEATURE_COUNT = GraphstructurePackage.RELATION_FEATURE_COUNT + 1;
+	int XML_NAVIGATION_FEATURE_COUNT = GraphstructurePackage.RELATION_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -1154,31 +1172,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_NAVIGATION___GET_XQUERY_VARIABLE = GraphstructurePackage.RELATION_OPERATION_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_NAVIGATION___GET_XQUERY_REPRESENTATION = GraphstructurePackage.RELATION_OPERATION_COUNT + 2;
-
-	/**
 	 * The number of operations of the '<em>Xml Navigation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 3;
+	int XML_NAVIGATION_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl <em>Xml Element Navigation</em>}' class.
@@ -1288,6 +1288,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ELEMENT_NAVIGATION__PATH_PARAM = XML_NAVIGATION__PATH_PARAM;
+
+	/**
+	 * The feature id for the '<em><b>Source Variable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT_NAVIGATION__SOURCE_VARIABLE = XML_NAVIGATION__SOURCE_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Variable Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT_NAVIGATION__VARIABLE_COUNTER = XML_NAVIGATION__VARIABLE_COUNTER;
 
 	/**
 	 * The number of structural features of the '<em>Xml Element Navigation</em>' class.
@@ -1576,24 +1594,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ELEMENT_NAVIGATION___GET_ORIGINAL_PATH_PARAM = XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM;
-
-	/**
-	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT_NAVIGATION___GET_XQUERY_VARIABLE = XML_NAVIGATION___GET_XQUERY_VARIABLE;
-
-	/**
-	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT_NAVIGATION___GET_XQUERY_REPRESENTATION = XML_NAVIGATION___GET_XQUERY_REPRESENTATION;
 
 	/**
 	 * The number of operations of the '<em>Xml Element Navigation</em>' class.
@@ -2183,13 +2183,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY__MATCH = GraphstructurePackage.PRIMITIVE_NODE__MATCH;
 
 	/**
+	 * The feature id for the '<em><b>Variables</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY__VARIABLES = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY__REFERENCES = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
+	int XML_PROPERTY__REFERENCES = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Xml Property</em>' class.
@@ -2198,7 +2207,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
+	int XML_PROPERTY_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -2705,22 +2714,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___TRANSLATE_PREDICATES = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY___GET_XQUERY_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 1;
-
-	/**
 	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GET_XQUERY_REPRESENTATION = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 2;
+	int XML_PROPERTY___GET_XQUERY_REPRESENTATION = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Xml Property</em>' class.
@@ -2729,7 +2729,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 3;
+	int XML_PROPERTY_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlRootImpl <em>Xml Root</em>}' class.
@@ -3490,6 +3490,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_NAVIGATION__PATH_PARAM = XML_NAVIGATION__PATH_PARAM;
 
 	/**
+	 * The feature id for the '<em><b>Source Variable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_NAVIGATION__SOURCE_VARIABLE = XML_NAVIGATION__SOURCE_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Variable Counter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_NAVIGATION__VARIABLE_COUNTER = XML_NAVIGATION__VARIABLE_COUNTER;
+
+	/**
 	 * The number of structural features of the '<em>Xml Property Navigation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3776,24 +3794,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY_NAVIGATION___GET_ORIGINAL_PATH_PARAM = XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM;
-
-	/**
-	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY_NAVIGATION___GET_XQUERY_VARIABLE = XML_NAVIGATION___GET_XQUERY_VARIABLE;
-
-	/**
-	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY_NAVIGATION___GET_XQUERY_REPRESENTATION = XML_NAVIGATION___GET_XQUERY_REPRESENTATION;
 
 	/**
 	 * The number of operations of the '<em>Xml Property Navigation</em>' class.
@@ -5340,13 +5340,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NODE = 11;
 
 	/**
+	 * The feature id for the '<em><b>Variables</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NODE__VARIABLES = 0;
+
+	/**
 	 * The number of structural features of the '<em>Xml Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NODE_FEATURE_COUNT = 0;
+	int XML_NODE_FEATURE_COUNT = 1;
 
 	/**
 	 * The operation id for the '<em>Translate Predicates</em>' operation.
@@ -5358,22 +5367,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NODE___TRANSLATE_PREDICATES = 0;
 
 	/**
-	 * The operation id for the '<em>Get XQuery Variable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_NODE___GET_XQUERY_VARIABLE = 1;
-
-	/**
 	 * The operation id for the '<em>Get XQuery Representation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NODE___GET_XQUERY_REPRESENTATION = 2;
+	int XML_NODE___GET_XQUERY_REPRESENTATION = 1;
 
 	/**
 	 * The number of operations of the '<em>Xml Node</em>' class.
@@ -5382,7 +5382,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NODE_OPERATION_COUNT = 3;
+	int XML_NODE_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.PropertyKind <em>Property Kind</em>}' enum.
@@ -5863,6 +5863,28 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getXmlNavigation_PathParam();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getSourceVariable <em>Source Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Variable</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlNavigation#getSourceVariable()
+	 * @see #getXmlNavigation()
+	 * @generated
+	 */
+	EAttribute getXmlNavigation_SourceVariable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getVariableCounter <em>Variable Counter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Variable Counter</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlNavigation#getVariableCounter()
+	 * @see #getXmlNavigation()
+	 * @generated
+	 */
+	EAttribute getXmlNavigation_VariableCounter();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getOriginalPathParam() <em>Get Original Path Param</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5871,26 +5893,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getXmlNavigation__GetOriginalPathParam();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get XQuery Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlNavigation#getXQueryVariable()
-	 * @generated
-	 */
-	EOperation getXmlNavigation__GetXQueryVariable();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getXQueryRepresentation() <em>Get XQuery Representation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get XQuery Representation</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlNavigation#getXQueryRepresentation()
-	 * @generated
-	 */
-	EOperation getXmlNavigation__GetXQueryRepresentation();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlNode <em>Xml Node</em>}'.
@@ -5903,6 +5905,17 @@ public interface AdaptionxmlPackage extends EPackage {
 	EClass getXmlNode();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link qualitypatternmodel.adaptionxml.XmlNode#getVariables <em>Variables</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Variables</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlNode#getVariables()
+	 * @see #getXmlNode()
+	 * @generated
+	 */
+	EAttribute getXmlNode_Variables();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlNode#translatePredicates() <em>Translate Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5911,16 +5924,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getXmlNode__TranslatePredicates();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlNode#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get XQuery Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlNode#getXQueryVariable()
-	 * @generated
-	 */
-	EOperation getXmlNode__GetXQueryVariable();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlNode#getXQueryRepresentation() <em>Get XQuery Representation</em>}' operation.
@@ -6350,28 +6353,28 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference XML_NAVIGATION__PATH_PARAM = eINSTANCE.getXmlNavigation_PathParam();
 
 		/**
+		 * The meta object literal for the '<em><b>Source Variable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XML_NAVIGATION__SOURCE_VARIABLE = eINSTANCE.getXmlNavigation_SourceVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Variable Counter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XML_NAVIGATION__VARIABLE_COUNTER = eINSTANCE.getXmlNavigation_VariableCounter();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Original Path Param</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM = eINSTANCE.getXmlNavigation__GetOriginalPathParam();
-
-		/**
-		 * The meta object literal for the '<em><b>Get XQuery Variable</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation XML_NAVIGATION___GET_XQUERY_VARIABLE = eINSTANCE.getXmlNavigation__GetXQueryVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Get XQuery Representation</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation XML_NAVIGATION___GET_XQUERY_REPRESENTATION = eINSTANCE.getXmlNavigation__GetXQueryRepresentation();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.XmlNode <em>Xml Node</em>}' class.
@@ -6384,20 +6387,20 @@ public interface AdaptionxmlPackage extends EPackage {
 		EClass XML_NODE = eINSTANCE.getXmlNode();
 
 		/**
+		 * The meta object literal for the '<em><b>Variables</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XML_NODE__VARIABLES = eINSTANCE.getXmlNode_Variables();
+
+		/**
 		 * The meta object literal for the '<em><b>Translate Predicates</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation XML_NODE___TRANSLATE_PREDICATES = eINSTANCE.getXmlNode__TranslatePredicates();
-
-		/**
-		 * The meta object literal for the '<em><b>Get XQuery Variable</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation XML_NODE___GET_XQUERY_VARIABLE = eINSTANCE.getXmlNode__GetXQueryVariable();
 
 		/**
 		 * The meta object literal for the '<em><b>Get XQuery Representation</b></em>' operation.
