@@ -223,7 +223,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			if (noRoot != 1)
 				throw new InvalidityException("too many or too few XMLRoot (" + getInternalId() + ")");
 			for(Node node : getNodes()) {
-				if(node.getClass().equals(NodeImpl.class)) {
+				if(node.getClass().equals(NodeImpl.class) || node.getClass().equals(ComplexNodeImpl.class) || node.getClass().equals(PrimitiveNodeImpl.class)) {
 					throw new InvalidityException("Non-generic pattern contains generic Element (" + getInternalId() + ")");
 				}
 			}

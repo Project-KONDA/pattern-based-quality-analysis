@@ -224,9 +224,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
 
-		if (argument1 instanceof PrimitiveNodeImpl || argument1 instanceof OperatorImpl || argument1 instanceof ParameterValueImpl)
+		if (argument1 instanceof OperatorImpl || argument1 instanceof ParameterValueImpl)
 			argument1.isValid(abstractionLevel);
-		if (argument2 instanceof PrimitiveNodeImpl || argument2 instanceof OperatorImpl || argument2 instanceof ParameterValueImpl)
+		if (argument2 instanceof OperatorImpl || argument2 instanceof ParameterValueImpl)
 			argument2.isValid(abstractionLevel);
 		option.isValid(abstractionLevel);
 		typeOption.isValid(abstractionLevel);
