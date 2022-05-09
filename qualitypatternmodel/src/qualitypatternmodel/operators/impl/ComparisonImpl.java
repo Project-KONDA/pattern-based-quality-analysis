@@ -311,16 +311,12 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			res.add((Parameter) argument1);
 		} else if (argument1 instanceof Operator) {
 			res.addAll(((Operator) argument1).getAllParameters());
-		} else if (argument1 instanceof PrimitiveNode) {
-			res.addAll(((PrimitiveNode) argument1).getAllParameters());
 		}
 		
 		if (argument2 instanceof Parameter) {
 			res.add((Parameter) argument2);
 		} else if (argument2 instanceof Operator) {
 			res.addAll(((Operator) argument2).getAllParameters());
-		} else if (argument2 instanceof PrimitiveNode) {
-			res.addAll(((PrimitiveNode) argument2).getAllParameters());
 		}
 		
 		if (getOption() != null) {
