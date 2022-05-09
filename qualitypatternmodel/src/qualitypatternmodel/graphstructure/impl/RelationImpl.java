@@ -418,20 +418,21 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public void setSource(Node newSource) {
 		if (newSource != source) {
-			NotificationChain msgs = null;
-			if (source != null)
-				msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.COMPLEX_NODE__OUTGOING, ComplexNode.class, msgs);
-			if (newSource != null)
-				msgs = ((InternalEObject)newSource).eInverseAdd(this, GraphstructurePackage.COMPLEX_NODE__OUTGOING, ComplexNode.class, msgs);
 			if (!(newSource instanceof ComplexNode)) {
 				try {
-					newSource.makeComplex();
+					newSource = newSource.makeComplex();
 				} catch (InvalidityException e) {
 					if (eNotificationRequired())
 						eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__SOURCE, newSource, newSource));
 					return;
 				}
 			}
+			NotificationChain msgs = null;
+			if (source != null)
+				msgs = ((InternalEObject)source).eInverseRemove(this, GraphstructurePackage.COMPLEX_NODE__OUTGOING, ComplexNode.class, msgs);
+			if (newSource != null)
+				msgs = ((InternalEObject)newSource).eInverseAdd(this, GraphstructurePackage.COMPLEX_NODE__OUTGOING, ComplexNode.class, msgs);
+			
 			msgs = basicSetSource((ComplexNode) newSource, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
