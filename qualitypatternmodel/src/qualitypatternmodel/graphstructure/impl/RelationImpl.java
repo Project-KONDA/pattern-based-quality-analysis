@@ -59,6 +59,8 @@ import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getSource <em>Source</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#isTranslated <em>Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.RelationImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  * </ul>
  *
  * @generated
@@ -132,6 +134,46 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isTranslated() <em>Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTranslated()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean TRANSLATED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isTranslated() <em>Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTranslated()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean translated = TRANSLATED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isPredicatesAreBeingTranslated() <em>Predicates Are Being Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPredicatesAreBeingTranslated()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPredicatesAreBeingTranslated() <em>Predicates Are Being Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPredicatesAreBeingTranslated()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean predicatesAreBeingTranslated = PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -665,6 +707,52 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isTranslated() {
+		return translated;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTranslated(boolean newTranslated) {
+		boolean oldTranslated = translated;
+		translated = newTranslated;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__TRANSLATED, oldTranslated, translated));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isPredicatesAreBeingTranslated() {
+		return predicatesAreBeingTranslated;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPredicatesAreBeingTranslated(boolean newPredicatesAreBeingTranslated) {
+		boolean oldPredicatesAreBeingTranslated = predicatesAreBeingTranslated;
+		predicatesAreBeingTranslated = newPredicatesAreBeingTranslated;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.RELATION__PREDICATES_ARE_BEING_TRANSLATED, oldPredicatesAreBeingTranslated, predicatesAreBeingTranslated));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -959,6 +1047,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return basicGetTarget();
 			case GraphstructurePackage.RELATION__NAME:
 				return getName();
+			case GraphstructurePackage.RELATION__TRANSLATED:
+				return isTranslated();
+			case GraphstructurePackage.RELATION__PREDICATES_ARE_BEING_TRANSLATED:
+				return isPredicatesAreBeingTranslated();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -990,6 +1082,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION__NAME:
 				setName((String)newValue);
 				return;
+			case GraphstructurePackage.RELATION__TRANSLATED:
+				setTranslated((Boolean)newValue);
+				return;
+			case GraphstructurePackage.RELATION__PREDICATES_ARE_BEING_TRANSLATED:
+				setPredicatesAreBeingTranslated((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1019,6 +1117,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case GraphstructurePackage.RELATION__TRANSLATED:
+				setTranslated(TRANSLATED_EDEFAULT);
+				return;
+			case GraphstructurePackage.RELATION__PREDICATES_ARE_BEING_TRANSLATED:
+				setPredicatesAreBeingTranslated(PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1042,6 +1146,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return target != null;
 			case GraphstructurePackage.RELATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case GraphstructurePackage.RELATION__TRANSLATED:
+				return translated != TRANSLATED_EDEFAULT;
+			case GraphstructurePackage.RELATION__PREDICATES_ARE_BEING_TRANSLATED:
+				return predicatesAreBeingTranslated != PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1126,6 +1234,10 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", translated: ");
+		result.append(translated);
+		result.append(", predicatesAreBeingTranslated: ");
+		result.append(predicatesAreBeingTranslated);
 		result.append(')');
 		return result.toString();
 	}

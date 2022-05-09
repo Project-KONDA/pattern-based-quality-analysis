@@ -15,7 +15,6 @@ import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
-import qualitypatternmodel.adaptionxml.XmlTranslatableNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -113,19 +112,6 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	}
 	
 	@Override
-	public String getXQueryRepresentation() throws InvalidityException {
-		if (predicatesAreBeingTranslated) {
-			return ".";
-		} else {
-			if (translated) {
-				return getXQueryVariable();
-			} else {
-				throw new InvalidityException("element not yet translated");
-			}
-		}
-	}
-	
-	@Override
 	public String translatePredicates() throws InvalidityException {
 		String xPredicates = "";
 		predicatesAreBeingTranslated = true;
@@ -135,37 +121,57 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 				xPredicates += "[" + predicate.generateQuery() + "]";
 			}
 		}
-		
-		// TODO: translate multiple incoming relations into predicate(s)
-		
-//		for(PrimitiveNode primitiveNode : getProperties()) {
-//			if(!primitiveNode.isOperatorArgument()) {
-//				xPredicates += "[" + "exists(" + primitiveNode.generateQuery() + ")" + "]";
-//			}
-//		}
-		
-		// translate XMLReferences:
-//		for (Relation relation : getIncoming()) {
-//			if(relation instanceof XmlReference) {
-//				XmlReference reference = (XmlReference) relation;
-//				if (reference.isTranslatable()) {
-//					xPredicates += "[" + relation.generateQuery() + "]";
-//				}
-//			}			
-//		}
-//		for (Relation relation : getOutgoing()) {
-//			if(relation instanceof XmlReference) {
-//				XmlReference reference = (XmlReference) relation;
-//				if (reference.isTranslatable()) {
-//					xPredicates += "[" + relation.generateQuery() + "]";
-//				}
-//			}			
-//		}
+				
+		for(Relation r : getIncoming()) {
+			if(r.isTranslated()) {
+				if(r instanceof XmlNavigation) {
+					XmlNavigation nav = (XmlNavigation) r;
+					// TODO: allow user to decide if deep-equal or is
+					// TODO: check for cycles with only deep-equals
+					xPredicates += "[deep-equal(.," + nav.getXQueryRepresentation() + ")]";
+				}
+			}
+		}
 		
 		predicatesAreBeingTranslated = false;
 		return xPredicates;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @throws InvalidityException 
+	 * @generated NOT
+	 */
+	@Override
+	public String getXQueryVariable() throws InvalidityException {
+		for(Relation r : getIncoming()) {
+			if(r.isTranslated() && r instanceof XmlNavigation) {
+				XmlNavigation nav = (XmlNavigation) r;
+				return nav.getXQueryVariable();
+			}
+		}
+		throw new InvalidityException("XmlElement does not have XQuery variable");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getXQueryRepresentation() throws InvalidityException {
+		if (predicatesAreBeingTranslated) {
+			return ".";
+		} else {
+			if (translated) {
+				return getXQueryVariable();
+			} else {
+				throw new InvalidityException("XmlNavigation not yet translated");
+			}
+		}
+	}
+
 	@Override
 	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return this;
@@ -215,29 +221,6 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 			}
 		}
 		return null;
-	}
-
-	@Override
-	public String getXQueryVariable() {
-		return VARIABLE + getOriginalID();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == XmlTranslatableNode.class) {
-			switch (baseOperationID) {
-				case AdaptionxmlPackage.XML_TRANSLATABLE_NODE___GET_XQUERY_REPRESENTATION: return AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_REPRESENTATION;
-				case AdaptionxmlPackage.XML_TRANSLATABLE_NODE___TRANSLATE_PREDICATES: return AdaptionxmlPackage.XML_ELEMENT___TRANSLATE_PREDICATES;
-				case AdaptionxmlPackage.XML_TRANSLATABLE_NODE___GET_XQUERY_VARIABLE: return AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_VARIABLE;
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
 
 	@Override
@@ -296,13 +279,6 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		switch (operationID) {
 			case AdaptionxmlPackage.XML_ELEMENT___GET_TAG_FROM_COMPARISONS:
 				return getTagFromComparisons();
-			case AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_REPRESENTATION:
-				try {
-					return getXQueryRepresentation();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case AdaptionxmlPackage.XML_ELEMENT___TRANSLATE_PREDICATES:
 				try {
 					return translatePredicates();
@@ -311,7 +287,19 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 					throw new InvocationTargetException(throwable);
 				}
 			case AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_VARIABLE:
-				return getXQueryVariable();
+				try {
+					return getXQueryVariable();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_REPRESENTATION:
+				try {
+					return getXQueryRepresentation();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -233,6 +233,8 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Relation/target"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Relation/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Relation/translated"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//graphstructure/Relation/predicatesAreBeingTranslated"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/removeRelationFromPreviousGraphs"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/removeMappingsToNext"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXMLElementNavigation"/>
@@ -563,6 +565,9 @@
       </genEnums>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlElement">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/getTagFromComparisons"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/translatePredicates"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/getXQueryVariable"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/getXQueryRepresentation"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlElementNavigation"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlReference">
@@ -576,6 +581,9 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlProperty">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlProperty/references"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlProperty/translatePredicates"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlProperty/getXQueryVariable"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlProperty/getXQueryRepresentation"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlRoot"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyNavigation"/>
@@ -627,11 +635,8 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/pathParam"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/getOriginalPathParam"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlTranslatableNode">
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlTranslatableNode/getXQueryRepresentation"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlTranslatableNode/translatePredicates"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlTranslatableNode/getXQueryVariable"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/getXQueryVariable"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/getXQueryRepresentation"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Execution" basePackage="qualitypatternmodel" disposableProviderFactory="true"

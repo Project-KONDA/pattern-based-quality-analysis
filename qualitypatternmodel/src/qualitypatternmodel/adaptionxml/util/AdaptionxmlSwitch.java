@@ -79,7 +79,6 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				XmlElement xmlElement = (XmlElement)theEObject;
 				T result = caseXmlElement(xmlElement);
 				if (result == null) result = caseComplexNode(xmlElement);
-				if (result == null) result = caseXmlTranslatableNode(xmlElement);
 				if (result == null) result = caseNode(xmlElement);
 				if (result == null) result = caseComparable(xmlElement);
 				if (result == null) result = caseAdaptable(xmlElement);
@@ -110,7 +109,6 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				XmlProperty xmlProperty = (XmlProperty)theEObject;
 				T result = caseXmlProperty(xmlProperty);
 				if (result == null) result = casePrimitiveNode(xmlProperty);
-				if (result == null) result = caseXmlTranslatableNode(xmlProperty);
 				if (result == null) result = caseNode(xmlProperty);
 				if (result == null) result = caseComparable(xmlProperty);
 				if (result == null) result = caseAdaptable(xmlProperty);
@@ -179,12 +177,6 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				if (result == null) result = caseRelation(xmlNavigation);
 				if (result == null) result = caseAdaptable(xmlNavigation);
 				if (result == null) result = casePatternElement(xmlNavigation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case AdaptionxmlPackage.XML_TRANSLATABLE_NODE: {
-				XmlTranslatableNode xmlTranslatableNode = (XmlTranslatableNode)theEObject;
-				T result = caseXmlTranslatableNode(xmlTranslatableNode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -354,21 +346,6 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseXmlNavigation(XmlNavigation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Xml Translatable Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Xml Translatable Node</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseXmlTranslatableNode(XmlTranslatableNode object) {
 		return null;
 	}
 

@@ -54,6 +54,22 @@ public interface XmlNavigation extends Relation {
 	 */
 	PathParam getOriginalPathParam();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getXQueryVariable();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String getXQueryRepresentation() throws InvalidityException;
+
 	String generateQuery() throws InvalidityException;
 
 } // XmlNavigation

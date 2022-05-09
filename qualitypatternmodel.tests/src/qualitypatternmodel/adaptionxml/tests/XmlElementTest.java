@@ -16,9 +16,9 @@ import qualitypatternmodel.graphstructure.tests.ComplexNodeTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#getTagFromComparisons() <em>Get Tag From Comparisons</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode#getXQueryRepresentation() <em>Get XQuery Representation</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode#translatePredicates() <em>Translate Predicates</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode#getXQueryVariable() <em>Get XQuery Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#translatePredicates() <em>Translate Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryVariable() <em>Get XQuery Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation() <em>Get XQuery Representation</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -78,36 +78,23 @@ public class XmlElementTest extends ComplexNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode#getXQueryRepresentation() <em>Get XQuery Representation</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlElement#getTagFromComparisons() <em>Get Tag From Comparisons</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlTranslatableNode#getXQueryRepresentation()
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#getTagFromComparisons()
 	 * @generated
 	 */
-	public void testGetXQueryRepresentation() {
+	public void testGetTagFromComparisons() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlElement#translatePredicates() <em>Translate Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlTranslatableNode#getXQueryVariable()
-	 * @generated
-	 */
-	public void testGetXQueryVariable() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode#translatePredicates() <em>Translate Predicates</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlTranslatableNode#translatePredicates()
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#translatePredicates()
 	 * @generated
 	 */
 	public void testTranslatePredicates() {
@@ -117,13 +104,26 @@ public class XmlElementTest extends ComplexNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlElement#getTagFromComparisons() <em>Get Tag From Comparisons</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlElement#getTagFromComparisons()
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#getXQueryVariable()
 	 * @generated
 	 */
-	public void testGetTagFromComparisons() {
+	public void testGetXQueryVariable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation() <em>Get XQuery Representation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#getXQueryRepresentation()
+	 * @generated
+	 */
+	public void testGetXQueryRepresentation() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

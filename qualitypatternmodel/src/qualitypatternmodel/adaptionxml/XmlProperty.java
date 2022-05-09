@@ -3,6 +3,7 @@
 package qualitypatternmodel.adaptionxml;
 
 import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 
 /**
@@ -22,7 +23,7 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
  * @model
  * @generated
  */
-public interface XmlProperty extends PrimitiveNode, XmlTranslatableNode {
+public interface XmlProperty extends PrimitiveNode {
 	/**
 	 * Returns the value of the '<em><b>References</b></em>' reference list.
 	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.XmlReference}.
@@ -36,5 +37,29 @@ public interface XmlProperty extends PrimitiveNode, XmlTranslatableNode {
 	 * @generated
 	 */
 	EList<XmlReference> getReferences();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String translatePredicates() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String getXQueryVariable() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String getXQueryRepresentation() throws InvalidityException;
 
 } // XMLProperty

@@ -26,6 +26,8 @@ import qualitypatternmodel.patternstructure.RelationMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getSource <em>Source</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getTarget <em>Target</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#getName <em>Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#isTranslated <em>Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation()
@@ -150,6 +152,50 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Translated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Translated</em>' attribute.
+	 * @see #setTranslated(boolean)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_Translated()
+	 * @model required="true"
+	 * @generated
+	 */
+	boolean isTranslated();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#isTranslated <em>Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Translated</em>' attribute.
+	 * @see #isTranslated()
+	 * @generated
+	 */
+	void setTranslated(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Predicates Are Being Translated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Predicates Are Being Translated</em>' attribute.
+	 * @see #setPredicatesAreBeingTranslated(boolean)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getRelation_PredicatesAreBeingTranslated()
+	 * @model required="true"
+	 * @generated
+	 */
+	boolean isPredicatesAreBeingTranslated();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Relation#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Predicates Are Being Translated</em>' attribute.
+	 * @see #isPredicatesAreBeingTranslated()
+	 * @generated
+	 */
+	void setPredicatesAreBeingTranslated(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Incoming Mapping</b></em>' reference.

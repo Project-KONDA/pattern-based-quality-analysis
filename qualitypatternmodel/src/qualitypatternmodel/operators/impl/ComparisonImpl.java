@@ -136,7 +136,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			String argument1Translated = "";
 			if (argument1 instanceof XmlElement) {
 				argument1Translated = ((XmlElement) argument1).getXQueryRepresentation();
-			} else {
+			} else if (argument1 instanceof XmlProperty) {
+				argument1Translated = ((XmlProperty) argument1).getXQueryRepresentation();
+			} {
 				argument1Translated = argument1.generateQuery();
 			}
 			
@@ -145,7 +147,9 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			String argument2Translated = "";
 			if (argument2 instanceof XmlElement) {
 				argument2Translated = ((XmlElement) argument2).getXQueryRepresentation();
-			} else {
+			} else if (argument2 instanceof XmlProperty) {
+				argument2Translated = ((XmlProperty) argument2).getXQueryRepresentation();
+			} {
 				argument2Translated = argument2.generateQuery();
 			}			
 			

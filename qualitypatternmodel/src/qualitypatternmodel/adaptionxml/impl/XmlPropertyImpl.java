@@ -13,9 +13,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
-import qualitypatternmodel.adaptionxml.XmlTranslatableNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -24,15 +24,15 @@ import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>XML Property</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>XML
+ * Property</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
@@ -45,8 +45,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
 public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	/**
 	 * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getReferences()
 	 * @generated
 	 * @ordered
@@ -54,16 +53,16 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	protected EList<XmlReference> references;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public XmlPropertyImpl() {
 		super();
 	}
-	
+
 	@Override
-	public String generateQuery() throws InvalidityException {		
+	public String generateQuery() throws InvalidityException {
 //		if(option == null || option.getValue() == null) {
 //			throw new InvalidityException("propertyOptions invalid");
 //		}				
@@ -94,26 +93,66 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 //		}
 		return "";
 	}
-	
+
 	@Override
-	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
+	public void isValid(AbstractionLevel abstractionLevel)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
 			throw new InvalidityException("non-generic class in generic pattern");
 		super.isValid(abstractionLevel);
 	}
-	
+
 	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException{
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
-		
-	}
-	
-	@Override
-	public String getXQueryVariable() {
-		return VARIABLE + getOriginalID();
+
 	}
 
-	
+	@Override
+	public String translatePredicates() throws InvalidityException {
+		String xPredicates = "";
+		predicatesAreBeingTranslated = true;
+
+		for (BooleanOperator predicate : predicates) {
+			if (predicate.isTranslatable()) {
+				xPredicates += "[" + predicate.generateQuery() + "]";
+			}
+		}
+		
+		for(Relation r : getIncoming()) {
+			if(r.isTranslated()) {
+				if(r instanceof XmlNavigation) {
+					XmlNavigation nav = (XmlNavigation) r;
+					xPredicates += "[. = " + nav.getXQueryRepresentation() + "]";
+				}
+			}
+		}
+
+		predicatesAreBeingTranslated = false;
+		return xPredicates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getXQueryVariable() throws InvalidityException {
+		for(Relation r : getIncoming()) {
+			if(r.isTranslated() && r instanceof XmlNavigation) {
+				XmlNavigation nav = (XmlNavigation) r;
+				return nav.getXQueryVariable();
+			}
+		}
+		throw new InvalidityException("XmlElement does not have XQuery variable");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	@Override
 	public String getXQueryRepresentation() throws InvalidityException {
 		if (predicatesAreBeingTranslated) {
@@ -122,74 +161,32 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 			if (translated) {
 				return getXQueryVariable();
 			} else {
-				throw new InvalidityException("element not yet translated");
+				throw new InvalidityException("XmlNavigation not yet translated");
 			}
 		}
 	}
-	
-	@Override
-	public String translatePredicates() throws InvalidityException {
-		String xPredicates = "";
-		predicatesAreBeingTranslated = true;
-		
-		for (BooleanOperator predicate : predicates) {
-			if (predicate.isTranslatable()) {
-				xPredicates += "[" + predicate.generateQuery() + "]";
-			}
-		}
-		
-		// TODO: translate multiple incoming relations into predicate(s)
-		
-//		for(PrimitiveNode primitiveNode : getProperties()) {
-//			if(!primitiveNode.isOperatorArgument()) {
-//				xPredicates += "[" + "exists(" + primitiveNode.generateQuery() + ")" + "]";
-//			}
-//		}
-		
-		// translate XMLReferences:
-//		for (Relation relation : getIncoming()) {
-//			if(relation instanceof XmlReference) {
-//				XmlReference reference = (XmlReference) relation;
-//				if (reference.isTranslatable()) {
-//					xPredicates += "[" + relation.generateQuery() + "]";
-//				}
-//			}			
-//		}
-//		for (Relation relation : getOutgoing()) {
-//			if(relation instanceof XmlReference) {
-//				XmlReference reference = (XmlReference) relation;
-//				if (reference.isTranslatable()) {
-//					xPredicates += "[" + relation.generateQuery() + "]";
-//				}
-//			}			
-//		}
-		
-		predicatesAreBeingTranslated = false;
-		return xPredicates;
-	}
-	
+
 	@Override
 	public String getName() {
-		if(name == null || name.equals("")) {
-			if(getInternalId() > -1) {
+		if (name == null || name.equals("")) {
+			if (getInternalId() > -1) {
 				name = "XmlProperty " + getInternalId();
 				return name;
 			}
 		}
 		return name;
 	}
-	
+
 	@Override
 	public PatternElement createXMLAdaption() throws InvalidityException {
 		return this;
 	}
-	
-	
+
 	@Override
 	public XmlProperty adaptAsXmlProperty() throws InvalidityException {
 		return this;
 	}
-	
+
 	@Override
 	public void recordValues(XmlDataDatabase database) {
 //		if(getOption() != null && getOption().getValue() != null) {			
@@ -225,72 +222,68 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 //			}			
 //		}
 	}
-	
+
 	@Override
 	public boolean isTranslatable() {
 		// TODO
 		return true;
-	}	
-	
-	
+	}
+
 	@Override
 	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {
-		NotificationChain res = super.basicSetGraph(newGraph, msgs);		
+		NotificationChain res = super.basicSetGraph(newGraph, msgs);
 		createParameters();
 		return res;
 	}
-	
 
 	@Override
-	public Node makeGeneric() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
-	@Override
-	public Node makeGenericRecursive() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
-	@Override
-	public void checkGeneric() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
-	@Override
-	
-	public ComplexNode makeComplex() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
-	@Override
-	public ComplexNode makeComplexRecursive() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
-	@Override
-	public void checkComplex() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
-	@Override
-	public PrimitiveNode makePrimitive() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
-	@Override
-	public PrimitiveNode makePrimitiveRecursive() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
-	@Override
-	public void checkPrimitive() throws InvalidityException{
+	public Node makeGeneric() throws InvalidityException {
 		throw new InvalidityException("This node can not become generic!");
 	}
 
+	@Override
+	public Node makeGenericRecursive() throws InvalidityException {
+		throw new InvalidityException("This node can not become generic!");
+	}
+
+	@Override
+	public void checkGeneric() throws InvalidityException {
+		throw new InvalidityException("This node can not become generic!");
+	}
+
+	@Override
+
+	public ComplexNode makeComplex() throws InvalidityException {
+		throw new InvalidityException("This node can not become generic!");
+	}
+
+	@Override
+	public ComplexNode makeComplexRecursive() throws InvalidityException {
+		throw new InvalidityException("This node can not become generic!");
+	}
+
+	@Override
+	public void checkComplex() throws InvalidityException {
+		throw new InvalidityException("This node can not become generic!");
+	}
+
+	@Override
+	public PrimitiveNode makePrimitive() throws InvalidityException {
+		throw new InvalidityException("This node can not become generic!");
+	}
+
+	@Override
+	public PrimitiveNode makePrimitiveRecursive() throws InvalidityException {
+		throw new InvalidityException("This node can not become generic!");
+	}
+
+	@Override
+	public void checkPrimitive() throws InvalidityException {
+		throw new InvalidityException("This node can not become generic!");
+	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -298,10 +291,8 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 		return AdaptionxmlPackage.Literals.XML_PROPERTY;
 	}
 
-
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -313,8 +304,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -328,8 +318,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -342,8 +331,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -356,8 +344,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -373,8 +360,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -388,8 +374,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -401,41 +386,13 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 		return super.eIsSet(featureID);
 	}
 
-	
-
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == XmlTranslatableNode.class) {
-			switch (baseOperationID) {
-				case AdaptionxmlPackage.XML_TRANSLATABLE_NODE___GET_XQUERY_REPRESENTATION: return AdaptionxmlPackage.XML_PROPERTY___GET_XQUERY_REPRESENTATION;
-				case AdaptionxmlPackage.XML_TRANSLATABLE_NODE___TRANSLATE_PREDICATES: return AdaptionxmlPackage.XML_PROPERTY___TRANSLATE_PREDICATES;
-				case AdaptionxmlPackage.XML_TRANSLATABLE_NODE___GET_XQUERY_VARIABLE: return AdaptionxmlPackage.XML_PROPERTY___GET_XQUERY_VARIABLE;
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionxmlPackage.XML_PROPERTY___GET_XQUERY_REPRESENTATION:
-				try {
-					return getXQueryRepresentation();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case AdaptionxmlPackage.XML_PROPERTY___TRANSLATE_PREDICATES:
 				try {
 					return translatePredicates();
@@ -444,7 +401,19 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 					throw new InvocationTargetException(throwable);
 				}
 			case AdaptionxmlPackage.XML_PROPERTY___GET_XQUERY_VARIABLE:
-				return getXQueryVariable();
+				try {
+					return getXQueryVariable();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case AdaptionxmlPackage.XML_PROPERTY___GET_XQUERY_REPRESENTATION:
+				try {
+					return getXQueryRepresentation();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -454,4 +423,4 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 		return super.myToString();
 	}
 
-} //XMLPropertyImpl
+} // XMLPropertyImpl

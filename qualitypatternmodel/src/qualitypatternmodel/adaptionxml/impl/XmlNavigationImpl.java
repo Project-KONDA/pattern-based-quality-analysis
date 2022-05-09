@@ -7,6 +7,7 @@ import static qualitypatternmodel.utility.Constants.FOR;
 import static qualitypatternmodel.utility.Constants.IN;
 import static qualitypatternmodel.utility.Constants.SATISFIES;
 import static qualitypatternmodel.utility.Constants.SOME;
+import static qualitypatternmodel.utility.Constants.VARIABLE;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -87,26 +88,29 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		}
 		
 		String xPredicates;
-		String target;
+		
 		if(getTarget() instanceof XmlElement) {
 			XmlElement targetElement = (XmlElement) getTarget();
 			targetElement.setTranslated(true);
+			predicatesAreBeingTranslated = true;
 			xPredicates = targetElement.translatePredicates();
-			target = targetElement.getXQueryVariable();
+			predicatesAreBeingTranslated = false;
 		} else {
 			throw new InvalidityException("target of relation not XMLElement");
 		}	
+		
+		String variable = getXQueryVariable();
 		
 		if(getGraph() == null) {
 			throw new InvalidityException("container Graph null");
 		}
 		
 		if (getGraph().isReturnGraph()) {
-			query += FOR + target + IN; 			
+			query += FOR + variable + IN; 			
 			if (getTarget().getIncomingMapping() == null) {
 				query += xPathExpression + xPredicates;
 			} else if (!xPredicates.equals("")) {
-				query += target + xPredicates;
+				query += variable + xPredicates;
 			} else {
 				query = "";
 			}
@@ -125,21 +129,22 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 			} else {
 				throw new InvalidityException("invalid location");
 			}
-			query += target + IN;
+			query += variable + IN;
 			if (getTarget().getIncomingMapping() == null) {
 				query += xPathExpression + xPredicates + SATISFIES;
 			} else if (!xPredicates.equals("")) {
-				query += target + xPredicates + SATISFIES;
+				query += variable + xPredicates + SATISFIES;
 			} else {
 				query = "";
 			}
 		}
 		
+		translated = true;
+		
 		query += getTarget().generateQuery();
 		
 		return query;
 	}
-	
 	
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -332,6 +337,34 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getXQueryVariable() {
+		return VARIABLE + getOriginalID();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getXQueryRepresentation() throws InvalidityException {
+		if (predicatesAreBeingTranslated) {
+			return ".";
+		} else {
+			if (translated) {
+				return getXQueryVariable();
+			} else {
+				throw new InvalidityException("XmlNavigation not yet translated");
+			}
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -428,6 +461,15 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		switch (operationID) {
 			case AdaptionxmlPackage.XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM:
 				return getOriginalPathParam();
+			case AdaptionxmlPackage.XML_NAVIGATION___GET_XQUERY_VARIABLE:
+				return getXQueryVariable();
+			case AdaptionxmlPackage.XML_NAVIGATION___GET_XQUERY_REPRESENTATION:
+				try {
+					return getXQueryRepresentation();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

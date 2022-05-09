@@ -16,9 +16,9 @@ import qualitypatternmodel.graphstructure.tests.PrimitiveNodeTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode#getXQueryRepresentation() <em>Get XQuery Representation</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode#translatePredicates() <em>Translate Predicates</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode#getXQueryVariable() <em>Get XQuery Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlProperty#translatePredicates() <em>Translate Predicates</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlProperty#getXQueryVariable() <em>Get XQuery Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlProperty#getXQueryRepresentation() <em>Get XQuery Representation</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -78,23 +78,10 @@ public class XmlPropertyTest extends PrimitiveNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode#getXQueryRepresentation() <em>Get XQuery Representation</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlProperty#translatePredicates() <em>Translate Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlTranslatableNode#getXQueryRepresentation()
-	 * @generated
-	 */
-	public void testGetXQueryRepresentation() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode#translatePredicates() <em>Translate Predicates</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlTranslatableNode#translatePredicates()
+	 * @see qualitypatternmodel.adaptionxml.XmlProperty#translatePredicates()
 	 * @generated
 	 */
 	public void testTranslatePredicates() {
@@ -104,13 +91,26 @@ public class XmlPropertyTest extends PrimitiveNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlTranslatableNode#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlProperty#getXQueryVariable() <em>Get XQuery Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlTranslatableNode#getXQueryVariable()
+	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getXQueryVariable()
 	 * @generated
 	 */
 	public void testGetXQueryVariable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionxml.XmlProperty#getXQueryRepresentation() <em>Get XQuery Representation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XmlProperty#getXQueryRepresentation()
+	 * @generated
+	 */
+	public void testGetXQueryRepresentation() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -26,8 +26,6 @@ import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.XmlRoot;
-
-import qualitypatternmodel.adaptionxml.XmlTranslatableNode;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.impl.ExecutionPackageImpl;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -131,13 +129,6 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	private EClass xmlNavigationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass xmlTranslatableNodeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -266,6 +257,36 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EOperation getXmlElement__TranslatePredicates() {
+		return xmlElementEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlElement__GetXQueryVariable() {
+		return xmlElementEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlElement__GetXQueryRepresentation() {
+		return xmlElementEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getXmlElementNavigation() {
 		return xmlElementNavigationEClass;
 	}
@@ -348,6 +369,36 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	@Override
 	public EReference getXmlProperty_References() {
 		return (EReference)xmlPropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlProperty__TranslatePredicates() {
+		return xmlPropertyEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlProperty__GetXQueryVariable() {
+		return xmlPropertyEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlProperty__GetXQueryRepresentation() {
+		return xmlPropertyEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -686,8 +737,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EClass getXmlTranslatableNode() {
-		return xmlTranslatableNodeEClass;
+	public EOperation getXmlNavigation__GetXQueryVariable() {
+		return xmlNavigationEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -696,28 +747,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlTranslatableNode__GetXQueryRepresentation() {
-		return xmlTranslatableNodeEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getXmlTranslatableNode__TranslatePredicates() {
-		return xmlTranslatableNodeEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getXmlTranslatableNode__GetXQueryVariable() {
-		return xmlTranslatableNodeEClass.getEOperations().get(2);
+	public EOperation getXmlNavigation__GetXQueryRepresentation() {
+		return xmlNavigationEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -771,6 +802,9 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		// Create classes and their features
 		xmlElementEClass = createEClass(XML_ELEMENT);
 		createEOperation(xmlElementEClass, XML_ELEMENT___GET_TAG_FROM_COMPARISONS);
+		createEOperation(xmlElementEClass, XML_ELEMENT___TRANSLATE_PREDICATES);
+		createEOperation(xmlElementEClass, XML_ELEMENT___GET_XQUERY_VARIABLE);
+		createEOperation(xmlElementEClass, XML_ELEMENT___GET_XQUERY_REPRESENTATION);
 
 		xmlElementNavigationEClass = createEClass(XML_ELEMENT_NAVIGATION);
 
@@ -783,6 +817,9 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		xmlPropertyEClass = createEClass(XML_PROPERTY);
 		createEReference(xmlPropertyEClass, XML_PROPERTY__REFERENCES);
+		createEOperation(xmlPropertyEClass, XML_PROPERTY___TRANSLATE_PREDICATES);
+		createEOperation(xmlPropertyEClass, XML_PROPERTY___GET_XQUERY_VARIABLE);
+		createEOperation(xmlPropertyEClass, XML_PROPERTY___GET_XQUERY_REPRESENTATION);
 
 		xmlRootEClass = createEClass(XML_ROOT);
 
@@ -823,11 +860,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		xmlNavigationEClass = createEClass(XML_NAVIGATION);
 		createEReference(xmlNavigationEClass, XML_NAVIGATION__PATH_PARAM);
 		createEOperation(xmlNavigationEClass, XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM);
-
-		xmlTranslatableNodeEClass = createEClass(XML_TRANSLATABLE_NODE);
-		createEOperation(xmlTranslatableNodeEClass, XML_TRANSLATABLE_NODE___GET_XQUERY_REPRESENTATION);
-		createEOperation(xmlTranslatableNodeEClass, XML_TRANSLATABLE_NODE___TRANSLATE_PREDICATES);
-		createEOperation(xmlTranslatableNodeEClass, XML_TRANSLATABLE_NODE___GET_XQUERY_VARIABLE);
+		createEOperation(xmlNavigationEClass, XML_NAVIGATION___GET_XQUERY_VARIABLE);
+		createEOperation(xmlNavigationEClass, XML_NAVIGATION___GET_XQUERY_REPRESENTATION);
 
 		// Create enums
 		propertyKindEEnum = createEEnum(PROPERTY_KIND);
@@ -868,11 +902,9 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		// Add supertypes to classes
 		xmlElementEClass.getESuperTypes().add(theGraphstructurePackage.getComplexNode());
-		xmlElementEClass.getESuperTypes().add(this.getXmlTranslatableNode());
 		xmlElementNavigationEClass.getESuperTypes().add(this.getXmlNavigation());
 		xmlReferenceEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
 		xmlPropertyEClass.getESuperTypes().add(theGraphstructurePackage.getPrimitiveNode());
-		xmlPropertyEClass.getESuperTypes().add(this.getXmlTranslatableNode());
 		xmlRootEClass.getESuperTypes().add(theGraphstructurePackage.getComplexNode());
 		xmlPropertyNavigationEClass.getESuperTypes().add(this.getXmlNavigation());
 		axisOptionParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
@@ -889,13 +921,22 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		initEOperation(getXmlElement__GetTagFromComparisons(), ecorePackage.getEString(), "getTagFromComparisons", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		EOperation op = initEOperation(getXmlElement__TranslatePredicates(), ecorePackage.getEString(), "translatePredicates", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getXmlElement__GetXQueryVariable(), ecorePackage.getEString(), "getXQueryVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getXmlElement__GetXQueryRepresentation(), ecorePackage.getEString(), "getXQueryRepresentation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
 		initEClass(xmlElementNavigationEClass, XmlElementNavigation.class, "XmlElementNavigation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(xmlReferenceEClass, XmlReference.class, "XmlReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getXmlReference_Type(), theGraphstructurePackage.getReturnType(), "type", null, 0, 1, XmlReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXmlReference_Property(), this.getXmlProperty(), this.getXmlProperty_References(), "property", null, 1, 1, XmlReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getXmlReference__IsTranslatable(), ecorePackage.getEBoolean(), "isTranslatable", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlReference__IsTranslatable(), ecorePackage.getEBoolean(), "isTranslatable", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEOperation(getXmlReference__GetSourcePropertyPath(), this.getPathParam(), "getSourcePropertyPath", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -904,6 +945,15 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		initEClass(xmlPropertyEClass, XmlProperty.class, "XmlProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getXmlProperty_References(), this.getXmlReference(), this.getXmlReference_Property(), "references", null, 0, -1, XmlProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getXmlProperty__TranslatePredicates(), ecorePackage.getEString(), "translatePredicates", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getXmlProperty__GetXQueryVariable(), ecorePackage.getEString(), "getXQueryVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getXmlProperty__GetXQueryRepresentation(), ecorePackage.getEString(), "getXQueryRepresentation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(xmlRootEClass, XmlRoot.class, "XmlRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -965,15 +1015,10 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		initEOperation(getXmlNavigation__GetOriginalPathParam(), this.getPathParam(), "getOriginalPathParam", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(xmlTranslatableNodeEClass, XmlTranslatableNode.class, "XmlTranslatableNode", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEOperation(getXmlNavigation__GetXQueryVariable(), ecorePackage.getEString(), "getXQueryVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getXmlTranslatableNode__GetXQueryRepresentation(), ecorePackage.getEString(), "getXQueryRepresentation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlNavigation__GetXQueryRepresentation(), ecorePackage.getEString(), "getXQueryRepresentation", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
-		op = initEOperation(getXmlTranslatableNode__TranslatePredicates(), ecorePackage.getEString(), "translatePredicates", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
-		initEOperation(getXmlTranslatableNode__GetXQueryVariable(), ecorePackage.getEString(), "getXQueryVariable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(propertyKindEEnum, PropertyKind.class, "PropertyKind");

@@ -52,6 +52,8 @@ public class RelationItemProvider extends PatternElementItemProvider {
 			addSourcePropertyDescriptor(object);
 			addTargetPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addTranslatedPropertyDescriptor(object);
+			addPredicatesAreBeingTranslatedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -167,6 +169,50 @@ public class RelationItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Translated feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTranslatedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Relation_translated_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_translated_feature", "_UI_Relation_type"),
+				 GraphstructurePackage.Literals.RELATION__TRANSLATED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Predicates Are Being Translated feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPredicatesAreBeingTranslatedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Relation_predicatesAreBeingTranslated_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Relation_predicatesAreBeingTranslated_feature", "_UI_Relation_type"),
+				 GraphstructurePackage.Literals.RELATION__PREDICATES_ARE_BEING_TRANSLATED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Relation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -207,6 +253,8 @@ public class RelationItemProvider extends PatternElementItemProvider {
 
 		switch (notification.getFeatureID(Relation.class)) {
 			case GraphstructurePackage.RELATION__NAME:
+			case GraphstructurePackage.RELATION__TRANSLATED:
+			case GraphstructurePackage.RELATION__PREDICATES_ARE_BEING_TRANSLATED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
