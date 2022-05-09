@@ -21,8 +21,9 @@ import qualitypatternmodel.graphstructure.Comparable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
+import qualitypatternmodel.graphstructure.impl.NodeImpl;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
@@ -449,6 +450,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		argument1 = newArgument1;
 		
 		if(oldArgument1 instanceof Node && newArgument1 == null) {
+			System.out.println("hier");
 			try {
 				((Node) oldArgument1).makeGeneric();
 			} catch (InvalidityException e) {
@@ -456,6 +458,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}
 		}
 		if(argument2 instanceof Node && newArgument1 == null) {
+			System.out.println("hier");
 			try {
 				((Node) argument2).makeGeneric();
 			} catch (InvalidityException e) {
@@ -466,10 +469,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		try {
 			isCycleFree();
 			
-			if(newArgument1 instanceof Node && argument2 instanceof ParameterValue) {				
+			if((newArgument1.getClass().equals(NodeImpl.class) || newArgument1.getClass().equals(ComplexNodeImpl.class)) && argument2 instanceof ParameterValue) {				
 				((Node) newArgument1).makePrimitive();
 			}
-			if(newArgument1 instanceof ParameterValue && argument2 instanceof Node){
+			if(newArgument1 instanceof ParameterValue && (argument2.getClass().equals(NodeImpl.class) || argument2.getClass().equals(ComplexNodeImpl.class))){
 				((Node) argument2).makePrimitive();
 			}				
 			
@@ -914,10 +917,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		try {
 			isCycleFree();
 			
-			if(newArgument2 instanceof Node && argument1 instanceof ParameterValue) {				
+			if((newArgument2.getClass().equals(NodeImpl.class) || newArgument2.getClass().equals(ComplexNodeImpl.class)) && argument1 instanceof ParameterValue) {				
 				((Node) newArgument2).makePrimitive();
 			}
-			if(newArgument2 instanceof ParameterValue && argument1 instanceof Node){
+			if(newArgument2 instanceof ParameterValue && (argument1.getClass().equals(NodeImpl.class) || argument1.getClass().equals(ComplexNodeImpl.class))){
 				((Node) argument1).makePrimitive();
 			}
 		} catch (OperatorCycleException | InvalidityException e1) {
