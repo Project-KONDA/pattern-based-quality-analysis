@@ -26,6 +26,7 @@ import qualitypatternmodel.adaptionxml.PathParam;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlNode;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -126,13 +127,22 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		String xPredicates;
 		
 		if(getTarget() instanceof XmlElement) {
-			XmlElement targetElement = (XmlElement) getTarget();
-			targetElement.setTranslated(true);
+			XmlElement element = (XmlElement) getTarget();
+			element.setTranslated(true);
+		} else if(getTarget() instanceof XmlProperty) {
+			XmlProperty property = (XmlProperty) getTarget();
+			property.setTranslated(true);
+		} else {
+			throw new InvalidityException("target of relation not XmlNode");
+		}
+		
+		if(getTarget() instanceof XmlNode) {
+			XmlNode targetElement = (XmlNode) getTarget();			
 			predicatesAreBeingTranslated = true;
 			xPredicates = targetElement.translatePredicates();
 			predicatesAreBeingTranslated = false;
 		} else {
-			throw new InvalidityException("target of relation not XMLElement");
+			throw new InvalidityException("target of relation not XmlNode");
 		}
 		
 		String variable = generateNextXQueryVariable();
