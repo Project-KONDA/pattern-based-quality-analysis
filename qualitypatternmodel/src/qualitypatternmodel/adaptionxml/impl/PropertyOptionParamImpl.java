@@ -141,7 +141,8 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException  {
 		super.isValid(abstractionLevel);
-		getAttributeName().isValid(abstractionLevel);
+		if(getAttributeName() != null)
+			getAttributeName().isValid(abstractionLevel);
 	}
 	
 	@Override
@@ -154,7 +155,8 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + ")");
 		if(isPredefined() && !inputIsValid()) {
 			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + ")");
-		}		if (getAttributeName() == null)
+		}
+		if (getAttributeName() == null && getValue() == PropertyKind.ATTRIBUTE)
 			throw new InvalidityException("attributeName null");
 		if(getParameterList() != null) {
 			throw new InvalidityException("PropertyOptionParam contained in ParameterList instead of PathParam");
