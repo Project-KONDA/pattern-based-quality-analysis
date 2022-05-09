@@ -93,9 +93,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	public String generateQuery() throws InvalidityException {
 		if(option!=null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
 			if (option.getValue()){				
-				return primitiveNode.generateQuery() + "[matches(., \"" + regularExpression.getValue() + "\")]";				
+				return primitiveNode.generateQuery() + "matches(., \"" + regularExpression.getValue() + "\")";				
 			} else {
-				return primitiveNode.generateQuery() + "[not(matches(., \"" + regularExpression.getValue() + "\"))]";
+				return primitiveNode.generateQuery() + "not(matches(., \"" + regularExpression.getValue() + "\"))";
 			}	
 		} else {
 			throw new InvalidityException("invalid option");
