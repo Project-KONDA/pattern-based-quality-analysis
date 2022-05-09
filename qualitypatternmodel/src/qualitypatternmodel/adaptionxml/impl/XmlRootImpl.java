@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.XmlRoot;
@@ -43,7 +44,7 @@ public class XmlRootImpl extends ComplexNodeImpl implements XmlRoot {
 	public String generateQuery() throws InvalidityException {
 		String result = "";
 		for(Relation relation : getOutgoing()) {
-			if(relation instanceof XmlElementNavigation) {
+			if(relation instanceof XmlNavigation) {
 				result += relation.generateQuery();
 			} else {
 				throw new InvalidityException("XMLRoot has XMLReference");
