@@ -74,34 +74,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 
 	@Override
 	public String generateQuery() throws InvalidityException {
-//		if(option == null || option.getValue() == null) {
-//			throw new InvalidityException("propertyOptions invalid");
-//		}				
-//		String propertyElementTranslation;
-//		if(getElement() instanceof XmlElement) {
-//			XmlElement xmlElement = (XmlElement) getElement();
-//			propertyElementTranslation = xmlElement.getXQueryRepresentation();
-//		} else {
-//			throw new InvalidityException("XMLProperty container of invalid type");
-//		}
-//		
-//		switch (option.getValue()) {
-//		case ATTRIBUTE:
-//			if (attributeName == null || attributeName.getValue() == null) {
-//				throw new InvalidityException("attributeName invalid");
-//			} else {
-//				if (attributeName.getValue().contains(":")) {
-//					return propertyElementTranslation + "/@*[name()=\"" + attributeName.getValue() + "\"]";
-//				} 
-//				return propertyElementTranslation + "/@" + attributeName.getValue() + "";				
-//			}
-//		case DATA:
-//			return propertyElementTranslation + "/text()";
-//		case TAG:
-//			return propertyElementTranslation + "/name()";
-//		default:
-//			throw new InvalidityException("error in location specification");
-//		}
 		return "";
 	}
 

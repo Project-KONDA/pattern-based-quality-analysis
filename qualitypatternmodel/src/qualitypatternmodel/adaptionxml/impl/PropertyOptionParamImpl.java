@@ -135,7 +135,29 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	
 	@Override
 	public String generateQuery() throws InvalidityException {
-		return getValue().getLiteral();
+		
+		if(getValue() == null) {
+			throw new InvalidityException("propertyOption invalid");
+		}				
+		
+		switch (getValue()) {
+		case ATTRIBUTE:
+			if (attributeName == null || attributeName.getValue() == null) {
+				throw new InvalidityException("attributeName invalid");
+			} else {
+				if (attributeName.getValue().contains(":")) {
+					return "/@*[name()=\"" + attributeName.getValue() + "\"]";
+				} 
+				return "/@" + attributeName.getValue() + "";				
+			}
+		case DATA:
+			return "/text()";
+		case TAG:
+			return "/name()";
+		default:
+			throw new InvalidityException("error in location specification");
+		}
+		
 	}
 	
 	@Override
