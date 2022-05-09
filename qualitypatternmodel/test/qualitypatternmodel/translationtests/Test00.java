@@ -94,8 +94,8 @@ public class Test00 {
 	
 	public static CompletePattern getBasePatternCondConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternCond(comp);
-		XmlElementNavigation xmlElementNavigation = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
-		xmlElementNavigation.getPathParam().setAxis(AxisKind.DESCENDANT, "");		
+		XmlNavigation xmlNavigation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		xmlNavigation.getPathParam().setAxis(AxisKind.DESCENDANT, "");		
 		return completePattern;		
 	}
 	
