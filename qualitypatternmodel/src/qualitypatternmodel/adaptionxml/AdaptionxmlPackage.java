@@ -208,13 +208,22 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT__OUTGOING = GraphstructurePackage.COMPLEX_NODE__OUTGOING;
 
 	/**
+	 * The feature id for the '<em><b>XQuery Deep Equal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT__XQUERY_DEEP_EQUAL = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Xml Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
+	int XML_ELEMENT_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -5351,6 +5360,17 @@ public interface AdaptionxmlPackage extends EPackage {
 	EClass getXmlElement();
 
 	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionxml.XmlElement#isXQueryDeepEqual <em>XQuery Deep Equal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>XQuery Deep Equal</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlElement#isXQueryDeepEqual()
+	 * @see #getXmlElement()
+	 * @generated
+	 */
+	EAttribute getXmlElement_XQueryDeepEqual();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlElement#getTagFromComparisons() <em>Get Tag From Comparisons</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5929,6 +5949,14 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass XML_ELEMENT = eINSTANCE.getXmlElement();
+
+		/**
+		 * The meta object literal for the '<em><b>XQuery Deep Equal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute XML_ELEMENT__XQUERY_DEEP_EQUAL = eINSTANCE.getXmlElement_XQueryDeepEqual();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Tag From Comparisons</b></em>' operation.

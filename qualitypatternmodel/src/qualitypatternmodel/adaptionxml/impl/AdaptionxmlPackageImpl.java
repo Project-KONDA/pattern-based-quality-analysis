@@ -247,6 +247,16 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EAttribute getXmlElement_XQueryDeepEqual() {
+		return (EAttribute)xmlElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getXmlElement__GetTagFromComparisons() {
 		return xmlElementEClass.getEOperations().get(0);
 	}
@@ -801,6 +811,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		// Create classes and their features
 		xmlElementEClass = createEClass(XML_ELEMENT);
+		createEAttribute(xmlElementEClass, XML_ELEMENT__XQUERY_DEEP_EQUAL);
 		createEOperation(xmlElementEClass, XML_ELEMENT___GET_TAG_FROM_COMPARISONS);
 		createEOperation(xmlElementEClass, XML_ELEMENT___TRANSLATE_PREDICATES);
 		createEOperation(xmlElementEClass, XML_ELEMENT___GET_XQUERY_VARIABLE);
@@ -918,6 +929,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(xmlElementEClass, XmlElement.class, "XmlElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getXmlElement_XQueryDeepEqual(), ecorePackage.getEBoolean(), "xQueryDeepEqual", "true", 0, 1, XmlElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getXmlElement__GetTagFromComparisons(), ecorePackage.getEString(), "getTagFromComparisons", 0, 1, IS_UNIQUE, IS_ORDERED);
 

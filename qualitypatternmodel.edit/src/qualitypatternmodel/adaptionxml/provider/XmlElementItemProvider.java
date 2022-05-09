@@ -11,8 +11,12 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.graphstructure.provider.ComplexNodeItemProvider;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
@@ -45,8 +49,31 @@ public class XmlElementItemProvider extends ComplexNodeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addXQueryDeepEqualPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the XQuery Deep Equal feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addXQueryDeepEqualPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XmlElement_xQueryDeepEqual_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlElement_xQueryDeepEqual_feature", "_UI_XmlElement_type"),
+				 AdaptionxmlPackage.Literals.XML_ELEMENT__XQUERY_DEEP_EQUAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -89,6 +116,13 @@ public class XmlElementItemProvider extends ComplexNodeItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(XmlElement.class)) {
+			case AdaptionxmlPackage.XML_ELEMENT__XQUERY_DEEP_EQUAL:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
+		super.notifyChanged(notification);
 	}
 
 	/**

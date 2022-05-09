@@ -5,9 +5,11 @@ package qualitypatternmodel.adaptionxml.impl;
 import static qualitypatternmodel.utility.Constants.VARIABLE;
 
 import java.lang.reflect.InvocationTargetException;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
@@ -34,10 +36,35 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>XML Element</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlElementImpl#isXQueryDeepEqual <em>XQuery Deep Equal</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
+	/**
+	 * The default value of the '{@link #isXQueryDeepEqual() <em>XQuery Deep Equal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isXQueryDeepEqual()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean XQUERY_DEEP_EQUAL_EDEFAULT = true;
+	/**
+	 * The cached value of the '{@link #isXQueryDeepEqual() <em>XQuery Deep Equal</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isXQueryDeepEqual()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean xQueryDeepEqual = XQUERY_DEEP_EQUAL_EDEFAULT;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,6 +95,29 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		return AdaptionxmlPackage.Literals.XML_ELEMENT;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isXQueryDeepEqual() {
+		return xQueryDeepEqual;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setXQueryDeepEqual(boolean newXQueryDeepEqual) {
+		boolean oldXQueryDeepEqual = xQueryDeepEqual;
+		xQueryDeepEqual = newXQueryDeepEqual;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_ELEMENT__XQUERY_DEEP_EQUAL, oldXQueryDeepEqual, xQueryDeepEqual));
+	}
+
 	@Override
 	public String generateQuery() throws InvalidityException {
 		translated = true;
@@ -126,9 +176,12 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 			if(r.isTranslated()) {
 				if(r instanceof XmlNavigation) {
 					XmlNavigation nav = (XmlNavigation) r;
-					// TODO: allow user to decide if deep-equal or is
-					// TODO: check for cycles with only deep-equals
-					xPredicates += "[deep-equal(.," + nav.getXQueryRepresentation() + ")]";
+					// TODO: check for cycles with only deep-equals (also in isValid())
+					if(xQueryDeepEqual) {
+						xPredicates += "[deep-equal(.," + nav.getXQueryRepresentation() + ")]";
+					} else {
+						xPredicates += "[. is " + nav.getXQueryRepresentation() + "]";
+					}
 				}
 			}
 		}
@@ -170,6 +223,64 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 				throw new InvalidityException("XmlNavigation not yet translated");
 			}
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case AdaptionxmlPackage.XML_ELEMENT__XQUERY_DEEP_EQUAL:
+				return isXQueryDeepEqual();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case AdaptionxmlPackage.XML_ELEMENT__XQUERY_DEEP_EQUAL:
+				setXQueryDeepEqual((Boolean)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case AdaptionxmlPackage.XML_ELEMENT__XQUERY_DEEP_EQUAL:
+				setXQueryDeepEqual(XQUERY_DEEP_EQUAL_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case AdaptionxmlPackage.XML_ELEMENT__XQUERY_DEEP_EQUAL:
+				return xQueryDeepEqual != XQUERY_DEEP_EQUAL_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
 	}
 
 	@Override
@@ -302,6 +413,22 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 				}
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (xQueryDeepEqual: ");
+		result.append(xQueryDeepEqual);
+		result.append(')');
+		return result.toString();
 	}
 
 } //XMLElementImpl
