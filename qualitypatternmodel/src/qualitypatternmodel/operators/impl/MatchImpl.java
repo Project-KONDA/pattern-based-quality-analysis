@@ -107,10 +107,6 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		super.isValid(abstractionLevel);
 		option.isValid(abstractionLevel);		
 		regularExpression.isValid(abstractionLevel);
-		
-		if(primitiveNode != null) {
-			primitiveNode.isValid(abstractionLevel);
-		}
 	}
 	
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException {
