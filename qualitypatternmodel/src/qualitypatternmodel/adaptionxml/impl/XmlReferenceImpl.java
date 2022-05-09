@@ -183,7 +183,8 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	 */
 	@Override
 	public PathParam getSourcePropertyPath() {
-		return ((XmlPropertyNavigation) getSource().getRelationsTo(getProperty())).getPathParam();
+		XmlPropertyNavigation nav = ((XmlPropertyNavigation) getSource().getRelationsTo(getProperty()).get(0));
+		return nav.getPathParam();
 	}
 
 	/**
@@ -193,7 +194,8 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	 */
 	@Override
 	public PathParam getTargetPropertyPath() {
-		return ((XmlPropertyNavigation) getTarget().getRelationsTo(getProperty())).getPathParam();
+		XmlPropertyNavigation nav = ((XmlPropertyNavigation) getTarget().getRelationsTo(getProperty()).get(0));
+		return nav.getPathParam();
 	}
 
 	/**
