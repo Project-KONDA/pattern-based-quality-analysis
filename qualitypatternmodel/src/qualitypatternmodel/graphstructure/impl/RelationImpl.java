@@ -868,7 +868,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				((RelationImpl) mapping.getTarget()).adaptAsXMLNavigationRecursive();
 			}
 			
-			target.adaptAsXmlElement();
+			navigation.getTarget().adaptAsXmlElement();
 			
 			return navigation;
 		}
