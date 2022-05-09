@@ -89,11 +89,6 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	}
 	
 	@Override
-	public void finalizeXMLAdaption() throws InvalidityException {
-		getCondition().finalizeXMLAdaption();
-	}
-	
-	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
 		result.addAll(getCondition().getNextMorphismContainers());

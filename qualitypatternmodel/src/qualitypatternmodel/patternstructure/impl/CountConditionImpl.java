@@ -151,12 +151,6 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	@Override
-	public void finalizeXMLAdaption() throws InvalidityException {
-		getCountPattern().finalizeXMLAdaption();
-		getArgument2().finalizeXMLAdaption();
-	}
-	
-	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {		
 		BasicEList<MorphismContainer> result = new BasicEList<MorphismContainer>();
 		if(getCountPattern() instanceof CountPattern) {

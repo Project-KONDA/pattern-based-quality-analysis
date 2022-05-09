@@ -695,14 +695,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	public boolean isAdaptionFinalized() {
 		return adaptionFinalized;
 	}
-	
-
-	@Override
-	public void finalizeXMLAdaption() throws InvalidityException {
-		setAdaptionFinalized(true);
-		super.finalizeXMLAdaption();
-	}
-
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -214,22 +214,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___CREATE_XML_ADAPTION = 12;
 
 	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_ELEMENT___FINALIZE_XML_ADAPTION = 13;
-
-	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE = 14;
+	int PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE = 13;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -238,7 +229,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___RELATIONS_XML_ADAPTED = 15;
+	int PATTERN_ELEMENT___RELATIONS_XML_ADAPTED = 14;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -247,7 +238,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = 16;
+	int PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = 15;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -256,7 +247,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = 17;
+	int PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = 16;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -265,7 +256,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = 18;
+	int PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST = 17;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -274,7 +265,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___INITIALIZE_TRANSLATION = 19;
+	int PATTERN_ELEMENT___INITIALIZE_TRANSLATION = 18;
 
 	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
@@ -283,7 +274,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 20;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 19;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.MappingImpl <em>Mapping</em>}' class.
@@ -447,15 +438,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MAPPING___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MAPPING___FINALIZE_XML_ADAPTION = PATTERN_ELEMENT___FINALIZE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -700,15 +682,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_MAPPING___CREATE_XML_ADAPTION = MAPPING___CREATE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RELATION_MAPPING___FINALIZE_XML_ADAPTION = MAPPING___FINALIZE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -971,15 +944,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION___FINALIZE_XML_ADAPTION = PATTERN_ELEMENT___FINALIZE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -1289,15 +1253,6 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUANTIFIED_CONDITION___FINALIZE_XML_ADAPTION = CONDITION___FINALIZE_XML_ADAPTION;
-
-	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1585,15 +1540,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM___FINALIZE_XML_ADAPTION = PATTERN_ELEMENT___FINALIZE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -1903,15 +1849,6 @@ public interface PatternstructurePackage extends EPackage {
 	int ELEMENT_MAPPING___CREATE_XML_ADAPTION = MAPPING___CREATE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_MAPPING___FINALIZE_XML_ADAPTION = MAPPING___FINALIZE_XML_ADAPTION;
-
-	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2201,15 +2138,6 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA___FINALIZE_XML_ADAPTION = CONDITION___FINALIZE_XML_ADAPTION;
-
-	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2481,15 +2409,6 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE_ELEMENT___FINALIZE_XML_ADAPTION = CONDITION___FINALIZE_XML_ADAPTION;
-
-	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2750,15 +2669,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PATTERN___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN___FINALIZE_XML_ADAPTION = PATTERN_ELEMENT___FINALIZE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -3149,15 +3059,6 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___CREATE_XML_ADAPTION = PATTERN___CREATE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN___FINALIZE_XML_ADAPTION = PATTERN___FINALIZE_XML_ADAPTION;
-
-	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3483,15 +3384,6 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT_CONDITION___FINALIZE_XML_ADAPTION = CONDITION___FINALIZE_XML_ADAPTION;
-
-	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3790,15 +3682,6 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION___FINALIZE_XML_ADAPTION = CONDITION___FINALIZE_XML_ADAPTION;
-
-	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4052,15 +3935,6 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_CONDITION_ARGUMENT___FINALIZE_XML_ADAPTION = PATTERN_ELEMENT___FINALIZE_XML_ADAPTION;
-
-	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4285,15 +4159,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM_CONTAINER___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MORPHISM_CONTAINER___FINALIZE_XML_ADAPTION = PATTERN_ELEMENT___FINALIZE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -4594,15 +4459,6 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN___CREATE_XML_ADAPTION = PATTERN___CREATE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COUNT_PATTERN___FINALIZE_XML_ADAPTION = PATTERN___FINALIZE_XML_ADAPTION;
-
-	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4863,15 +4719,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_ELEMENT___CREATE_XML_ADAPTION = COUNT_CONDITION_ARGUMENT___CREATE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER_ELEMENT___FINALIZE_XML_ADAPTION = COUNT_CONDITION_ARGUMENT___FINALIZE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -5740,16 +5587,6 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__CreateXMLAdaption();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#finalizeXMLAdaption() <em>Finalize XML Adaption</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Finalize XML Adaption</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#finalizeXMLAdaption()
-	 * @generated
-	 */
-	EOperation getPatternElement__FinalizeXMLAdaption();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#recordValues(qualitypatternmodel.execution.XmlDataDatabase) <em>Record Values</em>}' operation.
@@ -6768,14 +6605,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PATTERN_ELEMENT___CREATE_XML_ADAPTION = eINSTANCE.getPatternElement__CreateXMLAdaption();
-
-		/**
-		 * The meta object literal for the '<em><b>Finalize XML Adaption</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PATTERN_ELEMENT___FINALIZE_XML_ADAPTION = eINSTANCE.getPatternElement__FinalizeXMLAdaption();
 
 		/**
 		 * The meta object literal for the '<em><b>Record Values</b></em>' operation.

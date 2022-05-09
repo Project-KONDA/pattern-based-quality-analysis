@@ -173,15 +173,6 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Finalizes the adaption to XML after all necessary user inputs have been made.
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	void finalizeXMLAdaption() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * Recursively records all values of contained or referenced <code>Parameters</code> in the <code>XmlDatabase</code>.
 	 * 
 	 * @param database the <code>XmlDatabase</code> in which the values of <code>Parameters</code> are recorded

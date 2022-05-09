@@ -343,15 +343,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___CREATE_XML_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___FINALIZE_XML_ADAPTION = GraphstructurePackage.COMPLEX_NODE___FINALIZE_XML_ADAPTION;
-
-	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1010,15 +1001,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___CREATE_XML_ADAPTION = GraphstructurePackage.RELATION___CREATE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_NAVIGATION___FINALIZE_XML_ADAPTION = GraphstructurePackage.RELATION___FINALIZE_XML_ADAPTION;
-
-	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1434,15 +1416,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_NAVIGATION___CREATE_XML_ADAPTION = XML_NAVIGATION___CREATE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT_NAVIGATION___FINALIZE_XML_ADAPTION = XML_NAVIGATION___FINALIZE_XML_ADAPTION;
-
-	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1847,15 +1820,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_REFERENCE___CREATE_XML_ADAPTION = GraphstructurePackage.RELATION___CREATE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_REFERENCE___FINALIZE_XML_ADAPTION = GraphstructurePackage.RELATION___FINALIZE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -2316,15 +2280,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___CREATE_XML_ADAPTION = GraphstructurePackage.PRIMITIVE_NODE___CREATE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY___FINALIZE_XML_ADAPTION = GraphstructurePackage.PRIMITIVE_NODE___FINALIZE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -2994,15 +2949,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___CREATE_XML_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___FINALIZE_XML_ADAPTION = GraphstructurePackage.COMPLEX_NODE___FINALIZE_XML_ADAPTION;
-
-	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3634,15 +3580,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_NAVIGATION___CREATE_XML_ADAPTION = XML_NAVIGATION___CREATE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY_NAVIGATION___FINALIZE_XML_ADAPTION = XML_NAVIGATION___FINALIZE_XML_ADAPTION;
-
-	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4011,15 +3948,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int AXIS_OPTION_PARAM___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER___CREATE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AXIS_OPTION_PARAM___FINALIZE_XML_ADAPTION = ParametersPackage.PARAMETER___FINALIZE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -4410,15 +4338,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int PROPERTY_OPTION_PARAM___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER___CREATE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY_OPTION_PARAM___FINALIZE_XML_ADAPTION = ParametersPackage.PARAMETER___FINALIZE_XML_ADAPTION;
-
-	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4807,15 +4726,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int PATH_PARAM___CREATE_XML_ADAPTION = GraphstructurePackage.ADAPTABLE___CREATE_XML_ADAPTION;
 
 	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATH_PARAM___FINALIZE_XML_ADAPTION = GraphstructurePackage.ADAPTABLE___FINALIZE_XML_ADAPTION;
-
-	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5184,15 +5094,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int AXIS_PAIR___CREATE_XML_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_XML_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Finalize XML Adaption</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AXIS_PAIR___FINALIZE_XML_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___FINALIZE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.

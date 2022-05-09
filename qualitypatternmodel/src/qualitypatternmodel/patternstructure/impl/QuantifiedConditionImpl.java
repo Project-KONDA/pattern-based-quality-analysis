@@ -180,12 +180,6 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 	
 	@Override
-	public void finalizeXMLAdaption() throws InvalidityException {
-		getGraph().finalizeXMLAdaption();		
-		getCondition().finalizeXMLAdaption();
-	}
-	
-	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
 		result.add(this);		

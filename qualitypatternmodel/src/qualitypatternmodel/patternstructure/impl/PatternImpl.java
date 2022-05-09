@@ -187,15 +187,6 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	}
 	
 	@Override
-	public void finalizeXMLAdaption() throws InvalidityException {
-		if(!relationsXmlAdapted()) {
-			throw new InvalidityException("not all Relations replaced by XmlNavigation or XmlReference");
-		}
-		getGraph().finalizeXMLAdaption();
-		getCondition().finalizeXMLAdaption();
-	}
-	
-	@Override
 	public void prepareTranslation() {
 		graph.prepareTranslation();
 		condition.prepareTranslation();

@@ -185,12 +185,6 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 	
 	@Override
-	public void finalizeXMLAdaption() throws InvalidityException {
-		getCondition1().finalizeXMLAdaption();
-		getCondition2().finalizeXMLAdaption();
-	}
-	
-	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
 		result.addAll(getCondition1().getNextMorphismContainers());

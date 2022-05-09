@@ -217,16 +217,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public void finalizeXMLAdaption() throws InvalidityException {
-		
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -554,14 +544,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 			case PatternstructurePackage.PATTERN_ELEMENT___CREATE_XML_ADAPTION:
 				try {
 					return createXMLAdaption();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case PatternstructurePackage.PATTERN_ELEMENT___FINALIZE_XML_ADAPTION:
-				try {
-					finalizeXMLAdaption();
-					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
