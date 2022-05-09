@@ -32,6 +32,8 @@ import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -937,8 +939,11 @@ public class PathParamImpl extends PatternElementImpl implements PathParam {
 
 	@Override
 	public String myToString() {
-		// TODO Auto-generated method stub
-		return null;
+		String res = "path [" + getInternalId() + "]";
+		for(AxisPair axisPair : getAxisPairs()) {
+			res += axisPair.myToString();
+		}
+		return res;
 	}
 
 } //PathParamImpl

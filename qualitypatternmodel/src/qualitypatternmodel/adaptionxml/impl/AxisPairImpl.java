@@ -736,8 +736,11 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 
 	@Override
 	public String myToString() {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return this.generateQuery();
+		} catch (InvalidityException e) {
+			return "[invalid axis pair " + getInternalId() + "]]"; 
+		}
 	}
 
 } //AxisPairImpl
