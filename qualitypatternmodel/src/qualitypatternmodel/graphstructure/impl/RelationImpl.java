@@ -199,7 +199,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if(getSource() == null && abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
 			throw new InvalidityException("source null " + getId());
 		} else {
-			if (getSource().getGraph() != getGraph()) 
+			if (!getSource().getGraph().equals(getGraph())) 
 				throw new InvalidityException("source Element not in Graph " + getId());
 		}
 		
