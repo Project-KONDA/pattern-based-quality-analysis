@@ -27,6 +27,7 @@ import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.utility.Constants;
 
 /**
@@ -98,6 +99,17 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 */
 	public TextLiteralParamImpl() {
 		super();
+	}
+	
+	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
+		if (getParameterList() == null && getAxisPair() == null)
+			throw new InvalidityException("variableList and axisPair null" + " (" + getInternalId() + ")");
+		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
+			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + ")");
+		if(isPredefined() && !inputIsValid()) {
+			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + ")");
+		}		
 	}
 	
 	@Override

@@ -135,7 +135,11 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 		if(getParameterList() != null) {
 			throw new InvalidityException("AxisOptionParam contained in ParameterList instead of AxisPair");
 		}
-		super.isValidLocal(abstractionLevel);
+		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
+			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + ")");
+		if(isPredefined() && !inputIsValid()) {
+			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + ")");
+		}
 	}
 
 	@Override

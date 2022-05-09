@@ -150,8 +150,11 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 			throw new InvalidityException("options null");
 		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC && getOptions().isEmpty()) 
 			throw new InvalidityException("not enough options");
-		super.isValidLocal(abstractionLevel);
-		if (getAttributeName() == null)
+		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
+			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + ")");
+		if(isPredefined() && !inputIsValid()) {
+			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + ")");
+		}		if (getAttributeName() == null)
 			throw new InvalidityException("attributeName null");
 		if(getParameterList() != null) {
 			throw new InvalidityException("PropertyOptionParam contained in ParameterList instead of PathParam");
