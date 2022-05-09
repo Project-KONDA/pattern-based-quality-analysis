@@ -202,14 +202,7 @@ public class PathParamImpl extends PatternElementImpl implements PathParam {
 	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();		
-		if (axisPairs != null) {
-			for(AxisPair a : axisPairs) {
-				res.addAll(a.getAllParameters());
-			}			
-		}
-		if (propertyOptionParam != null) {
-			res.add(propertyOptionParam);
-		}
+		res.add(this);
 		return res;
 	}
 	
