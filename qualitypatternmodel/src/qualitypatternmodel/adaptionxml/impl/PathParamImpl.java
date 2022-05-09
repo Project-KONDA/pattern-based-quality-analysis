@@ -854,13 +854,11 @@ public class PathParamImpl extends PatternElementImpl implements PathParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean isUsed() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getXmlNavigation() != null;
 	}
 
 	/**
