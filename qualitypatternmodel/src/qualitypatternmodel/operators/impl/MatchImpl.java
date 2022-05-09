@@ -234,6 +234,11 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 			}
 		}
 		
+		if(oldPrimitiveNode != null) {
+			oldPrimitiveNode.getPredicates().remove(this);
+		}
+		newPrimitiveNode.getPredicates().add(this);
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OperatorsPackage.MATCH__PRIMITIVE_NODE, oldPrimitiveNode, newPrimitiveNode);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
