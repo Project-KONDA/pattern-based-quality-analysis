@@ -768,7 +768,8 @@
       <eOperations name="getOriginalPathParam" eType="#//adaptionxml/PathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pathParam" eType="#//adaptionxml/PathParam"
           eOpposite="#//adaptionxml/PathParam/xmlNavigation"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral=""/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="variableCounter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
           defaultValueLiteral="0"/>
     </eClassifiers>

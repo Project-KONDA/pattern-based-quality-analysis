@@ -73,7 +73,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SOURCE_VARIABLE_EDEFAULT = null;
+	protected static final String SOURCE_VARIABLE_EDEFAULT = "";
 	/**
 	 * The cached value of the '{@link #getSourceVariable() <em>Source Variable</em>}' attribute.
 	 * <!-- begin-user-doc -->

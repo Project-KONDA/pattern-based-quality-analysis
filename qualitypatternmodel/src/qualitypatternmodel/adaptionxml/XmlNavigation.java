@@ -50,12 +50,13 @@ public interface XmlNavigation extends Relation {
 
 	/**
 	 * Returns the value of the '<em><b>Source Variable</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source Variable</em>' attribute.
 	 * @see #setSourceVariable(String)
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlNavigation_SourceVariable()
-	 * @model
+	 * @model default=""
 	 * @generated
 	 */
 	String getSourceVariable();
