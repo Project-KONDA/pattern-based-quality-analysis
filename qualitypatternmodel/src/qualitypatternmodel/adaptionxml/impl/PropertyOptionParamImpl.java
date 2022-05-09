@@ -349,8 +349,13 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 		TextLiteralParam oldAttributeName = attributeName;
 		
 		ParameterList varlist = getParameterList();
-		varlist.remove(oldAttributeName);
-		varlist.add(newAttributeName);			
+		if (varlist != null){
+			if (oldAttributeName != null)
+				varlist.remove(oldAttributeName);
+			if (newAttributeName != null) {
+				newAttributeName.setParameterList(varlist);
+			}
+		} 
 
 		attributeName = newAttributeName;
 
@@ -614,11 +619,11 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	
 	@Override 
 	public String myToString() {
-		String res = "PropertyOptionParamImpl [" + getInternalId() + "] ";
-		res += getValue().getLiteral() + "[" + getAttributeName().getInternalId() + "]";
-		res += " ('" + getAttributeName().getValue() + "'[" + getAttributeName().getInternalId() + "])";;
-		return res;
-//		return "prop [" + getInternalId() + "] " + getValue();
+		try {
+			return generateQuery();
+		} catch (InvalidityException e) {
+			return "[invalid property option " + getInternalId() + "]]"; 
+		}
 	}
 
 	@Override
