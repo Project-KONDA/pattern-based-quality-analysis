@@ -3,20 +3,13 @@ package qualitypatternmodel.translationtests;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.emf.common.util.EList;
-
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
-import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.AxisKind;
-import qualitypatternmodel.adaptionxml.AxisOptionParam;
 import qualitypatternmodel.adaptionxml.PathParam;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlRoot;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.*;
 
 public class Test01Axis {
@@ -38,8 +31,7 @@ public class Test01Axis {
 	public static CompletePattern getBasePatternAxisRoot(AxisKind axisKind) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		CompletePattern completePattern = Test00.getBasePattern();
 		completePattern.createXMLAdaption();
-		completePattern.finalizeXMLAdaption();
-		XmlElementNavigation relation = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
+		XmlNavigation relation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
 		PathParam axisOption = relation.getPathParam();
 //		EList<AxisKind> axisOptions = axisOption.getOptions();
 //		if(!axisOptions.contains(axisKind)) axisOptions.add(axisKind);
@@ -63,7 +55,6 @@ public class Test01Axis {
 		
 		completePattern.createXMLAdaption();
 		XmlElementNavigation navigation = graph.getNodes().get(1).getIncoming().get(0).adaptAsXMLElementNavigation();		
-		completePattern.finalizeXMLAdaption();			
 		
 		PathParam axisOption = navigation.getPathParam();
 //		EList<AxisKind> axisOptions = axisOption.getOptions();
