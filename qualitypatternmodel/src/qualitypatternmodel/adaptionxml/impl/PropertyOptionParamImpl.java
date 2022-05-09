@@ -260,12 +260,21 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setValue(PropertyKind newValue) {
 		PropertyKind oldValue = value;
 		value = newValue == null ? VALUE_EDEFAULT : newValue;
+		if (newValue == PropertyKind.ATTRIBUTE) {
+			if (getAttributeName() == null) {
+				TextLiteralParam text = new TextLiteralParamImpl();
+				setAttributeName(text);
+			}
+		} else {
+			setAttributeName(null);
+		}
+		
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__VALUE, oldValue, value));
 	}
