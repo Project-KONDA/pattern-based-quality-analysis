@@ -131,7 +131,7 @@ public class Test03Quantor {
 		
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		XmlElementNavigation nav = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(1);
-		nav.getPathParam().setValue(AxisKind.THREECHILD);
+		nav.getPathParam().setAxis(AxisKind.CHILD,"");
 		
 		return completePattern;
 	}
@@ -156,7 +156,6 @@ public class Test03Quantor {
 		QuantifiedCondition cond1 = (QuantifiedCondition) completePattern.getCondition();
 		cond1.setQuantifier(Quantifier.FORALL);
 		completePattern.createXMLAdaption();
-		completePattern.finalizeXMLAdaption();	
 		return completePattern;
 	}
 
@@ -165,7 +164,6 @@ public class Test03Quantor {
 		QuantifiedCondition cond1 = (QuantifiedCondition) completePattern.getCondition();
 		cond1.setQuantifier(Quantifier.FORALL);		
 		completePattern.createXMLAdaption();
-		completePattern.finalizeXMLAdaption();	
 		return completePattern;
 	}
 	
