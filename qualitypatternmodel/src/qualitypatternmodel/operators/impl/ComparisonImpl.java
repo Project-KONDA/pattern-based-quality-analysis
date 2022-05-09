@@ -18,6 +18,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Comparable;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.ReturnType;
@@ -527,10 +528,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				}				
 			} else {
 				
-				if (newArgument instanceof Node || newArgument instanceof BooleanOperator || newArgument instanceof NumberOperator || newArgument instanceof ParameterValue) {
+				if (newArgument instanceof ComplexNode || newArgument instanceof BooleanOperator || newArgument instanceof NumberOperator || newArgument instanceof ParameterValue) {
 					ReturnType returnType = null;
 					
-					if (newArgument instanceof Node) {
+					if (newArgument instanceof ComplexNode) {
 						returnType = ReturnType.ELEMENT;
 					}
 					if (newArgument instanceof BooleanOperator) {
