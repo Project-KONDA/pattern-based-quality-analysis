@@ -566,9 +566,6 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlElement/xQueryDeepEqual"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/getTagFromComparisons"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/translatePredicates"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/getXQueryVariable"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/getXQueryRepresentation"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlElementNavigation"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlReference">
@@ -582,9 +579,6 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlProperty">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionxml/XmlProperty/references"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlProperty/translatePredicates"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlProperty/getXQueryVariable"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlProperty/getXQueryRepresentation"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlRoot"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlPropertyNavigation"/>
@@ -638,6 +632,11 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/getOriginalPathParam"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/getXQueryVariable"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNavigation/getXQueryRepresentation"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlNode">
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNode/translatePredicates"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNode/getXQueryVariable"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNode/getXQueryRepresentation"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Execution" basePackage="qualitypatternmodel" disposableProviderFactory="true"

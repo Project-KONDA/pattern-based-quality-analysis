@@ -15,6 +15,7 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -276,6 +277,24 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 				return xQueryDeepEqual != XQUERY_DEEP_EQUAL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == XmlNode.class) {
+			switch (baseOperationID) {
+				case AdaptionxmlPackage.XML_NODE___TRANSLATE_PREDICATES: return AdaptionxmlPackage.XML_ELEMENT___TRANSLATE_PREDICATES;
+				case AdaptionxmlPackage.XML_NODE___GET_XQUERY_VARIABLE: return AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_VARIABLE;
+				case AdaptionxmlPackage.XML_NODE___GET_XQUERY_REPRESENTATION: return AdaptionxmlPackage.XML_ELEMENT___GET_XQUERY_REPRESENTATION;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
 
 	@Override

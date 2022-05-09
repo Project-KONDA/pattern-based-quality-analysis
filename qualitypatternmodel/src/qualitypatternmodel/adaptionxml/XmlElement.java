@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.adaptionxml;
 
-import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 
 /**
@@ -22,7 +21,7 @@ import qualitypatternmodel.graphstructure.ComplexNode;
  * @model
  * @generated
  */
-public interface XmlElement extends ComplexNode {
+public interface XmlElement extends ComplexNode, XmlNode {
 	/**
 	 * Returns the value of the '<em><b>XQuery Deep Equal</b></em>' attribute.
 	 * The default value is <code>"true"</code>.
@@ -53,29 +52,5 @@ public interface XmlElement extends ComplexNode {
 	 * @generated
 	 */
 	String getTagFromComparisons();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	String translatePredicates() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	String getXQueryVariable() throws InvalidityException;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
-	 * @generated
-	 */
-	String getXQueryRepresentation() throws InvalidityException;
 
 } // XMLElement
