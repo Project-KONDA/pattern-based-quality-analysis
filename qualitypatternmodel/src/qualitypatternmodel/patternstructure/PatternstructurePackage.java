@@ -2834,31 +2834,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__DATABASE = PATTERN_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Adaption Started</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN__ADAPTION_STARTED = PATTERN_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Adaption Finalized</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLETE_PATTERN__ADAPTION_FINALIZED = PATTERN_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Element Counter</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__ELEMENT_COUNTER = PATTERN_FEATURE_COUNT + 5;
+	int COMPLETE_PATTERN__ELEMENT_COUNTER = PATTERN_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Property Counter</b></em>' attribute.
@@ -2867,7 +2849,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__PROPERTY_COUNTER = PATTERN_FEATURE_COUNT + 6;
+	int COMPLETE_PATTERN__PROPERTY_COUNTER = PATTERN_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Relation Counter</b></em>' attribute.
@@ -2876,7 +2858,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__RELATION_COUNTER = PATTERN_FEATURE_COUNT + 7;
+	int COMPLETE_PATTERN__RELATION_COUNTER = PATTERN_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Counter</b></em>' attribute.
@@ -2885,7 +2867,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__PARAMETER_COUNTER = PATTERN_FEATURE_COUNT + 8;
+	int COMPLETE_PATTERN__PARAMETER_COUNTER = PATTERN_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Operator Counter</b></em>' attribute.
@@ -2894,7 +2876,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__OPERATOR_COUNTER = PATTERN_FEATURE_COUNT + 9;
+	int COMPLETE_PATTERN__OPERATOR_COUNTER = PATTERN_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Counter</b></em>' attribute.
@@ -2903,7 +2885,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__COUNTER = PATTERN_FEATURE_COUNT + 10;
+	int COMPLETE_PATTERN__COUNTER = PATTERN_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' containment reference list.
@@ -2912,7 +2894,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__TEXT = PATTERN_FEATURE_COUNT + 11;
+	int COMPLETE_PATTERN__TEXT = PATTERN_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2921,7 +2903,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__DESCRIPTION = PATTERN_FEATURE_COUNT + 12;
+	int COMPLETE_PATTERN__DESCRIPTION = PATTERN_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Abstract Name</b></em>' attribute.
@@ -2930,7 +2912,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__ABSTRACT_NAME = PATTERN_FEATURE_COUNT + 13;
+	int COMPLETE_PATTERN__ABSTRACT_NAME = PATTERN_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>Complete Pattern</em>' class.
@@ -2939,7 +2921,7 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 14;
+	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -5286,28 +5268,6 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getCompletePattern_Database();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#isAdaptionStarted <em>Adaption Started</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Adaption Started</em>'.
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#isAdaptionStarted()
-	 * @see #getCompletePattern()
-	 * @generated
-	 */
-	EAttribute getCompletePattern_AdaptionStarted();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#isAdaptionFinalized <em>Adaption Finalized</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Adaption Finalized</em>'.
-	 * @see qualitypatternmodel.patternstructure.CompletePattern#isAdaptionFinalized()
-	 * @see #getCompletePattern()
-	 * @generated
-	 */
-	EAttribute getCompletePattern_AdaptionFinalized();
-
-	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.CompletePattern#getElementCounter <em>Element Counter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6371,22 +6331,6 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPLETE_PATTERN__DATABASE = eINSTANCE.getCompletePattern_Database();
-
-		/**
-		 * The meta object literal for the '<em><b>Adaption Started</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMPLETE_PATTERN__ADAPTION_STARTED = eINSTANCE.getCompletePattern_AdaptionStarted();
-
-		/**
-		 * The meta object literal for the '<em><b>Adaption Finalized</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COMPLETE_PATTERN__ADAPTION_FINALIZED = eINSTANCE.getCompletePattern_AdaptionFinalized();
 
 		/**
 		 * The meta object literal for the '<em><b>Element Counter</b></em>' attribute feature.

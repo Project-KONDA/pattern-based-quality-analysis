@@ -617,7 +617,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	private void deleteRelations(Graph newGraph) {
 		EList<Relation> relations = new BasicEList<Relation>();
 		relations.addAll(getIncoming());
-		relations.addAll(((ComplexNode) this).getOutgoing());
+		if(this instanceof ComplexNode) {
+			relations.addAll(((ComplexNode) this).getOutgoing());
+		}
 		for (Relation rel : relations) {
 			if(rel.getGraph() != null && !rel.getGraph().equals(newGraph)) {
 				rel.setGraph(null);			

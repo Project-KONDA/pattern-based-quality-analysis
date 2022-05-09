@@ -48,8 +48,6 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDatabase <em>Database</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#isAdaptionStarted <em>Adaption Started</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#isAdaptionFinalized <em>Adaption Finalized</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getElementCounter <em>Element Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getPropertyCounter <em>Property Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getRelationCounter <em>Relation Counter</em>}</li>
@@ -111,48 +109,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	protected Database database;
 
 	/**
-	 * The default value of the '{@link #isAdaptionStarted() <em>Adaption Started</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isAdaptionStarted()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean ADAPTION_STARTED_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isAdaptionStarted() <em>Adaption Started</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * True if the XML adaption of <code>this</code> has been initiated by calling <code>createXMLAdaption</code>.
-	 * <!-- end-user-doc -->
-	 * @see #isAdaptionStarted()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean adaptionStarted = ADAPTION_STARTED_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isAdaptionFinalized() <em>Adaption Finalized</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isAdaptionFinalized()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean ADAPTION_FINALIZED_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isAdaptionFinalized() <em>Adaption Finalized</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * True if the XML adaption of <code>this</code> has been finalized by calling <code>finalizeXMLAdaption</code>.
-	 * <!-- end-user-doc -->
-	 * @see #isAdaptionFinalized()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean adaptionFinalized = ADAPTION_FINALIZED_EDEFAULT;
-
-/**
 	 * The default value of the '{@link #getElementCounter() <em>Element Counter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -349,9 +305,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		// If adaptationFinalized is true, Pattern can only be SEMI_ABSTRACT if it is ABSTRACT.
-		if ( adaptionStarted && adaptionFinalized && abstractionLevel == AbstractionLevel.SEMI_ABSTRACT )
-			super.isValid(AbstractionLevel.ABSTRACT);
-		else super.isValid(abstractionLevel);
+		super.isValid(abstractionLevel);
 		parameterList.isValid(abstractionLevel);
 		if(abstractionLevel == AbstractionLevel.CONCRETE && getText().size() > 1) {
 			throw new InvalidityException("concrete pattern has too many fragments");
@@ -365,10 +319,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		super.isValidLocal(abstractionLevel);
 		if (parameterList == null)
 			throw new InvalidityException("variableList null" + " (" + getInternalId() + ")");
-		if ( adaptionStarted && !adaptionFinalized && abstractionLevel != AbstractionLevel.SEMI_ABSTRACT )
-			throw new InvalidityException("adaptation in progress (" + getInternalId() + ")");
-		if ( adaptionStarted && adaptionFinalized && abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE )
-			throw new InvalidityException("adaptation already finalized" + " (" + getInternalId() + ")");
 	}
 
 	@Override
@@ -655,60 +605,11 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	}
 
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isAdaptionStarted() {
-		return adaptionStarted;
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setAdaptionStarted(boolean newAdaptionStarted) {
-		boolean oldAdaptionStarted = adaptionStarted;
-		adaptionStarted = newAdaptionStarted;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_STARTED, oldAdaptionStarted, adaptionStarted));
-	}
-
 	@Override
 	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		isValid(AbstractionLevel.GENERIC);
-		setAdaptionStarted(true);
 		return super.createXMLAdaption();
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean isAdaptionFinalized() {
-		return adaptionFinalized;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setAdaptionFinalized(boolean newAdaptionFinalized) {
-		boolean oldAdaptionFinalized = adaptionFinalized;
-		adaptionFinalized = newAdaptionFinalized;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_FINALIZED, oldAdaptionFinalized, adaptionFinalized));
-	}
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -977,10 +878,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				if (resolve) return getDatabase();
 				return basicGetDatabase();
-			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_STARTED:
-				return isAdaptionStarted();
-			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_FINALIZED:
-				return isAdaptionFinalized();
 			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
 				return getElementCounter();
 			case PatternstructurePackage.COMPLETE_PATTERN__PROPERTY_COUNTER:
@@ -1019,12 +916,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				setDatabase((Database)newValue);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_STARTED:
-				setAdaptionStarted((Boolean)newValue);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_FINALIZED:
-				setAdaptionFinalized((Boolean)newValue);
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
 				setElementCounter((Integer)newValue);
@@ -1074,12 +965,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				setDatabase((Database)null);
 				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_STARTED:
-				setAdaptionStarted(ADAPTION_STARTED_EDEFAULT);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_FINALIZED:
-				setAdaptionFinalized(ADAPTION_FINALIZED_EDEFAULT);
-				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
 				setElementCounter(ELEMENT_COUNTER_EDEFAULT);
 				return;
@@ -1124,10 +1009,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				return database != null;
-			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_STARTED:
-				return adaptionStarted != ADAPTION_STARTED_EDEFAULT;
-			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_FINALIZED:
-				return adaptionFinalized != ADAPTION_FINALIZED_EDEFAULT;
 			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
 				return ELEMENT_COUNTER_EDEFAULT == null ? elementCounter != null : !ELEMENT_COUNTER_EDEFAULT.equals(elementCounter);
 			case PatternstructurePackage.COMPLETE_PATTERN__PROPERTY_COUNTER:
@@ -1194,10 +1075,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", adaptionStarted: ");
-		result.append(adaptionStarted);
-		result.append(", adaptionFinalized: ");
-		result.append(adaptionFinalized);
 		result.append(", elementCounter: ");
 		result.append(elementCounter);
 		result.append(", propertyCounter: ");

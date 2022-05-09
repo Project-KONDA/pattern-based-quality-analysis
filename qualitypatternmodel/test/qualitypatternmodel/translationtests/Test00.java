@@ -58,15 +58,14 @@ public class Test00 {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getBasePatternFinal());
-		completePatterns.add(getBasePatternCondConcrete("USA"));
-		completePatterns.add(getBasePatternMatchConcrete("^New"));
+//		completePatterns.add(getBasePatternCondConcrete("USA"));
+//		completePatterns.add(getBasePatternMatchConcrete("^New"));
 		Test00.test(completePatterns);
 	}
 
 	public static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		completePattern.createXMLAdaption();
-		completePattern.finalizeXMLAdaption();
 		return completePattern;
 	}
 
@@ -90,7 +89,6 @@ public class Test00 {
 		Node se = completePattern.getGraph().getReturnNodes().get(0);
 		se.addPrimitiveComparison(comp);
 		completePattern.createXMLAdaption();
-		completePattern.finalizeXMLAdaption();
 		return completePattern;
 	}
 	
@@ -106,7 +104,6 @@ public class Test00 {
 		Node se = completePattern.getGraph().getReturnNodes().get(0);
 		se.addPrimitiveMatch(regex);
 		completePattern.createXMLAdaption();
-		completePattern.finalizeXMLAdaption();
 		return completePattern;
 	}
 	

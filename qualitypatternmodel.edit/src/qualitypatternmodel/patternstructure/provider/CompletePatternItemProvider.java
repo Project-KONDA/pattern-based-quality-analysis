@@ -99,50 +99,6 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Adaption Started feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAdaptionStartedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CompletePattern_adaptionStarted_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_adaptionStarted_feature", "_UI_CompletePattern_type"),
-				 PatternstructurePackage.Literals.COMPLETE_PATTERN__ADAPTION_STARTED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Adaption Finalized feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAdaptionFinalizedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CompletePattern_adaptionFinalized_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_adaptionFinalized_feature", "_UI_CompletePattern_type"),
-				 PatternstructurePackage.Literals.COMPLETE_PATTERN__ADAPTION_FINALIZED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Element Counter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -390,8 +346,6 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 
 		switch (notification.getFeatureID(CompletePattern.class)) {
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
-			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_STARTED:
-			case PatternstructurePackage.COMPLETE_PATTERN__ADAPTION_FINALIZED:
 			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
 			case PatternstructurePackage.COMPLETE_PATTERN__PROPERTY_COUNTER:
 			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
