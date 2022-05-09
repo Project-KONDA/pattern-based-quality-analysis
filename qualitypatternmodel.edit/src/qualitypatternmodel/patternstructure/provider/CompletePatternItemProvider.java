@@ -121,28 +121,6 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Property Counter feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPropertyCounterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CompletePattern_propertyCounter_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompletePattern_propertyCounter_feature", "_UI_CompletePattern_type"),
-				 PatternstructurePackage.Literals.COMPLETE_PATTERN__PROPERTY_COUNTER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Relation Counter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -347,7 +325,6 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 		switch (notification.getFeatureID(CompletePattern.class)) {
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
 			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
-			case PatternstructurePackage.COMPLETE_PATTERN__PROPERTY_COUNTER:
 			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
 			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:

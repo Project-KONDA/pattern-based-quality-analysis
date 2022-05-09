@@ -25,7 +25,6 @@ import qualitypatternmodel.textrepresentation.PatternText;
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getDatabase <em>Database</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getElementCounter <em>Element Counter</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getPropertyCounter <em>Property Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getRelationCounter <em>Relation Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getParameterCounter <em>Parameter Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getOperatorCounter <em>Operator Counter</em>}</li>
@@ -133,29 +132,6 @@ public interface CompletePattern extends Pattern {
 	 * @generated
 	 */
 	void setElementCounter(Integer value);
-
-	/**
-	 * Returns the value of the '<em><b>Property Counter</b></em>' attribute.
-	 * The default value is <code>"1"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property Counter</em>' attribute.
-	 * @see #setPropertyCounter(Integer)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getCompletePattern_PropertyCounter()
-	 * @model default="1" required="true"
-	 * @generated
-	 */
-	Integer getPropertyCounter();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.CompletePattern#getPropertyCounter <em>Property Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Property Counter</em>' attribute.
-	 * @see #getPropertyCounter()
-	 * @generated
-	 */
-	void setPropertyCounter(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Relation Counter</b></em>' attribute.

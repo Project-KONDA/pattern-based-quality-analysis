@@ -22,7 +22,6 @@ import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
-import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.operators.impl.OperatorImpl;
 import qualitypatternmodel.parameters.Parameter;
@@ -49,7 +48,6 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDatabase <em>Database</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getElementCounter <em>Element Counter</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getPropertyCounter <em>Property Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getRelationCounter <em>Relation Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getParameterCounter <em>Parameter Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getOperatorCounter <em>Operator Counter</em>}</li>
@@ -130,27 +128,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	protected Integer elementCounter = ELEMENT_COUNTER_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getPropertyCounter() <em>Property Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPropertyCounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Integer PROPERTY_COUNTER_EDEFAULT = new Integer(1);
-
-/**
-	 * The cached value of the '{@link #getPropertyCounter() <em>Property Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Properties</code>.
-	 * <!-- end-user-doc -->
-	 * @see #getPropertyCounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected Integer propertyCounter = PROPERTY_COUNTER_EDEFAULT;
-
-/**
 	 * The default value of the '{@link #getRelationCounter() <em>Relation Counter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -339,8 +316,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		getElementCounter();
 		if (NodeImpl.class.isAssignableFrom(type)) 
 			return elementCounter++;
-		if (PrimitiveNodeImpl.class.isAssignableFrom(type))
-			return propertyCounter++;
 		if (RelationImpl.class.isAssignableFrom(type))
 			return relationCounter++;
 		if (ParameterImpl.class.isAssignableFrom(type))
@@ -642,31 +617,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 */
 	@Override
-	public Integer getPropertyCounter() {
-		return propertyCounter;
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setPropertyCounter(Integer newPropertyCounter) {
-		Integer oldPropertyCounter = propertyCounter;
-		propertyCounter = newPropertyCounter;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.COMPLETE_PATTERN__PROPERTY_COUNTER, oldPropertyCounter, propertyCounter));
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Integer getRelationCounter() {
 		return relationCounter;
 	}
@@ -880,8 +830,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return basicGetDatabase();
 			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
 				return getElementCounter();
-			case PatternstructurePackage.COMPLETE_PATTERN__PROPERTY_COUNTER:
-				return getPropertyCounter();
 			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
 				return getRelationCounter();
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
@@ -919,9 +867,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
 				setElementCounter((Integer)newValue);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__PROPERTY_COUNTER:
-				setPropertyCounter((Integer)newValue);
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
 				setRelationCounter((Integer)newValue);
@@ -968,9 +913,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
 				setElementCounter(ELEMENT_COUNTER_EDEFAULT);
 				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__PROPERTY_COUNTER:
-				setPropertyCounter(PROPERTY_COUNTER_EDEFAULT);
-				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
 				setRelationCounter(RELATION_COUNTER_EDEFAULT);
 				return;
@@ -1011,8 +953,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return database != null;
 			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
 				return ELEMENT_COUNTER_EDEFAULT == null ? elementCounter != null : !ELEMENT_COUNTER_EDEFAULT.equals(elementCounter);
-			case PatternstructurePackage.COMPLETE_PATTERN__PROPERTY_COUNTER:
-				return PROPERTY_COUNTER_EDEFAULT == null ? propertyCounter != null : !PROPERTY_COUNTER_EDEFAULT.equals(propertyCounter);
 			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
 				return RELATION_COUNTER_EDEFAULT == null ? relationCounter != null : !RELATION_COUNTER_EDEFAULT.equals(relationCounter);
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
@@ -1077,8 +1017,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		result.append(name);
 		result.append(", elementCounter: ");
 		result.append(elementCounter);
-		result.append(", propertyCounter: ");
-		result.append(propertyCounter);
 		result.append(", relationCounter: ");
 		result.append(relationCounter);
 		result.append(", parameterCounter: ");

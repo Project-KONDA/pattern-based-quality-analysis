@@ -533,9 +533,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementCounter" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
           defaultValueLiteral="1"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyCounter" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
-          defaultValueLiteral="1"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="relationCounter" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
           defaultValueLiteral="1"/>

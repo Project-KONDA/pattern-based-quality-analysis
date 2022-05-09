@@ -743,7 +743,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCompletePattern_PropertyCounter() {
+	public EAttribute getCompletePattern_RelationCounter() {
 		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -753,7 +753,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCompletePattern_RelationCounter() {
+	public EAttribute getCompletePattern_ParameterCounter() {
 		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -763,7 +763,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCompletePattern_ParameterCounter() {
+	public EAttribute getCompletePattern_OperatorCounter() {
 		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -773,7 +773,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCompletePattern_OperatorCounter() {
+	public EAttribute getCompletePattern_Counter() {
 		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -783,18 +783,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCompletePattern_Counter() {
-		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getCompletePattern_Text() {
-		return (EReference)completePatternEClass.getEStructuralFeatures().get(9);
+		return (EReference)completePatternEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -804,7 +794,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EAttribute getCompletePattern_Description() {
-		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(10);
+		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -814,7 +804,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 */
 	@Override
 	public EAttribute getCompletePattern_AbstractName() {
-		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(11);
+		return (EAttribute)completePatternEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1476,7 +1466,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__NAME);
 		createEReference(completePatternEClass, COMPLETE_PATTERN__DATABASE);
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__ELEMENT_COUNTER);
-		createEAttribute(completePatternEClass, COMPLETE_PATTERN__PROPERTY_COUNTER);
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__RELATION_COUNTER);
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__PARAMETER_COUNTER);
 		createEAttribute(completePatternEClass, COMPLETE_PATTERN__OPERATOR_COUNTER);
@@ -1681,7 +1670,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEAttribute(getCompletePattern_Name(), ecorePackage.getEString(), "name", null, 0, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCompletePattern_Database(), theExecutionPackage.getDatabase(), theExecutionPackage.getDatabase_Patterns(), "database", null, 0, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompletePattern_ElementCounter(), ecorePackage.getEIntegerObject(), "elementCounter", "1", 1, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCompletePattern_PropertyCounter(), ecorePackage.getEIntegerObject(), "propertyCounter", "1", 1, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompletePattern_RelationCounter(), ecorePackage.getEIntegerObject(), "relationCounter", "1", 1, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompletePattern_ParameterCounter(), ecorePackage.getEIntegerObject(), "parameterCounter", "1", 1, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCompletePattern_OperatorCounter(), ecorePackage.getEIntegerObject(), "operatorCounter", "1", 1, 1, CompletePattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
