@@ -123,6 +123,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 			if(r.isTranslated()) {
 				if(r instanceof XmlNavigation) {
 					XmlNavigation nav = (XmlNavigation) r;
+					// TODO: maybe cast
 					xPredicates += "[. = " + nav.getXQueryRepresentation() + "]";
 				}
 			}

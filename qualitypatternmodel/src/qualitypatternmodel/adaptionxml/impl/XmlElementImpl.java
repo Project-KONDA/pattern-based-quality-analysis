@@ -176,12 +176,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 			if(r.isTranslated()) {
 				if(r instanceof XmlNavigation) {
 					XmlNavigation nav = (XmlNavigation) r;
-					// TODO: check for cycles with only deep-equals (also in isValid())
-					if(xQueryDeepEqual) {
-						xPredicates += "[deep-equal(.," + nav.getXQueryRepresentation() + ")]";
-					} else {
-						xPredicates += "[. is " + nav.getXQueryRepresentation() + "]";
-					}
+					xPredicates += "[. is " + nav.getXQueryRepresentation() + "]";
 				}
 			}
 		}
