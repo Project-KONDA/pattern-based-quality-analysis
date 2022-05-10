@@ -9,8 +9,6 @@ import static qualitypatternmodel.utility.Constants.SATISFIES;
 import static qualitypatternmodel.utility.Constants.SOME;
 import static qualitypatternmodel.utility.Constants.VARIABLE;
 
-import java.lang.reflect.InvocationTargetException;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -312,10 +310,12 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public PathParam getPathParam() {
+		if (getIncomingMapping() != null)
+			return ((XmlNavigation) getOriginalRelation()).getPathParam();
 		if (pathParam != null && pathParam.eIsProxy()) {
 			InternalEObject oldPathParam = (InternalEObject)pathParam;
 			pathParam = (PathParam)eResolveProxy(oldPathParam);
@@ -323,7 +323,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM, oldPathParam, pathParam));
 			}
-		}
+		} 
 		return pathParam;
 	}
 
@@ -422,20 +422,6 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		variableCounter = newVariableCounter;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_NAVIGATION__VARIABLE_COUNTER, oldVariableCounter, variableCounter));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public PathParam getOriginalPathParam() {
-		if (getIncomingMapping() == null) {
-			return getPathParam();
-		} else {
-			return ((XmlNavigation) getOriginalRelation()).getOriginalPathParam();		
-		}
 	}
 
 	/**
@@ -545,20 +531,6 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 				return variableCounter != VARIABLE_COUNTER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case AdaptionxmlPackage.XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM:
-				return getOriginalPathParam();
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

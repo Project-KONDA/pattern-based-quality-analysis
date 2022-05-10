@@ -1145,22 +1145,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___ADAPT_AS_XML_PROPERTY_NAVIGATION = GraphstructurePackage.RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION;
 
 	/**
-	 * The operation id for the '<em>Get Original Path Param</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Xml Navigation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 1;
+	int XML_NAVIGATION_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl <em>Xml Element Navigation</em>}' class.
@@ -1558,15 +1549,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ELEMENT_NAVIGATION___ADAPT_AS_XML_PROPERTY_NAVIGATION = XML_NAVIGATION___ADAPT_AS_XML_PROPERTY_NAVIGATION;
-
-	/**
-	 * The operation id for the '<em>Get Original Path Param</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT_NAVIGATION___GET_ORIGINAL_PATH_PARAM = XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM;
 
 	/**
 	 * The number of operations of the '<em>Xml Element Navigation</em>' class.
@@ -3724,15 +3706,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_NAVIGATION___ADAPT_AS_XML_PROPERTY_NAVIGATION = XML_NAVIGATION___ADAPT_AS_XML_PROPERTY_NAVIGATION;
 
 	/**
-	 * The operation id for the '<em>Get Original Path Param</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY_NAVIGATION___GET_ORIGINAL_PATH_PARAM = XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM;
-
-	/**
 	 * The number of operations of the '<em>Xml Property Navigation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5786,16 +5759,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	EAttribute getXmlNavigation_VariableCounter();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getOriginalPathParam() <em>Get Original Path Param</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Original Path Param</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.XmlNavigation#getOriginalPathParam()
-	 * @generated
-	 */
-	EOperation getXmlNavigation__GetOriginalPathParam();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlNode <em>Xml Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6268,14 +6231,6 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute XML_NAVIGATION__VARIABLE_COUNTER = eINSTANCE.getXmlNavigation_VariableCounter();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Original Path Param</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation XML_NAVIGATION___GET_ORIGINAL_PATH_PARAM = eINSTANCE.getXmlNavigation__GetOriginalPathParam();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.XmlNode <em>Xml Node</em>}' class.

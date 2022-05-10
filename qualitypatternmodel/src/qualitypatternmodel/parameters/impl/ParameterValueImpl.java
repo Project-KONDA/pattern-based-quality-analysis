@@ -818,12 +818,12 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 						PathParam pathParam = null;					
 						if(r instanceof XmlElementNavigation) {
 							XmlElementNavigation nav = (XmlElementNavigation) r;
-							pathParam = nav.getOriginalPathParam();
+							pathParam = nav.getPathParam();
 							if(pathParam.getAxisPairs().isEmpty()) {
 								for (Relation previousRelation : nav.getSource().getIncoming()) {
 									if(previousRelation instanceof XmlElementNavigation) {
 										XmlElementNavigation previousNav = (XmlElementNavigation) previousRelation;
-										PathParam previousPathParam = previousNav.getOriginalPathParam();
+										PathParam previousPathParam = previousNav.getPathParam();
 										TextLiteralParam text = previousPathParam.getAxisPairs().get(previousPathParam.getAxisPairs().size()-1).getTextLiteralParam();
 										if(text != null) {
 											EList<String> newSuggestions = text.inferElementTagSuggestions();

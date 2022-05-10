@@ -94,14 +94,6 @@ public interface XmlNavigation extends Relation {
 	 */
 	void setVariableCounter(int value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	PathParam getOriginalPathParam();
-
 	String generateQuery() throws InvalidityException;
 
 } // XmlNavigation
