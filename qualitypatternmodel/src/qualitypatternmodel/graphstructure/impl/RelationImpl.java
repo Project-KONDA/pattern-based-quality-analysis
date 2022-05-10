@@ -1326,7 +1326,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	@Override
 	public String myToString() {
-		String res = this.getClass().getSimpleName();
+		String res = this.getClass().getSimpleName() + " " + getName();
 		res += " [" + getInternalId() + "]";
 		if (getSource() != null) res += " from " + getSource().getInternalId();
 		if (getTarget() != null) res += " to " + getTarget().getInternalId();
