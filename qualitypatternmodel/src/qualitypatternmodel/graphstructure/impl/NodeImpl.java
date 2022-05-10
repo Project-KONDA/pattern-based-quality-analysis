@@ -14,10 +14,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-
+import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -829,7 +831,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public void checkPrimitive() throws InvalidityException {
 		if (this instanceof ComplexNode)
-			throw new InvalidityException("ComplexNode can not be turned into PrimitiveNode");
+			throw new InvalidityException("ComplexNode can not be turned into PrimitiveNode ("+ getInternalId() + ")");
 		for(ElementMapping mapping : getOutgoingMappings()) {
 			mapping.getTarget().checkPrimitive();
 		}					
@@ -1282,7 +1284,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			}
 
 			for(Relation relation : incomingCopy) {
-				relation.adaptAsXMLPropertyNavigation();
+				if (relation instanceof XmlNavigation || relation.getClass().equals(Relation.class)) {
+					XmlPropertyNavigation newrelation = relation.adaptAsXMLPropertyNavigation();
+					PropertyOptionParam property = newrelation.getPathParam().getPropertyOptionParam();
+					if (property == null)					
+						throw new InvalidityException("Target Node of " + getClass() + " [" + getInternalId() + "] cannot be adapted to XmlPropertyNavigation");
+					property.setValue(PropertyKind.TAG);					
+				}
 			}
 			
 			return xmlProperty;

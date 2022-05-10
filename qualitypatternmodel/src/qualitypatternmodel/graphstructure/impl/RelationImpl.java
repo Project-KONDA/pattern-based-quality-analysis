@@ -669,7 +669,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			}
 			
 			navigation.setSource(getSource());
-			navigation.setTarget(getTarget().adaptAsXmlProperty());
+			navigation.setTarget(getTarget());
 		
 			navigation.getOutgoingMappings().addAll(getOutgoingMappings());
 			
@@ -684,6 +684,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			for (RelationMapping mapping : navigation.getOutgoingMappings()) {
 				((RelationImpl) mapping.getTarget()).adaptAsXMLPropertyNavigationRecursive();
 			}
+			
+			navigation.getTarget().adaptAsXmlProperty();
 			
 			return navigation;
 		}
@@ -896,7 +898,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			}
 			
 			navigation.setSource(getSource());
-			navigation.setTarget(getTarget().adaptAsXmlElement());
+			navigation.setTarget(getTarget());
 		
 			navigation.getOutgoingMappings().addAll(getOutgoingMappings());
 			
@@ -911,6 +913,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			for (RelationMapping mapping : navigation.getOutgoingMappings()) {
 				((RelationImpl) mapping.getTarget()).adaptAsXMLNavigationRecursive();
 			}
+			
+			navigation.getTarget().adaptAsXmlElement();
 			
 			return navigation;
 		}
@@ -980,26 +984,23 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			}
 			
 			reference.setSource(getSource());
-			reference.setTarget(getTarget().adaptAsXmlElement());			
+			reference.setTarget(getTarget());			
 			
 			if(getIncomingMapping() == null) {
+				System.out.println("hier");
 				XmlProperty property = new XmlPropertyImpl();
 							
 				Graph graph = getGraph();
 				
 				graph.getNodes().add(property);
-				graph.addRelation(getSource(), property).adaptAsXMLPropertyNavigation();
 				graph.addRelation(getTarget(), property).adaptAsXMLPropertyNavigation();
+				graph.addRelation(getSource(), property).adaptAsXMLPropertyNavigation();
 				property.createParameters();
 				
 				reference.setProperty(property);			
 			}
 			
 			reference.getOutgoingMappings().addAll(getOutgoingMappings());
-			
-			for(RelationMapping mapping : reference.getOutgoingMappings()) {
-				((RelationImpl) mapping.getTarget()).adaptAsXMLReferenceRecursive();
-			}
 			
 			reference.setIncomingMapping(getIncomingMapping());			
 			
@@ -1009,7 +1010,14 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			setIncomingMapping(null);
 			setGraph(null);
 			
+			for(RelationMapping mapping : reference.getOutgoingMappings()) {
+				((RelationImpl) mapping.getTarget()).adaptAsXMLReferenceRecursive();
+			}
+			
+			reference.getTarget().adaptAsXmlElement();
+			
 			return reference;
+			
 		}
 		for(RelationMapping mapping : getOutgoingMappings()) {
 			((RelationImpl) mapping.getTarget()).adaptAsXMLReferenceRecursive();
