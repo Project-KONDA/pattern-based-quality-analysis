@@ -687,6 +687,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			
 			return navigation;
 		}
+		for (RelationMapping mapping : getOutgoingMappings()) {
+			((RelationImpl) mapping.getTarget()).adaptAsXMLPropertyNavigationRecursive();
+		}
 		return (XmlPropertyNavigation) this;
 	}
 
@@ -912,6 +915,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			
 			return navigation;
 		}
+		for (RelationMapping mapping : getOutgoingMappings()) {
+			((RelationImpl) mapping.getTarget()).adaptAsXMLNavigationRecursive();
+		}
 		return (XmlElementNavigation) this;
 	}
 
@@ -1005,6 +1011,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			setGraph(null);
 			
 			return reference;
+		}
+		for(RelationMapping mapping : getOutgoingMappings()) {
+			((RelationImpl) mapping.getTarget()).adaptAsXMLReferenceRecursive();
 		}
 		return (XmlReference) this;
 	}

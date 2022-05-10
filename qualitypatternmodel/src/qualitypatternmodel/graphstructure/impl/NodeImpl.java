@@ -1157,6 +1157,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			return xmlElement;			
 		} else {
+			for (ElementMapping map: getOutgoingMappings()) {
+				((NodeImpl) map.getTarget()).adaptAsXmlElementRecursive();
+			}
 			return (XmlElement) this;
 		}
 	}
@@ -1278,6 +1281,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			return xmlProperty;
 		} else {
+			for (ElementMapping map: getOutgoingMappings()) {
+				((NodeImpl) map.getTarget()).adaptAsXmlPropertyRecursive();
+			}
 			return (XmlProperty) this;
 		}
 	}
