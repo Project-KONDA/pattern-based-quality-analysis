@@ -1947,7 +1947,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	
 			oplist.add(comparison);	
 			comparison.createParameters();
-			comparison.setArgument1(makePrimitive());
+			PrimitiveNode p = null;
+			if(this instanceof PrimitiveNode) {
+				p = (PrimitiveNode) this;
+			} else {
+				p = makePrimitive();
+			}
+			comparison.setArgument1(p);
 			comparison.setArgument2(untypedParameterValue);						
 			
 			return untypedParameterValue;
@@ -1979,7 +1985,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	
 			oplist.add(comparison);	
 			comparison.createParameters();
-			comparison.setArgument1(makePrimitive());
+			PrimitiveNode p = null;
+			if(this instanceof PrimitiveNode) {
+				p = (PrimitiveNode) this;
+			} else {
+				p = makePrimitive();
+			}
+			comparison.setArgument1(p);
 			comparison.setArgument2(textlit);
 						
 		} catch (Exception e) {
@@ -2016,7 +2028,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			oplist.add(comparison);	
 			comparison.createParameters();
 			comparison.getOption().setValue(operator);
-			comparison.setArgument1(makePrimitive());
+			PrimitiveNode p = null;
+			if(this instanceof PrimitiveNode) {
+				p = (PrimitiveNode) this;
+			} else {
+				p = makePrimitive();
+			}
+			comparison.setArgument1(p);
 			comparison.setArgument2(parameter);				
 		} catch (Exception e) {
 			System.out.println("Adding Condition Failed: " + e.getMessage());
@@ -2047,7 +2065,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	
 				oplist.add(match);	
 				match.createParameters();
-				match.setPrimitiveNode(makePrimitive());
+				PrimitiveNode p = null;
+				if(this instanceof PrimitiveNode) {
+					p = (PrimitiveNode) this;
+				} else {
+					p = makePrimitive();
+				}
+				match.setPrimitiveNode(p);
 									
 				if(regex != null) {
 					match.getRegularExpression().setValue(regex);
