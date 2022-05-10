@@ -238,7 +238,7 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		}
 		if(parameter instanceof TextLiteralParamImpl) {
 			TextLiteralParamImpl textLiteral = (TextLiteralParamImpl) parameter;
-			if(!textLiteral.getProperties().isEmpty() && textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
+			if(textLiteral.getPropertyOptionParam() != null && textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
 				json += ", \"Dependent\": true";
 			}
 		}

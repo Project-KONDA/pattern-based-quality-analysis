@@ -368,9 +368,9 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 		if (newAttributeName != attributeName) {
 			NotificationChain msgs = null;
 			if (attributeName != null)
-				msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, TextLiteralParam.class, msgs);
+				msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM, TextLiteralParam.class, msgs);
 			if (newAttributeName != null)
-				msgs = ((InternalEObject)newAttributeName).eInverseAdd(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, TextLiteralParam.class, msgs);
+				msgs = ((InternalEObject)newAttributeName).eInverseAdd(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM, TextLiteralParam.class, msgs);
 			msgs = basicSetAttributeName(newAttributeName, msgs);
 			if (msgs != null) msgs.dispatch();
 		}

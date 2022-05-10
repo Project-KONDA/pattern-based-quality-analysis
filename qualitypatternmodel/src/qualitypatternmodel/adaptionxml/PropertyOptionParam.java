@@ -96,14 +96,14 @@ public interface PropertyOptionParam extends Parameter, Adaptable {
 
 	/**
 	 * Returns the value of the '<em><b>Attribute Name</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getProperties <em>Properties</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getPropertyOptionParam <em>Property Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attribute Name</em>' containment reference.
 	 * @see #setAttributeName(TextLiteralParam)
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPropertyOptionParam_AttributeName()
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getProperties
-	 * @model opposite="properties" containment="true"
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getPropertyOptionParam
+	 * @model opposite="propertyOptionParam" containment="true"
 	 * @generated
 	 */
 	TextLiteralParam getAttributeName();

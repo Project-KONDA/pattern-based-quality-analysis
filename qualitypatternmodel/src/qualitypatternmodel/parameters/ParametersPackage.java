@@ -2696,13 +2696,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM__MATCHES = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Properties</b></em>' container reference.
+	 * The feature id for the '<em><b>Property Option Param</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM__PROPERTIES = PARAMETER_VALUE_FEATURE_COUNT + 2;
+	int TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM = PARAMETER_VALUE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Axis Pair</b></em>' container reference.
@@ -6483,15 +6483,15 @@ public interface ParametersPackage extends EPackage {
 	EReference getTextLiteralParam_Matches();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getProperties <em>Properties</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getPropertyOptionParam <em>Property Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Properties</em>'.
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getProperties()
+	 * @return the meta object for the container reference '<em>Property Option Param</em>'.
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getPropertyOptionParam()
 	 * @see #getTextLiteralParam()
 	 * @generated
 	 */
-	EReference getTextLiteralParam_Properties();
+	EReference getTextLiteralParam_PropertyOptionParam();
 
 	/**
 	 * Returns the meta object for the container reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getAxisPair <em>Axis Pair</em>}'.
@@ -7212,12 +7212,12 @@ public interface ParametersPackage extends EPackage {
 		EReference TEXT_LITERAL_PARAM__MATCHES = eINSTANCE.getTextLiteralParam_Matches();
 
 		/**
-		 * The meta object literal for the '<em><b>Properties</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Property Option Param</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TEXT_LITERAL_PARAM__PROPERTIES = eINSTANCE.getTextLiteralParam_Properties();
+		EReference TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM = eINSTANCE.getTextLiteralParam_PropertyOptionParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Axis Pair</b></em>' container reference feature.
