@@ -4,22 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.patternstructure.impl.*;
 import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.graphstructure.impl.*;
-import qualitypatternmodel.operators.*;
-import qualitypatternmodel.operators.impl.*;
 import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.*;
-import qualitypatternmodel.parameters.impl.*;
 
 public class Test07Formula {
 
@@ -77,22 +72,17 @@ public class Test07Formula {
 		XmlReference ref = qc2.getGraph().getRelations().get(0).adaptAsXMLReference();
 		ref.setType(ReturnType.STRING);		
 		
-		completePattern.finalizeXMLAdaption();	
-		
 		return completePattern;
 	}
 	
 	public static CompletePattern getFormulaPatternConcrete(LogicalOperator op) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = getFormulaPattern(op);
 		
-		((XmlElementNavigation) pattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.TWOCHILD);
+		((XmlElementNavigation) pattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, null);
 		QuantifiedCondition q1 = ((QuantifiedCondition)((Formula) pattern.getCondition()).getCondition2());
-		XmlProperty xp = ((XmlProperty) q1.getGraph().getNodes().get(0).getProperties().get(0));
-		xp.getOption().setValue(PropertyKind.ATTRIBUTE);
-		xp.getAttributeName().setValue("demo:id");;
-		
-		((XmlElementNavigation) q1.getGraph().getRelations().get(2)).getPathParam().setValue(AxisKind.THREECHILD);
-		
+		PropertyOptionParam property = ((XmlPropertyNavigation) q1.getGraph().getRelations().get(3)).getPathParam().getPropertyOptionParam();
+		property.setValue(PropertyKind.ATTRIBUTE);
+		property.getAttributeName().setValue("demo:id");		
 		
 		return pattern;		
 	}
