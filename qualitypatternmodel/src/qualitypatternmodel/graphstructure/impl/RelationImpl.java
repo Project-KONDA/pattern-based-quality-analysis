@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
@@ -624,7 +625,27 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 */
 	@Override
 	public XmlPropertyNavigation adaptAsXMLPropertyNavigation() throws InvalidityException {
-		return ((RelationImpl) getOriginalRelation()).adaptAsXMLPropertyNavigationRecursive();
+		Graph graph = getGraph();
+		XmlPropertyNavigation navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsXMLPropertyNavigationRecursive();
+		
+		for(Relation r: graph.getRelations()) {
+			if(r instanceof XmlPropertyNavigation) {
+				XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
+				Relation next = r;
+				while(next != null) {
+					if(!next.equals(navOriginal)) {
+						if(next.getIncomingMapping() == null) {
+							next = null;
+						} else {
+							next = next.getIncomingMapping().getSource();
+						}
+					} else {
+						return nav;
+					}
+				}
+			}
+		}
+		throw new InvalidityException("correspondent relation not found");
 	}
 	
 	public XmlPropertyNavigation adaptAsXMLPropertyNavigationRecursive() throws InvalidityException {
@@ -646,7 +667,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			}
 			
 			navigation.setSource(getSource());
-			navigation.setTarget(getTarget().adaptAsXmlProperty());
+			navigation.setTarget(getTarget().adaptAsXmlProperty()); // hier
 		
 			navigation.getOutgoingMappings().addAll(getOutgoingMappings());
 			
@@ -828,7 +849,28 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 */
 	@Override
 	public XmlElementNavigation adaptAsXMLElementNavigation() throws InvalidityException {
-		return ((RelationImpl) getOriginalRelation()).adaptAsXMLNavigationRecursive();
+		Graph graph = getGraph();
+		XmlElementNavigation navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsXMLNavigationRecursive();
+		
+		for(Relation r: graph.getRelations()) {
+			if(r instanceof XmlElementNavigation) {
+				XmlElementNavigation nav = (XmlElementNavigation) r;
+				Relation next = r;
+				while(next != null) {
+					if(!next.equals(navOriginal)) {
+						if(next.getIncomingMapping() == null) {
+							next = null;
+						} else {
+							next = next.getIncomingMapping().getSource();
+						}
+					} else {
+						System.out.println("relation correspondent found");
+						return nav;
+					}
+				}
+			}
+		}
+		throw new InvalidityException("correspondent relation not found");
 	}
 	
 	public XmlElementNavigation adaptAsXMLNavigationRecursive() throws InvalidityException {
@@ -850,7 +892,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			}
 			
 			navigation.setSource(getSource());
-			navigation.setTarget(getTarget());
+			navigation.setTarget(getTarget().adaptAsXmlElement());
 		
 			navigation.getOutgoingMappings().addAll(getOutgoingMappings());
 			
@@ -866,8 +908,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				((RelationImpl) mapping.getTarget()).adaptAsXMLNavigationRecursive();
 			}
 			
-			navigation.getTarget().adaptAsXmlElement();
-			
 			return navigation;
 		}
 		return (XmlElementNavigation) this;
@@ -881,7 +921,28 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 */
 	@Override
 	public XmlReference adaptAsXMLReference() throws InvalidityException {
-		return ((RelationImpl) getOriginalRelation()).adaptAsXMLReferenceRecursive();
+		Graph graph = getGraph();
+		XmlReference referenceOriginal = ((RelationImpl) getOriginalRelation()).adaptAsXMLReferenceRecursive();
+		
+		for(Relation r: graph.getRelations()) {
+			if(r instanceof XmlReference) {
+				XmlReference reference = (XmlReference) r;
+				Relation next = r;
+				while(next != null) {
+					if(!next.equals(referenceOriginal)) {
+						if(next.getIncomingMapping() == null) {
+							next = null;
+						} else {
+							next = next.getIncomingMapping().getSource();
+						}
+					} else {
+						return reference;
+					}
+				}
+			}
+		}
+		throw new InvalidityException("correspondent relation not found");
+		
 	}
 	
 	public XmlReference adaptAsXMLReferenceRecursive() throws InvalidityException {
@@ -906,8 +967,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				Graph graph = getGraph();
 				
 				graph.getNodes().add(property);
-				graph.addRelation(getSource(), property).adaptAsXMLPropertyNavigation();
+				Relation relation1 = graph.addRelation(getSource(), property);
+				System.out.println(relation1.getTarget().equals(property));
+				XmlPropertyNavigation nav1 = relation1.adaptAsXMLPropertyNavigation();
+				System.out.println(nav1.getTarget().equals(property));
 				graph.addRelation(getTarget(), property).adaptAsXMLPropertyNavigation();
+//				graph.addRelation(getTarget(), nav1.getTarget()).adaptAsXMLPropertyNavigation();
 				property.createParameters();
 				
 				reference.setProperty(property);			
