@@ -869,7 +869,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 							next = next.getIncomingMapping().getSource();
 						}
 					} else {
-						System.out.println("relation correspondent found");
 						return nav;
 					}
 				}
