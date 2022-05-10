@@ -102,12 +102,22 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 			}
 		}
 		
+		predicatesAreBeingTranslated = false;
+		return xPredicates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String translateMultipleIncoming() {
+		String xPredicates = "";
 		for(String v : getVariables()) {
 			// TODO: maybe cast
 			xPredicates += "[. = " + v + "]";				
 		}
-
-		predicatesAreBeingTranslated = false;
 		return xPredicates;
 	}
 
@@ -417,6 +427,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 			switch (baseOperationID) {
 				case AdaptionxmlPackage.XML_NODE___TRANSLATE_PREDICATES: return AdaptionxmlPackage.XML_PROPERTY___TRANSLATE_PREDICATES;
 				case AdaptionxmlPackage.XML_NODE___GET_XQUERY_REPRESENTATION: return AdaptionxmlPackage.XML_PROPERTY___GET_XQUERY_REPRESENTATION;
+				case AdaptionxmlPackage.XML_NODE___TRANSLATE_MULTIPLE_INCOMING: return AdaptionxmlPackage.XML_PROPERTY___TRANSLATE_MULTIPLE_INCOMING;
 				default: return -1;
 			}
 		}
@@ -445,6 +456,8 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case AdaptionxmlPackage.XML_PROPERTY___TRANSLATE_MULTIPLE_INCOMING:
+				return translateMultipleIncoming();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

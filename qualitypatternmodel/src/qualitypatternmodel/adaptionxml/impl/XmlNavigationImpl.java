@@ -152,7 +152,11 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		String query = "";
 		if (getGraph().isReturnGraph()) {
 			query += FOR + variable + IN; 			
-			if (getTarget().getIncomingMapping() == null) {
+			if (getIncomingMapping() == null) {		
+				if(getTarget() instanceof XmlNode) {
+					XmlNode node = (XmlNode) getTarget();
+					xPredicates += node.translateMultipleIncoming();
+				}
 				query += xPathExpression + xPredicates;
 			} else if (!xPredicates.equals("")) {
 				query += variable + xPredicates;
@@ -175,7 +179,11 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 				throw new InvalidityException("invalid location");
 			}
 			query += variable + IN;
-			if (getTarget().getIncomingMapping() == null) {
+			if (getIncomingMapping() == null) {
+				if(getTarget() instanceof XmlNode) {
+					XmlNode node = (XmlNode) getTarget();
+					xPredicates += node.translateMultipleIncoming();
+				}
 				query += xPathExpression + xPredicates + SATISFIES;
 			} else if (!xPredicates.equals("")) {
 				query += variable + xPredicates + SATISFIES;

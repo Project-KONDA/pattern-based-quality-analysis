@@ -631,6 +631,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlNode/variables"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNode/translatePredicates"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNode/getXQueryRepresentation"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlNode/translateMultipleIncoming"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Execution" basePackage="qualitypatternmodel" disposableProviderFactory="true"

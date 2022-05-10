@@ -47,7 +47,6 @@ public class TextLiteralParamItemProvider extends ParameterValueItemProvider {
 
 			addValuePropertyDescriptor(object);
 			addMatchesPropertyDescriptor(object);
-			addPropertiesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -88,28 +87,6 @@ public class TextLiteralParamItemProvider extends ParameterValueItemProvider {
 				 getString("_UI_TextLiteralParam_matches_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TextLiteralParam_matches_feature", "_UI_TextLiteralParam_type"),
 				 ParametersPackage.Literals.TEXT_LITERAL_PARAM__MATCHES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Properties feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPropertiesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TextLiteralParam_properties_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TextLiteralParam_properties_feature", "_UI_TextLiteralParam_type"),
-				 ParametersPackage.Literals.TEXT_LITERAL_PARAM__PROPERTIES,
 				 true,
 				 false,
 				 true,

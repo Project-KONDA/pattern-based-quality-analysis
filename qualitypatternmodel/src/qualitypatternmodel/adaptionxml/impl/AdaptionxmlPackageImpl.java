@@ -745,6 +745,16 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EOperation getXmlNode__TranslateMultipleIncoming() {
+		return xmlNodeEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getPropertyKind() {
 		return propertyKindEEnum;
 	}
@@ -849,6 +859,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		createEAttribute(xmlNodeEClass, XML_NODE__VARIABLES);
 		createEOperation(xmlNodeEClass, XML_NODE___TRANSLATE_PREDICATES);
 		createEOperation(xmlNodeEClass, XML_NODE___GET_XQUERY_REPRESENTATION);
+		createEOperation(xmlNodeEClass, XML_NODE___TRANSLATE_MULTIPLE_INCOMING);
 
 		// Create enums
 		propertyKindEEnum = createEEnum(PROPERTY_KIND);
@@ -995,6 +1006,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		op = initEOperation(getXmlNode__GetXQueryRepresentation(), ecorePackage.getEString(), "getXQueryRepresentation", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		initEOperation(getXmlNode__TranslateMultipleIncoming(), ecorePackage.getEString(), "translateMultipleIncoming", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(propertyKindEEnum, PropertyKind.class, "PropertyKind");

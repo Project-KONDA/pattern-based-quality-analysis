@@ -52,4 +52,12 @@ public interface XmlNode extends EObject {
 	 */
 	EList<String> getXQueryRepresentation() throws InvalidityException;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String translateMultipleIncoming();
+
 } // XmlNode
