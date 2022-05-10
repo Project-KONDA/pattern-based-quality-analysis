@@ -214,6 +214,18 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	}
 	
 	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
+		super.isValidLocal(abstractionLevel);
+		if (getIncomingMapping() == null && pathParam == null) { 
+			System.out.println(this + " " + getName());
+			throw new InvalidityException("pathParam missing");
+		}
+		if (getIncomingMapping() != null && pathParam != null) { 
+			throw new InvalidityException("pathParam superflous");
+		}
+	}	
+	
+	@Override
 	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return this;
 	}

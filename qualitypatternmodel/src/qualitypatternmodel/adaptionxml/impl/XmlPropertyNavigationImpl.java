@@ -28,20 +28,6 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 	public XmlPropertyNavigationImpl() {
 		super();
 	}
-
-
-	
-	@Override
-	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		super.isValidLocal(abstractionLevel);
-		if (pathParam == null) 
-			throw new InvalidityException("pathParam invalid");
-		// TODO
-		// if (getIncomingMapping() == null && option == null)
-		//	throw new InvalidityException("axis missing");
-		//if (getIncomingMapping() != null && option != null)
-		//	throw new InvalidityException("axis redundant");
-	}	
 	
 	@Override
 	public XmlPropertyNavigation adaptAsXMLPropertyNavigation() {
