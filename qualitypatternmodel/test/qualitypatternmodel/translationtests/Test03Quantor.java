@@ -5,13 +5,11 @@ import java.util.List;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.adaptionxml.AxisKind;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.operators.*;
-import qualitypatternmodel.parameters.*;
 
 public class Test03Quantor {
 
@@ -20,7 +18,7 @@ public class Test03Quantor {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternExistsWithRelationFinal());
 		completePatterns.add(getPatternExistsFinal());
-//		completePatterns.add(getPatternExistsNavigation());
+		completePatterns.add(getPatternExistsNavigation());
 		completePatterns.add(getPatternExistsCondFinal());
 		completePatterns.add(getPatternForall());
 		completePatterns.add(getPatternForallCond());
@@ -62,7 +60,6 @@ public class Test03Quantor {
 		relation.setTarget(e1g2);		
 		
 		completePattern.createXMLAdaption();
-		relation.adaptAsXMLElementNavigation();
 		
 		return completePattern;
 	}
@@ -130,7 +127,7 @@ public class Test03Quantor {
 		completePattern.createXMLAdaption();
 		
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		XmlElementNavigation nav = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(1);
+		XmlNavigation nav = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
 		nav.getPathParam().setAxis(AxisKind.CHILD,"");
 		
 		return completePattern;
