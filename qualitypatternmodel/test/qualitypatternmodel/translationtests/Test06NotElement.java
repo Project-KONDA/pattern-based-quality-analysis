@@ -4,20 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.patternstructure.impl.*;
 import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.graphstructure.impl.*;
-import qualitypatternmodel.operators.*;
-import qualitypatternmodel.operators.impl.*;
 import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.*;
-import qualitypatternmodel.parameters.impl.*;
 
 public class Test06NotElement {
 
@@ -44,7 +37,6 @@ public class Test06NotElement {
 		n.setCondition(t);
 		
 		completePattern.createXMLAdaption();
-		completePattern.finalizeXMLAdaption();	
 		
 		return completePattern;		
 	}
@@ -62,7 +54,6 @@ public class Test06NotElement {
 		n2.setCondition(t);
 		
 		completePattern.createXMLAdaption();
-		completePattern.finalizeXMLAdaption();	
 		
 		return completePattern;		
 	}
@@ -97,9 +88,8 @@ public class Test06NotElement {
 		
 		completePattern.createXMLAdaption();
 		((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
-		completePattern.finalizeXMLAdaption();	
 		
-		((XmlElementNavigation)(completePattern.getGraph().getRelations().get(0))).getPathParam().setValue(AxisKind.THREECHILD);;
+		((XmlElementNavigation)(completePattern.getGraph().getRelations().get(0))).getPathParam().setAxis(AxisKind.DESCENDANT, null);
 		
 		return completePattern;
 	}
@@ -142,9 +132,8 @@ public class Test06NotElement {
 		QuantifiedCondition q2 = ((QuantifiedCondition) ((NotCondition) q1.getCondition()).getCondition());
 
 		completePattern.createXMLAdaption();
-		completePattern.finalizeXMLAdaption();	
 		
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.TWOCHILD);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, null);
 		((XmlElementNavigation) q1.getGraph().getRelations().get(1)).getPathParam().setAxis(AxisKind.CHILD, "");
 		((XmlElementNavigation) q2.getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.ANCESTOR, "");
 		return completePattern; 
