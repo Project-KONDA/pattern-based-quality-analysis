@@ -672,7 +672,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 */
 	@Override
 	public Relation addRelation(Node from, Node to) {
-		
 		Relation r = new RelationImpl();
 		r.setGraph(this);
 		r.setSource(((ComplexNode) from));

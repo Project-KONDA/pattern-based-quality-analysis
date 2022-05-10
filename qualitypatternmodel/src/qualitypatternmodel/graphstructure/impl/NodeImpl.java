@@ -955,23 +955,26 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		Graph graph = getGraph();
 		ComplexNode complexOriginal = originalNode.makeComplexRecursive();
 		
-		for(Node n: graph.getNodes()) {
-			if(n instanceof ComplexNode) {
-				ComplexNode complex = (ComplexNode) n;
-				Node next = n;
-				while(next != null) {
-					if(!next.equals(complexOriginal)) {
-						if(next.getIncomingMapping() == null) {
-							next = null;
+		if (graph != null) {
+			for(Node n: graph.getNodes()) {
+				if(n instanceof ComplexNode) {
+					ComplexNode complex = (ComplexNode) n;
+					Node next = n;
+					while(next != null) {
+						if(!next.equals(complexOriginal)) {
+							if(next.getIncomingMapping() == null) {
+								next = null;
+							} else {
+								next = next.getIncomingMapping().getSource();
+							}
 						} else {
-							next = next.getIncomingMapping().getSource();
+							return complex;
 						}
-					} else {
-						return complex;
 					}
 				}
 			}
 		}
+		
 		throw new InvalidityException("complex correspondent node not found");
 	}
 
@@ -1328,6 +1331,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public Relation addOutgoing(Node node) throws InvalidityException {
 		Graph myGraph = this.getGraph(); 
+		node.setGraph(myGraph);
 		return myGraph.addRelation(makeComplex(), node);
 	}
 

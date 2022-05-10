@@ -200,7 +200,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 					+ incomingMapping.getId() + " - (" + outgoingMappings + ")");	
 		
 		if(getSource() == null && abstractionLevel != AbstractionLevel.SEMI_GENERIC) {
-			throw new InvalidityException("source null " + getId());
+			throw new InvalidityException(getClass().getSimpleName() + " [" + getInternalId()  +"] source null");
 		} else {
 			if (!getSource().getGraph().equals(getGraph())) 
 				throw new InvalidityException("source Element not in Graph " + getId());

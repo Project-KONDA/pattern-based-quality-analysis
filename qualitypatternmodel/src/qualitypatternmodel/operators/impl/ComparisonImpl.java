@@ -422,7 +422,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -441,8 +442,8 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetArgument1(qualitypatternmodel.graphstructure.Comparable newArgument1,
@@ -451,7 +452,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		argument1 = newArgument1;
 		
 		if(oldArgument1 instanceof Node && newArgument1 == null) {
-			System.out.println("hier");
 			try {
 				((Node) oldArgument1).makeGeneric();
 			} catch (InvalidityException e) {
@@ -459,7 +459,6 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}
 		}
 		if(argument2 instanceof Node && newArgument1 == null) {
-			System.out.println("hier");
 			try {
 				((Node) argument2).makeGeneric();
 			} catch (InvalidityException e) {
@@ -500,9 +499,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		if(newArgument1 instanceof Parameter && varlist != null) {
 			Parameter newParameter = (Parameter) newArgument1;
 			varlist.add(newParameter);				
-		}
-		
-			
+		}			
 
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
