@@ -81,17 +81,6 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	protected EList<Match> matches;
 
 	/**
-	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * A list of <code>XmlProperties</code> whose attribute name is specified through <code>this</code>.
-	 * <!-- end-user-doc -->
-	 * @see #getProperties()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<PropertyOptionParam> properties;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * Constructor.
 	 * <!-- end-user-doc -->
@@ -245,12 +234,42 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * @generated
 	 */
 	@Override
-	public EList<PropertyOptionParam> getProperties() {
-		if (properties == null) {
-			properties = new EObjectWithInverseResolvingEList<PropertyOptionParam>(PropertyOptionParam.class, this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME);
-		}
-		return properties;
+	public PropertyOptionParam getProperties() {
+		if (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES) return null;
+		return (PropertyOptionParam)eInternalContainer();
 	}	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProperties(PropertyOptionParam newProperties, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newProperties, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setProperties(PropertyOptionParam newProperties) {
+		if (newProperties != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES && newProperties != null)) {
+			if (EcoreUtil.isAncestor(this, newProperties))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newProperties != null)
+				msgs = ((InternalEObject)newProperties).eInverseAdd(this, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, PropertyOptionParam.class, msgs);
+			msgs = basicSetProperties(newProperties, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, newProperties, newProperties));
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -324,7 +343,9 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			case ParametersPackage.TEXT_LITERAL_PARAM__MATCHES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMatches()).basicAdd(otherEnd, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetProperties((PropertyOptionParam)otherEnd, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__AXIS_PAIR:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -344,7 +365,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			case ParametersPackage.TEXT_LITERAL_PARAM__MATCHES:
 				return ((InternalEList<?>)getMatches()).basicRemove(otherEnd, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES:
-				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+				return basicSetProperties(null, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__AXIS_PAIR:
 				return basicSetAxisPair(null, msgs);
 		}
@@ -359,6 +380,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
+			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES:
+				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, PropertyOptionParam.class, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__AXIS_PAIR:
 				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.AXIS_PAIR__TEXT_LITERAL_PARAM, AxisPair.class, msgs);
 		}
@@ -402,8 +425,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				getMatches().addAll((Collection<? extends Match>)newValue);
 				return;
 			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES:
-				getProperties().clear();
-				getProperties().addAll((Collection<? extends PropertyOptionParam>)newValue);
+				setProperties((PropertyOptionParam)newValue);
 				return;
 			case ParametersPackage.TEXT_LITERAL_PARAM__AXIS_PAIR:
 				setAxisPair((AxisPair)newValue);
@@ -427,7 +449,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				getMatches().clear();
 				return;
 			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES:
-				getProperties().clear();
+				setProperties((PropertyOptionParam)null);
 				return;
 			case ParametersPackage.TEXT_LITERAL_PARAM__AXIS_PAIR:
 				setAxisPair((AxisPair)null);
@@ -449,7 +471,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			case ParametersPackage.TEXT_LITERAL_PARAM__MATCHES:
 				return matches != null && !matches.isEmpty();
 			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES:
-				return properties != null && !properties.isEmpty();
+				return getProperties() != null;
 			case ParametersPackage.TEXT_LITERAL_PARAM__AXIS_PAIR:
 				return getAxisPair() != null;
 		}

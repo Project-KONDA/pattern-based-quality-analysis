@@ -68,18 +68,28 @@ public interface TextLiteralParam extends ParameterValue {
 	EList<Match> getMatches();
 
 	/**
-	 * Returns the value of the '<em><b>Properties</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.PropertyOptionParam}.
+	 * Returns the value of the '<em><b>Properties</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getAttributeName <em>Attribute Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Properties</em>' reference list.
+	 * @return the value of the '<em>Properties</em>' container reference.
+	 * @see #setProperties(PropertyOptionParam)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_Properties()
 	 * @see qualitypatternmodel.adaptionxml.PropertyOptionParam#getAttributeName
-	 * @model opposite="attributeName"
+	 * @model opposite="attributeName" transient="false"
 	 * @generated
 	 */
-	EList<PropertyOptionParam> getProperties();
+	PropertyOptionParam getProperties();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.parameters.TextLiteralParam#getProperties <em>Properties</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Properties</em>' container reference.
+	 * @see #getProperties()
+	 * @generated
+	 */
+	void setProperties(PropertyOptionParam value);
 
 	/**
 	 * Returns the value of the '<em><b>Axis Pair</b></em>' container reference.

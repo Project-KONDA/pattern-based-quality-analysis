@@ -2696,7 +2696,7 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM__MATCHES = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Properties</b></em>' reference list.
+	 * The feature id for the '<em><b>Properties</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6483,10 +6483,10 @@ public interface ParametersPackage extends EPackage {
 	EReference getTextLiteralParam_Matches();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.TextLiteralParam#getProperties <em>Properties</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Properties</em>'.
+	 * @return the meta object for the container reference '<em>Properties</em>'.
 	 * @see qualitypatternmodel.parameters.TextLiteralParam#getProperties()
 	 * @see #getTextLiteralParam()
 	 * @generated
@@ -7212,7 +7212,7 @@ public interface ParametersPackage extends EPackage {
 		EReference TEXT_LITERAL_PARAM__MATCHES = eINSTANCE.getTextLiteralParam_Matches();
 
 		/**
-		 * The meta object literal for the '<em><b>Properties</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Properties</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
