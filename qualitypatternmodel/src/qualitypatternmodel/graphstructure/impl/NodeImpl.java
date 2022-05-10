@@ -1140,7 +1140,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			incomingCopy.addAll(getIncoming());
 			for(Relation relation : incomingCopy) {
 				relation.setTarget(xmlElement);
-				relation.adaptAsXMLElementNavigation();
 			}
 			
 			xmlElement.getComparison1().addAll(getComparison1());
@@ -1153,6 +1152,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			for (ElementMapping map: xmlElement.getOutgoingMappings()) {
 				((NodeImpl) map.getTarget()).adaptAsXmlElementRecursive();
+			}			
+			
+			for(Relation relation : xmlElement.getIncoming()) {
+				relation.adaptAsXMLElementNavigation();
 			}
 			
 			return xmlElement;			
@@ -1265,7 +1268,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			incomingCopy.addAll(getIncoming());
 			for(Relation relation : incomingCopy) {
 				relation.setTarget(xmlProperty);
-				relation.adaptAsXMLPropertyNavigation();
 			}
 			
 			xmlProperty.getComparison1().addAll(getComparison1());
@@ -1277,6 +1279,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			for (ElementMapping map: xmlProperty.getOutgoingMappings()) {
 				((NodeImpl) map.getTarget()).adaptAsXmlPropertyRecursive();
+			}
+
+			for(Relation relation : incomingCopy) {
+				relation.adaptAsXMLPropertyNavigation();
 			}
 			
 			return xmlProperty;
