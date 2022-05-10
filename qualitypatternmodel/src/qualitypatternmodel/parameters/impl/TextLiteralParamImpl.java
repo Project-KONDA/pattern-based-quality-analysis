@@ -28,6 +28,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.Constants;
 
 /**
@@ -92,12 +93,15 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (getParameterList() == null && getAxisPair() == null)
-			throw new InvalidityException("variableList and axisPair null" + " (" + getInternalId() + ")");
+		String container = "";
+		if (eContainer() instanceof PatternElement)
+			container += " in " + eContainer().getClass() + " [" + ((PatternElement) eContainer()).getInternalId() + "]";
+		if (getParameterList() == null && getAxisPair() == null && getPropertyOptionParam() == null)
+			throw new InvalidityException("variableList and axisPair null" + " (" + getInternalId() + container + ")");
 		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
-			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + ")");
+			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + container + ")");
 		if(isPredefined() && !inputIsValid()) {
-			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + ")");
+			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + container + ")");
 		}		
 	}
 	

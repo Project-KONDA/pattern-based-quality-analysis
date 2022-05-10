@@ -457,14 +457,18 @@ public class PathParamImpl extends PatternElementImpl implements PathParam {
 	 */
 	@Override
 	public void addAxis(AxisKind axis, String tag) {
-		AxisOptionParam axisOption = new AxisOptionParamImpl();
-		axisOption.setValue(axis);
-		TextLiteralParam text = new TextLiteralParamImpl();
-		text.setValue(tag);
-		
 		AxisPair pair = new AxisPairImpl();
+		
+		AxisOptionParam axisOption = new AxisOptionParamImpl();
 		pair.setAxisOptionParam(axisOption);
-		pair.setTextLiteralParam(text);
+		axisOption.setValue(axis);
+		
+		if (tag != null) {
+			TextLiteralParam text = new TextLiteralParamImpl();
+			text.setValue(tag);
+			pair.setTextLiteralParam(text);
+		}
+		
 		getAxisPairs().add(pair);
 	}
 
