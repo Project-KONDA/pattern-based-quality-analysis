@@ -6,12 +6,6 @@ import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.operators.*;
-import qualitypatternmodel.parameters.*;
-import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.AxisKind;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlProperty;
-import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.*;
 
 public class Test05QuantorCombinationsCond {
@@ -35,43 +29,53 @@ public class Test05QuantorCombinationsCond {
 		Graph graph1 = qcond.getGraph();
 		QuantifiedCondition qcond2 = (QuantifiedCondition) qcond.getCondition();
 		Graph graph2 = qcond2.getGraph();
+
 		
-		// comparisons
-		Node e0 = graph0.getNodes().get(0);
-		e0.addPrimitiveComparison("101");
-		Node e1 = graph1.getNodes().get(0);
-		e1.addPrimitiveComparison("demo:building");
-		e1.addPrimitiveComparison("abc");
+//		// comparisons
+		Node e0 = graph0.getNodes().get(0).makeComplex();
+		Node e1 = graph1.getNodes().get(0).makeComplex();
+		Node e2 = graph1.getNodes().get(0).makeComplex();
+		Node se = graph2.getNodes().get(1).makeComplex();
+		
+		
+		Node e0_p = e0.addTargetNode();
+		e0_p.addPrimitiveComparison("101");
+		Node e1_p = e1.addTargetNode();
+		e1_p.addPrimitiveComparison("demo:building");
+		Node e1_p2 = e1.addTargetNode();
+		e1_p2.addPrimitiveComparison("abc");
+		Node e2_p = e2.addTargetNode();
+		e2_p.addPrimitiveComparison("USA");
+		Node se_p = se.addTargetNode();
+		se_p.addPrimitiveComparison("demo:country");
+				
 		((Comparison) graph1.getOperatorList().getOperators().get(1)).getOption().setValue(ComparisonOperator.NOTEQUAL);
 		
-		Node e2 = graph1.getNodes().get(1);
-		e2.addPrimitiveComparison("USA");
-		Node se = graph2.getNodes().get(2);
-		se.addPrimitiveComparison("demo:country");
+		System.out.println(completePattern.myToString());
 		
 		completePattern.createXMLAdaption();
-		
-		XmlProperty property = (XmlProperty) graph0.getNodes().get(0).getProperties().get(0);
-		property.getAttributeName().setValue("demo:id");
-		property.getOption().getOptions().add(PropertyKind.ATTRIBUTE);
-		property.getOption().setValue(PropertyKind.ATTRIBUTE);
-	
-		XmlProperty property1 = (XmlProperty) graph1.getNodes().get(0).getProperties().get(0);
-		property1.getOption().getOptions().add(PropertyKind.TAG);
-		property1.getOption().setValue(PropertyKind.TAG);
-		
-		XmlProperty property2 = (XmlProperty) graph1.getNodes().get(0).getProperties().get(1);
-		property2.getOption().getOptions().add(PropertyKind.TAG);
-		property2.getOption().setValue(PropertyKind.TAG);
-		
-		qcond.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
-		XmlReference ref = qcond2.getGraph().getRelations().get(0).adaptAsXMLReference();
-		ref.setType(ReturnType.STRING);
-		completePattern.finalizeXMLAdaption();		
-		
-		((XmlProperty) graph2.getNodes().get(2).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
-		((XmlElementNavigation)completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.TWOCHILD);
-		((XmlElementNavigation) graph2.getRelations().get(3)).getPathParam().setValue(AxisKind.THREECHILD);
+//		
+////		XmlProperty property = (XmlProperty) graph0.getNodes().get(0).getProperties().get(0);
+////		property.getAttributeName().setValue("demo:id");
+////		property.getOption().getOptions().add(PropertyKind.ATTRIBUTE);
+////		property.getOption().setValue(PropertyKind.ATTRIBUTE);
+////	
+////		XmlProperty property1 = (XmlProperty) graph1.getNodes().get(0).getProperties().get(0);
+////		property1.getOption().getOptions().add(PropertyKind.TAG);
+////		property1.getOption().setValue(PropertyKind.TAG);
+////		
+////		XmlProperty property2 = (XmlProperty) graph1.getNodes().get(0).getProperties().get(1);
+////		property2.getOption().getOptions().add(PropertyKind.TAG);
+////		property2.getOption().setValue(PropertyKind.TAG);
+////		
+////		qcond.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
+////		XmlReference ref = qcond2.getGraph().getRelations().get(0).adaptAsXMLReference();
+////		ref.setType(ReturnType.STRING);
+////		completePattern.finalizeXMLAdaption();		
+////		
+////		((XmlProperty) graph2.getNodes().get(2).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+////		((XmlElementNavigation)completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.TWOCHILD);
+////		((XmlElementNavigation) graph2.getRelations().get(3)).getPathParam().setValue(AxisKind.THREECHILD);
 		
 		return completePattern;
 	}
