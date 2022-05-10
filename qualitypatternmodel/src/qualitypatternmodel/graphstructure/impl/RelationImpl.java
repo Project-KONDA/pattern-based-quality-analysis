@@ -629,24 +629,24 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public XmlPropertyNavigation adaptAsXMLPropertyNavigation() throws InvalidityException {
 		Graph graph = getGraph();
 		XmlPropertyNavigation navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsXMLPropertyNavigationRecursive();
-		
-		for(Relation r: graph.getRelations()) {
-			if(r instanceof XmlPropertyNavigation) {
-				XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
-				Relation next = r;
-				while(next != null) {
-					if(!next.equals(navOriginal)) {
-						if(next.getIncomingMapping() == null) {
-							next = null;
+		if (graph != null)
+			for(Relation r: graph.getRelations()) {
+				if(r instanceof XmlPropertyNavigation) {
+					XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
+					Relation next = r;
+					while(next != null) {
+						if(!next.equals(navOriginal)) {
+							if(next.getIncomingMapping() == null) {
+								next = null;
+							} else {
+								next = next.getIncomingMapping().getSource();
+							}
 						} else {
-							next = next.getIncomingMapping().getSource();
+							return nav;
 						}
-					} else {
-						return nav;
 					}
 				}
 			}
-		}
 		throw new InvalidityException("correspondent relation not found");
 	}
 	
@@ -667,9 +667,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			if (getIncomingMapping() == null) {
 				navigation.createParameters();
 			}
-			
-			navigation.setSource(getSource());
-			navigation.setTarget(getTarget());
+
+			if (getSource() != null)
+				navigation.setSource(getSource());
+			if (getTarget() != null)
+					navigation.setTarget(getTarget().adaptAsXmlProperty());
 		
 			navigation.getOutgoingMappings().addAll(getOutgoingMappings());
 			
@@ -987,7 +989,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			reference.setTarget(getTarget());			
 			
 			if(getIncomingMapping() == null) {
-				System.out.println("hier");
 				XmlProperty property = new XmlPropertyImpl();
 							
 				Graph graph = getGraph();
@@ -1334,7 +1335,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	@Override
 	public String myToString() {
-		String res = this.getClass().getSimpleName() + " " + getName();
+		String res = this.getClass().getSimpleName(); // + " " + getName();
 		res += " [" + getInternalId() + "]";
 		if (getSource() != null) res += " from " + getSource().getInternalId();
 		if (getTarget() != null) res += " to " + getTarget().getInternalId();
