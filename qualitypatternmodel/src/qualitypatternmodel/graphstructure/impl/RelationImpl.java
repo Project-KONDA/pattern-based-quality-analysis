@@ -17,10 +17,13 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyNavigationImpl;
@@ -881,7 +884,23 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 */
 	@Override
 	public XmlReference adaptAsXMLReference() throws InvalidityException {
-		return ((RelationImpl) getOriginalRelation()).adaptAsXMLReferenceRecursive();
+		XmlReference result = ((RelationImpl) getOriginalRelation()).adaptAsXMLReferenceRecursive();
+		XmlElement target = (XmlElement) result.getTarget();
+		boolean hasIncommingNavigation = false;
+		for (Relation r: target.getIncoming()) 
+			if (r instanceof XmlElementNavigation) 
+				hasIncommingNavigation = true;
+		if (!hasIncommingNavigation) {
+			XmlRoot root = null;
+			for (Node n: result.getGraph().getNodes()) {
+				if (n instanceof XmlRoot)
+					root = (XmlRoot) n;
+			}
+			Relation r = target.addIncomming(root);
+			XmlElementNavigation relation = r.adaptAsXMLElementNavigation();
+			relation.getPathParam().setAxis(AxisKind.DESCENDANT, null);
+		}
+		return result;
 	}
 	
 	public XmlReference adaptAsXMLReferenceRecursive() throws InvalidityException {
