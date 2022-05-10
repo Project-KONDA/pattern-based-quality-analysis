@@ -90,7 +90,7 @@
           defaultValueLiteral=""/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="matches" upperBound="-1"
           eType="#//operators/Match" eOpposite="#//operators/Match/regularExpression"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="propertyOptionParam"
           eType="#//adaptionxml/PropertyOptionParam" eOpposite="#//adaptionxml/PropertyOptionParam/attributeName"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="axisPair" eType="#//adaptionxml/AxisPair"
           eOpposite="#//adaptionxml/AxisPair/textLiteralParam"/>
@@ -722,7 +722,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="pathParam" lowerBound="1"
           eType="#//adaptionxml/PathParam" eOpposite="#//adaptionxml/PathParam/propertyOptionParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" eType="#//parameters/TextLiteralParam"
-          eOpposite="#//parameters/TextLiteralParam/properties"/>
+          containment="true" eOpposite="#//parameters/TextLiteralParam/propertyOptionParam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PathParam" eSuperTypes="#//graphstructure/Adaptable #//parameters/Parameter">
       <eOperations name="setAxis">

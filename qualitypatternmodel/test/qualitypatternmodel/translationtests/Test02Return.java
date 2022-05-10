@@ -2,10 +2,10 @@ package qualitypatternmodel.translationtests;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -13,13 +13,14 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.*;
+import qualitypatternmodel.parameters.TextLiteralParam;
 
 public class Test02Return {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getPatternMultipleReturnNavigation());
+//		completePatterns.add(getPatternMultipleReturnNavigation());
 		completePatterns.add(getPatternMultipleReturnReference());
 
 		Test00.test(completePatterns);
@@ -42,8 +43,8 @@ public class Test02Return {
 		relation.setTarget(element2);		
 		
 		completePattern.createXMLAdaption();
-		completePattern.getGraph().getNodes().get(1).getIncoming().get(0).adaptAsXMLElementNavigation();		
-		completePattern.finalizeXMLAdaption();
+//		completePattern.getGraph().getNodes().get(1).getIncoming().get(0).adaptAsXMLElementNavigation();		
+//		completePattern.finalizeXMLAdaption();
 				
 		return completePattern;
 	}
@@ -62,26 +63,38 @@ public class Test02Return {
 		Relation relation = graphFactory.createRelation();
 		relation.setGraph(graph);
 		relation.setSource(element1);
-		relation.setTarget(element2);		
-		
+		relation.setTarget(element2);
+				
 		completePattern.createXMLAdaption();
-		XmlReference reference = completePattern.getGraph().getNodes().get(1).getIncoming().get(0).adaptAsXMLReference();	
+	
+		XmlReference reference = ((ComplexNode) completePattern.getGraph().getNodes().get(1)).getOutgoing().get(0).adaptAsXMLReference();	
 		reference.setType(ReturnType.STRING);
-		completePattern.finalizeXMLAdaption();
+//		completePattern.finalizeXMLAdaption();
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(1)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		XmlElementNavigation nav2 = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
+		nav2.getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+//		XmlElementNavigation nav3 = (XmlElementNavigation) completePattern.getGraph().getRelations().get(4);
+//		nav3.getPathParam().setAxis(AxisKind.DESCENDANT, "");
+//		((XmlElementNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 //		reference.getSourceProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
-		reference.getSourcePropertyPath().getPropertyOptionParam().setValue(PropertyKind.ATTRIBUTE);
-		reference.getSourcePropertyPath().getPropertyOptionParam().getAttributeName().setValue("demo:id");
+		PropertyOptionParam pop = reference.getSourcePropertyPath().getPropertyOptionParam();
+		pop.setValue(PropertyKind.ATTRIBUTE);
+		
+		System.out.println(completePattern.myToString() + "\n\n");
+		TextLiteralParam an2 = pop.getAttributeName();
+		System.out.println(an2 == null);
+		an2.setValue("demo:id");
 		
 //		reference.getTargetProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
-		reference.getSourcePropertyPath().getPropertyOptionParam().setValue(PropertyKind.ATTRIBUTE);
-		reference.getTargetPropertyPath().getPropertyOptionParam().getAttributeName().setValue("demo:id");
+		PropertyOptionParam pop2 = reference.getSourcePropertyPath().getPropertyOptionParam();
+		pop2.setValue(PropertyKind.ATTRIBUTE);
+		TextLiteralParam an = pop2.getAttributeName();
+		System.out.println(an);
+		an.setValue("demo:id");
 				
 		return completePattern;
 	}

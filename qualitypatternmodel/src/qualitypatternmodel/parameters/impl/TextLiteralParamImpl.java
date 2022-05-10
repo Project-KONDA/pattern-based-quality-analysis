@@ -28,6 +28,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.Constants;
 
 /**
@@ -41,7 +42,7 @@ import qualitypatternmodel.utility.Constants;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getMatches <em>Matches</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getPropertyOptionParam <em>Property Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getAxisPair <em>Axis Pair</em>}</li>
  * </ul>
  *
@@ -81,17 +82,6 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	protected EList<Match> matches;
 
 	/**
-	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * A list of <code>XmlProperties</code> whose attribute name is specified through <code>this</code>.
-	 * <!-- end-user-doc -->
-	 * @see #getProperties()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<PropertyOptionParam> properties;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * Constructor.
 	 * <!-- end-user-doc -->
@@ -103,12 +93,15 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		if (getParameterList() == null && getAxisPair() == null)
-			throw new InvalidityException("variableList and axisPair null" + " (" + getInternalId() + ")");
+		String container = "";
+		if (eContainer() instanceof PatternElement)
+			container += " in " + eContainer().getClass() + " [" + ((PatternElement) eContainer()).getInternalId() + "]";
+		if (getParameterList() == null && getAxisPair() == null && getPropertyOptionParam() == null)
+			throw new InvalidityException("variableList and axisPair null" + " (" + getInternalId() + container + ")");
 		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
-			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + ")");
+			throw new InvalidityException("input missing or invalid" + " (" + getInternalId() + container + ")");
 		if(isPredefined() && !inputIsValid()) {
-			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + ")");
+			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + container + ")");
 		}		
 	}
 	
@@ -149,17 +142,14 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	
 	@Override
 	public boolean isUsed() {		
-		return super.isUsed() || !getMatches().isEmpty() || !getProperties().isEmpty();
+		return super.isUsed() || !getMatches().isEmpty() || getPropertyOptionParam() != null;
 	}
 	
 	@Override
 	public EList<String> getSuggestions() {
-		EList<String> suggestions = super.getSuggestions();		
-		for(PropertyOptionParam p : getProperties()) {			
-			if(p.getValue() == PropertyKind.ATTRIBUTE) {
-				suggestions.addAll(Constants.sortByValue(getAttributeNames()).keySet());
-				break;
-			}			
+		EList<String> suggestions = super.getSuggestions();			
+		if(getPropertyOptionParam().getValue() == PropertyKind.ATTRIBUTE) {
+			suggestions.addAll(Constants.sortByValue(getAttributeNames()).keySet());
 		}			
 		return suggestions;
 	}
@@ -197,7 +187,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	public NotificationChain basicSetParameterList(ParameterList newVariableList, NotificationChain msgs) {
 		if(newVariableList == null) {
 			getMatches().clear();
-			getProperties().clear();
+			setPropertyOptionParam(null);
 		}
 		return super.basicSetParameterList(newVariableList, msgs);
 	}
@@ -245,12 +235,42 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * @generated
 	 */
 	@Override
-	public EList<PropertyOptionParam> getProperties() {
-		if (properties == null) {
-			properties = new EObjectWithInverseResolvingEList<PropertyOptionParam>(PropertyOptionParam.class, this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME);
+	public PropertyOptionParam getPropertyOptionParam() {
+		if (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM) return null;
+		return (PropertyOptionParam)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPropertyOptionParam(PropertyOptionParam newPropertyOptionParam, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newPropertyOptionParam, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPropertyOptionParam(PropertyOptionParam newPropertyOptionParam) {
+		if (newPropertyOptionParam != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM && newPropertyOptionParam != null)) {
+			if (EcoreUtil.isAncestor(this, newPropertyOptionParam))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newPropertyOptionParam != null)
+				msgs = ((InternalEObject)newPropertyOptionParam).eInverseAdd(this, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, PropertyOptionParam.class, msgs);
+			msgs = basicSetPropertyOptionParam(newPropertyOptionParam, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return properties;
-	}	
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM, newPropertyOptionParam, newPropertyOptionParam));
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -323,8 +343,10 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		switch (featureID) {
 			case ParametersPackage.TEXT_LITERAL_PARAM__MATCHES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMatches()).basicAdd(otherEnd, msgs);
-			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
+			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetPropertyOptionParam((PropertyOptionParam)otherEnd, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__AXIS_PAIR:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -343,8 +365,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		switch (featureID) {
 			case ParametersPackage.TEXT_LITERAL_PARAM__MATCHES:
 				return ((InternalEList<?>)getMatches()).basicRemove(otherEnd, msgs);
-			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES:
-				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM:
+				return basicSetPropertyOptionParam(null, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__AXIS_PAIR:
 				return basicSetAxisPair(null, msgs);
 		}
@@ -359,6 +381,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
+			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM:
+				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, PropertyOptionParam.class, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__AXIS_PAIR:
 				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.AXIS_PAIR__TEXT_LITERAL_PARAM, AxisPair.class, msgs);
 		}
@@ -377,8 +401,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return getValue();
 			case ParametersPackage.TEXT_LITERAL_PARAM__MATCHES:
 				return getMatches();
-			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES:
-				return getProperties();
+			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM:
+				return getPropertyOptionParam();
 			case ParametersPackage.TEXT_LITERAL_PARAM__AXIS_PAIR:
 				return getAxisPair();
 		}
@@ -401,9 +425,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				getMatches().clear();
 				getMatches().addAll((Collection<? extends Match>)newValue);
 				return;
-			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES:
-				getProperties().clear();
-				getProperties().addAll((Collection<? extends PropertyOptionParam>)newValue);
+			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM:
+				setPropertyOptionParam((PropertyOptionParam)newValue);
 				return;
 			case ParametersPackage.TEXT_LITERAL_PARAM__AXIS_PAIR:
 				setAxisPair((AxisPair)newValue);
@@ -426,8 +449,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			case ParametersPackage.TEXT_LITERAL_PARAM__MATCHES:
 				getMatches().clear();
 				return;
-			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES:
-				getProperties().clear();
+			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM:
+				setPropertyOptionParam((PropertyOptionParam)null);
 				return;
 			case ParametersPackage.TEXT_LITERAL_PARAM__AXIS_PAIR:
 				setAxisPair((AxisPair)null);
@@ -448,8 +471,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 			case ParametersPackage.TEXT_LITERAL_PARAM__MATCHES:
 				return matches != null && !matches.isEmpty();
-			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES:
-				return properties != null && !properties.isEmpty();
+			case ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM:
+				return getPropertyOptionParam() != null;
 			case ParametersPackage.TEXT_LITERAL_PARAM__AXIS_PAIR:
 				return getAxisPair() != null;
 		}

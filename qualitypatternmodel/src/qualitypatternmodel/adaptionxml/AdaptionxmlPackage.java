@@ -4212,7 +4212,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int PROPERTY_OPTION_PARAM__PATH_PARAM = ParametersPackage.PARAMETER_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Attribute Name</b></em>' reference.
+	 * The feature id for the '<em><b>Attribute Name</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5556,10 +5556,10 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getPropertyOptionParam_PathParam();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getAttributeName <em>Attribute Name</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getAttributeName <em>Attribute Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Attribute Name</em>'.
+	 * @return the meta object for the containment reference '<em>Attribute Name</em>'.
 	 * @see qualitypatternmodel.adaptionxml.PropertyOptionParam#getAttributeName()
 	 * @see #getPropertyOptionParam()
 	 * @generated
@@ -6088,7 +6088,7 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference PROPERTY_OPTION_PARAM__PATH_PARAM = eINSTANCE.getPropertyOptionParam_PathParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Attribute Name</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Attribute Name</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

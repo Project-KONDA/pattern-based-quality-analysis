@@ -18,10 +18,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.XmlElement;
+import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyNavigationImpl;
@@ -667,7 +669,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			}
 			
 			navigation.setSource(getSource());
-			navigation.setTarget(getTarget().adaptAsXmlProperty()); // hier
+			navigation.setTarget(getTarget().adaptAsXmlProperty());
 		
 			navigation.getOutgoingMappings().addAll(getOutgoingMappings());
 			
@@ -923,7 +925,21 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public XmlReference adaptAsXMLReference() throws InvalidityException {
 		Graph graph = getGraph();
 		XmlReference referenceOriginal = ((RelationImpl) getOriginalRelation()).adaptAsXMLReferenceRecursive();
-		
+		XmlElement target = (XmlElement) referenceOriginal.getTarget();
+		boolean hasIncommingNavigation = false;
+		for (Relation r: target.getIncoming()) 
+			if (r instanceof XmlElementNavigation) 
+				hasIncommingNavigation = true;
+		if (!hasIncommingNavigation) {
+			XmlRoot root = null;
+			for (Node n: referenceOriginal.getGraph().getNodes()) {
+				if (n instanceof XmlRoot)
+					root = (XmlRoot) n;
+			}
+			Relation r = target.addIncomming(root);
+			XmlElementNavigation relation = r.adaptAsXMLElementNavigation();
+			relation.getPathParam().setAxis(AxisKind.DESCENDANT, null);
+		}
 		for(Relation r: graph.getRelations()) {
 			if(r instanceof XmlReference) {
 				XmlReference reference = (XmlReference) r;
@@ -967,12 +983,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				Graph graph = getGraph();
 				
 				graph.getNodes().add(property);
-				Relation relation1 = graph.addRelation(getSource(), property);
-				System.out.println(relation1.getTarget().equals(property));
-				XmlPropertyNavigation nav1 = relation1.adaptAsXMLPropertyNavigation();
-				System.out.println(nav1.getTarget().equals(property));
+				graph.addRelation(getSource(), property).adaptAsXMLPropertyNavigation();
 				graph.addRelation(getTarget(), property).adaptAsXMLPropertyNavigation();
-//				graph.addRelation(getTarget(), nav1.getTarget()).adaptAsXMLPropertyNavigation();
 				property.createParameters();
 				
 				reference.setProperty(property);			

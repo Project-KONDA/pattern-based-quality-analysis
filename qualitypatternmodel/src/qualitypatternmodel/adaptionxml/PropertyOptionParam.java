@@ -95,24 +95,24 @@ public interface PropertyOptionParam extends Parameter, Adaptable {
 	void setPathParam(PathParam value);
 
 	/**
-	 * Returns the value of the '<em><b>Attribute Name</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getProperties <em>Properties</em>}'.
+	 * Returns the value of the '<em><b>Attribute Name</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getPropertyOptionParam <em>Property Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Attribute Name</em>' reference.
+	 * @return the value of the '<em>Attribute Name</em>' containment reference.
 	 * @see #setAttributeName(TextLiteralParam)
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPropertyOptionParam_AttributeName()
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getProperties
-	 * @model opposite="properties"
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getPropertyOptionParam
+	 * @model opposite="propertyOptionParam" containment="true"
 	 * @generated
 	 */
 	TextLiteralParam getAttributeName();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getAttributeName <em>Attribute Name</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getAttributeName <em>Attribute Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Attribute Name</em>' reference.
+	 * @param value the new value of the '<em>Attribute Name</em>' containment reference.
 	 * @see #getAttributeName()
 	 * @generated
 	 */

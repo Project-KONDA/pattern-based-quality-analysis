@@ -21,7 +21,7 @@ import qualitypatternmodel.operators.Match;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getMatches <em>Matches</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getProperties <em>Properties</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getPropertyOptionParam <em>Property Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getAxisPair <em>Axis Pair</em>}</li>
  * </ul>
  *
@@ -68,18 +68,28 @@ public interface TextLiteralParam extends ParameterValue {
 	EList<Match> getMatches();
 
 	/**
-	 * Returns the value of the '<em><b>Properties</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.adaptionxml.PropertyOptionParam}.
+	 * Returns the value of the '<em><b>Property Option Param</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getAttributeName <em>Attribute Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Properties</em>' reference list.
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_Properties()
+	 * @return the value of the '<em>Property Option Param</em>' container reference.
+	 * @see #setPropertyOptionParam(PropertyOptionParam)
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_PropertyOptionParam()
 	 * @see qualitypatternmodel.adaptionxml.PropertyOptionParam#getAttributeName
-	 * @model opposite="attributeName"
+	 * @model opposite="attributeName" transient="false"
 	 * @generated
 	 */
-	EList<PropertyOptionParam> getProperties();
+	PropertyOptionParam getPropertyOptionParam();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.parameters.TextLiteralParam#getPropertyOptionParam <em>Property Option Param</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Property Option Param</em>' container reference.
+	 * @see #getPropertyOptionParam()
+	 * @generated
+	 */
+	void setPropertyOptionParam(PropertyOptionParam value);
 
 	/**
 	 * Returns the value of the '<em><b>Axis Pair</b></em>' container reference.

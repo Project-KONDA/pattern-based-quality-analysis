@@ -86,7 +86,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	protected PropertyKind value = VALUE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getAttributeName() <em>Attribute Name</em>}' reference.
+	 * The cached value of the '{@link #getAttributeName() <em>Attribute Name</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAttributeName()
@@ -329,23 +329,6 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 */
 	@Override
 	public TextLiteralParam getAttributeName() {
-		if (attributeName != null && attributeName.eIsProxy()) {
-			InternalEObject oldAttributeName = (InternalEObject)attributeName;
-			attributeName = (TextLiteralParam)eResolveProxy(oldAttributeName);
-			if (attributeName != oldAttributeName) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, oldAttributeName, attributeName));
-			}
-		}
-		return attributeName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TextLiteralParam basicGetAttributeName() {
 		return attributeName;
 	}
 
@@ -385,9 +368,9 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 		if (newAttributeName != attributeName) {
 			NotificationChain msgs = null;
 			if (attributeName != null)
-				msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, TextLiteralParam.class, msgs);
+				msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM, TextLiteralParam.class, msgs);
 			if (newAttributeName != null)
-				msgs = ((InternalEObject)newAttributeName).eInverseAdd(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, TextLiteralParam.class, msgs);
+				msgs = ((InternalEObject)newAttributeName).eInverseAdd(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM, TextLiteralParam.class, msgs);
 			msgs = basicSetAttributeName(newAttributeName, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -438,7 +421,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 				return basicSetPathParam((PathParam)otherEnd, msgs);
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME:
 				if (attributeName != null)
-					msgs = ((InternalEObject)attributeName).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__PROPERTIES, TextLiteralParam.class, msgs);
+					msgs = ((InternalEObject)attributeName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, null, msgs);
 				return basicSetAttributeName((TextLiteralParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -489,8 +472,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM:
 				return getPathParam();
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME:
-				if (resolve) return getAttributeName();
-				return basicGetAttributeName();
+				return getAttributeName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
