@@ -199,7 +199,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	}
 
 	private String generateNextXQueryVariable() {
-		String variable = VARIABLE + getOriginalID() + getVariableCounter();
+		String variable = VARIABLE + getOriginalID() + "_" + getVariableCounter();
 		setVariableCounter(getVariableCounter()+1);
 		return variable;
 	}
