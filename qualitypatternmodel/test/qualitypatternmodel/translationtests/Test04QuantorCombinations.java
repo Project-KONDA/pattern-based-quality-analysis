@@ -7,10 +7,16 @@ import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.parameters.ParametersFactory;
+import qualitypatternmodel.parameters.ParametersPackage;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl;
 import qualitypatternmodel.exceptions.*;
@@ -29,31 +35,28 @@ public class Test04QuantorCombinations {
 	}
 	
 	public static CompletePattern getPatternExistsInExistsFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		ParametersPackage.eINSTANCE.eClass();
+		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+		
 		CompletePattern completePattern = getPatternExistsInExists();
-		QuantifiedCondition qcond = (QuantifiedCondition) completePattern.getCondition();
-		QuantifiedCondition qcond2 = (QuantifiedCondition) qcond.getCondition();
 		
 		completePattern.createXMLAdaption();
-		qcond.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
-		XmlReference ref = qcond2.getGraph().getRelations().get(0).adaptAsXMLReference();
-		ref.setType(ReturnType.STRING);
-		completePattern.finalizeXMLAdaption();		
-		
-		XmlElementNavigation navRoot = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
-//		navRoot.getOption().setValue(RelationKind.DESCENDANT);
 		
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		QuantifiedCondition quantifiedCondition2 = (QuantifiedCondition) quantifiedCondition.getCondition();
 		
-		XmlProperty prop0 = (XmlProperty) quantifiedCondition2.getGraph().getNodes().get(1).getProperties().get(0);
-		prop0.getOption().setValue(PropertyKind.ATTRIBUTE);
-		prop0.getAttributeName().setValue("demo:id");
+		XmlReference ref = quantifiedCondition2.getGraph().getRelations().get(0).adaptAsXMLReference();
+		ref.setType(ReturnType.STRING);
 		
-		XmlElementNavigation nav1 = (XmlElementNavigation) quantifiedCondition2.getGraph().getRelations().get(3);
-		nav1.getPathParam().setAxis(AxisKind.DESCENDANT, "");
-		
-//		Comparison comp = (Comparison) quantifiedCondition2.getGraph().getOperatorList().getOperators().get(0);
-//		comp.getOption().setValue(ComparisonOperator.NOTEQUAL);
+		XmlProperty prop0 = (XmlProperty) quantifiedCondition2.getGraph().getNodes().get(4);
+		Relation rel = prop0.getIncoming().get(0);
+		if(rel instanceof XmlPropertyNavigation) {
+			XmlPropertyNavigation nav = (XmlPropertyNavigation) rel;
+			nav.getPathParam().getPropertyOptionParam().setValue(PropertyKind.ATTRIBUTE);
+			TextLiteralParam text = parametersFactory.createTextLiteralParam();
+			text.setValue("demo:id");
+			nav.getPathParam().getPropertyOptionParam().setAttributeName(text);
+		}
 		
 		return completePattern;
 	}
@@ -112,7 +115,7 @@ public class Test04QuantorCombinations {
 		CompletePattern completePattern = getPatternExistsInExistsFinal();
 		((QuantifiedCondition) completePattern.getCondition()).setQuantifier(Quantifier.FORALL);
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		quantifiedCondition.getGraph().getNodes().get(1).addPrimitiveComparison("demo:artist");;
+		quantifiedCondition.getGraph().getNodes().get(3).addPrimitiveComparison("demo:artist");;
 		
 		return completePattern;
 	}
