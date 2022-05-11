@@ -4,22 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
-import qualitypatternmodel.patternstructure.impl.*;
 import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.graphstructure.impl.*;
 import qualitypatternmodel.operators.*;
-import qualitypatternmodel.operators.impl.*;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.*;
-import qualitypatternmodel.parameters.NumberParam;
-import qualitypatternmodel.parameters.impl.*;
 
 public class Test09ComplexComparison {
 
@@ -42,7 +38,7 @@ public class Test09ComplexComparison {
 		OperatorsFactory operatorFactory = OperatorsFactory.eINSTANCE;
 
 		CompletePattern completePattern = Test00.getBasePattern();
-		Node ret = completePattern.getGraph().getNodes().get(0);
+		Node ret = completePattern.getGraph().getNodes().get(0).makeComplex();
 		
 		PrimitiveNode p1 = graphFactory.createPrimitiveNode();
 		PrimitiveNode p2 = graphFactory.createPrimitiveNode();
@@ -51,92 +47,77 @@ public class Test09ComplexComparison {
 		
 		completePattern.getGraph().getOperatorList().add(comp);
 		comp.createParameters();
-		ret.getProperties().add(p1);
-		ret.getProperties().add(p2);
+		ret.addOutgoing(p1);
+		ret.addOutgoing(p2);
 			
 		comp.setArgument1(p1);
 		comp.setArgument2(p2);
 		comp.getTypeOption().setValue(ReturnType.STRING);
 		
 		completePattern.createXMLAdaption();
-		completePattern.finalizeXMLAdaption();
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 
 		return completePattern;
 	}
 
 	public static CompletePattern getPatternTwoProperties() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+//		GraphstructurePackage.eINSTANCE.eClass();
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		OperatorsPackage.eINSTANCE.eClass();
 		OperatorsFactory operatorsFactory = OperatorsFactory.eINSTANCE;
 
 		CompletePattern completePattern = Test00.getBasePattern();
 		Node ret = completePattern.getGraph().getNodes().get(0);
 
-		Node se1 = graphFactory.createNode();
-		se1.setGraph(completePattern.getGraph());
-		Relation relation = graphFactory.createRelation();
-		relation.setGraph(completePattern.getGraph());
-		relation.setSource(ret);
-		relation.setTarget(se1);
-		
-		Node se2 = graphFactory.createNode();
-		se2.setGraph(completePattern.getGraph());
-		Relation relation2 = graphFactory.createRelation();
-		relation2.setGraph(completePattern.getGraph());
-		relation2.setSource(ret);
-		relation2.setTarget(se2);
-		
-		PrimitiveNode p1 = graphFactory.createPrimitiveNode();
-		PrimitiveNode p2 = graphFactory.createPrimitiveNode();
+		Relation r1 = ret.addOutgoing();
+		ret = r1.getSource();		
+		Relation r2 = ret.addOutgoing();
 		
 		Comparison comp = operatorsFactory.createComparison();
 		
 		completePattern.getGraph().getOperatorList().add(comp);
 		comp.createParameters();
-		se1.getProperties().add(p1);
-		se2.getProperties().add(p2);
+		
+		Relation r11 = r1.getTarget().addOutgoing();
+		PrimitiveNode p1 = r11.getTarget().makePrimitive();
+		
+		Relation r21 = r2.getTarget().addOutgoing();		
+		PrimitiveNode p2 = r21.getTarget().makePrimitive();
 				
 		comp.setArgument1(p1);
 		comp.setArgument2(p2);
 		comp.getTypeOption().setValue(ReturnType.STRING);
 		
+		System.out.println(completePattern.myToString());
+		
 		completePattern.createXMLAdaption();
 		completePattern.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 		completePattern.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
-		completePattern.finalizeXMLAdaption();
 		
-//		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
-
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, null);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(1)).getPathParam().setAxis(AxisKind.DESCENDANT, null);
+		
+		System.out.println(completePattern.myToString());
+		
 		return completePattern;
 	}
 
 	public static CompletePattern getPatternTwoElements() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+//		GraphstructurePackage.eINSTANCE.eClass();
+//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		OperatorsPackage.eINSTANCE.eClass();
 		OperatorsFactory functionFactory = OperatorsFactory.eINSTANCE;
 
 		CompletePattern completePattern = Test00.getBasePattern();
-		Node ret = completePattern.getGraph().getNodes().get(0);
-
-		Node se1 = graphFactory.createNode();
-		se1.setGraph(completePattern.getGraph());
-		Relation relation = graphFactory.createRelation();
-		relation.setGraph(completePattern.getGraph());
-		relation.setSource(ret);
-		relation.setTarget(se1);
+		Node ret = completePattern.getGraph().getNodes().get(0).makeComplex();
 		
-		Node se2 = graphFactory.createNode();
-		se2.setGraph(completePattern.getGraph());
-		Relation relation2 = graphFactory.createRelation();
-		relation2.setGraph(completePattern.getGraph());
-		relation2.setSource(ret);
-		relation2.setTarget(se2);
+		Relation r1 = ret.addOutgoing();
+		ret = r1.getSource();
+		Relation r2 = ret.addOutgoing();
+		Node se1 = r1.getTarget();
+		Node se2 = r2.getTarget();
 		
 		Comparison comp = functionFactory.createComparison();
 		
@@ -148,7 +129,6 @@ public class Test09ComplexComparison {
 		completePattern.createXMLAdaption();
 		completePattern.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 		completePattern.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
-		completePattern.finalizeXMLAdaption();
 		
 		return completePattern;
 	}	
@@ -199,9 +179,8 @@ public class Test09ComplexComparison {
 		comp2.setArgument2(tl4);
 		
 		completePattern.createXMLAdaption();
-		completePattern.finalizeXMLAdaption();	
 		
-		((XmlProperty) comp1.getArgument1()).getOption().setValue(PropertyKind.TAG);
+		((XmlNavigation) ((XmlProperty) comp1.getArgument1()).getIncoming().get(0)).getPathParam().getPropertyOptionParam().setValue(PropertyKind.TAG);
 		
 		return completePattern;		
 	}	
