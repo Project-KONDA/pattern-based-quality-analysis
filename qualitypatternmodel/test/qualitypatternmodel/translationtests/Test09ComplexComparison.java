@@ -96,8 +96,8 @@ public class Test09ComplexComparison {
 		completePattern.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 		completePattern.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 		
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, null);
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(1)).getPathParam().setAxis(AxisKind.DESCENDANT, null);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, null);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getPathParam().setAxis(AxisKind.DESCENDANT, null);
 		
 		System.out.println(completePattern.myToString());
 		
