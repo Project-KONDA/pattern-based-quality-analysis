@@ -671,7 +671,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			if (getSource() != null)
 				navigation.setSource(getSource());
 			if (getTarget() != null)
-					navigation.setTarget(getTarget().adaptAsXmlProperty());
+				navigation.setTarget(getTarget());
 		
 			navigation.getOutgoingMappings().addAll(getOutgoingMappings());
 			
