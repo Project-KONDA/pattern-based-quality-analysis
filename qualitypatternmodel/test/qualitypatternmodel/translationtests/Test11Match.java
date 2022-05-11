@@ -7,7 +7,7 @@ import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.operators.*;
 import qualitypatternmodel.adaptionxml.AxisKind;
-import qualitypatternmodel.adaptionxml.AxisOptionParam;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -34,8 +34,7 @@ public class Test11Match {
 		Match match = ((Match) pattern.getGraph().getOperatorList().getOperators().get(0));
 		match.getOption().setValue(invert);
 		pattern.createXMLAdaption();
-		pattern.finalizeXMLAdaption();
-		((AxisOptionParam) pattern.getParameterList().getParameters().get(4)).setValue(AxisKind.DESCENDANT);
+		((XmlNavigation) pattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		return pattern;		
 	}
 
