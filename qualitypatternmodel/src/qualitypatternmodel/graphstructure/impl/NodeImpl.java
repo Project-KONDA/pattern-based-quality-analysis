@@ -1159,7 +1159,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				((NodeImpl) map.getTarget()).adaptAsXmlElementRecursive();
 			}			
 			
-			for(Relation relation : xmlElement.getIncoming()) {
+			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
+			incomingCopy2.addAll(xmlElement.getIncoming());
+			for(Relation relation : incomingCopy2) {
 				relation.adaptAsXMLElementNavigation();
 			}
 			
