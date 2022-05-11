@@ -294,7 +294,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	}
 	
 	@Override
-	public Node addTargetNode() throws InvalidityException {
+	public Relation addOutgoing() throws InvalidityException {
 		throw new InvalidityException("PrimitiveNodes can not have subnodes.");
 	}
 	

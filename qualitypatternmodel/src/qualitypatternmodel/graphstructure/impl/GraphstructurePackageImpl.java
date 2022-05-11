@@ -642,7 +642,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getNode__AddTargetNode() {
+	public EOperation getNode__AddOutgoing() {
 		return nodeEClass.getEOperations().get(13);
 	}
 
@@ -1131,7 +1131,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(nodeEClass, NODE___GET_EQUIVALENT_NODES);
 		createEOperation(nodeEClass, NODE___MAKE_PRIMITIVE);
 		createEOperation(nodeEClass, NODE___MAKE_COMPLEX);
-		createEOperation(nodeEClass, NODE___ADD_TARGET_NODE);
+		createEOperation(nodeEClass, NODE___ADD_OUTGOING);
 		createEOperation(nodeEClass, NODE___ADD_OUTGOING__NODE);
 		createEOperation(nodeEClass, NODE___GET_ORIGINAL_NODE);
 		createEOperation(nodeEClass, NODE___MAKE_COMPLEX_RECURSIVE);
@@ -1318,7 +1318,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getNode__MakeComplex(), this.getComplexNode(), "makeComplex", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getNode__AddTargetNode(), this.getNode(), "addTargetNode", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__AddOutgoing(), this.getRelation(), "addOutgoing", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getNode__AddOutgoing__Node(), this.getRelation(), "addOutgoing", 0, 1, IS_UNIQUE, IS_ORDERED);

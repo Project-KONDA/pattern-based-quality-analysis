@@ -294,9 +294,9 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/getEquivalentNodes"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/makePrimitive"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/makeComplex"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addTargetNode"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addOutgoing">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addOutgoing/node"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addOutgoing"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addOutgoing.1">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addOutgoing.1/node"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/getOriginalNode"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/makeComplexRecursive"/>

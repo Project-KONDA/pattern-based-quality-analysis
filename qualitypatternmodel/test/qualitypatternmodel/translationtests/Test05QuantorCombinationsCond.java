@@ -38,15 +38,15 @@ public class Test05QuantorCombinationsCond {
 		Node se = graph2.getNodes().get(1).makeComplex();
 		
 		
-		Node e0_p = e0.addTargetNode();
+		Node e0_p = e0.addOutgoing().getTarget();
 		e0_p.addPrimitiveComparison("101");
-		Node e1_p = e1.addTargetNode();
+		Node e1_p = e1.addOutgoing().getTarget();
 		e1_p.addPrimitiveComparison("demo:building");
-		Node e1_p2 = e1.addTargetNode();
+		Node e1_p2 = e1.addOutgoing().getTarget();
 		e1_p2.addPrimitiveComparison("abc");
-		Node e2_p = e2.addTargetNode();
+		Node e2_p = e2.addOutgoing().getTarget();
 		e2_p.addPrimitiveComparison("USA");
-		Node se_p = se.addTargetNode();
+		Node se_p = se.addOutgoing().getTarget();
 		se_p.addPrimitiveComparison("demo:country");
 				
 		((Comparison) graph1.getOperatorList().getOperators().get(1)).getOption().setValue(ComparisonOperator.NOTEQUAL);

@@ -1197,13 +1197,13 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___MAKE_COMPLEX = COMPARABLE_OPERATION_COUNT + 14;
 
 	/**
-	 * The operation id for the '<em>Add Target Node</em>' operation.
+	 * The operation id for the '<em>Add Outgoing</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_TARGET_NODE = COMPARABLE_OPERATION_COUNT + 15;
+	int NODE___ADD_OUTGOING = COMPARABLE_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Add Outgoing</em>' operation.
@@ -1837,13 +1837,13 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___MAKE_COMPLEX = NODE___MAKE_COMPLEX;
 
 	/**
-	 * The operation id for the '<em>Add Target Node</em>' operation.
+	 * The operation id for the '<em>Add Outgoing</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE___ADD_TARGET_NODE = NODE___ADD_TARGET_NODE;
+	int PRIMITIVE_NODE___ADD_OUTGOING = NODE___ADD_OUTGOING;
 
 	/**
 	 * The operation id for the '<em>Add Outgoing</em>' operation.
@@ -3046,13 +3046,13 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___MAKE_COMPLEX = NODE___MAKE_COMPLEX;
 
 	/**
-	 * The operation id for the '<em>Add Target Node</em>' operation.
+	 * The operation id for the '<em>Add Outgoing</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_NODE___ADD_TARGET_NODE = NODE___ADD_TARGET_NODE;
+	int COMPLEX_NODE___ADD_OUTGOING = NODE___ADD_OUTGOING;
 
 	/**
 	 * The operation id for the '<em>Add Outgoing</em>' operation.
@@ -3660,14 +3660,14 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getNode__MakeComplex();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addTargetNode() <em>Add Target Node</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addOutgoing() <em>Add Outgoing</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Target Node</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Node#addTargetNode()
+	 * @return the meta object for the '<em>Add Outgoing</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#addOutgoing()
 	 * @generated
 	 */
-	EOperation getNode__AddTargetNode();
+	EOperation getNode__AddOutgoing();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addOutgoing(qualitypatternmodel.graphstructure.Node) <em>Add Outgoing</em>}' operation.
@@ -4472,12 +4472,12 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation NODE___MAKE_COMPLEX = eINSTANCE.getNode__MakeComplex();
 
 		/**
-		 * The meta object literal for the '<em><b>Add Target Node</b></em>' operation.
+		 * The meta object literal for the '<em><b>Add Outgoing</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NODE___ADD_TARGET_NODE = eINSTANCE.getNode__AddTargetNode();
+		EOperation NODE___ADD_OUTGOING = eINSTANCE.getNode__AddOutgoing();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Outgoing</b></em>' operation.

@@ -577,13 +577,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___MAKE_COMPLEX = GraphstructurePackage.COMPLEX_NODE___MAKE_COMPLEX;
 
 	/**
-	 * The operation id for the '<em>Add Target Node</em>' operation.
+	 * The operation id for the '<em>Add Outgoing</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___ADD_TARGET_NODE = GraphstructurePackage.COMPLEX_NODE___ADD_TARGET_NODE;
+	int XML_ELEMENT___ADD_OUTGOING = GraphstructurePackage.COMPLEX_NODE___ADD_OUTGOING;
 
 	/**
 	 * The operation id for the '<em>Add Outgoing</em>' operation.
@@ -2507,13 +2507,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___MAKE_COMPLEX = GraphstructurePackage.PRIMITIVE_NODE___MAKE_COMPLEX;
 
 	/**
-	 * The operation id for the '<em>Add Target Node</em>' operation.
+	 * The operation id for the '<em>Add Outgoing</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___ADD_TARGET_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADD_TARGET_NODE;
+	int XML_PROPERTY___ADD_OUTGOING = GraphstructurePackage.PRIMITIVE_NODE___ADD_OUTGOING;
 
 	/**
 	 * The operation id for the '<em>Add Outgoing</em>' operation.
@@ -3183,13 +3183,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___MAKE_COMPLEX = GraphstructurePackage.COMPLEX_NODE___MAKE_COMPLEX;
 
 	/**
-	 * The operation id for the '<em>Add Target Node</em>' operation.
+	 * The operation id for the '<em>Add Outgoing</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___ADD_TARGET_NODE = GraphstructurePackage.COMPLEX_NODE___ADD_TARGET_NODE;
+	int XML_ROOT___ADD_OUTGOING = GraphstructurePackage.COMPLEX_NODE___ADD_OUTGOING;
 
 	/**
 	 * The operation id for the '<em>Add Outgoing</em>' operation.

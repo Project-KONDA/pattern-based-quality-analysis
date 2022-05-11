@@ -324,7 +324,7 @@
       <eOperations name="getEquivalentNodes" upperBound="-1" eType="#//graphstructure/Node"/>
       <eOperations name="makePrimitive" eType="#//graphstructure/PrimitiveNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="makeComplex" eType="#//graphstructure/ComplexNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="addTargetNode" eType="#//graphstructure/Node" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="addOutgoing" eType="#//graphstructure/Relation" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="addOutgoing" eType="#//graphstructure/Relation" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="node" eType="#//graphstructure/Node"/>
       </eOperations>

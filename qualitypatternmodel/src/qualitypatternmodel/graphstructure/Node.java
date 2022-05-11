@@ -386,7 +386,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	Node addTargetNode() throws InvalidityException;
+	Relation addOutgoing() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

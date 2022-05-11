@@ -1313,12 +1313,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public Node addTargetNode() throws InvalidityException {
-		Graph myGraph = getGraph();
+	public Relation addOutgoing() throws InvalidityException {
 		Node newNode = new NodeImpl();
-		newNode.setGraph(myGraph);
-		myGraph.addRelation(makeComplex(), newNode);
-		return newNode;
+		newNode.setGraph(getGraph());
+		return getGraph().addRelation(makeComplex(), newNode);
 	}
 
 	/**
@@ -1779,9 +1777,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___ADD_TARGET_NODE:
+			case GraphstructurePackage.NODE___ADD_OUTGOING:
 				try {
-					return addTargetNode();
+					return addOutgoing();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
