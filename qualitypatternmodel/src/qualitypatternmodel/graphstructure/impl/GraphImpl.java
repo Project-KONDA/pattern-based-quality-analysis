@@ -183,7 +183,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		
 		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC 
 				&& (returnNodes == null || returnNodes.isEmpty()))
-			throw new InvalidityException("returnElement empty (" + getInternalId() + ")");
+			throw new InvalidityException("no ReturnElement in Graph (" + getInternalId() + ")");
 		
 		if (operatorList == null)
 			throw new InvalidityException("operatorList null (" + getInternalId() + ")");
@@ -192,8 +192,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			throw new InvalidityException("no element in graph (" + getInternalId() + ")");
 			
 
-		for (Node returnNode : returnNodes) {
-			if (!returnNode.getGraph().equals(this)) {
+		for (Node returnNode : getReturnNodes()) {
+			if (returnNode.getGraph() == null || !returnNode.getGraph().equals(this)) {
 				throw new InvalidityException("returnElement not contained in this graph (" + getInternalId() + ")");
 			}
 		}
@@ -221,9 +221,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					noRoot++;
 				}
 			}
-			
-			if (noRoot != 1)
-				throw new InvalidityException("too many or too few XMLRoot (" + getInternalId() + ")");
+
+			if (noRoot == 0)
+				throw new InvalidityException("no XMLRoot (" + getInternalId() + ")");
+			if (noRoot > 1)
+				throw new InvalidityException("too many XMLRoots (" + getInternalId() + ")");
 			for(Node node : getNodes()) {
 				if(node.getClass().equals(NodeImpl.class) || node.getClass().equals(ComplexNodeImpl.class) || node.getClass().equals(PrimitiveNodeImpl.class)) {
 					throw new InvalidityException("Non-generic pattern contains generic Element (" + getInternalId() + ")");
@@ -419,7 +421,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				for(ElementMapping mapping : source.getOutgoingMappings()) {
 					if(mapping.getMorphism().equals(morphism)) {
 						mappedSource = mapping.getTarget();
-						newRelation.setSource(((ComplexNode) mappedSource));
+						newRelation.setSource(mappedSource);
 					}
 				}
 			}
@@ -438,7 +440,15 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	private void copyElements(Graph targetGraph) {
 		for(Node node : getNodes()) {
-			Node newElement = new NodeImpl();		
+			Class<? extends Node> clazz = node.getClass();
+			Node newElement = new NodeImpl();
+			try {
+				newElement = clazz.newInstance();
+			} catch (InstantiationException | IllegalAccessException e) {
+				e.printStackTrace();
+				// should never happen
+			}
+			
 			newElement.setGraph(targetGraph);
 			if(node.getResultOf() != null) {
 				newElement.setResultOf(targetGraph);
