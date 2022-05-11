@@ -263,11 +263,11 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			}
 		}
 
-		if (argument1 != null && argument1.getReturnType() != ReturnType.UNSPECIFIED && argument1.getReturnType() != getTypeOption().getValue()) {
-			throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");
+		if (argument1 != null && argument1.getReturnType() != ReturnType.UNSPECIFIED && getTypeOption().getValue() != ReturnType.UNSPECIFIED && argument1.getReturnType() != getTypeOption().getValue()) {
+			throw new InvalidityException("type mismatch in argument1 " + argument1.getReturnType() + " is not " + getTypeOption().getValue() + " (" + getInternalId() + ")");
 		}
-		if (argument2 != null && argument2.getReturnType() != ReturnType.UNSPECIFIED && argument2.getReturnType() != getTypeOption().getValue()) {
-			throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");
+		if (argument1 != null && argument2.getReturnType() != ReturnType.UNSPECIFIED && getTypeOption().getValue() != ReturnType.UNSPECIFIED && argument2.getReturnType() != getTypeOption().getValue()) {
+			throw new InvalidityException("type mismatch in argument2 " + argument2.getReturnType() + " is not " + getTypeOption().getValue() + " (" + getInternalId() + ")");
 		}
 
 		if (abstractionLevel == AbstractionLevel.CONCRETE && getTypeOption().getValue() == ReturnType.UNSPECIFIED) {
@@ -446,8 +446,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetArgument1(qualitypatternmodel.graphstructure.Comparable newArgument1,
-			NotificationChain msgs) {		
+	public NotificationChain basicSetArgument1(qualitypatternmodel.graphstructure.Comparable newArgument1, NotificationChain msgs) {		
 		Comparable oldArgument1 = argument1;
 		argument1 = newArgument1;
 		
@@ -469,10 +468,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		try {
 			isCycleFree();
 			
-			if((newArgument1.getClass().equals(NodeImpl.class) || newArgument1.getClass().equals(ComplexNodeImpl.class)) && argument2 instanceof ParameterValue) {				
+			if((newArgument1.getClass().equals(NodeImpl.class) || newArgument1.getClass().equals(ComplexNodeImpl.class)) && argument2 instanceof ParameterValue) {
 				((Node) newArgument1).makePrimitive();
 			}
-			if(newArgument1 instanceof ParameterValue && (argument2.getClass().equals(NodeImpl.class) || argument2.getClass().equals(ComplexNodeImpl.class))){
+			if(argument2 != null && newArgument1 instanceof ParameterValue && (argument2.getClass().equals(NodeImpl.class) || argument2.getClass().equals(ComplexNodeImpl.class))){
 				((Node) argument2).makePrimitive();
 			}				
 			
@@ -915,10 +914,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		try {
 			isCycleFree();
 			
-			if((newArgument2.getClass().equals(NodeImpl.class) || newArgument2.getClass().equals(ComplexNodeImpl.class)) && argument1 instanceof ParameterValue) {				
+			if((newArgument2.getClass().equals(NodeImpl.class) || newArgument2.getClass().equals(ComplexNodeImpl.class)) && argument1 instanceof ParameterValue) {
 				((Node) newArgument2).makePrimitive();
 			}
-			if(newArgument2 instanceof ParameterValue && (argument1.getClass().equals(NodeImpl.class) || argument1.getClass().equals(ComplexNodeImpl.class))){
+			if(argument1 != null && newArgument2 instanceof ParameterValue && (argument1.getClass().equals(NodeImpl.class) || argument1.getClass().equals(ComplexNodeImpl.class))){
 				((Node) argument1).makePrimitive();
 			}
 		} catch (OperatorCycleException | InvalidityException e1) {
