@@ -1288,14 +1288,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				((NodeImpl) map.getTarget()).adaptAsXmlPropertyRecursive();
 			}
 
-			for(Relation relation : incomingCopy) {
-				if (relation instanceof XmlNavigation || relation.getClass().equals(Relation.class)) {
-					XmlPropertyNavigation newrelation = relation.adaptAsXMLPropertyNavigation();
-					PropertyOptionParam property = newrelation.getPathParam().getPropertyOptionParam();
-					if (property == null)					
-						throw new InvalidityException("Target Node of " + getClass() + " [" + getInternalId() + "] cannot be adapted to XmlPropertyNavigation");
-					property.setValue(PropertyKind.TAG);					
-				}
+			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
+			incomingCopy2.addAll(xmlProperty.getIncoming());
+			for(Relation relation : incomingCopy2) {
+				relation.adaptAsXMLPropertyNavigation();
 			}
 			
 			return xmlProperty;
