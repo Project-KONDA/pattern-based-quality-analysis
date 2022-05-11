@@ -13,6 +13,7 @@ import qualitypatternmodel.operators.impl.*;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -38,20 +39,25 @@ public class Test08ParameterValues {
 	}
 	
 	public static CompletePattern getConcreteComparisonPattern(PropertyKind propertyKind, ParameterValue parameterValue) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		ParametersPackage.eINSTANCE.eClass();
+		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
+		
 		CompletePattern completePattern = Test00.getBasePattern();
 		completePattern.getGraph().getNodes().get(0).addPrimitiveComparison(ComparisonOperator.EQUAL, parameterValue);
 //		completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.NOTEQUAL, parameter);
 		
 		completePattern.createXMLAdaption();
 		
-		XmlProperty property = (XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0);
-		property.getAttributeName().setValue("*");
-		property.getOption().getOptions().add(propertyKind);
-		property.getOption().setValue(propertyKind);
+		XmlProperty property = (XmlProperty) completePattern.getGraph().getNodes().get(0);
+		XmlNavigation relation = (XmlNavigation) property.getIncoming().get(0);
+		relation.getPathParam().getPropertyOptionParam().getOptions().add(propertyKind);
+		relation.getPathParam().getPropertyOptionParam().setValue(propertyKind);
 		
-		completePattern.finalizeXMLAdaption();
+		TextLiteralParam text = parametersFactory.createTextLiteralParam();
+		text.setValue("*");
+		relation.getPathParam().getPropertyOptionParam().setAttributeName(text );
 		
-		((XmlElementNavigation)completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 		return completePattern;
 	}
