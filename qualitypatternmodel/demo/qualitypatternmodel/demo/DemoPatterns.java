@@ -282,16 +282,6 @@ public class DemoPatterns {
 		// Context graph of pattern:
 		Node element0 = completePattern.getGraph().getNodes().get(0);
 		element0.setName("Element0");
-		try {
-			element0.addPrimitiveComparison();
-		} catch (InvalidityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
-		comp0.getOption().setValue(ComparisonOperator.EQUAL);
-		comp0.getOption().setPredefined(true);
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
@@ -315,18 +305,8 @@ public class DemoPatterns {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		try {
-			element1.addPrimitiveComparison();
-		} catch (InvalidityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
-		Comparison comp1 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
-		comp1.getOption().setValue(ComparisonOperator.EQUAL);
-		comp1.getOption().setPredefined(true);
-		
-		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);
+		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
 		comp2.getOption().getOptions().add(ComparisonOperator.GREATER);
 		comp2.getOption().getOptions().add(ComparisonOperator.LESS);
 		comp2.getOption().getOptions().add(ComparisonOperator.GREATEROREQUAL);
@@ -346,12 +326,6 @@ public class DemoPatterns {
 		
 		completePattern.createXMLAdaption();
 		
-		// Specify relation between Element 0 and Element 1:
-		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
-		
-		completePattern.finalizeXMLAdaption();
-		
 		return completePattern;
 	}	
 	
@@ -366,45 +340,24 @@ public class DemoPatterns {
 		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
-		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
-		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
-		property0.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
-		TextLiteralParam textValue0 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue0.setValue(DEMO_NAMESPACE + "architect");
-		value0.replace(textValue0);
-		
-		XmlElementNavigation navigationRootElement0 = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
-		navigationRootElement0.getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		XmlNavigation nav0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		nav0.getPathParam().setAxis(AxisKind.DESCENDANT, DEMO_NAMESPACE + "architect");
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
-		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
-		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		property1.getOption().setValue(PropertyKind.TAG);
+		XmlNavigation nav1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
+		nav1.getPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "birthyear");
 		
-		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(3);
-		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue1.setValue(DEMO_NAMESPACE + "birthyear");
-		value1.replace(textValue1);
-		
-		XmlProperty property2 = (XmlProperty) element1.getProperties().get(0);
-		property2.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
+		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
 		NumberParam numberValue = ParametersFactory.eINSTANCE.createNumberParam();
 		numberValue.setValue(2020.0);
 		value2.replace(numberValue);
 		
-		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);
+		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
 		comp2.getOption().setValue(ComparisonOperator.GREATER);	
-		
-		XmlElementNavigation navigationElement0Element1 = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		navigationElement0Element1.getPathParam().setAxis(AxisKind.CHILD, "");	
-						
+								
 		return completePattern;
 	}
 	
