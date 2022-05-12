@@ -149,7 +149,7 @@ public class DemoPatterns {
 		CompletePattern compTextConcrete = getConcreteCompTextPattern(database);			
 		EMFModelSave.exportToFile(compTextConcrete,"instances/demo/comparison_text_concrete", "patternstructure");
 		
-		CompletePattern compTextLidoConcrete = getConcreteLidoCompTextPattern(database);			
+		CompletePattern compTextLidoConcrete = getConcreteLidoCompPattern(database);			
 		EMFModelSave.exportToFile(compTextLidoConcrete,"instances/demo/comparison_lido_concrete", "patternstructure");
 		
 		CompletePattern cardGeneric = getGenericCardPattern();
@@ -183,7 +183,6 @@ public class DemoPatterns {
 		System.out.println("\n\n\n>>> Printing queries of demo patterns:");
 		
 		printPatternQuery(compConcrete);
-		printPatternQuery(compTextConcrete);
 		printPatternQuery(compTextLidoConcrete);
 		
 		printPatternQuery(cardConcrete);
@@ -406,16 +405,6 @@ public class DemoPatterns {
 		// Context graph of pattern:
 		Node element0 = completePattern.getGraph().getNodes().get(0);
 		element0.setName("Element0");
-		try {
-			element0.addPrimitiveComparison();
-		} catch (InvalidityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
-		comp0.getOption().setValue(ComparisonOperator.EQUAL);
-		comp0.getOption().setPredefined(true);
 		
 		// First-order logic condition of pattern:
 		CountCondition countCondition = PatternstructureFactory.eINSTANCE.createCountCondition();
@@ -452,17 +441,6 @@ public class DemoPatterns {
 		relation.setSource(element0Copy);
 		relation.setTarget(element1);
 		
-		try {
-			element1.addPrimitiveComparison();
-		} catch (InvalidityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		Comparison comp1 = (Comparison) countPattern.getGraph().getOperatorList().getOperators().get(0);
-		comp1.getOption().setValue(ComparisonOperator.EQUAL);
-		comp1.getOption().setPredefined(true);		
-		
 		return completePattern;
 	}
 	
@@ -473,12 +451,6 @@ public class DemoPatterns {
 		
 		completePattern.createXMLAdaption();
 		
-		// Specify relation between Element 0 and Element 1:
-		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
-		countCondition.getCountPattern().getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
-		
-		completePattern.finalizeXMLAdaption();
-				
 		return completePattern;
 	}
 	
@@ -494,17 +466,8 @@ public class DemoPatterns {
 		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
-		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
-		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
-		property0.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
-		TextLiteralParam textValue0 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue0.setValue(DEMO_NAMESPACE + "artist");
-		value0.replace(textValue0);
-		
-		XmlElementNavigation navigationRootElement0 = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
-		navigationRootElement0.getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		XmlNavigation nav0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		nav0.getPathParam().setAxis(AxisKind.DESCENDANT, DEMO_NAMESPACE + "artist");
 		
 		// First-order logic condition of pattern:
 		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
@@ -516,18 +479,9 @@ public class DemoPatterns {
 		CountPattern countPattern = countCondition.getCountPattern();
 		
 		// Graph of inner pattern:
-		XmlElement element1 = (XmlElement) countPattern.getGraph().getNodes().get(1);
-		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		property1.getOption().setValue(PropertyKind.TAG);
+		XmlNavigation nav1 = (XmlNavigation) countPattern.getGraph().getRelations().get(0);
+		nav1.getPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "birthyear");
 		
-		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(5);
-		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue1.setValue(DEMO_NAMESPACE + "birthyear");
-		value1.replace(textValue1);	
-		
-		XmlElementNavigation navigationElement0Element1 = (XmlElementNavigation) countPattern.getGraph().getRelations().get(0);
-		navigationElement0Element1.getPathParam().setAxis(AxisKind.CHILD, "");	
-				
 		return completePattern;
 	}
 	
