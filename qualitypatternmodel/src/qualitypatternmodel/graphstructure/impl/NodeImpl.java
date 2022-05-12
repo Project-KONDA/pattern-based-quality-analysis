@@ -977,21 +977,22 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		Graph graph = getGraph();
 		ComplexNode complexOriginal = originalNode.makeComplexRecursive();
 		
-		if (graph != null) {
-			for(Node n: graph.getNodes()) {
-				if(n instanceof ComplexNode) {
-					ComplexNode complex = (ComplexNode) n;
-					Node next = n;
-					while(next != null) {
-						if(!next.equals(complexOriginal)) {
-							if(next.getIncomingMapping() == null) {
-								next = null;
-							} else {
-								next = next.getIncomingMapping().getSource();
-							}
+		if (graph == null) 
+			throw new InvalidityException("no graph found for complex node");
+		
+		for(Node n: graph.getNodes()) {
+			if(n instanceof ComplexNode) {
+				ComplexNode complex = (ComplexNode) n;
+				Node next = n;
+				while(next != null) {
+					if(!next.equals(complexOriginal)) {
+						if(next.getIncomingMapping() == null) {
+							next = null;
 						} else {
-							return complex;
+							next = next.getIncomingMapping().getSource();
 						}
+					} else {
+						return complex;
 					}
 				}
 			}
