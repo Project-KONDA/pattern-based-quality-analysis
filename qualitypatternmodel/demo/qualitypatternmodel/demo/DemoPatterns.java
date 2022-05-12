@@ -204,18 +204,13 @@ public class DemoPatterns {
 		
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();	
 		
-		ParameterValue value = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
+		ParameterValue value = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
 		
 		BooleanParam bool = ParametersFactory.eINSTANCE.createBooleanParam();
 		value.replace(bool);
 		bool.setTypeModifiable(false);
 		
 		completePattern.createXMLAdaption();
-		
-		// Specify relation between Element 0 and Element 1:
-		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
-		
-		completePattern.finalizeXMLAdaption();
 		
 		return completePattern;
 	}
@@ -236,29 +231,7 @@ public class DemoPatterns {
 		value0.replace(date);
 		date.setTypeModifiable(false);
 		
-		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		
-		// <value time>
-		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(3);
-		
-		TimeParam time = ParametersFactory.eINSTANCE.createTimeParam();
-		value1.replace(time);
-		time.setTypeModifiable(false);
-
-		
-		// <value dateTime>
-		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
-		
-		DateTimeParam dateTime = ParametersFactory.eINSTANCE.createDateTimeParam();
-		value2.replace(dateTime);
-		dateTime.setTypeModifiable(false);
-		
 		completePattern.createXMLAdaption();
-		
-		// Specify relation between Element 0 and Element 1:
-		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
-		
-		completePattern.finalizeXMLAdaption();
 		
 		return completePattern;
 	}
