@@ -8,6 +8,8 @@ import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -82,8 +84,7 @@ public class DemoPatterns {
         databases.getXmlSchemata().add(schema);
         
         compConcrete = getConcreteCompPattern(database);
-        compTextConcrete = getConcreteCompTextPattern(database);
-        compTextLidoConcrete = getConcreteLidoCompTextPattern(database);
+        compTextLidoConcrete = getConcreteLidoCompPattern(database);
         cardConcrete = getConcreteCardPattern(database);
         cardConcreteFinalized = getConcreteFinalizedCardPattern(database);
         cardConcreteLido = getConcreteLidoCardPattern(database);
@@ -683,96 +684,29 @@ public class DemoPatterns {
 		completePattern.setDescription("Allows detecting a violated functional dependency between a conceptID and term indicating the culture");
 		
 		// Context graph of pattern:
-		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
-		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
-		property0.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
-		TextLiteralParam textValue0 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue0.setValue(LIDO_NAMESPACE + "culture");
-		value0.replace(textValue0);
-		
-		XmlElementNavigation navigationRootElement0 = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
-		navigationRootElement0.getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		XmlNavigation nav0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		nav0.getPathParam().setAxis(AxisKind.DESCENDANT, LIDO_NAMESPACE + "culture");
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
+		XmlNavigation nav0A = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
+		nav0A.getPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "conceptID");
 		
-		XmlElement element0A = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
-		XmlProperty property0A = (XmlProperty) element0A.getProperties().get(1);
-		property0A.getOption().setValue(PropertyKind.TAG);
+		XmlNavigation nav0B = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(2);
+		nav0B.getPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "term");
 		
-		ParameterValue value0A = (ParameterValue) completePattern.getParameterList().getParameters().get(3);
-		TextLiteralParam textValue0A = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue0A.setValue(LIDO_NAMESPACE + "conceptID");
-		value0A.replace(textValue0A);
+		XmlNavigation nav1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(5);
+		nav1.getPathParam().setAxis(AxisKind.DESCENDANT, LIDO_NAMESPACE + "culture");
 		
-		XmlElement element0B = (XmlElement) quantifiedCondition.getGraph().getNodes().get(2);
-		XmlProperty property0B = (XmlProperty) element0B.getProperties().get(1);
-		property0B.getOption().setValue(PropertyKind.TAG);
+		XmlNavigation nav1A = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(3);
+		nav1A.getPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "term");
 		
-		ParameterValue value0B = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
-		TextLiteralParam textValue0B = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue0B.setValue(LIDO_NAMESPACE + "term");
-		value0B.replace(textValue0B);
-		
-		
-		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(3);
-		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		property1.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(9);
-		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue1.setValue(LIDO_NAMESPACE + "culture");
-		value1.replace(textValue1);
-		
-		
-		XmlElement element1A = (XmlElement) quantifiedCondition.getGraph().getNodes().get(4);
-		XmlProperty property1A = (XmlProperty) element1A.getProperties().get(1);
-		property1A.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value1A = (ParameterValue) completePattern.getParameterList().getParameters().get(12);
-		TextLiteralParam textValue1A = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue1A.setValue(LIDO_NAMESPACE + "conceptID");
-		value1A.replace(textValue1A);
-		
-		
-		XmlElement element1B = (XmlElement) quantifiedCondition.getGraph().getNodes().get(5);
-		XmlProperty property1B = (XmlProperty) element1B.getProperties().get(1);
-		property1B.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value1B = (ParameterValue) completePattern.getParameterList().getParameters().get(15);
-		TextLiteralParam textValue1B = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue1B.setValue(LIDO_NAMESPACE + "term");
-		value1B.replace(textValue1B);		
-		
-		
-		Comparison compA = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(5);
-		compA.getTypeOption().setValue(ReturnType.STRING);
-		
-		Comparison compB = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(6);
-		compB.getTypeOption().setValue(ReturnType.STRING);		
-		
-		
-		XmlElementNavigation navigationElement0Element0A = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		navigationElement0Element0A.getPathParam().setAxis(AxisKind.CHILD, "");
-		
-		XmlElementNavigation navigationElement0Element0B = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(1);
-		navigationElement0Element0B.getPathParam().setAxis(AxisKind.CHILD, "");	
-		
-		XmlElementNavigation navigationElement0Element1A = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(2);
-		navigationElement0Element1A.getPathParam().setAxis(AxisKind.CHILD, "");	
-		
-		XmlElementNavigation navigationElement0Element1B = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(3);
-		navigationElement0Element1B.getPathParam().setAxis(AxisKind.CHILD, "");	
-		
-		XmlElementNavigation navigationRootElement1 = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(5);
-		navigationRootElement1.getPathParam().setAxis(AxisKind.DESCENDANT, "");	
+		XmlNavigation nav1B = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
+		nav1B.getPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "conceptID");
 				
 		return completePattern;
-	
 	
 	}
 	
