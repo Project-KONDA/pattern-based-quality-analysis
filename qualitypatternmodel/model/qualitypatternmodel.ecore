@@ -339,7 +339,7 @@
       <eOperations name="checkPrimitive" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="checkComplex" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="addIncomming" eType="#//graphstructure/Relation">
-        <eParameters name="node" eType="#//graphstructure/Node"/>
+        <eParameters name="node" eType="#//graphstructure/ComplexNode"/>
       </eOperations>
       <eOperations name="adaptAsXmlElement" eType="#//adaptionxml/XmlElement" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsXmlProperty" eType="#//adaptionxml/XmlProperty" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
@@ -373,7 +373,7 @@
       </eOperations>
       <eOperations name="isReturnGraph" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="addRelation" eType="#//graphstructure/Relation">
-        <eParameters name="from" eType="#//graphstructure/Node"/>
+        <eParameters name="from" eType="#//graphstructure/ComplexNode"/>
         <eParameters name="to" eType="#//graphstructure/Node"/>
       </eOperations>
       <eOperations name="getReturnNodes" upperBound="-1" eType="#//graphstructure/Node"/>

@@ -1095,8 +1095,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public Relation addIncomming(Node node) {
+	public Relation addIncomming(ComplexNode node) {
 		Graph myGraph = this.getGraph(); 
+		assert myGraph == node.getGraph();
 		return myGraph.addRelation(node, this);
 	}
 
@@ -1795,8 +1796,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___ADD_INCOMMING__NODE:
-				return addIncomming((Node)arguments.get(0));
+			case GraphstructurePackage.NODE___ADD_INCOMMING__COMPLEXNODE:
+				return addIncomming((ComplexNode)arguments.get(0));
 			case GraphstructurePackage.NODE___ADAPT_AS_XML_ELEMENT:
 				try {
 					return adaptAsXmlElement();

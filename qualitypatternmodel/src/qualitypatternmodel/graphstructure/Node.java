@@ -464,7 +464,7 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @model
 	 * @generated
 	 */
-	Relation addIncomming(Node node);
+	Relation addIncomming(ComplexNode node);
 
 	/**
 	 * <!-- begin-user-doc -->

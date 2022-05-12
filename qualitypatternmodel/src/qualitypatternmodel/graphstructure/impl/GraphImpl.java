@@ -668,10 +668,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @generated NOT
 	 */
 	@Override
-	public Relation addRelation(Node from, Node to) {
+	public Relation addRelation(ComplexNode from, Node to) {
+		assert this == from.getGraph();
+		assert this == to.getGraph();
 		Relation r = new RelationImpl();
 		r.setGraph(this);
-		r.setSource(((ComplexNode) from));
+		r.setSource(from);
 		r.setTarget(to);
 		return r;
 	}
@@ -957,8 +959,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}
 			case GraphstructurePackage.GRAPH___IS_RETURN_GRAPH:
 				return isReturnGraph();
-			case GraphstructurePackage.GRAPH___ADD_RELATION__NODE_NODE:
-				return addRelation((Node)arguments.get(0), (Node)arguments.get(1));
+			case GraphstructurePackage.GRAPH___ADD_RELATION__COMPLEXNODE_NODE:
+				return addRelation((ComplexNode)arguments.get(0), (Node)arguments.get(1));
 			case GraphstructurePackage.GRAPH___GET_RETURN_NODES:
 				return getReturnNodes();
 		}

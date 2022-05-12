@@ -136,13 +136,11 @@ public interface Graph extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Creates a <code>Relation</code> with <code>from</code> as <code>source</code> and <code>to</code> 
-	 * as <code>target</code> and inserts it into <code>relations</code>.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	Relation addRelation(Node from, Node to);
+	Relation addRelation(ComplexNode from, Node to);
 
 	/**
 	 * Returns the value of the '<em><b>Quantified Condition</b></em>' container reference.

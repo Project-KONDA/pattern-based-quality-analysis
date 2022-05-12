@@ -1293,7 +1293,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADD_INCOMMING__NODE = COMPARABLE_OPERATION_COUNT + 25;
+	int NODE___ADD_INCOMMING__COMPLEXNODE = COMPARABLE_OPERATION_COUNT + 25;
 
 	/**
 	 * The operation id for the '<em>Adapt As Xml Element</em>' operation.
@@ -1933,7 +1933,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE___ADD_INCOMMING__NODE = NODE___ADD_INCOMMING__NODE;
+	int PRIMITIVE_NODE___ADD_INCOMMING__COMPLEXNODE = NODE___ADD_INCOMMING__COMPLEXNODE;
 
 	/**
 	 * The operation id for the '<em>Adapt As Xml Element</em>' operation.
@@ -2294,7 +2294,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___ADD_RELATION__NODE_NODE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
+	int GRAPH___ADD_RELATION__COMPLEXNODE_NODE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Return Nodes</em>' operation.
@@ -3142,7 +3142,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_NODE___ADD_INCOMMING__NODE = NODE___ADD_INCOMMING__NODE;
+	int COMPLEX_NODE___ADD_INCOMMING__COMPLEXNODE = NODE___ADD_INCOMMING__COMPLEXNODE;
 
 	/**
 	 * The operation id for the '<em>Adapt As Xml Element</em>' operation.
@@ -3760,14 +3760,14 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getNode__CheckComplex();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addIncomming(qualitypatternmodel.graphstructure.Node) <em>Add Incomming</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addIncomming(qualitypatternmodel.graphstructure.ComplexNode) <em>Add Incomming</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Incomming</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Node#addIncomming(qualitypatternmodel.graphstructure.Node)
+	 * @see qualitypatternmodel.graphstructure.Node#addIncomming(qualitypatternmodel.graphstructure.ComplexNode)
 	 * @generated
 	 */
-	EOperation getNode__AddIncomming__Node();
+	EOperation getNode__AddIncomming__ComplexNode();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#adaptAsXmlElement() <em>Adapt As Xml Element</em>}' operation.
@@ -3927,14 +3927,14 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getGraph__IsReturnGraph();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.Node, qualitypatternmodel.graphstructure.Node) <em>Add Relation</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.ComplexNode, qualitypatternmodel.graphstructure.Node) <em>Add Relation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Relation</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.Node, qualitypatternmodel.graphstructure.Node)
+	 * @see qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.ComplexNode, qualitypatternmodel.graphstructure.Node)
 	 * @generated
 	 */
-	EOperation getGraph__AddRelation__Node_Node();
+	EOperation getGraph__AddRelation__ComplexNode_Node();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getReturnNodes() <em>Get Return Nodes</em>}' operation.
@@ -4556,7 +4556,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NODE___ADD_INCOMMING__NODE = eINSTANCE.getNode__AddIncomming__Node();
+		EOperation NODE___ADD_INCOMMING__COMPLEXNODE = eINSTANCE.getNode__AddIncomming__ComplexNode();
 
 		/**
 		 * The meta object literal for the '<em><b>Adapt As Xml Element</b></em>' operation.
@@ -4686,7 +4686,7 @@ public interface GraphstructurePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GRAPH___ADD_RELATION__NODE_NODE = eINSTANCE.getGraph__AddRelation__Node_Node();
+		EOperation GRAPH___ADD_RELATION__COMPLEXNODE_NODE = eINSTANCE.getGraph__AddRelation__ComplexNode_Node();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Return Nodes</b></em>' operation.

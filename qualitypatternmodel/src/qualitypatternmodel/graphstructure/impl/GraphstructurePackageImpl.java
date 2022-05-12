@@ -742,7 +742,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getNode__AddIncomming__Node() {
+	public EOperation getNode__AddIncomming__ComplexNode() {
 		return nodeEClass.getEOperations().get(23);
 	}
 
@@ -902,7 +902,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getGraph__AddRelation__Node_Node() {
+	public EOperation getGraph__AddRelation__ComplexNode_Node() {
 		return graphEClass.getEOperations().get(3);
 	}
 
@@ -1141,7 +1141,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(nodeEClass, NODE___CHECK_GENERIC);
 		createEOperation(nodeEClass, NODE___CHECK_PRIMITIVE);
 		createEOperation(nodeEClass, NODE___CHECK_COMPLEX);
-		createEOperation(nodeEClass, NODE___ADD_INCOMMING__NODE);
+		createEOperation(nodeEClass, NODE___ADD_INCOMMING__COMPLEXNODE);
 		createEOperation(nodeEClass, NODE___ADAPT_AS_XML_ELEMENT);
 		createEOperation(nodeEClass, NODE___ADAPT_AS_XML_PROPERTY);
 		createEOperation(nodeEClass, NODE___CHECK_COMPARISON_CONSISTENCY);
@@ -1158,7 +1158,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(graphEClass, GRAPH___GET_ALL_OPERATORS);
 		createEOperation(graphEClass, GRAPH___COPY_GRAPH__GRAPH);
 		createEOperation(graphEClass, GRAPH___IS_RETURN_GRAPH);
-		createEOperation(graphEClass, GRAPH___ADD_RELATION__NODE_NODE);
+		createEOperation(graphEClass, GRAPH___ADD_RELATION__COMPLEXNODE_NODE);
 		createEOperation(graphEClass, GRAPH___GET_RETURN_NODES);
 
 		comparableEClass = createEClass(COMPARABLE);
@@ -1348,8 +1348,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getNode__CheckComplex(), null, "checkComplex", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getNode__AddIncomming__Node(), this.getRelation(), "addIncomming", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getNode(), "node", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__AddIncomming__ComplexNode(), this.getRelation(), "addIncomming", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getComplexNode(), "node", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getNode__AdaptAsXmlElement(), theAdaptionxmlPackage.getXmlElement(), "adaptAsXmlElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
@@ -1380,8 +1380,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		initEOperation(getGraph__IsReturnGraph(), ecorePackage.getEBoolean(), "isReturnGraph", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getGraph__AddRelation__Node_Node(), this.getRelation(), "addRelation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getNode(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getGraph__AddRelation__ComplexNode_Node(), this.getRelation(), "addRelation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getComplexNode(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getNode(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getGraph__GetReturnNodes(), this.getNode(), "getReturnNodes", 0, -1, IS_UNIQUE, IS_ORDERED);

@@ -673,7 +673,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___ADD_INCOMMING__NODE = GraphstructurePackage.COMPLEX_NODE___ADD_INCOMMING__NODE;
+	int XML_ELEMENT___ADD_INCOMMING__COMPLEXNODE = GraphstructurePackage.COMPLEX_NODE___ADD_INCOMMING__COMPLEXNODE;
 
 	/**
 	 * The operation id for the '<em>Adapt As Xml Element</em>' operation.
@@ -2603,7 +2603,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___ADD_INCOMMING__NODE = GraphstructurePackage.PRIMITIVE_NODE___ADD_INCOMMING__NODE;
+	int XML_PROPERTY___ADD_INCOMMING__COMPLEXNODE = GraphstructurePackage.PRIMITIVE_NODE___ADD_INCOMMING__COMPLEXNODE;
 
 	/**
 	 * The operation id for the '<em>Adapt As Xml Element</em>' operation.
@@ -3279,7 +3279,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___ADD_INCOMMING__NODE = GraphstructurePackage.COMPLEX_NODE___ADD_INCOMMING__NODE;
+	int XML_ROOT___ADD_INCOMMING__COMPLEXNODE = GraphstructurePackage.COMPLEX_NODE___ADD_INCOMMING__COMPLEXNODE;
 
 	/**
 	 * The operation id for the '<em>Adapt As Xml Element</em>' operation.
