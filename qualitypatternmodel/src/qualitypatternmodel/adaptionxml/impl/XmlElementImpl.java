@@ -182,11 +182,8 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		boolean hasIncomingXMLNavigation = false;
 		for(Relation relation : getIncoming()) {
 			if(relation instanceof XmlElementNavigation) {
-				if(hasIncomingXMLNavigation) {
-					throw new InvalidityException("too many incoming XMLNavigations at XMLElement " + getId());
-				} else {
-					hasIncomingXMLNavigation = true;
-				}
+				hasIncomingXMLNavigation = true;
+				break;
 			}
 		}
 		if ( !hasIncomingXMLNavigation  && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
