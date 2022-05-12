@@ -682,12 +682,6 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		}
 		return super.eInvoke(operationID, arguments);
 	}
-	
-	@Override
-	public String myToString() {
-		String res = this.getClass().getSimpleName() + " [" + getInternalId() + "]";
-		return res;
-	}
 
 	@Override
 	public void removeParametersFromParameterList() {

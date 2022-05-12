@@ -478,9 +478,4 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 		return result.toString();
 	}
 
-	@Override
-	public String myToString() {
-		return super.myToString();
-	}
-
 } // XMLPropertyImpl
