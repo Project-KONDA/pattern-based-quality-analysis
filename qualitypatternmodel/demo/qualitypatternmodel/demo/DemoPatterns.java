@@ -541,11 +541,6 @@ public class DemoPatterns {
 		// Context graph of pattern:
 		Node element0 = completePattern.getGraph().getNodes().get(0);
 		element0.setName("Element0");
-		element0.addPrimitiveComparison();
-		
-		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
-		comp0.getOption().setValue(ComparisonOperator.EQUAL);
-		comp0.getOption().setPredefined(true);
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
@@ -554,92 +549,72 @@ public class DemoPatterns {
 		// Graph of quantified condition:		
 		Node element0Copy = quantifiedCondition.getGraph().getNodes().get(0);
 		
-		Node element0A = GraphstructureFactory.eINSTANCE.createNode();
+		Node element0A = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
 		element0A.setName("Element0A");
 		element0A.setGraph(quantifiedCondition.getGraph());	
-		PrimitiveNode property0A = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
-		element0A.addOutgoing(property0A);
+//		PrimitiveNode property0A = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
+//		element0A.addOutgoing(property0A);
 		
 		Relation relation0A = GraphstructureFactory.eINSTANCE.createRelation();
 		relation0A.setGraph(quantifiedCondition.getGraph());		
 		relation0A.setSource(element0Copy);
 		relation0A.setTarget(element0A);
 		
-		element0A.addPrimitiveComparison();
+		Node newElement0Copy = relation0A.getSource();
 		
-		Comparison comp0A = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
-		comp0A.getOption().setValue(ComparisonOperator.EQUAL);
-		comp0A.getOption().setPredefined(true);
-		
-		Node element0B = GraphstructureFactory.eINSTANCE.createNode();
+		Node element0B = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
 		element0B.setName("Element0B");
 		element0B.setGraph(quantifiedCondition.getGraph());
-		PrimitiveNode property0B = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
-		element0B.addOutgoing(property0B);
+//		PrimitiveNode property0B = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
+//		element0B.addOutgoing(property0B);
 		
 		Relation relation0B = GraphstructureFactory.eINSTANCE.createRelation();
 		relation0B.setGraph(quantifiedCondition.getGraph());		
-		relation0B.setSource(element0Copy);
+		relation0B.setSource(newElement0Copy);
 		relation0B.setTarget(element0B);
-		
-		element0B.addPrimitiveComparison();
-		
-		Comparison comp0B = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);
-		comp0B.getOption().setValue(ComparisonOperator.EQUAL);
-		comp0B.getOption().setPredefined(true);
 		
 		Node element1 = GraphstructureFactory.eINSTANCE.createNode();
 		element1.setName("Element1");
 		element1.setGraph(quantifiedCondition.getGraph());	
-		element1.addPrimitiveComparison();
 		
-		Node element1A = GraphstructureFactory.eINSTANCE.createNode();
-		element1A.setName("Element1A");
-		element1A.setGraph(quantifiedCondition.getGraph());	
-		PrimitiveNode property1A = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
-		element1A.addOutgoing(property0B);
+//		Node element1A = GraphstructureFactory.eINSTANCE.createNode();
+//		element1A.setName("Element1A");
+//		element1A.setGraph(quantifiedCondition.getGraph());	
+//		PrimitiveNode property1A = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
+//		element1A.addOutgoing(property0B);
 		
 		Relation relation1A = GraphstructureFactory.eINSTANCE.createRelation();
 		relation1A.setGraph(quantifiedCondition.getGraph());		
 		relation1A.setSource(element1);
-		relation1A.setTarget(element1A);
+		relation1A.setTarget(element0A);
 		
-		element1A.addPrimitiveComparison();
+		Node newElement1 = relation1A.getSource();
 		
-		Comparison comp1A = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(2);
-		comp1A.getOption().setValue(ComparisonOperator.EQUAL);
-		comp1A.getOption().setPredefined(true);
-		
-		Node element1B = GraphstructureFactory.eINSTANCE.createNode();
+		Node element1B = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
 		element1B.setName("Element1B");
 		element1B.setGraph(quantifiedCondition.getGraph());	
-		PrimitiveNode property1B = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
-		element1B.addOutgoing(property1B);
+//		PrimitiveNode property1B = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
+//		element1B.addOutgoing(property1B);
 		
 		Relation relation1B = GraphstructureFactory.eINSTANCE.createRelation();
 		relation1B.setGraph(quantifiedCondition.getGraph());		
-		relation1B.setSource(element1);
+		relation1B.setSource(newElement1);
 		relation1B.setTarget(element1B);
 		
-		element1B.addPrimitiveComparison();
-		
-		Comparison comp1B = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(3);
-		comp1B.getOption().setValue(ComparisonOperator.EQUAL);
-		comp1B.getOption().setPredefined(true);
-		
-		Comparison compA = OperatorsFactory.eINSTANCE.createComparison();
-		quantifiedCondition.getGraph().getOperatorList().getOperators().add(compA);
-		compA.setArgument1(property0A);
-		compA.setArgument2(property1A);
-		compA.getOption().setValue(ComparisonOperator.EQUAL);
-		compA.getOption().setPredefined(true);
+//		Comparison compA = OperatorsFactory.eINSTANCE.createComparison();
+//		quantifiedCondition.getGraph().getOperatorList().getOperators().add(compA);
+//		compA.setArgument1(property0A);
+//		compA.setArgument2(property1A);
+//		compA.getOption().setValue(ComparisonOperator.EQUAL);
+//		compA.getOption().setPredefined(true);
 		
 		Comparison compB = OperatorsFactory.eINSTANCE.createComparison();
 		quantifiedCondition.getGraph().getOperatorList().getOperators().add(compB);
-		compB.setArgument1(property0B);
-		compB.setArgument2(property1B);
+		compB.setArgument1(element0B);
+		compB.setArgument2(element1B);
 		compB.getOption().setValue(ComparisonOperator.NOTEQUAL);
 		compB.getOption().setPredefined(true);
+		compB.getTypeOption().setValue(ReturnType.STRING);
 		
 		// Condition of quantified condition:
 		TrueElement trueElement = PatternstructureFactory.eINSTANCE.createTrueElement();
@@ -654,16 +629,7 @@ public class DemoPatterns {
 		completePattern.setAbstractName("functional_dependency_abstract");
 		
 		completePattern.createXMLAdaption();
-		
-		// Specify relations:
-		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();		
-		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
-		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
-		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
-		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();		
 	
-		completePattern.finalizeXMLAdaption();	
-		
 		return completePattern;
 	}
 
@@ -674,96 +640,29 @@ public class DemoPatterns {
 		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
-		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
-		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
-		property0.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
-		TextLiteralParam textValue0 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue0.setValue(DEMO_NAMESPACE + "building");
-		value0.replace(textValue0);
-		
-		XmlElementNavigation navigationRootElement0 = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
-		navigationRootElement0.getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		XmlNavigation nav0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		nav0.getPathParam().setAxis(AxisKind.DESCENDANT, DEMO_NAMESPACE + "building");
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
+		XmlNavigation nav0A = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
+		nav0A.getPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "city");
 		
-		XmlElement element0A = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
-		XmlProperty property0A = (XmlProperty) element0A.getProperties().get(1);
-		property0A.getOption().setValue(PropertyKind.TAG);
+		XmlNavigation nav0B = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(2);
+		nav0B.getPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "country");
 		
-		ParameterValue value0A = (ParameterValue) completePattern.getParameterList().getParameters().get(3);
-		TextLiteralParam textValue0A = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue0A.setValue(DEMO_NAMESPACE + "city");
-		value0A.replace(textValue0A);
+		XmlNavigation nav1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(5);
+		nav1.getPathParam().setAxis(AxisKind.DESCENDANT, DEMO_NAMESPACE + "building");
 		
-		XmlElement element0B = (XmlElement) quantifiedCondition.getGraph().getNodes().get(2);
-		XmlProperty property0B = (XmlProperty) element0B.getProperties().get(1);
-		property0B.getOption().setValue(PropertyKind.TAG);
+		XmlNavigation nav1A = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(3);
+		nav1A.getPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "country");
 		
-		ParameterValue value0B = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
-		TextLiteralParam textValue0B = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue0B.setValue(DEMO_NAMESPACE + "country");
-		value0B.replace(textValue0B);
-		
-		
-		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(3);
-		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		property1.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(9);
-		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue1.setValue(DEMO_NAMESPACE + "building");
-		value1.replace(textValue1);
-		
-		
-		XmlElement element1A = (XmlElement) quantifiedCondition.getGraph().getNodes().get(4);
-		XmlProperty property1A = (XmlProperty) element1A.getProperties().get(1);
-		property1A.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value1A = (ParameterValue) completePattern.getParameterList().getParameters().get(12);
-		TextLiteralParam textValue1A = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue1A.setValue(DEMO_NAMESPACE + "city");
-		value1A.replace(textValue1A);
-		
-		
-		XmlElement element1B = (XmlElement) quantifiedCondition.getGraph().getNodes().get(5);
-		XmlProperty property1B = (XmlProperty) element1B.getProperties().get(1);
-		property1B.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value1B = (ParameterValue) completePattern.getParameterList().getParameters().get(15);
-		TextLiteralParam textValue1B = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue1B.setValue(DEMO_NAMESPACE + "country");
-		value1B.replace(textValue1B);		
-		
-		
-		Comparison compA = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(5);
-		compA.getTypeOption().setValue(ReturnType.STRING);
-		
-		Comparison compB = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(6);
-		compB.getTypeOption().setValue(ReturnType.STRING);		
-		
-		
-		XmlElementNavigation navigationElement0Element0A = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		navigationElement0Element0A.getPathParam().setAxis(AxisKind.CHILD, "");
-		
-		XmlElementNavigation navigationElement0Element0B = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(1);
-		navigationElement0Element0B.getPathParam().setAxis(AxisKind.CHILD, "");	
-		
-		XmlElementNavigation navigationElement0Element1A = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(2);
-		navigationElement0Element1A.getPathParam().setAxis(AxisKind.CHILD, "");	
-		
-		XmlElementNavigation navigationElement0Element1B = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(3);
-		navigationElement0Element1B.getPathParam().setAxis(AxisKind.CHILD, "");
-		
-		XmlElementNavigation navigationRootElement1 = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(5);
-		navigationRootElement1.getPathParam().setAxis(AxisKind.DESCENDANT, "");	
+		XmlNavigation nav1B = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
+		nav1B.getPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "city");
 				
 		return completePattern;
-	
 	
 	}
 	
