@@ -977,6 +977,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			XmlReference reference = new XmlReferenceImpl();			
 			reference.setGraphSimple(getGraph());
 
+			ComplexNode sourceNode = getSource().makeComplex();
+			ComplexNode targetNode = getTarget().makeComplex();
+			
 			if(getName().matches("Relation [0-9]+")) {
 				reference.setName(getName().replace("Relation", "XmlReference"));
 			} else if(getName().matches("XmlNavigation [0-9]+")) {
@@ -985,8 +988,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				reference.setName(getName());
 			}
 			
-			reference.setSource(getSource());
-			reference.setTarget(getTarget());			
+			reference.setSource(sourceNode);
+			reference.setTarget(targetNode);			
 			
 			if(getIncomingMapping() == null) {
 				XmlProperty property = new XmlPropertyImpl();
@@ -994,8 +997,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				Graph graph = getGraph();
 				
 				graph.getNodes().add(property);
-				graph.addRelation(getTarget(), property).adaptAsXMLPropertyNavigation();
-				graph.addRelation(getSource(), property).adaptAsXMLPropertyNavigation();
+				graph.addRelation(sourceNode, property).adaptAsXMLPropertyNavigation();
+				graph.addRelation(targetNode, property).adaptAsXMLPropertyNavigation();
 				property.createParameters();
 				
 				reference.setProperty(property);			
