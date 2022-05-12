@@ -60,7 +60,7 @@ public class DemoPatterns {
 	
 	private static CompletePattern compConcrete;
 	private static CompletePattern compTextConcrete;
-	private static CompletePattern compTextLidoConcrete;
+	private static CompletePattern compLidoConcrete;
 	private static CompletePattern cardConcrete;
 	private static CompletePattern cardConcreteFinalized;
 	private static CompletePattern cardConcreteLido;
@@ -84,7 +84,7 @@ public class DemoPatterns {
         databases.getXmlSchemata().add(schema);
         
         compConcrete = getConcreteCompPattern(database);
-        compTextLidoConcrete = getConcreteLidoCompPattern(database);
+        compLidoConcrete = getConcreteLidoCompPattern(database);
         cardConcrete = getConcreteCardPattern(database);
         cardConcreteFinalized = getConcreteFinalizedCardPattern(database);
         cardConcreteLido = getConcreteLidoCardPattern(database);
@@ -143,15 +143,8 @@ public class DemoPatterns {
 		CompletePattern compConcrete = getConcreteCompPattern(database);			
 		EMFModelSave.exportToFile(compConcrete,"instances/demo/comparison_concrete", "patternstructure");
 		
-		CompletePattern compTextGeneric = getGenericCompTextPattern();
-		EMFModelSave.exportToFile(compTextGeneric,"instances/demo/comparison_text_generic", "patternstructure");
-		CompletePattern compTextAbstract = getAbstractCompTextPattern();
-		EMFModelSave.exportToFile(compTextAbstract,"instances/demo/comparison_text_abstract", "patternstructure");
-		CompletePattern compTextConcrete = getConcreteCompTextPattern(database);			
-		EMFModelSave.exportToFile(compTextConcrete,"instances/demo/comparison_text_concrete", "patternstructure");
-		
-		CompletePattern compTextLidoConcrete = getConcreteLidoCompPattern(database);			
-		EMFModelSave.exportToFile(compTextLidoConcrete,"instances/demo/comparison_lido_concrete", "patternstructure");
+		CompletePattern compLidoConcrete = getConcreteLidoCompPattern(database);			
+		EMFModelSave.exportToFile(compLidoConcrete,"instances/demo/comparison_lido_concrete", "patternstructure");
 		
 		CompletePattern cardGeneric = getGenericCardPattern();
 		EMFModelSave.exportToFile(cardGeneric,"instances/demo/cardinality_generic", "patternstructure");
@@ -184,7 +177,7 @@ public class DemoPatterns {
 		System.out.println("\n\n\n>>> Printing queries of demo patterns:");
 		
 		printPatternQuery(compConcrete);
-		printPatternQuery(compTextLidoConcrete);
+		printPatternQuery(compLidoConcrete);
 		
 		printPatternQuery(cardConcrete);
 		printPatternQuery(cardConcreteLido);
