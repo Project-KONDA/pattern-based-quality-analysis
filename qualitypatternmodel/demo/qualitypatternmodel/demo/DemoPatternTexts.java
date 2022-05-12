@@ -149,7 +149,7 @@ public class DemoPatternTexts {
 	public static CompletePattern getConcreteLidoCompTextPatternWithText() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern abstractPattern = getAbstractCompTextPatternWithText();
 		abstractPattern.getText().get(1).delete();
-		return DemoPatterns.getConcreteLidoCompTextPatternFromAbstract(null, abstractPattern);
+		return DemoPatterns.getConcreteLidoCompPatternFromAbstract(null, abstractPattern);
 	}
 	
 	public static CompletePattern getConcreteCompTextPatternWithText() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

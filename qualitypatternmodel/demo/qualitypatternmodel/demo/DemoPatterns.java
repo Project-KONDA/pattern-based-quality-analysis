@@ -361,203 +361,38 @@ public class DemoPatterns {
 		return completePattern;
 	}
 	
-	public static CompletePattern getConcreteLidoCompTextPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern abstractPattern = getAbstractCompTextPattern();
-		return getConcreteLidoCompTextPatternFromAbstract(db, abstractPattern);
+	public static CompletePattern getConcreteLidoCompPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern abstractPattern = getAbstractCompPattern();
+		return getConcreteLidoCompPatternFromAbstract(db, abstractPattern);
 	}
 
-	public static CompletePattern getConcreteLidoCompTextPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getConcreteLidoCompPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePattern.setName("comparison_lido_concrete");
 		completePattern.setDescription("Allows detecting actors with appellation 'unbekannt'");
 		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
-		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
-		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
-		property0.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
-		TextLiteralParam textValue0 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue0.setValue(LIDO_NAMESPACE + "actor");
-		value0.replace(textValue0);
-		
-		XmlElementNavigation navigationRootElement0 = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
-		navigationRootElement0.getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		XmlNavigation nav0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		nav0.getPathParam().setAxis(AxisKind.DESCENDANT, LIDO_NAMESPACE + "actor");
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
-		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
-		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		property1.getOption().setValue(PropertyKind.TAG);
+		XmlNavigation nav1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
+		nav1.getPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "genderActor");
 		
-		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(3);
-		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue1.setValue(LIDO_NAMESPACE + "genderActor");
-		value1.replace(textValue1);
-		
-		XmlProperty property2 = (XmlProperty) element1.getProperties().get(0);
-		property2.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
+		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
 		TextLiteralParam textValue = ParametersFactory.eINSTANCE.createTextLiteralParam();
 		textValue.setValue("unbekannt");
 		value2.replace(textValue);
-//		NumberParam numberValue = ParametersFactory.eINSTANCE.createNumberParam();
-//		numberValue.setValue(2020.0);
-//		value2.replace(numberValue);
 		
-		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);
+		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
 		comp2.getOption().setValue(ComparisonOperator.EQUAL);	
-		
-//		XmlNavigation navigationElement0Element1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-//		navigationElement0Element1.getOption().setValue(RelationKind.DESCENDANT);	
-						
+								
 		return completePattern;
+		
 	}
-	
-	// ---------- COMPTEXT pattern ----------
-	
-	public static CompletePattern getGenericCompTextPattern() {
-		
-		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		completePattern.setName("comparison_text_generic");
-		completePattern.setAbstractName("comparison_text_generic");
-		completePattern.setDescription("Allows detecting illegal values, i.e. allows detecting elements with a specific property which are related to other elements with two specific properties");
-		
-		// Context graph of pattern:
-		Node element0 = completePattern.getGraph().getNodes().get(0);
-		element0.setName("Element0");
-		UntypedParameterValue untypedArgument = null;
-		try {
-			untypedArgument = element0.addPrimitiveComparison();
-		} catch (InvalidityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		untypedArgument.replace(ParametersFactory.eINSTANCE.createTextLiteralParam());
-		
-		Comparison comp0 = (Comparison) completePattern.getGraph().getOperatorList().getOperators().get(0);
-		comp0.getOption().setValue(ComparisonOperator.EQUAL);
-		comp0.getOption().setPredefined(true);
-		
-		// First-order logic condition of pattern:
-		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
-		completePattern.setCondition(quantifiedCondition);
-		
-		// Graph of quantified condition:		
-		Node element0Copy = quantifiedCondition.getGraph().getNodes().get(0);
-		
-		Node element1 = GraphstructureFactory.eINSTANCE.createNode();
-		element1.setName("Element1");
-		element1.setGraph(quantifiedCondition.getGraph());		
-		
-		Relation relation = GraphstructureFactory.eINSTANCE.createRelation();
-		relation.setGraph(quantifiedCondition.getGraph());		
-		relation.setSource(element0Copy);
-		relation.setTarget(element1);
-		
-		UntypedParameterValue untypedArgument2 = null;
-		try {
-			untypedArgument2 = element1.addPrimitiveComparison();
-		} catch (InvalidityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		untypedArgument2.replace(ParametersFactory.eINSTANCE.createTextLiteralParam());
-
-		try {
-			element1.addPrimitiveComparison();
-		} catch (InvalidityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		Comparison comp1 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
-		comp1.getOption().setValue(ComparisonOperator.EQUAL);
-		comp1.getOption().setPredefined(true);
-		
-		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);
-		comp2.getOption().getOptions().add(ComparisonOperator.GREATER);
-		comp2.getOption().getOptions().add(ComparisonOperator.LESS);
-		comp2.getOption().getOptions().add(ComparisonOperator.GREATEROREQUAL);
-		comp2.getOption().getOptions().add(ComparisonOperator.LESSOREQUAL);
-		
-		// Condition of quantified condition:
-		TrueElement trueElement = PatternstructureFactory.eINSTANCE.createTrueElement();
-		quantifiedCondition.setCondition(trueElement);
-		
-		return completePattern;			
-	}
-	
-	public static CompletePattern getAbstractCompTextPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getGenericCompTextPattern();
-		completePattern.setName("comparison_text_abstract");
-		completePattern.setAbstractName("comparison_text_abstract");
-		
-		completePattern.createXMLAdaption();
-		
-		// Specify relation between Element 0 and Element 1:
-		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
-		
-		completePattern.finalizeXMLAdaption();
-		
-		return completePattern;
-	}	
-	
-	public static CompletePattern getConcreteCompTextPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern abstractPattern = getAbstractCompTextPattern();
-		return getConcreteCompTextPatternFromAbstract(db, abstractPattern);
-	}
-	
-	public static CompletePattern getConcreteCompTextPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		completePattern.setName("comparison_text_concrete");
-		completePattern.setDescription("Detect architects born after 2020");
-		completePattern.setDatabase(db);
-		
-		// Context graph of pattern:
-		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
-		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
-		property0.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
-		TextLiteralParam textValue0 = (TextLiteralParam) value0;
-		textValue0.setValue(DEMO_NAMESPACE + "architect");
-		
-		XmlElementNavigation navigationRootElement0 = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
-		navigationRootElement0.getPathParam().setAxis(AxisKind.DESCENDANT, "");
-		
-		// First-order logic condition of pattern:
-		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
-		
-		// Graph of quantified condition:
-		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
-		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		property1.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(3);
-		TextLiteralParam textValue1 = (TextLiteralParam) value1;
-		textValue1.setValue(DEMO_NAMESPACE + "birthyear");
-		
-		XmlProperty property2 = (XmlProperty) element1.getProperties().get(0);
-		property2.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
-		NumberParam numberValue = ParametersFactory.eINSTANCE.createNumberParam();
-		numberValue.setValue(2020.0);
-		value2.replace(numberValue);
-		
-		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);
-		comp2.getOption().setValue(ComparisonOperator.GREATER);	
-		
-		XmlElementNavigation navigationElement0Element1 = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		navigationElement0Element1.getPathParam().setAxis(AxisKind.CHILD, "");	
-						
-		return completePattern;
-	}
-	
 	
 	// ---------- CARD pattern ----------
 	
