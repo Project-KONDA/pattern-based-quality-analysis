@@ -14,12 +14,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
-import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
 import qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -72,13 +68,13 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getOutgoingMappings <em>Outgoing Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getIncomingMapping <em>Incoming Mapping</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getGraph <em>Graph</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getResultOf <em>Result Of</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getIncoming <em>Incoming</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#isTypeModifiable <em>Type Modifiable</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#isReturnNode <em>Return Node</em>}</li>
  * </ul>
  *
  * @generated
@@ -129,17 +125,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @ordered
 	 */
 	protected ElementMapping incomingMapping;
-
-	/**
-	 * The cached value of the '{@link #getResultOf() <em>Result Of</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * The container <code>graph</code> if <code>this</code> should be returned by the pattern, else null.
-	 * <!-- end-user-doc -->
-	 * @see #getResultOf()
-	 * @generated
-	 * @ordered
-	 */
-	protected Graph resultOf;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -247,6 +232,26 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @ordered
 	 */
 	protected boolean typeModifiable = TYPE_MODIFIABLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isReturnNode() <em>Return Node</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReturnNode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean RETURN_NODE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReturnNode() <em>Return Node</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReturnNode()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean returnNode = RETURN_NODE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -566,6 +571,29 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isReturnNode() {
+		return returnNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setReturnNode(boolean newReturnNode) {
+		boolean oldReturnNode = returnNode;
+		returnNode = newReturnNode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.NODE__RETURN_NODE, oldReturnNode, returnNode));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -586,7 +614,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		if (newGraph == null || getGraph() != null && !newGraph.equals(getGraph())) {
 			removeElementFromPreviousGraphs();
 			removeMappingsToNext();
-			setResultOf(null);
+			setReturnNode(false);
 			getPredicates().clear();
 		}
 		
@@ -634,22 +662,16 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		for (ElementMapping mapping : getOutgoingMappings()) {
 			if (!( mapping.getMorphism().getMorphismContainer() instanceof CountPattern)) {
 				Node node = mapping.getTarget();
-				if (newGraph == null && node.getResultOf() != null) {
-					node.setResultOf(null);
-				}
-				if (newGraph != null && node.getResultOf() == null) {
-					node.setResultOf(node.getGraph());
+				if (newGraph == null) {
+					node.setReturnNode(false);
 				}
 			}			
 		}
 		if (getIncomingMapping() != null && !(getIncomingMapping().getMorphism().getMorphismContainer() instanceof CountPattern)) {			
 			Node node = getIncomingMapping().getSource();
-			if (newGraph == null && node.getResultOf() != null) {
-				node.setResultOf(null);
-			}
-			if (newGraph != null && node.getResultOf() == null) {
-				node.setResultOf(node.getGraph());
-			}		
+			if (newGraph == null) {
+				node.setReturnNode(false);
+			}	
 		}
 	}
 
@@ -785,7 +807,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		
 		newPrimitive.setGraphSimple(getGraph());				
 		
-		newPrimitive.setResultOf(getResultOf());
+		newPrimitive.setReturnNode(isReturnNode());
 		
 		newPrimitive.getPredicates().addAll(getPredicates());
 		getPredicates().clear();
@@ -804,7 +826,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			newPrimitive.setName(getName());
 		}
 		
-		setResultOf(null);
+		setReturnNode(false);
 		
 		EList<Relation> incomingCopy = new BasicEList<Relation>();
 		incomingCopy.addAll(getIncoming());
@@ -869,7 +891,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 		newNode.setGraphSimple(getGraph());				
 		
-		newNode.setResultOf(getResultOf());
+		newNode.setReturnNode(isReturnNode());
 		
 		newNode.getPredicates().addAll(getPredicates());
 		getPredicates().clear();
@@ -890,7 +912,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			newNode.setName(getName());
 		}
 		
-		setResultOf(null);
+		setReturnNode(false);
 		
 		EList<Relation> incomingCopy = new BasicEList<Relation>();
 		incomingCopy.addAll(getIncoming());
@@ -997,7 +1019,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 		newComplex.setGraphSimple(getGraph());				
 		
-		newComplex.setResultOf(getResultOf());
+		newComplex.setReturnNode(isReturnNode());
 		
 		newComplex.getPredicates().addAll(getPredicates());
 		getPredicates().clear();
@@ -1016,7 +1038,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			newComplex.setName(getName());
 		}
 		
-		setResultOf(null);
+		setReturnNode(false);
 		
 		EList<Relation> outgoingCopy = new BasicEList<Relation>();
 		if (this instanceof ComplexNode)
@@ -1116,7 +1138,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			xmlElement.typeModifiable = true;
 			xmlElement.setGraphSimple(getGraph());				
 					
-			xmlElement.setResultOf(getResultOf());
+			xmlElement.setReturnNode(isReturnNode());
 			
 			xmlElement.getPredicates().addAll(getPredicates());
 			getPredicates().clear();
@@ -1132,7 +1154,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				xmlElement.setName(getName());
 			}
 			
-			setResultOf(null);
+			setReturnNode(false);
 			
 			EList<Relation> outgoingCopy = new BasicEList<Relation>();
 			if (this instanceof ComplexNode)
@@ -1246,7 +1268,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			xmlProperty.typeModifiable = true;
 			xmlProperty.setGraphSimple(getGraph());			
 			
-			xmlProperty.setResultOf(getResultOf());
+			xmlProperty.setReturnNode(isReturnNode());
 			
 			xmlProperty.getPredicates().addAll(getPredicates());
 			getPredicates().clear();
@@ -1264,7 +1286,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			xmlProperty.createParameters();
 			
-			setResultOf(null);
+			setReturnNode(false);
 			
 			if(this instanceof PrimitiveNode) {
 				xmlProperty.getMatch().addAll(((PrimitiveNode) this).getMatch());
@@ -1349,69 +1371,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Graph getResultOf() {
-		if (resultOf != null && resultOf.eIsProxy()) {
-			InternalEObject oldResultOf = (InternalEObject)resultOf;
-			resultOf = (Graph)eResolveProxy(oldResultOf);
-			if (resultOf != oldResultOf) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GraphstructurePackage.NODE__RESULT_OF, oldResultOf, resultOf));
-			}
-		}
-		return resultOf;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Graph basicGetResultOf() {
-		return resultOf;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public NotificationChain basicSetResultOf(Graph newResultOf, NotificationChain msgs) {
-		Graph oldResultOf = resultOf;
-		resultOf = newResultOf;
-		setGraphForCorrespondingElements(newResultOf);
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GraphstructurePackage.NODE__RESULT_OF, oldResultOf, newResultOf);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setResultOf(Graph newResultOf) {
-		if (newResultOf != resultOf) {
-			NotificationChain msgs = null;
-			if (resultOf != null)
-				msgs = ((InternalEObject)resultOf).eInverseRemove(this, GraphstructurePackage.GRAPH__RETURN_NODES, Graph.class, msgs);
-			if (newResultOf != null)
-				msgs = ((InternalEObject)newResultOf).eInverseAdd(this, GraphstructurePackage.GRAPH__RETURN_NODES, Graph.class, msgs);
-			msgs = basicSetResultOf(newResultOf, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GraphstructurePackage.NODE__RESULT_OF, newResultOf, newResultOf));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -1455,10 +1414,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetGraph((Graph)otherEnd, msgs);
-			case GraphstructurePackage.NODE__RESULT_OF:
-				if (resultOf != null)
-					msgs = ((InternalEObject)resultOf).eInverseRemove(this, GraphstructurePackage.GRAPH__RETURN_NODES, Graph.class, msgs);
-				return basicSetResultOf((Graph)otherEnd, msgs);
 			case GraphstructurePackage.NODE__PREDICATES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPredicates()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.NODE__INCOMING:
@@ -1484,8 +1439,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return basicSetIncomingMapping(null, msgs);
 			case GraphstructurePackage.NODE__GRAPH:
 				return basicSetGraph(null, msgs);
-			case GraphstructurePackage.NODE__RESULT_OF:
-				return basicSetResultOf(null, msgs);
 			case GraphstructurePackage.NODE__PREDICATES:
 				return ((InternalEList<?>)getPredicates()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.NODE__INCOMING:
@@ -1525,9 +1478,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return basicGetIncomingMapping();
 			case GraphstructurePackage.NODE__GRAPH:
 				return getGraph();
-			case GraphstructurePackage.NODE__RESULT_OF:
-				if (resolve) return getResultOf();
-				return basicGetResultOf();
 			case GraphstructurePackage.NODE__NAME:
 				return getName();
 			case GraphstructurePackage.NODE__TRANSLATED:
@@ -1540,6 +1490,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return getIncoming();
 			case GraphstructurePackage.NODE__TYPE_MODIFIABLE:
 				return isTypeModifiable();
+			case GraphstructurePackage.NODE__RETURN_NODE:
+				return isReturnNode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1570,9 +1522,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE__GRAPH:
 				setGraph((Graph)newValue);
 				return;
-			case GraphstructurePackage.NODE__RESULT_OF:
-				setResultOf((Graph)newValue);
-				return;
 			case GraphstructurePackage.NODE__NAME:
 				setName((String)newValue);
 				return;
@@ -1589,6 +1538,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE__INCOMING:
 				getIncoming().clear();
 				getIncoming().addAll((Collection<? extends Relation>)newValue);
+				return;
+			case GraphstructurePackage.NODE__RETURN_NODE:
+				setReturnNode((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1616,9 +1568,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE__GRAPH:
 				setGraph((Graph)null);
 				return;
-			case GraphstructurePackage.NODE__RESULT_OF:
-				setResultOf((Graph)null);
-				return;
 			case GraphstructurePackage.NODE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -1633,6 +1582,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return;
 			case GraphstructurePackage.NODE__INCOMING:
 				getIncoming().clear();
+				return;
+			case GraphstructurePackage.NODE__RETURN_NODE:
+				setReturnNode(RETURN_NODE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1655,8 +1607,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return incomingMapping != null;
 			case GraphstructurePackage.NODE__GRAPH:
 				return getGraph() != null;
-			case GraphstructurePackage.NODE__RESULT_OF:
-				return resultOf != null;
 			case GraphstructurePackage.NODE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case GraphstructurePackage.NODE__TRANSLATED:
@@ -1669,6 +1619,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return incoming != null && !incoming.isEmpty();
 			case GraphstructurePackage.NODE__TYPE_MODIFIABLE:
 				return typeModifiable != TYPE_MODIFIABLE_EDEFAULT;
+			case GraphstructurePackage.NODE__RETURN_NODE:
+				return returnNode != RETURN_NODE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1890,7 +1842,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public String myToString() {
 		String res = "";
-		if (getResultOf() != null)
+		if (isReturnNode())
 			res += "Return-";
 		res += this.getClass().getSimpleName();
 		if (getName() != null) res +=  " " + getName();
@@ -2101,6 +2053,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		result.append(predicatesAreBeingTranslated);
 		result.append(", typeModifiable: ");
 		result.append(typeModifiable);
+		result.append(", returnNode: ");
+		result.append(returnNode);
 		result.append(')');
 		return result.toString();
 	}

@@ -67,7 +67,6 @@ import qualitypatternmodel.patternstructure.impl.RelationMappingImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getOperatorList <em>Operator List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getQuantifiedCondition <em>Quantified Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getPattern <em>Pattern</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getReturnNodes <em>Return Nodes</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getOutgoingMorphisms <em>Outgoing Morphisms</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getIncomingMorphism <em>Incoming Morphism</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.GraphImpl#getRelations <em>Relations</em>}</li>
@@ -96,16 +95,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	 * @ordered
 	 */
 	protected OperatorList operatorList;
-
-	/**
-	 * The cached value of the '{@link #getReturnNodes() <em>Return Nodes</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReturnNodes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Node> returnNodes;
 
 	/**
 	 * The cached value of the '{@link #getOutgoingMorphisms() <em>Outgoing Morphisms</em>}' reference list.
@@ -182,7 +171,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException, MissingPatternContainerException {
 		
 		if (abstractionLevel != AbstractionLevel.SEMI_GENERIC 
-				&& (returnNodes == null || returnNodes.isEmpty()))
+				&& (getReturnNodes().isEmpty()))
 			throw new InvalidityException("no ReturnElement in Graph (" + getInternalId() + ")");
 		
 		if (operatorList == null)
@@ -450,8 +439,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			}
 			
 			newElement.setGraph(targetGraph);
-			if(node.getResultOf() != null) {
-				newElement.setResultOf(targetGraph);
+			if(node.isReturnNode()) {
+				newElement.setReturnNode(true);
 			}
 			ElementMapping newMapping = new ElementMappingImpl();
 			if(targetGraph.getQuantifiedCondition() != null) {
@@ -487,8 +476,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetPattern((Pattern)otherEnd, msgs);
-			case GraphstructurePackage.GRAPH__RETURN_NODES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReturnNodes()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.GRAPH__OUTGOING_MORPHISMS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutgoingMorphisms()).basicAdd(otherEnd, msgs);
 			case GraphstructurePackage.GRAPH__INCOMING_MORPHISM:
@@ -777,14 +764,19 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public EList<Node> getReturnNodes() {
-		if (returnNodes == null) {
-			returnNodes = new EObjectWithInverseResolvingEList<Node>(Node.class, this, GraphstructurePackage.GRAPH__RETURN_NODES, GraphstructurePackage.NODE__RESULT_OF);
+		EList<Node> result = new BasicEList<Node>();
+		if (!getNodes().isEmpty()) {
+			for (Node n: getNodes()) {
+				if (n.isReturnNode()) {
+					result.add(n);
+				}
+			}
 		}
-		return returnNodes;
+		return result;
 	}
 
 	/**
@@ -802,8 +794,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return basicSetQuantifiedCondition(null, msgs);
 			case GraphstructurePackage.GRAPH__PATTERN:
 				return basicSetPattern(null, msgs);
-			case GraphstructurePackage.GRAPH__RETURN_NODES:
-				return ((InternalEList<?>)getReturnNodes()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.GRAPH__OUTGOING_MORPHISMS:
 				return ((InternalEList<?>)getOutgoingMorphisms()).basicRemove(otherEnd, msgs);
 			case GraphstructurePackage.GRAPH__INCOMING_MORPHISM:
@@ -844,8 +834,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return getQuantifiedCondition();
 			case GraphstructurePackage.GRAPH__PATTERN:
 				return getPattern();
-			case GraphstructurePackage.GRAPH__RETURN_NODES:
-				return getReturnNodes();
 			case GraphstructurePackage.GRAPH__OUTGOING_MORPHISMS:
 				return getOutgoingMorphisms();
 			case GraphstructurePackage.GRAPH__INCOMING_MORPHISM:
@@ -877,10 +865,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return;
 			case GraphstructurePackage.GRAPH__PATTERN:
 				setPattern((Pattern)newValue);
-				return;
-			case GraphstructurePackage.GRAPH__RETURN_NODES:
-				getReturnNodes().clear();
-				getReturnNodes().addAll((Collection<? extends Node>)newValue);
 				return;
 			case GraphstructurePackage.GRAPH__OUTGOING_MORPHISMS:
 				getOutgoingMorphisms().clear();
@@ -916,9 +900,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 			case GraphstructurePackage.GRAPH__PATTERN:
 				setPattern((Pattern)null);
 				return;
-			case GraphstructurePackage.GRAPH__RETURN_NODES:
-				getReturnNodes().clear();
-				return;
 			case GraphstructurePackage.GRAPH__OUTGOING_MORPHISMS:
 				getOutgoingMorphisms().clear();
 				return;
@@ -947,8 +928,6 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return getQuantifiedCondition() != null;
 			case GraphstructurePackage.GRAPH__PATTERN:
 				return getPattern() != null;
-			case GraphstructurePackage.GRAPH__RETURN_NODES:
-				return returnNodes != null && !returnNodes.isEmpty();
 			case GraphstructurePackage.GRAPH__OUTGOING_MORPHISMS:
 				return outgoingMorphisms != null && !outgoingMorphisms.isEmpty();
 			case GraphstructurePackage.GRAPH__INCOMING_MORPHISM:
@@ -980,6 +959,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				return isReturnGraph();
 			case GraphstructurePackage.GRAPH___ADD_RELATION__NODE_NODE:
 				return addRelation((Node)arguments.get(0), (Node)arguments.get(1));
+			case GraphstructurePackage.GRAPH___GET_RETURN_NODES:
+				return getReturnNodes();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

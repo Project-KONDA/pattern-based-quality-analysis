@@ -783,22 +783,13 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE__GRAPH = COMPARABLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Result Of</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE__RESULT_OF = COMPARABLE_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__NAME = COMPARABLE_FEATURE_COUNT + 4;
+	int NODE__NAME = COMPARABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Translated</b></em>' attribute.
@@ -807,7 +798,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__TRANSLATED = COMPARABLE_FEATURE_COUNT + 5;
+	int NODE__TRANSLATED = COMPARABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
@@ -816,7 +807,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__PREDICATES_ARE_BEING_TRANSLATED = COMPARABLE_FEATURE_COUNT + 6;
+	int NODE__PREDICATES_ARE_BEING_TRANSLATED = COMPARABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
@@ -825,7 +816,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__PREDICATES = COMPARABLE_FEATURE_COUNT + 7;
+	int NODE__PREDICATES = COMPARABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Incoming</b></em>' reference list.
@@ -834,7 +825,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__INCOMING = COMPARABLE_FEATURE_COUNT + 8;
+	int NODE__INCOMING = COMPARABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
@@ -843,7 +834,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE__TYPE_MODIFIABLE = COMPARABLE_FEATURE_COUNT + 9;
+	int NODE__TYPE_MODIFIABLE = COMPARABLE_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Return Node</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE__RETURN_NODE = COMPARABLE_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Node</em>' class.
@@ -1414,15 +1414,6 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE__GRAPH = NODE__GRAPH;
 
 	/**
-	 * The feature id for the '<em><b>Result Of</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_NODE__RESULT_OF = NODE__RESULT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1475,6 +1466,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMITIVE_NODE__TYPE_MODIFIABLE = NODE__TYPE_MODIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Return Node</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE__RETURN_NODE = NODE__RETURN_NODE;
 
 	/**
 	 * The feature id for the '<em><b>Match</b></em>' reference list.
@@ -2054,22 +2054,13 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH__PATTERN = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Return Nodes</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GRAPH__RETURN_NODES = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Outgoing Morphisms</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__OUTGOING_MORPHISMS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 5;
+	int GRAPH__OUTGOING_MORPHISMS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Morphism</b></em>' reference.
@@ -2078,7 +2069,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__INCOMING_MORPHISM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 6;
+	int GRAPH__INCOMING_MORPHISM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Relations</b></em>' containment reference list.
@@ -2087,7 +2078,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH__RELATIONS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 7;
+	int GRAPH__RELATIONS = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Graph</em>' class.
@@ -2096,7 +2087,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 8;
+	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Generate Query</em>' operation.
@@ -2306,13 +2297,22 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___ADD_RELATION__NODE_NODE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get Return Nodes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___GET_RETURN_NODES = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
+	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Adaptable <em>Adaptable</em>}' class.
@@ -2623,15 +2623,6 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE__GRAPH = NODE__GRAPH;
 
 	/**
-	 * The feature id for the '<em><b>Result Of</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_NODE__RESULT_OF = NODE__RESULT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2684,6 +2675,15 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPLEX_NODE__TYPE_MODIFIABLE = NODE__TYPE_MODIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Return Node</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE__RETURN_NODE = NODE__RETURN_NODE;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
@@ -3453,17 +3453,6 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getNode_Graph();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.graphstructure.Node#getResultOf <em>Result Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Result Of</em>'.
-	 * @see qualitypatternmodel.graphstructure.Node#getResultOf()
-	 * @see #getNode()
-	 * @generated
-	 */
-	EReference getNode_ResultOf();
-
-	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Node#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3528,6 +3517,17 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNode_TypeModifiable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.graphstructure.Node#isReturnNode <em>Return Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Return Node</em>'.
+	 * @see qualitypatternmodel.graphstructure.Node#isReturnNode()
+	 * @see #getNode()
+	 * @generated
+	 */
+	EAttribute getNode_ReturnNode();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#getOriginalID() <em>Get Original ID</em>}' operation.
@@ -3897,17 +3897,6 @@ public interface GraphstructurePackage extends EPackage {
 	EReference getGraph_Pattern();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.graphstructure.Graph#getReturnNodes <em>Return Nodes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Return Nodes</em>'.
-	 * @see qualitypatternmodel.graphstructure.Graph#getReturnNodes()
-	 * @see #getGraph()
-	 * @generated
-	 */
-	EReference getGraph_ReturnNodes();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getAllOperators() <em>Get All Operators</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3946,6 +3935,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGraph__AddRelation__Node_Node();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getReturnNodes() <em>Get Return Nodes</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Return Nodes</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Graph#getReturnNodes()
+	 * @generated
+	 */
+	EOperation getGraph__GetReturnNodes();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}'.
@@ -4312,14 +4311,6 @@ public interface GraphstructurePackage extends EPackage {
 		EReference NODE__GRAPH = eINSTANCE.getNode_Graph();
 
 		/**
-		 * The meta object literal for the '<em><b>Result Of</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NODE__RESULT_OF = eINSTANCE.getNode_ResultOf();
-
-		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4366,6 +4357,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NODE__TYPE_MODIFIABLE = eINSTANCE.getNode_TypeModifiable();
+
+		/**
+		 * The meta object literal for the '<em><b>Return Node</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NODE__RETURN_NODE = eINSTANCE.getNode_ReturnNode();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Original ID</b></em>' operation.
@@ -4658,14 +4657,6 @@ public interface GraphstructurePackage extends EPackage {
 		EReference GRAPH__PATTERN = eINSTANCE.getGraph_Pattern();
 
 		/**
-		 * The meta object literal for the '<em><b>Return Nodes</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GRAPH__RETURN_NODES = eINSTANCE.getGraph_ReturnNodes();
-
-		/**
 		 * The meta object literal for the '<em><b>Get All Operators</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4696,6 +4687,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GRAPH___ADD_RELATION__NODE_NODE = eINSTANCE.getGraph__AddRelation__Node_Node();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Return Nodes</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH___GET_RETURN_NODES = eINSTANCE.getGraph__GetReturnNodes();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}' class.

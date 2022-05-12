@@ -25,7 +25,6 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getOperatorList <em>Operator List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getQuantifiedCondition <em>Quantified Condition</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getPattern <em>Pattern</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnNodes <em>Return Nodes</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getOutgoingMorphisms <em>Outgoing Morphisms</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getIncomingMorphism <em>Incoming Morphism</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getRelations <em>Relations</em>}</li>
@@ -194,15 +193,9 @@ public interface Graph extends PatternElement {
 	void setPattern(Pattern value);
 
 	/**
-	 * Returns the value of the '<em><b>Return Nodes</b></em>' reference list.
-	 * The list contents are of type {@link qualitypatternmodel.graphstructure.Node}.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Node#getResultOf <em>Result Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Return Nodes</em>' reference list.
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getGraph_ReturnNodes()
-	 * @see qualitypatternmodel.graphstructure.Node#getResultOf
-	 * @model opposite="resultOf" required="true"
+	 * @model kind="operation"
 	 * @generated
 	 */
 	EList<Node> getReturnNodes();

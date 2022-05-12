@@ -271,9 +271,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		
 		NodeImpl element = new NodeImpl();
 		element.setGraph(getGraph());
-
-		getGraph().getReturnNodes().add(element);
-		
+		element.setReturnNode(true);
+				
 		getInternalId();
 	}	
 	

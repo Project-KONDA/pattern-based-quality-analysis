@@ -136,15 +136,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT__GRAPH = GraphstructurePackage.COMPLEX_NODE__GRAPH;
 
 	/**
-	 * The feature id for the '<em><b>Result Of</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT__RESULT_OF = GraphstructurePackage.COMPLEX_NODE__RESULT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -197,6 +188,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ELEMENT__TYPE_MODIFIABLE = GraphstructurePackage.COMPLEX_NODE__TYPE_MODIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Return Node</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT__RETURN_NODE = GraphstructurePackage.COMPLEX_NODE__RETURN_NODE;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
@@ -2066,15 +2066,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY__GRAPH = GraphstructurePackage.PRIMITIVE_NODE__GRAPH;
 
 	/**
-	 * The feature id for the '<em><b>Result Of</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY__RESULT_OF = GraphstructurePackage.PRIMITIVE_NODE__RESULT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2127,6 +2118,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY__TYPE_MODIFIABLE = GraphstructurePackage.PRIMITIVE_NODE__TYPE_MODIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Return Node</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY__RETURN_NODE = GraphstructurePackage.PRIMITIVE_NODE__RETURN_NODE;
 
 	/**
 	 * The feature id for the '<em><b>Match</b></em>' reference list.
@@ -2760,15 +2760,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT__GRAPH = GraphstructurePackage.COMPLEX_NODE__GRAPH;
 
 	/**
-	 * The feature id for the '<em><b>Result Of</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT__RESULT_OF = GraphstructurePackage.COMPLEX_NODE__RESULT_OF;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2821,6 +2812,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT__TYPE_MODIFIABLE = GraphstructurePackage.COMPLEX_NODE__TYPE_MODIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Return Node</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT__RETURN_NODE = GraphstructurePackage.COMPLEX_NODE__RETURN_NODE;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.

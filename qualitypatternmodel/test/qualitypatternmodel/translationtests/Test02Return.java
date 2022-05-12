@@ -36,7 +36,7 @@ public class Test02Return {
 		Node element1 = completePattern.getGraph().getNodes().get(0);
 		Node element2 = graphFactory.createNode();		
 		element2.setGraph(graph);
-		element2.setResultOf(graph);
+		element2.setReturnNode(true);
 		Relation relation = graphFactory.createRelation();
 		relation.setGraph(graph);
 		relation.setSource(element1);
@@ -59,7 +59,7 @@ public class Test02Return {
 		Node element1 = completePattern.getGraph().getNodes().get(0);
 		Node element2 = graphFactory.createNode();		
 		element2.setGraph(graph);
-		element2.setResultOf(graph);
+		element2.setReturnNode(true);
 		Relation relation = graphFactory.createRelation();
 		relation.setGraph(graph);
 		relation.setSource(element1);

@@ -29,13 +29,13 @@ import qualitypatternmodel.patternstructure.ElementMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getOutgoingMappings <em>Outgoing Mappings</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getIncomingMapping <em>Incoming Mapping</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getGraph <em>Graph</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Node#getResultOf <em>Result Of</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#isTranslated <em>Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getIncoming <em>Incoming</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#isTypeModifiable <em>Type Modifiable</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#isReturnNode <em>Return Node</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode()
@@ -104,30 +104,6 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @generated
 	 */
 	void setGraph(Graph value);
-
-	/**
-	 * Returns the value of the '<em><b>Result Of</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.graphstructure.Graph#getReturnNodes <em>Return Nodes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Result Of</em>' reference.
-	 * @see #setResultOf(Graph)
-	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_ResultOf()
-	 * @see qualitypatternmodel.graphstructure.Graph#getReturnNodes
-	 * @model opposite="returnNodes"
-	 * @generated
-	 */
-	Graph getResultOf();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Node#getResultOf <em>Result Of</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Result Of</em>' reference.
-	 * @see #getResultOf()
-	 * @generated
-	 */
-	void setResultOf(Graph value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -234,6 +210,28 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @generated
 	 */
 	boolean isTypeModifiable();
+
+	/**
+	 * Returns the value of the '<em><b>Return Node</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Return Node</em>' attribute.
+	 * @see #setReturnNode(boolean)
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode_ReturnNode()
+	 * @model
+	 * @generated
+	 */
+	boolean isReturnNode();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.graphstructure.Node#isReturnNode <em>Return Node</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Return Node</em>' attribute.
+	 * @see #isReturnNode()
+	 * @generated
+	 */
+	void setReturnNode(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->
