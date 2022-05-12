@@ -497,17 +497,8 @@ public class DemoPatterns {
 		completePattern.setDatabase(db);
 		
 		// Context graph of pattern:
-		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
-		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
-		property0.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
-		TextLiteralParam textValue0 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue0.setValue(LIDO_NAMESPACE + "actor");
-		value0.replace(textValue0);
-		
-		XmlElementNavigation navigationRootElement0 = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
-		navigationRootElement0.getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		XmlNavigation nav0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
+		nav0.getPathParam().setAxis(AxisKind.DESCENDANT, LIDO_NAMESPACE + "actor");
 		
 		// First-order logic condition of pattern:
 		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
@@ -519,17 +510,8 @@ public class DemoPatterns {
 		CountPattern countPattern = countCondition.getCountPattern();
 		
 		// Graph of inner pattern:
-		XmlElement element1 = (XmlElement) countPattern.getGraph().getNodes().get(1);
-		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		property1.getOption().setValue(PropertyKind.TAG);
-		
-		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(5);
-		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		textValue1.setValue(LIDO_NAMESPACE + "nameActorSet");
-		value1.replace(textValue1);	
-		
-		XmlElementNavigation navigationElement0Element1 = (XmlElementNavigation) countPattern.getGraph().getRelations().get(0);
-		navigationElement0Element1.getPathParam().setAxis(AxisKind.CHILD, "");	
+		XmlNavigation nav1 = (XmlNavigation) countPattern.getGraph().getRelations().get(0);
+		nav1.getPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "nameActorSet");
 				
 		return completePattern;
 	}
