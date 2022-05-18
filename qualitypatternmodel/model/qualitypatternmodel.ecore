@@ -662,7 +662,7 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="adaptionxml" nsURI="adaptionxml" nsPrefix="adaptionxml">
-    <eClassifiers xsi:type="ecore:EClass" name="XmlElement" eSuperTypes="#//graphstructure/ComplexNode #//adaptionxml/XmlNode">
+    <eClassifiers xsi:type="ecore:EClass" name="XmlElement" eSuperTypes="#//adaptionxml/XmlNode #//graphstructure/ComplexNode">
       <eOperations name="getTagFromComparisons" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="xQueryDeepEqual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="true"/>
