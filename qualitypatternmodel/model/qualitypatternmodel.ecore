@@ -1083,4 +1083,26 @@
           upperBound="-1" eType="#//parameters/Parameter" eOpposite="#//parameters/Parameter/parameterReferences"/>
     </eClassifiers>
   </eSubpackages>
+  <eSubpackages name="adaptionrdf" nsURI="adaptionrdf" nsPrefix="adaptionrdf">
+    <eClassifiers xsi:type="ecore:EClass" name="RdfReference" eSuperTypes="#//graphstructure/Relation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfpathparam" upperBound="-1"
+          eType="#//adaptionrdf/RdfPathParam" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RdfUrlNode" eSuperTypes="#//graphstructure/ComplexNode"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RdfPathParam" eSuperTypes="#//parameters/Parameter">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfaxispair" upperBound="-1"
+          eType="#//adaptionrdf/RdfAxisPair" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="RegexQuantifier">
+      <eLiterals name="ONCE" literal="ONCE"/>
+      <eLiterals name="ZEROPLUS" value="1" literal="ZEROPLUS"/>
+      <eLiterals name="ONEPLUS" value="2" literal="ONEPLUS"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RdfAxisPair" eSuperTypes="#//patternstructure/PatternElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//adaptionrdf/RegexQuantifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="textliteralparam" upperBound="-1"
+          eType="#//parameters/TextLiteralParam" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RdfValueNode" eSuperTypes="#//graphstructure/PrimitiveNode"/>
+  </eSubpackages>
 </ecore:EPackage>

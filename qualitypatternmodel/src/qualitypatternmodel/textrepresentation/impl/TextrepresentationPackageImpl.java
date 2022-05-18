@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
+import qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 
 import qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl;
@@ -160,6 +162,8 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		AdaptionxmlPackageImpl theAdaptionxmlPackage = (AdaptionxmlPackageImpl)(registeredPackage instanceof AdaptionxmlPackageImpl ? registeredPackage : AdaptionxmlPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(ExecutionPackage.eNS_URI);
 		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl)(registeredPackage instanceof ExecutionPackageImpl ? registeredPackage : ExecutionPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdaptionrdfPackage.eNS_URI);
+		AdaptionrdfPackageImpl theAdaptionrdfPackage = (AdaptionrdfPackageImpl)(registeredPackage instanceof AdaptionrdfPackageImpl ? registeredPackage : AdaptionrdfPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theTextrepresentationPackage.createPackageContents();
@@ -169,6 +173,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		thePatternstructurePackage.createPackageContents();
 		theAdaptionxmlPackage.createPackageContents();
 		theExecutionPackage.createPackageContents();
+		theAdaptionrdfPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theTextrepresentationPackage.initializePackageContents();
@@ -178,6 +183,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		thePatternstructurePackage.initializePackageContents();
 		theAdaptionxmlPackage.initializePackageContents();
 		theExecutionPackage.initializePackageContents();
+		theAdaptionrdfPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theTextrepresentationPackage.freeze();

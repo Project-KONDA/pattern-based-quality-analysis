@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.EValidator;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
+import qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -167,6 +169,8 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		ExecutionPackageImpl theExecutionPackage = (ExecutionPackageImpl)(registeredPackage instanceof ExecutionPackageImpl ? registeredPackage : ExecutionPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(TextrepresentationPackage.eNS_URI);
 		TextrepresentationPackageImpl theTextrepresentationPackage = (TextrepresentationPackageImpl)(registeredPackage instanceof TextrepresentationPackageImpl ? registeredPackage : TextrepresentationPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdaptionrdfPackage.eNS_URI);
+		AdaptionrdfPackageImpl theAdaptionrdfPackage = (AdaptionrdfPackageImpl)(registeredPackage instanceof AdaptionrdfPackageImpl ? registeredPackage : AdaptionrdfPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theOperatorsPackage.createPackageContents();
@@ -176,6 +180,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		theAdaptionxmlPackage.createPackageContents();
 		theExecutionPackage.createPackageContents();
 		theTextrepresentationPackage.createPackageContents();
+		theAdaptionrdfPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theOperatorsPackage.initializePackageContents();
@@ -185,6 +190,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		theAdaptionxmlPackage.initializePackageContents();
 		theExecutionPackage.initializePackageContents();
 		theTextrepresentationPackage.initializePackageContents();
+		theAdaptionrdfPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
