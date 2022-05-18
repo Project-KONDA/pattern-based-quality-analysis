@@ -977,8 +977,13 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			XmlReference reference = new XmlReferenceImpl();			
 			reference.setGraphSimple(getGraph());
 
-			ComplexNode sourceNode = getSource().makeComplex();
-			ComplexNode targetNode = getTarget().makeComplex();
+//			ComplexNode sourceNode = getSource().makeComplex();
+			ComplexNode sourceNode = getSource();
+			ComplexNode targetNode;
+			if (getTarget() instanceof XmlElement)
+				targetNode = (ComplexNode) getTarget();
+				else targetNode = getTarget().makeComplex();
+			
 			
 			if(getName().matches("Relation [0-9]+")) {
 				reference.setName(getName().replace("Relation", "XmlReference"));

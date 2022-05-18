@@ -94,6 +94,6 @@ public interface XmlNavigation extends Relation {
 	 */
 	void setVariableCounter(int value);
 
-	String generateQuery() throws InvalidityException;
+	String generateXQuery() throws InvalidityException;
 
 } // XmlNavigation

@@ -138,11 +138,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	@Override
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 		String result = "";
 		for(Node node : getNodes()) {
 			if(node instanceof XmlRoot) {
-				result += node.generateQuery();
+				result += node.generateXQuery();
 			}
 		}
 		return result;

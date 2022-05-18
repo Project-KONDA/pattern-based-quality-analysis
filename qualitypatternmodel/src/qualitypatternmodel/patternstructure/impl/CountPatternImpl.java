@@ -69,8 +69,8 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 	}
 	
 	@Override
-	public String generateQuery() throws InvalidityException {
-		return "\ncount (" + super.generateQuery().replace("\n", "\n  ") + "\n)";
+	public String generateXQuery() throws InvalidityException {
+		return "\ncount (" + super.generateXQuery().replace("\n", "\n  ") + "\n)";
 	}
 	
 	@Override

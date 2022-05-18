@@ -81,7 +81,7 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	}
 
 	@Override
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 //		if(getProperty() != null) {
 //			String conversionStartArgument1 = getType().getConversion();
 //			String conversionEndArgument1 = getType().getConversionEnd();

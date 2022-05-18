@@ -143,7 +143,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	}
 
 	@Override
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 		return value.getLiteral();
 	}
 

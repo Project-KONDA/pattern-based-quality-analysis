@@ -893,7 +893,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__GenerateQuery() {
+	public EOperation getPatternElement__GenerateXQuery() {
 		return patternElementEClass.getEOperations().get(0);
 	}
 
@@ -1482,7 +1482,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		patternElementEClass = createEClass(PATTERN_ELEMENT);
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__ID);
 		createEAttribute(patternElementEClass, PATTERN_ELEMENT__INTERNAL_ID);
-		createEOperation(patternElementEClass, PATTERN_ELEMENT___GENERATE_QUERY);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___GENERATE_XQUERY);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___GET_ALL_PARAMETERS);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___PREPARE_TRANSLATION);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL);
@@ -1697,7 +1697,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEAttribute(getPatternElement_Id(), ecorePackage.getEString(), "id", null, 1, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPatternElement_InternalId(), ecorePackage.getEInt(), "internalId", "-1", 1, 1, PatternElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getPatternElement__GenerateQuery(), ecorePackage.getEString(), "generateQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternElement__GenerateXQuery(), ecorePackage.getEString(), "generateXQuery", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getPatternElement__GetAllParameters(), theParametersPackage.getParameter(), "getAllParameters", 0, -1, IS_UNIQUE, IS_ORDERED);

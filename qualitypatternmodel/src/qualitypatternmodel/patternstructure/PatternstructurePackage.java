@@ -97,13 +97,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT_FEATURE_COUNT = 2;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT___GENERATE_QUERY = 0;
+	int PATTERN_ELEMENT___GENERATE_XQUERY = 0;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -323,13 +323,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MAPPING_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAPPING___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
+	int MAPPING___GENERATE_XQUERY = PATTERN_ELEMENT___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -567,13 +567,13 @@ public interface PatternstructurePackage extends EPackage {
 	int RELATION_MAPPING_FEATURE_COUNT = MAPPING_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_MAPPING___GENERATE_QUERY = MAPPING___GENERATE_QUERY;
+	int RELATION_MAPPING___GENERATE_XQUERY = MAPPING___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -829,13 +829,13 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
+	int CONDITION___GENERATE_XQUERY = PATTERN_ELEMENT___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -1136,13 +1136,13 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTIFIED_CONDITION___GENERATE_QUERY = CONDITION___GENERATE_QUERY;
+	int QUANTIFIED_CONDITION___GENERATE_XQUERY = CONDITION___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -1425,13 +1425,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
+	int MORPHISM___GENERATE_XQUERY = PATTERN_ELEMENT___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -1732,13 +1732,13 @@ public interface PatternstructurePackage extends EPackage {
 	int ELEMENT_MAPPING_FEATURE_COUNT = MAPPING_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING___GENERATE_QUERY = MAPPING___GENERATE_QUERY;
+	int ELEMENT_MAPPING___GENERATE_XQUERY = MAPPING___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -2021,13 +2021,13 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA___GENERATE_QUERY = CONDITION___GENERATE_QUERY;
+	int FORMULA___GENERATE_XQUERY = CONDITION___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -2292,13 +2292,13 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUE_ELEMENT___GENERATE_QUERY = CONDITION___GENERATE_QUERY;
+	int TRUE_ELEMENT___GENERATE_XQUERY = CONDITION___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -2554,13 +2554,13 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
+	int PATTERN___GENERATE_XQUERY = PATTERN_ELEMENT___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -2915,13 +2915,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 11;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN___GENERATE_QUERY = PATTERN___GENERATE_QUERY;
+	int COMPLETE_PATTERN___GENERATE_XQUERY = PATTERN___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -3240,13 +3240,13 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION___GENERATE_QUERY = CONDITION___GENERATE_QUERY;
+	int NOT_CONDITION___GENERATE_XQUERY = CONDITION___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -3538,13 +3538,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION___GENERATE_QUERY = CONDITION___GENERATE_QUERY;
+	int COUNT_CONDITION___GENERATE_XQUERY = CONDITION___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -3791,13 +3791,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_CONDITION_ARGUMENT___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
+	int COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY = PATTERN_ELEMENT___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -4017,13 +4017,13 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_CONTAINER_FEATURE_COUNT = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MORPHISM_CONTAINER___GENERATE_QUERY = PATTERN_ELEMENT___GENERATE_QUERY;
+	int MORPHISM_CONTAINER___GENERATE_XQUERY = PATTERN_ELEMENT___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -4315,13 +4315,13 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN_FEATURE_COUNT = PATTERN_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN___GENERATE_QUERY = PATTERN___GENERATE_QUERY;
+	int COUNT_PATTERN___GENERATE_XQUERY = PATTERN___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -4577,13 +4577,13 @@ public interface PatternstructurePackage extends EPackage {
 	int NUMBER_ELEMENT_FEATURE_COUNT = COUNT_CONDITION_ARGUMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_ELEMENT___GENERATE_QUERY = COUNT_CONDITION_ARGUMENT___GENERATE_QUERY;
+	int NUMBER_ELEMENT___GENERATE_XQUERY = COUNT_CONDITION_ARGUMENT___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -5429,14 +5429,14 @@ public interface PatternstructurePackage extends EPackage {
 	EAttribute getPatternElement_InternalId();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#generateQuery() <em>Generate Query</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#generateXQuery() <em>Generate XQuery</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Generate Query</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#generateQuery()
+	 * @return the meta object for the '<em>Generate XQuery</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#generateXQuery()
 	 * @generated
 	 */
-	EOperation getPatternElement__GenerateQuery();
+	EOperation getPatternElement__GenerateXQuery();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#getAllParameters() <em>Get All Parameters</em>}' operation.
@@ -6443,12 +6443,12 @@ public interface PatternstructurePackage extends EPackage {
 		EAttribute PATTERN_ELEMENT__INTERNAL_ID = eINSTANCE.getPatternElement_InternalId();
 
 		/**
-		 * The meta object literal for the '<em><b>Generate Query</b></em>' operation.
+		 * The meta object literal for the '<em><b>Generate XQuery</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATTERN_ELEMENT___GENERATE_QUERY = eINSTANCE.getPatternElement__GenerateQuery();
+		EOperation PATTERN_ELEMENT___GENERATE_XQUERY = eINSTANCE.getPatternElement__GenerateXQuery();
 
 		/**
 		 * The meta object literal for the '<em><b>Get All Parameters</b></em>' operation.

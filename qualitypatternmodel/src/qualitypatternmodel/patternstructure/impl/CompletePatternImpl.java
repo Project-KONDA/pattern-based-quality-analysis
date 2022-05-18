@@ -298,10 +298,10 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	}
 
 	@Override
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 		initializeTranslation();
-		String res = getParameterList().generateQuery();
-		res += super.generateQuery();
+		String res = getParameterList().generateXQuery();
+		res += super.generateXQuery();
 		return res;
 	}
 	

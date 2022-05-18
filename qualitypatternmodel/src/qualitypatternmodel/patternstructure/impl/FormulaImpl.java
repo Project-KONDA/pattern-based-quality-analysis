@@ -94,13 +94,13 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 
 	@Override
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 		String result = "";
 		if (operator != null) {
 			if (condition1 != null && condition2 != null) {
 				
-				String condition1Query = condition1.generateQuery();
-				String condition2Query = condition2.generateQuery();
+				String condition1Query = condition1.generateXQuery();
+				String condition2Query = condition2.generateXQuery();
 				
 				switch (operator) {
 				case AND:

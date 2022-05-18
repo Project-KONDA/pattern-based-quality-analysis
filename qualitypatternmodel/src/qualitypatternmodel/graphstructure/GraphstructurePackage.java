@@ -169,13 +169,13 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
+	int RELATION___GENERATE_XQUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -494,13 +494,13 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPARABLE_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARABLE___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
+	int COMPARABLE___GENERATE_XQUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -855,13 +855,13 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE_FEATURE_COUNT = COMPARABLE_FEATURE_COUNT + 10;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___GENERATE_QUERY = COMPARABLE___GENERATE_QUERY;
+	int NODE___GENERATE_XQUERY = COMPARABLE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -1495,13 +1495,13 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_NODE___GENERATE_QUERY = NODE___GENERATE_QUERY;
+	int PRIMITIVE_NODE___GENERATE_XQUERY = NODE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -2090,13 +2090,13 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
+	int GRAPH___GENERATE_XQUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -2352,13 +2352,13 @@ public interface GraphstructurePackage extends EPackage {
 	int ADAPTABLE_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADAPTABLE___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
+	int ADAPTABLE___GENERATE_XQUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -2704,13 +2704,13 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE_FEATURE_COUNT = NODE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_NODE___GENERATE_QUERY = NODE___GENERATE_QUERY;
+	int COMPLEX_NODE___GENERATE_XQUERY = NODE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.

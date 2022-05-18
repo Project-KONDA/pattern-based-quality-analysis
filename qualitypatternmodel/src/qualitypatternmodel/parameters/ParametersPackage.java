@@ -134,13 +134,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
+	int PARAMETER___GENERATE_XQUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -504,13 +504,13 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_OPTION_PARAM___GENERATE_QUERY = PARAMETER___GENERATE_QUERY;
+	int COMPARISON_OPTION_PARAM___GENERATE_XQUERY = PARAMETER___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -829,13 +829,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_LIST_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_LIST___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
+	int PARAMETER_LIST___GENERATE_XQUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -1136,13 +1136,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___GENERATE_QUERY = PARAMETER___GENERATE_QUERY;
+	int PARAMETER_VALUE___GENERATE_XQUERY = PARAMETER___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -1650,13 +1650,13 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
+	int BOOLEAN_PARAM___GENERATE_XQUERY = PARAMETER_VALUE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -2164,13 +2164,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
+	int TEXT_LIST_PARAM___GENERATE_XQUERY = PARAMETER_VALUE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -2723,13 +2723,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
+	int TEXT_LITERAL_PARAM___GENERATE_XQUERY = PARAMETER_VALUE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -3246,13 +3246,13 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
+	int NUMBER_PARAM___GENERATE_XQUERY = PARAMETER_VALUE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -3760,13 +3760,13 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
+	int DATE_PARAM___GENERATE_XQUERY = PARAMETER_VALUE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -4274,13 +4274,13 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
+	int TIME_PARAM___GENERATE_XQUERY = PARAMETER_VALUE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -4779,13 +4779,13 @@ public interface ParametersPackage extends EPackage {
 	int UNTYPED_PARAMETER_VALUE_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNTYPED_PARAMETER_VALUE___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
+	int UNTYPED_PARAMETER_VALUE___GENERATE_XQUERY = PARAMETER_VALUE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -5293,13 +5293,13 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME_PARAM___GENERATE_QUERY = PARAMETER_VALUE___GENERATE_QUERY;
+	int DATE_TIME_PARAM___GENERATE_XQUERY = PARAMETER_VALUE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -5798,13 +5798,13 @@ public interface ParametersPackage extends EPackage {
 	int TYPE_OPTION_PARAM_FEATURE_COUNT = PARAMETER_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_OPTION_PARAM___GENERATE_QUERY = PARAMETER___GENERATE_QUERY;
+	int TYPE_OPTION_PARAM___GENERATE_XQUERY = PARAMETER___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.

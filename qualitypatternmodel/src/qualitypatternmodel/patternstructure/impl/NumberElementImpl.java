@@ -64,8 +64,8 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	}
 	
 	@Override
-	public String generateQuery() throws InvalidityException {
-		return getNumberParam().generateQuery();
+	public String generateXQuery() throws InvalidityException {
+		return getNumberParam().generateXQuery();
 	}
 	
 	@Override

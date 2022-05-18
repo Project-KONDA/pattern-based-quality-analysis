@@ -55,9 +55,9 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	}
 
 	@Override
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 		if (condition != null) {
-			return "not(" + condition.generateQuery() + ")";
+			return "not(" + condition.generateXQuery() + ")";
 		} else {
 			throw new InvalidityException("invalid condition");
 		}

@@ -112,16 +112,16 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 
 	@Override
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 		String result;
 		if (quantifier == Quantifier.EXISTS) {
-			result = graph.generateQuery();
+			result = graph.generateXQuery();
 		} else if (quantifier == Quantifier.FORALL) {
-			result = graph.generateQuery();
+			result = graph.generateXQuery();
 		} else {
 			throw new InvalidityException("invalid quantifier");
 		}
-		result += "(" + condition.generateQuery() + ")";
+		result += "(" + condition.generateXQuery() + ")";
 		return result;
 
 	}

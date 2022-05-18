@@ -146,7 +146,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	}
 
 	@Override
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 		translated = true;
 		String query = "";
 		if(getVariables().isEmpty()) {
@@ -157,7 +157,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 				if(relation instanceof XmlNavigation) {
 					XmlNavigation nav = (XmlNavigation) relation;
 					nav.setSourceVariable(getVariables().get(getVariables().size()-1));
-					query += relation.generateQuery();
+					query += relation.generateXQuery();
 				}
 			}		
 		}
@@ -204,7 +204,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		
 		for (BooleanOperator predicate : predicates) {
 			if (predicate.isTranslatable()) {
-				xPredicates += "[" + predicate.generateQuery() + "]";
+				xPredicates += "[" + predicate.generateXQuery() + "]";
 			}
 		}
 		

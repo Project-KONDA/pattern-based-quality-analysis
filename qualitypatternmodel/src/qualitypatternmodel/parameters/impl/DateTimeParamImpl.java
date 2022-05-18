@@ -75,7 +75,7 @@ public class DateTimeParamImpl extends ParameterValueImpl implements DateTimePar
 	}
 		
 	@Override
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 		if(getValue() != null) {
 			return "\"" + getValue() + "\"";
 		} else {

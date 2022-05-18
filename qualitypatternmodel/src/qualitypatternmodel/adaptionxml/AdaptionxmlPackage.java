@@ -235,13 +235,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT___GENERATE_QUERY = GraphstructurePackage.COMPLEX_NODE___GENERATE_QUERY;
+	int XML_ELEMENT___GENERATE_XQUERY = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -893,13 +893,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION_FEATURE_COUNT = GraphstructurePackage.RELATION_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION___GENERATE_QUERY = GraphstructurePackage.RELATION___GENERATE_QUERY;
+	int XML_NAVIGATION___GENERATE_XQUERY = GraphstructurePackage.RELATION___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -1299,13 +1299,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_NAVIGATION_FEATURE_COUNT = XML_NAVIGATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION___GENERATE_QUERY = XML_NAVIGATION___GENERATE_QUERY;
+	int XML_ELEMENT_NAVIGATION___GENERATE_XQUERY = XML_NAVIGATION___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -1696,13 +1696,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE_FEATURE_COUNT = GraphstructurePackage.RELATION_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_REFERENCE___GENERATE_QUERY = GraphstructurePackage.RELATION___GENERATE_QUERY;
+	int XML_REFERENCE___GENERATE_XQUERY = GraphstructurePackage.RELATION___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -2165,13 +2165,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY___GENERATE_QUERY = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_QUERY;
+	int XML_PROPERTY___GENERATE_XQUERY = GraphstructurePackage.PRIMITIVE_NODE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -2841,13 +2841,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ROOT___GENERATE_QUERY = GraphstructurePackage.COMPLEX_NODE___GENERATE_QUERY;
+	int XML_ROOT___GENERATE_XQUERY = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -3463,13 +3463,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_NAVIGATION_FEATURE_COUNT = XML_NAVIGATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION___GENERATE_QUERY = XML_NAVIGATION___GENERATE_QUERY;
+	int XML_PROPERTY_NAVIGATION___GENERATE_XQUERY = XML_NAVIGATION___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -3833,13 +3833,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int AXIS_OPTION_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_OPTION_PARAM___GENERATE_QUERY = ParametersPackage.PARAMETER___GENERATE_QUERY;
+	int AXIS_OPTION_PARAM___GENERATE_XQUERY = ParametersPackage.PARAMETER___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -4221,13 +4221,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int PROPERTY_OPTION_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_OPTION_PARAM___GENERATE_QUERY = ParametersPackage.PARAMETER___GENERATE_QUERY;
+	int PROPERTY_OPTION_PARAM___GENERATE_XQUERY = ParametersPackage.PARAMETER___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -4609,13 +4609,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int PATH_PARAM_FEATURE_COUNT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___GENERATE_QUERY = GraphstructurePackage.ADAPTABLE___GENERATE_QUERY;
+	int PATH_PARAM___GENERATE_XQUERY = GraphstructurePackage.ADAPTABLE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -4970,13 +4970,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int AXIS_PAIR_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_PAIR___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
+	int AXIS_PAIR___GENERATE_XQUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.

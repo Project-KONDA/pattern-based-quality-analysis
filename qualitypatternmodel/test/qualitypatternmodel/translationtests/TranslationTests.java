@@ -93,7 +93,7 @@ public class TranslationTests {
 	private static void runQueryResultComparison(PatternTestPair testPair) throws InvalidityException, OperatorCycleException, MissingPatternContainerException, BaseXException {		
 		testPair.getPattern().isValid(AbstractionLevel.CONCRETE);
 		
-		String result = applyQuery(testPair.getPattern().generateQuery());
+		String result = applyQuery(testPair.getPattern().generateXQuery());
 		String expectedResult = applyQuery(testPair.getManualQuery());
 		
 		assertNotNull(result);

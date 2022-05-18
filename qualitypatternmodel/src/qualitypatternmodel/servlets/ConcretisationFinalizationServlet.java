@@ -32,7 +32,7 @@ public class ConcretisationFinalizationServlet extends HttpServlet {
 			CompletePattern pattern = EMFModelLoad.loadCompletePattern(fileURL.toString());
 			try {
 				pattern.isValid(AbstractionLevel.CONCRETE);
-				pattern.generateQuery();
+				pattern.generateXQuery();
 				EMFModelSave.exportToFile(pattern, folderURL.toString() + name, "patternstructure");
 				response.getOutputStream().println("Successfully finalized concrete pattern '" + name + "'.");
 			} catch (InvalidityException | OperatorCycleException | MissingPatternContainerException e) {

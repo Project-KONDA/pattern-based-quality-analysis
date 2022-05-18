@@ -93,9 +93,9 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	@Override
-	public String generateQuery() throws InvalidityException {
-		String argument1 = getCountPattern().generateQuery();
-		String argument2 = getArgument2().generateQuery();
+	public String generateXQuery() throws InvalidityException {
+		String argument1 = getCountPattern().generateXQuery();
+		String argument2 = getArgument2().generateXQuery();
 		if(getOption() != null && getOption().getValue() != null) {
 			return argument1 + " " + getOption().getValue() + " " + argument2;
 		} else {

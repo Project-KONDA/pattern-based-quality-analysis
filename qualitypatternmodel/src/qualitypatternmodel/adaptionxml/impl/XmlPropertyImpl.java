@@ -73,7 +73,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	}
 
 	@Override
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 		return "";
 	}
 
@@ -98,7 +98,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 
 		for (BooleanOperator predicate : predicates) {
 			if (predicate.isTranslatable()) {
-				xPredicates += "[" + predicate.generateQuery() + "]";
+				xPredicates += "[" + predicate.generateXQuery() + "]";
 			}
 		}
 		

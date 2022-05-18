@@ -113,11 +113,11 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	}
 
 	@Override
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 		
 		String xPathExpression = "";
 		if (pathParam != null && getIncomingMapping() == null) {
-			xPathExpression = getSourceVariable() + pathParam.generateQuery();
+			xPathExpression = getSourceVariable() + pathParam.generateXQuery();
 		} else if(getIncomingMapping() == null) {
 			throw new InvalidityException("option null");
 		}
@@ -199,7 +199,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 			node.getVariables().add(variable);
 		}
 		
-		query += getTarget().generateQuery();
+		query += getTarget().generateXQuery();
 		
 		return query;
 	}

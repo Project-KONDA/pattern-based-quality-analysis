@@ -125,7 +125,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 	 */
 
 	@Override
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 		if (option != null && option.getValue() != null && argument1 != null && argument2 != null) {
 			ComparisonOperator operator = option.getValue();
 			
@@ -140,7 +140,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			if (argument1 instanceof XmlNode) {
 				argument1Translated.addAll(((XmlNode) argument1).getXQueryRepresentation());
 			} else {
-				argument1Translated.add(argument1.generateQuery());
+				argument1Translated.add(argument1.generateXQuery());
 			}
 			
 			String conversionStartArgument2 = type.getConversion();
@@ -149,7 +149,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			if (argument2 instanceof XmlNode) {
 				argument2Translated.addAll(((XmlNode) argument2).getXQueryRepresentation());
 			} else {
-				argument2Translated.add(argument2.generateQuery());
+				argument2Translated.add(argument2.generateXQuery());
 			}
 			
 			String predicate = "";

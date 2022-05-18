@@ -95,7 +95,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 
 
 	@Override
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 		if(getValue() != null) {
 			return getValue() + "()";
 		} else {

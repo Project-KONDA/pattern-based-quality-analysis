@@ -127,13 +127,13 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR_FEATURE_COUNT = GraphstructurePackage.COMPARABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR___GENERATE_QUERY = GraphstructurePackage.COMPARABLE___GENERATE_QUERY;
+	int OPERATOR___GENERATE_XQUERY = GraphstructurePackage.COMPARABLE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -461,13 +461,13 @@ public interface OperatorsPackage extends EPackage {
 	int BOOLEAN_OPERATOR_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_OPERATOR___GENERATE_QUERY = OPERATOR___GENERATE_QUERY;
+	int BOOLEAN_OPERATOR___GENERATE_XQUERY = OPERATOR___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -813,13 +813,13 @@ public interface OperatorsPackage extends EPackage {
 	int NUMBER_OPERATOR_FEATURE_COUNT = OPERATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OPERATOR___GENERATE_QUERY = OPERATOR___GENERATE_QUERY;
+	int NUMBER_OPERATOR___GENERATE_XQUERY = OPERATOR___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -1174,13 +1174,13 @@ public interface OperatorsPackage extends EPackage {
 	int MATCH_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATCH___GENERATE_QUERY = BOOLEAN_OPERATOR___GENERATE_QUERY;
+	int MATCH___GENERATE_XQUERY = BOOLEAN_OPERATOR___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -1580,13 +1580,13 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON___GENERATE_QUERY = BOOLEAN_OPERATOR___GENERATE_QUERY;
+	int COMPARISON___GENERATE_XQUERY = BOOLEAN_OPERATOR___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -1950,13 +1950,13 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR_LIST_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Generate Query</em>' operation.
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATOR_LIST___GENERATE_QUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY;
+	int OPERATOR_LIST___GENERATE_XQUERY = PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.

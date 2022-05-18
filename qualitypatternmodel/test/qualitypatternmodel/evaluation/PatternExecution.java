@@ -117,7 +117,7 @@ public class PatternExecution {
 			e.printStackTrace();
 		} 
 		try {
-			String query = pattern.generateQuery();
+			String query = pattern.generateXQuery();
 			System.out.println(query);
 			new Open(databaseName).execute(context);
 		

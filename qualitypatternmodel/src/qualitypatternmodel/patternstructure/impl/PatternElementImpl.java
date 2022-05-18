@@ -408,7 +408,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 		throw new UnsupportedOperationException();
 	}
 
@@ -484,9 +484,9 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_QUERY:
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY:
 				try {
-					return generateQuery();
+					return generateXQuery();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

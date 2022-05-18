@@ -108,7 +108,7 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	}
 
 	@Override
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 		String res = "";
 		for (Parameter parameter : getParameters()) {
 			if (parameter instanceof TextListParamImpl)

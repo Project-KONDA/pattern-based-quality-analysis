@@ -1095,7 +1095,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 		
 		String query;
 		if(pattern.getQuery() == null) {
-			query = pattern.generateQuery();
+			query = pattern.generateXQuery();
 		} else {
 			query = pattern.getQuery();
 		}
@@ -1147,7 +1147,7 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 		
 		String query;
 		if(pattern.getPartialQuery() == null) {
-			pattern.generateQuery();
+			pattern.generateXQuery();
 		}
 		query = pattern.getPartialQuery();
 		

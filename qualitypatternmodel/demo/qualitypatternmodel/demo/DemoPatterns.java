@@ -191,7 +191,7 @@ public class DemoPatterns {
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		pattern.isValid(AbstractionLevel.CONCRETE);
 		System.out.println("\n\n*** "+pattern.getName()+" query ***");
-		System.out.println(pattern.generateQuery());
+		System.out.println(pattern.generateXQuery());
 	}
 	
 	// ---------- COMP BOOLEAN pattern ----------
@@ -491,7 +491,7 @@ public class DemoPatterns {
 	public static CompletePattern getConcreteFinalizedCardPatternFromConcrete(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		completePattern.setName("cardinality_concrete_finalized");
 		completePattern.isValid(AbstractionLevel.CONCRETE);
-		completePattern.generateQuery();
+		completePattern.generateXQuery();
 		return completePattern;
 	}
 	

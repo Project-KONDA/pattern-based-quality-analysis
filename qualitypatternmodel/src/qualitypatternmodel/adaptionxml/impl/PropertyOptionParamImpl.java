@@ -134,7 +134,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	}
 	
 	@Override
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 		
 		if(getValue() == null) {
 			throw new InvalidityException("propertyOption invalid");
@@ -611,7 +611,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	@Override 
 	public String myToString() {
 		try {
-			return generateQuery();
+			return generateXQuery();
 		} catch (InvalidityException e) {
 			return "[invalid property option " + getInternalId() + "]]"; 
 		}

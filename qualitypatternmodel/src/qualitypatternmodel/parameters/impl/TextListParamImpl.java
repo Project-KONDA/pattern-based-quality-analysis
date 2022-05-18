@@ -69,7 +69,7 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	}
 	
 	@Override
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 		return getListVar();
 	}
 	

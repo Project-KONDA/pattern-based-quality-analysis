@@ -88,10 +88,10 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 	}
 	
 	@Override
-	public String generateQuery() throws InvalidityException {
-		String query = getAxisOptionParam().generateQuery();
+	public String generateXQuery() throws InvalidityException {
+		String query = getAxisOptionParam().generateXQuery();
 		if (getTextLiteralParam() != null) {
-			String literal = getTextLiteralParam().generateQuery();
+			String literal = getTextLiteralParam().generateXQuery();
 			if ( !(literal.equals("\"\"")) && !(literal.equals("\"*\""))) {
 				query += "[name()=" + literal + "]";
 			}
@@ -737,7 +737,7 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 	@Override
 	public String myToString() {
 		try {
-			return this.generateQuery();
+			return this.generateXQuery();
 		} catch (InvalidityException e) {
 			return "[invalid axis pair " + getInternalId() + "]]"; 
 		}

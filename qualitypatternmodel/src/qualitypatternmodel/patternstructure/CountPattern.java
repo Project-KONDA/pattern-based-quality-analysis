@@ -49,7 +49,7 @@ public interface CountPattern extends Pattern, MorphismContainer, CountCondition
 	 */
 	void setCountCondition(CountCondition value);
 
-	String generateQuery() throws InvalidityException;
+	String generateXQuery() throws InvalidityException;
 
 	void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException;
 

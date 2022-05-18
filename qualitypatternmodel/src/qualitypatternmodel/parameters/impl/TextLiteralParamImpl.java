@@ -121,7 +121,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	}
 	
 	@Override
-	public String generateQuery() throws InvalidityException {
+	public String generateXQuery() throws InvalidityException {
 		if(inputIsValid()) {
 			return "\"" + getValue() + "\"";
 		} else {
