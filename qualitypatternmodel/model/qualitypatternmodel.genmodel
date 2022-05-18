@@ -464,42 +464,44 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/PatternElement/id"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//patternstructure/PatternElement/internalId"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/generateXQuery"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/getAllParameters"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/generateSparql"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/generateCypher"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/getContainer"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/getParameterList"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/relationsXmlAdapted"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates/newContainer"/>
+        </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/prepareTranslation"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/recordValues">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/recordValues/database"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/createXMLAdaption"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/getOperatorList"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/prepareParameterUpdates"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/validate">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/validate/diagnostics"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/validate/context"/>
+        </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/isValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/isValid/abstractionLevel"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/isValidLocal">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/isValidLocal/abstractionLevel"/>
         </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/getContainer"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates.1">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates.1/newContainer"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates.1/patternElements"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/initializeTranslation"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/updateParameters">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/updateParameters/newParameterList"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/getAllParameters"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/getAncestor">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/getAncestor/cls"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/myToString"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/validate">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/validate/diagnostics"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/validate/context"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/prepareParameterUpdates"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/getParameterList"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/getOperatorList"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/createXMLAdaption"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/recordValues">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/recordValues/database"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/relationsXmlAdapted"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates/newContainer"/>
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates/patternElements"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates.1">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/triggerParameterUpdates.1/newContainer"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/updateParameters">
-          <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/updateParameters/newParameterList"/>
-        </genOperations>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/initializeTranslation"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/NotCondition">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/NotCondition/condition"/>

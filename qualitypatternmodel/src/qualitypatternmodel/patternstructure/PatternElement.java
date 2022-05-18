@@ -92,6 +92,22 @@ public interface PatternElement extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String generateSparql() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String generateCypher() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Returns all <code>Parameters</code> referenced by <code>this</code> or a contained <code>PatternElement</code>.
 	 * 
 	 *  @return a list of all parameters referenced by <code>this</code> or a contained <code>PatternElement</code>

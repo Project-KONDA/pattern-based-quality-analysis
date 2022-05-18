@@ -551,21 +551,25 @@
     <eClassifiers xsi:type="ecore:EClass" name="PatternElement" abstract="true">
       <eOperations name="generateXQuery" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getAllParameters" upperBound="-1" eType="#//parameters/Parameter"
+      <eOperations name="generateSparql" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="prepareTranslation"/>
-      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper">
-        <eParameters name="abstractionLevel" lowerBound="1" eType="#//patternstructure/AbstractionLevel"/>
-      </eOperations>
-      <eOperations name="isValidLocal" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper">
-        <eParameters name="abstractionLevel" lowerBound="1" eType="#//patternstructure/AbstractionLevel"/>
-      </eOperations>
+      <eOperations name="generateCypher" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="getContainer" eType="#//patternstructure/PatternElement"
           eExceptions="#//patternstructure/MissingPatternContainerException"/>
-      <eOperations name="getAncestor" eType="#//patternstructure/PatternElement" eExceptions="#//patternstructure/MissingPatternContainerException">
-        <eParameters name="cls" eType="#//patternstructure/ClassWrapper"/>
+      <eOperations name="getParameterList" eType="#//parameters/ParameterList"/>
+      <eOperations name="relationsXmlAdapted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="triggerParameterUpdates">
+        <eParameters name="newContainer" eType="#//patternstructure/PatternElement"/>
       </eOperations>
-      <eOperations name="myToString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="prepareTranslation"/>
+      <eOperations name="recordValues">
+        <eParameters name="database" eType="#//execution/XmlDataDatabase"/>
+      </eOperations>
+      <eOperations name="createXMLAdaption" eType="#//patternstructure/PatternElement"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
+      <eOperations name="getOperatorList" eType="#//operators/OperatorList"/>
+      <eOperations name="prepareParameterUpdates" upperBound="-1" eType="#//patternstructure/PatternElement"/>
       <eOperations name="validate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
         <eParameters name="context">
@@ -575,26 +579,26 @@
           </eGenericType>
         </eParameters>
       </eOperations>
-      <eOperations name="prepareParameterUpdates" upperBound="-1" eType="#//patternstructure/PatternElement"/>
-      <eOperations name="getParameterList" eType="#//parameters/ParameterList"/>
-      <eOperations name="getOperatorList" eType="#//operators/OperatorList"/>
-      <eOperations name="createXMLAdaption" eType="#//patternstructure/PatternElement"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
-      <eOperations name="recordValues">
-        <eParameters name="database" eType="#//execution/XmlDataDatabase"/>
+      <eOperations name="isValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper">
+        <eParameters name="abstractionLevel" lowerBound="1" eType="#//patternstructure/AbstractionLevel"/>
       </eOperations>
-      <eOperations name="relationsXmlAdapted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="isValidLocal" eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper">
+        <eParameters name="abstractionLevel" lowerBound="1" eType="#//patternstructure/AbstractionLevel"/>
+      </eOperations>
       <eOperations name="triggerParameterUpdates">
         <eParameters name="newContainer" eType="#//patternstructure/PatternElement"/>
         <eParameters name="patternElements" upperBound="-1" eType="#//patternstructure/PatternElement"/>
       </eOperations>
-      <eOperations name="triggerParameterUpdates">
-        <eParameters name="newContainer" eType="#//patternstructure/PatternElement"/>
-      </eOperations>
+      <eOperations name="initializeTranslation"/>
       <eOperations name="updateParameters">
         <eParameters name="newParameterList" eType="#//parameters/ParameterList"/>
       </eOperations>
-      <eOperations name="initializeTranslation"/>
+      <eOperations name="getAllParameters" upperBound="-1" eType="#//parameters/Parameter"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="getAncestor" eType="#//patternstructure/PatternElement" eExceptions="#//patternstructure/MissingPatternContainerException">
+        <eParameters name="cls" eType="#//patternstructure/ClassWrapper"/>
+      </eOperations>
+      <eOperations name="myToString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalId" lowerBound="1"
