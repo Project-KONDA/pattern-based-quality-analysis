@@ -20,7 +20,7 @@ public class Test02Return {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-//		completePatterns.add(getPatternMultipleReturnNavigation());
+		completePatterns.add(getPatternMultipleReturnNavigation());
 		completePatterns.add(getPatternMultipleReturnReference());
 
 		Test00.test(completePatterns);
@@ -84,16 +84,16 @@ public class Test02Return {
 		PropertyOptionParam pop = reference.getSourcePropertyPath().getPropertyOptionParam();
 		pop.setValue(PropertyKind.ATTRIBUTE);
 		
-		System.out.println(completePattern.myToString() + "\n\n");
+//		System.out.println(completePattern.myToString() + "\n\n");
 		TextLiteralParam an2 = pop.getAttributeName();
-		System.out.println(an2 == null);
+//		System.out.println(an2 == null);
 		an2.setValue("demo:id");
 		
 //		reference.getTargetProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
 		PropertyOptionParam pop2 = reference.getSourcePropertyPath().getPropertyOptionParam();
 		pop2.setValue(PropertyKind.ATTRIBUTE);
 		TextLiteralParam an = pop2.getAttributeName();
-		System.out.println(an);
+//		System.out.println(an);
 		an.setValue("demo:id");
 				
 		return completePattern;

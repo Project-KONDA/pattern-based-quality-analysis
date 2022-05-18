@@ -54,7 +54,7 @@ public class Test01Axis {
 		relation.setTarget(element2);		
 		
 		completePattern.createXMLAdaption();
-		XmlElementNavigation navigation = graph.getNodes().get(1).getIncoming().get(0).adaptAsXMLElementNavigation();		
+		XmlElementNavigation navigation = (XmlElementNavigation) graph.getRelations().get(0);		
 		
 		PathParam axisOption = navigation.getPathParam();
 //		EList<AxisKind> axisOptions = axisOption.getOptions();

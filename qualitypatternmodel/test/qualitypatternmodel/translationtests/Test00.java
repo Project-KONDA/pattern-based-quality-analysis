@@ -8,6 +8,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.*;
 import qualitypatternmodel.graphstructure.Node;
@@ -45,7 +46,7 @@ public class Test00 {
 			try {
 				completePattern.isValid(AbstractionLevel.CONCRETE);
 //				System.out.println("\n\n___PATTERN_(VALID)___");
-				System.out.println(completePattern.generateQuery());
+				System.out.println(completePattern.generateXQuery());
 			} catch (Exception e) {
 				System.out.println("\n\n___PATTERN_(InVALID)___");
 				e.printStackTrace();

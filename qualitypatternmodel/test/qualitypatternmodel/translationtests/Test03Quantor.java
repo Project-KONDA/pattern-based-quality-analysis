@@ -128,7 +128,6 @@ public class Test03Quantor {
 		
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		XmlNavigation nav = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
-		nav.getPathParam().setAxis(AxisKind.CHILD,"");
 		
 		return completePattern;
 	}
