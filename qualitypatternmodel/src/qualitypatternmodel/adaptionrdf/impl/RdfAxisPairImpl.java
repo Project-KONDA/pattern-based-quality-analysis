@@ -13,16 +13,18 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfAxisPair;
+import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfQuantifier;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -37,6 +39,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfAxisPairImpl#getQuantifier <em>Quantifier</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfAxisPairImpl#getTextliteralparam <em>Textliteralparam</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfAxisPairImpl#getRdfpathparam <em>Rdfpathparam</em>}</li>
  * </ul>
  *
  * @generated
@@ -122,9 +125,71 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 	@Override
 	public EList<TextLiteralParam> getTextliteralparam() {
 		if (textliteralparam == null) {
-			textliteralparam = new EObjectContainmentEList<TextLiteralParam>(TextLiteralParam.class, this, AdaptionrdfPackage.RDF_AXIS_PAIR__TEXTLITERALPARAM);
+			textliteralparam = new EObjectContainmentWithInverseEList<TextLiteralParam>(TextLiteralParam.class, this, AdaptionrdfPackage.RDF_AXIS_PAIR__TEXTLITERALPARAM, ParametersPackage.TEXT_LITERAL_PARAM__RDFAXISPAIR);
 		}
 		return textliteralparam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RdfPathParam getRdfpathparam() {
+		if (eContainerFeatureID() != AdaptionrdfPackage.RDF_AXIS_PAIR__RDFPATHPARAM) return null;
+		return (RdfPathParam)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRdfpathparam(RdfPathParam newRdfpathparam, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newRdfpathparam, AdaptionrdfPackage.RDF_AXIS_PAIR__RDFPATHPARAM, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRdfpathparam(RdfPathParam newRdfpathparam) {
+		if (newRdfpathparam != eInternalContainer() || (eContainerFeatureID() != AdaptionrdfPackage.RDF_AXIS_PAIR__RDFPATHPARAM && newRdfpathparam != null)) {
+			if (EcoreUtil.isAncestor(this, newRdfpathparam))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newRdfpathparam != null)
+				msgs = ((InternalEObject)newRdfpathparam).eInverseAdd(this, AdaptionrdfPackage.RDF_PATH_PARAM__RDFAXISPAIR, RdfPathParam.class, msgs);
+			msgs = basicSetRdfpathparam(newRdfpathparam, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_AXIS_PAIR__RDFPATHPARAM, newRdfpathparam, newRdfpathparam));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AdaptionrdfPackage.RDF_AXIS_PAIR__TEXTLITERALPARAM:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTextliteralparam()).basicAdd(otherEnd, msgs);
+			case AdaptionrdfPackage.RDF_AXIS_PAIR__RDFPATHPARAM:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetRdfpathparam((RdfPathParam)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -137,8 +202,24 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_AXIS_PAIR__TEXTLITERALPARAM:
 				return ((InternalEList<?>)getTextliteralparam()).basicRemove(otherEnd, msgs);
+			case AdaptionrdfPackage.RDF_AXIS_PAIR__RDFPATHPARAM:
+				return basicSetRdfpathparam(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case AdaptionrdfPackage.RDF_AXIS_PAIR__RDFPATHPARAM:
+				return eInternalContainer().eInverseRemove(this, AdaptionrdfPackage.RDF_PATH_PARAM__RDFAXISPAIR, RdfPathParam.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -153,6 +234,8 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 				return getQuantifier();
 			case AdaptionrdfPackage.RDF_AXIS_PAIR__TEXTLITERALPARAM:
 				return getTextliteralparam();
+			case AdaptionrdfPackage.RDF_AXIS_PAIR__RDFPATHPARAM:
+				return getRdfpathparam();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -173,6 +256,9 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 				getTextliteralparam().clear();
 				getTextliteralparam().addAll((Collection<? extends TextLiteralParam>)newValue);
 				return;
+			case AdaptionrdfPackage.RDF_AXIS_PAIR__RDFPATHPARAM:
+				setRdfpathparam((RdfPathParam)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -191,6 +277,9 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 			case AdaptionrdfPackage.RDF_AXIS_PAIR__TEXTLITERALPARAM:
 				getTextliteralparam().clear();
 				return;
+			case AdaptionrdfPackage.RDF_AXIS_PAIR__RDFPATHPARAM:
+				setRdfpathparam((RdfPathParam)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -207,6 +296,8 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 				return quantifier != QUANTIFIER_EDEFAULT;
 			case AdaptionrdfPackage.RDF_AXIS_PAIR__TEXTLITERALPARAM:
 				return textliteralparam != null && !textliteralparam.isEmpty();
+			case AdaptionrdfPackage.RDF_AXIS_PAIR__RDFPATHPARAM:
+				return getRdfpathparam() != null;
 		}
 		return super.eIsSet(featureID);
 	}

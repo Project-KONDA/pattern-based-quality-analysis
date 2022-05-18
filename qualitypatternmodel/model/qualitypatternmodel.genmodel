@@ -81,6 +81,7 @@
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/matches"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/xmlPropertyOptionParam"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/xmlAxisPair"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/TextLiteralParam/rdfaxispair"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/TextLiteralParam/setValueIfValid">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//parameters/TextLiteralParam/setValueIfValid/newValue"/>
         </genOperations>
@@ -909,10 +910,12 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfUrlNode"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/rdfaxispair"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/rdfreference"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfAxisPair">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/RdfAxisPair/quantifier"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfAxisPair/textliteralparam"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfAxisPair/rdfpathparam"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfValueNode"/>
     </nestedGenPackages>

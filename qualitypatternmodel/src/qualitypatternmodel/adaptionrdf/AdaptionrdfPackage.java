@@ -1201,13 +1201,22 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PATH_PARAM__RDFAXISPAIR = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Rdfreference</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PARAM__RDFREFERENCE = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Rdf Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
+	int RDF_PATH_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1535,13 +1544,22 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_AXIS_PAIR__TEXTLITERALPARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Rdfpathparam</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_AXIS_PAIR__RDFPATHPARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Rdf Axis Pair</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_AXIS_PAIR_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int RDF_AXIS_PAIR_FEATURE_COUNT = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -2471,6 +2489,17 @@ public interface AdaptionrdfPackage extends EPackage {
 	EReference getRdfPathParam_Rdfaxispair();
 
 	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfreference <em>Rdfreference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Rdfreference</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfreference()
+	 * @see #getRdfPathParam()
+	 * @generated
+	 */
+	EReference getRdfPathParam_Rdfreference();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfAxisPair <em>Rdf Axis Pair</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2501,6 +2530,17 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRdfAxisPair_Textliteralparam();
+
+	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getRdfpathparam <em>Rdfpathparam</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Rdfpathparam</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.RdfAxisPair#getRdfpathparam()
+	 * @see #getRdfAxisPair()
+	 * @generated
+	 */
+	EReference getRdfAxisPair_Rdfpathparam();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfValueNode <em>Rdf Value Node</em>}'.
@@ -2592,6 +2632,14 @@ public interface AdaptionrdfPackage extends EPackage {
 		EReference RDF_PATH_PARAM__RDFAXISPAIR = eINSTANCE.getRdfPathParam_Rdfaxispair();
 
 		/**
+		 * The meta object literal for the '<em><b>Rdfreference</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RDF_PATH_PARAM__RDFREFERENCE = eINSTANCE.getRdfPathParam_Rdfreference();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfAxisPairImpl <em>Rdf Axis Pair</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2616,6 +2664,14 @@ public interface AdaptionrdfPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RDF_AXIS_PAIR__TEXTLITERALPARAM = eINSTANCE.getRdfAxisPair_Textliteralparam();
+
+		/**
+		 * The meta object literal for the '<em><b>Rdfpathparam</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RDF_AXIS_PAIR__RDFPATHPARAM = eINSTANCE.getRdfAxisPair_Rdfpathparam();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfValueNodeImpl <em>Rdf Value Node</em>}' class.

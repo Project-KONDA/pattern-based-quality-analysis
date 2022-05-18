@@ -2822,13 +2822,22 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM__XML_AXIS_PAIR = PARAMETER_VALUE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Rdfaxispair</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM__RDFAXISPAIR = PARAMETER_VALUE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Text Literal Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 4;
+	int TEXT_LITERAL_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -6739,6 +6748,17 @@ public interface ParametersPackage extends EPackage {
 	EReference getTextLiteralParam_XmlAxisPair();
 
 	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getRdfaxispair <em>Rdfaxispair</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Rdfaxispair</em>'.
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getRdfaxispair()
+	 * @see #getTextLiteralParam()
+	 * @generated
+	 */
+	EReference getTextLiteralParam_Rdfaxispair();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextLiteralParam#setValueIfValid(java.lang.String) <em>Set Value If Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7460,6 +7480,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TEXT_LITERAL_PARAM__XML_AXIS_PAIR = eINSTANCE.getTextLiteralParam_XmlAxisPair();
+
+		/**
+		 * The meta object literal for the '<em><b>Rdfaxispair</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEXT_LITERAL_PARAM__RDFAXISPAIR = eINSTANCE.getTextLiteralParam_Rdfaxispair();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.

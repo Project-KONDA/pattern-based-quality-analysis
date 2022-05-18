@@ -10,8 +10,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
@@ -71,9 +70,24 @@ public class RdfReferenceImpl extends RelationImpl implements RdfReference {
 	@Override
 	public EList<RdfPathParam> getRdfpathparam() {
 		if (rdfpathparam == null) {
-			rdfpathparam = new EObjectContainmentEList<RdfPathParam>(RdfPathParam.class, this, AdaptionrdfPackage.RDF_REFERENCE__RDFPATHPARAM);
+			rdfpathparam = new EObjectContainmentWithInverseEList<RdfPathParam>(RdfPathParam.class, this, AdaptionrdfPackage.RDF_REFERENCE__RDFPATHPARAM, AdaptionrdfPackage.RDF_PATH_PARAM__RDFREFERENCE);
 		}
 		return rdfpathparam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AdaptionrdfPackage.RDF_REFERENCE__RDFPATHPARAM:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRdfpathparam()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

@@ -26,11 +26,13 @@ public interface RdfReference extends Relation {
 	/**
 	 * Returns the value of the '<em><b>Rdfpathparam</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.adaptionrdf.RdfPathParam}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfreference <em>Rdfreference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rdfpathparam</em>' containment reference list.
 	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfReference_Rdfpathparam()
-	 * @model containment="true"
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfreference
+	 * @model opposite="rdfreference" containment="true"
 	 * @generated
 	 */
 	EList<RdfPathParam> getRdfpathparam();

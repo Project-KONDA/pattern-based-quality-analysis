@@ -16,6 +16,7 @@ import qualitypatternmodel.parameters.Parameter;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfaxispair <em>Rdfaxispair</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfreference <em>Rdfreference</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam()
@@ -26,13 +27,39 @@ public interface RdfPathParam extends Parameter {
 	/**
 	 * Returns the value of the '<em><b>Rdfaxispair</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.adaptionrdf.RdfAxisPair}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getRdfpathparam <em>Rdfpathparam</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rdfaxispair</em>' containment reference list.
 	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_Rdfaxispair()
-	 * @model containment="true"
+	 * @see qualitypatternmodel.adaptionrdf.RdfAxisPair#getRdfpathparam
+	 * @model opposite="rdfpathparam" containment="true"
 	 * @generated
 	 */
 	EList<RdfAxisPair> getRdfaxispair();
+
+	/**
+	 * Returns the value of the '<em><b>Rdfreference</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfReference#getRdfpathparam <em>Rdfpathparam</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rdfreference</em>' container reference.
+	 * @see #setRdfreference(RdfReference)
+	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_Rdfreference()
+	 * @see qualitypatternmodel.adaptionrdf.RdfReference#getRdfpathparam
+	 * @model opposite="rdfpathparam" transient="false"
+	 * @generated
+	 */
+	RdfReference getRdfreference();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfreference <em>Rdfreference</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rdfreference</em>' container reference.
+	 * @see #getRdfreference()
+	 * @generated
+	 */
+	void setRdfreference(RdfReference value);
 
 } // RdfPathParam
