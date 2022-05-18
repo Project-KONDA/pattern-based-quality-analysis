@@ -508,58 +508,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY:
-				try {
-					return generateXQuery();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_SPARQL:
-				try {
-					return generateSparql();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_CYPHER:
-				try {
-					return generateCypher();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case PatternstructurePackage.PATTERN_ELEMENT___GET_CONTAINER:
-				try {
-					return getContainer();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST:
-				return getParameterList();
-			case PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED:
-				return relationsXmlAdapted();
-			case PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT:
-				triggerParameterUpdates((PatternElement)arguments.get(0));
-				return null;
-			case PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION:
-				prepareTranslation();
-				return null;
-			case PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE:
-				recordValues((XmlDataDatabase)arguments.get(0));
-				return null;
-			case PatternstructurePackage.PATTERN_ELEMENT___CREATE_XML_ADAPTION:
-				try {
-					return createXMLAdaption();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST:
-				return getOperatorList();
-			case PatternstructurePackage.PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES:
-				return prepareParameterUpdates();
 			case PatternstructurePackage.PATTERN_ELEMENT___VALIDATE__DIAGNOSTICCHAIN_MAP:
 				return validate((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 			case PatternstructurePackage.PATTERN_ELEMENT___IS_VALID__ABSTRACTIONLEVEL:
@@ -578,18 +526,32 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST:
-				triggerParameterUpdates((PatternElement)arguments.get(0), (EList<PatternElement>)arguments.get(1));
-				return null;
-			case PatternstructurePackage.PATTERN_ELEMENT___INITIALIZE_TRANSLATION:
-				initializeTranslation();
-				return null;
-			case PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST:
-				updateParameters((ParameterList)arguments.get(0));
-				return null;
-			case PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_PARAMETERS:
+			case PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING:
+				return myToString();
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_CYPHER:
 				try {
-					return getAllParameters();
+					return generateCypher();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_XQUERY:
+				try {
+					return generateXQuery();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.PATTERN_ELEMENT___GENERATE_SPARQL:
+				try {
+					return generateSparql();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_CONTAINER:
+				try {
+					return getContainer();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -601,8 +563,46 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.PATTERN_ELEMENT___MY_TO_STRING:
-				return myToString();
+			case PatternstructurePackage.PATTERN_ELEMENT___INITIALIZE_TRANSLATION:
+				initializeTranslation();
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___PREPARE_TRANSLATION:
+				prepareTranslation();
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_OPERATOR_LIST:
+				return getOperatorList();
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_PARAMETER_LIST:
+				return getParameterList();
+			case PatternstructurePackage.PATTERN_ELEMENT___GET_ALL_PARAMETERS:
+				try {
+					return getAllParameters();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.PATTERN_ELEMENT___PREPARE_PARAMETER_UPDATES:
+				return prepareParameterUpdates();
+			case PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST:
+				triggerParameterUpdates((PatternElement)arguments.get(0), (EList<PatternElement>)arguments.get(1));
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___UPDATE_PARAMETERS__PARAMETERLIST:
+				updateParameters((ParameterList)arguments.get(0));
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT:
+				triggerParameterUpdates((PatternElement)arguments.get(0));
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE:
+				recordValues((XmlDataDatabase)arguments.get(0));
+				return null;
+			case PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED:
+				return relationsXmlAdapted();
+			case PatternstructurePackage.PATTERN_ELEMENT___CREATE_XML_ADAPTION:
+				try {
+					return createXMLAdaption();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

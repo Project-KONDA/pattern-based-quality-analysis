@@ -21,9 +21,9 @@ import qualitypatternmodel.textrepresentation.ParameterReference;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getParameterList <em>Parameter List</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.Parameter#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#isPredefined <em>Predefined</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.Parameter#getParameterReferences <em>Parameter References</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.Parameter#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getParameter()

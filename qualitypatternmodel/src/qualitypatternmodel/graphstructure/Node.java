@@ -30,12 +30,12 @@ import qualitypatternmodel.patternstructure.ElementMapping;
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getIncomingMapping <em>Incoming Mapping</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getName <em>Name</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Node#isTranslated <em>Translated</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Node#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#getIncoming <em>Incoming</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Node#isTypeModifiable <em>Type Modifiable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#isReturnNode <em>Return Node</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#isTypeModifiable <em>Type Modifiable</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#isTranslated <em>Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getNode()

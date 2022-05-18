@@ -34,32 +34,14 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getParameterList <em>Parameter List</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#isPredefined <em>Predefined</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getParameterReferences <em>Parameter References</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.ParameterImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class ParameterImpl extends PatternElementImpl implements Parameter {
-	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated not
-	 * @ordered
-	 */
-	protected static final String DESCRIPTION_EDEFAULT = "";
-	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * A textual description for <code>this</code> that guides the concretization of the pattern.
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected String description = DESCRIPTION_EDEFAULT;
 	/**
 	 * The default value of the '{@link #isPredefined() <em>Predefined</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -89,6 +71,24 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	 * @ordered
 	 */
 	protected EList<ParameterReference> parameterReferences;
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated not
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = "";
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * A textual description for <code>this</code> that guides the concretization of the pattern.
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -380,12 +380,12 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		switch (featureID) {
 			case ParametersPackage.PARAMETER__PARAMETER_LIST:
 				return getParameterList();
-			case ParametersPackage.PARAMETER__DESCRIPTION:
-				return getDescription();
 			case ParametersPackage.PARAMETER__PREDEFINED:
 				return isPredefined();
 			case ParametersPackage.PARAMETER__PARAMETER_REFERENCES:
 				return getParameterReferences();
+			case ParametersPackage.PARAMETER__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -401,15 +401,15 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			case ParametersPackage.PARAMETER__PARAMETER_LIST:
 				setParameterList((ParameterList)newValue);
 				return;
-			case ParametersPackage.PARAMETER__DESCRIPTION:
-				setDescription((String)newValue);
-				return;
 			case ParametersPackage.PARAMETER__PREDEFINED:
 				setPredefined((Boolean)newValue);
 				return;
 			case ParametersPackage.PARAMETER__PARAMETER_REFERENCES:
 				getParameterReferences().clear();
 				getParameterReferences().addAll((Collection<? extends ParameterReference>)newValue);
+				return;
+			case ParametersPackage.PARAMETER__DESCRIPTION:
+				setDescription((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -425,14 +425,14 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 			case ParametersPackage.PARAMETER__PARAMETER_LIST:
 				setParameterList((ParameterList)null);
 				return;
-			case ParametersPackage.PARAMETER__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
-				return;
 			case ParametersPackage.PARAMETER__PREDEFINED:
 				setPredefined(PREDEFINED_EDEFAULT);
 				return;
 			case ParametersPackage.PARAMETER__PARAMETER_REFERENCES:
 				getParameterReferences().clear();
+				return;
+			case ParametersPackage.PARAMETER__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -447,12 +447,12 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		switch (featureID) {
 			case ParametersPackage.PARAMETER__PARAMETER_LIST:
 				return getParameterList() != null;
-			case ParametersPackage.PARAMETER__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case ParametersPackage.PARAMETER__PREDEFINED:
 				return predefined != PREDEFINED_EDEFAULT;
 			case ParametersPackage.PARAMETER__PARAMETER_REFERENCES:
 				return parameterReferences != null && !parameterReferences.isEmpty();
+			case ParametersPackage.PARAMETER__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -464,34 +464,8 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ParametersPackage.PARAMETER___INPUT_IS_VALID:
-				return inputIsValid();
-			case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION:
-				return generateDescription();
-			case ParametersPackage.PARAMETER___IS_USED:
-				return isUsed();
-			case ParametersPackage.PARAMETER___GET_VALUE_AS_STRING:
-				return getValueAsString();
-			case ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING:
-				try {
-					setValueFromString((String)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST:
-				return getOptionsAsStringList();
 			case ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA:
 				return validateAgainstSchema();
-			case ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY:
-				try {
-					checkComparisonConsistency();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING:
 				try {
 					validateExampleValue((String)arguments.get(0));
@@ -500,6 +474,32 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case ParametersPackage.PARAMETER___INPUT_IS_VALID:
+				return inputIsValid();
+			case ParametersPackage.PARAMETER___IS_USED:
+				return isUsed();
+			case ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING:
+				try {
+					setValueFromString((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ParametersPackage.PARAMETER___GET_VALUE_AS_STRING:
+				return getValueAsString();
+			case ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY:
+				try {
+					checkComparisonConsistency();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST:
+				return getOptionsAsStringList();
+			case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION:
+				return generateDescription();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -513,10 +513,10 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (description: ");
-		result.append(description);
-		result.append(", predefined: ");
+		result.append(" (predefined: ");
 		result.append(predefined);
+		result.append(", description: ");
+		result.append(description);
 		result.append(')');
 		return result.toString();
 	}

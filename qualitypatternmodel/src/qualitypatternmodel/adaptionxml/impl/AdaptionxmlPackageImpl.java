@@ -426,7 +426,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 */
 	@Override
 	public EOperation getAxisOptionParam__InferSuggestions() {
-		return axisOptionParamEClass.getEOperations().get(0);
+		return axisOptionParamEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -436,7 +436,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 */
 	@Override
 	public EOperation getAxisOptionParam__SetValueIfValid__AxisKind() {
-		return axisOptionParamEClass.getEOperations().get(1);
+		return axisOptionParamEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -626,7 +626,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 */
 	@Override
 	public EOperation getAxisPair__InferElementTagSuggestions() {
-		return axisPairEClass.getEOperations().get(2);
+		return axisPairEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -636,7 +636,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 */
 	@Override
 	public EOperation getAxisPair__InferElementTagSuggestionsFromOutgoingRelations() {
-		return axisPairEClass.getEOperations().get(3);
+		return axisPairEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -656,7 +656,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 */
 	@Override
 	public EOperation getAxisPair__InferAxisSuggestions() {
-		return axisPairEClass.getEOperations().get(5);
+		return axisPairEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -822,8 +822,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		createEAttribute(axisOptionParamEClass, AXIS_OPTION_PARAM__OPTIONS);
 		createEAttribute(axisOptionParamEClass, AXIS_OPTION_PARAM__VALUE);
 		createEReference(axisOptionParamEClass, AXIS_OPTION_PARAM__AXIS_PAIR);
-		createEOperation(axisOptionParamEClass, AXIS_OPTION_PARAM___INFER_SUGGESTIONS);
 		createEOperation(axisOptionParamEClass, AXIS_OPTION_PARAM___SET_VALUE_IF_VALID__AXISKIND);
+		createEOperation(axisOptionParamEClass, AXIS_OPTION_PARAM___INFER_SUGGESTIONS);
 
 		propertyOptionParamEClass = createEClass(PROPERTY_OPTION_PARAM);
 		createEAttribute(propertyOptionParamEClass, PROPERTY_OPTION_PARAM__OPTIONS);
@@ -845,10 +845,10 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		createEReference(axisPairEClass, AXIS_PAIR__PATH_PARAM);
 		createEOperation(axisPairEClass, AXIS_PAIR___GET_NEXT_AXIS_PAIRS);
 		createEOperation(axisPairEClass, AXIS_PAIR___GET_PREVIOUS_AXIS_PAIRS);
-		createEOperation(axisPairEClass, AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS);
-		createEOperation(axisPairEClass, AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS);
-		createEOperation(axisPairEClass, AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS);
 		createEOperation(axisPairEClass, AXIS_PAIR___INFER_AXIS_SUGGESTIONS);
+		createEOperation(axisPairEClass, AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS);
+		createEOperation(axisPairEClass, AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS);
+		createEOperation(axisPairEClass, AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS);
 
 		xmlNavigationEClass = createEClass(XML_NAVIGATION);
 		createEReference(xmlNavigationEClass, XML_NAVIGATION__PATH_PARAM);
@@ -947,11 +947,11 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		initEAttribute(getAxisOptionParam_Value(), this.getAxisKind(), "value", null, 1, 1, AxisOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAxisOptionParam_AxisPair(), this.getAxisPair(), this.getAxisPair_AxisOptionParam(), "axisPair", null, 1, 1, AxisOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getAxisOptionParam__InferSuggestions(), this.getAxisKind(), "inferSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
-
 		op = initEOperation(getAxisOptionParam__SetValueIfValid__AxisKind(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getAxisKind(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		initEOperation(getAxisOptionParam__InferSuggestions(), this.getAxisKind(), "inferSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(propertyOptionParamEClass, PropertyOptionParam.class, "PropertyOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPropertyOptionParam_Options(), this.getPropertyKind(), "options", null, 0, -1, PropertyOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -985,13 +985,13 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 
 		initEOperation(getAxisPair__GetPreviousAxisPairs(), this.getAxisPair(), "getPreviousAxisPairs", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getAxisPair__InferElementTagSuggestions(), ecorePackage.getEString(), "inferElementTagSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getAxisPair__InferAxisSuggestions(), this.getAxisKind(), "inferAxisSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getAxisPair__InferElementTagSuggestionsFromOutgoingRelations(), ecorePackage.getEString(), "inferElementTagSuggestionsFromOutgoingRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getAxisPair__InferElementTagSuggestions(), ecorePackage.getEString(), "inferElementTagSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getAxisPair__InferElementTagSuggestionsFromIncomingRelations(), ecorePackage.getEString(), "inferElementTagSuggestionsFromIncomingRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getAxisPair__InferAxisSuggestions(), this.getAxisKind(), "inferAxisSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getAxisPair__InferElementTagSuggestionsFromOutgoingRelations(), ecorePackage.getEString(), "inferElementTagSuggestionsFromOutgoingRelations", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(xmlNavigationEClass, XmlNavigation.class, "XmlNavigation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getXmlNavigation_PathParam(), this.getPathParam(), this.getPathParam_XmlNavigation(), "pathParam", null, 0, 1, XmlNavigation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

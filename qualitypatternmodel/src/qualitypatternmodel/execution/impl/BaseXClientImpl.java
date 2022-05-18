@@ -329,6 +329,16 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case ExecutionPackage.BASE_XCLIENT___CONNECT:
+				try {
+					connect();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.BASE_XCLIENT___IS_CONNECTED:
+				return isConnected();
 			case ExecutionPackage.BASE_XCLIENT___CLOSE:
 				try {
 					close();
@@ -347,16 +357,6 @@ public class BaseXClientImpl extends MinimalEObjectImpl.Container implements Bas
 			case ExecutionPackage.BASE_XCLIENT___QUERY__STRING:
 				try {
 					return query((String)arguments.get(0));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.BASE_XCLIENT___IS_CONNECTED:
-				return isConnected();
-			case ExecutionPackage.BASE_XCLIENT___CONNECT:
-				try {
-					connect();
-					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

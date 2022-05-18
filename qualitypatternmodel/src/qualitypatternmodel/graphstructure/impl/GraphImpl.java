@@ -947,6 +947,10 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case GraphstructurePackage.GRAPH___IS_RETURN_GRAPH:
+				return isReturnGraph();
+			case GraphstructurePackage.GRAPH___GET_RETURN_NODES:
+				return getReturnNodes();
 			case GraphstructurePackage.GRAPH___GET_ALL_OPERATORS:
 				return getAllOperators();
 			case GraphstructurePackage.GRAPH___COPY_GRAPH__GRAPH:
@@ -957,12 +961,8 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.GRAPH___IS_RETURN_GRAPH:
-				return isReturnGraph();
 			case GraphstructurePackage.GRAPH___ADD_RELATION__COMPLEXNODE_NODE:
 				return addRelation((ComplexNode)arguments.get(0), (Node)arguments.get(1));
-			case GraphstructurePackage.GRAPH___GET_RETURN_NODES:
-				return getReturnNodes();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

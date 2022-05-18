@@ -491,10 +491,10 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == qualitypatternmodel.graphstructure.Comparable.class) {
 			switch (baseOperationID) {
+				case GraphstructurePackage.COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP: return ParametersPackage.PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 				case GraphstructurePackage.COMPARABLE___GET_RETURN_TYPE: return ParametersPackage.PARAMETER_VALUE___GET_RETURN_TYPE;
 				case GraphstructurePackage.COMPARABLE___IS_TRANSLATABLE: return ParametersPackage.PARAMETER_VALUE___IS_TRANSLATABLE;
 				case GraphstructurePackage.COMPARABLE___GET_ALL_ARGUMENT_ELEMENTS: return ParametersPackage.PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
-				case GraphstructurePackage.COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP: return ParametersPackage.PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 				case GraphstructurePackage.COMPARABLE___IS_OPERATOR_ARGUMENT: return ParametersPackage.PARAMETER_VALUE___IS_OPERATOR_ARGUMENT;
 				default: return -1;
 			}
@@ -510,24 +510,6 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ParametersPackage.PARAMETER_VALUE___IS_IN_TAG_COMPARISON:
-				return isInTagComparison();
-			case ParametersPackage.PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON:
-				return isInAttributeComparison();
-			case ParametersPackage.PARAMETER_VALUE___IS_IN_DATA_COMPARISON:
-				return isInDataComparison();
-			case ParametersPackage.PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS:
-				return inferElementTagSuggestions();
-			case ParametersPackage.PARAMETER_VALUE___GET_ELEMENT_TAGS:
-				return getElementTags();
-			case ParametersPackage.PARAMETER_VALUE___GET_ATTRIBUTE_NAMES:
-				return getAttributeNames();
-			case ParametersPackage.PARAMETER_VALUE___GET_DATA_VALUES:
-				return getDataValues();
-			case ParametersPackage.PARAMETER_VALUE___GET_ATTRIBUTE_VALUES:
-				return getAttributeValues();
-			case ParametersPackage.PARAMETER_VALUE___GET_SUGGESTIONS:
-				return getSuggestions();
 			case ParametersPackage.PARAMETER_VALUE___REPLACE__PARAMETERVALUE:
 				replace((ParameterValue)arguments.get(0));
 				return null;
@@ -539,6 +521,24 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case ParametersPackage.PARAMETER_VALUE___GET_ELEMENT_TAGS:
+				return getElementTags();
+			case ParametersPackage.PARAMETER_VALUE___GET_DATA_VALUES:
+				return getDataValues();
+			case ParametersPackage.PARAMETER_VALUE___IS_IN_DATA_COMPARISON:
+				return isInDataComparison();
+			case ParametersPackage.PARAMETER_VALUE___IS_IN_TAG_COMPARISON:
+				return isInTagComparison();
+			case ParametersPackage.PARAMETER_VALUE___GET_ATTRIBUTE_NAMES:
+				return getAttributeNames();
+			case ParametersPackage.PARAMETER_VALUE___GET_ATTRIBUTE_VALUES:
+				return getAttributeValues();
+			case ParametersPackage.PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON:
+				return isInAttributeComparison();
+			case ParametersPackage.PARAMETER_VALUE___GET_SUGGESTIONS:
+				return getSuggestions();
+			case ParametersPackage.PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS:
+				return inferElementTagSuggestions();
 			case ParametersPackage.PARAMETER_VALUE___GET_RETURN_TYPE:
 				return getReturnType();
 			case ParametersPackage.PARAMETER_VALUE___IS_TRANSLATABLE:

@@ -231,16 +231,6 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 */
 	@Override
 	public EOperation getBooleanOperator__AddElement__Node() {
-		return booleanOperatorEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getBooleanOperator__RemoveElement__Node() {
 		return booleanOperatorEClass.getEOperations().get(1);
 	}
 
@@ -250,8 +240,18 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getBooleanOperator__CreateParameters() {
+	public EOperation getBooleanOperator__RemoveElement__Node() {
 		return booleanOperatorEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getBooleanOperator__CreateParameters() {
+		return booleanOperatorEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -281,16 +281,6 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 */
 	@Override
 	public EOperation getOperator__GetAllOperators() {
-		return operatorEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getOperator__GetRootBooleanOperators() {
 		return operatorEClass.getEOperations().get(1);
 	}
 
@@ -300,17 +290,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getOperator__IsCycleFree__EList() {
-		return operatorEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getOperator__IsCycleFree() {
+	public EOperation getOperator__GetRootBooleanOperators() {
 		return operatorEClass.getEOperations().get(3);
 	}
 
@@ -320,7 +300,17 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getOperator__GetArguments() {
+	public EOperation getOperator__IsCycleFree__EList() {
+		return operatorEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getOperator__IsCycleFree() {
 		return operatorEClass.getEOperations().get(4);
 	}
 
@@ -330,8 +320,18 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getOperator__GetArguments() {
+		return operatorEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getOperator__Validate__DiagnosticChain_Map() {
-		return operatorEClass.getEOperations().get(5);
+		return operatorEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -565,18 +565,18 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		// Create classes and their features
 		booleanOperatorEClass = createEClass(BOOLEAN_OPERATOR);
 		createEReference(booleanOperatorEClass, BOOLEAN_OPERATOR__NODES);
+		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___CREATE_PARAMETERS);
 		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___ADD_ELEMENT__NODE);
 		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE);
-		createEOperation(booleanOperatorEClass, BOOLEAN_OPERATOR___CREATE_PARAMETERS);
 
 		operatorEClass = createEClass(OPERATOR);
 		createEReference(operatorEClass, OPERATOR__OPERATOR_LIST);
-		createEOperation(operatorEClass, OPERATOR___GET_ALL_OPERATORS);
-		createEOperation(operatorEClass, OPERATOR___GET_ROOT_BOOLEAN_OPERATORS);
-		createEOperation(operatorEClass, OPERATOR___IS_CYCLE_FREE__ELIST);
-		createEOperation(operatorEClass, OPERATOR___IS_CYCLE_FREE);
-		createEOperation(operatorEClass, OPERATOR___GET_ARGUMENTS);
 		createEOperation(operatorEClass, OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP);
+		createEOperation(operatorEClass, OPERATOR___GET_ALL_OPERATORS);
+		createEOperation(operatorEClass, OPERATOR___GET_ARGUMENTS);
+		createEOperation(operatorEClass, OPERATOR___GET_ROOT_BOOLEAN_OPERATORS);
+		createEOperation(operatorEClass, OPERATOR___IS_CYCLE_FREE);
+		createEOperation(operatorEClass, OPERATOR___IS_CYCLE_FREE__ELIST);
 
 		numberOperatorEClass = createEClass(NUMBER_OPERATOR);
 
@@ -652,29 +652,16 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		initEClass(booleanOperatorEClass, BooleanOperator.class, "BooleanOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBooleanOperator_Nodes(), theGraphstructurePackage.getNode(), theGraphstructurePackage.getNode_Predicates(), "nodes", null, 0, -1, BooleanOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getBooleanOperator__CreateParameters(), null, "createParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		EOperation op = initEOperation(getBooleanOperator__AddElement__Node(), null, "addElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theGraphstructurePackage.getNode(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getBooleanOperator__RemoveElement__Node(), null, "removeElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theGraphstructurePackage.getNode(), "element", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getBooleanOperator__CreateParameters(), null, "createParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(operatorEClass, Operator.class, "Operator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperator_OperatorList(), this.getOperatorList(), this.getOperatorList_Operators(), "operatorList", null, 1, 1, Operator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getOperator__GetAllOperators(), this.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getOperator__GetRootBooleanOperators(), this.getBooleanOperator(), "getRootBooleanOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getOperator__IsCycleFree__EList(), null, "isCycleFree", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getOperator(), "visitedOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getOperatorCycleExceptionWrapper());
-
-		op = initEOperation(getOperator__IsCycleFree(), null, "isCycleFree", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getOperatorCycleExceptionWrapper());
-
-		initEOperation(getOperator__GetArguments(), theGraphstructurePackage.getComparable(), "getArguments", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getOperator__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -684,6 +671,19 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getOperator__GetAllOperators(), this.getOperator(), "getAllOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getOperator__GetArguments(), theGraphstructurePackage.getComparable(), "getArguments", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getOperator__GetRootBooleanOperators(), this.getBooleanOperator(), "getRootBooleanOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getOperator__IsCycleFree(), null, "isCycleFree", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getOperatorCycleExceptionWrapper());
+
+		op = initEOperation(getOperator__IsCycleFree__EList(), null, "isCycleFree", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getOperator(), "visitedOperators", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getOperatorCycleExceptionWrapper());
 
 		initEClass(numberOperatorEClass, NumberOperator.class, "NumberOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

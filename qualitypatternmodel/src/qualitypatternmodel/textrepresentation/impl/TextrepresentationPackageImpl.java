@@ -254,26 +254,6 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 */
 	@Override
 	public EOperation getPatternText__GenerateJSON() {
-		return patternTextEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getPatternText__IsValid__AbstractionLevel() {
-		return patternTextEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getPatternText__Instantiate() {
 		return patternTextEClass.getEOperations().get(2);
 	}
 
@@ -283,8 +263,8 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternText__Delete() {
-		return patternTextEClass.getEOperations().get(3);
+	public EOperation getPatternText__IsValid__AbstractionLevel() {
+		return patternTextEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -293,7 +273,17 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternText__GetPreview() {
+	public EOperation getPatternText__Instantiate() {
+		return patternTextEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternText__Delete() {
 		return patternTextEClass.getEOperations().get(4);
 	}
 
@@ -303,8 +293,18 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EOperation getPatternText__GetPreview() {
+		return patternTextEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPatternText__AddFragment__Fragment() {
-		return patternTextEClass.getEOperations().get(5);
+		return patternTextEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -512,12 +512,12 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEAttribute(patternTextEClass, PATTERN_TEXT__NAME);
 		createEReference(patternTextEClass, PATTERN_TEXT__PARAMETER_PREDEFINITIONS);
 		createEReference(patternTextEClass, PATTERN_TEXT__FRAGMENTS_ORDERED);
-		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_JSON);
 		createEOperation(patternTextEClass, PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL);
-		createEOperation(patternTextEClass, PATTERN_TEXT___INSTANTIATE);
-		createEOperation(patternTextEClass, PATTERN_TEXT___DELETE);
-		createEOperation(patternTextEClass, PATTERN_TEXT___GET_PREVIEW);
 		createEOperation(patternTextEClass, PATTERN_TEXT___ADD_FRAGMENT__FRAGMENT);
+		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_JSON);
+		createEOperation(patternTextEClass, PATTERN_TEXT___GET_PREVIEW);
+		createEOperation(patternTextEClass, PATTERN_TEXT___DELETE);
+		createEOperation(patternTextEClass, PATTERN_TEXT___INSTANTIATE);
 
 		parameterFragmentEClass = createEClass(PARAMETER_FRAGMENT);
 		createEAttribute(parameterFragmentEClass, PARAMETER_FRAGMENT__EXAMPLE_VALUE);
@@ -589,21 +589,21 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		initEReference(getPatternText_ParameterPredefinitions(), this.getParameterPredefinition(), null, "parameterPredefinitions", null, 0, -1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPatternText_FragmentsOrdered(), this.getFragment(), null, "fragmentsOrdered", null, 1, -1, PatternText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getPatternText__GenerateJSON(), ecorePackage.getEString(), "generateJSON", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		EOperation op = initEOperation(getPatternText__IsValid__AbstractionLevel(), null, "isValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, thePatternstructurePackage.getAbstractionLevel(), "abstractionLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getPatternText__Instantiate(), null, "instantiate", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+		op = initEOperation(getPatternText__AddFragment__Fragment(), null, "addFragment", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getFragment(), "fragment", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getPatternText__Delete(), null, "delete", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getPatternText__GenerateJSON(), ecorePackage.getEString(), "generateJSON", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPatternText__GetPreview(), ecorePackage.getEString(), "getPreview", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getPatternText__AddFragment__Fragment(), null, "addFragment", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getFragment(), "fragment", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getPatternText__Delete(), null, "delete", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getPatternText__Instantiate(), null, "instantiate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(parameterFragmentEClass, ParameterFragment.class, "ParameterFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParameterFragment_ExampleValue(), ecorePackage.getEString(), "exampleValue", null, 0, 1, ParameterFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

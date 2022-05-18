@@ -337,14 +337,14 @@ public class ParameterListImpl extends PatternElementImpl implements ParameterLi
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case ParametersPackage.PARAMETER_LIST___VALIDATE_AGAINST_SCHEMA:
+				return validateAgainstSchema();
 			case ParametersPackage.PARAMETER_LIST___ADD__PARAMETER:
 				add((Parameter)arguments.get(0));
 				return null;
 			case ParametersPackage.PARAMETER_LIST___REMOVE__PARAMETER:
 				remove((Parameter)arguments.get(0));
 				return null;
-			case ParametersPackage.PARAMETER_LIST___VALIDATE_AGAINST_SCHEMA:
-				return validateAgainstSchema();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

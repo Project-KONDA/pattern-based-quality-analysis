@@ -253,14 +253,14 @@ public abstract class BooleanOperatorImpl extends OperatorImpl implements Boolea
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case OperatorsPackage.BOOLEAN_OPERATOR___CREATE_PARAMETERS:
+				createParameters();
+				return null;
 			case OperatorsPackage.BOOLEAN_OPERATOR___ADD_ELEMENT__NODE:
 				addElement((Node)arguments.get(0));
 				return null;
 			case OperatorsPackage.BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE:
 				removeElement((Node)arguments.get(0));
-				return null;
-			case OperatorsPackage.BOOLEAN_OPERATOR___CREATE_PARAMETERS:
-				createParameters();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

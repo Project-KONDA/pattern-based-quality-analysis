@@ -696,8 +696,8 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == Adaptable.class) {
 			switch (baseOperationID) {
-				case GraphstructurePackage.ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST: return AdaptionxmlPackage.AXIS_PAIR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 				case GraphstructurePackage.ADAPTABLE___CREATE_PARAMETERS: return AdaptionxmlPackage.AXIS_PAIR___CREATE_PARAMETERS;
+				case GraphstructurePackage.ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST: return AdaptionxmlPackage.AXIS_PAIR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 				default: return -1;
 			}
 		}
@@ -716,19 +716,19 @@ public class AxisPairImpl extends PatternElementImpl implements AxisPair {
 				return getNextAxisPairs();
 			case AdaptionxmlPackage.AXIS_PAIR___GET_PREVIOUS_AXIS_PAIRS:
 				return getPreviousAxisPairs();
-			case AdaptionxmlPackage.AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS:
-				return inferElementTagSuggestions();
-			case AdaptionxmlPackage.AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS:
-				return inferElementTagSuggestionsFromOutgoingRelations();
-			case AdaptionxmlPackage.AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS:
-				return inferElementTagSuggestionsFromIncomingRelations();
 			case AdaptionxmlPackage.AXIS_PAIR___INFER_AXIS_SUGGESTIONS:
 				return inferAxisSuggestions();
-			case AdaptionxmlPackage.AXIS_PAIR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
-				removeParametersFromParameterList();
-				return null;
+			case AdaptionxmlPackage.AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS:
+				return inferElementTagSuggestions();
+			case AdaptionxmlPackage.AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_INCOMING_RELATIONS:
+				return inferElementTagSuggestionsFromIncomingRelations();
+			case AdaptionxmlPackage.AXIS_PAIR___INFER_ELEMENT_TAG_SUGGESTIONS_FROM_OUTGOING_RELATIONS:
+				return inferElementTagSuggestionsFromOutgoingRelations();
 			case AdaptionxmlPackage.AXIS_PAIR___CREATE_PARAMETERS:
 				createParameters();
+				return null;
+			case AdaptionxmlPackage.AXIS_PAIR___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
+				removeParametersFromParameterList();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

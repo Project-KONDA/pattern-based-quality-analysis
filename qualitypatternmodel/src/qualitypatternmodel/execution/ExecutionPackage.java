@@ -105,31 +105,13 @@ public interface ExecutionPackage extends EPackage {
 	int RESULT__START_DATE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Runtime</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULT__RUNTIME = 4;
-
-	/**
-	 * The feature id for the '<em><b>Problem Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESULT__PROBLEM_NUMBER = 5;
-
-	/**
 	 * The feature id for the '<em><b>End Date</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__END_DATE = 6;
+	int RESULT__END_DATE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' reference.
@@ -138,7 +120,25 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__PATTERN = 7;
+	int RESULT__PATTERN = 5;
+
+	/**
+	 * The feature id for the '<em><b>Split Result</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__SPLIT_RESULT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Problem Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT__PROBLEM_NUMBER = 7;
 
 	/**
 	 * The feature id for the '<em><b>Match Number</b></em>' attribute.
@@ -150,13 +150,13 @@ public interface ExecutionPackage extends EPackage {
 	int RESULT__MATCH_NUMBER = 8;
 
 	/**
-	 * The feature id for the '<em><b>Split Result</b></em>' attribute list.
+	 * The feature id for the '<em><b>Runtime</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT__SPLIT_RESULT = 9;
+	int RESULT__RUNTIME = 9;
 
 	/**
 	 * The number of structural features of the '<em>Result</em>' class.
@@ -232,24 +232,6 @@ public interface ExecutionPackage extends EPackage {
 	int XML_RESULT__START_DATE = RESULT__START_DATE;
 
 	/**
-	 * The feature id for the '<em><b>Runtime</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_RESULT__RUNTIME = RESULT__RUNTIME;
-
-	/**
-	 * The feature id for the '<em><b>Problem Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_RESULT__PROBLEM_NUMBER = RESULT__PROBLEM_NUMBER;
-
-	/**
 	 * The feature id for the '<em><b>End Date</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -268,6 +250,24 @@ public interface ExecutionPackage extends EPackage {
 	int XML_RESULT__PATTERN = RESULT__PATTERN;
 
 	/**
+	 * The feature id for the '<em><b>Split Result</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_RESULT__SPLIT_RESULT = RESULT__SPLIT_RESULT;
+
+	/**
+	 * The feature id for the '<em><b>Problem Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_RESULT__PROBLEM_NUMBER = RESULT__PROBLEM_NUMBER;
+
+	/**
 	 * The feature id for the '<em><b>Match Number</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -277,13 +277,13 @@ public interface ExecutionPackage extends EPackage {
 	int XML_RESULT__MATCH_NUMBER = RESULT__MATCH_NUMBER;
 
 	/**
-	 * The feature id for the '<em><b>Split Result</b></em>' attribute list.
+	 * The feature id for the '<em><b>Runtime</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_RESULT__SPLIT_RESULT = RESULT__SPLIT_RESULT;
+	int XML_RESULT__RUNTIME = RESULT__RUNTIME;
 
 	/**
 	 * The number of structural features of the '<em>Xml Result</em>' class.
@@ -633,13 +633,31 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATA_DATABASE___COUNT_MATCHES__COMPLETEPATTERN = XML_DATABASE_OPERATION_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Record Attribute Value</em>' operation.
+	 * The operation id for the '<em>Record Element Name</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING = XML_DATABASE_OPERATION_COUNT + 2;
+	int XML_DATA_DATABASE___RECORD_ELEMENT_NAME__STRING = XML_DATABASE_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Remove Element Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING = XML_DATABASE_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Add Element Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST = XML_DATABASE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Record Data Value</em>' operation.
@@ -648,16 +666,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATA_DATABASE___RECORD_DATA_VALUE__STRING = XML_DATABASE_OPERATION_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Remove Attribute Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING = XML_DATABASE_OPERATION_COUNT + 4;
+	int XML_DATA_DATABASE___RECORD_DATA_VALUE__STRING = XML_DATABASE_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Remove Data Value</em>' operation.
@@ -666,16 +675,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATA_DATABASE___REMOVE_DATA_VALUE__STRING = XML_DATABASE_OPERATION_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Record Element Name</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___RECORD_ELEMENT_NAME__STRING = XML_DATABASE_OPERATION_COUNT + 6;
+	int XML_DATA_DATABASE___REMOVE_DATA_VALUE__STRING = XML_DATABASE_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Record Attribute Name</em>' operation.
@@ -687,22 +687,13 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATA_DATABASE___RECORD_ATTRIBUTE_NAME__STRING = XML_DATABASE_OPERATION_COUNT + 7;
 
 	/**
-	 * The operation id for the '<em>Remove Element Name</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING = XML_DATABASE_OPERATION_COUNT + 8;
-
-	/**
 	 * The operation id for the '<em>Remove Attribute Name</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATA_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING = XML_DATABASE_OPERATION_COUNT + 9;
+	int XML_DATA_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING = XML_DATABASE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Add Attribute Names</em>' operation.
@@ -711,16 +702,25 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATA_DATABASE___ADD_ATTRIBUTE_NAMES__ELIST = XML_DATABASE_OPERATION_COUNT + 10;
+	int XML_DATA_DATABASE___ADD_ATTRIBUTE_NAMES__ELIST = XML_DATABASE_OPERATION_COUNT + 9;
 
 	/**
-	 * The operation id for the '<em>Add Element Names</em>' operation.
+	 * The operation id for the '<em>Record Attribute Value</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST = XML_DATABASE_OPERATION_COUNT + 11;
+	int XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING = XML_DATABASE_OPERATION_COUNT + 10;
+
+	/**
+	 * The operation id for the '<em>Remove Attribute Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING = XML_DATABASE_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Create Schema Database From Referenced Schema</em>' operation.
@@ -732,31 +732,13 @@ public interface ExecutionPackage extends EPackage {
 	int XML_DATA_DATABASE___CREATE_SCHEMA_DATABASE_FROM_REFERENCED_SCHEMA = XML_DATABASE_OPERATION_COUNT + 12;
 
 	/**
-	 * The operation id for the '<em>Find XSDURL</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___FIND_XSDURL = XML_DATABASE_OPERATION_COUNT + 13;
-
-	/**
 	 * The operation id for the '<em>Get Suggestions From Axis Previous Tag</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING = XML_DATABASE_OPERATION_COUNT + 14;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions From Axis Next Tag</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING = XML_DATABASE_OPERATION_COUNT + 15;
+	int XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING = XML_DATABASE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Get Suggestions From Axis Previous Root</em>' operation.
@@ -765,7 +747,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND = XML_DATABASE_OPERATION_COUNT + 16;
+	int XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND = XML_DATABASE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Get Suggestions From Source Target Tag</em>' operation.
@@ -774,7 +756,25 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING = XML_DATABASE_OPERATION_COUNT + 17;
+	int XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING = XML_DATABASE_OPERATION_COUNT + 15;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions From Axis Next Tag</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING = XML_DATABASE_OPERATION_COUNT + 16;
+
+	/**
+	 * The operation id for the '<em>Find XSDURL</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_DATA_DATABASE___FIND_XSDURL = XML_DATABASE_OPERATION_COUNT + 17;
 
 	/**
 	 * The number of operations of the '<em>Xml Data Database</em>' class.
@@ -976,13 +976,31 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATA_DATABASE___COUNT_MATCHES__COMPLETEPATTERN = XML_DATA_DATABASE___COUNT_MATCHES__COMPLETEPATTERN;
 
 	/**
-	 * The operation id for the '<em>Record Attribute Value</em>' operation.
+	 * The operation id for the '<em>Record Element Name</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOCAL_XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING = XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING;
+	int LOCAL_XML_DATA_DATABASE___RECORD_ELEMENT_NAME__STRING = XML_DATA_DATABASE___RECORD_ELEMENT_NAME__STRING;
+
+	/**
+	 * The operation id for the '<em>Remove Element Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING = XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING;
+
+	/**
+	 * The operation id for the '<em>Add Element Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST = XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST;
 
 	/**
 	 * The operation id for the '<em>Record Data Value</em>' operation.
@@ -994,15 +1012,6 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATA_DATABASE___RECORD_DATA_VALUE__STRING = XML_DATA_DATABASE___RECORD_DATA_VALUE__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Attribute Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCAL_XML_DATA_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING = XML_DATA_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING;
-
-	/**
 	 * The operation id for the '<em>Remove Data Value</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1012,15 +1021,6 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATA_DATABASE___REMOVE_DATA_VALUE__STRING = XML_DATA_DATABASE___REMOVE_DATA_VALUE__STRING;
 
 	/**
-	 * The operation id for the '<em>Record Element Name</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCAL_XML_DATA_DATABASE___RECORD_ELEMENT_NAME__STRING = XML_DATA_DATABASE___RECORD_ELEMENT_NAME__STRING;
-
-	/**
 	 * The operation id for the '<em>Record Attribute Name</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1028,15 +1028,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOCAL_XML_DATA_DATABASE___RECORD_ATTRIBUTE_NAME__STRING = XML_DATA_DATABASE___RECORD_ATTRIBUTE_NAME__STRING;
-
-	/**
-	 * The operation id for the '<em>Remove Element Name</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCAL_XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING = XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING;
 
 	/**
 	 * The operation id for the '<em>Remove Attribute Name</em>' operation.
@@ -1057,13 +1048,22 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATA_DATABASE___ADD_ATTRIBUTE_NAMES__ELIST = XML_DATA_DATABASE___ADD_ATTRIBUTE_NAMES__ELIST;
 
 	/**
-	 * The operation id for the '<em>Add Element Names</em>' operation.
+	 * The operation id for the '<em>Record Attribute Value</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOCAL_XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST = XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST;
+	int LOCAL_XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING = XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Remove Attribute Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATA_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING = XML_DATA_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Create Schema Database From Referenced Schema</em>' operation.
@@ -1075,15 +1075,6 @@ public interface ExecutionPackage extends EPackage {
 	int LOCAL_XML_DATA_DATABASE___CREATE_SCHEMA_DATABASE_FROM_REFERENCED_SCHEMA = XML_DATA_DATABASE___CREATE_SCHEMA_DATABASE_FROM_REFERENCED_SCHEMA;
 
 	/**
-	 * The operation id for the '<em>Find XSDURL</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCAL_XML_DATA_DATABASE___FIND_XSDURL = XML_DATA_DATABASE___FIND_XSDURL;
-
-	/**
 	 * The operation id for the '<em>Get Suggestions From Axis Previous Tag</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1091,15 +1082,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOCAL_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions From Axis Next Tag</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOCAL_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Suggestions From Axis Previous Root</em>' operation.
@@ -1118,6 +1100,24 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int LOCAL_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions From Axis Next Tag</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING;
+
+	/**
+	 * The operation id for the '<em>Find XSDURL</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_XML_DATA_DATABASE___FIND_XSDURL = XML_DATA_DATABASE___FIND_XSDURL;
 
 	/**
 	 * The number of operations of the '<em>Local Xml Data Database</em>' class.
@@ -1328,13 +1328,31 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_DATA_DATABASE___COUNT_MATCHES__COMPLETEPATTERN = XML_DATA_DATABASE___COUNT_MATCHES__COMPLETEPATTERN;
 
 	/**
-	 * The operation id for the '<em>Record Attribute Value</em>' operation.
+	 * The operation id for the '<em>Record Element Name</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVER_XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING = XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING;
+	int SERVER_XML_DATA_DATABASE___RECORD_ELEMENT_NAME__STRING = XML_DATA_DATABASE___RECORD_ELEMENT_NAME__STRING;
+
+	/**
+	 * The operation id for the '<em>Remove Element Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING = XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING;
+
+	/**
+	 * The operation id for the '<em>Add Element Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST = XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST;
 
 	/**
 	 * The operation id for the '<em>Record Data Value</em>' operation.
@@ -1346,15 +1364,6 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_DATA_DATABASE___RECORD_DATA_VALUE__STRING = XML_DATA_DATABASE___RECORD_DATA_VALUE__STRING;
 
 	/**
-	 * The operation id for the '<em>Remove Attribute Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVER_XML_DATA_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING = XML_DATA_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING;
-
-	/**
 	 * The operation id for the '<em>Remove Data Value</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1364,15 +1373,6 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_DATA_DATABASE___REMOVE_DATA_VALUE__STRING = XML_DATA_DATABASE___REMOVE_DATA_VALUE__STRING;
 
 	/**
-	 * The operation id for the '<em>Record Element Name</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVER_XML_DATA_DATABASE___RECORD_ELEMENT_NAME__STRING = XML_DATA_DATABASE___RECORD_ELEMENT_NAME__STRING;
-
-	/**
 	 * The operation id for the '<em>Record Attribute Name</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1380,15 +1380,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_DATA_DATABASE___RECORD_ATTRIBUTE_NAME__STRING = XML_DATA_DATABASE___RECORD_ATTRIBUTE_NAME__STRING;
-
-	/**
-	 * The operation id for the '<em>Remove Element Name</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVER_XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING = XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING;
 
 	/**
 	 * The operation id for the '<em>Remove Attribute Name</em>' operation.
@@ -1409,13 +1400,22 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_DATA_DATABASE___ADD_ATTRIBUTE_NAMES__ELIST = XML_DATA_DATABASE___ADD_ATTRIBUTE_NAMES__ELIST;
 
 	/**
-	 * The operation id for the '<em>Add Element Names</em>' operation.
+	 * The operation id for the '<em>Record Attribute Value</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVER_XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST = XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST;
+	int SERVER_XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING = XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Remove Attribute Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATA_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING = XML_DATA_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Create Schema Database From Referenced Schema</em>' operation.
@@ -1427,15 +1427,6 @@ public interface ExecutionPackage extends EPackage {
 	int SERVER_XML_DATA_DATABASE___CREATE_SCHEMA_DATABASE_FROM_REFERENCED_SCHEMA = XML_DATA_DATABASE___CREATE_SCHEMA_DATABASE_FROM_REFERENCED_SCHEMA;
 
 	/**
-	 * The operation id for the '<em>Find XSDURL</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVER_XML_DATA_DATABASE___FIND_XSDURL = XML_DATA_DATABASE___FIND_XSDURL;
-
-	/**
 	 * The operation id for the '<em>Get Suggestions From Axis Previous Tag</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1443,15 +1434,6 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING;
-
-	/**
-	 * The operation id for the '<em>Get Suggestions From Axis Next Tag</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVER_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Suggestions From Axis Previous Root</em>' operation.
@@ -1470,6 +1452,24 @@ public interface ExecutionPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions From Axis Next Tag</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING;
+
+	/**
+	 * The operation id for the '<em>Find XSDURL</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVER_XML_DATA_DATABASE___FIND_XSDURL = XML_DATA_DATABASE___FIND_XSDURL;
 
 	/**
 	 * The number of operations of the '<em>Server Xml Data Database</em>' class.
@@ -2683,31 +2683,13 @@ public interface ExecutionPackage extends EPackage {
 	int BASE_XCLIENT_FEATURE_COUNT = 4;
 
 	/**
-	 * The operation id for the '<em>Close</em>' operation.
+	 * The operation id for the '<em>Connect</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BASE_XCLIENT___CLOSE = 0;
-
-	/**
-	 * The operation id for the '<em>Execute</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BASE_XCLIENT___EXECUTE__STRING = 1;
-
-	/**
-	 * The operation id for the '<em>Query</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BASE_XCLIENT___QUERY__STRING = 2;
+	int BASE_XCLIENT___CONNECT = 0;
 
 	/**
 	 * The operation id for the '<em>Is Connected</em>' operation.
@@ -2716,16 +2698,34 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BASE_XCLIENT___IS_CONNECTED = 3;
+	int BASE_XCLIENT___IS_CONNECTED = 1;
 
 	/**
-	 * The operation id for the '<em>Connect</em>' operation.
+	 * The operation id for the '<em>Close</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BASE_XCLIENT___CONNECT = 4;
+	int BASE_XCLIENT___CLOSE = 2;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_XCLIENT___EXECUTE__STRING = 3;
+
+	/**
+	 * The operation id for the '<em>Query</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_XCLIENT___QUERY__STRING = 4;
 
 	/**
 	 * The number of operations of the '<em>Base XClient</em>' class.

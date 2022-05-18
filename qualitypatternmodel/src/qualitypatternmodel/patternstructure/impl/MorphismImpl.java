@@ -617,9 +617,24 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case PatternstructurePackage.MORPHISM___ADD_MAPPING__NODE_NODE:
+				return addMapping((Node)arguments.get(0), (Node)arguments.get(1));
+			case PatternstructurePackage.MORPHISM___ADD_MAPPING__RELATION_RELATION:
+				return addMapping((Relation)arguments.get(0), (Relation)arguments.get(1));
+			case PatternstructurePackage.MORPHISM___REMOVE_INCONSISTENT_MAPPINGS:
+				removeInconsistentMappings();
+				return null;
 			case PatternstructurePackage.MORPHISM___CHECK_ELEMENT_MAPPINGS:
 				try {
 					checkElementMappings();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case PatternstructurePackage.MORPHISM___CHECK_ELEMENT_MAPPINGS_UNIQUENESS:
+				try {
+					checkElementMappingsUniqueness();
 					return null;
 				}
 				catch (Throwable throwable) {
@@ -641,21 +656,6 @@ public class MorphismImpl extends PatternElementImpl implements Morphism {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case PatternstructurePackage.MORPHISM___CHECK_ELEMENT_MAPPINGS_UNIQUENESS:
-				try {
-					checkElementMappingsUniqueness();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case PatternstructurePackage.MORPHISM___ADD_MAPPING__NODE_NODE:
-				return addMapping((Node)arguments.get(0), (Node)arguments.get(1));
-			case PatternstructurePackage.MORPHISM___ADD_MAPPING__RELATION_RELATION:
-				return addMapping((Relation)arguments.get(0), (Relation)arguments.get(1));
-			case PatternstructurePackage.MORPHISM___REMOVE_INCONSISTENT_MAPPINGS:
-				removeInconsistentMappings();
-				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

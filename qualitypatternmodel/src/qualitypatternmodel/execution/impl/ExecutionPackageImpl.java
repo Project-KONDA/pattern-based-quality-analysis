@@ -338,7 +338,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 */
 	@Override
 	public EAttribute getResult_Runtime() {
-		return (EAttribute)resultEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)resultEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -348,7 +348,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 */
 	@Override
 	public EAttribute getResult_ProblemNumber() {
-		return (EAttribute)resultEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)resultEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -358,7 +358,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 */
 	@Override
 	public EAttribute getResult_EndDate() {
-		return (EAttribute)resultEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)resultEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -368,7 +368,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 */
 	@Override
 	public EReference getResult_Pattern() {
-		return (EReference)resultEClass.getEStructuralFeatures().get(7);
+		return (EReference)resultEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -388,7 +388,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 */
 	@Override
 	public EAttribute getResult_SplitResult() {
-		return (EAttribute)resultEClass.getEStructuralFeatures().get(9);
+		return (EAttribute)resultEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -478,7 +478,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 */
 	@Override
 	public EOperation getXmlDataDatabase__RecordAttributeValue__String() {
-		return xmlDataDatabaseEClass.getEOperations().get(0);
+		return xmlDataDatabaseEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -488,26 +488,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 */
 	@Override
 	public EOperation getXmlDataDatabase__RecordDataValue__String() {
-		return xmlDataDatabaseEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getXmlDataDatabase__RemoveAttributeValue__String() {
-		return xmlDataDatabaseEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getXmlDataDatabase__RemoveDataValue__String() {
 		return xmlDataDatabaseEClass.getEOperations().get(3);
 	}
 
@@ -517,8 +497,28 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getXmlDataDatabase__RecordElementName__String() {
+	public EOperation getXmlDataDatabase__RemoveAttributeValue__String() {
+		return xmlDataDatabaseEClass.getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDataDatabase__RemoveDataValue__String() {
 		return xmlDataDatabaseEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlDataDatabase__RecordElementName__String() {
+		return xmlDataDatabaseEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -538,7 +538,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 */
 	@Override
 	public EOperation getXmlDataDatabase__RemoveElementName__String() {
-		return xmlDataDatabaseEClass.getEOperations().get(6);
+		return xmlDataDatabaseEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -548,7 +548,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 */
 	@Override
 	public EOperation getXmlDataDatabase__RemoveAttributeName__String() {
-		return xmlDataDatabaseEClass.getEOperations().get(7);
+		return xmlDataDatabaseEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -558,7 +558,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 */
 	@Override
 	public EOperation getXmlDataDatabase__AddAttributeNames__EList() {
-		return xmlDataDatabaseEClass.getEOperations().get(8);
+		return xmlDataDatabaseEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -568,7 +568,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 */
 	@Override
 	public EOperation getXmlDataDatabase__AddElementNames__EList() {
-		return xmlDataDatabaseEClass.getEOperations().get(9);
+		return xmlDataDatabaseEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -588,7 +588,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 */
 	@Override
 	public EOperation getXmlDataDatabase__FindXSDURL() {
-		return xmlDataDatabaseEClass.getEOperations().get(11);
+		return xmlDataDatabaseEClass.getEOperations().get(15);
 	}
 
 	/**
@@ -598,7 +598,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 */
 	@Override
 	public EOperation getXmlDataDatabase__GetSuggestionsFromAxisPreviousTag__AxisKind_String() {
-		return xmlDataDatabaseEClass.getEOperations().get(12);
+		return xmlDataDatabaseEClass.getEOperations().get(11);
 	}
 
 	/**
@@ -608,16 +608,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 */
 	@Override
 	public EOperation getXmlDataDatabase__GetSuggestionsFromAxisNextTag__AxisKind_String() {
-		return xmlDataDatabaseEClass.getEOperations().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getXmlDataDatabase__GetSuggestionsFromAxisPreviousRoot__AxisKind() {
 		return xmlDataDatabaseEClass.getEOperations().get(14);
 	}
 
@@ -627,8 +617,18 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
+	public EOperation getXmlDataDatabase__GetSuggestionsFromAxisPreviousRoot__AxisKind() {
+		return xmlDataDatabaseEClass.getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getXmlDataDatabase__GetSuggestionsFromSourceTargetTag__String_String() {
-		return xmlDataDatabaseEClass.getEOperations().get(15);
+		return xmlDataDatabaseEClass.getEOperations().get(13);
 	}
 
 	/**
@@ -1248,26 +1248,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 */
 	@Override
 	public EOperation getBaseXClient__Close() {
-		return baseXClientEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getBaseXClient__Execute__String() {
-		return baseXClientEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getBaseXClient__Query__String() {
 		return baseXClientEClass.getEOperations().get(2);
 	}
 
@@ -1277,7 +1257,7 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getBaseXClient__IsConnected() {
+	public EOperation getBaseXClient__Execute__String() {
 		return baseXClientEClass.getEOperations().get(3);
 	}
 
@@ -1287,8 +1267,28 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 	 * @generated
 	 */
 	@Override
-	public EOperation getBaseXClient__Connect() {
+	public EOperation getBaseXClient__Query__String() {
 		return baseXClientEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getBaseXClient__IsConnected() {
+		return baseXClientEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getBaseXClient__Connect() {
+		return baseXClientEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1375,12 +1375,12 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEAttribute(resultEClass, RESULT__NAME);
 		createEAttribute(resultEClass, RESULT__PERSON);
 		createEAttribute(resultEClass, RESULT__START_DATE);
-		createEAttribute(resultEClass, RESULT__RUNTIME);
-		createEAttribute(resultEClass, RESULT__PROBLEM_NUMBER);
 		createEAttribute(resultEClass, RESULT__END_DATE);
 		createEReference(resultEClass, RESULT__PATTERN);
-		createEAttribute(resultEClass, RESULT__MATCH_NUMBER);
 		createEAttribute(resultEClass, RESULT__SPLIT_RESULT);
+		createEAttribute(resultEClass, RESULT__PROBLEM_NUMBER);
+		createEAttribute(resultEClass, RESULT__MATCH_NUMBER);
+		createEAttribute(resultEClass, RESULT__RUNTIME);
 		createEOperation(resultEClass, RESULT___EXPORT__STRING);
 
 		xmlResultEClass = createEClass(XML_RESULT);
@@ -1391,22 +1391,22 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEReference(xmlDataDatabaseEClass, XML_DATA_DATABASE__XML_SCHEMA);
 		createEReference(xmlDataDatabaseEClass, XML_DATA_DATABASE__ELEMENT_NAMES);
 		createEReference(xmlDataDatabaseEClass, XML_DATA_DATABASE__ATTRIBUTE_NAMES);
-		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING);
-		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___RECORD_DATA_VALUE__STRING);
-		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING);
-		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___REMOVE_DATA_VALUE__STRING);
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___RECORD_ELEMENT_NAME__STRING);
-		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___RECORD_ATTRIBUTE_NAME__STRING);
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___RECORD_DATA_VALUE__STRING);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___REMOVE_DATA_VALUE__STRING);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___RECORD_ATTRIBUTE_NAME__STRING);
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING);
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___ADD_ATTRIBUTE_NAMES__ELIST);
-		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING);
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___CREATE_SCHEMA_DATABASE_FROM_REFERENCED_SCHEMA);
-		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___FIND_XSDURL);
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING);
-		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING);
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND);
 		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING);
+		createEOperation(xmlDataDatabaseEClass, XML_DATA_DATABASE___FIND_XSDURL);
 
 		localXmlDataDatabaseEClass = createEClass(LOCAL_XML_DATA_DATABASE);
 		createEAttribute(localXmlDataDatabaseEClass, LOCAL_XML_DATA_DATABASE__DATA_PATH);
@@ -1479,11 +1479,11 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		createEAttribute(baseXClientEClass, BASE_XCLIENT__PORT);
 		createEAttribute(baseXClientEClass, BASE_XCLIENT__USERNAME);
 		createEAttribute(baseXClientEClass, BASE_XCLIENT__PASSWORD);
+		createEOperation(baseXClientEClass, BASE_XCLIENT___CONNECT);
+		createEOperation(baseXClientEClass, BASE_XCLIENT___IS_CONNECTED);
 		createEOperation(baseXClientEClass, BASE_XCLIENT___CLOSE);
 		createEOperation(baseXClientEClass, BASE_XCLIENT___EXECUTE__STRING);
 		createEOperation(baseXClientEClass, BASE_XCLIENT___QUERY__STRING);
-		createEOperation(baseXClientEClass, BASE_XCLIENT___IS_CONNECTED);
-		createEOperation(baseXClientEClass, BASE_XCLIENT___CONNECT);
 
 		// Create data types
 		baseXExceptionWrapperEDataType = createEDataType(BASE_XEXCEPTION_WRAPPER);
@@ -1542,12 +1542,12 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEAttribute(getResult_Name(), ecorePackage.getEString(), "name", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_Person(), ecorePackage.getEString(), "person", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_StartDate(), ecorePackage.getEDate(), "startDate", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResult_Runtime(), ecorePackage.getELong(), "runtime", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResult_ProblemNumber(), ecorePackage.getEInt(), "problemNumber", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_EndDate(), ecorePackage.getEDate(), "endDate", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getResult_Pattern(), thePatternstructurePackage.getCompletePattern(), null, "pattern", null, 1, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResult_MatchNumber(), ecorePackage.getEInt(), "matchNumber", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResult_SplitResult(), ecorePackage.getEString(), "splitResult", null, 0, -1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResult_ProblemNumber(), ecorePackage.getEInt(), "problemNumber", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResult_MatchNumber(), ecorePackage.getEInt(), "matchNumber", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResult_Runtime(), ecorePackage.getELong(), "runtime", null, 0, 1, Result.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getResult__Export__String(), null, "export", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "path", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1561,25 +1561,22 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEReference(getXmlDataDatabase_ElementNames(), this.getStringToIntMap(), null, "elementNames", null, 0, -1, XmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXmlDataDatabase_AttributeNames(), this.getStringToIntMap(), null, "attributeNames", null, 0, -1, XmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getXmlDataDatabase__RecordAttributeValue__String(), null, "recordAttributeValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDataDatabase__RecordElementName__String(), null, "recordElementName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getXmlDataDatabase__RemoveElementName__String(), null, "removeElementName", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getXmlDataDatabase__AddElementNames__EList(), null, "addElementNames", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "elementNames", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getXmlDataDatabase__RecordDataValue__String(), null, "recordDataValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getXmlDataDatabase__RemoveAttributeValue__String(), null, "removeAttributeValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getXmlDataDatabase__RemoveDataValue__String(), null, "removeDataValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getXmlDataDatabase__RecordElementName__String(), null, "recordElementName", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		op = initEOperation(getXmlDataDatabase__RecordAttributeName__String(), null, "recordAttributeName", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getXmlDataDatabase__RemoveElementName__String(), null, "removeElementName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getXmlDataDatabase__RemoveAttributeName__String(), null, "removeAttributeName", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1588,28 +1585,18 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		op = initEOperation(getXmlDataDatabase__AddAttributeNames__EList(), null, "addAttributeNames", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "attributeNames", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getXmlDataDatabase__AddElementNames__EList(), null, "addElementNames", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "elementNames", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getXmlDataDatabase__RecordAttributeValue__String(), null, "recordAttributeValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getXmlDataDatabase__RemoveAttributeValue__String(), null, "removeAttributeValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getXmlDataDatabase__CreateSchemaDatabaseFromReferencedSchema(), this.getLocalXmlSchemaDatabase(), "createSchemaDatabaseFromReferencedSchema", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getIoExceptionWrapper());
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 		addEException(op, this.getQueryExceptionWrapper());
 
-		op = initEOperation(getXmlDataDatabase__FindXSDURL(), ecorePackage.getEString(), "findXSDURL", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getIoExceptionWrapper());
-		addEException(op, this.getQueryExceptionWrapper());
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
 		op = initEOperation(getXmlDataDatabase__GetSuggestionsFromAxisPreviousTag__AxisKind_String(), ecorePackage.getEString(), "getSuggestionsFromAxisPreviousTag", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theAdaptionxmlPackage.getAxisKind(), "axisKind", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "previousTag", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getIoExceptionWrapper());
-		addEException(op, this.getQueryExceptionWrapper());
-		addEException(op, this.getQueryIOExceptionWrapper());
-		addEException(op, this.getBaseXExceptionWrapper());
-
-		op = initEOperation(getXmlDataDatabase__GetSuggestionsFromAxisNextTag__AxisKind_String(), ecorePackage.getEString(), "getSuggestionsFromAxisNextTag", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theAdaptionxmlPackage.getAxisKind(), "axisKind", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "previousTag", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getIoExceptionWrapper());
@@ -1631,6 +1618,19 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		addEException(op, this.getQueryExceptionWrapper());
 		addEException(op, this.getQueryIOExceptionWrapper());
 		addEException(op, this.getBaseXExceptionWrapper());
+
+		op = initEOperation(getXmlDataDatabase__GetSuggestionsFromAxisNextTag__AxisKind_String(), ecorePackage.getEString(), "getSuggestionsFromAxisNextTag", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theAdaptionxmlPackage.getAxisKind(), "axisKind", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "previousTag", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIoExceptionWrapper());
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, this.getQueryIOExceptionWrapper());
+		addEException(op, this.getBaseXExceptionWrapper());
+
+		op = initEOperation(getXmlDataDatabase__FindXSDURL(), ecorePackage.getEString(), "findXSDURL", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIoExceptionWrapper());
+		addEException(op, this.getQueryExceptionWrapper());
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(localXmlDataDatabaseEClass, LocalXmlDataDatabase.class, "LocalXmlDataDatabase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLocalXmlDataDatabase_DataPath(), ecorePackage.getEString(), "dataPath", null, 0, 1, LocalXmlDataDatabase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1865,6 +1865,11 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 		initEAttribute(getBaseXClient_Username(), ecorePackage.getEString(), "username", null, 0, 1, BaseXClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBaseXClient_Password(), ecorePackage.getEString(), "password", null, 0, 1, BaseXClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = initEOperation(getBaseXClient__Connect(), null, "connect", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIoExceptionWrapper());
+
+		initEOperation(getBaseXClient__IsConnected(), ecorePackage.getEBoolean(), "isConnected", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		op = initEOperation(getBaseXClient__Close(), null, "close", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getIoExceptionWrapper());
 
@@ -1874,11 +1879,6 @@ public class ExecutionPackageImpl extends EPackageImpl implements ExecutionPacka
 
 		op = initEOperation(getBaseXClient__Query__String(), this.getQueryWrapper(), "query", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "query", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getIoExceptionWrapper());
-
-		initEOperation(getBaseXClient__IsConnected(), ecorePackage.getEBoolean(), "isConnected", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getBaseXClient__Connect(), null, "connect", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getIoExceptionWrapper());
 
 		// Initialize data types

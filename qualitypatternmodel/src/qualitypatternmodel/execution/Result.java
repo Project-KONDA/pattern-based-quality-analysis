@@ -24,12 +24,12 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  *   <li>{@link qualitypatternmodel.execution.Result#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.Result#getPerson <em>Person</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.Result#getStartDate <em>Start Date</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.Result#getRuntime <em>Runtime</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.Result#getProblemNumber <em>Problem Number</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.Result#getEndDate <em>End Date</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.Result#getPattern <em>Pattern</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.Result#getMatchNumber <em>Match Number</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.Result#getSplitResult <em>Split Result</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.Result#getProblemNumber <em>Problem Number</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.Result#getMatchNumber <em>Match Number</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.Result#getRuntime <em>Runtime</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.execution.ExecutionPackage#getResult()

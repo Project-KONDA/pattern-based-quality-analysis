@@ -1262,8 +1262,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == Adaptable.class) {
 			switch (baseOperationID) {
-				case GraphstructurePackage.ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST: return GraphstructurePackage.RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 				case GraphstructurePackage.ADAPTABLE___CREATE_PARAMETERS: return GraphstructurePackage.RELATION___CREATE_PARAMETERS;
+				case GraphstructurePackage.ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST: return GraphstructurePackage.RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 				default: return -1;
 			}
 		}
@@ -1277,6 +1277,13 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case GraphstructurePackage.RELATION___GET_ORIGINAL_ID:
+				return getOriginalID();
+			case GraphstructurePackage.RELATION___GET_ORIGINAL_RELATION:
+				return getOriginalRelation();
+			case GraphstructurePackage.RELATION___SET_GRAPH_SIMPLE__GRAPH:
+				setGraphSimple((Graph)arguments.get(0));
+				return null;
 			case GraphstructurePackage.RELATION___REMOVE_RELATION_FROM_PREVIOUS_GRAPHS:
 				removeRelationFromPreviousGraphs();
 				return null;
@@ -1290,20 +1297,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.RELATION___ADAPT_AS_XML_REFERENCE:
-				try {
-					return adaptAsXMLReference();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.RELATION___SET_GRAPH_SIMPLE__GRAPH:
-				setGraphSimple((Graph)arguments.get(0));
-				return null;
-			case GraphstructurePackage.RELATION___GET_ORIGINAL_ID:
-				return getOriginalID();
-			case GraphstructurePackage.RELATION___GET_ORIGINAL_RELATION:
-				return getOriginalRelation();
 			case GraphstructurePackage.RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION:
 				try {
 					return adaptAsXMLPropertyNavigation();
@@ -1311,11 +1304,18 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
-				removeParametersFromParameterList();
-				return null;
+			case GraphstructurePackage.RELATION___ADAPT_AS_XML_REFERENCE:
+				try {
+					return adaptAsXMLReference();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.RELATION___CREATE_PARAMETERS:
 				createParameters();
+				return null;
+			case GraphstructurePackage.RELATION___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
+				removeParametersFromParameterList();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

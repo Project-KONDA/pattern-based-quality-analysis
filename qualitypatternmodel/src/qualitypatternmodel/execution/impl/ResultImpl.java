@@ -38,12 +38,12 @@ import qualitypatternmodel.patternstructure.CompletePattern;
  *   <li>{@link qualitypatternmodel.execution.impl.ResultImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.ResultImpl#getPerson <em>Person</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.ResultImpl#getStartDate <em>Start Date</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.impl.ResultImpl#getRuntime <em>Runtime</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.impl.ResultImpl#getProblemNumber <em>Problem Number</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.ResultImpl#getEndDate <em>End Date</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.ResultImpl#getPattern <em>Pattern</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.impl.ResultImpl#getMatchNumber <em>Match Number</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.impl.ResultImpl#getSplitResult <em>Split Result</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.ResultImpl#getProblemNumber <em>Problem Number</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.ResultImpl#getMatchNumber <em>Match Number</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.impl.ResultImpl#getRuntime <em>Runtime</em>}</li>
  * </ul>
  *
  * @generated
@@ -113,48 +113,6 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 	protected Date startDate = START_DATE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRuntime() <em>Runtime</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRuntime()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final long RUNTIME_EDEFAULT = 0L;
-
-	/**
-	 * The cached value of the '{@link #getRuntime() <em>Runtime</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * The runtime of the pattern application in milliseconds.
-	 * <!-- end-user-doc -->
-	 * @see #getRuntime()
-	 * @generated
-	 * @ordered
-	 */
-	protected long runtime = RUNTIME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getProblemNumber() <em>Problem Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProblemNumber()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int PROBLEM_NUMBER_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getProblemNumber() <em>Problem Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * The number of matches of the concrete pattern in the <code>database</code>.
-	 * <!-- end-user-doc -->
-	 * @see #getProblemNumber()
-	 * @generated
-	 * @ordered
-	 */
-	protected int problemNumber = PROBLEM_NUMBER_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getEndDate() <em>End Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -187,6 +145,38 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 	protected CompletePattern pattern;
 
 	/**
+	 * The cached value of the '{@link #getSplitResult() <em>Split Result</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * The list of XML elements selected by the pattern.
+	 * <!-- end-user-doc -->
+	 * @see #getSplitResult()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> splitResult;
+
+	/**
+	 * The default value of the '{@link #getProblemNumber() <em>Problem Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProblemNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int PROBLEM_NUMBER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getProblemNumber() <em>Problem Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * The number of matches of the concrete pattern in the <code>database</code>.
+	 * <!-- end-user-doc -->
+	 * @see #getProblemNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected int problemNumber = PROBLEM_NUMBER_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getMatchNumber() <em>Match Number</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -208,15 +198,25 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 	protected int matchNumber = MATCH_NUMBER_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSplitResult() <em>Split Result</em>}' attribute list.
+	 * The default value of the '{@link #getRuntime() <em>Runtime</em>}' attribute.
 	 * <!-- begin-user-doc -->
-	 * The list of XML elements selected by the pattern.
 	 * <!-- end-user-doc -->
-	 * @see #getSplitResult()
+	 * @see #getRuntime()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> splitResult;
+	protected static final long RUNTIME_EDEFAULT = 0L;
+
+	/**
+	 * The cached value of the '{@link #getRuntime() <em>Runtime</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * The runtime of the pattern application in milliseconds.
+	 * <!-- end-user-doc -->
+	 * @see #getRuntime()
+	 * @generated
+	 * @ordered
+	 */
+	protected long runtime = RUNTIME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -566,19 +566,19 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 				return getPerson();
 			case ExecutionPackage.RESULT__START_DATE:
 				return getStartDate();
-			case ExecutionPackage.RESULT__RUNTIME:
-				return getRuntime();
-			case ExecutionPackage.RESULT__PROBLEM_NUMBER:
-				return getProblemNumber();
 			case ExecutionPackage.RESULT__END_DATE:
 				return getEndDate();
 			case ExecutionPackage.RESULT__PATTERN:
 				if (resolve) return getPattern();
 				return basicGetPattern();
-			case ExecutionPackage.RESULT__MATCH_NUMBER:
-				return getMatchNumber();
 			case ExecutionPackage.RESULT__SPLIT_RESULT:
 				return getSplitResult();
+			case ExecutionPackage.RESULT__PROBLEM_NUMBER:
+				return getProblemNumber();
+			case ExecutionPackage.RESULT__MATCH_NUMBER:
+				return getMatchNumber();
+			case ExecutionPackage.RESULT__RUNTIME:
+				return getRuntime();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -604,24 +604,24 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 			case ExecutionPackage.RESULT__START_DATE:
 				setStartDate((Date)newValue);
 				return;
-			case ExecutionPackage.RESULT__RUNTIME:
-				setRuntime((Long)newValue);
-				return;
-			case ExecutionPackage.RESULT__PROBLEM_NUMBER:
-				setProblemNumber((Integer)newValue);
-				return;
 			case ExecutionPackage.RESULT__END_DATE:
 				setEndDate((Date)newValue);
 				return;
 			case ExecutionPackage.RESULT__PATTERN:
 				setPattern((CompletePattern)newValue);
 				return;
-			case ExecutionPackage.RESULT__MATCH_NUMBER:
-				setMatchNumber((Integer)newValue);
-				return;
 			case ExecutionPackage.RESULT__SPLIT_RESULT:
 				getSplitResult().clear();
 				getSplitResult().addAll((Collection<? extends String>)newValue);
+				return;
+			case ExecutionPackage.RESULT__PROBLEM_NUMBER:
+				setProblemNumber((Integer)newValue);
+				return;
+			case ExecutionPackage.RESULT__MATCH_NUMBER:
+				setMatchNumber((Integer)newValue);
+				return;
+			case ExecutionPackage.RESULT__RUNTIME:
+				setRuntime((Long)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -647,23 +647,23 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 			case ExecutionPackage.RESULT__START_DATE:
 				setStartDate(START_DATE_EDEFAULT);
 				return;
-			case ExecutionPackage.RESULT__RUNTIME:
-				setRuntime(RUNTIME_EDEFAULT);
-				return;
-			case ExecutionPackage.RESULT__PROBLEM_NUMBER:
-				setProblemNumber(PROBLEM_NUMBER_EDEFAULT);
-				return;
 			case ExecutionPackage.RESULT__END_DATE:
 				setEndDate(END_DATE_EDEFAULT);
 				return;
 			case ExecutionPackage.RESULT__PATTERN:
 				setPattern((CompletePattern)null);
 				return;
+			case ExecutionPackage.RESULT__SPLIT_RESULT:
+				getSplitResult().clear();
+				return;
+			case ExecutionPackage.RESULT__PROBLEM_NUMBER:
+				setProblemNumber(PROBLEM_NUMBER_EDEFAULT);
+				return;
 			case ExecutionPackage.RESULT__MATCH_NUMBER:
 				setMatchNumber(MATCH_NUMBER_EDEFAULT);
 				return;
-			case ExecutionPackage.RESULT__SPLIT_RESULT:
-				getSplitResult().clear();
+			case ExecutionPackage.RESULT__RUNTIME:
+				setRuntime(RUNTIME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -685,18 +685,18 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 				return PERSON_EDEFAULT == null ? person != null : !PERSON_EDEFAULT.equals(person);
 			case ExecutionPackage.RESULT__START_DATE:
 				return START_DATE_EDEFAULT == null ? startDate != null : !START_DATE_EDEFAULT.equals(startDate);
-			case ExecutionPackage.RESULT__RUNTIME:
-				return runtime != RUNTIME_EDEFAULT;
-			case ExecutionPackage.RESULT__PROBLEM_NUMBER:
-				return problemNumber != PROBLEM_NUMBER_EDEFAULT;
 			case ExecutionPackage.RESULT__END_DATE:
 				return END_DATE_EDEFAULT == null ? endDate != null : !END_DATE_EDEFAULT.equals(endDate);
 			case ExecutionPackage.RESULT__PATTERN:
 				return pattern != null;
-			case ExecutionPackage.RESULT__MATCH_NUMBER:
-				return matchNumber != MATCH_NUMBER_EDEFAULT;
 			case ExecutionPackage.RESULT__SPLIT_RESULT:
 				return splitResult != null && !splitResult.isEmpty();
+			case ExecutionPackage.RESULT__PROBLEM_NUMBER:
+				return problemNumber != PROBLEM_NUMBER_EDEFAULT;
+			case ExecutionPackage.RESULT__MATCH_NUMBER:
+				return matchNumber != MATCH_NUMBER_EDEFAULT;
+			case ExecutionPackage.RESULT__RUNTIME:
+				return runtime != RUNTIME_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -732,16 +732,16 @@ public abstract class ResultImpl extends MinimalEObjectImpl.Container implements
 		result.append(person);
 		result.append(", startDate: ");
 		result.append(startDate);
-		result.append(", runtime: ");
-		result.append(runtime);
-		result.append(", problemNumber: ");
-		result.append(problemNumber);
 		result.append(", endDate: ");
 		result.append(endDate);
-		result.append(", matchNumber: ");
-		result.append(matchNumber);
 		result.append(", splitResult: ");
 		result.append(splitResult);
+		result.append(", problemNumber: ");
+		result.append(problemNumber);
+		result.append(", matchNumber: ");
+		result.append(matchNumber);
+		result.append(", runtime: ");
+		result.append(runtime);
 		result.append(')');
 		return result.toString();
 	}

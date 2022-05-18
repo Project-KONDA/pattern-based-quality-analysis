@@ -69,12 +69,12 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getIncomingMapping <em>Incoming Mapping</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getName <em>Name</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#isTranslated <em>Translated</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getPredicates <em>Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#getIncoming <em>Incoming</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#isTypeModifiable <em>Type Modifiable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#isReturnNode <em>Return Node</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#isTypeModifiable <em>Type Modifiable</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#isTranslated <em>Translated</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.NodeImpl#isPredicatesAreBeingTranslated <em>Predicates Are Being Translated</em>}</li>
  * </ul>
  *
  * @generated
@@ -150,6 +150,68 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	protected String name = NAME_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getPredicates() <em>Predicates</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * A list of <code>BooleanOperators</code> that have <code>this</code> or one of its <code>properties</code> as a direct or indirect argument.
+	 * <!-- end-user-doc -->
+	 * @see #getPredicates()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BooleanOperator> predicates;
+
+	/**
+	 * The cached value of the '{@link #getIncoming() <em>Incoming</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * A list of incoming <code>Relations</code>.
+	 * <!-- end-user-doc -->
+	 * @see #getIncoming()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Relation> incoming;
+
+	/**
+	 * The default value of the '{@link #isReturnNode() <em>Return Node</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReturnNode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean RETURN_NODE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReturnNode() <em>Return Node</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReturnNode()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean returnNode = RETURN_NODE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isTypeModifiable() <em>Type Modifiable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTypeModifiable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean TYPE_MODIFIABLE_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isTypeModifiable() <em>Type Modifiable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTypeModifiable()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean typeModifiable = TYPE_MODIFIABLE_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #isTranslated() <em>Translated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -190,68 +252,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @ordered
 	 */
 	protected boolean predicatesAreBeingTranslated = PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getPredicates() <em>Predicates</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * A list of <code>BooleanOperators</code> that have <code>this</code> or one of its <code>properties</code> as a direct or indirect argument.
-	 * <!-- end-user-doc -->
-	 * @see #getPredicates()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<BooleanOperator> predicates;
-
-	/**
-	 * The cached value of the '{@link #getIncoming() <em>Incoming</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * A list of incoming <code>Relations</code>.
-	 * <!-- end-user-doc -->
-	 * @see #getIncoming()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Relation> incoming;
-
-	/**
-	 * The default value of the '{@link #isTypeModifiable() <em>Type Modifiable</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isTypeModifiable()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean TYPE_MODIFIABLE_EDEFAULT = true;
-
-	/**
-	 * The cached value of the '{@link #isTypeModifiable() <em>Type Modifiable</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isTypeModifiable()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean typeModifiable = TYPE_MODIFIABLE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isReturnNode() <em>Return Node</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isReturnNode()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean RETURN_NODE_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isReturnNode() <em>Return Node</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isReturnNode()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean returnNode = RETURN_NODE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1482,18 +1482,18 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return getGraph();
 			case GraphstructurePackage.NODE__NAME:
 				return getName();
-			case GraphstructurePackage.NODE__TRANSLATED:
-				return isTranslated();
-			case GraphstructurePackage.NODE__PREDICATES_ARE_BEING_TRANSLATED:
-				return isPredicatesAreBeingTranslated();
 			case GraphstructurePackage.NODE__PREDICATES:
 				return getPredicates();
 			case GraphstructurePackage.NODE__INCOMING:
 				return getIncoming();
-			case GraphstructurePackage.NODE__TYPE_MODIFIABLE:
-				return isTypeModifiable();
 			case GraphstructurePackage.NODE__RETURN_NODE:
 				return isReturnNode();
+			case GraphstructurePackage.NODE__TYPE_MODIFIABLE:
+				return isTypeModifiable();
+			case GraphstructurePackage.NODE__TRANSLATED:
+				return isTranslated();
+			case GraphstructurePackage.NODE__PREDICATES_ARE_BEING_TRANSLATED:
+				return isPredicatesAreBeingTranslated();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1527,12 +1527,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE__NAME:
 				setName((String)newValue);
 				return;
-			case GraphstructurePackage.NODE__TRANSLATED:
-				setTranslated((Boolean)newValue);
-				return;
-			case GraphstructurePackage.NODE__PREDICATES_ARE_BEING_TRANSLATED:
-				setPredicatesAreBeingTranslated((Boolean)newValue);
-				return;
 			case GraphstructurePackage.NODE__PREDICATES:
 				getPredicates().clear();
 				getPredicates().addAll((Collection<? extends BooleanOperator>)newValue);
@@ -1543,6 +1537,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return;
 			case GraphstructurePackage.NODE__RETURN_NODE:
 				setReturnNode((Boolean)newValue);
+				return;
+			case GraphstructurePackage.NODE__TRANSLATED:
+				setTranslated((Boolean)newValue);
+				return;
+			case GraphstructurePackage.NODE__PREDICATES_ARE_BEING_TRANSLATED:
+				setPredicatesAreBeingTranslated((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1573,12 +1573,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case GraphstructurePackage.NODE__TRANSLATED:
-				setTranslated(TRANSLATED_EDEFAULT);
-				return;
-			case GraphstructurePackage.NODE__PREDICATES_ARE_BEING_TRANSLATED:
-				setPredicatesAreBeingTranslated(PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT);
-				return;
 			case GraphstructurePackage.NODE__PREDICATES:
 				getPredicates().clear();
 				return;
@@ -1587,6 +1581,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return;
 			case GraphstructurePackage.NODE__RETURN_NODE:
 				setReturnNode(RETURN_NODE_EDEFAULT);
+				return;
+			case GraphstructurePackage.NODE__TRANSLATED:
+				setTranslated(TRANSLATED_EDEFAULT);
+				return;
+			case GraphstructurePackage.NODE__PREDICATES_ARE_BEING_TRANSLATED:
+				setPredicatesAreBeingTranslated(PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1611,18 +1611,18 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				return getGraph() != null;
 			case GraphstructurePackage.NODE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case GraphstructurePackage.NODE__TRANSLATED:
-				return translated != TRANSLATED_EDEFAULT;
-			case GraphstructurePackage.NODE__PREDICATES_ARE_BEING_TRANSLATED:
-				return predicatesAreBeingTranslated != PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
 			case GraphstructurePackage.NODE__PREDICATES:
 				return predicates != null && !predicates.isEmpty();
 			case GraphstructurePackage.NODE__INCOMING:
 				return incoming != null && !incoming.isEmpty();
-			case GraphstructurePackage.NODE__TYPE_MODIFIABLE:
-				return typeModifiable != TYPE_MODIFIABLE_EDEFAULT;
 			case GraphstructurePackage.NODE__RETURN_NODE:
 				return returnNode != RETURN_NODE_EDEFAULT;
+			case GraphstructurePackage.NODE__TYPE_MODIFIABLE:
+				return typeModifiable != TYPE_MODIFIABLE_EDEFAULT;
+			case GraphstructurePackage.NODE__TRANSLATED:
+				return translated != TRANSLATED_EDEFAULT;
+			case GraphstructurePackage.NODE__PREDICATES_ARE_BEING_TRANSLATED:
+				return predicatesAreBeingTranslated != PREDICATES_ARE_BEING_TRANSLATED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1636,8 +1636,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == Adaptable.class) {
 			switch (baseOperationID) {
-				case GraphstructurePackage.ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST: return GraphstructurePackage.NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 				case GraphstructurePackage.ADAPTABLE___CREATE_PARAMETERS: return GraphstructurePackage.NODE___CREATE_PARAMETERS;
+				case GraphstructurePackage.ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST: return GraphstructurePackage.NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 				default: return -1;
 			}
 		}
@@ -1653,82 +1653,17 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		switch (operationID) {
 			case GraphstructurePackage.NODE___GET_ORIGINAL_ID:
 				return getOriginalID();
-			case GraphstructurePackage.NODE___ADD_PRIMITIVE_MATCH__STRING:
-				try {
-					addPrimitiveMatch((String)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON__STRING:
-				try {
-					addPrimitiveComparison((String)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.NODE___ADD_PRIMITIVE_MATCH:
-				try {
-					addPrimitiveMatch();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON:
-				try {
-					return addPrimitiveComparison();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.NODE___GET_ALL_OPERATORS:
-				return getAllOperators();
-			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE:
-				try {
-					addPrimitiveComparison((ComparisonOperator)arguments.get(0), (ParameterValue)arguments.get(1));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE:
-				try {
-					addPrimitiveComparison((ParameterValue)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+			case GraphstructurePackage.NODE___GET_ORIGINAL_NODE:
+				return getOriginalNode();
+			case GraphstructurePackage.NODE___GET_EQUIVALENT_NODES:
+				return getEquivalentNodes();
 			case GraphstructurePackage.NODE___SET_GRAPH_SIMPLE__GRAPH:
 				setGraphSimple((Graph)arguments.get(0));
 				return null;
-			case GraphstructurePackage.NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON:
-				try {
-					checkComparisonConsistency((Comparison)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.NODE___GET_EQUIVALENT_NODES:
-				return getEquivalentNodes();
-			case GraphstructurePackage.NODE___MAKE_PRIMITIVE:
-				try {
-					return makePrimitive();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.NODE___MAKE_COMPLEX:
-				try {
-					return makeComplex();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
+			case GraphstructurePackage.NODE___GET_RELATIONS_TO__NODE:
+				return getRelationsTo((Node)arguments.get(0));
+			case GraphstructurePackage.NODE___GET_ALL_OPERATORS:
+				return getAllOperators();
 			case GraphstructurePackage.NODE___ADD_OUTGOING:
 				try {
 					return addOutgoing();
@@ -1743,18 +1678,59 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___GET_ORIGINAL_NODE:
-				return getOriginalNode();
-			case GraphstructurePackage.NODE___MAKE_COMPLEX_RECURSIVE:
+			case GraphstructurePackage.NODE___ADD_INCOMMING__COMPLEXNODE:
+				return addIncomming((ComplexNode)arguments.get(0));
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON:
 				try {
-					return makeComplexRecursive();
+					return addPrimitiveComparison();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___MAKE_PRIMITIVE_RECURSIVE:
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON__STRING:
 				try {
-					return makePrimitiveRecursive();
+					addPrimitiveComparison((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE:
+				try {
+					addPrimitiveComparison((ParameterValue)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE:
+				try {
+					addPrimitiveComparison((ComparisonOperator)arguments.get(0), (ParameterValue)arguments.get(1));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_MATCH:
+				try {
+					addPrimitiveMatch();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_MATCH__STRING:
+				try {
+					addPrimitiveMatch((String)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___CHECK_GENERIC:
+				try {
+					checkGeneric();
+					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -1773,10 +1749,24 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___CHECK_GENERIC:
+			case GraphstructurePackage.NODE___CHECK_COMPLEX:
 				try {
-					checkGeneric();
+					checkComplex();
 					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___MAKE_COMPLEX:
+				try {
+					return makeComplex();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___MAKE_COMPLEX_RECURSIVE:
+				try {
+					return makeComplexRecursive();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -1789,16 +1779,36 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___CHECK_COMPLEX:
+			case GraphstructurePackage.NODE___MAKE_PRIMITIVE:
 				try {
-					checkComplex();
+					return makePrimitive();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___MAKE_PRIMITIVE_RECURSIVE:
+				try {
+					return makePrimitiveRecursive();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___CHECK_COMPARISON_CONSISTENCY:
+				try {
+					checkComparisonConsistency();
 					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___ADD_INCOMMING__COMPLEXNODE:
-				return addIncomming((ComplexNode)arguments.get(0));
+			case GraphstructurePackage.NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON:
+				try {
+					checkComparisonConsistency((Comparison)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.NODE___ADAPT_AS_XML_ELEMENT:
 				try {
 					return adaptAsXmlElement();
@@ -1813,21 +1823,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___CHECK_COMPARISON_CONSISTENCY:
-				try {
-					checkComparisonConsistency();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.NODE___GET_RELATIONS_TO__NODE:
-				return getRelationsTo((Node)arguments.get(0));
-			case GraphstructurePackage.NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
-				removeParametersFromParameterList();
-				return null;
 			case GraphstructurePackage.NODE___CREATE_PARAMETERS:
 				createParameters();
+				return null;
+			case GraphstructurePackage.NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
+				removeParametersFromParameterList();
 				return null;
 			case GraphstructurePackage.NODE___GET_RETURN_TYPE:
 				return getReturnType();
@@ -2049,14 +2049,14 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", returnNode: ");
+		result.append(returnNode);
+		result.append(", typeModifiable: ");
+		result.append(typeModifiable);
 		result.append(", translated: ");
 		result.append(translated);
 		result.append(", predicatesAreBeingTranslated: ");
 		result.append(predicatesAreBeingTranslated);
-		result.append(", typeModifiable: ");
-		result.append(typeModifiable);
-		result.append(", returnNode: ");
-		result.append(returnNode);
 		result.append(')');
 		return result.toString();
 	}

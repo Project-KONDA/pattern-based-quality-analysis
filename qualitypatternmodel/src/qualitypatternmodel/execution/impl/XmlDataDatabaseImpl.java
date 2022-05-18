@@ -996,26 +996,23 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ExecutionPackage.XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING:
-				recordAttributeValue((String)arguments.get(0));
+			case ExecutionPackage.XML_DATA_DATABASE___RECORD_ELEMENT_NAME__STRING:
+				recordElementName((String)arguments.get(0));
+				return null;
+			case ExecutionPackage.XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING:
+				removeElementName((String)arguments.get(0));
+				return null;
+			case ExecutionPackage.XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST:
+				addElementNames((EList<String>)arguments.get(0));
 				return null;
 			case ExecutionPackage.XML_DATA_DATABASE___RECORD_DATA_VALUE__STRING:
 				recordDataValue((String)arguments.get(0));
 				return null;
-			case ExecutionPackage.XML_DATA_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING:
-				removeAttributeValue((String)arguments.get(0));
-				return null;
 			case ExecutionPackage.XML_DATA_DATABASE___REMOVE_DATA_VALUE__STRING:
 				removeDataValue((String)arguments.get(0));
 				return null;
-			case ExecutionPackage.XML_DATA_DATABASE___RECORD_ELEMENT_NAME__STRING:
-				recordElementName((String)arguments.get(0));
-				return null;
 			case ExecutionPackage.XML_DATA_DATABASE___RECORD_ATTRIBUTE_NAME__STRING:
 				recordAttributeName((String)arguments.get(0));
-				return null;
-			case ExecutionPackage.XML_DATA_DATABASE___REMOVE_ELEMENT_NAME__STRING:
-				removeElementName((String)arguments.get(0));
 				return null;
 			case ExecutionPackage.XML_DATA_DATABASE___REMOVE_ATTRIBUTE_NAME__STRING:
 				removeAttributeName((String)arguments.get(0));
@@ -1023,8 +1020,11 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			case ExecutionPackage.XML_DATA_DATABASE___ADD_ATTRIBUTE_NAMES__ELIST:
 				addAttributeNames((EList<String>)arguments.get(0));
 				return null;
-			case ExecutionPackage.XML_DATA_DATABASE___ADD_ELEMENT_NAMES__ELIST:
-				addElementNames((EList<String>)arguments.get(0));
+			case ExecutionPackage.XML_DATA_DATABASE___RECORD_ATTRIBUTE_VALUE__STRING:
+				recordAttributeValue((String)arguments.get(0));
+				return null;
+			case ExecutionPackage.XML_DATA_DATABASE___REMOVE_ATTRIBUTE_VALUE__STRING:
+				removeAttributeValue((String)arguments.get(0));
 				return null;
 			case ExecutionPackage.XML_DATA_DATABASE___CREATE_SCHEMA_DATABASE_FROM_REFERENCED_SCHEMA:
 				try {
@@ -1033,23 +1033,9 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case ExecutionPackage.XML_DATA_DATABASE___FIND_XSDURL:
-				try {
-					return findXSDURL();
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case ExecutionPackage.XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING:
 				try {
 					return getSuggestionsFromAxisPreviousTag((AxisKind)arguments.get(0), (String)arguments.get(1));
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case ExecutionPackage.XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING:
-				try {
-					return getSuggestionsFromAxisNextTag((AxisKind)arguments.get(0), (String)arguments.get(1));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -1064,6 +1050,20 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 			case ExecutionPackage.XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING:
 				try {
 					return getSuggestionsFromSourceTargetTag((String)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING:
+				try {
+					return getSuggestionsFromAxisNextTag((AxisKind)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case ExecutionPackage.XML_DATA_DATABASE___FIND_XSDURL:
+				try {
+					return findXSDURL();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

@@ -425,16 +425,10 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 		switch (operationID) {
 			case OperatorsPackage.OPERATOR___GET_ALL_OPERATORS:
 				return getAllOperators();
+			case OperatorsPackage.OPERATOR___GET_ARGUMENTS:
+				return getArguments();
 			case OperatorsPackage.OPERATOR___GET_ROOT_BOOLEAN_OPERATORS:
 				return getRootBooleanOperators();
-			case OperatorsPackage.OPERATOR___IS_CYCLE_FREE__ELIST:
-				try {
-					isCycleFree((EList<Operator>)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case OperatorsPackage.OPERATOR___IS_CYCLE_FREE:
 				try {
 					isCycleFree();
@@ -443,8 +437,14 @@ public abstract class OperatorImpl extends PatternElementImpl implements Operato
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case OperatorsPackage.OPERATOR___GET_ARGUMENTS:
-				return getArguments();
+			case OperatorsPackage.OPERATOR___IS_CYCLE_FREE__ELIST:
+				try {
+					isCycleFree((EList<Operator>)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case OperatorsPackage.OPERATOR___GET_RETURN_TYPE:
 				return getReturnType();
 			case OperatorsPackage.OPERATOR___IS_TRANSLATABLE:

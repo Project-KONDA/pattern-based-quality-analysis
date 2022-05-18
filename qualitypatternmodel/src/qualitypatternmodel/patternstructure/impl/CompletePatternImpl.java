@@ -47,14 +47,14 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getParameterList <em>Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getName <em>Name</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDatabase <em>Database</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getElementCounter <em>Element Counter</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getRelationCounter <em>Relation Counter</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getParameterCounter <em>Parameter Counter</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getOperatorCounter <em>Operator Counter</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getCounter <em>Counter</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getText <em>Text</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getAbstractName <em>Abstract Name</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getCounter <em>Counter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getElementCounter <em>Element Counter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getRelationCounter <em>Relation Counter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getOperatorCounter <em>Operator Counter</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.CompletePatternImpl#getParameterCounter <em>Parameter Counter</em>}</li>
  * </ul>
  *
  * @generated
@@ -107,112 +107,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	protected Database database;
 
 	/**
-	 * The default value of the '{@link #getElementCounter() <em>Element Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getElementCounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Integer ELEMENT_COUNTER_EDEFAULT = new Integer(1);
-
-/**
-	 * The cached value of the '{@link #getElementCounter() <em>Element Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Elements</code>.
-	 * <!-- end-user-doc -->
-	 * @see #getElementCounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected Integer elementCounter = ELEMENT_COUNTER_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getRelationCounter() <em>Relation Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRelationCounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Integer RELATION_COUNTER_EDEFAULT = new Integer(1);
-
-/**
-	 * The cached value of the '{@link #getRelationCounter() <em>Relation Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Relations</code>.
-	 * <!-- end-user-doc -->
-	 * @see #getRelationCounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected Integer relationCounter = RELATION_COUNTER_EDEFAULT;
-
-/**
-	 * The default value of the '{@link #getParameterCounter() <em>Parameter Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParameterCounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Integer PARAMETER_COUNTER_EDEFAULT = new Integer(1);
-
-/**
-	 * The cached value of the '{@link #getParameterCounter() <em>Parameter Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Parameters</code>.
-	 * <!-- end-user-doc -->
-	 * @see #getParameterCounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected Integer parameterCounter = PARAMETER_COUNTER_EDEFAULT;
-
-/**
-	 * The default value of the '{@link #getOperatorCounter() <em>Operator Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOperatorCounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Integer OPERATOR_COUNTER_EDEFAULT = new Integer(1);
-
-/**
-	 * The cached value of the '{@link #getOperatorCounter() <em>Operator Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Operators</code>.
-	 * <!-- end-user-doc -->
-	 * @see #getOperatorCounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected Integer operatorCounter = OPERATOR_COUNTER_EDEFAULT;
-
-/**
-	 * The default value of the '{@link #getCounter() <em>Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Integer COUNTER_EDEFAULT = new Integer(1);
-
-/**
-	 * The cached value of the '{@link #getCounter() <em>Counter</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of classes other than <code>Element</code>, <code>Relation</code>,
-	 * <code>Property</code>, <code>Parameter</code> and <code>Operator</code>.
-	 * <!-- end-user-doc -->
-	 * @see #getCounter()
-	 * @generated
-	 * @ordered
-	 */
-	protected Integer counter = COUNTER_EDEFAULT;
-
-	/**
 	 * The cached value of the '{@link #getText() <em>Text</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -261,6 +155,112 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @ordered
 	 */
 	protected String abstractName = ABSTRACT_NAME_EDEFAULT;
+
+	/**
+		 * The default value of the '{@link #getCounter() <em>Counter</em>}' attribute.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see #getCounter()
+		 * @generated
+		 * @ordered
+		 */
+		protected static final Integer COUNTER_EDEFAULT = new Integer(1);
+
+	/**
+		 * The cached value of the '{@link #getCounter() <em>Counter</em>}' attribute.
+		 * <!-- begin-user-doc -->
+		 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of classes other than <code>Element</code>, <code>Relation</code>,
+		 * <code>Property</code>, <code>Parameter</code> and <code>Operator</code>.
+		 * <!-- end-user-doc -->
+		 * @see #getCounter()
+		 * @generated
+		 * @ordered
+		 */
+		protected Integer counter = COUNTER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getElementCounter() <em>Element Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElementCounter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Integer ELEMENT_COUNTER_EDEFAULT = new Integer(1);
+
+	/**
+		 * The cached value of the '{@link #getElementCounter() <em>Element Counter</em>}' attribute.
+		 * <!-- begin-user-doc -->
+		 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Elements</code>.
+		 * <!-- end-user-doc -->
+		 * @see #getElementCounter()
+		 * @generated
+		 * @ordered
+		 */
+		protected Integer elementCounter = ELEMENT_COUNTER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRelationCounter() <em>Relation Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelationCounter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Integer RELATION_COUNTER_EDEFAULT = new Integer(1);
+
+	/**
+		 * The cached value of the '{@link #getRelationCounter() <em>Relation Counter</em>}' attribute.
+		 * <!-- begin-user-doc -->
+		 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Relations</code>.
+		 * <!-- end-user-doc -->
+		 * @see #getRelationCounter()
+		 * @generated
+		 * @ordered
+		 */
+		protected Integer relationCounter = RELATION_COUNTER_EDEFAULT;
+
+	/**
+		 * The default value of the '{@link #getOperatorCounter() <em>Operator Counter</em>}' attribute.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see #getOperatorCounter()
+		 * @generated
+		 * @ordered
+		 */
+		protected static final Integer OPERATOR_COUNTER_EDEFAULT = new Integer(1);
+
+	/**
+		 * The cached value of the '{@link #getOperatorCounter() <em>Operator Counter</em>}' attribute.
+		 * <!-- begin-user-doc -->
+		 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Operators</code>.
+		 * <!-- end-user-doc -->
+		 * @see #getOperatorCounter()
+		 * @generated
+		 * @ordered
+		 */
+		protected Integer operatorCounter = OPERATOR_COUNTER_EDEFAULT;
+
+	/**
+		 * The default value of the '{@link #getParameterCounter() <em>Parameter Counter</em>}' attribute.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see #getParameterCounter()
+		 * @generated
+		 * @ordered
+		 */
+		protected static final Integer PARAMETER_COUNTER_EDEFAULT = new Integer(1);
+
+	/**
+		 * The cached value of the '{@link #getParameterCounter() <em>Parameter Counter</em>}' attribute.
+		 * <!-- begin-user-doc -->
+		 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Parameters</code>.
+		 * <!-- end-user-doc -->
+		 * @see #getParameterCounter()
+		 * @generated
+		 * @ordered
+		 */
+		protected Integer parameterCounter = PARAMETER_COUNTER_EDEFAULT;
 
 	//	protected int[] elementCounter = {1,1,1,1,1,1};
 
@@ -827,22 +827,22 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				if (resolve) return getDatabase();
 				return basicGetDatabase();
-			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
-				return getElementCounter();
-			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
-				return getRelationCounter();
-			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
-				return getParameterCounter();
-			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
-				return getOperatorCounter();
-			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
-				return getCounter();
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				return getText();
 			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
 				return getDescription();
 			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_NAME:
 				return getAbstractName();
+			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
+				return getCounter();
+			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
+				return getElementCounter();
+			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
+				return getRelationCounter();
+			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
+				return getOperatorCounter();
+			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
+				return getParameterCounter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -864,21 +864,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				setDatabase((Database)newValue);
 				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
-				setElementCounter((Integer)newValue);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
-				setRelationCounter((Integer)newValue);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
-				setParameterCounter((Integer)newValue);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
-				setOperatorCounter((Integer)newValue);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
-				setCounter((Integer)newValue);
-				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				getText().clear();
 				getText().addAll((Collection<? extends PatternText>)newValue);
@@ -888,6 +873,21 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_NAME:
 				setAbstractName((String)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
+				setCounter((Integer)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
+				setElementCounter((Integer)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
+				setRelationCounter((Integer)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
+				setOperatorCounter((Integer)newValue);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
+				setParameterCounter((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -909,21 +909,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				setDatabase((Database)null);
 				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
-				setElementCounter(ELEMENT_COUNTER_EDEFAULT);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
-				setRelationCounter(RELATION_COUNTER_EDEFAULT);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
-				setParameterCounter(PARAMETER_COUNTER_EDEFAULT);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
-				setOperatorCounter(OPERATOR_COUNTER_EDEFAULT);
-				return;
-			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
-				setCounter(COUNTER_EDEFAULT);
-				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				getText().clear();
 				return;
@@ -932,6 +917,21 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_NAME:
 				setAbstractName(ABSTRACT_NAME_EDEFAULT);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
+				setCounter(COUNTER_EDEFAULT);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
+				setElementCounter(ELEMENT_COUNTER_EDEFAULT);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
+				setRelationCounter(RELATION_COUNTER_EDEFAULT);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
+				setOperatorCounter(OPERATOR_COUNTER_EDEFAULT);
+				return;
+			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
+				setParameterCounter(PARAMETER_COUNTER_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -950,22 +950,22 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case PatternstructurePackage.COMPLETE_PATTERN__DATABASE:
 				return database != null;
-			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
-				return ELEMENT_COUNTER_EDEFAULT == null ? elementCounter != null : !ELEMENT_COUNTER_EDEFAULT.equals(elementCounter);
-			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
-				return RELATION_COUNTER_EDEFAULT == null ? relationCounter != null : !RELATION_COUNTER_EDEFAULT.equals(relationCounter);
-			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
-				return PARAMETER_COUNTER_EDEFAULT == null ? parameterCounter != null : !PARAMETER_COUNTER_EDEFAULT.equals(parameterCounter);
-			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
-				return OPERATOR_COUNTER_EDEFAULT == null ? operatorCounter != null : !OPERATOR_COUNTER_EDEFAULT.equals(operatorCounter);
-			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
-				return COUNTER_EDEFAULT == null ? counter != null : !COUNTER_EDEFAULT.equals(counter);
 			case PatternstructurePackage.COMPLETE_PATTERN__TEXT:
 				return text != null && !text.isEmpty();
 			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_NAME:
 				return ABSTRACT_NAME_EDEFAULT == null ? abstractName != null : !ABSTRACT_NAME_EDEFAULT.equals(abstractName);
+			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
+				return COUNTER_EDEFAULT == null ? counter != null : !COUNTER_EDEFAULT.equals(counter);
+			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
+				return ELEMENT_COUNTER_EDEFAULT == null ? elementCounter != null : !ELEMENT_COUNTER_EDEFAULT.equals(elementCounter);
+			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
+				return RELATION_COUNTER_EDEFAULT == null ? relationCounter != null : !RELATION_COUNTER_EDEFAULT.equals(relationCounter);
+			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
+				return OPERATOR_COUNTER_EDEFAULT == null ? operatorCounter != null : !OPERATOR_COUNTER_EDEFAULT.equals(operatorCounter);
+			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
+				return PARAMETER_COUNTER_EDEFAULT == null ? parameterCounter != null : !PARAMETER_COUNTER_EDEFAULT.equals(parameterCounter);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -977,21 +977,21 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PatternstructurePackage.COMPLETE_PATTERN___GET_NEW_REF_NO__CLASS:
-				return getNewRefNo((Class)arguments.get(0));
-			case PatternstructurePackage.COMPLETE_PATTERN___RECORD_VALUES:
+			case PatternstructurePackage.COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA:
 				try {
-					recordValues();
-					return null;
+					return validateAgainstSchema();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
 			case PatternstructurePackage.COMPLETE_PATTERN___GET_ABSTRACTION_LEVEL:
 				return getAbstractionLevel();
-			case PatternstructurePackage.COMPLETE_PATTERN___VALIDATE_AGAINST_SCHEMA:
+			case PatternstructurePackage.COMPLETE_PATTERN___GET_NEW_REF_NO__CLASS:
+				return getNewRefNo((Class)arguments.get(0));
+			case PatternstructurePackage.COMPLETE_PATTERN___RECORD_VALUES:
 				try {
-					return validateAgainstSchema();
+					recordValues();
+					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -1014,20 +1014,20 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", elementCounter: ");
-		result.append(elementCounter);
-		result.append(", relationCounter: ");
-		result.append(relationCounter);
-		result.append(", parameterCounter: ");
-		result.append(parameterCounter);
-		result.append(", operatorCounter: ");
-		result.append(operatorCounter);
-		result.append(", counter: ");
-		result.append(counter);
 		result.append(", description: ");
 		result.append(description);
 		result.append(", abstractName: ");
 		result.append(abstractName);
+		result.append(", counter: ");
+		result.append(counter);
+		result.append(", elementCounter: ");
+		result.append(elementCounter);
+		result.append(", relationCounter: ");
+		result.append(relationCounter);
+		result.append(", operatorCounter: ");
+		result.append(operatorCounter);
+		result.append(", parameterCounter: ");
+		result.append(parameterCounter);
 		result.append(')');
 		return result.toString();
 	}

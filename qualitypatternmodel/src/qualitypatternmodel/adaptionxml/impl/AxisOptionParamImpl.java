@@ -434,8 +434,6 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionxmlPackage.AXIS_OPTION_PARAM___INFER_SUGGESTIONS:
-				return inferSuggestions();
 			case AdaptionxmlPackage.AXIS_OPTION_PARAM___SET_VALUE_IF_VALID__AXISKIND:
 				try {
 					setValueIfValid((AxisKind)arguments.get(0));
@@ -444,6 +442,8 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case AdaptionxmlPackage.AXIS_OPTION_PARAM___INFER_SUGGESTIONS:
+				return inferSuggestions();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

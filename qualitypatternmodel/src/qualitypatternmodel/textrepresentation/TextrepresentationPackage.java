@@ -123,49 +123,13 @@ public interface TextrepresentationPackage extends EPackage {
 	int PATTERN_TEXT_FEATURE_COUNT = 5;
 
 	/**
-	 * The operation id for the '<em>Generate JSON</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_TEXT___GENERATE_JSON = 0;
-
-	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL = 1;
-
-	/**
-	 * The operation id for the '<em>Instantiate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_TEXT___INSTANTIATE = 2;
-
-	/**
-	 * The operation id for the '<em>Delete</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_TEXT___DELETE = 3;
-
-	/**
-	 * The operation id for the '<em>Get Preview</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_TEXT___GET_PREVIEW = 4;
+	int PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL = 0;
 
 	/**
 	 * The operation id for the '<em>Add Fragment</em>' operation.
@@ -174,7 +138,43 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT___ADD_FRAGMENT__FRAGMENT = 5;
+	int PATTERN_TEXT___ADD_FRAGMENT__FRAGMENT = 1;
+
+	/**
+	 * The operation id for the '<em>Generate JSON</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT___GENERATE_JSON = 2;
+
+	/**
+	 * The operation id for the '<em>Get Preview</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT___GET_PREVIEW = 3;
+
+	/**
+	 * The operation id for the '<em>Delete</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT___DELETE = 4;
+
+	/**
+	 * The operation id for the '<em>Instantiate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT___INSTANTIATE = 5;
 
 	/**
 	 * The number of operations of the '<em>Pattern Text</em>' class.

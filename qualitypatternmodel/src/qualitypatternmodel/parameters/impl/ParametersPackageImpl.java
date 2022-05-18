@@ -280,7 +280,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EAttribute getParameter_Description() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -290,7 +290,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EAttribute getParameter_Predefined() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -300,7 +300,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EReference getParameter_ParameterReferences() {
-		return (EReference)parameterEClass.getEStructuralFeatures().get(3);
+		return (EReference)parameterEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -310,26 +310,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EOperation getParameter__InputIsValid() {
-		return parameterEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameter__Validate__DiagnosticChain_Map() {
-		return parameterEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameter__IsUsed() {
 		return parameterEClass.getEOperations().get(3);
 	}
 
@@ -339,8 +319,28 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameter__GetValueAsString() {
+	public EOperation getParameter__Validate__DiagnosticChain_Map() {
+		return parameterEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameter__IsUsed() {
 		return parameterEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameter__GetValueAsString() {
+		return parameterEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -360,26 +360,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EOperation getParameter__GetOptionsAsStringList() {
-		return parameterEClass.getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameter__ValidateAgainstSchema() {
-		return parameterEClass.getEOperations().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameter__CheckComparisonConsistency() {
 		return parameterEClass.getEOperations().get(8);
 	}
 
@@ -389,8 +369,28 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getParameter__ValidateAgainstSchema() {
+		return parameterEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameter__CheckComparisonConsistency() {
+		return parameterEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getParameter__ValidateExampleValue__String() {
-		return parameterEClass.getEOperations().get(9);
+		return parameterEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -400,7 +400,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EOperation getParameter__GenerateDescription() {
-		return parameterEClass.getEOperations().get(1);
+		return parameterEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -500,16 +500,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EOperation getParameterList__Add__Parameter() {
-		return parameterListEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameterList__Remove__Parameter() {
 		return parameterListEClass.getEOperations().get(1);
 	}
 
@@ -519,8 +509,18 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameterList__ValidateAgainstSchema() {
+	public EOperation getParameterList__Remove__Parameter() {
 		return parameterListEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterList__ValidateAgainstSchema() {
+		return parameterListEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -590,7 +590,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EOperation getTextListParam__GetListDeclaration() {
-		return textListParamEClass.getEOperations().get(0);
+		return textListParamEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -610,7 +610,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EOperation getTextListParam__SetValueIfValid__EList() {
-		return textListParamEClass.getEOperations().get(2);
+		return textListParamEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -740,56 +740,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EOperation getParameterValue__IsInTagComparison() {
-		return parameterValueEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameterValue__IsInAttributeComparison() {
-		return parameterValueEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameterValue__IsInDataComparison() {
-		return parameterValueEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameterValue__InferElementTagSuggestions() {
-		return parameterValueEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameterValue__GetElementTags() {
-		return parameterValueEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameterValue__GetAttributeNames() {
 		return parameterValueEClass.getEOperations().get(5);
 	}
 
@@ -799,8 +749,58 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameterValue__GetDataValues() {
+	public EOperation getParameterValue__IsInAttributeComparison() {
+		return parameterValueEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterValue__IsInDataComparison() {
+		return parameterValueEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterValue__InferElementTagSuggestions() {
+		return parameterValueEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterValue__GetElementTags() {
+		return parameterValueEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterValue__GetAttributeNames() {
 		return parameterValueEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterValue__GetDataValues() {
+		return parameterValueEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -820,16 +820,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	@Override
 	public EOperation getParameterValue__GetSuggestions() {
-		return parameterValueEClass.getEOperations().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getParameterValue__Replace__ParameterValue() {
 		return parameterValueEClass.getEOperations().get(9);
 	}
 
@@ -839,8 +829,18 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EOperation getParameterValue__Replace__ParameterValue() {
+		return parameterValueEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getParameterValue__ReplaceViaValue__String_String() {
-		return parameterValueEClass.getEOperations().get(10);
+		return parameterValueEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1044,19 +1044,19 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		// Create classes and their features
 		parameterEClass = createEClass(PARAMETER);
 		createEReference(parameterEClass, PARAMETER__PARAMETER_LIST);
-		createEAttribute(parameterEClass, PARAMETER__DESCRIPTION);
 		createEAttribute(parameterEClass, PARAMETER__PREDEFINED);
 		createEReference(parameterEClass, PARAMETER__PARAMETER_REFERENCES);
-		createEOperation(parameterEClass, PARAMETER___INPUT_IS_VALID);
-		createEOperation(parameterEClass, PARAMETER___GENERATE_DESCRIPTION);
+		createEAttribute(parameterEClass, PARAMETER__DESCRIPTION);
 		createEOperation(parameterEClass, PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP);
-		createEOperation(parameterEClass, PARAMETER___IS_USED);
-		createEOperation(parameterEClass, PARAMETER___GET_VALUE_AS_STRING);
-		createEOperation(parameterEClass, PARAMETER___SET_VALUE_FROM_STRING__STRING);
-		createEOperation(parameterEClass, PARAMETER___GET_OPTIONS_AS_STRING_LIST);
 		createEOperation(parameterEClass, PARAMETER___VALIDATE_AGAINST_SCHEMA);
-		createEOperation(parameterEClass, PARAMETER___CHECK_COMPARISON_CONSISTENCY);
 		createEOperation(parameterEClass, PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING);
+		createEOperation(parameterEClass, PARAMETER___INPUT_IS_VALID);
+		createEOperation(parameterEClass, PARAMETER___IS_USED);
+		createEOperation(parameterEClass, PARAMETER___SET_VALUE_FROM_STRING__STRING);
+		createEOperation(parameterEClass, PARAMETER___GET_VALUE_AS_STRING);
+		createEOperation(parameterEClass, PARAMETER___CHECK_COMPARISON_CONSISTENCY);
+		createEOperation(parameterEClass, PARAMETER___GET_OPTIONS_AS_STRING_LIST);
+		createEOperation(parameterEClass, PARAMETER___GENERATE_DESCRIPTION);
 
 		comparisonOptionParamEClass = createEClass(COMPARISON_OPTION_PARAM);
 		createEAttribute(comparisonOptionParamEClass, COMPARISON_OPTION_PARAM__OPTIONS);
@@ -1068,9 +1068,9 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		parameterListEClass = createEClass(PARAMETER_LIST);
 		createEReference(parameterListEClass, PARAMETER_LIST__PARAMETERS);
 		createEReference(parameterListEClass, PARAMETER_LIST__PATTERN);
+		createEOperation(parameterListEClass, PARAMETER_LIST___VALIDATE_AGAINST_SCHEMA);
 		createEOperation(parameterListEClass, PARAMETER_LIST___ADD__PARAMETER);
 		createEOperation(parameterListEClass, PARAMETER_LIST___REMOVE__PARAMETER);
-		createEOperation(parameterListEClass, PARAMETER_LIST___VALIDATE_AGAINST_SCHEMA);
 
 		booleanParamEClass = createEClass(BOOLEAN_PARAM);
 		createEAttribute(booleanParamEClass, BOOLEAN_PARAM__VALUE);
@@ -1079,9 +1079,9 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		textListParamEClass = createEClass(TEXT_LIST_PARAM);
 		createEAttribute(textListParamEClass, TEXT_LIST_PARAM__VALUES);
-		createEOperation(textListParamEClass, TEXT_LIST_PARAM___GET_LIST_DECLARATION);
-		createEOperation(textListParamEClass, TEXT_LIST_PARAM___GET_LIST_VAR);
 		createEOperation(textListParamEClass, TEXT_LIST_PARAM___SET_VALUE_IF_VALID__ELIST);
+		createEOperation(textListParamEClass, TEXT_LIST_PARAM___GET_LIST_VAR);
+		createEOperation(textListParamEClass, TEXT_LIST_PARAM___GET_LIST_DECLARATION);
 
 		textLiteralParamEClass = createEClass(TEXT_LITERAL_PARAM);
 		createEAttribute(textLiteralParamEClass, TEXT_LITERAL_PARAM__VALUE);
@@ -1097,17 +1097,17 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		parameterValueEClass = createEClass(PARAMETER_VALUE);
 		createEAttribute(parameterValueEClass, PARAMETER_VALUE__TYPE_MODIFIABLE);
-		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_TAG_COMPARISON);
-		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON);
-		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_DATA_COMPARISON);
-		createEOperation(parameterValueEClass, PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS);
-		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_ELEMENT_TAGS);
-		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_ATTRIBUTE_NAMES);
-		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_DATA_VALUES);
-		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_ATTRIBUTE_VALUES);
-		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_SUGGESTIONS);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___REPLACE__PARAMETERVALUE);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_ELEMENT_TAGS);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_DATA_VALUES);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_DATA_COMPARISON);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_TAG_COMPARISON);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_ATTRIBUTE_NAMES);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_ATTRIBUTE_VALUES);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_SUGGESTIONS);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS);
 
 		dateParamEClass = createEClass(DATE_PARAM);
 		createEAttribute(dateParamEClass, DATE_PARAM__VALUE);
@@ -1189,13 +1189,9 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		// Initialize classes, features, and operations; add parameters
 		initEClass(parameterEClass, Parameter.class, "Parameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameter_ParameterList(), this.getParameterList(), this.getParameterList_Parameters(), "parameterList", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParameter_Description(), ecorePackage.getEString(), "description", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameter_Predefined(), ecorePackage.getEBoolean(), "predefined", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParameter_ParameterReferences(), theTextrepresentationPackage.getParameterReference(), theTextrepresentationPackage.getParameterReference_Parameter(), "parameterReferences", null, 0, -1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getParameter__InputIsValid(), ecorePackage.getEBoolean(), "inputIsValid", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getParameter__GenerateDescription(), ecorePackage.getEString(), "generateDescription", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEAttribute(getParameter_Description(), ecorePackage.getEString(), "description", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getParameter__Validate__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "validate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1206,24 +1202,28 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getParameter__IsUsed(), ecorePackage.getEBoolean(), "isUsed", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getParameter__ValidateAgainstSchema(), this.getParameter(), "validateAgainstSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getParameter__GetValueAsString(), ecorePackage.getEString(), "getValueAsString", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getParameter__ValidateExampleValue__String(), null, "validateExampleValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "val", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		initEOperation(getParameter__InputIsValid(), ecorePackage.getEBoolean(), "inputIsValid", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getParameter__IsUsed(), ecorePackage.getEBoolean(), "isUsed", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getParameter__SetValueFromString__String(), null, "setValueFromString", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEOperation(getParameter__GetOptionsAsStringList(), ecorePackage.getEString(), "getOptionsAsStringList", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getParameter__ValidateAgainstSchema(), this.getParameter(), "validateAgainstSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getParameter__GetValueAsString(), ecorePackage.getEString(), "getValueAsString", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getParameter__CheckComparisonConsistency(), null, "checkComparisonConsistency", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getParameter__ValidateExampleValue__String(), null, "validateExampleValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "val", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+		initEOperation(getParameter__GetOptionsAsStringList(), ecorePackage.getEString(), "getOptionsAsStringList", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getParameter__GenerateDescription(), ecorePackage.getEString(), "generateDescription", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(comparisonOptionParamEClass, ComparisonOptionParam.class, "ComparisonOptionParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComparisonOptionParam_Options(), theOperatorsPackage.getComparisonOperator(), "options", null, 0, -1, ComparisonOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1239,13 +1239,13 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEReference(getParameterList_Parameters(), this.getParameter(), this.getParameter_ParameterList(), "parameters", null, 0, -1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParameterList_Pattern(), thePatternstructurePackage.getCompletePattern(), thePatternstructurePackage.getCompletePattern_ParameterList(), "pattern", null, 1, 1, ParameterList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getParameterList__ValidateAgainstSchema(), this.getParameter(), "validateAgainstSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
+
 		op = initEOperation(getParameterList__Add__Parameter(), null, "add", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getParameter(), "parameter", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getParameterList__Remove__Parameter(), null, "remove", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getParameter(), "parameter", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getParameterList__ValidateAgainstSchema(), this.getParameter(), "validateAgainstSchema", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(booleanParamEClass, BooleanParam.class, "BooleanParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBooleanParam_Value(), ecorePackage.getEBooleanObject(), "value", "true", 1, 1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1258,13 +1258,13 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEClass(textListParamEClass, TextListParam.class, "TextListParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextListParam_Values(), ecorePackage.getEString(), "values", "", 0, -1, TextListParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getTextListParam__GetListDeclaration(), ecorePackage.getEString(), "getListDeclaration", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getTextListParam__GetListVar(), ecorePackage.getEString(), "getListVar", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		op = initEOperation(getTextListParam__SetValueIfValid__EList(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "newValue", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		initEOperation(getTextListParam__GetListVar(), ecorePackage.getEString(), "getListVar", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getTextListParam__GetListDeclaration(), ecorePackage.getEString(), "getListDeclaration", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(textLiteralParamEClass, TextLiteralParam.class, "TextLiteralParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextLiteralParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1287,23 +1287,15 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEClass(parameterValueEClass, ParameterValue.class, "ParameterValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParameterValue_TypeModifiable(), ecorePackage.getEBoolean(), "typeModifiable", null, 0, 1, ParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getParameterValue__IsInTagComparison(), ecorePackage.getEBoolean(), "isInTagComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getParameterValue__Replace__ParameterValue(), null, "replace", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getParameterValue(), "concreteValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getParameterValue__IsInAttributeComparison(), ecorePackage.getEBoolean(), "isInAttributeComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getParameterValue__IsInDataComparison(), ecorePackage.getEBoolean(), "isInDataComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getParameterValue__InferElementTagSuggestions(), ecorePackage.getEString(), "inferElementTagSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getParameterValue__ReplaceViaValue__String_String(), null, "replaceViaValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getStringArray(), "values", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getParameterValue__GetElementTags(), null, "getElementTags", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(this.getStringToIntEMap());
-		g2 = createEGenericType(ecorePackage.getEString());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEIntegerObject());
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
-
-		op = initEOperation(getParameterValue__GetAttributeNames(), null, "getAttributeNames", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getStringToIntEMap());
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
@@ -1319,6 +1311,18 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
+		initEOperation(getParameterValue__IsInDataComparison(), ecorePackage.getEBoolean(), "isInDataComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getParameterValue__IsInTagComparison(), ecorePackage.getEBoolean(), "isInTagComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getParameterValue__GetAttributeNames(), null, "getAttributeNames", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getStringToIntEMap());
+		g2 = createEGenericType(ecorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEIntegerObject());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
 		op = initEOperation(getParameterValue__GetAttributeValues(), null, "getAttributeValues", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getStringToIntEMap());
 		g2 = createEGenericType(ecorePackage.getEString());
@@ -1327,15 +1331,11 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
+		initEOperation(getParameterValue__IsInAttributeComparison(), ecorePackage.getEBoolean(), "isInAttributeComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEOperation(getParameterValue__GetSuggestions(), ecorePackage.getEString(), "getSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getParameterValue__Replace__ParameterValue(), null, "replace", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getParameterValue(), "concreteValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getParameterValue__ReplaceViaValue__String_String(), null, "replaceViaValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getStringArray(), "values", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEString(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+		initEOperation(getParameterValue__InferElementTagSuggestions(), ecorePackage.getEString(), "inferElementTagSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dateParamEClass, DateParam.class, "DateParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

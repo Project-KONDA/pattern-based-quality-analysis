@@ -222,10 +222,6 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ParametersPackage.TEXT_LIST_PARAM___GET_LIST_DECLARATION:
-				return getListDeclaration();
-			case ParametersPackage.TEXT_LIST_PARAM___GET_LIST_VAR:
-				return getListVar();
 			case ParametersPackage.TEXT_LIST_PARAM___SET_VALUE_IF_VALID__ELIST:
 				try {
 					setValueIfValid((EList<String>)arguments.get(0));
@@ -234,6 +230,10 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case ParametersPackage.TEXT_LIST_PARAM___GET_LIST_VAR:
+				return getListVar();
+			case ParametersPackage.TEXT_LIST_PARAM___GET_LIST_DECLARATION:
+				return getListDeclaration();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -575,8 +575,6 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case TextrepresentationPackage.PATTERN_TEXT___GENERATE_JSON:
-				return generateJSON();
 			case TextrepresentationPackage.PATTERN_TEXT___IS_VALID__ABSTRACTIONLEVEL:
 				try {
 					isValid((AbstractionLevel)arguments.get(0));
@@ -585,6 +583,16 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case TextrepresentationPackage.PATTERN_TEXT___ADD_FRAGMENT__FRAGMENT:
+				addFragment((Fragment)arguments.get(0));
+				return null;
+			case TextrepresentationPackage.PATTERN_TEXT___GENERATE_JSON:
+				return generateJSON();
+			case TextrepresentationPackage.PATTERN_TEXT___GET_PREVIEW:
+				return getPreview();
+			case TextrepresentationPackage.PATTERN_TEXT___DELETE:
+				delete();
+				return null;
 			case TextrepresentationPackage.PATTERN_TEXT___INSTANTIATE:
 				try {
 					instantiate();
@@ -593,14 +601,6 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case TextrepresentationPackage.PATTERN_TEXT___DELETE:
-				delete();
-				return null;
-			case TextrepresentationPackage.PATTERN_TEXT___GET_PREVIEW:
-				return getPreview();
-			case TextrepresentationPackage.PATTERN_TEXT___ADD_FRAGMENT__FRAGMENT:
-				addFragment((Fragment)arguments.get(0));
-				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
