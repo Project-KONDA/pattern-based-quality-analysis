@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
@@ -391,8 +391,8 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		for(Relation r : getOutgoing()) {
 			if(r instanceof XmlPropertyNavigation) {
 				XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
-				if(nav.getXmlPathParam() != null && nav.getXmlPathParam().getPropertyOptionParam() != null 
-						&& nav.getXmlPathParam().getPropertyOptionParam().getValue() == PropertyKind.TAG) {
+				if(nav.getXmlPathParam() != null && nav.getXmlPathParam().getXmlPropertyOptionParam() != null 
+						&& nav.getXmlPathParam().getXmlPropertyOptionParam().getValue() == XmlPropertyKind.TAG) {
 					Node target = nav.getTarget();
 					if(target instanceof XmlProperty) {
 						XmlProperty prop = (XmlProperty) target;

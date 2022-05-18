@@ -738,7 +738,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING = XML_DATABASE_OPERATION_COUNT + 13;
+	int XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__XMLAXISKIND_STRING = XML_DATABASE_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Get Suggestions From Axis Previous Root</em>' operation.
@@ -747,7 +747,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND = XML_DATABASE_OPERATION_COUNT + 14;
+	int XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__XMLAXISKIND = XML_DATABASE_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Get Suggestions From Source Target Tag</em>' operation.
@@ -765,7 +765,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING = XML_DATABASE_OPERATION_COUNT + 16;
+	int XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__XMLAXISKIND_STRING = XML_DATABASE_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Find XSDURL</em>' operation.
@@ -1081,7 +1081,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOCAL_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING;
+	int LOCAL_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__XMLAXISKIND_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__XMLAXISKIND_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Suggestions From Axis Previous Root</em>' operation.
@@ -1090,7 +1090,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOCAL_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND;
+	int LOCAL_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__XMLAXISKIND = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__XMLAXISKIND;
 
 	/**
 	 * The operation id for the '<em>Get Suggestions From Source Target Tag</em>' operation.
@@ -1108,7 +1108,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOCAL_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING;
+	int LOCAL_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__XMLAXISKIND_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__XMLAXISKIND_STRING;
 
 	/**
 	 * The operation id for the '<em>Find XSDURL</em>' operation.
@@ -1433,7 +1433,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVER_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING;
+	int SERVER_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__XMLAXISKIND_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__XMLAXISKIND_STRING;
 
 	/**
 	 * The operation id for the '<em>Get Suggestions From Axis Previous Root</em>' operation.
@@ -1442,7 +1442,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVER_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND;
+	int SERVER_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__XMLAXISKIND = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__XMLAXISKIND;
 
 	/**
 	 * The operation id for the '<em>Get Suggestions From Source Target Tag</em>' operation.
@@ -1460,7 +1460,7 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVER_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING;
+	int SERVER_XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__XMLAXISKIND_STRING = XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__XMLAXISKIND_STRING;
 
 	/**
 	 * The operation id for the '<em>Find XSDURL</em>' operation.
@@ -3106,6 +3106,26 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getXmlDataDatabase__CreateSchemaDatabaseFromReferencedSchema();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisPreviousTag(qualitypatternmodel.adaptionxml.XmlAxisKind, java.lang.String) <em>Get Suggestions From Axis Previous Tag</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Suggestions From Axis Previous Tag</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisPreviousTag(qualitypatternmodel.adaptionxml.XmlAxisKind, java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlDataDatabase__GetSuggestionsFromAxisPreviousTag__XmlAxisKind_String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisPreviousRoot(qualitypatternmodel.adaptionxml.XmlAxisKind) <em>Get Suggestions From Axis Previous Root</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Suggestions From Axis Previous Root</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisPreviousRoot(qualitypatternmodel.adaptionxml.XmlAxisKind)
+	 * @generated
+	 */
+	EOperation getXmlDataDatabase__GetSuggestionsFromAxisPreviousRoot__XmlAxisKind();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDataDatabase#findXSDURL() <em>Find XSDURL</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3116,36 +3136,6 @@ public interface ExecutionPackage extends EPackage {
 	EOperation getXmlDataDatabase__FindXSDURL();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisPreviousTag(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String) <em>Get Suggestions From Axis Previous Tag</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Suggestions From Axis Previous Tag</em>' operation.
-	 * @see qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisPreviousTag(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String)
-	 * @generated
-	 */
-	EOperation getXmlDataDatabase__GetSuggestionsFromAxisPreviousTag__AxisKind_String();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisNextTag(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String) <em>Get Suggestions From Axis Next Tag</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Suggestions From Axis Next Tag</em>' operation.
-	 * @see qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisNextTag(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String)
-	 * @generated
-	 */
-	EOperation getXmlDataDatabase__GetSuggestionsFromAxisNextTag__AxisKind_String();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisPreviousRoot(qualitypatternmodel.adaptionxml.AxisKind) <em>Get Suggestions From Axis Previous Root</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Suggestions From Axis Previous Root</em>' operation.
-	 * @see qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisPreviousRoot(qualitypatternmodel.adaptionxml.AxisKind)
-	 * @generated
-	 */
-	EOperation getXmlDataDatabase__GetSuggestionsFromAxisPreviousRoot__AxisKind();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromSourceTargetTag(java.lang.String, java.lang.String) <em>Get Suggestions From Source Target Tag</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3154,6 +3144,16 @@ public interface ExecutionPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getXmlDataDatabase__GetSuggestionsFromSourceTargetTag__String_String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisNextTag(qualitypatternmodel.adaptionxml.XmlAxisKind, java.lang.String) <em>Get Suggestions From Axis Next Tag</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Suggestions From Axis Next Tag</em>' operation.
+	 * @see qualitypatternmodel.execution.XmlDataDatabase#getSuggestionsFromAxisNextTag(qualitypatternmodel.adaptionxml.XmlAxisKind, java.lang.String)
+	 * @generated
+	 */
+	EOperation getXmlDataDatabase__GetSuggestionsFromAxisNextTag__XmlAxisKind_String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.execution.LocalXmlDataDatabase <em>Local Xml Data Database</em>}'.
@@ -4163,6 +4163,22 @@ public interface ExecutionPackage extends EPackage {
 		EOperation XML_DATA_DATABASE___CREATE_SCHEMA_DATABASE_FROM_REFERENCED_SCHEMA = eINSTANCE.getXmlDataDatabase__CreateSchemaDatabaseFromReferencedSchema();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Suggestions From Axis Previous Tag</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__XMLAXISKIND_STRING = eINSTANCE.getXmlDataDatabase__GetSuggestionsFromAxisPreviousTag__XmlAxisKind_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Suggestions From Axis Previous Root</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__XMLAXISKIND = eINSTANCE.getXmlDataDatabase__GetSuggestionsFromAxisPreviousRoot__XmlAxisKind();
+
+		/**
 		 * The meta object literal for the '<em><b>Find XSDURL</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4171,12 +4187,12 @@ public interface ExecutionPackage extends EPackage {
 		EOperation XML_DATA_DATABASE___FIND_XSDURL = eINSTANCE.getXmlDataDatabase__FindXSDURL();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Suggestions From Axis Previous Tag</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Suggestions From Source Target Tag</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING = eINSTANCE.getXmlDataDatabase__GetSuggestionsFromAxisPreviousTag__AxisKind_String();
+		EOperation XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING = eINSTANCE.getXmlDataDatabase__GetSuggestionsFromSourceTargetTag__String_String();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Suggestions From Axis Next Tag</b></em>' operation.
@@ -4184,23 +4200,7 @@ public interface ExecutionPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING = eINSTANCE.getXmlDataDatabase__GetSuggestionsFromAxisNextTag__AxisKind_String();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Suggestions From Axis Previous Root</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND = eINSTANCE.getXmlDataDatabase__GetSuggestionsFromAxisPreviousRoot__AxisKind();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Suggestions From Source Target Tag</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_SOURCE_TARGET_TAG__STRING_STRING = eINSTANCE.getXmlDataDatabase__GetSuggestionsFromSourceTargetTag__String_String();
+		EOperation XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__XMLAXISKIND_STRING = eINSTANCE.getXmlDataDatabase__GetSuggestionsFromAxisNextTag__XmlAxisKind_String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl <em>Local Xml Data Database</em>}' class.

@@ -2,8 +2,8 @@ package qualitypatternmodel.evaluation;
 
 import java.util.ArrayList;
 
-import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -168,14 +168,14 @@ public class EvalContrel {
 		
 		CompletePattern completePattern = getContrelAbstract();
 		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);	
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(XmlAxisKind.THREECHILD);
 		
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("kue");
 		((UntypedParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).replace(concreteInputValue);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 //		Element root = graph1.getRootElement();
@@ -187,9 +187,9 @@ public class EvalContrel {
 		concreteInputValue1.setValue("3100");
 		((UntypedParameterValue) id1Comp1.getArguments().get(1)).replace(concreteInputValue1);
 		((XmlProperty) id1.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) id1.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) id1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		((XmlProperty) id1.getProperties().get(1)).getAttributeName().setValue("Value");
-		((XmlProperty) id1.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) id1.getProperties().get(1)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		
 		Node ref1 = graph1.getNodes().get(2);
 		Comparison ref1Comp1 = (Comparison) ref1.getPredicates().get(0);
@@ -197,9 +197,9 @@ public class EvalContrel {
 		concreteInputValue2.setValue("ku35");
 		((UntypedParameterValue) ref1Comp1.getArguments().get(1)).replace(concreteInputValue2);
 		((XmlProperty) ref1.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) ref1.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) ref1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		((XmlProperty) ref1.getProperties().get(1)).getAttributeName().setValue("Value");
-		((XmlProperty) ref1.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) ref1.getProperties().get(1)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		
 		Node val1 = graph1.getNodes().get(3);	
 		Comparison val1Comp1 = (Comparison) val1.getPredicates().get(0);
@@ -207,18 +207,18 @@ public class EvalContrel {
 		concreteInputValue3.setValue("3600");
 		((UntypedParameterValue) val1Comp1.getArguments().get(1)).replace(concreteInputValue3);
 		((XmlProperty) val1.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) val1.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) val1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		((XmlProperty) val1.getProperties().get(1)).getAttributeName().setValue("Value");
-		((XmlProperty) val1.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) val1.getProperties().get(1)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		
 		Node element2 = graph1.getNodes().get(4);
-		((XmlElementNavigation) graph1.getRelations().get(7)).getXmlPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) graph1.getRelations().get(7)).getXmlPathParam().setValue(XmlAxisKind.THREECHILD);
 		Comparison element2Comp1 = (Comparison) element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("wer");
 		((UntypedParameterValue) element2Comp1.getArguments().get(1)).replace(concreteInputValue4);
 		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		
 		Node id2 = graph1.getNodes().get(5);	
 		Comparison id2Comp1 = (Comparison) id2.getPredicates().get(0);
@@ -226,9 +226,9 @@ public class EvalContrel {
 		concreteInputValue5.setValue("3600");
 		((UntypedParameterValue) id2Comp1.getArguments().get(1)).replace(concreteInputValue5);
 		((XmlProperty) id2.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) id2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) id2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		((XmlProperty) id2.getProperties().get(1)).getAttributeName().setValue("Value");
-		((XmlProperty) id2.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);		
+		((XmlProperty) id2.getProperties().get(1)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);		
 		
 		Node ref2 = graph1.getNodes().get(6);
 		Comparison ref2Comp1 = (Comparison) ref2.getPredicates().get(0);
@@ -236,9 +236,9 @@ public class EvalContrel {
 		concreteInputValue6.setValue("we30");
 		((UntypedParameterValue) ref2Comp1.getArguments().get(1)).replace(concreteInputValue6);
 		((XmlProperty) ref2.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) ref2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) ref2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		((XmlProperty) ref2.getProperties().get(1)).getAttributeName().setValue("Value");
-		((XmlProperty) ref2.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);		
+		((XmlProperty) ref2.getProperties().get(1)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);		
 		
 		Node val2 = graph1.getNodes().get(7);	
 		Comparison val2Comp1 = (Comparison) val2.getPredicates().get(0);
@@ -246,9 +246,9 @@ public class EvalContrel {
 		concreteInputValue7.setValue("3100");
 		((UntypedParameterValue) val2Comp1.getArguments().get(1)).replace(concreteInputValue7);
 		((XmlProperty) val2.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) val2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) val2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		((XmlProperty) val2.getProperties().get(1)).getAttributeName().setValue("Value");
-		((XmlProperty) val2.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) val2.getProperties().get(1)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		
 		Comparison comparison1 = (Comparison) id1.getPredicates().get(1);
 		comparison1.getTypeOption().setValue(ReturnType.STRING);

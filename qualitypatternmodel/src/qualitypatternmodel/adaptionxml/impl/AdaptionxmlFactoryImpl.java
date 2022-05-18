@@ -63,10 +63,10 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 			case AdaptionxmlPackage.XML_PROPERTY: return createXmlProperty();
 			case AdaptionxmlPackage.XML_ROOT: return createXmlRoot();
 			case AdaptionxmlPackage.XML_PROPERTY_NAVIGATION: return createXmlPropertyNavigation();
-			case AdaptionxmlPackage.AXIS_OPTION_PARAM: return createAxisOptionParam();
-			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM: return createPropertyOptionParam();
+			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM: return createXmlAxisOptionParam();
+			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM: return createXmlPropertyOptionParam();
 			case AdaptionxmlPackage.XML_PATH_PARAM: return createXmlPathParam();
-			case AdaptionxmlPackage.AXIS_PAIR: return createAxisPair();
+			case AdaptionxmlPackage.XML_AXIS_PAIR: return createXmlAxisPair();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -80,10 +80,10 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case AdaptionxmlPackage.PROPERTY_KIND:
-				return createPropertyKindFromString(eDataType, initialValue);
-			case AdaptionxmlPackage.AXIS_KIND:
-				return createAxisKindFromString(eDataType, initialValue);
+			case AdaptionxmlPackage.XML_PROPERTY_KIND:
+				return createXmlPropertyKindFromString(eDataType, initialValue);
+			case AdaptionxmlPackage.XML_AXIS_KIND:
+				return createXmlAxisKindFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -97,10 +97,10 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case AdaptionxmlPackage.PROPERTY_KIND:
-				return convertPropertyKindToString(eDataType, instanceValue);
-			case AdaptionxmlPackage.AXIS_KIND:
-				return convertAxisKindToString(eDataType, instanceValue);
+			case AdaptionxmlPackage.XML_PROPERTY_KIND:
+				return convertXmlPropertyKindToString(eDataType, instanceValue);
+			case AdaptionxmlPackage.XML_AXIS_KIND:
+				return convertXmlAxisKindToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -178,9 +178,9 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * @generated
 	 */
 	@Override
-	public AxisOptionParam createAxisOptionParam() {
-		AxisOptionParamImpl axisOptionParam = new AxisOptionParamImpl();
-		return axisOptionParam;
+	public XmlAxisOptionParam createXmlAxisOptionParam() {
+		XmlAxisOptionParamImpl xmlAxisOptionParam = new XmlAxisOptionParamImpl();
+		return xmlAxisOptionParam;
 	}
 
 	/**
@@ -189,9 +189,9 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * @generated
 	 */
 	@Override
-	public PropertyOptionParam createPropertyOptionParam() {
-		PropertyOptionParamImpl propertyOptionParam = new PropertyOptionParamImpl();
-		return propertyOptionParam;
+	public XmlPropertyOptionParam createXmlPropertyOptionParam() {
+		XmlPropertyOptionParamImpl xmlPropertyOptionParam = new XmlPropertyOptionParamImpl();
+		return xmlPropertyOptionParam;
 	}
 
 	/**
@@ -211,9 +211,9 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * @generated
 	 */
 	@Override
-	public AxisPair createAxisPair() {
-		AxisPairImpl axisPair = new AxisPairImpl();
-		return axisPair;
+	public XmlAxisPair createXmlAxisPair() {
+		XmlAxisPairImpl xmlAxisPair = new XmlAxisPairImpl();
+		return xmlAxisPair;
 	}
 
 	/**
@@ -221,8 +221,8 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropertyKind createPropertyKindFromString(EDataType eDataType, String initialValue) {
-		PropertyKind result = PropertyKind.get(initialValue);
+	public XmlPropertyKind createXmlPropertyKindFromString(EDataType eDataType, String initialValue) {
+		XmlPropertyKind result = XmlPropertyKind.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -232,7 +232,7 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertPropertyKindToString(EDataType eDataType, Object instanceValue) {
+	public String convertXmlPropertyKindToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -241,8 +241,8 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AxisKind createAxisKindFromString(EDataType eDataType, String initialValue) {
-		AxisKind result = AxisKind.get(initialValue);
+	public XmlAxisKind createXmlAxisKindFromString(EDataType eDataType, String initialValue) {
+		XmlAxisKind result = XmlAxisKind.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -252,7 +252,7 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertAxisKindToString(EDataType eDataType, Object instanceValue) {
+	public String convertXmlAxisKindToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

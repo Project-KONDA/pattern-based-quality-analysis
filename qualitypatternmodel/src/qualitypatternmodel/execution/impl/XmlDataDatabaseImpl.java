@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreEMap;
 import org.eclipse.emf.ecore.util.InternalEList;
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -43,7 +43,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.servlettests.ServletTestsUtil;
-import static qualitypatternmodel.adaptionxml.AxisKind.*;
+import static qualitypatternmodel.adaptionxml.XmlAxisKind.*;
 
 
 /**
@@ -602,10 +602,10 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	 * @generated NOT
 	 */
 	@Override
-	public EList<String> getSuggestionsFromAxisPreviousTag(AxisKind axisKind, String previousTag) throws BaseXException, QueryIOException, QueryException, IOException {
+	public EList<String> getSuggestionsFromAxisPreviousTag(XmlAxisKind xmlAxisKind, String previousTag) throws BaseXException, QueryIOException, QueryException, IOException {
 		EList<String> suggestions = new BasicEList<String>();
 
-		switch (axisKind) {
+		switch (xmlAxisKind) {
 		case CHILD:
 			return getXmlSchema().getChildrenInSchema(previousTag);
 		case DESCENDANT:
@@ -648,10 +648,10 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	 * @generated NOT
 	 */
 	@Override
-	public EList<String> getSuggestionsFromAxisNextTag(AxisKind axisKind, String nextTag) throws BaseXException, QueryIOException, QueryException, IOException {
+	public EList<String> getSuggestionsFromAxisNextTag(XmlAxisKind xmlAxisKind, String nextTag) throws BaseXException, QueryIOException, QueryException, IOException {
 		EList<String> suggestions = new BasicEList<String>();
 
-		switch (axisKind) {
+		switch (xmlAxisKind) {
 		case CHILD:
 			return getXmlSchema().getParentsInSchema(nextTag);
 		case DESCENDANT:
@@ -696,11 +696,11 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	 * @generated NOT
 	 */
 	@Override
-	public EList<String> getSuggestionsFromAxisPreviousRoot(AxisKind axisKind) throws BaseXException, QueryIOException, QueryException, IOException {
+	public EList<String> getSuggestionsFromAxisPreviousRoot(XmlAxisKind xmlAxisKind) throws BaseXException, QueryIOException, QueryException, IOException {
 		EList<String> suggestions = new BasicEList<String>();
 		
 		for(String rootElementName : getXmlSchema().getRootElementNames()) {
-			switch (axisKind) {
+			switch (xmlAxisKind) {
 			case CHILD:
 				suggestions.addAll(getXmlSchema().getChildrenInSchema(rootElementName));
 			case DESCENDANT:
@@ -718,32 +718,32 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 	 * @generated NOT
 	 */
 	@Override
-	public EList<AxisKind> getSuggestionsFromSourceTargetTag(String sourceTag, String targetTag) throws IOException, QueryException, QueryIOException, BaseXException {
-		EList<AxisKind> suggestions = new BasicEList<AxisKind>();
+	public EList<XmlAxisKind> getSuggestionsFromSourceTargetTag(String sourceTag, String targetTag) throws IOException, QueryException, QueryIOException, BaseXException {
+		EList<XmlAxisKind> suggestions = new BasicEList<XmlAxisKind>();
 
 		if(getXmlSchema().checkChildInSchema(sourceTag, targetTag)) {
-			suggestions.add(AxisKind.CHILD);
-			suggestions.add(AxisKind.DESCENDANT);
-			suggestions.add(AxisKind.DESCENDANT_OR_SELF);
+			suggestions.add(XmlAxisKind.CHILD);
+			suggestions.add(XmlAxisKind.DESCENDANT);
+			suggestions.add(XmlAxisKind.DESCENDANT_OR_SELF);
 		} else if(getXmlSchema().checkDescendantInSchema(sourceTag, targetTag)) {
-			suggestions.add(AxisKind.DESCENDANT);
-			suggestions.add(AxisKind.DESCENDANT_OR_SELF);
+			suggestions.add(XmlAxisKind.DESCENDANT);
+			suggestions.add(XmlAxisKind.DESCENDANT_OR_SELF);
 		}
 		
 		if(getXmlSchema().checkParentInSchema(sourceTag, targetTag)) {
-			suggestions.add(AxisKind.PARENT);
-			suggestions.add(AxisKind.ANCESTOR);
-			suggestions.add(AxisKind.ANCESTOR_OR_SELF);
+			suggestions.add(XmlAxisKind.PARENT);
+			suggestions.add(XmlAxisKind.ANCESTOR);
+			suggestions.add(XmlAxisKind.ANCESTOR_OR_SELF);
 		} else if(getXmlSchema().checkAncestorInSchema(sourceTag, targetTag)) {
-			suggestions.add(AxisKind.ANCESTOR);
-			suggestions.add(AxisKind.ANCESTOR_OR_SELF);
+			suggestions.add(XmlAxisKind.ANCESTOR);
+			suggestions.add(XmlAxisKind.ANCESTOR_OR_SELF);
 		}
 		
 		if(getXmlSchema().checkFollowingSiblingInSchema(sourceTag, targetTag)) {
-			suggestions.add(AxisKind.FOLLOWING_SIBLING);
-			suggestions.add(AxisKind.FOLLOWING);
+			suggestions.add(XmlAxisKind.FOLLOWING_SIBLING);
+			suggestions.add(XmlAxisKind.FOLLOWING);
 		} else if(getXmlSchema().checkFollowingInSchema(sourceTag, targetTag)) {
-			suggestions.add(AxisKind.FOLLOWING);
+			suggestions.add(XmlAxisKind.FOLLOWING);
 		}
 		
 		// TODO:
@@ -755,9 +755,9 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 //			}
 		
 		if(sourceTag.equals(targetTag)) {
-			suggestions.add(AxisKind.SELF);
-			suggestions.add(AxisKind.DESCENDANT_OR_SELF);
-			suggestions.add(AxisKind.ANCESTOR_OR_SELF);
+			suggestions.add(XmlAxisKind.SELF);
+			suggestions.add(XmlAxisKind.DESCENDANT_OR_SELF);
+			suggestions.add(XmlAxisKind.ANCESTOR_OR_SELF);
 		}
 		
 		return suggestions;
@@ -1033,16 +1033,16 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case ExecutionPackage.XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__AXISKIND_STRING:
+			case ExecutionPackage.XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_TAG__XMLAXISKIND_STRING:
 				try {
-					return getSuggestionsFromAxisPreviousTag((AxisKind)arguments.get(0), (String)arguments.get(1));
+					return getSuggestionsFromAxisPreviousTag((XmlAxisKind)arguments.get(0), (String)arguments.get(1));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case ExecutionPackage.XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__AXISKIND:
+			case ExecutionPackage.XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_PREVIOUS_ROOT__XMLAXISKIND:
 				try {
-					return getSuggestionsFromAxisPreviousRoot((AxisKind)arguments.get(0));
+					return getSuggestionsFromAxisPreviousRoot((XmlAxisKind)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -1054,9 +1054,9 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case ExecutionPackage.XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__AXISKIND_STRING:
+			case ExecutionPackage.XML_DATA_DATABASE___GET_SUGGESTIONS_FROM_AXIS_NEXT_TAG__XMLAXISKIND_STRING:
 				try {
-					return getSuggestionsFromAxisNextTag((AxisKind)arguments.get(0), (String)arguments.get(1));
+					return getSuggestionsFromAxisNextTag((XmlAxisKind)arguments.get(0), (String)arguments.get(1));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

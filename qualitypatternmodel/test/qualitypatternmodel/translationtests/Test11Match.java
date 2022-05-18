@@ -6,7 +6,7 @@ import java.util.List;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.operators.*;
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -34,7 +34,7 @@ public class Test11Match {
 		Match match = ((Match) pattern.getGraph().getOperatorList().getOperators().get(0));
 		match.getOption().setValue(invert);
 		pattern.createXMLAdaption();
-		((XmlNavigation) pattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlNavigation) pattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
 		return pattern;		
 	}
 

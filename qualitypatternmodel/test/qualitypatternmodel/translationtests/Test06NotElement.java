@@ -6,7 +6,7 @@ import java.util.List;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -89,7 +89,7 @@ public class Test06NotElement {
 		completePattern.createXMLAdaption();
 		((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 		
-		((XmlElementNavigation)(completePattern.getGraph().getRelations().get(0))).getXmlPathParam().setAxis(AxisKind.DESCENDANT, null);
+		((XmlElementNavigation)(completePattern.getGraph().getRelations().get(0))).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
 		
 		return completePattern;
 	}
@@ -133,9 +133,9 @@ public class Test06NotElement {
 
 		completePattern.createXMLAdaption();
 		
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(AxisKind.DESCENDANT, null);
-		((XmlElementNavigation) q1.getGraph().getRelations().get(1)).getXmlPathParam().setAxis(AxisKind.CHILD, "");
-		((XmlElementNavigation) q2.getGraph().getRelations().get(2)).getXmlPathParam().setAxis(AxisKind.ANCESTOR, "");
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
+		((XmlElementNavigation) q1.getGraph().getRelations().get(1)).getXmlPathParam().setXmlAxis(XmlAxisKind.CHILD, "");
+		((XmlElementNavigation) q2.getGraph().getRelations().get(2)).getXmlPathParam().setXmlAxis(XmlAxisKind.ANCESTOR, "");
 		return completePattern; 
 	}
 	public static CompletePattern getPatternForallNotForall() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
@@ -147,8 +147,8 @@ public class Test06NotElement {
 		qc1.setQuantifier(Quantifier.FORALL);
 		qc2.setQuantifier(Quantifier.FORALL);
 
-		((XmlElementNavigation)qc1.getGraph().getRelations().get(1)).getXmlPathParam().setAxis(AxisKind.PARENT, "");
-		((XmlElementNavigation)qc2.getGraph().getRelations().get(2)).getXmlPathParam().setAxis(AxisKind.CHILD, "");
+		((XmlElementNavigation)qc1.getGraph().getRelations().get(1)).getXmlPathParam().setXmlAxis(XmlAxisKind.PARENT, "");
+		((XmlElementNavigation)qc2.getGraph().getRelations().get(2)).getXmlPathParam().setXmlAxis(XmlAxisKind.CHILD, "");
 		
 		return completePattern;
 	}

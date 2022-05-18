@@ -16,10 +16,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlProperty;
-import qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl;
-import qualitypatternmodel.adaptionxml.impl.AxisOptionParamImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlAxisOptionParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.parameters.Parameter;
@@ -238,19 +238,19 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 		}
 		if(parameter instanceof TextLiteralParamImpl) {
 			TextLiteralParamImpl textLiteral = (TextLiteralParamImpl) parameter;
-			if(textLiteral.getPropertyOptionParam() != null && textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
+			if(textLiteral.getXmlPropertyOptionParam() != null && textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
 				json += ", \"Dependent\": true";
 			}
 		}
-		if(parameter instanceof PropertyOptionParamImpl) {
-			PropertyOptionParamImpl propertyOption = (PropertyOptionParamImpl) parameter;
-			Node node = propertyOption.getPathParam().getXmlNavigation().getTarget();
+		if(parameter instanceof XmlPropertyOptionParamImpl) {
+			XmlPropertyOptionParamImpl propertyOption = (XmlPropertyOptionParamImpl) parameter;
+			Node node = propertyOption.getXmlPathParam().getXmlNavigation().getTarget();
 			XmlProperty xmlProperty = (XmlProperty) node;
 			TextLiteralParam textLiteral = propertyOption.getAttributeName();
 			if(textLiteral.getMatches().isEmpty() && textLiteral.getComparison1().isEmpty() && textLiteral.getComparison2().isEmpty()) {
 				int dependentParameterID = getPatternText().getPattern().getParameterList().getParameters().indexOf(textLiteral);
 				String id = "/concrete-patterns/parameter/" + patternName + "/" + Integer.toString(dependentParameterID);
-				String cond = PropertyKind.ATTRIBUTE.getLiteral();
+				String cond = XmlPropertyKind.ATTRIBUTE.getLiteral();
 				json += ", \"Enable\": {";
 				json += "\"Parameter\": \"" + id + "\"";
 				json += ", \"If\": \"" + cond + "\"";
@@ -319,9 +319,9 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 			return Constants.PARAMETER_TYPE_TEXT_LIST;
 		} else if (type.equals(UntypedParameterValueImpl.class)) {
 			return Constants.PARAMETER_TYPE_UNTYPED;
-		} else if (type.equals(AxisOptionParamImpl.class)) {
+		} else if (type.equals(XmlAxisOptionParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_RELATION;
-		} else if (type.equals(PropertyOptionParamImpl.class)) {
+		} else if (type.equals(XmlPropertyOptionParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_PROPERTY;
 		} else if (type.equals(ComparisonOptionParamImpl.class)) {
 			return Constants.PARAMETER_TYPE_COMPARISON;

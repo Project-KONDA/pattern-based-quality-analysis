@@ -2,8 +2,8 @@ package qualitypatternmodel.evaluation;
 
 import java.util.ArrayList;
 
-import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -123,15 +123,15 @@ public class EvalCard {
 		return completePattern;
 	}
 	
-	private static CompletePattern getCardThreeElementsLidoConcrete(AxisKind returnRelation, String returnElementName, 
-			AxisKind returnToE1Rel, String e1Name, AxisKind e1ToE2Rel, String e2Name) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getCardThreeElementsLidoConcrete(XmlAxisKind returnRelation, String returnElementName, 
+			XmlAxisKind returnToE1Rel, String e1Name, XmlAxisKind e1ToE2Rel, String e2Name) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = getCardAbstractThreeElements();
 		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);	
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(returnRelation, "");
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(returnRelation, "");
+		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementName);
 		((UntypedParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
@@ -140,8 +140,8 @@ public class EvalCard {
 		Graph graph1 = quantifiedCondition.getGraph();
 		
 		Node e1G1 = graph1.getNodes().get(1);	
-		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setAxis(returnToE1Rel, "");
-		((XmlProperty) e1G1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setXmlAxis(returnToE1Rel, "");
+		((XmlProperty) e1G1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		TextLiteralParam concreteInputValue1G1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1G1.setValue(e1Name);
 		((UntypedParameterValue) ((Comparison) e1G1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue1G1);
@@ -151,8 +151,8 @@ public class EvalCard {
 		Graph graph2 = countPattern.getGraph();
 				
 		Node e4G2 = graph2.getNodes().get(2);	
-		((XmlElementNavigation) graph2.getRelations().get(1)).getXmlPathParam().setAxis(e1ToE2Rel, "");
-		((XmlProperty) e4G2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlElementNavigation) graph2.getRelations().get(1)).getXmlPathParam().setXmlAxis(e1ToE2Rel, "");
+		((XmlProperty) e4G2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		TextLiteralParam concreteInputValue4G2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4G2.setValue(e2Name);
 		((UntypedParameterValue) ((Comparison) e4G2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue4G2);
@@ -223,13 +223,13 @@ public class EvalCard {
 		CompletePattern pattern = getCardAbstractMidas();
 		
 		XmlElement returnElementInReturnGraph = (XmlElement) pattern.getGraph().getReturnNodes().get(0);	
-		((XmlElementNavigation) pattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) pattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(XmlAxisKind.THREECHILD);
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
 		((UntypedParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).replace(concreteInputValue);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		
 		CountCondition countCondition = (CountCondition) pattern.getCondition();
 		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
@@ -240,12 +240,12 @@ public class EvalCard {
 		Graph graph1 = countPattern.getGraph();
 		
 		XmlElement nextToReturnElementInGraph1 = (XmlElement) graph1.getNodes().get(1);	
-		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setAxis(AxisKind.DESCENDANT_OR_SELF, "");
+		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT_OR_SELF, "");
 		Comparison comparisonNextToReturnElementInGraph1 = (Comparison) nextToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("h1:Block");
 		((UntypedParameterValue) comparisonNextToReturnElementInGraph1.getArguments().get(1)).replace(concreteInputValue2);
-		((XmlProperty) nextToReturnElementInGraph1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) nextToReturnElementInGraph1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 
 		XmlElement setElement1InGraph1 = (XmlElement) graph1.getNodes().get(2);			
 		Comparison comparison1Set1 = (Comparison) setElement1InGraph1.getPredicates().get(0);
@@ -253,14 +253,14 @@ public class EvalCard {
 		concreteInputValue4.setValue("ob30");
 		((UntypedParameterValue) comparison1Set1.getArguments().get(1)).replace(concreteInputValue4);
 		((XmlProperty) setElement1InGraph1.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) setElement1InGraph1.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) setElement1InGraph1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 				
 		Comparison comparison2Set1 = (Comparison) setElement1InGraph1.getPredicates().get(1);
 		TextLiteralParam concreteInputValue5 = parametersFactory.createTextLiteralParam();
 		concreteInputValue5.setValue("Herstellung");
 		((UntypedParameterValue) comparison2Set1.getArguments().get(1)).replace(concreteInputValue5);
 		((XmlProperty) setElement1InGraph1.getProperties().get(1)).getAttributeName().setValue("Value");
-		((XmlProperty) setElement1InGraph1.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) setElement1InGraph1.getProperties().get(1)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		
 		
 		Graph graph2 = ((QuantifiedCondition)countPattern.getCondition()).getGraph();
@@ -271,12 +271,12 @@ public class EvalCard {
 		concreteInputValue6.setValue("ob30rl");
 		((UntypedParameterValue) comparison1Set2.getArguments().get(1)).replace(concreteInputValue6);
 		((XmlProperty) setElement2InGraph1.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) setElement2InGraph1.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) setElement2InGraph1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		
 		return pattern;		
 	}
 	
 	public static CompletePattern getCardLidoActorName() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
-		return getCardThreeElementsLidoConcrete(AxisKind.TWOCHILD, "lido:lido", AxisKind.EIGHTCHILD, "lido:nameActorSet", AxisKind.CHILD, "lido:appellationValue");
+		return getCardThreeElementsLidoConcrete(XmlAxisKind.TWOCHILD, "lido:lido", XmlAxisKind.EIGHTCHILD, "lido:nameActorSet", XmlAxisKind.CHILD, "lido:appellationValue");
 	}
 }

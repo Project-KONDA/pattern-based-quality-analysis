@@ -6,7 +6,7 @@ import java.util.List;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
@@ -19,7 +19,7 @@ public class Test01Axis {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		
-		for (AxisKind ax : AxisKind.VALUES) {
+		for (XmlAxisKind ax : XmlAxisKind.VALUES) {
 			completePatterns.add(getBasePatternAxisRoot(ax));
 			completePatterns.add(getBasePatternAxisNotRoot(ax));
 			
@@ -28,18 +28,18 @@ public class Test01Axis {
 		Test00.test(completePatterns);
 	}
 
-	public static CompletePattern getBasePatternAxisRoot(AxisKind axisKind) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
+	public static CompletePattern getBasePatternAxisRoot(XmlAxisKind xmlAxisKind) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		CompletePattern completePattern = Test00.getBasePattern();
 		completePattern.createXMLAdaption();
 		XmlNavigation relation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
 		XmlPathParam axisOption = relation.getXmlPathParam();
 //		EList<AxisKind> axisOptions = axisOption.getOptions();
 //		if(!axisOptions.contains(axisKind)) axisOptions.add(axisKind);
-		axisOption.setAxis(axisKind, "");
+		axisOption.setXmlAxis(xmlAxisKind, "");
 		return completePattern;
 	}
 	
-	public static CompletePattern getBasePatternAxisNotRoot(AxisKind axisKind) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
+	public static CompletePattern getBasePatternAxisNotRoot(XmlAxisKind xmlAxisKind) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
@@ -59,14 +59,14 @@ public class Test01Axis {
 		XmlPathParam axisOption = navigation.getXmlPathParam();
 //		EList<AxisKind> axisOptions = axisOption.getOptions();
 //		if(!axisOptions.contains(axisKind)) axisOptions.add(axisKind);
-		axisOption.setAxis(axisKind, "");
+		axisOption.setXmlAxis(xmlAxisKind, "");
 		return completePattern;
 	}
 
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 
-		for (AxisKind ax : AxisKind.VALUES) {
+		for (XmlAxisKind ax : XmlAxisKind.VALUES) {
 			testPairs.add(new PatternTestPair(ax.getName()+"_ROOT", getBasePatternAxisRoot(ax), ax.getLiteral()));
 			testPairs.add(new PatternTestPair(ax.getName(), getBasePatternAxisNotRoot(ax), "for $x in /* for $y in $x" + ax.getLiteral() + " return $x"));
 		}

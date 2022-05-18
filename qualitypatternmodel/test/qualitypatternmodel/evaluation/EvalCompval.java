@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -104,17 +104,17 @@ public class EvalCompval {
 	}
 
 	public static CompletePattern getCompvalThreeElementsConcrete(String returnElementType,
-			AxisKind returnElementAxis, String attribute1Name, PropertyKind attribute1Kind, String element2Type,
-			AxisKind element2Axis, String attribute2Name, PropertyKind attribute2Kind, String element3Type,
-			AxisKind element3Axis, String attribute3Name, PropertyKind attribute3Kind, String attribute4Name,
-			PropertyKind attribute4Kind, String value) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+			XmlAxisKind returnElementAxis, String attribute1Name, XmlPropertyKind attribute1Kind, String element2Type,
+			XmlAxisKind element2Axis, String attribute2Name, XmlPropertyKind attribute2Kind, String element3Type,
+			XmlAxisKind element3Axis, String attribute3Name, XmlPropertyKind attribute3Kind, String attribute4Name,
+			XmlPropertyKind attribute4Kind, String value) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 
 		CompletePattern completePattern = getCompvalThreeElementsAbstract();
 
 		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(returnElementAxis, "");
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(returnElementAxis, "");
 
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates()
 				.get(0);
@@ -122,7 +122,7 @@ public class EvalCompval {
 		concreteInputValue.setValue(returnElementType);
 		((UntypedParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1))
 				.replace(concreteInputValue);
-		if (attribute1Kind == PropertyKind.ATTRIBUTE) {
+		if (attribute1Kind == XmlPropertyKind.ATTRIBUTE) {
 			((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName()
 					.setValue(attribute1Name);
 		}
@@ -131,25 +131,25 @@ public class EvalCompval {
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
 		Node element2 = graph1.getNodes().get(1);
-		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setAxis(element2Axis, "");
+		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setXmlAxis(element2Axis, "");
 
 		Comparison comp1 = (Comparison) element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue(element2Type);
 		((UntypedParameterValue) comp1.getArguments().get(1)).replace(concreteInputValue2);
-		if (attribute2Kind == PropertyKind.ATTRIBUTE) {
+		if (attribute2Kind == XmlPropertyKind.ATTRIBUTE) {
 			((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue(attribute2Name);
 		}
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(attribute2Kind);
 
 		Node element3 = graph1.getNodes().get(2);
-		((XmlElementNavigation) graph1.getRelations().get(1)).getXmlPathParam().setAxis(element3Axis, "");
+		((XmlElementNavigation) graph1.getRelations().get(1)).getXmlPathParam().setXmlAxis(element3Axis, "");
 
 		Comparison comp2 = (Comparison) element3.getPredicates().get(0);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue(element3Type);
 		((UntypedParameterValue) comp2.getArguments().get(1)).replace(concreteInputValue3);
-		if (attribute3Kind == PropertyKind.ATTRIBUTE) {
+		if (attribute3Kind == XmlPropertyKind.ATTRIBUTE) {
 			((XmlProperty) element3.getProperties().get(0)).getAttributeName().setValue(attribute3Name);
 		}
 		((XmlProperty) element3.getProperties().get(0)).getOption().setValue(attribute3Kind);
@@ -158,7 +158,7 @@ public class EvalCompval {
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue(value);
 		((UntypedParameterValue) comp3.getArguments().get(1)).replace(concreteInputValue4);
-		if (attribute3Kind == PropertyKind.ATTRIBUTE) {
+		if (attribute3Kind == XmlPropertyKind.ATTRIBUTE) {
 			((XmlProperty) element3.getProperties().get(1)).getAttributeName().setValue(attribute4Name);
 		}
 		((XmlProperty) element3.getProperties().get(1)).getOption().setValue(attribute4Kind);
@@ -166,9 +166,9 @@ public class EvalCompval {
 		return completePattern;
 	}
 
-	public static CompletePattern getCompvalConcrete(String returnElementType, AxisKind returnElementAxis,
-			String attribute1Name, PropertyKind attribute1Kind, String element2Type, AxisKind element2Axis,
-			String attribute2Name, PropertyKind attribute2Kind, String attribute3Name, PropertyKind attribute3Kind,
+	public static CompletePattern getCompvalConcrete(String returnElementType, XmlAxisKind returnElementAxis,
+			String attribute1Name, XmlPropertyKind attribute1Kind, String element2Type, XmlAxisKind element2Axis,
+			String attribute2Name, XmlPropertyKind attribute2Kind, String attribute3Name, XmlPropertyKind attribute3Kind,
 			String value) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
@@ -188,9 +188,9 @@ public class EvalCompval {
 		return completePattern;
 	}
 
-	public static CompletePattern getCompvalSetConcrete(String returnElementType, AxisKind returnElementAxis,
-			String attribute1Name, PropertyKind attribute1Kind, String element2Type, AxisKind element2Axis,
-			String attribute2Name, PropertyKind attribute2Kind, String attribute3Name, PropertyKind attribute3Kind,
+	public static CompletePattern getCompvalSetConcrete(String returnElementType, XmlAxisKind returnElementAxis,
+			String attribute1Name, XmlPropertyKind attribute1Kind, String element2Type, XmlAxisKind element2Axis,
+			String attribute2Name, XmlPropertyKind attribute2Kind, String attribute3Name, XmlPropertyKind attribute3Kind,
 			List<String> values) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ParametersPackage.eINSTANCE.eClass();
@@ -213,13 +213,13 @@ public class EvalCompval {
 		return completePattern;
 	}
 
-	private static Node concretize(String returnElementType, AxisKind returnElementAxis, String attribute1Name,
-			PropertyKind attribute1Kind, String element2Type, AxisKind element2Axis, String attribute2Name, PropertyKind attribute2Kind,
-			String attribute3Name, PropertyKind attribute3Kind, ParametersFactory parametersFactory,
+	private static Node concretize(String returnElementType, XmlAxisKind returnElementAxis, String attribute1Name,
+			XmlPropertyKind attribute1Kind, String element2Type, XmlAxisKind element2Axis, String attribute2Name, XmlPropertyKind attribute2Kind,
+			String attribute3Name, XmlPropertyKind attribute3Kind, ParametersFactory parametersFactory,
 			CompletePattern completePattern) {
 
 		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(returnElementAxis, "");
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(returnElementAxis, "");
 
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates()
 				.get(0);
@@ -227,7 +227,7 @@ public class EvalCompval {
 		concreteInputValue.setValue(returnElementType);
 		((UntypedParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1))
 				.replace(concreteInputValue);
-		if (attribute1Kind == PropertyKind.ATTRIBUTE) {
+		if (attribute1Kind == XmlPropertyKind.ATTRIBUTE) {
 			((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName()
 					.setValue(attribute1Name);
 		}
@@ -236,18 +236,18 @@ public class EvalCompval {
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
 		Node element2 = graph1.getNodes().get(1);
-		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setAxis(element2Axis, "");
+		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setXmlAxis(element2Axis, "");
 
 		Comparison comp1 = (Comparison) element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue(element2Type);
 		((UntypedParameterValue) comp1.getArguments().get(1)).replace(concreteInputValue2);
-		if (attribute2Kind == PropertyKind.ATTRIBUTE) {
+		if (attribute2Kind == XmlPropertyKind.ATTRIBUTE) {
 			((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue(attribute2Name);
 		}
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(attribute2Kind);
 
-		if (attribute3Kind == PropertyKind.ATTRIBUTE) {
+		if (attribute3Kind == XmlPropertyKind.ATTRIBUTE) {
 			((XmlProperty) element2.getProperties().get(1)).getAttributeName().setValue(attribute3Name);
 		}
 		((XmlProperty) element2.getProperties().get(1)).getOption().setValue(attribute3Kind);
@@ -255,56 +255,56 @@ public class EvalCompval {
 	}
 
 	public static CompletePattern getCompvalMidas5230Objekt() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getCompvalConcrete("obj", AxisKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5230",
-				AxisKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "Objekt");
+		return getCompvalConcrete("obj", XmlAxisKind.THREECHILD, "Type", XmlPropertyKind.ATTRIBUTE, "5230",
+				XmlAxisKind.CHILD, "Type", XmlPropertyKind.ATTRIBUTE, "Value", XmlPropertyKind.ATTRIBUTE, "Objekt");
 	}
 
 	public static CompletePattern getCompvalMidas5230Schloss() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getCompvalConcrete("obj", AxisKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5230",
-				AxisKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "Schloss");
+		return getCompvalConcrete("obj", XmlAxisKind.THREECHILD, "Type", XmlPropertyKind.ATTRIBUTE, "5230",
+				XmlAxisKind.CHILD, "Type", XmlPropertyKind.ATTRIBUTE, "Value", XmlPropertyKind.ATTRIBUTE, "Schloss");
 	}
 
 	public static CompletePattern getCompvalMidas5230Print() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getCompvalConcrete("obj", AxisKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "5230",
-				AxisKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, "Print");
+		return getCompvalConcrete("obj", XmlAxisKind.THREECHILD, "Type", XmlPropertyKind.ATTRIBUTE, "5230",
+				XmlAxisKind.CHILD, "Type", XmlPropertyKind.ATTRIBUTE, "Value", XmlPropertyKind.ATTRIBUTE, "Print");
 	}
 
 	public static CompletePattern getCompvalSetMidas3270() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<String> values = Arrays.asList("unbekannt", "x", "y", "?");
-		return getCompvalSetConcrete("kue", AxisKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3270",
-				AxisKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, values);
+		return getCompvalSetConcrete("kue", XmlAxisKind.THREECHILD, "Type", XmlPropertyKind.ATTRIBUTE, "3270",
+				XmlAxisKind.CHILD, "Type", XmlPropertyKind.ATTRIBUTE, "Value", XmlPropertyKind.ATTRIBUTE, values);
 	}
 
 	public static CompletePattern getCompvalLidoEventPlace() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getCompvalConcrete("lido:lido", AxisKind.TWOCHILD, null, PropertyKind.TAG, "lido:eventPlace",
-				AxisKind.FIVECHILD, null, PropertyKind.TAG, "lido:type", PropertyKind.ATTRIBUTE, "alternative");
+		return getCompvalConcrete("lido:lido", XmlAxisKind.TWOCHILD, null, XmlPropertyKind.TAG, "lido:eventPlace",
+				XmlAxisKind.FIVECHILD, null, XmlPropertyKind.TAG, "lido:type", XmlPropertyKind.ATTRIBUTE, "alternative");
 	}
 
 	public static CompletePattern getCompvalLidoObjectWorkTypeObjekt() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getCompvalThreeElementsConcrete("lido:lido", AxisKind.TWOCHILD, null, PropertyKind.TAG,
-				"lido:objectWorkType", AxisKind.FOURCHILD, null, PropertyKind.TAG,
-				"lido:term", AxisKind.CHILD, null, PropertyKind.TAG, 
-				null, PropertyKind.DATA, "Objekt");
+		return getCompvalThreeElementsConcrete("lido:lido", XmlAxisKind.TWOCHILD, null, XmlPropertyKind.TAG,
+				"lido:objectWorkType", XmlAxisKind.FOURCHILD, null, XmlPropertyKind.TAG,
+				"lido:term", XmlAxisKind.CHILD, null, XmlPropertyKind.TAG, 
+				null, XmlPropertyKind.DATA, "Objekt");
 	}
 	
 	public static CompletePattern getCompvalLidoObjectWorkTypeSchloss() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getCompvalThreeElementsConcrete("lido:lido", AxisKind.TWOCHILD, null, PropertyKind.TAG,
-				"lido:objectWorkType", AxisKind.FOURCHILD, null, PropertyKind.TAG,
-				"lido:term", AxisKind.CHILD, null, PropertyKind.TAG, 
-				null, PropertyKind.DATA, "Schloss");
+		return getCompvalThreeElementsConcrete("lido:lido", XmlAxisKind.TWOCHILD, null, XmlPropertyKind.TAG,
+				"lido:objectWorkType", XmlAxisKind.FOURCHILD, null, XmlPropertyKind.TAG,
+				"lido:term", XmlAxisKind.CHILD, null, XmlPropertyKind.TAG, 
+				null, XmlPropertyKind.DATA, "Schloss");
 	}
 	
 	public static CompletePattern getCompvalLidoObjectWorkTypePrint() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getCompvalThreeElementsConcrete("lido:lido", AxisKind.TWOCHILD, null, PropertyKind.TAG,
-				"lido:objectWorkType", AxisKind.FOURCHILD, null, PropertyKind.TAG,
-				"lido:term", AxisKind.CHILD, null, PropertyKind.TAG, 
-				null, PropertyKind.DATA, "Print");
+		return getCompvalThreeElementsConcrete("lido:lido", XmlAxisKind.TWOCHILD, null, XmlPropertyKind.TAG,
+				"lido:objectWorkType", XmlAxisKind.FOURCHILD, null, XmlPropertyKind.TAG,
+				"lido:term", XmlAxisKind.CHILD, null, XmlPropertyKind.TAG, 
+				null, XmlPropertyKind.DATA, "Print");
 	}
 	
 	public static CompletePattern getCompvalSetLidoAppellationValue() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<String> values = Arrays.asList("unbekannt", "x", "unknown", "?");
-		return getCompvalSetConcrete("lido:lido", AxisKind.TWOCHILD, null, PropertyKind.TAG, 
-				"lido:appellationValue", AxisKind.FIVECHILD, null, PropertyKind.TAG, null, PropertyKind.DATA, values);
+		return getCompvalSetConcrete("lido:lido", XmlAxisKind.TWOCHILD, null, XmlPropertyKind.TAG, 
+				"lido:appellationValue", XmlAxisKind.FIVECHILD, null, XmlPropertyKind.TAG, null, XmlPropertyKind.DATA, values);
 	}
 	
 	public static CompletePattern getCompsetAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
@@ -347,20 +347,20 @@ public class EvalCompval {
 		return completePattern; 
 	}
 	
-	public static CompletePattern getCompsetConcrete(String returnElementType, AxisKind returnElementAxis, String attribute1Name, PropertyKind attribute1Kind,
-			String element2Type, AxisKind element2Axis, String attribute2Name, PropertyKind attribute2Kind, String attribute3Name, PropertyKind attribute3Kind, List<String> values) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+	public static CompletePattern getCompsetConcrete(String returnElementType, XmlAxisKind returnElementAxis, String attribute1Name, XmlPropertyKind attribute1Kind,
+			String element2Type, XmlAxisKind element2Axis, String attribute2Name, XmlPropertyKind attribute2Kind, String attribute3Name, XmlPropertyKind attribute3Kind, List<String> values) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = getCompsetAbstract();
 		
 		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);	
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(returnElementAxis, "");
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(returnElementAxis, "");
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementType);
 		((UntypedParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).replace(concreteInputValue);
-		if (attribute1Kind == PropertyKind.ATTRIBUTE) {
+		if (attribute1Kind == XmlPropertyKind.ATTRIBUTE) {
 			((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue(attribute1Name);
 		}
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(attribute1Kind);
@@ -368,13 +368,13 @@ public class EvalCompval {
 		QuantifiedCondition condition = (QuantifiedCondition) completePattern.getCondition();
 		Graph graph1 = condition.getGraph();
 		Node nextToReturnElementInGraph1 =  graph1.getNodes().get(1);
-		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setAxis(element2Axis, "");
+		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setXmlAxis(element2Axis, "");
 		
 		Comparison comparison1 = (Comparison) nextToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1.setValue(element2Type);
 		((UntypedParameterValue) comparison1.getArguments().get(1)).replace(concreteInputValue1);
-		if (attribute2Kind == PropertyKind.ATTRIBUTE) {
+		if (attribute2Kind == XmlPropertyKind.ATTRIBUTE) {
 			((XmlProperty) nextToReturnElementInGraph1.getProperties().get(0)).getAttributeName().setValue(attribute2Name);
 		}
 		((XmlProperty) nextToReturnElementInGraph1.getProperties().get(0)).getOption().setValue(attribute2Kind);
@@ -391,7 +391,7 @@ public class EvalCompval {
 		}
 
 		((UntypedParameterValue) comparison2.getArguments().get(1)).replace(concreteInputValue2);
-		if (attribute3Kind == PropertyKind.ATTRIBUTE) {
+		if (attribute3Kind == XmlPropertyKind.ATTRIBUTE) {
 			((XmlProperty) nextToReturnElementInGraph2.getProperties().get(0)).getAttributeName().setValue(attribute3Name);
 		}
 		((XmlProperty) nextToReturnElementInGraph2.getProperties().get(0)).getOption().setValue(attribute3Kind);		
@@ -401,13 +401,13 @@ public class EvalCompval {
 	
 	public static CompletePattern getCompsetMIDAS3140() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {			
 		List<String> values = Arrays.asList("m","f","unbekannt","m?","f?","?");		
-		return getCompsetConcrete("kue", AxisKind.THREECHILD, "Type", PropertyKind.ATTRIBUTE, "3140", AxisKind.CHILD, "Type", PropertyKind.ATTRIBUTE, "Value", PropertyKind.ATTRIBUTE, values);
+		return getCompsetConcrete("kue", XmlAxisKind.THREECHILD, "Type", XmlPropertyKind.ATTRIBUTE, "3140", XmlAxisKind.CHILD, "Type", XmlPropertyKind.ATTRIBUTE, "Value", XmlPropertyKind.ATTRIBUTE, values);
 	}
 	
 	public static CompletePattern getCompsetLidoGenderActor() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {			
 		List<String> values = Arrays.asList("male","männlich","weiblich","female","unknown","not applicable");		
-		return getCompsetConcrete("lido:lido", AxisKind.TWOCHILD, null, PropertyKind.TAG, "lido:genderActor", AxisKind.EIGHTCHILD, 
-				null, PropertyKind.TAG, null, PropertyKind.DATA, values);
+		return getCompsetConcrete("lido:lido", XmlAxisKind.TWOCHILD, null, XmlPropertyKind.TAG, "lido:genderActor", XmlAxisKind.EIGHTCHILD, 
+				null, XmlPropertyKind.TAG, null, XmlPropertyKind.DATA, values);
 	}
 
 }

@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -313,7 +313,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					navigation.createParameters();
 					navigation.setSource(root);
 					navigation.setTarget(node);
-					navigation.getXmlPathParam().setAxis(AxisKind.DESCENDANT, null);
+					navigation.getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
 				}
 			} else if(node instanceof XmlProperty) {
 				boolean hasIncomingNavigation = false;

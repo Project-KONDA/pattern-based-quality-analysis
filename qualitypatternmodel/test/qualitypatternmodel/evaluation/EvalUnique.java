@@ -2,8 +2,8 @@ package qualitypatternmodel.evaluation;
 
 import java.util.ArrayList;
 
-import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -444,9 +444,9 @@ public class EvalUnique {
 		
 		
 		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);	
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(XmlAxisKind.THREECHILD);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("wer");
 		((UntypedParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
@@ -463,9 +463,9 @@ public class EvalUnique {
 		Graph graphCountQCond = countQCond.getGraph();
 			
 		Node element2 = graphCountPattern.getNodes().get(1);	
-		((XmlElementNavigation) countPattern.getGraph().getRelations().get(2)).getXmlPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) countPattern.getGraph().getRelations().get(2)).getXmlPathParam().setValue(XmlAxisKind.THREECHILD);
 		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("wer");
 		((UntypedParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2);
@@ -473,14 +473,14 @@ public class EvalUnique {
 		Node nextToReturn = graphQCond.getNodes().get(1);
 		XmlProperty propNextToReturn = (XmlProperty) nextToReturn.getProperties().get(0);
 		propNextToReturn.getAttributeName().setValue("Type");
-		propNextToReturn.getOption().setValue(PropertyKind.ATTRIBUTE);
+		propNextToReturn.getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("3600");
 		((UntypedParameterValue) ((Comparison) nextToReturn.getPredicates().get(0)).getArgument2()).replace(concreteInputValue3);
 		
 		Node nextToElement2 = graphCountQCond.getNodes().get(3);
 		((XmlProperty) nextToElement2.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) nextToElement2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) nextToElement2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("3600");
 		((UntypedParameterValue) ((Comparison) nextToElement2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue4);
@@ -488,11 +488,11 @@ public class EvalUnique {
 		
 		Node nextToReturn2 = nextToReturn.getOutgoingMappings().get(0).getTarget().getOutgoingMappings().get(0).getTarget();
 		XmlProperty prop2NextToReturn = (XmlProperty) nextToReturn2.getProperties().get(0);
-		prop2NextToReturn.getOption().setValue(PropertyKind.ATTRIBUTE);
+		prop2NextToReturn.getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		prop2NextToReturn.getAttributeName().setValue("Value");
 		
 		XmlProperty propNextToElement2 = ((XmlProperty) nextToElement2.getProperties().get(1));
-		propNextToElement2.getOption().setValue(PropertyKind.ATTRIBUTE);
+		propNextToElement2.getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		propNextToElement2.getAttributeName().setValue("Value");
 		
 		((Comparison) nextToElement2.getPredicates().get(1)).getTypeOption().setValue(ReturnType.STRING);
@@ -500,14 +500,14 @@ public class EvalUnique {
 		return completePattern;
 	}
 	
-	private static CompletePattern getUniqueComplexLidoConcrete(AxisKind returnRel, String returnElementName, AxisKind retToE1Rel, String e1Name, String e2Name, String e3Name) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getUniqueComplexLidoConcrete(XmlAxisKind returnRel, String returnElementName, XmlAxisKind retToE1Rel, String e1Name, String e2Name, String e3Name) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = getUniqueComplexAbstract();
 		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);	
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(returnRel, "");
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(returnRel, "");
+		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementName);
 		((UntypedParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
@@ -516,22 +516,22 @@ public class EvalUnique {
 		Graph graph1 = quantifiedCondition.getGraph();
 		
 		Node e1G1 = graph1.getNodes().get(1);	
-		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setAxis(retToE1Rel, "");
-		((XmlProperty) e1G1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setXmlAxis(retToE1Rel, "");
+		((XmlProperty) e1G1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		TextLiteralParam concreteInputValue1G1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1G1.setValue(e1Name);
 		((UntypedParameterValue) ((Comparison) e1G1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue1G1);
 		
 		Node e2G1 = graph1.getNodes().get(2);	
-		((XmlElementNavigation) graph1.getRelations().get(1)).getXmlPathParam().setAxis(AxisKind.CHILD, "");
-		((XmlProperty) e2G1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlElementNavigation) graph1.getRelations().get(1)).getXmlPathParam().setXmlAxis(XmlAxisKind.CHILD, "");
+		((XmlProperty) e2G1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		TextLiteralParam concreteInputValue2G1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2G1.setValue(e2Name);
 		((UntypedParameterValue) ((Comparison) e2G1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2G1);
 		
 		Node e3G1 = graph1.getNodes().get(3);	
-		((XmlElementNavigation) graph1.getRelations().get(2)).getXmlPathParam().setAxis(AxisKind.CHILD, "");
-		((XmlProperty) e3G1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlElementNavigation) graph1.getRelations().get(2)).getXmlPathParam().setXmlAxis(XmlAxisKind.CHILD, "");
+		((XmlProperty) e3G1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		TextLiteralParam concreteInputValue3G1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3G1.setValue(e3Name);
 		((UntypedParameterValue) ((Comparison) e3G1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue3G1);
@@ -544,15 +544,15 @@ public class EvalUnique {
 		Node e3G2 = graph2.getNodes().get(3);	
 		
 		Node e4G2 = graph2.getNodes().get(4);	
-		((XmlElementNavigation) graph2.getRelations().get(3)).getXmlPathParam().setAxis(AxisKind.CHILD, "");
-		((XmlProperty) e4G2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlElementNavigation) graph2.getRelations().get(3)).getXmlPathParam().setXmlAxis(XmlAxisKind.CHILD, "");
+		((XmlProperty) e4G2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		TextLiteralParam concreteInputValue4G2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4G2.setValue(e2Name);
 		((UntypedParameterValue) ((Comparison) e4G2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue4G2);
 		
 		Node e5G2 = graph2.getNodes().get(5);
-		((XmlElementNavigation) graph2.getRelations().get(4)).getXmlPathParam().setAxis(AxisKind.CHILD, "");
-		((XmlProperty) e5G2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlElementNavigation) graph2.getRelations().get(4)).getXmlPathParam().setXmlAxis(XmlAxisKind.CHILD, "");
+		((XmlProperty) e5G2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		TextLiteralParam concreteInputValue5G2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue5G2.setValue(e3Name);
 		((UntypedParameterValue) ((Comparison) e5G2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue5G2);
@@ -563,23 +563,23 @@ public class EvalUnique {
 //		concreteInputValue4.setValue(elementName);
 //		((UnknownParameterValue) ((Comparison) nextToElement2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue4);
 		
-		((XmlProperty) e5G2.getProperties().get(1)).getOption().setValue(PropertyKind.DATA);
+		((XmlProperty) e5G2.getProperties().get(1)).getOption().setValue(XmlPropertyKind.DATA);
 		
-		((XmlProperty) e3G2.getProperties().get(0)).getOption().setValue(PropertyKind.DATA);
+		((XmlProperty) e3G2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.DATA);
 		
 		((Comparison) e5G2.getPredicates().get(1)).getTypeOption().setValue(ReturnType.STRING);
 		
 		return completePattern;
 	}
 	
-	private static CompletePattern getUniqueLidoConcrete(AxisKind returnRel, String returnElementName, String elementName) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getUniqueLidoConcrete(XmlAxisKind returnRel, String returnElementName, String elementName) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = getUniqueAbstract();
 		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);	
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(returnRel, "");
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(returnRel, "");
+		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementName);
 		((UntypedParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
@@ -590,28 +590,28 @@ public class EvalUnique {
 		QuantifiedCondition countQCon = (QuantifiedCondition) countPattern.getCondition();
 		
 		Node element2 = countPattern.getGraph().getNodes().get(1);	
-		((XmlElementNavigation) countPattern.getGraph().getRelations().get(2)).getXmlPathParam().setAxis(returnRel, "");
-		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlElementNavigation) countPattern.getGraph().getRelations().get(2)).getXmlPathParam().setXmlAxis(returnRel, "");
+		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue(returnElementName);
 		((UntypedParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2);
 		
 		Node nextToReturn = qCond.getGraph().getNodes().get(1);
-		((XmlProperty) nextToReturn.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) nextToReturn.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue(elementName);
 		((UntypedParameterValue) ((Comparison) nextToReturn.getPredicates().get(0)).getArgument2()).replace(concreteInputValue3);
 		
 		Node nextToElement2 = countQCon.getGraph().getNodes().get(3);
-		((XmlProperty) nextToElement2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) nextToElement2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue(elementName);
 		((UntypedParameterValue) ((Comparison) nextToElement2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue4);
 		
 		Node nextToReturn2 = countQCon.getGraph().getNodes().get(2);
-		((XmlProperty) nextToReturn2.getProperties().get(0)).getOption().setValue(PropertyKind.DATA);
+		((XmlProperty) nextToReturn2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.DATA);
 		
-		((XmlProperty) nextToElement2.getProperties().get(1)).getOption().setValue(PropertyKind.DATA);
+		((XmlProperty) nextToElement2.getProperties().get(1)).getOption().setValue(XmlPropertyKind.DATA);
 		
 		((Comparison) nextToElement2.getPredicates().get(1)).getTypeOption().setValue(ReturnType.STRING);
 		
@@ -622,15 +622,15 @@ public class EvalUnique {
 	
 	static CompletePattern getUniqueLidoLidoRecId() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		// not used for evaluation anymore
-		return getUniqueLidoConcrete(AxisKind.TWOCHILD, "lido:lido", "lido:lidoRecID");
+		return getUniqueLidoConcrete(XmlAxisKind.TWOCHILD, "lido:lido", "lido:lidoRecID");
 	}
 	
 	static CompletePattern getUniqueLidoObjectPublishedId() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
-		return getUniqueLidoConcrete(AxisKind.TWOCHILD, "lido:lido", "lido:objectPublishedID");
+		return getUniqueLidoConcrete(XmlAxisKind.TWOCHILD, "lido:lido", "lido:objectPublishedID");
 	}
 	
 	static CompletePattern getUniqueComplexLidoNameActorSet() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
-		return getUniqueComplexLidoConcrete(AxisKind.TWOCHILD, "lido:lido", AxisKind.SEVENCHILD, "lido:actor", "lido:nameActorSet", "lido:appellationValue");
+		return getUniqueComplexLidoConcrete(XmlAxisKind.TWOCHILD, "lido:lido", XmlAxisKind.SEVENCHILD, "lido:actor", "lido:nameActorSet", "lido:appellationValue");
 	}
 	
 //	private static CompletePattern getUniqueLidoEfficientConcrete() {		

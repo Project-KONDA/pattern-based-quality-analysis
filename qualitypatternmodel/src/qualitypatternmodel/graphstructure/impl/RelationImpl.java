@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
@@ -949,7 +949,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			}
 			Relation r = target.addIncomming(root);
 			XmlElementNavigation relation = r.adaptAsXMLElementNavigation();
-			relation.getXmlPathParam().setAxis(AxisKind.DESCENDANT, null);
+			relation.getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
 		}
 		for(Relation r: graph.getRelations()) {
 			if(r instanceof XmlReference) {

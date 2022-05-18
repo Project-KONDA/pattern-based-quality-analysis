@@ -7,8 +7,8 @@ import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutility.PatternTestPair;
 import qualitypatternmodel.graphstructure.*;
 import qualitypatternmodel.operators.*;
-import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -57,7 +57,7 @@ public class Test09ComplexComparison {
 		completePattern.createXMLAdaption();
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
 
 		return completePattern;
 	}
@@ -96,8 +96,8 @@ public class Test09ComplexComparison {
 		completePattern.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 		completePattern.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 		
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(AxisKind.DESCENDANT, null);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getXmlPathParam().setAxis(AxisKind.DESCENDANT, null);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
+		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
 		
 		System.out.println(completePattern.myToString());
 		
@@ -180,7 +180,7 @@ public class Test09ComplexComparison {
 		
 		completePattern.createXMLAdaption();
 		
-		((XmlNavigation) ((XmlProperty) comp1.getArgument1()).getIncoming().get(0)).getXmlPathParam().getPropertyOptionParam().setValue(PropertyKind.TAG);
+		((XmlNavigation) ((XmlProperty) comp1.getArgument1()).getIncoming().get(0)).getXmlPathParam().getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
 		
 		return completePattern;		
 	}	

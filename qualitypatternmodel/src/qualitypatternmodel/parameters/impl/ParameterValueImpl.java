@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -210,11 +210,11 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 */
 	@Override
 	public boolean isInTagComparison() {
-		return getPrimitiveComparisonPropertyKinds().contains(PropertyKind.TAG);
+		return getPrimitiveComparisonPropertyKinds().contains(XmlPropertyKind.TAG);
 	}
 
-	private EList<PropertyKind> getPrimitiveComparisonPropertyKinds() {
-		EList<PropertyKind> propertyKinds = new BasicEList<PropertyKind>();
+	private EList<XmlPropertyKind> getPrimitiveComparisonPropertyKinds() {
+		EList<XmlPropertyKind> xmlPropertyKinds = new BasicEList<XmlPropertyKind>();
 		EList<Comparison> comparisons = new BasicEList<Comparison>();
 		comparisons.addAll(getComparison1());
 		comparisons.addAll(getComparison2());
@@ -225,14 +225,14 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 					for(Relation r : property.getIncoming()) {
 						if (r instanceof XmlElementNavigation) {
 							XmlElementNavigation nav = (XmlElementNavigation) r;
-							if(nav.getXmlPathParam() != null && nav.getXmlPathParam().getPropertyOptionParam() != null) {
-								propertyKinds.add(nav.getXmlPathParam().getPropertyOptionParam().getValue());
+							if(nav.getXmlPathParam() != null && nav.getXmlPathParam().getXmlPropertyOptionParam() != null) {
+								xmlPropertyKinds.add(nav.getXmlPathParam().getXmlPropertyOptionParam().getValue());
 							}
 						}
 						if (r instanceof XmlPropertyNavigation) {
 							XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
-							if(nav.getXmlPathParam() != null && nav.getXmlPathParam().getPropertyOptionParam() != null) {
-								propertyKinds.add(nav.getXmlPathParam().getPropertyOptionParam().getValue());
+							if(nav.getXmlPathParam() != null && nav.getXmlPathParam().getXmlPropertyOptionParam() != null) {
+								xmlPropertyKinds.add(nav.getXmlPathParam().getXmlPropertyOptionParam().getValue());
 							}
 						}
 					}
@@ -243,14 +243,14 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 					for(Relation r : property.getIncoming()) {
 						if (r instanceof XmlElementNavigation) {
 							XmlElementNavigation nav = (XmlElementNavigation) r;
-							if(nav.getXmlPathParam() != null && nav.getXmlPathParam().getPropertyOptionParam() != null) {
-								propertyKinds.add(nav.getXmlPathParam().getPropertyOptionParam().getValue());
+							if(nav.getXmlPathParam() != null && nav.getXmlPathParam().getXmlPropertyOptionParam() != null) {
+								xmlPropertyKinds.add(nav.getXmlPathParam().getXmlPropertyOptionParam().getValue());
 							}
 						}
 						if (r instanceof XmlPropertyNavigation) {
 							XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
-							if(nav.getXmlPathParam() != null && nav.getXmlPathParam().getPropertyOptionParam() != null) {
-								propertyKinds.add(nav.getXmlPathParam().getPropertyOptionParam().getValue());
+							if(nav.getXmlPathParam() != null && nav.getXmlPathParam().getXmlPropertyOptionParam() != null) {
+								xmlPropertyKinds.add(nav.getXmlPathParam().getXmlPropertyOptionParam().getValue());
 							}
 						}
 					}
@@ -259,11 +259,11 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		}
 		if(this instanceof TextLiteralParam) {
 			TextLiteralParam text = (TextLiteralParam) this;
-			if(text.getAxisPair() != null) {
-				propertyKinds.add(PropertyKind.TAG);
+			if(text.getXmlAxisPair() != null) {
+				xmlPropertyKinds.add(XmlPropertyKind.TAG);
 			}
 		}
-		return propertyKinds;
+		return xmlPropertyKinds;
 	}
 
 	/**
@@ -273,7 +273,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 */
 	@Override
 	public boolean isInAttributeComparison() {
-		return getPrimitiveComparisonPropertyKinds().contains(PropertyKind.ATTRIBUTE);
+		return getPrimitiveComparisonPropertyKinds().contains(XmlPropertyKind.ATTRIBUTE);
 	}
 
 	/**
@@ -283,7 +283,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 */
 	@Override
 	public boolean isInDataComparison() {
-		return getPrimitiveComparisonPropertyKinds().contains(PropertyKind.DATA);
+		return getPrimitiveComparisonPropertyKinds().contains(XmlPropertyKind.DATA);
 	}
 
 	/**
@@ -819,12 +819,12 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 						if(r instanceof XmlElementNavigation) {
 							XmlElementNavigation nav = (XmlElementNavigation) r;
 							xmlPathParam = nav.getXmlPathParam();
-							if(xmlPathParam.getAxisPairs().isEmpty()) {
+							if(xmlPathParam.getXmlAxisPairs().isEmpty()) {
 								for (Relation previousRelation : nav.getSource().getIncoming()) {
 									if(previousRelation instanceof XmlElementNavigation) {
 										XmlElementNavigation previousNav = (XmlElementNavigation) previousRelation;
 										XmlPathParam previousPathParam = previousNav.getXmlPathParam();
-										TextLiteralParam text = previousPathParam.getAxisPairs().get(previousPathParam.getAxisPairs().size()-1).getTextLiteralParam();
+										TextLiteralParam text = previousPathParam.getXmlAxisPairs().get(previousPathParam.getXmlAxisPairs().size()-1).getTextLiteralParam();
 										if(text != null) {
 											EList<String> newSuggestions = text.inferElementTagSuggestions();
 											if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
@@ -837,7 +837,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 								}
 								
 							} else {
-								TextLiteralParam text = xmlPathParam.getAxisPairs().get(xmlPathParam.getAxisPairs().size()-1).getTextLiteralParam();
+								TextLiteralParam text = xmlPathParam.getXmlAxisPairs().get(xmlPathParam.getXmlAxisPairs().size()-1).getTextLiteralParam();
 								if(text != null) {
 									EList<String> newSuggestions = text.inferElementTagSuggestions();
 									if(suggestions.isEmpty() || newSuggestions.isEmpty()) {

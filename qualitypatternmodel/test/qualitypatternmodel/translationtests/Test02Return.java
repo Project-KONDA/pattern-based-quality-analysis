@@ -4,9 +4,9 @@ import java.util.List;
 
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.testutility.PatternTestPair;
-import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.PropertyOptionParam;
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -73,7 +73,7 @@ public class Test02Return {
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
 		XmlElementNavigation nav2 = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
-		nav2.getXmlPathParam().setAxis(AxisKind.DESCENDANT, "");
+		nav2.getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
 //		XmlElementNavigation nav3 = (XmlElementNavigation) completePattern.getGraph().getRelations().get(4);
@@ -81,8 +81,8 @@ public class Test02Return {
 //		((XmlElementNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 //		reference.getSourceProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
-		PropertyOptionParam pop = reference.getSourcePropertyPath().getPropertyOptionParam();
-		pop.setValue(PropertyKind.ATTRIBUTE);
+		XmlPropertyOptionParam pop = reference.getSourcePropertyPath().getXmlPropertyOptionParam();
+		pop.setValue(XmlPropertyKind.ATTRIBUTE);
 		
 //		System.out.println(completePattern.myToString() + "\n\n");
 		TextLiteralParam an2 = pop.getAttributeName();
@@ -90,8 +90,8 @@ public class Test02Return {
 		an2.setValue("demo:id");
 		
 //		reference.getTargetProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
-		PropertyOptionParam pop2 = reference.getSourcePropertyPath().getPropertyOptionParam();
-		pop2.setValue(PropertyKind.ATTRIBUTE);
+		XmlPropertyOptionParam pop2 = reference.getSourcePropertyPath().getXmlPropertyOptionParam();
+		pop2.setValue(XmlPropertyKind.ATTRIBUTE);
 		TextLiteralParam an = pop2.getAttributeName();
 //		System.out.println(an);
 		an.setValue("demo:id");

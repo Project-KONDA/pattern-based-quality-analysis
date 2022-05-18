@@ -12,7 +12,7 @@ import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.util.Diagnostic;
 
-import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -33,8 +33,8 @@ public class SuggestionGeneration {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
 		CompletePattern completePattern = Test00.getBasePatternCondConcrete("*");
-		((XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0)).getOption().getOptions().add(PropertyKind.TAG);
-		((XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0)).getOption().getOptions().add(XmlPropertyKind.TAG);
+		((XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
         
 		try {
 			completePattern.isValid(AbstractionLevel.CONCRETE);

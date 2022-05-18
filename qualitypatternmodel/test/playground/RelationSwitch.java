@@ -15,8 +15,8 @@ import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -110,14 +110,14 @@ public class RelationSwitch {
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("building");
 		((UntypedParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
-		((XmlProperty) returnInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) returnInReturnGraph.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Node element1 = graph1.getNodes().get(1);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("creator");
 		((UntypedParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2);
-		((XmlProperty) element1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) element1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		
 		Graph graph2 = ((QuantifiedCondition) ((NotCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition()).getCondition()).getGraph();
 		Node element1InGraph2 = graph2.getNodes().get(1);
@@ -125,12 +125,12 @@ public class RelationSwitch {
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("artist");
 		((UntypedParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue3);
-		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		
-		((XmlProperty) element2.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) element2.getProperties().get(1)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		((XmlProperty) element2.getProperties().get(1)).getAttributeName().setValue("id");
 		
-		((XmlProperty) element1InGraph2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) element1InGraph2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		((XmlProperty) element1InGraph2.getProperties().get(0)).getAttributeName().setValue("ref");
 				
 		return completePattern;		

@@ -2804,22 +2804,22 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM__MATCHES = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Property Option Param</b></em>' container reference.
+	 * The feature id for the '<em><b>Xml Property Option Param</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM = PARAMETER_VALUE_FEATURE_COUNT + 2;
+	int TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM = PARAMETER_VALUE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Axis Pair</b></em>' container reference.
+	 * The feature id for the '<em><b>Xml Axis Pair</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM__AXIS_PAIR = PARAMETER_VALUE_FEATURE_COUNT + 3;
+	int TEXT_LITERAL_PARAM__XML_AXIS_PAIR = PARAMETER_VALUE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Text Literal Param</em>' class.
@@ -6717,26 +6717,26 @@ public interface ParametersPackage extends EPackage {
 	EReference getTextLiteralParam_Matches();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getPropertyOptionParam <em>Property Option Param</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlPropertyOptionParam <em>Xml Property Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Property Option Param</em>'.
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getPropertyOptionParam()
+	 * @return the meta object for the container reference '<em>Xml Property Option Param</em>'.
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getXmlPropertyOptionParam()
 	 * @see #getTextLiteralParam()
 	 * @generated
 	 */
-	EReference getTextLiteralParam_PropertyOptionParam();
+	EReference getTextLiteralParam_XmlPropertyOptionParam();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getAxisPair <em>Axis Pair</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlAxisPair <em>Xml Axis Pair</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Axis Pair</em>'.
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getAxisPair()
+	 * @return the meta object for the container reference '<em>Xml Axis Pair</em>'.
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getXmlAxisPair()
 	 * @see #getTextLiteralParam()
 	 * @generated
 	 */
-	EReference getTextLiteralParam_AxisPair();
+	EReference getTextLiteralParam_XmlAxisPair();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextLiteralParam#setValueIfValid(java.lang.String) <em>Set Value If Valid</em>}' operation.
@@ -7446,20 +7446,20 @@ public interface ParametersPackage extends EPackage {
 		EReference TEXT_LITERAL_PARAM__MATCHES = eINSTANCE.getTextLiteralParam_Matches();
 
 		/**
-		 * The meta object literal for the '<em><b>Property Option Param</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Xml Property Option Param</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TEXT_LITERAL_PARAM__PROPERTY_OPTION_PARAM = eINSTANCE.getTextLiteralParam_PropertyOptionParam();
+		EReference TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM = eINSTANCE.getTextLiteralParam_XmlPropertyOptionParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Axis Pair</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Xml Axis Pair</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TEXT_LITERAL_PARAM__AXIS_PAIR = eINSTANCE.getTextLiteralParam_AxisPair();
+		EReference TEXT_LITERAL_PARAM__XML_AXIS_PAIR = eINSTANCE.getTextLiteralParam_XmlAxisPair();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.

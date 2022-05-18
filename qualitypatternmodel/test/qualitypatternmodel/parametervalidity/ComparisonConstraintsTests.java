@@ -5,8 +5,8 @@ import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_NAMESPACE;
 
 import org.junit.Test;
 
-import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -35,7 +35,7 @@ public class ComparisonConstraintsTests {
 		// Graph of quantified condition:
 		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		property1.getOption().setValueIfValid(PropertyKind.TAG);
+		property1.getOption().setValueIfValid(XmlPropertyKind.TAG);
 		
 		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(3);
 		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
@@ -48,7 +48,7 @@ public class ComparisonConstraintsTests {
 		textValue1x.setValueIfValid(DEMO_NAMESPACE + "irgendwas");
 		
 		XmlProperty property2 = (XmlProperty) element1.getProperties().get(1);
-		assertThrows(InvalidityException.class, () -> property2.getOption().setValueIfValid(PropertyKind.TAG));
+		assertThrows(InvalidityException.class, () -> property2.getOption().setValueIfValid(XmlPropertyKind.TAG));
 						
 	}
 	
@@ -62,7 +62,7 @@ public class ComparisonConstraintsTests {
 		// Graph of quantified condition:
 		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		property1.getOption().setValueIfValid(PropertyKind.TAG);
+		property1.getOption().setValueIfValid(XmlPropertyKind.TAG);
 		
 		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(3);
 		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
@@ -80,7 +80,7 @@ public class ComparisonConstraintsTests {
 		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);
 		comp2.getOption().setValueIfValid(ComparisonOperator.NOTEQUAL);
 		
-		property2.getOption().setValueIfValid(PropertyKind.TAG);
+		property2.getOption().setValueIfValid(XmlPropertyKind.TAG);
 		
 		assertThrows(InvalidityException.class, () -> comp2.getOption().setValueIfValid(ComparisonOperator.EQUAL));
 						
@@ -96,7 +96,7 @@ public class ComparisonConstraintsTests {
 		// Graph of quantified condition:
 		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		property1.getOption().setValueIfValid(PropertyKind.TAG);
+		property1.getOption().setValueIfValid(XmlPropertyKind.TAG);
 		
 		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(3);
 		TextLiteralParam textValue1 = ParametersFactory.eINSTANCE.createTextLiteralParam();
@@ -105,7 +105,7 @@ public class ComparisonConstraintsTests {
 		
 		XmlProperty property2 = (XmlProperty) element1.getProperties().get(1);
 		
-		property2.getOption().setValueIfValid(PropertyKind.TAG);
+		property2.getOption().setValueIfValid(XmlPropertyKind.TAG);
 		
 		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
 		TextLiteralParam textValue1x = ParametersFactory.eINSTANCE.createTextLiteralParam();
@@ -124,7 +124,7 @@ public class ComparisonConstraintsTests {
 		// Graph of quantified condition:
 		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		property1.getOption().setValueIfValid(PropertyKind.TAG);
+		property1.getOption().setValueIfValid(XmlPropertyKind.TAG);
 		
 		ParameterValue value1 = (ParameterValue) completePattern.getParameterList().getParameters().get(3);
 		NumberParam numberValue = ParametersFactory.eINSTANCE.createNumberParam();
@@ -139,7 +139,7 @@ public class ComparisonConstraintsTests {
 		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(1);
 		comp2.getOption().setValueIfValid(ComparisonOperator.LESS);
 		
-		property2.getOption().setValueIfValid(PropertyKind.TAG);
+		property2.getOption().setValueIfValid(XmlPropertyKind.TAG);
 		
 		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(6);
 		NumberParam numberValue2 = ParametersFactory.eINSTANCE.createNumberParam();
@@ -156,7 +156,7 @@ public class ComparisonConstraintsTests {
 		// Context graph of pattern:
 		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
-		property0.getOption().setValue(PropertyKind.TAG);
+		property0.getOption().setValue(XmlPropertyKind.TAG);
 		
 		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
 		TextLiteralParam textValue0 = ParametersFactory.eINSTANCE.createTextLiteralParam();
@@ -169,7 +169,7 @@ public class ComparisonConstraintsTests {
 		// Graph of quantified condition:
 		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		property1.getOption().setValueIfValid(PropertyKind.DATA);
+		property1.getOption().setValueIfValid(XmlPropertyKind.DATA);
 
 		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
 		comp2.getOption().setValueIfValid(ComparisonOperator.NOTEQUAL);
@@ -186,10 +186,10 @@ public class ComparisonConstraintsTests {
 		textValue1x.setValueIfValid(DEMO_NAMESPACE + "irgendwas");		
 		
 		XmlElementNavigation navigationElement0Element1 = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		navigationElement0Element1.getXmlPathParam().setAxis(AxisKind.SELF, "");	
+		navigationElement0Element1.getXmlPathParam().setXmlAxis(XmlAxisKind.SELF, "");	
 		
 		XmlProperty property2 = (XmlProperty) element1.getProperties().get(1);
-		assertThrows(InvalidityException.class, () -> property2.getOption().setValueIfValid(PropertyKind.TAG));
+		assertThrows(InvalidityException.class, () -> property2.getOption().setValueIfValid(XmlPropertyKind.TAG));
 						
 	}
 	
@@ -200,7 +200,7 @@ public class ComparisonConstraintsTests {
 		// Context graph of pattern:
 		XmlElement element0 = (XmlElement) completePattern.getGraph().getNodes().get(0);
 		XmlProperty property0 = (XmlProperty) element0.getProperties().get(0);
-		property0.getOption().setValue(PropertyKind.TAG);
+		property0.getOption().setValue(XmlPropertyKind.TAG);
 		
 		ParameterValue value0 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
 		TextLiteralParam textValue0 = ParametersFactory.eINSTANCE.createTextLiteralParam();
@@ -213,7 +213,7 @@ public class ComparisonConstraintsTests {
 		// Graph of quantified condition:
 		XmlElement element1 = (XmlElement) quantifiedCondition.getGraph().getNodes().get(1);
 		XmlProperty property1 = (XmlProperty) element1.getProperties().get(0);
-		property1.getOption().setValueIfValid(PropertyKind.DATA);
+		property1.getOption().setValueIfValid(XmlPropertyKind.DATA);
 
 		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
 		comp2.getOption().setValueIfValid(ComparisonOperator.NOTEQUAL);
@@ -230,10 +230,10 @@ public class ComparisonConstraintsTests {
 		textValue1x.setValueIfValid(DEMO_NAMESPACE + "irgendwas");		
 		
 		XmlProperty property2 = (XmlProperty) element1.getProperties().get(1);
-		property2.getOption().setValueIfValid(PropertyKind.TAG);
+		property2.getOption().setValueIfValid(XmlPropertyKind.TAG);
 
 		XmlElementNavigation navigationElement0Element1 = (XmlElementNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		assertThrows(InvalidityException.class, () -> navigationElement0Element1.getXmlPathParam().setAxis(AxisKind.SELF, ""));	
+		assertThrows(InvalidityException.class, () -> navigationElement0Element1.getXmlPathParam().setXmlAxis(XmlAxisKind.SELF, ""));	
 	}
 	
 }

@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.AxisKind;
-import qualitypatternmodel.adaptionxml.AxisOptionParam;
-import qualitypatternmodel.adaptionxml.AxisPair;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
+import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
+import qualitypatternmodel.adaptionxml.XmlAxisPair;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
-import qualitypatternmodel.adaptionxml.PropertyOptionParam;
+import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
@@ -117,17 +117,17 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	 * @generated
 	 * @ordered
 	 */
-	protected PropertyOptionParam propertyOptionParam;
+	protected XmlPropertyOptionParam xmlPropertyOptionParam;
 
 	/**
-	 * The cached value of the '{@link #getAxisPairs() <em>Axis Pairs</em>}' containment reference list.
+	 * The cached value of the '{@link #getXmlAxisPairs() <em>Axis Pairs</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAxisPairs()
+	 * @see #getXmlAxisPairs()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AxisPair> axisPairs;
+	protected EList<XmlAxisPair> xmlAxisPairs;
 
 	/**
 	 * The cached value of the '{@link #getXmlNavigation() <em>Xml Navigation</em>}' reference.
@@ -151,13 +151,13 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		String query = "";
-		if(getAxisPairs() != null) {
-			for(AxisPair axisPair : getAxisPairs()) {
-				query += axisPair.generateXQuery();
+		if(getXmlAxisPairs() != null) {
+			for(XmlAxisPair xmlAxisPair : getXmlAxisPairs()) {
+				query += xmlAxisPair.generateXQuery();
 			}
 		}
-		if(getPropertyOptionParam() != null) {
-			query += getPropertyOptionParam().generateXQuery();
+		if(getXmlPropertyOptionParam() != null) {
+			query += getXmlPropertyOptionParam().generateXQuery();
 		}
 		return query;
 	}
@@ -167,13 +167,13 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 		if (abstractionLevel.getValue() < AbstractionLevel.SEMI_ABSTRACT_VALUE)
 			throw new InvalidityException("non-generic class in generic pattern");
 		super.isValid(abstractionLevel);
-		if (axisPairs != null) {
-			for(AxisPair a : axisPairs) {
+		if (xmlAxisPairs != null) {
+			for(XmlAxisPair a : xmlAxisPairs) {
 				a.isValid(abstractionLevel);
 			}
 		}
-		if (propertyOptionParam != null) 
-			propertyOptionParam.isValid(abstractionLevel);
+		if (xmlPropertyOptionParam != null) 
+			xmlPropertyOptionParam.isValid(abstractionLevel);
 	}
 	
 	@Override
@@ -182,16 +182,16 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 		if (getXmlNavigation() == null)
 			throw new InvalidityException("PathParam is not assigned to a Relation");
 		if (getXmlNavigation() instanceof XmlPropertyNavigation)
-			if (propertyOptionParam == null) {
+			if (xmlPropertyOptionParam == null) {
 				throw new InvalidityException("propertyOptionParam is null for XmlPropertyNavigation");
 			}				
 		if (getXmlNavigation() instanceof XmlElementNavigation) {
-			if (propertyOptionParam != null) {
+			if (xmlPropertyOptionParam != null) {
 				throw new InvalidityException("propertyOptionParam is existent for XmlNavigation");
 			}
-			if (axisPairs == null) 
+			if (xmlAxisPairs == null) 
 				throw new InvalidityException("axisPair is null");
-			if (axisPairs.isEmpty()) 
+			if (xmlAxisPairs.isEmpty()) 
 				throw new InvalidityException("axisPair is empty");							
 		}
 	}
@@ -322,11 +322,11 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	 * @generated NOT
 	 */
 	@Override
-	public PropertyOptionParam getPropertyOptionParam() {
-		if (propertyOptionParam == null && getXmlNavigation() instanceof XmlPropertyNavigation) {
-			setPropertyOptionParam(new PropertyOptionParamImpl());
+	public XmlPropertyOptionParam getXmlPropertyOptionParam() {
+		if (xmlPropertyOptionParam == null && getXmlNavigation() instanceof XmlPropertyNavigation) {
+			setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
 		}
-		return propertyOptionParam;
+		return xmlPropertyOptionParam;
 	}
 
 	/**
@@ -334,11 +334,11 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPropertyOptionParam(PropertyOptionParam newPropertyOptionParam, NotificationChain msgs) {
-		PropertyOptionParam oldPropertyOptionParam = propertyOptionParam;
-		propertyOptionParam = newPropertyOptionParam;
+	public NotificationChain basicSetXmlPropertyOptionParam(XmlPropertyOptionParam newPropertyOptionParam, NotificationChain msgs) {
+		XmlPropertyOptionParam oldPropertyOptionParam = xmlPropertyOptionParam;
+		xmlPropertyOptionParam = newPropertyOptionParam;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM, oldPropertyOptionParam, newPropertyOptionParam);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM, oldPropertyOptionParam, newPropertyOptionParam);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -350,18 +350,18 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	 * @generated
 	 */
 	@Override
-	public void setPropertyOptionParam(PropertyOptionParam newPropertyOptionParam) {
-		if (newPropertyOptionParam != propertyOptionParam) {
+	public void setXmlPropertyOptionParam(XmlPropertyOptionParam newPropertyOptionParam) {
+		if (newPropertyOptionParam != xmlPropertyOptionParam) {
 			NotificationChain msgs = null;
-			if (propertyOptionParam != null)
-				msgs = ((InternalEObject)propertyOptionParam).eInverseRemove(this, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM, PropertyOptionParam.class, msgs);
+			if (xmlPropertyOptionParam != null)
+				msgs = ((InternalEObject)xmlPropertyOptionParam).eInverseRemove(this, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_PATH_PARAM, XmlPropertyOptionParam.class, msgs);
 			if (newPropertyOptionParam != null)
-				msgs = ((InternalEObject)newPropertyOptionParam).eInverseAdd(this, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM, PropertyOptionParam.class, msgs);
-			msgs = basicSetPropertyOptionParam(newPropertyOptionParam, msgs);
+				msgs = ((InternalEObject)newPropertyOptionParam).eInverseAdd(this, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__XML_PATH_PARAM, XmlPropertyOptionParam.class, msgs);
+			msgs = basicSetXmlPropertyOptionParam(newPropertyOptionParam, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM, newPropertyOptionParam, newPropertyOptionParam));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM, newPropertyOptionParam, newPropertyOptionParam));
 	}
 
 	/**
@@ -370,11 +370,11 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	 * @generated
 	 */
 	@Override
-	public EList<AxisPair> getAxisPairs() {
-		if (axisPairs == null) {
-			axisPairs = new EObjectContainmentWithInverseEList<AxisPair>(AxisPair.class, this, AdaptionxmlPackage.XML_PATH_PARAM__AXIS_PAIRS, AdaptionxmlPackage.AXIS_PAIR__XML_PATH_PARAM);
+	public EList<XmlAxisPair> getXmlAxisPairs() {
+		if (xmlAxisPairs == null) {
+			xmlAxisPairs = new EObjectContainmentWithInverseEList<XmlAxisPair>(XmlAxisPair.class, this, AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PAIRS, AdaptionxmlPackage.XML_AXIS_PAIR__XML_PATH_PARAM);
 		}
-		return axisPairs;
+		return xmlAxisPairs;
 	}
 
 	/**
@@ -445,9 +445,9 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	 * @generated  NOT
 	 */
 	@Override
-	public void setAxis(AxisKind axis, String tag) {
-		getAxisPairs().clear();
-		addAxis(axis, tag);
+	public void setXmlAxis(XmlAxisKind axis, String tag) {
+		getXmlAxisPairs().clear();
+		addXmlAxis(axis, tag);
 	}
 
 	/**
@@ -456,11 +456,11 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	 * @generated NOT
 	 */
 	@Override
-	public void addAxis(AxisKind axis, String tag) {
-		AxisPair pair = new AxisPairImpl();
+	public void addXmlAxis(XmlAxisKind axis, String tag) {
+		XmlAxisPair pair = new XmlAxisPairImpl();
 		
-		AxisOptionParam axisOption = new AxisOptionParamImpl();
-		pair.setAxisOptionParam(axisOption);
+		XmlAxisOptionParam axisOption = new XmlAxisOptionParamImpl();
+		pair.setXmlAxisOptionParam(axisOption);
 		axisOption.setValue(axis);
 		
 		if (tag != null) {
@@ -469,7 +469,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			pair.setTextLiteralParam(text);
 		}
 		
-		getAxisPairs().add(pair);
+		getXmlAxisPairs().add(pair);
 	}
 
 	/**
@@ -506,16 +506,16 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 		ParameterList parameterList = getParameterList();		
 		if(parameterList != null) {
 			if (getXmlNavigation() instanceof XmlElementNavigation) {
-				if(getAxisPairs().isEmpty()) {
-					AxisPair axisPair = new AxisPairImpl();
-					getAxisPairs().add(axisPair);
-					axisPair.createParameters();
+				if(getXmlAxisPairs().isEmpty()) {
+					XmlAxisPair xmlAxisPair = new XmlAxisPairImpl();
+					getXmlAxisPairs().add(xmlAxisPair);
+					xmlAxisPair.createParameters();
 				}
 			}
 			if (getXmlNavigation() instanceof XmlPropertyNavigation) {
-				if(getPropertyOptionParam() == null) {
-					PropertyOptionParam option = new PropertyOptionParamImpl();	
-					setPropertyOptionParam(option);
+				if(getXmlPropertyOptionParam() == null) {
+					XmlPropertyOptionParam option = new XmlPropertyOptionParamImpl();	
+					setXmlPropertyOptionParam(option);
 				}
 			} 
 		}
@@ -536,12 +536,12 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 				return basicSetParameterList((ParameterList)otherEnd, msgs);
 			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameterReferences()).basicAdd(otherEnd, msgs);
-			case AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM:
-				if (propertyOptionParam != null)
-					msgs = ((InternalEObject)propertyOptionParam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM, null, msgs);
-				return basicSetPropertyOptionParam((PropertyOptionParam)otherEnd, msgs);
-			case AdaptionxmlPackage.XML_PATH_PARAM__AXIS_PAIRS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAxisPairs()).basicAdd(otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
+				if (xmlPropertyOptionParam != null)
+					msgs = ((InternalEObject)xmlPropertyOptionParam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM, null, msgs);
+				return basicSetXmlPropertyOptionParam((XmlPropertyOptionParam)otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PAIRS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getXmlAxisPairs()).basicAdd(otherEnd, msgs);
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				if (xmlNavigation != null)
 					msgs = ((InternalEObject)xmlNavigation).eInverseRemove(this, AdaptionxmlPackage.XML_NAVIGATION__XML_PATH_PARAM, XmlNavigation.class, msgs);
@@ -562,10 +562,10 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 				return basicSetParameterList(null, msgs);
 			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
 				return ((InternalEList<?>)getParameterReferences()).basicRemove(otherEnd, msgs);
-			case AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM:
-				return basicSetPropertyOptionParam(null, msgs);
-			case AdaptionxmlPackage.XML_PATH_PARAM__AXIS_PAIRS:
-				return ((InternalEList<?>)getAxisPairs()).basicRemove(otherEnd, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
+				return basicSetXmlPropertyOptionParam(null, msgs);
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PAIRS:
+				return ((InternalEList<?>)getXmlAxisPairs()).basicRemove(otherEnd, msgs);
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				return basicSetXmlNavigation(null, msgs);
 		}
@@ -602,10 +602,10 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 				return isPredefined();
 			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
 				return getParameterReferences();
-			case AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM:
-				return getPropertyOptionParam();
-			case AdaptionxmlPackage.XML_PATH_PARAM__AXIS_PAIRS:
-				return getAxisPairs();
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
+				return getXmlPropertyOptionParam();
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PAIRS:
+				return getXmlAxisPairs();
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				if (resolve) return getXmlNavigation();
 				return basicGetXmlNavigation();
@@ -635,12 +635,12 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 				getParameterReferences().clear();
 				getParameterReferences().addAll((Collection<? extends ParameterReference>)newValue);
 				return;
-			case AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM:
-				setPropertyOptionParam((PropertyOptionParam)newValue);
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
+				setXmlPropertyOptionParam((XmlPropertyOptionParam)newValue);
 				return;
-			case AdaptionxmlPackage.XML_PATH_PARAM__AXIS_PAIRS:
-				getAxisPairs().clear();
-				getAxisPairs().addAll((Collection<? extends AxisPair>)newValue);
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PAIRS:
+				getXmlAxisPairs().clear();
+				getXmlAxisPairs().addAll((Collection<? extends XmlAxisPair>)newValue);
 				return;
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				setXmlNavigation((XmlNavigation)newValue);
@@ -669,11 +669,11 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
 				getParameterReferences().clear();
 				return;
-			case AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM:
-				setPropertyOptionParam((PropertyOptionParam)null);
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
+				setXmlPropertyOptionParam((XmlPropertyOptionParam)null);
 				return;
-			case AdaptionxmlPackage.XML_PATH_PARAM__AXIS_PAIRS:
-				getAxisPairs().clear();
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PAIRS:
+				getXmlAxisPairs().clear();
 				return;
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				setXmlNavigation((XmlNavigation)null);
@@ -698,10 +698,10 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 				return predefined != PREDEFINED_EDEFAULT;
 			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
 				return parameterReferences != null && !parameterReferences.isEmpty();
-			case AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM:
-				return propertyOptionParam != null;
-			case AdaptionxmlPackage.XML_PATH_PARAM__AXIS_PAIRS:
-				return axisPairs != null && !axisPairs.isEmpty();
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_PROPERTY_OPTION_PARAM:
+				return xmlPropertyOptionParam != null;
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_AXIS_PAIRS:
+				return xmlAxisPairs != null && !xmlAxisPairs.isEmpty();
 			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				return xmlNavigation != null;
 		}
@@ -779,11 +779,11 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionxmlPackage.XML_PATH_PARAM___SET_AXIS__AXISKIND_STRING:
-				setAxis((AxisKind)arguments.get(0), (String)arguments.get(1));
+			case AdaptionxmlPackage.XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND_STRING:
+				setXmlAxis((XmlAxisKind)arguments.get(0), (String)arguments.get(1));
 				return null;
-			case AdaptionxmlPackage.XML_PATH_PARAM___ADD_AXIS__AXISKIND_STRING:
-				addAxis((AxisKind)arguments.get(0), (String)arguments.get(1));
+			case AdaptionxmlPackage.XML_PATH_PARAM___ADD_XML_AXIS__XMLAXISKIND_STRING:
+				addXmlAxis((XmlAxisKind)arguments.get(0), (String)arguments.get(1));
 				return null;
 			case AdaptionxmlPackage.XML_PATH_PARAM___INPUT_IS_VALID:
 				return inputIsValid();
@@ -940,11 +940,11 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	@Override
 	public String myToString() {
 		String res = "path [" + getInternalId() + "]";
-		for(AxisPair axisPair : getAxisPairs()) {
-			res += axisPair.myToString();
+		for(XmlAxisPair xmlAxisPair : getXmlAxisPairs()) {
+			res += xmlAxisPair.myToString();
 		}
 		if (getXmlNavigation() instanceof XmlPropertyNavigation){
-			res += getPropertyOptionParam().myToString();
+			res += getXmlPropertyOptionParam().myToString();
 		}
 		return res;
 	}

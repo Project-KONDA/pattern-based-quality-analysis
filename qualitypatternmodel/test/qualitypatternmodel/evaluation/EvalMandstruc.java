@@ -2,8 +2,8 @@ package qualitypatternmodel.evaluation;
 
 import java.util.ArrayList;
 
-import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -82,7 +82,7 @@ public class EvalMandstruc {
 		CompletePattern completePattern = getMandstrucThreeElementsAbstract();
 		
 		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getNodes().get(0);
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(XmlAxisKind.THREECHILD);
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
@@ -90,29 +90,29 @@ public class EvalMandstruc {
 				.replace(concreteInputValue);
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
 		
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		
 		NotCondition not = (NotCondition) completePattern.getCondition();
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) not.getCondition();
 		Graph graph1 = quantifiedCondition.getGraph();
 		
 		XmlElement element2 = (XmlElement) graph1.getNodes().get(1);
-		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setAxis(AxisKind.CHILD, "");
+		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.CHILD, "");
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("ob30");
 		((UntypedParameterValue) comparisonElement2.getArguments().get(1)).replace(concreteInputValue2);
 		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");		
-		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		
 		XmlElement element3 = (XmlElement) graph1.getNodes().get(2);
-		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setAxis(AxisKind.CHILD, "");
+		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.CHILD, "");
 		BooleanOperator comparisonElement3 = element3.getPredicates().get(0);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("3100");
 		((UntypedParameterValue) comparisonElement3.getArguments().get(1)).replace(concreteInputValue3);
 		((XmlProperty) element3.getProperties().get(0)).getAttributeName().setValue("Type");		
-		((XmlProperty) element3.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) element3.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		
 		return completePattern;
 	}

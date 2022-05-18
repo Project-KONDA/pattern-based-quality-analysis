@@ -6,7 +6,7 @@ package qualitypatternmodel.adaptionxml.validation;
 
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.adaptionxml.PropertyOptionParam;
+import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.parameters.TextLiteralParam;
 
@@ -19,7 +19,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
 public interface XmlPropertyValidator {
 	boolean validate();
 
-	boolean validateOption(PropertyOptionParam value);
+	boolean validateOption(XmlPropertyOptionParam value);
 	boolean validateAttributeName(TextLiteralParam value);
 	boolean validateIncomingReferences(EList<XmlReference> value);
 	boolean validateOutgoingReferences(EList<XmlReference> value);

@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 import org.eclipse.emf.common.util.EList;
 
-import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.PropertyOptionParam;
-import qualitypatternmodel.adaptionxml.AxisKind;
-import qualitypatternmodel.adaptionxml.AxisOptionParam;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
+import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -110,13 +110,13 @@ public class EvalExnex {
 		CompletePattern completePattern = getExNExAbstract();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 
-		((AxisOptionParam) params.get(12)).setValue(AxisKind.THREECHILD);
-		((AxisOptionParam) params.get(11)).setValue(AxisKind.CHILD);
-		((AxisOptionParam) params.get(10)).setValue(AxisKind.CHILD);
+		((XmlAxisOptionParam) params.get(12)).setValue(XmlAxisKind.THREECHILD);
+		((XmlAxisOptionParam) params.get(11)).setValue(XmlAxisKind.CHILD);
+		((XmlAxisOptionParam) params.get(10)).setValue(XmlAxisKind.CHILD);
 		((TextLiteralParam) params.get(9)).setValue("Type");
-		((PropertyOptionParam) params.get(8)).setValue(PropertyKind.ATTRIBUTE);
+		((XmlPropertyOptionParam) params.get(8)).setValue(XmlPropertyKind.ATTRIBUTE);
 		((TextLiteralParam) params.get(7)).setValue("Type");
-		((PropertyOptionParam) params.get(6)).setValue(PropertyKind.ATTRIBUTE);
+		((XmlPropertyOptionParam) params.get(6)).setValue(XmlPropertyKind.ATTRIBUTE);
 		((ComparisonOptionParam) params.get(4)).setValue(ComparisonOperator.EQUAL);
 		((UntypedParameterValue) params.get(3)).replace(new TextLiteralParamImpl("ob30"));
 		((ComparisonOptionParam) params.get(1)).setValue(ComparisonOperator.EQUAL);
@@ -129,15 +129,15 @@ public class EvalExnex {
 		CompletePattern completePattern = getExNExAbstractWithComp();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 
-		((AxisOptionParam) params.get(17)).setValue(AxisKind.TWOCHILD);
-		((AxisOptionParam) params.get(16)).setValue(AxisKind.CHILD);
-		((AxisOptionParam) params.get(15)).setValue(AxisKind.SEVENCHILD);
+		((XmlAxisOptionParam) params.get(17)).setValue(XmlAxisKind.TWOCHILD);
+		((XmlAxisOptionParam) params.get(16)).setValue(XmlAxisKind.CHILD);
+		((XmlAxisOptionParam) params.get(15)).setValue(XmlAxisKind.SEVENCHILD);
 //		((TextLiteralParam) params.get(14)).setValue("Type");
-		((PropertyOptionParam) params.get(13)).setValue(PropertyKind.TAG);
+		((XmlPropertyOptionParam) params.get(13)).setValue(XmlPropertyKind.TAG);
 //		((TextLiteralParam) params.get(12)).setValue("Type");
-		((PropertyOptionParam) params.get(11)).setValue(PropertyKind.TAG);
+		((XmlPropertyOptionParam) params.get(11)).setValue(XmlPropertyKind.TAG);
 //		((TextLiteralParam) params.get(10)).setValue("Type");
-		((PropertyOptionParam) params.get(9)).setValue(PropertyKind.TAG);
+		((XmlPropertyOptionParam) params.get(9)).setValue(XmlPropertyKind.TAG);
 		((ComparisonOptionParam) params.get(7)).setValue(ComparisonOperator.EQUAL);
 		((UntypedParameterValue) params.get(6)).replace(new TextLiteralParamImpl("lido:conceptID"));
 		((ComparisonOptionParam) params.get(4)).setValue(ComparisonOperator.EQUAL);

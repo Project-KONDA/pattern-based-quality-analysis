@@ -10,9 +10,9 @@ import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.adaptionxml.PropertyKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -52,10 +52,10 @@ public class Test04QuantorCombinations {
 		Relation rel = prop0.getIncoming().get(0);
 		if(rel instanceof XmlPropertyNavigation) {
 			XmlPropertyNavigation nav = (XmlPropertyNavigation) rel;
-			nav.getXmlPathParam().getPropertyOptionParam().setValue(PropertyKind.ATTRIBUTE);
+			nav.getXmlPathParam().getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
 			TextLiteralParam text = parametersFactory.createTextLiteralParam();
 			text.setValue("demo:id");
-			nav.getXmlPathParam().getPropertyOptionParam().setAttributeName(text);
+			nav.getXmlPathParam().getXmlPropertyOptionParam().setAttributeName(text);
 		}
 		
 		return completePattern;

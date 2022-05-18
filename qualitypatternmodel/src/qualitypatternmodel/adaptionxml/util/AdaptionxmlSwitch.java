@@ -139,20 +139,20 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AdaptionxmlPackage.AXIS_OPTION_PARAM: {
-				AxisOptionParam axisOptionParam = (AxisOptionParam)theEObject;
-				T result = caseAxisOptionParam(axisOptionParam);
-				if (result == null) result = caseParameter(axisOptionParam);
-				if (result == null) result = casePatternElement(axisOptionParam);
+			case AdaptionxmlPackage.XML_AXIS_OPTION_PARAM: {
+				XmlAxisOptionParam xmlAxisOptionParam = (XmlAxisOptionParam)theEObject;
+				T result = caseXmlAxisOptionParam(xmlAxisOptionParam);
+				if (result == null) result = caseParameter(xmlAxisOptionParam);
+				if (result == null) result = casePatternElement(xmlAxisOptionParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM: {
-				PropertyOptionParam propertyOptionParam = (PropertyOptionParam)theEObject;
-				T result = casePropertyOptionParam(propertyOptionParam);
-				if (result == null) result = caseParameter(propertyOptionParam);
-				if (result == null) result = caseAdaptable(propertyOptionParam);
-				if (result == null) result = casePatternElement(propertyOptionParam);
+			case AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM: {
+				XmlPropertyOptionParam xmlPropertyOptionParam = (XmlPropertyOptionParam)theEObject;
+				T result = caseXmlPropertyOptionParam(xmlPropertyOptionParam);
+				if (result == null) result = caseParameter(xmlPropertyOptionParam);
+				if (result == null) result = caseAdaptable(xmlPropertyOptionParam);
+				if (result == null) result = casePatternElement(xmlPropertyOptionParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -165,11 +165,11 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AdaptionxmlPackage.AXIS_PAIR: {
-				AxisPair axisPair = (AxisPair)theEObject;
-				T result = caseAxisPair(axisPair);
-				if (result == null) result = caseAdaptable(axisPair);
-				if (result == null) result = casePatternElement(axisPair);
+			case AdaptionxmlPackage.XML_AXIS_PAIR: {
+				XmlAxisPair xmlAxisPair = (XmlAxisPair)theEObject;
+				T result = caseXmlAxisPair(xmlAxisPair);
+				if (result == null) result = caseAdaptable(xmlAxisPair);
+				if (result == null) result = casePatternElement(xmlAxisPair);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -283,32 +283,32 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Axis Option Param</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Xml Axis Option Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Axis Option Param</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Xml Axis Option Param</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAxisOptionParam(AxisOptionParam object) {
+	public T caseXmlAxisOptionParam(XmlAxisOptionParam object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Property Option Param</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Xml Property Option Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Property Option Param</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Xml Property Option Param</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePropertyOptionParam(PropertyOptionParam object) {
+	public T caseXmlPropertyOptionParam(XmlPropertyOptionParam object) {
 		return null;
 	}
 
@@ -328,17 +328,17 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Axis Pair</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Xml Axis Pair</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Axis Pair</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Xml Axis Pair</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAxisPair(AxisPair object) {
+	public T caseXmlAxisPair(XmlAxisPair object) {
 		return null;
 	}
 

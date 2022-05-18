@@ -8,7 +8,7 @@ import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
@@ -241,7 +241,7 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 	 * @model exceptions="qualitypatternmodel.execution.IoExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.BaseXExceptionWrapper"
 	 * @generated
 	 */
-	EList<String> getSuggestionsFromAxisPreviousTag(AxisKind axisKind, String previousTag) throws IOException, QueryException, QueryIOException, BaseXException;
+	EList<String> getSuggestionsFromAxisPreviousTag(XmlAxisKind axisKind, String previousTag) throws IOException, QueryException, QueryIOException, BaseXException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -249,7 +249,7 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 	 * @model exceptions="qualitypatternmodel.execution.IoExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.BaseXExceptionWrapper"
 	 * @generated
 	 */
-	EList<String> getSuggestionsFromAxisNextTag(AxisKind axisKind, String previousTag) throws IOException, QueryException, QueryIOException, BaseXException;
+	EList<String> getSuggestionsFromAxisNextTag(XmlAxisKind axisKind, String previousTag) throws IOException, QueryException, QueryIOException, BaseXException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -257,7 +257,7 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 	 * @model exceptions="qualitypatternmodel.execution.IoExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.BaseXExceptionWrapper"
 	 * @generated
 	 */
-	EList<String> getSuggestionsFromAxisPreviousRoot(AxisKind axisKind) throws IOException, QueryException, QueryIOException, BaseXException;
+	EList<String> getSuggestionsFromAxisPreviousRoot(XmlAxisKind axisKind) throws IOException, QueryException, QueryIOException, BaseXException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -265,6 +265,6 @@ public interface XmlDataDatabase extends XmlDatabase, Database {
 	 * @model exceptions="qualitypatternmodel.execution.IoExceptionWrapper qualitypatternmodel.execution.QueryExceptionWrapper qualitypatternmodel.execution.QueryIOExceptionWrapper qualitypatternmodel.execution.BaseXExceptionWrapper"
 	 * @generated
 	 */
-	EList<AxisKind> getSuggestionsFromSourceTargetTag(String sourceTag, String targetTag) throws IOException, QueryException, QueryIOException, BaseXException;
+	EList<XmlAxisKind> getSuggestionsFromSourceTargetTag(String sourceTag, String targetTag) throws IOException, QueryException, QueryIOException, BaseXException;
 
 } // XmlDatabase

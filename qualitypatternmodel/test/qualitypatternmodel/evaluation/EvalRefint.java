@@ -15,8 +15,8 @@ import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.adaptionxml.PropertyKind;
-import qualitypatternmodel.adaptionxml.AxisKind;
+import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -114,43 +114,43 @@ public class EvalRefint {
 		CompletePattern completePattern = getRefintAbstractMidas();
 		
 		Node returnInReturnGraph = completePattern.getGraph().getNodes().get(0);
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(XmlAxisKind.THREECHILD);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
 		((UntypedParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
 		((XmlProperty) returnInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) returnInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) returnInReturnGraph.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Node element1 = graph1.getNodes().get(1);
-		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setValue(AxisKind.TWOCHILD);
+		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setValue(XmlAxisKind.TWOCHILD);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("3600");
 		((UntypedParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2);
 		((XmlProperty) element1.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) element1.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) element1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		
 		Graph graph2 = ((QuantifiedCondition) ((NotCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition()).getCondition()).getGraph();
 		Node element1InGraph2 = graph2.getNodes().get(1);
 		Node element2 = graph2.getNodes().get(2);		
-		((XmlElementNavigation) graph2.getRelations().get(4)).getXmlPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) graph2.getRelations().get(4)).getXmlPathParam().setValue(XmlAxisKind.THREECHILD);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("wer");
 		((UntypedParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue3);
 		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		
 		Node element3 = graph2.getNodes().get(3);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("3600");
 		((UntypedParameterValue) ((Comparison) element3.getPredicates().get(0)).getArgument2()).replace(concreteInputValue4);
 		((XmlProperty) element3.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) element3.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);		
+		((XmlProperty) element3.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);		
 		
-		((XmlProperty) element1InGraph2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) element1InGraph2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		((XmlProperty) element1InGraph2.getProperties().get(0)).getAttributeName().setValue("Value");
 		
-		((XmlProperty) element3.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) element3.getProperties().get(1)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		((XmlProperty) element3.getProperties().get(1)).getAttributeName().setValue("Value");
 				
 		return completePattern;		
@@ -216,14 +216,14 @@ public class EvalRefint {
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("building");
 		((UntypedParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
-		((XmlProperty) returnInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) returnInReturnGraph.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Node element1 = graph1.getNodes().get(1);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("creator");
 		((UntypedParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2);
-		((XmlProperty) element1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) element1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		
 		Graph graph2 = ((QuantifiedCondition) ((NotCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition()).getCondition()).getGraph();
 		Node element1InGraph2 = graph2.getNodes().get(1);
@@ -231,12 +231,12 @@ public class EvalRefint {
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("artist");
 		((UntypedParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue3);
-		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
+		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		
-		((XmlProperty) element2.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) element2.getProperties().get(1)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		((XmlProperty) element2.getProperties().get(1)).getAttributeName().setValue("id");
 		
-		((XmlProperty) element1InGraph2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
+		((XmlProperty) element1InGraph2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		((XmlProperty) element1InGraph2.getProperties().get(0)).getAttributeName().setValue("ref");
 				
 		return completePattern;		

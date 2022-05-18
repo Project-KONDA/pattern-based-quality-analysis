@@ -76,22 +76,22 @@ public interface AdaptionxmlFactory extends EFactory {
 	XmlPropertyNavigation createXmlPropertyNavigation();
 
 	/**
-	 * Returns a new object of class '<em>Axis Option Param</em>'.
+	 * Returns a new object of class '<em>Xml Axis Option Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Axis Option Param</em>'.
+	 * @return a new object of class '<em>Xml Axis Option Param</em>'.
 	 * @generated
 	 */
-	AxisOptionParam createAxisOptionParam();
+	XmlAxisOptionParam createXmlAxisOptionParam();
 
 	/**
-	 * Returns a new object of class '<em>Property Option Param</em>'.
+	 * Returns a new object of class '<em>Xml Property Option Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Property Option Param</em>'.
+	 * @return a new object of class '<em>Xml Property Option Param</em>'.
 	 * @generated
 	 */
-	PropertyOptionParam createPropertyOptionParam();
+	XmlPropertyOptionParam createXmlPropertyOptionParam();
 
 	/**
 	 * Returns a new object of class '<em>Xml Path Param</em>'.
@@ -103,13 +103,13 @@ public interface AdaptionxmlFactory extends EFactory {
 	XmlPathParam createXmlPathParam();
 
 	/**
-	 * Returns a new object of class '<em>Axis Pair</em>'.
+	 * Returns a new object of class '<em>Xml Axis Pair</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Axis Pair</em>'.
+	 * @return a new object of class '<em>Xml Axis Pair</em>'.
 	 * @generated
 	 */
-	AxisPair createAxisPair();
+	XmlAxisPair createXmlAxisPair();
 
 	/**
 	 * Returns the package supported by this factory.

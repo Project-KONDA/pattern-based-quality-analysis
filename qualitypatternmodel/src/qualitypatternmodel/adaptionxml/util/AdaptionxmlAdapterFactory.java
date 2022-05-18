@@ -101,20 +101,20 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 				return createXmlPropertyNavigationAdapter();
 			}
 			@Override
-			public Adapter caseAxisOptionParam(AxisOptionParam object) {
-				return createAxisOptionParamAdapter();
+			public Adapter caseXmlAxisOptionParam(XmlAxisOptionParam object) {
+				return createXmlAxisOptionParamAdapter();
 			}
 			@Override
-			public Adapter casePropertyOptionParam(PropertyOptionParam object) {
-				return createPropertyOptionParamAdapter();
+			public Adapter caseXmlPropertyOptionParam(XmlPropertyOptionParam object) {
+				return createXmlPropertyOptionParamAdapter();
 			}
 			@Override
 			public Adapter caseXmlPathParam(XmlPathParam object) {
 				return createXmlPathParamAdapter();
 			}
 			@Override
-			public Adapter caseAxisPair(AxisPair object) {
-				return createAxisPairAdapter();
+			public Adapter caseXmlAxisPair(XmlAxisPair object) {
+				return createXmlAxisPairAdapter();
 			}
 			@Override
 			public Adapter caseXmlNavigation(XmlNavigation object) {
@@ -261,30 +261,30 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.AxisOptionParam <em>Axis Option Param</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XmlAxisOptionParam <em>Xml Axis Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionxml.AxisOptionParam
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisOptionParam
 	 * @generated
 	 */
-	public Adapter createAxisOptionParamAdapter() {
+	public Adapter createXmlAxisOptionParamAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam <em>Property Option Param</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam <em>Xml Property Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionxml.PropertyOptionParam
+	 * @see qualitypatternmodel.adaptionxml.XmlPropertyOptionParam
 	 * @generated
 	 */
-	public Adapter createPropertyOptionParamAdapter() {
+	public Adapter createXmlPropertyOptionParamAdapter() {
 		return null;
 	}
 
@@ -303,16 +303,16 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.AxisPair <em>Axis Pair</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XmlAxisPair <em>Xml Axis Pair</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionxml.AxisPair
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair
 	 * @generated
 	 */
-	public Adapter createAxisPairAdapter() {
+	public Adapter createXmlAxisPairAdapter() {
 		return null;
 	}
 

@@ -3,8 +3,8 @@
 package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.adaptionxml.AxisPair;
-import qualitypatternmodel.adaptionxml.PropertyOptionParam;
+import qualitypatternmodel.adaptionxml.XmlAxisPair;
+import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.operators.Match;
 
@@ -21,8 +21,8 @@ import qualitypatternmodel.operators.Match;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getMatches <em>Matches</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getPropertyOptionParam <em>Property Option Param</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getAxisPair <em>Axis Pair</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlPropertyOptionParam <em>Xml Property Option Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlAxisPair <em>Xml Axis Pair</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam()
@@ -68,52 +68,52 @@ public interface TextLiteralParam extends ParameterValue {
 	EList<Match> getMatches();
 
 	/**
-	 * Returns the value of the '<em><b>Property Option Param</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getAttributeName <em>Attribute Name</em>}'.
+	 * Returns the value of the '<em><b>Xml Property Option Param</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getAttributeName <em>Attribute Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property Option Param</em>' container reference.
-	 * @see #setPropertyOptionParam(PropertyOptionParam)
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_PropertyOptionParam()
-	 * @see qualitypatternmodel.adaptionxml.PropertyOptionParam#getAttributeName
+	 * @return the value of the '<em>Xml Property Option Param</em>' container reference.
+	 * @see #setXmlPropertyOptionParam(XmlPropertyOptionParam)
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_XmlPropertyOptionParam()
+	 * @see qualitypatternmodel.adaptionxml.XmlPropertyOptionParam#getAttributeName
 	 * @model opposite="attributeName" transient="false"
 	 * @generated
 	 */
-	PropertyOptionParam getPropertyOptionParam();
+	XmlPropertyOptionParam getXmlPropertyOptionParam();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.TextLiteralParam#getPropertyOptionParam <em>Property Option Param</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlPropertyOptionParam <em>Xml Property Option Param</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Property Option Param</em>' container reference.
-	 * @see #getPropertyOptionParam()
+	 * @param value the new value of the '<em>Xml Property Option Param</em>' container reference.
+	 * @see #getXmlPropertyOptionParam()
 	 * @generated
 	 */
-	void setPropertyOptionParam(PropertyOptionParam value);
+	void setXmlPropertyOptionParam(XmlPropertyOptionParam value);
 
 	/**
-	 * Returns the value of the '<em><b>Axis Pair</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.AxisPair#getTextLiteralParam <em>Text Literal Param</em>}'.
+	 * Returns the value of the '<em><b>Xml Axis Pair</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlAxisPair#getTextLiteralParam <em>Text Literal Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Axis Pair</em>' container reference.
-	 * @see #setAxisPair(AxisPair)
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_AxisPair()
-	 * @see qualitypatternmodel.adaptionxml.AxisPair#getTextLiteralParam
+	 * @return the value of the '<em>Xml Axis Pair</em>' container reference.
+	 * @see #setXmlAxisPair(XmlAxisPair)
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_XmlAxisPair()
+	 * @see qualitypatternmodel.adaptionxml.XmlAxisPair#getTextLiteralParam
 	 * @model opposite="textLiteralParam" transient="false"
 	 * @generated
 	 */
-	AxisPair getAxisPair();
+	XmlAxisPair getXmlAxisPair();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.TextLiteralParam#getAxisPair <em>Axis Pair</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlAxisPair <em>Xml Axis Pair</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Axis Pair</em>' container reference.
-	 * @see #getAxisPair()
+	 * @param value the new value of the '<em>Xml Axis Pair</em>' container reference.
+	 * @see #getXmlAxisPair()
 	 * @generated
 	 */
-	void setAxisPair(AxisPair value);
+	void setXmlAxisPair(XmlAxisPair value);
 
 	/**
 	 * <!-- begin-user-doc -->
