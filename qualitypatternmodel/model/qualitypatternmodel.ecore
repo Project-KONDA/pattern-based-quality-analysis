@@ -1093,13 +1093,13 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfaxispair" upperBound="-1"
           eType="#//adaptionrdf/RdfAxisPair" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="RegexQuantifier">
+    <eClassifiers xsi:type="ecore:EEnum" name="RdfQuantifier">
       <eLiterals name="ONCE" literal="ONCE"/>
       <eLiterals name="ZEROPLUS" value="1" literal="ZEROPLUS"/>
       <eLiterals name="ONEPLUS" value="2" literal="ONEPLUS"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RdfAxisPair" eSuperTypes="#//patternstructure/PatternElement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//adaptionrdf/RegexQuantifier"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//adaptionrdf/RdfQuantifier"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="textliteralparam" upperBound="-1"
           eType="#//parameters/TextLiteralParam" containment="true"/>
     </eClassifiers>

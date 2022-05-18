@@ -14,11 +14,10 @@ import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfAxisPair;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
+import qualitypatternmodel.adaptionrdf.RdfQuantifier;
 import qualitypatternmodel.adaptionrdf.RdfReference;
 import qualitypatternmodel.adaptionrdf.RdfUrlNode;
 import qualitypatternmodel.adaptionrdf.RdfValueNode;
-import qualitypatternmodel.adaptionrdf.RegexQuantifier;
-
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 
 import qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl;
@@ -94,7 +93,7 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum regexQuantifierEEnum = null;
+	private EEnum rdfQuantifierEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -283,8 +282,8 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 	 * @generated
 	 */
 	@Override
-	public EEnum getRegexQuantifier() {
-		return regexQuantifierEEnum;
+	public EEnum getRdfQuantifier() {
+		return rdfQuantifierEEnum;
 	}
 
 	/**
@@ -331,7 +330,7 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		rdfValueNodeEClass = createEClass(RDF_VALUE_NODE);
 
 		// Create enums
-		regexQuantifierEEnum = createEEnum(REGEX_QUANTIFIER);
+		rdfQuantifierEEnum = createEEnum(RDF_QUANTIFIER);
 	}
 
 	/**
@@ -383,16 +382,16 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		initEReference(getRdfPathParam_Rdfaxispair(), this.getRdfAxisPair(), null, "rdfaxispair", null, 0, -1, RdfPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rdfAxisPairEClass, RdfAxisPair.class, "RdfAxisPair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRdfAxisPair_Quantifier(), this.getRegexQuantifier(), "quantifier", null, 0, 1, RdfAxisPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRdfAxisPair_Quantifier(), this.getRdfQuantifier(), "quantifier", null, 0, 1, RdfAxisPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRdfAxisPair_Textliteralparam(), theParametersPackage.getTextLiteralParam(), null, "textliteralparam", null, 0, -1, RdfAxisPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rdfValueNodeEClass, RdfValueNode.class, "RdfValueNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
-		initEEnum(regexQuantifierEEnum, RegexQuantifier.class, "RegexQuantifier");
-		addEEnumLiteral(regexQuantifierEEnum, RegexQuantifier.ONCE);
-		addEEnumLiteral(regexQuantifierEEnum, RegexQuantifier.ZEROPLUS);
-		addEEnumLiteral(regexQuantifierEEnum, RegexQuantifier.ONEPLUS);
+		initEEnum(rdfQuantifierEEnum, RdfQuantifier.class, "RdfQuantifier");
+		addEEnumLiteral(rdfQuantifierEEnum, RdfQuantifier.ONCE);
+		addEEnumLiteral(rdfQuantifierEEnum, RdfQuantifier.ZEROPLUS);
+		addEEnumLiteral(rdfQuantifierEEnum, RdfQuantifier.ONEPLUS);
 
 		// Create resource
 		createResource(eNS_URI);

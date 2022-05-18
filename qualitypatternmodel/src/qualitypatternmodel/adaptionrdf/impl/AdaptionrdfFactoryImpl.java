@@ -75,8 +75,8 @@ public class AdaptionrdfFactoryImpl extends EFactoryImpl implements AdaptionrdfF
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case AdaptionrdfPackage.REGEX_QUANTIFIER:
-				return createRegexQuantifierFromString(eDataType, initialValue);
+			case AdaptionrdfPackage.RDF_QUANTIFIER:
+				return createRdfQuantifierFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -90,8 +90,8 @@ public class AdaptionrdfFactoryImpl extends EFactoryImpl implements AdaptionrdfF
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case AdaptionrdfPackage.REGEX_QUANTIFIER:
-				return convertRegexQuantifierToString(eDataType, instanceValue);
+			case AdaptionrdfPackage.RDF_QUANTIFIER:
+				return convertRdfQuantifierToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -157,8 +157,8 @@ public class AdaptionrdfFactoryImpl extends EFactoryImpl implements AdaptionrdfF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RegexQuantifier createRegexQuantifierFromString(EDataType eDataType, String initialValue) {
-		RegexQuantifier result = RegexQuantifier.get(initialValue);
+	public RdfQuantifier createRdfQuantifierFromString(EDataType eDataType, String initialValue) {
+		RdfQuantifier result = RdfQuantifier.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -168,7 +168,7 @@ public class AdaptionrdfFactoryImpl extends EFactoryImpl implements AdaptionrdfF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertRegexQuantifierToString(EDataType eDataType, Object instanceValue) {
+	public String convertRdfQuantifierToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

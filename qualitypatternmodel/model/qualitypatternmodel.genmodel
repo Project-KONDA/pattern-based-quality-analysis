@@ -898,10 +898,10 @@
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Adaptionrdf" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//adaptionrdf">
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//adaptionrdf/RegexQuantifier">
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionrdf/RegexQuantifier/ONCE"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionrdf/RegexQuantifier/ZEROPLUS"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionrdf/RegexQuantifier/ONEPLUS"/>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//adaptionrdf/RdfQuantifier">
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionrdf/RdfQuantifier/ONCE"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionrdf/RdfQuantifier/ZEROPLUS"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionrdf/RdfQuantifier/ONEPLUS"/>
       </genEnums>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfReference">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfReference/rdfpathparam"/>

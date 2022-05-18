@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfAxisPair;
-import qualitypatternmodel.adaptionrdf.RegexQuantifier;
+import qualitypatternmodel.adaptionrdf.RdfQuantifier;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -50,7 +50,7 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final RegexQuantifier QUANTIFIER_EDEFAULT = RegexQuantifier.ONCE;
+	protected static final RdfQuantifier QUANTIFIER_EDEFAULT = RdfQuantifier.ONCE;
 
 	/**
 	 * The cached value of the '{@link #getQuantifier() <em>Quantifier</em>}' attribute.
@@ -60,7 +60,7 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 	 * @generated
 	 * @ordered
 	 */
-	protected RegexQuantifier quantifier = QUANTIFIER_EDEFAULT;
+	protected RdfQuantifier quantifier = QUANTIFIER_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getTextliteralparam() <em>Textliteralparam</em>}' containment reference list.
@@ -97,7 +97,7 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 	 * @generated
 	 */
 	@Override
-	public RegexQuantifier getQuantifier() {
+	public RdfQuantifier getQuantifier() {
 		return quantifier;
 	}
 
@@ -107,8 +107,8 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 	 * @generated
 	 */
 	@Override
-	public void setQuantifier(RegexQuantifier newQuantifier) {
-		RegexQuantifier oldQuantifier = quantifier;
+	public void setQuantifier(RdfQuantifier newQuantifier) {
+		RdfQuantifier oldQuantifier = quantifier;
 		quantifier = newQuantifier == null ? QUANTIFIER_EDEFAULT : newQuantifier;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_AXIS_PAIR__QUANTIFIER, oldQuantifier, quantifier));
@@ -167,7 +167,7 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_AXIS_PAIR__QUANTIFIER:
-				setQuantifier((RegexQuantifier)newValue);
+				setQuantifier((RdfQuantifier)newValue);
 				return;
 			case AdaptionrdfPackage.RDF_AXIS_PAIR__TEXTLITERALPARAM:
 				getTextliteralparam().clear();

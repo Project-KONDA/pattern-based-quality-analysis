@@ -2409,15 +2409,14 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_VALUE_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.RegexQuantifier <em>Regex Quantifier</em>}' enum.
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.RdfQuantifier <em>Rdf Quantifier</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionrdf.RegexQuantifier
-	 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRegexQuantifier()
+	 * @see qualitypatternmodel.adaptionrdf.RdfQuantifier
+	 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfQuantifier()
 	 * @generated
 	 */
-	int REGEX_QUANTIFIER = 5;
-
+	int RDF_QUANTIFIER = 5;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfReference <em>Rdf Reference</em>}'.
@@ -2514,14 +2513,14 @@ public interface AdaptionrdfPackage extends EPackage {
 	EClass getRdfValueNode();
 
 	/**
-	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionrdf.RegexQuantifier <em>Regex Quantifier</em>}'.
+	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionrdf.RdfQuantifier <em>Rdf Quantifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Regex Quantifier</em>'.
-	 * @see qualitypatternmodel.adaptionrdf.RegexQuantifier
+	 * @return the meta object for enum '<em>Rdf Quantifier</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.RdfQuantifier
 	 * @generated
 	 */
-	EEnum getRegexQuantifier();
+	EEnum getRdfQuantifier();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2629,14 +2628,14 @@ public interface AdaptionrdfPackage extends EPackage {
 		EClass RDF_VALUE_NODE = eINSTANCE.getRdfValueNode();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.RegexQuantifier <em>Regex Quantifier</em>}' enum.
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.RdfQuantifier <em>Rdf Quantifier</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionrdf.RegexQuantifier
-		 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRegexQuantifier()
+		 * @see qualitypatternmodel.adaptionrdf.RdfQuantifier
+		 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfQuantifier()
 		 * @generated
 		 */
-		EEnum REGEX_QUANTIFIER = eINSTANCE.getRegexQuantifier();
+		EEnum RDF_QUANTIFIER = eINSTANCE.getRdfQuantifier();
 
 	}
 

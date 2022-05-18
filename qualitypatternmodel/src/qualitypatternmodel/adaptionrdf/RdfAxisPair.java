@@ -28,28 +28,28 @@ import qualitypatternmodel.patternstructure.PatternElement;
 public interface RdfAxisPair extends PatternElement {
 	/**
 	 * Returns the value of the '<em><b>Quantifier</b></em>' attribute.
-	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionrdf.RegexQuantifier}.
+	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionrdf.RdfQuantifier}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Quantifier</em>' attribute.
-	 * @see qualitypatternmodel.adaptionrdf.RegexQuantifier
-	 * @see #setQuantifier(RegexQuantifier)
+	 * @see qualitypatternmodel.adaptionrdf.RdfQuantifier
+	 * @see #setQuantifier(RdfQuantifier)
 	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfAxisPair_Quantifier()
 	 * @model
 	 * @generated
 	 */
-	RegexQuantifier getQuantifier();
+	RdfQuantifier getQuantifier();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getQuantifier <em>Quantifier</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Quantifier</em>' attribute.
-	 * @see qualitypatternmodel.adaptionrdf.RegexQuantifier
+	 * @see qualitypatternmodel.adaptionrdf.RdfQuantifier
 	 * @see #getQuantifier()
 	 * @generated
 	 */
-	void setQuantifier(RegexQuantifier value);
+	void setQuantifier(RdfQuantifier value);
 
 	/**
 	 * Returns the value of the '<em><b>Textliteralparam</b></em>' containment reference list.

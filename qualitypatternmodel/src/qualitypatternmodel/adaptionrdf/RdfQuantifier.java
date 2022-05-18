@@ -10,14 +10,14 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Regex Quantifier</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Rdf Quantifier</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRegexQuantifier()
+ * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfQuantifier()
  * @model
  * @generated
  */
-public enum RegexQuantifier implements Enumerator {
+public enum RdfQuantifier implements Enumerator {
 	/**
 	 * The '<em><b>ONCE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -82,37 +82,37 @@ public enum RegexQuantifier implements Enumerator {
 	public static final int ONEPLUS_VALUE = 2;
 
 	/**
-	 * An array of all the '<em><b>Regex Quantifier</b></em>' enumerators.
+	 * An array of all the '<em><b>Rdf Quantifier</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final RegexQuantifier[] VALUES_ARRAY =
-		new RegexQuantifier[] {
+	private static final RdfQuantifier[] VALUES_ARRAY =
+		new RdfQuantifier[] {
 			ONCE,
 			ZEROPLUS,
 			ONEPLUS,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>Regex Quantifier</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Rdf Quantifier</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<RegexQuantifier> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<RdfQuantifier> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Regex Quantifier</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Rdf Quantifier</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static RegexQuantifier get(String literal) {
+	public static RdfQuantifier get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			RegexQuantifier result = VALUES_ARRAY[i];
+			RdfQuantifier result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -121,16 +121,16 @@ public enum RegexQuantifier implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Regex Quantifier</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Rdf Quantifier</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static RegexQuantifier getByName(String name) {
+	public static RdfQuantifier getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			RegexQuantifier result = VALUES_ARRAY[i];
+			RdfQuantifier result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -139,14 +139,14 @@ public enum RegexQuantifier implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Regex Quantifier</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Rdf Quantifier</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static RegexQuantifier get(int value) {
+	public static RdfQuantifier get(int value) {
 		switch (value) {
 			case ONCE_VALUE: return ONCE;
 			case ZEROPLUS_VALUE: return ZEROPLUS;
@@ -182,7 +182,7 @@ public enum RegexQuantifier implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private RegexQuantifier(int value, String name, String literal) {
+	private RdfQuantifier(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -229,4 +229,4 @@ public enum RegexQuantifier implements Enumerator {
 		return literal;
 	}
 	
-} //RegexQuantifier
+} //RdfQuantifier
