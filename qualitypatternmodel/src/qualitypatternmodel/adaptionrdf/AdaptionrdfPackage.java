@@ -488,14 +488,14 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PREDICATE_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfIrlNodeImpl <em>Rdf Irl Node</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfIriNodeImpl <em>Rdf Iri Node</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionrdf.impl.RdfIrlNodeImpl
-	 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfIrlNode()
+	 * @see qualitypatternmodel.adaptionrdf.impl.RdfIriNodeImpl
+	 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfIriNode()
 	 * @generated
 	 */
-	int RDF_IRL_NODE = 1;
+	int RDF_IRI_NODE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -504,7 +504,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE__ID = GraphstructurePackage.COMPLEX_NODE__ID;
+	int RDF_IRI_NODE__ID = GraphstructurePackage.COMPLEX_NODE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -513,7 +513,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE__INTERNAL_ID = GraphstructurePackage.COMPLEX_NODE__INTERNAL_ID;
+	int RDF_IRI_NODE__INTERNAL_ID = GraphstructurePackage.COMPLEX_NODE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
@@ -522,7 +522,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE__COMPARISON1 = GraphstructurePackage.COMPLEX_NODE__COMPARISON1;
+	int RDF_IRI_NODE__COMPARISON1 = GraphstructurePackage.COMPLEX_NODE__COMPARISON1;
 
 	/**
 	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
@@ -531,7 +531,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE__COMPARISON2 = GraphstructurePackage.COMPLEX_NODE__COMPARISON2;
+	int RDF_IRI_NODE__COMPARISON2 = GraphstructurePackage.COMPLEX_NODE__COMPARISON2;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Mappings</b></em>' reference list.
@@ -540,7 +540,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE__OUTGOING_MAPPINGS = GraphstructurePackage.COMPLEX_NODE__OUTGOING_MAPPINGS;
+	int RDF_IRI_NODE__OUTGOING_MAPPINGS = GraphstructurePackage.COMPLEX_NODE__OUTGOING_MAPPINGS;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Mapping</b></em>' reference.
@@ -549,7 +549,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE__INCOMING_MAPPING = GraphstructurePackage.COMPLEX_NODE__INCOMING_MAPPING;
+	int RDF_IRI_NODE__INCOMING_MAPPING = GraphstructurePackage.COMPLEX_NODE__INCOMING_MAPPING;
 
 	/**
 	 * The feature id for the '<em><b>Graph</b></em>' container reference.
@@ -558,7 +558,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE__GRAPH = GraphstructurePackage.COMPLEX_NODE__GRAPH;
+	int RDF_IRI_NODE__GRAPH = GraphstructurePackage.COMPLEX_NODE__GRAPH;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -567,7 +567,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE__NAME = GraphstructurePackage.COMPLEX_NODE__NAME;
+	int RDF_IRI_NODE__NAME = GraphstructurePackage.COMPLEX_NODE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Predicates</b></em>' reference list.
@@ -576,7 +576,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE__PREDICATES = GraphstructurePackage.COMPLEX_NODE__PREDICATES;
+	int RDF_IRI_NODE__PREDICATES = GraphstructurePackage.COMPLEX_NODE__PREDICATES;
 
 	/**
 	 * The feature id for the '<em><b>Incoming</b></em>' reference list.
@@ -585,7 +585,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE__INCOMING = GraphstructurePackage.COMPLEX_NODE__INCOMING;
+	int RDF_IRI_NODE__INCOMING = GraphstructurePackage.COMPLEX_NODE__INCOMING;
 
 	/**
 	 * The feature id for the '<em><b>Return Node</b></em>' attribute.
@@ -594,7 +594,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE__RETURN_NODE = GraphstructurePackage.COMPLEX_NODE__RETURN_NODE;
+	int RDF_IRI_NODE__RETURN_NODE = GraphstructurePackage.COMPLEX_NODE__RETURN_NODE;
 
 	/**
 	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
@@ -603,7 +603,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE__TYPE_MODIFIABLE = GraphstructurePackage.COMPLEX_NODE__TYPE_MODIFIABLE;
+	int RDF_IRI_NODE__TYPE_MODIFIABLE = GraphstructurePackage.COMPLEX_NODE__TYPE_MODIFIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Translated</b></em>' attribute.
@@ -612,7 +612,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE__TRANSLATED = GraphstructurePackage.COMPLEX_NODE__TRANSLATED;
+	int RDF_IRI_NODE__TRANSLATED = GraphstructurePackage.COMPLEX_NODE__TRANSLATED;
 
 	/**
 	 * The feature id for the '<em><b>Predicates Are Being Translated</b></em>' attribute.
@@ -621,7 +621,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE__PREDICATES_ARE_BEING_TRANSLATED = GraphstructurePackage.COMPLEX_NODE__PREDICATES_ARE_BEING_TRANSLATED;
+	int RDF_IRI_NODE__PREDICATES_ARE_BEING_TRANSLATED = GraphstructurePackage.COMPLEX_NODE__PREDICATES_ARE_BEING_TRANSLATED;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing</b></em>' reference list.
@@ -630,16 +630,16 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE__OUTGOING = GraphstructurePackage.COMPLEX_NODE__OUTGOING;
+	int RDF_IRI_NODE__OUTGOING = GraphstructurePackage.COMPLEX_NODE__OUTGOING;
 
 	/**
-	 * The number of structural features of the '<em>Rdf Irl Node</em>' class.
+	 * The number of structural features of the '<em>Rdf Iri Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
+	int RDF_IRI_NODE_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -648,7 +648,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___IS_VALID__ABSTRACTIONLEVEL = GraphstructurePackage.COMPLEX_NODE___IS_VALID__ABSTRACTIONLEVEL;
+	int RDF_IRI_NODE___IS_VALID__ABSTRACTIONLEVEL = GraphstructurePackage.COMPLEX_NODE___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -657,7 +657,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.COMPLEX_NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int RDF_IRI_NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.COMPLEX_NODE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -666,7 +666,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___MY_TO_STRING = GraphstructurePackage.COMPLEX_NODE___MY_TO_STRING;
+	int RDF_IRI_NODE___MY_TO_STRING = GraphstructurePackage.COMPLEX_NODE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher</em>' operation.
@@ -675,7 +675,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___GENERATE_CYPHER = GraphstructurePackage.COMPLEX_NODE___GENERATE_CYPHER;
+	int RDF_IRI_NODE___GENERATE_CYPHER = GraphstructurePackage.COMPLEX_NODE___GENERATE_CYPHER;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -684,7 +684,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___GENERATE_XQUERY = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY;
+	int RDF_IRI_NODE___GENERATE_XQUERY = GraphstructurePackage.COMPLEX_NODE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -693,7 +693,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___GENERATE_SPARQL = GraphstructurePackage.COMPLEX_NODE___GENERATE_SPARQL;
+	int RDF_IRI_NODE___GENERATE_SPARQL = GraphstructurePackage.COMPLEX_NODE___GENERATE_SPARQL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -702,7 +702,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___GET_CONTAINER = GraphstructurePackage.COMPLEX_NODE___GET_CONTAINER;
+	int RDF_IRI_NODE___GET_CONTAINER = GraphstructurePackage.COMPLEX_NODE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -711,7 +711,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___GET_ANCESTOR__CLASS = GraphstructurePackage.COMPLEX_NODE___GET_ANCESTOR__CLASS;
+	int RDF_IRI_NODE___GET_ANCESTOR__CLASS = GraphstructurePackage.COMPLEX_NODE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -720,7 +720,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___INITIALIZE_TRANSLATION = GraphstructurePackage.COMPLEX_NODE___INITIALIZE_TRANSLATION;
+	int RDF_IRI_NODE___INITIALIZE_TRANSLATION = GraphstructurePackage.COMPLEX_NODE___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -729,7 +729,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___PREPARE_TRANSLATION = GraphstructurePackage.COMPLEX_NODE___PREPARE_TRANSLATION;
+	int RDF_IRI_NODE___PREPARE_TRANSLATION = GraphstructurePackage.COMPLEX_NODE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -738,7 +738,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___GET_OPERATOR_LIST = GraphstructurePackage.COMPLEX_NODE___GET_OPERATOR_LIST;
+	int RDF_IRI_NODE___GET_OPERATOR_LIST = GraphstructurePackage.COMPLEX_NODE___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -747,7 +747,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___GET_PARAMETER_LIST = GraphstructurePackage.COMPLEX_NODE___GET_PARAMETER_LIST;
+	int RDF_IRI_NODE___GET_PARAMETER_LIST = GraphstructurePackage.COMPLEX_NODE___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -756,7 +756,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___GET_ALL_PARAMETERS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_PARAMETERS;
+	int RDF_IRI_NODE___GET_ALL_PARAMETERS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -765,7 +765,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___PREPARE_PARAMETER_UPDATES = GraphstructurePackage.COMPLEX_NODE___PREPARE_PARAMETER_UPDATES;
+	int RDF_IRI_NODE___PREPARE_PARAMETER_UPDATES = GraphstructurePackage.COMPLEX_NODE___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -774,7 +774,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = GraphstructurePackage.COMPLEX_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int RDF_IRI_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = GraphstructurePackage.COMPLEX_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -783,7 +783,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.COMPLEX_NODE___UPDATE_PARAMETERS__PARAMETERLIST;
+	int RDF_IRI_NODE___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.COMPLEX_NODE___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -792,7 +792,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.COMPLEX_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int RDF_IRI_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.COMPLEX_NODE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -801,7 +801,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.COMPLEX_NODE___RECORD_VALUES__XMLDATADATABASE;
+	int RDF_IRI_NODE___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.COMPLEX_NODE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -810,7 +810,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___RELATIONS_XML_ADAPTED = GraphstructurePackage.COMPLEX_NODE___RELATIONS_XML_ADAPTED;
+	int RDF_IRI_NODE___RELATIONS_XML_ADAPTED = GraphstructurePackage.COMPLEX_NODE___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Create XML Adaption</em>' operation.
@@ -819,7 +819,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___CREATE_XML_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_XML_ADAPTION;
+	int RDF_IRI_NODE___CREATE_XML_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
@@ -828,7 +828,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___CREATE_RDF_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_RDF_ADAPTION;
+	int RDF_IRI_NODE___CREATE_RDF_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_RDF_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
@@ -837,7 +837,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___CREATE_NEO4J_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_NEO4J_ADAPTION;
+	int RDF_IRI_NODE___CREATE_NEO4J_ADAPTION = GraphstructurePackage.COMPLEX_NODE___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -846,7 +846,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.COMPLEX_NODE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int RDF_IRI_NODE___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.COMPLEX_NODE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -855,7 +855,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___GET_RETURN_TYPE = GraphstructurePackage.COMPLEX_NODE___GET_RETURN_TYPE;
+	int RDF_IRI_NODE___GET_RETURN_TYPE = GraphstructurePackage.COMPLEX_NODE___GET_RETURN_TYPE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -864,7 +864,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___IS_TRANSLATABLE = GraphstructurePackage.COMPLEX_NODE___IS_TRANSLATABLE;
+	int RDF_IRI_NODE___IS_TRANSLATABLE = GraphstructurePackage.COMPLEX_NODE___IS_TRANSLATABLE;
 
 	/**
 	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
@@ -873,7 +873,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___GET_ALL_ARGUMENT_ELEMENTS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_ARGUMENT_ELEMENTS;
+	int RDF_IRI_NODE___GET_ALL_ARGUMENT_ELEMENTS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_ARGUMENT_ELEMENTS;
 
 	/**
 	 * The operation id for the '<em>Is Operator Argument</em>' operation.
@@ -882,7 +882,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___IS_OPERATOR_ARGUMENT = GraphstructurePackage.COMPLEX_NODE___IS_OPERATOR_ARGUMENT;
+	int RDF_IRI_NODE___IS_OPERATOR_ARGUMENT = GraphstructurePackage.COMPLEX_NODE___IS_OPERATOR_ARGUMENT;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -891,7 +891,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___CREATE_PARAMETERS = GraphstructurePackage.COMPLEX_NODE___CREATE_PARAMETERS;
+	int RDF_IRI_NODE___CREATE_PARAMETERS = GraphstructurePackage.COMPLEX_NODE___CREATE_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
@@ -900,7 +900,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = GraphstructurePackage.COMPLEX_NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+	int RDF_IRI_NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = GraphstructurePackage.COMPLEX_NODE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Original ID</em>' operation.
@@ -909,7 +909,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___GET_ORIGINAL_ID = GraphstructurePackage.COMPLEX_NODE___GET_ORIGINAL_ID;
+	int RDF_IRI_NODE___GET_ORIGINAL_ID = GraphstructurePackage.COMPLEX_NODE___GET_ORIGINAL_ID;
 
 	/**
 	 * The operation id for the '<em>Get Original Node</em>' operation.
@@ -918,7 +918,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___GET_ORIGINAL_NODE = GraphstructurePackage.COMPLEX_NODE___GET_ORIGINAL_NODE;
+	int RDF_IRI_NODE___GET_ORIGINAL_NODE = GraphstructurePackage.COMPLEX_NODE___GET_ORIGINAL_NODE;
 
 	/**
 	 * The operation id for the '<em>Get Equivalent Nodes</em>' operation.
@@ -927,7 +927,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___GET_EQUIVALENT_NODES = GraphstructurePackage.COMPLEX_NODE___GET_EQUIVALENT_NODES;
+	int RDF_IRI_NODE___GET_EQUIVALENT_NODES = GraphstructurePackage.COMPLEX_NODE___GET_EQUIVALENT_NODES;
 
 	/**
 	 * The operation id for the '<em>Set Graph Simple</em>' operation.
@@ -936,7 +936,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___SET_GRAPH_SIMPLE__GRAPH = GraphstructurePackage.COMPLEX_NODE___SET_GRAPH_SIMPLE__GRAPH;
+	int RDF_IRI_NODE___SET_GRAPH_SIMPLE__GRAPH = GraphstructurePackage.COMPLEX_NODE___SET_GRAPH_SIMPLE__GRAPH;
 
 	/**
 	 * The operation id for the '<em>Get Relations To</em>' operation.
@@ -945,7 +945,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___GET_RELATIONS_TO__NODE = GraphstructurePackage.COMPLEX_NODE___GET_RELATIONS_TO__NODE;
+	int RDF_IRI_NODE___GET_RELATIONS_TO__NODE = GraphstructurePackage.COMPLEX_NODE___GET_RELATIONS_TO__NODE;
 
 	/**
 	 * The operation id for the '<em>Get All Operators</em>' operation.
@@ -954,7 +954,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___GET_ALL_OPERATORS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_OPERATORS;
+	int RDF_IRI_NODE___GET_ALL_OPERATORS = GraphstructurePackage.COMPLEX_NODE___GET_ALL_OPERATORS;
 
 	/**
 	 * The operation id for the '<em>Add Outgoing</em>' operation.
@@ -963,7 +963,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___ADD_OUTGOING = GraphstructurePackage.COMPLEX_NODE___ADD_OUTGOING;
+	int RDF_IRI_NODE___ADD_OUTGOING = GraphstructurePackage.COMPLEX_NODE___ADD_OUTGOING;
 
 	/**
 	 * The operation id for the '<em>Add Outgoing</em>' operation.
@@ -972,7 +972,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___ADD_OUTGOING__NODE = GraphstructurePackage.COMPLEX_NODE___ADD_OUTGOING__NODE;
+	int RDF_IRI_NODE___ADD_OUTGOING__NODE = GraphstructurePackage.COMPLEX_NODE___ADD_OUTGOING__NODE;
 
 	/**
 	 * The operation id for the '<em>Add Incomming</em>' operation.
@@ -981,7 +981,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___ADD_INCOMMING__COMPLEXNODE = GraphstructurePackage.COMPLEX_NODE___ADD_INCOMMING__COMPLEXNODE;
+	int RDF_IRI_NODE___ADD_INCOMMING__COMPLEXNODE = GraphstructurePackage.COMPLEX_NODE___ADD_INCOMMING__COMPLEXNODE;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -990,7 +990,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___ADD_PRIMITIVE_COMPARISON = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_COMPARISON;
+	int RDF_IRI_NODE___ADD_PRIMITIVE_COMPARISON = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -999,7 +999,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___ADD_PRIMITIVE_COMPARISON__STRING = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_COMPARISON__STRING;
+	int RDF_IRI_NODE___ADD_PRIMITIVE_COMPARISON__STRING = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_COMPARISON__STRING;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1008,7 +1008,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE;
+	int RDF_IRI_NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
@@ -1017,7 +1017,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE;
+	int RDF_IRI_NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
@@ -1026,7 +1026,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___ADD_PRIMITIVE_MATCH = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH;
+	int RDF_IRI_NODE___ADD_PRIMITIVE_MATCH = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH;
 
 	/**
 	 * The operation id for the '<em>Add Primitive Match</em>' operation.
@@ -1035,7 +1035,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___ADD_PRIMITIVE_MATCH__STRING = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH__STRING;
+	int RDF_IRI_NODE___ADD_PRIMITIVE_MATCH__STRING = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH__STRING;
 
 	/**
 	 * The operation id for the '<em>Check Generic</em>' operation.
@@ -1044,7 +1044,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___CHECK_GENERIC = GraphstructurePackage.COMPLEX_NODE___CHECK_GENERIC;
+	int RDF_IRI_NODE___CHECK_GENERIC = GraphstructurePackage.COMPLEX_NODE___CHECK_GENERIC;
 
 	/**
 	 * The operation id for the '<em>Make Generic</em>' operation.
@@ -1053,7 +1053,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___MAKE_GENERIC = GraphstructurePackage.COMPLEX_NODE___MAKE_GENERIC;
+	int RDF_IRI_NODE___MAKE_GENERIC = GraphstructurePackage.COMPLEX_NODE___MAKE_GENERIC;
 
 	/**
 	 * The operation id for the '<em>Make Generic Recursive</em>' operation.
@@ -1062,7 +1062,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___MAKE_GENERIC_RECURSIVE = GraphstructurePackage.COMPLEX_NODE___MAKE_GENERIC_RECURSIVE;
+	int RDF_IRI_NODE___MAKE_GENERIC_RECURSIVE = GraphstructurePackage.COMPLEX_NODE___MAKE_GENERIC_RECURSIVE;
 
 	/**
 	 * The operation id for the '<em>Check Complex</em>' operation.
@@ -1071,7 +1071,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___CHECK_COMPLEX = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPLEX;
+	int RDF_IRI_NODE___CHECK_COMPLEX = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPLEX;
 
 	/**
 	 * The operation id for the '<em>Make Complex</em>' operation.
@@ -1080,7 +1080,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___MAKE_COMPLEX = GraphstructurePackage.COMPLEX_NODE___MAKE_COMPLEX;
+	int RDF_IRI_NODE___MAKE_COMPLEX = GraphstructurePackage.COMPLEX_NODE___MAKE_COMPLEX;
 
 	/**
 	 * The operation id for the '<em>Make Complex Recursive</em>' operation.
@@ -1089,7 +1089,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___MAKE_COMPLEX_RECURSIVE = GraphstructurePackage.COMPLEX_NODE___MAKE_COMPLEX_RECURSIVE;
+	int RDF_IRI_NODE___MAKE_COMPLEX_RECURSIVE = GraphstructurePackage.COMPLEX_NODE___MAKE_COMPLEX_RECURSIVE;
 
 	/**
 	 * The operation id for the '<em>Check Primitive</em>' operation.
@@ -1098,7 +1098,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___CHECK_PRIMITIVE = GraphstructurePackage.COMPLEX_NODE___CHECK_PRIMITIVE;
+	int RDF_IRI_NODE___CHECK_PRIMITIVE = GraphstructurePackage.COMPLEX_NODE___CHECK_PRIMITIVE;
 
 	/**
 	 * The operation id for the '<em>Make Primitive</em>' operation.
@@ -1107,7 +1107,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___MAKE_PRIMITIVE = GraphstructurePackage.COMPLEX_NODE___MAKE_PRIMITIVE;
+	int RDF_IRI_NODE___MAKE_PRIMITIVE = GraphstructurePackage.COMPLEX_NODE___MAKE_PRIMITIVE;
 
 	/**
 	 * The operation id for the '<em>Make Primitive Recursive</em>' operation.
@@ -1116,7 +1116,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___MAKE_PRIMITIVE_RECURSIVE = GraphstructurePackage.COMPLEX_NODE___MAKE_PRIMITIVE_RECURSIVE;
+	int RDF_IRI_NODE___MAKE_PRIMITIVE_RECURSIVE = GraphstructurePackage.COMPLEX_NODE___MAKE_PRIMITIVE_RECURSIVE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -1125,7 +1125,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY;
+	int RDF_IRI_NODE___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -1134,7 +1134,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
+	int RDF_IRI_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Adapt As Xml Element</em>' operation.
@@ -1143,7 +1143,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___ADAPT_AS_XML_ELEMENT = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_XML_ELEMENT;
+	int RDF_IRI_NODE___ADAPT_AS_XML_ELEMENT = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_XML_ELEMENT;
 
 	/**
 	 * The operation id for the '<em>Adapt As Xml Property</em>' operation.
@@ -1152,16 +1152,16 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE___ADAPT_AS_XML_PROPERTY = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_XML_PROPERTY;
+	int RDF_IRI_NODE___ADAPT_AS_XML_PROPERTY = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_XML_PROPERTY;
 
 	/**
-	 * The number of operations of the '<em>Rdf Irl Node</em>' class.
+	 * The number of operations of the '<em>Rdf Iri Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_IRL_NODE_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 0;
+	int RDF_IRI_NODE_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl <em>Rdf Path Param</em>}' class.
@@ -2548,14 +2548,14 @@ public interface AdaptionrdfPackage extends EPackage {
 	EReference getRdfPredicate_Rdfpathparam();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfIrlNode <em>Rdf Irl Node</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfIriNode <em>Rdf Iri Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rdf Irl Node</em>'.
-	 * @see qualitypatternmodel.adaptionrdf.RdfIrlNode
+	 * @return the meta object for class '<em>Rdf Iri Node</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.RdfIriNode
 	 * @generated
 	 */
-	EClass getRdfIrlNode();
+	EClass getRdfIriNode();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfPathParam <em>Rdf Path Param</em>}'.
@@ -2694,14 +2694,14 @@ public interface AdaptionrdfPackage extends EPackage {
 		EReference RDF_PREDICATE__RDFPATHPARAM = eINSTANCE.getRdfPredicate_Rdfpathparam();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfIrlNodeImpl <em>Rdf Irl Node</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfIriNodeImpl <em>Rdf Iri Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionrdf.impl.RdfIrlNodeImpl
-		 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfIrlNode()
+		 * @see qualitypatternmodel.adaptionrdf.impl.RdfIriNodeImpl
+		 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfIriNode()
 		 * @generated
 		 */
-		EClass RDF_IRL_NODE = eINSTANCE.getRdfIrlNode();
+		EClass RDF_IRI_NODE = eINSTANCE.getRdfIriNode();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl <em>Rdf Path Param</em>}' class.

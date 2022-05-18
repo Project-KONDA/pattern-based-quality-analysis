@@ -58,7 +58,7 @@ public class AdaptionrdfFactoryImpl extends EFactoryImpl implements AdaptionrdfF
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case AdaptionrdfPackage.RDF_PREDICATE: return createRdfPredicate();
-			case AdaptionrdfPackage.RDF_IRL_NODE: return createRdfIrlNode();
+			case AdaptionrdfPackage.RDF_IRI_NODE: return createRdfIriNode();
 			case AdaptionrdfPackage.RDF_PATH_PARAM: return createRdfPathParam();
 			case AdaptionrdfPackage.RDF_AXIS_PAIR: return createRdfAxisPair();
 			case AdaptionrdfPackage.RDF_LITERAL_NODE: return createRdfLiteralNode();
@@ -114,9 +114,9 @@ public class AdaptionrdfFactoryImpl extends EFactoryImpl implements AdaptionrdfF
 	 * @generated
 	 */
 	@Override
-	public RdfIrlNode createRdfIrlNode() {
-		RdfIrlNodeImpl rdfIrlNode = new RdfIrlNodeImpl();
-		return rdfIrlNode;
+	public RdfIriNode createRdfIriNode() {
+		RdfIriNodeImpl rdfIriNode = new RdfIriNodeImpl();
+		return rdfIriNode;
 	}
 
 	/**

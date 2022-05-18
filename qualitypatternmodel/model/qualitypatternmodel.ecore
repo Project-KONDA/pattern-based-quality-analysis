@@ -1092,7 +1092,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfpathparam" upperBound="-1"
           eType="#//adaptionrdf/RdfPathParam" containment="true" eOpposite="#//adaptionrdf/RdfPathParam/rdfreference"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfIrlNode" eSuperTypes="#//graphstructure/ComplexNode"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RdfIriNode" eSuperTypes="#//graphstructure/ComplexNode"/>
     <eClassifiers xsi:type="ecore:EClass" name="RdfPathParam" eSuperTypes="#//parameters/Parameter">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfaxispair" upperBound="-1"
           eType="#//adaptionrdf/RdfAxisPair" containment="true" eOpposite="#//adaptionrdf/RdfAxisPair/rdfpathparam"/>

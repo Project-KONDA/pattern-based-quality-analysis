@@ -82,8 +82,8 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 				return createRdfPredicateAdapter();
 			}
 			@Override
-			public Adapter caseRdfIrlNode(RdfIrlNode object) {
-				return createRdfIrlNodeAdapter();
+			public Adapter caseRdfIriNode(RdfIriNode object) {
+				return createRdfIriNodeAdapter();
 			}
 			@Override
 			public Adapter caseRdfPathParam(RdfPathParam object) {
@@ -164,16 +164,16 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionrdf.RdfIrlNode <em>Rdf Irl Node</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionrdf.RdfIriNode <em>Rdf Iri Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionrdf.RdfIrlNode
+	 * @see qualitypatternmodel.adaptionrdf.RdfIriNode
 	 * @generated
 	 */
-	public Adapter createRdfIrlNodeAdapter() {
+	public Adapter createRdfIriNodeAdapter() {
 		return null;
 	}
 

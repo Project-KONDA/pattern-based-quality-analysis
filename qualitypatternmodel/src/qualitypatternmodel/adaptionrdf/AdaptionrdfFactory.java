@@ -31,13 +31,13 @@ public interface AdaptionrdfFactory extends EFactory {
 	RdfPredicate createRdfPredicate();
 
 	/**
-	 * Returns a new object of class '<em>Rdf Irl Node</em>'.
+	 * Returns a new object of class '<em>Rdf Iri Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rdf Irl Node</em>'.
+	 * @return a new object of class '<em>Rdf Iri Node</em>'.
 	 * @generated
 	 */
-	RdfIrlNode createRdfIrlNode();
+	RdfIriNode createRdfIriNode();
 
 	/**
 	 * Returns a new object of class '<em>Rdf Path Param</em>'.

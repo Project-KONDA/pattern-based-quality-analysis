@@ -909,7 +909,7 @@
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfPredicate">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPredicate/rdfpathparam"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfIrlNode"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfIriNode"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/rdfaxispair"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/rdfreference"/>

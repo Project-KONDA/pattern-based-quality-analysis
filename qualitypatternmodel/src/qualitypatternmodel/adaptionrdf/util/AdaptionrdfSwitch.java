@@ -85,14 +85,14 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AdaptionrdfPackage.RDF_IRL_NODE: {
-				RdfIrlNode rdfIrlNode = (RdfIrlNode)theEObject;
-				T result = caseRdfIrlNode(rdfIrlNode);
-				if (result == null) result = caseComplexNode(rdfIrlNode);
-				if (result == null) result = caseNode(rdfIrlNode);
-				if (result == null) result = caseComparable(rdfIrlNode);
-				if (result == null) result = caseAdaptable(rdfIrlNode);
-				if (result == null) result = casePatternElement(rdfIrlNode);
+			case AdaptionrdfPackage.RDF_IRI_NODE: {
+				RdfIriNode rdfIriNode = (RdfIriNode)theEObject;
+				T result = caseRdfIriNode(rdfIriNode);
+				if (result == null) result = caseComplexNode(rdfIriNode);
+				if (result == null) result = caseNode(rdfIriNode);
+				if (result == null) result = caseComparable(rdfIriNode);
+				if (result == null) result = caseAdaptable(rdfIriNode);
+				if (result == null) result = casePatternElement(rdfIriNode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -142,17 +142,17 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Rdf Irl Node</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Rdf Iri Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Rdf Irl Node</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Rdf Iri Node</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRdfIrlNode(RdfIrlNode object) {
+	public T caseRdfIriNode(RdfIriNode object) {
 		return null;
 	}
 
