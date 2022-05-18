@@ -286,13 +286,31 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___CREATE_XML_ADAPTION = 20;
 
 	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___CREATE_RDF_ADAPTION = 21;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION = 22;
+
+	/**
 	 * The number of operations of the '<em>Pattern Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_ELEMENT_OPERATION_COUNT = 21;
+	int PATTERN_ELEMENT_OPERATION_COUNT = 23;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.MappingImpl <em>Mapping</em>}' class.
@@ -528,6 +546,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MAPPING___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___CREATE_RDF_ADAPTION = PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPING___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The number of operations of the '<em>Mapping</em>' class.
@@ -790,6 +826,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int RELATION_MAPPING___CREATE_XML_ADAPTION = MAPPING___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___CREATE_RDF_ADAPTION = MAPPING___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION_MAPPING___CREATE_NEO4J_ADAPTION = MAPPING___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The number of operations of the '<em>Relation Mapping</em>' class.
@@ -1070,6 +1124,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITION___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___CREATE_RDF_ADAPTION = PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
@@ -1397,6 +1469,24 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___CREATE_RDF_ADAPTION = CONDITION___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1702,6 +1792,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int MORPHISM___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___CREATE_RDF_ADAPTION = PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Add Mapping</em>' operation.
@@ -2029,6 +2137,24 @@ public interface PatternstructurePackage extends EPackage {
 	int ELEMENT_MAPPING___CREATE_XML_ADAPTION = MAPPING___CREATE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING___CREATE_RDF_ADAPTION = MAPPING___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING___CREATE_NEO4J_ADAPTION = MAPPING___CREATE_NEO4J_ADAPTION;
+
+	/**
 	 * The number of operations of the '<em>Element Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2336,6 +2462,24 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___CREATE_RDF_ADAPTION = CONDITION___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2625,6 +2769,24 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___CREATE_RDF_ADAPTION = CONDITION___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2689,22 +2851,22 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN__CONDITION = PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Partial Query</b></em>' attribute.
+	 * The feature id for the '<em><b>Partial Xml Query</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN__PARTIAL_QUERY = PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int PATTERN__PARTIAL_XML_QUERY = PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Query</b></em>' attribute.
+	 * The feature id for the '<em><b>Xml Query</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN__QUERY = PATTERN_ELEMENT_FEATURE_COUNT + 3;
+	int PATTERN__XML_QUERY = PATTERN_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Pattern</em>' class.
@@ -2905,6 +3067,24 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___CREATE_RDF_ADAPTION = PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2969,22 +3149,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN__CONDITION = PATTERN__CONDITION;
 
 	/**
-	 * The feature id for the '<em><b>Partial Query</b></em>' attribute.
+	 * The feature id for the '<em><b>Partial Xml Query</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__PARTIAL_QUERY = PATTERN__PARTIAL_QUERY;
+	int COMPLETE_PATTERN__PARTIAL_XML_QUERY = PATTERN__PARTIAL_XML_QUERY;
 
 	/**
-	 * The feature id for the '<em><b>Query</b></em>' attribute.
+	 * The feature id for the '<em><b>Xml Query</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_PATTERN__QUERY = PATTERN__QUERY;
+	int COMPLETE_PATTERN__XML_QUERY = PATTERN__XML_QUERY;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' containment reference.
@@ -3282,6 +3462,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPLETE_PATTERN___CREATE_XML_ADAPTION = PATTERN___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___CREATE_RDF_ADAPTION = PATTERN___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLETE_PATTERN___CREATE_NEO4J_ADAPTION = PATTERN___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
@@ -3627,6 +3825,24 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___CREATE_RDF_ADAPTION = CONDITION___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3943,6 +4159,24 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___CREATE_XML_ADAPTION = CONDITION___CREATE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___CREATE_RDF_ADAPTION = CONDITION___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___CREATE_NEO4J_ADAPTION = CONDITION___CREATE_NEO4J_ADAPTION;
+
+	/**
 	 * The operation id for the '<em>Get Next Morphism Containers</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4214,6 +4448,24 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___CREATE_RDF_ADAPTION = PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION_ARGUMENT___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
 	 * The number of operations of the '<em>Count Condition Argument</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4458,6 +4710,24 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_CONTAINER___CREATE_XML_ADAPTION = PATTERN_ELEMENT___CREATE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___CREATE_RDF_ADAPTION = PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MORPHISM_CONTAINER___CREATE_NEO4J_ADAPTION = PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
+
+	/**
 	 * The operation id for the '<em>Get Graph</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4531,22 +4801,22 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN__CONDITION = PATTERN__CONDITION;
 
 	/**
-	 * The feature id for the '<em><b>Partial Query</b></em>' attribute.
+	 * The feature id for the '<em><b>Partial Xml Query</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN__PARTIAL_QUERY = PATTERN__PARTIAL_QUERY;
+	int COUNT_PATTERN__PARTIAL_XML_QUERY = PATTERN__PARTIAL_XML_QUERY;
 
 	/**
-	 * The feature id for the '<em><b>Query</b></em>' attribute.
+	 * The feature id for the '<em><b>Xml Query</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNT_PATTERN__QUERY = PATTERN__QUERY;
+	int COUNT_PATTERN__XML_QUERY = PATTERN__XML_QUERY;
 
 	/**
 	 * The feature id for the '<em><b>Morphism</b></em>' containment reference.
@@ -4772,6 +5042,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COUNT_PATTERN___CREATE_XML_ADAPTION = PATTERN___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___CREATE_RDF_ADAPTION = PATTERN___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PATTERN___CREATE_NEO4J_ADAPTION = PATTERN___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Check Morphism Of Next Graph</em>' operation.
@@ -5052,6 +5340,24 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_ELEMENT___CREATE_XML_ADAPTION = COUNT_CONDITION_ARGUMENT___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___CREATE_RDF_ADAPTION = COUNT_CONDITION_ARGUMENT___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_ELEMENT___CREATE_NEO4J_ADAPTION = COUNT_CONDITION_ARGUMENT___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -5855,6 +6161,26 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPatternElement__CreateXMLAdaption();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#createRdfAdaption() <em>Create Rdf Adaption</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Rdf Adaption</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#createRdfAdaption()
+	 * @generated
+	 */
+	EOperation getPatternElement__CreateRdfAdaption();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#createNeo4jAdaption() <em>Create Neo4j Adaption</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Neo4j Adaption</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#createNeo4jAdaption()
+	 * @generated
+	 */
+	EOperation getPatternElement__CreateNeo4jAdaption();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#recordValues(qualitypatternmodel.execution.XmlDataDatabase) <em>Record Values</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6114,26 +6440,26 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getPattern_Condition();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Pattern#getPartialQuery <em>Partial Query</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Pattern#getPartialXmlQuery <em>Partial Xml Query</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Partial Query</em>'.
-	 * @see qualitypatternmodel.patternstructure.Pattern#getPartialQuery()
+	 * @return the meta object for the attribute '<em>Partial Xml Query</em>'.
+	 * @see qualitypatternmodel.patternstructure.Pattern#getPartialXmlQuery()
 	 * @see #getPattern()
 	 * @generated
 	 */
-	EAttribute getPattern_PartialQuery();
+	EAttribute getPattern_PartialXmlQuery();
 
 	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Pattern#getQuery <em>Query</em>}'.
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.patternstructure.Pattern#getXmlQuery <em>Xml Query</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Query</em>'.
-	 * @see qualitypatternmodel.patternstructure.Pattern#getQuery()
+	 * @return the meta object for the attribute '<em>Xml Query</em>'.
+	 * @see qualitypatternmodel.patternstructure.Pattern#getXmlQuery()
 	 * @see #getPattern()
 	 * @generated
 	 */
-	EAttribute getPattern_Query();
+	EAttribute getPattern_XmlQuery();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Pattern#checkMorphismOfNextGraph() <em>Check Morphism Of Next Graph</em>}' operation.
@@ -6865,6 +7191,22 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation PATTERN_ELEMENT___CREATE_XML_ADAPTION = eINSTANCE.getPatternElement__CreateXMLAdaption();
 
 		/**
+		 * The meta object literal for the '<em><b>Create Rdf Adaption</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___CREATE_RDF_ADAPTION = eINSTANCE.getPatternElement__CreateRdfAdaption();
+
+		/**
+		 * The meta object literal for the '<em><b>Create Neo4j Adaption</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION = eINSTANCE.getPatternElement__CreateNeo4jAdaption();
+
+		/**
 		 * The meta object literal for the '<em><b>Record Values</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7077,20 +7419,20 @@ public interface PatternstructurePackage extends EPackage {
 		EReference PATTERN__CONDITION = eINSTANCE.getPattern_Condition();
 
 		/**
-		 * The meta object literal for the '<em><b>Partial Query</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Partial Xml Query</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PATTERN__PARTIAL_QUERY = eINSTANCE.getPattern_PartialQuery();
+		EAttribute PATTERN__PARTIAL_XML_QUERY = eINSTANCE.getPattern_PartialXmlQuery();
 
 		/**
-		 * The meta object literal for the '<em><b>Query</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Xml Query</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PATTERN__QUERY = eINSTANCE.getPattern_Query();
+		EAttribute PATTERN__XML_QUERY = eINSTANCE.getPattern_XmlQuery();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Morphism Of Next Graph</b></em>' operation.

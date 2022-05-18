@@ -412,8 +412,8 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 */
 	@Override
 	public void resetQuery() {
-		setQuery(null);
-		setPartialQuery(null);
+		setXmlQuery(null);
+		setPartialXmlQuery(null);
 	}
 
 

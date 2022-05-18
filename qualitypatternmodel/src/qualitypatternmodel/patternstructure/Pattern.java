@@ -18,8 +18,8 @@ import qualitypatternmodel.graphstructure.Graph;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getCondition <em>Condition</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getPartialQuery <em>Partial Query</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getQuery <em>Query</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getPartialXmlQuery <em>Partial Xml Query</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Pattern#getXmlQuery <em>Xml Query</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern()
@@ -77,48 +77,48 @@ public interface Pattern extends PatternElement {
 	void setCondition(Condition value);
 
 	/**
-	 * Returns the value of the '<em><b>Partial Query</b></em>' attribute.
+	 * Returns the value of the '<em><b>Partial Xml Query</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Partial Query</em>' attribute.
-	 * @see #setPartialQuery(String)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_PartialQuery()
+	 * @return the value of the '<em>Partial Xml Query</em>' attribute.
+	 * @see #setPartialXmlQuery(String)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_PartialXmlQuery()
 	 * @model
 	 * @generated
 	 */
-	String getPartialQuery();
+	String getPartialXmlQuery();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getPartialQuery <em>Partial Query</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getPartialXmlQuery <em>Partial Xml Query</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Partial Query</em>' attribute.
-	 * @see #getPartialQuery()
+	 * @param value the new value of the '<em>Partial Xml Query</em>' attribute.
+	 * @see #getPartialXmlQuery()
 	 * @generated
 	 */
-	void setPartialQuery(String value);
+	void setPartialXmlQuery(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Query</b></em>' attribute.
+	 * Returns the value of the '<em><b>Xml Query</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Query</em>' attribute.
-	 * @see #setQuery(String)
-	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_Query()
+	 * @return the value of the '<em>Xml Query</em>' attribute.
+	 * @see #setXmlQuery(String)
+	 * @see qualitypatternmodel.patternstructure.PatternstructurePackage#getPattern_XmlQuery()
 	 * @model
 	 * @generated
 	 */
-	String getQuery();
+	String getXmlQuery();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getQuery <em>Query</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.patternstructure.Pattern#getXmlQuery <em>Xml Query</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Query</em>' attribute.
-	 * @see #getQuery()
+	 * @param value the new value of the '<em>Xml Query</em>' attribute.
+	 * @see #getXmlQuery()
 	 * @generated
 	 */
-	void setQuery(String value);
+	void setXmlQuery(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

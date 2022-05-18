@@ -220,6 +220,30 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
+	public PatternElement createRdfAdaption() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PatternElement createNeo4jAdaption() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public void recordValues(XmlDataDatabase database) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -603,6 +627,10 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case PatternstructurePackage.PATTERN_ELEMENT___CREATE_RDF_ADAPTION:
+				return createRdfAdaption();
+			case PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION:
+				return createNeo4jAdaption();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

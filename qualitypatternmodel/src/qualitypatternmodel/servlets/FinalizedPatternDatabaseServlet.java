@@ -44,7 +44,7 @@ public class FinalizedPatternDatabaseServlet extends HttpServlet {
 						CompletePattern pattern = EMFModelLoad.loadCompletePatternAndDatabase(url.toString(), fileURLDb.toString());				
 						Database database = pattern.getDatabase();
 						
-						String query = pattern.getQuery();
+						String query = pattern.getXmlQuery();
 						if(query != null && !query.equals("") ) {							
 							if ( database != null) {
 								String serverDBName = ((ServerXmlDataDatabase) database).getLocalName();

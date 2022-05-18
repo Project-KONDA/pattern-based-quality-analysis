@@ -33,7 +33,7 @@ public class FinalizedPatternListServlet extends HttpServlet {
 					URL url = getClass().getClassLoader().getResource(path);					
 					if(url != null) {
 						CompletePattern pattern = EMFModelLoad.loadCompletePattern(url.toString());
-						String query = pattern.getQuery();
+						String query = pattern.getXmlQuery();
 						if(query != null && !query.equals("")) {
 //							json += "\"" + fileName + "\", ";
 							

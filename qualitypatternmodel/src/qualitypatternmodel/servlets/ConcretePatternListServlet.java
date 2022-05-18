@@ -54,7 +54,7 @@ public class ConcretePatternListServlet extends HttpServlet {
 							pattern.isValid(AbstractionLevel.CONCRETE);							
 							if (pattern.getDatabase() != null) {
 								if (pattern.validateAgainstSchema().isEmpty()) {
-									if (pattern.getQuery() != null & !"".equals(pattern.getQuery())) 
+									if (pattern.getXmlQuery() != null & !"".equals(pattern.getXmlQuery())) 
 										status = STATUS1;
 									else status = STATUS2;
 								} else status = STATUS3;

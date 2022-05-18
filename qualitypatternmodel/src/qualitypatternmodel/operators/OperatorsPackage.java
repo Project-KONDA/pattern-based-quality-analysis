@@ -307,6 +307,24 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR___CREATE_XML_ADAPTION = GraphstructurePackage.COMPARABLE___CREATE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___CREATE_RDF_ADAPTION = GraphstructurePackage.COMPARABLE___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR___CREATE_NEO4J_ADAPTION = GraphstructurePackage.COMPARABLE___CREATE_NEO4J_ADAPTION;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -657,6 +675,24 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_OPERATOR___CREATE_XML_ADAPTION = OPERATOR___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___CREATE_RDF_ADAPTION = OPERATOR___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR___CREATE_NEO4J_ADAPTION = OPERATOR___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1027,6 +1063,24 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER_OPERATOR___CREATE_XML_ADAPTION = OPERATOR___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___CREATE_RDF_ADAPTION = OPERATOR___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_OPERATOR___CREATE_NEO4J_ADAPTION = OPERATOR___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1406,6 +1460,24 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MATCH___CREATE_XML_ADAPTION = BOOLEAN_OPERATOR___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___CREATE_RDF_ADAPTION = BOOLEAN_OPERATOR___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATCH___CREATE_NEO4J_ADAPTION = BOOLEAN_OPERATOR___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
@@ -1832,6 +1904,24 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON___CREATE_XML_ADAPTION = BOOLEAN_OPERATOR___CREATE_XML_ADAPTION;
 
 	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___CREATE_RDF_ADAPTION = BOOLEAN_OPERATOR___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARISON___CREATE_NEO4J_ADAPTION = BOOLEAN_OPERATOR___CREATE_NEO4J_ADAPTION;
+
+	/**
 	 * The operation id for the '<em>Get Return Type</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2227,6 +2317,24 @@ public interface OperatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPERATOR_LIST___CREATE_XML_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___CREATE_RDF_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATOR_LIST___CREATE_NEO4J_ADAPTION = PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Add</em>' operation.

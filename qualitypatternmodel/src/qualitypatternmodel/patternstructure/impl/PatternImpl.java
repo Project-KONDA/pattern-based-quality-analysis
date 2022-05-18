@@ -42,8 +42,8 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
  * <ul>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getGraph <em>Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getCondition <em>Condition</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getPartialQuery <em>Partial Query</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getQuery <em>Query</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getPartialXmlQuery <em>Partial Xml Query</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.impl.PatternImpl#getXmlQuery <em>Xml Query</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,43 +71,43 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	protected Condition condition;
 
 	/**
-	 * The default value of the '{@link #getPartialQuery() <em>Partial Query</em>}' attribute.
+	 * The default value of the '{@link #getPartialXmlQuery() <em>Partial Xml Query</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPartialQuery()
+	 * @see #getPartialXmlQuery()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PARTIAL_QUERY_EDEFAULT = null;
+	protected static final String PARTIAL_XML_QUERY_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getPartialQuery() <em>Partial Query</em>}' attribute.
+	 * The cached value of the '{@link #getPartialXmlQuery() <em>Partial Xml Query</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * The last generated XQuery expression without its where clause. Is set automatically each time the XQuery is generated.
 	 * <!-- end-user-doc -->
-	 * @see #getPartialQuery()
+	 * @see #getPartialXmlQuery()
 	 * @generated
 	 * @ordered
 	 */
-	protected String partialQuery = PARTIAL_QUERY_EDEFAULT;
+	protected String partialXmlQuery = PARTIAL_XML_QUERY_EDEFAULT;
 	/**
-	 * The default value of the '{@link #getQuery() <em>Query</em>}' attribute.
+	 * The default value of the '{@link #getXmlQuery() <em>Xml Query</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getQuery()
+	 * @see #getXmlQuery()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String QUERY_EDEFAULT = null;
+	protected static final String XML_QUERY_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getQuery() <em>Query</em>}' attribute.
+	 * The cached value of the '{@link #getXmlQuery() <em>Xml Query</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * The last generated XQuery expression. Is set automatically each time the XQuery is generated.
 	 * <!-- end-user-doc -->
-	 * @see #getQuery()
+	 * @see #getXmlQuery()
 	 * @generated
 	 * @ordered
 	 */
-	protected String query = QUERY_EDEFAULT;
+	protected String xmlQuery = XML_QUERY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -168,8 +168,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		returnClause += ")";	
 		
 		String query = forClauses + whereClause + returnClause;
-		setQuery(query);
-		setPartialQuery(forClauses + returnClause);
+		setXmlQuery(query);
+		setPartialXmlQuery(forClauses + returnClause);
 		
 		return query;
 	}
@@ -343,8 +343,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 * @generated
 	 */
 	@Override
-	public String getPartialQuery() {
-		return partialQuery;
+	public String getPartialXmlQuery() {
+		return partialXmlQuery;
 	}
 
 	/**
@@ -353,11 +353,11 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 * @generated
 	 */
 	@Override
-	public void setPartialQuery(String newPartialQuery) {
-		String oldPartialQuery = partialQuery;
-		partialQuery = newPartialQuery;
+	public void setPartialXmlQuery(String newPartialXmlQuery) {
+		String oldPartialXmlQuery = partialXmlQuery;
+		partialXmlQuery = newPartialXmlQuery;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__PARTIAL_QUERY, oldPartialQuery, partialQuery));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__PARTIAL_XML_QUERY, oldPartialXmlQuery, partialXmlQuery));
 	}
 
 	/**
@@ -366,8 +366,8 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 * @generated
 	 */
 	@Override
-	public String getQuery() {
-		return query;
+	public String getXmlQuery() {
+		return xmlQuery;
 	}
 
 	/**
@@ -376,11 +376,11 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	 * @generated
 	 */
 	@Override
-	public void setQuery(String newQuery) {
-		String oldQuery = query;
-		query = newQuery;
+	public void setXmlQuery(String newXmlQuery) {
+		String oldXmlQuery = xmlQuery;
+		xmlQuery = newXmlQuery;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__QUERY, oldQuery, query));
+			eNotify(new ENotificationImpl(this, Notification.SET, PatternstructurePackage.PATTERN__XML_QUERY, oldXmlQuery, xmlQuery));
 	}
 
 	/**
@@ -431,10 +431,10 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 				return getGraph();
 			case PatternstructurePackage.PATTERN__CONDITION:
 				return getCondition();
-			case PatternstructurePackage.PATTERN__PARTIAL_QUERY:
-				return getPartialQuery();
-			case PatternstructurePackage.PATTERN__QUERY:
-				return getQuery();
+			case PatternstructurePackage.PATTERN__PARTIAL_XML_QUERY:
+				return getPartialXmlQuery();
+			case PatternstructurePackage.PATTERN__XML_QUERY:
+				return getXmlQuery();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -453,11 +453,11 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			case PatternstructurePackage.PATTERN__CONDITION:
 				setCondition((Condition)newValue);
 				return;
-			case PatternstructurePackage.PATTERN__PARTIAL_QUERY:
-				setPartialQuery((String)newValue);
+			case PatternstructurePackage.PATTERN__PARTIAL_XML_QUERY:
+				setPartialXmlQuery((String)newValue);
 				return;
-			case PatternstructurePackage.PATTERN__QUERY:
-				setQuery((String)newValue);
+			case PatternstructurePackage.PATTERN__XML_QUERY:
+				setXmlQuery((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -477,11 +477,11 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			case PatternstructurePackage.PATTERN__CONDITION:
 				setCondition((Condition)null);
 				return;
-			case PatternstructurePackage.PATTERN__PARTIAL_QUERY:
-				setPartialQuery(PARTIAL_QUERY_EDEFAULT);
+			case PatternstructurePackage.PATTERN__PARTIAL_XML_QUERY:
+				setPartialXmlQuery(PARTIAL_XML_QUERY_EDEFAULT);
 				return;
-			case PatternstructurePackage.PATTERN__QUERY:
-				setQuery(QUERY_EDEFAULT);
+			case PatternstructurePackage.PATTERN__XML_QUERY:
+				setXmlQuery(XML_QUERY_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -499,10 +499,10 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 				return graph != null;
 			case PatternstructurePackage.PATTERN__CONDITION:
 				return condition != null;
-			case PatternstructurePackage.PATTERN__PARTIAL_QUERY:
-				return PARTIAL_QUERY_EDEFAULT == null ? partialQuery != null : !PARTIAL_QUERY_EDEFAULT.equals(partialQuery);
-			case PatternstructurePackage.PATTERN__QUERY:
-				return QUERY_EDEFAULT == null ? query != null : !QUERY_EDEFAULT.equals(query);
+			case PatternstructurePackage.PATTERN__PARTIAL_XML_QUERY:
+				return PARTIAL_XML_QUERY_EDEFAULT == null ? partialXmlQuery != null : !PARTIAL_XML_QUERY_EDEFAULT.equals(partialXmlQuery);
+			case PatternstructurePackage.PATTERN__XML_QUERY:
+				return XML_QUERY_EDEFAULT == null ? xmlQuery != null : !XML_QUERY_EDEFAULT.equals(xmlQuery);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -537,10 +537,10 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (partialQuery: ");
-		result.append(partialQuery);
-		result.append(", query: ");
-		result.append(query);
+		result.append(" (partialXmlQuery: ");
+		result.append(partialXmlQuery);
+		result.append(", xmlQuery: ");
+		result.append(xmlQuery);
 		result.append(')');
 		return result.toString();
 	}

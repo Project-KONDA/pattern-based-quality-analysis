@@ -1094,10 +1094,10 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 //		open();
 		
 		String query;
-		if(pattern.getQuery() == null) {
+		if(pattern.getXmlQuery() == null) {
 			query = pattern.generateXQuery();
 		} else {
-			query = pattern.getQuery();
+			query = pattern.getXmlQuery();
 		}
 //		XQuery xquery = new XQuery(query);
 		
@@ -1146,10 +1146,10 @@ public class XmlDataDatabaseImpl extends XmlDatabaseImpl implements XmlDataDatab
 //		open();
 		
 		String query;
-		if(pattern.getPartialQuery() == null) {
+		if(pattern.getPartialXmlQuery() == null) {
 			pattern.generateXQuery();
 		}
-		query = pattern.getPartialQuery();
+		query = pattern.getPartialXmlQuery();
 		
 		List<String> queryResult = execute(query);
 		

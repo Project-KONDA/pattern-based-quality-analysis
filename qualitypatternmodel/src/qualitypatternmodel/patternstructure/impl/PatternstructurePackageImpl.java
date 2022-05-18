@@ -1019,6 +1019,26 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getPatternElement__CreateRdfAdaption() {
+		return patternElementEClass.getEOperations().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternElement__CreateNeo4jAdaption() {
+		return patternElementEClass.getEOperations().get(22);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPatternElement__RecordValues__XmlDataDatabase() {
 		return patternElementEClass.getEOperations().get(18);
 	}
@@ -1269,7 +1289,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPattern_PartialQuery() {
+	public EAttribute getPattern_PartialXmlQuery() {
 		return (EAttribute)patternEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1279,7 +1299,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPattern_Query() {
+	public EAttribute getPattern_XmlQuery() {
 		return (EAttribute)patternEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1529,6 +1549,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___RECORD_VALUES__XMLDATADATABASE);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___RELATIONS_XML_ADAPTED);
 		createEOperation(patternElementEClass, PATTERN_ELEMENT___CREATE_XML_ADAPTION);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___CREATE_RDF_ADAPTION);
+		createEOperation(patternElementEClass, PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION);
 
 		notConditionEClass = createEClass(NOT_CONDITION);
 		createEReference(notConditionEClass, NOT_CONDITION__CONDITION);
@@ -1554,8 +1576,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		patternEClass = createEClass(PATTERN);
 		createEReference(patternEClass, PATTERN__GRAPH);
 		createEReference(patternEClass, PATTERN__CONDITION);
-		createEAttribute(patternEClass, PATTERN__PARTIAL_QUERY);
-		createEAttribute(patternEClass, PATTERN__QUERY);
+		createEAttribute(patternEClass, PATTERN__PARTIAL_XML_QUERY);
+		createEAttribute(patternEClass, PATTERN__XML_QUERY);
 		createEOperation(patternEClass, PATTERN___CHECK_MORPHISM_OF_NEXT_GRAPH);
 
 		numberElementEClass = createEClass(NUMBER_ELEMENT);
@@ -1795,6 +1817,10 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
 		addEException(op, this.getMissingPatternContainerException());
 
+		initEOperation(getPatternElement__CreateRdfAdaption(), this.getPatternElement(), "createRdfAdaption", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPatternElement__CreateNeo4jAdaption(), this.getPatternElement(), "createNeo4jAdaption", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(notConditionEClass, NotCondition.class, "NotCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNotCondition_Condition(), this.getCondition(), this.getCondition_NotCondition(), "condition", null, 0, 1, NotCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1824,8 +1850,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		initEClass(patternEClass, Pattern.class, "Pattern", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPattern_Graph(), theGraphstructurePackage.getGraph(), theGraphstructurePackage.getGraph_Pattern(), "graph", null, 1, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPattern_Condition(), this.getCondition(), this.getCondition_Pattern(), "condition", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPattern_PartialQuery(), ecorePackage.getEString(), "partialQuery", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPattern_Query(), ecorePackage.getEString(), "query", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPattern_PartialXmlQuery(), ecorePackage.getEString(), "partialXmlQuery", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPattern_XmlQuery(), ecorePackage.getEString(), "xmlQuery", null, 0, 1, Pattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getPattern__CheckMorphismOfNextGraph(), null, "checkMorphismOfNextGraph", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
