@@ -40,17 +40,17 @@ public interface RdfPathParam extends Parameter {
 
 	/**
 	 * Returns the value of the '<em><b>Rdfreference</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfReference#getRdfpathparam <em>Rdfpathparam</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfpathparam <em>Rdfpathparam</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rdfreference</em>' container reference.
-	 * @see #setRdfreference(RdfReference)
+	 * @see #setRdfreference(RdfPredicate)
 	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_Rdfreference()
-	 * @see qualitypatternmodel.adaptionrdf.RdfReference#getRdfpathparam
+	 * @see qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfpathparam
 	 * @model opposite="rdfpathparam" transient="false"
 	 * @generated
 	 */
-	RdfReference getRdfreference();
+	RdfPredicate getRdfreference();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfreference <em>Rdfreference</em>}' container reference.
@@ -60,6 +60,6 @@ public interface RdfPathParam extends Parameter {
 	 * @see #getRdfreference()
 	 * @generated
 	 */
-	void setRdfreference(RdfReference value);
+	void setRdfreference(RdfPredicate value);
 
 } // RdfPathParam

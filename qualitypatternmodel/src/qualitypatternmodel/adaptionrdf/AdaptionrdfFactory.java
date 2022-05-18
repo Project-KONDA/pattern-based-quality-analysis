@@ -22,22 +22,22 @@ public interface AdaptionrdfFactory extends EFactory {
 	AdaptionrdfFactory eINSTANCE = qualitypatternmodel.adaptionrdf.impl.AdaptionrdfFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Rdf Reference</em>'.
+	 * Returns a new object of class '<em>Rdf Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rdf Reference</em>'.
+	 * @return a new object of class '<em>Rdf Predicate</em>'.
 	 * @generated
 	 */
-	RdfReference createRdfReference();
+	RdfPredicate createRdfPredicate();
 
 	/**
-	 * Returns a new object of class '<em>Rdf Url Node</em>'.
+	 * Returns a new object of class '<em>Rdf Irl Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rdf Url Node</em>'.
+	 * @return a new object of class '<em>Rdf Irl Node</em>'.
 	 * @generated
 	 */
-	RdfUrlNode createRdfUrlNode();
+	RdfIrlNode createRdfIrlNode();
 
 	/**
 	 * Returns a new object of class '<em>Rdf Path Param</em>'.
@@ -58,13 +58,13 @@ public interface AdaptionrdfFactory extends EFactory {
 	RdfAxisPair createRdfAxisPair();
 
 	/**
-	 * Returns a new object of class '<em>Rdf Value Node</em>'.
+	 * Returns a new object of class '<em>Rdf Literal Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rdf Value Node</em>'.
+	 * @return a new object of class '<em>Rdf Literal Node</em>'.
 	 * @generated
 	 */
-	RdfValueNode createRdfValueNode();
+	RdfLiteralNode createRdfLiteralNode();
 
 	/**
 	 * Returns the package supported by this factory.

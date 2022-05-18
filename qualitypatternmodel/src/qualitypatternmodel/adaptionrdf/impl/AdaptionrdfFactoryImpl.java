@@ -57,11 +57,11 @@ public class AdaptionrdfFactoryImpl extends EFactoryImpl implements AdaptionrdfF
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case AdaptionrdfPackage.RDF_REFERENCE: return createRdfReference();
-			case AdaptionrdfPackage.RDF_URL_NODE: return createRdfUrlNode();
+			case AdaptionrdfPackage.RDF_PREDICATE: return createRdfPredicate();
+			case AdaptionrdfPackage.RDF_IRL_NODE: return createRdfIrlNode();
 			case AdaptionrdfPackage.RDF_PATH_PARAM: return createRdfPathParam();
 			case AdaptionrdfPackage.RDF_AXIS_PAIR: return createRdfAxisPair();
-			case AdaptionrdfPackage.RDF_VALUE_NODE: return createRdfValueNode();
+			case AdaptionrdfPackage.RDF_LITERAL_NODE: return createRdfLiteralNode();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -103,9 +103,9 @@ public class AdaptionrdfFactoryImpl extends EFactoryImpl implements AdaptionrdfF
 	 * @generated
 	 */
 	@Override
-	public RdfReference createRdfReference() {
-		RdfReferenceImpl rdfReference = new RdfReferenceImpl();
-		return rdfReference;
+	public RdfPredicate createRdfPredicate() {
+		RdfPredicateImpl rdfPredicate = new RdfPredicateImpl();
+		return rdfPredicate;
 	}
 
 	/**
@@ -114,9 +114,9 @@ public class AdaptionrdfFactoryImpl extends EFactoryImpl implements AdaptionrdfF
 	 * @generated
 	 */
 	@Override
-	public RdfUrlNode createRdfUrlNode() {
-		RdfUrlNodeImpl rdfUrlNode = new RdfUrlNodeImpl();
-		return rdfUrlNode;
+	public RdfIrlNode createRdfIrlNode() {
+		RdfIrlNodeImpl rdfIrlNode = new RdfIrlNodeImpl();
+		return rdfIrlNode;
 	}
 
 	/**
@@ -147,9 +147,9 @@ public class AdaptionrdfFactoryImpl extends EFactoryImpl implements AdaptionrdfF
 	 * @generated
 	 */
 	@Override
-	public RdfValueNode createRdfValueNode() {
-		RdfValueNodeImpl rdfValueNode = new RdfValueNodeImpl();
-		return rdfValueNode;
+	public RdfLiteralNode createRdfLiteralNode() {
+		RdfLiteralNodeImpl rdfLiteralNode = new RdfLiteralNodeImpl();
+		return rdfLiteralNode;
 	}
 
 	/**

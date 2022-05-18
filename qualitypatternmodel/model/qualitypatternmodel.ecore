@@ -1086,16 +1086,16 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="adaptionrdf" nsURI="adaptionrdf" nsPrefix="adaptionrdf">
-    <eClassifiers xsi:type="ecore:EClass" name="RdfReference" eSuperTypes="#//graphstructure/Relation">
+    <eClassifiers xsi:type="ecore:EClass" name="RdfPredicate" eSuperTypes="#//graphstructure/Relation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfpathparam" upperBound="-1"
           eType="#//adaptionrdf/RdfPathParam" containment="true" eOpposite="#//adaptionrdf/RdfPathParam/rdfreference"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfUrlNode" eSuperTypes="#//graphstructure/ComplexNode"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RdfIrlNode" eSuperTypes="#//graphstructure/ComplexNode"/>
     <eClassifiers xsi:type="ecore:EClass" name="RdfPathParam" eSuperTypes="#//parameters/Parameter">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfaxispair" upperBound="-1"
           eType="#//adaptionrdf/RdfAxisPair" containment="true" eOpposite="#//adaptionrdf/RdfAxisPair/rdfpathparam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfreference" eType="#//adaptionrdf/RdfReference"
-          eOpposite="#//adaptionrdf/RdfReference/rdfpathparam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfreference" eType="#//adaptionrdf/RdfPredicate"
+          eOpposite="#//adaptionrdf/RdfPredicate/rdfpathparam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="RdfQuantifier">
       <eLiterals name="ONCE" literal="ONCE"/>
@@ -1109,6 +1109,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfpathparam" eType="#//adaptionrdf/RdfPathParam"
           eOpposite="#//adaptionrdf/RdfPathParam/rdfaxispair"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfValueNode" eSuperTypes="#//graphstructure/PrimitiveNode"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RdfLiteralNode" eSuperTypes="#//graphstructure/PrimitiveNode"/>
   </eSubpackages>
 </ecore:EPackage>

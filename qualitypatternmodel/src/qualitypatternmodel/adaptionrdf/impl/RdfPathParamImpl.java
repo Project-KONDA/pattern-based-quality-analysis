@@ -21,7 +21,7 @@ import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfAxisPair;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 
-import qualitypatternmodel.adaptionrdf.RdfReference;
+import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 
 /**
@@ -87,9 +87,9 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * @generated
 	 */
 	@Override
-	public RdfReference getRdfreference() {
+	public RdfPredicate getRdfreference() {
 		if (eContainerFeatureID() != AdaptionrdfPackage.RDF_PATH_PARAM__RDFREFERENCE) return null;
-		return (RdfReference)eInternalContainer();
+		return (RdfPredicate)eInternalContainer();
 	}
 
 	/**
@@ -97,7 +97,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRdfreference(RdfReference newRdfreference, NotificationChain msgs) {
+	public NotificationChain basicSetRdfreference(RdfPredicate newRdfreference, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newRdfreference, AdaptionrdfPackage.RDF_PATH_PARAM__RDFREFERENCE, msgs);
 		return msgs;
 	}
@@ -108,7 +108,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * @generated
 	 */
 	@Override
-	public void setRdfreference(RdfReference newRdfreference) {
+	public void setRdfreference(RdfPredicate newRdfreference) {
 		if (newRdfreference != eInternalContainer() || (eContainerFeatureID() != AdaptionrdfPackage.RDF_PATH_PARAM__RDFREFERENCE && newRdfreference != null)) {
 			if (EcoreUtil.isAncestor(this, newRdfreference))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -116,7 +116,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newRdfreference != null)
-				msgs = ((InternalEObject)newRdfreference).eInverseAdd(this, AdaptionrdfPackage.RDF_REFERENCE__RDFPATHPARAM, RdfReference.class, msgs);
+				msgs = ((InternalEObject)newRdfreference).eInverseAdd(this, AdaptionrdfPackage.RDF_PREDICATE__RDFPATHPARAM, RdfPredicate.class, msgs);
 			msgs = basicSetRdfreference(newRdfreference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -138,7 +138,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDFREFERENCE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetRdfreference((RdfReference)otherEnd, msgs);
+				return basicSetRdfreference((RdfPredicate)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -168,7 +168,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDFREFERENCE:
-				return eInternalContainer().eInverseRemove(this, AdaptionrdfPackage.RDF_REFERENCE__RDFPATHPARAM, RdfReference.class, msgs);
+				return eInternalContainer().eInverseRemove(this, AdaptionrdfPackage.RDF_PREDICATE__RDFPATHPARAM, RdfPredicate.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -203,7 +203,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 				getRdfaxispair().addAll((Collection<? extends RdfAxisPair>)newValue);
 				return;
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDFREFERENCE:
-				setRdfreference((RdfReference)newValue);
+				setRdfreference((RdfPredicate)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -221,7 +221,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 				getRdfaxispair().clear();
 				return;
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDFREFERENCE:
-				setRdfreference((RdfReference)null);
+				setRdfreference((RdfPredicate)null);
 				return;
 		}
 		super.eUnset(featureID);

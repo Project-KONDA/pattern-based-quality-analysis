@@ -904,10 +904,10 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionrdf/RdfQuantifier/ZEROPLUS"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionrdf/RdfQuantifier/ONEPLUS"/>
       </genEnums>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfReference">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfReference/rdfpathparam"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfPredicate">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPredicate/rdfpathparam"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfUrlNode"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfIrlNode"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/rdfaxispair"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/rdfreference"/>
@@ -917,7 +917,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfAxisPair/textliteralparam"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfAxisPair/rdfpathparam"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfValueNode"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfLiteralNode"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

@@ -76,23 +76,23 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case AdaptionrdfPackage.RDF_REFERENCE: {
-				RdfReference rdfReference = (RdfReference)theEObject;
-				T result = caseRdfReference(rdfReference);
-				if (result == null) result = caseRelation(rdfReference);
-				if (result == null) result = caseAdaptable(rdfReference);
-				if (result == null) result = casePatternElement(rdfReference);
+			case AdaptionrdfPackage.RDF_PREDICATE: {
+				RdfPredicate rdfPredicate = (RdfPredicate)theEObject;
+				T result = caseRdfPredicate(rdfPredicate);
+				if (result == null) result = caseRelation(rdfPredicate);
+				if (result == null) result = caseAdaptable(rdfPredicate);
+				if (result == null) result = casePatternElement(rdfPredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AdaptionrdfPackage.RDF_URL_NODE: {
-				RdfUrlNode rdfUrlNode = (RdfUrlNode)theEObject;
-				T result = caseRdfUrlNode(rdfUrlNode);
-				if (result == null) result = caseComplexNode(rdfUrlNode);
-				if (result == null) result = caseNode(rdfUrlNode);
-				if (result == null) result = caseComparable(rdfUrlNode);
-				if (result == null) result = caseAdaptable(rdfUrlNode);
-				if (result == null) result = casePatternElement(rdfUrlNode);
+			case AdaptionrdfPackage.RDF_IRL_NODE: {
+				RdfIrlNode rdfIrlNode = (RdfIrlNode)theEObject;
+				T result = caseRdfIrlNode(rdfIrlNode);
+				if (result == null) result = caseComplexNode(rdfIrlNode);
+				if (result == null) result = caseNode(rdfIrlNode);
+				if (result == null) result = caseComparable(rdfIrlNode);
+				if (result == null) result = caseAdaptable(rdfIrlNode);
+				if (result == null) result = casePatternElement(rdfIrlNode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -111,14 +111,14 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AdaptionrdfPackage.RDF_VALUE_NODE: {
-				RdfValueNode rdfValueNode = (RdfValueNode)theEObject;
-				T result = caseRdfValueNode(rdfValueNode);
-				if (result == null) result = casePrimitiveNode(rdfValueNode);
-				if (result == null) result = caseNode(rdfValueNode);
-				if (result == null) result = caseComparable(rdfValueNode);
-				if (result == null) result = caseAdaptable(rdfValueNode);
-				if (result == null) result = casePatternElement(rdfValueNode);
+			case AdaptionrdfPackage.RDF_LITERAL_NODE: {
+				RdfLiteralNode rdfLiteralNode = (RdfLiteralNode)theEObject;
+				T result = caseRdfLiteralNode(rdfLiteralNode);
+				if (result == null) result = casePrimitiveNode(rdfLiteralNode);
+				if (result == null) result = caseNode(rdfLiteralNode);
+				if (result == null) result = caseComparable(rdfLiteralNode);
+				if (result == null) result = caseAdaptable(rdfLiteralNode);
+				if (result == null) result = casePatternElement(rdfLiteralNode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -127,32 +127,32 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Rdf Reference</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Rdf Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Rdf Reference</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Rdf Predicate</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRdfReference(RdfReference object) {
+	public T caseRdfPredicate(RdfPredicate object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Rdf Url Node</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Rdf Irl Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Rdf Url Node</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Rdf Irl Node</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRdfUrlNode(RdfUrlNode object) {
+	public T caseRdfIrlNode(RdfIrlNode object) {
 		return null;
 	}
 
@@ -187,17 +187,17 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Rdf Value Node</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Rdf Literal Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Rdf Value Node</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Rdf Literal Node</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRdfValueNode(RdfValueNode object) {
+	public T caseRdfLiteralNode(RdfLiteralNode object) {
 		return null;
 	}
 
