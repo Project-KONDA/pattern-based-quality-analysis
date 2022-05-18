@@ -168,7 +168,7 @@ public class EvalContrel {
 		
 		CompletePattern completePattern = getContrelAbstract();
 		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);	
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(AxisKind.THREECHILD);
 		
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -212,7 +212,7 @@ public class EvalContrel {
 		((XmlProperty) val1.getProperties().get(1)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		Node element2 = graph1.getNodes().get(4);
-		((XmlElementNavigation) graph1.getRelations().get(7)).getPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) graph1.getRelations().get(7)).getXmlPathParam().setValue(AxisKind.THREECHILD);
 		Comparison element2Comp1 = (Comparison) element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("wer");

@@ -96,7 +96,7 @@ public class Test00 {
 	public static CompletePattern getBasePatternCondConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternCond(comp);
 		XmlNavigation xmlNavigation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		xmlNavigation.getPathParam().setAxis(AxisKind.DESCENDANT, "");		
+		xmlNavigation.getXmlPathParam().setAxis(AxisKind.DESCENDANT, "");		
 		return completePattern;		
 	}
 	
@@ -111,7 +111,7 @@ public class Test00 {
 	public static CompletePattern getBasePatternMatchConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternMatch(comp);
 		XmlNavigation xmlNavigation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		xmlNavigation.getPathParam().setAxis(AxisKind.DESCENDANT, "");		
+		xmlNavigation.getXmlPathParam().setAxis(AxisKind.DESCENDANT, "");		
 		return completePattern;		
 	}
 	

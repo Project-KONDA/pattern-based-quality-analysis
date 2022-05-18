@@ -73,6 +73,116 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT = 0;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl <em>Xml Navigation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlNavigation()
+	 * @generated
+	 */
+	int XML_NAVIGATION = 10;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl <em>Xml Element Navigation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlElementNavigation()
+	 * @generated
+	 */
+	int XML_ELEMENT_NAVIGATION = 1;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl <em>Xml Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlReference()
+	 * @generated
+	 */
+	int XML_REFERENCE = 2;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl <em>Xml Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlProperty()
+	 * @generated
+	 */
+	int XML_PROPERTY = 3;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlRootImpl <em>Xml Root</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.impl.XmlRootImpl
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlRoot()
+	 * @generated
+	 */
+	int XML_ROOT = 4;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyNavigationImpl <em>Xml Property Navigation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.impl.XmlPropertyNavigationImpl
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlPropertyNavigation()
+	 * @generated
+	 */
+	int XML_PROPERTY_NAVIGATION = 5;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.AxisOptionParamImpl <em>Axis Option Param</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.impl.AxisOptionParamImpl
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getAxisOptionParam()
+	 * @generated
+	 */
+	int AXIS_OPTION_PARAM = 6;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl <em>Property Option Param</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getPropertyOptionParam()
+	 * @generated
+	 */
+	int PROPERTY_OPTION_PARAM = 7;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl <em>Xml Path Param</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlPathParam()
+	 * @generated
+	 */
+	int XML_PATH_PARAM = 8;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.AxisPairImpl <em>Axis Pair</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.impl.AxisPairImpl
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getAxisPair()
+	 * @generated
+	 */
+	int AXIS_PAIR = 9;
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.XmlNode <em>Xml Node</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionxml.XmlNode
+	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlNode()
+	 * @generated
+	 */
+	int XML_NODE = 11;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -775,16 +885,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl <em>Xml Navigation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.impl.XmlNavigationImpl
-	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlNavigation()
-	 * @generated
-	 */
-	int XML_NAVIGATION = 10;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -875,13 +975,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION__PREDICATES_ARE_BEING_TRANSLATED = GraphstructurePackage.RELATION__PREDICATES_ARE_BEING_TRANSLATED;
 
 	/**
-	 * The feature id for the '<em><b>Path Param</b></em>' reference.
+	 * The feature id for the '<em><b>Xml Path Param</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_NAVIGATION__PATH_PARAM = GraphstructurePackage.RELATION_FEATURE_COUNT + 0;
+	int XML_NAVIGATION__XML_PATH_PARAM = GraphstructurePackage.RELATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source Variable</b></em>' attribute.
@@ -1199,16 +1299,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl <em>Xml Element Navigation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.impl.XmlElementNavigationImpl
-	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlElementNavigation()
-	 * @generated
-	 */
-	int XML_ELEMENT_NAVIGATION = 1;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1299,13 +1389,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_NAVIGATION__PREDICATES_ARE_BEING_TRANSLATED = XML_NAVIGATION__PREDICATES_ARE_BEING_TRANSLATED;
 
 	/**
-	 * The feature id for the '<em><b>Path Param</b></em>' reference.
+	 * The feature id for the '<em><b>Xml Path Param</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_ELEMENT_NAVIGATION__PATH_PARAM = XML_NAVIGATION__PATH_PARAM;
+	int XML_ELEMENT_NAVIGATION__XML_PATH_PARAM = XML_NAVIGATION__XML_PATH_PARAM;
 
 	/**
 	 * The feature id for the '<em><b>Source Variable</b></em>' attribute.
@@ -1621,16 +1711,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ELEMENT_NAVIGATION_OPERATION_COUNT = XML_NAVIGATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl <em>Xml Reference</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.impl.XmlReferenceImpl
-	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlReference()
-	 * @generated
-	 */
-	int XML_REFERENCE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2063,16 +2143,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_REFERENCE_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl <em>Xml Property</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.impl.XmlPropertyImpl
-	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlProperty()
-	 * @generated
-	 */
-	int XML_PROPERTY = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2777,16 +2847,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlRootImpl <em>Xml Root</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.impl.XmlRootImpl
-	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlRoot()
-	 * @generated
-	 */
-	int XML_ROOT = 4;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3435,16 +3495,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.XmlPropertyNavigationImpl <em>Xml Property Navigation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.impl.XmlPropertyNavigationImpl
-	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlPropertyNavigation()
-	 * @generated
-	 */
-	int XML_PROPERTY_NAVIGATION = 5;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3535,13 +3585,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_NAVIGATION__PREDICATES_ARE_BEING_TRANSLATED = XML_NAVIGATION__PREDICATES_ARE_BEING_TRANSLATED;
 
 	/**
-	 * The feature id for the '<em><b>Path Param</b></em>' reference.
+	 * The feature id for the '<em><b>Xml Path Param</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int XML_PROPERTY_NAVIGATION__PATH_PARAM = XML_NAVIGATION__PATH_PARAM;
+	int XML_PROPERTY_NAVIGATION__XML_PATH_PARAM = XML_NAVIGATION__XML_PATH_PARAM;
 
 	/**
 	 * The feature id for the '<em><b>Source Variable</b></em>' attribute.
@@ -3857,16 +3907,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY_NAVIGATION_OPERATION_COUNT = XML_NAVIGATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.AxisOptionParamImpl <em>Axis Option Param</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.impl.AxisOptionParamImpl
-	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getAxisOptionParam()
-	 * @generated
-	 */
-	int AXIS_OPTION_PARAM = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4254,16 +4294,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int AXIS_OPTION_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl <em>Property Option Param</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.impl.PropertyOptionParamImpl
-	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getPropertyOptionParam()
-	 * @generated
-	 */
-	int PROPERTY_OPTION_PARAM = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4671,23 +4701,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int PROPERTY_OPTION_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.PathParamImpl <em>Path Param</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.impl.PathParamImpl
-	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getPathParam()
-	 * @generated
-	 */
-	int PATH_PARAM = 8;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM__ID = GraphstructurePackage.ADAPTABLE__ID;
+	int XML_PATH_PARAM__ID = GraphstructurePackage.ADAPTABLE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -4696,7 +4716,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM__INTERNAL_ID = GraphstructurePackage.ADAPTABLE__INTERNAL_ID;
+	int XML_PATH_PARAM__INTERNAL_ID = GraphstructurePackage.ADAPTABLE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -4705,7 +4725,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM__PARAMETER_LIST = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 0;
+	int XML_PATH_PARAM__PARAMETER_LIST = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
@@ -4714,7 +4734,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM__PREDEFINED = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 1;
+	int XML_PATH_PARAM__PREDEFINED = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
@@ -4723,7 +4743,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM__PARAMETER_REFERENCES = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 2;
+	int XML_PATH_PARAM__PARAMETER_REFERENCES = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -4732,7 +4752,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM__DESCRIPTION = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 3;
+	int XML_PATH_PARAM__DESCRIPTION = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Property Option Param</b></em>' containment reference.
@@ -4741,7 +4761,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM__PROPERTY_OPTION_PARAM = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 4;
+	int XML_PATH_PARAM__PROPERTY_OPTION_PARAM = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Axis Pairs</b></em>' containment reference list.
@@ -4750,7 +4770,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM__AXIS_PAIRS = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 5;
+	int XML_PATH_PARAM__AXIS_PAIRS = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Xml Navigation</b></em>' reference.
@@ -4759,16 +4779,16 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM__XML_NAVIGATION = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 6;
+	int XML_PATH_PARAM__XML_NAVIGATION = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 6;
 
 	/**
-	 * The number of structural features of the '<em>Path Param</em>' class.
+	 * The number of structural features of the '<em>Xml Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM_FEATURE_COUNT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
+	int XML_PATH_PARAM_FEATURE_COUNT = GraphstructurePackage.ADAPTABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -4777,7 +4797,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___IS_VALID__ABSTRACTIONLEVEL = GraphstructurePackage.ADAPTABLE___IS_VALID__ABSTRACTIONLEVEL;
+	int XML_PATH_PARAM___IS_VALID__ABSTRACTIONLEVEL = GraphstructurePackage.ADAPTABLE___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -4786,7 +4806,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.ADAPTABLE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int XML_PATH_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = GraphstructurePackage.ADAPTABLE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -4795,7 +4815,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___MY_TO_STRING = GraphstructurePackage.ADAPTABLE___MY_TO_STRING;
+	int XML_PATH_PARAM___MY_TO_STRING = GraphstructurePackage.ADAPTABLE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher</em>' operation.
@@ -4804,7 +4824,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___GENERATE_CYPHER = GraphstructurePackage.ADAPTABLE___GENERATE_CYPHER;
+	int XML_PATH_PARAM___GENERATE_CYPHER = GraphstructurePackage.ADAPTABLE___GENERATE_CYPHER;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -4813,7 +4833,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___GENERATE_XQUERY = GraphstructurePackage.ADAPTABLE___GENERATE_XQUERY;
+	int XML_PATH_PARAM___GENERATE_XQUERY = GraphstructurePackage.ADAPTABLE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -4822,7 +4842,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___GENERATE_SPARQL = GraphstructurePackage.ADAPTABLE___GENERATE_SPARQL;
+	int XML_PATH_PARAM___GENERATE_SPARQL = GraphstructurePackage.ADAPTABLE___GENERATE_SPARQL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -4831,7 +4851,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___GET_CONTAINER = GraphstructurePackage.ADAPTABLE___GET_CONTAINER;
+	int XML_PATH_PARAM___GET_CONTAINER = GraphstructurePackage.ADAPTABLE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -4840,7 +4860,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___GET_ANCESTOR__CLASS = GraphstructurePackage.ADAPTABLE___GET_ANCESTOR__CLASS;
+	int XML_PATH_PARAM___GET_ANCESTOR__CLASS = GraphstructurePackage.ADAPTABLE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -4849,7 +4869,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___INITIALIZE_TRANSLATION = GraphstructurePackage.ADAPTABLE___INITIALIZE_TRANSLATION;
+	int XML_PATH_PARAM___INITIALIZE_TRANSLATION = GraphstructurePackage.ADAPTABLE___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -4858,7 +4878,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___PREPARE_TRANSLATION = GraphstructurePackage.ADAPTABLE___PREPARE_TRANSLATION;
+	int XML_PATH_PARAM___PREPARE_TRANSLATION = GraphstructurePackage.ADAPTABLE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -4867,7 +4887,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___GET_OPERATOR_LIST = GraphstructurePackage.ADAPTABLE___GET_OPERATOR_LIST;
+	int XML_PATH_PARAM___GET_OPERATOR_LIST = GraphstructurePackage.ADAPTABLE___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -4876,7 +4896,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___GET_PARAMETER_LIST = GraphstructurePackage.ADAPTABLE___GET_PARAMETER_LIST;
+	int XML_PATH_PARAM___GET_PARAMETER_LIST = GraphstructurePackage.ADAPTABLE___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -4885,7 +4905,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___GET_ALL_PARAMETERS = GraphstructurePackage.ADAPTABLE___GET_ALL_PARAMETERS;
+	int XML_PATH_PARAM___GET_ALL_PARAMETERS = GraphstructurePackage.ADAPTABLE___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -4894,7 +4914,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___PREPARE_PARAMETER_UPDATES = GraphstructurePackage.ADAPTABLE___PREPARE_PARAMETER_UPDATES;
+	int XML_PATH_PARAM___PREPARE_PARAMETER_UPDATES = GraphstructurePackage.ADAPTABLE___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -4903,7 +4923,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = GraphstructurePackage.ADAPTABLE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int XML_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = GraphstructurePackage.ADAPTABLE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -4912,7 +4932,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.ADAPTABLE___UPDATE_PARAMETERS__PARAMETERLIST;
+	int XML_PATH_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = GraphstructurePackage.ADAPTABLE___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -4921,7 +4941,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.ADAPTABLE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int XML_PATH_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = GraphstructurePackage.ADAPTABLE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -4930,7 +4950,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.ADAPTABLE___RECORD_VALUES__XMLDATADATABASE;
+	int XML_PATH_PARAM___RECORD_VALUES__XMLDATADATABASE = GraphstructurePackage.ADAPTABLE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -4939,7 +4959,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___RELATIONS_XML_ADAPTED = GraphstructurePackage.ADAPTABLE___RELATIONS_XML_ADAPTED;
+	int XML_PATH_PARAM___RELATIONS_XML_ADAPTED = GraphstructurePackage.ADAPTABLE___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Create XML Adaption</em>' operation.
@@ -4948,7 +4968,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___CREATE_XML_ADAPTION = GraphstructurePackage.ADAPTABLE___CREATE_XML_ADAPTION;
+	int XML_PATH_PARAM___CREATE_XML_ADAPTION = GraphstructurePackage.ADAPTABLE___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -4957,7 +4977,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___CREATE_PARAMETERS = GraphstructurePackage.ADAPTABLE___CREATE_PARAMETERS;
+	int XML_PATH_PARAM___CREATE_PARAMETERS = GraphstructurePackage.ADAPTABLE___CREATE_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
@@ -4966,7 +4986,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = GraphstructurePackage.ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+	int XML_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = GraphstructurePackage.ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -4975,7 +4995,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 0;
+	int XML_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -4984,7 +5004,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___VALIDATE_AGAINST_SCHEMA = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 1;
+	int XML_PATH_PARAM___VALIDATE_AGAINST_SCHEMA = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Validate Example Value</em>' operation.
@@ -4993,7 +5013,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 2;
+	int XML_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -5002,7 +5022,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___INPUT_IS_VALID = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 3;
+	int XML_PATH_PARAM___INPUT_IS_VALID = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Used</em>' operation.
@@ -5011,7 +5031,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___IS_USED = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 4;
+	int XML_PATH_PARAM___IS_USED = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Set Value From String</em>' operation.
@@ -5020,7 +5040,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___SET_VALUE_FROM_STRING__STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 5;
+	int XML_PATH_PARAM___SET_VALUE_FROM_STRING__STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Value As String</em>' operation.
@@ -5029,7 +5049,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___GET_VALUE_AS_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 6;
+	int XML_PATH_PARAM___GET_VALUE_AS_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -5038,7 +5058,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 7;
+	int XML_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Get Options As String List</em>' operation.
@@ -5047,7 +5067,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___GET_OPTIONS_AS_STRING_LIST = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 8;
+	int XML_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -5056,7 +5076,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___GENERATE_DESCRIPTION = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 9;
+	int XML_PATH_PARAM___GENERATE_DESCRIPTION = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Set Axis</em>' operation.
@@ -5065,7 +5085,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___SET_AXIS__AXISKIND_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 10;
+	int XML_PATH_PARAM___SET_AXIS__AXISKIND_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Add Axis</em>' operation.
@@ -5074,26 +5094,16 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM___ADD_AXIS__AXISKIND_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 11;
+	int XML_PATH_PARAM___ADD_AXIS__AXISKIND_STRING = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 11;
 
 	/**
-	 * The number of operations of the '<em>Path Param</em>' class.
+	 * The number of operations of the '<em>Xml Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 12;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.impl.AxisPairImpl <em>Axis Pair</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.impl.AxisPairImpl
-	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getAxisPair()
-	 * @generated
-	 */
-	int AXIS_PAIR = 9;
+	int XML_PATH_PARAM_OPERATION_COUNT = GraphstructurePackage.ADAPTABLE_OPERATION_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5132,13 +5142,13 @@ public interface AdaptionxmlPackage extends EPackage {
 	int AXIS_PAIR__AXIS_OPTION_PARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Path Param</b></em>' container reference.
+	 * The feature id for the '<em><b>Xml Path Param</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AXIS_PAIR__PATH_PARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
+	int AXIS_PAIR__XML_PATH_PARAM = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Axis Pair</em>' class.
@@ -5418,16 +5428,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int AXIS_PAIR_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionxml.XmlNode <em>Xml Node</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionxml.XmlNode
-	 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlNode()
-	 * @generated
-	 */
-	int XML_NODE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Variables</b></em>' attribute list.
@@ -5775,67 +5775,67 @@ public interface AdaptionxmlPackage extends EPackage {
 	EOperation getPropertyOptionParam__SetValueIfValid__PropertyKind();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.PathParam <em>Path Param</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.XmlPathParam <em>Xml Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Path Param</em>'.
-	 * @see qualitypatternmodel.adaptionxml.PathParam
+	 * @return the meta object for class '<em>Xml Path Param</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam
 	 * @generated
 	 */
-	EClass getPathParam();
+	EClass getXmlPathParam();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionxml.PathParam#getPropertyOptionParam <em>Property Option Param</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionxml.XmlPathParam#getPropertyOptionParam <em>Property Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Property Option Param</em>'.
-	 * @see qualitypatternmodel.adaptionxml.PathParam#getPropertyOptionParam()
-	 * @see #getPathParam()
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#getPropertyOptionParam()
+	 * @see #getXmlPathParam()
 	 * @generated
 	 */
-	EReference getPathParam_PropertyOptionParam();
+	EReference getXmlPathParam_PropertyOptionParam();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionxml.PathParam#getAxisPairs <em>Axis Pairs</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionxml.XmlPathParam#getAxisPairs <em>Axis Pairs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Axis Pairs</em>'.
-	 * @see qualitypatternmodel.adaptionxml.PathParam#getAxisPairs()
-	 * @see #getPathParam()
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#getAxisPairs()
+	 * @see #getXmlPathParam()
 	 * @generated
 	 */
-	EReference getPathParam_AxisPairs();
+	EReference getXmlPathParam_AxisPairs();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.PathParam#getXmlNavigation <em>Xml Navigation</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlPathParam#getXmlNavigation <em>Xml Navigation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Xml Navigation</em>'.
-	 * @see qualitypatternmodel.adaptionxml.PathParam#getXmlNavigation()
-	 * @see #getPathParam()
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#getXmlNavigation()
+	 * @see #getXmlPathParam()
 	 * @generated
 	 */
-	EReference getPathParam_XmlNavigation();
+	EReference getXmlPathParam_XmlNavigation();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.PathParam#setAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String) <em>Set Axis</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlPathParam#setAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String) <em>Set Axis</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Set Axis</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.PathParam#setAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String)
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#setAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String)
 	 * @generated
 	 */
-	EOperation getPathParam__SetAxis__AxisKind_String();
+	EOperation getXmlPathParam__SetAxis__AxisKind_String();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.PathParam#addAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String) <em>Add Axis</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.XmlPathParam#addAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String) <em>Add Axis</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Axis</em>' operation.
-	 * @see qualitypatternmodel.adaptionxml.PathParam#addAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String)
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#addAxis(qualitypatternmodel.adaptionxml.AxisKind, java.lang.String)
 	 * @generated
 	 */
-	EOperation getPathParam__AddAxis__AxisKind_String();
+	EOperation getXmlPathParam__AddAxis__AxisKind_String();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionxml.AxisPair <em>Axis Pair</em>}'.
@@ -5870,15 +5870,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	EReference getAxisPair_AxisOptionParam();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionxml.AxisPair#getPathParam <em>Path Param</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionxml.AxisPair#getXmlPathParam <em>Xml Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Path Param</em>'.
-	 * @see qualitypatternmodel.adaptionxml.AxisPair#getPathParam()
+	 * @return the meta object for the container reference '<em>Xml Path Param</em>'.
+	 * @see qualitypatternmodel.adaptionxml.AxisPair#getXmlPathParam()
 	 * @see #getAxisPair()
 	 * @generated
 	 */
-	EReference getAxisPair_PathParam();
+	EReference getAxisPair_XmlPathParam();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionxml.AxisPair#getNextAxisPairs() <em>Get Next Axis Pairs</em>}' operation.
@@ -5951,15 +5951,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	EClass getXmlNavigation();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getPathParam <em>Path Param</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getXmlPathParam <em>Xml Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Path Param</em>'.
-	 * @see qualitypatternmodel.adaptionxml.XmlNavigation#getPathParam()
+	 * @return the meta object for the reference '<em>Xml Path Param</em>'.
+	 * @see qualitypatternmodel.adaptionxml.XmlNavigation#getXmlPathParam()
 	 * @see #getXmlNavigation()
 	 * @generated
 	 */
-	EReference getXmlNavigation_PathParam();
+	EReference getXmlNavigation_XmlPathParam();
 
 	/**
 	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getSourceVariable <em>Source Variable</em>}'.
@@ -6302,14 +6302,14 @@ public interface AdaptionxmlPackage extends EPackage {
 		EOperation PROPERTY_OPTION_PARAM___SET_VALUE_IF_VALID__PROPERTYKIND = eINSTANCE.getPropertyOptionParam__SetValueIfValid__PropertyKind();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.PathParamImpl <em>Path Param</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl <em>Xml Path Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionxml.impl.PathParamImpl
-		 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getPathParam()
+		 * @see qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl
+		 * @see qualitypatternmodel.adaptionxml.impl.AdaptionxmlPackageImpl#getXmlPathParam()
 		 * @generated
 		 */
-		EClass PATH_PARAM = eINSTANCE.getPathParam();
+		EClass XML_PATH_PARAM = eINSTANCE.getXmlPathParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Property Option Param</b></em>' containment reference feature.
@@ -6317,7 +6317,7 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PATH_PARAM__PROPERTY_OPTION_PARAM = eINSTANCE.getPathParam_PropertyOptionParam();
+		EReference XML_PATH_PARAM__PROPERTY_OPTION_PARAM = eINSTANCE.getXmlPathParam_PropertyOptionParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Axis Pairs</b></em>' containment reference list feature.
@@ -6325,7 +6325,7 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PATH_PARAM__AXIS_PAIRS = eINSTANCE.getPathParam_AxisPairs();
+		EReference XML_PATH_PARAM__AXIS_PAIRS = eINSTANCE.getXmlPathParam_AxisPairs();
 
 		/**
 		 * The meta object literal for the '<em><b>Xml Navigation</b></em>' reference feature.
@@ -6333,7 +6333,7 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PATH_PARAM__XML_NAVIGATION = eINSTANCE.getPathParam_XmlNavigation();
+		EReference XML_PATH_PARAM__XML_NAVIGATION = eINSTANCE.getXmlPathParam_XmlNavigation();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Axis</b></em>' operation.
@@ -6341,7 +6341,7 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATH_PARAM___SET_AXIS__AXISKIND_STRING = eINSTANCE.getPathParam__SetAxis__AxisKind_String();
+		EOperation XML_PATH_PARAM___SET_AXIS__AXISKIND_STRING = eINSTANCE.getXmlPathParam__SetAxis__AxisKind_String();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Axis</b></em>' operation.
@@ -6349,7 +6349,7 @@ public interface AdaptionxmlPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATH_PARAM___ADD_AXIS__AXISKIND_STRING = eINSTANCE.getPathParam__AddAxis__AxisKind_String();
+		EOperation XML_PATH_PARAM___ADD_AXIS__AXISKIND_STRING = eINSTANCE.getXmlPathParam__AddAxis__AxisKind_String();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionxml.impl.AxisPairImpl <em>Axis Pair</em>}' class.
@@ -6378,12 +6378,12 @@ public interface AdaptionxmlPackage extends EPackage {
 		EReference AXIS_PAIR__AXIS_OPTION_PARAM = eINSTANCE.getAxisPair_AxisOptionParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Path Param</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Xml Path Param</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference AXIS_PAIR__PATH_PARAM = eINSTANCE.getAxisPair_PathParam();
+		EReference AXIS_PAIR__XML_PATH_PARAM = eINSTANCE.getAxisPair_XmlPathParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Next Axis Pairs</b></em>' operation.
@@ -6444,12 +6444,12 @@ public interface AdaptionxmlPackage extends EPackage {
 		EClass XML_NAVIGATION = eINSTANCE.getXmlNavigation();
 
 		/**
-		 * The meta object literal for the '<em><b>Path Param</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Xml Path Param</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference XML_NAVIGATION__PATH_PARAM = eINSTANCE.getXmlNavigation_PathParam();
+		EReference XML_NAVIGATION__XML_PATH_PARAM = eINSTANCE.getXmlNavigation_XmlPathParam();
 
 		/**
 		 * The meta object literal for the '<em><b>Source Variable</b></em>' attribute feature.

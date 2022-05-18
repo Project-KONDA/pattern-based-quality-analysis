@@ -157,25 +157,25 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	protected String abstractName = ABSTRACT_NAME_EDEFAULT;
 
 	/**
-		 * The default value of the '{@link #getCounter() <em>Counter</em>}' attribute.
-		 * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getCounter() <em>Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see #getCounter()
-		 * @generated
-		 * @ordered
-		 */
+	 * @see #getCounter()
+	 * @generated
+	 * @ordered
+	 */
 		protected static final Integer COUNTER_EDEFAULT = new Integer(1);
 
 	/**
-		 * The cached value of the '{@link #getCounter() <em>Counter</em>}' attribute.
-		 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getCounter() <em>Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
 		 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of classes other than <code>Element</code>, <code>Relation</code>,
 		 * <code>Property</code>, <code>Parameter</code> and <code>Operator</code>.
 		 * <!-- end-user-doc -->
-		 * @see #getCounter()
-		 * @generated
-		 * @ordered
-		 */
+	 * @see #getCounter()
+	 * @generated
+	 * @ordered
+	 */
 		protected Integer counter = COUNTER_EDEFAULT;
 
 	/**
@@ -189,14 +189,14 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	protected static final Integer ELEMENT_COUNTER_EDEFAULT = new Integer(1);
 
 	/**
-		 * The cached value of the '{@link #getElementCounter() <em>Element Counter</em>}' attribute.
-		 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getElementCounter() <em>Element Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
 		 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Elements</code>.
 		 * <!-- end-user-doc -->
-		 * @see #getElementCounter()
-		 * @generated
-		 * @ordered
-		 */
+	 * @see #getElementCounter()
+	 * @generated
+	 * @ordered
+	 */
 		protected Integer elementCounter = ELEMENT_COUNTER_EDEFAULT;
 
 	/**
@@ -210,56 +210,56 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	protected static final Integer RELATION_COUNTER_EDEFAULT = new Integer(1);
 
 	/**
-		 * The cached value of the '{@link #getRelationCounter() <em>Relation Counter</em>}' attribute.
-		 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getRelationCounter() <em>Relation Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
 		 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Relations</code>.
 		 * <!-- end-user-doc -->
-		 * @see #getRelationCounter()
-		 * @generated
-		 * @ordered
-		 */
+	 * @see #getRelationCounter()
+	 * @generated
+	 * @ordered
+	 */
 		protected Integer relationCounter = RELATION_COUNTER_EDEFAULT;
 
 	/**
-		 * The default value of the '{@link #getOperatorCounter() <em>Operator Counter</em>}' attribute.
-		 * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getOperatorCounter() <em>Operator Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see #getOperatorCounter()
-		 * @generated
-		 * @ordered
-		 */
+	 * @see #getOperatorCounter()
+	 * @generated
+	 * @ordered
+	 */
 		protected static final Integer OPERATOR_COUNTER_EDEFAULT = new Integer(1);
 
 	/**
-		 * The cached value of the '{@link #getOperatorCounter() <em>Operator Counter</em>}' attribute.
-		 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOperatorCounter() <em>Operator Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
 		 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Operators</code>.
 		 * <!-- end-user-doc -->
-		 * @see #getOperatorCounter()
-		 * @generated
-		 * @ordered
-		 */
+	 * @see #getOperatorCounter()
+	 * @generated
+	 * @ordered
+	 */
 		protected Integer operatorCounter = OPERATOR_COUNTER_EDEFAULT;
 
 	/**
-		 * The default value of the '{@link #getParameterCounter() <em>Parameter Counter</em>}' attribute.
-		 * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getParameterCounter() <em>Parameter Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see #getParameterCounter()
-		 * @generated
-		 * @ordered
-		 */
+	 * @see #getParameterCounter()
+	 * @generated
+	 * @ordered
+	 */
 		protected static final Integer PARAMETER_COUNTER_EDEFAULT = new Integer(1);
 
 	/**
-		 * The cached value of the '{@link #getParameterCounter() <em>Parameter Counter</em>}' attribute.
-		 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getParameterCounter() <em>Parameter Counter</em>}' attribute.
+	 * <!-- begin-user-doc -->
 		 * Counter for {@link qualitypatternmodel.patternstructure.PatternElement#getInternalId internalId} of <code>Parameters</code>.
 		 * <!-- end-user-doc -->
-		 * @see #getParameterCounter()
-		 * @generated
-		 * @ordered
-		 */
+	 * @see #getParameterCounter()
+	 * @generated
+	 * @ordered
+	 */
 		protected Integer parameterCounter = PARAMETER_COUNTER_EDEFAULT;
 
 	//	protected int[] elementCounter = {1,1,1,1,1,1};

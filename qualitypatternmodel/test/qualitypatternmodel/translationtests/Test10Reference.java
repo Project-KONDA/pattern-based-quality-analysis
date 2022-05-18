@@ -51,10 +51,10 @@ public class Test10Reference {
 		reference.setType(ReturnType.STRING);
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 //		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(2)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(2)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(2)).getXmlPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 		return completePattern;		
 	}
@@ -88,13 +88,13 @@ public class Test10Reference {
 		reference2.setType(ReturnType.STRING);
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 //		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(3)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(3)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(3)).getXmlPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 //		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(4)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
-		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(4)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlNavigation) ((QuantifiedCondition) completePattern.getCondition()).getGraph().getRelations().get(4)).getXmlPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 		return completePattern;		
 	}
@@ -126,7 +126,7 @@ public class Test10Reference {
 		XmlReference reference = graph.getRelations().get(0).adaptAsXMLReference();	
 		reference.setType(ReturnType.STRING);
 		
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.CHILD, "");
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(AxisKind.CHILD, "");
 		
 		reference.getSourcePropertyPath().getPropertyOptionParam().setValue(PropertyKind.ATTRIBUTE);
 		reference.getSourcePropertyPath().getPropertyOptionParam().getAttributeName().setValue("demo:id");;
@@ -186,7 +186,7 @@ public class Test10Reference {
 //		reference2.getTargetProperty().getOption().getOptions().add(PropertyKind.DATA);
 		reference2.getTargetPropertyPath().getPropertyOptionParam().setValue(PropertyKind.DATA);
 
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.CHILD, "");
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(AxisKind.CHILD, "");
 //		((XmlElementNavigation) ((QuantifiedCondition) completePattern.getCondition())
 //				.getGraph().getRelations().get(4)).getPathParam().setAxis(AxisKind.CHILD, "");
 		

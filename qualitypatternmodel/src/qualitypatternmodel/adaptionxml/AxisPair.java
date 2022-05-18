@@ -18,7 +18,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionxml.AxisPair#getTextLiteralParam <em>Text Literal Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.AxisPair#getAxisOptionParam <em>Axis Option Param</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.AxisPair#getPathParam <em>Path Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.AxisPair#getXmlPathParam <em>Xml Path Param</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getAxisPair()
@@ -75,28 +75,28 @@ public interface AxisPair extends PatternElement, Adaptable {
 	void setAxisOptionParam(AxisOptionParam value);
 
 	/**
-	 * Returns the value of the '<em><b>Path Param</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.PathParam#getAxisPairs <em>Axis Pairs</em>}'.
+	 * Returns the value of the '<em><b>Xml Path Param</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlPathParam#getAxisPairs <em>Axis Pairs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Path Param</em>' container reference.
-	 * @see #setPathParam(PathParam)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getAxisPair_PathParam()
-	 * @see qualitypatternmodel.adaptionxml.PathParam#getAxisPairs
+	 * @return the value of the '<em>Xml Path Param</em>' container reference.
+	 * @see #setXmlPathParam(XmlPathParam)
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getAxisPair_XmlPathParam()
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#getAxisPairs
 	 * @model opposite="axisPairs" required="true" transient="false"
 	 * @generated
 	 */
-	PathParam getPathParam();
+	XmlPathParam getXmlPathParam();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.AxisPair#getPathParam <em>Path Param</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.AxisPair#getXmlPathParam <em>Xml Path Param</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Path Param</em>' container reference.
-	 * @see #getPathParam()
+	 * @param value the new value of the '<em>Xml Path Param</em>' container reference.
+	 * @see #getXmlPathParam()
 	 * @generated
 	 */
-	void setPathParam(PathParam value);
+	void setXmlPathParam(XmlPathParam value);
 
 	/**
 	 * <!-- begin-user-doc -->

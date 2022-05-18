@@ -313,7 +313,7 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 					navigation.createParameters();
 					navigation.setSource(root);
 					navigation.setTarget(node);
-					navigation.getPathParam().setAxis(AxisKind.DESCENDANT, null);
+					navigation.getXmlPathParam().setAxis(AxisKind.DESCENDANT, null);
 				}
 			} else if(node instanceof XmlProperty) {
 				boolean hasIncomingNavigation = false;

@@ -78,9 +78,9 @@ public class Test07Formula {
 	public static CompletePattern getFormulaPatternConcrete(LogicalOperator op) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern pattern = getFormulaPattern(op);
 		
-		((XmlElementNavigation) pattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, null);
+		((XmlElementNavigation) pattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(AxisKind.DESCENDANT, null);
 		QuantifiedCondition q1 = ((QuantifiedCondition)((Formula) pattern.getCondition()).getCondition2());
-		PropertyOptionParam property = ((XmlPropertyNavigation) q1.getGraph().getRelations().get(3)).getPathParam().getPropertyOptionParam();
+		PropertyOptionParam property = ((XmlPropertyNavigation) q1.getGraph().getRelations().get(3)).getXmlPathParam().getPropertyOptionParam();
 		property.setValue(PropertyKind.ATTRIBUTE);
 		property.getAttributeName().setValue("demo:id");		
 		

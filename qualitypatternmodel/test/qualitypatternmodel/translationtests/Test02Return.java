@@ -73,7 +73,7 @@ public class Test02Return {
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
 		XmlElementNavigation nav2 = (XmlElementNavigation) completePattern.getGraph().getRelations().get(0);
-		nav2.getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		nav2.getXmlPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(2)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
 //		XmlElementNavigation nav3 = (XmlElementNavigation) completePattern.getGraph().getRelations().get(4);

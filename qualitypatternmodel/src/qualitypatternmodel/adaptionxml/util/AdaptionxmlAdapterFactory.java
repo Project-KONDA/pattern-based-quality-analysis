@@ -109,8 +109,8 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 				return createPropertyOptionParamAdapter();
 			}
 			@Override
-			public Adapter casePathParam(PathParam object) {
-				return createPathParamAdapter();
+			public Adapter caseXmlPathParam(XmlPathParam object) {
+				return createXmlPathParamAdapter();
 			}
 			@Override
 			public Adapter caseAxisPair(AxisPair object) {
@@ -289,16 +289,16 @@ public class AdaptionxmlAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.PathParam <em>Path Param</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionxml.XmlPathParam <em>Xml Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionxml.PathParam
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam
 	 * @generated
 	 */
-	public Adapter createPathParamAdapter() {
+	public Adapter createXmlPathParamAdapter() {
 		return null;
 	}
 

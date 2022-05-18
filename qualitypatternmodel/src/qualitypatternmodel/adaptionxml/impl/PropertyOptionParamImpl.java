@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.PathParam;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.PropertyKind;
 import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -285,9 +285,9 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @generated
 	 */
 	@Override
-	public PathParam getPathParam() {
+	public XmlPathParam getPathParam() {
 		if (eContainerFeatureID() != AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM) return null;
-		return (PathParam)eInternalContainer();
+		return (XmlPathParam)eInternalContainer();
 	}
 
 	/**
@@ -295,7 +295,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPathParam(PathParam newPathParam, NotificationChain msgs) {
+	public NotificationChain basicSetPathParam(XmlPathParam newPathParam, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newPathParam, AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM, msgs);
 		return msgs;
 	}
@@ -306,7 +306,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	 * @generated
 	 */
 	@Override
-	public void setPathParam(PathParam newPathParam) {
+	public void setPathParam(XmlPathParam newPathParam) {
 		if (newPathParam != eInternalContainer() || (eContainerFeatureID() != AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM && newPathParam != null)) {
 			if (EcoreUtil.isAncestor(this, newPathParam))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -314,7 +314,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newPathParam != null)
-				msgs = ((InternalEObject)newPathParam).eInverseAdd(this, AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM, PathParam.class, msgs);
+				msgs = ((InternalEObject)newPathParam).eInverseAdd(this, AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM, XmlPathParam.class, msgs);
 			msgs = basicSetPathParam(newPathParam, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -418,7 +418,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetPathParam((PathParam)otherEnd, msgs);
+				return basicSetPathParam((XmlPathParam)otherEnd, msgs);
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME:
 				if (attributeName != null)
 					msgs = ((InternalEObject)attributeName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, null, msgs);
@@ -452,7 +452,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM:
-				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM, PathParam.class, msgs);
+				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM, XmlPathParam.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -494,7 +494,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 				setValue((PropertyKind)newValue);
 				return;
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM:
-				setPathParam((PathParam)newValue);
+				setPathParam((XmlPathParam)newValue);
 				return;
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME:
 				setAttributeName((TextLiteralParam)newValue);
@@ -518,7 +518,7 @@ public class PropertyOptionParamImpl extends ParameterImpl implements PropertyOp
 				setValue(VALUE_EDEFAULT);
 				return;
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__PATH_PARAM:
-				setPathParam((PathParam)null);
+				setPathParam((XmlPathParam)null);
 				return;
 			case AdaptionxmlPackage.PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME:
 				setAttributeName((TextLiteralParam)null);

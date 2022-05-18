@@ -82,7 +82,7 @@ public class EvalMandstruc {
 		CompletePattern completePattern = getMandstrucThreeElementsAbstract();
 		
 		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getNodes().get(0);
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(AxisKind.THREECHILD);
 		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
@@ -97,7 +97,7 @@ public class EvalMandstruc {
 		Graph graph1 = quantifiedCondition.getGraph();
 		
 		XmlElement element2 = (XmlElement) graph1.getNodes().get(1);
-		((XmlElementNavigation) graph1.getRelations().get(0)).getPathParam().setAxis(AxisKind.CHILD, "");
+		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setAxis(AxisKind.CHILD, "");
 		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("ob30");
@@ -106,7 +106,7 @@ public class EvalMandstruc {
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.ATTRIBUTE);
 		
 		XmlElement element3 = (XmlElement) graph1.getNodes().get(2);
-		((XmlElementNavigation) graph1.getRelations().get(0)).getPathParam().setAxis(AxisKind.CHILD, "");
+		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setAxis(AxisKind.CHILD, "");
 		BooleanOperator comparisonElement3 = element3.getPredicates().get(0);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
 		concreteInputValue3.setValue("3100");

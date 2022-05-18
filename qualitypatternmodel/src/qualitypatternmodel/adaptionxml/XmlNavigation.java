@@ -14,7 +14,7 @@ import qualitypatternmodel.graphstructure.Relation;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.XmlNavigation#getPathParam <em>Path Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.XmlNavigation#getXmlPathParam <em>Xml Path Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlNavigation#getSourceVariable <em>Source Variable</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionxml.XmlNavigation#getVariableCounter <em>Variable Counter</em>}</li>
  * </ul>
@@ -25,28 +25,28 @@ import qualitypatternmodel.graphstructure.Relation;
  */
 public interface XmlNavigation extends Relation {
 	/**
-	 * Returns the value of the '<em><b>Path Param</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.PathParam#getXmlNavigation <em>Xml Navigation</em>}'.
+	 * Returns the value of the '<em><b>Xml Path Param</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlPathParam#getXmlNavigation <em>Xml Navigation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Path Param</em>' reference.
-	 * @see #setPathParam(PathParam)
-	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlNavigation_PathParam()
-	 * @see qualitypatternmodel.adaptionxml.PathParam#getXmlNavigation
+	 * @return the value of the '<em>Xml Path Param</em>' reference.
+	 * @see #setXmlPathParam(XmlPathParam)
+	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getXmlNavigation_XmlPathParam()
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#getXmlNavigation
 	 * @model opposite="xmlNavigation"
 	 * @generated
 	 */
-	PathParam getPathParam();
+	XmlPathParam getXmlPathParam();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getPathParam <em>Path Param</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.XmlNavigation#getXmlPathParam <em>Xml Path Param</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Path Param</em>' reference.
-	 * @see #getPathParam()
+	 * @param value the new value of the '<em>Xml Path Param</em>' reference.
+	 * @see #getXmlPathParam()
 	 * @generated
 	 */
-	void setPathParam(PathParam value);
+	void setXmlPathParam(XmlPathParam value);
 
 	/**
 	 * Returns the value of the '<em><b>Source Variable</b></em>' attribute.

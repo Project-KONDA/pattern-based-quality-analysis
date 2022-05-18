@@ -34,7 +34,7 @@ public class Test11Match {
 		Match match = ((Match) pattern.getGraph().getOperatorList().getOperators().get(0));
 		match.getOption().setValue(invert);
 		pattern.createXMLAdaption();
-		((XmlNavigation) pattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlNavigation) pattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(AxisKind.DESCENDANT, "");
 		return pattern;		
 	}
 

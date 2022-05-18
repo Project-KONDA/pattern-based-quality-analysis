@@ -94,13 +94,13 @@ public interface AdaptionxmlFactory extends EFactory {
 	PropertyOptionParam createPropertyOptionParam();
 
 	/**
-	 * Returns a new object of class '<em>Path Param</em>'.
+	 * Returns a new object of class '<em>Xml Path Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Path Param</em>'.
+	 * @return a new object of class '<em>Xml Path Param</em>'.
 	 * @generated
 	 */
-	PathParam createPathParam();
+	XmlPathParam createXmlPathParam();
 
 	/**
 	 * Returns a new object of class '<em>Axis Pair</em>'.

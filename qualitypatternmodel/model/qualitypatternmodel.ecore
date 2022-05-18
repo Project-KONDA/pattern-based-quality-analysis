@@ -662,7 +662,7 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="adaptionxml" nsURI="adaptionxml" nsPrefix="adaptionxml">
-    <eClassifiers xsi:type="ecore:EClass" name="XmlElement" eSuperTypes="#//adaptionxml/XmlNode #//graphstructure/ComplexNode">
+    <eClassifiers xsi:type="ecore:EClass" name="XmlElement" eSuperTypes="#//graphstructure/ComplexNode #//adaptionxml/XmlNode">
       <eOperations name="getTagFromComparisons" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="xQueryDeepEqual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="true"/>
@@ -671,8 +671,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="XmlReference" eSuperTypes="#//graphstructure/Relation">
       <eOperations name="isTranslatable" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="getSourcePropertyPath" eType="#//adaptionxml/PathParam"/>
-      <eOperations name="getTargetPropertyPath" eType="#//adaptionxml/PathParam"/>
+      <eOperations name="getSourcePropertyPath" eType="#//adaptionxml/XmlPathParam"/>
+      <eOperations name="getTargetPropertyPath" eType="#//adaptionxml/XmlPathParam"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//graphstructure/ReturnType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
           eType="#//adaptionxml/XmlProperty" eOpposite="#//adaptionxml/XmlProperty/references"/>
@@ -722,11 +722,11 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
           eType="#//adaptionxml/PropertyKind"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pathParam" lowerBound="1"
-          eType="#//adaptionxml/PathParam" eOpposite="#//adaptionxml/PathParam/propertyOptionParam"/>
+          eType="#//adaptionxml/XmlPathParam" eOpposite="#//adaptionxml/XmlPathParam/propertyOptionParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="attributeName" eType="#//parameters/TextLiteralParam"
           containment="true" eOpposite="#//parameters/TextLiteralParam/propertyOptionParam"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PathParam" eSuperTypes="#//graphstructure/Adaptable #//parameters/Parameter">
+    <eClassifiers xsi:type="ecore:EClass" name="XmlPathParam" eSuperTypes="#//graphstructure/Adaptable #//parameters/Parameter">
       <eOperations name="setAxis">
         <eParameters name="axis" eType="#//adaptionxml/AxisKind"/>
         <eParameters name="tag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -738,9 +738,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="propertyOptionParam"
           eType="#//adaptionxml/PropertyOptionParam" containment="true" eOpposite="#//adaptionxml/PropertyOptionParam/pathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="axisPairs" upperBound="-1"
-          eType="#//adaptionxml/AxisPair" containment="true" eOpposite="#//adaptionxml/AxisPair/pathParam"/>
+          eType="#//adaptionxml/AxisPair" containment="true" eOpposite="#//adaptionxml/AxisPair/xmlPathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlNavigation" eType="#//adaptionxml/XmlNavigation"
-          eOpposite="#//adaptionxml/XmlNavigation/pathParam"/>
+          eOpposite="#//adaptionxml/XmlNavigation/xmlPathParam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AxisPair" eSuperTypes="#//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="getNextAxisPairs" upperBound="-1" eType="#//adaptionxml/AxisPair"/>
@@ -755,12 +755,12 @@
           eType="#//parameters/TextLiteralParam" containment="true" eOpposite="#//parameters/TextLiteralParam/axisPair"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="axisOptionParam" lowerBound="1"
           eType="#//adaptionxml/AxisOptionParam" containment="true" eOpposite="#//adaptionxml/AxisOptionParam/axisPair"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="pathParam" lowerBound="1"
-          eType="#//adaptionxml/PathParam" eOpposite="#//adaptionxml/PathParam/axisPairs"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPathParam" lowerBound="1"
+          eType="#//adaptionxml/XmlPathParam" eOpposite="#//adaptionxml/XmlPathParam/axisPairs"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="XmlNavigation" abstract="true" eSuperTypes="#//graphstructure/Relation">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="pathParam" eType="#//adaptionxml/PathParam"
-          eOpposite="#//adaptionxml/PathParam/xmlNavigation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPathParam" eType="#//adaptionxml/XmlPathParam"
+          eOpposite="#//adaptionxml/XmlPathParam/xmlNavigation"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceVariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="variableCounter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"

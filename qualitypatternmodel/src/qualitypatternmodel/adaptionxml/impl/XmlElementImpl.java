@@ -10,7 +10,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
@@ -392,8 +391,8 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		for(Relation r : getOutgoing()) {
 			if(r instanceof XmlPropertyNavigation) {
 				XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
-				if(nav.getPathParam() != null && nav.getPathParam().getPropertyOptionParam() != null 
-						&& nav.getPathParam().getPropertyOptionParam().getValue() == PropertyKind.TAG) {
+				if(nav.getXmlPathParam() != null && nav.getXmlPathParam().getPropertyOptionParam() != null 
+						&& nav.getXmlPathParam().getPropertyOptionParam().getValue() == PropertyKind.TAG) {
 					Node target = nav.getTarget();
 					if(target instanceof XmlProperty) {
 						XmlProperty prop = (XmlProperty) target;
@@ -475,6 +474,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case AdaptionxmlPackage.XML_ELEMENT___GET_TAG_FROM_COMPARISONS:

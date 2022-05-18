@@ -91,7 +91,7 @@ public interface XmlReference extends Relation {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	PathParam getSourcePropertyPath();
+	XmlPathParam getSourcePropertyPath();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -99,6 +99,6 @@ public interface XmlReference extends Relation {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	PathParam getTargetPropertyPath();
+	XmlPathParam getTargetPropertyPath();
 
 } // XMLReference

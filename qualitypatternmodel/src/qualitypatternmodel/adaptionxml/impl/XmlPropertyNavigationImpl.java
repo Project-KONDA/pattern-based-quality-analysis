@@ -34,7 +34,7 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		super.isValidLocal(abstractionLevel);
-		if (getPathParam() == null) 
+		if (getXmlPathParam() == null) 
 			throw new InvalidityException("XmlPropertyNavigation [" + getInternalId() + "] has no pathParam");
 		// TODO
 		// if (getIncomingMapping() == null && option == null)

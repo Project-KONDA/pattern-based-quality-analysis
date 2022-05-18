@@ -195,7 +195,7 @@ public class EvalMandatt {
 		CompletePattern completePattern = getMandattAbstract();
 		
 		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);	
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(AxisKind.THREECHILD);
 		
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -245,7 +245,7 @@ public class EvalMandatt {
 		CompletePattern completePattern = getMandattAbstract();
 		
 		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);	
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.TWOCHILD);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(AxisKind.TWOCHILD);
 				
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -260,7 +260,7 @@ public class EvalMandatt {
 		
 		Graph graph1 = qc1.getGraph();
 		Node next1ToReturnElementInGraph1 = graph1.getNodes().get(1);
-		((XmlElementNavigation) graph1.getRelations().get(0)).getPathParam().setValue(AxisKind.FIVECHILD);
+		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setValue(AxisKind.FIVECHILD);
 		Comparison comparison1 = (Comparison) next1ToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1.setValue("lido:appellationValue");
@@ -269,7 +269,7 @@ public class EvalMandatt {
 		
 		Graph graph2 = qc2.getGraph();
 		Node next1ToReturnElementInGraph2 = graph2.getNodes().get(1);
-		((XmlElementNavigation) graph2.getRelations().get(0)).getPathParam().setValue(AxisKind.FIVECHILD);
+		((XmlElementNavigation) graph2.getRelations().get(0)).getXmlPathParam().setValue(AxisKind.FIVECHILD);
 		
 		Comparison comparison2 = (Comparison) next1ToReturnElementInGraph2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
@@ -297,7 +297,7 @@ public class EvalMandatt {
 		CompletePattern completePattern = getMandattAbstractThreeElements();
 		
 		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);	
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.TWOCHILD);
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(AxisKind.TWOCHILD);
 				
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
@@ -315,7 +315,7 @@ public class EvalMandatt {
 		
 		Graph graph0 = qc0.getGraph();
 		Node element1InG0 = graph0.getNodes().get(1);
-		((XmlElementNavigation) graph0.getRelations().get(0)).getPathParam().setValue(AxisKind.SEVENCHILD);
+		((XmlElementNavigation) graph0.getRelations().get(0)).getXmlPathParam().setValue(AxisKind.SEVENCHILD);
 		Comparison comparison = (Comparison) element1InG0.getPredicates().get(0);
 		TextLiteralParam concreteInputValue0 = parametersFactory.createTextLiteralParam();
 		concreteInputValue0.setValue("lido:actor");
@@ -325,7 +325,7 @@ public class EvalMandatt {
 		Graph graph1 = qc1.getGraph();
 		
 		Node element2InG1 = graph1.getNodes().get(2);
-		((XmlElementNavigation) graph1.getRelations().get(1)).getPathParam().setAxis(AxisKind.CHILD, "");
+		((XmlElementNavigation) graph1.getRelations().get(1)).getXmlPathParam().setAxis(AxisKind.CHILD, "");
 		Comparison comparison1 = (Comparison) element2InG1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1.setValue("lido:nameActorSet");
@@ -333,7 +333,7 @@ public class EvalMandatt {
 		((XmlProperty) element2InG1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
 		Node next1ToReturnElementInGraph1 = graph1.getNodes().get(3);
-		((XmlElementNavigation) graph1.getRelations().get(1)).getPathParam().setAxis(AxisKind.CHILD, "");
+		((XmlElementNavigation) graph1.getRelations().get(1)).getXmlPathParam().setAxis(AxisKind.CHILD, "");
 		Comparison comparison2G1 = (Comparison) next1ToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2G1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2G1.setValue("lido:appellationValue");
@@ -343,7 +343,7 @@ public class EvalMandatt {
 		Graph graph2 = qc2.getGraph();
 		
 		Node element2 = graph2.getNodes().get(2);
-		((XmlElementNavigation) graph2.getRelations().get(1)).getPathParam().setAxis(AxisKind.CHILD, "");
+		((XmlElementNavigation) graph2.getRelations().get(1)).getXmlPathParam().setAxis(AxisKind.CHILD, "");
 		
 		Comparison comparison2 = (Comparison) element2.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
@@ -352,7 +352,7 @@ public class EvalMandatt {
 		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		
 		Node element3 = graph2.getNodes().get(3);
-		((XmlElementNavigation) graph2.getRelations().get(2)).getPathParam().setAxis(AxisKind.CHILD, "");
+		((XmlElementNavigation) graph2.getRelations().get(2)).getXmlPathParam().setAxis(AxisKind.CHILD, "");
 		
 		Comparison comparison3 = (Comparison) element3.getPredicates().get(0);
 		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();

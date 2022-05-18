@@ -21,7 +21,7 @@ import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.AxisKind;
 import qualitypatternmodel.adaptionxml.AxisOptionParam;
 import qualitypatternmodel.adaptionxml.AxisPair;
-import qualitypatternmodel.adaptionxml.PathParam;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.PropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
@@ -47,18 +47,18 @@ import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.PathParamImpl#getParameterList <em>Parameter List</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.PathParamImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.PathParamImpl#isPredefined <em>Predefined</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.PathParamImpl#getParameterReferences <em>Parameter References</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.PathParamImpl#getPropertyOptionParam <em>Property Option Param</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.PathParamImpl#getAxisPairs <em>Axis Pairs</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionxml.impl.PathParamImpl#getXmlNavigation <em>Xml Navigation</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getParameterList <em>Parameter List</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#isPredefined <em>Predefined</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getParameterReferences <em>Parameter References</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getPropertyOptionParam <em>Property Option Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getAxisPairs <em>Axis Pairs</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl#getXmlNavigation <em>Xml Navigation</em>}</li>
  * </ul>
  *
  * @generated NOT
  */
-public class PathParamImpl extends ParameterImpl implements PathParam {
+public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -144,7 +144,7 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PathParamImpl() {
+	protected XmlPathParamImpl() {
 		super();
 	}
 	
@@ -211,7 +211,7 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AdaptionxmlPackage.Literals.PATH_PARAM;
+		return AdaptionxmlPackage.Literals.XML_PATH_PARAM;
 	}
 
 	/**
@@ -221,7 +221,7 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	 */
 	@Override
 	public ParameterList getParameterList() {
-		if (eContainerFeatureID() != AdaptionxmlPackage.PATH_PARAM__PARAMETER_LIST) return null;
+		if (eContainerFeatureID() != AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST) return null;
 		return (ParameterList)eInternalContainer();
 	}
 
@@ -231,7 +231,7 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	 * @generated
 	 */
 	public NotificationChain basicSetParameterList(ParameterList newParameterList, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newParameterList, AdaptionxmlPackage.PATH_PARAM__PARAMETER_LIST, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newParameterList, AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST, msgs);
 		return msgs;
 	}
 
@@ -242,7 +242,7 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	 */
 	@Override
 	public void setParameterList(ParameterList newParameterList) {
-		if (newParameterList != eInternalContainer() || (eContainerFeatureID() != AdaptionxmlPackage.PATH_PARAM__PARAMETER_LIST && newParameterList != null)) {
+		if (newParameterList != eInternalContainer() || (eContainerFeatureID() != AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST && newParameterList != null)) {
 			if (EcoreUtil.isAncestor(this, newParameterList))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -254,7 +254,7 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.PATH_PARAM__PARAMETER_LIST, newParameterList, newParameterList));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST, newParameterList, newParameterList));
 	}
 
 	/**
@@ -277,7 +277,7 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.PATH_PARAM__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -300,7 +300,7 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 		boolean oldPredefined = predefined;
 		predefined = newPredefined;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.PATH_PARAM__PREDEFINED, oldPredefined, predefined));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED, oldPredefined, predefined));
 	}
 
 	/**
@@ -311,7 +311,7 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	@Override
 	public EList<ParameterReference> getParameterReferences() {
 		if (parameterReferences == null) {
-			parameterReferences = new EObjectWithInverseResolvingEList.ManyInverse<ParameterReference>(ParameterReference.class, this, AdaptionxmlPackage.PATH_PARAM__PARAMETER_REFERENCES, TextrepresentationPackage.PARAMETER_REFERENCE__PARAMETER);
+			parameterReferences = new EObjectWithInverseResolvingEList.ManyInverse<ParameterReference>(ParameterReference.class, this, AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES, TextrepresentationPackage.PARAMETER_REFERENCE__PARAMETER);
 		}
 		return parameterReferences;
 	}
@@ -338,7 +338,7 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 		PropertyOptionParam oldPropertyOptionParam = propertyOptionParam;
 		propertyOptionParam = newPropertyOptionParam;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM, oldPropertyOptionParam, newPropertyOptionParam);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM, oldPropertyOptionParam, newPropertyOptionParam);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -361,7 +361,7 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM, newPropertyOptionParam, newPropertyOptionParam));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM, newPropertyOptionParam, newPropertyOptionParam));
 	}
 
 	/**
@@ -372,7 +372,7 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	@Override
 	public EList<AxisPair> getAxisPairs() {
 		if (axisPairs == null) {
-			axisPairs = new EObjectContainmentWithInverseEList<AxisPair>(AxisPair.class, this, AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS, AdaptionxmlPackage.AXIS_PAIR__PATH_PARAM);
+			axisPairs = new EObjectContainmentWithInverseEList<AxisPair>(AxisPair.class, this, AdaptionxmlPackage.XML_PATH_PARAM__AXIS_PAIRS, AdaptionxmlPackage.AXIS_PAIR__XML_PATH_PARAM);
 		}
 		return axisPairs;
 	}
@@ -389,7 +389,7 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 			xmlNavigation = (XmlNavigation)eResolveProxy(oldXmlNavigation);
 			if (xmlNavigation != oldXmlNavigation) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionxmlPackage.PATH_PARAM__XML_NAVIGATION, oldXmlNavigation, xmlNavigation));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION, oldXmlNavigation, xmlNavigation));
 			}
 		}
 		return xmlNavigation;
@@ -413,7 +413,7 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 		XmlNavigation oldXmlNavigation = xmlNavigation;
 		xmlNavigation = newXmlNavigation;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.PATH_PARAM__XML_NAVIGATION, oldXmlNavigation, newXmlNavigation);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION, oldXmlNavigation, newXmlNavigation);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -429,14 +429,14 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 		if (newXmlNavigation != xmlNavigation) {
 			NotificationChain msgs = null;
 			if (xmlNavigation != null)
-				msgs = ((InternalEObject)xmlNavigation).eInverseRemove(this, AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM, XmlNavigation.class, msgs);
+				msgs = ((InternalEObject)xmlNavigation).eInverseRemove(this, AdaptionxmlPackage.XML_NAVIGATION__XML_PATH_PARAM, XmlNavigation.class, msgs);
 			if (newXmlNavigation != null)
-				msgs = ((InternalEObject)newXmlNavigation).eInverseAdd(this, AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM, XmlNavigation.class, msgs);
+				msgs = ((InternalEObject)newXmlNavigation).eInverseAdd(this, AdaptionxmlPackage.XML_NAVIGATION__XML_PATH_PARAM, XmlNavigation.class, msgs);
 			msgs = basicSetXmlNavigation(newXmlNavigation, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.PATH_PARAM__XML_NAVIGATION, newXmlNavigation, newXmlNavigation));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION, newXmlNavigation, newXmlNavigation));
 	}
 
 	/**
@@ -530,21 +530,21 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionxmlPackage.PATH_PARAM__PARAMETER_LIST:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetParameterList((ParameterList)otherEnd, msgs);
-			case AdaptionxmlPackage.PATH_PARAM__PARAMETER_REFERENCES:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameterReferences()).basicAdd(otherEnd, msgs);
-			case AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM:
 				if (propertyOptionParam != null)
-					msgs = ((InternalEObject)propertyOptionParam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM, null, msgs);
+					msgs = ((InternalEObject)propertyOptionParam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM, null, msgs);
 				return basicSetPropertyOptionParam((PropertyOptionParam)otherEnd, msgs);
-			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS:
+			case AdaptionxmlPackage.XML_PATH_PARAM__AXIS_PAIRS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAxisPairs()).basicAdd(otherEnd, msgs);
-			case AdaptionxmlPackage.PATH_PARAM__XML_NAVIGATION:
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				if (xmlNavigation != null)
-					msgs = ((InternalEObject)xmlNavigation).eInverseRemove(this, AdaptionxmlPackage.XML_NAVIGATION__PATH_PARAM, XmlNavigation.class, msgs);
+					msgs = ((InternalEObject)xmlNavigation).eInverseRemove(this, AdaptionxmlPackage.XML_NAVIGATION__XML_PATH_PARAM, XmlNavigation.class, msgs);
 				return basicSetXmlNavigation((XmlNavigation)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -558,15 +558,15 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionxmlPackage.PATH_PARAM__PARAMETER_LIST:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
 				return basicSetParameterList(null, msgs);
-			case AdaptionxmlPackage.PATH_PARAM__PARAMETER_REFERENCES:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
 				return ((InternalEList<?>)getParameterReferences()).basicRemove(otherEnd, msgs);
-			case AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM:
 				return basicSetPropertyOptionParam(null, msgs);
-			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS:
+			case AdaptionxmlPackage.XML_PATH_PARAM__AXIS_PAIRS:
 				return ((InternalEList<?>)getAxisPairs()).basicRemove(otherEnd, msgs);
-			case AdaptionxmlPackage.PATH_PARAM__XML_NAVIGATION:
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				return basicSetXmlNavigation(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -580,7 +580,7 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case AdaptionxmlPackage.PATH_PARAM__PARAMETER_LIST:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
 				return eInternalContainer().eInverseRemove(this, ParametersPackage.PARAMETER_LIST__PARAMETERS, ParameterList.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -594,19 +594,19 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionxmlPackage.PATH_PARAM__PARAMETER_LIST:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
 				return getParameterList();
-			case AdaptionxmlPackage.PATH_PARAM__DESCRIPTION:
+			case AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION:
 				return getDescription();
-			case AdaptionxmlPackage.PATH_PARAM__PREDEFINED:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED:
 				return isPredefined();
-			case AdaptionxmlPackage.PATH_PARAM__PARAMETER_REFERENCES:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
 				return getParameterReferences();
-			case AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM:
 				return getPropertyOptionParam();
-			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS:
+			case AdaptionxmlPackage.XML_PATH_PARAM__AXIS_PAIRS:
 				return getAxisPairs();
-			case AdaptionxmlPackage.PATH_PARAM__XML_NAVIGATION:
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				if (resolve) return getXmlNavigation();
 				return basicGetXmlNavigation();
 		}
@@ -622,27 +622,27 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionxmlPackage.PATH_PARAM__PARAMETER_LIST:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
 				setParameterList((ParameterList)newValue);
 				return;
-			case AdaptionxmlPackage.PATH_PARAM__DESCRIPTION:
+			case AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case AdaptionxmlPackage.PATH_PARAM__PREDEFINED:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED:
 				setPredefined((Boolean)newValue);
 				return;
-			case AdaptionxmlPackage.PATH_PARAM__PARAMETER_REFERENCES:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
 				getParameterReferences().clear();
 				getParameterReferences().addAll((Collection<? extends ParameterReference>)newValue);
 				return;
-			case AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM:
 				setPropertyOptionParam((PropertyOptionParam)newValue);
 				return;
-			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS:
+			case AdaptionxmlPackage.XML_PATH_PARAM__AXIS_PAIRS:
 				getAxisPairs().clear();
 				getAxisPairs().addAll((Collection<? extends AxisPair>)newValue);
 				return;
-			case AdaptionxmlPackage.PATH_PARAM__XML_NAVIGATION:
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				setXmlNavigation((XmlNavigation)newValue);
 				return;
 		}
@@ -657,25 +657,25 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionxmlPackage.PATH_PARAM__PARAMETER_LIST:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
 				setParameterList((ParameterList)null);
 				return;
-			case AdaptionxmlPackage.PATH_PARAM__DESCRIPTION:
+			case AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case AdaptionxmlPackage.PATH_PARAM__PREDEFINED:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED:
 				setPredefined(PREDEFINED_EDEFAULT);
 				return;
-			case AdaptionxmlPackage.PATH_PARAM__PARAMETER_REFERENCES:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
 				getParameterReferences().clear();
 				return;
-			case AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM:
 				setPropertyOptionParam((PropertyOptionParam)null);
 				return;
-			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS:
+			case AdaptionxmlPackage.XML_PATH_PARAM__AXIS_PAIRS:
 				getAxisPairs().clear();
 				return;
-			case AdaptionxmlPackage.PATH_PARAM__XML_NAVIGATION:
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				setXmlNavigation((XmlNavigation)null);
 				return;
 		}
@@ -690,19 +690,19 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionxmlPackage.PATH_PARAM__PARAMETER_LIST:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST:
 				return getParameterList() != null;
-			case AdaptionxmlPackage.PATH_PARAM__DESCRIPTION:
+			case AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case AdaptionxmlPackage.PATH_PARAM__PREDEFINED:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED:
 				return predefined != PREDEFINED_EDEFAULT;
-			case AdaptionxmlPackage.PATH_PARAM__PARAMETER_REFERENCES:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES:
 				return parameterReferences != null && !parameterReferences.isEmpty();
-			case AdaptionxmlPackage.PATH_PARAM__PROPERTY_OPTION_PARAM:
+			case AdaptionxmlPackage.XML_PATH_PARAM__PROPERTY_OPTION_PARAM:
 				return propertyOptionParam != null;
-			case AdaptionxmlPackage.PATH_PARAM__AXIS_PAIRS:
+			case AdaptionxmlPackage.XML_PATH_PARAM__AXIS_PAIRS:
 				return axisPairs != null && !axisPairs.isEmpty();
-			case AdaptionxmlPackage.PATH_PARAM__XML_NAVIGATION:
+			case AdaptionxmlPackage.XML_PATH_PARAM__XML_NAVIGATION:
 				return xmlNavigation != null;
 		}
 		return super.eIsSet(featureID);
@@ -717,10 +717,10 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Parameter.class) {
 			switch (derivedFeatureID) {
-				case AdaptionxmlPackage.PATH_PARAM__PARAMETER_LIST: return ParametersPackage.PARAMETER__PARAMETER_LIST;
-				case AdaptionxmlPackage.PATH_PARAM__DESCRIPTION: return ParametersPackage.PARAMETER__DESCRIPTION;
-				case AdaptionxmlPackage.PATH_PARAM__PREDEFINED: return ParametersPackage.PARAMETER__PREDEFINED;
-				case AdaptionxmlPackage.PATH_PARAM__PARAMETER_REFERENCES: return ParametersPackage.PARAMETER__PARAMETER_REFERENCES;
+				case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST: return ParametersPackage.PARAMETER__PARAMETER_LIST;
+				case AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION: return ParametersPackage.PARAMETER__DESCRIPTION;
+				case AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED: return ParametersPackage.PARAMETER__PREDEFINED;
+				case AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES: return ParametersPackage.PARAMETER__PARAMETER_REFERENCES;
 				default: return -1;
 			}
 		}
@@ -736,10 +736,10 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Parameter.class) {
 			switch (baseFeatureID) {
-				case ParametersPackage.PARAMETER__PARAMETER_LIST: return AdaptionxmlPackage.PATH_PARAM__PARAMETER_LIST;
-				case ParametersPackage.PARAMETER__DESCRIPTION: return AdaptionxmlPackage.PATH_PARAM__DESCRIPTION;
-				case ParametersPackage.PARAMETER__PREDEFINED: return AdaptionxmlPackage.PATH_PARAM__PREDEFINED;
-				case ParametersPackage.PARAMETER__PARAMETER_REFERENCES: return AdaptionxmlPackage.PATH_PARAM__PARAMETER_REFERENCES;
+				case ParametersPackage.PARAMETER__PARAMETER_LIST: return AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_LIST;
+				case ParametersPackage.PARAMETER__DESCRIPTION: return AdaptionxmlPackage.XML_PATH_PARAM__DESCRIPTION;
+				case ParametersPackage.PARAMETER__PREDEFINED: return AdaptionxmlPackage.XML_PATH_PARAM__PREDEFINED;
+				case ParametersPackage.PARAMETER__PARAMETER_REFERENCES: return AdaptionxmlPackage.XML_PATH_PARAM__PARAMETER_REFERENCES;
 				default: return -1;
 			}
 		}
@@ -755,16 +755,16 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == Parameter.class) {
 			switch (baseOperationID) {
-				case ParametersPackage.PARAMETER___INPUT_IS_VALID: return AdaptionxmlPackage.PATH_PARAM___INPUT_IS_VALID;
-				case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION: return AdaptionxmlPackage.PATH_PARAM___GENERATE_DESCRIPTION;
-				case ParametersPackage.PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP: return AdaptionxmlPackage.PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
-				case ParametersPackage.PARAMETER___IS_USED: return AdaptionxmlPackage.PATH_PARAM___IS_USED;
-				case ParametersPackage.PARAMETER___GET_VALUE_AS_STRING: return AdaptionxmlPackage.PATH_PARAM___GET_VALUE_AS_STRING;
-				case ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING: return AdaptionxmlPackage.PATH_PARAM___SET_VALUE_FROM_STRING__STRING;
-				case ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST: return AdaptionxmlPackage.PATH_PARAM___GET_OPTIONS_AS_STRING_LIST;
-				case ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA: return AdaptionxmlPackage.PATH_PARAM___VALIDATE_AGAINST_SCHEMA;
-				case ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY: return AdaptionxmlPackage.PATH_PARAM___CHECK_COMPARISON_CONSISTENCY;
-				case ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING: return AdaptionxmlPackage.PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
+				case ParametersPackage.PARAMETER___INPUT_IS_VALID: return AdaptionxmlPackage.XML_PATH_PARAM___INPUT_IS_VALID;
+				case ParametersPackage.PARAMETER___GENERATE_DESCRIPTION: return AdaptionxmlPackage.XML_PATH_PARAM___GENERATE_DESCRIPTION;
+				case ParametersPackage.PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP: return AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
+				case ParametersPackage.PARAMETER___IS_USED: return AdaptionxmlPackage.XML_PATH_PARAM___IS_USED;
+				case ParametersPackage.PARAMETER___GET_VALUE_AS_STRING: return AdaptionxmlPackage.XML_PATH_PARAM___GET_VALUE_AS_STRING;
+				case ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING: return AdaptionxmlPackage.XML_PATH_PARAM___SET_VALUE_FROM_STRING__STRING;
+				case ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST: return AdaptionxmlPackage.XML_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST;
+				case ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA: return AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_AGAINST_SCHEMA;
+				case ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY: return AdaptionxmlPackage.XML_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY;
+				case ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING: return AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
 				default: return -1;
 			}
 		}
@@ -779,21 +779,21 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionxmlPackage.PATH_PARAM___SET_AXIS__AXISKIND_STRING:
+			case AdaptionxmlPackage.XML_PATH_PARAM___SET_AXIS__AXISKIND_STRING:
 				setAxis((AxisKind)arguments.get(0), (String)arguments.get(1));
 				return null;
-			case AdaptionxmlPackage.PATH_PARAM___ADD_AXIS__AXISKIND_STRING:
+			case AdaptionxmlPackage.XML_PATH_PARAM___ADD_AXIS__AXISKIND_STRING:
 				addAxis((AxisKind)arguments.get(0), (String)arguments.get(1));
 				return null;
-			case AdaptionxmlPackage.PATH_PARAM___INPUT_IS_VALID:
+			case AdaptionxmlPackage.XML_PATH_PARAM___INPUT_IS_VALID:
 				return inputIsValid();
-			case AdaptionxmlPackage.PATH_PARAM___GENERATE_DESCRIPTION:
+			case AdaptionxmlPackage.XML_PATH_PARAM___GENERATE_DESCRIPTION:
 				return generateDescription();
-			case AdaptionxmlPackage.PATH_PARAM___IS_USED:
+			case AdaptionxmlPackage.XML_PATH_PARAM___IS_USED:
 				return isUsed();
-			case AdaptionxmlPackage.PATH_PARAM___GET_VALUE_AS_STRING:
+			case AdaptionxmlPackage.XML_PATH_PARAM___GET_VALUE_AS_STRING:
 				return getValueAsString();
-			case AdaptionxmlPackage.PATH_PARAM___SET_VALUE_FROM_STRING__STRING:
+			case AdaptionxmlPackage.XML_PATH_PARAM___SET_VALUE_FROM_STRING__STRING:
 				try {
 					setValueFromString((String)arguments.get(0));
 					return null;
@@ -801,11 +801,11 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionxmlPackage.PATH_PARAM___GET_OPTIONS_AS_STRING_LIST:
+			case AdaptionxmlPackage.XML_PATH_PARAM___GET_OPTIONS_AS_STRING_LIST:
 				return getOptionsAsStringList();
-			case AdaptionxmlPackage.PATH_PARAM___VALIDATE_AGAINST_SCHEMA:
+			case AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_AGAINST_SCHEMA:
 				return validateAgainstSchema();
-			case AdaptionxmlPackage.PATH_PARAM___CHECK_COMPARISON_CONSISTENCY:
+			case AdaptionxmlPackage.XML_PATH_PARAM___CHECK_COMPARISON_CONSISTENCY:
 				try {
 					checkComparisonConsistency();
 					return null;
@@ -813,7 +813,7 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionxmlPackage.PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING:
+			case AdaptionxmlPackage.XML_PATH_PARAM___VALIDATE_EXAMPLE_VALUE__STRING:
 				try {
 					validateExampleValue((String)arguments.get(0));
 					return null;
@@ -821,10 +821,10 @@ public class PathParamImpl extends ParameterImpl implements PathParam {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case AdaptionxmlPackage.PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
+			case AdaptionxmlPackage.XML_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;
-			case AdaptionxmlPackage.PATH_PARAM___CREATE_PARAMETERS:
+			case AdaptionxmlPackage.XML_PATH_PARAM___CREATE_PARAMETERS:
 				createParameters();
 				return null;
 		}

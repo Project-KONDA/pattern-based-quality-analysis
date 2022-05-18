@@ -157,10 +157,10 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 		
 		if (getAxisPair() == null)
 			return false;
-		else if (getAxisPair().getPathParam() == null) 
+		else if (getAxisPair().getXmlPathParam() == null) 
 			return false;
 		else 
-			return getAxisPair().getPathParam().getXmlNavigation() != null;
+			return getAxisPair().getXmlPathParam().getXmlNavigation() != null;
 	}
 
 	/**
@@ -300,7 +300,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	
 	@Override
 	public void checkComparisonConsistency() throws InvalidityException {
-		Relation relation = getAxisPair().getPathParam().getXmlNavigation();
+		Relation relation = getAxisPair().getXmlPathParam().getXmlNavigation();
 		Node target = relation.getTarget();
 		if(target instanceof PrimitiveNode){
 			((PrimitiveNode) target).checkComparisonConsistency();	
@@ -474,7 +474,7 @@ public class AxisOptionParamImpl extends ParameterImpl implements AxisOptionPara
 	public String generateDescription() {
 		String res = "Beziehung: XPath-Achse";
 		try {			
-			Relation relation = getAxisPair().getPathParam().getXmlNavigation();
+			Relation relation = getAxisPair().getXmlPathParam().getXmlNavigation();
 			Node to = relation.getTarget();
 			Node from = relation.getSource();
 			res += " zur Navigation von " + from.getName() + " zu " + to.getName();		

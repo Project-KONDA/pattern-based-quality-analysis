@@ -72,17 +72,17 @@ public interface PropertyOptionParam extends Parameter, Adaptable {
 
 	/**
 	 * Returns the value of the '<em><b>Path Param</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.PathParam#getPropertyOptionParam <em>Property Option Param</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionxml.XmlPathParam#getPropertyOptionParam <em>Property Option Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Path Param</em>' container reference.
-	 * @see #setPathParam(PathParam)
+	 * @see #setPathParam(XmlPathParam)
 	 * @see qualitypatternmodel.adaptionxml.AdaptionxmlPackage#getPropertyOptionParam_PathParam()
-	 * @see qualitypatternmodel.adaptionxml.PathParam#getPropertyOptionParam
+	 * @see qualitypatternmodel.adaptionxml.XmlPathParam#getPropertyOptionParam
 	 * @model opposite="propertyOptionParam" required="true" transient="false"
 	 * @generated
 	 */
-	PathParam getPathParam();
+	XmlPathParam getPathParam();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionxml.PropertyOptionParam#getPathParam <em>Path Param</em>}' container reference.
@@ -92,7 +92,7 @@ public interface PropertyOptionParam extends Parameter, Adaptable {
 	 * @see #getPathParam()
 	 * @generated
 	 */
-	void setPathParam(PathParam value);
+	void setPathParam(XmlPathParam value);
 
 	/**
 	 * Returns the value of the '<em><b>Attribute Name</b></em>' containment reference.

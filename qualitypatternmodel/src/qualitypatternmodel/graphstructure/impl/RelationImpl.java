@@ -949,7 +949,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			}
 			Relation r = target.addIncomming(root);
 			XmlElementNavigation relation = r.adaptAsXMLElementNavigation();
-			relation.getPathParam().setAxis(AxisKind.DESCENDANT, null);
+			relation.getXmlPathParam().setAxis(AxisKind.DESCENDANT, null);
 		}
 		for(Relation r: graph.getRelations()) {
 			if(r instanceof XmlReference) {

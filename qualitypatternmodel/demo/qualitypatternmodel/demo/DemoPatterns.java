@@ -307,14 +307,14 @@ public class DemoPatterns {
 		
 		// Context graph of pattern:
 		XmlNavigation nav0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		nav0.getPathParam().setAxis(AxisKind.DESCENDANT, DEMO_NAMESPACE + "architect");
+		nav0.getXmlPathParam().setAxis(AxisKind.DESCENDANT, DEMO_NAMESPACE + "architect");
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
 		XmlNavigation nav1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		nav1.getPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "birthyear");
+		nav1.getXmlPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "birthyear");
 		
 		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
 		NumberParam numberValue = ParametersFactory.eINSTANCE.createNumberParam();
@@ -339,14 +339,14 @@ public class DemoPatterns {
 		
 		// Context graph of pattern:
 		XmlNavigation nav0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		nav0.getPathParam().setAxis(AxisKind.DESCENDANT, LIDO_NAMESPACE + "actor");
+		nav0.getXmlPathParam().setAxis(AxisKind.DESCENDANT, LIDO_NAMESPACE + "actor");
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
 		XmlNavigation nav1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		nav1.getPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "genderActor");
+		nav1.getXmlPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "genderActor");
 		
 		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
 		TextLiteralParam textValue = ParametersFactory.eINSTANCE.createTextLiteralParam();
@@ -434,7 +434,7 @@ public class DemoPatterns {
 		
 		// Context graph of pattern:
 		XmlNavigation nav0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		nav0.getPathParam().setAxis(AxisKind.DESCENDANT, DEMO_NAMESPACE + "artist");
+		nav0.getXmlPathParam().setAxis(AxisKind.DESCENDANT, DEMO_NAMESPACE + "artist");
 		
 		// First-order logic condition of pattern:
 		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
@@ -447,7 +447,7 @@ public class DemoPatterns {
 		
 		// Graph of inner pattern:
 		XmlNavigation nav1 = (XmlNavigation) countPattern.getGraph().getRelations().get(0);
-		nav1.getPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "birthyear");
+		nav1.getXmlPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "birthyear");
 		
 		return completePattern;
 	}
@@ -465,7 +465,7 @@ public class DemoPatterns {
 		
 		// Context graph of pattern:
 		XmlNavigation nav0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		nav0.getPathParam().setAxis(AxisKind.DESCENDANT, LIDO_NAMESPACE + "actor");
+		nav0.getXmlPathParam().setAxis(AxisKind.DESCENDANT, LIDO_NAMESPACE + "actor");
 		
 		// First-order logic condition of pattern:
 		CountCondition countCondition = (CountCondition) completePattern.getCondition();		
@@ -478,7 +478,7 @@ public class DemoPatterns {
 		
 		// Graph of inner pattern:
 		XmlNavigation nav1 = (XmlNavigation) countPattern.getGraph().getRelations().get(0);
-		nav1.getPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "nameActorSet");
+		nav1.getXmlPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "nameActorSet");
 				
 		return completePattern;
 	}
@@ -608,26 +608,26 @@ public class DemoPatterns {
 		
 		// Context graph of pattern:
 		XmlNavigation nav0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		nav0.getPathParam().setAxis(AxisKind.DESCENDANT, DEMO_NAMESPACE + "building");
+		nav0.getXmlPathParam().setAxis(AxisKind.DESCENDANT, DEMO_NAMESPACE + "building");
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
 		XmlNavigation nav0A = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		nav0A.getPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "city");
+		nav0A.getXmlPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "city");
 		
 		XmlNavigation nav0B = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(2);
-		nav0B.getPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "country");
+		nav0B.getXmlPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "country");
 		
 		XmlNavigation nav1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(5);
-		nav1.getPathParam().setAxis(AxisKind.DESCENDANT, DEMO_NAMESPACE + "building");
+		nav1.getXmlPathParam().setAxis(AxisKind.DESCENDANT, DEMO_NAMESPACE + "building");
 		
 		XmlNavigation nav1A = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(3);
-		nav1A.getPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "country");
+		nav1A.getXmlPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "country");
 		
 		XmlNavigation nav1B = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
-		nav1B.getPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "city");
+		nav1B.getXmlPathParam().setAxis(AxisKind.CHILD, DEMO_NAMESPACE + "city");
 				
 		return completePattern;
 	
@@ -651,26 +651,26 @@ public class DemoPatterns {
 		
 		// Context graph of pattern:
 		XmlNavigation nav0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		nav0.getPathParam().setAxis(AxisKind.DESCENDANT, LIDO_NAMESPACE + "culture");
+		nav0.getXmlPathParam().setAxis(AxisKind.DESCENDANT, LIDO_NAMESPACE + "culture");
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
 		XmlNavigation nav0A = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		nav0A.getPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "conceptID");
+		nav0A.getXmlPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "conceptID");
 		
 		XmlNavigation nav0B = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(2);
-		nav0B.getPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "term");
+		nav0B.getXmlPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "term");
 		
 		XmlNavigation nav1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(5);
-		nav1.getPathParam().setAxis(AxisKind.DESCENDANT, LIDO_NAMESPACE + "culture");
+		nav1.getXmlPathParam().setAxis(AxisKind.DESCENDANT, LIDO_NAMESPACE + "culture");
 		
 		XmlNavigation nav1A = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(3);
-		nav1A.getPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "term");
+		nav1A.getXmlPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "term");
 		
 		XmlNavigation nav1B = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
-		nav1B.getPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "conceptID");
+		nav1B.getXmlPathParam().setAxis(AxisKind.CHILD, LIDO_NAMESPACE + "conceptID");
 				
 		return completePattern;
 	

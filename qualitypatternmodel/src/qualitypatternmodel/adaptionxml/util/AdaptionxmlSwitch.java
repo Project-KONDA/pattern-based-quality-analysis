@@ -156,12 +156,12 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AdaptionxmlPackage.PATH_PARAM: {
-				PathParam pathParam = (PathParam)theEObject;
-				T result = casePathParam(pathParam);
-				if (result == null) result = caseAdaptable(pathParam);
-				if (result == null) result = caseParameter(pathParam);
-				if (result == null) result = casePatternElement(pathParam);
+			case AdaptionxmlPackage.XML_PATH_PARAM: {
+				XmlPathParam xmlPathParam = (XmlPathParam)theEObject;
+				T result = caseXmlPathParam(xmlPathParam);
+				if (result == null) result = caseAdaptable(xmlPathParam);
+				if (result == null) result = caseParameter(xmlPathParam);
+				if (result == null) result = casePatternElement(xmlPathParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -313,17 +313,17 @@ public class AdaptionxmlSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Path Param</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Xml Path Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Path Param</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Xml Path Param</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePathParam(PathParam object) {
+	public T caseXmlPathParam(XmlPathParam object) {
 		return null;
 	}
 

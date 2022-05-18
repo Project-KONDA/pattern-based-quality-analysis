@@ -130,7 +130,7 @@ public class EvalCard {
 		
 		CompletePattern completePattern = getCardAbstractThreeElements();
 		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);	
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(returnRelation, "");
+		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(returnRelation, "");
 		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementName);
@@ -140,7 +140,7 @@ public class EvalCard {
 		Graph graph1 = quantifiedCondition.getGraph();
 		
 		Node e1G1 = graph1.getNodes().get(1);	
-		((XmlElementNavigation) graph1.getRelations().get(0)).getPathParam().setAxis(returnToE1Rel, "");
+		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setAxis(returnToE1Rel, "");
 		((XmlProperty) e1G1.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue1G1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1G1.setValue(e1Name);
@@ -151,7 +151,7 @@ public class EvalCard {
 		Graph graph2 = countPattern.getGraph();
 				
 		Node e4G2 = graph2.getNodes().get(2);	
-		((XmlElementNavigation) graph2.getRelations().get(1)).getPathParam().setAxis(e1ToE2Rel, "");
+		((XmlElementNavigation) graph2.getRelations().get(1)).getXmlPathParam().setAxis(e1ToE2Rel, "");
 		((XmlProperty) e4G2.getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 		TextLiteralParam concreteInputValue4G2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4G2.setValue(e2Name);
@@ -223,7 +223,7 @@ public class EvalCard {
 		CompletePattern pattern = getCardAbstractMidas();
 		
 		XmlElement returnElementInReturnGraph = (XmlElement) pattern.getGraph().getReturnNodes().get(0);	
-		((XmlElementNavigation) pattern.getGraph().getRelations().get(0)).getPathParam().setValue(AxisKind.THREECHILD);
+		((XmlElementNavigation) pattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(AxisKind.THREECHILD);
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
@@ -240,7 +240,7 @@ public class EvalCard {
 		Graph graph1 = countPattern.getGraph();
 		
 		XmlElement nextToReturnElementInGraph1 = (XmlElement) graph1.getNodes().get(1);	
-		((XmlElementNavigation) graph1.getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT_OR_SELF, "");
+		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setAxis(AxisKind.DESCENDANT_OR_SELF, "");
 		Comparison comparisonNextToReturnElementInGraph1 = (Comparison) nextToReturnElementInGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("h1:Block");

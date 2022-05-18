@@ -50,14 +50,14 @@ public class Test08ParameterValues {
 		
 		XmlProperty property = (XmlProperty) completePattern.getGraph().getNodes().get(0);
 		XmlNavigation relation = (XmlNavigation) property.getIncoming().get(0);
-		relation.getPathParam().getPropertyOptionParam().getOptions().add(propertyKind);
-		relation.getPathParam().getPropertyOptionParam().setValue(propertyKind);
+		relation.getXmlPathParam().getPropertyOptionParam().getOptions().add(propertyKind);
+		relation.getXmlPathParam().getPropertyOptionParam().setValue(propertyKind);
 		
 		TextLiteralParam text = parametersFactory.createTextLiteralParam();
 		text.setValue("*");
-		relation.getPathParam().getPropertyOptionParam().setAttributeName(text );
+		relation.getXmlPathParam().getPropertyOptionParam().setAttributeName(text );
 		
-		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getPathParam().setAxis(AxisKind.DESCENDANT, "");
+		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setAxis(AxisKind.DESCENDANT, "");
 		
 		return completePattern;
 	}

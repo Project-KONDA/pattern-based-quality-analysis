@@ -293,7 +293,7 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 					if(p instanceof AxisOptionParam) {
 						AxisOptionParam r = (AxisOptionParam) p;
 						boolean rootRelation = true;
-						Relation relation = r.getAxisPair().getPathParam().getXmlNavigation();
+						Relation relation = r.getAxisPair().getXmlPathParam().getXmlNavigation();
 						rootRelation &= relation.getSource() instanceof XmlRoot;						
 						if(!rootRelation) {
 							patternParametersNonPredefinedNotAutomaticTypeNotRootRelation.add(p);

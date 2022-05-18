@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
-import qualitypatternmodel.adaptionxml.PathParam;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
@@ -182,9 +182,9 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	 * @generated NOT
 	 */
 	@Override
-	public PathParam getSourcePropertyPath() {
+	public XmlPathParam getSourcePropertyPath() {
 		XmlPropertyNavigation nav = ((XmlPropertyNavigation) getSource().getRelationsTo(getProperty()).get(0));
-		return nav.getPathParam();
+		return nav.getXmlPathParam();
 	}
 
 	/**
@@ -193,9 +193,9 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	 * @generated NOT
 	 */
 	@Override
-	public PathParam getTargetPropertyPath() {
+	public XmlPathParam getTargetPropertyPath() {
 		XmlPropertyNavigation nav = ((XmlPropertyNavigation) getTarget().getRelationsTo(getProperty()).get(0));
-		return nav.getPathParam();
+		return nav.getXmlPathParam();
 	}
 
 	/**

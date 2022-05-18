@@ -52,10 +52,10 @@ public class Test04QuantorCombinations {
 		Relation rel = prop0.getIncoming().get(0);
 		if(rel instanceof XmlPropertyNavigation) {
 			XmlPropertyNavigation nav = (XmlPropertyNavigation) rel;
-			nav.getPathParam().getPropertyOptionParam().setValue(PropertyKind.ATTRIBUTE);
+			nav.getXmlPathParam().getPropertyOptionParam().setValue(PropertyKind.ATTRIBUTE);
 			TextLiteralParam text = parametersFactory.createTextLiteralParam();
 			text.setValue("demo:id");
-			nav.getPathParam().getPropertyOptionParam().setAttributeName(text);
+			nav.getXmlPathParam().getPropertyOptionParam().setAttributeName(text);
 		}
 		
 		return completePattern;
