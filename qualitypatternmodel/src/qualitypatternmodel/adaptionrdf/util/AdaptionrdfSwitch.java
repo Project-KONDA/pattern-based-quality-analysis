@@ -89,6 +89,7 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 				RdfIriNode rdfIriNode = (RdfIriNode)theEObject;
 				T result = caseRdfIriNode(rdfIriNode);
 				if (result == null) result = caseComplexNode(rdfIriNode);
+				if (result == null) result = caseRdfNode(rdfIriNode);
 				if (result == null) result = caseNode(rdfIriNode);
 				if (result == null) result = caseComparable(rdfIriNode);
 				if (result == null) result = caseAdaptable(rdfIriNode);
@@ -111,10 +112,17 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case AdaptionrdfPackage.RDF_NODE: {
+				RdfNode rdfNode = (RdfNode)theEObject;
+				T result = caseRdfNode(rdfNode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case AdaptionrdfPackage.RDF_LITERAL_NODE: {
 				RdfLiteralNode rdfLiteralNode = (RdfLiteralNode)theEObject;
 				T result = caseRdfLiteralNode(rdfLiteralNode);
 				if (result == null) result = casePrimitiveNode(rdfLiteralNode);
+				if (result == null) result = caseRdfNode(rdfLiteralNode);
 				if (result == null) result = caseNode(rdfLiteralNode);
 				if (result == null) result = caseComparable(rdfLiteralNode);
 				if (result == null) result = caseAdaptable(rdfLiteralNode);
@@ -183,6 +191,21 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRdfAxisPair(RdfAxisPair object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rdf Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rdf Node</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRdfNode(RdfNode object) {
 		return null;
 	}
 

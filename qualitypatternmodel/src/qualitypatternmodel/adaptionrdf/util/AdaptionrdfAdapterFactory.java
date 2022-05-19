@@ -94,6 +94,10 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 				return createRdfAxisPairAdapter();
 			}
 			@Override
+			public Adapter caseRdfNode(RdfNode object) {
+				return createRdfNodeAdapter();
+			}
+			@Override
 			public Adapter caseRdfLiteralNode(RdfLiteralNode object) {
 				return createRdfLiteralNodeAdapter();
 			}
@@ -202,6 +206,20 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRdfAxisPairAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionrdf.RdfNode <em>Rdf Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionrdf.RdfNode
+	 * @generated
+	 */
+	public Adapter createRdfNodeAdapter() {
 		return null;
 	}
 

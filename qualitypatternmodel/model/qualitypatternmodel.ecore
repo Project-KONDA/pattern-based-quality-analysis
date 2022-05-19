@@ -275,6 +275,7 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsXMLReference" eType="#//adaptionxml/XmlReference"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="adaptAsRdfPredicate" eType="#//adaptionrdf/RdfPredicate"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/RelationMapping"
           eOpposite="#//patternstructure/RelationMapping/target"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
@@ -349,6 +350,9 @@
       </eOperations>
       <eOperations name="adaptAsXmlElement" eType="#//adaptionxml/XmlElement" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsXmlProperty" eType="#//adaptionxml/XmlProperty" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="adaptAsRdfIriNode" eType="#//adaptionrdf/RdfIriNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="adaptAsRdfLiteralNode" eType="#//adaptionrdf/RdfLiteralNode"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
           eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/ElementMapping"
@@ -1092,7 +1096,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfpathparam" upperBound="-1"
           eType="#//adaptionrdf/RdfPathParam" containment="true" eOpposite="#//adaptionrdf/RdfPathParam/rdfreference"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfIriNode" eSuperTypes="#//graphstructure/ComplexNode"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RdfIriNode" eSuperTypes="#//graphstructure/ComplexNode #//adaptionrdf/RdfNode"/>
     <eClassifiers xsi:type="ecore:EClass" name="RdfPathParam" eSuperTypes="#//parameters/Parameter">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfaxispair" upperBound="-1"
           eType="#//adaptionrdf/RdfAxisPair" containment="true" eOpposite="#//adaptionrdf/RdfAxisPair/rdfpathparam"/>
@@ -1111,6 +1115,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfpathparam" eType="#//adaptionrdf/RdfPathParam"
           eOpposite="#//adaptionrdf/RdfPathParam/rdfaxispair"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfLiteralNode" eSuperTypes="#//graphstructure/PrimitiveNode"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RdfNode" abstract="true" interface="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RdfLiteralNode" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionrdf/RdfNode"/>
   </eSubpackages>
 </ecore:EPackage>

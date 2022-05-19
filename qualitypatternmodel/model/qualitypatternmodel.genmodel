@@ -245,6 +245,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXMLElementNavigation"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXMLPropertyNavigation"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXMLReference"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsRdfPredicate"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -315,6 +316,8 @@
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsXmlElement"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsXmlProperty"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsRdfIriNode"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsRdfLiteralNode"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Graph">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/nodes"/>
@@ -919,6 +922,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfAxisPair/textliteralparam"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfAxisPair/rdfpathparam"/>
       </genClasses>
+      <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfNode"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfLiteralNode"/>
     </nestedGenPackages>
   </genPackages>

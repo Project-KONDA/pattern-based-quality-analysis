@@ -15,6 +15,7 @@ import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfAxisPair;
 import qualitypatternmodel.adaptionrdf.RdfIriNode;
 import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
+import qualitypatternmodel.adaptionrdf.RdfNode;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.RdfQuantifier;
@@ -80,6 +81,13 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 	 * @generated
 	 */
 	private EClass rdfAxisPairEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rdfNodeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -292,6 +300,16 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 	 * @generated
 	 */
 	@Override
+	public EClass getRdfNode() {
+		return rdfNodeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getRdfLiteralNode() {
 		return rdfLiteralNodeEClass;
 	}
@@ -349,6 +367,8 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		createEReference(rdfAxisPairEClass, RDF_AXIS_PAIR__TEXTLITERALPARAM);
 		createEReference(rdfAxisPairEClass, RDF_AXIS_PAIR__RDFPATHPARAM);
 
+		rdfNodeEClass = createEClass(RDF_NODE);
+
 		rdfLiteralNodeEClass = createEClass(RDF_LITERAL_NODE);
 
 		// Create enums
@@ -390,9 +410,11 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		// Add supertypes to classes
 		rdfPredicateEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
 		rdfIriNodeEClass.getESuperTypes().add(theGraphstructurePackage.getComplexNode());
+		rdfIriNodeEClass.getESuperTypes().add(this.getRdfNode());
 		rdfPathParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
 		rdfAxisPairEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		rdfLiteralNodeEClass.getESuperTypes().add(theGraphstructurePackage.getPrimitiveNode());
+		rdfLiteralNodeEClass.getESuperTypes().add(this.getRdfNode());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(rdfPredicateEClass, RdfPredicate.class, "RdfPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -408,6 +430,8 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		initEAttribute(getRdfAxisPair_Quantifier(), this.getRdfQuantifier(), "quantifier", null, 0, 1, RdfAxisPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRdfAxisPair_Textliteralparam(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_Rdfaxispair(), "textliteralparam", null, 0, -1, RdfAxisPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRdfAxisPair_Rdfpathparam(), this.getRdfPathParam(), this.getRdfPathParam_Rdfaxispair(), "rdfpathparam", null, 0, 1, RdfAxisPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(rdfNodeEClass, RdfNode.class, "RdfNode", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(rdfLiteralNodeEClass, RdfLiteralNode.class, "RdfLiteralNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

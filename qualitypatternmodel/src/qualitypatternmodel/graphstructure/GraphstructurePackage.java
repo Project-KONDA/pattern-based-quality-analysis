@@ -466,13 +466,22 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___ADAPT_AS_XML_REFERENCE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 9;
 
 	/**
+	 * The operation id for the '<em>Adapt As Rdf Predicate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___ADAPT_AS_RDF_PREDICATE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 10;
+
+	/**
 	 * The number of operations of the '<em>Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 10;
+	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}' class.
@@ -1440,13 +1449,31 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___ADAPT_AS_XML_PROPERTY = COMPARABLE_OPERATION_COUNT + 29;
 
 	/**
+	 * The operation id for the '<em>Adapt As Rdf Iri Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___ADAPT_AS_RDF_IRI_NODE = COMPARABLE_OPERATION_COUNT + 30;
+
+	/**
+	 * The operation id for the '<em>Adapt As Rdf Literal Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___ADAPT_AS_RDF_LITERAL_NODE = COMPARABLE_OPERATION_COUNT + 31;
+
+	/**
 	 * The number of operations of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 30;
+	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 32;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.
@@ -2114,6 +2141,24 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMITIVE_NODE___ADAPT_AS_XML_PROPERTY = NODE___ADAPT_AS_XML_PROPERTY;
+
+	/**
+	 * The operation id for the '<em>Adapt As Rdf Iri Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___ADAPT_AS_RDF_IRI_NODE = NODE___ADAPT_AS_RDF_IRI_NODE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Rdf Literal Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___ADAPT_AS_RDF_LITERAL_NODE = NODE___ADAPT_AS_RDF_LITERAL_NODE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3433,6 +3478,24 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___ADAPT_AS_XML_PROPERTY = NODE___ADAPT_AS_XML_PROPERTY;
 
 	/**
+	 * The operation id for the '<em>Adapt As Rdf Iri Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADAPT_AS_RDF_IRI_NODE = NODE___ADAPT_AS_RDF_IRI_NODE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Rdf Literal Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADAPT_AS_RDF_LITERAL_NODE = NODE___ADAPT_AS_RDF_LITERAL_NODE;
+
+	/**
 	 * The number of operations of the '<em>Complex Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3589,6 +3652,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getRelation__AdaptAsXMLReference();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsRdfPredicate() <em>Adapt As Rdf Predicate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Adapt As Rdf Predicate</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsRdfPredicate()
+	 * @generated
+	 */
+	EOperation getRelation__AdaptAsRdfPredicate();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}' operation.
@@ -4042,6 +4115,26 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getNode__AdaptAsXmlProperty();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#adaptAsRdfIriNode() <em>Adapt As Rdf Iri Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Adapt As Rdf Iri Node</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#adaptAsRdfIriNode()
+	 * @generated
+	 */
+	EOperation getNode__AdaptAsRdfIriNode();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#adaptAsRdfLiteralNode() <em>Adapt As Rdf Literal Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Adapt As Rdf Literal Node</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#adaptAsRdfLiteralNode()
+	 * @generated
+	 */
+	EOperation getNode__AdaptAsRdfLiteralNode();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4471,6 +4564,14 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation RELATION___ADAPT_AS_XML_REFERENCE = eINSTANCE.getRelation__AdaptAsXMLReference();
 
 		/**
+		 * The meta object literal for the '<em><b>Adapt As Rdf Predicate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RELATION___ADAPT_AS_RDF_PREDICATE = eINSTANCE.getRelation__AdaptAsRdfPredicate();
+
+		/**
 		 * The meta object literal for the '<em><b>Set Graph Simple</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4825,6 +4926,22 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NODE___ADAPT_AS_XML_PROPERTY = eINSTANCE.getNode__AdaptAsXmlProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Adapt As Rdf Iri Node</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___ADAPT_AS_RDF_IRI_NODE = eINSTANCE.getNode__AdaptAsRdfIriNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Adapt As Rdf Literal Node</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___ADAPT_AS_RDF_LITERAL_NODE = eINSTANCE.getNode__AdaptAsRdfLiteralNode();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.

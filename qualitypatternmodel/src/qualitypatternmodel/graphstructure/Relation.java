@@ -3,6 +3,7 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
@@ -263,6 +264,14 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @generated
 	 */
 	XmlReference adaptAsXMLReference() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	RdfPredicate adaptAsRdfPredicate();
 
 	/**
 	 * <!-- begin-user-doc -->

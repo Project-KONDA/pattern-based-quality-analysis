@@ -479,6 +479,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PREDICATE___ADAPT_AS_XML_REFERENCE = GraphstructurePackage.RELATION___ADAPT_AS_XML_REFERENCE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Rdf Predicate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PREDICATE___ADAPT_AS_RDF_PREDICATE = GraphstructurePackage.RELATION___ADAPT_AS_RDF_PREDICATE;
+
+	/**
 	 * The number of operations of the '<em>Rdf Predicate</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1153,6 +1162,24 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_IRI_NODE___ADAPT_AS_XML_PROPERTY = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_XML_PROPERTY;
+
+	/**
+	 * The operation id for the '<em>Adapt As Rdf Iri Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_IRI_NODE___ADAPT_AS_RDF_IRI_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_RDF_IRI_NODE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Rdf Literal Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_IRI_NODE___ADAPT_AS_RDF_LITERAL_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_RDF_LITERAL_NODE;
 
 	/**
 	 * The number of operations of the '<em>Rdf Iri Node</em>' class.
@@ -1832,6 +1859,34 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_AXIS_PAIR_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.RdfNode <em>Rdf Node</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionrdf.RdfNode
+	 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfNode()
+	 * @generated
+	 */
+	int RDF_NODE = 4;
+
+	/**
+	 * The number of structural features of the '<em>Rdf Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_NODE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Rdf Node</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_NODE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfLiteralNodeImpl <em>Rdf Literal Node</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1839,7 +1894,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfLiteralNode()
 	 * @generated
 	 */
-	int RDF_LITERAL_NODE = 4;
+	int RDF_LITERAL_NODE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2499,6 +2554,24 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_LITERAL_NODE___ADAPT_AS_XML_PROPERTY = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_XML_PROPERTY;
 
 	/**
+	 * The operation id for the '<em>Adapt As Rdf Iri Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_LITERAL_NODE___ADAPT_AS_RDF_IRI_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_RDF_IRI_NODE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Rdf Literal Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_LITERAL_NODE___ADAPT_AS_RDF_LITERAL_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_RDF_LITERAL_NODE;
+
+	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2524,7 +2597,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfQuantifier()
 	 * @generated
 	 */
-	int RDF_QUANTIFIER = 5;
+	int RDF_QUANTIFIER = 6;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfPredicate <em>Rdf Predicate</em>}'.
@@ -2631,6 +2704,16 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRdfAxisPair_Rdfpathparam();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfNode <em>Rdf Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rdf Node</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.RdfNode
+	 * @generated
+	 */
+	EClass getRdfNode();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfLiteralNode <em>Rdf Literal Node</em>}'.
@@ -2762,6 +2845,16 @@ public interface AdaptionrdfPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RDF_AXIS_PAIR__RDFPATHPARAM = eINSTANCE.getRdfAxisPair_Rdfpathparam();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.RdfNode <em>Rdf Node</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionrdf.RdfNode
+		 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfNode()
+		 * @generated
+		 */
+		EClass RDF_NODE = eINSTANCE.getRdfNode();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfLiteralNodeImpl <em>Rdf Literal Node</em>}' class.

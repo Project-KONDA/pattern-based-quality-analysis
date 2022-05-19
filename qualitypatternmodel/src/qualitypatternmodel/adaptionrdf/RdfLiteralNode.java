@@ -14,5 +14,5 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
  * @model
  * @generated
  */
-public interface RdfLiteralNode extends PrimitiveNode {
+public interface RdfLiteralNode extends PrimitiveNode, RdfNode {
 } // RdfLiteralNode

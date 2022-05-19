@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import qualitypatternmodel.adaptionrdf.RdfIriNode;
+import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
@@ -1232,6 +1234,30 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RdfIriNode adaptAsRdfIriNode() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RdfLiteralNode adaptAsRdfLiteralNode() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -1819,6 +1845,20 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE___ADAPT_AS_XML_PROPERTY:
 				try {
 					return adaptAsXmlProperty();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___ADAPT_AS_RDF_IRI_NODE:
+				try {
+					return adaptAsRdfIriNode();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___ADAPT_AS_RDF_LITERAL_NODE:
+				try {
+					return adaptAsRdfLiteralNode();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

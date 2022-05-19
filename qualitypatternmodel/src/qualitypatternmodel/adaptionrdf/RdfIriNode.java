@@ -14,5 +14,5 @@ import qualitypatternmodel.graphstructure.ComplexNode;
  * @model
  * @generated
  */
-public interface RdfIriNode extends ComplexNode {
+public interface RdfIriNode extends ComplexNode, RdfNode {
 } // RdfIriNode

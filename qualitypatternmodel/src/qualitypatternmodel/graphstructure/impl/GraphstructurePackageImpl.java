@@ -338,6 +338,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getRelation__AdaptAsRdfPredicate() {
+		return relationEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getRelation__SetGraphSimple__Graph() {
 		return relationEClass.getEOperations().get(2);
 	}
@@ -778,6 +788,26 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getNode__AdaptAsRdfIriNode() {
+		return nodeEClass.getEOperations().get(28);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNode__AdaptAsRdfLiteralNode() {
+		return nodeEClass.getEOperations().get(29);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getNode__CheckComparisonConsistency() {
 		return nodeEClass.getEOperations().get(24);
 	}
@@ -1108,6 +1138,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_ELEMENT_NAVIGATION);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_REFERENCE);
+		createEOperation(relationEClass, RELATION___ADAPT_AS_RDF_PREDICATE);
 
 		primitiveNodeEClass = createEClass(PRIMITIVE_NODE);
 		createEReference(primitiveNodeEClass, PRIMITIVE_NODE__MATCH);
@@ -1152,6 +1183,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(nodeEClass, NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON);
 		createEOperation(nodeEClass, NODE___ADAPT_AS_XML_ELEMENT);
 		createEOperation(nodeEClass, NODE___ADAPT_AS_XML_PROPERTY);
+		createEOperation(nodeEClass, NODE___ADAPT_AS_RDF_IRI_NODE);
+		createEOperation(nodeEClass, NODE___ADAPT_AS_RDF_LITERAL_NODE);
 
 		graphEClass = createEClass(GRAPH);
 		createEReference(graphEClass, GRAPH__NODES);
@@ -1213,6 +1246,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		// Obtain other dependent packages
 		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
 		AdaptionxmlPackage theAdaptionxmlPackage = (AdaptionxmlPackage)EPackage.Registry.INSTANCE.getEPackage(AdaptionxmlPackage.eNS_URI);
+		AdaptionrdfPackage theAdaptionrdfPackage = (AdaptionrdfPackage)EPackage.Registry.INSTANCE.getEPackage(AdaptionrdfPackage.eNS_URI);
 		OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
 
@@ -1262,6 +1296,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		op = initEOperation(getRelation__AdaptAsXMLReference(), theAdaptionxmlPackage.getXmlReference(), "adaptAsXMLReference", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		initEOperation(getRelation__AdaptAsRdfPredicate(), theAdaptionrdfPackage.getRdfPredicate(), "adaptAsRdfPredicate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(primitiveNodeEClass, PrimitiveNode.class, "PrimitiveNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPrimitiveNode_Match(), theOperatorsPackage.getMatch(), theOperatorsPackage.getMatch_PrimitiveNode(), "match", null, 0, -1, PrimitiveNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1367,6 +1403,12 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getNode__AdaptAsXmlProperty(), theAdaptionxmlPackage.getXmlProperty(), "adaptAsXmlProperty", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getNode__AdaptAsRdfIriNode(), theAdaptionrdfPackage.getRdfIriNode(), "adaptAsRdfIriNode", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getNode__AdaptAsRdfLiteralNode(), theAdaptionrdfPackage.getRdfLiteralNode(), "adaptAsRdfLiteralNode", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(graphEClass, Graph.class, "Graph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

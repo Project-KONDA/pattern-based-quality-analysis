@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
@@ -972,6 +973,18 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RdfPredicate adaptAsRdfPredicate() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 	public XmlReference adaptAsXMLReferenceRecursive() throws InvalidityException {
 		if(!(this instanceof XmlReference)) {
 			XmlReference reference = new XmlReferenceImpl();			
@@ -1311,6 +1324,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case GraphstructurePackage.RELATION___ADAPT_AS_RDF_PREDICATE:
+				return adaptAsRdfPredicate();
 			case GraphstructurePackage.RELATION___CREATE_PARAMETERS:
 				createParameters();
 				return null;
