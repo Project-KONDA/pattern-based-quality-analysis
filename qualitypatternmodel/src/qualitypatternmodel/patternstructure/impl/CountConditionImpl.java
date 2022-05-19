@@ -158,6 +158,13 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	@Override
+	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		getCountPattern().createNeo4jAdaption();
+		getArgument2().createNeo4jAdaption();
+		return this;
+	}
+	
+	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {		
 		BasicEList<MorphismContainer> result = new BasicEList<MorphismContainer>();
 		if(getCountPattern() instanceof CountPattern) {

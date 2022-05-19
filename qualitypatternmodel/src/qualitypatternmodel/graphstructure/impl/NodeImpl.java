@@ -312,6 +312,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return adaptAsRdfIriNode();
 	}
+
+	@Override
+	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		throw new UnsupportedOperationException();
+	}
 	
 	@Override
 	public void recordValues(XmlDataDatabase database) {

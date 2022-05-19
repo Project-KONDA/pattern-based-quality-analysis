@@ -95,6 +95,12 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	}
 	
 	@Override
+	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		getCondition().createNeo4jAdaption();
+		return this;
+	}
+	
+	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
 		result.addAll(getCondition().getNextMorphismContainers());

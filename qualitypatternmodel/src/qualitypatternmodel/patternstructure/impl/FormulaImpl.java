@@ -192,6 +192,13 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 	
 	@Override
+	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		getCondition1().createNeo4jAdaption();
+		getCondition2().createNeo4jAdaption();
+		return this;
+	}
+	
+	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
 		result.addAll(getCondition1().getNextMorphismContainers());

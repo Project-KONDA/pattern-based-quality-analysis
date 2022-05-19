@@ -857,6 +857,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		return adaptAsRdfPredicate();
 	}	
 
+
+	@Override
+	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		throw new UnsupportedOperationException();
+	}
 	
 	/**
 	 * <!-- begin-user-doc -->

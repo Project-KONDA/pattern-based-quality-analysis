@@ -591,6 +591,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return super.createRdfAdaption();
 	}
 
+	@Override
+	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		isValid(AbstractionLevel.GENERIC);
+		return super.createNeo4jAdaption();
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

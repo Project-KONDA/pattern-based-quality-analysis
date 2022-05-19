@@ -272,6 +272,11 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		return this;
 	}
 
+	@Override
+	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		throw new UnsupportedOperationException();
+	}
+	
 	private void createXmlRoot() {
 		// previously called finalizeXMLAdaption()
 		
