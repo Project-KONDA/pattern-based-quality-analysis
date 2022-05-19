@@ -268,10 +268,10 @@ public interface Relation extends PatternElement, Adaptable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	RdfPredicate adaptAsRdfPredicate();
+	RdfPredicate adaptAsRdfPredicate() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

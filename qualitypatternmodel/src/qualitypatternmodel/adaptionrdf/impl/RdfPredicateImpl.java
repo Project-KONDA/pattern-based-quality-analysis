@@ -47,9 +47,9 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected RdfPredicateImpl() {
+	public RdfPredicateImpl() {
 		super();
 	}
 

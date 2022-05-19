@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
+import qualitypatternmodel.adaptionrdf.impl.RdfPredicateImpl;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
@@ -886,13 +887,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		if (!(this instanceof XmlElementNavigation)) {
 			XmlElementNavigation navigation = new XmlElementNavigationImpl();
 
-			if (getName().matches("Relation [0-9]+")) {
-				navigation.setName(getName().replace("Relation", "XmlNavigation"));
-			} else if(getName().matches("XmlReference [0-9]+")) {
-				navigation.setName(getName().replace("XmlReference", "XmlNavigation"));
-			} else {
-				navigation.setName(getName());
-			}
+			navigation.setName(getName());
 			
 			navigation.setGraphSimple(getGraph());
 			
@@ -972,20 +967,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		throw new InvalidityException("correspondent relation not found");
 		
 	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public RdfPredicate adaptAsRdfPredicate() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
 
-	public XmlReference adaptAsXMLReferenceRecursive() throws InvalidityException {
+	private XmlReference adaptAsXMLReferenceRecursive() throws InvalidityException {
 		if(!(this instanceof XmlReference)) {
 			XmlReference reference = new XmlReferenceImpl();			
 			reference.setGraphSimple(getGraph());
@@ -1046,6 +1029,77 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		}
 		return (XmlReference) this;
 	}
+	
+		
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public RdfPredicate adaptAsRdfPredicate() throws InvalidityException {
+		Graph graph = getGraph();
+		RdfPredicate navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsRdfPredicateRecursive();
+		
+		for(Relation r: graph.getRelations()) {
+			if(r instanceof RdfPredicate) {
+				RdfPredicate nav = (RdfPredicate) r;
+				Relation next = r;
+				while(next != null) {
+					if(!next.equals(navOriginal)) {
+						if(next.getIncomingMapping() == null) {
+							next = null;
+						} else {
+							next = next.getIncomingMapping().getSource();
+						}
+					} else {
+						return nav;
+					}
+				}
+			}
+		}
+		throw new InvalidityException("correspondent relation not found");
+	}
+	
+	private RdfPredicate adaptAsRdfPredicateRecursive() throws InvalidityException {
+		if (!(this instanceof RdfPredicate)) {
+			RdfPredicate predicate = new RdfPredicateImpl();
+
+			predicate.setName(getName());
+			
+			predicate.setGraphSimple(getGraph());
+			
+			if (getIncomingMapping() == null) {
+				predicate.createParameters();
+			}
+			
+			predicate.setSource(getSource());
+			predicate.setTarget(getTarget());
+		
+			predicate.getOutgoingMappings().addAll(getOutgoingMappings());
+			
+			predicate.setIncomingMapping(getIncomingMapping());
+			
+			getOutgoingMappings().clear();
+			setSource(null);
+			setTarget(null);			
+			setIncomingMapping(null);
+			setGraph(null);
+			
+			for (RelationMapping mapping : predicate.getOutgoingMappings()) {
+				((RelationImpl) mapping.getTarget()).adaptAsRdfPredicateRecursive();
+			}
+			
+//			predicate.getTarget().adaptAsRdfNode(); TODO
+			
+			return predicate;
+		}
+		for (RelationMapping mapping : getOutgoingMappings()) {
+			((RelationImpl) mapping.getTarget()).adaptAsRdfPredicateRecursive();
+		}
+		return (RdfPredicate) this;
+	}
+	
 
 	@Override
 	public void removeMappingsToNext() {
@@ -1325,7 +1379,12 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 					throw new InvocationTargetException(throwable);
 				}
 			case GraphstructurePackage.RELATION___ADAPT_AS_RDF_PREDICATE:
-				return adaptAsRdfPredicate();
+				try {
+					return adaptAsRdfPredicate();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case GraphstructurePackage.RELATION___CREATE_PARAMETERS:
 				createParameters();
 				return null;

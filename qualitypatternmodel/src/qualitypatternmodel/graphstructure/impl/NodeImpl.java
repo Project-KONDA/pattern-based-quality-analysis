@@ -1366,19 +1366,19 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			setGraph(null);
 			
 			for (ElementMapping map: rdfIriNode.getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsXmlElementRecursive();
+				((NodeImpl) map.getTarget()).adaptAsRdfIriNodeRecursive();
 			}			
 			
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(rdfIriNode.getIncoming());
 			for(Relation relation : incomingCopy2) {
-				relation.adaptAsXmlElementNavigation();
+				relation.adaptAsRdfPredicate();
 			}
 			
 			return rdfIriNode;			
 		} else {
 			for (ElementMapping map: getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsXmlElementRecursive();
+				((NodeImpl) map.getTarget()).adaptAsRdfIriNodeRecursive();
 			}
 			return (RdfIriNode) this;
 		}
@@ -1456,19 +1456,19 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			setGraph(null);
 			
 			for (ElementMapping map: rdfLiteral.getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsXmlPropertyRecursive();
+				((NodeImpl) map.getTarget()).adaptAsRdfLiteralNodeRecursive();
 			}
 
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(rdfLiteral.getIncoming());
 			for(Relation relation : incomingCopy2) {
-				relation.adaptAsXmlPropertyNavigation();
+				relation.adaptAsRdfPredicate();
 			}
 			
 			return rdfLiteral;
 		} else {
 			for (ElementMapping map: getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsXmlPropertyRecursive();
+				((NodeImpl) map.getTarget()).adaptAsRdfLiteralNodeRecursive();
 			}
 			return (RdfLiteralNode) this;
 		}
