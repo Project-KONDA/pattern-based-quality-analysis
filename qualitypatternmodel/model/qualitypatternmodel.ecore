@@ -1096,13 +1096,13 @@
   </eSubpackages>
   <eSubpackages name="adaptionrdf" nsURI="adaptionrdf" nsPrefix="adaptionrdf">
     <eClassifiers xsi:type="ecore:EClass" name="RdfPredicate" eSuperTypes="#//graphstructure/Relation">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfpathparam" upperBound="-1"
-          eType="#//adaptionrdf/RdfPathParam" containment="true" eOpposite="#//adaptionrdf/RdfPathParam/rdfreference"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfpathparam" eType="#//adaptionrdf/RdfPathParam"
+          containment="true" eOpposite="#//adaptionrdf/RdfPathParam/rdfreference"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RdfIriNode" eSuperTypes="#//graphstructure/ComplexNode #//adaptionrdf/RdfNode"/>
     <eClassifiers xsi:type="ecore:EClass" name="RdfPathParam" eSuperTypes="#//parameters/Parameter">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfaxispair" upperBound="-1"
-          eType="#//adaptionrdf/RdfAxisPair" containment="true" eOpposite="#//adaptionrdf/RdfAxisPair/rdfpathparam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfaxispair" eType="#//adaptionrdf/RdfAxisPair"
+          containment="true" eOpposite="#//adaptionrdf/RdfAxisPair/rdfpathparam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfreference" eType="#//adaptionrdf/RdfPredicate"
           eOpposite="#//adaptionrdf/RdfPredicate/rdfpathparam"/>
     </eClassifiers>
@@ -1113,8 +1113,8 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RdfAxisPair" eSuperTypes="#//patternstructure/PatternElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//adaptionrdf/RdfQuantifier"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="textliteralparam" upperBound="-1"
-          eType="#//parameters/TextLiteralParam" containment="true" eOpposite="#//parameters/TextLiteralParam/rdfaxispair"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="textliteralparam" eType="#//parameters/TextLiteralParam"
+          containment="true" eOpposite="#//parameters/TextLiteralParam/rdfaxispair"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfpathparam" eType="#//adaptionrdf/RdfPathParam"
           eOpposite="#//adaptionrdf/RdfPathParam/rdfaxispair"/>
     </eClassifiers>

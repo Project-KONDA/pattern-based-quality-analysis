@@ -2,18 +2,11 @@
  */
 package qualitypatternmodel.adaptionrdf.impl;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
@@ -38,14 +31,14 @@ import qualitypatternmodel.patternstructure.PatternElement;
  */
 public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	/**
-	 * The cached value of the '{@link #getRdfpathparam() <em>Rdfpathparam</em>}' containment reference list.
+	 * The cached value of the '{@link #getRdfpathparam() <em>Rdfpathparam</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRdfpathparam()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RdfPathParam> rdfpathparam;
+	protected RdfPathParam rdfpathparam;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -79,12 +72,46 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	 * @generated
 	 */
 	@Override
-	public EList<RdfPathParam> getRdfpathparam() {
-		if (rdfpathparam == null) {
-			rdfpathparam = new EObjectContainmentWithInverseEList<RdfPathParam>(RdfPathParam.class, this, AdaptionrdfPackage.RDF_PREDICATE__RDFPATHPARAM, AdaptionrdfPackage.RDF_PATH_PARAM__RDFREFERENCE);
-		}
+	public RdfPathParam getRdfpathparam() {
 		return rdfpathparam;
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRdfpathparam(RdfPathParam newRdfpathparam, NotificationChain msgs) {
+		RdfPathParam oldRdfpathparam = rdfpathparam;
+		rdfpathparam = newRdfpathparam;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PREDICATE__RDFPATHPARAM, oldRdfpathparam, newRdfpathparam);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRdfpathparam(RdfPathParam newRdfpathparam) {
+		if (newRdfpathparam != rdfpathparam) {
+			NotificationChain msgs = null;
+			if (rdfpathparam != null)
+				msgs = ((InternalEObject)rdfpathparam).eInverseRemove(this, AdaptionrdfPackage.RDF_PATH_PARAM__RDFREFERENCE, RdfPathParam.class, msgs);
+			if (newRdfpathparam != null)
+				msgs = ((InternalEObject)newRdfpathparam).eInverseAdd(this, AdaptionrdfPackage.RDF_PATH_PARAM__RDFREFERENCE, RdfPathParam.class, msgs);
+			msgs = basicSetRdfpathparam(newRdfpathparam, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PREDICATE__RDFPATHPARAM, newRdfpathparam, newRdfpathparam));
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -96,7 +123,9 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_PREDICATE__RDFPATHPARAM:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRdfpathparam()).basicAdd(otherEnd, msgs);
+				if (rdfpathparam != null)
+					msgs = ((InternalEObject)rdfpathparam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionrdfPackage.RDF_PREDICATE__RDFPATHPARAM, null, msgs);
+				return basicSetRdfpathparam((RdfPathParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -110,7 +139,7 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_PREDICATE__RDFPATHPARAM:
-				return ((InternalEList<?>)getRdfpathparam()).basicRemove(otherEnd, msgs);
+				return basicSetRdfpathparam(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -139,8 +168,7 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_PREDICATE__RDFPATHPARAM:
-				getRdfpathparam().clear();
-				getRdfpathparam().addAll((Collection<? extends RdfPathParam>)newValue);
+				setRdfpathparam((RdfPathParam)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -155,7 +183,7 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_PREDICATE__RDFPATHPARAM:
-				getRdfpathparam().clear();
+				setRdfpathparam((RdfPathParam)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -170,7 +198,7 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_PREDICATE__RDFPATHPARAM:
-				return rdfpathparam != null && !rdfpathparam.isEmpty();
+				return rdfpathparam != null;
 		}
 		return super.eIsSet(featureID);
 	}

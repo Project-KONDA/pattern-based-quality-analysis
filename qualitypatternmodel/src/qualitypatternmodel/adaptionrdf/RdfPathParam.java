@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.adaptionrdf;
 
-import org.eclipse.emf.common.util.EList;
-
 import qualitypatternmodel.parameters.Parameter;
 
 /**
@@ -25,18 +23,28 @@ import qualitypatternmodel.parameters.Parameter;
  */
 public interface RdfPathParam extends Parameter {
 	/**
-	 * Returns the value of the '<em><b>Rdfaxispair</b></em>' containment reference list.
-	 * The list contents are of type {@link qualitypatternmodel.adaptionrdf.RdfAxisPair}.
+	 * Returns the value of the '<em><b>Rdfaxispair</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getRdfpathparam <em>Rdfpathparam</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rdfaxispair</em>' containment reference list.
+	 * @return the value of the '<em>Rdfaxispair</em>' containment reference.
+	 * @see #setRdfaxispair(RdfAxisPair)
 	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_Rdfaxispair()
 	 * @see qualitypatternmodel.adaptionrdf.RdfAxisPair#getRdfpathparam
 	 * @model opposite="rdfpathparam" containment="true"
 	 * @generated
 	 */
-	EList<RdfAxisPair> getRdfaxispair();
+	RdfAxisPair getRdfaxispair();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfaxispair <em>Rdfaxispair</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rdfaxispair</em>' containment reference.
+	 * @see #getRdfaxispair()
+	 * @generated
+	 */
+	void setRdfaxispair(RdfAxisPair value);
 
 	/**
 	 * Returns the value of the '<em><b>Rdfreference</b></em>' container reference.

@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.adaptionrdf;
 
-import org.eclipse.emf.common.util.EList;
-
 import qualitypatternmodel.parameters.TextLiteralParam;
 
 import qualitypatternmodel.patternstructure.PatternElement;
@@ -53,18 +51,28 @@ public interface RdfAxisPair extends PatternElement {
 	void setQuantifier(RdfQuantifier value);
 
 	/**
-	 * Returns the value of the '<em><b>Textliteralparam</b></em>' containment reference list.
-	 * The list contents are of type {@link qualitypatternmodel.parameters.TextLiteralParam}.
+	 * Returns the value of the '<em><b>Textliteralparam</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getRdfaxispair <em>Rdfaxispair</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Textliteralparam</em>' containment reference list.
+	 * @return the value of the '<em>Textliteralparam</em>' containment reference.
+	 * @see #setTextliteralparam(TextLiteralParam)
 	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfAxisPair_Textliteralparam()
 	 * @see qualitypatternmodel.parameters.TextLiteralParam#getRdfaxispair
 	 * @model opposite="rdfaxispair" containment="true"
 	 * @generated
 	 */
-	EList<TextLiteralParam> getTextliteralparam();
+	TextLiteralParam getTextliteralparam();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getTextliteralparam <em>Textliteralparam</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Textliteralparam</em>' containment reference.
+	 * @see #getTextliteralparam()
+	 * @generated
+	 */
+	void setTextliteralparam(TextLiteralParam value);
 
 	/**
 	 * Returns the value of the '<em><b>Rdfpathparam</b></em>' container reference.

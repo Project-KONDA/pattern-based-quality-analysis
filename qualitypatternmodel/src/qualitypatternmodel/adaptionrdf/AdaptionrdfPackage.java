@@ -164,7 +164,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PREDICATE__PREDICATES_ARE_BEING_TRANSLATED = GraphstructurePackage.RELATION__PREDICATES_ARE_BEING_TRANSLATED;
 
 	/**
-	 * The feature id for the '<em><b>Rdfpathparam</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Rdfpathparam</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1255,7 +1255,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PATH_PARAM__DESCRIPTION = ParametersPackage.PARAMETER__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Rdfaxispair</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Rdfaxispair</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1616,7 +1616,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_AXIS_PAIR__QUANTIFIER = PatternstructurePackage.PATTERN_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Textliteralparam</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Textliteralparam</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2610,10 +2610,10 @@ public interface AdaptionrdfPackage extends EPackage {
 	EClass getRdfPredicate();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfpathparam <em>Rdfpathparam</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfpathparam <em>Rdfpathparam</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Rdfpathparam</em>'.
+	 * @return the meta object for the containment reference '<em>Rdfpathparam</em>'.
 	 * @see qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfpathparam()
 	 * @see #getRdfPredicate()
 	 * @generated
@@ -2641,10 +2641,10 @@ public interface AdaptionrdfPackage extends EPackage {
 	EClass getRdfPathParam();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfaxispair <em>Rdfaxispair</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfaxispair <em>Rdfaxispair</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Rdfaxispair</em>'.
+	 * @return the meta object for the containment reference '<em>Rdfaxispair</em>'.
 	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfaxispair()
 	 * @see #getRdfPathParam()
 	 * @generated
@@ -2684,10 +2684,10 @@ public interface AdaptionrdfPackage extends EPackage {
 	EAttribute getRdfAxisPair_Quantifier();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getTextliteralparam <em>Textliteralparam</em>}'.
+	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getTextliteralparam <em>Textliteralparam</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Textliteralparam</em>'.
+	 * @return the meta object for the containment reference '<em>Textliteralparam</em>'.
 	 * @see qualitypatternmodel.adaptionrdf.RdfAxisPair#getTextliteralparam()
 	 * @see #getRdfAxisPair()
 	 * @generated
@@ -2769,7 +2769,7 @@ public interface AdaptionrdfPackage extends EPackage {
 		EClass RDF_PREDICATE = eINSTANCE.getRdfPredicate();
 
 		/**
-		 * The meta object literal for the '<em><b>Rdfpathparam</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Rdfpathparam</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2797,7 +2797,7 @@ public interface AdaptionrdfPackage extends EPackage {
 		EClass RDF_PATH_PARAM = eINSTANCE.getRdfPathParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Rdfaxispair</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Rdfaxispair</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2831,7 +2831,7 @@ public interface AdaptionrdfPackage extends EPackage {
 		EAttribute RDF_AXIS_PAIR__QUANTIFIER = eINSTANCE.getRdfAxisPair_Quantifier();
 
 		/**
-		 * The meta object literal for the '<em><b>Textliteralparam</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Textliteralparam</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

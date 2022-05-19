@@ -2,21 +2,13 @@
  */
 package qualitypatternmodel.adaptionrdf.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfAxisPair;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
@@ -40,14 +32,14 @@ import qualitypatternmodel.parameters.impl.ParameterImpl;
  */
 public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	/**
-	 * The cached value of the '{@link #getRdfaxispair() <em>Rdfaxispair</em>}' containment reference list.
+	 * The cached value of the '{@link #getRdfaxispair() <em>Rdfaxispair</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRdfaxispair()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RdfAxisPair> rdfaxispair;
+	protected RdfAxisPair rdfaxispair;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,11 +66,43 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * @generated
 	 */
 	@Override
-	public EList<RdfAxisPair> getRdfaxispair() {
-		if (rdfaxispair == null) {
-			rdfaxispair = new EObjectContainmentWithInverseEList<RdfAxisPair>(RdfAxisPair.class, this, AdaptionrdfPackage.RDF_PATH_PARAM__RDFAXISPAIR, AdaptionrdfPackage.RDF_AXIS_PAIR__RDFPATHPARAM);
-		}
+	public RdfAxisPair getRdfaxispair() {
 		return rdfaxispair;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRdfaxispair(RdfAxisPair newRdfaxispair, NotificationChain msgs) {
+		RdfAxisPair oldRdfaxispair = rdfaxispair;
+		rdfaxispair = newRdfaxispair;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH_PARAM__RDFAXISPAIR, oldRdfaxispair, newRdfaxispair);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRdfaxispair(RdfAxisPair newRdfaxispair) {
+		if (newRdfaxispair != rdfaxispair) {
+			NotificationChain msgs = null;
+			if (rdfaxispair != null)
+				msgs = ((InternalEObject)rdfaxispair).eInverseRemove(this, AdaptionrdfPackage.RDF_AXIS_PAIR__RDFPATHPARAM, RdfAxisPair.class, msgs);
+			if (newRdfaxispair != null)
+				msgs = ((InternalEObject)newRdfaxispair).eInverseAdd(this, AdaptionrdfPackage.RDF_AXIS_PAIR__RDFPATHPARAM, RdfAxisPair.class, msgs);
+			msgs = basicSetRdfaxispair(newRdfaxispair, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH_PARAM__RDFAXISPAIR, newRdfaxispair, newRdfaxispair));
 	}
 
 	/**
@@ -134,7 +158,9 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDFAXISPAIR:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRdfaxispair()).basicAdd(otherEnd, msgs);
+				if (rdfaxispair != null)
+					msgs = ((InternalEObject)rdfaxispair).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionrdfPackage.RDF_PATH_PARAM__RDFAXISPAIR, null, msgs);
+				return basicSetRdfaxispair((RdfAxisPair)otherEnd, msgs);
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDFREFERENCE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -152,7 +178,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDFAXISPAIR:
-				return ((InternalEList<?>)getRdfaxispair()).basicRemove(otherEnd, msgs);
+				return basicSetRdfaxispair(null, msgs);
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDFREFERENCE:
 				return basicSetRdfreference(null, msgs);
 		}
@@ -199,8 +225,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDFAXISPAIR:
-				getRdfaxispair().clear();
-				getRdfaxispair().addAll((Collection<? extends RdfAxisPair>)newValue);
+				setRdfaxispair((RdfAxisPair)newValue);
 				return;
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDFREFERENCE:
 				setRdfreference((RdfPredicate)newValue);
@@ -218,7 +243,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDFAXISPAIR:
-				getRdfaxispair().clear();
+				setRdfaxispair((RdfAxisPair)null);
 				return;
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDFREFERENCE:
 				setRdfreference((RdfPredicate)null);
@@ -236,7 +261,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDFAXISPAIR:
-				return rdfaxispair != null && !rdfaxispair.isEmpty();
+				return rdfaxispair != null;
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDFREFERENCE:
 				return getRdfreference() != null;
 		}

@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.adaptionrdf;
 
-import org.eclipse.emf.common.util.EList;
-
 import qualitypatternmodel.graphstructure.Relation;
 
 /**
@@ -24,17 +22,27 @@ import qualitypatternmodel.graphstructure.Relation;
  */
 public interface RdfPredicate extends Relation {
 	/**
-	 * Returns the value of the '<em><b>Rdfpathparam</b></em>' containment reference list.
-	 * The list contents are of type {@link qualitypatternmodel.adaptionrdf.RdfPathParam}.
+	 * Returns the value of the '<em><b>Rdfpathparam</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfreference <em>Rdfreference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rdfpathparam</em>' containment reference list.
+	 * @return the value of the '<em>Rdfpathparam</em>' containment reference.
+	 * @see #setRdfpathparam(RdfPathParam)
 	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPredicate_Rdfpathparam()
 	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfreference
 	 * @model opposite="rdfreference" containment="true"
 	 * @generated
 	 */
-	EList<RdfPathParam> getRdfpathparam();
+	RdfPathParam getRdfpathparam();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfpathparam <em>Rdfpathparam</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rdfpathparam</em>' containment reference.
+	 * @see #getRdfpathparam()
+	 * @generated
+	 */
+	void setRdfpathparam(RdfPathParam value);
 
 } // RdfPredicate
