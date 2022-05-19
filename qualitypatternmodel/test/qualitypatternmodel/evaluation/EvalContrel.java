@@ -150,7 +150,7 @@ public class EvalContrel {
 		compRefValue.getTypeOption().setValue(ReturnType.STRING);	
 		compRefValue.getOption().setValue(ComparisonOperator.NOTEQUAL);		
 		
-		pattern.createXMLAdaption();
+		pattern.createXmlAdaption();
 		relation.adaptAsXmlElementNavigation();
 		relation2.adaptAsXmlElementNavigation();
 		relation3.adaptAsXmlElementNavigation();

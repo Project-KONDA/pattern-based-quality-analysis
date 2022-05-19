@@ -53,7 +53,7 @@ public class Test05QuantorCombinationsCond {
 		
 		System.out.println(completePattern.myToString());
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 //		
 ////		XmlProperty property = (XmlProperty) graph0.getNodes().get(0).getProperties().get(0);
 ////		property.getAttributeName().setValue("demo:id");

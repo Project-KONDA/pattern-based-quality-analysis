@@ -57,7 +57,7 @@ public class Test12Count {
 	
 	public static CompletePattern getPatternCountInPatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getPatternCountInPattern();
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		CountPattern countPattern = ((CountCondition) completePattern.getCondition()).getCountPattern();
 				
 		UntypedParameterValue untypedParameterValue = (UntypedParameterValue) completePattern.getParameterList().getParameters().get(0);
@@ -138,7 +138,7 @@ public class Test12Count {
 		Condition truecondition = factory.createTrueElement();
 		countPattern.setCondition(truecondition);
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 //		countPattern.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 //		completePattern.finalizeXMLAdaption();
 		
@@ -213,7 +213,7 @@ public class Test12Count {
 		Condition truecondition = factory.createTrueElement();
 		countPattern.setCondition(truecondition);
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 //		countPattern.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 //		completePattern.finalizeXMLAdaption();		
 		
@@ -274,7 +274,7 @@ public class Test12Count {
 		Condition truecondition2 = factory.createTrueElement();
 		quantifiedCondition2.setCondition(truecondition2);
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 //		countPattern.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 //		countPattern.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 //		quantifiedCondition2.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
@@ -382,7 +382,7 @@ public class Test12Count {
 		Node p3b = n3b.addOutgoing().getTarget();
 		p3b.addPrimitiveComparison();
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		
 		return completePattern;		
 	}
@@ -461,7 +461,7 @@ public class Test12Count {
 		Condition truecondition2 = factory.createTrueElement();
 		quantifiedCondition2.setCondition(truecondition2);
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 //		quantifiedCondition1.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 //		countPattern.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 //		countPattern.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();

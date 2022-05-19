@@ -92,7 +92,7 @@ public class EvalExdupl {
 		comp.setArgument2(otherRecord);
 		
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		completePattern.finalizeXMLAdaption();
 		
 		return completePattern;

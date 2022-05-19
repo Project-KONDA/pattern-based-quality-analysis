@@ -42,7 +42,7 @@ public class Test02Return {
 		relation.setSource(element1);
 		relation.setTarget(element2);		
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 //		completePattern.getGraph().getNodes().get(1).getIncoming().get(0).adaptAsXMLElementNavigation();		
 //		completePattern.finalizeXMLAdaption();
 				
@@ -65,7 +65,7 @@ public class Test02Return {
 		relation.setSource(element1);
 		relation.setTarget(element2);
 				
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 	
 		XmlReference reference = ((ComplexNode) completePattern.getGraph().getNodes().get(1)).getOutgoing().get(0).adaptAsXmlReference();	
 		reference.setType(ReturnType.STRING);

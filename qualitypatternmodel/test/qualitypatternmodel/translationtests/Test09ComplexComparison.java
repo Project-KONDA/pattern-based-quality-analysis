@@ -54,7 +54,7 @@ public class Test09ComplexComparison {
 		comp.setArgument2(p2);
 		comp.getTypeOption().setValue(ReturnType.STRING);
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
@@ -92,7 +92,7 @@ public class Test09ComplexComparison {
 		
 		System.out.println(completePattern.myToString());
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		completePattern.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
 		completePattern.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
 		
@@ -126,7 +126,7 @@ public class Test09ComplexComparison {
 		comp.setArgument1(se1);
 		comp.setArgument2(se2);
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		completePattern.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
 		completePattern.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
 		
@@ -178,7 +178,7 @@ public class Test09ComplexComparison {
 		comp2.setArgument1(tl3);
 		comp2.setArgument2(tl4);
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		
 		((XmlNavigation) ((XmlProperty) comp1.getArgument1()).getIncoming().get(0)).getXmlPathParam().getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
 		

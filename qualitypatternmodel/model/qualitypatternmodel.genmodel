@@ -505,7 +505,7 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//patternstructure/PatternElement/recordValues/database"/>
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/relationsXmlAdapted"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/createXMLAdaption"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/createXmlAdaption"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/createRdfAdaption"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/PatternElement/createNeo4jAdaption"/>
       </genClasses>

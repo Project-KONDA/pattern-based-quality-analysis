@@ -209,7 +209,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated NOT
 	 */
 	@Override
-	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return this;
 		
 	}
@@ -220,7 +220,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
-	public PatternElement createRdfAdaption() {
+	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -232,7 +232,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
-	public PatternElement createNeo4jAdaption() {
+	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -622,15 +622,25 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 				return relationsXmlAdapted();
 			case PatternstructurePackage.PATTERN_ELEMENT___CREATE_XML_ADAPTION:
 				try {
-					return createXMLAdaption();
+					return createXmlAdaption();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
 			case PatternstructurePackage.PATTERN_ELEMENT___CREATE_RDF_ADAPTION:
-				return createRdfAdaption();
+				try {
+					return createRdfAdaption();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case PatternstructurePackage.PATTERN_ELEMENT___CREATE_NEO4J_ADAPTION:
-				return createNeo4jAdaption();
+				try {
+					return createNeo4jAdaption();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

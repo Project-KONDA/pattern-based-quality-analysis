@@ -115,7 +115,7 @@ public class EvalCard {
 		Condition truecondition = patternStructureFactory.createTrueElement();
 		countPattern.setCondition(truecondition);	
 				
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		r1G1.adaptAsXmlElementNavigation();
 		r2G2.adaptAsXmlElementNavigation();		
 		completePattern.finalizeXMLAdaption();
@@ -207,7 +207,7 @@ public class EvalCard {
 		countPattern.getGraph().getReturnNodes().clear();
 		countPattern.getGraph().getReturnNodes().add(element3InC);
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		countPattern.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
 		relation.adaptAsXmlElementNavigation();
 		relation2.adaptAsXmlElementNavigation();		

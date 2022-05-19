@@ -93,7 +93,7 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {}	
 	
 	@Override
-	public PatternElement createXMLAdaption() throws InvalidityException {
+	public PatternElement createXmlAdaption() throws InvalidityException {
 		return adaptAsXmlProperty();
 	}
 	

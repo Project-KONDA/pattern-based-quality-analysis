@@ -185,23 +185,23 @@ public interface PatternElement extends EObject {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
 	 */
-	PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
+	PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
 	 */
-	PatternElement createRdfAdaption();
+	PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper qualitypatternmodel.patternstructure.MissingPatternContainerException"
 	 * @generated
 	 */
-	PatternElement createNeo4jAdaption();
+	PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc -->

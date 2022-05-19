@@ -277,7 +277,7 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN_ELEMENT___RELATIONS_XML_ADAPTED = 19;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -539,7 +539,7 @@ public interface PatternstructurePackage extends EPackage {
 	int MAPPING___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -819,7 +819,7 @@ public interface PatternstructurePackage extends EPackage {
 	int RELATION_MAPPING___RELATIONS_XML_ADAPTED = MAPPING___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1117,7 +1117,7 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1460,7 +1460,7 @@ public interface PatternstructurePackage extends EPackage {
 	int QUANTIFIED_CONDITION___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1785,7 +1785,7 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2128,7 +2128,7 @@ public interface PatternstructurePackage extends EPackage {
 	int ELEMENT_MAPPING___RELATIONS_XML_ADAPTED = MAPPING___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2453,7 +2453,7 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2760,7 +2760,7 @@ public interface PatternstructurePackage extends EPackage {
 	int TRUE_ELEMENT___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3058,7 +3058,7 @@ public interface PatternstructurePackage extends EPackage {
 	int PATTERN___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3455,7 +3455,7 @@ public interface PatternstructurePackage extends EPackage {
 	int COMPLETE_PATTERN___RELATIONS_XML_ADAPTED = PATTERN___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3816,7 +3816,7 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4150,7 +4150,7 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION___RELATIONS_XML_ADAPTED = CONDITION___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4439,7 +4439,7 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_CONDITION_ARGUMENT___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4701,7 +4701,7 @@ public interface PatternstructurePackage extends EPackage {
 	int MORPHISM_CONTAINER___RELATIONS_XML_ADAPTED = PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5035,7 +5035,7 @@ public interface PatternstructurePackage extends EPackage {
 	int COUNT_PATTERN___RELATIONS_XML_ADAPTED = PATTERN___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5333,7 +5333,7 @@ public interface PatternstructurePackage extends EPackage {
 	int NUMBER_ELEMENT___RELATIONS_XML_ADAPTED = COUNT_CONDITION_ARGUMENT___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6151,16 +6151,6 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getPatternElement__GetOperatorList();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#createXMLAdaption() <em>Create XML Adaption</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Create XML Adaption</em>' operation.
-	 * @see qualitypatternmodel.patternstructure.PatternElement#createXMLAdaption()
-	 * @generated
-	 */
-	EOperation getPatternElement__CreateXMLAdaption();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#createRdfAdaption() <em>Create Rdf Adaption</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6199,6 +6189,16 @@ public interface PatternstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPatternElement__RelationsXmlAdapted();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#createXmlAdaption() <em>Create Xml Adaption</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Create Xml Adaption</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.PatternElement#createXmlAdaption()
+	 * @generated
+	 */
+	EOperation getPatternElement__CreateXmlAdaption();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.PatternElement#triggerParameterUpdates(qualitypatternmodel.patternstructure.PatternElement, org.eclipse.emf.common.util.EList) <em>Trigger Parameter Updates</em>}' operation.
@@ -7183,12 +7183,12 @@ public interface PatternstructurePackage extends EPackage {
 		EOperation PATTERN_ELEMENT___GET_OPERATOR_LIST = eINSTANCE.getPatternElement__GetOperatorList();
 
 		/**
-		 * The meta object literal for the '<em><b>Create XML Adaption</b></em>' operation.
+		 * The meta object literal for the '<em><b>Create Xml Adaption</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PATTERN_ELEMENT___CREATE_XML_ADAPTION = eINSTANCE.getPatternElement__CreateXMLAdaption();
+		EOperation PATTERN_ELEMENT___CREATE_XML_ADAPTION = eINSTANCE.getPatternElement__CreateXmlAdaption();
 
 		/**
 		 * The meta object literal for the '<em><b>Create Rdf Adaption</b></em>' operation.

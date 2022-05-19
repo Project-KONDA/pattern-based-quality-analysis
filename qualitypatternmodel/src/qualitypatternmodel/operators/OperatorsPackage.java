@@ -298,7 +298,7 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR___RELATIONS_XML_ADAPTED = GraphstructurePackage.COMPARABLE___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -668,7 +668,7 @@ public interface OperatorsPackage extends EPackage {
 	int BOOLEAN_OPERATOR___RELATIONS_XML_ADAPTED = OPERATOR___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1056,7 +1056,7 @@ public interface OperatorsPackage extends EPackage {
 	int NUMBER_OPERATOR___RELATIONS_XML_ADAPTED = OPERATOR___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1453,7 +1453,7 @@ public interface OperatorsPackage extends EPackage {
 	int MATCH___RELATIONS_XML_ADAPTED = BOOLEAN_OPERATOR___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1895,7 +1895,7 @@ public interface OperatorsPackage extends EPackage {
 	int COMPARISON___RELATIONS_XML_ADAPTED = BOOLEAN_OPERATOR___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2310,7 +2310,7 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR_LIST___RELATIONS_XML_ADAPTED = PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

@@ -232,7 +232,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	}	
 	
 	@Override
-	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return this;
 	}
 	

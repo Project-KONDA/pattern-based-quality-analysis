@@ -173,9 +173,9 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 	
 	@Override
-	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
-		getGraph().createXMLAdaption();		
-		getCondition().createXMLAdaption();
+	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
+		getGraph().createXmlAdaption();		
+		getCondition().createXmlAdaption();
 		return this;
 	}
 	

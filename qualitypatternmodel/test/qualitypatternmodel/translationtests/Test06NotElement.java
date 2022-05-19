@@ -36,7 +36,7 @@ public class Test06NotElement {
 		TrueElement t = factory.createTrueElement();
 		n.setCondition(t);
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		
 		return completePattern;		
 	}
@@ -53,7 +53,7 @@ public class Test06NotElement {
 		TrueElement t = factory.createTrueElement();
 		n2.setCondition(t);
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		
 		return completePattern;		
 	}
@@ -86,7 +86,7 @@ public class Test06NotElement {
 		
 		CompletePattern completePattern = getPatternNotExistsAbstract();		
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
 		
 		((XmlElementNavigation)(completePattern.getGraph().getRelations().get(0))).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
@@ -131,7 +131,7 @@ public class Test06NotElement {
 		QuantifiedCondition q1 = ((QuantifiedCondition)completePattern.getCondition());
 		QuantifiedCondition q2 = ((QuantifiedCondition) ((NotCondition) q1.getCondition()).getCondition());
 
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		
 		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
 		((XmlElementNavigation) q1.getGraph().getRelations().get(1)).getXmlPathParam().setXmlAxis(XmlAxisKind.CHILD, "");

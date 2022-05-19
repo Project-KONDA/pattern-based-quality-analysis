@@ -304,7 +304,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	}
 
 	@Override
-	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return adaptAsXmlElement();
 		
 	}

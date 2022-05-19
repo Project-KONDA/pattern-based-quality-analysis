@@ -604,10 +604,12 @@
         <eParameters name="database" eType="#//execution/XmlDataDatabase"/>
       </eOperations>
       <eOperations name="relationsXmlAdapted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eOperations name="createXMLAdaption" eType="#//patternstructure/PatternElement"
+      <eOperations name="createXmlAdaption" eType="#//patternstructure/PatternElement"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
-      <eOperations name="createRdfAdaption" eType="#//patternstructure/PatternElement"/>
-      <eOperations name="createNeo4jAdaption" eType="#//patternstructure/PatternElement"/>
+      <eOperations name="createRdfAdaption" eType="#//patternstructure/PatternElement"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
+      <eOperations name="createNeo4jAdaption" eType="#//patternstructure/PatternElement"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="internalId" lowerBound="1"

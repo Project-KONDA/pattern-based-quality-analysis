@@ -60,7 +60,7 @@ public class EvalExnex {
 		r2.setSource(g2.getNodes().get(1));
 		r2.setTarget(g2.getNodes().get(2));
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		EList<Relation> rels1 = qc1.getGraph().getRelations();
 		EList<Relation> rels2 = qc2.getGraph().getRelations();
 		for (int i = rels1.size()-1; i>=0; i--) rels1.get(i).adaptAsXmlElementNavigation();
@@ -94,7 +94,7 @@ public class EvalExnex {
 		r2.setTarget(g2.getNodes().get(2));
 		g2.getNodes().get(2).addPrimitiveComparison();
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		EList<Relation> rels1 = qc1.getGraph().getRelations();
 		EList<Relation> rels2 = qc2.getGraph().getRelations();
 		for (int i = rels1.size()-1; i>=0; i--) rels1.get(i).adaptAsXmlElementNavigation();

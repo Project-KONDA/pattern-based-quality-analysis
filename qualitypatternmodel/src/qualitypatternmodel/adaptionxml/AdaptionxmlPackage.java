@@ -486,7 +486,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___RELATIONS_XML_ADAPTED = GraphstructurePackage.COMPLEX_NODE___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1197,7 +1197,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___RELATIONS_XML_ADAPTED = GraphstructurePackage.RELATION___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1638,7 +1638,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_NAVIGATION___RELATIONS_XML_ADAPTED = XML_NAVIGATION___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2070,7 +2070,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_REFERENCE___RELATIONS_XML_ADAPTED = GraphstructurePackage.RELATION___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2565,7 +2565,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___RELATIONS_XML_ADAPTED = GraphstructurePackage.PRIMITIVE_NODE___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3285,7 +3285,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___RELATIONS_XML_ADAPTED = GraphstructurePackage.COMPLEX_NODE___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3960,7 +3960,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_NAVIGATION___RELATIONS_XML_ADAPTED = XML_NAVIGATION___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4366,7 +4366,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_OPTION_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4790,7 +4790,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY_OPTION_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5204,7 +5204,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PATH_PARAM___RELATIONS_XML_ADAPTED = GraphstructurePackage.ADAPTABLE___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5610,7 +5610,7 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_AXIS_PAIR___RELATIONS_XML_ADAPTED = PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

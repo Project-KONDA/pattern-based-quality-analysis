@@ -153,7 +153,7 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	}
 
 	@Override
-	public PatternElement createXMLAdaption() throws InvalidityException {
+	public PatternElement createXmlAdaption() throws InvalidityException {
 		return this;
 	}
 

@@ -844,7 +844,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	
 	@Override
-	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		if (getTarget() instanceof XmlProperty) {
 			return adaptAsXmlPropertyNavigation();
 		} else {

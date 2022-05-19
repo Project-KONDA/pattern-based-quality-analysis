@@ -66,7 +66,7 @@ public class Test07Formula {
 		relation2.setSource(e0qc2);
 		relation2.setTarget(e2);
 	
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		
 		qc1.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
 		XmlReference ref = qc2.getGraph().getRelations().get(0).adaptAsXmlReference();

@@ -35,7 +35,7 @@ public class Test03Quantor {
 		// Pattern Structure
 		CompletePattern completePattern = getPatternExists();	
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 				
 		return completePattern;
 	}
@@ -59,7 +59,7 @@ public class Test03Quantor {
 		relation.setSource(e0g2);
 		relation.setTarget(e1g2);		
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		
 		return completePattern;
 	}
@@ -114,7 +114,7 @@ public class Test03Quantor {
 		CompletePattern completePattern = getPatternExistsWithRelation();
 		QuantifiedCondition cond = (QuantifiedCondition) completePattern.getCondition();
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		cond.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
 				
 		return completePattern;
@@ -124,7 +124,7 @@ public class Test03Quantor {
 		
 		CompletePattern completePattern = getPatternExistsCond();		
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		XmlNavigation nav = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(1);
@@ -151,7 +151,7 @@ public class Test03Quantor {
 		CompletePattern completePattern = getPatternExists();
 		QuantifiedCondition cond1 = (QuantifiedCondition) completePattern.getCondition();
 		cond1.setQuantifier(Quantifier.FORALL);
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		return completePattern;
 	}
 
@@ -159,7 +159,7 @@ public class Test03Quantor {
 		CompletePattern completePattern = getPatternExistsCond();
 		QuantifiedCondition cond1 = (QuantifiedCondition) completePattern.getCondition();
 		cond1.setQuantifier(Quantifier.FORALL);		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		return completePattern;
 	}
 	

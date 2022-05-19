@@ -90,7 +90,7 @@ public class XmlRootImpl extends ComplexNodeImpl implements XmlRoot {
 	}
 	
 	@Override
-	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		throw new InvalidityException("XmlRoot cannot be adapted to XML");
 	}
 	

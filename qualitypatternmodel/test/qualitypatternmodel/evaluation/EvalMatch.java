@@ -86,7 +86,7 @@ public class EvalMatch {
 		relation.setSource(element2);
 		relation.setTarget(element3);
 
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		quantifiedCondition.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
 		relation.adaptAsXmlElementNavigation();
 		completePattern.finalizeXMLAdaption();

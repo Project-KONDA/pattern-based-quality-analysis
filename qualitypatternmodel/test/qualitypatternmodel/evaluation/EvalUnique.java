@@ -215,7 +215,7 @@ public class EvalUnique {
 		Condition truecondition = patternStructureFactory.createTrueElement();
 		countPattern.setCondition(truecondition);		
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		r1G1.adaptAsXmlElementNavigation();
 		r2G1.adaptAsXmlElementNavigation();
 		r3G1.adaptAsXmlElementNavigation();
@@ -310,7 +310,7 @@ public class EvalUnique {
 		comparison.setArgument2(propertyNextToElement2);	
 		comparison.getOption().setValue(ComparisonOperator.EQUAL);
 	
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		relation.adaptAsXmlElementNavigation();
 		relation2.adaptAsXmlElementNavigation();
 		completePattern.finalizeXMLAdaption();

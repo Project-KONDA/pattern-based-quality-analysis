@@ -40,7 +40,7 @@ public class Test04QuantorCombinations {
 		
 		CompletePattern completePattern = getPatternExistsInExists();
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		QuantifiedCondition quantifiedCondition2 = (QuantifiedCondition) quantifiedCondition.getCondition();

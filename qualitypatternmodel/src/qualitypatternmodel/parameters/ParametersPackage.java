@@ -305,7 +305,7 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER___RELATIONS_XML_ADAPTED = PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -711,7 +711,7 @@ public interface ParametersPackage extends EPackage {
 	int COMPARISON_OPTION_PARAM___RELATIONS_XML_ADAPTED = PARAMETER___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1081,7 +1081,7 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_LIST___RELATIONS_XML_ADAPTED = PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1415,7 +1415,7 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE___RELATIONS_XML_ADAPTED = PARAMETER___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1965,7 +1965,7 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2515,7 +2515,7 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3119,7 +3119,7 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3678,7 +3678,7 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4228,7 +4228,7 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4778,7 +4778,7 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5319,7 +5319,7 @@ public interface ParametersPackage extends EPackage {
 	int UNTYPED_PARAMETER_VALUE___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5869,7 +5869,7 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___RELATIONS_XML_ADAPTED = PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6410,7 +6410,7 @@ public interface ParametersPackage extends EPackage {
 	int TYPE_OPTION_PARAM___RELATIONS_XML_ADAPTED = PARAMETER___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

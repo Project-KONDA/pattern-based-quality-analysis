@@ -349,7 +349,7 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___RELATIONS_XML_ADAPTED = PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -710,7 +710,7 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPARABLE___RELATIONS_XML_ADAPTED = PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1107,7 +1107,7 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___RELATIONS_XML_ADAPTED = COMPARABLE___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1801,7 +1801,7 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___RELATIONS_XML_ADAPTED = NODE___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2459,7 +2459,7 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___RELATIONS_XML_ADAPTED = PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2757,7 +2757,7 @@ public interface GraphstructurePackage extends EPackage {
 	int ADAPTABLE___RELATIONS_XML_ADAPTED = PatternstructurePackage.PATTERN_ELEMENT___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3136,7 +3136,7 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___RELATIONS_XML_ADAPTED = NODE___RELATIONS_XML_ADAPTED;
 
 	/**
-	 * The operation id for the '<em>Create XML Adaption</em>' operation.
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

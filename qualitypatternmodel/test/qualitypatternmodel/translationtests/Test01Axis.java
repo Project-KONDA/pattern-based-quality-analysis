@@ -30,7 +30,7 @@ public class Test01Axis {
 
 	public static CompletePattern getBasePatternAxisRoot(XmlAxisKind xmlAxisKind) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
 		CompletePattern completePattern = Test00.getBasePattern();
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		XmlNavigation relation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
 		XmlPathParam axisOption = relation.getXmlPathParam();
 //		EList<AxisKind> axisOptions = axisOption.getOptions();
@@ -53,7 +53,7 @@ public class Test01Axis {
 		relation.setSource(element1);
 		relation.setTarget(element2);		
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		XmlElementNavigation navigation = (XmlElementNavigation) graph.getRelations().get(0);		
 		
 		XmlPathParam axisOption = navigation.getXmlPathParam();

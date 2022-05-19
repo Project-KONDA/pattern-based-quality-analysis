@@ -97,7 +97,7 @@ public class EvalRefint {
 		referenceg2.setSource(e2g2);
 		referenceg2.setTarget(e4g2);
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		relation.adaptAsXmlElementNavigation();
 		relationg2.adaptAsXmlElementNavigation();
 		XmlReference xmlReference = referenceg2.adaptAsXmlReference();
@@ -197,7 +197,7 @@ public class EvalRefint {
 		referenceg2.setSource(e2g2);
 		referenceg2.setTarget(e3g2);
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		relation.adaptAsXmlElementNavigation();
 		XmlReference xmlReference = referenceg2.adaptAsXmlReference();
 		xmlReference.setType(ReturnType.STRING);

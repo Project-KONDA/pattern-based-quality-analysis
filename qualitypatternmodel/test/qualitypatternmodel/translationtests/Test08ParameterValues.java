@@ -46,7 +46,7 @@ public class Test08ParameterValues {
 		completePattern.getGraph().getNodes().get(0).addPrimitiveComparison(ComparisonOperator.EQUAL, parameterValue);
 //		completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.NOTEQUAL, parameter);
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		
 		XmlProperty property = (XmlProperty) completePattern.getGraph().getNodes().get(0);
 		XmlNavigation relation = (XmlNavigation) property.getIncoming().get(0);

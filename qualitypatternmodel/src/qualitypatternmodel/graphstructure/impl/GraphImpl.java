@@ -240,16 +240,16 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 	
 	@Override
-	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		EList<Node> elementsCopy = new BasicEList<Node>();
 		elementsCopy.addAll(getNodes());
 		for(Node node : elementsCopy) {
-			node.createXMLAdaption();
+			node.createXmlAdaption();
 		}	
 		EList<Relation> relationsCopy = new BasicEList<Relation>();
 		relationsCopy.addAll(getRelations());
 		for(Relation relation : relationsCopy) {
-			relation.createXMLAdaption();
+			relation.createXmlAdaption();
 		}
 		createXmlRoot();
 		

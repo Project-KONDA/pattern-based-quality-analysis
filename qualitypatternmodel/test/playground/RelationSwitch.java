@@ -87,7 +87,7 @@ public class RelationSwitch {
 		referenceg2.setSource(e2g2);
 		referenceg2.setTarget(e3g2);
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		relation.adaptAsXmlElementNavigation();
 		XmlReference xmlReference = referenceg2.adaptAsXmlReference();
 		xmlReference.setType(ReturnType.STRING);

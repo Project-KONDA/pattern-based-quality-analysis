@@ -1009,16 +1009,6 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
-	public EOperation getPatternElement__CreateXMLAdaption() {
-		return patternElementEClass.getEOperations().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getPatternElement__CreateRdfAdaption() {
 		return patternElementEClass.getEOperations().get(21);
 	}
@@ -1051,6 +1041,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	@Override
 	public EOperation getPatternElement__RelationsXmlAdapted() {
 		return patternElementEClass.getEOperations().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternElement__CreateXmlAdaption() {
+		return patternElementEClass.getEOperations().get(20);
 	}
 
 	/**
@@ -1812,14 +1812,20 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		initEOperation(getPatternElement__RelationsXmlAdapted(), ecorePackage.getEBoolean(), "relationsXmlAdapted", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getPatternElement__CreateXMLAdaption(), this.getPatternElement(), "createXMLAdaption", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternElement__CreateXmlAdaption(), this.getPatternElement(), "createXmlAdaption", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
 		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
 		addEException(op, this.getMissingPatternContainerException());
 
-		initEOperation(getPatternElement__CreateRdfAdaption(), this.getPatternElement(), "createRdfAdaption", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternElement__CreateRdfAdaption(), this.getPatternElement(), "createRdfAdaption", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
+		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
+		addEException(op, this.getMissingPatternContainerException());
 
-		initEOperation(getPatternElement__CreateNeo4jAdaption(), this.getPatternElement(), "createNeo4jAdaption", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPatternElement__CreateNeo4jAdaption(), this.getPatternElement(), "createNeo4jAdaption", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getInvalidityExceptionWrapper());
+		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
+		addEException(op, this.getMissingPatternContainerException());
 
 		initEClass(notConditionEClass, NotCondition.class, "NotCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNotCondition_Condition(), this.getCondition(), this.getCondition_NotCondition(), "condition", null, 0, 1, NotCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

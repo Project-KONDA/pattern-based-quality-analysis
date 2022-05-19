@@ -210,7 +210,7 @@ public class DemoPatterns {
 		value.replace(bool);
 		bool.setTypeModifiable(false);
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		
 		return completePattern;
 	}
@@ -231,7 +231,7 @@ public class DemoPatterns {
 		value0.replace(date);
 		date.setTypeModifiable(false);
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		
 		return completePattern;
 	}
@@ -290,7 +290,7 @@ public class DemoPatterns {
 		completePattern.setName("comparison_abstract");
 		completePattern.setAbstractName("comparison_abstract");
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		
 		return completePattern;
 	}	
@@ -416,7 +416,7 @@ public class DemoPatterns {
 		completePattern.setName("cardinality_abstract");
 		completePattern.setAbstractName("cardinality_abstract");
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		
 		return completePattern;
 	}
@@ -595,7 +595,7 @@ public class DemoPatterns {
 		completePattern.setName("functional_dependency_abstract");
 		completePattern.setAbstractName("functional_dependency_abstract");
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 	
 		return completePattern;
 	}

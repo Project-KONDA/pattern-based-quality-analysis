@@ -46,7 +46,7 @@ public class Test10Reference {
 		relation.setSource(element0);
 		relation.setTarget(element1);	
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		XmlReference reference = graph.getRelations().get(0).adaptAsXmlReference();	
 		reference.setType(ReturnType.STRING);
 		
@@ -81,7 +81,7 @@ public class Test10Reference {
 		relation2.setSource(element2);
 		relation2.setTarget(element1);
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		XmlReference reference = graph.getRelations().get(0).adaptAsXmlReference();	
 		reference.setType(ReturnType.STRING);
 		XmlReference reference2 = graph.getRelations().get(0).adaptAsXmlReference();	
@@ -121,7 +121,7 @@ public class Test10Reference {
 		relation2.setSource(newElement0);
 		relation2.setTarget(element1);	
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		
 		XmlReference reference = graph.getRelations().get(0).adaptAsXmlReference();	
 		reference.setType(ReturnType.STRING);
@@ -161,7 +161,7 @@ public class Test10Reference {
 		relation2.setSource(newElement0);
 		relation2.setTarget(element1);	
 		
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		
 		XmlReference reference = graph.getRelations().get(0).adaptAsXmlReference();	
 		reference.setType(ReturnType.STRING);

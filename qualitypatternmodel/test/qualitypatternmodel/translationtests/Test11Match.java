@@ -33,7 +33,7 @@ public class Test11Match {
 		pattern.getGraph().getNodes().get(0).addPrimitiveMatch(str);
 		Match match = ((Match) pattern.getGraph().getOperatorList().getOperators().get(0));
 		match.getOption().setValue(invert);
-		pattern.createXMLAdaption();
+		pattern.createXmlAdaption();
 		((XmlNavigation) pattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
 		return pattern;		
 	}

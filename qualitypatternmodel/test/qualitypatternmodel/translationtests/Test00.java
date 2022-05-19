@@ -66,7 +66,7 @@ public class Test00 {
 
 	public static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		return completePattern;
 	}
 
@@ -89,7 +89,7 @@ public class Test00 {
 		CompletePattern completePattern = getBasePattern();
 		Node se = completePattern.getGraph().getReturnNodes().get(0);
 		se.addPrimitiveComparison(comp);
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		return completePattern;
 	}
 	
@@ -104,7 +104,7 @@ public class Test00 {
 		CompletePattern completePattern = getBasePattern();
 		Node se = completePattern.getGraph().getReturnNodes().get(0);
 		se.addPrimitiveMatch(regex);
-		completePattern.createXMLAdaption();
+		completePattern.createXmlAdaption();
 		return completePattern;
 	}
 	
