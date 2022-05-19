@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.impl.RdfPredicateImpl;
 import qualitypatternmodel.adaptionxml.XmlElement;
@@ -851,6 +850,13 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			return adaptAsXmlElementNavigation();
 		}
 	}
+
+	
+	@Override
+	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return adaptAsRdfPredicate();
+	}	
+
 	
 	/**
 	 * <!-- begin-user-doc -->

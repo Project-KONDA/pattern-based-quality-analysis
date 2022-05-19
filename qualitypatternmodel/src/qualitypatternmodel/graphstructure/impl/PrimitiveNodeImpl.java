@@ -98,12 +98,8 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	}
 	
 	@Override
-	public XmlProperty adaptAsXmlProperty() throws InvalidityException {
-		XmlProperty xmlProperty = super.adaptAsXmlProperty();
-		if(xmlProperty instanceof XmlPropertyImpl) {
-			((XmlPropertyImpl) xmlProperty).typeModifiable = false;
-		}
-		return xmlProperty;
+	public PatternElement createRdfAdaption() throws InvalidityException {
+		return adaptAsRdfLiteralNode();
 	}
 	
 	@Override
@@ -113,6 +109,15 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		} else {
 			throw new InvalidityException("This PrimitiveNode cannot be adapted as an XmlElement");
 		}
+	}
+	
+	@Override
+	public XmlProperty adaptAsXmlProperty() throws InvalidityException {
+		XmlProperty xmlProperty = super.adaptAsXmlProperty();
+		if(xmlProperty instanceof XmlPropertyImpl) {
+			((XmlPropertyImpl) xmlProperty).typeModifiable = false;
+		}
+		return xmlProperty;
 	}
 	
 	@Override

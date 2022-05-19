@@ -585,6 +585,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		return super.createXmlAdaption();
 	}
 
+	@Override
+	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		isValid(AbstractionLevel.GENERIC);
+		return super.createRdfAdaption();
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

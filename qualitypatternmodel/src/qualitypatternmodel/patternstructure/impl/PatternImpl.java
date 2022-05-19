@@ -187,6 +187,13 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	}
 	
 	@Override
+	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		getGraph().createRdfAdaption();
+		getCondition().createRdfAdaption();
+		return this;
+	}
+	
+	@Override
 	public void prepareTranslation() {
 		graph.prepareTranslation();
 		condition.prepareTranslation();

@@ -17,8 +17,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
-
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,6 +55,13 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	public RdfPredicateImpl() {
 		super();
 	}
+	
+	
+	@Override
+	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return this;
+	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->

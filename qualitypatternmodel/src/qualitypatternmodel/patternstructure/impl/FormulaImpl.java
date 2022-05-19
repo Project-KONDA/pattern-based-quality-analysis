@@ -185,6 +185,13 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	}
 	
 	@Override
+	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		getCondition1().createRdfAdaption();
+		getCondition2().createRdfAdaption();
+		return this;
+	}
+	
+	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {
 		EList<MorphismContainer> result = new BasicEList<MorphismContainer>();
 		result.addAll(getCondition1().getNextMorphismContainers());

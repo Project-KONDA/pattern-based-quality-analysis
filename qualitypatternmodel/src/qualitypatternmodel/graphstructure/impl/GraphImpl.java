@@ -256,6 +256,22 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		return this;
 	}
 	
+	@Override
+	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		EList<Node> elementsCopy = new BasicEList<Node>();
+		elementsCopy.addAll(getNodes());
+		for(Node node : elementsCopy) {
+			node.createRdfAdaption();
+		}	
+		EList<Relation> relationsCopy = new BasicEList<Relation>();
+		relationsCopy.addAll(getRelations());
+		for(Relation relation : relationsCopy) {
+			relation.createRdfAdaption();
+		}
+		
+		return this;
+	}
+
 	private void createXmlRoot() {
 		// previously called finalizeXMLAdaption()
 		

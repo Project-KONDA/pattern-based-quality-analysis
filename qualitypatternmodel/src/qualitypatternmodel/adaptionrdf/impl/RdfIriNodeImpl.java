@@ -6,8 +6,11 @@ import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfIriNode;
-
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +28,13 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 	public RdfIriNodeImpl() {
 		super();
 	}
+	
+	
+	@Override
+	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return this;
+	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->

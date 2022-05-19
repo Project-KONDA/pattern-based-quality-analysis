@@ -151,6 +151,13 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	}
 	
 	@Override
+	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		getCountPattern().createRdfAdaption();
+		getArgument2().createRdfAdaption();
+		return this;
+	}
+	
+	@Override
 	public EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException {		
 		BasicEList<MorphismContainer> result = new BasicEList<MorphismContainer>();
 		if(getCountPattern() instanceof CountPattern) {

@@ -63,6 +63,11 @@ public class ComplexNodeImpl extends NodeImpl implements ComplexNode {
 	public PatternElement createXmlAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return adaptAsXmlElement();
 	}
+
+	@Override
+	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return createRdfAdaption();
+	}
 	
 	@Override
 	public XmlProperty adaptAsXmlProperty() throws InvalidityException {

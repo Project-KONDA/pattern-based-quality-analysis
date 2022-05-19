@@ -6,8 +6,9 @@ import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
-
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +26,13 @@ public class RdfLiteralNodeImpl extends PrimitiveNodeImpl implements RdfLiteralN
 	public RdfLiteralNodeImpl() {
 		super();
 	}
+	
+	
+	@Override
+	public PatternElement createRdfAdaption() throws InvalidityException {
+		return this;
+	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->
