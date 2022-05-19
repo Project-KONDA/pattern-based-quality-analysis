@@ -13,8 +13,8 @@ import qualitypatternmodel.parameters.Parameter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfaxispair <em>Rdfaxispair</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfreference <em>Rdfreference</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfAxisPair <em>Rdf Axis Pair</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPredicate <em>Rdf Predicate</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam()
@@ -23,51 +23,51 @@ import qualitypatternmodel.parameters.Parameter;
  */
 public interface RdfPathParam extends Parameter {
 	/**
-	 * Returns the value of the '<em><b>Rdfaxispair</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getRdfpathparam <em>Rdfpathparam</em>}'.
+	 * Returns the value of the '<em><b>Rdf Axis Pair</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getRdfPathParam <em>Rdf Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rdfaxispair</em>' containment reference.
-	 * @see #setRdfaxispair(RdfAxisPair)
-	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_Rdfaxispair()
-	 * @see qualitypatternmodel.adaptionrdf.RdfAxisPair#getRdfpathparam
-	 * @model opposite="rdfpathparam" containment="true"
+	 * @return the value of the '<em>Rdf Axis Pair</em>' containment reference.
+	 * @see #setRdfAxisPair(RdfAxisPair)
+	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_RdfAxisPair()
+	 * @see qualitypatternmodel.adaptionrdf.RdfAxisPair#getRdfPathParam
+	 * @model opposite="rdfPathParam" containment="true"
 	 * @generated
 	 */
-	RdfAxisPair getRdfaxispair();
+	RdfAxisPair getRdfAxisPair();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfaxispair <em>Rdfaxispair</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfAxisPair <em>Rdf Axis Pair</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rdfaxispair</em>' containment reference.
-	 * @see #getRdfaxispair()
+	 * @param value the new value of the '<em>Rdf Axis Pair</em>' containment reference.
+	 * @see #getRdfAxisPair()
 	 * @generated
 	 */
-	void setRdfaxispair(RdfAxisPair value);
+	void setRdfAxisPair(RdfAxisPair value);
 
 	/**
-	 * Returns the value of the '<em><b>Rdfreference</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfpathparam <em>Rdfpathparam</em>}'.
+	 * Returns the value of the '<em><b>Rdf Predicate</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfPathParam <em>Rdf Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rdfreference</em>' container reference.
-	 * @see #setRdfreference(RdfPredicate)
-	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_Rdfreference()
-	 * @see qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfpathparam
-	 * @model opposite="rdfpathparam" transient="false"
+	 * @return the value of the '<em>Rdf Predicate</em>' container reference.
+	 * @see #setRdfPredicate(RdfPredicate)
+	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_RdfPredicate()
+	 * @see qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfPathParam
+	 * @model opposite="rdfPathParam" transient="false"
 	 * @generated
 	 */
-	RdfPredicate getRdfreference();
+	RdfPredicate getRdfPredicate();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfreference <em>Rdfreference</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPredicate <em>Rdf Predicate</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rdfreference</em>' container reference.
-	 * @see #getRdfreference()
+	 * @param value the new value of the '<em>Rdf Predicate</em>' container reference.
+	 * @see #getRdfPredicate()
 	 * @generated
 	 */
-	void setRdfreference(RdfPredicate value);
+	void setRdfPredicate(RdfPredicate value);
 
 } // RdfPathParam

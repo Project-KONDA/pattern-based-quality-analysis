@@ -46,7 +46,7 @@ import qualitypatternmodel.utility.Constants;
  *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getMatches <em>Matches</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getXmlPropertyOptionParam <em>Xml Property Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getXmlAxisPair <em>Xml Axis Pair</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getRdfaxispair <em>Rdfaxispair</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getRdfAxisPair <em>Rdf Axis Pair</em>}</li>
  * </ul>
  *
  * @generated
@@ -324,8 +324,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * @generated
 	 */
 	@Override
-	public RdfAxisPair getRdfaxispair() {
-		if (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__RDFAXISPAIR) return null;
+	public RdfAxisPair getRdfAxisPair() {
+		if (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR) return null;
 		return (RdfAxisPair)eInternalContainer();
 	}
 
@@ -334,8 +334,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRdfaxispair(RdfAxisPair newRdfaxispair, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newRdfaxispair, ParametersPackage.TEXT_LITERAL_PARAM__RDFAXISPAIR, msgs);
+	public NotificationChain basicSetRdfAxisPair(RdfAxisPair newRdfAxisPair, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newRdfAxisPair, ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR, msgs);
 		return msgs;
 	}
 
@@ -345,20 +345,20 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * @generated
 	 */
 	@Override
-	public void setRdfaxispair(RdfAxisPair newRdfaxispair) {
-		if (newRdfaxispair != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__RDFAXISPAIR && newRdfaxispair != null)) {
-			if (EcoreUtil.isAncestor(this, newRdfaxispair))
+	public void setRdfAxisPair(RdfAxisPair newRdfAxisPair) {
+		if (newRdfAxisPair != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR && newRdfAxisPair != null)) {
+			if (EcoreUtil.isAncestor(this, newRdfAxisPair))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newRdfaxispair != null)
-				msgs = ((InternalEObject)newRdfaxispair).eInverseAdd(this, AdaptionrdfPackage.RDF_AXIS_PAIR__TEXTLITERALPARAM, RdfAxisPair.class, msgs);
-			msgs = basicSetRdfaxispair(newRdfaxispair, msgs);
+			if (newRdfAxisPair != null)
+				msgs = ((InternalEObject)newRdfAxisPair).eInverseAdd(this, AdaptionrdfPackage.RDF_AXIS_PAIR__TEXT_LITERAL_PARAM, RdfAxisPair.class, msgs);
+			msgs = basicSetRdfAxisPair(newRdfAxisPair, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.TEXT_LITERAL_PARAM__RDFAXISPAIR, newRdfaxispair, newRdfaxispair));
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR, newRdfAxisPair, newRdfAxisPair));
 	}
 
 	/**
@@ -397,10 +397,10 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetXmlAxisPair((XmlAxisPair)otherEnd, msgs);
-			case ParametersPackage.TEXT_LITERAL_PARAM__RDFAXISPAIR:
+			case ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetRdfaxispair((RdfAxisPair)otherEnd, msgs);
+				return basicSetRdfAxisPair((RdfAxisPair)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -419,8 +419,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return basicSetXmlPropertyOptionParam(null, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				return basicSetXmlAxisPair(null, msgs);
-			case ParametersPackage.TEXT_LITERAL_PARAM__RDFAXISPAIR:
-				return basicSetRdfaxispair(null, msgs);
+			case ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR:
+				return basicSetRdfAxisPair(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -437,8 +437,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, XmlPropertyOptionParam.class, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PAIR__TEXT_LITERAL_PARAM, XmlAxisPair.class, msgs);
-			case ParametersPackage.TEXT_LITERAL_PARAM__RDFAXISPAIR:
-				return eInternalContainer().eInverseRemove(this, AdaptionrdfPackage.RDF_AXIS_PAIR__TEXTLITERALPARAM, RdfAxisPair.class, msgs);
+			case ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR:
+				return eInternalContainer().eInverseRemove(this, AdaptionrdfPackage.RDF_AXIS_PAIR__TEXT_LITERAL_PARAM, RdfAxisPair.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -459,8 +459,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return getXmlPropertyOptionParam();
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				return getXmlAxisPair();
-			case ParametersPackage.TEXT_LITERAL_PARAM__RDFAXISPAIR:
-				return getRdfaxispair();
+			case ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR:
+				return getRdfAxisPair();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -487,8 +487,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				setXmlAxisPair((XmlAxisPair)newValue);
 				return;
-			case ParametersPackage.TEXT_LITERAL_PARAM__RDFAXISPAIR:
-				setRdfaxispair((RdfAxisPair)newValue);
+			case ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR:
+				setRdfAxisPair((RdfAxisPair)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -514,8 +514,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				setXmlAxisPair((XmlAxisPair)null);
 				return;
-			case ParametersPackage.TEXT_LITERAL_PARAM__RDFAXISPAIR:
-				setRdfaxispair((RdfAxisPair)null);
+			case ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR:
+				setRdfAxisPair((RdfAxisPair)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -537,8 +537,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return getXmlPropertyOptionParam() != null;
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				return getXmlAxisPair() != null;
-			case ParametersPackage.TEXT_LITERAL_PARAM__RDFAXISPAIR:
-				return getRdfaxispair() != null;
+			case ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR:
+				return getRdfAxisPair() != null;
 		}
 		return super.eIsSet(featureID);
 	}

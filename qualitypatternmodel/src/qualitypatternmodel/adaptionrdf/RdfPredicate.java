@@ -13,7 +13,7 @@ import qualitypatternmodel.graphstructure.Relation;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfpathparam <em>Rdfpathparam</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfPathParam <em>Rdf Path Param</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPredicate()
@@ -22,27 +22,27 @@ import qualitypatternmodel.graphstructure.Relation;
  */
 public interface RdfPredicate extends Relation {
 	/**
-	 * Returns the value of the '<em><b>Rdfpathparam</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfreference <em>Rdfreference</em>}'.
+	 * Returns the value of the '<em><b>Rdf Path Param</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPredicate <em>Rdf Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rdfpathparam</em>' containment reference.
-	 * @see #setRdfpathparam(RdfPathParam)
-	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPredicate_Rdfpathparam()
-	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfreference
-	 * @model opposite="rdfreference" containment="true"
+	 * @return the value of the '<em>Rdf Path Param</em>' containment reference.
+	 * @see #setRdfPathParam(RdfPathParam)
+	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPredicate_RdfPathParam()
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPredicate
+	 * @model opposite="rdfPredicate" containment="true"
 	 * @generated
 	 */
-	RdfPathParam getRdfpathparam();
+	RdfPathParam getRdfPathParam();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfpathparam <em>Rdfpathparam</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfPathParam <em>Rdf Path Param</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rdfpathparam</em>' containment reference.
-	 * @see #getRdfpathparam()
+	 * @param value the new value of the '<em>Rdf Path Param</em>' containment reference.
+	 * @see #getRdfPathParam()
 	 * @generated
 	 */
-	void setRdfpathparam(RdfPathParam value);
+	void setRdfPathParam(RdfPathParam value);
 
 } // RdfPredicate

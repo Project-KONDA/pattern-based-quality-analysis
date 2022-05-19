@@ -2930,13 +2930,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM__XML_AXIS_PAIR = PARAMETER_VALUE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Rdfaxispair</b></em>' container reference.
+	 * The feature id for the '<em><b>Rdf Axis Pair</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM__RDFAXISPAIR = PARAMETER_VALUE_FEATURE_COUNT + 4;
+	int TEXT_LITERAL_PARAM__RDF_AXIS_PAIR = PARAMETER_VALUE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Text Literal Param</em>' class.
@@ -6982,15 +6982,15 @@ public interface ParametersPackage extends EPackage {
 	EReference getTextLiteralParam_XmlAxisPair();
 
 	/**
-	 * Returns the meta object for the container reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getRdfaxispair <em>Rdfaxispair</em>}'.
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.parameters.TextLiteralParam#getRdfAxisPair <em>Rdf Axis Pair</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Rdfaxispair</em>'.
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getRdfaxispair()
+	 * @return the meta object for the container reference '<em>Rdf Axis Pair</em>'.
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getRdfAxisPair()
 	 * @see #getTextLiteralParam()
 	 * @generated
 	 */
-	EReference getTextLiteralParam_Rdfaxispair();
+	EReference getTextLiteralParam_RdfAxisPair();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextLiteralParam#setValueIfValid(java.lang.String) <em>Set Value If Valid</em>}' operation.
@@ -7716,12 +7716,12 @@ public interface ParametersPackage extends EPackage {
 		EReference TEXT_LITERAL_PARAM__XML_AXIS_PAIR = eINSTANCE.getTextLiteralParam_XmlAxisPair();
 
 		/**
-		 * The meta object literal for the '<em><b>Rdfaxispair</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Rdf Axis Pair</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TEXT_LITERAL_PARAM__RDFAXISPAIR = eINSTANCE.getTextLiteralParam_Rdfaxispair();
+		EReference TEXT_LITERAL_PARAM__RDF_AXIS_PAIR = eINSTANCE.getTextLiteralParam_RdfAxisPair();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
