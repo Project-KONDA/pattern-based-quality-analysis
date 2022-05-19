@@ -216,11 +216,11 @@ public class EvalUnique {
 		countPattern.setCondition(truecondition);		
 		
 		completePattern.createXMLAdaption();
-		r1G1.adaptAsXMLElementNavigation();
-		r2G1.adaptAsXMLElementNavigation();
-		r3G1.adaptAsXMLElementNavigation();
-		r4G2.adaptAsXMLElementNavigation();		
-		r5G2.adaptAsXMLElementNavigation();
+		r1G1.adaptAsXmlElementNavigation();
+		r2G1.adaptAsXmlElementNavigation();
+		r3G1.adaptAsXmlElementNavigation();
+		r4G2.adaptAsXmlElementNavigation();		
+		r5G2.adaptAsXmlElementNavigation();
 		completePattern.finalizeXMLAdaption();
 		
 		return completePattern;
@@ -311,8 +311,8 @@ public class EvalUnique {
 		comparison.getOption().setValue(ComparisonOperator.EQUAL);
 	
 		completePattern.createXMLAdaption();
-		relation.adaptAsXMLElementNavigation();
-		relation2.adaptAsXMLElementNavigation();
+		relation.adaptAsXmlElementNavigation();
+		relation2.adaptAsXmlElementNavigation();
 		completePattern.finalizeXMLAdaption();
 		
 		return completePattern;

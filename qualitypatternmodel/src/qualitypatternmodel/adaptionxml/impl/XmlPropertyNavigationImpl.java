@@ -44,24 +44,24 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 	}	
 	
 	@Override
-	public XmlPropertyNavigation adaptAsXMLPropertyNavigation() {
+	public XmlPropertyNavigation adaptAsXmlPropertyNavigation() {
 		return this;
 	}
 	
 	@Override
-	public XmlElementNavigation adaptAsXMLElementNavigation() throws InvalidityException {
+	public XmlElementNavigation adaptAsXmlElementNavigation() throws InvalidityException {
 		if(target.isTypeModifiable()) {
 			removeParametersFromParameterList();
-			return super.adaptAsXMLElementNavigation();
+			return super.adaptAsXmlElementNavigation();
 		} else {
 			throw new InvalidityException("XmlPropertyNavigation with a non-modifiable target cannot be adapted as an XmlNavigation.");
 		}
 	}
 	
 	@Override
-	public XmlReference adaptAsXMLReference() throws InvalidityException {
+	public XmlReference adaptAsXmlReference() throws InvalidityException {
 		if(target.isTypeModifiable()) {
-			return super.adaptAsXMLReference();
+			return super.adaptAsXmlReference();
 		} else {
 			throw new InvalidityException("XmlPropertyNavigation with a non-modifiable target cannot be adapted as an XmlReference.");
 		}

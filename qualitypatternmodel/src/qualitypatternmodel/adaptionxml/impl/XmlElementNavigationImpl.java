@@ -26,17 +26,17 @@ public class XmlElementNavigationImpl extends XmlNavigationImpl implements XmlEl
 	}
 	
 	@Override
-	public XmlPropertyNavigation adaptAsXMLPropertyNavigation() throws InvalidityException {
+	public XmlPropertyNavigation adaptAsXmlPropertyNavigation() throws InvalidityException {
 		if(target.isTypeModifiable()) {
 			removeParametersFromParameterList();
-			return super.adaptAsXMLPropertyNavigation();
+			return super.adaptAsXmlPropertyNavigation();
 		} else {
 			throw new InvalidityException("XmlElementNavigation with a non-modifiable target cannot be adapted as an XmlPropertyNavigation.");
 		}
 	}
 	
 	@Override
-	public XmlElementNavigation adaptAsXMLElementNavigation() {
+	public XmlElementNavigation adaptAsXmlElementNavigation() {
 		return this;
 	}
 	

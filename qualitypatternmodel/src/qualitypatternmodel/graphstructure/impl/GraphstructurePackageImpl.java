@@ -318,7 +318,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getRelation__AdaptAsXMLElementNavigation() {
+	public EOperation getRelation__AdaptAsXmlElementNavigation() {
 		return relationEClass.getEOperations().get(5);
 	}
 
@@ -328,7 +328,17 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getRelation__AdaptAsXMLReference() {
+	public EOperation getRelation__AdaptAsXmlPropertyNavigation() {
+		return relationEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getRelation__AdaptAsXmlReference() {
 		return relationEClass.getEOperations().get(7);
 	}
 
@@ -370,16 +380,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	@Override
 	public EOperation getRelation__GetOriginalRelation() {
 		return relationEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getRelation__AdaptAsXMLPropertyNavigation() {
-		return relationEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -1288,13 +1288,13 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		initEOperation(getRelation__RemoveMappingsToNext(), null, "removeMappingsToNext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getRelation__AdaptAsXMLElementNavigation(), theAdaptionxmlPackage.getXmlElementNavigation(), "adaptAsXMLElementNavigation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRelation__AdaptAsXmlElementNavigation(), theAdaptionxmlPackage.getXmlElementNavigation(), "adaptAsXmlElementNavigation", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getRelation__AdaptAsXMLPropertyNavigation(), theAdaptionxmlPackage.getXmlPropertyNavigation(), "adaptAsXMLPropertyNavigation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRelation__AdaptAsXmlPropertyNavigation(), theAdaptionxmlPackage.getXmlPropertyNavigation(), "adaptAsXmlPropertyNavigation", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getRelation__AdaptAsXMLReference(), theAdaptionxmlPackage.getXmlReference(), "adaptAsXMLReference", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRelation__AdaptAsXmlReference(), theAdaptionxmlPackage.getXmlReference(), "adaptAsXmlReference", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEOperation(getRelation__AdaptAsRdfPredicate(), theAdaptionrdfPackage.getRdfPredicate(), "adaptAsRdfPredicate", 0, 1, IS_UNIQUE, IS_ORDERED);

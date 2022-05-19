@@ -47,7 +47,7 @@ public class Test10Reference {
 		relation.setTarget(element1);	
 		
 		completePattern.createXMLAdaption();
-		XmlReference reference = graph.getRelations().get(0).adaptAsXMLReference();	
+		XmlReference reference = graph.getRelations().get(0).adaptAsXmlReference();	
 		reference.setType(ReturnType.STRING);
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
@@ -82,9 +82,9 @@ public class Test10Reference {
 		relation2.setTarget(element1);
 		
 		completePattern.createXMLAdaption();
-		XmlReference reference = graph.getRelations().get(0).adaptAsXMLReference();	
+		XmlReference reference = graph.getRelations().get(0).adaptAsXmlReference();	
 		reference.setType(ReturnType.STRING);
-		XmlReference reference2 = graph.getRelations().get(0).adaptAsXMLReference();	
+		XmlReference reference2 = graph.getRelations().get(0).adaptAsXmlReference();	
 		reference2.setType(ReturnType.STRING);
 		
 //		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getPathParam().getOptions().add(AxisKind.DESCENDANT);
@@ -123,7 +123,7 @@ public class Test10Reference {
 		
 		completePattern.createXMLAdaption();
 		
-		XmlReference reference = graph.getRelations().get(0).adaptAsXMLReference();	
+		XmlReference reference = graph.getRelations().get(0).adaptAsXmlReference();	
 		reference.setType(ReturnType.STRING);
 		
 		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.CHILD, "");
@@ -163,7 +163,7 @@ public class Test10Reference {
 		
 		completePattern.createXMLAdaption();
 		
-		XmlReference reference = graph.getRelations().get(0).adaptAsXMLReference();	
+		XmlReference reference = graph.getRelations().get(0).adaptAsXmlReference();	
 		reference.setType(ReturnType.STRING);
 //		reference.getSourceProperty().getOption().getOptions().add(PropertyKind.ATTRIBUTE);
 		reference.getSourcePropertyPath().getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
@@ -172,14 +172,14 @@ public class Test10Reference {
 		reference.getTargetPropertyPath().getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
 		reference.getTargetPropertyPath().getXmlPropertyOptionParam().getAttributeName().setValue("demo:lang");
 		
-		XmlReference reference1 = graph.getRelations().get(0).adaptAsXMLReference();	
+		XmlReference reference1 = graph.getRelations().get(0).adaptAsXmlReference();	
 		reference1.setType(ReturnType.STRING);
 //		reference1.getSourceProperty().getOption().getOptions().add(PropertyKind.TAG);
 		reference1.getSourcePropertyPath().getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
 //		reference1.getTargetProperty().getOption().getOptions().add(PropertyKind.TAG);
 		reference1.getTargetPropertyPath().getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
 		
-		XmlReference reference2 = graph.getRelations().get(0).adaptAsXMLReference();	
+		XmlReference reference2 = graph.getRelations().get(0).adaptAsXmlReference();	
 		reference2.setType(ReturnType.STRING);
 //		reference2.getSourceProperty().getOption().getOptions().add(PropertyKind.DATA);
 		reference2.getSourcePropertyPath().getXmlPropertyOptionParam().setValue(XmlPropertyKind.DATA);

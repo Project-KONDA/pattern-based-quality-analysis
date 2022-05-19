@@ -146,26 +146,26 @@ public class XmlReferenceImpl extends RelationImpl implements XmlReference {
 	}
 	
 	@Override
-	public XmlReference adaptAsXMLReference() {
+	public XmlReference adaptAsXmlReference() {
 		return this;
 	}
 	
 	@Override
-	public XmlElementNavigation adaptAsXMLElementNavigation() throws InvalidityException {
+	public XmlElementNavigation adaptAsXmlElementNavigation() throws InvalidityException {
 		if(getProperty() != null) {
 			getProperty().removeParametersFromParameterList();
 			getProperty().setGraph(null);
 			setProperty(null);
 		}
 		
-		return super.adaptAsXMLElementNavigation();		
+		return super.adaptAsXmlElementNavigation();		
 	}
 	
 	@Override
-	public XmlPropertyNavigation adaptAsXMLPropertyNavigation() throws InvalidityException {
+	public XmlPropertyNavigation adaptAsXmlPropertyNavigation() throws InvalidityException {
 		if(target.isTypeModifiable()) {
 			removeParametersFromParameterList();
-			return super.adaptAsXMLPropertyNavigation();
+			return super.adaptAsXmlPropertyNavigation();
 		} else {
 			throw new InvalidityException("XmlReference with a non-modifiable target cannot be adapted as an XmlPropertyNavigation.");
 		}

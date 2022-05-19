@@ -115,7 +115,7 @@ public class Test03Quantor {
 		QuantifiedCondition cond = (QuantifiedCondition) completePattern.getCondition();
 		
 		completePattern.createXMLAdaption();
-		cond.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
+		cond.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
 				
 		return completePattern;
 	}

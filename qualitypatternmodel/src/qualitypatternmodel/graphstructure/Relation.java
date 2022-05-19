@@ -251,7 +251,7 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	XmlElementNavigation adaptAsXMLElementNavigation() throws InvalidityException;
+	XmlElementNavigation adaptAsXmlElementNavigation() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -263,7 +263,7 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	XmlReference adaptAsXMLReference() throws InvalidityException;
+	XmlReference adaptAsXmlReference() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -309,6 +309,6 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
 	 * @generated
 	 */
-	XmlPropertyNavigation adaptAsXMLPropertyNavigation() throws InvalidityException;
+	XmlPropertyNavigation adaptAsXmlPropertyNavigation() throws InvalidityException;
 
 } // Relation

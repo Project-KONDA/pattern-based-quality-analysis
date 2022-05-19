@@ -64,7 +64,7 @@ public class EvalCompval {
 		next1.addPrimitiveComparison();
 
 		completePattern.createXMLAdaption();
-		graph1.getRelations().get(0).adaptAsXMLElementNavigation();
+		graph1.getRelations().get(0).adaptAsXmlElementNavigation();
 		completePattern.finalizeXMLAdaption();
 
 		return completePattern;
@@ -96,8 +96,8 @@ public class EvalCompval {
 		relation.setTarget(element2);
 
 		completePattern.createXMLAdaption();
-		graph1.getRelations().get(0).adaptAsXMLElementNavigation();
-		relation.adaptAsXMLElementNavigation();
+		graph1.getRelations().get(0).adaptAsXmlElementNavigation();
+		relation.adaptAsXmlElementNavigation();
 		completePattern.finalizeXMLAdaption();
 
 		return completePattern;
@@ -341,7 +341,7 @@ public class EvalCompval {
 		e2g2.addPrimitiveComparison();
 		
 		completePattern.createXMLAdaption();
-		relation.adaptAsXMLElementNavigation();	
+		relation.adaptAsXmlElementNavigation();	
 		completePattern.finalizeXMLAdaption();	
 		
 		return completePattern; 

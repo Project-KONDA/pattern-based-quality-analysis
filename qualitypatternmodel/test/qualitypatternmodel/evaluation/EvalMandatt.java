@@ -90,8 +90,8 @@ public class EvalMandatt {
 		element3.addPrimitiveComparison();	
 		
 		completePattern.createXMLAdaption();
-		relation.adaptAsXMLElementNavigation();
-		relation2.adaptAsXMLElementNavigation();
+		relation.adaptAsXmlElementNavigation();
+		relation2.adaptAsXmlElementNavigation();
 		completePattern.finalizeXMLAdaption();
 		
 		return completePattern;		
@@ -177,11 +177,11 @@ public class EvalMandatt {
 		element4.addPrimitiveComparison();	
 		
 		completePattern.createXMLAdaption();
-		relation0.adaptAsXMLElementNavigation();
-		relation.adaptAsXMLElementNavigation();
-		relation2.adaptAsXMLElementNavigation();
-		relation3.adaptAsXMLElementNavigation();
-		relation4.adaptAsXMLElementNavigation();
+		relation0.adaptAsXmlElementNavigation();
+		relation.adaptAsXmlElementNavigation();
+		relation2.adaptAsXmlElementNavigation();
+		relation3.adaptAsXmlElementNavigation();
+		relation4.adaptAsXmlElementNavigation();
 		completePattern.finalizeXMLAdaption();
 		
 		return completePattern;		

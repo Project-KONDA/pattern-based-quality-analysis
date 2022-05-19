@@ -237,9 +237,9 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	}
 	
 	@Override
-	public XmlReference adaptAsXMLReference() throws InvalidityException {
+	public XmlReference adaptAsXmlReference() throws InvalidityException {
 		removeParametersFromParameterList();
-		return super.adaptAsXMLReference();
+		return super.adaptAsXmlReference();
 	}
 	
 	@Override

@@ -439,7 +439,7 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___REMOVE_MAPPINGS_TO_NEXT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
-	 * The operation id for the '<em>Adapt As XML Element Navigation</em>' operation.
+	 * The operation id for the '<em>Adapt As Xml Element Navigation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -448,7 +448,7 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___ADAPT_AS_XML_ELEMENT_NAVIGATION = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
 
 	/**
-	 * The operation id for the '<em>Adapt As XML Property Navigation</em>' operation.
+	 * The operation id for the '<em>Adapt As Xml Property Navigation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -457,7 +457,7 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
 
 	/**
-	 * The operation id for the '<em>Adapt As XML Reference</em>' operation.
+	 * The operation id for the '<em>Adapt As Xml Reference</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3634,24 +3634,34 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getRelation__RemoveMappingsToNext();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsXMLElementNavigation() <em>Adapt As XML Element Navigation</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsXmlElementNavigation() <em>Adapt As Xml Element Navigation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Adapt As XML Element Navigation</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsXMLElementNavigation()
+	 * @return the meta object for the '<em>Adapt As Xml Element Navigation</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsXmlElementNavigation()
 	 * @generated
 	 */
-	EOperation getRelation__AdaptAsXMLElementNavigation();
+	EOperation getRelation__AdaptAsXmlElementNavigation();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsXMLReference() <em>Adapt As XML Reference</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsXmlPropertyNavigation() <em>Adapt As Xml Property Navigation</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Adapt As XML Reference</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsXMLReference()
+	 * @return the meta object for the '<em>Adapt As Xml Property Navigation</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsXmlPropertyNavigation()
 	 * @generated
 	 */
-	EOperation getRelation__AdaptAsXMLReference();
+	EOperation getRelation__AdaptAsXmlPropertyNavigation();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsXmlReference() <em>Adapt As Xml Reference</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Adapt As Xml Reference</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsXmlReference()
+	 * @generated
+	 */
+	EOperation getRelation__AdaptAsXmlReference();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsRdfPredicate() <em>Adapt As Rdf Predicate</em>}' operation.
@@ -3692,16 +3702,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getRelation__GetOriginalRelation();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsXMLPropertyNavigation() <em>Adapt As XML Property Navigation</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Adapt As XML Property Navigation</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsXMLPropertyNavigation()
-	 * @generated
-	 */
-	EOperation getRelation__AdaptAsXMLPropertyNavigation();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.graphstructure.PrimitiveNode <em>Primitive Node</em>}'.
@@ -4548,20 +4548,20 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation RELATION___REMOVE_MAPPINGS_TO_NEXT = eINSTANCE.getRelation__RemoveMappingsToNext();
 
 		/**
-		 * The meta object literal for the '<em><b>Adapt As XML Element Navigation</b></em>' operation.
+		 * The meta object literal for the '<em><b>Adapt As Xml Element Navigation</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RELATION___ADAPT_AS_XML_ELEMENT_NAVIGATION = eINSTANCE.getRelation__AdaptAsXMLElementNavigation();
+		EOperation RELATION___ADAPT_AS_XML_ELEMENT_NAVIGATION = eINSTANCE.getRelation__AdaptAsXmlElementNavigation();
 
 		/**
-		 * The meta object literal for the '<em><b>Adapt As XML Reference</b></em>' operation.
+		 * The meta object literal for the '<em><b>Adapt As Xml Reference</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RELATION___ADAPT_AS_XML_REFERENCE = eINSTANCE.getRelation__AdaptAsXMLReference();
+		EOperation RELATION___ADAPT_AS_XML_REFERENCE = eINSTANCE.getRelation__AdaptAsXmlReference();
 
 		/**
 		 * The meta object literal for the '<em><b>Adapt As Rdf Predicate</b></em>' operation.
@@ -4596,12 +4596,12 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation RELATION___GET_ORIGINAL_RELATION = eINSTANCE.getRelation__GetOriginalRelation();
 
 		/**
-		 * The meta object literal for the '<em><b>Adapt As XML Property Navigation</b></em>' operation.
+		 * The meta object literal for the '<em><b>Adapt As Xml Property Navigation</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION = eINSTANCE.getRelation__AdaptAsXMLPropertyNavigation();
+		EOperation RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION = eINSTANCE.getRelation__AdaptAsXmlPropertyNavigation();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.

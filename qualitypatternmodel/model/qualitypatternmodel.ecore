@@ -269,11 +269,11 @@
       </eOperations>
       <eOperations name="removeRelationFromPreviousGraphs"/>
       <eOperations name="removeMappingsToNext"/>
-      <eOperations name="adaptAsXMLElementNavigation" eType="#//adaptionxml/XmlElementNavigation"
+      <eOperations name="adaptAsXmlElementNavigation" eType="#//adaptionxml/XmlElementNavigation"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="adaptAsXMLPropertyNavigation" eType="#//adaptionxml/XmlPropertyNavigation"
+      <eOperations name="adaptAsXmlPropertyNavigation" eType="#//adaptionxml/XmlPropertyNavigation"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="adaptAsXMLReference" eType="#//adaptionxml/XmlReference"
+      <eOperations name="adaptAsXmlReference" eType="#//adaptionxml/XmlReference"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsRdfPredicate" eType="#//adaptionrdf/RdfPredicate"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/RelationMapping"

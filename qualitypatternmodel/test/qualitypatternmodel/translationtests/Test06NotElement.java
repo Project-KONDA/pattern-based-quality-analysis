@@ -87,7 +87,7 @@ public class Test06NotElement {
 		CompletePattern completePattern = getPatternNotExistsAbstract();		
 		
 		completePattern.createXMLAdaption();
-		((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
+		((QuantifiedCondition) ((NotCondition) completePattern.getCondition()).getCondition()).getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
 		
 		((XmlElementNavigation)(completePattern.getGraph().getRelations().get(0))).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
 		

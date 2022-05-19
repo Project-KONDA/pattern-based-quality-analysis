@@ -627,7 +627,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	@Override
-	public XmlPropertyNavigation adaptAsXMLPropertyNavigation() throws InvalidityException {
+	public XmlPropertyNavigation adaptAsXmlPropertyNavigation() throws InvalidityException {
 		Graph graph = getGraph();
 		XmlPropertyNavigation navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsXMLPropertyNavigationRecursive();
 		if (graph != null)
@@ -845,9 +845,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	@Override
 	public PatternElement createXMLAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		if (getTarget() instanceof XmlProperty) {
-			return adaptAsXMLPropertyNavigation();
+			return adaptAsXmlPropertyNavigation();
 		} else {
-			return adaptAsXMLElementNavigation();
+			return adaptAsXmlElementNavigation();
 		}
 	}
 	
@@ -858,9 +858,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	@Override
-	public XmlElementNavigation adaptAsXMLElementNavigation() throws InvalidityException {
+	public XmlElementNavigation adaptAsXmlElementNavigation() throws InvalidityException {
 		Graph graph = getGraph();
-		XmlElementNavigation navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsXMLNavigationRecursive();
+		XmlElementNavigation navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsXMLElementNavigationRecursive();
 		
 		for(Relation r: graph.getRelations()) {
 			if(r instanceof XmlElementNavigation) {
@@ -882,7 +882,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		throw new InvalidityException("correspondent relation not found");
 	}
 	
-	public XmlElementNavigation adaptAsXMLNavigationRecursive() throws InvalidityException {
+	private XmlElementNavigation adaptAsXMLElementNavigationRecursive() throws InvalidityException {
 		if (!(this instanceof XmlElementNavigation)) {
 			XmlElementNavigation navigation = new XmlElementNavigationImpl();
 
@@ -914,7 +914,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			setGraph(null);
 			
 			for (RelationMapping mapping : navigation.getOutgoingMappings()) {
-				((RelationImpl) mapping.getTarget()).adaptAsXMLNavigationRecursive();
+				((RelationImpl) mapping.getTarget()).adaptAsXMLElementNavigationRecursive();
 			}
 			
 			navigation.getTarget().adaptAsXmlElement();
@@ -922,7 +922,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			return navigation;
 		}
 		for (RelationMapping mapping : getOutgoingMappings()) {
-			((RelationImpl) mapping.getTarget()).adaptAsXMLNavigationRecursive();
+			((RelationImpl) mapping.getTarget()).adaptAsXMLElementNavigationRecursive();
 		}
 		return (XmlElementNavigation) this;
 	}
@@ -934,7 +934,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	 * @generated NOT
 	 */
 	@Override
-	public XmlReference adaptAsXMLReference() throws InvalidityException {
+	public XmlReference adaptAsXmlReference() throws InvalidityException {
 		Graph graph = getGraph();
 		XmlReference referenceOriginal = ((RelationImpl) getOriginalRelation()).adaptAsXMLReferenceRecursive();
 		XmlElement target = (XmlElement) referenceOriginal.getTarget();
@@ -949,7 +949,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 					root = (XmlRoot) n;
 			}
 			Relation r = target.addIncomming(root);
-			XmlElementNavigation relation = r.adaptAsXMLElementNavigation();
+			XmlElementNavigation relation = r.adaptAsXmlElementNavigation();
 			relation.getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
 		}
 		for(Relation r: graph.getRelations()) {
@@ -1015,8 +1015,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				Graph graph = getGraph();
 				
 				graph.getNodes().add(property);
-				graph.addRelation(sourceNode, property).adaptAsXMLPropertyNavigation();
-				graph.addRelation(targetNode, property).adaptAsXMLPropertyNavigation();
+				graph.addRelation(sourceNode, property).adaptAsXmlPropertyNavigation();
+				graph.addRelation(targetNode, property).adaptAsXmlPropertyNavigation();
 				property.createParameters();
 				
 				reference.setProperty(property);			
@@ -1305,21 +1305,21 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				return null;
 			case GraphstructurePackage.RELATION___ADAPT_AS_XML_ELEMENT_NAVIGATION:
 				try {
-					return adaptAsXMLElementNavigation();
+					return adaptAsXmlElementNavigation();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
 			case GraphstructurePackage.RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION:
 				try {
-					return adaptAsXMLPropertyNavigation();
+					return adaptAsXmlPropertyNavigation();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
 			case GraphstructurePackage.RELATION___ADAPT_AS_XML_REFERENCE:
 				try {
-					return adaptAsXMLReference();
+					return adaptAsXmlReference();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

@@ -63,8 +63,8 @@ public class EvalExnex {
 		completePattern.createXMLAdaption();
 		EList<Relation> rels1 = qc1.getGraph().getRelations();
 		EList<Relation> rels2 = qc2.getGraph().getRelations();
-		for (int i = rels1.size()-1; i>=0; i--) rels1.get(i).adaptAsXMLElementNavigation();
-		for (int i = rels2.size()-1; i>=0; i--) rels2.get(i).adaptAsXMLElementNavigation();
+		for (int i = rels1.size()-1; i>=0; i--) rels1.get(i).adaptAsXmlElementNavigation();
+		for (int i = rels2.size()-1; i>=0; i--) rels2.get(i).adaptAsXmlElementNavigation();
 				
 		completePattern.finalizeXMLAdaption();	
 		
@@ -97,8 +97,8 @@ public class EvalExnex {
 		completePattern.createXMLAdaption();
 		EList<Relation> rels1 = qc1.getGraph().getRelations();
 		EList<Relation> rels2 = qc2.getGraph().getRelations();
-		for (int i = rels1.size()-1; i>=0; i--) rels1.get(i).adaptAsXMLElementNavigation();
-		for (int i = rels2.size()-1; i>=0; i--) rels2.get(i).adaptAsXMLElementNavigation();
+		for (int i = rels1.size()-1; i>=0; i--) rels1.get(i).adaptAsXmlElementNavigation();
+		for (int i = rels2.size()-1; i>=0; i--) rels2.get(i).adaptAsXmlElementNavigation();
 				
 		completePattern.finalizeXMLAdaption();	
 		

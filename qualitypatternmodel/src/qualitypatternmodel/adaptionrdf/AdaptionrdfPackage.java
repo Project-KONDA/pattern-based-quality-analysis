@@ -452,7 +452,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PREDICATE___REMOVE_MAPPINGS_TO_NEXT = GraphstructurePackage.RELATION___REMOVE_MAPPINGS_TO_NEXT;
 
 	/**
-	 * The operation id for the '<em>Adapt As XML Element Navigation</em>' operation.
+	 * The operation id for the '<em>Adapt As Xml Element Navigation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -461,7 +461,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PREDICATE___ADAPT_AS_XML_ELEMENT_NAVIGATION = GraphstructurePackage.RELATION___ADAPT_AS_XML_ELEMENT_NAVIGATION;
 
 	/**
-	 * The operation id for the '<em>Adapt As XML Property Navigation</em>' operation.
+	 * The operation id for the '<em>Adapt As Xml Property Navigation</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -470,7 +470,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PREDICATE___ADAPT_AS_XML_PROPERTY_NAVIGATION = GraphstructurePackage.RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION;
 
 	/**
-	 * The operation id for the '<em>Adapt As XML Reference</em>' operation.
+	 * The operation id for the '<em>Adapt As Xml Reference</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

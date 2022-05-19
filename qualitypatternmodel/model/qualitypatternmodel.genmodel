@@ -242,9 +242,9 @@
         </genOperations>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/removeRelationFromPreviousGraphs"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/removeMappingsToNext"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXMLElementNavigation"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXMLPropertyNavigation"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXMLReference"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXmlElementNavigation"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXmlPropertyNavigation"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsXmlReference"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Relation/adaptAsRdfPredicate"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/PrimitiveNode">

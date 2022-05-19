@@ -67,7 +67,7 @@ public class Test02Return {
 				
 		completePattern.createXMLAdaption();
 	
-		XmlReference reference = ((ComplexNode) completePattern.getGraph().getNodes().get(1)).getOutgoing().get(0).adaptAsXMLReference();	
+		XmlReference reference = ((ComplexNode) completePattern.getGraph().getNodes().get(1)).getOutgoing().get(0).adaptAsXmlReference();	
 		reference.setType(ReturnType.STRING);
 //		completePattern.finalizeXMLAdaption();
 		

@@ -68,8 +68,8 @@ public class Test07Formula {
 	
 		completePattern.createXMLAdaption();
 		
-		qc1.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
-		XmlReference ref = qc2.getGraph().getRelations().get(0).adaptAsXMLReference();
+		qc1.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
+		XmlReference ref = qc2.getGraph().getRelations().get(0).adaptAsXmlReference();
 		ref.setType(ReturnType.STRING);		
 		
 		return completePattern;
