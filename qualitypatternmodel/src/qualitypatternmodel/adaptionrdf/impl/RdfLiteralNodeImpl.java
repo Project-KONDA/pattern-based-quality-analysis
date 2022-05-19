@@ -20,9 +20,9 @@ public class RdfLiteralNodeImpl extends PrimitiveNodeImpl implements RdfLiteralN
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected RdfLiteralNodeImpl() {
+	public RdfLiteralNodeImpl() {
 		super();
 	}
 

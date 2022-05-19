@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionrdf.RdfIriNode;
 import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
+import qualitypatternmodel.adaptionrdf.impl.RdfIriNodeImpl;
+import qualitypatternmodel.adaptionrdf.impl.RdfLiteralNodeImpl;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.impl.XmlElementImpl;
@@ -1104,6 +1106,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		return myGraph.addRelation(node, this);
 	}
 
+	
+	// XML ADAPTATION
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1133,8 +1138,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			}
 		}
 		throw new InvalidityException("correspondent node not found");
-		
 	}
+	
 	
 	private XmlElement adaptAsXmlElementRecursive() throws InvalidityException {
 		if (!(this instanceof XmlElement)) {	
@@ -1152,11 +1157,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			xmlElement.setIncomingMapping(getIncomingMapping());
 			setIncomingMapping(null);
 			
-			if(getName().matches("Element [0-9]+")) {
-				xmlElement.setName(getName().replace("Element", "XmlElement"));
-			} else {
-				xmlElement.setName(getName());
-			}
+			xmlElement.setName(getName());
 			
 			setReturnNode(false);
 			
@@ -1188,7 +1189,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
 			incomingCopy2.addAll(xmlElement.getIncoming());
 			for(Relation relation : incomingCopy2) {
-				relation.adaptAsXMLElementNavigation();
+				relation.adaptAsXmlElementNavigation();
 			}
 			
 			return xmlElement;			
@@ -1231,28 +1232,246 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		throw new InvalidityException("correspondent node not found");
 	}
 	
+
+	private XmlProperty adaptAsXmlPropertyRecursive() throws InvalidityException {			
+		if (!(this instanceof XmlProperty)) {
+			XmlPropertyImpl xmlProperty = new XmlPropertyImpl();	
+			xmlProperty.typeModifiable = true;
+			xmlProperty.setGraphSimple(getGraph());			
+			
+			xmlProperty.setReturnNode(isReturnNode());
+			
+			xmlProperty.getPredicates().addAll(getPredicates());
+			getPredicates().clear();
+			
+			xmlProperty.getOutgoingMappings().addAll(getOutgoingMappings());
+			getOutgoingMappings().clear();
+			xmlProperty.setIncomingMapping(getIncomingMapping());
+			setIncomingMapping(null);
+			
+			xmlProperty.setName(getName());
+			xmlProperty.createParameters();
+			
+			setReturnNode(false);
+			
+			if(this instanceof PrimitiveNode) {
+				xmlProperty.getMatch().addAll(((PrimitiveNode) this).getMatch());
+				((PrimitiveNode) this).getMatch().clear();		
+			}
+			
+			EList<Relation> incomingCopy = new BasicEList<Relation>();
+			incomingCopy.addAll(getIncoming());
+			for(Relation relation : incomingCopy) {
+				relation.setTarget(xmlProperty);
+			}
+			
+			xmlProperty.getComparison1().addAll(getComparison1());
+			getComparison1().clear();
+			xmlProperty.getComparison2().addAll(getComparison2());
+			getComparison2().clear();
+	
+			setGraph(null);
+			
+			for (ElementMapping map: xmlProperty.getOutgoingMappings()) {
+				((NodeImpl) map.getTarget()).adaptAsXmlPropertyRecursive();
+			}
+
+			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
+			incomingCopy2.addAll(xmlProperty.getIncoming());
+			for(Relation relation : incomingCopy2) {
+				relation.adaptAsXmlPropertyNavigation();
+			}
+			
+			return xmlProperty;
+		} else {
+			for (ElementMapping map: getOutgoingMappings()) {
+				((NodeImpl) map.getTarget()).adaptAsXmlPropertyRecursive();
+			}
+			return (XmlProperty) this;
+		}
+	}
+	
+	
+	// RDF ADAPTATION
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public RdfIriNode adaptAsRdfIriNode() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Graph graph = getGraph();
+		RdfIriNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsRdfIriNodeRecursive();
+				
+		for(Node n: graph.getNodes()) {
+			if(n instanceof RdfIriNode) {
+				RdfIriNode element = (RdfIriNode) n;
+				Node next = n;
+				while(next != null) {
+					if(!next.equals(elementOriginal)) {
+						if(next.getIncomingMapping() == null) {
+							next = null;
+						} else {
+							next = next.getIncomingMapping().getSource();
+						}
+					} else {
+						return element;
+					}
+				}
+			}
+		}
+		throw new InvalidityException("correspondent node not found");
 	}
+	
+	
+	private RdfIriNode adaptAsRdfIriNodeRecursive() throws InvalidityException {
+		if (!(this instanceof RdfIriNode)) {	
+			RdfIriNodeImpl rdfIriNode = new RdfIriNodeImpl();
+			rdfIriNode.typeModifiable = true;
+			rdfIriNode.setGraphSimple(getGraph());				
+					
+			rdfIriNode.setReturnNode(isReturnNode());
+			
+			rdfIriNode.getPredicates().addAll(getPredicates());
+			getPredicates().clear();
+			
+			rdfIriNode.getOutgoingMappings().addAll(getOutgoingMappings());
+			getOutgoingMappings().clear();
+			rdfIriNode.setIncomingMapping(getIncomingMapping());
+			setIncomingMapping(null);
+			
+			rdfIriNode.setName(getName());
+			setReturnNode(false);
+			
+			EList<Relation> outgoingCopy = new BasicEList<Relation>();
+			if (this instanceof ComplexNode)
+				outgoingCopy.addAll(((ComplexNode) this).getOutgoing());
+			for(Relation relation : outgoingCopy) {
+				relation.setSource(rdfIriNode);
+			}
+			
+			EList<Relation> incomingCopy = new BasicEList<Relation>();
+			incomingCopy.addAll(getIncoming());
+			for(Relation relation : incomingCopy) {
+				relation.setTarget(rdfIriNode);
+			}
+			
+			rdfIriNode.getComparison1().addAll(getComparison1());
+			getComparison1().clear();
+			rdfIriNode.getComparison2().addAll(getComparison2());
+			getComparison2().clear();	
+			
+			
+			setGraph(null);
+			
+			for (ElementMapping map: rdfIriNode.getOutgoingMappings()) {
+				((NodeImpl) map.getTarget()).adaptAsXmlElementRecursive();
+			}			
+			
+			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
+			incomingCopy2.addAll(rdfIriNode.getIncoming());
+			for(Relation relation : incomingCopy2) {
+				relation.adaptAsXmlElementNavigation();
+			}
+			
+			return rdfIriNode;			
+		} else {
+			for (ElementMapping map: getOutgoingMappings()) {
+				((NodeImpl) map.getTarget()).adaptAsXmlElementRecursive();
+			}
+			return (RdfIriNode) this;
+		}
+	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public RdfLiteralNode adaptAsRdfLiteralNode() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Graph graph = getGraph();
+		RdfLiteralNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsRdfLiteralNodeRecursive();
+				
+		for(Node n: graph.getNodes()) {
+			if(n instanceof RdfLiteralNode) {
+				RdfLiteralNode element = (RdfLiteralNode) n;
+				Node next = n;
+				while(next != null) {
+					if(!next.equals(elementOriginal)) {
+						if(next.getIncomingMapping() == null) {
+							next = null;
+						} else {
+							next = next.getIncomingMapping().getSource();
+						}
+					} else {
+						return element;
+					}
+				}
+			}
+		}
+		throw new InvalidityException("correspondent node not found");
+	}
+	
+	
+	private RdfLiteralNode adaptAsRdfLiteralNodeRecursive() throws InvalidityException {		
+		if (!(this instanceof RdfLiteralNode)) {
+			RdfLiteralNodeImpl rdfLiteral = new RdfLiteralNodeImpl();	
+			rdfLiteral.typeModifiable = true;
+			rdfLiteral.setGraphSimple(getGraph());			
+			
+			rdfLiteral.setReturnNode(isReturnNode());
+			
+			rdfLiteral.getPredicates().addAll(getPredicates());
+			getPredicates().clear();
+			
+			rdfLiteral.getOutgoingMappings().addAll(getOutgoingMappings());
+			getOutgoingMappings().clear();
+			rdfLiteral.setIncomingMapping(getIncomingMapping());
+			setIncomingMapping(null);
+			
+			rdfLiteral.setName(getName());			
+			rdfLiteral.createParameters();
+			
+			setReturnNode(false);
+			
+			if(this instanceof PrimitiveNode) {
+				rdfLiteral.getMatch().addAll(((PrimitiveNode) this).getMatch());
+				((PrimitiveNode) this).getMatch().clear();		
+			}
+			
+			EList<Relation> incomingCopy = new BasicEList<Relation>();
+			incomingCopy.addAll(getIncoming());
+			for(Relation relation : incomingCopy) {
+				relation.setTarget(rdfLiteral);
+			}
+			
+			rdfLiteral.getComparison1().addAll(getComparison1());
+			getComparison1().clear();
+			rdfLiteral.getComparison2().addAll(getComparison2());
+			getComparison2().clear();
+	
+			setGraph(null);
+			
+			for (ElementMapping map: rdfLiteral.getOutgoingMappings()) {
+				((NodeImpl) map.getTarget()).adaptAsXmlPropertyRecursive();
+			}
+
+			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
+			incomingCopy2.addAll(rdfLiteral.getIncoming());
+			for(Relation relation : incomingCopy2) {
+				relation.adaptAsXmlPropertyNavigation();
+			}
+			
+			return rdfLiteral;
+		} else {
+			for (ElementMapping map: getOutgoingMappings()) {
+				((NodeImpl) map.getTarget()).adaptAsXmlPropertyRecursive();
+			}
+			return (RdfLiteralNode) this;
+		}
 	}
 
 	/**
@@ -1288,69 +1507,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 					relations.add(outgoing);
 		}
 		return relations;
-	}
-
-	private XmlProperty adaptAsXmlPropertyRecursive() throws InvalidityException {			
-		if (!(this instanceof XmlProperty)) {
-			XmlPropertyImpl xmlProperty = new XmlPropertyImpl();	
-			xmlProperty.typeModifiable = true;
-			xmlProperty.setGraphSimple(getGraph());			
-			
-			xmlProperty.setReturnNode(isReturnNode());
-			
-			xmlProperty.getPredicates().addAll(getPredicates());
-			getPredicates().clear();
-			
-			xmlProperty.getOutgoingMappings().addAll(getOutgoingMappings());
-			getOutgoingMappings().clear();
-			xmlProperty.setIncomingMapping(getIncomingMapping());
-			setIncomingMapping(null);
-			
-			if(getName().matches("Property [0-9]+")) {
-				xmlProperty.setName(getName().replace("Property", "XmlProperty"));
-			} else {
-				xmlProperty.setName(getName());
-			}
-			
-			xmlProperty.createParameters();
-			
-			setReturnNode(false);
-			
-			if(this instanceof PrimitiveNode) {
-				xmlProperty.getMatch().addAll(((PrimitiveNode) this).getMatch());
-				((PrimitiveNode) this).getMatch().clear();		
-			}
-			
-			EList<Relation> incomingCopy = new BasicEList<Relation>();
-			incomingCopy.addAll(getIncoming());
-			for(Relation relation : incomingCopy) {
-				relation.setTarget(xmlProperty);
-			}
-			
-			xmlProperty.getComparison1().addAll(getComparison1());
-			getComparison1().clear();
-			xmlProperty.getComparison2().addAll(getComparison2());
-			getComparison2().clear();
-	
-			setGraph(null);
-			
-			for (ElementMapping map: xmlProperty.getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsXmlPropertyRecursive();
-			}
-
-			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
-			incomingCopy2.addAll(xmlProperty.getIncoming());
-			for(Relation relation : incomingCopy2) {
-				relation.adaptAsXMLPropertyNavigation();
-			}
-			
-			return xmlProperty;
-		} else {
-			for (ElementMapping map: getOutgoingMappings()) {
-				((NodeImpl) map.getTarget()).adaptAsXmlPropertyRecursive();
-			}
-			return (XmlProperty) this;
-		}
 	}
 
 	/**

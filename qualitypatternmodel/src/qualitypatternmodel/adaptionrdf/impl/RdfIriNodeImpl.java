@@ -20,9 +20,9 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected RdfIriNodeImpl() {
+	public RdfIriNodeImpl() {
 		super();
 	}
 
