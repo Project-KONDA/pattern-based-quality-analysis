@@ -54,7 +54,16 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 		return this;
 	}
 	
+	
+	@Override
+	public String generateSparql() throws InvalidityException {
+		String query = getSource().generateSparql();
+		query += getRdfPathParam().generateSparql();
+		query += getTarget().generateSparql();
+		return query;
+	}
 
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
