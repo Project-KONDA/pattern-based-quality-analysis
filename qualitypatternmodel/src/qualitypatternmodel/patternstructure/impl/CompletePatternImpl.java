@@ -304,6 +304,13 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		res += super.generateXQuery();
 		return res;
 	}
+
+	@Override
+	public String generateSparql() throws InvalidityException {
+		initializeTranslation();
+		String res = super.generateSparql();
+		return res;
+	}
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

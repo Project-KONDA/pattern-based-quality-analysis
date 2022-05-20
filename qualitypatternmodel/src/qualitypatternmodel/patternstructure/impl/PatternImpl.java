@@ -175,6 +175,32 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	}
 	
 	@Override
+	public String generateSparql() throws InvalidityException {
+		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
+			throw new InvalidityException("return elements missing");
+		}
+		
+		EList<String> prefixes = new BasicEList<String>();
+		EList<String> selects = new BasicEList<String>();
+		EList<String> statements = new BasicEList<String>();
+
+		String query = "";
+		for (String p: prefixes) {
+			query += p + "\n";
+		}
+		query += "\nSELECT\n";
+		for (String s: selects) {
+			query += s;
+		}
+		query += "\nWHERE\n{\n";
+		for (String s: statements) {
+			query += "  " + s + ".\n";
+		}
+		query += "}";
+		return query;
+	}
+	
+	@Override
 	public boolean relationsXmlAdapted() {
 		return getGraph().relationsXmlAdapted() && getCondition().relationsXmlAdapted();
 	}
