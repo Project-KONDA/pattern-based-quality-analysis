@@ -252,21 +252,14 @@ public class XmlAxisPairImpl extends PatternElementImpl implements XmlAxisPair {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public NotificationChain basicSetXmlPathParam(XmlPathParam newXmlPathParam, NotificationChain msgs) {
-		ParameterList parameterList = getParameterList();
-		if(parameterList != null) {
-			if(getXmlAxisOptionParam() == null) {
-				XmlAxisOptionParam axisOptionparam = new XmlAxisOptionParamImpl();
-				setXmlAxisOptionParam(axisOptionparam);
-			} else {
-				parameterList.add(getXmlAxisOptionParam());
-			}
-			if(getTextLiteralParam() == null) {
-				TextLiteralParam text = new TextLiteralParamImpl();
-				setTextLiteralParam(text);
-			} else {
-				parameterList.add(getTextLiteralParam());
-			}	
+	public NotificationChain basicSetXmlPathParam(XmlPathParam newXmlPathParam, NotificationChain msgs) {		
+		if(getXmlAxisOptionParam() == null) {
+			XmlAxisOptionParam axisOptionparam = new XmlAxisOptionParamImpl();
+			setXmlAxisOptionParam(axisOptionparam);
+		}
+		if(getTextLiteralParam() == null) {
+			TextLiteralParam text = new TextLiteralParamImpl();
+			setTextLiteralParam(text);
 		}
 		msgs = eBasicSetContainer((InternalEObject)newXmlPathParam, AdaptionxmlPackage.XML_AXIS_PAIR__XML_PATH_PARAM, msgs);
 		return msgs;
