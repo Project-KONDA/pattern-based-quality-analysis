@@ -25,6 +25,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
+import qualitypatternmodel.adaptionxml.XmlAxisPair;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -310,6 +312,29 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 						patternParametersNonPredefinedNotAutomaticTypeNotRootRelation.add(p);
 					}					
 				}				
+			}
+			if(p instanceof XmlPathParam) {
+				XmlPathParam pathParam = (XmlPathParam) p;
+				if(pathParam.getXmlPropertyOptionParam() != null && !pathParam.getXmlPropertyOptionParam().isPredefined()) {
+					patternParametersNonPredefined.add(pathParam.getXmlPropertyOptionParam());
+					if(pathParam.getXmlPropertyOptionParam().getAttributeName() != null && !pathParam.getXmlPropertyOptionParam().getAttributeName().isPredefined()) {
+						patternParametersNonPredefined.add(pathParam.getXmlPropertyOptionParam().getAttributeName());
+					}
+				}
+				for(XmlAxisPair axisPair : pathParam.getXmlAxisPairs()) {
+					if(axisPair.getXmlAxisOptionParam() != null && !axisPair.getXmlAxisOptionParam().isPredefined()) {
+						patternParametersNonPredefined.add(axisPair.getXmlAxisOptionParam());						
+						boolean rootRelation = true;
+						Relation relation = axisPair.getXmlAxisOptionParam().getXmlAxisPair().getXmlPathParam().getXmlNavigation();
+						rootRelation &= relation.getSource() instanceof XmlRoot;						
+						if(!rootRelation) {
+							patternParametersNonPredefinedNotAutomaticTypeNotRootRelation.add(axisPair.getXmlAxisOptionParam());
+						}
+					}
+					if(axisPair.getTextLiteralParam() != null && !axisPair.getTextLiteralParam().isPredefined()) {
+						patternParametersNonPredefined.add(axisPair.getTextLiteralParam());						
+					}
+				}
 			}
 		}
 		if(!referencedParameters.containsAll(patternParametersNonPredefinedNotAutomaticTypeNotRootRelation)) {
