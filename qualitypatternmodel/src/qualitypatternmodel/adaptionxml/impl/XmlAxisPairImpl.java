@@ -36,6 +36,7 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -249,9 +250,24 @@ public class XmlAxisPairImpl extends PatternElementImpl implements XmlAxisPair {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetXmlPathParam(XmlPathParam newXmlPathParam, NotificationChain msgs) {
+		ParameterList parameterList = getParameterList();
+		if(parameterList != null) {
+			if(getXmlAxisOptionParam() == null) {
+				XmlAxisOptionParam axisOptionparam = new XmlAxisOptionParamImpl();
+				setXmlAxisOptionParam(axisOptionparam);
+			} else {
+				parameterList.add(getXmlAxisOptionParam());
+			}
+			if(getTextLiteralParam() == null) {
+				TextLiteralParam text = new TextLiteralParamImpl();
+				setTextLiteralParam(text);
+			} else {
+				parameterList.add(getTextLiteralParam());
+			}	
+		}
 		msgs = eBasicSetContainer((InternalEObject)newXmlPathParam, AdaptionxmlPackage.XML_AXIS_PAIR__XML_PATH_PARAM, msgs);
 		return msgs;
 	}
