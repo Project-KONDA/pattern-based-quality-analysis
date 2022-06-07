@@ -6,6 +6,7 @@ import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
+import qualitypatternmodel.adaptionxml.XmlAxisPair;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
@@ -307,14 +308,18 @@ public class DemoPatterns {
 		
 		// Context graph of pattern:
 		XmlNavigation nav0 = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		nav0.getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, DEMO_NAMESPACE + "architect");
+		XmlAxisPair pair = nav0.getXmlPathParam().getXmlAxisPairs().get(0);
+		pair.getXmlAxisOptionParam().setValue(XmlAxisKind.DESCENDANT);
+		pair.getTextLiteralParam().setValue(DEMO_NAMESPACE + "architect");
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
 		
 		// Graph of quantified condition:
 		XmlNavigation nav1 = (XmlNavigation) quantifiedCondition.getGraph().getRelations().get(0);
-		nav1.getXmlPathParam().setXmlAxis(XmlAxisKind.CHILD, DEMO_NAMESPACE + "birthyear");
+		XmlAxisPair pair1 = nav1.getXmlPathParam().getXmlAxisPairs().get(0);
+		pair1.getXmlAxisOptionParam().setValue(XmlAxisKind.CHILD);
+		pair1.getTextLiteralParam().setValue(DEMO_NAMESPACE + "birthyear");
 		
 		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
 		NumberParam numberValue = ParametersFactory.eINSTANCE.createNumberParam();
