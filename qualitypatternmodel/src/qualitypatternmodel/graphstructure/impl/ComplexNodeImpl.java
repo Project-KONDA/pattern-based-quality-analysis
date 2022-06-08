@@ -66,7 +66,7 @@ public class ComplexNodeImpl extends NodeImpl implements ComplexNode {
 
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return createRdfAdaption();
+		return adaptAsRdfIriNode();
 	}
 	
 	@Override
