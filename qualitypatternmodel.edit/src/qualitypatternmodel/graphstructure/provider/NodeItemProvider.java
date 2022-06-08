@@ -53,13 +53,13 @@ public class NodeItemProvider extends PatternElementItemProvider {
 			addComparison2PropertyDescriptor(object);
 			addOutgoingMappingsPropertyDescriptor(object);
 			addIncomingMappingPropertyDescriptor(object);
-			addResultOfPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addTranslatedPropertyDescriptor(object);
-			addPredicatesAreBeingTranslatedPropertyDescriptor(object);
 			addPredicatesPropertyDescriptor(object);
 			addIncomingPropertyDescriptor(object);
+			addReturnNodePropertyDescriptor(object);
 			addTypeModifiablePropertyDescriptor(object);
+			addTranslatedPropertyDescriptor(object);
+			addPredicatesAreBeingTranslatedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -144,28 +144,6 @@ public class NodeItemProvider extends PatternElementItemProvider {
 				 getString("_UI_Node_incomingMapping_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Node_incomingMapping_feature", "_UI_Node_type"),
 				 GraphstructurePackage.Literals.NODE__INCOMING_MAPPING,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Result Of feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addResultOfPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Node_resultOf_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Node_resultOf_feature", "_UI_Node_type"),
-				 GraphstructurePackage.Literals.NODE__RESULT_OF,
 				 true,
 				 false,
 				 true,
@@ -285,6 +263,28 @@ public class NodeItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Return Node feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReturnNodePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Node_returnNode_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Node_returnNode_feature", "_UI_Node_type"),
+				 GraphstructurePackage.Literals.NODE__RETURN_NODE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Type Modifiable feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -345,9 +345,10 @@ public class NodeItemProvider extends PatternElementItemProvider {
 
 		switch (notification.getFeatureID(Node.class)) {
 			case GraphstructurePackage.NODE__NAME:
+			case GraphstructurePackage.NODE__RETURN_NODE:
+			case GraphstructurePackage.NODE__TYPE_MODIFIABLE:
 			case GraphstructurePackage.NODE__TRANSLATED:
 			case GraphstructurePackage.NODE__PREDICATES_ARE_BEING_TRANSLATED:
-			case GraphstructurePackage.NODE__TYPE_MODIFIABLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

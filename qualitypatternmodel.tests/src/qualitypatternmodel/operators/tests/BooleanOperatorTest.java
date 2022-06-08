@@ -11,9 +11,9 @@ import qualitypatternmodel.operators.BooleanOperator;
  * <p>
  * The following operations are tested:
  * <ul>
+ *   <li>{@link qualitypatternmodel.operators.BooleanOperator#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.BooleanOperator#addElement(qualitypatternmodel.graphstructure.Node) <em>Add Element</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.BooleanOperator#removeElement(qualitypatternmodel.graphstructure.Node) <em>Remove Element</em>}</li>
- *   <li>{@link qualitypatternmodel.operators.BooleanOperator#createParameters() <em>Create Parameters</em>}</li>
  * </ul>
  * </p>
  * @generated

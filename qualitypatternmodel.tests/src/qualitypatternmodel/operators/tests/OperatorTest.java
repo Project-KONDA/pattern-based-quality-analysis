@@ -13,10 +13,10 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.operators.Operator#getAllOperators() <em>Get All Operators</em>}</li>
- *   <li>{@link qualitypatternmodel.operators.Operator#getRootBooleanOperators() <em>Get Root Boolean Operators</em>}</li>
- *   <li>{@link qualitypatternmodel.operators.Operator#isCycleFree(org.eclipse.emf.common.util.EList) <em>Is Cycle Free</em>}</li>
- *   <li>{@link qualitypatternmodel.operators.Operator#isCycleFree() <em>Is Cycle Free</em>}</li>
  *   <li>{@link qualitypatternmodel.operators.Operator#getArguments() <em>Get Arguments</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.Operator#getRootBooleanOperators() <em>Get Root Boolean Operators</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.Operator#isCycleFree() <em>Is Cycle Free</em>}</li>
+ *   <li>{@link qualitypatternmodel.operators.Operator#isCycleFree(org.eclipse.emf.common.util.EList) <em>Is Cycle Free</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}</li>

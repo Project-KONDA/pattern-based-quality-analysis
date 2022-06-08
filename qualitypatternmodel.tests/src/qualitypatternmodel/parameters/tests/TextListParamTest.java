@@ -13,9 +13,9 @@ import qualitypatternmodel.parameters.TextListParam;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.parameters.TextListParam#getListDeclaration() <em>Get List Declaration</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.TextListParam#getListVar() <em>Get List Var</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.TextListParam#setValueIfValid(org.eclipse.emf.common.util.EList) <em>Set Value If Valid</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.TextListParam#getListVar() <em>Get List Var</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.TextListParam#getListDeclaration() <em>Get List Declaration</em>}</li>
  * </ul>
  * </p>
  * @generated

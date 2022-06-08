@@ -131,7 +131,15 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			throw new InvalidityException("invalid string");
 		}
 	}
-
+	
+	@Override
+	public String generateSparql() throws InvalidityException {
+		if(inputIsValid()) {
+			return "\"" + getValue() + "\"";
+		} else {
+			throw new InvalidityException("invalid string");
+		}
+	}
 	
 	@Override
 	public boolean inputIsValid() {

@@ -1404,6 +1404,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		Graph graph = getGraph();
 		RdfLiteralNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsRdfLiteralNodeRecursive();
 				
+		
 		for(Node n: graph.getNodes()) {
 			if(n instanceof RdfLiteralNode) {
 				RdfLiteralNode element = (RdfLiteralNode) n;

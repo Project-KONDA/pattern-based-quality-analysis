@@ -406,6 +406,7 @@
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Condition/formula2"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Condition/notCondition"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Condition/getNextMorphismContainers"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/Condition/isInRdfFilter"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/Morphism">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/Morphism/mappings"/>

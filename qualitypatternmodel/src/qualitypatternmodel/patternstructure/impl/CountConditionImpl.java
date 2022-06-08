@@ -16,6 +16,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
@@ -98,6 +99,25 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		String argument2 = getArgument2().generateXQuery();
 		if(getOption() != null && getOption().getValue() != null) {
 			return argument1 + " " + getOption().getValue() + " " + argument2;
+		} else {
+			throw new InvalidityException("invalid option");
+		}
+		
+	}
+	
+	@Override
+	public String generateSparql() throws InvalidityException {
+		String argument1 = getCountPattern().generateXQuery();
+		String argument2 = getArgument2().generateXQuery();
+		if(getOption() != null && getOption().getValue() != null) {
+			String comp = getOption().getValue().getLiteral();
+			String selects = "";			
+			for(Node n : getCountPattern().getGraph().getNodes()) {
+				if(n.getIncomingMapping() != null) {
+					selects += " ?var" + n.getOriginalID();
+				}
+			}
+			return "{\n SELECT " + selects + " (COUNT(*) as ?count)\n WHERE {" + argument1 + "}\n GROUP BY " + selects + "\n HAVING (?count " + comp + " " + argument2 + ")\n}";
 		} else {
 			throw new InvalidityException("invalid option");
 		}

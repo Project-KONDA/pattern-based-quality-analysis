@@ -14,13 +14,13 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappings() <em>Check Element Mappings</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkRelationMappings() <em>Check Relation Mappings</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkRelationMappingsUniqueness() <em>Check Relation Mappings Uniqueness</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness() <em>Check Element Mappings Uniqueness</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Node, qualitypatternmodel.graphstructure.Node) <em>Add Mapping</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#addMapping(qualitypatternmodel.graphstructure.Relation, qualitypatternmodel.graphstructure.Relation) <em>Add Mapping</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.Morphism#removeInconsistentMappings() <em>Remove Inconsistent Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappings() <em>Check Element Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkElementMappingsUniqueness() <em>Check Element Mappings Uniqueness</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkRelationMappings() <em>Check Relation Mappings</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.Morphism#checkRelationMappingsUniqueness() <em>Check Relation Mappings Uniqueness</em>}</li>
  * </ul>
  * </p>
  * @generated

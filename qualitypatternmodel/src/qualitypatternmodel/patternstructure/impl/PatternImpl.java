@@ -180,23 +180,20 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			throw new InvalidityException("return elements missing");
 		}
 		
-		EList<String> prefixes = new BasicEList<String>();
-		EList<String> selects = new BasicEList<String>();
-		EList<String> statements = new BasicEList<String>();
+		EList<String> prefixes = new BasicEList<String>(); // TODO
+		EList<Node> selects = graph.getReturnNodes();
 
 		String query = "";
 		for (String p: prefixes) {
 			query += p + "\n";
 		}
 		query += "\nSELECT\n";
-		for (String s: selects) {
-			query += s;
+		for (Node s: selects) {
+			query += " ?var" + s.getOriginalID();
 		}
 		query += "\nWHERE\n{\n";
-		for (String s: statements) {
-			query += "  " + s + ".\n";
-		}
-		query += "}";
+		query += condition.generateSparql();
+		query += "\n}";
 		return query;
 	}
 	

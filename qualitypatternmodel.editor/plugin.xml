@@ -202,4 +202,32 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated qualitypatternmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="qualitypatternmodel.adaptionrdf.presentation.AdaptionrdfModelWizardID"
+            name="%_UI_AdaptionrdfModelWizard_label"
+            class="qualitypatternmodel.adaptionrdf.presentation.AdaptionrdfModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AdaptionrdfModelFile.gif">
+         <description>%_UI_AdaptionrdfModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated qualitypatternmodel -->
+      <editor
+            id="qualitypatternmodel.adaptionrdf.presentation.AdaptionrdfEditorID"
+            name="%_UI_AdaptionrdfEditor_label"
+            icon="icons/full/obj16/AdaptionrdfModelFile.gif"
+            extensions="adaptionrdf"
+            class="qualitypatternmodel.adaptionrdf.presentation.AdaptionrdfEditor"
+            contributorClass="qualitypatternmodel.adaptionrdf.presentation.AdaptionrdfActionBarContributor">
+      </editor>
+   </extension>
+
 </plugin>

@@ -10,7 +10,8 @@ Bundle-Activator: qualitypatternmodel.parameters.presentation.Qualitypatternmode
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: qualitypatternmodel.adaptionxml.presentation,
+Export-Package: qualitypatternmodel.adaptionrdf.presentation,
+ qualitypatternmodel.adaptionxml.presentation,
  qualitypatternmodel.execution.presentation,
  qualitypatternmodel.graphstructure.presentation,
  qualitypatternmodel.operators.presentation,

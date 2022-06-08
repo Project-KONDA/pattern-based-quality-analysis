@@ -149,6 +149,25 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 	
 	@Override
+	public String generateSparql() throws InvalidityException {
+		String result = "";
+		for(Node node : getNodes()) {
+			if(node instanceof ComplexNode) {
+				ComplexNode c = (ComplexNode) node;
+				for(Relation r : c.getOutgoing()) {
+					result += r.generateSparql();
+				}
+			}
+		}
+		for(Operator op: getOperatorList().getOperators()) {
+			if(op.getComparison1().isEmpty() && op.getComparison2().isEmpty()) {
+				result += op.generateSparql();
+			}
+		}
+		return result;
+	}
+	
+	@Override
 	public void initializeTranslation() {
 		for(Node node : getNodes()) {	
 			node.initializeTranslation();

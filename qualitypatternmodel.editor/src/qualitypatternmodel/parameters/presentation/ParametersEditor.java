@@ -156,6 +156,7 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
+import qualitypatternmodel.adaptionrdf.provider.AdaptionrdfItemProviderAdapterFactory;
 import qualitypatternmodel.adaptionxml.provider.AdaptionxmlItemProviderAdapterFactory;
 import qualitypatternmodel.execution.provider.ExecutionItemProviderAdapterFactory;
 import qualitypatternmodel.graphstructure.provider.GraphstructureItemProviderAdapterFactory;
@@ -722,6 +723,7 @@ public class ParametersEditor
 		adapterFactory.addAdapterFactory(new AdaptionxmlItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ExecutionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new TextrepresentationItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new AdaptionrdfItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

@@ -210,95 +210,95 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.AxisOptionParam} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XmlAxisOptionParam} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AxisOptionParamItemProvider axisOptionParamItemProvider;
+	protected XmlAxisOptionParamItemProvider xmlAxisOptionParamItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.AxisOptionParam}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XmlAxisOptionParam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAxisOptionParamAdapter() {
-		if (axisOptionParamItemProvider == null) {
-			axisOptionParamItemProvider = new AxisOptionParamItemProvider(this);
+	public Adapter createXmlAxisOptionParamAdapter() {
+		if (xmlAxisOptionParamItemProvider == null) {
+			xmlAxisOptionParamItemProvider = new XmlAxisOptionParamItemProvider(this);
 		}
 
-		return axisOptionParamItemProvider;
+		return xmlAxisOptionParamItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.PropertyOptionParam} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PropertyOptionParamItemProvider propertyOptionParamItemProvider;
+	protected XmlPropertyOptionParamItemProvider xmlPropertyOptionParamItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.PropertyOptionParam}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XmlPropertyOptionParam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPropertyOptionParamAdapter() {
-		if (propertyOptionParamItemProvider == null) {
-			propertyOptionParamItemProvider = new PropertyOptionParamItemProvider(this);
+	public Adapter createXmlPropertyOptionParamAdapter() {
+		if (xmlPropertyOptionParamItemProvider == null) {
+			xmlPropertyOptionParamItemProvider = new XmlPropertyOptionParamItemProvider(this);
 		}
 
-		return propertyOptionParamItemProvider;
+		return xmlPropertyOptionParamItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.PathParam} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XmlPathParam} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PathParamItemProvider pathParamItemProvider;
+	protected XmlPathParamItemProvider xmlPathParamItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.PathParam}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XmlPathParam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPathParamAdapter() {
-		if (pathParamItemProvider == null) {
-			pathParamItemProvider = new PathParamItemProvider(this);
+	public Adapter createXmlPathParamAdapter() {
+		if (xmlPathParamItemProvider == null) {
+			xmlPathParamItemProvider = new XmlPathParamItemProvider(this);
 		}
 
-		return pathParamItemProvider;
+		return xmlPathParamItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.AxisPair} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionxml.XmlAxisPair} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AxisPairItemProvider axisPairItemProvider;
+	protected XmlAxisPairItemProvider xmlAxisPairItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.AxisPair}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionxml.XmlAxisPair}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createAxisPairAdapter() {
-		if (axisPairItemProvider == null) {
-			axisPairItemProvider = new AxisPairItemProvider(this);
+	public Adapter createXmlAxisPairAdapter() {
+		if (xmlAxisPairItemProvider == null) {
+			xmlAxisPairItemProvider = new XmlAxisPairItemProvider(this);
 		}
 
-		return axisPairItemProvider;
+		return xmlAxisPairItemProvider;
 	}
 
 	/**
@@ -412,10 +412,10 @@ public class AdaptionxmlItemProviderAdapterFactory extends AdaptionxmlAdapterFac
 		if (xmlPropertyItemProvider != null) xmlPropertyItemProvider.dispose();
 		if (xmlRootItemProvider != null) xmlRootItemProvider.dispose();
 		if (xmlPropertyNavigationItemProvider != null) xmlPropertyNavigationItemProvider.dispose();
-		if (axisOptionParamItemProvider != null) axisOptionParamItemProvider.dispose();
-		if (propertyOptionParamItemProvider != null) propertyOptionParamItemProvider.dispose();
-		if (pathParamItemProvider != null) pathParamItemProvider.dispose();
-		if (axisPairItemProvider != null) axisPairItemProvider.dispose();
+		if (xmlAxisOptionParamItemProvider != null) xmlAxisOptionParamItemProvider.dispose();
+		if (xmlPropertyOptionParamItemProvider != null) xmlPropertyOptionParamItemProvider.dispose();
+		if (xmlPathParamItemProvider != null) xmlPathParamItemProvider.dispose();
+		if (xmlAxisPairItemProvider != null) xmlAxisPairItemProvider.dispose();
 	}
 
 }

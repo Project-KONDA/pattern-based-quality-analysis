@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
+import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.Pattern;
@@ -291,6 +292,25 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public boolean isInRdfFilter() {
+		if(getFormula1() != null && getFormula1().getOperator() != LogicalOperator.AND) {
+			return true;
+		}
+		if(getFormula2() != null && getFormula2().getOperator() != LogicalOperator.AND) {
+			return true;
+		}
+		if (getNotCondition() != null) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -477,6 +497,8 @@ public abstract class ConditionImpl extends PatternElementImpl implements Condit
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case PatternstructurePackage.CONDITION___IS_IN_RDF_FILTER:
+				return isInRdfFilter();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

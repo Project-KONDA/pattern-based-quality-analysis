@@ -104,6 +104,15 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	}
 	
 	@Override
+	public String generateSparql() throws InvalidityException {
+		if(getValue() != null) {
+			return getValue()+"";
+		} else {
+			throw new InvalidityException("invalid number");
+		}
+	}
+	
+	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.BOOLEAN;
 	}

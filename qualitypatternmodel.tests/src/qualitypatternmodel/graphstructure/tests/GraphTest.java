@@ -16,10 +16,11 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph() <em>Is Return Graph</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#getReturnNodes() <em>Get Return Nodes</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getAllOperators() <em>Get All Operators</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#copyGraph(qualitypatternmodel.graphstructure.Graph) <em>Copy Graph</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph() <em>Is Return Graph</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.Node, qualitypatternmodel.graphstructure.Node) <em>Add Relation</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.ComplexNode, qualitypatternmodel.graphstructure.Node) <em>Add Relation</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -105,6 +106,19 @@ public class GraphTest extends PatternElementTest {
 	}
 
 	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.ComplexNode, qualitypatternmodel.graphstructure.Node) <em>Add Relation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.ComplexNode, qualitypatternmodel.graphstructure.Node)
+	 * @generated
+	 */
+	public void testAddRelation__ComplexNode_Node() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#isReturnGraph() <em>Is Return Graph</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,13 +132,13 @@ public class GraphTest extends PatternElementTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.Node, qualitypatternmodel.graphstructure.Node) <em>Add Relation</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#getReturnNodes() <em>Get Return Nodes</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.Node, qualitypatternmodel.graphstructure.Node)
+	 * @see qualitypatternmodel.graphstructure.Graph#getReturnNodes()
 	 * @generated
 	 */
-	public void testAddRelation__Node_Node() {
+	public void testGetReturnNodes() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

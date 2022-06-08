@@ -73,6 +73,19 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 		return getListVar();
 	}
 	
+	@Override
+	public String generateSparql() throws InvalidityException {
+		String regex = "";
+		int i = 0;
+		for(String s : getValues()) {
+			if(i > 0) {
+				regex += "|";
+			}
+			regex += s;
+			i++;
+		}
+		return regex;
+	}
 
 	@Override
 	public boolean inputIsValid() {

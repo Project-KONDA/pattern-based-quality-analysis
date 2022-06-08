@@ -29,6 +29,11 @@ public class RdfIriNodeImpl extends ComplexNodeImpl implements RdfIriNode {
 		super();
 	}
 	
+	@Override
+	public String generateSparql() {
+		return "?var" + getOriginalID();
+	}
+	
 	
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

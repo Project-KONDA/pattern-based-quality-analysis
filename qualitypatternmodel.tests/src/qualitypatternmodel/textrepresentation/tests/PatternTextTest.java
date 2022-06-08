@@ -16,12 +16,12 @@ import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#generateJSON() <em>Generate JSON</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#isValid(qualitypatternmodel.patternstructure.AbstractionLevel) <em>Is Valid</em>}</li>
- *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#instantiate() <em>Instantiate</em>}</li>
- *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#delete() <em>Delete</em>}</li>
- *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getPreview() <em>Get Preview</em>}</li>
  *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#addFragment(qualitypatternmodel.textrepresentation.Fragment) <em>Add Fragment</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#generateJSON() <em>Generate JSON</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#getPreview() <em>Get Preview</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#delete() <em>Delete</em>}</li>
+ *   <li>{@link qualitypatternmodel.textrepresentation.PatternText#instantiate() <em>Instantiate</em>}</li>
  * </ul>
  * </p>
  * @generated

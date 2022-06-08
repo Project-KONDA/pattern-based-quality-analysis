@@ -37,6 +37,11 @@ public class TrueElementImpl extends ConditionImpl implements TrueElement {
 	}
 	
 	@Override
+	public String generateSparql() throws InvalidityException {
+		return "";
+	}
+	
+	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) {}
 
 	@Override

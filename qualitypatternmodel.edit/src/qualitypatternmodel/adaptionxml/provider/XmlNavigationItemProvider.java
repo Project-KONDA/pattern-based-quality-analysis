@@ -50,7 +50,7 @@ public class XmlNavigationItemProvider extends RelationItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addPathParamPropertyDescriptor(object);
+			addXmlPathParamPropertyDescriptor(object);
 			addSourceVariablePropertyDescriptor(object);
 			addVariableCounterPropertyDescriptor(object);
 		}
@@ -58,19 +58,19 @@ public class XmlNavigationItemProvider extends RelationItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Path Param feature.
+	 * This adds a property descriptor for the Xml Path Param feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPathParamPropertyDescriptor(Object object) {
+	protected void addXmlPathParamPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_XmlNavigation_pathParam_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_XmlNavigation_pathParam_feature", "_UI_XmlNavigation_type"),
-				 AdaptionxmlPackage.Literals.XML_NAVIGATION__PATH_PARAM,
+				 getString("_UI_XmlNavigation_xmlPathParam_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XmlNavigation_xmlPathParam_feature", "_UI_XmlNavigation_type"),
+				 AdaptionxmlPackage.Literals.XML_NAVIGATION__XML_PATH_PARAM,
 				 true,
 				 false,
 				 true,

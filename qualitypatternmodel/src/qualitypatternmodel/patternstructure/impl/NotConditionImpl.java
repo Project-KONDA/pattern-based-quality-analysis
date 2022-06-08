@@ -64,6 +64,19 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	}
 	
 	@Override
+	public String generateSparql() throws InvalidityException {
+		if (condition != null) {
+			if(isInRdfFilter()) {
+				return "NOT " + condition.generateXQuery();
+			} else {
+				return "FILTER NOT " + condition.generateXQuery();
+			}
+		} else {
+			throw new InvalidityException("invalid condition");
+		}
+	}
+	
+	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
 		

@@ -47,9 +47,9 @@ public class ParameterItemProvider extends PatternElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDescriptionPropertyDescriptor(object);
 			addPredefinedPropertyDescriptor(object);
 			addParameterReferencesPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -145,8 +145,8 @@ public class ParameterItemProvider extends PatternElementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Parameter.class)) {
-			case ParametersPackage.PARAMETER__DESCRIPTION:
 			case ParametersPackage.PARAMETER__PREDEFINED:
+			case ParametersPackage.PARAMETER__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

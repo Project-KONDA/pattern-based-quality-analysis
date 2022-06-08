@@ -14,10 +14,10 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * <p>
  * The following operations are tested:
  * <ul>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#validateAgainstSchema() <em>Validate Against Schema</em>}</li>
+ *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractionLevel() <em>Get Abstraction Level</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getNewRefNo(java.lang.Class) <em>Get New Ref No</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#recordValues() <em>Record Values</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#getAbstractionLevel() <em>Get Abstraction Level</em>}</li>
- *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#validateAgainstSchema() <em>Validate Against Schema</em>}</li>
  *   <li>{@link qualitypatternmodel.patternstructure.CompletePattern#resetQuery() <em>Reset Query</em>}</li>
  * </ul>
  * </p>

@@ -139,6 +139,51 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 		}
 		
 	}
+	
+	@Override
+	public String generateSparql() throws InvalidityException {
+		String result = "";
+		if (operator != null) {
+			if (condition1 != null && condition2 != null) {
+				
+				String condition1Query = condition1.generateXQuery();
+				String condition2Query = condition2.generateXQuery();
+				
+				if(operator != LogicalOperator.AND && isInRdfFilter()) {
+					result += "FILTER ";
+				}
+				
+				switch (operator) {
+				case AND:
+					result += condition1Query + condition2Query;
+					break;
+				case OR:
+					result += "(" + condition1Query + " || " + condition2Query + ")";
+					break;
+				case IMPLIES:
+					result += "( NOT " + condition1Query + " || " + condition2Query + " )";
+					break;
+				case XOR:			
+					result += "(" + condition1Query + " != " + condition2Query + ")";
+					break;
+				case EQUAL:	
+					result += "(" + condition1Query + " = " + condition2Query + ")";
+					break;
+				default:
+					throw new InvalidityException("invalid arguments");
+				}
+				
+			} else {
+				throw new InvalidityException("invalid arguments");
+			}
+			
+			return addMissingBrackets(result);
+			
+		} else {
+			throw new InvalidityException("operator null");
+		}
+		
+	}
 
 	@Override
 	public void initializeTranslation() {

@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import qualitypatternmodel.adaptionrdf.RdfNode;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.impl.RdfPredicateImpl;
 import qualitypatternmodel.adaptionxml.XmlElement;
@@ -37,6 +39,7 @@ import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -1051,7 +1054,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public RdfPredicate adaptAsRdfPredicate() throws InvalidityException {
 		Graph graph = getGraph();
 		RdfPredicate navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsRdfPredicateRecursive();
-		
+				
 		for(Relation r: graph.getRelations()) {
 			if(r instanceof RdfPredicate) {
 				RdfPredicate nav = (RdfPredicate) r;
@@ -1101,7 +1104,13 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				((RelationImpl) mapping.getTarget()).adaptAsRdfPredicateRecursive();
 			}
 			
-//			predicate.getTarget().adaptAsRdfNode(); TODO
+			if(predicate.getTarget() instanceof ComplexNode) {
+				predicate.getTarget().adaptAsRdfIriNode();
+			} else if(predicate.getTarget() instanceof PrimitiveNode) {
+				predicate.getTarget().adaptAsRdfLiteralNode();
+			} else if(predicate.getTarget() instanceof Node) {
+				predicate.getTarget().adaptAsRdfIriNode();
+			}
 			
 			return predicate;
 		}

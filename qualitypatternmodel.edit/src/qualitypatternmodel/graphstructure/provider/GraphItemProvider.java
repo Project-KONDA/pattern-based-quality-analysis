@@ -16,6 +16,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
@@ -45,42 +46,17 @@ public class GraphItemProvider extends PatternElementItemProvider {
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addReturnNodesPropertyDescriptor(object);
-//			addGraphDepthPropertyDescriptor(object);
-//			addReturnGraphPropertyDescriptor(object);
-//			addGetAllElementsPropertyDescriptor(object);
-//			addGetAllRelationsPropertyDescriptor(object);
+			addOutgoingMorphismsPropertyDescriptor(object);
+			addIncomingMorphismPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Return Nodes feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addReturnNodesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Graph_returnNodes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Graph_returnNodes_feature", "_UI_Graph_type"),
-				 GraphstructurePackage.Literals.GRAPH__RETURN_NODES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -249,6 +225,16 @@ public class GraphItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__NODES,
+				 AdaptionrdfFactory.eINSTANCE.createRdfIriNode()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__NODES,
+				 AdaptionrdfFactory.eINSTANCE.createRdfLiteralNode()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__OPERATOR_LIST,
 				 OperatorsFactory.eINSTANCE.createOperatorList()));
 
@@ -271,6 +257,11 @@ public class GraphItemProvider extends PatternElementItemProvider {
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__RELATIONS,
 				 AdaptionxmlFactory.eINSTANCE.createXmlPropertyNavigation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__RELATIONS,
+				 AdaptionrdfFactory.eINSTANCE.createRdfPredicate()));
 	}
 
 	/**

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -190,17 +191,22 @@ public class ParameterListItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 AdaptionxmlFactory.eINSTANCE.createAxisOptionParam()));
+				 AdaptionxmlFactory.eINSTANCE.createXmlAxisOptionParam()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 AdaptionxmlFactory.eINSTANCE.createPropertyOptionParam()));
+				 AdaptionxmlFactory.eINSTANCE.createXmlPropertyOptionParam()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 AdaptionxmlFactory.eINSTANCE.createPathParam()));
+				 AdaptionxmlFactory.eINSTANCE.createXmlPathParam()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
+				 AdaptionrdfFactory.eINSTANCE.createRdfPathParam()));
 	}
 
 	/**

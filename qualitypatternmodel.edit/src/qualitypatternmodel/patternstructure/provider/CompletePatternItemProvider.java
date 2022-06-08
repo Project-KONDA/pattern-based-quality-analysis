@@ -324,13 +324,13 @@ public class CompletePatternItemProvider extends PatternItemProvider {
 
 		switch (notification.getFeatureID(CompletePattern.class)) {
 			case PatternstructurePackage.COMPLETE_PATTERN__NAME:
-			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
-			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
-			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
-			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
-			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
 			case PatternstructurePackage.COMPLETE_PATTERN__DESCRIPTION:
 			case PatternstructurePackage.COMPLETE_PATTERN__ABSTRACT_NAME:
+			case PatternstructurePackage.COMPLETE_PATTERN__COUNTER:
+			case PatternstructurePackage.COMPLETE_PATTERN__ELEMENT_COUNTER:
+			case PatternstructurePackage.COMPLETE_PATTERN__RELATION_COUNTER:
+			case PatternstructurePackage.COMPLETE_PATTERN__OPERATOR_COUNTER:
+			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_COUNTER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case PatternstructurePackage.COMPLETE_PATTERN__PARAMETER_LIST:

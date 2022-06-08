@@ -158,4 +158,12 @@ public interface Condition extends PatternElement {
 	 * @generated
 	 */
 	EList<MorphismContainer> getNextMorphismContainers() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isInRdfFilter();
 } // Condition

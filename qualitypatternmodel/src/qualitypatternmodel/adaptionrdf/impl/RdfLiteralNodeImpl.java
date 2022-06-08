@@ -27,6 +27,11 @@ public class RdfLiteralNodeImpl extends PrimitiveNodeImpl implements RdfLiteralN
 		super();
 	}
 	
+	@Override
+	public String generateSparql() {
+		return "?var" + getOriginalID();
+	}
+	
 	
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException {

@@ -1153,13 +1153,22 @@ public interface PatternstructurePackage extends EPackage {
 	int CONDITION___GET_NEXT_MORPHISM_CONTAINERS = PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Is In Rdf Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION___IS_IN_RDF_FILTER = PATTERN_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 1;
+	int CONDITION_OPERATION_COUNT = PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.QuantifiedConditionImpl <em>Quantified Condition</em>}' class.
@@ -1494,6 +1503,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int QUANTIFIED_CONDITION___GET_NEXT_MORPHISM_CONTAINERS = CONDITION___GET_NEXT_MORPHISM_CONTAINERS;
+
+	/**
+	 * The operation id for the '<em>Is In Rdf Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTIFIED_CONDITION___IS_IN_RDF_FILTER = CONDITION___IS_IN_RDF_FILTER;
 
 	/**
 	 * The operation id for the '<em>Get Graph</em>' operation.
@@ -2489,6 +2507,15 @@ public interface PatternstructurePackage extends EPackage {
 	int FORMULA___GET_NEXT_MORPHISM_CONTAINERS = CONDITION___GET_NEXT_MORPHISM_CONTAINERS;
 
 	/**
+	 * The operation id for the '<em>Is In Rdf Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___IS_IN_RDF_FILTER = CONDITION___IS_IN_RDF_FILTER;
+
+	/**
 	 * The number of operations of the '<em>Formula</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2794,6 +2821,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int TRUE_ELEMENT___GET_NEXT_MORPHISM_CONTAINERS = CONDITION___GET_NEXT_MORPHISM_CONTAINERS;
+
+	/**
+	 * The operation id for the '<em>Is In Rdf Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_ELEMENT___IS_IN_RDF_FILTER = CONDITION___IS_IN_RDF_FILTER;
 
 	/**
 	 * The number of operations of the '<em>True Element</em>' class.
@@ -3852,6 +3888,15 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION___GET_NEXT_MORPHISM_CONTAINERS = CONDITION___GET_NEXT_MORPHISM_CONTAINERS;
 
 	/**
+	 * The operation id for the '<em>Is In Rdf Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___IS_IN_RDF_FILTER = CONDITION___IS_IN_RDF_FILTER;
+
+	/**
 	 * The number of operations of the '<em>Not Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4184,6 +4229,15 @@ public interface PatternstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COUNT_CONDITION___GET_NEXT_MORPHISM_CONTAINERS = CONDITION___GET_NEXT_MORPHISM_CONTAINERS;
+
+	/**
+	 * The operation id for the '<em>Is In Rdf Filter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_CONDITION___IS_IN_RDF_FILTER = CONDITION___IS_IN_RDF_FILTER;
 
 	/**
 	 * The operation id for the '<em>Create Parameters</em>' operation.
@@ -5598,6 +5652,16 @@ public interface PatternstructurePackage extends EPackage {
 	EOperation getCondition__GetNextMorphismContainers();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.Condition#isInRdfFilter() <em>Is In Rdf Filter</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is In Rdf Filter</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.Condition#isInRdfFilter()
+	 * @generated
+	 */
+	EOperation getCondition__IsInRdfFilter();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.Morphism <em>Morphism</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6743,6 +6807,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation CONDITION___GET_NEXT_MORPHISM_CONTAINERS = eINSTANCE.getCondition__GetNextMorphismContainers();
+
+		/**
+		 * The meta object literal for the '<em><b>Is In Rdf Filter</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONDITION___IS_IN_RDF_FILTER = eINSTANCE.getCondition__IsInRdfFilter();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.MorphismImpl <em>Morphism</em>}' class.

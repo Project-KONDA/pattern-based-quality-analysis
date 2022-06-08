@@ -96,6 +96,15 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	}
 	
 	@Override
+	public String generateSparql() throws InvalidityException {
+		if(getValue() != null) {
+			return Double.toString(getValue());
+		} else {
+			throw new InvalidityException("invalid number");
+		}
+	}
+	
+	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.NUMBER;
 	}

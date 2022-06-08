@@ -22,6 +22,7 @@ import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
+import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.NotCondition;
@@ -115,7 +116,18 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public String generateXQuery() throws InvalidityException {
 		String result;
 		if (quantifier == Quantifier.EXISTS) {
-			result = graph.generateXQuery();
+			if(getCondition() instanceof Formula) {
+				Formula formula = (Formula) getCondition();
+				if(formula.getOperator() == LogicalOperator.AND) {
+					result = graph.generateXQuery();
+				} else {
+					result = "EXISTS{" + graph.generateXQuery() + "}";
+				}
+			} else if (getCondition() instanceof NotCondition) {
+				result = "EXISTS{" + graph.generateXQuery() + "}";
+			} else {
+				result = graph.generateXQuery();
+			}
 		} else if (quantifier == Quantifier.FORALL) {
 			result = graph.generateXQuery();
 		} else {
@@ -124,6 +136,24 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		result += "(" + condition.generateXQuery() + ")";
 		return result;
 
+	}
+	@Override
+	public String generateSparql() throws InvalidityException {
+		if (quantifier == Quantifier.EXISTS) {
+			if(isInRdfFilter()) {
+				return "EXISTS{" + graph.generateSparql() + condition.generateSparql() + "}";
+			} else {
+				return graph.generateSparql() + condition.generateSparql();
+			}
+		} else if (quantifier == Quantifier.FORALL) {
+			if(isInRdfFilter()) {
+				return "NOT EXISTS {\n " + graph.generateSparql() + "\n FILTER NOT EXISTS {\n" + condition.generateSparql() + "\n}\n}";
+			} else {
+				return "FILTER NOT EXISTS {\n " + graph.generateSparql() + "\n FILTER NOT EXISTS {\n" + condition.generateSparql() + "\n}\n}";
+			}
+		} else {
+			throw new InvalidityException("invalid quantifier");
+		}
 	}
 	
 	@Override

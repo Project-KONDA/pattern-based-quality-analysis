@@ -11,17 +11,17 @@ import qualitypatternmodel.parameters.ParameterValue;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#isInTagComparison() <em>Is In Tag Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#isInAttributeComparison() <em>Is In Attribute Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#isInDataComparison() <em>Is In Data Comparison</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getElementTags() <em>Get Element Tags</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getAttributeNames() <em>Get Attribute Names</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getDataValues() <em>Get Data Values</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getAttributeValues() <em>Get Attribute Values</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getSuggestions() <em>Get Suggestions</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ParameterValue#replace(qualitypatternmodel.parameters.ParameterValue) <em>Replace</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ParameterValue#replaceViaValue(java.lang.String[], java.lang.String) <em>Replace Via Value</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getElementTags() <em>Get Element Tags</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getDataValues() <em>Get Data Values</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#isInDataComparison() <em>Is In Data Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#isInTagComparison() <em>Is In Tag Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getAttributeNames() <em>Get Attribute Names</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getAttributeValues() <em>Get Attribute Values</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#isInAttributeComparison() <em>Is In Attribute Comparison</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getSuggestions() <em>Get Suggestions</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}</li>

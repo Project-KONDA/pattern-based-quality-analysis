@@ -16,11 +16,11 @@ import qualitypatternmodel.execution.ExecutionFactory;
  * <p>
  * The following operations are tested:
  * <ul>
+ *   <li>{@link qualitypatternmodel.execution.BaseXClient#connect() <em>Connect</em>}</li>
+ *   <li>{@link qualitypatternmodel.execution.BaseXClient#isConnected() <em>Is Connected</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.BaseXClient#close() <em>Close</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.BaseXClient#execute(java.lang.String) <em>Execute</em>}</li>
  *   <li>{@link qualitypatternmodel.execution.BaseXClient#query(java.lang.String) <em>Query</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.BaseXClient#isConnected() <em>Is Connected</em>}</li>
- *   <li>{@link qualitypatternmodel.execution.BaseXClient#connect() <em>Connect</em>}</li>
  * </ul>
  * </p>
  * @generated

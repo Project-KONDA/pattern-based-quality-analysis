@@ -14,6 +14,7 @@ import qualitypatternmodel.adaptionrdf.RdfAxisPair;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 
 /**
@@ -47,6 +48,12 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 */
 	protected RdfPathParamImpl() {
 		super();
+	}
+	
+	@Override
+	public String generateSparql() throws InvalidityException {
+		// TODO
+		return getRdfAxisPair().generateSparql();
 	}
 
 	/**

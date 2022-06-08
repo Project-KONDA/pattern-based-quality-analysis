@@ -103,6 +103,19 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	}
 	
 	@Override
+	public String generateSparql() throws InvalidityException {
+		if(option!=null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
+			if (option.getValue()){			
+				return "FILTER (regex(" + primitiveNode.generateXQuery() + ", " + regularExpression.getValue() + "))";
+			} else {
+				return "FILTER NOT (regex(" + primitiveNode.generateXQuery() + ", " + regularExpression.getValue() + "))";
+			}	
+		} else {
+			throw new InvalidityException("invalid option");
+		}
+	}
+	
+	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
 		option.isValid(abstractionLevel);		

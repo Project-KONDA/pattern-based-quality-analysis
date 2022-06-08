@@ -13,6 +13,8 @@ import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.ComplexNode;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -47,8 +49,7 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	public RdfPredicateImpl() {
 		super();
 	}
-	
-	
+		
 	@Override
 	public PatternElement createRdfAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		return this;
@@ -57,10 +58,21 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	
 	@Override
 	public String generateSparql() throws InvalidityException {
-		String query = getSource().generateSparql();
-		query += getRdfPathParam().generateSparql();
-		query += getTarget().generateSparql();
-		return query;
+		if(!translated) {
+			translated = true;
+			String query = getSource().generateSparql();
+			query += " " + getRdfPathParam().generateSparql();
+			query += " " + getTarget().generateSparql() + ".";
+			if(getTarget() instanceof ComplexNode) {
+				ComplexNode complexNode = (ComplexNode) getTarget();
+				for(Relation relation : complexNode.getOutgoing()) {
+					query += relation.generateSparql();
+				}
+			}
+			return query;
+		} else {
+			return "";
+		}
 	}
 
 	

@@ -37,6 +37,7 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
@@ -212,6 +213,56 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			
 		} else {
 			throw new InvalidityException("invalid option" + " (" + getInternalId() + ")");
+		}
+	}
+	
+	@Override
+	public String generateSparql() throws InvalidityException {
+		String argument1Translation = getArgument1().generateSparql();
+		String argument2Translation = getArgument2().generateSparql();
+		
+		switch (option.getValue()) {
+		case EQUAL:
+			if(getArgument1() instanceof TextLiteralParam) {
+				return "FILTER (regex(" + argument2Translation + ", ^" + argument1Translation + "$))";
+			} else if(getArgument2() instanceof TextLiteralParam) {
+				return "FILTER (regex(" + argument1Translation + ", ^" + argument2Translation + "$))";
+			} else if(getArgument1() instanceof TextListParam) {
+				TextListParam list = (TextListParam) getArgument1();
+				return "FILTER (regex(" + argument2Translation + ", ^" + list.generateSparql() + "$))";
+			} else if (getArgument2() instanceof TextListParam) {
+				TextListParam list = (TextListParam) getArgument2();				
+				return "FILTER (regex(" + argument1Translation + ", ^" + list.generateSparql() + "$))";
+			} else {
+				String nodeTranslation = "";
+				String otherTranslation = "";
+				if(getArgument1() instanceof Node) {
+					nodeTranslation = argument1Translation;
+					otherTranslation = argument2Translation;
+				} else if(getArgument2() instanceof Node) {
+					nodeTranslation = argument2Translation;
+					otherTranslation = argument1Translation;
+				}
+				return "\nVALUES " + nodeTranslation + " {" + otherTranslation + "}";
+			}
+		case NOTEQUAL:
+			if(getArgument1() instanceof TextLiteralParam || getArgument2() instanceof TextLiteralParam) {
+				return "FILTER (!regex(" + argument2Translation + ", ^" + argument1Translation + "$))";
+			} else if(getArgument1() instanceof TextListParam || getArgument2() instanceof TextListParam) {
+				
+			} else {
+				return "\nFILTER (" + argument1Translation + " != " + argument2Translation + ")";		
+			}
+		case GREATER:
+			return "\nFILTER (" + argument1Translation + " > " + argument2Translation + ")";			
+		case LESS:
+			return "\nFILTER (" + argument1Translation + " < " + argument2Translation + ")";			
+		case GREATEROREQUAL:
+			return "\nFILTER (" + argument1Translation + " >= " + argument2Translation + ")";			
+		case LESSOREQUAL:
+			return "\nFILTER (" + argument1Translation + " <= " + argument2Translation + ")";			
+		default:
+			throw new InvalidityException("invalid option");
 		}
 	}
 

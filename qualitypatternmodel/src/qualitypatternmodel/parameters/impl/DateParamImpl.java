@@ -81,6 +81,15 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 	}
 	
 	@Override
+	public String generateSparql() throws InvalidityException {
+		if(getValue() != null) {
+			return "\"" + getValue() + "\"^^xsd:dateTime";
+		} else {
+			throw new InvalidityException("invalid number");
+		}
+	}
+	
+	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.DATE;
 	}

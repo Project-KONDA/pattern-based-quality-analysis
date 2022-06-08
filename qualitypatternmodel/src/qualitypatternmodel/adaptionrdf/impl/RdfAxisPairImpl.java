@@ -18,6 +18,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
@@ -74,6 +75,12 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 	 */
 	protected RdfAxisPairImpl() {
 		super();
+	}
+	
+	@Override
+	public String generateSparql() throws InvalidityException {
+		// TODO
+		return getTextLiteralParam().generateSparql();
 	}
 
 	/**
@@ -168,9 +175,13 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetRdfPathParam(RdfPathParam newRdfPathParam, NotificationChain msgs) {
+		if(getTextLiteralParam() == null) {
+			TextLiteralParam text = new TextLiteralParamImpl();
+			setTextLiteralParam(text);
+		}
 		msgs = eBasicSetContainer((InternalEObject)newRdfPathParam, AdaptionrdfPackage.RDF_AXIS_PAIR__RDF_PATH_PARAM, msgs);
 		return msgs;
 	}

@@ -65,12 +65,12 @@ public class ResultItemProvider
 			addNamePropertyDescriptor(object);
 			addPersonPropertyDescriptor(object);
 			addStartDatePropertyDescriptor(object);
-			addRuntimePropertyDescriptor(object);
-			addProblemNumberPropertyDescriptor(object);
 			addEndDatePropertyDescriptor(object);
 			addPatternPropertyDescriptor(object);
-			addMatchNumberPropertyDescriptor(object);
 			addSplitResultPropertyDescriptor(object);
+			addProblemNumberPropertyDescriptor(object);
+			addMatchNumberPropertyDescriptor(object);
+			addRuntimePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -303,11 +303,11 @@ public class ResultItemProvider
 			case ExecutionPackage.RESULT__NAME:
 			case ExecutionPackage.RESULT__PERSON:
 			case ExecutionPackage.RESULT__START_DATE:
-			case ExecutionPackage.RESULT__RUNTIME:
-			case ExecutionPackage.RESULT__PROBLEM_NUMBER:
 			case ExecutionPackage.RESULT__END_DATE:
-			case ExecutionPackage.RESULT__MATCH_NUMBER:
 			case ExecutionPackage.RESULT__SPLIT_RESULT:
+			case ExecutionPackage.RESULT__PROBLEM_NUMBER:
+			case ExecutionPackage.RESULT__MATCH_NUMBER:
+			case ExecutionPackage.RESULT__RUNTIME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

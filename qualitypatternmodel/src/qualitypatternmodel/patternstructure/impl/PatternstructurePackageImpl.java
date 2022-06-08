@@ -479,6 +479,16 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 	 * @generated
 	 */
 	@Override
+	public EOperation getCondition__IsInRdfFilter() {
+		return conditionEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMorphism() {
 		return morphismEClass;
 	}
@@ -1479,6 +1489,7 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 		createEReference(conditionEClass, CONDITION__FORMULA2);
 		createEReference(conditionEClass, CONDITION__NOT_CONDITION);
 		createEOperation(conditionEClass, CONDITION___GET_NEXT_MORPHISM_CONTAINERS);
+		createEOperation(conditionEClass, CONDITION___IS_IN_RDF_FILTER);
 
 		morphismEClass = createEClass(MORPHISM);
 		createEReference(morphismEClass, MORPHISM__MAPPINGS);
@@ -1672,6 +1683,8 @@ public class PatternstructurePackageImpl extends EPackageImpl implements Pattern
 
 		op = initEOperation(getCondition__GetNextMorphismContainers(), this.getMorphismContainer(), "getNextMorphismContainers", 0, -1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getInvalidityExceptionWrapper());
+
+		initEOperation(getCondition__IsInRdfFilter(), ecorePackage.getEBoolean(), "isInRdfFilter", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(morphismEClass, Morphism.class, "Morphism", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMorphism_Mappings(), this.getMapping(), this.getMapping_Morphism(), "mappings", null, 0, -1, Morphism.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
