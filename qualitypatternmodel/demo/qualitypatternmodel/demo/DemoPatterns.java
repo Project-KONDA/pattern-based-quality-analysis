@@ -5,6 +5,10 @@ import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
+import qualitypatternmodel.adaptionrdf.RdfAxisPair;
+import qualitypatternmodel.adaptionrdf.RdfPathParam;
+import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisPair;
 import qualitypatternmodel.adaptionxml.XmlElement;
@@ -67,6 +71,7 @@ public class DemoPatterns {
 	private static CompletePattern cardConcreteLido;
 	private static CompletePattern funcConcrete;
 	private static CompletePattern funcConcreteLido;
+	private static CompletePattern compConcreteRdf;
 
 	private static LocalXmlDataDatabase database;
 	private static LocalXmlSchemaDatabase schema;
@@ -91,6 +96,8 @@ public class DemoPatterns {
         cardConcreteLido = getConcreteLidoCardPattern(database);
         funcConcrete = getConcreteFuncPattern(database);
         funcConcreteLido = getConcreteLidoFuncPattern(database);
+        
+        compConcreteRdf = getConcreteCompRdfPattern(database);
         
 		exportAllDemoPatterns();
 		printAllDemoPatternQueries();
@@ -147,6 +154,9 @@ public class DemoPatterns {
 		CompletePattern compLidoConcrete = getConcreteLidoCompPattern(database);			
 		EMFModelSave.exportToFile(compLidoConcrete,"instances/demo/comparison_lido_concrete", "patternstructure");
 		
+		CompletePattern compRdfConcrete = getConcreteCompRdfPattern(database);			
+		EMFModelSave.exportToFile(compRdfConcrete,"instances/demo/comparison_rdf_concrete", "patternstructure");
+		
 		CompletePattern cardGeneric = getGenericCardPattern();
 		EMFModelSave.exportToFile(cardGeneric,"instances/demo/cardinality_generic", "patternstructure");
 		CompletePattern cardAbstract = getAbstractCardPattern();
@@ -179,6 +189,7 @@ public class DemoPatterns {
 		
 		printPatternQuery(compConcrete);
 		printPatternQuery(compLidoConcrete);
+		printPatternSparqlQuery(compConcreteRdf);
 		
 		printPatternQuery(cardConcrete);
 		printPatternQuery(cardConcreteLido);
@@ -193,6 +204,13 @@ public class DemoPatterns {
 		pattern.isValid(AbstractionLevel.CONCRETE);
 		System.out.println("\n\n*** "+pattern.getName()+" query ***");
 		System.out.println(pattern.generateXQuery());
+	}
+	
+	private static void printPatternSparqlQuery(CompletePattern pattern)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		pattern.isValid(AbstractionLevel.CONCRETE); // TODO
+		System.out.println("\n\n*** "+pattern.getName()+" query ***");
+		System.out.println(pattern.generateSparql());
 	}
 	
 	// ---------- COMP BOOLEAN pattern ----------
@@ -359,6 +377,50 @@ public class DemoPatterns {
 								
 		return completePattern;
 		
+	}
+	
+	// ---------- COMP RDF pattern --------------
+	
+	public static CompletePattern getAbstractCompRdfPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getGenericCompPattern();
+		completePattern.setName("comparison_abstract_rdf");
+		completePattern.setAbstractName("comparison_abstract_rdf");
+		
+		completePattern.createRdfAdaption();
+		
+		return completePattern;
+	}	
+	
+	public static CompletePattern getConcreteCompRdfPattern(Database db) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern abstractPattern = getAbstractCompRdfPattern();
+		return getConcreteCompRdfPatternFromAbstract(db, abstractPattern);
+	}
+
+	public static CompletePattern getConcreteCompRdfPatternFromAbstract(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePattern.setName("comparison_concrete_rdf");
+		completePattern.setDescription("Humans born in the future");
+		completePattern.setDatabase(db);
+		
+		// First-order logic condition of pattern:
+		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) completePattern.getCondition();
+		
+		// Graph of quantified condition:
+		RdfPredicate pred1 = (RdfPredicate) quantifiedCondition.getGraph().getRelations().get(0);
+		RdfPathParam pathParam = AdaptionrdfFactory.eINSTANCE.createRdfPathParam();
+		pred1.setRdfPathParam(pathParam);
+		RdfAxisPair axisPair = AdaptionrdfFactory.eINSTANCE.createRdfAxisPair();
+		pathParam.setRdfAxisPair(axisPair);		
+		axisPair.getTextLiteralParam().setValue("wdt:P569");
+		
+		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
+		DateParam dateValue = ParametersFactory.eINSTANCE.createDateParam();
+		dateValue.setValue("2022-12-31");
+		value2.replace(dateValue);
+		
+		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
+		comp2.getOption().setValue(ComparisonOperator.GREATER);	
+								
+		return completePattern;
 	}
 	
 	// ---------- CARD pattern ----------
