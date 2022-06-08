@@ -3,7 +3,6 @@
 package qualitypatternmodel.parameters;
 
 import org.eclipse.emf.common.util.EList;
-import qualitypatternmodel.adaptionrdf.RdfAxisPair;
 import qualitypatternmodel.adaptionxml.XmlAxisPair;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -24,7 +23,6 @@ import qualitypatternmodel.operators.Match;
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getMatches <em>Matches</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlPropertyOptionParam <em>Xml Property Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlAxisPair <em>Xml Axis Pair</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getRdfAxisPair <em>Rdf Axis Pair</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam()
@@ -116,30 +114,6 @@ public interface TextLiteralParam extends ParameterValue {
 	 * @generated
 	 */
 	void setXmlAxisPair(XmlAxisPair value);
-
-	/**
-	 * Returns the value of the '<em><b>Rdf Axis Pair</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getTextLiteralParam <em>Text Literal Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rdf Axis Pair</em>' container reference.
-	 * @see #setRdfAxisPair(RdfAxisPair)
-	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_RdfAxisPair()
-	 * @see qualitypatternmodel.adaptionrdf.RdfAxisPair#getTextLiteralParam
-	 * @model opposite="textLiteralParam" transient="false"
-	 * @generated
-	 */
-	RdfAxisPair getRdfAxisPair();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.parameters.TextLiteralParam#getRdfAxisPair <em>Rdf Axis Pair</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rdf Axis Pair</em>' container reference.
-	 * @see #getRdfAxisPair()
-	 * @generated
-	 */
-	void setRdfAxisPair(RdfAxisPair value);
 
 	/**
 	 * <!-- begin-user-doc -->

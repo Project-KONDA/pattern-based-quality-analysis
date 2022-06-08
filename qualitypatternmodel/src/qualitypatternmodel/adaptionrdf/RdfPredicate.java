@@ -22,24 +22,24 @@ import qualitypatternmodel.graphstructure.Relation;
  */
 public interface RdfPredicate extends Relation {
 	/**
-	 * Returns the value of the '<em><b>Rdf Path Param</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Rdf Path Param</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPredicate <em>Rdf Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rdf Path Param</em>' containment reference.
+	 * @return the value of the '<em>Rdf Path Param</em>' reference.
 	 * @see #setRdfPathParam(RdfPathParam)
 	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPredicate_RdfPathParam()
 	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPredicate
-	 * @model opposite="rdfPredicate" containment="true"
+	 * @model opposite="rdfPredicate"
 	 * @generated
 	 */
 	RdfPathParam getRdfPathParam();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfPathParam <em>Rdf Path Param</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfPathParam <em>Rdf Path Param</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rdf Path Param</em>' containment reference.
+	 * @param value the new value of the '<em>Rdf Path Param</em>' reference.
 	 * @see #getRdfPathParam()
 	 * @generated
 	 */

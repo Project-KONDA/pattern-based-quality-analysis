@@ -16,8 +16,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
-import qualitypatternmodel.adaptionrdf.RdfAxisPair;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlAxisPair;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
@@ -46,7 +44,6 @@ import qualitypatternmodel.utility.Constants;
  *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getMatches <em>Matches</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getXmlPropertyOptionParam <em>Xml Property Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getXmlAxisPair <em>Xml Axis Pair</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getRdfAxisPair <em>Rdf Axis Pair</em>}</li>
  * </ul>
  *
  * @generated
@@ -329,49 +326,6 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public RdfAxisPair getRdfAxisPair() {
-		if (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR) return null;
-		return (RdfAxisPair)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRdfAxisPair(RdfAxisPair newRdfAxisPair, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newRdfAxisPair, ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setRdfAxisPair(RdfAxisPair newRdfAxisPair) {
-		if (newRdfAxisPair != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR && newRdfAxisPair != null)) {
-			if (EcoreUtil.isAncestor(this, newRdfAxisPair))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newRdfAxisPair != null)
-				msgs = ((InternalEObject)newRdfAxisPair).eInverseAdd(this, AdaptionrdfPackage.RDF_AXIS_PAIR__TEXT_LITERAL_PARAM, RdfAxisPair.class, msgs);
-			msgs = basicSetRdfAxisPair(newRdfAxisPair, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR, newRdfAxisPair, newRdfAxisPair));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -405,10 +359,6 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetXmlAxisPair((XmlAxisPair)otherEnd, msgs);
-			case ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetRdfAxisPair((RdfAxisPair)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -427,8 +377,6 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return basicSetXmlPropertyOptionParam(null, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				return basicSetXmlAxisPair(null, msgs);
-			case ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR:
-				return basicSetRdfAxisPair(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -445,8 +393,6 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_PROPERTY_OPTION_PARAM__ATTRIBUTE_NAME, XmlPropertyOptionParam.class, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				return eInternalContainer().eInverseRemove(this, AdaptionxmlPackage.XML_AXIS_PAIR__TEXT_LITERAL_PARAM, XmlAxisPair.class, msgs);
-			case ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR:
-				return eInternalContainer().eInverseRemove(this, AdaptionrdfPackage.RDF_AXIS_PAIR__TEXT_LITERAL_PARAM, RdfAxisPair.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -467,8 +413,6 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return getXmlPropertyOptionParam();
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				return getXmlAxisPair();
-			case ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR:
-				return getRdfAxisPair();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -495,9 +439,6 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				setXmlAxisPair((XmlAxisPair)newValue);
 				return;
-			case ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR:
-				setRdfAxisPair((RdfAxisPair)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -522,9 +463,6 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				setXmlAxisPair((XmlAxisPair)null);
 				return;
-			case ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR:
-				setRdfAxisPair((RdfAxisPair)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -545,8 +483,6 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return getXmlPropertyOptionParam() != null;
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				return getXmlAxisPair() != null;
-			case ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR:
-				return getRdfAxisPair() != null;
 		}
 		return super.eIsSet(featureID);
 	}

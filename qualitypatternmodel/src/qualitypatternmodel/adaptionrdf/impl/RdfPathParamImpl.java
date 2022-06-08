@@ -8,7 +8,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfAxisPair;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
@@ -41,6 +40,15 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * @ordered
 	 */
 	protected RdfAxisPair rdfAxisPair;
+	/**
+	 * The cached value of the '{@link #getRdfPredicate() <em>Rdf Predicate</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRdfPredicate()
+	 * @generated
+	 * @ordered
+	 */
+	protected RdfPredicate rdfPredicate;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -118,8 +126,24 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 */
 	@Override
 	public RdfPredicate getRdfPredicate() {
-		if (eContainerFeatureID() != AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE) return null;
-		return (RdfPredicate)eInternalContainer();
+		if (rdfPredicate != null && rdfPredicate.eIsProxy()) {
+			InternalEObject oldRdfPredicate = (InternalEObject)rdfPredicate;
+			rdfPredicate = (RdfPredicate)eResolveProxy(oldRdfPredicate);
+			if (rdfPredicate != oldRdfPredicate) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE, oldRdfPredicate, rdfPredicate));
+			}
+		}
+		return rdfPredicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RdfPredicate basicGetRdfPredicate() {
+		return rdfPredicate;
 	}
 
 	/**
@@ -128,7 +152,12 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * @generated
 	 */
 	public NotificationChain basicSetRdfPredicate(RdfPredicate newRdfPredicate, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newRdfPredicate, AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE, msgs);
+		RdfPredicate oldRdfPredicate = rdfPredicate;
+		rdfPredicate = newRdfPredicate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE, oldRdfPredicate, newRdfPredicate);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
 		return msgs;
 	}
 
@@ -139,12 +168,10 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 */
 	@Override
 	public void setRdfPredicate(RdfPredicate newRdfPredicate) {
-		if (newRdfPredicate != eInternalContainer() || (eContainerFeatureID() != AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE && newRdfPredicate != null)) {
-			if (EcoreUtil.isAncestor(this, newRdfPredicate))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+		if (newRdfPredicate != rdfPredicate) {
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
+			if (rdfPredicate != null)
+				msgs = ((InternalEObject)rdfPredicate).eInverseRemove(this, AdaptionrdfPackage.RDF_PREDICATE__RDF_PATH_PARAM, RdfPredicate.class, msgs);
 			if (newRdfPredicate != null)
 				msgs = ((InternalEObject)newRdfPredicate).eInverseAdd(this, AdaptionrdfPackage.RDF_PREDICATE__RDF_PATH_PARAM, RdfPredicate.class, msgs);
 			msgs = basicSetRdfPredicate(newRdfPredicate, msgs);
@@ -168,8 +195,8 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 					msgs = ((InternalEObject)rdfAxisPair).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionrdfPackage.RDF_PATH_PARAM__RDF_AXIS_PAIR, null, msgs);
 				return basicSetRdfAxisPair((RdfAxisPair)otherEnd, msgs);
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
+				if (rdfPredicate != null)
+					msgs = ((InternalEObject)rdfPredicate).eInverseRemove(this, AdaptionrdfPackage.RDF_PREDICATE__RDF_PATH_PARAM, RdfPredicate.class, msgs);
 				return basicSetRdfPredicate((RdfPredicate)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -197,26 +224,13 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE:
-				return eInternalContainer().eInverseRemove(this, AdaptionrdfPackage.RDF_PREDICATE__RDF_PATH_PARAM, RdfPredicate.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_AXIS_PAIR:
 				return getRdfAxisPair();
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE:
-				return getRdfPredicate();
+				if (resolve) return getRdfPredicate();
+				return basicGetRdfPredicate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -269,7 +283,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_AXIS_PAIR:
 				return rdfAxisPair != null;
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE:
-				return getRdfPredicate() != null;
+				return rdfPredicate != null;
 		}
 		return super.eIsSet(featureID);
 	}

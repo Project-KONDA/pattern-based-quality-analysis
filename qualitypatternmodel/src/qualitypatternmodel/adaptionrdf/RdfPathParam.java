@@ -31,7 +31,7 @@ public interface RdfPathParam extends Parameter {
 	 * @see #setRdfAxisPair(RdfAxisPair)
 	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_RdfAxisPair()
 	 * @see qualitypatternmodel.adaptionrdf.RdfAxisPair#getRdfPathParam
-	 * @model opposite="rdfPathParam" containment="true"
+	 * @model opposite="rdfPathParam" containment="true" required="true"
 	 * @generated
 	 */
 	RdfAxisPair getRdfAxisPair();
@@ -47,24 +47,24 @@ public interface RdfPathParam extends Parameter {
 	void setRdfAxisPair(RdfAxisPair value);
 
 	/**
-	 * Returns the value of the '<em><b>Rdf Predicate</b></em>' container reference.
+	 * Returns the value of the '<em><b>Rdf Predicate</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfPathParam <em>Rdf Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rdf Predicate</em>' container reference.
+	 * @return the value of the '<em>Rdf Predicate</em>' reference.
 	 * @see #setRdfPredicate(RdfPredicate)
 	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_RdfPredicate()
 	 * @see qualitypatternmodel.adaptionrdf.RdfPredicate#getRdfPathParam
-	 * @model opposite="rdfPathParam" transient="false"
+	 * @model opposite="rdfPathParam"
 	 * @generated
 	 */
 	RdfPredicate getRdfPredicate();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPredicate <em>Rdf Predicate</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPredicate <em>Rdf Predicate</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rdf Predicate</em>' container reference.
+	 * @param value the new value of the '<em>Rdf Predicate</em>' reference.
 	 * @see #getRdfPredicate()
 	 * @generated
 	 */

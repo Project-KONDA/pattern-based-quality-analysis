@@ -18,7 +18,6 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 
 import qualitypatternmodel.parameters.Parameter;
-
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -100,6 +99,10 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseRdfLiteralNode(RdfLiteralNode object) {
 				return createRdfLiteralNodeAdapter();
+			}
+			@Override
+			public Adapter caseIriParam(IriParam object) {
+				return createIriParamAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -234,6 +237,20 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRdfLiteralNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionrdf.IriParam <em>Iri Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionrdf.IriParam
+	 * @generated
+	 */
+	public Adapter createIriParamAdapter() {
 		return null;
 	}
 

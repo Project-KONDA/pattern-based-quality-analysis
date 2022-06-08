@@ -33,7 +33,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  */
 public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	/**
-	 * The cached value of the '{@link #getRdfPathParam() <em>Rdf Path Param</em>}' containment reference.
+	 * The cached value of the '{@link #getRdfPathParam() <em>Rdf Path Param</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRdfPathParam()
@@ -93,9 +93,26 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	 */
 	@Override
 	public RdfPathParam getRdfPathParam() {
+		if (rdfPathParam != null && rdfPathParam.eIsProxy()) {
+			InternalEObject oldRdfPathParam = (InternalEObject)rdfPathParam;
+			rdfPathParam = (RdfPathParam)eResolveProxy(oldRdfPathParam);
+			if (rdfPathParam != oldRdfPathParam) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionrdfPackage.RDF_PREDICATE__RDF_PATH_PARAM, oldRdfPathParam, rdfPathParam));
+			}
+		}
 		return rdfPathParam;
 	}
 
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RdfPathParam basicGetRdfPathParam() {
+		return rdfPathParam;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,7 +162,7 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_PREDICATE__RDF_PATH_PARAM:
 				if (rdfPathParam != null)
-					msgs = ((InternalEObject)rdfPathParam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionrdfPackage.RDF_PREDICATE__RDF_PATH_PARAM, null, msgs);
+					msgs = ((InternalEObject)rdfPathParam).eInverseRemove(this, AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE, RdfPathParam.class, msgs);
 				return basicSetRdfPathParam((RdfPathParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -174,7 +191,8 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_PREDICATE__RDF_PATH_PARAM:
-				return getRdfPathParam();
+				if (resolve) return getRdfPathParam();
+				return basicGetRdfPathParam();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

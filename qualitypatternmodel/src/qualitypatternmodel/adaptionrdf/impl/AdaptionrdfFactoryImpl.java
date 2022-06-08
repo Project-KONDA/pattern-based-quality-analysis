@@ -62,6 +62,7 @@ public class AdaptionrdfFactoryImpl extends EFactoryImpl implements AdaptionrdfF
 			case AdaptionrdfPackage.RDF_PATH_PARAM: return createRdfPathParam();
 			case AdaptionrdfPackage.RDF_AXIS_PAIR: return createRdfAxisPair();
 			case AdaptionrdfPackage.RDF_LITERAL_NODE: return createRdfLiteralNode();
+			case AdaptionrdfPackage.IRI_PARAM: return createIriParam();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -150,6 +151,17 @@ public class AdaptionrdfFactoryImpl extends EFactoryImpl implements AdaptionrdfF
 	public RdfLiteralNode createRdfLiteralNode() {
 		RdfLiteralNodeImpl rdfLiteralNode = new RdfLiteralNodeImpl();
 		return rdfLiteralNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public IriParam createIriParam() {
+		IriParamImpl iriParam = new IriParamImpl();
+		return iriParam;
 	}
 
 	/**

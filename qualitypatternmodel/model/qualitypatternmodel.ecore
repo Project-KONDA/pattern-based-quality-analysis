@@ -94,8 +94,6 @@
           eType="#//adaptionxml/XmlPropertyOptionParam" eOpposite="#//adaptionxml/XmlPropertyOptionParam/attributeName"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisPair" eType="#//adaptionxml/XmlAxisPair"
           eOpposite="#//adaptionxml/XmlAxisPair/textLiteralParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfAxisPair" eType="#//adaptionrdf/RdfAxisPair"
-          eOpposite="#//adaptionrdf/RdfAxisPair/textLiteralParam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumberParam" eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
@@ -1098,12 +1096,12 @@
   <eSubpackages name="adaptionrdf" nsURI="adaptionrdf" nsPrefix="adaptionrdf">
     <eClassifiers xsi:type="ecore:EClass" name="RdfPredicate" eSuperTypes="#//graphstructure/Relation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPathParam" eType="#//adaptionrdf/RdfPathParam"
-          containment="true" eOpposite="#//adaptionrdf/RdfPathParam/rdfPredicate"/>
+          eOpposite="#//adaptionrdf/RdfPathParam/rdfPredicate"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RdfIriNode" eSuperTypes="#//graphstructure/ComplexNode #//adaptionrdf/RdfNode"/>
     <eClassifiers xsi:type="ecore:EClass" name="RdfPathParam" eSuperTypes="#//parameters/Parameter">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfAxisPair" eType="#//adaptionrdf/RdfAxisPair"
-          containment="true" eOpposite="#//adaptionrdf/RdfAxisPair/rdfPathParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfAxisPair" lowerBound="1"
+          eType="#//adaptionrdf/RdfAxisPair" containment="true" eOpposite="#//adaptionrdf/RdfAxisPair/rdfPathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPredicate" eType="#//adaptionrdf/RdfPredicate"
           eOpposite="#//adaptionrdf/RdfPredicate/rdfPathParam"/>
     </eClassifiers>
@@ -1114,12 +1112,19 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RdfAxisPair" eSuperTypes="#//patternstructure/PatternElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//adaptionrdf/RdfQuantifier"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="textLiteralParam" eType="#//parameters/TextLiteralParam"
-          containment="true" eOpposite="#//parameters/TextLiteralParam/rdfAxisPair"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPathParam" eType="#//adaptionrdf/RdfPathParam"
-          eOpposite="#//adaptionrdf/RdfPathParam/rdfAxisPair"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="iriParam" eType="#//adaptionrdf/IriParam"
+          containment="true" eOpposite="#//adaptionrdf/IriParam/rdfAxisPair"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPathParam" lowerBound="1"
+          eType="#//adaptionrdf/RdfPathParam" eOpposite="#//adaptionrdf/RdfPathParam/rdfAxisPair"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RdfNode" abstract="true" interface="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="RdfLiteralNode" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionrdf/RdfNode"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IriParam" eSuperTypes="#//parameters/Parameter">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfAxisPair" lowerBound="1"
+          eType="#//adaptionrdf/RdfAxisPair" eOpposite="#//adaptionrdf/RdfAxisPair/iriParam"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="suffix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

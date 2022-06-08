@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.adaptionrdf;
 
-import qualitypatternmodel.parameters.TextLiteralParam;
-
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -16,7 +14,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getQuantifier <em>Quantifier</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getTextLiteralParam <em>Text Literal Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getIriParam <em>Iri Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getRdfPathParam <em>Rdf Path Param</em>}</li>
  * </ul>
  *
@@ -51,28 +49,28 @@ public interface RdfAxisPair extends PatternElement {
 	void setQuantifier(RdfQuantifier value);
 
 	/**
-	 * Returns the value of the '<em><b>Text Literal Param</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.parameters.TextLiteralParam#getRdfAxisPair <em>Rdf Axis Pair</em>}'.
+	 * Returns the value of the '<em><b>Iri Param</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.IriParam#getRdfAxisPair <em>Rdf Axis Pair</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Text Literal Param</em>' containment reference.
-	 * @see #setTextLiteralParam(TextLiteralParam)
-	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfAxisPair_TextLiteralParam()
-	 * @see qualitypatternmodel.parameters.TextLiteralParam#getRdfAxisPair
+	 * @return the value of the '<em>Iri Param</em>' containment reference.
+	 * @see #setIriParam(IriParam)
+	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfAxisPair_IriParam()
+	 * @see qualitypatternmodel.adaptionrdf.IriParam#getRdfAxisPair
 	 * @model opposite="rdfAxisPair" containment="true"
 	 * @generated
 	 */
-	TextLiteralParam getTextLiteralParam();
+	IriParam getIriParam();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getTextLiteralParam <em>Text Literal Param</em>}' containment reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getIriParam <em>Iri Param</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Text Literal Param</em>' containment reference.
-	 * @see #getTextLiteralParam()
+	 * @param value the new value of the '<em>Iri Param</em>' containment reference.
+	 * @see #getIriParam()
 	 * @generated
 	 */
-	void setTextLiteralParam(TextLiteralParam value);
+	void setIriParam(IriParam value);
 
 	/**
 	 * Returns the value of the '<em><b>Rdf Path Param</b></em>' container reference.
@@ -83,7 +81,7 @@ public interface RdfAxisPair extends PatternElement {
 	 * @see #setRdfPathParam(RdfPathParam)
 	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfAxisPair_RdfPathParam()
 	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfAxisPair
-	 * @model opposite="rdfAxisPair" transient="false"
+	 * @model opposite="rdfAxisPair" required="true" transient="false"
 	 * @generated
 	 */
 	RdfPathParam getRdfPathParam();

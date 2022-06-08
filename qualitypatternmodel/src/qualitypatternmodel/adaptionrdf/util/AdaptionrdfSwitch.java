@@ -16,7 +16,6 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 
 import qualitypatternmodel.parameters.Parameter;
-
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -130,6 +129,14 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case AdaptionrdfPackage.IRI_PARAM: {
+				IriParam iriParam = (IriParam)theEObject;
+				T result = caseIriParam(iriParam);
+				if (result == null) result = caseParameter(iriParam);
+				if (result == null) result = casePatternElement(iriParam);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -221,6 +228,21 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRdfLiteralNode(RdfLiteralNode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Iri Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Iri Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIriParam(IriParam object) {
 		return null;
 	}
 

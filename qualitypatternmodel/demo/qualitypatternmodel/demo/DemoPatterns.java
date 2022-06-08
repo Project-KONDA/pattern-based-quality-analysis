@@ -410,7 +410,8 @@ public class DemoPatterns {
 		pred1.setRdfPathParam(pathParam);
 		RdfAxisPair axisPair = AdaptionrdfFactory.eINSTANCE.createRdfAxisPair();
 		pathParam.setRdfAxisPair(axisPair);		
-		axisPair.getTextLiteralParam().setValue("wdt:P569");
+		axisPair.getIriParam().setPrefix("wdt");
+		axisPair.getIriParam().setSuffix("P569");
 		
 		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
 		DateParam dateValue = ParametersFactory.eINSTANCE.createDateParam();

@@ -67,6 +67,15 @@ public interface AdaptionrdfFactory extends EFactory {
 	RdfLiteralNode createRdfLiteralNode();
 
 	/**
+	 * Returns a new object of class '<em>Iri Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Iri Param</em>'.
+	 * @generated
+	 */
+	IriParam createIriParam();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

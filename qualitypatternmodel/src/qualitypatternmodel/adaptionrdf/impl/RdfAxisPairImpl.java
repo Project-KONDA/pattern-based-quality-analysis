@@ -10,15 +10,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
+import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfAxisPair;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfQuantifier;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
@@ -31,7 +29,7 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfAxisPairImpl#getQuantifier <em>Quantifier</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfAxisPairImpl#getTextLiteralParam <em>Text Literal Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfAxisPairImpl#getIriParam <em>Iri Param</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfAxisPairImpl#getRdfPathParam <em>Rdf Path Param</em>}</li>
  * </ul>
  *
@@ -59,14 +57,14 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 	protected RdfQuantifier quantifier = QUANTIFIER_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTextLiteralParam() <em>Text Literal Param</em>}' containment reference.
+	 * The cached value of the '{@link #getIriParam() <em>Iri Param</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTextLiteralParam()
+	 * @see #getIriParam()
 	 * @generated
 	 * @ordered
 	 */
-	protected TextLiteralParam textLiteralParam;
+	protected IriParam iriParam;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -79,8 +77,10 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 	
 	@Override
 	public String generateSparql() throws InvalidityException {
-		// TODO
-		return getTextLiteralParam().generateSparql();
+		if(getIriParam() == null) {
+			return "?var" + getInternalId();
+		}
+		return getIriParam().generateSparql();
 	}
 
 	/**
@@ -122,8 +122,8 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 	 * @generated
 	 */
 	@Override
-	public TextLiteralParam getTextLiteralParam() {
-		return textLiteralParam;
+	public IriParam getIriParam() {
+		return iriParam;
 	}
 
 	/**
@@ -131,11 +131,11 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTextLiteralParam(TextLiteralParam newTextLiteralParam, NotificationChain msgs) {
-		TextLiteralParam oldTextLiteralParam = textLiteralParam;
-		textLiteralParam = newTextLiteralParam;
+	public NotificationChain basicSetIriParam(IriParam newIriParam, NotificationChain msgs) {
+		IriParam oldIriParam = iriParam;
+		iriParam = newIriParam;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_AXIS_PAIR__TEXT_LITERAL_PARAM, oldTextLiteralParam, newTextLiteralParam);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_AXIS_PAIR__IRI_PARAM, oldIriParam, newIriParam);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -147,18 +147,18 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 	 * @generated
 	 */
 	@Override
-	public void setTextLiteralParam(TextLiteralParam newTextLiteralParam) {
-		if (newTextLiteralParam != textLiteralParam) {
+	public void setIriParam(IriParam newIriParam) {
+		if (newIriParam != iriParam) {
 			NotificationChain msgs = null;
-			if (textLiteralParam != null)
-				msgs = ((InternalEObject)textLiteralParam).eInverseRemove(this, ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR, TextLiteralParam.class, msgs);
-			if (newTextLiteralParam != null)
-				msgs = ((InternalEObject)newTextLiteralParam).eInverseAdd(this, ParametersPackage.TEXT_LITERAL_PARAM__RDF_AXIS_PAIR, TextLiteralParam.class, msgs);
-			msgs = basicSetTextLiteralParam(newTextLiteralParam, msgs);
+			if (iriParam != null)
+				msgs = ((InternalEObject)iriParam).eInverseRemove(this, AdaptionrdfPackage.IRI_PARAM__RDF_AXIS_PAIR, IriParam.class, msgs);
+			if (newIriParam != null)
+				msgs = ((InternalEObject)newIriParam).eInverseAdd(this, AdaptionrdfPackage.IRI_PARAM__RDF_AXIS_PAIR, IriParam.class, msgs);
+			msgs = basicSetIriParam(newIriParam, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_AXIS_PAIR__TEXT_LITERAL_PARAM, newTextLiteralParam, newTextLiteralParam));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_AXIS_PAIR__IRI_PARAM, newIriParam, newIriParam));
 	}
 
 	/**
@@ -178,9 +178,9 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetRdfPathParam(RdfPathParam newRdfPathParam, NotificationChain msgs) {
-		if(getTextLiteralParam() == null) {
-			TextLiteralParam text = new TextLiteralParamImpl();
-			setTextLiteralParam(text);
+		if(getIriParam() == null) {
+			IriParam text = new IriParamImpl();
+			setIriParam(text);
 		}
 		msgs = eBasicSetContainer((InternalEObject)newRdfPathParam, AdaptionrdfPackage.RDF_AXIS_PAIR__RDF_PATH_PARAM, msgs);
 		return msgs;
@@ -217,10 +217,10 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_AXIS_PAIR__TEXT_LITERAL_PARAM:
-				if (textLiteralParam != null)
-					msgs = ((InternalEObject)textLiteralParam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionrdfPackage.RDF_AXIS_PAIR__TEXT_LITERAL_PARAM, null, msgs);
-				return basicSetTextLiteralParam((TextLiteralParam)otherEnd, msgs);
+			case AdaptionrdfPackage.RDF_AXIS_PAIR__IRI_PARAM:
+				if (iriParam != null)
+					msgs = ((InternalEObject)iriParam).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AdaptionrdfPackage.RDF_AXIS_PAIR__IRI_PARAM, null, msgs);
+				return basicSetIriParam((IriParam)otherEnd, msgs);
 			case AdaptionrdfPackage.RDF_AXIS_PAIR__RDF_PATH_PARAM:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -237,8 +237,8 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_AXIS_PAIR__TEXT_LITERAL_PARAM:
-				return basicSetTextLiteralParam(null, msgs);
+			case AdaptionrdfPackage.RDF_AXIS_PAIR__IRI_PARAM:
+				return basicSetIriParam(null, msgs);
 			case AdaptionrdfPackage.RDF_AXIS_PAIR__RDF_PATH_PARAM:
 				return basicSetRdfPathParam(null, msgs);
 		}
@@ -269,8 +269,8 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_AXIS_PAIR__QUANTIFIER:
 				return getQuantifier();
-			case AdaptionrdfPackage.RDF_AXIS_PAIR__TEXT_LITERAL_PARAM:
-				return getTextLiteralParam();
+			case AdaptionrdfPackage.RDF_AXIS_PAIR__IRI_PARAM:
+				return getIriParam();
 			case AdaptionrdfPackage.RDF_AXIS_PAIR__RDF_PATH_PARAM:
 				return getRdfPathParam();
 		}
@@ -289,8 +289,8 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 			case AdaptionrdfPackage.RDF_AXIS_PAIR__QUANTIFIER:
 				setQuantifier((RdfQuantifier)newValue);
 				return;
-			case AdaptionrdfPackage.RDF_AXIS_PAIR__TEXT_LITERAL_PARAM:
-				setTextLiteralParam((TextLiteralParam)newValue);
+			case AdaptionrdfPackage.RDF_AXIS_PAIR__IRI_PARAM:
+				setIriParam((IriParam)newValue);
 				return;
 			case AdaptionrdfPackage.RDF_AXIS_PAIR__RDF_PATH_PARAM:
 				setRdfPathParam((RdfPathParam)newValue);
@@ -310,8 +310,8 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 			case AdaptionrdfPackage.RDF_AXIS_PAIR__QUANTIFIER:
 				setQuantifier(QUANTIFIER_EDEFAULT);
 				return;
-			case AdaptionrdfPackage.RDF_AXIS_PAIR__TEXT_LITERAL_PARAM:
-				setTextLiteralParam((TextLiteralParam)null);
+			case AdaptionrdfPackage.RDF_AXIS_PAIR__IRI_PARAM:
+				setIriParam((IriParam)null);
 				return;
 			case AdaptionrdfPackage.RDF_AXIS_PAIR__RDF_PATH_PARAM:
 				setRdfPathParam((RdfPathParam)null);
@@ -330,8 +330,8 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_AXIS_PAIR__QUANTIFIER:
 				return quantifier != QUANTIFIER_EDEFAULT;
-			case AdaptionrdfPackage.RDF_AXIS_PAIR__TEXT_LITERAL_PARAM:
-				return textLiteralParam != null;
+			case AdaptionrdfPackage.RDF_AXIS_PAIR__IRI_PARAM:
+				return iriParam != null;
 			case AdaptionrdfPackage.RDF_AXIS_PAIR__RDF_PATH_PARAM:
 				return getRdfPathParam() != null;
 		}

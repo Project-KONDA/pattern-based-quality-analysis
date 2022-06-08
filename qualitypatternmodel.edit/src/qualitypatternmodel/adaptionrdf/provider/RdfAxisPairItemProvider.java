@@ -18,11 +18,9 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfAxisPair;
-
-import qualitypatternmodel.parameters.ParametersFactory;
-
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
@@ -94,7 +92,7 @@ public class RdfAxisPairItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AdaptionrdfPackage.Literals.RDF_AXIS_PAIR__TEXT_LITERAL_PARAM);
+			childrenFeatures.add(AdaptionrdfPackage.Literals.RDF_AXIS_PAIR__IRI_PARAM);
 		}
 		return childrenFeatures;
 	}
@@ -153,7 +151,7 @@ public class RdfAxisPairItemProvider extends PatternElementItemProvider {
 			case AdaptionrdfPackage.RDF_AXIS_PAIR__QUANTIFIER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case AdaptionrdfPackage.RDF_AXIS_PAIR__TEXT_LITERAL_PARAM:
+			case AdaptionrdfPackage.RDF_AXIS_PAIR__IRI_PARAM:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -173,8 +171,8 @@ public class RdfAxisPairItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionrdfPackage.Literals.RDF_AXIS_PAIR__TEXT_LITERAL_PARAM,
-				 ParametersFactory.eINSTANCE.createTextLiteralParam()));
+				(AdaptionrdfPackage.Literals.RDF_AXIS_PAIR__IRI_PARAM,
+				 AdaptionrdfFactory.eINSTANCE.createIriParam()));
 	}
 
 	/**
