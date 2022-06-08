@@ -14,8 +14,10 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
+import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -73,6 +75,32 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 		} else {
 			return "";
 		}
+	}
+	
+	@Override
+	public void createParameters() {	
+		if (getIncomingMapping() == null) {
+			ParameterList parameterList = getParameterList();
+			if(parameterList != null) {
+				RdfPathParam pp = getRdfPathParam();
+				if (pp == null) {
+					pp = new RdfPathParamImpl();
+					setRdfPathParam(pp);
+					parameterList.add(pp);
+					pp.createParameters();
+				}
+				if (!pp.getParameterList().equals(parameterList)){
+					parameterList.add(pp);
+				}
+			}
+		}
+	}
+	
+	@Override
+	public NotificationChain basicSetGraph(Graph newGraph, NotificationChain msgs) {		
+		NotificationChain res = super.basicSetGraph(newGraph, msgs);		
+		createParameters();
+		return res;
 	}
 
 	

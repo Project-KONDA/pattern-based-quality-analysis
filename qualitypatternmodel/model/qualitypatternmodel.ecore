@@ -1099,9 +1099,9 @@
           eOpposite="#//adaptionrdf/RdfPathParam/rdfPredicate"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RdfIriNode" eSuperTypes="#//graphstructure/ComplexNode #//adaptionrdf/RdfNode"/>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfPathParam" eSuperTypes="#//parameters/Parameter">
+    <eClassifiers xsi:type="ecore:EClass" name="RdfPathParam" eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfAxisPair" lowerBound="1"
-          eType="#//adaptionrdf/RdfAxisPair" containment="true" eOpposite="#//adaptionrdf/RdfAxisPair/rdfPathParam"/>
+          upperBound="-1" eType="#//adaptionrdf/RdfAxisPair" containment="true" eOpposite="#//adaptionrdf/RdfAxisPair/rdfPathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPredicate" eType="#//adaptionrdf/RdfPredicate"
           eOpposite="#//adaptionrdf/RdfPredicate/rdfPathParam"/>
     </eClassifiers>
@@ -1120,6 +1120,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="RdfNode" abstract="true" interface="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="RdfLiteralNode" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionrdf/RdfNode"/>
     <eClassifiers xsi:type="ecore:EClass" name="IriParam" eSuperTypes="#//parameters/Parameter">
+      <eOperations name="getStandardIri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfAxisPair" lowerBound="1"
           eType="#//adaptionrdf/RdfAxisPair" eOpposite="#//adaptionrdf/RdfAxisPair/iriParam"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -929,6 +929,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/IriParam/prefix"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/IriParam/uri"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/IriParam/suffix"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionrdf/IriParam/getStandardIri"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

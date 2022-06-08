@@ -17,6 +17,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import qualitypatternmodel.adaptionrdf.IriParam;
+import qualitypatternmodel.adaptionrdf.RdfAxisPair;
+import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -180,7 +183,27 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			throw new InvalidityException("return elements missing");
 		}
 		
-		EList<String> prefixes = new BasicEList<String>(); // TODO
+		EList<String> prefixes = new BasicEList<String>();
+		for(Parameter p : getParameterList().getParameters()) {
+			if(p instanceof RdfPathParam) {
+				RdfPathParam rdfPathParam = (RdfPathParam) p;
+				for(RdfAxisPair rdfAxisPair : rdfPathParam.getRdfAxisPair()) {
+					if(rdfAxisPair.getIriParam() != null) {
+						IriParam iriParam = rdfAxisPair.getIriParam();
+						if(iriParam.getPrefix() != null) {
+							String standardIri = iriParam.getStandardIri();
+							if(standardIri == null) {
+								throw new InvalidityException("Invalid prefix");
+							}
+							prefixes.add("PREFIX " + iriParam.getPrefix() + ": <" + standardIri + ">");
+						}
+					}
+				}
+				
+			}
+		}
+		
+		
 		EList<Node> selects = graph.getReturnNodes();
 
 		String query = "";

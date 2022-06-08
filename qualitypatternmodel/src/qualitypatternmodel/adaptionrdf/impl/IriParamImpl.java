@@ -2,14 +2,14 @@
  */
 package qualitypatternmodel.adaptionrdf.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 import static java.util.Map.entry;    
 
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicEMap;
-import org.eclipse.emf.common.util.EMap;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
@@ -22,7 +22,6 @@ import qualitypatternmodel.adaptionrdf.RdfAxisPair;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 
@@ -134,11 +133,9 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(prefix != null && suffix != null) {
-			String standardIri = standardIris.get(prefix);
-			if(standardIri == null) {
-				throw new InvalidityException("Invalid prefix");
-			}
-			return "<" + standardIri + suffix + ">";
+			
+//			return "<" + standardIri + suffix + ">";
+			return prefix + ":" + suffix;
 		} else if (uri != null) {
 			return "<" + uri + ">";
 		} else {
@@ -271,6 +268,16 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getStandardIri() {
+		return standardIris.get(prefix);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -398,6 +405,20 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 				return SUFFIX_EDEFAULT == null ? suffix != null : !SUFFIX_EDEFAULT.equals(suffix);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case AdaptionrdfPackage.IRI_PARAM___GET_STANDARD_IRI:
+				return getStandardIri();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

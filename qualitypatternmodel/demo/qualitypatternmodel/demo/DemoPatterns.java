@@ -406,12 +406,10 @@ public class DemoPatterns {
 		
 		// Graph of quantified condition:
 		RdfPredicate pred1 = (RdfPredicate) quantifiedCondition.getGraph().getRelations().get(0);
-		RdfPathParam pathParam = AdaptionrdfFactory.eINSTANCE.createRdfPathParam();
-		pred1.setRdfPathParam(pathParam);
-		RdfAxisPair axisPair = AdaptionrdfFactory.eINSTANCE.createRdfAxisPair();
-		pathParam.setRdfAxisPair(axisPair);		
-		axisPair.getIriParam().setPrefix("wdt");
-		axisPair.getIriParam().setSuffix("P569");
+		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
+		pred1.getRdfPathParam().getRdfAxisPair().get(0).setIriParam(iriParam);
+		iriParam.setPrefix("wdt");
+		iriParam.setSuffix("P569");
 		
 		ParameterValue value2 = (ParameterValue) completePattern.getParameterList().getParameters().get(0);
 		DateParam dateValue = ParametersFactory.eINSTANCE.createDateParam();

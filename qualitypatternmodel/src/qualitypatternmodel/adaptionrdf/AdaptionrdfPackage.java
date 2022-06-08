@@ -5,6 +5,7 @@ package qualitypatternmodel.adaptionrdf;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -1255,7 +1256,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PATH_PARAM__DESCRIPTION = ParametersPackage.PARAMETER__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Rdf Axis Pair</b></em>' containment reference.
+	 * The feature id for the '<em><b>Rdf Axis Pair</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1570,13 +1571,31 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PATH_PARAM___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PARAM___CREATE_PARAMETERS = ParametersPackage.PARAMETER_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Remove Parameters From Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = ParametersPackage.PARAMETER_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Rdf Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RDF_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 0;
+	int RDF_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfAxisPairImpl <em>Rdf Axis Pair</em>}' class.
@@ -2987,13 +3006,22 @@ public interface AdaptionrdfPackage extends EPackage {
 	int IRI_PARAM___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER___GENERATE_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Get Standard Iri</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___GET_STANDARD_IRI = ParametersPackage.PARAMETER_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Iri Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 0;
+	int IRI_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.RdfQuantifier <em>Rdf Quantifier</em>}' enum.
@@ -3047,10 +3075,10 @@ public interface AdaptionrdfPackage extends EPackage {
 	EClass getRdfPathParam();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfAxisPair <em>Rdf Axis Pair</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfAxisPair <em>Rdf Axis Pair</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rdf Axis Pair</em>'.
+	 * @return the meta object for the containment reference list '<em>Rdf Axis Pair</em>'.
 	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfAxisPair()
 	 * @see #getRdfPathParam()
 	 * @generated
@@ -3186,6 +3214,16 @@ public interface AdaptionrdfPackage extends EPackage {
 	EAttribute getIriParam_Suffix();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionrdf.IriParam#getStandardIri() <em>Get Standard Iri</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Standard Iri</em>' operation.
+	 * @see qualitypatternmodel.adaptionrdf.IriParam#getStandardIri()
+	 * @generated
+	 */
+	EOperation getIriParam__GetStandardIri();
+
+	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionrdf.RdfQuantifier <em>Rdf Quantifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3257,7 +3295,7 @@ public interface AdaptionrdfPackage extends EPackage {
 		EClass RDF_PATH_PARAM = eINSTANCE.getRdfPathParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Rdf Axis Pair</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Rdf Axis Pair</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3367,6 +3405,14 @@ public interface AdaptionrdfPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute IRI_PARAM__SUFFIX = eINSTANCE.getIriParam_Suffix();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Standard Iri</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation IRI_PARAM___GET_STANDARD_IRI = eINSTANCE.getIriParam__GetStandardIri();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.RdfQuantifier <em>Rdf Quantifier</em>}' enum.

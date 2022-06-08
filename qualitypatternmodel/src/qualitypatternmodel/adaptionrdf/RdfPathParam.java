@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.adaptionrdf;
 
+import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.parameters.Parameter;
 
 /**
@@ -21,30 +23,20 @@ import qualitypatternmodel.parameters.Parameter;
  * @model
  * @generated
  */
-public interface RdfPathParam extends Parameter {
+public interface RdfPathParam extends Parameter, Adaptable {
 	/**
-	 * Returns the value of the '<em><b>Rdf Axis Pair</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Rdf Axis Pair</b></em>' containment reference list.
+	 * The list contents are of type {@link qualitypatternmodel.adaptionrdf.RdfAxisPair}.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getRdfPathParam <em>Rdf Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rdf Axis Pair</em>' containment reference.
-	 * @see #setRdfAxisPair(RdfAxisPair)
+	 * @return the value of the '<em>Rdf Axis Pair</em>' containment reference list.
 	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_RdfAxisPair()
 	 * @see qualitypatternmodel.adaptionrdf.RdfAxisPair#getRdfPathParam
 	 * @model opposite="rdfPathParam" containment="true" required="true"
 	 * @generated
 	 */
-	RdfAxisPair getRdfAxisPair();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfAxisPair <em>Rdf Axis Pair</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rdf Axis Pair</em>' containment reference.
-	 * @see #getRdfAxisPair()
-	 * @generated
-	 */
-	void setRdfAxisPair(RdfAxisPair value);
+	EList<RdfAxisPair> getRdfAxisPair();
 
 	/**
 	 * Returns the value of the '<em><b>Rdf Predicate</b></em>' reference.

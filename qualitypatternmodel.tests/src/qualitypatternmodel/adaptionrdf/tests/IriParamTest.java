@@ -13,6 +13,12 @@ import qualitypatternmodel.parameters.tests.ParameterTest;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Iri Param</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.IriParam#getStandardIri() <em>Get Standard Iri</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class IriParamTest extends ParameterTest {
@@ -67,6 +73,19 @@ public class IriParamTest extends ParameterTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionrdf.IriParam#getStandardIri() <em>Get Standard Iri</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionrdf.IriParam#getStandardIri()
+	 * @generated
+	 */
+	public void testGetStandardIri() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //IriParamTest

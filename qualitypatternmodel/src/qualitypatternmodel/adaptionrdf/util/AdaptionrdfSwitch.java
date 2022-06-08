@@ -100,6 +100,7 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 				RdfPathParam rdfPathParam = (RdfPathParam)theEObject;
 				T result = caseRdfPathParam(rdfPathParam);
 				if (result == null) result = caseParameter(rdfPathParam);
+				if (result == null) result = caseAdaptable(rdfPathParam);
 				if (result == null) result = casePatternElement(rdfPathParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;

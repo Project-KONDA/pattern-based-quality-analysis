@@ -5,6 +5,7 @@ package qualitypatternmodel.adaptionrdf.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -378,6 +379,16 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 	 * @generated
 	 */
 	@Override
+	public EOperation getIriParam__GetStandardIri() {
+		return iriParamEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getRdfQuantifier() {
 		return rdfQuantifierEEnum;
 	}
@@ -434,6 +445,7 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		createEAttribute(iriParamEClass, IRI_PARAM__PREFIX);
 		createEAttribute(iriParamEClass, IRI_PARAM__URI);
 		createEAttribute(iriParamEClass, IRI_PARAM__SUFFIX);
+		createEOperation(iriParamEClass, IRI_PARAM___GET_STANDARD_IRI);
 
 		// Create enums
 		rdfQuantifierEEnum = createEEnum(RDF_QUANTIFIER);
@@ -476,6 +488,7 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		rdfIriNodeEClass.getESuperTypes().add(theGraphstructurePackage.getComplexNode());
 		rdfIriNodeEClass.getESuperTypes().add(this.getRdfNode());
 		rdfPathParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
+		rdfPathParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
 		rdfAxisPairEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		rdfLiteralNodeEClass.getESuperTypes().add(theGraphstructurePackage.getPrimitiveNode());
 		rdfLiteralNodeEClass.getESuperTypes().add(this.getRdfNode());
@@ -488,7 +501,7 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		initEClass(rdfIriNodeEClass, RdfIriNode.class, "RdfIriNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(rdfPathParamEClass, RdfPathParam.class, "RdfPathParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRdfPathParam_RdfAxisPair(), this.getRdfAxisPair(), this.getRdfAxisPair_RdfPathParam(), "rdfAxisPair", null, 1, 1, RdfPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRdfPathParam_RdfAxisPair(), this.getRdfAxisPair(), this.getRdfAxisPair_RdfPathParam(), "rdfAxisPair", null, 1, -1, RdfPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRdfPathParam_RdfPredicate(), this.getRdfPredicate(), this.getRdfPredicate_RdfPathParam(), "rdfPredicate", null, 0, 1, RdfPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rdfAxisPairEClass, RdfAxisPair.class, "RdfAxisPair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -505,6 +518,8 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		initEAttribute(getIriParam_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, IriParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIriParam_Uri(), ecorePackage.getEString(), "uri", null, 0, 1, IriParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIriParam_Suffix(), ecorePackage.getEString(), "suffix", null, 0, 1, IriParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getIriParam__GetStandardIri(), ecorePackage.getEString(), "getStandardIri", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(rdfQuantifierEEnum, RdfQuantifier.class, "RdfQuantifier");

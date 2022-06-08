@@ -175,13 +175,9 @@ public class RdfAxisPairImpl extends PatternElementImpl implements RdfAxisPair {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public NotificationChain basicSetRdfPathParam(RdfPathParam newRdfPathParam, NotificationChain msgs) {
-		if(getIriParam() == null) {
-			IriParam text = new IriParamImpl();
-			setIriParam(text);
-		}
 		msgs = eBasicSetContainer((InternalEObject)newRdfPathParam, AdaptionrdfPackage.RDF_AXIS_PAIR__RDF_PATH_PARAM, msgs);
 		return msgs;
 	}

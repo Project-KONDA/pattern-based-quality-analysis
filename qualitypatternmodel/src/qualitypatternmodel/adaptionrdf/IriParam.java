@@ -114,4 +114,12 @@ public interface IriParam extends Parameter {
 	 * @generated
 	 */
 	void setSuffix(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getStandardIri();
 } // IriParam
