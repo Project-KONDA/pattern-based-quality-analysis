@@ -6,6 +6,7 @@ import org.basex.query.QueryException;
 import org.basex.query.QueryIOException;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
+import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfAxisPair;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
