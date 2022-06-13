@@ -3,9 +3,8 @@
 package qualitypatternmodel.adaptionrdf.impl;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
 import java.util.Map;
-import static java.util.Map.entry;    
-
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -97,16 +96,18 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 	 */
 	protected String suffix = SUFFIX_EDEFAULT;
 	
-	static Map<String, String> standardIris = Map.ofEntries(
-		entry("wd"		, "http://www.wikidata.org/entity/"),
-		entry("wdt"		, "http://www.wikidata.org/prop/direct/"),
-		entry("wikibase", "http://wikiba.se/ontology#"),
-		entry("p"		, "http://www.wikidata.org/prop/>"),
-		entry("ps"		, "http://www.wikidata.org/prop/statement/"),
-		entry("pq"		, "http://www.wikidata.org/prop/qualifier/"),
-		entry("rdfs"	, "http://www.w3.org/2000/01/rdf-schema#"),
-		entry("bd"		, "http://www.bigdata.com/rdf#")
-	);
+	public static Map<String, String> standardIris;
+	static {
+		standardIris = new HashMap<>();
+		standardIris.put("wd"		, "http://www.wikidata.org/entity/");
+		standardIris.put("wdt"		, "http://www.wikidata.org/prop/direct/");
+		standardIris.put("wikibase", "http://wikiba.se/ontology#");
+		standardIris.put("p"		, "http://www.wikidata.org/prop/>");
+		standardIris.put("ps"		, "http://www.wikidata.org/prop/statement/");
+		standardIris.put("pq"		, "http://www.wikidata.org/prop/qualifier/");
+		standardIris.put("rdfs"	, "http://www.w3.org/2000/01/rdf-schema#");
+		standardIris.put("bd"		, "http://www.bigdata.com/rdf#");
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
