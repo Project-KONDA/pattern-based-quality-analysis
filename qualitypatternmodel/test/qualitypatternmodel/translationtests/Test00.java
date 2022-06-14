@@ -78,9 +78,9 @@ public class Test00 {
 		CompletePattern completePattern = factory.createCompletePattern();
 		completePattern.setName("MyPattern");
 				
-		// FIRST CONDITION
-		Condition truecondition = factory.createTrueElement();
-		completePattern.setCondition(truecondition);
+//		// FIRST CONDITION
+//		Condition truecondition = factory.createTrueElement();
+//		completePattern.setCondition(truecondition);
 		
 		return completePattern;
 	}

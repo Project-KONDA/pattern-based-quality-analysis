@@ -41,14 +41,10 @@ public class Test07Formula {
 		form.setOperator(op);
 
 		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
-		TrueElement te1 = factory.createTrueElement();
 		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
-		TrueElement te2 = factory.createTrueElement();
 		
 		form.setCondition1(qc1);
-		qc1.setCondition(te1);
 		form.setCondition2(qc2);
-		qc2.setCondition(te2);
 
 		Node e0qc1 = qc1.getGraph().getNodes().get(0);
 		Node e1 = graphFactory.createNode();

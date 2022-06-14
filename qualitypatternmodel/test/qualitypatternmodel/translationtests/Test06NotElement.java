@@ -33,8 +33,6 @@ public class Test06NotElement {
 		
 		NotCondition n = factory.createNotCondition();
 		completePattern.setCondition(n);
-		TrueElement t = factory.createTrueElement();
-		n.setCondition(t);
 		
 		completePattern.createXmlAdaption();
 		
@@ -50,8 +48,6 @@ public class Test06NotElement {
 		completePattern.setCondition(n);
 		NotCondition n2 = factory.createNotCondition();
 		n.setCondition(n2);
-		TrueElement t = factory.createTrueElement();
-		n2.setCondition(t);
 		
 		completePattern.createXmlAdaption();
 		

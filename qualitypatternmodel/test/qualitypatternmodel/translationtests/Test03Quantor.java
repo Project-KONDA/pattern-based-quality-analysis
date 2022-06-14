@@ -73,7 +73,6 @@ public class Test03Quantor {
 		// Pattern Structure
 		CompletePattern completePattern = Test00.getBasePattern();
 		QuantifiedCondition cond = factory.createQuantifiedCondition();
-		cond.setCondition(factory.createTrueElement());
 		completePattern.setCondition(cond);
 				
 		// EXISTS additional graph structure
@@ -92,7 +91,6 @@ public class Test03Quantor {
 		// Pattern Structure
 		CompletePattern completePattern = Test00.getBasePattern();
 		QuantifiedCondition cond = factory.createQuantifiedCondition();
-		cond.setCondition(factory.createTrueElement());
 		completePattern.setCondition(cond);
 				
 		// EXISTS additional graph structure

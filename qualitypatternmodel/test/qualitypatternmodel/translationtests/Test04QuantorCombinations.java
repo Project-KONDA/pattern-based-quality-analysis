@@ -70,8 +70,6 @@ public class Test04QuantorCombinations {
 		QuantifiedCondition qcond = (QuantifiedCondition) completePattern.getCondition();
 		QuantifiedCondition qcond2 =  factory.createQuantifiedCondition();
 		qcond.setCondition(qcond2);
-		TrueElement t = factory.createTrueElement();
-		qcond2.setCondition(t);		
 		
 		// EXISTS 2 additional graph structure
 		GraphstructurePackage.eINSTANCE.eClass();
