@@ -61,6 +61,7 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	 */
 	public NumberElementImpl() {
 		super();
+		createParameters();
 	}
 	
 	@Override

@@ -87,10 +87,12 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected CountConditionImpl() {
 		super();
+		getCountPattern();
+		setArgument2(new NumberElementImpl());
 	}
 	
 	@Override

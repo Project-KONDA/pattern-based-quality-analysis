@@ -66,6 +66,7 @@ public class CountPatternImpl extends PatternImpl implements CountPattern {
 		setMorphism(new MorphismImpl());
 		setGraph(new GraphImpl());
 		getInternalId();
+		setCondition(new TrueElementImpl());
 	}
 	
 	@Override

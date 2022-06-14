@@ -91,6 +91,8 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 	 */
 	protected FormulaImpl() {
 		super();
+		setCondition1(new TrueElementImpl());
+		setCondition2(new TrueElementImpl());
 	}
 
 	@Override

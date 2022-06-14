@@ -268,6 +268,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		super();
 		setParameterList(new ParameterListImpl(this));
 		setGraph(new GraphImpl());
+		setCondition(new TrueElementImpl());
 		
 		NodeImpl element = new NodeImpl();
 		element.setGraph(getGraph());
