@@ -318,18 +318,23 @@
       </eOperations>
       <eOperations name="addPrimitiveComparison" eType="#//parameters/UntypedParameterValue"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="addPrimitiveComparison" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="addPrimitiveComparison" eType="#//parameters/TextLiteralParam"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
-      <eOperations name="addPrimitiveComparison" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="addPrimitiveComparison" eType="#//parameters/ParameterValue"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="input" eType="#//parameters/ParameterValue"/>
       </eOperations>
-      <eOperations name="addPrimitiveComparison" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="addPrimitiveComparison" eType="#//parameters/ParameterValue"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="operator" eType="#//operators/ComparisonOperator"/>
         <eParameters name="input" eType="#//parameters/ParameterValue"/>
       </eOperations>
-      <eOperations name="addPrimitiveMatch" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="addPrimitiveMatch" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+      <eOperations name="addPrimitiveMatch" eType="#//parameters/TextLiteralParam"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="addPrimitiveMatch" eType="#//parameters/TextLiteralParam"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="regex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
       <eOperations name="checkGeneric" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>

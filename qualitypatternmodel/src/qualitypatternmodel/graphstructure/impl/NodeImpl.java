@@ -46,6 +46,7 @@ import qualitypatternmodel.operators.impl.MatchImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
@@ -1881,40 +1882,35 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				}
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON__STRING:
 				try {
-					addPrimitiveComparison((String)arguments.get(0));
-					return null;
+					return addPrimitiveComparison((String)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON__PARAMETERVALUE:
 				try {
-					addPrimitiveComparison((ParameterValue)arguments.get(0));
-					return null;
+					return addPrimitiveComparison((ParameterValue)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON__COMPARISONOPERATOR_PARAMETERVALUE:
 				try {
-					addPrimitiveComparison((ComparisonOperator)arguments.get(0), (ParameterValue)arguments.get(1));
-					return null;
+					return addPrimitiveComparison((ComparisonOperator)arguments.get(0), (ParameterValue)arguments.get(1));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_MATCH:
 				try {
-					addPrimitiveMatch();
-					return null;
+					return addPrimitiveMatch();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_MATCH__STRING:
 				try {
-					addPrimitiveMatch((String)arguments.get(0));
-					return null;
+					return addPrimitiveMatch((String)arguments.get(0));
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -2128,10 +2124,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return 
 	 * @generated NOT
 	 */
 	@Override
-	public void addPrimitiveComparison(String value) {
+	public TextLiteralParam addPrimitiveComparison(String value) {
 		Comparison comparison = new ComparisonImpl();		
 		try {			
 			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
@@ -2153,30 +2150,35 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			}
 			comparison.setArgument1(p);
 			comparison.setArgument2(textlit);
+			return textlit;
 						
 		} catch (Exception e) {
 			System.out.println("Adding Condition Failed: " + e.getMessage());
 			e.printStackTrace();
+			return null;
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return 
 	 * @generated NOT
 	 */
 	@Override
-	public void addPrimitiveComparison(ParameterValue parameter) {		
+	public ParameterValue addPrimitiveComparison(ParameterValue parameter) {
 		addPrimitiveComparison().replace(parameter);
+		return parameter;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return 
 	 * @generated NOT
 	 */
 	@Override
-	public void addPrimitiveComparison(ComparisonOperator operator, ParameterValue parameter) {
+	public ParameterValue addPrimitiveComparison(ComparisonOperator operator, ParameterValue parameter) {
 		Comparison comparison = new ComparisonImpl();
 		try {		
 			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
@@ -2195,29 +2197,33 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				p = makePrimitive();
 			}
 			comparison.setArgument1(p);
-			comparison.setArgument2(parameter);				
+			comparison.setArgument2(parameter);
+			return parameter;
 		} catch (Exception e) {
 			System.out.println("Adding Condition Failed: " + e.getMessage());
+			return null;
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @return 
 	 * @generated NOT
 	 */
 	@Override
-	public void addPrimitiveMatch() {
-		addPrimitiveMatch(null);
+	public TextLiteralParam addPrimitiveMatch() {
+		return addPrimitiveMatch(null);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @return 
 	 * 
 	 * @generated NOT
 	 */
 	@Override
-	public void addPrimitiveMatch(String regex) {
+	public TextLiteralParam addPrimitiveMatch(String regex) {
 			Match match = new MatchImpl();
 			try {			
 				Graph graph = (Graph) getAncestor(Graph.class);
@@ -2236,9 +2242,11 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				if(regex != null) {
 					match.getRegularExpression().setValue(regex);
 				}
+				return match.getRegularExpression();
 			} catch (Exception e) {
 				System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
 				e.printStackTrace();
+				return null;
 			}
 		}
 
