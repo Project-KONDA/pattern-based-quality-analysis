@@ -1467,13 +1467,22 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___ADAPT_AS_RDF_LITERAL_NODE = COMPARABLE_OPERATION_COUNT + 31;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NODE___ADD_COMPARISON__NODE = COMPARABLE_OPERATION_COUNT + 32;
+
+	/**
 	 * The number of operations of the '<em>Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 32;
+	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 33;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.
@@ -2161,6 +2170,15 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___ADAPT_AS_RDF_LITERAL_NODE = NODE___ADAPT_AS_RDF_LITERAL_NODE;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_NODE___ADD_COMPARISON__NODE = NODE___ADD_COMPARISON__NODE;
+
+	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2531,13 +2549,40 @@ public interface GraphstructurePackage extends EPackage {
 	int GRAPH___ADD_RELATION__COMPLEXNODE_NODE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Add Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___ADD_NODE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Add Complex Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___ADD_COMPLEX_NODE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GRAPH___ADD_PRIMITIVE_NODE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 7;
+
+	/**
 	 * The number of operations of the '<em>Graph</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 5;
+	int GRAPH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Adaptable <em>Adaptable</em>}' class.
@@ -3496,6 +3541,15 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___ADAPT_AS_RDF_LITERAL_NODE = NODE___ADAPT_AS_RDF_LITERAL_NODE;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPLEX_NODE___ADD_COMPARISON__NODE = NODE___ADD_COMPARISON__NODE;
+
+	/**
 	 * The number of operations of the '<em>Complex Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4135,6 +4189,16 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getNode__AdaptAsRdfLiteralNode();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#addComparison(qualitypatternmodel.graphstructure.Node) <em>Add Comparison</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Comparison</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Node#addComparison(qualitypatternmodel.graphstructure.Node)
+	 * @generated
+	 */
+	EOperation getNode__AddComparison__Node();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4280,6 +4344,36 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGraph__AddRelation__ComplexNode_Node();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#addNode() <em>Add Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Node</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Graph#addNode()
+	 * @generated
+	 */
+	EOperation getGraph__AddNode();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#addComplexNode() <em>Add Complex Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Complex Node</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Graph#addComplexNode()
+	 * @generated
+	 */
+	EOperation getGraph__AddComplexNode();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#addPrimitiveNode() <em>Add Primitive Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Primitive Node</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Graph#addPrimitiveNode()
+	 * @generated
+	 */
+	EOperation getGraph__AddPrimitiveNode();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Graph#getReturnNodes() <em>Get Return Nodes</em>}' operation.
@@ -4944,6 +5038,14 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation NODE___ADAPT_AS_RDF_LITERAL_NODE = eINSTANCE.getNode__AdaptAsRdfLiteralNode();
 
 		/**
+		 * The meta object literal for the '<em><b>Add Comparison</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NODE___ADD_COMPARISON__NODE = eINSTANCE.getNode__AddComparison__Node();
+
+		/**
 		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5056,6 +5158,30 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GRAPH___ADD_RELATION__COMPLEXNODE_NODE = eINSTANCE.getGraph__AddRelation__ComplexNode_Node();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Node</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH___ADD_NODE = eINSTANCE.getGraph__AddNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Complex Node</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH___ADD_COMPLEX_NODE = eINSTANCE.getGraph__AddComplexNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Primitive Node</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GRAPH___ADD_PRIMITIVE_NODE = eINSTANCE.getGraph__AddPrimitiveNode();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Return Nodes</b></em>' operation.

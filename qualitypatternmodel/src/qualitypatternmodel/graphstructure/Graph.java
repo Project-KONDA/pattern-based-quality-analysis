@@ -143,6 +143,30 @@ public interface Graph extends PatternElement {
 	Relation addRelation(ComplexNode from, Node to);
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Node addNode();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	ComplexNode addComplexNode();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	PrimitiveNode addPrimitiveNode();
+
+	/**
 	 * Returns the value of the '<em><b>Quantified Condition</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.patternstructure.QuantifiedCondition#getGraph <em>Graph</em>}'.
 	 * <!-- begin-user-doc -->

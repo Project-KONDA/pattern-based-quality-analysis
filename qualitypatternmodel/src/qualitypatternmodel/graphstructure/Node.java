@@ -503,6 +503,14 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Comparison addComparison(Node node);
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Checks related comparisons concerning contradictions, e.g. equal and unequal at the same time.
 	 * 
 	 * @throws InvalidityException if contradicting comparisons are found

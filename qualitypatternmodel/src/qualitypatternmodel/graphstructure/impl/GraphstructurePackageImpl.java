@@ -808,6 +808,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
+	public EOperation getNode__AddComparison__Node() {
+		return nodeEClass.getEOperations().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getNode__CheckComparisonConsistency() {
 		return nodeEClass.getEOperations().get(24);
 	}
@@ -940,6 +950,36 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	@Override
 	public EOperation getGraph__AddRelation__ComplexNode_Node() {
 		return graphEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getGraph__AddNode() {
+		return graphEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getGraph__AddComplexNode() {
+		return graphEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getGraph__AddPrimitiveNode() {
+		return graphEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -1185,6 +1225,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(nodeEClass, NODE___ADAPT_AS_XML_PROPERTY);
 		createEOperation(nodeEClass, NODE___ADAPT_AS_RDF_IRI_NODE);
 		createEOperation(nodeEClass, NODE___ADAPT_AS_RDF_LITERAL_NODE);
+		createEOperation(nodeEClass, NODE___ADD_COMPARISON__NODE);
 
 		graphEClass = createEClass(GRAPH);
 		createEReference(graphEClass, GRAPH__NODES);
@@ -1199,6 +1240,9 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(graphEClass, GRAPH___GET_ALL_OPERATORS);
 		createEOperation(graphEClass, GRAPH___COPY_GRAPH__GRAPH);
 		createEOperation(graphEClass, GRAPH___ADD_RELATION__COMPLEXNODE_NODE);
+		createEOperation(graphEClass, GRAPH___ADD_NODE);
+		createEOperation(graphEClass, GRAPH___ADD_COMPLEX_NODE);
+		createEOperation(graphEClass, GRAPH___ADD_PRIMITIVE_NODE);
 
 		comparableEClass = createEClass(COMPARABLE);
 		createEReference(comparableEClass, COMPARABLE__COMPARISON1);
@@ -1412,6 +1456,9 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getNode__AdaptAsRdfLiteralNode(), theAdaptionrdfPackage.getRdfLiteralNode(), "adaptAsRdfLiteralNode", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
+		op = initEOperation(getNode__AddComparison__Node(), theOperatorsPackage.getComparison(), "addComparison", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getNode(), "node", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(graphEClass, Graph.class, "Graph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGraph_Nodes(), this.getNode(), this.getNode_Graph(), "nodes", null, 1, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGraph_OperatorList(), theOperatorsPackage.getOperatorList(), theOperatorsPackage.getOperatorList_Graph(), "operatorList", null, 1, 1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1434,6 +1481,12 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getGraph__AddRelation__ComplexNode_Node(), this.getRelation(), "addRelation", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getComplexNode(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getNode(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getGraph__AddNode(), this.getNode(), "addNode", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getGraph__AddComplexNode(), this.getComplexNode(), "addComplexNode", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getGraph__AddPrimitiveNode(), this.getPrimitiveNode(), "addPrimitiveNode", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(comparableEClass, qualitypatternmodel.graphstructure.Comparable.class, "Comparable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComparable_Comparison1(), theOperatorsPackage.getComparison(), theOperatorsPackage.getComparison_Argument1(), "comparison1", null, 0, -1, qualitypatternmodel.graphstructure.Comparable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

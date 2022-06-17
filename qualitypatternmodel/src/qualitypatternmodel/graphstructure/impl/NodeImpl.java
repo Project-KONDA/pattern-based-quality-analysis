@@ -1427,6 +1427,37 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	}
 	
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Comparison addComparison(Node node) {
+		if (this.getClass() == node.getClass() && this.getClass() != NodeImpl.class) {
+			try {
+				Comparison comparison = new ComparisonImpl();
+				CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
+				Graph graph = (Graph) getAncestor(Graph.class);
+				OperatorList oplist = graph.getOperatorList();
+					
+				oplist.add(comparison);	
+				comparison.createParameters();
+				PrimitiveNode p = null;
+				comparison.setArgument1(p);
+				comparison.setArgument2(node);						
+				
+				return comparison;
+				
+			} catch (Exception e) {			
+				System.out.println("Adding Condition Failed: " + e.getMessage());		
+				e.printStackTrace();
+			}			
+		}
+		System.out.println("Adding Condition Failed: Nodes not of same type");		
+		return null;
+	}
+
 	private RdfLiteralNode adaptAsRdfLiteralNodeRecursive() throws InvalidityException {		
 		if (!(this instanceof RdfLiteralNode)) {
 			RdfLiteralNodeImpl rdfLiteral = new RdfLiteralNodeImpl();	
@@ -2025,6 +2056,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case GraphstructurePackage.NODE___ADD_COMPARISON__NODE:
+				return addComparison((Node)arguments.get(0));
 			case GraphstructurePackage.NODE___CREATE_PARAMETERS:
 				createParameters();
 				return null;

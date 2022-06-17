@@ -317,6 +317,9 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsXmlProperty"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsRdfIriNode"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsRdfLiteralNode"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addComparison">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addComparison/node"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Graph">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/nodes"/>
@@ -338,6 +341,9 @@
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Graph/addRelation/from"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Graph/addRelation/to"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/addNode"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/addComplexNode"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Graph/addPrimitiveNode"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//graphstructure/Comparable">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

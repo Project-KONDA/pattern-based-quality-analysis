@@ -41,6 +41,7 @@ import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.impl.OperatorListImpl;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CountPattern;
@@ -719,6 +720,42 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public Node addNode() {
+		Node newNode = new NodeImpl();
+		newNode.setGraph(this);
+		return newNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public ComplexNode addComplexNode() {
+		ComplexNode newNode = new ComplexNodeImpl();
+		newNode.setGraph(this);
+		return newNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public PrimitiveNode addPrimitiveNode() {
+		PrimitiveNode newNode = new PrimitiveNodeImpl();
+		newNode.setGraph(this);
+		return newNode;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -1003,6 +1040,12 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 				}
 			case GraphstructurePackage.GRAPH___ADD_RELATION__COMPLEXNODE_NODE:
 				return addRelation((ComplexNode)arguments.get(0), (Node)arguments.get(1));
+			case GraphstructurePackage.GRAPH___ADD_NODE:
+				return addNode();
+			case GraphstructurePackage.GRAPH___ADD_COMPLEX_NODE:
+				return addComplexNode();
+			case GraphstructurePackage.GRAPH___ADD_PRIMITIVE_NODE:
+				return addPrimitiveNode();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

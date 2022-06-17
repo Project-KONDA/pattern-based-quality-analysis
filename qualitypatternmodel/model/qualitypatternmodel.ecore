@@ -357,6 +357,9 @@
       <eOperations name="adaptAsRdfIriNode" eType="#//adaptionrdf/RdfIriNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsRdfLiteralNode" eType="#//adaptionrdf/RdfLiteralNode"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="addComparison" eType="#//operators/Comparison">
+        <eParameters name="node" eType="#//graphstructure/Node"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
           eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/ElementMapping"
@@ -387,6 +390,9 @@
         <eParameters name="from" eType="#//graphstructure/ComplexNode"/>
         <eParameters name="to" eType="#//graphstructure/Node"/>
       </eOperations>
+      <eOperations name="addNode" eType="#//graphstructure/Node"/>
+      <eOperations name="addComplexNode" eType="#//graphstructure/ComplexNode"/>
+      <eOperations name="addPrimitiveNode" eType="#//graphstructure/PrimitiveNode"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" lowerBound="1"
           upperBound="-1" eType="#//graphstructure/Node" containment="true" eOpposite="#//graphstructure/Node/graph"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operatorList" lowerBound="1"
