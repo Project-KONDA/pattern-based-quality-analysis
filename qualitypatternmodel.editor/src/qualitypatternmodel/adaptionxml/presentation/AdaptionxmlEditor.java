@@ -160,7 +160,9 @@ import qualitypatternmodel.adaptionxml.provider.AdaptionxmlItemProviderAdapterFa
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import qualitypatternmodel.adaptionrdf.provider.AdaptionrdfItemProviderAdapterFactory;
+
 import qualitypatternmodel.execution.provider.ExecutionItemProviderAdapterFactory;
+
 import qualitypatternmodel.graphstructure.provider.GraphstructureItemProviderAdapterFactory;
 
 import qualitypatternmodel.operators.provider.OperatorsItemProviderAdapterFactory;
@@ -170,6 +172,7 @@ import qualitypatternmodel.parameters.presentation.QualitypatternmodelEditorPlug
 import qualitypatternmodel.parameters.provider.ParametersItemProviderAdapterFactory;
 
 import qualitypatternmodel.patternstructure.provider.PatternstructureItemProviderAdapterFactory;
+
 import qualitypatternmodel.textrepresentation.provider.TextrepresentationItemProviderAdapterFactory;
 
 

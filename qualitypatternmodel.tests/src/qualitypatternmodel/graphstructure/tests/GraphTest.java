@@ -21,6 +21,9 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#getAllOperators() <em>Get All Operators</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#copyGraph(qualitypatternmodel.graphstructure.Graph) <em>Copy Graph</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Graph#addRelation(qualitypatternmodel.graphstructure.ComplexNode, qualitypatternmodel.graphstructure.Node) <em>Add Relation</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#addNode() <em>Add Node</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#addComplexNode() <em>Add Complex Node</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Graph#addPrimitiveNode() <em>Add Primitive Node</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -113,6 +116,45 @@ public class GraphTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testAddRelation__ComplexNode_Node() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#addNode() <em>Add Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Graph#addNode()
+	 * @generated
+	 */
+	public void testAddNode() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#addComplexNode() <em>Add Complex Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Graph#addComplexNode()
+	 * @generated
+	 */
+	public void testAddComplexNode() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Graph#addPrimitiveNode() <em>Add Primitive Node</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Graph#addPrimitiveNode()
+	 * @generated
+	 */
+	public void testAddPrimitiveNode() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

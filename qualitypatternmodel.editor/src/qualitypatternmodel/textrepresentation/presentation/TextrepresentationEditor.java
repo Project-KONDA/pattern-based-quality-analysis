@@ -160,6 +160,7 @@ import qualitypatternmodel.textrepresentation.provider.TextrepresentationItemPro
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import qualitypatternmodel.adaptionrdf.provider.AdaptionrdfItemProviderAdapterFactory;
+
 import qualitypatternmodel.adaptionxml.provider.AdaptionxmlItemProviderAdapterFactory;
 
 import qualitypatternmodel.execution.provider.ExecutionItemProviderAdapterFactory;

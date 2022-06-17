@@ -38,6 +38,7 @@ import org.eclipse.jface.viewers.Viewer;
 
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
+
 import qualitypatternmodel.parameters.presentation.QualitypatternmodelEditorPlugin;
 
 /**

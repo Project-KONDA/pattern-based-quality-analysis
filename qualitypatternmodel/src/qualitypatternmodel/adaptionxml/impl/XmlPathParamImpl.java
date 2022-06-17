@@ -323,8 +323,9 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	 */
 	@Override
 	public XmlPropertyOptionParam getXmlPropertyOptionParam() {
-		if (xmlPropertyOptionParam == null && getXmlNavigation() instanceof XmlPropertyNavigation) {
+		if (xmlPropertyOptionParam == null) { // && getXmlNavigation() instanceof XmlPropertyNavigation
 			setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
+			xmlPropertyOptionParam.createParameters();
 		}
 		return xmlPropertyOptionParam;
 	}
@@ -450,6 +451,13 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 		addXmlAxis(axis, tag);
 	}
 
+	public void setXmlAxis(XmlAxisKind[] axis) {
+		getXmlAxisPairs().clear();
+		for (XmlAxisKind a: axis) {
+			addXmlAxis(a, null);
+		}		
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

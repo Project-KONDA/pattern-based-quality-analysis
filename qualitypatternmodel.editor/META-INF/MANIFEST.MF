@@ -4,12 +4,11 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: qualitypatternmodel.editor;singleton:=true
 Automatic-Module-Name: qualitypatternmodel.editor
 Bundle-Version: 1.0.0.qualifier
-Bundle-ClassPath: .,
- lib/BaseX931.jar
+Bundle-ClassPath: .
 Bundle-Activator: qualitypatternmodel.parameters.presentation.QualitypatternmodelEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: qualitypatternmodel.adaptionrdf.presentation,
  qualitypatternmodel.adaptionxml.presentation,
  qualitypatternmodel.execution.presentation,

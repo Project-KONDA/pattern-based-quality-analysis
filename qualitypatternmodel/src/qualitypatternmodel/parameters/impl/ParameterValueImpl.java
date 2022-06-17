@@ -689,7 +689,10 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		if(isTypeModifiable()) {		
 			
 			int index = getParameterList().getParameters().indexOf(this);
-			getParameterList().getParameters().set(index, concreteValue);
+			if (concreteValue.getParameterList() != getParameterList())
+				getParameterList().getParameters().set(index, concreteValue);
+			else
+				getParameterList().getParameters().remove(index);
 			
 			EList<Comparison> comparison1Copy = new BasicEList<Comparison>();
 			comparison1Copy.addAll(getComparison1());

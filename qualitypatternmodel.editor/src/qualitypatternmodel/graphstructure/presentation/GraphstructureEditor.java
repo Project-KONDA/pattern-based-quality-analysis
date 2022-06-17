@@ -156,15 +156,23 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import qualitypatternmodel.graphstructure.provider.GraphstructureItemProviderAdapterFactory;
-import qualitypatternmodel.operators.provider.OperatorsItemProviderAdapterFactory;
+
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import qualitypatternmodel.adaptionrdf.provider.AdaptionrdfItemProviderAdapterFactory;
+
 import qualitypatternmodel.adaptionxml.provider.AdaptionxmlItemProviderAdapterFactory;
+
 import qualitypatternmodel.execution.provider.ExecutionItemProviderAdapterFactory;
+
+import qualitypatternmodel.operators.provider.OperatorsItemProviderAdapterFactory;
+
 import qualitypatternmodel.parameters.presentation.QualitypatternmodelEditorPlugin;
+
 import qualitypatternmodel.parameters.provider.ParametersItemProviderAdapterFactory;
+
 import qualitypatternmodel.patternstructure.provider.PatternstructureItemProviderAdapterFactory;
+
 import qualitypatternmodel.textrepresentation.provider.TextrepresentationItemProviderAdapterFactory;
 
 

@@ -22,7 +22,6 @@
       </wizard>
    </extension>
 
-
    <extension point="org.eclipse.ui.editors">
       <!-- @generated qualitypatternmodel -->
       <editor
@@ -62,6 +61,7 @@
             contributorClass="qualitypatternmodel.operators.presentation.OperatorsActionBarContributor">
       </editor>
    </extension>
+
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated qualitypatternmodel -->
       <category

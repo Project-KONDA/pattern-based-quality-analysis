@@ -1444,8 +1444,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				oplist.add(comparison);	
 				comparison.createParameters();
 				PrimitiveNode p = null;
-				comparison.setArgument1(p);
-				comparison.setArgument2(node);						
+				comparison.setArgument1(this);
+				comparison.setArgument2(node);
+				comparison.createParameters();
 				
 				return comparison;
 				
