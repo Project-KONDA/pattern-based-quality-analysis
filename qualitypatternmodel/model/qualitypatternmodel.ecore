@@ -1139,4 +1139,20 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="suffix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>
+  <eSubpackages name="adaptionNeo4J" nsURI="adaptionNeo4J" nsPrefix="adaptionNeo4J">
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractNeoNode" instanceTypeName="AbstractNeoNode"
+        abstract="true" eSuperTypes="#//adaptionNeo4J/INeoElement #//graphstructure/ComplexNode"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoNode" instanceTypeName="NeoNode"
+        eSuperTypes="#//adaptionNeo4J/AbstractNeoNode"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractNeoEdge" instanceTypeName="AbstractNeoEdge"
+        abstract="true" eSuperTypes="#//adaptionNeo4J/INeoElement #//graphstructure/Relation"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoEdge" instanceTypeName="NeoEdge"
+        eSuperTypes="#//adaptionNeo4J/AbstractNeoEdge"/>
+    <eClassifiers xsi:type="ecore:EClass" name="INeoElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Label" instanceTypeName="Label" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LabelContainer" instanceTypeName="LabelContainer"/>
+  </eSubpackages>
 </ecore:EPackage>
