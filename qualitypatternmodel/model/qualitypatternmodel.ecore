@@ -1144,6 +1144,8 @@
         abstract="true" eSuperTypes="#//adaptionNeo4J/INeoElement #//graphstructure/ComplexNode">
       <eStructuralFeatures xsi:type="ecore:EReference" name="label" upperBound="-1"
           eType="#//adaptionNeo4J/Label"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Attributes" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoNode" instanceTypeName="NeoNode"
         eSuperTypes="#//adaptionNeo4J/AbstractNeoNode"/>
@@ -1151,6 +1153,8 @@
         abstract="true" eSuperTypes="#//adaptionNeo4J/INeoElement #//graphstructure/Relation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="label" upperBound="-1"
           eType="#//adaptionNeo4J/Label"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Attributes" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoEdge" instanceTypeName="NeoEdge"
         eSuperTypes="#//adaptionNeo4J/AbstractNeoEdge"/>
