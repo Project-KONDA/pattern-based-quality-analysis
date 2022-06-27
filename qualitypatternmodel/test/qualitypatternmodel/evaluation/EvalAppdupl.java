@@ -1,71 +1,43 @@
 package qualitypatternmodel.evaluation;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Map;
 
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.resource.Resource;
 
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
-import qualitypatternmodel.adaptionxml.impl.XmlPropertyOptionParamImpl;
-import qualitypatternmodel.adaptionxml.impl.XmlAxisOptionParamImpl;
+import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.graphstructure.impl.RelationImpl;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.operators.OperatorList;
-import qualitypatternmodel.operators.impl.ComparisonImpl;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
-import qualitypatternmodel.parameters.OptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.UntypedParameterValue;
+import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.NumberParamImpl;
+import qualitypatternmodel.parameters.impl.ParameterImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
+import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
-import qualitypatternmodel.patternstructure.CountConditionArgument;
 import qualitypatternmodel.patternstructure.CountPattern;
-import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.MorphismContainer;
-import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.NumberElement;
-import qualitypatternmodel.patternstructure.Pattern;
-import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.patternstructure.TrueElement;
-import qualitypatternmodel.patternstructure.impl.CountConditionImpl;
 import qualitypatternmodel.translationtests.Test00;
-import qualitypatternmodel.translationtests.Test06NotElement;
+import qualitypatternmodel.operators.Comparison;
 
 public class EvalAppdupl {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -73,6 +45,24 @@ public class EvalAppdupl {
 		completePatterns.add(getCARD3Midas());
 		Test00.test(completePatterns);
 		
+	}
+	
+	static CompletePattern getCARD3AbstractStructure() {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = Test00.getBasePattern();
+		
+		CountCondition cc = factory.createCountCondition();
+		completePattern.setCondition(cc);
+		CountPattern cp = factory.createCountPattern();
+		NumberElement ne = factory.createNumberElement();
+		cc.setArgument2(ne);
+		cc.setCountPattern(cp);
+		
+		QuantifiedCondition qc = factory.createQuantifiedCondition();
+		cp.setCondition(qc);
+		return completePattern;		
 	}
 	
 	static CompletePattern getCARD3Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -83,179 +73,165 @@ public class EvalAppdupl {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory paramFactory = ParametersFactory.eINSTANCE;
 		
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = getCARD3AbstractStructure();
 		Graph g0 = completePattern.getGraph();
-		g0.getNodes().get(0).setName("First");
-		g0.getNodes().get(0).addPrimitiveComparison("wer");
+		{
+			ComplexNode n01 = g0.getNodes().get(0).makeComplex();
+			n01.setName("OriginalDataSet");
+			Relation r01 = n01.addOutgoing();
+			Node n02 = r01.getTarget();
+			n02 = n02.makePrimitive();
+			n02.addPrimitiveComparison(paramFactory.createTextLiteralParam());			
+		}
 		
-		CountCondition cc = factory.createCountCondition();
-		completePattern.setCondition(cc);
-		CountPattern cp = factory.createCountPattern();
-		cc.setCountPattern(cp);
-		NumberElement ne = factory.createNumberElement();
-		ne.setNumberParam(paramFactory.createNumberParam());
-		cc.setArgument2(ne);
+		Graph g1 = ((CountCondition)completePattern.getCondition()).getCountPattern().getGraph();
+		{
+			g1.getReturnNodes().get(0).setReturnNode(false);
+			ComplexNode n13 = g1.addComplexNode();
+			n13.setName("ComparedDataset");
+			n13.setReturnNode(true);
+			Relation r12 = n13.addOutgoing();
+			Node n14 = r12.getTarget();
+			n14 = n14.makePrimitive();
+			n14.addPrimitiveComparison(paramFactory.createTextLiteralParam());	
+		}
 		
-		Graph cpg = cp.getGraph();
-		Node e = graphfactory.createNode();
-		cpg.getNodes().add(e);
-		cpg.getReturnNodes().clear();
-		cpg.getReturnNodes().add(e);
-		e.addPrimitiveComparison("wer");
-		e.setName("Counted");
+		Graph g2 = ((QuantifiedCondition)((CountPattern) g1.getContainer()).getCondition()).getGraph();
+		{	
+			ComplexNode n21 = (ComplexNode) g2.getNodes().get(0);
+			ComplexNode n22 = (ComplexNode) g2.getNodes().get(2);
+			
+			for (int i = 0; i<3; i++) {
+				Relation r = n21.addOutgoing();
+				Relation r2 = n22.addOutgoing();
+				Node node1 = r.getTarget().makeComplex();
+				Node node2 = r2.getTarget().makeComplex();
 
-		QuantifiedCondition cpqc = factory.createQuantifiedCondition();
-		cp.setCondition(cpqc);
-		Graph cpqcg = cpqc.getGraph();		
-		Node e1 = cpqcg.getNodes().get(0);
-		Node e2 = cpqcg.getNodes().get(1);
-		
-		TrueElement trueElement = factory.createTrueElement();
-		cpqc.setCondition(trueElement);
-
-		Node e1a = graphfactory.createNode();
-		e1a.setGraph(cpqcg);
-		cpqcg.addRelation(e1, e1a);
-		PrimitiveNode e1ap = graphfactory.createPrimitiveNode();
-		e1a.addOutgoing(e1ap);
-		
-		e1a.addPrimitiveComparison();
-		e1a.setName("1A");		
-		Node e1b = graphfactory.createNode();
-		e1b.setGraph(cpqcg);
-		cpqcg.addRelation(e1, e1b);
-		PrimitiveNode e1bp = graphfactory.createPrimitiveNode();
-		e1b.addOutgoing(e1bp);
-		
-		e1b.addPrimitiveComparison();
-		e1b.setName("1B");		
-		Node e1c = graphfactory.createNode();
-		e1c.setGraph(cpqcg);
-		cpqcg.addRelation(e1, e1c);
-		PrimitiveNode e1cp = graphfactory.createPrimitiveNode();
-		e1c.addOutgoing(e1cp);
-		e1c.addPrimitiveComparison();
-		e1c.setName("1C");
-		Node e2a = graphfactory.createNode();
-		e2a.setGraph(cpqcg);
-		cpqcg.addRelation(e2, e2a);
-		PrimitiveNode e2ap = graphfactory.createPrimitiveNode();
-		e2a.addOutgoing(e2ap);
-		e2a.addPrimitiveComparison();
-		e2a.setName("2A");
-		Node e2b = graphfactory.createNode();
-		e2b.setGraph(cpqcg);
-		cpqcg.addRelation(e2, e2b);
-		PrimitiveNode e2bp = graphfactory.createPrimitiveNode();
-		e2b.addOutgoing(e2bp);
-		e2b.addPrimitiveComparison();
-		e2b.setName("2B");
-		Node e2c = graphfactory.createNode();
-		e2c.setGraph(cpqcg);
-		cpqcg.addRelation(e2, e2c);
-		PrimitiveNode e2cp = graphfactory.createPrimitiveNode();
-		e2c.addOutgoing(e2cp);
-		e2c.addPrimitiveComparison();
-		e2c.setName("2C");
-		
-
-		OperatorList ol = cpqcg.getOperatorList();
-		Comparison cea = new ComparisonImpl();
-		ol.add(cea);
-		cea.createParameters();
-		cea.setArgument1(e1ap);
-		cea.setArgument2(e2ap);
-		cea.getTypeOption().setValue(ReturnType.STRING);
-		Comparison ceb = new ComparisonImpl();
-		ol.add(ceb);
-		ceb.createParameters();
-		ceb.setArgument1(e1bp);
-		ceb.setArgument2(e2bp);
-		ceb.getTypeOption().setValue(ReturnType.STRING);
-		Comparison cec = new ComparisonImpl();
-		ol.add(cec);
-		cec.createParameters();
-		cec.setArgument1(e1cp);
-		cec.setArgument2(e2cp);
-		cec.getTypeOption().setValue(ReturnType.STRING);
-		
-		
-//		System.out.println(completePattern.myToString());
+				Relation rel0 = node1.addOutgoing();
+				Relation rel1 = node2.addOutgoing();
+				PrimitiveNode value1 = rel0.getTarget().makePrimitive();
+				PrimitiveNode value2 = rel1.getTarget().makePrimitive();
+				
+				TextLiteralParamImpl rlp = (TextLiteralParamImpl) value1.addPrimitiveComparison(new TextLiteralParamImpl());
+				value2.addPrimitiveComparison(rlp);
+				
+				Relation rel2 = node1.addOutgoing();
+				Relation rel3 = node2.addOutgoing();
+				PrimitiveNode value3 = rel2.getTarget().makePrimitive();
+				PrimitiveNode value4 = rel3.getTarget().makePrimitive();
+				
+				value3.addComparison(value4).getTypeOption().setValue(ReturnType.STRING);
+				
+				Comparison c = value1.addComparison(value2);
+				c.getTypeOption().setValue(ReturnType.STRING);
+				
+			}			
+		}
 		
 		completePattern.createXmlAdaption();
-		EList<Relation> rels1 = cpqcg.getRelations();
-		for (int i = rels1.size()-1; i>=0; i--) rels1.get(i).adaptAsXmlElementNavigation();
-		completePattern.finalizeXMLAdaption();	
-		
-//		for (int i = completePattern.getParameterList().getParameters().size()-1; i>=0; i--) {
-//			System.out.print("((" + completePattern.getParameterList().getParameters().get(i).getClass().getSimpleName() + ") params.get(" + i + "))");
-//			switch(completePattern.getParameterList().getParameters().get(i).getClass().getSimpleName()) {
-//			case "RelationOptionParamImpl": System.out.println(".setValue(RelationKind.TWOCHILD);");
-//			break;
-//			case "ComparisonOptionParamImpl": System.out.println(".setValue(ComparisonOperator.EQUAL);");
-//			break;
-//			case "UnknownParameterValueImpl": System.out.println(".setValue(\"3680\");");	
-//			break;
-//			case "TextLiteralParamImpl": System.out.println(".setValue(\"Type\");");
-//			break;
-//			case "NumberParamImpl": System.out.println(".setValue(1.);");
-//			break;
-//			case "PropertyOptionParamImpl" : System.out.println(".setValue(PropertyKind.ATTRIBUTE);");
-//			break;
-//			}			
-//		}
-		
 		return completePattern;		
 	}
 	
 	
 	static CompletePattern getCARD3Midas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getCARD3Abstract();
-		
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
-		((XmlAxisOptionParamImpl) params.get(67)).setValue(XmlAxisKind.THREECHILD);
-		((XmlAxisOptionParamImpl) params.get(66)).setValue(XmlAxisKind.THREECHILD);
-		((TextLiteralParamImpl) params.get(59)).setValue("Type");
-		((XmlPropertyOptionParamImpl) params.get(58)).setValue(XmlPropertyKind.ATTRIBUTE);
-		((TextLiteralParamImpl) params.get(57)).setValue("Value");
-		((XmlPropertyOptionParamImpl) params.get(56)).setValue(XmlPropertyKind.ATTRIBUTE);
-		((TextLiteralParamImpl) params.get(55)).setValue("Type");
-		((XmlPropertyOptionParamImpl) params.get(54)).setValue(XmlPropertyKind.ATTRIBUTE);
-		((TextLiteralParamImpl) params.get(53)).setValue("Value");
-		((XmlPropertyOptionParamImpl) params.get(52)).setValue(XmlPropertyKind.ATTRIBUTE);
-		((TextLiteralParamImpl) params.get(51)).setValue("Type");
-		((XmlPropertyOptionParamImpl) params.get(50)).setValue(XmlPropertyKind.ATTRIBUTE);
-		((TextLiteralParamImpl) params.get(49)).setValue("Value");
-		((XmlPropertyOptionParamImpl) params.get(48)).setValue(XmlPropertyKind.ATTRIBUTE);
-		((TextLiteralParamImpl) params.get(47)).setValue("Type");
-		((XmlPropertyOptionParamImpl) params.get(46)).setValue(XmlPropertyKind.ATTRIBUTE);
-		((TextLiteralParamImpl) params.get(45)).setValue("Value");
-		((XmlPropertyOptionParamImpl) params.get(44)).setValue(XmlPropertyKind.ATTRIBUTE);
-		((TextLiteralParamImpl) params.get(43)).setValue("Type");
-		((XmlPropertyOptionParamImpl) params.get(42)).setValue(XmlPropertyKind.ATTRIBUTE);
-		((TextLiteralParamImpl) params.get(41)).setValue("Value");
-		((XmlPropertyOptionParamImpl) params.get(40)).setValue(XmlPropertyKind.ATTRIBUTE);
-		((TextLiteralParamImpl) params.get(39)).setValue("Type");
-		((XmlPropertyOptionParamImpl) params.get(38)).setValue(XmlPropertyKind.ATTRIBUTE);
-		((TextLiteralParamImpl) params.get(37)).setValue("Value");
-		((XmlPropertyOptionParamImpl) params.get(36)).setValue(XmlPropertyKind.ATTRIBUTE);
-		((TextLiteralParamImpl) params.get(35)).setValue("Type");
-		((XmlPropertyOptionParamImpl) params.get(34)).setValue(XmlPropertyKind.ATTRIBUTE);
-		((TextLiteralParamImpl) params.get(33)).setValue("Type");
-		((XmlPropertyOptionParamImpl) params.get(32)).setValue(XmlPropertyKind.ATTRIBUTE);
-		((UntypedParameterValueImpl) params.get(23)).setValue("3560");
-		((UntypedParameterValueImpl) params.get(20)).setValue("3580");
-		((UntypedParameterValueImpl) params.get(17)).setValue("3680");
-		((UntypedParameterValueImpl) params.get(14)).setValue("3560");
-		((UntypedParameterValueImpl) params.get(11)).setValue("3580");
-		((UntypedParameterValueImpl) params.get(8)).setValue("3680");
 		
-		((TextLiteralParamImpl) params.get(5)).setValue("wer");
-		((NumberParamImpl) params.get(4)).setValue(1.);
-		((TextLiteralParamImpl) params.get(0)).setValue("wer");
-
-		ComparisonOptionParam compOp = ((CountCondition) completePattern.getCondition()).getOption();
-		compOp.setValue(ComparisonOperator.GREATER);
+		ComparisonOptionParamImpl p0 = ((ComparisonOptionParamImpl) params.get(0));
+		NumberParamImpl p1 = ((NumberParamImpl) params.get(1));
+		TextLiteralParamImpl p2 = ((TextLiteralParamImpl) params.get(2));
+		ComparisonOptionParamImpl p3 = ((ComparisonOptionParamImpl) params.get(3));
+		TypeOptionParamImpl p4 = ((TypeOptionParamImpl) params.get(4));
+		TextLiteralParamImpl p5 = ((TextLiteralParamImpl) params.get(5));
+		ComparisonOptionParamImpl p6 = ((ComparisonOptionParamImpl) params.get(6));
+		TypeOptionParamImpl p7 = ((TypeOptionParamImpl) params.get(7));
+		TextLiteralParamImpl p8 = ((TextLiteralParamImpl) params.get(8));
+		ComparisonOptionParamImpl p9 = ((ComparisonOptionParamImpl) params.get(9));
+		TypeOptionParamImpl p10 = ((TypeOptionParamImpl) params.get(10));
+		ComparisonOptionParamImpl p11 = ((ComparisonOptionParamImpl) params.get(11));
+		TypeOptionParamImpl p12 = ((TypeOptionParamImpl) params.get(12));
+		ComparisonOptionParamImpl p13 = ((ComparisonOptionParamImpl) params.get(13));
+		TypeOptionParamImpl p14 = ((TypeOptionParamImpl) params.get(14));
+		ComparisonOptionParamImpl p15 = ((ComparisonOptionParamImpl) params.get(15));
+		TypeOptionParamImpl p16 = ((TypeOptionParamImpl) params.get(16));
+		TextLiteralParamImpl p17 = ((TextLiteralParamImpl) params.get(17));
+		ComparisonOptionParamImpl p18 = ((ComparisonOptionParamImpl) params.get(18));
+		TypeOptionParamImpl p19 = ((TypeOptionParamImpl) params.get(19));
+		ComparisonOptionParamImpl p20 = ((ComparisonOptionParamImpl) params.get(20));
+		TypeOptionParamImpl p21 = ((TypeOptionParamImpl) params.get(21));
+		ComparisonOptionParamImpl p22 = ((ComparisonOptionParamImpl) params.get(22));
+		TypeOptionParamImpl p23 = ((TypeOptionParamImpl) params.get(23));
+		ComparisonOptionParamImpl p24 = ((ComparisonOptionParamImpl) params.get(24));
+		TypeOptionParamImpl p25 = ((TypeOptionParamImpl) params.get(25));
+		TextLiteralParamImpl p26 = ((TextLiteralParamImpl) params.get(26));
+		ComparisonOptionParamImpl p27 = ((ComparisonOptionParamImpl) params.get(27));
+		TypeOptionParamImpl p28 = ((TypeOptionParamImpl) params.get(28));
+		ComparisonOptionParamImpl p29 = ((ComparisonOptionParamImpl) params.get(29));
+		TypeOptionParamImpl p30 = ((TypeOptionParamImpl) params.get(30));
+		ComparisonOptionParamImpl p31 = ((ComparisonOptionParamImpl) params.get(31));
+		TypeOptionParamImpl p32 = ((TypeOptionParamImpl) params.get(32));
+		ComparisonOptionParamImpl p33 = ((ComparisonOptionParamImpl) params.get(33));
+		TypeOptionParamImpl p34 = ((TypeOptionParamImpl) params.get(34));
+		XmlPathParamImpl p35 = ((XmlPathParamImpl) params.get(35));
+		XmlPathParamImpl p36 = ((XmlPathParamImpl) params.get(36));
+		XmlPathParamImpl p37 = ((XmlPathParamImpl) params.get(37));
+		XmlPathParamImpl p38 = ((XmlPathParamImpl) params.get(38));
+		XmlPathParamImpl p39 = ((XmlPathParamImpl) params.get(39));
+		XmlPathParamImpl p40 = ((XmlPathParamImpl) params.get(40));
+		XmlPathParamImpl p41 = ((XmlPathParamImpl) params.get(41));
+		XmlPathParamImpl p42 = ((XmlPathParamImpl) params.get(42));
+		XmlPathParamImpl p43 = ((XmlPathParamImpl) params.get(43));
+		XmlPathParamImpl p44 = ((XmlPathParamImpl) params.get(44));
+		XmlPathParamImpl p45 = ((XmlPathParamImpl) params.get(45));
+		XmlPathParamImpl p46 = ((XmlPathParamImpl) params.get(46));
+		XmlPathParamImpl p47 = ((XmlPathParamImpl) params.get(47));
+		XmlPathParamImpl p48 = ((XmlPathParamImpl) params.get(48));
+		XmlPathParamImpl p49 = ((XmlPathParamImpl) params.get(49));
+		XmlPathParamImpl p50 = ((XmlPathParamImpl) params.get(50));
+		XmlPathParamImpl p51 = ((XmlPathParamImpl) params.get(51));
+		XmlPathParamImpl p52 = ((XmlPathParamImpl) params.get(52));
+		XmlPathParamImpl p53 = ((XmlPathParamImpl) params.get(53));
+		XmlPathParamImpl p54 = ((XmlPathParamImpl) params.get(54));
+		XmlPathParamImpl p55 = ((XmlPathParamImpl) params.get(55));
+		XmlPathParamImpl p56 = ((XmlPathParamImpl) params.get(56));
+		
+		p1.setValue(1.);
+		p2.setValue("wer");
+		p4.setValue(ReturnType.STRING);
+		p5.setValue("wer");
+		p7.setValue(ReturnType.STRING);
+		p8.setValue("3560");
+		p10.setValue(ReturnType.STRING);
+		p12.setValue(ReturnType.STRING);
+		p14.setValue(ReturnType.STRING);
+		p16.setValue(ReturnType.STRING);
+		p17.setValue("3580");
+		p19.setValue(ReturnType.STRING);
+		p21.setValue(ReturnType.STRING);
+		p23.setValue(ReturnType.STRING);
+		p25.setValue(ReturnType.STRING);
+		p26.setValue("3680");
+		p28.setValue(ReturnType.STRING);
+		p30.setValue(ReturnType.STRING);
+		p32.setValue(ReturnType.STRING);
+		p34.setValue(ReturnType.STRING);
+		
+		p36.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD});
+		p38.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD});
+			
+		XmlPathParamImpl[] paths = new XmlPathParamImpl[] {p35, p37, p41, p42, p47, p48, p53, p54};
+		for (XmlPathParamImpl p : paths) {
+			XmlPropertyOptionParam pop = p.getXmlPropertyOptionParam();
+			pop.setValue(XmlPropertyKind.ATTRIBUTE);
+			pop.getAttributeName().setValue("Type");			
+		}
+		
+		XmlPathParamImpl[] paths2 = new XmlPathParamImpl[] {p43, p44, p49, p50, p55, p56};
+		for (XmlPathParamImpl p : paths2) {
+			XmlPropertyOptionParam pop = p.getXmlPropertyOptionParam();
+			pop.setValue(XmlPropertyKind.ATTRIBUTE);
+			pop.getAttributeName().setValue("Value");			
+		}
 		
 		return completePattern;
 	}

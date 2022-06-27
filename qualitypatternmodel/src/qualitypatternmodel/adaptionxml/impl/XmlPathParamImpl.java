@@ -323,7 +323,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 	 */
 	@Override
 	public XmlPropertyOptionParam getXmlPropertyOptionParam() {
-		if (xmlPropertyOptionParam == null) { // && getXmlNavigation() instanceof XmlPropertyNavigation
+		if (xmlPropertyOptionParam == null && getXmlNavigation() instanceof XmlPropertyNavigation) { 
 			setXmlPropertyOptionParam(new XmlPropertyOptionParamImpl());
 			xmlPropertyOptionParam.createParameters();
 		}
