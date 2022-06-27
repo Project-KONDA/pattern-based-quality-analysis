@@ -7,6 +7,7 @@ import static qualitypatternmodel.utility.Constants.VARIABLE;
 import static qualitypatternmodel.utility.Constants.WHERE;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -20,11 +21,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfAxisPair;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
+import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.Parameter;
@@ -166,7 +169,12 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		for (int i = 0; i < returnElements.size(); i++) {
 			if (i != 0)
 				returnClause += ", ";
-			returnClause += VARIABLE + returnElements.get(i).getOriginalID();
+			XmlNode r = ((XmlNode) returnElements.get(i)); 
+			if (r.getVariables() == null || r.getVariables().isEmpty()) {
+				throw new InvalidityException("There was no associated variable generated to the Return Element");
+			}
+			else returnClause += ((XmlNode) returnElements.get(i)).getVariables().get(0);	
+//			returnClause += VARIABLE + returnElements.get(i).getOriginalID();			
 		}
 		returnClause += ")";	
 		
