@@ -94,8 +94,10 @@ public class Test12Count {
 		Relation r1 = returnInCPattern.addOutgoing();
 		Node nextToReturnInCPattern = r1.getTarget();
 			
-		countpattern.getGraph().getReturnNodes().clear();
-		countpattern.getGraph().getReturnNodes().add(nextToReturnInCPattern);
+		for (Node n: countpattern.getGraph().getReturnNodes()) {
+			n.setReturnNode(false);
+		}
+		nextToReturnInCPattern.setReturnNode(true);
 		
 		return completePattern;
 	}
@@ -124,13 +126,17 @@ public class Test12Count {
 		countCondition.setArgument2(numberElement);
 		
 		Node element2InCPattern = countPattern.getGraph().getNodes().get(1);
-		element2InCPattern.makeComplex();
+		element2InCPattern = element2InCPattern.makeComplex();
 		Node nextToElement2InCPattern = element2InCPattern.addOutgoing().getTarget();
+		nextToElement2InCPattern = nextToElement2InCPattern.makeComplex();
 		nextToElement2InCPattern.addOutgoing().getTarget().addPrimitiveComparison();
-			
-		countPattern.getGraph().getReturnNodes().clear();
-		countPattern.getGraph().getReturnNodes().add(nextToElement2InCPattern);
-		
+					
+//		countPattern.getGraph().getReturnNodes().clear();
+		for (Node n: countPattern.getGraph().getReturnNodes()) {
+			n.setReturnNode(false);
+		}
+//		countPattern.getGraph().getReturnNodes().add(nextToElement2InCPattern);
+		nextToElement2InCPattern.setReturnNode(true);
 		completePattern.createXmlAdaption();
 //		countPattern.getGraph().getRelations().get(0).adaptAsXMLElementNavigation();
 //		completePattern.finalizeXMLAdaption();
@@ -195,6 +201,7 @@ public class Test12Count {
 		numberElement.setNumberParam(parametersFactory.createNumberParam());
 		
 		Node returnInCPattern = countPattern.getGraph().getReturnNodes().get(0);
+		returnInCPattern.setReturnNode(false);
 		Relation r4 = returnInCPattern.addOutgoing();
 		Node nextToElement2InCPattern = r4.getTarget();
 		
@@ -243,9 +250,11 @@ public class Test12Count {
 		countCondition.setArgument2(numberElement);
 		
 		Node returnInCPattern = countPattern.getGraph().getReturnNodes().get(0);
+		returnInCPattern.setReturnNode(false);
 		Relation r = returnInCPattern.addOutgoing();
 		Node nextToElement2InCPattern = r.getTarget();
 		Relation r2 = nextToElement2InCPattern.addOutgoing();
+		nextToElement2InCPattern = r2.getSource();
 		Node element3 = r2.getTarget();
 		nextToElement2InCPattern.setReturnNode(true);
 		
@@ -342,8 +351,10 @@ public class Test12Count {
 		p2.addPrimitiveComparison();
 		
 		// countPattern
+		countPattern.getGraph().getReturnNodes().get(0).setReturnNode(false);
 		Node n2a = countPattern.getGraph().getNodes().get(2);
 		Node n3a = n2a.addOutgoing().getTarget();
+		n3a.setReturnNode(true);
 		Relation n3p3 = n3a.addOutgoing();
 		n3a = n3p3.getSource();
 		Node p3a = n3p3.getTarget();				
