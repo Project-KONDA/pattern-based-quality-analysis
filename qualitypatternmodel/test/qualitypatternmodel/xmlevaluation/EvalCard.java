@@ -35,93 +35,84 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
+import qualitypatternmodel.patternstructure.impl.CompletePatternImpl;
 import qualitypatternmodel.xmltranslationtests.Test00;
 import qualitypatternmodel.xmltranslationtests.Test12Count;
 
 public class EvalCard {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-//		completePatterns.add(getCardAbstractThreeElements());
-//		completePatterns.add(getCardAbstractMidas());
-		completePatterns.add(getCardMidasOb30());
-		completePatterns.add(getCardLidoActorName());
+		completePatterns.add(getCardAbstractThreeElements());
+		completePatterns.add(getCardAbstractMidas());
+//		completePatterns.add(getCardMidasOb30());
+//		completePatterns.add(getCardLidoActorName());
 		
-		Test00.getQueries(completePatterns);
-//		Test00.test(completePatterns);		
+//		Test00.getQueries(completePatterns);
+		Test00.test(completePatterns);		
 	}
 	
-	public static CompletePattern getCardAbstractThreeElements() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+	public static CompletePattern getCardGenericThreeElements() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		
 		OperatorsPackage.eINSTANCE.eClass();
 		OperatorsFactory operatorsFactory = OperatorsFactory.eINSTANCE;
-		
 		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory patternStructureFactory = PatternstructureFactory.eINSTANCE;		
-
+		PatternstructureFactory patternStructureFactory = PatternstructureFactory.eINSTANCE;
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
+		// base pattern
 		CompletePattern completePattern = Test00.getBasePattern();
-		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);	
-		returnElementInReturnGraph.addPrimitiveComparison();
 		
-		
+		// add primitive condition to return
+		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);
+		returnElementInReturnGraph.addOutgoing().getTarget().addPrimitiveComparison();
+				
+		// add quantified condition
 		QuantifiedCondition quantifiedCondition = patternStructureFactory.createQuantifiedCondition();
 		completePattern.setCondition(quantifiedCondition);	
-		
 		Graph graph1 = quantifiedCondition.getGraph();
 		
-		Node returnG1 = graph1.getNodes().get(0);
+		// add complex node with primitive condition
+		Node returnG1 = graph1.getReturnNodes().get(0).makeComplex();
+		Node e1G1 = returnG1.addOutgoing().getTarget().makeComplex();
+		Node e2G1 = e1G1.addOutgoing().getTarget().makePrimitive();
+		e2G1.addPrimitiveComparison();
 		
-		Node e1G1 = graphFactory.createNode();
-		e1G1.setGraph(graph1);
-		e1G1.addPrimitiveComparison();
-		Relation r1G1 = graphFactory.createRelation();
-		r1G1.setGraph(graph1);
-		r1G1.setSource(returnG1);
-		r1G1.setTarget(e1G1);
-		
+		// initialize count pattern
 		CountCondition countCondition = patternStructureFactory.createCountCondition();
 		quantifiedCondition.setCondition(countCondition);
-		
 		CountPattern countPattern = patternStructureFactory.createCountPattern();
 		countCondition.setCountPattern(countPattern);
-		
+
+		// intitialize count contition
+		NumberElement numberElement = patternStructureFactory.createNumberElement();
 		NumberParam numberParam = parametersFactory.createNumberParam();
 		numberParam.setValue(1.0);
-		NumberElement numberElement = patternStructureFactory.createNumberElement();
 		numberElement.setNumberParam(numberParam);
 		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
 		countCondition.getOption().setValue(ComparisonOperator.GREATER);		
 		countCondition.setArgument2(numberElement);
 		
+		
 		Graph graph2 = countPattern.getGraph();
-		
-		Node e1G2 = countPattern.getGraph().getNodes().get(1);
-			
-		Node e2G2 = graphFactory.createNode();
-		e2G2.setGraph(graph2);
-		e2G2.setName("e2G2");
-		Relation r2G2 = graphFactory.createRelation();
-		r2G2.setGraph(graph2);
-		r2G2.setSource(e1G2);
-		r2G2.setTarget(e2G2);		
-		countPattern.getGraph().getReturnNodes().clear();
-		countPattern.getGraph().getReturnNodes().add(e2G2);
-		e2G2.addPrimitiveComparison();
-
-		Condition truecondition = patternStructureFactory.createTrueElement();
-		countPattern.setCondition(truecondition);	
+		Node e1G2 = countPattern.getGraph().getReturnNodes().get(0).makeComplex();
+		Node e2G2 = e1G2.addOutgoing().getTarget();
+		countPattern.getGraph().getReturnNodes().get(0).setReturnNode(false);
+		e2G2.setReturnNode(true);
+		Node e3G2 = e2G2.addOutgoing().getTarget();
+		e3G2.addPrimitiveComparison();
 				
-		completePattern.createXmlAdaption();
-		r1G1.adaptAsXmlElementNavigation();
-		r2G2.adaptAsXmlElementNavigation();		
-		completePattern.finalizeXMLAdaption();
-		
 		return completePattern;
 	}
+
+	public static CompletePattern getCardAbstractThreeElements() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getCardGenericThreeElements();
+		completePattern.createXmlAdaption();		
+		return completePattern;
+	}
+
+	
 	
 	private static CompletePattern getCardThreeElementsLidoConcrete(XmlAxisKind returnRelation, String returnElementName, 
 			XmlAxisKind returnToE1Rel, String e1Name, XmlAxisKind e1ToE2Rel, String e2Name) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -131,7 +122,6 @@ public class EvalCard {
 		CompletePattern completePattern = getCardAbstractThreeElements();
 		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);	
 		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(returnRelation, "");
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue(returnElementName);
 		((UntypedParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
@@ -141,7 +131,6 @@ public class EvalCard {
 		
 		Node e1G1 = graph1.getNodes().get(1);	
 		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setXmlAxis(returnToE1Rel, "");
-		((XmlProperty) e1G1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		TextLiteralParam concreteInputValue1G1 = parametersFactory.createTextLiteralParam();
 		concreteInputValue1G1.setValue(e1Name);
 		((UntypedParameterValue) ((Comparison) e1G1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue1G1);
@@ -152,7 +141,6 @@ public class EvalCard {
 				
 		Node e4G2 = graph2.getNodes().get(2);	
 		((XmlElementNavigation) graph2.getRelations().get(1)).getXmlPathParam().setXmlAxis(e1ToE2Rel, "");
-		((XmlProperty) e4G2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
 		TextLiteralParam concreteInputValue4G2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4G2.setValue(e2Name);
 		((UntypedParameterValue) ((Comparison) e4G2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue4G2);
@@ -170,21 +158,14 @@ public class EvalCard {
 		CountCondition condition = (CountCondition) completePattern.getCondition();
 		CountPattern countPattern = (CountPattern) condition.getCountPattern();
 		
-		
-		Node element2InC = countPattern.getGraph().getNodes().get(1);	
+		Node element2InC = countPattern.getGraph().getNodes().get(2).makeComplex();	
 		element2InC.setName("Element2");
+		element2InC.addOutgoing().getTarget().addPrimitiveComparison();
 		
-		Node element3InC = graphstructureFactory.createNode();
-		element3InC.setGraph(countPattern.getGraph());
+		Node element3InC = element2InC.addOutgoing().getTarget().makeComplex();
 		element3InC.setName("Element3");
-		element3InC.addPrimitiveComparison();		
-		element3InC.addPrimitiveComparison();
-
-		Relation relation = graphstructureFactory.createRelation();
-		relation.setGraph(countPattern.getGraph());
-		relation.setSource(element2InC);
-		relation.setTarget(element3InC);
-
+		element3InC.addOutgoing().getTarget().addPrimitiveComparison();
+		element3InC.addOutgoing().getTarget().addPrimitiveComparison();
 		
 		QuantifiedCondition countQCon = patternStructureFactory.createQuantifiedCondition();
 		countPattern.setCondition(countQCon);
@@ -192,26 +173,18 @@ public class EvalCard {
 		
 		TrueElement trueElement = patternStructureFactory.createTrueElement();
 		countQCon.setCondition(trueElement);
+
+		Node element3InCQC = element3InC.getOutgoingMappings().get(0).getTarget();
 		
-		Node element4InC = graphstructureFactory.createNode();
-		element4InC.setGraph(graphCQCon);
+		Node element4InC = element3InCQC.addOutgoing().getTarget();
 		element4InC.setName("Element4");
-		element4InC.addPrimitiveComparison();
+		Node element5InC = element4InC.addOutgoing().getTarget();
+		element5InC.addPrimitiveComparison();		
 		
-		Relation relation2 = graphstructureFactory.createRelation();
-		relation2.setGraph(graphCQCon);
-		Node element3InCQC =element3InC.getOutgoingMappings().get(0).getTarget();
-		relation2.setSource(element3InCQC);
-		relation2.setTarget(element4InC);		
-		
-		countPattern.getGraph().getReturnNodes().clear();
-		countPattern.getGraph().getReturnNodes().add(element3InC);
+		countPattern.getGraph().getReturnNodes().get(0).setReturnNode(false);;
+		element3InC.setReturnNode(true);
 		
 		completePattern.createXmlAdaption();
-		countPattern.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
-		relation.adaptAsXmlElementNavigation();
-		relation2.adaptAsXmlElementNavigation();		
-		completePattern.finalizeXMLAdaption();
 		
 		return completePattern;
 	}
@@ -223,13 +196,10 @@ public class EvalCard {
 		CompletePattern pattern = getCardAbstractMidas();
 		
 		XmlElement returnElementInReturnGraph = (XmlElement) pattern.getGraph().getReturnNodes().get(0);	
-		((XmlElementNavigation) pattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(XmlAxisKind.THREECHILD);
 		Comparison comparisonReturnElementInReturnGraph = (Comparison) returnElementInReturnGraph.getPredicates().get(0);
 		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
 		concreteInputValue.setValue("obj");
 		((UntypedParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1)).replace(concreteInputValue);
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		
 		CountCondition countCondition = (CountCondition) pattern.getCondition();
 		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
@@ -245,24 +215,18 @@ public class EvalCard {
 		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
 		concreteInputValue2.setValue("h1:Block");
 		((UntypedParameterValue) comparisonNextToReturnElementInGraph1.getArguments().get(1)).replace(concreteInputValue2);
-		((XmlProperty) nextToReturnElementInGraph1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
-
+		
 		XmlElement setElement1InGraph1 = (XmlElement) graph1.getNodes().get(2);			
 		Comparison comparison1Set1 = (Comparison) setElement1InGraph1.getPredicates().get(0);
 		TextLiteralParam concreteInputValue4 = parametersFactory.createTextLiteralParam();
 		concreteInputValue4.setValue("ob30");
 		((UntypedParameterValue) comparison1Set1.getArguments().get(1)).replace(concreteInputValue4);
-		((XmlProperty) setElement1InGraph1.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) setElement1InGraph1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 				
 		Comparison comparison2Set1 = (Comparison) setElement1InGraph1.getPredicates().get(1);
 		TextLiteralParam concreteInputValue5 = parametersFactory.createTextLiteralParam();
 		concreteInputValue5.setValue("Herstellung");
 		((UntypedParameterValue) comparison2Set1.getArguments().get(1)).replace(concreteInputValue5);
-		((XmlProperty) setElement1InGraph1.getProperties().get(1)).getAttributeName().setValue("Value");
-		((XmlProperty) setElement1InGraph1.getProperties().get(1)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
-		
-		
+				
 		Graph graph2 = ((QuantifiedCondition)countPattern.getCondition()).getGraph();
 		
 		Node setElement2InGraph1 = graph2.getNodes().get(3);	
@@ -270,13 +234,12 @@ public class EvalCard {
 		TextLiteralParam concreteInputValue6 = parametersFactory.createTextLiteralParam();
 		concreteInputValue6.setValue("ob30rl");
 		((UntypedParameterValue) comparison1Set2.getArguments().get(1)).replace(concreteInputValue6);
-		((XmlProperty) setElement2InGraph1.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) setElement2InGraph1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
 		
 		return pattern;		
 	}
 	
 	public static CompletePattern getCardLidoActorName() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
-		return getCardThreeElementsLidoConcrete(XmlAxisKind.TWOCHILD, "lido:lido", XmlAxisKind.EIGHTCHILD, "lido:nameActorSet", XmlAxisKind.CHILD, "lido:appellationValue");
+		return null;
+		//getCardThreeElementsLidoConcrete(XmlAxisKind.TWOCHILD, "lido:lido", XmlAxisKind.EIGHTCHILD, "lido:nameActorSet", XmlAxisKind.CHILD, "lido:appellationValue");
 	}
 }
