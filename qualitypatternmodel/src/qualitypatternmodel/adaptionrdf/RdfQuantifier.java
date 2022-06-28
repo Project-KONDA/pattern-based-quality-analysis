@@ -19,67 +19,82 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum RdfQuantifier implements Enumerator {
 	/**
-	 * The '<em><b>ONCE</b></em>' literal object.
+	 * The '<em><b>ONE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ONCE_VALUE
-	 * @generated
+	 * @see #ONE_VALUE
+	 * @generated NOT
 	 * @ordered
 	 */
-	ONCE(0, "ONCE", "ONCE"),
-
-	/**
-	 * The '<em><b>ZEROPLUS</b></em>' literal object.
+	ONE(0, "ONE", ""), /**
+	 * The '<em><b>ZERO PLUS</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ZEROPLUS_VALUE
-	 * @generated
+	 * @see #ZERO_PLUS_VALUE
+	 * @generated NOT
 	 * @ordered
 	 */
-	ZEROPLUS(1, "ZEROPLUS", "ZEROPLUS"),
-
-	/**
-	 * The '<em><b>ONEPLUS</b></em>' literal object.
+	ZERO_PLUS(1, "ZERO_PLUS", "*"), /**
+	 * The '<em><b>ONE PLUS</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ONEPLUS_VALUE
-	 * @generated
+	 * @see #ONE_PLUS_VALUE
+	 * @generated NOT
 	 * @ordered
 	 */
-	ONEPLUS(2, "ONEPLUS", "ONEPLUS");
-
-	/**
-	 * The '<em><b>ONCE</b></em>' literal value.
+	ONE_PLUS(2, "ONE_PLUS", "+"), /**
+	 * The '<em><b>ZERO OR ONE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ONCE
+	 * @see #ZERO_OR_ONE_VALUE
+	 * @generated NOT
+	 * @ordered
+	 */
+	ZERO_OR_ONE(3, "ZERO_OR_ONE", "?");
+
+	/**
+	 * The '<em><b>ONE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ONE
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ONCE_VALUE = 0;
+	public static final int ONE_VALUE = 0;
 
 	/**
-	 * The '<em><b>ZEROPLUS</b></em>' literal value.
+	 * The '<em><b>ZERO PLUS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ZEROPLUS
+	 * @see #ZERO_PLUS
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ZEROPLUS_VALUE = 1;
+	public static final int ZERO_PLUS_VALUE = 1;
 
 	/**
-	 * The '<em><b>ONEPLUS</b></em>' literal value.
+	 * The '<em><b>ONE PLUS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ONEPLUS
+	 * @see #ONE_PLUS
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ONEPLUS_VALUE = 2;
+	public static final int ONE_PLUS_VALUE = 2;
+
+	/**
+	 * The '<em><b>ZERO OR ONE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ZERO_OR_ONE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ZERO_OR_ONE_VALUE = 3;
 
 	/**
 	 * An array of all the '<em><b>Rdf Quantifier</b></em>' enumerators.
@@ -89,9 +104,10 @@ public enum RdfQuantifier implements Enumerator {
 	 */
 	private static final RdfQuantifier[] VALUES_ARRAY =
 		new RdfQuantifier[] {
-			ONCE,
-			ZEROPLUS,
-			ONEPLUS,
+			ONE,
+			ZERO_PLUS,
+			ONE_PLUS,
+			ZERO_OR_ONE,
 		};
 
 	/**
@@ -148,9 +164,10 @@ public enum RdfQuantifier implements Enumerator {
 	 */
 	public static RdfQuantifier get(int value) {
 		switch (value) {
-			case ONCE_VALUE: return ONCE;
-			case ZEROPLUS_VALUE: return ZEROPLUS;
-			case ONEPLUS_VALUE: return ONEPLUS;
+			case ONE_VALUE: return ONE;
+			case ZERO_PLUS_VALUE: return ZERO_PLUS;
+			case ONE_PLUS_VALUE: return ONE_PLUS;
+			case ZERO_OR_ONE_VALUE: return ZERO_OR_ONE;
 		}
 		return null;
 	}

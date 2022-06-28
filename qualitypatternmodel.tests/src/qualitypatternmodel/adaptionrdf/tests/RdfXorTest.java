@@ -5,17 +5,15 @@ package qualitypatternmodel.adaptionrdf.tests;
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
-import qualitypatternmodel.adaptionrdf.RdfAxisPair;
-
-import qualitypatternmodel.patternstructure.tests.PatternElementTest;
+import qualitypatternmodel.adaptionrdf.RdfXor;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Rdf Axis Pair</b></em>'.
+ * A test case for the model object '<em><b>Rdf Xor</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class RdfAxisPairTest extends PatternElementTest {
+public class RdfXorTest extends RdfPathParamTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -23,28 +21,28 @@ public class RdfAxisPairTest extends PatternElementTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(RdfAxisPairTest.class);
+		TestRunner.run(RdfXorTest.class);
 	}
 
 	/**
-	 * Constructs a new Rdf Axis Pair test case with the given name.
+	 * Constructs a new Rdf Xor test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RdfAxisPairTest(String name) {
+	public RdfXorTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Rdf Axis Pair test case.
+	 * Returns the fixture for this Rdf Xor test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected RdfAxisPair getFixture() {
-		return (RdfAxisPair)fixture;
+	protected RdfXor getFixture() {
+		return (RdfXor)fixture;
 	}
 
 	/**
@@ -55,7 +53,7 @@ public class RdfAxisPairTest extends PatternElementTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptionrdfFactory.eINSTANCE.createRdfAxisPair());
+		setFixture(AdaptionrdfFactory.eINSTANCE.createRdfXor());
 	}
 
 	/**
@@ -69,4 +67,4 @@ public class RdfAxisPairTest extends PatternElementTest {
 		setFixture(null);
 	}
 
-} //RdfAxisPairTest
+} //RdfXorTest

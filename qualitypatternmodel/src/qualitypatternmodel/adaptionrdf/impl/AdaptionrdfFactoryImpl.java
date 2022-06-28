@@ -59,10 +59,11 @@ public class AdaptionrdfFactoryImpl extends EFactoryImpl implements AdaptionrdfF
 		switch (eClass.getClassifierID()) {
 			case AdaptionrdfPackage.RDF_PREDICATE: return createRdfPredicate();
 			case AdaptionrdfPackage.RDF_IRI_NODE: return createRdfIriNode();
-			case AdaptionrdfPackage.RDF_PATH_PARAM: return createRdfPathParam();
-			case AdaptionrdfPackage.RDF_AXIS_PAIR: return createRdfAxisPair();
+			case AdaptionrdfPackage.RDF_SINGLE_PREDICATE: return createRdfSinglePredicate();
 			case AdaptionrdfPackage.RDF_LITERAL_NODE: return createRdfLiteralNode();
 			case AdaptionrdfPackage.IRI_PARAM: return createIriParam();
+			case AdaptionrdfPackage.RDF_XOR: return createRdfXor();
+			case AdaptionrdfPackage.RDF_SEQUENCE: return createRdfSequence();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -126,20 +127,9 @@ public class AdaptionrdfFactoryImpl extends EFactoryImpl implements AdaptionrdfF
 	 * @generated
 	 */
 	@Override
-	public RdfPathParam createRdfPathParam() {
-		RdfPathParamImpl rdfPathParam = new RdfPathParamImpl();
-		return rdfPathParam;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public RdfAxisPair createRdfAxisPair() {
-		RdfAxisPairImpl rdfAxisPair = new RdfAxisPairImpl();
-		return rdfAxisPair;
+	public RdfSinglePredicate createRdfSinglePredicate() {
+		RdfSinglePredicateImpl rdfSinglePredicate = new RdfSinglePredicateImpl();
+		return rdfSinglePredicate;
 	}
 
 	/**
@@ -162,6 +152,28 @@ public class AdaptionrdfFactoryImpl extends EFactoryImpl implements AdaptionrdfF
 	public IriParam createIriParam() {
 		IriParamImpl iriParam = new IriParamImpl();
 		return iriParam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RdfXor createRdfXor() {
+		RdfXorImpl rdfXor = new RdfXorImpl();
+		return rdfXor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RdfSequence createRdfSequence() {
+		RdfSequenceImpl rdfSequence = new RdfSequenceImpl();
+		return rdfSequence;
 	}
 
 	/**

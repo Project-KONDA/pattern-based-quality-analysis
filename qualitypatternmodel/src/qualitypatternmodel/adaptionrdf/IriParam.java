@@ -13,7 +13,7 @@ import qualitypatternmodel.parameters.Parameter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionrdf.IriParam#getRdfAxisPair <em>Rdf Axis Pair</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.IriParam#getRdfSinglePredicate <em>Rdf Single Predicate</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionrdf.IriParam#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionrdf.IriParam#getUri <em>Uri</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionrdf.IriParam#getSuffix <em>Suffix</em>}</li>
@@ -26,28 +26,28 @@ import qualitypatternmodel.parameters.Parameter;
 public interface IriParam extends Parameter {
 
 	/**
-	 * Returns the value of the '<em><b>Rdf Axis Pair</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfAxisPair#getIriParam <em>Iri Param</em>}'.
+	 * Returns the value of the '<em><b>Rdf Single Predicate</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.RdfSinglePredicate#getIriParam <em>Iri Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rdf Axis Pair</em>' container reference.
-	 * @see #setRdfAxisPair(RdfAxisPair)
-	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getIriParam_RdfAxisPair()
-	 * @see qualitypatternmodel.adaptionrdf.RdfAxisPair#getIriParam
+	 * @return the value of the '<em>Rdf Single Predicate</em>' container reference.
+	 * @see #setRdfSinglePredicate(RdfSinglePredicate)
+	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getIriParam_RdfSinglePredicate()
+	 * @see qualitypatternmodel.adaptionrdf.RdfSinglePredicate#getIriParam
 	 * @model opposite="iriParam" required="true" transient="false"
 	 * @generated
 	 */
-	RdfAxisPair getRdfAxisPair();
+	RdfSinglePredicate getRdfSinglePredicate();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.IriParam#getRdfAxisPair <em>Rdf Axis Pair</em>}' container reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.IriParam#getRdfSinglePredicate <em>Rdf Single Predicate</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rdf Axis Pair</em>' container reference.
-	 * @see #getRdfAxisPair()
+	 * @param value the new value of the '<em>Rdf Single Predicate</em>' container reference.
+	 * @see #getRdfSinglePredicate()
 	 * @generated
 	 */
-	void setRdfAxisPair(RdfAxisPair value);
+	void setRdfSinglePredicate(RdfSinglePredicate value);
 
 	/**
 	 * Returns the value of the '<em><b>Prefix</b></em>' attribute.

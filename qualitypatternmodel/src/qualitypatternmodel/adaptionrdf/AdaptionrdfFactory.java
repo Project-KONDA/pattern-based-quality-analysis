@@ -40,22 +40,13 @@ public interface AdaptionrdfFactory extends EFactory {
 	RdfIriNode createRdfIriNode();
 
 	/**
-	 * Returns a new object of class '<em>Rdf Path Param</em>'.
+	 * Returns a new object of class '<em>Rdf Single Predicate</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rdf Path Param</em>'.
+	 * @return a new object of class '<em>Rdf Single Predicate</em>'.
 	 * @generated
 	 */
-	RdfPathParam createRdfPathParam();
-
-	/**
-	 * Returns a new object of class '<em>Rdf Axis Pair</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rdf Axis Pair</em>'.
-	 * @generated
-	 */
-	RdfAxisPair createRdfAxisPair();
+	RdfSinglePredicate createRdfSinglePredicate();
 
 	/**
 	 * Returns a new object of class '<em>Rdf Literal Node</em>'.
@@ -74,6 +65,24 @@ public interface AdaptionrdfFactory extends EFactory {
 	 * @generated
 	 */
 	IriParam createIriParam();
+
+	/**
+	 * Returns a new object of class '<em>Rdf Xor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rdf Xor</em>'.
+	 * @generated
+	 */
+	RdfXor createRdfXor();
+
+	/**
+	 * Returns a new object of class '<em>Rdf Sequence</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rdf Sequence</em>'.
+	 * @generated
+	 */
+	RdfSequence createRdfSequence();
 
 	/**
 	 * Returns the package supported by this factory.

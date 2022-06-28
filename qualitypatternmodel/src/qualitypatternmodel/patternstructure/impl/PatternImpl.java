@@ -7,8 +7,6 @@ import static qualitypatternmodel.utility.Constants.VARIABLE;
 import static qualitypatternmodel.utility.Constants.WHERE;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -19,7 +17,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionrdf.IriParam;
-import qualitypatternmodel.adaptionrdf.RdfAxisPair;
+import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -27,7 +25,6 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.Parameter;
@@ -195,9 +192,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		for(Parameter p : getParameterList().getParameters()) {
 			if(p instanceof RdfPathParam) {
 				RdfPathParam rdfPathParam = (RdfPathParam) p;
-				for(RdfAxisPair rdfAxisPair : rdfPathParam.getRdfAxisPair()) {
-					if(rdfAxisPair.getIriParam() != null) {
-						IriParam iriParam = rdfAxisPair.getIriParam();
+				for(RdfSinglePredicate rdfSinglePredicate : rdfPathParam.getRdfSinglePredicates()) {
+					if(rdfSinglePredicate.getIriParam() != null) {
+						IriParam iriParam = rdfSinglePredicate.getIriParam();
 						if(iriParam.getPrefix() != null) {
 							String standardIri = iriParam.getStandardIri();
 							if(standardIri == null) {

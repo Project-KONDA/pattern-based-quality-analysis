@@ -79,7 +79,6 @@ public class XmlPropertyNavigationItemProvider extends XmlNavigationItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

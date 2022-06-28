@@ -89,8 +89,8 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 				return createRdfPathParamAdapter();
 			}
 			@Override
-			public Adapter caseRdfAxisPair(RdfAxisPair object) {
-				return createRdfAxisPairAdapter();
+			public Adapter caseRdfSinglePredicate(RdfSinglePredicate object) {
+				return createRdfSinglePredicateAdapter();
 			}
 			@Override
 			public Adapter caseRdfNode(RdfNode object) {
@@ -103,6 +103,14 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseIriParam(IriParam object) {
 				return createIriParamAdapter();
+			}
+			@Override
+			public Adapter caseRdfXor(RdfXor object) {
+				return createRdfXorAdapter();
+			}
+			@Override
+			public Adapter caseRdfSequence(RdfSequence object) {
+				return createRdfSequenceAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -199,16 +207,16 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionrdf.RdfAxisPair <em>Rdf Axis Pair</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionrdf.RdfSinglePredicate <em>Rdf Single Predicate</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionrdf.RdfAxisPair
+	 * @see qualitypatternmodel.adaptionrdf.RdfSinglePredicate
 	 * @generated
 	 */
-	public Adapter createRdfAxisPairAdapter() {
+	public Adapter createRdfSinglePredicateAdapter() {
 		return null;
 	}
 
@@ -251,6 +259,34 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIriParamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionrdf.RdfXor <em>Rdf Xor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionrdf.RdfXor
+	 * @generated
+	 */
+	public Adapter createRdfXorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionrdf.RdfSequence <em>Rdf Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionrdf.RdfSequence
+	 * @generated
+	 */
+	public Adapter createRdfSequenceAdapter() {
 		return null;
 	}
 

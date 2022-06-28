@@ -84,10 +84,9 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 			if(parameterList != null) {
 				RdfPathParam pp = getRdfPathParam();
 				if (pp == null) {
-					pp = new RdfPathParamImpl();
+					pp = new RdfSinglePredicateImpl();
 					setRdfPathParam(pp);
 					parameterList.add(pp);
-					pp.createParameters();
 				}
 				if (!pp.getParameterList().equals(parameterList)){
 					parameterList.add(pp);

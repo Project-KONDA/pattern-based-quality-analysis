@@ -9,36 +9,29 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
-import qualitypatternmodel.adaptionrdf.RdfAxisPair;
-import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
-
-import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
+import qualitypatternmodel.adaptionrdf.RdfSequence;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionrdf.RdfAxisPair} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionrdf.RdfSequence} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RdfAxisPairItemProvider extends PatternElementItemProvider {
+public class RdfSequenceItemProvider extends RdfPathParamItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RdfAxisPairItemProvider(AdapterFactory adapterFactory) {
+	public RdfSequenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -53,31 +46,8 @@ public class RdfAxisPairItemProvider extends PatternElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addQuantifierPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Quantifier feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addQuantifierPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RdfAxisPair_quantifier_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RdfAxisPair_quantifier_feature", "_UI_RdfAxisPair_type"),
-				 AdaptionrdfPackage.Literals.RDF_AXIS_PAIR__QUANTIFIER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -92,7 +62,7 @@ public class RdfAxisPairItemProvider extends PatternElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AdaptionrdfPackage.Literals.RDF_AXIS_PAIR__IRI_PARAM);
+			childrenFeatures.add(AdaptionrdfPackage.Literals.RDF_SEQUENCE__ITEMS);
 		}
 		return childrenFeatures;
 	}
@@ -111,14 +81,14 @@ public class RdfAxisPairItemProvider extends PatternElementItemProvider {
 	}
 
 	/**
-	 * This returns RdfAxisPair.gif.
+	 * This returns RdfSequence.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RdfAxisPair"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RdfSequence"));
 	}
 
 	/**
@@ -129,10 +99,10 @@ public class RdfAxisPairItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((RdfAxisPair)object).getId();
+		String label = ((RdfSequence)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RdfAxisPair_type") :
-			getString("_UI_RdfAxisPair_type") + " " + label;
+			getString("_UI_RdfSequence_type") :
+			getString("_UI_RdfSequence_type") + " " + label;
 	}
 
 
@@ -147,11 +117,8 @@ public class RdfAxisPairItemProvider extends PatternElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(RdfAxisPair.class)) {
-			case AdaptionrdfPackage.RDF_AXIS_PAIR__QUANTIFIER:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case AdaptionrdfPackage.RDF_AXIS_PAIR__IRI_PARAM:
+		switch (notification.getFeatureID(RdfSequence.class)) {
+			case AdaptionrdfPackage.RDF_SEQUENCE__ITEMS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -171,19 +138,18 @@ public class RdfAxisPairItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionrdfPackage.Literals.RDF_AXIS_PAIR__IRI_PARAM,
-				 AdaptionrdfFactory.eINSTANCE.createIriParam()));
-	}
+				(AdaptionrdfPackage.Literals.RDF_SEQUENCE__ITEMS,
+				 AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate()));
 
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return QualitypatternmodelEditPlugin.INSTANCE;
+		newChildDescriptors.add
+			(createChildParameter
+				(AdaptionrdfPackage.Literals.RDF_SEQUENCE__ITEMS,
+				 AdaptionrdfFactory.eINSTANCE.createRdfXor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AdaptionrdfPackage.Literals.RDF_SEQUENCE__ITEMS,
+				 AdaptionrdfFactory.eINSTANCE.createRdfSequence()));
 	}
 
 }

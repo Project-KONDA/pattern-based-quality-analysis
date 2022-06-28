@@ -87,7 +87,6 @@ public class RdfIriNodeItemProvider extends ComplexNodeItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		super.notifyChanged(notification);
 	}
 
 	/**

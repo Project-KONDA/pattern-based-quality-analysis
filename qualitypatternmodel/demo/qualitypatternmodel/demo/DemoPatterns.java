@@ -7,7 +7,7 @@ import org.basex.query.QueryIOException;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.IriParam;
-import qualitypatternmodel.adaptionrdf.RdfAxisPair;
+import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
@@ -408,7 +408,7 @@ public class DemoPatterns {
 		// Graph of quantified condition:
 		RdfPredicate pred1 = (RdfPredicate) quantifiedCondition.getGraph().getRelations().get(0);
 		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		pred1.getRdfPathParam().getRdfAxisPair().get(0).setIriParam(iriParam);
+		((RdfSinglePredicate) pred1.getRdfPathParam()).setIriParam(iriParam);
 		iriParam.setPrefix("wdt");
 		iriParam.setSuffix("P569");
 		

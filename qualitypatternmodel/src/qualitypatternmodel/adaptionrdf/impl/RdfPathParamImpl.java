@@ -3,7 +3,6 @@
 package qualitypatternmodel.adaptionrdf.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -11,17 +10,14 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
-import qualitypatternmodel.adaptionrdf.RdfAxisPair;
+import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
-import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.adaptionrdf.RdfQuantifier;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
 
 /**
@@ -32,22 +28,14 @@ import qualitypatternmodel.parameters.impl.ParameterImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl#getRdfAxisPair <em>Rdf Axis Pair</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl#getRdfPredicate <em>Rdf Predicate</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl#isInvert <em>Invert</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.impl.RdfPathParamImpl#getQuantifier <em>Quantifier</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
-	/**
-	 * The cached value of the '{@link #getRdfAxisPair() <em>Rdf Axis Pair</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRdfAxisPair()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<RdfAxisPair> rdfAxisPair;
+public abstract class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	/**
 	 * The cached value of the '{@link #getRdfPredicate() <em>Rdf Predicate</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -58,6 +46,42 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 */
 	protected RdfPredicate rdfPredicate;
 	/**
+	 * The default value of the '{@link #isInvert() <em>Invert</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvert()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INVERT_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isInvert() <em>Invert</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvert()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean invert = INVERT_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getQuantifier() <em>Quantifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final RdfQuantifier QUANTIFIER_EDEFAULT = RdfQuantifier.ONE;
+	/**
+	 * The cached value of the '{@link #getQuantifier() <em>Quantifier</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantifier()
+	 * @generated
+	 * @ordered
+	 */
+	protected RdfQuantifier quantifier = QUANTIFIER_EDEFAULT;
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -65,22 +89,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	protected RdfPathParamImpl() {
 		super();
 	}
-	
-	@Override
-	public String generateSparql() throws InvalidityException {
-		String query = "";
-		int i = 0;
-		for(RdfAxisPair p : getRdfAxisPair()) {
-			if(i > 0) {
-				query += "/";
-			}
-			query += p.generateSparql(); 
-			i++;
-		}
-		// TODO
-		return query;
-	}
-	
+		
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -89,19 +98,6 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	@Override
 	protected EClass eStaticClass() {
 		return AdaptionrdfPackage.Literals.RDF_PATH_PARAM;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<RdfAxisPair> getRdfAxisPair() {
-		if (rdfAxisPair == null) {
-			rdfAxisPair = new EObjectContainmentWithInverseEList<RdfAxisPair>(RdfAxisPair.class, this, AdaptionrdfPackage.RDF_PATH_PARAM__RDF_AXIS_PAIR, AdaptionrdfPackage.RDF_AXIS_PAIR__RDF_PATH_PARAM);
-		}
-		return rdfAxisPair;
 	}
 
 	/**
@@ -169,17 +165,71 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
+	 */
+	@Override
+	public boolean isInvert() {
+		return invert;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setInvert(boolean newInvert) {
+		boolean oldInvert = invert;
+		invert = newInvert;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH_PARAM__INVERT, oldInvert, invert));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RdfQuantifier getQuantifier() {
+		return quantifier;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setQuantifier(RdfQuantifier newQuantifier) {
+		RdfQuantifier oldQuantifier = quantifier;
+		quantifier = newQuantifier == null ? QUANTIFIER_EDEFAULT : newQuantifier;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PATH_PARAM__QUANTIFIER, oldQuantifier, quantifier));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<RdfSinglePredicate> getRdfSinglePredicates() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	@Override
 	public void createParameters() {
-		ParameterList parameterList = getParameterList();		
-		if(parameterList != null) {
-			if(getRdfAxisPair().isEmpty()) {
-				RdfAxisPair xmlAxisPair = new RdfAxisPairImpl();
-				getRdfAxisPair().add(xmlAxisPair);
-			}
-		}
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -203,8 +253,6 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_AXIS_PAIR:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRdfAxisPair()).basicAdd(otherEnd, msgs);
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE:
 				if (rdfPredicate != null)
 					msgs = ((InternalEObject)rdfPredicate).eInverseRemove(this, AdaptionrdfPackage.RDF_PREDICATE__RDF_PATH_PARAM, RdfPredicate.class, msgs);
@@ -221,8 +269,6 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_AXIS_PAIR:
-				return ((InternalEList<?>)getRdfAxisPair()).basicRemove(otherEnd, msgs);
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE:
 				return basicSetRdfPredicate(null, msgs);
 		}
@@ -237,11 +283,13 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_AXIS_PAIR:
-				return getRdfAxisPair();
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE:
 				if (resolve) return getRdfPredicate();
 				return basicGetRdfPredicate();
+			case AdaptionrdfPackage.RDF_PATH_PARAM__INVERT:
+				return isInvert();
+			case AdaptionrdfPackage.RDF_PATH_PARAM__QUANTIFIER:
+				return getQuantifier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -255,12 +303,14 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_AXIS_PAIR:
-				getRdfAxisPair().clear();
-				getRdfAxisPair().addAll((Collection<? extends RdfAxisPair>)newValue);
-				return;
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE:
 				setRdfPredicate((RdfPredicate)newValue);
+				return;
+			case AdaptionrdfPackage.RDF_PATH_PARAM__INVERT:
+				setInvert((Boolean)newValue);
+				return;
+			case AdaptionrdfPackage.RDF_PATH_PARAM__QUANTIFIER:
+				setQuantifier((RdfQuantifier)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -274,11 +324,14 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_AXIS_PAIR:
-				getRdfAxisPair().clear();
-				return;
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE:
 				setRdfPredicate((RdfPredicate)null);
+				return;
+			case AdaptionrdfPackage.RDF_PATH_PARAM__INVERT:
+				setInvert(INVERT_EDEFAULT);
+				return;
+			case AdaptionrdfPackage.RDF_PATH_PARAM__QUANTIFIER:
+				setQuantifier(QUANTIFIER_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -292,10 +345,12 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_AXIS_PAIR:
-				return rdfAxisPair != null && !rdfAxisPair.isEmpty();
 			case AdaptionrdfPackage.RDF_PATH_PARAM__RDF_PREDICATE:
 				return rdfPredicate != null;
+			case AdaptionrdfPackage.RDF_PATH_PARAM__INVERT:
+				return invert != INVERT_EDEFAULT;
+			case AdaptionrdfPackage.RDF_PATH_PARAM__QUANTIFIER:
+				return quantifier != QUANTIFIER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -325,6 +380,8 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case AdaptionrdfPackage.RDF_PATH_PARAM___GET_RDF_SINGLE_PREDICATES:
+				return getRdfSinglePredicates();
 			case AdaptionrdfPackage.RDF_PATH_PARAM___CREATE_PARAMETERS:
 				createParameters();
 				return null;
@@ -333,6 +390,24 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (invert: ");
+		result.append(invert);
+		result.append(", quantifier: ");
+		result.append(quantifier);
+		result.append(')');
+		return result.toString();
 	}
 
 	@Override
