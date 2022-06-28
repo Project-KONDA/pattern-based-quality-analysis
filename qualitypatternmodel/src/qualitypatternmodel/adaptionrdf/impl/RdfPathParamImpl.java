@@ -130,9 +130,10 @@ public abstract class RdfPathParamImpl extends ParameterImpl implements RdfPathP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetRdfPredicate(RdfPredicate newRdfPredicate, NotificationChain msgs) {
+		triggerParameterUpdates(newRdfPredicate);
 		RdfPredicate oldRdfPredicate = rdfPredicate;
 		rdfPredicate = newRdfPredicate;
 		if (eNotificationRequired()) {
