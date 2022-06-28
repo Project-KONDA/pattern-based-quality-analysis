@@ -24,6 +24,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import static qualitypatternmodel.xmltranslationtests.Test00.*;
 
 public class RdfTest00 {
 	public static void test(ArrayList<CompletePattern> completePatterns) {
@@ -110,19 +111,4 @@ public class RdfTest00 {
 		return completePattern;		
 	}
 	
-	public static CompletePattern replace(CompletePattern pattern) {
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
-		EList<Parameter> params = pattern.getParameterList().getParameters();
-		for (int i = params.size()-1; i > -1; i--) {
-			Parameter param = pattern.getParameterList().getParameters().get(i);
-			if (param instanceof UntypedParameterValue) {
-				TextLiteralParam text = parametersFactory.createTextLiteralParam();
-				text.setValue("unknown");
-				((UntypedParameterValue) param).replace(text);
-			}
-		}
-		return pattern;
-	}
 }
