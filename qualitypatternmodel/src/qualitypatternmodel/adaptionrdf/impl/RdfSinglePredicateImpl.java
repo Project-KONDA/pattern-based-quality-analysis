@@ -177,7 +177,7 @@ public class RdfSinglePredicateImpl extends PatternElementImpl implements RdfSin
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(getIriParam() == null) {
-			return "?var" + getInternalId();
+			return "(<>|!<>)";
 		}
 		return (invert ? "^" : "" ) + getIriParam().generateSparql() + getQuantifier().getLiteral();
 	}
