@@ -518,13 +518,11 @@ public class RdfSinglePredicateImpl extends PatternElementImpl implements RdfSin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public boolean isUsed() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return getRdfPredicate() != null;
 	}
 
 	/**
