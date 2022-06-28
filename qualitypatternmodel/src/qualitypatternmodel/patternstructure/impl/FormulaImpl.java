@@ -151,7 +151,7 @@ public class FormulaImpl extends ConditionImpl implements Formula {
 				String condition1Query = condition1.generateXQuery();
 				String condition2Query = condition2.generateXQuery();
 				
-				if(operator != LogicalOperator.AND && isInRdfFilter()) {
+				if(operator != LogicalOperator.AND && !isInRdfFilter()) {
 					result += "FILTER ";
 				}
 				
