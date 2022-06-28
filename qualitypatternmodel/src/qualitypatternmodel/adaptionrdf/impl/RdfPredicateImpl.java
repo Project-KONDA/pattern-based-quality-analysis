@@ -88,7 +88,7 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 					setRdfPathParam(pp);
 					parameterList.add(pp);
 				}
-				if (!pp.getParameterList().equals(parameterList)){
+				if (!parameterList.equals(pp.getParameterList())){
 					parameterList.add(pp);
 				}
 			}
@@ -144,11 +144,14 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetRdfPathParam(RdfPathParam newRdfPathParam, NotificationChain msgs) {
 		RdfPathParam oldRdfPathParam = rdfPathParam;
 		rdfPathParam = newRdfPathParam;
+		
+		createParameters();
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PREDICATE__RDF_PATH_PARAM, oldRdfPathParam, newRdfPathParam);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
