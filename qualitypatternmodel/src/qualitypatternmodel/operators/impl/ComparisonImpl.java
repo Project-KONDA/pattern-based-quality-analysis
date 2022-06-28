@@ -246,10 +246,16 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				return "\nVALUES " + nodeTranslation + " {" + otherTranslation + "}";
 			}
 		case NOTEQUAL:
-			if(getArgument1() instanceof TextLiteralParam || getArgument2() instanceof TextLiteralParam) {
+			if(getArgument1() instanceof TextLiteralParam) {
 				return "FILTER (!regex(" + argument2Translation + ", ^" + argument1Translation + "$))";
-			} else if(getArgument1() instanceof TextListParam || getArgument2() instanceof TextListParam) {
-				
+			} else if(getArgument2() instanceof TextLiteralParam) {
+				return "FILTER (!regex(" + argument1Translation + ", ^" + argument2Translation + "$))";
+			} else if(getArgument1() instanceof TextListParam) {
+				TextListParam list = (TextListParam) getArgument1();
+				return "FILTER (!regex(" + argument2Translation + ", ^" + list.generateSparql() + "$))";
+			} else if (getArgument2() instanceof TextListParam) {
+				TextListParam list = (TextListParam) getArgument2();				
+				return "FILTER (!regex(" + argument1Translation + ", ^" + list.generateSparql() + "$))";
 			} else {
 				return "\nFILTER (" + argument1Translation + " != " + argument2Translation + ")";		
 			}
