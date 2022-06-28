@@ -1123,7 +1123,7 @@
       <eLiterals name="ONE_PLUS" value="2" literal="ONE_PLUS"/>
       <eLiterals name="ZERO_OR_ONE" value="3" literal="ZERO_OR_ONE"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfSinglePredicate" eSuperTypes="#//patternstructure/PatternElement #//adaptionrdf/RdfPathParam">
+    <eClassifiers xsi:type="ecore:EClass" name="RdfSinglePredicate" eSuperTypes="#//adaptionrdf/RdfPathParam">
       <eStructuralFeatures xsi:type="ecore:EReference" name="iriParam" eType="#//adaptionrdf/IriParam"
           containment="true" eOpposite="#//adaptionrdf/IriParam/rdfSinglePredicate"/>
     </eClassifiers>

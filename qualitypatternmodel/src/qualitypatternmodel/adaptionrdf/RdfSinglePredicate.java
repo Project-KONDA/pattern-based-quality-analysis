@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.adaptionrdf;
 
-import qualitypatternmodel.patternstructure.PatternElement;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Rdf Axis Pair</b></em>'.
@@ -20,7 +18,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @model
  * @generated
  */
-public interface RdfSinglePredicate extends PatternElement, RdfPathParam {
+public interface RdfSinglePredicate extends RdfPathParam {
 	/**
 	 * Returns the value of the '<em><b>Iri Param</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.IriParam#getRdfSinglePredicate <em>Rdf Single Predicate</em>}'.

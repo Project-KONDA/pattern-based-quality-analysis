@@ -581,7 +581,6 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		// Obtain other dependent packages
 		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
-		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -593,7 +592,6 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		rdfIriNodeEClass.getESuperTypes().add(this.getRdfNode());
 		rdfPathParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
 		rdfPathParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
-		rdfSinglePredicateEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		rdfSinglePredicateEClass.getESuperTypes().add(this.getRdfPathParam());
 		rdfLiteralNodeEClass.getESuperTypes().add(theGraphstructurePackage.getPrimitiveNode());
 		rdfLiteralNodeEClass.getESuperTypes().add(this.getRdfNode());
