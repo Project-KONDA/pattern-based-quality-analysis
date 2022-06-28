@@ -31,9 +31,9 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
-import qualitypatternmodel.translationtests.Test00;
-import qualitypatternmodel.translationtests.Test03Quantor;
-import qualitypatternmodel.translationtests.Test06NotElement;
+import qualitypatternmodel.xmltranslationtests.Test00;
+import qualitypatternmodel.xmltranslationtests.Test03Quantor;
+import qualitypatternmodel.xmltranslationtests.Test06NotElement;
 
 public class RelationSwitch {
 	public static void main(String[] args) throws OperatorCycleException, MissingPatternContainerException {

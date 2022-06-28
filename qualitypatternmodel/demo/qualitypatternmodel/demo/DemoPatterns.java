@@ -1,5 +1,7 @@
 package qualitypatternmodel.demo;
 
+import static qualitypatternmodel.xmltestutility.DatabaseConstants.*;
+
 import java.io.IOException;
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
@@ -58,8 +60,6 @@ import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.textrepresentation.ParameterFragment;
 import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
 import qualitypatternmodel.utility.EMFModelSave;
-
-import static qualitypatternmodel.testutility.DatabaseConstants.*;
 
 public class DemoPatterns {
 

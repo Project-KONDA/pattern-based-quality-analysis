@@ -42,7 +42,8 @@ import qualitypatternmodel.execution.XmlSchemaDatabase;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.servlettests.ServletTestsUtil;
+import qualitypatternmodel.xmlservlettests.ServletTestsUtil;
+
 import static qualitypatternmodel.adaptionxml.XmlAxisKind.*;
 
 
