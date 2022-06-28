@@ -220,6 +220,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			query += " ?var" + s.getOriginalID();
 		}
 		query += "\nWHERE\n{\n";
+		query += graph.generateSparql();
 		query += condition.generateSparql();
 		query += "\n}";
 		return query;
