@@ -8,21 +8,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import qualitypatternmodel.execution.BaseXClient;
-import qualitypatternmodel.execution.Database;
-import qualitypatternmodel.execution.Databaseformat;
-import qualitypatternmodel.execution.Databases;
-import qualitypatternmodel.execution.ExecutionPackage;
-import qualitypatternmodel.execution.LocalXmlDataDatabase;
-import qualitypatternmodel.execution.LocalXmlSchemaDatabase;
-import qualitypatternmodel.execution.Result;
-import qualitypatternmodel.execution.ServerXmlDataDatabase;
-import qualitypatternmodel.execution.ServerXmlSchemaDatabase;
-import qualitypatternmodel.execution.XmlDataDatabase;
-import qualitypatternmodel.execution.XmlDatabase;
-import qualitypatternmodel.execution.XmlResult;
-import qualitypatternmodel.execution.XmlSchemaDatabase;
-import qualitypatternmodel.xmlexecution.*;
+import qualitypatternmodel.execution.*;
 
 /**
  * <!-- begin-user-doc -->

@@ -1,7 +1,7 @@
 package playground;
 
-import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_DATABASE_NAME;
-import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_DATA_PATH;
+import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_DATABASE_NAME;
+import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_DATA_PATH;
 
 import org.basex.core.BaseXException;
 import org.basex.core.Context;

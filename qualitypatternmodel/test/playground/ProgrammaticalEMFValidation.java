@@ -5,7 +5,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.xmltestutility.EMFValidationPreparation;
+import qualitypatternmodel.testutility.EMFValidationPreparation;
 
 public class ProgrammaticalEMFValidation {
 	public static void main(String[] args) {	
