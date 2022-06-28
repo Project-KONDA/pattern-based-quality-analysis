@@ -16,8 +16,19 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import qualitypatternmodel.execution.*;
+import qualitypatternmodel.execution.BaseXClient;
+import qualitypatternmodel.execution.Databases;
+import qualitypatternmodel.execution.ExecutionFactory;
+import qualitypatternmodel.execution.ExecutionPackage;
+import qualitypatternmodel.execution.LocalXmlDataDatabase;
+import qualitypatternmodel.execution.LocalXmlSchemaDatabase;
+import qualitypatternmodel.execution.ServerXmlDataDatabase;
+import qualitypatternmodel.execution.ServerXmlSchemaDatabase;
+import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.execution.XmlResult;
+import qualitypatternmodel.execution.XmlSchemaDatabase;
 import qualitypatternmodel.execution.impl.BaseXClientImpl.Query;
+import qualitypatternmodel.xmlexecution.*;
 
 /**
  * <!-- begin-user-doc -->

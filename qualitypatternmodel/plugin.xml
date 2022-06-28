@@ -50,7 +50,7 @@
       <!-- @generated qualitypatternmodel -->
       <package
             uri="execution"
-            class="qualitypatternmodel.execution.ExecutionPackage"
+            class="qualitypatternmodel.xmlexecution.ExecutionPackage"
             genModel="model/qualitypatternmodel.genmodel"/>
    </extension>
 
