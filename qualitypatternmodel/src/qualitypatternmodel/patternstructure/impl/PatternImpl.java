@@ -213,7 +213,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 
 		String query = "";
 		for (String p: prefixes) {
-			query += p + "\n";
+			query += "\n" + p;
 		}
 		query += "\nSELECT\n";
 		for (Node s: selects) {
