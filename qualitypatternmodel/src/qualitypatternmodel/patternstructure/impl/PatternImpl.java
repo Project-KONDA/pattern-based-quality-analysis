@@ -188,7 +188,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			throw new InvalidityException("return elements missing");
 		}
 		
-		EList<String> prefixes = new BasicEList<String>();
+		EList<String> prefixes = new BasicEList<String>();		
 		for(Parameter p : getParameterList().getParameters()) {
 			if(p instanceof RdfPathParam) {
 				RdfPathParam rdfPathParam = (RdfPathParam) p;
@@ -200,7 +200,16 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 							if(standardIri == null) {
 								throw new InvalidityException("Invalid prefix");
 							}
-							prefixes.add("PREFIX " + iriParam.getPrefix() + ": <" + standardIri + ">");
+							String prefixDeclaration = "PREFIX " + iriParam.getPrefix() + ": <" + standardIri + ">";
+							boolean found = false;
+							for(String s : prefixes) {
+								if(s.equals(prefixDeclaration)) {
+									found = true;
+								}
+							}
+							if(!found) {
+								prefixes.add(prefixDeclaration);
+							}
 						}
 					}
 				}
