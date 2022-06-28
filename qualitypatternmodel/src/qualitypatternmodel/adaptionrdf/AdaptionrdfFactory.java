@@ -85,6 +85,15 @@ public interface AdaptionrdfFactory extends EFactory {
 	RdfSequence createRdfSequence();
 
 	/**
+	 * Returns a new object of class '<em>Iri List Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Iri List Param</em>'.
+	 * @generated
+	 */
+	IriListParam createIriListParam();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -233,6 +233,29 @@ public class AdaptionrdfItemProviderAdapterFactory extends AdaptionrdfAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionrdf.IriListParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IriListParamItemProvider iriListParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionrdf.IriListParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIriListParamAdapter() {
+		if (iriListParamItemProvider == null) {
+			iriListParamItemProvider = new IriListParamItemProvider(this);
+		}
+
+		return iriListParamItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -344,6 +367,7 @@ public class AdaptionrdfItemProviderAdapterFactory extends AdaptionrdfAdapterFac
 		if (iriParamItemProvider != null) iriParamItemProvider.dispose();
 		if (rdfXorItemProvider != null) rdfXorItemProvider.dispose();
 		if (rdfSequenceItemProvider != null) rdfSequenceItemProvider.dispose();
+		if (iriListParamItemProvider != null) iriListParamItemProvider.dispose();
 	}
 
 }

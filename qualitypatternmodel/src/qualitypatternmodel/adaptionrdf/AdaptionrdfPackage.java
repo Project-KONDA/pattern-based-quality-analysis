@@ -2814,7 +2814,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM__ID = ParametersPackage.PARAMETER__ID;
+	int IRI_PARAM__ID = ParametersPackage.PARAMETER_VALUE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -2823,7 +2823,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM__INTERNAL_ID = ParametersPackage.PARAMETER__INTERNAL_ID;
+	int IRI_PARAM__INTERNAL_ID = ParametersPackage.PARAMETER_VALUE__INTERNAL_ID;
 
 	/**
 	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
@@ -2832,7 +2832,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM__PARAMETER_LIST = ParametersPackage.PARAMETER__PARAMETER_LIST;
+	int IRI_PARAM__PARAMETER_LIST = ParametersPackage.PARAMETER_VALUE__PARAMETER_LIST;
 
 	/**
 	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
@@ -2841,7 +2841,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM__PREDEFINED = ParametersPackage.PARAMETER__PREDEFINED;
+	int IRI_PARAM__PREDEFINED = ParametersPackage.PARAMETER_VALUE__PREDEFINED;
 
 	/**
 	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
@@ -2850,7 +2850,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM__PARAMETER_REFERENCES = ParametersPackage.PARAMETER__PARAMETER_REFERENCES;
+	int IRI_PARAM__PARAMETER_REFERENCES = ParametersPackage.PARAMETER_VALUE__PARAMETER_REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2859,7 +2859,34 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM__DESCRIPTION = ParametersPackage.PARAMETER__DESCRIPTION;
+	int IRI_PARAM__DESCRIPTION = ParametersPackage.PARAMETER_VALUE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM__COMPARISON1 = ParametersPackage.PARAMETER_VALUE__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM__COMPARISON2 = ParametersPackage.PARAMETER_VALUE__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM__TYPE_MODIFIABLE = ParametersPackage.PARAMETER_VALUE__TYPE_MODIFIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Rdf Single Predicate</b></em>' container reference.
@@ -2868,7 +2895,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM__RDF_SINGLE_PREDICATE = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
+	int IRI_PARAM__RDF_SINGLE_PREDICATE = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Prefix</b></em>' attribute.
@@ -2877,7 +2904,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM__PREFIX = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
+	int IRI_PARAM__PREFIX = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Uri</b></em>' attribute.
@@ -2886,7 +2913,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM__URI = ParametersPackage.PARAMETER_FEATURE_COUNT + 2;
+	int IRI_PARAM__URI = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Suffix</b></em>' attribute.
@@ -2895,7 +2922,16 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM__SUFFIX = ParametersPackage.PARAMETER_FEATURE_COUNT + 3;
+	int IRI_PARAM__SUFFIX = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Iri List Param</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM__IRI_LIST_PARAM = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Iri Param</em>' class.
@@ -2904,7 +2940,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_FEATURE_COUNT + 4;
+	int IRI_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2913,7 +2949,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___IS_VALID__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER___IS_VALID__ABSTRACTIONLEVEL;
+	int IRI_PARAM___IS_VALID__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -2922,7 +2958,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int IRI_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -2931,7 +2967,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___MY_TO_STRING = ParametersPackage.PARAMETER___MY_TO_STRING;
+	int IRI_PARAM___MY_TO_STRING = ParametersPackage.PARAMETER_VALUE___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher</em>' operation.
@@ -2940,7 +2976,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___GENERATE_CYPHER = ParametersPackage.PARAMETER___GENERATE_CYPHER;
+	int IRI_PARAM___GENERATE_CYPHER = ParametersPackage.PARAMETER_VALUE___GENERATE_CYPHER;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -2949,7 +2985,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___GENERATE_XQUERY = ParametersPackage.PARAMETER___GENERATE_XQUERY;
+	int IRI_PARAM___GENERATE_XQUERY = ParametersPackage.PARAMETER_VALUE___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -2958,7 +2994,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___GENERATE_SPARQL = ParametersPackage.PARAMETER___GENERATE_SPARQL;
+	int IRI_PARAM___GENERATE_SPARQL = ParametersPackage.PARAMETER_VALUE___GENERATE_SPARQL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -2967,7 +3003,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___GET_CONTAINER = ParametersPackage.PARAMETER___GET_CONTAINER;
+	int IRI_PARAM___GET_CONTAINER = ParametersPackage.PARAMETER_VALUE___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -2976,7 +3012,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.PARAMETER___GET_ANCESTOR__CLASS;
+	int IRI_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.PARAMETER_VALUE___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -2985,7 +3021,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.PARAMETER___INITIALIZE_TRANSLATION;
+	int IRI_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.PARAMETER_VALUE___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -2994,7 +3030,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___PREPARE_TRANSLATION = ParametersPackage.PARAMETER___PREPARE_TRANSLATION;
+	int IRI_PARAM___PREPARE_TRANSLATION = ParametersPackage.PARAMETER_VALUE___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -3003,7 +3039,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___GET_OPERATOR_LIST = ParametersPackage.PARAMETER___GET_OPERATOR_LIST;
+	int IRI_PARAM___GET_OPERATOR_LIST = ParametersPackage.PARAMETER_VALUE___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -3012,7 +3048,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___GET_PARAMETER_LIST = ParametersPackage.PARAMETER___GET_PARAMETER_LIST;
+	int IRI_PARAM___GET_PARAMETER_LIST = ParametersPackage.PARAMETER_VALUE___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -3021,7 +3057,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___GET_ALL_PARAMETERS = ParametersPackage.PARAMETER___GET_ALL_PARAMETERS;
+	int IRI_PARAM___GET_ALL_PARAMETERS = ParametersPackage.PARAMETER_VALUE___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -3030,7 +3066,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___PREPARE_PARAMETER_UPDATES = ParametersPackage.PARAMETER___PREPARE_PARAMETER_UPDATES;
+	int IRI_PARAM___PREPARE_PARAMETER_UPDATES = ParametersPackage.PARAMETER_VALUE___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -3039,7 +3075,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ParametersPackage.PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int IRI_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ParametersPackage.PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -3048,7 +3084,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = ParametersPackage.PARAMETER___UPDATE_PARAMETERS__PARAMETERLIST;
+	int IRI_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = ParametersPackage.PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -3057,7 +3093,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.PARAMETER___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int IRI_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -3066,7 +3102,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.PARAMETER___RECORD_VALUES__XMLDATADATABASE;
+	int IRI_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -3075,7 +3111,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER___RELATIONS_XML_ADAPTED;
+	int IRI_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
@@ -3084,7 +3120,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER___CREATE_XML_ADAPTION;
+	int IRI_PARAM___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER_VALUE___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
@@ -3093,7 +3129,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.PARAMETER___CREATE_RDF_ADAPTION;
+	int IRI_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.PARAMETER_VALUE___CREATE_RDF_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
@@ -3102,16 +3138,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.PARAMETER___CREATE_NEO4J_ADAPTION;
-
-	/**
-	 * The operation id for the '<em>Validate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IRI_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = ParametersPackage.PARAMETER___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int IRI_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.PARAMETER_VALUE___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Validate Against Schema</em>' operation.
@@ -3120,7 +3147,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___VALIDATE_AGAINST_SCHEMA = ParametersPackage.PARAMETER___VALIDATE_AGAINST_SCHEMA;
+	int IRI_PARAM___VALIDATE_AGAINST_SCHEMA = ParametersPackage.PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
 
 	/**
 	 * The operation id for the '<em>Validate Example Value</em>' operation.
@@ -3129,7 +3156,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.PARAMETER___VALIDATE_EXAMPLE_VALUE__STRING;
+	int IRI_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING;
 
 	/**
 	 * The operation id for the '<em>Input Is Valid</em>' operation.
@@ -3138,7 +3165,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___INPUT_IS_VALID = ParametersPackage.PARAMETER___INPUT_IS_VALID;
+	int IRI_PARAM___INPUT_IS_VALID = ParametersPackage.PARAMETER_VALUE___INPUT_IS_VALID;
 
 	/**
 	 * The operation id for the '<em>Is Used</em>' operation.
@@ -3147,7 +3174,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___IS_USED = ParametersPackage.PARAMETER___IS_USED;
+	int IRI_PARAM___IS_USED = ParametersPackage.PARAMETER_VALUE___IS_USED;
 
 	/**
 	 * The operation id for the '<em>Set Value From String</em>' operation.
@@ -3156,7 +3183,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___SET_VALUE_FROM_STRING__STRING = ParametersPackage.PARAMETER___SET_VALUE_FROM_STRING__STRING;
+	int IRI_PARAM___SET_VALUE_FROM_STRING__STRING = ParametersPackage.PARAMETER_VALUE___SET_VALUE_FROM_STRING__STRING;
 
 	/**
 	 * The operation id for the '<em>Get Value As String</em>' operation.
@@ -3165,7 +3192,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___GET_VALUE_AS_STRING = ParametersPackage.PARAMETER___GET_VALUE_AS_STRING;
+	int IRI_PARAM___GET_VALUE_AS_STRING = ParametersPackage.PARAMETER_VALUE___GET_VALUE_AS_STRING;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3174,7 +3201,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.PARAMETER___CHECK_COMPARISON_CONSISTENCY;
+	int IRI_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
 
 	/**
 	 * The operation id for the '<em>Get Options As String List</em>' operation.
@@ -3183,7 +3210,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.PARAMETER___GET_OPTIONS_AS_STRING_LIST;
+	int IRI_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
 
 	/**
 	 * The operation id for the '<em>Generate Description</em>' operation.
@@ -3192,7 +3219,151 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER___GENERATE_DESCRIPTION;
+	int IRI_PARAM___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER_VALUE___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = ParametersPackage.PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___GET_RETURN_TYPE = ParametersPackage.PARAMETER_VALUE___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___IS_TRANSLATABLE = ParametersPackage.PARAMETER_VALUE___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___GET_ALL_ARGUMENT_ELEMENTS = ParametersPackage.PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___IS_OPERATOR_ARGUMENT = ParametersPackage.PARAMETER_VALUE___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Replace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___REPLACE__PARAMETERVALUE = ParametersPackage.PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
+
+	/**
+	 * The operation id for the '<em>Replace Via Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___REPLACE_VIA_VALUE__STRING_STRING = ParametersPackage.PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Element Tags</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___GET_ELEMENT_TAGS = ParametersPackage.PARAMETER_VALUE___GET_ELEMENT_TAGS;
+
+	/**
+	 * The operation id for the '<em>Get Data Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___GET_DATA_VALUES = ParametersPackage.PARAMETER_VALUE___GET_DATA_VALUES;
+
+	/**
+	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___IS_IN_DATA_COMPARISON = ParametersPackage.PARAMETER_VALUE___IS_IN_DATA_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Is In Tag Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___IS_IN_TAG_COMPARISON = ParametersPackage.PARAMETER_VALUE___IS_IN_TAG_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___GET_ATTRIBUTE_NAMES = ParametersPackage.PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___GET_ATTRIBUTE_VALUES = ParametersPackage.PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
+
+	/**
+	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___IS_IN_ATTRIBUTE_COMPARISON = ParametersPackage.PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___GET_SUGGESTIONS = ParametersPackage.PARAMETER_VALUE___GET_SUGGESTIONS;
+
+	/**
+	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = ParametersPackage.PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Get Standard Iri</em>' operation.
@@ -3201,7 +3372,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___GET_STANDARD_IRI = ParametersPackage.PARAMETER_OPERATION_COUNT + 0;
+	int IRI_PARAM___GET_STANDARD_IRI = ParametersPackage.PARAMETER_VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Iri Param</em>' class.
@@ -3210,7 +3381,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 1;
+	int IRI_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.impl.RdfXorImpl <em>Rdf Xor</em>}' class.
@@ -4079,6 +4250,547 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_SEQUENCE_OPERATION_COUNT = RDF_PATH_PARAM_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.impl.IriListParamImpl <em>Iri List Param</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionrdf.impl.IriListParamImpl
+	 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getIriListParam()
+	 * @generated
+	 */
+	int IRI_LIST_PARAM = 9;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM__ID = ParametersPackage.PARAMETER_VALUE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM__INTERNAL_ID = ParametersPackage.PARAMETER_VALUE__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM__PARAMETER_LIST = ParametersPackage.PARAMETER_VALUE__PARAMETER_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM__PREDEFINED = ParametersPackage.PARAMETER_VALUE__PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM__PARAMETER_REFERENCES = ParametersPackage.PARAMETER_VALUE__PARAMETER_REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM__DESCRIPTION = ParametersPackage.PARAMETER_VALUE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM__COMPARISON1 = ParametersPackage.PARAMETER_VALUE__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM__COMPARISON2 = ParametersPackage.PARAMETER_VALUE__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM__TYPE_MODIFIABLE = ParametersPackage.PARAMETER_VALUE__TYPE_MODIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Iri Param</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM__IRI_PARAM = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Iri List Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM_FEATURE_COUNT = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___IS_VALID__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___MY_TO_STRING = ParametersPackage.PARAMETER_VALUE___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GENERATE_CYPHER = ParametersPackage.PARAMETER_VALUE___GENERATE_CYPHER;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GENERATE_XQUERY = ParametersPackage.PARAMETER_VALUE___GENERATE_XQUERY;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GENERATE_SPARQL = ParametersPackage.PARAMETER_VALUE___GENERATE_SPARQL;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GET_CONTAINER = ParametersPackage.PARAMETER_VALUE___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GET_ANCESTOR__CLASS = ParametersPackage.PARAMETER_VALUE___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___INITIALIZE_TRANSLATION = ParametersPackage.PARAMETER_VALUE___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___PREPARE_TRANSLATION = ParametersPackage.PARAMETER_VALUE___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GET_OPERATOR_LIST = ParametersPackage.PARAMETER_VALUE___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GET_PARAMETER_LIST = ParametersPackage.PARAMETER_VALUE___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GET_ALL_PARAMETERS = ParametersPackage.PARAMETER_VALUE___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___PREPARE_PARAMETER_UPDATES = ParametersPackage.PARAMETER_VALUE___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ParametersPackage.PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = ParametersPackage.PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER_VALUE___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___CREATE_RDF_ADAPTION = ParametersPackage.PARAMETER_VALUE___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___CREATE_NEO4J_ADAPTION = ParametersPackage.PARAMETER_VALUE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___VALIDATE_AGAINST_SCHEMA = ParametersPackage.PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
+
+	/**
+	 * The operation id for the '<em>Validate Example Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___INPUT_IS_VALID = ParametersPackage.PARAMETER_VALUE___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___IS_USED = ParametersPackage.PARAMETER_VALUE___IS_USED;
+
+	/**
+	 * The operation id for the '<em>Set Value From String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___SET_VALUE_FROM_STRING__STRING = ParametersPackage.PARAMETER_VALUE___SET_VALUE_FROM_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GET_VALUE_AS_STRING = ParametersPackage.PARAMETER_VALUE___GET_VALUE_AS_STRING;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER_VALUE___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = ParametersPackage.PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GET_RETURN_TYPE = ParametersPackage.PARAMETER_VALUE___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___IS_TRANSLATABLE = ParametersPackage.PARAMETER_VALUE___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GET_ALL_ARGUMENT_ELEMENTS = ParametersPackage.PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___IS_OPERATOR_ARGUMENT = ParametersPackage.PARAMETER_VALUE___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Replace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___REPLACE__PARAMETERVALUE = ParametersPackage.PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
+
+	/**
+	 * The operation id for the '<em>Replace Via Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___REPLACE_VIA_VALUE__STRING_STRING = ParametersPackage.PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Element Tags</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GET_ELEMENT_TAGS = ParametersPackage.PARAMETER_VALUE___GET_ELEMENT_TAGS;
+
+	/**
+	 * The operation id for the '<em>Get Data Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GET_DATA_VALUES = ParametersPackage.PARAMETER_VALUE___GET_DATA_VALUES;
+
+	/**
+	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___IS_IN_DATA_COMPARISON = ParametersPackage.PARAMETER_VALUE___IS_IN_DATA_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Is In Tag Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___IS_IN_TAG_COMPARISON = ParametersPackage.PARAMETER_VALUE___IS_IN_TAG_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GET_ATTRIBUTE_NAMES = ParametersPackage.PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GET_ATTRIBUTE_VALUES = ParametersPackage.PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
+
+	/**
+	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___IS_IN_ATTRIBUTE_COMPARISON = ParametersPackage.PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___GET_SUGGESTIONS = ParametersPackage.PARAMETER_VALUE___GET_SUGGESTIONS;
+
+	/**
+	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = ParametersPackage.PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+
+	/**
+	 * The number of operations of the '<em>Iri List Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IRI_LIST_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionrdf.RdfQuantifier <em>Rdf Quantifier</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4086,7 +4798,7 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getRdfQuantifier()
 	 * @generated
 	 */
-	int RDF_QUANTIFIER = 9;
+	int RDF_QUANTIFIER = 10;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.RdfPredicate <em>Rdf Predicate</em>}'.
@@ -4268,6 +4980,17 @@ public interface AdaptionrdfPackage extends EPackage {
 	EAttribute getIriParam_Suffix();
 
 	/**
+	 * Returns the meta object for the container reference '{@link qualitypatternmodel.adaptionrdf.IriParam#getIriListParam <em>Iri List Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Iri List Param</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.IriParam#getIriListParam()
+	 * @see #getIriParam()
+	 * @generated
+	 */
+	EReference getIriParam_IriListParam();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionrdf.IriParam#getStandardIri() <em>Get Standard Iri</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4318,6 +5041,27 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRdfSequence_Items();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionrdf.IriListParam <em>Iri List Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Iri List Param</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.IriListParam
+	 * @generated
+	 */
+	EClass getIriListParam();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionrdf.IriListParam#getIriParam <em>Iri Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Iri Param</em>'.
+	 * @see qualitypatternmodel.adaptionrdf.IriListParam#getIriParam()
+	 * @see #getIriListParam()
+	 * @generated
+	 */
+	EReference getIriListParam_IriParam();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionrdf.RdfQuantifier <em>Rdf Quantifier</em>}'.
@@ -4503,6 +5247,14 @@ public interface AdaptionrdfPackage extends EPackage {
 		EAttribute IRI_PARAM__SUFFIX = eINSTANCE.getIriParam_Suffix();
 
 		/**
+		 * The meta object literal for the '<em><b>Iri List Param</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IRI_PARAM__IRI_LIST_PARAM = eINSTANCE.getIriParam_IriListParam();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Standard Iri</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4545,6 +5297,24 @@ public interface AdaptionrdfPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RDF_SEQUENCE__ITEMS = eINSTANCE.getRdfSequence_Items();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.impl.IriListParamImpl <em>Iri List Param</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionrdf.impl.IriListParamImpl
+		 * @see qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl#getIriListParam()
+		 * @generated
+		 */
+		EClass IRI_LIST_PARAM = eINSTANCE.getIriListParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Iri Param</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IRI_LIST_PARAM__IRI_PARAM = eINSTANCE.getIriListParam_IriParam();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionrdf.RdfQuantifier <em>Rdf Quantifier</em>}' enum.

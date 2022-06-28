@@ -64,6 +64,7 @@ public class AdaptionrdfFactoryImpl extends EFactoryImpl implements AdaptionrdfF
 			case AdaptionrdfPackage.IRI_PARAM: return createIriParam();
 			case AdaptionrdfPackage.RDF_XOR: return createRdfXor();
 			case AdaptionrdfPackage.RDF_SEQUENCE: return createRdfSequence();
+			case AdaptionrdfPackage.IRI_LIST_PARAM: return createIriListParam();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -174,6 +175,17 @@ public class AdaptionrdfFactoryImpl extends EFactoryImpl implements AdaptionrdfF
 	public RdfSequence createRdfSequence() {
 		RdfSequenceImpl rdfSequence = new RdfSequenceImpl();
 		return rdfSequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public IriListParam createIriListParam() {
+		IriListParamImpl iriListParam = new IriListParamImpl();
+		return iriListParam;
 	}
 
 	/**

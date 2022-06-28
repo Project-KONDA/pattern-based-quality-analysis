@@ -18,8 +18,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.IriParam;
-
-import qualitypatternmodel.parameters.provider.ParameterItemProvider;
+import qualitypatternmodel.parameters.provider.ParameterValueItemProvider;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
@@ -28,7 +27,7 @@ import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class IriParamItemProvider extends ParameterItemProvider {
+public class IriParamItemProvider extends ParameterValueItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

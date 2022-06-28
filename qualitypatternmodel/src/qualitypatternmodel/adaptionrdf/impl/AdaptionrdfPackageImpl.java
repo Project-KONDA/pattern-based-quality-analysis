@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
+import qualitypatternmodel.adaptionrdf.IriListParam;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.RdfIriNode;
@@ -120,6 +121,13 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 	 * @generated
 	 */
 	private EClass rdfSequenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iriListParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -395,6 +403,16 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 	 * @generated
 	 */
 	@Override
+	public EReference getIriParam_IriListParam() {
+		return (EReference)iriParamEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getIriParam__GetStandardIri() {
 		return iriParamEClass.getEOperations().get(0);
 	}
@@ -437,6 +455,26 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 	@Override
 	public EReference getRdfSequence_Items() {
 		return (EReference)rdfSequenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getIriListParam() {
+		return iriListParamEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getIriListParam_IriParam() {
+		return (EReference)iriListParamEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -501,6 +539,7 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		createEAttribute(iriParamEClass, IRI_PARAM__PREFIX);
 		createEAttribute(iriParamEClass, IRI_PARAM__URI);
 		createEAttribute(iriParamEClass, IRI_PARAM__SUFFIX);
+		createEReference(iriParamEClass, IRI_PARAM__IRI_LIST_PARAM);
 		createEOperation(iriParamEClass, IRI_PARAM___GET_STANDARD_IRI);
 
 		rdfXorEClass = createEClass(RDF_XOR);
@@ -508,6 +547,9 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 
 		rdfSequenceEClass = createEClass(RDF_SEQUENCE);
 		createEReference(rdfSequenceEClass, RDF_SEQUENCE__ITEMS);
+
+		iriListParamEClass = createEClass(IRI_LIST_PARAM);
+		createEReference(iriListParamEClass, IRI_LIST_PARAM__IRI_PARAM);
 
 		// Create enums
 		rdfQuantifierEEnum = createEEnum(RDF_QUANTIFIER);
@@ -555,9 +597,10 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		rdfSinglePredicateEClass.getESuperTypes().add(this.getRdfPathParam());
 		rdfLiteralNodeEClass.getESuperTypes().add(theGraphstructurePackage.getPrimitiveNode());
 		rdfLiteralNodeEClass.getESuperTypes().add(this.getRdfNode());
-		iriParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
+		iriParamEClass.getESuperTypes().add(theParametersPackage.getParameterValue());
 		rdfXorEClass.getESuperTypes().add(this.getRdfPathParam());
 		rdfSequenceEClass.getESuperTypes().add(this.getRdfPathParam());
+		iriListParamEClass.getESuperTypes().add(theParametersPackage.getParameterValue());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(rdfPredicateEClass, RdfPredicate.class, "RdfPredicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -580,10 +623,11 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 		initEClass(rdfLiteralNodeEClass, RdfLiteralNode.class, "RdfLiteralNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(iriParamEClass, IriParam.class, "IriParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIriParam_RdfSinglePredicate(), this.getRdfSinglePredicate(), this.getRdfSinglePredicate_IriParam(), "rdfSinglePredicate", null, 1, 1, IriParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIriParam_RdfSinglePredicate(), this.getRdfSinglePredicate(), this.getRdfSinglePredicate_IriParam(), "rdfSinglePredicate", null, 0, 1, IriParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIriParam_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, IriParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIriParam_Uri(), ecorePackage.getEString(), "uri", null, 0, 1, IriParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIriParam_Suffix(), ecorePackage.getEString(), "suffix", null, 0, 1, IriParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIriParam_IriListParam(), this.getIriListParam(), this.getIriListParam_IriParam(), "iriListParam", null, 0, 1, IriParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getIriParam__GetStandardIri(), ecorePackage.getEString(), "getStandardIri", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -592,6 +636,9 @@ public class AdaptionrdfPackageImpl extends EPackageImpl implements AdaptionrdfP
 
 		initEClass(rdfSequenceEClass, RdfSequence.class, "RdfSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRdfSequence_Items(), this.getRdfPathParam(), null, "items", null, 2, -1, RdfSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(iriListParamEClass, IriListParam.class, "IriListParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIriListParam_IriParam(), this.getIriParam(), this.getIriParam_IriListParam(), "iriParam", null, 0, -1, IriListParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(rdfQuantifierEEnum, RdfQuantifier.class, "RdfQuantifier");

@@ -1129,13 +1129,15 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RdfNode" abstract="true" interface="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="RdfLiteralNode" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionrdf/RdfNode"/>
-    <eClassifiers xsi:type="ecore:EClass" name="IriParam" eSuperTypes="#//parameters/Parameter">
+    <eClassifiers xsi:type="ecore:EClass" name="IriParam" eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="getStandardIri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfSinglePredicate" lowerBound="1"
-          eType="#//adaptionrdf/RdfSinglePredicate" eOpposite="#//adaptionrdf/RdfSinglePredicate/iriParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfSinglePredicate" eType="#//adaptionrdf/RdfSinglePredicate"
+          eOpposite="#//adaptionrdf/RdfSinglePredicate/iriParam"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="suffix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="iriListParam" eType="#//adaptionrdf/IriListParam"
+          eOpposite="#//adaptionrdf/IriListParam/iriParam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RdfXor" eSuperTypes="#//adaptionrdf/RdfPathParam">
       <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="2"
@@ -1144,6 +1146,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="RdfSequence" eSuperTypes="#//adaptionrdf/RdfPathParam">
       <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="2"
           upperBound="-1" eType="#//adaptionrdf/RdfPathParam" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IriListParam" eSuperTypes="#//parameters/ParameterValue">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="iriParam" upperBound="-1"
+          eType="#//adaptionrdf/IriParam" containment="true" eOpposite="#//adaptionrdf/IriParam/iriListParam"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.adaptionrdf;
 
-import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,13 +17,14 @@ import qualitypatternmodel.parameters.Parameter;
  *   <li>{@link qualitypatternmodel.adaptionrdf.IriParam#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionrdf.IriParam#getUri <em>Uri</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionrdf.IriParam#getSuffix <em>Suffix</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.IriParam#getIriListParam <em>Iri List Param</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getIriParam()
  * @model
  * @generated
  */
-public interface IriParam extends Parameter {
+public interface IriParam extends ParameterValue {
 
 	/**
 	 * Returns the value of the '<em><b>Rdf Single Predicate</b></em>' container reference.
@@ -34,7 +35,7 @@ public interface IriParam extends Parameter {
 	 * @see #setRdfSinglePredicate(RdfSinglePredicate)
 	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getIriParam_RdfSinglePredicate()
 	 * @see qualitypatternmodel.adaptionrdf.RdfSinglePredicate#getIriParam
-	 * @model opposite="iriParam" required="true" transient="false"
+	 * @model opposite="iriParam" transient="false"
 	 * @generated
 	 */
 	RdfSinglePredicate getRdfSinglePredicate();
@@ -114,6 +115,30 @@ public interface IriParam extends Parameter {
 	 * @generated
 	 */
 	void setSuffix(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Iri List Param</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionrdf.IriListParam#getIriParam <em>Iri Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Iri List Param</em>' container reference.
+	 * @see #setIriListParam(IriListParam)
+	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getIriParam_IriListParam()
+	 * @see qualitypatternmodel.adaptionrdf.IriListParam#getIriParam
+	 * @model opposite="iriParam" transient="false"
+	 * @generated
+	 */
+	IriListParam getIriListParam();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.IriParam#getIriListParam <em>Iri List Param</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Iri List Param</em>' container reference.
+	 * @see #getIriListParam()
+	 * @generated
+	 */
+	void setIriListParam(IriListParam value);
 
 	/**
 	 * <!-- begin-user-doc -->

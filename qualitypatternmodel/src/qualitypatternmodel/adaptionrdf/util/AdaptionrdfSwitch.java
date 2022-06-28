@@ -16,6 +16,7 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -136,7 +137,9 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 			case AdaptionrdfPackage.IRI_PARAM: {
 				IriParam iriParam = (IriParam)theEObject;
 				T result = caseIriParam(iriParam);
+				if (result == null) result = caseParameterValue(iriParam);
 				if (result == null) result = caseParameter(iriParam);
+				if (result == null) result = caseComparable(iriParam);
 				if (result == null) result = casePatternElement(iriParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -158,6 +161,16 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 				if (result == null) result = caseParameter(rdfSequence);
 				if (result == null) result = caseAdaptable(rdfSequence);
 				if (result == null) result = casePatternElement(rdfSequence);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AdaptionrdfPackage.IRI_LIST_PARAM: {
+				IriListParam iriListParam = (IriListParam)theEObject;
+				T result = caseIriListParam(iriListParam);
+				if (result == null) result = caseParameterValue(iriListParam);
+				if (result == null) result = caseParameter(iriListParam);
+				if (result == null) result = caseComparable(iriListParam);
+				if (result == null) result = casePatternElement(iriListParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -301,6 +314,21 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Iri List Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Iri List Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIriListParam(IriListParam object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Pattern Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -417,6 +445,21 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePrimitiveNode(PrimitiveNode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterValue(ParameterValue object) {
 		return null;
 	}
 

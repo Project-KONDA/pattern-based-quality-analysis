@@ -18,6 +18,7 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 
 import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -113,6 +114,10 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 				return createRdfSequenceAdapter();
 			}
 			@Override
+			public Adapter caseIriListParam(IriListParam object) {
+				return createIriListParamAdapter();
+			}
+			@Override
 			public Adapter casePatternElement(PatternElement object) {
 				return createPatternElementAdapter();
 			}
@@ -143,6 +148,10 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePrimitiveNode(PrimitiveNode object) {
 				return createPrimitiveNodeAdapter();
+			}
+			@Override
+			public Adapter caseParameterValue(ParameterValue object) {
+				return createParameterValueAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -291,6 +300,20 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionrdf.IriListParam <em>Iri List Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionrdf.IriListParam
+	 * @generated
+	 */
+	public Adapter createIriListParamAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -399,6 +422,20 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPrimitiveNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.ParameterValue <em>Parameter Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.parameters.ParameterValue
+	 * @generated
+	 */
+	public Adapter createParameterValueAdapter() {
 		return null;
 	}
 
