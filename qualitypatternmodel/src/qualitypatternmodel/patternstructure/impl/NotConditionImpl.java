@@ -22,6 +22,8 @@ import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.patternstructure.Quantifier;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -68,9 +70,17 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	public String generateSparql() throws InvalidityException {
 		if (condition != null) {
 			if(isInRdfFilter()) {
-				return "NOT " + condition.generateSparql();
+				String query = "";
+				if(!(getCondition() instanceof QuantifiedCondition && ((QuantifiedCondition) getCondition()).getQuantifier() == Quantifier.FORALL)){
+					query += "NOT ";
+				}
+				return query + condition.generateSparql();
 			} else {
-				return "FILTER NOT " + condition.generateSparql();
+				String query = "FILTER ";
+				if(!(getCondition() instanceof QuantifiedCondition && ((QuantifiedCondition) getCondition()).getQuantifier() == Quantifier.FORALL)){
+					query += " NOT ";
+				}
+				return query + condition.generateSparql();
 			}
 		} else {
 			throw new InvalidityException("invalid condition");
