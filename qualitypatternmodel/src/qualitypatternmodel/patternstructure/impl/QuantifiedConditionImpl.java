@@ -142,7 +142,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public String generateSparql() throws InvalidityException {
 		if (quantifier == Quantifier.EXISTS) {
 			if(isInRdfFilter()) {
-				return "EXISTS{" + graph.generateSparql() + condition.generateSparql() + "}";
+				return "EXISTS{\n" + graph.generateSparql() + condition.generateSparql() + "}";
 			} else {
 				return graph.generateSparql() + condition.generateSparql();
 			}
