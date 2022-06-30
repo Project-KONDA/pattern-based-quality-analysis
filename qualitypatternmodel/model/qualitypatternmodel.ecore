@@ -1159,15 +1159,9 @@
     <eClassifiers xsi:type="ecore:EClass" name="NeoEdge" instanceTypeName="NeoEdge"
         eSuperTypes="#//adaptionNeo4J/AbstractNeoEdge"/>
     <eClassifiers xsi:type="ecore:EClass" name="INeoElement"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Label" instanceTypeName="Label" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="Label" instanceTypeName="Label">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="labelcontainer" lowerBound="1"
-          eType="#//adaptionNeo4J/LabelContainer" eOpposite="#//adaptionNeo4J/LabelContainer/label"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LabelContainer" instanceTypeName="LabelContainer">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="label" upperBound="-1"
-          eType="#//adaptionNeo4J/Label" eOpposite="#//adaptionNeo4J/Label/labelcontainer"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
