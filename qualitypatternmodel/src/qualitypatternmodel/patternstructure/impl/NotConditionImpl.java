@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.patternstructure.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -22,6 +23,8 @@ import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.patternstructure.Quantifier;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object
@@ -63,14 +66,32 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 			throw new InvalidityException("invalid condition");
 		}
 	}
+	@Override
+	public int getNotSequenceSize() {
+		if(getCondition() instanceof NotConditionImpl) {
+			NotConditionImpl not = (NotConditionImpl) getCondition();
+			return 1 + not.getNotSequenceSize();
+		} else {
+			return 1;
+		}
+	}
 	
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if (condition != null) {
+			boolean firstNot = getNotCondition() == null;
+			boolean unevenNot = getNotSequenceSize() % 2 == 1;
+			boolean notForall = !(getCondition() instanceof QuantifiedCondition && ((QuantifiedCondition) getCondition()).getQuantifier() == Quantifier.FORALL);
+			boolean not = firstNot && unevenNot && notForall;
+			String query = "";
+			if(not) {
+				query += "NOT "; 
+			}
 			if(isInRdfFilter()) {
-				return "NOT " + condition.generateXQuery();
+				return query + condition.generateSparql();
 			} else {
-				return "FILTER NOT " + condition.generateXQuery();
+				query = "FILTER " + query;
+				return query + condition.generateSparql();
 			}
 		} else {
 			throw new InvalidityException("invalid condition");
@@ -282,6 +303,20 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 		return super.eIsSet(featureID);
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case PatternstructurePackage.NOT_CONDITION___GET_NOT_SEQUENCE_SIZE:
+				return getNotSequenceSize();
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
 	@Override
 	public String myToString() {
 		return "NOT " + getInternalId() + " [\n. " + condition.myToString().replace("\n", "\n. ") + "\n]";

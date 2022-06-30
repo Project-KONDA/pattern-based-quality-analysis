@@ -6,8 +6,7 @@ import junit.textui.TestRunner;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.IriParam;
-
-import qualitypatternmodel.parameters.tests.ParameterTest;
+import qualitypatternmodel.parameters.tests.ParameterValueTest;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +20,7 @@ import qualitypatternmodel.parameters.tests.ParameterTest;
  * </p>
  * @generated
  */
-public class IriParamTest extends ParameterTest {
+public class IriParamTest extends ParameterValueTest {
 
 	/**
 	 * <!-- begin-user-doc -->

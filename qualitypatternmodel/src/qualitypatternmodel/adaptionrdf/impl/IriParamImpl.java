@@ -15,13 +15,14 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
+import qualitypatternmodel.adaptionrdf.IriListParam;
 import qualitypatternmodel.adaptionrdf.IriParam;
 
-import qualitypatternmodel.adaptionrdf.RdfAxisPair;
+import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.impl.ParameterImpl;
+import qualitypatternmodel.parameters.impl.ParameterValueImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
@@ -32,15 +33,16 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionrdf.impl.IriParamImpl#getRdfAxisPair <em>Rdf Axis Pair</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.impl.IriParamImpl#getRdfSinglePredicate <em>Rdf Single Predicate</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionrdf.impl.IriParamImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionrdf.impl.IriParamImpl#getUri <em>Uri</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionrdf.impl.IriParamImpl#getSuffix <em>Suffix</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.impl.IriParamImpl#getIriListParam <em>Iri List Param</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class IriParamImpl extends ParameterImpl implements IriParam {
+public class IriParamImpl extends ParameterValueImpl implements IriParam {
 	/**
 	 * The default value of the '{@link #getPrefix() <em>Prefix</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -125,7 +127,7 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
-		int b = (prefix == null ? 1 : 0) + (suffix == null ? 1 : 0) + (uri == null ? 1 : 0);
+		int b = (prefix != null ? 1 : 0) + (suffix != null ? 1 : 0) + (uri != null ? 1 : 0);
 		if(b == 1 && uri == null || b > 1 && uri != null || b == 0) {
 			throw new InvalidityException("invalid iri");
 		}
@@ -160,9 +162,9 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 	 * @generated
 	 */
 	@Override
-	public RdfAxisPair getRdfAxisPair() {
-		if (eContainerFeatureID() != AdaptionrdfPackage.IRI_PARAM__RDF_AXIS_PAIR) return null;
-		return (RdfAxisPair)eInternalContainer();
+	public RdfSinglePredicate getRdfSinglePredicate() {
+		if (eContainerFeatureID() != AdaptionrdfPackage.IRI_PARAM__RDF_SINGLE_PREDICATE) return null;
+		return (RdfSinglePredicate)eInternalContainer();
 	}
 
 	/**
@@ -170,8 +172,8 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRdfAxisPair(RdfAxisPair newRdfAxisPair, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newRdfAxisPair, AdaptionrdfPackage.IRI_PARAM__RDF_AXIS_PAIR, msgs);
+	public NotificationChain basicSetRdfSinglePredicate(RdfSinglePredicate newRdfSinglePredicate, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newRdfSinglePredicate, AdaptionrdfPackage.IRI_PARAM__RDF_SINGLE_PREDICATE, msgs);
 		return msgs;
 	}
 
@@ -181,20 +183,20 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 	 * @generated
 	 */
 	@Override
-	public void setRdfAxisPair(RdfAxisPair newRdfAxisPair) {
-		if (newRdfAxisPair != eInternalContainer() || (eContainerFeatureID() != AdaptionrdfPackage.IRI_PARAM__RDF_AXIS_PAIR && newRdfAxisPair != null)) {
-			if (EcoreUtil.isAncestor(this, newRdfAxisPair))
+	public void setRdfSinglePredicate(RdfSinglePredicate newRdfSinglePredicate) {
+		if (newRdfSinglePredicate != eInternalContainer() || (eContainerFeatureID() != AdaptionrdfPackage.IRI_PARAM__RDF_SINGLE_PREDICATE && newRdfSinglePredicate != null)) {
+			if (EcoreUtil.isAncestor(this, newRdfSinglePredicate))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newRdfAxisPair != null)
-				msgs = ((InternalEObject)newRdfAxisPair).eInverseAdd(this, AdaptionrdfPackage.RDF_AXIS_PAIR__IRI_PARAM, RdfAxisPair.class, msgs);
-			msgs = basicSetRdfAxisPair(newRdfAxisPair, msgs);
+			if (newRdfSinglePredicate != null)
+				msgs = ((InternalEObject)newRdfSinglePredicate).eInverseAdd(this, AdaptionrdfPackage.RDF_SINGLE_PREDICATE__IRI_PARAM, RdfSinglePredicate.class, msgs);
+			msgs = basicSetRdfSinglePredicate(newRdfSinglePredicate, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.IRI_PARAM__RDF_AXIS_PAIR, newRdfAxisPair, newRdfAxisPair));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.IRI_PARAM__RDF_SINGLE_PREDICATE, newRdfSinglePredicate, newRdfSinglePredicate));
 	}
 
 	/**
@@ -269,6 +271,49 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public IriListParam getIriListParam() {
+		if (eContainerFeatureID() != AdaptionrdfPackage.IRI_PARAM__IRI_LIST_PARAM) return null;
+		return (IriListParam)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIriListParam(IriListParam newIriListParam, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newIriListParam, AdaptionrdfPackage.IRI_PARAM__IRI_LIST_PARAM, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setIriListParam(IriListParam newIriListParam) {
+		if (newIriListParam != eInternalContainer() || (eContainerFeatureID() != AdaptionrdfPackage.IRI_PARAM__IRI_LIST_PARAM && newIriListParam != null)) {
+			if (EcoreUtil.isAncestor(this, newIriListParam))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newIriListParam != null)
+				msgs = ((InternalEObject)newIriListParam).eInverseAdd(this, AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM, IriListParam.class, msgs);
+			msgs = basicSetIriListParam(newIriListParam, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.IRI_PARAM__IRI_LIST_PARAM, newIriListParam, newIriListParam));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -284,10 +329,14 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionrdfPackage.IRI_PARAM__RDF_AXIS_PAIR:
+			case AdaptionrdfPackage.IRI_PARAM__RDF_SINGLE_PREDICATE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetRdfAxisPair((RdfAxisPair)otherEnd, msgs);
+				return basicSetRdfSinglePredicate((RdfSinglePredicate)otherEnd, msgs);
+			case AdaptionrdfPackage.IRI_PARAM__IRI_LIST_PARAM:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetIriListParam((IriListParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -300,8 +349,10 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionrdfPackage.IRI_PARAM__RDF_AXIS_PAIR:
-				return basicSetRdfAxisPair(null, msgs);
+			case AdaptionrdfPackage.IRI_PARAM__RDF_SINGLE_PREDICATE:
+				return basicSetRdfSinglePredicate(null, msgs);
+			case AdaptionrdfPackage.IRI_PARAM__IRI_LIST_PARAM:
+				return basicSetIriListParam(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -314,8 +365,10 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case AdaptionrdfPackage.IRI_PARAM__RDF_AXIS_PAIR:
-				return eInternalContainer().eInverseRemove(this, AdaptionrdfPackage.RDF_AXIS_PAIR__IRI_PARAM, RdfAxisPair.class, msgs);
+			case AdaptionrdfPackage.IRI_PARAM__RDF_SINGLE_PREDICATE:
+				return eInternalContainer().eInverseRemove(this, AdaptionrdfPackage.RDF_SINGLE_PREDICATE__IRI_PARAM, RdfSinglePredicate.class, msgs);
+			case AdaptionrdfPackage.IRI_PARAM__IRI_LIST_PARAM:
+				return eInternalContainer().eInverseRemove(this, AdaptionrdfPackage.IRI_LIST_PARAM__IRI_PARAM, IriListParam.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -328,14 +381,16 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionrdfPackage.IRI_PARAM__RDF_AXIS_PAIR:
-				return getRdfAxisPair();
+			case AdaptionrdfPackage.IRI_PARAM__RDF_SINGLE_PREDICATE:
+				return getRdfSinglePredicate();
 			case AdaptionrdfPackage.IRI_PARAM__PREFIX:
 				return getPrefix();
 			case AdaptionrdfPackage.IRI_PARAM__URI:
 				return getUri();
 			case AdaptionrdfPackage.IRI_PARAM__SUFFIX:
 				return getSuffix();
+			case AdaptionrdfPackage.IRI_PARAM__IRI_LIST_PARAM:
+				return getIriListParam();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -348,8 +403,8 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionrdfPackage.IRI_PARAM__RDF_AXIS_PAIR:
-				setRdfAxisPair((RdfAxisPair)newValue);
+			case AdaptionrdfPackage.IRI_PARAM__RDF_SINGLE_PREDICATE:
+				setRdfSinglePredicate((RdfSinglePredicate)newValue);
 				return;
 			case AdaptionrdfPackage.IRI_PARAM__PREFIX:
 				setPrefix((String)newValue);
@@ -359,6 +414,9 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 				return;
 			case AdaptionrdfPackage.IRI_PARAM__SUFFIX:
 				setSuffix((String)newValue);
+				return;
+			case AdaptionrdfPackage.IRI_PARAM__IRI_LIST_PARAM:
+				setIriListParam((IriListParam)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -372,8 +430,8 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionrdfPackage.IRI_PARAM__RDF_AXIS_PAIR:
-				setRdfAxisPair((RdfAxisPair)null);
+			case AdaptionrdfPackage.IRI_PARAM__RDF_SINGLE_PREDICATE:
+				setRdfSinglePredicate((RdfSinglePredicate)null);
 				return;
 			case AdaptionrdfPackage.IRI_PARAM__PREFIX:
 				setPrefix(PREFIX_EDEFAULT);
@@ -383,6 +441,9 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 				return;
 			case AdaptionrdfPackage.IRI_PARAM__SUFFIX:
 				setSuffix(SUFFIX_EDEFAULT);
+				return;
+			case AdaptionrdfPackage.IRI_PARAM__IRI_LIST_PARAM:
+				setIriListParam((IriListParam)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -396,14 +457,16 @@ public class IriParamImpl extends ParameterImpl implements IriParam {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionrdfPackage.IRI_PARAM__RDF_AXIS_PAIR:
-				return getRdfAxisPair() != null;
+			case AdaptionrdfPackage.IRI_PARAM__RDF_SINGLE_PREDICATE:
+				return getRdfSinglePredicate() != null;
 			case AdaptionrdfPackage.IRI_PARAM__PREFIX:
 				return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals(prefix);
 			case AdaptionrdfPackage.IRI_PARAM__URI:
 				return URI_EDEFAULT == null ? uri != null : !URI_EDEFAULT.equals(uri);
 			case AdaptionrdfPackage.IRI_PARAM__SUFFIX:
 				return SUFFIX_EDEFAULT == null ? suffix != null : !SUFFIX_EDEFAULT.equals(suffix);
+			case AdaptionrdfPackage.IRI_PARAM__IRI_LIST_PARAM:
+				return getIriListParam() != null;
 		}
 		return super.eIsSet(featureID);
 	}

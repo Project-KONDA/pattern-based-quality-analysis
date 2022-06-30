@@ -1,5 +1,7 @@
 package playground;
 
+import static qualitypatternmodel.xmltestutility.DatabaseConstants.*;
+
 import org.basex.core.BaseXException;
 import org.basex.core.Context;
 import org.basex.core.cmd.CreateDB;
@@ -8,7 +10,6 @@ import org.basex.query.QueryIOException;
 import org.basex.query.QueryProcessor;
 import org.basex.query.iter.Iter;
 import org.basex.query.value.item.Item;
-import static qualitypatternmodel.testutility.DatabaseConstants.*;
 
 public class BaseXExecutionIterator {
 	public static void main(String[] args) throws QueryIOException {

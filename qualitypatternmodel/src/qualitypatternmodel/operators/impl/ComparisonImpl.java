@@ -223,16 +223,16 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		
 		switch (option.getValue()) {
 		case EQUAL:
-			if(getArgument1() instanceof TextLiteralParam) {
-				return "FILTER (regex(" + argument2Translation + ", ^" + argument1Translation + "$))";
-			} else if(getArgument2() instanceof TextLiteralParam) {
-				return "FILTER (regex(" + argument1Translation + ", ^" + argument2Translation + "$))";
-			} else if(getArgument1() instanceof TextListParam) {
-				TextListParam list = (TextListParam) getArgument1();
-				return "FILTER (regex(" + argument2Translation + ", ^" + list.generateSparql() + "$))";
-			} else if (getArgument2() instanceof TextListParam) {
-				TextListParam list = (TextListParam) getArgument2();				
-				return "FILTER (regex(" + argument1Translation + ", ^" + list.generateSparql() + "$))";
+			if(getArgument1() instanceof TextLiteralParam || getArgument1() instanceof TextListParam) {
+				if(getArgument1() instanceof TextLiteralParam) {
+					argument1Translation = argument1Translation.substring(1,argument1Translation.length()-1);
+				}
+				return "\nFILTER (regex(" + argument2Translation + ", \"^" + argument1Translation + "$\"))";
+			} else if(getArgument2() instanceof TextLiteralParam || getArgument2() instanceof TextListParam) {
+				if(getArgument2() instanceof TextLiteralParam) {
+					argument2Translation = argument2Translation.substring(1,argument2Translation.length()-1);
+				}
+				return "\nFILTER (regex(" + argument1Translation + ", \"^" + argument2Translation + "$\"))";
 			} else {
 				String nodeTranslation = "";
 				String otherTranslation = "";
@@ -246,10 +246,16 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				return "\nVALUES " + nodeTranslation + " {" + otherTranslation + "}";
 			}
 		case NOTEQUAL:
-			if(getArgument1() instanceof TextLiteralParam || getArgument2() instanceof TextLiteralParam) {
-				return "FILTER (!regex(" + argument2Translation + ", ^" + argument1Translation + "$))";
-			} else if(getArgument1() instanceof TextListParam || getArgument2() instanceof TextListParam) {
-				
+			if(getArgument1() instanceof TextLiteralParam || getArgument1() instanceof TextListParam) {
+				if(getArgument1() instanceof TextLiteralParam) {
+					argument1Translation = argument1Translation.substring(1,argument1Translation.length()-1);
+				}
+				return "\nFILTER (!regex(" + argument2Translation + ", \"^" + argument1Translation + "$\"))";
+			} else if(getArgument2() instanceof TextLiteralParam || getArgument2() instanceof TextListParam) {
+				if(getArgument2() instanceof TextLiteralParam) {
+					argument2Translation = argument2Translation.substring(1,argument2Translation.length()-1);
+				}
+				return "\nFILTER (!regex(" + argument1Translation + ", \"^" + argument2Translation + "$\"))";
 			} else {
 				return "\nFILTER (" + argument1Translation + " != " + argument2Translation + ")";		
 			}

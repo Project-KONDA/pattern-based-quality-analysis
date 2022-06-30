@@ -118,49 +118,26 @@ public class AdaptionrdfItemProviderAdapterFactory extends AdaptionrdfAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionrdf.RdfPathParam} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionrdf.RdfSinglePredicate} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RdfPathParamItemProvider rdfPathParamItemProvider;
+	protected RdfSinglePredicateItemProvider rdfSinglePredicateItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionrdf.RdfPathParam}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionrdf.RdfSinglePredicate}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createRdfPathParamAdapter() {
-		if (rdfPathParamItemProvider == null) {
-			rdfPathParamItemProvider = new RdfPathParamItemProvider(this);
+	public Adapter createRdfSinglePredicateAdapter() {
+		if (rdfSinglePredicateItemProvider == null) {
+			rdfSinglePredicateItemProvider = new RdfSinglePredicateItemProvider(this);
 		}
 
-		return rdfPathParamItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionrdf.RdfAxisPair} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RdfAxisPairItemProvider rdfAxisPairItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionrdf.RdfAxisPair}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRdfAxisPairAdapter() {
-		if (rdfAxisPairItemProvider == null) {
-			rdfAxisPairItemProvider = new RdfAxisPairItemProvider(this);
-		}
-
-		return rdfAxisPairItemProvider;
+		return rdfSinglePredicateItemProvider;
 	}
 
 	/**
@@ -207,6 +184,75 @@ public class AdaptionrdfItemProviderAdapterFactory extends AdaptionrdfAdapterFac
 		}
 
 		return iriParamItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionrdf.RdfXor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RdfXorItemProvider rdfXorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionrdf.RdfXor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRdfXorAdapter() {
+		if (rdfXorItemProvider == null) {
+			rdfXorItemProvider = new RdfXorItemProvider(this);
+		}
+
+		return rdfXorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionrdf.RdfSequence} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RdfSequenceItemProvider rdfSequenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionrdf.RdfSequence}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRdfSequenceAdapter() {
+		if (rdfSequenceItemProvider == null) {
+			rdfSequenceItemProvider = new RdfSequenceItemProvider(this);
+		}
+
+		return rdfSequenceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionrdf.IriListParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IriListParamItemProvider iriListParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionrdf.IriListParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIriListParamAdapter() {
+		if (iriListParamItemProvider == null) {
+			iriListParamItemProvider = new IriListParamItemProvider(this);
+		}
+
+		return iriListParamItemProvider;
 	}
 
 	/**
@@ -316,10 +362,12 @@ public class AdaptionrdfItemProviderAdapterFactory extends AdaptionrdfAdapterFac
 	public void dispose() {
 		if (rdfPredicateItemProvider != null) rdfPredicateItemProvider.dispose();
 		if (rdfIriNodeItemProvider != null) rdfIriNodeItemProvider.dispose();
-		if (rdfPathParamItemProvider != null) rdfPathParamItemProvider.dispose();
-		if (rdfAxisPairItemProvider != null) rdfAxisPairItemProvider.dispose();
+		if (rdfSinglePredicateItemProvider != null) rdfSinglePredicateItemProvider.dispose();
 		if (rdfLiteralNodeItemProvider != null) rdfLiteralNodeItemProvider.dispose();
 		if (iriParamItemProvider != null) iriParamItemProvider.dispose();
+		if (rdfXorItemProvider != null) rdfXorItemProvider.dispose();
+		if (rdfSequenceItemProvider != null) rdfSequenceItemProvider.dispose();
+		if (iriListParamItemProvider != null) iriListParamItemProvider.dispose();
 	}
 
 }

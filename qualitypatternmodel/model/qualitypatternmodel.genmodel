@@ -517,6 +517,7 @@
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/NotCondition">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/NotCondition/condition"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//patternstructure/NotCondition/getNotSequenceSize"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//patternstructure/CountCondition">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//patternstructure/CountCondition/countPattern"/>
@@ -911,31 +912,42 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Adaptionrdf" disposableProviderFactory="true" ecorePackage="qualitypatternmodel.ecore#//adaptionrdf">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="qualitypatternmodel.ecore#//adaptionrdf/RdfQuantifier">
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionrdf/RdfQuantifier/ONCE"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionrdf/RdfQuantifier/ZEROPLUS"/>
-        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionrdf/RdfQuantifier/ONEPLUS"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionrdf/RdfQuantifier/ONE"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionrdf/RdfQuantifier/ZERO_PLUS"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionrdf/RdfQuantifier/ONE_PLUS"/>
+        <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionrdf/RdfQuantifier/ZERO_OR_ONE"/>
       </genEnums>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfPredicate">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPredicate/rdfPathParam"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfIriNode"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/rdfAxisPair"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/rdfPredicate"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/invert"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/quantifier"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionrdf/RdfPathParam/getRdfSinglePredicates"/>
       </genClasses>
-      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfAxisPair">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/RdfAxisPair/quantifier"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfAxisPair/iriParam"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfAxisPair/rdfPathParam"/>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfSinglePredicate">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfSinglePredicate/iriParam"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfNode"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfLiteralNode"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/IriParam">
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/IriParam/rdfAxisPair"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/IriParam/rdfSinglePredicate"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/IriParam/prefix"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/IriParam/uri"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionrdf/IriParam/suffix"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/IriParam/iriListParam"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionrdf/IriParam/getStandardIri"/>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfXor">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfXor/items"/>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/RdfSequence">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/RdfSequence/items"/>
+      </genClasses>
+      <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionrdf/IriListParam">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionrdf/IriListParam/iriParam"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

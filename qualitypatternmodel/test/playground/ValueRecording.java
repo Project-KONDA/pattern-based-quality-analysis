@@ -8,7 +8,7 @@ import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.translationtests.Test00;
+import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class ValueRecording {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

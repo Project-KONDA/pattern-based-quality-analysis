@@ -45,4 +45,12 @@ public interface NotCondition extends Condition {
 	 */
 	void setCondition(Condition value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	int getNotSequenceSize();
+
 } // Not

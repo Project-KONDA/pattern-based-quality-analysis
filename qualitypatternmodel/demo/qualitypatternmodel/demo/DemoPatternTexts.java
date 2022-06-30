@@ -1,6 +1,6 @@
 package qualitypatternmodel.demo;
 
-import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_NAMESPACE;
+import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_NAMESPACE;
 
 import java.io.IOException;
 

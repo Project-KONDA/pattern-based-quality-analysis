@@ -142,13 +142,17 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	public String generateSparql() throws InvalidityException {
 		if (quantifier == Quantifier.EXISTS) {
 			if(isInRdfFilter()) {
-				return "EXISTS{" + graph.generateSparql() + condition.generateSparql() + "}";
+				return "EXISTS {\n" + graph.generateSparql() + condition.generateSparql() + "}";
 			} else {
 				return graph.generateSparql() + condition.generateSparql();
 			}
 		} else if (quantifier == Quantifier.FORALL) {
 			if(isInRdfFilter()) {
-				return "NOT EXISTS {\n " + graph.generateSparql() + "\n FILTER NOT EXISTS {\n" + condition.generateSparql() + "\n}\n}";
+				String query = "";
+				if(getNotCondition() == null) {
+					query += "NOT ";
+				}
+				return query + "EXISTS {\n " + graph.generateSparql() + "\n FILTER NOT EXISTS {\n" + condition.generateSparql() + "\n}\n}";
 			} else {
 				return "FILTER NOT EXISTS {\n " + graph.generateSparql() + "\n FILTER NOT EXISTS {\n" + condition.generateSparql() + "\n}\n}";
 			}

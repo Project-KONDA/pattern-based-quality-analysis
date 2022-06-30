@@ -1,9 +1,9 @@
 package playground;
 
-import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_DATABASE_NAME;
-import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_DATA_PATH;
-import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_SCHEMA_NAME;
-import static qualitypatternmodel.testutility.DatabaseConstants.DEMO_SCHEMA_PATH;
+import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_DATABASE_NAME;
+import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_DATA_PATH;
+import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_SCHEMA_NAME;
+import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_SCHEMA_PATH;
 
 import java.io.IOException;
 
@@ -25,9 +25,9 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.testutility.EMFValidationPreparation;
-import qualitypatternmodel.translationtests.Test00;
 import qualitypatternmodel.utility.EMFModelLoad;
+import qualitypatternmodel.xmltestutility.EMFValidationPreparation;
+import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class SuggestionGeneration {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

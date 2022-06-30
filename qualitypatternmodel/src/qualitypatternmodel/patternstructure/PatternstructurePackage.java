@@ -3897,13 +3897,22 @@ public interface PatternstructurePackage extends EPackage {
 	int NOT_CONDITION___IS_IN_RDF_FILTER = CONDITION___IS_IN_RDF_FILTER;
 
 	/**
+	 * The operation id for the '<em>Get Not Sequence Size</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_CONDITION___GET_NOT_SEQUENCE_SIZE = CONDITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Not Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOT_CONDITION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 0;
+	int NOT_CONDITION_OPERATION_COUNT = CONDITION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl <em>Count Condition</em>}' class.
@@ -6326,6 +6335,16 @@ public interface PatternstructurePackage extends EPackage {
 	EReference getNotCondition_Condition();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.patternstructure.NotCondition#getNotSequenceSize() <em>Get Not Sequence Size</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Not Sequence Size</em>' operation.
+	 * @see qualitypatternmodel.patternstructure.NotCondition#getNotSequenceSize()
+	 * @generated
+	 */
+	EOperation getNotCondition__GetNotSequenceSize();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.patternstructure.CountCondition <em>Count Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7343,6 +7362,14 @@ public interface PatternstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EReference NOT_CONDITION__CONDITION = eINSTANCE.getNotCondition_Condition();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Not Sequence Size</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NOT_CONDITION___GET_NOT_SEQUENCE_SIZE = eINSTANCE.getNotCondition__GetNotSequenceSize();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.patternstructure.impl.CountConditionImpl <em>Count Condition</em>}' class.

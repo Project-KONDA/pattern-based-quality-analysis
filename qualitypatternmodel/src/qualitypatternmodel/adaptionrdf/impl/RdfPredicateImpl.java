@@ -62,9 +62,12 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	public String generateSparql() throws InvalidityException {
 		if(!translated) {
 			translated = true;
-			String query = getSource().generateSparql();
-			query += " " + getRdfPathParam().generateSparql();
-			query += " " + getTarget().generateSparql() + ".";
+			String query = "";
+			if(getIncomingMapping() == null) {
+				query = getSource().generateSparql();
+				query += " " + getRdfPathParam().generateSparql();
+				query += " " + getTarget().generateSparql() + ".\n";
+			}
 			if(getTarget() instanceof ComplexNode) {
 				ComplexNode complexNode = (ComplexNode) getTarget();
 				for(Relation relation : complexNode.getOutgoing()) {
@@ -84,12 +87,11 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 			if(parameterList != null) {
 				RdfPathParam pp = getRdfPathParam();
 				if (pp == null) {
-					pp = new RdfPathParamImpl();
+					pp = new RdfSinglePredicateImpl();
 					setRdfPathParam(pp);
 					parameterList.add(pp);
-					pp.createParameters();
 				}
-				if (!pp.getParameterList().equals(parameterList)){
+				if (!parameterList.equals(pp.getParameterList())){
 					parameterList.add(pp);
 				}
 			}
@@ -145,11 +147,14 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetRdfPathParam(RdfPathParam newRdfPathParam, NotificationChain msgs) {
 		RdfPathParam oldRdfPathParam = rdfPathParam;
 		rdfPathParam = newRdfPathParam;
+		
+		createParameters();
+		
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PREDICATE__RDF_PATH_PARAM, oldRdfPathParam, newRdfPathParam);
 			if (msgs == null) msgs = notification; else msgs.add(notification);

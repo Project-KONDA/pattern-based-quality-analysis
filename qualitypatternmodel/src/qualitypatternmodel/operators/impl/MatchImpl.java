@@ -106,9 +106,9 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 	public String generateSparql() throws InvalidityException {
 		if(option!=null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
 			if (option.getValue()){			
-				return "FILTER (regex(" + primitiveNode.generateXQuery() + ", " + regularExpression.getValue() + "))";
+				return "\nFILTER (regex(" + primitiveNode.generateSparql() + ", " + regularExpression.generateSparql() + "))";
 			} else {
-				return "FILTER NOT (regex(" + primitiveNode.generateXQuery() + ", " + regularExpression.getValue() + "))";
+				return "\nFILTER NOT (regex(" + primitiveNode.generateSparql() + ", " + regularExpression.generateSparql() + "))";
 			}	
 		} else {
 			throw new InvalidityException("invalid option");
