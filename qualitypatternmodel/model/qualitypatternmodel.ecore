@@ -1153,7 +1153,7 @@
           eType="#//adaptionrdf/IriParam" containment="true" eOpposite="#//adaptionrdf/IriParam/iriListParam"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="adaptionNeo4J">
+  <eSubpackages name="adaptionNeo4J" nsURI="adaptionNeo4J" nsPrefix="adaptionNeo4J">
     <eClassifiers xsi:type="ecore:EClass" name="AbstractNeoNode" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="label" upperBound="-1"
           eType="#//adaptionNeo4J/Label"/>
@@ -1195,5 +1195,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="neopath" lowerBound="2"
           upperBound="-1" eType="#//adaptionNeo4J/NeoPath" containment="true"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="NeoQuantifier"/>
   </eSubpackages>
 </ecore:EPackage>

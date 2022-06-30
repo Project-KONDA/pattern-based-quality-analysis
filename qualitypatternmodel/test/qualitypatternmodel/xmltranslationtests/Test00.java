@@ -46,7 +46,7 @@ public class Test00 {
 			try {
 				completePattern.isValid(AbstractionLevel.CONCRETE);
 //				System.out.println("\n\n___PATTERN_(VALID)___");
-				System.out.println(completePattern.generateXQuery());
+				System.out.println(completePattern.generateCypher());
 			} catch (Exception e) {
 				System.out.println("\n\n___PATTERN_(InVALID)___");
 				e.printStackTrace();
