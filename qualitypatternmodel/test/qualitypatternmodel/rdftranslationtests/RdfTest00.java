@@ -15,6 +15,7 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -52,6 +53,7 @@ public class RdfTest00 {
 		completePatterns.add(getBasePatternFinal());
 		completePatterns.add(getBasePatternCondConcrete("2022-12-31"));
 		completePatterns.add(getBasePatternMatchConcrete("^2022"));
+		completePatterns.add(getBasePatternMatchNotConcrete("^2022"));
 		RdfTest00.test(completePatterns);
 	}
 
@@ -103,6 +105,17 @@ public class RdfTest00 {
 	
 	public static CompletePattern getBasePatternMatchConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternMatch(comp);
+		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
+		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
+		((RdfSinglePredicate) relation.getRdfPathParam()).setIriParam(iriParam);
+		iriParam.setPrefix("wdt");
+		iriParam.setSuffix("P569");
+		return completePattern;		
+	}
+	
+	public static CompletePattern getBasePatternMatchNotConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePatternMatch(comp);
+		((Match) completePattern.getGraph().getOperatorList().getOperators().get(0)).getOption().setValue(false);
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
 		((RdfSinglePredicate) relation.getRdfPathParam()).setIriParam(iriParam);
