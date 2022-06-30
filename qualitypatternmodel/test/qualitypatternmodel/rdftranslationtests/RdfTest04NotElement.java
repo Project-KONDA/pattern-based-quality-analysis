@@ -19,8 +19,12 @@ public class RdfTest04NotElement {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getNotExistsPattern());
 		completePatterns.add(getNotForallPattern());
-//		completePatterns.add(getPatternExistsNotExists()); // TODO
-//		completePatterns.add(getPatternForallNotForall()); // TODO
+		completePatterns.add(getExistsNotExistsPattern());
+		completePatterns.add(getForallNotForallPattern());
+		completePatterns.add(getNotNotPattern());
+		completePatterns.add(getNotNotNotPattern());
+		completePatterns.add(getNotNotNotNotPattern());
+		completePatterns.add(getNotNotNotNotNotPattern());
 		RdfTest00.test(completePatterns);
 	}
 
@@ -60,4 +64,152 @@ public class RdfTest04NotElement {
 		return completePattern;
 		
 	}
+	
+	private static CompletePattern getExistsNotExistsPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+
+		CompletePattern completePattern = RdfTest00.getBasePattern();
+		
+		QuantifiedCondition quantifiedCond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		completePattern.setCondition(quantifiedCond);
+		
+		ComplexNode complexNode = quantifiedCond.getGraph().getNodes().get(1).makeComplex();
+		Node node2 = quantifiedCond.getGraph().addNode();
+		quantifiedCond.getGraph().addRelation(complexNode, node2);
+		
+		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
+		quantifiedCond.setCondition(notCond);
+		
+		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		notCond.setCondition(quantifiedCond2);
+		
+		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(2).makeComplex();
+		Node node3 = quantifiedCond2.getGraph().addNode();
+		quantifiedCond2.getGraph().addRelation(complexNode2, node3);		
+		
+		completePattern.createRdfAdaption();
+		return completePattern;
+		
+	}
+	
+	private static CompletePattern getForallNotForallPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+
+		CompletePattern completePattern = RdfTest00.getBasePattern();
+		
+		QuantifiedCondition quantifiedCond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		completePattern.setCondition(quantifiedCond);
+		quantifiedCond.setQuantifier(Quantifier.FORALL);
+		
+		ComplexNode complexNode = quantifiedCond.getGraph().getNodes().get(1).makeComplex();
+		Node node2 = quantifiedCond.getGraph().addNode();
+		quantifiedCond.getGraph().addRelation(complexNode, node2);
+		
+		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
+		quantifiedCond.setCondition(notCond);
+		
+		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		notCond.setCondition(quantifiedCond2);
+		quantifiedCond2.setQuantifier(Quantifier.FORALL);
+		
+		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(2).makeComplex();
+		Node node3 = quantifiedCond2.getGraph().addNode();
+		quantifiedCond2.getGraph().addRelation(complexNode2, node3);		
+		
+		completePattern.createRdfAdaption();
+		return completePattern;
+		
+	}
+	
+	private static CompletePattern getNotNotPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+
+		CompletePattern completePattern = RdfTest00.getBasePattern();
+		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
+		completePattern.setCondition(notCond);
+		NotCondition notCond2 = PatternstructureFactory.eINSTANCE.createNotCondition();
+		notCond.setCondition(notCond2);
+		
+		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		notCond2.setCondition(quantifiedCond2);
+		
+		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(1).makeComplex();
+		Node node3 = quantifiedCond2.getGraph().addNode();
+		quantifiedCond2.getGraph().addRelation(complexNode2, node3);		
+		
+		completePattern.createRdfAdaption();
+		return completePattern;
+		
+	}
+	
+	private static CompletePattern getNotNotNotPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+
+		CompletePattern completePattern = RdfTest00.getBasePattern();
+		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
+		completePattern.setCondition(notCond);
+		NotCondition notCond2 = PatternstructureFactory.eINSTANCE.createNotCondition();
+		notCond.setCondition(notCond2);
+		NotCondition notCond3 = PatternstructureFactory.eINSTANCE.createNotCondition();
+		notCond2.setCondition(notCond3);
+		
+		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		notCond3.setCondition(quantifiedCond2);
+		
+		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(1).makeComplex();
+		Node node3 = quantifiedCond2.getGraph().addNode();
+		quantifiedCond2.getGraph().addRelation(complexNode2, node3);		
+		
+		completePattern.createRdfAdaption();
+		return completePattern;
+		
+	}
+	
+	private static CompletePattern getNotNotNotNotPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+
+		CompletePattern completePattern = RdfTest00.getBasePattern();
+		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
+		completePattern.setCondition(notCond);
+		NotCondition notCond2 = PatternstructureFactory.eINSTANCE.createNotCondition();
+		notCond.setCondition(notCond2);
+		NotCondition notCond3 = PatternstructureFactory.eINSTANCE.createNotCondition();
+		notCond2.setCondition(notCond3);
+		NotCondition notCond4 = PatternstructureFactory.eINSTANCE.createNotCondition();
+		notCond3.setCondition(notCond4);
+		
+		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		notCond4.setCondition(quantifiedCond2);
+		
+		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(1).makeComplex();
+		Node node3 = quantifiedCond2.getGraph().addNode();
+		quantifiedCond2.getGraph().addRelation(complexNode2, node3);		
+		
+		completePattern.createRdfAdaption();
+		return completePattern;
+		
+	}
+	
+	private static CompletePattern getNotNotNotNotNotPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+
+		CompletePattern completePattern = RdfTest00.getBasePattern();
+		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
+		completePattern.setCondition(notCond);
+		NotCondition notCond2 = PatternstructureFactory.eINSTANCE.createNotCondition();
+		notCond.setCondition(notCond2);
+		NotCondition notCond3 = PatternstructureFactory.eINSTANCE.createNotCondition();
+		notCond2.setCondition(notCond3);
+		NotCondition notCond4 = PatternstructureFactory.eINSTANCE.createNotCondition();
+		notCond3.setCondition(notCond4);
+		NotCondition notCond5 = PatternstructureFactory.eINSTANCE.createNotCondition();
+		notCond4.setCondition(notCond5);
+		
+		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		notCond5.setCondition(quantifiedCond2);
+		
+		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(1).makeComplex();
+		Node node3 = quantifiedCond2.getGraph().addNode();
+		quantifiedCond2.getGraph().addRelation(complexNode2, node3);		
+		
+		completePattern.createRdfAdaption();
+		return completePattern;
+		
+	}
+	
+	
 }
