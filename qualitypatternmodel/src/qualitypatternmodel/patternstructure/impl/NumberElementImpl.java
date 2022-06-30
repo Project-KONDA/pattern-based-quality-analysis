@@ -70,6 +70,11 @@ public class NumberElementImpl extends PatternElementImpl implements NumberEleme
 	}
 	
 	@Override
+	public String generateSparql() throws InvalidityException {
+		return getNumberParam().generateSparql();
+	}
+	
+	@Override
 	public void isValid(AbstractionLevel abstractionLevel)
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
