@@ -6,6 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -13,6 +14,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import qualitypatternmodel.adaptionrdf.IriParam;
+import qualitypatternmodel.adaptionrdf.RdfPathParam;
+import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -21,6 +26,7 @@ import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.operators.impl.OperatorImpl;
@@ -309,8 +315,55 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	@Override
 	public String generateSparql() throws InvalidityException {
 		initializeTranslation();
-		String res = super.generateSparql();
-		return res;
+		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
+			throw new InvalidityException("return elements missing");
+		}
+		
+		EList<String> prefixes = new BasicEList<String>();		
+		for(Parameter p : getParameterList().getParameters()) {
+			if(p instanceof RdfPathParam) {
+				RdfPathParam rdfPathParam = (RdfPathParam) p;
+				for(RdfSinglePredicate rdfSinglePredicate : rdfPathParam.getRdfSinglePredicates()) {
+					if(rdfSinglePredicate.getIriParam() != null) {
+						IriParam iriParam = rdfSinglePredicate.getIriParam();
+						if(iriParam.getPrefix() != null) {
+							String standardIri = iriParam.getStandardIri();
+							if(standardIri == null) {
+								throw new InvalidityException("Invalid prefix");
+							}
+							String prefixDeclaration = "PREFIX " + iriParam.getPrefix() + ": <" + standardIri + ">";
+							boolean found = false;
+							for(String s : prefixes) {
+								if(s.equals(prefixDeclaration)) {
+									found = true;
+								}
+							}
+							if(!found) {
+								prefixes.add(prefixDeclaration);
+							}
+						}
+					}
+				}
+				
+			}
+		}
+		
+		
+		EList<Node> selects = graph.getReturnNodes();
+
+		String query = "";
+		for (String p: prefixes) {
+			query += "\n" + p;
+		}
+		query += "\nSELECT\n";
+		for (Node s: selects) {
+			query += " ?var" + s.getOriginalID();
+		}
+		query += "\nWHERE\n{\n";
+		query += super.generateSparql();
+		query += "\n}";
+		
+		return query;
 	}
 	
 	/**

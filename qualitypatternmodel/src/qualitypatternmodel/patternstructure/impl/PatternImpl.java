@@ -188,50 +188,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			throw new InvalidityException("return elements missing");
 		}
 		
-		EList<String> prefixes = new BasicEList<String>();		
-		for(Parameter p : getParameterList().getParameters()) {
-			if(p instanceof RdfPathParam) {
-				RdfPathParam rdfPathParam = (RdfPathParam) p;
-				for(RdfSinglePredicate rdfSinglePredicate : rdfPathParam.getRdfSinglePredicates()) {
-					if(rdfSinglePredicate.getIriParam() != null) {
-						IriParam iriParam = rdfSinglePredicate.getIriParam();
-						if(iriParam.getPrefix() != null) {
-							String standardIri = iriParam.getStandardIri();
-							if(standardIri == null) {
-								throw new InvalidityException("Invalid prefix");
-							}
-							String prefixDeclaration = "PREFIX " + iriParam.getPrefix() + ": <" + standardIri + ">";
-							boolean found = false;
-							for(String s : prefixes) {
-								if(s.equals(prefixDeclaration)) {
-									found = true;
-								}
-							}
-							if(!found) {
-								prefixes.add(prefixDeclaration);
-							}
-						}
-					}
-				}
-				
-			}
-		}
-		
-		
-		EList<Node> selects = graph.getReturnNodes();
-
 		String query = "";
-		for (String p: prefixes) {
-			query += "\n" + p;
-		}
-		query += "\nSELECT\n";
-		for (Node s: selects) {
-			query += " ?var" + s.getOriginalID();
-		}
-		query += "\nWHERE\n{\n";
 		query += graph.generateSparql();
 		query += condition.generateSparql();
-		query += "\n}";
 		return query;
 	}
 	
