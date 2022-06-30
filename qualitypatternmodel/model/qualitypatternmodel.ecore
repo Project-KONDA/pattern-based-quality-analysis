@@ -630,6 +630,7 @@
     <eClassifiers xsi:type="ecore:EDataType" name="MissingPatternContainerException"
         instanceClassName="qualitypatternmodel.exceptions.MissingPatternContainerException"/>
     <eClassifiers xsi:type="ecore:EClass" name="NotCondition" eSuperTypes="#//patternstructure/Condition">
+      <eOperations name="getNotSequenceSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//patternstructure/Condition"
           containment="true" eOpposite="#//patternstructure/Condition/notCondition"/>
     </eClassifiers>
@@ -1110,58 +1111,46 @@
           eOpposite="#//adaptionrdf/RdfPathParam/rdfPredicate"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RdfIriNode" eSuperTypes="#//graphstructure/ComplexNode #//adaptionrdf/RdfNode"/>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfPathParam" eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfAxisPair" lowerBound="1"
-          upperBound="-1" eType="#//adaptionrdf/RdfAxisPair" containment="true" eOpposite="#//adaptionrdf/RdfAxisPair/rdfPathParam"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RdfPathParam" abstract="true" eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
+      <eOperations name="getRdfSinglePredicates" upperBound="-1" eType="#//adaptionrdf/RdfSinglePredicate"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPredicate" eType="#//adaptionrdf/RdfPredicate"
           eOpposite="#//adaptionrdf/RdfPredicate/rdfPathParam"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="invert" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//adaptionrdf/RdfQuantifier"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="RdfQuantifier">
-      <eLiterals name="ONCE" literal="ONCE"/>
-      <eLiterals name="ZEROPLUS" value="1" literal="ZEROPLUS"/>
-      <eLiterals name="ONEPLUS" value="2" literal="ONEPLUS"/>
+      <eLiterals name="ONE" literal="ONE"/>
+      <eLiterals name="ZERO_PLUS" value="1" literal="ZERO_PLUS"/>
+      <eLiterals name="ONE_PLUS" value="2" literal="ONE_PLUS"/>
+      <eLiterals name="ZERO_OR_ONE" value="3" literal="ZERO_OR_ONE"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfAxisPair" eSuperTypes="#//patternstructure/PatternElement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//adaptionrdf/RdfQuantifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RdfSinglePredicate" eSuperTypes="#//adaptionrdf/RdfPathParam">
       <eStructuralFeatures xsi:type="ecore:EReference" name="iriParam" eType="#//adaptionrdf/IriParam"
-          containment="true" eOpposite="#//adaptionrdf/IriParam/rdfAxisPair"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPathParam" lowerBound="1"
-          eType="#//adaptionrdf/RdfPathParam" eOpposite="#//adaptionrdf/RdfPathParam/rdfAxisPair"/>
+          containment="true" eOpposite="#//adaptionrdf/IriParam/rdfSinglePredicate"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RdfNode" abstract="true" interface="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="RdfLiteralNode" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionrdf/RdfNode"/>
-    <eClassifiers xsi:type="ecore:EClass" name="IriParam" eSuperTypes="#//parameters/Parameter">
+    <eClassifiers xsi:type="ecore:EClass" name="IriParam" eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="getStandardIri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfAxisPair" lowerBound="1"
-          eType="#//adaptionrdf/RdfAxisPair" eOpposite="#//adaptionrdf/RdfAxisPair/iriParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfSinglePredicate" eType="#//adaptionrdf/RdfSinglePredicate"
+          eOpposite="#//adaptionrdf/RdfSinglePredicate/iriParam"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="suffix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="iriListParam" eType="#//adaptionrdf/IriListParam"
+          eOpposite="#//adaptionrdf/IriListParam/iriParam"/>
     </eClassifiers>
-  </eSubpackages>
-  <eSubpackages name="adaptionNeo4J" nsURI="adaptionNeo4J" nsPrefix="adaptionNeo4J">
-    <eClassifiers xsi:type="ecore:EClass" name="AbstractNeoNode" instanceTypeName="AbstractNeoNode"
-        abstract="true" eSuperTypes="#//adaptionNeo4J/INeoElement #//graphstructure/ComplexNode">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="label" upperBound="-1"
-          eType="#//adaptionNeo4J/Label"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Attributes" upperBound="-1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RdfXor" eSuperTypes="#//adaptionrdf/RdfPathParam">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="2"
+          upperBound="-1" eType="#//adaptionrdf/RdfPathParam" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoNode" instanceTypeName="NeoNode"
-        eSuperTypes="#//adaptionNeo4J/AbstractNeoNode"/>
-    <eClassifiers xsi:type="ecore:EClass" name="AbstractNeoEdge" instanceTypeName="AbstractNeoEdge"
-        abstract="true" eSuperTypes="#//adaptionNeo4J/INeoElement #//graphstructure/Relation">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="label" upperBound="-1"
-          eType="#//adaptionNeo4J/Label"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Attributes" upperBound="-1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RdfSequence" eSuperTypes="#//adaptionrdf/RdfPathParam">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="2"
+          upperBound="-1" eType="#//adaptionrdf/RdfPathParam" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoEdge" instanceTypeName="NeoEdge"
-        eSuperTypes="#//adaptionNeo4J/AbstractNeoEdge"/>
-    <eClassifiers xsi:type="ecore:EClass" name="INeoElement"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Label" instanceTypeName="Label">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="labelID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IriListParam" eSuperTypes="#//parameters/ParameterValue">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="iriParam" upperBound="-1"
+          eType="#//adaptionrdf/IriParam" containment="true" eOpposite="#//adaptionrdf/IriParam/iriListParam"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
