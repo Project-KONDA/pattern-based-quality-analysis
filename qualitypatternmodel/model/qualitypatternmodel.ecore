@@ -630,6 +630,7 @@
     <eClassifiers xsi:type="ecore:EDataType" name="MissingPatternContainerException"
         instanceClassName="qualitypatternmodel.exceptions.MissingPatternContainerException"/>
     <eClassifiers xsi:type="ecore:EClass" name="NotCondition" eSuperTypes="#//patternstructure/Condition">
+      <eOperations name="getNotSequenceSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//patternstructure/Condition"
           containment="true" eOpposite="#//patternstructure/Condition/notCondition"/>
     </eClassifiers>

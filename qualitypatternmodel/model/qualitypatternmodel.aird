@@ -1362,6 +1362,10 @@
             <children xmi:type="notation:Node" xmi:id="_Q11G4GHbEeqyJIs2lFr5Xg" type="3009" element="_QT4QYGHbEeqyJIs2lFr5Xg">
               <children xmi:type="notation:Node" xmi:id="_Q11t8GHbEeqyJIs2lFr5Xg" type="5004"/>
               <children xmi:type="notation:Node" xmi:id="_Q12VAGHbEeqyJIs2lFr5Xg" type="7003">
+                <children xmi:type="notation:Node" xmi:id="_zSGJ4PhCEeyszt7XyLdy2A" type="3010" element="_zPndoPhCEeyszt7XyLdy2A">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_zSGw8PhCEeyszt7XyLdy2A" fontName="Segoe UI" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_zSGw8fhCEeyszt7XyLdy2A"/>
+                </children>
                 <styles xmi:type="notation:SortingStyle" xmi:id="_Q12VAWHbEeqyJIs2lFr5Xg"/>
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_Q12VAmHbEeqyJIs2lFr5Xg"/>
               </children>
@@ -7593,6 +7597,14 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_zPndoPhCEeyszt7XyLdy2A" name="getNotSequenceSize() : EInt" tooltipText="getNotSequenceSize() : EInt">
+          <target xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/NotCondition/getNotSequenceSize"/>
+          <semanticElements xmi:type="ecore:EOperation" href="qualitypatternmodel.ecore#//patternstructure/NotCondition/getNotSequenceSize"/>
+          <ownedStyle xmi:type="diagram:BundledImage" uid="_zPorwPhCEeyszt7XyLdy2A" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+        </ownedElements>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_EpllcGqMEeqwze_WIZAgBA" name="CountCondition" tooltipText="" outgoingEdges="_Wi80EGqMEeqwze_WIZAgBA _2OfXJnAYEeqskNBUyJ2zaA _0v7SQn4gEeqzRKZGkDdwsQ" incomingEdges="_06JVcICiEequqNnOyMT3Pg" width="12" height="10">
         <target xmi:type="ecore:EClass" href="qualitypatternmodel.ecore#//patternstructure/CountCondition"/>

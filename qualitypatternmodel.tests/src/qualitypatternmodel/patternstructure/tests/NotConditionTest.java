@@ -11,6 +11,12 @@ import qualitypatternmodel.patternstructure.PatternstructureFactory;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Not Element</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.patternstructure.NotCondition#getNotSequenceSize() <em>Get Not Sequence Size</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class NotConditionTest extends ConditionTest {
@@ -65,6 +71,19 @@ public class NotConditionTest extends ConditionTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.patternstructure.NotCondition#getNotSequenceSize() <em>Get Not Sequence Size</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.patternstructure.NotCondition#getNotSequenceSize()
+	 * @generated
+	 */
+	public void testGetNotSequenceSize() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //NotElementTest
