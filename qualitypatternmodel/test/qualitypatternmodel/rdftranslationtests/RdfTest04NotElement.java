@@ -17,18 +17,18 @@ public class RdfTest04NotElement {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getNotExistsPattern());
-		completePatterns.add(getNotForallPattern());
-		completePatterns.add(getExistsNotExistsPattern());
-		completePatterns.add(getForallNotForallPattern());
+		completePatterns.add(getNotQuantifierPattern(Quantifier.EXISTS));
+		completePatterns.add(getNotQuantifierPattern(Quantifier.FORALL));
+		completePatterns.add(getQuantifierNotQuantifierPattern(Quantifier.EXISTS, Quantifier.EXISTS));
+		completePatterns.add(getQuantifierNotQuantifierPattern(Quantifier.FORALL, Quantifier.FORALL));
 		completePatterns.add(getNotNotPattern());
 		completePatterns.add(getNotNotNotPattern());
 		completePatterns.add(getNotNotNotNotPattern());
 		completePatterns.add(getNotNotNotNotNotPattern());
 		RdfTest00.test(completePatterns);
 	}
-
-	private static CompletePattern getNotExistsPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	
+	private static CompletePattern getNotQuantifierPattern(Quantifier q) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		CompletePattern completePattern = RdfTest00.getBasePattern();
 		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
@@ -36,6 +36,7 @@ public class RdfTest04NotElement {
 		
 		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		notCond.setCondition(quantifiedCond2);
+		quantifiedCond2.setQuantifier(q);
 		
 		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(1).makeComplex();
 		Node node3 = quantifiedCond2.getGraph().addNode();
@@ -46,31 +47,13 @@ public class RdfTest04NotElement {
 		
 	}
 	
-	private static CompletePattern getNotForallPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
-		CompletePattern completePattern = RdfTest00.getBasePattern();
-		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
-		completePattern.setCondition(notCond);
-		
-		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
-		notCond.setCondition(quantifiedCond2);
-		quantifiedCond2.setQuantifier(Quantifier.FORALL);
-		
-		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(1).makeComplex();
-		Node node3 = quantifiedCond2.getGraph().addNode();
-		quantifiedCond2.getGraph().addRelation(complexNode2, node3);		
-		
-		completePattern.createRdfAdaption();
-		return completePattern;
-		
-	}
-	
-	private static CompletePattern getExistsNotExistsPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getQuantifierNotQuantifierPattern(Quantifier q, Quantifier q2) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		CompletePattern completePattern = RdfTest00.getBasePattern();
 		
 		QuantifiedCondition quantifiedCond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(quantifiedCond);
+		quantifiedCond.setQuantifier(q);
 		
 		ComplexNode complexNode = quantifiedCond.getGraph().getNodes().get(1).makeComplex();
 		Node node2 = quantifiedCond.getGraph().addNode();
@@ -81,34 +64,7 @@ public class RdfTest04NotElement {
 		
 		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		notCond.setCondition(quantifiedCond2);
-		
-		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(2).makeComplex();
-		Node node3 = quantifiedCond2.getGraph().addNode();
-		quantifiedCond2.getGraph().addRelation(complexNode2, node3);		
-		
-		completePattern.createRdfAdaption();
-		return completePattern;
-		
-	}
-	
-	private static CompletePattern getForallNotForallPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
-		CompletePattern completePattern = RdfTest00.getBasePattern();
-		
-		QuantifiedCondition quantifiedCond = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
-		completePattern.setCondition(quantifiedCond);
-		quantifiedCond.setQuantifier(Quantifier.FORALL);
-		
-		ComplexNode complexNode = quantifiedCond.getGraph().getNodes().get(1).makeComplex();
-		Node node2 = quantifiedCond.getGraph().addNode();
-		quantifiedCond.getGraph().addRelation(complexNode, node2);
-		
-		NotCondition notCond = PatternstructureFactory.eINSTANCE.createNotCondition();
-		quantifiedCond.setCondition(notCond);
-		
-		QuantifiedCondition quantifiedCond2 = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
-		notCond.setCondition(quantifiedCond2);
-		quantifiedCond2.setQuantifier(Quantifier.FORALL);
+		quantifiedCond2.setQuantifier(q2);
 		
 		ComplexNode complexNode2 = quantifiedCond2.getGraph().getNodes().get(2).makeComplex();
 		Node node3 = quantifiedCond2.getGraph().addNode();
