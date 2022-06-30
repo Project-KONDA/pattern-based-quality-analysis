@@ -1153,4 +1153,24 @@
           eType="#//adaptionrdf/IriParam" containment="true" eOpposite="#//adaptionrdf/IriParam/iriListParam"/>
     </eClassifiers>
   </eSubpackages>
+  <eSubpackages name="adaptionNeo4J">
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractNeoNode" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="label" upperBound="-1"
+          eType="#//adaptionNeo4J/Label"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoNode" eSuperTypes="#//adaptionNeo4J/AbstractNeoNode #//graphstructure/ComplexNode"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoEdge" eSuperTypes="#//graphstructure/Relation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="label" upperBound="-1"
+          eType="#//adaptionNeo4J/Label"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Label">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="lebelName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="lebelID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NoEdge"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SequenceEdge"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SimpleEdge"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoPath"/>
+  </eSubpackages>
 </ecore:EPackage>
