@@ -109,8 +109,8 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	
 	@Override
 	public String generateSparql() throws InvalidityException {
-		String argument1 = getCountPattern().generateXQuery();
-		String argument2 = getArgument2().generateXQuery();
+		String argument1 = getCountPattern().generateSparql();
+		String argument2 = getArgument2().generateSparql();
 		if(getOption() != null && getOption().getValue() != null) {
 			String comp = getOption().getValue().getLiteral();
 			String selects = "";			
