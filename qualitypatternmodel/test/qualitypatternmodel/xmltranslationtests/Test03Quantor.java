@@ -82,7 +82,7 @@ public class Test03Quantor {
 		return completePattern;
 	}
 	
-	public static CompletePattern getPatternExistsWithRelation() {
+	public static CompletePattern getPatternExistsWithRelation() throws InvalidityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -95,15 +95,8 @@ public class Test03Quantor {
 				
 		// EXISTS additional graph structure
 		Node se1 = cond.getGraph().getNodes().get(0);	
+		Node se2 = se1.addOutgoing().getTarget();		
 		
-		Node se2 = graphFactory.createNode();
-		se2.setGraph(cond.getGraph());
-		
-		Relation relation = graphFactory.createRelation();
-		relation.setGraph(cond.getGraph());
-		relation.setSource(se1);
-		relation.setTarget(se2);		
-				
 		return completePattern;
 	}
 
