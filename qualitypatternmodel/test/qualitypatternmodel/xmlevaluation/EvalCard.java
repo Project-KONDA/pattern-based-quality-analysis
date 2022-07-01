@@ -129,6 +129,10 @@ public class EvalCard {
 		((XmlPathParamImpl)params.get(13)).setXmlAxis(returnToE1Rel);
 		((XmlPathParamImpl)params.get(15)).setXmlAxis(e1ToE2Rel);
 		
+		((XmlPathParamImpl)params.get(11)).getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
+		((XmlPathParamImpl)params.get(14)).getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
+		((XmlPathParamImpl)params.get(16)).getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
+		
 		
 		return completePattern;
 	}
