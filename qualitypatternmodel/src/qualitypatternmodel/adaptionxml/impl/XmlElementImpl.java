@@ -153,8 +153,15 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		}
 		if(xQueryDeepEqual || getVariables().size() == 1) {
 			for(Relation relation : getOutgoing()) {
-				if(relation instanceof XmlNavigation) {
-					XmlNavigation nav = (XmlNavigation) relation;
+				if(relation instanceof XmlPropertyNavigation) {
+					XmlPropertyNavigation nav = (XmlPropertyNavigation) relation;
+					if (!nav.getXmlPathParam().getXmlAxisPairs().isEmpty()) {
+						nav.setSourceVariable(getVariables().get(getVariables().size()-1));
+						query += relation.generateXQuery();
+					}
+				}
+				if(relation instanceof XmlElementNavigation) {
+					XmlElementNavigation nav = (XmlElementNavigation) relation;
 					nav.setSourceVariable(getVariables().get(getVariables().size()-1));
 					query += relation.generateXQuery();
 				}
@@ -207,6 +214,18 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 			}
 		}
 		
+		if(xQueryDeepEqual || getVariables().size() == 1) {
+			for(Relation relation : getOutgoing()) {
+				if(relation instanceof XmlPropertyNavigation) {
+					XmlPropertyNavigation nav = (XmlPropertyNavigation) relation;
+					if (nav.getXmlPathParam().getXmlAxisPairs().isEmpty()) {
+//						nav.setSourceVariable(getVariables().get(getVariables().size()-1));
+						xPredicates += relation.generateXQuery();
+					}
+				}
+			}
+		}
+		
 		predicatesAreBeingTranslated = false;
 		return xPredicates;
 	}
@@ -220,12 +239,12 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	public String translateMultipleIncoming() {
 		String xPredicates = "";
 		if(xQueryDeepEqual) {
-			for(String otherVar : getVariables()) {
-				xPredicates += "[deep-equal(.," + otherVar + ")]"; 
+			for (int i = 0; i < getVariables().size()-1; i++) {
+				xPredicates += "[deep-equal(.," + getVariables().get(i) + ")]"; 
 			}
 		} else {
-			for(String v : getVariables()) {
-				xPredicates += "[. is " + v + "]";				
+			for (int i = 0; i < getVariables().size()-1; i++) {
+				xPredicates += "[. is " + getVariables().get(i) + "]";
 			}			
 		}
 		return xPredicates;

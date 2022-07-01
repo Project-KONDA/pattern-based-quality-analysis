@@ -4,7 +4,9 @@ package qualitypatternmodel.adaptionxml.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
+import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
 import qualitypatternmodel.adaptionxml.XmlReference;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -42,6 +44,28 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 		//if (getIncomingMapping() != null && option != null)
 		//	throw new InvalidityException("axis redundant");
 	}	
+
+	@Override
+	public String generateXQuery() throws InvalidityException {
+		if (!getXmlPathParam().getXmlAxisPairs().isEmpty()) 
+			return super.generateXQuery();
+		
+		XmlProperty target = (XmlProperty) getTarget();
+		
+		String path = getXmlPathParam().generateXQuery();
+		
+		XmlElement source = (XmlElement) getSource();
+		String variable = source.getVariables().get(0) + path;
+		target.getVariables().add(variable);		
+		String result = "[" + "." + path;
+		target.setTranslated(true);
+		
+		result += target.translatePredicates();
+		result += "]";
+		
+		return result;
+	}
+	
 	
 	@Override
 	public XmlPropertyNavigation adaptAsXmlPropertyNavigation() {
