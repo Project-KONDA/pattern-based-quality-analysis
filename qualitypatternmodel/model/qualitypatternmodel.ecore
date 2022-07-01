@@ -1154,21 +1154,11 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="adaptionNeo4J" nsURI="adaptionNeo4J" nsPrefix="adaptionNeo4J">
-    <eClassifiers xsi:type="ecore:EClass" name="AbstractNeoNode" abstract="true">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="label" upperBound="-1"
-          eType="#//adaptionNeo4J/Label"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractNeoNode" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="NeoNode" eSuperTypes="#//adaptionNeo4J/AbstractNeoNode #//graphstructure/ComplexNode"/>
     <eClassifiers xsi:type="ecore:EClass" name="NeoEdge" eSuperTypes="#//graphstructure/Relation">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="label" upperBound="-1"
-          eType="#//adaptionNeo4J/Label"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="neopath" eType="#//adaptionNeo4J/NeoPath"
           eOpposite="#//adaptionNeo4J/NeoPath/neoedge"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Label">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="lebelName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="lebelID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-          iD="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NoEdge" eSuperTypes="#//adaptionNeo4J/NeoPath">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Node" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -1196,5 +1186,6 @@
           upperBound="-1" eType="#//adaptionNeo4J/NeoPath" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="NeoQuantifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoAttributenode" eSuperTypes="#//graphstructure/PrimitiveNode"/>
   </eSubpackages>
 </ecore:EPackage>
