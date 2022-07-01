@@ -12,6 +12,7 @@ import qualitypatternmodel.adaptionrdf.RdfXor;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.xmltranslationtests.Test00;
@@ -29,6 +30,7 @@ public class RdfTest01Predicates {
 		completePatterns.add(getSequenceQuantifierPattern(RdfQuantifier.ONE));
 		completePatterns.add(getSequenceQuantifierPattern(RdfQuantifier.ZERO_OR_ONE));
 		completePatterns.add(getXorPattern());
+		completePatterns.add(getTwoIncomingPredicatesPattern());
 		RdfTest00.test(completePatterns);
 	}
 	
@@ -115,6 +117,17 @@ public class RdfTest01Predicates {
 		
 		return completePattern;		
 	}
+	
+	private static CompletePattern getTwoIncomingPredicatesPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = RdfTest00.getBasePattern();
+		
+		ComplexNode node2 = completePattern.getGraph().addNode().makeComplex();
+		completePattern.getGraph().addRelation(node2, completePattern.getGraph().getNodes().get(1));
+		
+		completePattern.createRdfAdaption();
+		return completePattern;		
+	}
+
 	
 
 
