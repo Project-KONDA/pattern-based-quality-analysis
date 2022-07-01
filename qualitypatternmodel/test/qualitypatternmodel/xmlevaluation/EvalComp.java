@@ -82,8 +82,8 @@ public class EvalComp {
 		Node g3n4 = g3n3.addOutgoing().getTarget().makePrimitive();
 		Node g3n6 = g3n5.addOutgoing().getTarget().makePrimitive();
 		Node g3n7 = g3n5.addOutgoing().getTarget().makePrimitive();
-		g3n7.addPrimitiveComparison();
-		Comparison c = g3n6.addComparison(g3n4);
+		g3n6.addPrimitiveComparison();
+		Comparison c = g3n7.addComparison(g3n4);
 		c.getTypeOption().setValue(ReturnType.STRING);
 				
 		
@@ -184,14 +184,14 @@ public class EvalComp {
 		p13.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD,});
 		p15.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD,});
 
-		XmlPathParamImpl[] paths = new XmlPathParamImpl[] {p11, p14, p18};
+		XmlPathParamImpl[] paths = new XmlPathParamImpl[] {p11, p14, p17};
 		for (XmlPathParamImpl p : paths) {
 			XmlPropertyOptionParam pop = p.getXmlPropertyOptionParam();
 			pop.setValue(XmlPropertyKind.ATTRIBUTE);
 			pop.getAttributeName().setValue("Type");	
 		}
 		
-		XmlPathParamImpl[] paths2 = new XmlPathParamImpl[] {p16, p17};
+		XmlPathParamImpl[] paths2 = new XmlPathParamImpl[] {p16, p18};
 		for (XmlPathParamImpl p : paths2) {
 			XmlPropertyOptionParam pop = p.getXmlPropertyOptionParam();
 			pop.setValue(XmlPropertyKind.ATTRIBUTE);
