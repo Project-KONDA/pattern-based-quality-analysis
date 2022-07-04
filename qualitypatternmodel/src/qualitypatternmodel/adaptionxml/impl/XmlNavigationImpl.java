@@ -166,7 +166,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 					xPredicates += node.translateMultipleIncoming();
 				}
 				query += xPathExpression + xPredicates;
-			} else if (!getTarget().getPredicates().isEmpty()) {
+			} else if (!getTarget().getPredicates().isEmpty() || (getTarget() instanceof XmlNode) && ((XmlNode) getTarget()).getVariables().size() > 1) {
 				query += variable + xPredicates;
 			} else {
 				query = "";
@@ -193,7 +193,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 					xPredicates += node.translateMultipleIncoming();
 				}
 				query += xPathExpression + xPredicates + SATISFIES;
-			} else if (!getTarget().getPredicates().isEmpty()) {
+			} else if (!getTarget().getPredicates().isEmpty() || (getTarget() instanceof XmlNode) && ((XmlNode) getTarget()).getVariables().size() > 1) {
 //			} else if (!xPredicates.equals("")) {
 				query += variable + xPredicates + SATISFIES;
 			} else {
