@@ -181,6 +181,8 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {	
 		super.isValidLocal(abstractionLevel);
 		
+		validateCycles();
+		
 		
 		if ( getIncoming() == null && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
 			throw new InvalidityException("no incoming relation at XMLElement " + getId());
@@ -197,6 +199,38 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		}
 		
 	}
+	
+	private void validateCycles() throws InvalidityException {
+		EList<EList<XmlElementImpl>> cycles = findCycles(new BasicEList<XmlElementImpl>());
+		for(EList<XmlElementImpl> cycle : cycles) {
+			boolean deepEqualFalse = false;
+			for(XmlElementImpl node : cycle) {
+				deepEqualFalse = deepEqualFalse || !node.isXQueryDeepEqual();
+			}
+			if(!deepEqualFalse) {
+				throw new InvalidityException("Cycle must contain at least one XmlElement with xQueryDeepEqual false");
+			}
+		}		
+	}
+
+	private EList<EList<XmlElementImpl>> findCycles(EList<XmlElementImpl> path){
+		EList<EList<XmlElementImpl>> cycles = new BasicEList<EList<XmlElementImpl>>();
+		if(!path.isEmpty() && path.get(0).equals(this)) {
+			cycles.add(path);
+		} else if(!path.contains(this)) {
+			for(Relation r : getOutgoing()) {			
+				if(r.getTarget() instanceof XmlElementImpl) {
+					XmlElementImpl target = (XmlElementImpl) r.getTarget();					
+					EList<XmlElementImpl> nextPath = new BasicEList<XmlElementImpl>();
+					nextPath.addAll(path);
+					nextPath.add(this);
+					cycles.addAll(target.findCycles(nextPath));
+				}
+			}
+		}		
+		return cycles;
+	}
+
 	
 	@Override
 	public boolean isTranslatable() {
