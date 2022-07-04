@@ -60,8 +60,8 @@ public class EvalCompval {
 		completePatterns.add(getCompvalLidoObjectWorkTypePrint());
 		completePatterns.add(getCompvalSetLidoAppellationValue());
 
-		Test00.getQueries(completePatterns);
-//		Test00.test(completePatterns);		
+//		Test00.getQueries(completePatterns);
+		Test00.test(completePatterns);		
 	}
 
 	public static CompletePattern getCompvalAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -72,7 +72,7 @@ public class EvalCompval {
 
 		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 
-		Node next1 = graph1.getNodes().get(1);
+		Node next1 = graph1.getNodes().get(0).makeComplex();
 		next1.addOutgoing().getTarget().addPrimitiveComparison();
 		next1.addOutgoing().getTarget().addPrimitiveComparison();
 
@@ -145,7 +145,7 @@ public class EvalCompval {
 		
 		p13.setXmlAxis(element1Axis);
 		p14.setXmlAxis(element2Axis);
-		p15.setXmlAxis(element3Axis);
+		p16.setXmlAxis(element3Axis);
 		
 		XmlPropertyOptionParam pop12 = p12.getXmlPropertyOptionParam();
 		pop12.setValue(attribute1Kind);

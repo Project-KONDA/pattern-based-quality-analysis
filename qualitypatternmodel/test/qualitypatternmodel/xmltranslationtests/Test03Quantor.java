@@ -123,17 +123,13 @@ public class Test03Quantor {
 		return completePattern;
 	}
 
-	public static CompletePattern getPatternExistsCond() {
+	public static CompletePattern getPatternExistsCond() throws InvalidityException {
 		
 		CompletePattern completePattern = getPatternExists();
 		Graph graph2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Node last = graph2.getNodes().get(1);
-		try {
-			last.addPrimitiveComparison("New York City");
-		} catch (InvalidityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		last.addOutgoing().getTarget().addPrimitiveComparison("New York City");
 		
 		return completePattern;
 	}
