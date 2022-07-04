@@ -155,7 +155,9 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 			for(Relation relation : getOutgoing()) {
 				if(relation instanceof XmlPropertyNavigation) {
 					XmlPropertyNavigation nav = (XmlPropertyNavigation) relation;
-					if (!nav.getXmlPathParam().getXmlAxisPairs().isEmpty()) {
+					boolean hasAxis = !nav.getXmlPathParam().getXmlAxisPairs().isEmpty();
+					boolean isNew = getIncomingMapping() != null && nav.getTarget().getIncomingMapping() == null;
+					if (hasAxis || isNew) {
 						nav.setSourceVariable(getVariables().get(getVariables().size()-1));
 						query += relation.generateXQuery();
 					}
@@ -252,7 +254,9 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 			for(Relation relation : getOutgoing()) {
 				if(relation instanceof XmlPropertyNavigation) {
 					XmlPropertyNavigation nav = (XmlPropertyNavigation) relation;
-					if (nav.getXmlPathParam().getXmlAxisPairs().isEmpty()) {
+					boolean hasAxis = !nav.getXmlPathParam().getXmlAxisPairs().isEmpty();
+					boolean isNew = getIncomingMapping() != null && nav.getTarget().getIncomingMapping() == null;
+					if (!hasAxis && !isNew) {
 //						nav.setSourceVariable(getVariables().get(getVariables().size()-1));
 						xPredicates += relation.generateXQuery();
 					}
