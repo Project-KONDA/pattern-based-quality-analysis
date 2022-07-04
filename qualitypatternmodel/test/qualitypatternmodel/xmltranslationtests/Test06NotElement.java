@@ -96,7 +96,7 @@ public class Test06NotElement {
 		return completePattern;
 	}
 
-	public static CompletePattern getPatternExistsNotExistsAbstract() {
+	public static CompletePattern getPatternExistsNotExistsAbstract() throws InvalidityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 
