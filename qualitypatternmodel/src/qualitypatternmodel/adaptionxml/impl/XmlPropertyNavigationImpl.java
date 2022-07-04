@@ -61,6 +61,7 @@ public class XmlPropertyNavigationImpl extends XmlNavigationImpl implements XmlP
 		target.setTranslated(true);
 		
 		result += target.translatePredicates();
+		result += target.translateMultipleIncoming();
 		result += "]";
 		
 		return result;
