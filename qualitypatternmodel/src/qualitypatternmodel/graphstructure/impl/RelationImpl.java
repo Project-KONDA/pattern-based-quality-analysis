@@ -36,6 +36,8 @@ import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Graph;
@@ -1006,13 +1008,19 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			
 			if(getIncomingMapping() == null) {
 				XmlProperty property = new XmlPropertyImpl();
-							
-				Graph graph = getGraph();
+				XmlProperty property2 = new XmlPropertyImpl();
 				
-				graph.getNodes().add(property);
+				property.setGraph(getGraph());
+				property2.setGraph(getGraph());
+				
+				Graph graph = getGraph();
 				graph.addRelation(sourceNode, property).adaptAsXmlPropertyNavigation();
-				graph.addRelation(targetNode, property).adaptAsXmlPropertyNavigation();
+				graph.addRelation(targetNode, property2).adaptAsXmlPropertyNavigation();
+				Comparison c = property.addComparison(property2);
+				c.getTypeOption().setValue(ReturnType.STRING);
+				
 				property.createParameters();
+				property2.createParameters();
 				
 				reference.setProperty(property);			
 			}
