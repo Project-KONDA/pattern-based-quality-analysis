@@ -34,17 +34,10 @@ public class Test02Return {
 		
 		Graph graph = completePattern.getGraph();
 		Node element1 = completePattern.getGraph().getNodes().get(0);
-		Node element2 = graphFactory.createNode();		
-		element2.setGraph(graph);
+		Node element2 = element1.addOutgoing().getTarget();
 		element2.setReturnNode(true);
-		Relation relation = graphFactory.createRelation();
-		relation.setGraph(graph);
-		relation.setSource(element1);
-		relation.setTarget(element2);		
 		
 		completePattern.createXmlAdaption();
-//		completePattern.getGraph().getNodes().get(1).getIncoming().get(0).adaptAsXMLElementNavigation();		
-//		completePattern.finalizeXMLAdaption();
 				
 		return completePattern;
 	}
@@ -52,21 +45,16 @@ public class Test02Return {
 	public static CompletePattern getPatternMultipleReturnReference() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-			
+		
 		CompletePattern completePattern = Test00.getBasePattern();
 		
 		Graph graph = completePattern.getGraph();
 		Node element1 = completePattern.getGraph().getNodes().get(0);
-		Node element2 = graphFactory.createNode();		
-		element2.setGraph(graph);
+		Node element2 = element1.addOutgoing().getTarget();		
 		element2.setReturnNode(true);
-		Relation relation = graphFactory.createRelation();
-		relation.setGraph(graph);
-		relation.setSource(element1);
-		relation.setTarget(element2);
-				
+		
 		completePattern.createXmlAdaption();
-	
+		
 		XmlReference reference = ((ComplexNode) completePattern.getGraph().getNodes().get(1)).getOutgoing().get(0).adaptAsXmlReference();	
 		reference.setType(ReturnType.STRING);
 //		completePattern.finalizeXMLAdaption();

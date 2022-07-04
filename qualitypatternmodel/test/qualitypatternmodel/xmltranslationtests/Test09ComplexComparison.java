@@ -90,17 +90,13 @@ public class Test09ComplexComparison {
 		comp.setArgument2(p2);
 		comp.getTypeOption().setValue(ReturnType.STRING);
 		
-		System.out.println(completePattern.myToString());
-		
 		completePattern.createXmlAdaption();
 		completePattern.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
 		completePattern.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
 		
 		((XmlNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
 		((XmlNavigation) completePattern.getGraph().getRelations().get(1)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, null);
-		
-		System.out.println(completePattern.myToString());
-		
+				
 		return completePattern;
 	}
 

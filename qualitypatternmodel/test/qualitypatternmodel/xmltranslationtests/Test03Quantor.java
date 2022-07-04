@@ -17,11 +17,11 @@ public class Test03Quantor {
 		
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternExistsWithRelationFinal());
-//		completePatterns.add(getPatternExistsFinal());
-//		completePatterns.add(getPatternExistsNavigation());
+		completePatterns.add(getPatternExistsFinal());
+		completePatterns.add(getPatternExistsNavigation());
 		completePatterns.add(getPatternExistsCondFinal());
-//		completePatterns.add(getPatternForall());
-//		completePatterns.add(getPatternForallCond());
+		completePatterns.add(getPatternForall());
+		completePatterns.add(getPatternForallCond());
 
 		Test00.test(completePatterns);
 	}
@@ -53,11 +53,7 @@ public class Test03Quantor {
 		
 		Node e0g2 = graph2.getNodes().get(0);
 		Node e1g2 = graph2.getNodes().get(1);
-		
-		Relation relation = graphFactory.createRelation();
-		relation.setGraph(graph2);
-		relation.setSource(e0g2);
-		relation.setTarget(e1g2);		
+		e0g2.addOutgoing(e1g2);		
 		
 		completePattern.createXmlAdaption();
 		

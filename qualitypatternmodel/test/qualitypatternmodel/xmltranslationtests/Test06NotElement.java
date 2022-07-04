@@ -17,11 +17,11 @@ public class Test06NotElement {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getPatternNotNotTrue());	
-		completePatterns.add(getPatternNotExists());
-		completePatterns.add(getPatternNotForall());
+//		completePatterns.add(getPatternNotNotTrue());	
+//		completePatterns.add(getPatternNotExists());
+//		completePatterns.add(getPatternNotForall());
 		completePatterns.add(getPatternExistsNotExists());
-		completePatterns.add(getPatternForallNotForall());
+//		completePatterns.add(getPatternForallNotForall());
 
 		Test00.test(completePatterns);
 	}
@@ -53,7 +53,7 @@ public class Test06NotElement {
 		
 		return completePattern;		
 	}
-	public static CompletePattern getPatternNotExistsAbstract() {
+	public static CompletePattern getPatternNotExistsAbstract() throws InvalidityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -69,12 +69,7 @@ public class Test06NotElement {
 		qc.setCondition(t);
 		
 		Node e0 = qc.getGraph().getNodes().get(0);
-		Node e1 = graphFactory.createNode();
-		e1.setGraph(qc.getGraph());
-		Relation relation = graphFactory.createRelation();
-		relation.setGraph(qc.getGraph());
-		relation.setSource(e0);
-		relation.setTarget(e1);	
+		e0.addOutgoing();	
 		
 		return completePattern;
 	}

@@ -44,21 +44,17 @@ public class Test01Axis {
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = Test00.getBasePattern();
+		
 		Graph graph = completePattern.getGraph();
-		Node element1 = completePattern.getGraph().getNodes().get(0);
+		Node element1 = completePattern.getGraph().getReturnNodes().get(0);
 		Node element2 = graphFactory.createNode();
 		element2.setGraph(graph);
-		Relation relation = graphFactory.createRelation();
-		relation.setGraph(graph);
-		relation.setSource(element1);
-		relation.setTarget(element2);		
+		element2.addOutgoing(element1);		
 		
 		completePattern.createXmlAdaption();
 		XmlElementNavigation navigation = (XmlElementNavigation) graph.getRelations().get(0);		
 		
 		XmlPathParam axisOption = navigation.getXmlPathParam();
-//		EList<AxisKind> axisOptions = axisOption.getOptions();
-//		if(!axisOptions.contains(axisKind)) axisOptions.add(axisKind);
 		axisOption.setXmlAxis(xmlAxisKind, "");
 		return completePattern;
 	}
