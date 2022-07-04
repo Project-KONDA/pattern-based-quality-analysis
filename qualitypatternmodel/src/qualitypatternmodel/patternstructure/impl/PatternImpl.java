@@ -161,7 +161,7 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 		String forClauses = graph.generateXQuery();
 		String whereClause = WHERE + condition.generateXQuery().replace("\n", "\n  ");
 
-		String returnClause = RETURN + "(";
+		String returnClause = "";
 		EList<Node> returnElements = graph.getReturnNodes();
 		for (int i = 0; i < returnElements.size(); i++) {
 			if (i != 0)
@@ -173,7 +173,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			else returnClause += ((XmlNode) returnElements.get(i)).getVariables().get(0);	
 //			returnClause += VARIABLE + returnElements.get(i).getOriginalID();			
 		}
-		returnClause += ")";	
+		if (returnElements.size()>1)
+			returnClause = "(" + returnClause + ")";
+		returnClause = RETURN + returnClause;	
 		
 		String query = forClauses + whereClause + returnClause;
 		setXmlQuery(query);
