@@ -34,6 +34,7 @@ import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Pattern;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.TrueElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -159,7 +160,10 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 			throw new InvalidityException("return elements missing");
 		}
 		String forClauses = graph.generateXQuery();
-		String whereClause = WHERE + condition.generateXQuery().replace("\n", "\n  ");
+		
+		String whereClause = "";
+		if (!(condition instanceof TrueElement))
+			whereClause = WHERE + condition.generateXQuery().replace("\n", "\n  ");
 
 		String returnClause = "";
 		EList<Node> returnElements = graph.getReturnNodes();
