@@ -17,11 +17,11 @@ public class Test03Quantor {
 		
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternExistsWithRelationFinal());
-		completePatterns.add(getPatternExistsFinal());
-		completePatterns.add(getPatternExistsNavigation());
+//		completePatterns.add(getPatternExistsFinal());
+//		completePatterns.add(getPatternExistsNavigation());
 		completePatterns.add(getPatternExistsCondFinal());
-		completePatterns.add(getPatternForall());
-		completePatterns.add(getPatternForallCond());
+//		completePatterns.add(getPatternForall());
+//		completePatterns.add(getPatternForallCond());
 
 		Test00.test(completePatterns);
 	}
@@ -64,7 +64,7 @@ public class Test03Quantor {
 		return completePattern;
 	}
 
-	public static CompletePattern getPatternExists() {
+	public static CompletePattern getPatternExists() throws InvalidityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -76,8 +76,7 @@ public class Test03Quantor {
 		completePattern.setCondition(cond);
 				
 		// EXISTS additional graph structure
-		Node se2 = graphFactory.createNode();
-		se2.setGraph(cond.getGraph());	
+		cond.getGraph().getReturnNodes().get(0).addOutgoing().getTarget().makeComplex();
 				
 		return completePattern;
 	}
@@ -94,7 +93,7 @@ public class Test03Quantor {
 		completePattern.setCondition(cond);
 				
 		// EXISTS additional graph structure
-		Node se1 = cond.getGraph().getNodes().get(0);	
+		Node se1 = cond.getGraph().getReturnNodes().get(0);	
 		Node se2 = se1.addOutgoing().getTarget();		
 		
 		return completePattern;
