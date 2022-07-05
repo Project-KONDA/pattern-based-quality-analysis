@@ -109,17 +109,28 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 	
 	@Override
 	public String generateSparql() throws InvalidityException {
-		String argument1 = getCountPattern().generateSparql();
-		String argument2 = getArgument2().generateSparql();
+		String argument1 = getCountPattern().generateSparql().replace("/n", "/n  ");
+		String argument2 = getArgument2().generateSparql().replace("/n", "/n  ");
+		
 		if(getOption() != null && getOption().getValue() != null) {
 			String comp = getOption().getValue().getLiteral();
 			String selects = "";			
 			for(Node n : getCountPattern().getGraph().getNodes()) {
 				if(n.getIncomingMapping() != null) {
-					selects += " ?var" + n.getOriginalID();
+					selects += "\n  ?var" + n.getOriginalID();
 				}
 			}
-			return "{\n SELECT " + selects + " (COUNT(*) as ?count)\n WHERE {" + argument1 + "}\n GROUP BY " + selects + "\n HAVING (?count " + comp + " " + argument2 + ")\n}";
+			String query = "\nSELECT";;
+			query += selects;
+			query += " (COUNT(*) as ?count)";
+			query += "\nWHERE {";
+			query += argument1.replace("\n", "\n  ");
+			query += "\n}";
+			query += "\nGROUP BY ";
+			query += selects.replace("\n", "\n  ");
+			query += "\nHAVING (?count " + comp + " " + argument2.replace("\n", "\n  ");
+			query += ")";
+			return query;
 		} else {
 			throw new InvalidityException("invalid option");
 		}

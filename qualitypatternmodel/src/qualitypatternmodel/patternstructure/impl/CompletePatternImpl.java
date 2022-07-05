@@ -355,12 +355,12 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		for (String p: prefixes) {
 			query += "\n" + p;
 		}
-		query += "\nSELECT\n";
+		query += "\nSELECT";
 		for (Node s: selects) {
-			query += " ?var" + s.getOriginalID();
+			query += "\n  ?var" + s.getOriginalID();
 		}
-		query += "\nWHERE\n{\n";
-		query += super.generateSparql();
+		query += "\nWHERE {  ";
+		query += super.generateSparql().replace("\n", "\n  ");
 		query += "\n}";
 		
 		return query;

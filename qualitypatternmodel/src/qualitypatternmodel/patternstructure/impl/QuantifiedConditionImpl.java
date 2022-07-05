@@ -126,25 +126,40 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 	@Override
 	public String generateSparql() throws InvalidityException {
+		String query = "\n";
 		if (quantifier == Quantifier.EXISTS) {
 			if(isInRdfFilter()) {
-				return "EXISTS {\n" + graph.generateSparql() + condition.generateSparql() + "}";
+				query += "EXISTS {";
+				query += graph.generateSparql().replace("\n", "\n  ");
+				query += condition.generateSparql().replace("\n", "\n    ");
+				query += "}";
 			} else {
-				return graph.generateSparql() + condition.generateSparql();
+				query += graph.generateSparql().replace("\n", "\n  ");
+				query += condition.generateSparql().replace("\n", "\n    ");
 			}
 		} else if (quantifier == Quantifier.FORALL) {
 			if(isInRdfFilter()) {
-				String query = "";
 				if(getNotCondition() == null) {
 					query += "NOT ";
 				}
-				return query + "EXISTS {\n " + graph.generateSparql() + "\n FILTER NOT EXISTS {\n" + condition.generateSparql() + "\n}\n}";
+				query += "EXISTS {";
+				query += graph.generateSparql().replace("\n", "\n  ");
+				query += "\n  FILTER NOT EXISTS {";
+				query += condition.generateSparql().replace("\n", "\n    ");
+				query += "\n  }";
+				query += "\n}";
 			} else {
-				return "FILTER NOT EXISTS {\n " + graph.generateSparql() + "\n FILTER NOT EXISTS {\n" + condition.generateSparql() + "\n}\n}";
+				query += "FILTER NOT EXISTS {";
+				query += graph.generateSparql().replace("\n", "\n  ");
+				query += "\n  FILTER NOT EXISTS {";
+				query += condition.generateSparql().replace("\n", "\n    ");
+				query += "\n  }";
+				query += "\n}";
 			}
 		} else {
 			throw new InvalidityException("invalid quantifier");
 		}
+		return query;
 	}
 	
 	@Override
