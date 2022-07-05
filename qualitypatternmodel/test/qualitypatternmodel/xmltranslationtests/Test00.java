@@ -8,10 +8,14 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
+import qualitypatternmodel.adaptionxml.XmlAxisPair;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.*;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -121,6 +125,32 @@ public class Test00 {
 				TextLiteralParam text = parametersFactory.createTextLiteralParam();
 				text.setValue("unknown");
 				((UntypedParameterValue) param).replace(text);
+			}
+			if (param instanceof TextLiteralParam) {
+				TextLiteralParam text = (TextLiteralParam) param;
+				if(text.getValue() == null) {
+					text.setValue("something");
+				}
+			}
+			if (param instanceof BooleanParam) {
+				BooleanParam bool = (BooleanParam) param;
+				if(bool.getValue() == null) {
+					bool.setValue(true);
+				}
+			}
+			if (param instanceof NumberParam) {
+				NumberParam number = (NumberParam) param;
+				if(number.getValue() == null) {
+					number.setValue(0.0);
+				}
+			}
+			if (param instanceof XmlPathParam) {
+				XmlPathParam xmlPathParam = (XmlPathParam) param;
+				for(XmlAxisPair pair : xmlPathParam.getXmlAxisPairs()) {
+					if(pair.getTextLiteralParam().getValue() == null) {
+						pair.getTextLiteralParam().setValue("something");
+					}
+				}
 			}
 		}
 		return pattern;
