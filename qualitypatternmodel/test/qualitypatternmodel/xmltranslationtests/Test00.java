@@ -148,7 +148,7 @@ public class Test00 {
 				XmlPathParam xmlPathParam = (XmlPathParam) param;
 				for(XmlAxisPair pair : xmlPathParam.getXmlAxisPairs()) {
 					if(pair.getTextLiteralParam().getValue() == null) {
-						pair.getTextLiteralParam().setValue("something");
+						pair.getTextLiteralParam().setValue("");
 					}
 				}
 			}
