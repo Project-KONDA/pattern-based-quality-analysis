@@ -49,7 +49,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final Boolean VALUE_EDEFAULT = null;
+	protected static final Boolean VALUE_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -99,14 +99,14 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 		if(getValue() != null) {
 			return getValue() + "()";
 		} else {
-			throw new InvalidityException("invalid number");
+			throw new InvalidityException("invalid value");
 		}
 	}
 	
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(getValue() != null) {
-			return getValue()+"";
+			return ""+getValue();
 		} else {
 			return super.generateSparql();
 		}
