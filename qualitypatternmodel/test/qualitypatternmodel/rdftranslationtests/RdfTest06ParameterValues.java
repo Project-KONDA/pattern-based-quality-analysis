@@ -31,17 +31,40 @@ public class RdfTest06ParameterValues {
 
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 
-		for (XmlPropertyKind pl : XmlPropertyKind.VALUES) {
-				for (ParameterValue parameter : getTestParameters()) {					
-					CompletePattern completePattern = getConcreteComparisonPattern(pl, parameter);
-					completePatterns.add(completePattern);		
-			}
+		for (ParameterValue parameter : getTestParameters()) {					
+			CompletePattern completePattern = getConcreteComparisonPattern(parameter);
+			completePatterns.add(completePattern);		
 		}
+		
+		completePatterns.add(getConcreteComparisonPatternIriParamList());
 
 		RdfTest00.test(completePatterns);
 	}
+	
+	private static CompletePattern getConcreteComparisonPatternIriParamList() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = RdfTest00.getBasePattern();
+		Node se = completePattern.getGraph().getNodes().get(1);
+		UntypedParameterValue p = se.addPrimitiveComparison();
+		
+		IriParam input8 = AdaptionrdfFactory.eINSTANCE.createIriParam();
+		input8.setPrefix("wdt");
+		input8.setSuffix("P569");
+		completePattern.getParameterList().add(input8);
+		
+		IriParam input9 = AdaptionrdfFactory.eINSTANCE.createIriParam();
+		input9.setUri("anyuri");
+		completePattern.getParameterList().add(input9);
+		
+		IriListParam input10 = AdaptionrdfFactory.eINSTANCE.createIriListParam();
+		input10.getIriParam().add(input8);
+		input10.getIriParam().add(input9);
+		
+		p.replace(input10);
+		completePattern.createRdfAdaption();
+		return completePattern;
+	}
 
-	private static CompletePattern getConcreteComparisonPattern(XmlPropertyKind pl, ParameterValue parameter) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	private static CompletePattern getConcreteComparisonPattern(ParameterValue parameter) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = RdfTest00.getBasePattern();
 		Node se = completePattern.getGraph().getNodes().get(1);
 		UntypedParameterValue p = se.addPrimitiveComparison();
@@ -78,9 +101,9 @@ public class RdfTest06ParameterValues {
 		IriParam input9 = AdaptionrdfFactory.eINSTANCE.createIriParam();
 		input9.setUri("anyuri");
 		
-		IriListParam input10 = AdaptionrdfFactory.eINSTANCE.createIriListParam();
-		input10.getIriParam().add(input8);
-		input10.getIriParam().add(input9);
+//		IriListParam input10 = AdaptionrdfFactory.eINSTANCE.createIriListParam();
+//		input10.getIriParam().add(input8);
+//		input10.getIriParam().add(input9);
 
 		parameters.add(input1);
 		parameters.add(input2);
@@ -91,7 +114,7 @@ public class RdfTest06ParameterValues {
 		parameters.add(input7);
 		parameters.add(input8);
 		parameters.add(input9);
-		parameters.add(input10);
+//		parameters.add(input10);
 
 		return parameters;
 	}
