@@ -116,20 +116,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		String result;
-		if (quantifier == Quantifier.EXISTS) {
-			if(getCondition() instanceof Formula) {
-				Formula formula = (Formula) getCondition();
-				if(formula.getOperator() == LogicalOperator.AND) {
-					result = graph.generateXQuery();
-				} else {
-					result = "EXISTS{" + graph.generateXQuery() + "}";
-				}
-			} else if (getCondition() instanceof NotCondition) {
-				result = "EXISTS{" + graph.generateXQuery() + "}";
-			} else {
-				result = graph.generateXQuery();
-			}
-		} else if (quantifier == Quantifier.FORALL) {
+		if (quantifier == Quantifier.EXISTS || quantifier == Quantifier.FORALL) {
 			result = graph.generateXQuery();
 		} else {
 			throw new InvalidityException("invalid quantifier");
