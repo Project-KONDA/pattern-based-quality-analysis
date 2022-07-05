@@ -141,8 +141,10 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 			return prefix + ":" + suffix;
 		} else if (uri != null) {
 			return "<" + uri + ">";
+		} else if (getRdfSinglePredicate() != null) {
+			return null;
 		} else {
-			throw new InvalidityException("Invalid uri");
+			return super.generateSparql();
 		}
 	}
 

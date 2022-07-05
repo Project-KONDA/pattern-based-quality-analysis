@@ -100,7 +100,7 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 		if(getValue() != null) {
 			return Double.toString(getValue());
 		} else {
-			throw new InvalidityException("invalid number");
+			return super.generateSparql();
 		}
 	}
 	

@@ -108,7 +108,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 		if(getValue() != null) {
 			return getValue()+"";
 		} else {
-			throw new InvalidityException("invalid number");
+			return super.generateSparql();
 		}
 	}
 	

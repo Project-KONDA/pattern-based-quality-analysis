@@ -289,7 +289,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	@Override
 	public ReturnType getReturnType() {

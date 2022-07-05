@@ -1066,6 +1066,8 @@
       <eOperations name="getPreview" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="delete"/>
       <eOperations name="instantiate" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="generateSparqlTemplate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
           eType="#//patternstructure/CompletePattern" eOpposite="#//patternstructure/CompletePattern/text"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" lowerBound="1"
@@ -1086,6 +1088,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="Fragment" abstract="true">
       <eOperations name="generateJSON" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getPreview" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="generateSparqlTemplate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="patternText" lowerBound="1"
           eType="#//textrepresentation/PatternText" eOpposite="#//textrepresentation/PatternText/fragments"/>
     </eClassifiers>

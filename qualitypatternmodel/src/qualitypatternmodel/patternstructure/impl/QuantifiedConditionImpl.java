@@ -22,7 +22,6 @@ import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.NotCondition;

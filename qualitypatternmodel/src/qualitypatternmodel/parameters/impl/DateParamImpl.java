@@ -85,7 +85,7 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 		if(getValue() != null) {
 			return "\"" + getValue() + "\"^^xsd:dateTime";
 		} else {
-			throw new InvalidityException("invalid number");
+			return super.generateSparql();
 		}
 	}
 	

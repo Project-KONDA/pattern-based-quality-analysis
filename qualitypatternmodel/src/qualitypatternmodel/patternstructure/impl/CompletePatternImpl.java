@@ -477,7 +477,6 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		setPartialXmlQuery(null);
 	}
 
-
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

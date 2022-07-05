@@ -122,6 +122,11 @@ public class ParameterFragmentImpl extends FragmentImpl implements ParameterFrag
 	public String getPreview() {	
 		return " [" + getParameter().get(0).eClass().getName() + "] ";
 	}
+	
+	@Override
+	public String generateSparqlTemplate() throws InvalidityException {
+		return "?" + getName();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

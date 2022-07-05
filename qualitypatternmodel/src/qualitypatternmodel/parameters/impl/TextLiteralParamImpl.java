@@ -134,7 +134,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		if(inputIsValid()) {
 			return "\"" + getValue() + "\"";
 		} else {
-			throw new InvalidityException("invalid string");
+			return super.generateSparql();
 		}
 	}
 	

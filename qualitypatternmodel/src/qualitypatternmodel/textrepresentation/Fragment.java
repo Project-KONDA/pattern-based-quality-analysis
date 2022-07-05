@@ -3,6 +3,7 @@
 package qualitypatternmodel.textrepresentation;
 
 import org.eclipse.emf.ecore.EObject;
+import qualitypatternmodel.exceptions.InvalidityException;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,4 +66,12 @@ public interface Fragment extends EObject {
 	 * @generated
 	 */
 	String getPreview();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	String generateSparqlTemplate() throws InvalidityException;
 } // Fragment

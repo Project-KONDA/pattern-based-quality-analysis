@@ -29,6 +29,7 @@ import qualitypatternmodel.adaptionxml.XmlAxisPair;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlRoot;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
@@ -398,6 +399,77 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @throws MissingPatternContainerException 
+	 * @throws OperatorCycleException 
+	 * @generated not
+	 */
+	@Override
+	public String generateSparqlTemplate() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// build sentence:
+//		getPattern().isValid(AbstractionLevel.ABSTRACT); // TODO: technology-specific validation
+		
+		String text = "#TEMPLATE={\"template\":\"";
+		for(Fragment f : getFragmentsOrdered()) {
+			text += f.generateSparqlTemplate() + " ";
+		}
+		
+		// add variables:
+		text += "\",\"variables\":{";		
+		int c = 0;
+		int size = getFragmentsOrdered().size();
+		for(Fragment f : getFragmentsOrdered()) {
+			if(f instanceof ParameterFragment) {
+				ParameterFragment p = (ParameterFragment) f;
+				text += " \"" + p.generateSparqlTemplate() + "\":{}"; // TODO: support declaration of SPARQL query that determines the value set in ParameterFragment
+				if(c < size-2) {
+					text += ",";
+				}
+			}
+			c++;
+		}
+		text += "}}";
+		
+		// query:
+		String query = getPattern().generateSparql();
+		
+		// add example values as BINDs:
+		String[] split = query.split("WHERE\n\\{");
+		assert split.length == 2;
+		String binds = "";
+		for(Fragment f : getFragmentsOrdered()) {
+			if(f instanceof ParameterFragment) {
+				ParameterFragment p = (ParameterFragment) f;
+				if(p.getExampleValue() != null) {
+					binds += "BIND(" + p.getExampleValue() + " AS ?" + p.getName() + ")";
+				}
+			}
+			c++;
+		}
+		query = split[0] + "WHERE\n{\n" + binds + split[1];
+		
+		// inline VALUES:
+		/* TODO: we could omit this if we add a dedicated generateSparqlTemplate()
+		 * method in PatternElement that directly translates RDF nodes with a primitive
+		 * comparison via the name of the associated ParameterFragment
+		 */		
+		String[] splitValues = query.split("VALUES ");
+		query = splitValues[0];
+		for(int i=1; i<splitValues.length; i++) {
+			String s = splitValues[i];
+			String[] lineSplit = s.split(" \\{");
+			String var = lineSplit[0];
+			String replace = lineSplit[1].substring(0,lineSplit[1].length()-3);
+			query = query.replace(var, replace);
+		}		
+		query += "}";
+		
+		return text + "\n" + query;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -622,6 +694,13 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 				try {
 					instantiate();
 					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case TextrepresentationPackage.PATTERN_TEXT___GENERATE_SPARQL_TEMPLATE:
+				try {
+					return generateSparqlTemplate();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

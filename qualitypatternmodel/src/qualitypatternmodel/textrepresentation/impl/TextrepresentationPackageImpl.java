@@ -289,6 +289,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	 * @generated
 	 */
 	@Override
+	public EOperation getPatternText__GenerateSparqlTemplate() {
+		return patternTextEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getPatternText__Delete() {
 		return patternTextEClass.getEOperations().get(4);
 	}
@@ -401,6 +411,16 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 	@Override
 	public EOperation getFragment__GetPreview() {
 		return fragmentEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getFragment__GenerateSparqlTemplate() {
+		return fragmentEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -524,6 +544,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEOperation(patternTextEClass, PATTERN_TEXT___GET_PREVIEW);
 		createEOperation(patternTextEClass, PATTERN_TEXT___DELETE);
 		createEOperation(patternTextEClass, PATTERN_TEXT___INSTANTIATE);
+		createEOperation(patternTextEClass, PATTERN_TEXT___GENERATE_SPARQL_TEMPLATE);
 
 		parameterFragmentEClass = createEClass(PARAMETER_FRAGMENT);
 		createEAttribute(parameterFragmentEClass, PARAMETER_FRAGMENT__EXAMPLE_VALUE);
@@ -535,6 +556,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		createEReference(fragmentEClass, FRAGMENT__PATTERN_TEXT);
 		createEOperation(fragmentEClass, FRAGMENT___GENERATE_JSON);
 		createEOperation(fragmentEClass, FRAGMENT___GET_PREVIEW);
+		createEOperation(fragmentEClass, FRAGMENT___GENERATE_SPARQL_TEMPLATE);
 
 		textFragmentEClass = createEClass(TEXT_FRAGMENT);
 		createEAttribute(textFragmentEClass, TEXT_FRAGMENT__TEXT);
@@ -575,6 +597,7 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 
 		// Obtain other dependent packages
 		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
+		OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
 
 		// Create type parameters
@@ -611,6 +634,11 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		op = initEOperation(getPatternText__Instantiate(), null, "instantiate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
+		op = initEOperation(getPatternText__GenerateSparqlTemplate(), ecorePackage.getEString(), "generateSparqlTemplate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+		addEException(op, theOperatorsPackage.getOperatorCycleExceptionWrapper());
+		addEException(op, thePatternstructurePackage.getMissingPatternContainerException());
+
 		initEClass(parameterFragmentEClass, ParameterFragment.class, "ParameterFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParameterFragment_ExampleValue(), ecorePackage.getEString(), "exampleValue", null, 0, 1, ParameterFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getParameterFragment_Name(), ecorePackage.getEString(), "name", null, 0, 1, ParameterFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -625,6 +653,9 @@ public class TextrepresentationPackageImpl extends EPackageImpl implements Textr
 		initEOperation(getFragment__GenerateJSON(), ecorePackage.getEString(), "generateJSON", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getFragment__GetPreview(), ecorePackage.getEString(), "getPreview", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getFragment__GenerateSparqlTemplate(), ecorePackage.getEString(), "generateSparqlTemplate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(textFragmentEClass, TextFragment.class, "TextFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextFragment_Text(), ecorePackage.getEString(), "text", null, 0, 1, TextFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
