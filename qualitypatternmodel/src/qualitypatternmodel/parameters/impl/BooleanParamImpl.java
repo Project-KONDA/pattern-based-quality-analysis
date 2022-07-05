@@ -46,10 +46,10 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final Boolean VALUE_EDEFAULT = Boolean.TRUE;
+	protected static final Boolean VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.

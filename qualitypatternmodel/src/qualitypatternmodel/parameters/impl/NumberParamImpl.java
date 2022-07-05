@@ -39,10 +39,10 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final Double VALUE_EDEFAULT = new Double(0.0);
+	protected static final Double VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.

@@ -36,10 +36,10 @@ public class DateParamImpl extends ParameterValueImpl implements DateParam {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
-	 * @generated
+	 * @generated not
 	 * @ordered
 	 */
-	protected static final String VALUE_EDEFAULT = "";
+	protected static final String VALUE_EDEFAULT = null;
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
