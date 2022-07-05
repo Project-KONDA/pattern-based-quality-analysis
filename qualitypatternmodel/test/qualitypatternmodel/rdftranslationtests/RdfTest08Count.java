@@ -35,6 +35,7 @@ public class RdfTest08Count {
 		
 		NumberElement numberElement = PatternstructureFactory.eINSTANCE.createNumberElement();
 		countCond.setArgument2(numberElement);
+		numberElement.getNumberParam().setValue(1.);
 		
 		ComplexNode complexNode1 = countCond.getCountPattern().getGraph().getNodes().get(1).makeComplex();
 		complexNode1.setReturnNode(true);
@@ -60,6 +61,7 @@ public class RdfTest08Count {
 		
 		NumberElement numberElement = PatternstructureFactory.eINSTANCE.createNumberElement();
 		countCond.setArgument2(numberElement);
+		numberElement.getNumberParam().setValue(1.);
 		
 		ComplexNode complexNode2 = countCond.getCountPattern().getGraph().getNodes().get(1).makeComplex();
 		complexNode2.setReturnNode(true);
