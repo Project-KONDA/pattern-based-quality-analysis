@@ -10,27 +10,33 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
-import qualitypatternmodel.adaptionrdf.RdfPathParam;
-import qualitypatternmodel.parameters.provider.ParameterItemProvider;
+import qualitypatternmodel.adaptionrdf.RdfPathPart;
+
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
+import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
+
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionrdf.RdfPathParam} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionrdf.RdfPathPart} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RdfPathParamItemProvider extends ParameterItemProvider {
+public class RdfPathPartItemProvider extends PatternElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RdfPathParamItemProvider(AdapterFactory adapterFactory) {
+	public RdfPathPartItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,42 +51,54 @@ public class RdfPathParamItemProvider extends ParameterItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRdfPathPartPropertyDescriptor(object);
+			addInvertPropertyDescriptor(object);
+			addQuantifierPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Rdf Path Part feature.
+	 * This adds a property descriptor for the Invert feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRdfPathPartPropertyDescriptor(Object object) {
+	protected void addInvertPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RdfPathParam_rdfPathPart_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RdfPathParam_rdfPathPart_feature", "_UI_RdfPathParam_type"),
-				 AdaptionrdfPackage.Literals.RDF_PATH_PARAM__RDF_PATH_PART,
+				 getString("_UI_RdfPathPart_invert_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RdfPathPart_invert_feature", "_UI_RdfPathPart_type"),
+				 AdaptionrdfPackage.Literals.RDF_PATH_PART__INVERT,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This returns RdfPathParam.gif.
+	 * This adds a property descriptor for the Quantifier feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RdfPathParam"));
+	protected void addQuantifierPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RdfPathPart_quantifier_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RdfPathPart_quantifier_feature", "_UI_RdfPathPart_type"),
+				 AdaptionrdfPackage.Literals.RDF_PATH_PART__QUANTIFIER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -91,10 +109,10 @@ public class RdfPathParamItemProvider extends ParameterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((RdfPathParam)object).getId();
+		String label = ((RdfPathPart)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RdfPathParam_type") :
-			getString("_UI_RdfPathParam_type") + " " + label;
+			getString("_UI_RdfPathPart_type") :
+			getString("_UI_RdfPathPart_type") + " " + label;
 	}
 
 
@@ -108,6 +126,13 @@ public class RdfPathParamItemProvider extends ParameterItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(RdfPathPart.class)) {
+			case AdaptionrdfPackage.RDF_PATH_PART__INVERT:
+			case AdaptionrdfPackage.RDF_PATH_PART__QUANTIFIER:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

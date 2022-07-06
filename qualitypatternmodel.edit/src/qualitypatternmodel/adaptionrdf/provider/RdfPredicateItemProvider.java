@@ -145,17 +145,7 @@ public class RdfPredicateItemProvider extends RelationItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(AdaptionrdfPackage.Literals.RDF_PREDICATE__RDF_PATH_PARAM,
-				 AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AdaptionrdfPackage.Literals.RDF_PREDICATE__RDF_PATH_PARAM,
-				 AdaptionrdfFactory.eINSTANCE.createRdfXor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AdaptionrdfPackage.Literals.RDF_PREDICATE__RDF_PATH_PARAM,
-				 AdaptionrdfFactory.eINSTANCE.createRdfSequence()));
+				 AdaptionrdfFactory.eINSTANCE.createRdfPathParam()));
 	}
 
 	/**

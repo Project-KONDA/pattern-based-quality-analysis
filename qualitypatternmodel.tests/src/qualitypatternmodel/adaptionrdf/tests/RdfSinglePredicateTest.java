@@ -13,7 +13,7 @@ import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RdfSinglePredicateTest extends RdfPathParamTest {
+public class RdfSinglePredicateTest extends RdfPathPartTest {
 
 	/**
 	 * <!-- begin-user-doc -->
