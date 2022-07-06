@@ -433,19 +433,23 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		String query = getPattern().generateSparql();
 		
 		// add example values as BINDs:
-		String[] split = query.split("WHERE\n\\{");
-		assert split.length == 2;
+//		String[] split = query.split("WHERE\n\\{");
+//		assert split.length == 2;
+		int index = query.indexOf("WHERE {") + "WHERE {".length();
+		assert index > 0;
 		String binds = "";
 		for(Fragment f : getFragmentsOrdered()) {
 			if(f instanceof ParameterFragment) {
 				ParameterFragment p = (ParameterFragment) f;
 				if(p.getExampleValue() != null) {
-					binds += "BIND(" + p.getExampleValue() + " AS ?" + p.getName() + ")";
+//					binds += "BIND(" + p.getExampleValue() + " AS ?" + p.getName() + ")";
+					binds += "\n  BIND(" + p.getExampleValue() + " AS ?" + p.getName() + ")";
 				}
 			}
 			c++;
 		}
-		query = split[0] + "WHERE\n{\n" + binds + split[1];
+//		query = split[0] + "WHERE\n{\n" + binds + split[1];
+		query = query.substring(0,index) + binds + query.substring(index);
 		
 		// inline VALUES:
 		/* TODO: we could omit this if we add a dedicated generateSparqlTemplate()
@@ -464,7 +468,6 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		query += "}";
 		
 		return text + "\n" + query;
-		
 	}
 
 	/**
