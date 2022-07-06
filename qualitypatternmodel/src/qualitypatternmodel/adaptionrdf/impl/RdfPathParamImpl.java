@@ -59,11 +59,10 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected RdfPathParamImpl() {
 		super();
-		rdfPathPart = new RdfSinglePredicateImpl();
 	}
 
 	/**
@@ -188,7 +187,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void createParameters() {}
