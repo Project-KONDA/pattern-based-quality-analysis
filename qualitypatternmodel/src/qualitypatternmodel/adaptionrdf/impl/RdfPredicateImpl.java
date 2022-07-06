@@ -80,13 +80,13 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	}
 	
 	@Override
-	public void createParameters() {	
+	public void createParameters() {
 		if (getIncomingMapping() == null) {
 			ParameterList parameterList = getParameterList();
 			if(parameterList != null) {
 				RdfPathParam pp = getRdfPathParam();
 				if (pp == null) {
-					pp = new RdfSinglePredicateImpl();
+					pp = new RdfPathParamImpl();
 					setRdfPathParam(pp);
 					parameterList.add(pp);
 				}
@@ -146,25 +146,6 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public NotificationChain basicSetRdfPathParam(RdfPathParam newRdfPathParam, NotificationChain msgs) {
-		RdfPathParam oldRdfPathParam = rdfPathParam;
-		rdfPathParam = newRdfPathParam;
-		
-		createParameters();
-		
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PREDICATE__RDF_PATH_PARAM, oldRdfPathParam, newRdfPathParam);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -182,6 +163,23 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PREDICATE__RDF_PATH_PARAM, newRdfPathParam, newRdfPathParam));
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public NotificationChain basicSetRdfPathParam(RdfPathParam newRdfPathParam, NotificationChain msgs) {
+		RdfPathParam oldRdfPathParam = rdfPathParam;
+		rdfPathParam = newRdfPathParam;
+		
+		createParameters();
+		
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.RDF_PREDICATE__RDF_PATH_PARAM, oldRdfPathParam, newRdfPathParam);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

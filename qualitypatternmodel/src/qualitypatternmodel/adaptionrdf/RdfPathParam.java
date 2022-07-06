@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.adaptionrdf;
 
-import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.parameters.Parameter;
 
@@ -16,12 +15,11 @@ import qualitypatternmodel.parameters.Parameter;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPredicate <em>Rdf Predicate</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathParam#isInvert <em>Invert</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getQuantifier <em>Quantifier</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPathPart <em>Rdf Path Part</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface RdfPathParam extends Parameter, Adaptable {
@@ -50,58 +48,25 @@ public interface RdfPathParam extends Parameter, Adaptable {
 	void setRdfPredicate(RdfPredicate value);
 
 	/**
-	 * Returns the value of the '<em><b>Invert</b></em>' attribute.
+	 * Returns the value of the '<em><b>Rdf Path Part</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Invert</em>' attribute.
-	 * @see #setInvert(boolean)
-	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_Invert()
+	 * @return the value of the '<em>Rdf Path Part</em>' reference.
+	 * @see #setRdfPathPart(RdfPathPart)
+	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_RdfPathPart()
 	 * @model
 	 * @generated
 	 */
-	boolean isInvert();
+	RdfPathPart getRdfPathPart();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#isInvert <em>Invert</em>}' attribute.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfPathPart <em>Rdf Path Part</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Invert</em>' attribute.
-	 * @see #isInvert()
+	 * @param value the new value of the '<em>Rdf Path Part</em>' reference.
+	 * @see #getRdfPathPart()
 	 * @generated
 	 */
-	void setInvert(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Quantifier</b></em>' attribute.
-	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionrdf.RdfQuantifier}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Quantifier</em>' attribute.
-	 * @see qualitypatternmodel.adaptionrdf.RdfQuantifier
-	 * @see #setQuantifier(RdfQuantifier)
-	 * @see qualitypatternmodel.adaptionrdf.AdaptionrdfPackage#getRdfPathParam_Quantifier()
-	 * @model
-	 * @generated
-	 */
-	RdfQuantifier getQuantifier();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getQuantifier <em>Quantifier</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Quantifier</em>' attribute.
-	 * @see qualitypatternmodel.adaptionrdf.RdfQuantifier
-	 * @see #getQuantifier()
-	 * @generated
-	 */
-	void setQuantifier(RdfQuantifier value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<RdfSinglePredicate> getRdfSinglePredicates();
+	void setRdfPathPart(RdfPathPart value);
 
 } // RdfPathParam

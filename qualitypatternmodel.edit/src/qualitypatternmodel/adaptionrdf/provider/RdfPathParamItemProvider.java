@@ -15,13 +15,13 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
-import qualitypatternmodel.adaptionrdf.RdfPathParam;
+import qualitypatternmodel.adaptionrdf.RdfPathPart;
 
 import qualitypatternmodel.parameters.provider.ParameterItemProvider;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionrdf.RdfPathParam} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionrdf.RdfPathPart} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -117,7 +117,7 @@ public class RdfPathParamItemProvider extends ParameterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((RdfPathParam)object).getId();
+		String label = ((RdfPathPart)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_RdfPathParam_type") :
 			getString("_UI_RdfPathParam_type") + " " + label;
@@ -135,7 +135,7 @@ public class RdfPathParamItemProvider extends ParameterItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(RdfPathParam.class)) {
+		switch (notification.getFeatureID(RdfPathPart.class)) {
 			case AdaptionrdfPackage.RDF_PATH_PARAM__INVERT:
 			case AdaptionrdfPackage.RDF_PATH_PARAM__QUANTIFIER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

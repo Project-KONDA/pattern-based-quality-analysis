@@ -14,6 +14,9 @@ import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +31,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
  *
  * @generated
  */
-public class RdfSinglePredicateImpl extends RdfPathParamImpl implements RdfSinglePredicate {
+public class RdfSinglePredicateImpl extends RdfPathPartImpl implements RdfSinglePredicate {
 	/**
 	 * The cached value of the '{@link #getIriParam() <em>Iri Param</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -127,16 +130,6 @@ public class RdfSinglePredicateImpl extends RdfPathParamImpl implements RdfSingl
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	@Override
-	public boolean isUsed() {
-		return getRdfPredicate() != null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -228,6 +221,12 @@ public class RdfSinglePredicateImpl extends RdfPathParamImpl implements RdfSingl
 	public String myToString() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// TODO Auto-generated method stub
 	}
 
 } //RdfAxisPairImpl
