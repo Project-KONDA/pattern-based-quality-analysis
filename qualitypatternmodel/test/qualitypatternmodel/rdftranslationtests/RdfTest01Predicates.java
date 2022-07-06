@@ -44,7 +44,7 @@ public class RdfTest01Predicates {
 		CompletePattern completePattern = getBasePatternPredicates();
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		RdfSinglePredicate rdfSinglePredicate = (RdfSinglePredicate) relation.getRdfPathParam();
+		RdfSinglePredicate rdfSinglePredicate = (RdfSinglePredicate) relation.getRdfPathParam().getRdfPathPart();
 		rdfSinglePredicate.setIriParam(iriParam);
 		rdfSinglePredicate.setQuantifier(q);
 		iriParam.setPrefix("wdt");
@@ -57,7 +57,7 @@ public class RdfTest01Predicates {
 		CompletePattern completePattern = getBasePatternPredicates();
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		((RdfSinglePredicate) relation.getRdfPathParam()).setIriParam(iriParam);
+		((RdfSinglePredicate) relation.getRdfPathParam().getRdfPathPart()).setIriParam(iriParam);
 		iriParam.setUri("thisisatesturi");
 		return completePattern;		
 	}
@@ -72,7 +72,7 @@ public class RdfTest01Predicates {
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		
 		RdfSequence seq = AdaptionrdfFactory.eINSTANCE.createRdfSequence();
-		relation.setRdfPathParam(seq);
+		relation.getRdfPathParam().setRdfPathPart(seq);
 		seq.setQuantifier(q);
 		
 		RdfSinglePredicate pred = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
@@ -98,7 +98,7 @@ public class RdfTest01Predicates {
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		
 		RdfXor seq = AdaptionrdfFactory.eINSTANCE.createRdfXor();
-		relation.setRdfPathParam(seq);
+		relation.getRdfPathParam().setRdfPathPart(seq);
 		
 		RdfSinglePredicate pred = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
 		seq.getItems().add(pred);

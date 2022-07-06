@@ -89,7 +89,7 @@ public class RdfTest00 {
 		CompletePattern completePattern = getBasePatternCond(comp);
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		((RdfSinglePredicate) relation.getRdfPathParam()).setIriParam(iriParam);
+		((RdfSinglePredicate) relation.getRdfPathParam().getRdfPathPart()).setIriParam(iriParam);
 		iriParam.setPrefix("wdt");
 		iriParam.setSuffix("P569");
 		return completePattern;		
@@ -107,7 +107,7 @@ public class RdfTest00 {
 		CompletePattern completePattern = getBasePatternMatch(comp);
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		((RdfSinglePredicate) relation.getRdfPathParam()).setIriParam(iriParam);
+		((RdfSinglePredicate) relation.getRdfPathParam().getRdfPathPart()).setIriParam(iriParam);
 		iriParam.setPrefix("wdt");
 		iriParam.setSuffix("P569");
 		return completePattern;		
@@ -118,7 +118,7 @@ public class RdfTest00 {
 		((Match) completePattern.getGraph().getOperatorList().getOperators().get(0)).getOption().setValue(false);
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		((RdfSinglePredicate) relation.getRdfPathParam()).setIriParam(iriParam);
+		((RdfSinglePredicate) relation.getRdfPathParam().getRdfPathPart()).setIriParam(iriParam);
 		iriParam.setPrefix("wdt");
 		iriParam.setSuffix("P569");
 		return completePattern;		

@@ -52,14 +52,14 @@ public class RdfTest10Template {
 		ParameterPredefinition paramPredef0 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		RdfPredicate rdfPredicate0 = (RdfPredicate) graph.getRelations().get(1);
 		IriParam iriParamForPred0 = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		((RdfSinglePredicate) rdfPredicate0.getRdfPathParam()).setIriParam(iriParamForPred0);
+		((RdfSinglePredicate) rdfPredicate0.getRdfPathParam().getRdfPathPart()).setIriParam(iriParamForPred0);
 		paramPredef0.getParameter().add(rdfPredicate0.getRdfPathParam());
 		paramPredef0.setValue("^(p:P6/ps:P6)");
 		
 		ParameterPredefinition paramPredef1 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		RdfPredicate rdfPredicate1 = (RdfPredicate) graph.getRelations().get(0);
 		IriParam iriParamForPred1 = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		((RdfSinglePredicate) rdfPredicate1.getRdfPathParam()).setIriParam(iriParamForPred1);
+		((RdfSinglePredicate) rdfPredicate1.getRdfPathParam().getRdfPathPart()).setIriParam(iriParamForPred1);
 		paramPredef1.getParameter().add(rdfPredicate1.getRdfPathParam());
 		paramPredef1.setValue("wdt:P26");
 		
