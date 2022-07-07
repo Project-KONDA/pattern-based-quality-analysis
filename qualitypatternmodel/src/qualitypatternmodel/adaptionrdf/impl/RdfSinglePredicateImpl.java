@@ -58,7 +58,8 @@ public class RdfSinglePredicateImpl extends RdfPathPartImpl implements RdfSingle
 		}
 		String iri = getIriParam().generateSparql();
 		if(iri == null) {
-			return super.generateSparql();
+			return null;
+//			return super.generateSparql();
 		} else {
 			return (invert ? "^" : "" ) + iri + getQuantifier().getLiteral();
 		}

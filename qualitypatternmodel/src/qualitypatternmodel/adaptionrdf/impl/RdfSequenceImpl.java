@@ -61,14 +61,16 @@ public class RdfSequenceImpl extends RdfPathPartImpl implements RdfSequence {
 	@Override
 	public String generateSparql() throws InvalidityException {
 		String query = (invert ? "^" : "" ) + "(";
-		int i = 0;
-		for(RdfPathPart p : getItems()) {
-			if(i > 0) {
+		for (int i = 0; i < getItems().size(); i++) {
+			if(i > 0)
 				query += "/";
-			}
-			query += p.generateSparql(); 
-			i++;
+			String itemQuery = getItems().get(i).generateSparql(); 
+			if (itemQuery == null)
+				return null;
+			query += itemQuery;
 		}
+		
+		
 		query += ")" + getQuantifier().getLiteral();
 		
 		return query;

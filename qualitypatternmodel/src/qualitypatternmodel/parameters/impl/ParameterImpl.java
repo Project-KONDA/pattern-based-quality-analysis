@@ -125,7 +125,6 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 					return p.getValue();
 				}
 			}
-			throw new InvalidityException("invalid parameter value");
 		}
 		throw new InvalidityException("invalid parameter value");
 	}
