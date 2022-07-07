@@ -20,6 +20,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.parameters.impl.ParameterImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
  * <!-- begin-user-doc -->
@@ -63,6 +64,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 */
 	protected RdfPathParamImpl() {
 		super();
+		setRdfPathPart(new RdfSinglePredicateImpl());
 	}
 
 	/**

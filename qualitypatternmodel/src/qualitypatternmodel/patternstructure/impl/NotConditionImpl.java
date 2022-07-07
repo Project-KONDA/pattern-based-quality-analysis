@@ -79,20 +79,23 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if (condition != null) {
-			boolean firstNot = getNotCondition() == null;
-			boolean unevenNot = getNotSequenceSize() % 2 == 1;
+			if (condition instanceof NotCondition) {
+				return ((NotCondition) condition).getCondition().generateSparql();
+			}
+//			boolean firstNot = getNotCondition() == null;
+//			boolean unevenNot = getNotSequenceSize() % 2 == 1;
 			boolean notForall = !(getCondition() instanceof QuantifiedCondition && ((QuantifiedCondition) getCondition()).getQuantifier() == Quantifier.FORALL);
-			boolean not = firstNot && unevenNot && notForall;
-			String query = "";
+			boolean not = notForall; // firstNot && unevenNot && 
+			String query = condition.generateSparql();
+			if (query.startsWith("\n"))
+				query = query.substring(1);
 			if(not) {
-				query += "NOT "; 
+				query = "NOT " + query; 
 			}
-			if(isInRdfFilter()) {
-				return query + condition.generateSparql();
-			} else {
+			if(!isInRdfFilter()) {
 				query = "FILTER " + query;
-				return query + condition.generateSparql();
 			}
+			return "\n" + query;
 		} else {
 			throw new InvalidityException("invalid condition");
 		}
