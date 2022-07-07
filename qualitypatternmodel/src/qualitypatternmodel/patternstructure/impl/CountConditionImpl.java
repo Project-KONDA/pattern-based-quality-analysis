@@ -120,16 +120,16 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 					selects += "\n  ?var" + n.getOriginalID();
 				}
 			}
-			String query = "\nSELECT";;
+			String query = "\n{SELECT";;
 			query += selects;
 			query += " (COUNT(*) as ?count)";
 			query += "\nWHERE {";
 			query += argument1.replace("\n", "\n  ");
 			query += "\n}";
 			query += "\nGROUP BY ";
-			query += selects.replace("\n", "\n  ");
-			query += "\nHAVING (?count " + comp + " " + argument2.replace("\n", "\n  ");
-			query += ")";
+			query += selects;
+			query += "\nHAVING (?count " + comp + " " + argument2;
+			query += ")\n}";
 			return query;
 		} else {
 			throw new InvalidityException("invalid option");
