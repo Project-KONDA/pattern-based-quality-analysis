@@ -1455,7 +1455,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				e.printStackTrace();
 			}			
 		}
-		System.out.println("Adding Condition Failed: Nodes not of same type");		
+		System.out.println("Adding Condition Failed: Nodes not of same type " + this.getClass().getSimpleName() + " " + node.getClass().getSimpleName() + "\n");		
 		return null;
 	}
 
