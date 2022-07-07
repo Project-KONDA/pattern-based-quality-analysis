@@ -251,6 +251,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		return new BasicEList<PatternElement>();
 	}
 	
+	@Override
+	public void initializeTranslation() {
+		setTranslated(false);
+	}
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

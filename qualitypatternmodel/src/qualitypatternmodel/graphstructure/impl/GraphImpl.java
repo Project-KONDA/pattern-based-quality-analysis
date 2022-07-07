@@ -173,6 +173,9 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 		for(Node node : getNodes()) {	
 			node.initializeTranslation();
 		}
+		for(Relation relation: getRelations()) {	
+			relation.initializeTranslation();
+		}
 	}
 
 	@Override
