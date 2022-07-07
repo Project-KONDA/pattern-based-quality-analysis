@@ -75,7 +75,6 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 		return AdaptionrdfPackage.Literals.RDF_PATH_PARAM;
 	}
 	
-	
 	@Override
 	public String generateSparql() throws InvalidityException {
 		return getRdfPathPart().generateSparql();
@@ -341,8 +340,12 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 
 	@Override
 	public boolean inputIsValid() {
-		// TODO Auto-generated method stub
-		return false;
+		try{
+			getRdfPathPart().isValid(AbstractionLevel.CONCRETE);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	@Override
@@ -353,7 +356,12 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 
 	@Override
 	public String myToString() {
-		return getRdfPathPart().myToString();
+		String result = "rdfpath [" + getInternalId() + "] ";
+		try {
+			result += " " + generateSparql();
+		} catch (InvalidityException e) {
+		} 
+		return result;
 	}
 
 } //RdfPathParamImpl

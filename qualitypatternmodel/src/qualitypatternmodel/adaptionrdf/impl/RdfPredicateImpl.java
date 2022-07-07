@@ -271,5 +271,13 @@ public class RdfPredicateImpl extends RelationImpl implements RdfPredicate {
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	@Override
+	public String myToString() {
+		String result = super.myToString();
+		if (getRdfPathParam() != null) 
+			result += " " + getRdfPathParam().myToString();
+		return result;
+	}
 
 } //RdfPredicateImpl

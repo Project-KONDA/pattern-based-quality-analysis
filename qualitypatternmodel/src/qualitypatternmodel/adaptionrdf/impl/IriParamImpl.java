@@ -136,7 +136,6 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(prefix != null && suffix != null) {
-			
 //			return "<" + standardIri + suffix + ">";
 			return prefix + ":" + suffix;
 		} else if (uri != null) {

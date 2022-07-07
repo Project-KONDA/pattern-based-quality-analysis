@@ -359,7 +359,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		for (Node s: selects) {
 			query += "\n  ?var" + s.getOriginalID();
 		}
-		query += "\nWHERE {  ";
+		query += "\nWHERE {";
 		query += super.generateSparql().replace("\n", "\n  ");
 		query += "\n}";
 		

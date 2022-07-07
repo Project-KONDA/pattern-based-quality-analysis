@@ -45,9 +45,9 @@ public class RdfSinglePredicateImpl extends RdfPathPartImpl implements RdfSingle
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
-	protected RdfSinglePredicateImpl() {
+	public RdfSinglePredicateImpl() {
 		super();
 	}
 	

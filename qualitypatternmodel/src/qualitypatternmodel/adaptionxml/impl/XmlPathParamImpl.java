@@ -947,12 +947,12 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 
 	@Override
 	public String myToString() {
-		String res = "path [" + getInternalId() + "]";
+		String res = "xmlpath [" + getInternalId() + "]";
 		for(XmlAxisPair xmlAxisPair : getXmlAxisPairs()) {
-			res += xmlAxisPair.myToString();
+			res += " " + xmlAxisPair.myToString();
 		}
 		if (getXmlNavigation() instanceof XmlPropertyNavigation){
-			res += getXmlPropertyOptionParam().myToString();
+			res += " " + getXmlPropertyOptionParam().myToString();
 		}
 		return res;
 	}
