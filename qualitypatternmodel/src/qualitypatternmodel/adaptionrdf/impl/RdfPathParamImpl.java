@@ -16,6 +16,7 @@ import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
 import qualitypatternmodel.adaptionrdf.RdfPathPart;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
+import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -86,7 +87,7 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 			} catch (InvalidityException e) {
 				throw new InvalidityException("RdfPathParam not (fully) concretized or no ParameterReference defined");
 			}
-		}	
+		}
 		return sparql;
 	}
 
@@ -199,7 +200,10 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	 * @generated NOT
 	 */
 	@Override
-	public void createParameters() {}
+	public void createParameters() {
+		RdfSinglePredicate rsp = new RdfSinglePredicateImpl();
+		setRdfPathPart(rsp);
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
