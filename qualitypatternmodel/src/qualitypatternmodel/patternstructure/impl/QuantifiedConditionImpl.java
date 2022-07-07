@@ -134,7 +134,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 				query += condition.generateSparql().replace("\n", "\n    ");
 				query += "}";
 			} else {
-				query += graph.generateSparql();
+				query = graph.generateSparql();
 				query += condition.generateSparql();
 			}
 		} else if (quantifier == Quantifier.FORALL) {

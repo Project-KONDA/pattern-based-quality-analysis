@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import qualitypatternmodel.adaptionrdf.RdfNode;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlProperty;
@@ -227,12 +229,14 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 				if(getArgument1() instanceof TextLiteralParam) {
 					argument1Translation = argument1Translation.substring(1,argument1Translation.length()-1);
 				}
-				return "\nFILTER (regex(" + argument2Translation + ", \"^" + argument1Translation + "$\"))";
+				return "\nFILTER (regex(" + argument2Translation + ", \"^" + argument1Translation + "$\")).";
 			} else if(getArgument2() instanceof TextLiteralParam || getArgument2() instanceof TextListParam) {
 				if(getArgument2() instanceof TextLiteralParam) {
 					argument2Translation = argument2Translation.substring(1,argument2Translation.length()-1);
 				}
-				return "\nFILTER (regex(" + argument1Translation + ", \"^" + argument2Translation + "$\"))";
+				return "\nFILTER (regex(" + argument1Translation + ", \"^" + argument2Translation + "$\")).";
+			} else if(getArgument2() instanceof RdfNode || getArgument2() instanceof RdfNode) {
+				return "\nFILTER (" + argument1Translation + " = " + argument2Translation + ").";
 			} else {
 				String nodeTranslation = "";
 				String otherTranslation = "";
@@ -243,7 +247,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 					nodeTranslation = argument2Translation;
 					otherTranslation = argument1Translation;
 				}
-				return "\nVALUES " + nodeTranslation + " {" + otherTranslation + "}";
+				return "\nVALUES " + nodeTranslation + " {" + otherTranslation + "}.";
 			}
 		case NOTEQUAL:
 			if(getArgument1() instanceof TextLiteralParam || getArgument1() instanceof TextListParam) {
