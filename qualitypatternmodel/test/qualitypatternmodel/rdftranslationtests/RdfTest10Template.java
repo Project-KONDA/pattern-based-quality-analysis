@@ -4,6 +4,7 @@ import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
+import qualitypatternmodel.adaptionrdf.impl.RdfSinglePredicateImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -51,15 +52,14 @@ public class RdfTest10Template {
 		
 		ParameterPredefinition paramPredef0 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		RdfPredicate rdfPredicate0 = (RdfPredicate) graph.getRelations().get(1);
-		IriParam iriParamForPred0 = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		((RdfSinglePredicate) rdfPredicate0.getRdfPathParam().getRdfPathPart()).setIriParam(iriParamForPred0);
+		RdfSinglePredicate pred = new RdfSinglePredicateImpl();
+		rdfPredicate0.getRdfPathParam().setRdfPathPart(pred);
 		paramPredef0.getParameter().add(rdfPredicate0.getRdfPathParam());
 		paramPredef0.setValue("^(p:P6/ps:P6)");
 		
 		ParameterPredefinition paramPredef1 = TextrepresentationFactory.eINSTANCE.createParameterPredefinition();		
 		RdfPredicate rdfPredicate1 = (RdfPredicate) graph.getRelations().get(0);
-		IriParam iriParamForPred1 = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		((RdfSinglePredicate) rdfPredicate1.getRdfPathParam().getRdfPathPart()).setIriParam(iriParamForPred1);
+		rdfPredicate1.getRdfPathParam().setRdfPathPart(new RdfSinglePredicateImpl());
 		paramPredef1.getParameter().add(rdfPredicate1.getRdfPathParam());
 		paramPredef1.setValue("wdt:P26");
 		
@@ -74,6 +74,10 @@ public class RdfTest10Template {
 		patternText.addFragment(paramTagNameParent);
 		patternText.addFragment(text1);
 		
+		System.out.println(completePattern.myToString());
+		System.out.println("__");
+		System.out.println(completePattern.generateSparql());
+		System.out.println("__");
 		System.out.println(patternText.generateSparqlTemplate());
 		
 	}

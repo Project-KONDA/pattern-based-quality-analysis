@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import javafx.util.Pair;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.adaptionxml.XmlAxisPair;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
@@ -437,14 +438,16 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 //		assert split.length == 2;
 		int index = query.indexOf("WHERE {") + "WHERE {".length();
 		assert index > 0;
+		List<String> fragmentVars = new BasicEList<String>();
 		String binds = "";
 		for(Fragment f : getFragmentsOrdered()) {
 			if(f instanceof ParameterFragment) {
 				ParameterFragment p = (ParameterFragment) f;
 				if(p.getExampleValue() != null) {
 //					binds += "BIND(" + p.getExampleValue() + " AS ?" + p.getName() + ")";
-					binds += "\n  BIND(" + p.getExampleValue() + " AS ?" + p.getName() + ")";
+					binds += "\n  BIND(" + p.getExampleValue() + " AS ?" + p.getName() + ").";
 				}
+				fragmentVars.add("?"+p.getName());
 			}
 			c++;
 		}
@@ -456,18 +459,46 @@ public class PatternTextImpl extends MinimalEObjectImpl.Container implements Pat
 		 * method in PatternElement that directly translates RDF nodes with a primitive
 		 * comparison via the name of the associated ParameterFragment
 		 */		
-		String[] splitValues = query.split("VALUES ");
-		query = splitValues[0];
-		for(int i=1; i<splitValues.length; i++) {
-			String s = splitValues[i];
-			String[] lineSplit = s.split(" \\{");
-			String var = lineSplit[0];
-			String replace = lineSplit[1].substring(0,lineSplit[1].length()-3);
-			query = query.replace(var, replace);
-		}		
-		query += "}";
+//		String[] splitValues = query.split("VALUES ");
+//		query = splitValues[0];
+//		for(int i=1; i<splitValues.length; i++) {
+//			String s = splitValues[i];
+//			String[] lineSplit = s.split(" \\{");
+//			String var = lineSplit[0];
+//			String replace = lineSplit[1].substring(0,lineSplit[1].length()-4);
+//			query = query.replace(var, replace);
+//		}
+//		while(query.endsWith(" ")) {
+//			query = query.substring(0, query.length()-1);
+//		}		
+//		query += "}";
+//		
+//		return text + "\n" + query;
+		String regex = "[ ]*FILTER \\(\\?[a-z0-9]* = \\?[a-z0-9]*\\).";
+		List<Pair<String, String>> replacements = new BasicEList<>();
 		
-		return text + "\n" + query;
+		String result = text;
+		for(String line: query.split("\n")) {
+			if (line.matches(regex)){
+				line = line.replace(" ", "");
+				line = line.replace("FILTER(", "");
+				line = line.replace(").", "");
+				String[] vars = line.split("=");
+				assert vars.length == 2;
+				assert vars[0].matches("\\?[a-z0-9]*");
+				assert vars[1].matches("\\?[a-z0-9]*");
+				if (fragmentVars.contains(vars[0]))
+					replacements.add(new Pair<String, String>(vars[1], vars[0]));
+				else if (fragmentVars.contains(vars[1]))
+					replacements.add(new Pair<String, String>(vars[0], vars[1]));
+			}
+			else
+				result += "\n" + line;
+		}
+		for (Pair<String, String> p: replacements) {
+			result = result.replace(p.getKey(), p.getValue());
+		}	
+		return result;
 	}
 
 	/**
