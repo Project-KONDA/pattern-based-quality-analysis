@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
+import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlAxisOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -18,6 +19,7 @@ import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
@@ -34,7 +36,6 @@ public class EvalExnex {
 		completePatterns.add(getExNExMidas());
 		completePatterns.add(getExNExLidoRoleActor());
 		Test00.test(completePatterns);
-		
 	}
 	
 	private static CompletePattern getExNExAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -45,28 +46,14 @@ public class EvalExnex {
 		QuantifiedCondition qc2 = ((QuantifiedCondition)((NotCondition) qc1.getCondition()).getCondition());
 
 		Graph g0 = completePattern.getGraph();
-		g0.getNodes().get(0).addPrimitiveComparison();
+		g0.getNodes().get(0).addOutgoing().getTarget().addPrimitiveComparison();
 		
 		Graph g1 = qc1.getGraph();
-		Relation r1 = new RelationImpl();
-		g1.getRelations().add(r1);
-		r1.setSource(g1.getNodes().get(0));
-		r1.setTarget(g1.getNodes().get(1));
-		g1.getNodes().get(1).addPrimitiveComparison();
+		g1.getNodes().get(1).addOutgoing().getTarget().addPrimitiveComparison();
 		
 		Graph g2 = qc2.getGraph();
-		Relation r2 = new RelationImpl();
-		g2.getRelations().add(r2);
-		r2.setSource(g2.getNodes().get(1));
-		r2.setTarget(g2.getNodes().get(2));
 		
 		completePattern.createXmlAdaption();
-		EList<Relation> rels1 = qc1.getGraph().getRelations();
-		EList<Relation> rels2 = qc2.getGraph().getRelations();
-		for (int i = rels1.size()-1; i>=0; i--) rels1.get(i).adaptAsXmlElementNavigation();
-		for (int i = rels2.size()-1; i>=0; i--) rels2.get(i).adaptAsXmlElementNavigation();
-				
-		completePattern.finalizeXMLAdaption();	
 		
 		return completePattern;		
 	}
@@ -78,29 +65,15 @@ public class EvalExnex {
 		QuantifiedCondition qc2 = ((QuantifiedCondition)((NotCondition) qc1.getCondition()).getCondition());
 
 		Graph g0 = completePattern.getGraph();
-		g0.getNodes().get(0).addPrimitiveComparison();
+		g0.getNodes().get(0).addOutgoing().getTarget().addPrimitiveComparison();
 		
 		Graph g1 = qc1.getGraph();
-		Relation r1 = new RelationImpl();
-		g1.getRelations().add(r1);
-		r1.setSource(g1.getNodes().get(0));
-		r1.setTarget(g1.getNodes().get(1));
-		g1.getNodes().get(1).addPrimitiveComparison();
+		g1.getNodes().get(1).addOutgoing().getTarget().addPrimitiveComparison();
 		
 		Graph g2 = qc2.getGraph();
-		Relation r2 = new RelationImpl();
-		g2.getRelations().add(r2);
-		r2.setSource(g2.getNodes().get(1));
-		r2.setTarget(g2.getNodes().get(2));
-		g2.getNodes().get(2).addPrimitiveComparison();
+		g2.getNodes().get(2).addOutgoing().getTarget().addPrimitiveComparison();
 		
 		completePattern.createXmlAdaption();
-		EList<Relation> rels1 = qc1.getGraph().getRelations();
-		EList<Relation> rels2 = qc2.getGraph().getRelations();
-		for (int i = rels1.size()-1; i>=0; i--) rels1.get(i).adaptAsXmlElementNavigation();
-		for (int i = rels2.size()-1; i>=0; i--) rels2.get(i).adaptAsXmlElementNavigation();
-				
-		completePattern.finalizeXMLAdaption();	
 		
 		return completePattern;		
 	}
@@ -109,18 +82,32 @@ public class EvalExnex {
 	static CompletePattern getExNExMidas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getExNExAbstract();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
-
-		((XmlAxisOptionParam) params.get(12)).setValue(XmlAxisKind.THREECHILD);
-		((XmlAxisOptionParam) params.get(11)).setValue(XmlAxisKind.CHILD);
-		((XmlAxisOptionParam) params.get(10)).setValue(XmlAxisKind.CHILD);
-		((TextLiteralParam) params.get(9)).setValue("Type");
-		((XmlPropertyOptionParam) params.get(8)).setValue(XmlPropertyKind.ATTRIBUTE);
-		((TextLiteralParam) params.get(7)).setValue("Type");
-		((XmlPropertyOptionParam) params.get(6)).setValue(XmlPropertyKind.ATTRIBUTE);
-		((ComparisonOptionParam) params.get(4)).setValue(ComparisonOperator.EQUAL);
-		((UntypedParameterValue) params.get(3)).replace(new TextLiteralParamImpl("ob30"));
-		((ComparisonOptionParam) params.get(1)).setValue(ComparisonOperator.EQUAL);
-		((UntypedParameterValue) params.get(0)).replace(new TextLiteralParamImpl("obj"));
+		
+		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
+		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
+		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
+		UntypedParameterValue p3 = ((UntypedParameterValue) params.get(3));
+		ComparisonOptionParam p4 = ((ComparisonOptionParam) params.get(4));
+		TypeOptionParam p5 = ((TypeOptionParam) params.get(5));
+		XmlPathParamImpl p6 = ((XmlPathParamImpl) params.get(6));
+		XmlPathParamImpl p7 = ((XmlPathParamImpl) params.get(7));
+		XmlPathParamImpl p8 = ((XmlPathParamImpl) params.get(8));
+		XmlPathParamImpl p9 = ((XmlPathParamImpl) params.get(9));
+		XmlPathParamImpl p10 = ((XmlPathParamImpl) params.get(10));
+				
+		p0.setValue("obj");
+		p1.setValue(ComparisonOperator.EQUAL);
+		p3.setValue("ob30");
+		p4.setValue(ComparisonOperator.EQUAL);
+		p6.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
+		p6.getXmlPropertyOptionParam().getAttributeName().setValue("Type");
+		p7.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD});
+		p8.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD});
+		p9.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
+		p9.getXmlPropertyOptionParam().getAttributeName().setValue("Type");
+		p10.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD});
+		
+		
 		
 		return completePattern;
 	}
@@ -128,22 +115,35 @@ public class EvalExnex {
 	static CompletePattern getExNExLidoRoleActor() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getExNExAbstractWithComp();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
+		
+		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
+		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
+		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
+		UntypedParameterValue p3 = ((UntypedParameterValue) params.get(3));
+		ComparisonOptionParam p4 = ((ComparisonOptionParam) params.get(4));
+		TypeOptionParam p5 = ((TypeOptionParam) params.get(5));
+		UntypedParameterValue p6 = ((UntypedParameterValue) params.get(6));
+		ComparisonOptionParam p7 = ((ComparisonOptionParam) params.get(7));
+		TypeOptionParam p8 = ((TypeOptionParam) params.get(8));
+		XmlPathParamImpl p9 = ((XmlPathParamImpl) params.get(9));
+		XmlPathParamImpl p10 = ((XmlPathParamImpl) params.get(10));
+		XmlPathParamImpl p11 = ((XmlPathParamImpl) params.get(11));
+		XmlPathParamImpl p12 = ((XmlPathParamImpl) params.get(12));
+		XmlPathParamImpl p13 = ((XmlPathParamImpl) params.get(13));
+		XmlPathParamImpl p14 = ((XmlPathParamImpl) params.get(14));
 
-		((XmlAxisOptionParam) params.get(17)).setValue(XmlAxisKind.TWOCHILD);
-		((XmlAxisOptionParam) params.get(16)).setValue(XmlAxisKind.CHILD);
-		((XmlAxisOptionParam) params.get(15)).setValue(XmlAxisKind.SEVENCHILD);
-//		((TextLiteralParam) params.get(14)).setValue("Type");
-		((XmlPropertyOptionParam) params.get(13)).setValue(XmlPropertyKind.TAG);
-//		((TextLiteralParam) params.get(12)).setValue("Type");
-		((XmlPropertyOptionParam) params.get(11)).setValue(XmlPropertyKind.TAG);
-//		((TextLiteralParam) params.get(10)).setValue("Type");
-		((XmlPropertyOptionParam) params.get(9)).setValue(XmlPropertyKind.TAG);
-		((ComparisonOptionParam) params.get(7)).setValue(ComparisonOperator.EQUAL);
-		((UntypedParameterValue) params.get(6)).replace(new TextLiteralParamImpl("lido:conceptID"));
-		((ComparisonOptionParam) params.get(4)).setValue(ComparisonOperator.EQUAL);
-		((UntypedParameterValue) params.get(3)).replace(new TextLiteralParamImpl("lido:roleActor"));
-		((ComparisonOptionParam) params.get(1)).setValue(ComparisonOperator.EQUAL);
-		((UntypedParameterValue) params.get(0)).replace(new TextLiteralParamImpl("lido:lido"));
+		p0.setValue("lido:lido");
+		p1.setValue(ComparisonOperator.EQUAL);
+		p3.setValue("lido:roleActor");
+		p4.setValue(ComparisonOperator.EQUAL);
+		p6.setValue("lido:conceptID");
+		p7.setValue(ComparisonOperator.EQUAL);
+		p9.getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
+		p10.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD});;
+		p11.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD});
+		p12.getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
+		p13.getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
+		p14.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD});;
 		
 		return completePattern;
 	}
