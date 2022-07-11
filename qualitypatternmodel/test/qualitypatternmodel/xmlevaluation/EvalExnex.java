@@ -143,7 +143,7 @@ public class EvalExnex {
 		p11.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD});
 		p12.getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
 		p13.getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
-		p14.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD});;
+		p14.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD});
 		
 		return completePattern;
 	}

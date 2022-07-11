@@ -1171,10 +1171,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	@Override
 	public String myToString() {
-		String res = "COMP [" + getInternalId() + "]:" + getReturnType() + " ";
+		String res = "COMP [" + getInternalId() + "] " + getTypeOption().getValue() + ":" + getReturnType() + " ";
 		res += "(";
 		if (getArgument1() != null)
-			res += getArgument1().getInternalId() + " ";
+			res += getArgument1().getClass().getSimpleName() + getArgument1().getInternalId() + " ";
 		else
 			res += "- ";
 		if (getOption() != null)
@@ -1182,7 +1182,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		else
 			res += "-";
 		if (getArgument2() != null)
-			res += " " + getArgument2().getInternalId();
+			res += " " + getArgument2().getClass().getSimpleName() + getArgument2().getInternalId();
 		else
 			res += " -";
 		return res + ")";
