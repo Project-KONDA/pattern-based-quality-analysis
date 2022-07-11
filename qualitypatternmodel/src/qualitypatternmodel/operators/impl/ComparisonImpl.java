@@ -318,7 +318,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			if (argument1.getReturnType() != argument2.getReturnType()) {
 				if (argument1.getReturnType() != ReturnType.UNSPECIFIED
 						&& argument2.getReturnType() != ReturnType.UNSPECIFIED) {
-					throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");
+					throw new InvalidityException("type mismatch" + " (" + getInternalId() + ") of " + argument1.getReturnType() + " and " + argument2.getReturnType());
 				}
 			}
 		}
