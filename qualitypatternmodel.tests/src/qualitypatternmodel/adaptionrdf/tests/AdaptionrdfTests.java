@@ -39,6 +39,7 @@ public class AdaptionrdfTests extends TestSuite {
 		suite.addTestSuite(RdfXorTest.class);
 		suite.addTestSuite(RdfSequenceTest.class);
 		suite.addTestSuite(IriListParamTest.class);
+		suite.addTestSuite(RdfPathParamTest.class);
 		return suite;
 	}
 

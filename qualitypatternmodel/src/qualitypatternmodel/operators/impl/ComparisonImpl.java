@@ -37,7 +37,6 @@ import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
@@ -223,42 +222,46 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		
 		switch (option.getValue()) {
 		case EQUAL:
-			if(getArgument1() instanceof TextLiteralParam || getArgument1() instanceof TextListParam) {
-				if(getArgument1() instanceof TextLiteralParam) {
-					argument1Translation = argument1Translation.substring(1,argument1Translation.length()-1);
-				}
-				return "\nFILTER (regex(" + argument2Translation + ", \"^" + argument1Translation + "$\"))";
-			} else if(getArgument2() instanceof TextLiteralParam || getArgument2() instanceof TextListParam) {
-				if(getArgument2() instanceof TextLiteralParam) {
-					argument2Translation = argument2Translation.substring(1,argument2Translation.length()-1);
-				}
-				return "\nFILTER (regex(" + argument1Translation + ", \"^" + argument2Translation + "$\"))";
-			} else {
-				String nodeTranslation = "";
-				String otherTranslation = "";
-				if(getArgument1() instanceof Node) {
-					nodeTranslation = argument1Translation;
-					otherTranslation = argument2Translation;
-				} else if(getArgument2() instanceof Node) {
-					nodeTranslation = argument2Translation;
-					otherTranslation = argument1Translation;
-				}
-				return "\nVALUES " + nodeTranslation + " {" + otherTranslation + "}";
-			}
+//			if(getArgument1() instanceof TextLiteralParam || getArgument1() instanceof TextListParam) {
+//				if(getArgument1() instanceof TextLiteralParam) {
+//					argument1Translation = argument1Translation.substring(1,argument1Translation.length()-1);
+//				}
+//				return "\nFILTER (regex(" + argument2Translation + ", \"^" + argument1Translation + "$\")).";
+//			} else if(getArgument2() instanceof TextLiteralParam || getArgument2() instanceof TextListParam) {
+//				if(getArgument2() instanceof TextLiteralParam) {
+//					argument2Translation = argument2Translation.substring(1,argument2Translation.length()-1);
+//				}
+//				return "\nFILTER (regex(" + argument1Translation + ", \"^" + argument2Translation + "$\")).";
+//			} else if(getArgument1() instanceof RdfNode || getArgument2() instanceof RdfNode) {
+//				return "\nFILTER (" + argument1Translation + " = " + argument2Translation + ").";
+//			} else {
+//				String nodeTranslation = "";
+//				String otherTranslation = "";
+//				if(getArgument1() instanceof Node) {
+//					nodeTranslation = argument1Translation;
+//					otherTranslation = argument2Translation;
+//				} else if(getArgument2() instanceof Node) {
+//					nodeTranslation = argument2Translation;
+//					otherTranslation = argument1Translation;
+//				}
+//				return "\nVALUES " + nodeTranslation + " {" + otherTranslation + "}.";
+//			}
+			return "\nFILTER (" + argument1Translation + " = " + argument2Translation + ").";
 		case NOTEQUAL:
-			if(getArgument1() instanceof TextLiteralParam || getArgument1() instanceof TextListParam) {
-				if(getArgument1() instanceof TextLiteralParam) {
-					argument1Translation = argument1Translation.substring(1,argument1Translation.length()-1);
-				}
-				return "\nFILTER (!regex(" + argument2Translation + ", \"^" + argument1Translation + "$\"))";
-			} else if(getArgument2() instanceof TextLiteralParam || getArgument2() instanceof TextListParam) {
-				if(getArgument2() instanceof TextLiteralParam) {
-					argument2Translation = argument2Translation.substring(1,argument2Translation.length()-1);
-				}
-				return "\nFILTER (!regex(" + argument1Translation + ", \"^" + argument2Translation + "$\"))";
-			} else {
-				return "\nFILTER (" + argument1Translation + " != " + argument2Translation + ")";		
-			}
+//			if(getArgument1() instanceof TextLiteralParam || getArgument1() instanceof TextListParam) {
+//				if(getArgument1() instanceof TextLiteralParam) {
+//					argument1Translation = argument1Translation.substring(1,argument1Translation.length()-1);
+//				}
+//				return "\nFILTER (!regex(" + argument2Translation + ", \"^" + argument1Translation + "$\"))";
+//			} else if(getArgument2() instanceof TextLiteralParam || getArgument2() instanceof TextListParam) {
+//				if(getArgument2() instanceof TextLiteralParam) {
+//					argument2Translation = argument2Translation.substring(1,argument2Translation.length()-1);
+//				}
+//				return "\nFILTER (!regex(" + argument1Translation + ", \"^" + argument2Translation + "$\"))";
+//			} else {
+//				return "\nFILTER (" + argument1Translation + " != " + argument2Translation + ")";		
+//			}
+			return "\nFILTER (" + argument1Translation + " != " + argument2Translation + ")";		
 		case GREATER:
 			return "\nFILTER (" + argument1Translation + " > " + argument2Translation + ")";			
 		case LESS:
@@ -315,7 +318,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 			if (argument1.getReturnType() != argument2.getReturnType()) {
 				if (argument1.getReturnType() != ReturnType.UNSPECIFIED
 						&& argument2.getReturnType() != ReturnType.UNSPECIFIED) {
-					throw new InvalidityException("type mismatch" + " (" + getInternalId() + ")");
+					throw new InvalidityException("type mismatch" + " (" + getInternalId() + ") of " + argument1.getReturnType() + " and " + argument2.getReturnType());
 				}
 			}
 		}
@@ -971,7 +974,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		try {
 			isCycleFree();
 			
-			if((newArgument2.getClass().equals(NodeImpl.class) || newArgument2.getClass().equals(ComplexNodeImpl.class)) && argument1 instanceof ParameterValue) {
+			if(newArgument2 != null && argument1 instanceof ParameterValue && (newArgument2.getClass().equals(NodeImpl.class) || newArgument2.getClass().equals(ComplexNodeImpl.class))) {
 				((Node) newArgument2).makePrimitive();
 			}
 			if(argument1 != null && newArgument2 instanceof ParameterValue && (argument1.getClass().equals(NodeImpl.class) || argument1.getClass().equals(ComplexNodeImpl.class))){
@@ -1168,10 +1171,10 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 
 	@Override
 	public String myToString() {
-		String res = "COMP [" + getInternalId() + "]:" + getReturnType() + " ";
+		String res = "COMP [" + getInternalId() + "] " + getTypeOption().getValue() + ":" + getReturnType() + " ";
 		res += "(";
 		if (getArgument1() != null)
-			res += getArgument1().getInternalId() + " ";
+			res += getArgument1().getClass().getSimpleName() + getArgument1().getInternalId() + " ";
 		else
 			res += "- ";
 		if (getOption() != null)
@@ -1179,7 +1182,7 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		else
 			res += "-";
 		if (getArgument2() != null)
-			res += " " + getArgument2().getInternalId();
+			res += " " + getArgument2().getClass().getSimpleName() + getArgument2().getInternalId();
 		else
 			res += " -";
 		return res + ")";

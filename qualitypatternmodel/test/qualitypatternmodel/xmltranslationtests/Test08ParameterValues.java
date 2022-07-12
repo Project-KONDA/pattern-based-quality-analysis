@@ -35,7 +35,7 @@ public class Test08ParameterValues {
 			}
 		}
 
-		Test00.test(completePatterns);
+		Test00.getQueries(completePatterns);
 	}
 	
 	public static CompletePattern getConcreteComparisonPattern(XmlPropertyKind xmlPropertyKind, ParameterValue parameterValue) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -43,12 +43,12 @@ public class Test08ParameterValues {
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = Test00.getBasePattern();
-		completePattern.getGraph().getNodes().get(0).addPrimitiveComparison(ComparisonOperator.EQUAL, parameterValue);
+		completePattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveComparison(ComparisonOperator.EQUAL, parameterValue);
 //		completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.NOTEQUAL, parameter);
 		
 		completePattern.createXmlAdaption();
 		
-		XmlProperty property = (XmlProperty) completePattern.getGraph().getNodes().get(0);
+		XmlProperty property = (XmlProperty) completePattern.getGraph().getNodes().get(1);
 		XmlNavigation relation = (XmlNavigation) property.getIncoming().get(0);
 		relation.getXmlPathParam().getXmlPropertyOptionParam().getOptions().add(xmlPropertyKind);
 		relation.getXmlPathParam().getXmlPropertyOptionParam().setValue(xmlPropertyKind);
@@ -57,7 +57,7 @@ public class Test08ParameterValues {
 		text.setValue("*");
 		relation.getXmlPathParam().getXmlPropertyOptionParam().setAttributeName(text );
 		
-		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
+//		((XmlNavigation)completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
 		
 		return completePattern;
 	}

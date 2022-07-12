@@ -15,11 +15,13 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
-import qualitypatternmodel.adaptionrdf.RdfPathParam;
+import qualitypatternmodel.adaptionrdf.RdfPathPart;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
 import qualitypatternmodel.adaptionrdf.RdfXor;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.parameters.ParameterList;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +36,7 @@ import qualitypatternmodel.parameters.ParameterList;
  *
  * @generated
  */
-public class RdfXorImpl extends RdfPathParamImpl implements RdfXor {
+public class RdfXorImpl extends RdfPathPartImpl implements RdfXor {
 	/**
 	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -43,27 +45,31 @@ public class RdfXorImpl extends RdfPathParamImpl implements RdfXor {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RdfPathParam> items;
+	protected EList<RdfPathPart> items;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected RdfXorImpl() {
 		super();
+		getItems().add(new RdfSinglePredicateImpl());
+		getItems().add(new RdfSinglePredicateImpl());
 	}
 	
 	@Override
 	public String generateSparql() throws InvalidityException {
+		if (getItems().size() < 2)
+			return null;
 		String query = (invert ? "^" : "" ) + "(";
-		int i = 0;
-		for(RdfPathParam p : getItems()) {
-			if(i > 0) {
+		for (int i = 0; i < getItems().size(); i++) {
+			if(i > 0)
 				query += "|";
-			}
-			query += p.generateSparql(); 
-			i++;
+			String itemQuery = getItems().get(i).generateSparql(); 
+			if (itemQuery == null)
+				return null;
+			query += itemQuery;
 		}
 		query += ")" + getQuantifier().getLiteral();
 		return query;
@@ -85,9 +91,9 @@ public class RdfXorImpl extends RdfPathParamImpl implements RdfXor {
 	 * @generated
 	 */
 	@Override
-	public EList<RdfPathParam> getItems() {
+	public EList<RdfPathPart> getItems() {
 		if (items == null) {
-			items = new EObjectContainmentEList<RdfPathParam>(RdfPathParam.class, this, AdaptionrdfPackage.RDF_XOR__ITEMS);
+			items = new EObjectContainmentEList<RdfPathPart>(RdfPathPart.class, this, AdaptionrdfPackage.RDF_XOR__ITEMS);
 		}
 		return items;
 	}
@@ -131,7 +137,7 @@ public class RdfXorImpl extends RdfPathParamImpl implements RdfXor {
 		switch (featureID) {
 			case AdaptionrdfPackage.RDF_XOR__ITEMS:
 				getItems().clear();
-				getItems().addAll((Collection<? extends RdfPathParam>)newValue);
+				getItems().addAll((Collection<? extends RdfPathPart>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -165,45 +171,32 @@ public class RdfXorImpl extends RdfPathParamImpl implements RdfXor {
 		}
 		return super.eIsSet(featureID);
 	}
-
-	@Override
-	public void createParameters() {
-		
-		ParameterList parameterList = getParameterList();
-		if(parameterList != null) {
-			if (getItems().isEmpty()) {
-				RdfSinglePredicate pp = new RdfSinglePredicateImpl();
-				getItems().add(pp);
-				parameterList.add(pp);
-				pp.createParameters();
-				
-				RdfSinglePredicate pp2 = new RdfSinglePredicateImpl();
-				getItems().add(pp2);
-				parameterList.add(pp2);
-				pp2.createParameters();
-			} else if(getItems().size() == 1) {
-				parameterList.add(getItems().get(0));
-				
-				RdfSinglePredicate pp = new RdfSinglePredicateImpl();
-				getItems().add(pp);
-				parameterList.add(pp);
-				pp.createParameters();
-			} else {
-				for(RdfPathParam item : getItems()) {
-					parameterList.add(item);
-				}
-			}
-		}
-		
-	}
 	
 	@Override
 	public EList<RdfSinglePredicate> getRdfSinglePredicates() {
 		EList<RdfSinglePredicate> list = new BasicEList<RdfSinglePredicate>();
-		for(RdfPathParam item : getItems()) {
+		for(RdfPathPart item : getItems()) {
 			list.addAll(item.getRdfSinglePredicates());
 		}
 		return list;
+	}
+
+	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String myToString() {
+		String result = "RdfXor [" + getId() + "] (";
+		for (int i = 0; i < getItems().size(); i++){
+			if (i > 0) result += ", ";
+			result += getItems().get(i).myToString();
+		}
+		result += ")";
+		return result;
 	}
 
 } //RdfXorImpl

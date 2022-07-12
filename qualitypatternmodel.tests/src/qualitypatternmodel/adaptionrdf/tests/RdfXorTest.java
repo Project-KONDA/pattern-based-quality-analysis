@@ -13,7 +13,7 @@ import qualitypatternmodel.adaptionrdf.RdfXor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RdfXorTest extends RdfPathParamTest {
+public class RdfXorTest extends RdfPathPartTest {
 
 	/**
 	 * <!-- begin-user-doc -->

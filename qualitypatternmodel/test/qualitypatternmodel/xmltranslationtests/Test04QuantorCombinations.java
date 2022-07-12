@@ -61,7 +61,7 @@ public class Test04QuantorCombinations {
 		return completePattern;
 	}
 
-	public static CompletePattern getPatternExistsInExists() {
+	public static CompletePattern getPatternExistsInExists() throws InvalidityException {
 		
 		// PatternStructure
 		PatternstructurePackage.eINSTANCE.eClass();
@@ -77,22 +77,13 @@ public class Test04QuantorCombinations {
 		
 		Node e1q1 = qcond.getGraph().getNodes().get(0);
 		Node e2q1 = qcond.getGraph().getNodes().get(1);
-		
-		Relation relation2 = graphFactory.createRelation();		
-		relation2.setGraph(qcond.getGraph());
-		relation2.setSource(e1q1);
-		relation2.setTarget(e2q1);
-		
+		Relation relation2 = e1q1.addOutgoing(e2q1);
 		
 		Node se3 = graphFactory.createNode();
 		qcond2.getGraph().getNodes().add(se3);
 		
 		Node e2q2 = qcond2.getGraph().getNodes().get(1);
-		
-		Relation relation = graphFactory.createRelation();	
-		relation.setGraph(qcond2.getGraph());
-		relation.setSource(e2q2);
-		relation.setTarget(se3);		
+		e2q2.addOutgoing(se3);		
 		
 //		completePattern.createXMLAdaption();
 //		relation2.adaptAsXMLNavigation();

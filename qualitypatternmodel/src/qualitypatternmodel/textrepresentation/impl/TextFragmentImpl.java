@@ -7,6 +7,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.textrepresentation.TextFragment;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 
@@ -56,6 +58,11 @@ public class TextFragmentImpl extends FragmentImpl implements TextFragment {
 	
 	@Override
 	public String getPreview() {		
+		return getText();
+	}
+	
+	@Override
+	public String generateSparqlTemplate() throws InvalidityException {
 		return getText();
 	}
 

@@ -12,11 +12,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
-
 import qualitypatternmodel.parameters.provider.ParameterItemProvider;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
@@ -48,52 +45,29 @@ public class RdfPathParamItemProvider extends ParameterItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addInvertPropertyDescriptor(object);
-			addQuantifierPropertyDescriptor(object);
+			addRdfPathPartPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Invert feature.
+	 * This adds a property descriptor for the Rdf Path Part feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInvertPropertyDescriptor(Object object) {
+	protected void addRdfPathPartPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RdfPathParam_invert_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RdfPathParam_invert_feature", "_UI_RdfPathParam_type"),
-				 AdaptionrdfPackage.Literals.RDF_PATH_PARAM__INVERT,
+				 getString("_UI_RdfPathParam_rdfPathPart_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RdfPathParam_rdfPathPart_feature", "_UI_RdfPathParam_type"),
+				 AdaptionrdfPackage.Literals.RDF_PATH_PARAM__RDF_PATH_PART,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 true,
 				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Quantifier feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addQuantifierPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RdfPathParam_quantifier_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RdfPathParam_quantifier_feature", "_UI_RdfPathParam_type"),
-				 AdaptionrdfPackage.Literals.RDF_PATH_PARAM__QUANTIFIER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -134,13 +108,6 @@ public class RdfPathParamItemProvider extends ParameterItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(RdfPathParam.class)) {
-			case AdaptionrdfPackage.RDF_PATH_PARAM__INVERT:
-			case AdaptionrdfPackage.RDF_PATH_PARAM__QUANTIFIER:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

@@ -27,13 +27,12 @@ import qualitypatternmodel.patternstructure.NumberElement;
 public interface NumberParam extends ParameterValue {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
-	 * The default value is <code>"0.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(Double)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getNumberParam_Value()
-	 * @model default="0.0"
+	 * @model
 	 * @generated
 	 */
 	Double getValue();

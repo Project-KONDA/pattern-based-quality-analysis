@@ -46,7 +46,7 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
 	protected static final Boolean VALUE_EDEFAULT = Boolean.TRUE;
@@ -99,16 +99,16 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 		if(getValue() != null) {
 			return getValue() + "()";
 		} else {
-			throw new InvalidityException("invalid number");
+			throw new InvalidityException("invalid value");
 		}
 	}
 	
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(getValue() != null) {
-			return getValue()+"";
+			return ""+getValue();
 		} else {
-			throw new InvalidityException("invalid number");
+			return super.generateSparql();
 		}
 	}
 	

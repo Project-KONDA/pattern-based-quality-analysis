@@ -251,6 +251,11 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		return new BasicEList<PatternElement>();
 	}
 	
+	@Override
+	public void initializeTranslation() {
+		setTranslated(false);
+	}
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -1009,7 +1014,7 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 							
 				Graph graph = getGraph();
 				
-				graph.getNodes().add(property);
+				property.setGraph(getGraph());
 				graph.addRelation(sourceNode, property).adaptAsXmlPropertyNavigation();
 				graph.addRelation(targetNode, property).adaptAsXmlPropertyNavigation();
 				property.createParameters();

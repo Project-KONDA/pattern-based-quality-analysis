@@ -86,8 +86,8 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 				return createRdfIriNodeAdapter();
 			}
 			@Override
-			public Adapter caseRdfPathParam(RdfPathParam object) {
-				return createRdfPathParamAdapter();
+			public Adapter caseRdfPathPart(RdfPathPart object) {
+				return createRdfPathPartAdapter();
 			}
 			@Override
 			public Adapter caseRdfSinglePredicate(RdfSinglePredicate object) {
@@ -118,6 +118,10 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 				return createIriListParamAdapter();
 			}
 			@Override
+			public Adapter caseRdfPathParam(RdfPathParam object) {
+				return createRdfPathParamAdapter();
+			}
+			@Override
 			public Adapter casePatternElement(PatternElement object) {
 				return createPatternElementAdapter();
 			}
@@ -142,12 +146,12 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 				return createComplexNodeAdapter();
 			}
 			@Override
-			public Adapter caseParameter(Parameter object) {
-				return createParameterAdapter();
-			}
-			@Override
 			public Adapter casePrimitiveNode(PrimitiveNode object) {
 				return createPrimitiveNodeAdapter();
+			}
+			@Override
+			public Adapter caseParameter(Parameter object) {
+				return createParameterAdapter();
 			}
 			@Override
 			public Adapter caseParameterValue(ParameterValue object) {
@@ -198,6 +202,20 @@ public class AdaptionrdfAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRdfIriNodeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionrdf.RdfPathPart <em>Rdf Path Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionrdf.RdfPathPart
+	 * @generated
+	 */
+	public Adapter createRdfPathPartAdapter() {
 		return null;
 	}
 

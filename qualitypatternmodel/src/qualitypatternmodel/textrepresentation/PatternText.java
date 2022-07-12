@@ -7,6 +7,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 
@@ -142,6 +144,15 @@ public interface PatternText extends EObject {
 	 * @generated
 	 */
 	void instantiate() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Generates a SPARQL template that can be automatically transformed into a gap text by the Query Helper of the Wikidata Query Service 
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper qualitypatternmodel.operators.OperatorCycleExceptionWrapper qualitypatternmodel.patternstructure.MissingPatternContainerException"
+	 * @generated
+	 */
+	String generateSparqlTemplate() throws InvalidityException, OperatorCycleException, MissingPatternContainerException;
 
 	/**
 	 * <!-- begin-user-doc -->

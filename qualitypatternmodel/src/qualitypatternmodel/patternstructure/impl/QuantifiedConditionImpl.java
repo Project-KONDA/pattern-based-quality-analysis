@@ -22,7 +22,6 @@ import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.LogicalOperator;
 import qualitypatternmodel.patternstructure.MorphismContainer;
 import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.NotCondition;
@@ -116,20 +115,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		String result;
-		if (quantifier == Quantifier.EXISTS) {
-			if(getCondition() instanceof Formula) {
-				Formula formula = (Formula) getCondition();
-				if(formula.getOperator() == LogicalOperator.AND) {
-					result = graph.generateXQuery();
-				} else {
-					result = "EXISTS{" + graph.generateXQuery() + "}";
-				}
-			} else if (getCondition() instanceof NotCondition) {
-				result = "EXISTS{" + graph.generateXQuery() + "}";
-			} else {
-				result = graph.generateXQuery();
-			}
-		} else if (quantifier == Quantifier.FORALL) {
+		if (quantifier == Quantifier.EXISTS || quantifier == Quantifier.FORALL) {
 			result = graph.generateXQuery();
 		} else {
 			throw new InvalidityException("invalid quantifier");
@@ -140,25 +126,40 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 	}
 	@Override
 	public String generateSparql() throws InvalidityException {
+		String query = "\n";
 		if (quantifier == Quantifier.EXISTS) {
 			if(isInRdfFilter()) {
-				return "EXISTS {\n" + graph.generateSparql() + condition.generateSparql() + "}";
+				query += "EXISTS {";
+				query += graph.generateSparql().replace("\n", "\n  ");
+				query += condition.generateSparql().replace("\n", "\n    ");
+				query += "}";
 			} else {
-				return graph.generateSparql() + condition.generateSparql();
+				query = graph.generateSparql();
+				query += condition.generateSparql();
 			}
 		} else if (quantifier == Quantifier.FORALL) {
 			if(isInRdfFilter()) {
-				String query = "";
 				if(getNotCondition() == null) {
 					query += "NOT ";
 				}
-				return query + "EXISTS {\n " + graph.generateSparql() + "\n FILTER NOT EXISTS {\n" + condition.generateSparql() + "\n}\n}";
+				query += "EXISTS {";
+				query += graph.generateSparql().replace("\n", "\n  ");
+				query += "\n  FILTER NOT EXISTS {";
+				query += condition.generateSparql().replace("\n", "\n    ");
+				query += "\n  }";
+				query += "\n}";
 			} else {
-				return "FILTER NOT EXISTS {\n " + graph.generateSparql() + "\n FILTER NOT EXISTS {\n" + condition.generateSparql() + "\n}\n}";
+				query += "FILTER NOT EXISTS {";
+				query += graph.generateSparql().replace("\n", "\n  ");
+				query += "\n  FILTER NOT EXISTS {";
+				query += condition.generateSparql().replace("\n", "\n    ");
+				query += "\n  }";
+				query += "\n}";
 			}
 		} else {
 			throw new InvalidityException("invalid quantifier");
 		}
+		return query;
 	}
 	
 	@Override

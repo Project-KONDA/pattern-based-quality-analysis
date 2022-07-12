@@ -23,6 +23,7 @@ import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountPattern;
@@ -152,14 +153,10 @@ public class Test12Count {
 //		((XmlProperty) countPattern.getGraph().getNodes().get(2).getProperties().get(0)).getOption().setValue(PropertyKind.TAG);
 				
 		UntypedParameterValue untypedParameterValue = (UntypedParameterValue) completePattern.getParameterList().getParameters().get(0);
-		TextLiteralParam text = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		text.setValue("demo:data");
-		untypedParameterValue.replace(text);	
+		untypedParameterValue.setValue("demo:data");	
 
 		UntypedParameterValue untypedParameterValue2 = (UntypedParameterValue) completePattern.getParameterList().getParameters().get(5);
-		TextLiteralParam text2 = ParametersFactory.eINSTANCE.createTextLiteralParam();
-		text2.setValue("demo:data");
-		untypedParameterValue2.replace(text2);		
+		untypedParameterValue2.setValue("demo:data");		
 		
 //		UntypedParameterValue untypedParameterValue3 = (UntypedParameterValue) completePattern.getParameterList().getParameters().get(6);
 //		TextLiteralParam text3 = ParametersFactory.eINSTANCE.createTextLiteralParam();

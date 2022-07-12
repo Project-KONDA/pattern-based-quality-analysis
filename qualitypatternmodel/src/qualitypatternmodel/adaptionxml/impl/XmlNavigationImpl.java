@@ -115,6 +115,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 	@Override
 	public String generateXQuery() throws InvalidityException {
 		
+		// Basic Translation via xmlPathParam
 		String xPathExpression = "";
 		if (xmlPathParam != null && getIncomingMapping() == null) {
 			xPathExpression = getSourceVariable() + xmlPathParam.generateXQuery();
@@ -122,6 +123,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 			throw new InvalidityException("option null");
 		}
 		
+		// setTranslated
 		String xPredicates;
 		
 		if(getTarget() instanceof XmlElement) {
@@ -134,21 +136,27 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 			throw new InvalidityException("target of relation not XmlNode");
 		}
 		
-		if(getTarget() instanceof XmlNode) {
-			XmlNode targetElement = (XmlNode) getTarget();			
-			predicatesAreBeingTranslated = true;
-			xPredicates = targetElement.translatePredicates();
-			predicatesAreBeingTranslated = false;
-		} else {
-			throw new InvalidityException("target of relation not XmlNode");
-		}
-		
+		// Variable
 		String variable = generateNextXQueryVariable();
+
+		if(getTarget() instanceof XmlNode) {
+			XmlNode node = (XmlNode) getTarget();
+			node.getVariables().add(variable);
+		}
 		
 		if(getGraph() == null) {
 			throw new InvalidityException("container Graph null");
 		}
 		
+		// Predicate
+		if(getTarget() instanceof XmlNode) {
+			XmlNode targetElement = (XmlNode) getTarget();
+			xPredicates = targetElement.translatePredicates();
+		} else {
+			throw new InvalidityException("target of relation not XmlNode");
+		}
+		
+		// Structure Translation (For, Some, Every)
 		String query = "";
 		if (getGraph().isReturnGraph()) {
 			query += FOR + variable + IN; 			
@@ -158,7 +166,7 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 					xPredicates += node.translateMultipleIncoming();
 				}
 				query += xPathExpression + xPredicates;
-			} else if (!xPredicates.equals("")) {
+			} else if (!getTarget().getPredicates().isEmpty() || (getTarget() instanceof XmlNode) && ((XmlNode) getTarget()).getVariables().size() > 1) {
 				query += variable + xPredicates;
 			} else {
 				query = "";
@@ -185,7 +193,8 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 					xPredicates += node.translateMultipleIncoming();
 				}
 				query += xPathExpression + xPredicates + SATISFIES;
-			} else if (!xPredicates.equals("")) {
+			} else if (!getTarget().getPredicates().isEmpty() || (getTarget() instanceof XmlNode) && ((XmlNode) getTarget()).getVariables().size() > 1) {
+//			} else if (!xPredicates.equals("")) {
 				query += variable + xPredicates + SATISFIES;
 			} else {
 				query = "";
@@ -193,11 +202,6 @@ public abstract class XmlNavigationImpl extends RelationImpl implements XmlNavig
 		}
 		
 		translated = true;
-		
-		if(getTarget() instanceof XmlNode) {
-			XmlNode node = (XmlNode) getTarget();
-			node.getVariables().add(variable);
-		}
 		
 		query += getTarget().generateXQuery();
 		

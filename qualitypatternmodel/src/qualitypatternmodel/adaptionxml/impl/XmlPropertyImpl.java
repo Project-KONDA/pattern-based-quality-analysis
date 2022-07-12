@@ -114,10 +114,12 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 	@Override
 	public String translateMultipleIncoming() {
 		String xPredicates = "";
-		for(String v : getVariables()) {
-			// TODO: maybe cast
-			xPredicates += "[. = " + v + "]";				
+		for (int i = 0; i < getVariables().size()-1; i++) {
+			xPredicates += "[. = " + getVariables().get(i) + "]";
 		}
+//		for(String v : getVariables()) {
+//			xPredicates += "[. = " + v + "]";				
+//		}
 		return xPredicates;
 	}
 

@@ -128,7 +128,7 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		int b = (prefix != null ? 1 : 0) + (suffix != null ? 1 : 0) + (uri != null ? 1 : 0);
-		if(b == 1 && uri == null || b > 1 && uri != null || b == 0) {
+		if((b == 1 && uri == null || b > 1 && uri != null || b == 0) && abstractionLevel == AbstractionLevel.CONCRETE) {
 			throw new InvalidityException("invalid iri");
 		}
 	}
@@ -136,13 +136,14 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(prefix != null && suffix != null) {
-			
 //			return "<" + standardIri + suffix + ">";
 			return prefix + ":" + suffix;
 		} else if (uri != null) {
 			return "<" + uri + ">";
+		} else if (getRdfSinglePredicate() != null) {
+			return null;
 		} else {
-			throw new InvalidityException("Invalid uri");
+			return super.generateSparql();
 		}
 	}
 

@@ -24,7 +24,7 @@ import qualitypatternmodel.adaptionrdf.RdfSequence;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RdfSequenceItemProvider extends RdfPathParamItemProvider {
+public class RdfSequenceItemProvider extends RdfPathPartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

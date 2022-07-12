@@ -12,6 +12,7 @@ import qualitypatternmodel.adaptionrdf.RdfXor;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.xmltranslationtests.Test00;
@@ -29,6 +30,7 @@ public class RdfTest01Predicates {
 		completePatterns.add(getSequenceQuantifierPattern(RdfQuantifier.ONE));
 		completePatterns.add(getSequenceQuantifierPattern(RdfQuantifier.ZERO_OR_ONE));
 		completePatterns.add(getXorPattern());
+		completePatterns.add(getTwoIncomingPredicatesPattern());
 		RdfTest00.test(completePatterns);
 	}
 	
@@ -42,7 +44,7 @@ public class RdfTest01Predicates {
 		CompletePattern completePattern = getBasePatternPredicates();
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		RdfSinglePredicate rdfSinglePredicate = (RdfSinglePredicate) relation.getRdfPathParam();
+		RdfSinglePredicate rdfSinglePredicate = (RdfSinglePredicate) relation.getRdfPathParam().getRdfPathPart();
 		rdfSinglePredicate.setIriParam(iriParam);
 		rdfSinglePredicate.setQuantifier(q);
 		iriParam.setPrefix("wdt");
@@ -55,7 +57,7 @@ public class RdfTest01Predicates {
 		CompletePattern completePattern = getBasePatternPredicates();
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		((RdfSinglePredicate) relation.getRdfPathParam()).setIriParam(iriParam);
+		((RdfSinglePredicate) relation.getRdfPathParam().getRdfPathPart()).setIriParam(iriParam);
 		iriParam.setUri("thisisatesturi");
 		return completePattern;		
 	}
@@ -70,7 +72,7 @@ public class RdfTest01Predicates {
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		
 		RdfSequence seq = AdaptionrdfFactory.eINSTANCE.createRdfSequence();
-		relation.setRdfPathParam(seq);
+		relation.getRdfPathParam().setRdfPathPart(seq);
 		seq.setQuantifier(q);
 		
 		RdfSinglePredicate pred = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
@@ -96,7 +98,7 @@ public class RdfTest01Predicates {
 		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
 		
 		RdfXor seq = AdaptionrdfFactory.eINSTANCE.createRdfXor();
-		relation.setRdfPathParam(seq);
+		relation.getRdfPathParam().setRdfPathPart(seq);
 		
 		RdfSinglePredicate pred = AdaptionrdfFactory.eINSTANCE.createRdfSinglePredicate();
 		seq.getItems().add(pred);
@@ -115,6 +117,17 @@ public class RdfTest01Predicates {
 		
 		return completePattern;		
 	}
+	
+	private static CompletePattern getTwoIncomingPredicatesPattern() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = RdfTest00.getBasePattern();
+		
+		ComplexNode node2 = completePattern.getGraph().addNode().makeComplex();
+		completePattern.getGraph().addRelation(node2, completePattern.getGraph().getNodes().get(1));
+		
+		completePattern.createRdfAdaption();
+		return completePattern;		
+	}
+
 	
 
 

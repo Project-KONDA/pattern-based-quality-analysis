@@ -99,8 +99,7 @@
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="newValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
-          defaultValueLiteral="0.0"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="numberArgument" eType="#//patternstructure/NumberElement"
           eOpposite="#//patternstructure/NumberElement/numberParam"/>
     </eClassifiers>
@@ -1066,6 +1065,8 @@
       <eOperations name="getPreview" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="delete"/>
       <eOperations name="instantiate" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="generateSparqlTemplate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper #//operators/OperatorCycleExceptionWrapper #//patternstructure/MissingPatternContainerException"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="pattern" lowerBound="1"
           eType="#//patternstructure/CompletePattern" eOpposite="#//patternstructure/CompletePattern/text"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" lowerBound="1"
@@ -1086,6 +1087,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="Fragment" abstract="true">
       <eOperations name="generateJSON" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eOperations name="getPreview" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="generateSparqlTemplate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="patternText" lowerBound="1"
           eType="#//textrepresentation/PatternText" eOpposite="#//textrepresentation/PatternText/fragments"/>
     </eClassifiers>
@@ -1111,10 +1114,8 @@
           eOpposite="#//adaptionrdf/RdfPathParam/rdfPredicate"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RdfIriNode" eSuperTypes="#//graphstructure/ComplexNode #//adaptionrdf/RdfNode"/>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfPathParam" abstract="true" eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
+    <eClassifiers xsi:type="ecore:EClass" name="RdfPathPart" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getRdfSinglePredicates" upperBound="-1" eType="#//adaptionrdf/RdfSinglePredicate"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPredicate" eType="#//adaptionrdf/RdfPredicate"
-          eOpposite="#//adaptionrdf/RdfPredicate/rdfPathParam"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="invert" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantifier" eType="#//adaptionrdf/RdfQuantifier"/>
     </eClassifiers>
@@ -1124,7 +1125,7 @@
       <eLiterals name="ONE_PLUS" value="2" literal="ONE_PLUS"/>
       <eLiterals name="ZERO_OR_ONE" value="3" literal="ZERO_OR_ONE"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfSinglePredicate" eSuperTypes="#//adaptionrdf/RdfPathParam">
+    <eClassifiers xsi:type="ecore:EClass" name="RdfSinglePredicate" eSuperTypes="#//adaptionrdf/RdfPathPart">
       <eStructuralFeatures xsi:type="ecore:EReference" name="iriParam" eType="#//adaptionrdf/IriParam"
           containment="true" eOpposite="#//adaptionrdf/IriParam/rdfSinglePredicate"/>
     </eClassifiers>
@@ -1140,17 +1141,22 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="iriListParam" eType="#//adaptionrdf/IriListParam"
           eOpposite="#//adaptionrdf/IriListParam/iriParam"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfXor" eSuperTypes="#//adaptionrdf/RdfPathParam">
+    <eClassifiers xsi:type="ecore:EClass" name="RdfXor" eSuperTypes="#//adaptionrdf/RdfPathPart">
       <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="2"
-          upperBound="-1" eType="#//adaptionrdf/RdfPathParam" containment="true"/>
+          upperBound="-1" eType="#//adaptionrdf/RdfPathPart" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RdfSequence" eSuperTypes="#//adaptionrdf/RdfPathParam">
+    <eClassifiers xsi:type="ecore:EClass" name="RdfSequence" eSuperTypes="#//adaptionrdf/RdfPathPart">
       <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="2"
-          upperBound="-1" eType="#//adaptionrdf/RdfPathParam" containment="true"/>
+          upperBound="-1" eType="#//adaptionrdf/RdfPathPart" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IriListParam" eSuperTypes="#//parameters/ParameterValue">
       <eStructuralFeatures xsi:type="ecore:EReference" name="iriParam" upperBound="-1"
           eType="#//adaptionrdf/IriParam" containment="true" eOpposite="#//adaptionrdf/IriParam/iriListParam"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RdfPathParam" eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPredicate" eType="#//adaptionrdf/RdfPredicate"
+          eOpposite="#//adaptionrdf/RdfPredicate/rdfPathParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPathPart" eType="#//adaptionrdf/RdfPathPart"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="adaptionNeo4J" nsURI="adaptionNeo4J" nsPrefix="adaptionNeo4J">

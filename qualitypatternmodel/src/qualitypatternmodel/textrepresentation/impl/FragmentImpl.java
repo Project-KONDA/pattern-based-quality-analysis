@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.textrepresentation.Fragment;
 import qualitypatternmodel.textrepresentation.PatternText;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
@@ -112,6 +113,18 @@ public abstract class FragmentImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	@Override
 	public String getPreview() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String generateSparqlTemplate() throws InvalidityException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -231,6 +244,13 @@ public abstract class FragmentImpl extends MinimalEObjectImpl.Container implemen
 				return generateJSON();
 			case TextrepresentationPackage.FRAGMENT___GET_PREVIEW:
 				return getPreview();
+			case TextrepresentationPackage.FRAGMENT___GENERATE_SPARQL_TEMPLATE:
+				try {
+					return generateSparqlTemplate();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

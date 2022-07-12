@@ -2,8 +2,9 @@
  */
 package qualitypatternmodel.adaptionrdf.tests;
 
+import junit.textui.TestRunner;
+import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.RdfPathParam;
-
 import qualitypatternmodel.parameters.tests.ParameterTest;
 
 /**
@@ -13,14 +14,22 @@ import qualitypatternmodel.parameters.tests.ParameterTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public abstract class RdfPathParamTest extends ParameterTest {
+public class RdfPathParamTest extends ParameterTest {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(RdfPathParamTest.class);
+	}
 
 	/**
 	 * Constructs a new Rdf Path Param test case with the given name.
@@ -44,16 +53,25 @@ public abstract class RdfPathParamTest extends ParameterTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfSinglePredicates() <em>Get Rdf Single Predicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionrdf.RdfPathParam#getRdfSinglePredicates()
+	 * @see junit.framework.TestCase#setUp()
 	 * @generated
 	 */
-	public void testGetRdfSinglePredicates() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(AdaptionrdfFactory.eINSTANCE.createRdfPathParam());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
 	}
 
 	/**

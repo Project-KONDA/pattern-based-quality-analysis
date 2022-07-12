@@ -97,21 +97,17 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AdaptionrdfPackage.RDF_PATH_PARAM: {
-				RdfPathParam rdfPathParam = (RdfPathParam)theEObject;
-				T result = caseRdfPathParam(rdfPathParam);
-				if (result == null) result = caseParameter(rdfPathParam);
-				if (result == null) result = caseAdaptable(rdfPathParam);
-				if (result == null) result = casePatternElement(rdfPathParam);
+			case AdaptionrdfPackage.RDF_PATH_PART: {
+				RdfPathPart rdfPathPart = (RdfPathPart)theEObject;
+				T result = caseRdfPathPart(rdfPathPart);
+				if (result == null) result = casePatternElement(rdfPathPart);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case AdaptionrdfPackage.RDF_SINGLE_PREDICATE: {
 				RdfSinglePredicate rdfSinglePredicate = (RdfSinglePredicate)theEObject;
 				T result = caseRdfSinglePredicate(rdfSinglePredicate);
-				if (result == null) result = caseRdfPathParam(rdfSinglePredicate);
-				if (result == null) result = caseParameter(rdfSinglePredicate);
-				if (result == null) result = caseAdaptable(rdfSinglePredicate);
+				if (result == null) result = caseRdfPathPart(rdfSinglePredicate);
 				if (result == null) result = casePatternElement(rdfSinglePredicate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -147,9 +143,7 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 			case AdaptionrdfPackage.RDF_XOR: {
 				RdfXor rdfXor = (RdfXor)theEObject;
 				T result = caseRdfXor(rdfXor);
-				if (result == null) result = caseRdfPathParam(rdfXor);
-				if (result == null) result = caseParameter(rdfXor);
-				if (result == null) result = caseAdaptable(rdfXor);
+				if (result == null) result = caseRdfPathPart(rdfXor);
 				if (result == null) result = casePatternElement(rdfXor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -157,9 +151,7 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 			case AdaptionrdfPackage.RDF_SEQUENCE: {
 				RdfSequence rdfSequence = (RdfSequence)theEObject;
 				T result = caseRdfSequence(rdfSequence);
-				if (result == null) result = caseRdfPathParam(rdfSequence);
-				if (result == null) result = caseParameter(rdfSequence);
-				if (result == null) result = caseAdaptable(rdfSequence);
+				if (result == null) result = caseRdfPathPart(rdfSequence);
 				if (result == null) result = casePatternElement(rdfSequence);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -171,6 +163,15 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 				if (result == null) result = caseParameter(iriListParam);
 				if (result == null) result = caseComparable(iriListParam);
 				if (result == null) result = casePatternElement(iriListParam);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AdaptionrdfPackage.RDF_PATH_PARAM: {
+				RdfPathParam rdfPathParam = (RdfPathParam)theEObject;
+				T result = caseRdfPathParam(rdfPathParam);
+				if (result == null) result = caseParameter(rdfPathParam);
+				if (result == null) result = caseAdaptable(rdfPathParam);
+				if (result == null) result = casePatternElement(rdfPathParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -209,17 +210,17 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Rdf Path Param</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Rdf Path Part</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Rdf Path Param</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Rdf Path Part</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRdfPathParam(RdfPathParam object) {
+	public T caseRdfPathPart(RdfPathPart object) {
 		return null;
 	}
 
@@ -325,6 +326,21 @@ public class AdaptionrdfSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseIriListParam(IriListParam object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rdf Path Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rdf Path Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRdfPathParam(RdfPathParam object) {
 		return null;
 	}
 

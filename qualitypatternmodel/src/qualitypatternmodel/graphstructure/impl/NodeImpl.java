@@ -1455,7 +1455,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				e.printStackTrace();
 			}			
 		}
-		System.out.println("Adding Condition Failed: Nodes not of same type");		
+		System.out.println("Adding Condition Failed: Nodes not of same type " + this.getClass().getSimpleName() + " " + node.getClass().getSimpleName() + "\n");		
 		return null;
 	}
 
@@ -2164,26 +2164,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	@Override
 	public TextLiteralParam addPrimitiveComparison(String value) {
 		Comparison comparison = new ComparisonImpl();		
-		try {			
-			CompletePattern completePattern = (CompletePattern) getAncestor(CompletePattern.class);
-			ParameterList varlist = completePattern.getParameterList();
-			Graph graph = getGraph();
-			OperatorList oplist = graph.getOperatorList();
-						
-			TextLiteralParamImpl textlit = new TextLiteralParamImpl();
-			varlist.add(textlit);
-			textlit.setValue(value);
-	
-			oplist.add(comparison);	
-			comparison.createParameters();
-			PrimitiveNode p = null;
-			if(this instanceof PrimitiveNode) {
-				p = (PrimitiveNode) this;
-			} else {
-				p = makePrimitive();
-			}
-			comparison.setArgument1(p);
-			comparison.setArgument2(textlit);
+		try {
+			TextLiteralParam textlit = new TextLiteralParamImpl(value);
+			addPrimitiveComparison(textlit);
 			return textlit;
 						
 		} catch (Exception e) {

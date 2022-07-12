@@ -177,13 +177,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int PATTERN_TEXT___INSTANTIATE = 5;
 
 	/**
+	 * The operation id for the '<em>Generate Sparql Template</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_TEXT___GENERATE_SPARQL_TEMPLATE = 6;
+
+	/**
 	 * The number of operations of the '<em>Pattern Text</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_TEXT_OPERATION_COUNT = 6;
+	int PATTERN_TEXT_OPERATION_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.FragmentImpl <em>Fragment</em>}' class.
@@ -232,13 +241,22 @@ public interface TextrepresentationPackage extends EPackage {
 	int FRAGMENT___GET_PREVIEW = 1;
 
 	/**
+	 * The operation id for the '<em>Generate Sparql Template</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAGMENT___GENERATE_SPARQL_TEMPLATE = 2;
+
+	/**
 	 * The number of operations of the '<em>Fragment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FRAGMENT_OPERATION_COUNT = 2;
+	int FRAGMENT_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.textrepresentation.impl.ParameterFragmentImpl <em>Parameter Fragment</em>}' class.
@@ -312,6 +330,15 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @ordered
 	 */
 	int PARAMETER_FRAGMENT___GET_PREVIEW = FRAGMENT___GET_PREVIEW;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql Template</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FRAGMENT___GENERATE_SPARQL_TEMPLATE = FRAGMENT___GENERATE_SPARQL_TEMPLATE;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -403,6 +430,15 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_FRAGMENT___GET_PREVIEW = FRAGMENT___GET_PREVIEW;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql Template</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_FRAGMENT___GENERATE_SPARQL_TEMPLATE = FRAGMENT___GENERATE_SPARQL_TEMPLATE;
 
 	/**
 	 * The number of operations of the '<em>Text Fragment</em>' class.
@@ -622,6 +658,16 @@ public interface TextrepresentationPackage extends EPackage {
 	EOperation getPatternText__Instantiate();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#generateSparqlTemplate() <em>Generate Sparql Template</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Sparql Template</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.PatternText#generateSparqlTemplate()
+	 * @generated
+	 */
+	EOperation getPatternText__GenerateSparqlTemplate();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.PatternText#delete() <em>Delete</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -743,6 +789,16 @@ public interface TextrepresentationPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getFragment__GetPreview();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.textrepresentation.Fragment#generateSparqlTemplate() <em>Generate Sparql Template</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Sparql Template</em>' operation.
+	 * @see qualitypatternmodel.textrepresentation.Fragment#generateSparqlTemplate()
+	 * @generated
+	 */
+	EOperation getFragment__GenerateSparqlTemplate();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.textrepresentation.TextFragment <em>Text Fragment</em>}'.
@@ -926,6 +982,14 @@ public interface TextrepresentationPackage extends EPackage {
 		EOperation PATTERN_TEXT___INSTANTIATE = eINSTANCE.getPatternText__Instantiate();
 
 		/**
+		 * The meta object literal for the '<em><b>Generate Sparql Template</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_TEXT___GENERATE_SPARQL_TEMPLATE = eINSTANCE.getPatternText__GenerateSparqlTemplate();
+
+		/**
 		 * The meta object literal for the '<em><b>Delete</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1024,6 +1088,14 @@ public interface TextrepresentationPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation FRAGMENT___GET_PREVIEW = eINSTANCE.getFragment__GetPreview();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate Sparql Template</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation FRAGMENT___GENERATE_SPARQL_TEMPLATE = eINSTANCE.getFragment__GenerateSparqlTemplate();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.textrepresentation.impl.TextFragmentImpl <em>Text Fragment</em>}' class.

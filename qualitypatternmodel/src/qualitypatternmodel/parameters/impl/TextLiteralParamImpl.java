@@ -54,10 +54,10 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getValue()
-	 * @generated
+	 * @generated not
 	 * @ordered
 	 */
-	protected static final String VALUE_EDEFAULT = "";
+	protected static final String VALUE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -95,7 +95,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		String container = "";
 		if (eContainer() instanceof PatternElement)
-			container += " in " + eContainer().getClass() + " [" + ((PatternElement) eContainer()).getInternalId() + "]";
+			container += " in " + eContainer().getClass().getSimpleName() + " [" + ((PatternElement) eContainer()).getInternalId() + "]";
 		if (getParameterList() == null && getXmlAxisPair() == null && getXmlPropertyOptionParam() == null)
 			throw new InvalidityException("variableList and axisPair null" + " (" + getInternalId() + container + ")");
 		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))
@@ -134,7 +134,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		if(inputIsValid()) {
 			return "\"" + getValue() + "\"";
 		} else {
-			throw new InvalidityException("invalid string");
+			return super.generateSparql();
 		}
 	}
 	

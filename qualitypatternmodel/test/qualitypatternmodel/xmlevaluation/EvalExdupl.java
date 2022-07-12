@@ -1,27 +1,37 @@
 package qualitypatternmodel.xmlevaluation;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
+import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorsFactory;
 import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.parameters.Parameter;
+import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.Condition;
@@ -57,7 +67,7 @@ public class EvalExdupl {
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = Test00.getBasePattern();
-		completePattern.getGraph().getReturnNodes().get(0).addPrimitiveComparison();
+		completePattern.getGraph().getReturnNodes().get(0).addOutgoing().getTarget().addPrimitiveComparison();
 		
 		CountCondition countCondition = factory.createCountCondition();
 		completePattern.setCondition(countCondition);		
@@ -75,25 +85,19 @@ public class EvalExdupl {
 		
 		Node returnInCPattern = countPattern.getGraph().getNodes().get(0);
 		
-		Node otherRecord = graphFactory.createNode();
+		ComplexNode otherRecord = graphFactory.createComplexNode();
 		otherRecord.setGraph(countPattern.getGraph());
-		otherRecord.addPrimitiveComparison();			
-		countPattern.getGraph().getReturnNodes().clear();
-		countPattern.getGraph().getReturnNodes().add(otherRecord);
+		otherRecord.addOutgoing().getTarget().addPrimitiveComparison();			
+		countPattern.getGraph().getReturnNodes().get(0).setReturnNode(false);
+		otherRecord.setReturnNode(true);
 				
 		Condition truecondition = factory.createTrueElement();
 		countPattern.setCondition(truecondition);
 		
-
-		Comparison comp = operatorsFactory.createComparison();		
-		countPattern.getGraph().getOperatorList().add(comp);
-		comp.createParameters();
-		comp.setArgument1(returnInCPattern);
-		comp.setArgument2(otherRecord);
-		
+		Comparison c = returnInCPattern.addComparison(otherRecord);
+		c.getTypeOption().setValue(ReturnType.ELEMENT);
 		
 		completePattern.createXmlAdaption();
-		completePattern.finalizeXMLAdaption();
 		
 		return completePattern;
 		
@@ -178,30 +182,35 @@ public class EvalExdupl {
 //	}
 	
 	public static CompletePattern getExactDuplicatesMidasWer() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = getExactDuplicatesAbstract();
 		
-		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);	
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(XmlAxisKind.THREECHILD);
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
-		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
-		concreteInputValue.setValue("wer");
-		((UntypedParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
+		EList<Parameter> params = completePattern.getParameterList().getParameters();
 		
-		CountCondition countCondition = (CountCondition) completePattern.getCondition();
-		CountPattern countPattern = countCondition.getCountPattern();
-		Graph graph1 = countPattern.getGraph();
+		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
+		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
+		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
+		ComparisonOptionParam p3 = ((ComparisonOptionParam) params.get(3));
+		NumberParam p4 = ((NumberParam) params.get(4));
+		UntypedParameterValue p5 = ((UntypedParameterValue) params.get(5));
+		ComparisonOptionParam p6 = ((ComparisonOptionParam) params.get(6));
+		TypeOptionParam p7 = ((TypeOptionParam) params.get(7));
+		ComparisonOptionParam p8 = ((ComparisonOptionParam) params.get(8));
+		TypeOptionParam p9 = ((TypeOptionParam) params.get(9));
+		XmlPathParamImpl p10 = ((XmlPathParamImpl) params.get(10));
+		XmlPathParamImpl p11 = ((XmlPathParamImpl) params.get(11));
+		XmlPathParamImpl p12 = ((XmlPathParamImpl) params.get(12));
+		XmlPathParamImpl p13 = ((XmlPathParamImpl) params.get(13));
 		
-		Node element2 = graph1.getNodes().get(1);	
-		((XmlElementNavigation) graph1.getRelations().get(1)).getXmlPathParam().setValue(XmlAxisKind.THREECHILD);
-		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
-		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
-		concreteInputValue2.setValue("wer");
-		((UntypedParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2);
+		p0.setValue("wer");
+		p4.setValue(1.0);
+		p5.setValue("wer");
+		p10.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
+		p10.getXmlPropertyOptionParam().getAttributeName().setValue("Type");
+		p11.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD});
+		p12.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
+		p12.getXmlPropertyOptionParam().getAttributeName().setValue("Type");
+		p13.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD});
 		
 		return completePattern;
 	}
@@ -210,31 +219,32 @@ public class EvalExdupl {
 		
 		// not used for evaluation anymore
 		
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
 		CompletePattern completePattern = getExactDuplicatesAbstract();
-		
-		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);	
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(XmlAxisKind.TWOCHILD);
-//		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
-		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
-		concreteInputValue.setValue("lido:lido");
-		((UntypedParameterValue) ((Comparison) returnElementInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
-		
-		CountCondition countCondition = (CountCondition) completePattern.getCondition();
-		CountPattern countPattern = countCondition.getCountPattern();
-		Graph graph1 = countPattern.getGraph();
-		
-		Node element2 = graph1.getNodes().get(1);	
-		((XmlElementNavigation) graph1.getRelations().get(1)).getXmlPathParam().setValue(XmlAxisKind.TWOCHILD);
-//		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");
-		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
-		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
-		concreteInputValue2.setValue("lido:lido");
-		((UntypedParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2);
-		
+
+		EList<Parameter> params = completePattern.getParameterList().getParameters();
+		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
+		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
+		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
+		ComparisonOptionParam p3 = ((ComparisonOptionParam) params.get(3));
+		NumberParam p4 = ((NumberParam) params.get(4));
+		UntypedParameterValue p5 = ((UntypedParameterValue) params.get(5));
+		ComparisonOptionParam p6 = ((ComparisonOptionParam) params.get(6));
+		TypeOptionParam p7 = ((TypeOptionParam) params.get(7));
+		ComparisonOptionParam p8 = ((ComparisonOptionParam) params.get(8));
+		TypeOptionParam p9 = ((TypeOptionParam) params.get(9));
+		XmlPathParamImpl p10 = ((XmlPathParamImpl) params.get(10));
+		XmlPathParamImpl p11 = ((XmlPathParamImpl) params.get(11));
+		XmlPathParamImpl p12 = ((XmlPathParamImpl) params.get(12));
+		XmlPathParamImpl p13 = ((XmlPathParamImpl) params.get(13));
+
+		p0.setValue("lido:lido");
+		p4.setValue(1.0);
+		p5.setValue("lido:lido");
+		p10.getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
+		p11.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD});
+		p12.getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
+		p13.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD});
+				
 		return completePattern;
 	}
 	

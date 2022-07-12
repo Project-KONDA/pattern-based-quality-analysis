@@ -47,24 +47,13 @@ public class Test07Formula {
 		form.setCondition2(qc2);
 
 		Node e0qc1 = qc1.getGraph().getNodes().get(0);
-		Node e1 = graphFactory.createNode();
-		e1.setGraph(qc1.getGraph());
-		Relation relation1 = graphFactory.createRelation();
-		relation1.setGraph(qc1.getGraph());
-		relation1.setSource(e0qc1);
-		relation1.setTarget(e1);
+		e0qc1.addOutgoing();
 		
 		Node e0qc2 = qc2.getGraph().getNodes().get(0);
-		Node e2 = graphFactory.createNode();
-		e2.setGraph(qc2.getGraph());
-		Relation relation2 = graphFactory.createRelation();
-		relation2.setGraph(qc2.getGraph());
-		relation2.setSource(e0qc2);
-		relation2.setTarget(e2);
+		e0qc2.addOutgoing();
 	
 		completePattern.createXmlAdaption();
 		
-		qc1.getGraph().getRelations().get(0).adaptAsXmlElementNavigation();
 		XmlReference ref = qc2.getGraph().getRelations().get(0).adaptAsXmlReference();
 		ref.setType(ReturnType.STRING);		
 		

@@ -53,18 +53,14 @@ public class Test03Quantor {
 		
 		Node e0g2 = graph2.getNodes().get(0);
 		Node e1g2 = graph2.getNodes().get(1);
-		
-		Relation relation = graphFactory.createRelation();
-		relation.setGraph(graph2);
-		relation.setSource(e0g2);
-		relation.setTarget(e1g2);		
+		e0g2.addOutgoing(e1g2);		
 		
 		completePattern.createXmlAdaption();
 		
 		return completePattern;
 	}
 
-	public static CompletePattern getPatternExists() {
+	public static CompletePattern getPatternExists() throws InvalidityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -76,13 +72,12 @@ public class Test03Quantor {
 		completePattern.setCondition(cond);
 				
 		// EXISTS additional graph structure
-		Node se2 = graphFactory.createNode();
-		se2.setGraph(cond.getGraph());	
+		cond.getGraph().getReturnNodes().get(0).addOutgoing().getTarget().makeComplex();
 				
 		return completePattern;
 	}
 	
-	public static CompletePattern getPatternExistsWithRelation() {
+	public static CompletePattern getPatternExistsWithRelation() throws InvalidityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -94,16 +89,9 @@ public class Test03Quantor {
 		completePattern.setCondition(cond);
 				
 		// EXISTS additional graph structure
-		Node se1 = cond.getGraph().getNodes().get(0);	
+		Node se1 = cond.getGraph().getReturnNodes().get(0);	
+		Node se2 = se1.addOutgoing().getTarget();		
 		
-		Node se2 = graphFactory.createNode();
-		se2.setGraph(cond.getGraph());
-		
-		Relation relation = graphFactory.createRelation();
-		relation.setGraph(cond.getGraph());
-		relation.setSource(se1);
-		relation.setTarget(se2);		
-				
 		return completePattern;
 	}
 
@@ -130,17 +118,13 @@ public class Test03Quantor {
 		return completePattern;
 	}
 
-	public static CompletePattern getPatternExistsCond() {
+	public static CompletePattern getPatternExistsCond() throws InvalidityException {
 		
 		CompletePattern completePattern = getPatternExists();
 		Graph graph2 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
 		Node last = graph2.getNodes().get(1);
-		try {
-			last.addPrimitiveComparison("New York City");
-		} catch (InvalidityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		last.addOutgoing().getTarget().addPrimitiveComparison("New York City");
 		
 		return completePattern;
 	}

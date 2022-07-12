@@ -8,10 +8,14 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.patternstructure.*;
 import qualitypatternmodel.xmltestutility.PatternTestPair;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
+import qualitypatternmodel.adaptionxml.XmlAxisPair;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.exceptions.*;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.parameters.BooleanParam;
+import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -30,6 +34,7 @@ public class Test00 {
 				System.out.print("\n___TRANSLATION___");
 				System.out.println(completePattern.generateXQuery());
 			} catch (Exception e) {
+				System.out.print("\n####### PATTERN INVALID #######");
 				e.printStackTrace();
 				try {
 				  System.out.println(completePattern.myToString());
@@ -59,8 +64,8 @@ public class Test00 {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getBasePatternFinal());
-		completePatterns.add(getBasePatternCondConcrete("USA"));
-		completePatterns.add(getBasePatternMatchConcrete("^New"));
+		completePatterns.add(getBasePatternCond("USA"));
+		completePatterns.add(getBasePatternMatch("^New"));
 		Test00.test(completePatterns);
 	}
 
@@ -88,38 +93,24 @@ public class Test00 {
 	public static CompletePattern getBasePatternCond(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		Node se = completePattern.getGraph().getReturnNodes().get(0);
-		se.addPrimitiveComparison(comp);
+		se.addOutgoing().getTarget().addPrimitiveComparison(comp);
 		completePattern.createXmlAdaption();
 		return completePattern;
-	}
-	
-	public static CompletePattern getBasePatternCondConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePatternCond(comp);
-		XmlNavigation xmlNavigation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		xmlNavigation.getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");		
-		return completePattern;		
 	}
 	
 	public static CompletePattern getBasePatternMatch(String regex) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
 		Node se = completePattern.getGraph().getReturnNodes().get(0);
-		se.addPrimitiveMatch(regex);
+		se.addOutgoing().getTarget().addPrimitiveMatch(regex);
 		completePattern.createXmlAdaption();
 		return completePattern;
-	}
-	
-	public static CompletePattern getBasePatternMatchConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePatternMatch(comp);
-		XmlNavigation xmlNavigation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		xmlNavigation.getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");		
-		return completePattern;		
 	}
 	
 	public static List<PatternTestPair> getTestPairs() throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
 		List<PatternTestPair> testPairs = new ArrayList<PatternTestPair>();
 		testPairs.add(new PatternTestPair("BASE\t", getBasePatternFinal(), "/*"));
-		testPairs.add(new PatternTestPair("BASE_COND", getBasePatternCondConcrete("USA"), "//*[./text() = \"USA\"]"));
-		testPairs.add(new PatternTestPair("BASE_MATCH", getBasePatternMatchConcrete("^New"), "//*[matches(./text(), \"^New\")]"));
+		testPairs.add(new PatternTestPair("BASE_COND", getBasePatternCond("USA"), "//*[./text() = \"USA\"]"));
+		testPairs.add(new PatternTestPair("BASE_MATCH", getBasePatternMatch("^New"), "//*[matches(./text(), \"^New\")]"));
 		return testPairs;		
 	}
 	
@@ -134,6 +125,32 @@ public class Test00 {
 				TextLiteralParam text = parametersFactory.createTextLiteralParam();
 				text.setValue("unknown");
 				((UntypedParameterValue) param).replace(text);
+			}
+			if (param instanceof TextLiteralParam) {
+				TextLiteralParam text = (TextLiteralParam) param;
+				if(text.getValue() == null) {
+					text.setValue("something");
+				}
+			}
+			if (param instanceof BooleanParam) {
+				BooleanParam bool = (BooleanParam) param;
+				if(bool.getValue() == null) {
+					bool.setValue(true);
+				}
+			}
+			if (param instanceof NumberParam) {
+				NumberParam number = (NumberParam) param;
+				if(number.getValue() == null) {
+					number.setValue(0.0);
+				}
+			}
+			if (param instanceof XmlPathParam) {
+				XmlPathParam xmlPathParam = (XmlPathParam) param;
+				for(XmlAxisPair pair : xmlPathParam.getXmlAxisPairs()) {
+					if(pair.getTextLiteralParam().getValue() == null) {
+						pair.getTextLiteralParam().setValue("");
+					}
+				}
 			}
 		}
 		return pattern;

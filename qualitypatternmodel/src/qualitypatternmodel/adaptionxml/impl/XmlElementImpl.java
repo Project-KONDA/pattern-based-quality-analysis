@@ -16,7 +16,6 @@ import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlNavigation;
 import qualitypatternmodel.adaptionxml.XmlNode;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
@@ -153,8 +152,17 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		}
 		if(xQueryDeepEqual || getVariables().size() == 1) {
 			for(Relation relation : getOutgoing()) {
-				if(relation instanceof XmlNavigation) {
-					XmlNavigation nav = (XmlNavigation) relation;
+				if(relation instanceof XmlPropertyNavigation) {
+					XmlPropertyNavigation nav = (XmlPropertyNavigation) relation;
+					boolean hasAxis = !nav.getXmlPathParam().getXmlAxisPairs().isEmpty();
+					boolean isNew = getIncomingMapping() != null && nav.getTarget().getIncomingMapping() == null;
+					if (hasAxis || isNew) {
+						nav.setSourceVariable(getVariables().get(getVariables().size()-1));
+						query += relation.generateXQuery();
+					}
+				}
+				if(relation instanceof XmlElementNavigation) {
+					XmlElementNavigation nav = (XmlElementNavigation) relation;
 					nav.setSourceVariable(getVariables().get(getVariables().size()-1));
 					query += relation.generateXQuery();
 				}
@@ -174,6 +182,8 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {	
 		super.isValidLocal(abstractionLevel);
 		
+		validateCycles();
+		
 		
 		if ( getIncoming() == null && abstractionLevel.getValue() > AbstractionLevel.SEMI_ABSTRACT_VALUE ) {
 			throw new InvalidityException("no incoming relation at XMLElement " + getId());
@@ -191,6 +201,38 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 		
 	}
 	
+	private void validateCycles() throws InvalidityException {
+		EList<EList<XmlElementImpl>> cycles = findCycles(new BasicEList<XmlElementImpl>());
+		for(EList<XmlElementImpl> cycle : cycles) {
+			boolean deepEqualFalse = false;
+			for(XmlElementImpl node : cycle) {
+				deepEqualFalse = deepEqualFalse || !node.isXQueryDeepEqual();
+			}
+			if(!deepEqualFalse) {
+				throw new InvalidityException("Cycle must contain at least one XmlElement with xQueryDeepEqual false");
+			}
+		}		
+	}
+
+	private EList<EList<XmlElementImpl>> findCycles(EList<XmlElementImpl> path){
+		EList<EList<XmlElementImpl>> cycles = new BasicEList<EList<XmlElementImpl>>();
+		if(!path.isEmpty() && path.get(0).equals(this)) {
+			cycles.add(path);
+		} else if(!path.contains(this)) {
+			for(Relation r : getOutgoing()) {			
+				if(r.getTarget() instanceof XmlElementImpl) {
+					XmlElementImpl target = (XmlElementImpl) r.getTarget();					
+					EList<XmlElementImpl> nextPath = new BasicEList<XmlElementImpl>();
+					nextPath.addAll(path);
+					nextPath.add(this);
+					cycles.addAll(target.findCycles(nextPath));
+				}
+			}
+		}		
+		return cycles;
+	}
+
+	
 	@Override
 	public boolean isTranslatable() {
 		return translated;
@@ -207,6 +249,20 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 			}
 		}
 		
+		if(xQueryDeepEqual || getVariables().size() == 1) {
+			for(Relation relation : getOutgoing()) {
+				if(relation instanceof XmlPropertyNavigation) {
+					XmlPropertyNavigation nav = (XmlPropertyNavigation) relation;
+					boolean hasAxis = !nav.getXmlPathParam().getXmlAxisPairs().isEmpty();
+					boolean isNew = getIncomingMapping() != null && nav.getTarget().getIncomingMapping() == null;
+					if (!hasAxis && !isNew) {
+//						nav.setSourceVariable(getVariables().get(getVariables().size()-1));
+						xPredicates += relation.generateXQuery();
+					}
+				}
+			}
+		}
+		
 		predicatesAreBeingTranslated = false;
 		return xPredicates;
 	}
@@ -220,12 +276,12 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	public String translateMultipleIncoming() {
 		String xPredicates = "";
 		if(xQueryDeepEqual) {
-			for(String otherVar : getVariables()) {
-				xPredicates += "[deep-equal(.," + otherVar + ")]"; 
+			for (int i = 0; i < getVariables().size()-1; i++) {
+				xPredicates += "[deep-equal(.," + getVariables().get(i) + ")]"; 
 			}
 		} else {
-			for(String v : getVariables()) {
-				xPredicates += "[. is " + v + "]";				
+			for (int i = 0; i < getVariables().size()-1; i++) {
+				xPredicates += "[. is " + getVariables().get(i) + "]";
 			}			
 		}
 		return xPredicates;

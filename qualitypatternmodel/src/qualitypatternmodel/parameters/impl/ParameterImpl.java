@@ -23,6 +23,8 @@ import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
+import qualitypatternmodel.textrepresentation.ParameterFragment;
+import qualitypatternmodel.textrepresentation.ParameterPredefinition;
 import qualitypatternmodel.textrepresentation.ParameterReference;
 import qualitypatternmodel.textrepresentation.TextrepresentationPackage;
 
@@ -106,6 +108,25 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 		if(isPredefined() && !inputIsValid()) {
 			throw new InvalidityException("predefined input invalid" + " (" + getInternalId() + ")");
 		}
+	}
+	
+	@Override
+	public String generateSparql() throws InvalidityException {
+		if (!getParameterReferences().isEmpty()) {
+			for(ParameterReference r : getParameterReferences()) {
+				if(r instanceof ParameterFragment) {
+					ParameterFragment p = (ParameterFragment) r;
+					return "?" + p.getName();
+				}
+			}
+			for(ParameterReference r : getParameterReferences()) {
+				if(r instanceof ParameterPredefinition) {
+					ParameterPredefinition p = (ParameterPredefinition) r;
+					return p.getValue();
+				}
+			}
+		}
+		throw new InvalidityException("invalid parameter value");
 	}
 	
 	@Override

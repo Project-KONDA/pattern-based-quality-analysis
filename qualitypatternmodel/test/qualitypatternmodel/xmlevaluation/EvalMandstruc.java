@@ -1,8 +1,10 @@
 package qualitypatternmodel.xmlevaluation;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlElement;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
@@ -17,9 +19,12 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.OperatorsFactory;
 import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.patternstructure.Formula;
@@ -37,83 +42,77 @@ import qualitypatternmodel.xmltranslationtests.Test06NotElement;
 public class EvalMandstruc {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getMandstrucThreeElementsAbstract());
 		completePatterns.add(getMandstrucThreeElementsMidas());
 		
 		Test00.getQueries(completePatterns);
-//		Test00.test(completePatterns);				
+//		Test00.test(completePatterns);		
 	}
 	
 	public static CompletePattern getMandstrucThreeElementsAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
-		CompletePattern completePattern = Test06NotElement.getPatternNotExistsAbstract();
+		CompletePattern completePattern = factory.createCompletePattern();
 		
-		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);			
-		returnElementInReturnGraph.addPrimitiveComparison();
+		Graph g0 = completePattern.getGraph();
+		Node return0 = g0.getReturnNodes().get(0).makeComplex();
+		return0.addOutgoing().getTarget().addPrimitiveComparison();
 		
-		NotCondition not = (NotCondition) completePattern.getCondition();
-		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) not.getCondition();
-		Graph graph1 = quantifiedCondition.getGraph();
+		NotCondition not = factory.createNotCondition();
+		completePattern.setCondition(not);
+		QuantifiedCondition qc = factory.createQuantifiedCondition();
+		not.setCondition(qc);
+		Graph g1 = qc.getGraph();
 		
-		Node element2 = graph1.getNodes().get(1);
-		element2.addPrimitiveComparison();
-		
-		Node element3 = graphFactory.createNode();
-		element3.setGraph(graph1);
-		element3.addPrimitiveComparison();
-		Relation relation = graphFactory.createRelation();
-		relation.setGraph(graph1);
-		relation.setSource(element2);
-		relation.setTarget(element3);	
+		Node return1 = g1.getReturnNodes().get(0).makeComplex();
+		Node node1 = return1.addOutgoing().getTarget().makeComplex();
+		node1.addOutgoing().getTarget().addPrimitiveComparison();
+		Node node2 = node1.addOutgoing().getTarget().makeComplex();
+		node2.addOutgoing().getTarget().addPrimitiveComparison();
 		
 		completePattern.createXmlAdaption();
-		graph1.getRelations().get(0).adaptAsXmlElementNavigation();
-		relation.adaptAsXmlElementNavigation();
-		completePattern.finalizeXMLAdaption();	
 		
 		return completePattern;
 	}
 	
 	public static CompletePattern getMandstrucThreeElementsMidas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
 		CompletePattern completePattern = getMandstrucThreeElementsAbstract();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
-		XmlElement returnElementInReturnGraph = (XmlElement) completePattern.getGraph().getNodes().get(0);
-		((XmlElementNavigation) completePattern.getGraph().getRelations().get(0)).getXmlPathParam().setValue(XmlAxisKind.THREECHILD);
-		BooleanOperator comparisonReturnElementInReturnGraph = returnElementInReturnGraph.getPredicates().get(0);
-		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
-		concreteInputValue.setValue("obj");
-		((UntypedParameterValue) comparisonReturnElementInReturnGraph.getArguments().get(1))
-				.replace(concreteInputValue);
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getAttributeName().setValue("Type");
+		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
+		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
+		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
+		UntypedParameterValue p3 = ((UntypedParameterValue) params.get(3));
+		ComparisonOptionParam p4 = ((ComparisonOptionParam) params.get(4));
+		TypeOptionParam p5 = ((TypeOptionParam) params.get(5));
+		UntypedParameterValue p6 = ((UntypedParameterValue) params.get(6));
+		ComparisonOptionParam p7 = ((ComparisonOptionParam) params.get(7));
+		TypeOptionParam p8 = ((TypeOptionParam) params.get(8));
+		XmlPathParamImpl p9 = ((XmlPathParamImpl) params.get(9));
+		XmlPathParamImpl p10 = ((XmlPathParamImpl) params.get(10));
+		XmlPathParamImpl p11 = ((XmlPathParamImpl) params.get(11));
+		XmlPathParamImpl p12 = ((XmlPathParamImpl) params.get(12));
+		XmlPathParamImpl p13 = ((XmlPathParamImpl) params.get(13));
+		XmlPathParamImpl p14 = ((XmlPathParamImpl) params.get(14));
 		
-		((XmlProperty) returnElementInReturnGraph.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
+		p0.setValue("obj");
+		p3.setValue("ob30");
+		p6.setValue("3100");
 		
-		NotCondition not = (NotCondition) completePattern.getCondition();
-		QuantifiedCondition quantifiedCondition = (QuantifiedCondition) not.getCondition();
-		Graph graph1 = quantifiedCondition.getGraph();
+		p9.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
+		p9.getXmlPropertyOptionParam().getAttributeName().setValue("Type");
+		p12.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
+		p12.getXmlPropertyOptionParam().getAttributeName().setValue("Type");
+		p14.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
+		p14.getXmlPropertyOptionParam().getAttributeName().setValue("Type");
 		
-		XmlElement element2 = (XmlElement) graph1.getNodes().get(1);
-		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.CHILD, "");
-		BooleanOperator comparisonElement2 = element2.getPredicates().get(0);
-		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
-		concreteInputValue2.setValue("ob30");
-		((UntypedParameterValue) comparisonElement2.getArguments().get(1)).replace(concreteInputValue2);
-		((XmlProperty) element2.getProperties().get(0)).getAttributeName().setValue("Type");		
-		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
-		
-		XmlElement element3 = (XmlElement) graph1.getNodes().get(2);
-		((XmlElementNavigation) graph1.getRelations().get(0)).getXmlPathParam().setXmlAxis(XmlAxisKind.CHILD, "");
-		BooleanOperator comparisonElement3 = element3.getPredicates().get(0);
-		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
-		concreteInputValue3.setValue("3100");
-		((UntypedParameterValue) comparisonElement3.getArguments().get(1)).replace(concreteInputValue3);
-		((XmlProperty) element3.getProperties().get(0)).getAttributeName().setValue("Type");		
-		((XmlProperty) element3.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
-		
+		p10.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD});
+		p11.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD});
+		p13.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD});
+
 		return completePattern;
 	}
 	

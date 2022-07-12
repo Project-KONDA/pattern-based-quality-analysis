@@ -94,6 +94,15 @@ public interface AdaptionrdfFactory extends EFactory {
 	IriListParam createIriListParam();
 
 	/**
+	 * Returns a new object of class '<em>Rdf Path Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rdf Path Param</em>'.
+	 * @generated
+	 */
+	RdfPathParam createRdfPathParam();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
