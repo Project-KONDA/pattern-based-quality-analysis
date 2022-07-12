@@ -95,7 +95,7 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	public void isValidLocal(AbstractionLevel abstractionLevel) throws InvalidityException {
 		String container = "";
 		if (eContainer() instanceof PatternElement)
-			container += " in " + eContainer().getClass() + " [" + ((PatternElement) eContainer()).getInternalId() + "]";
+			container += " in " + eContainer().getClass().getSimpleName() + " [" + ((PatternElement) eContainer()).getInternalId() + "]";
 		if (getParameterList() == null && getXmlAxisPair() == null && getXmlPropertyOptionParam() == null)
 			throw new InvalidityException("variableList and axisPair null" + " (" + getInternalId() + container + ")");
 		if ((abstractionLevel == AbstractionLevel.CONCRETE && !inputIsValid()))

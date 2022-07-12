@@ -43,8 +43,8 @@ import qualitypatternmodel.xmltranslationtests.Test03Quantor;
 public class EvalFunc {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-//		completePatterns.add(getFuncRunningExample());
-//		completePatterns.add(getFuncMidas());
+		completePatterns.add(getFuncRunningExample());
+		completePatterns.add(getFuncMidas());
 		completePatterns.add(getFuncLido());
 		
 		Test00.getQueries(completePatterns);
@@ -106,6 +106,7 @@ public class EvalFunc {
 		propertyBOtherRecord.setName("propertyBOtherRecord");
 		Comparison c2 = propertyBReturn.addComparison(propertyBOtherRecord);
 		c2.getTypeOption().setValue(ReturnType.STRING);
+		c2.getOption().setValue(ComparisonOperator.NOTEQUAL);;
 		
 		completePattern.createXmlAdaption();
 		
