@@ -2920,6 +2920,51 @@
               <element xsi:nil="true"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_y31xlfkYEeyqispHCUGqQA" x="723" y="632"/>
             </children>
+            <children xmi:type="notation:Shape" xmi:id="_N2J9kP0IEeyhfpni_roU6w" type="Note" fontName="Segoe UI" description="Hierdurch hätte man nur noch die ConnectingEdge in dem der Labelname gespeichert ist" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_N2KkoP0IEeyhfpni_roU6w" source="specificStyles">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_N2Kkof0IEeyhfpni_roU6w" key="verticalAlignment" value="8"/>
+              </eAnnotations>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_N2PdIP0IEeyhfpni_roU6w" type="DiagramName">
+                <element xsi:nil="true"/>
+              </children>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_N2QEMP0IEeyhfpni_roU6w" type="Description">
+                <element xsi:nil="true"/>
+              </children>
+              <styles xmi:type="notation:TextStyle" xmi:id="_N2Kkov0IEeyhfpni_roU6w" textAlignment="Center"/>
+              <styles xmi:type="notation:LineTypeStyle" xmi:id="_N2Kko_0IEeyhfpni_roU6w"/>
+              <element xsi:nil="true"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_N2KkpP0IEeyhfpni_roU6w" x="921" y="685" width="242"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_Qmu1gP0NEeyhfpni_roU6w" type="Note" fontName="Segoe UI" description="Aus ParamPackage die Params nutzen die möglich sind , sonst erben aus dem Parameter klasse" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Qmu1gf0NEeyhfpni_roU6w" source="specificStyles">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Qmu1gv0NEeyhfpni_roU6w" key="verticalAlignment" value="8"/>
+              </eAnnotations>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_QmvckP0NEeyhfpni_roU6w" type="DiagramName">
+                <element xsi:nil="true"/>
+              </children>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_Qmvckf0NEeyhfpni_roU6w" type="Description">
+                <element xsi:nil="true"/>
+              </children>
+              <styles xmi:type="notation:TextStyle" xmi:id="_Qmu1g_0NEeyhfpni_roU6w" textAlignment="Center"/>
+              <styles xmi:type="notation:LineTypeStyle" xmi:id="_Qmu1hP0NEeyhfpni_roU6w"/>
+              <element xsi:nil="true"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Qmu1hf0NEeyhfpni_roU6w" x="1105" y="539" width="227"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_e3Gj0P0NEeyhfpni_roU6w" type="Note" fontName="Segoe UI" description="Somit werden die werte von gespiegelt" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_e3Gj0f0NEeyhfpni_roU6w" source="specificStyles">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_e3Gj0v0NEeyhfpni_roU6w" key="verticalAlignment" value="8"/>
+              </eAnnotations>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_e3HK4P0NEeyhfpni_roU6w" type="DiagramName">
+                <element xsi:nil="true"/>
+              </children>
+              <children xmi:type="notation:BasicDecorationNode" xmi:id="_e3HK4f0NEeyhfpni_roU6w" type="Description">
+                <element xsi:nil="true"/>
+              </children>
+              <styles xmi:type="notation:TextStyle" xmi:id="_e3Gj0_0NEeyhfpni_roU6w" textAlignment="Center"/>
+              <styles xmi:type="notation:LineTypeStyle" xmi:id="_e3Gj1P0NEeyhfpni_roU6w"/>
+              <element xsi:nil="true"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_e3Gj1f0NEeyhfpni_roU6w" x="1232" y="586" width="81"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_yLtL8fh2EeyEAYheLQgtPA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_yLtL8vh2EeyEAYheLQgtPA"/>
           </children>
