@@ -446,6 +446,12 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" upperBound="-1"
           eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/source"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoAttributenode" eSuperTypes="#//graphstructure/PrimitiveNode"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="NeoQuantifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoUnion" eSuperTypes="#//adaptionNeo4J/NeoPath">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="neopath" lowerBound="2"
+          upperBound="-1" eType="#//adaptionNeo4J/NeoPath" containment="true"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="patternstructure" nsURI="patternstructure" nsPrefix="patternstructure">
     <eClassifiers xsi:type="ecore:EClass" name="RelationMapping" eSuperTypes="#//patternstructure/Mapping">
@@ -1187,11 +1193,5 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ConnectingEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndNode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoUnion" eSuperTypes="#//adaptionNeo4J/NeoPath">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neopath" lowerBound="2"
-          upperBound="-1" eType="#//adaptionNeo4J/NeoPath" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="NeoQuantifier"/>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoAttributenode" eSuperTypes="#//graphstructure/PrimitiveNode"/>
   </eSubpackages>
 </ecore:EPackage>
