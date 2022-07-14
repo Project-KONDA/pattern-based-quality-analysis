@@ -494,22 +494,6 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	}
 	
 	@Override
-	
-	public ComplexNode makeComplex() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
-	@Override
-	public ComplexNode makeComplexRecursive() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
-	@Override
-	public void checkComplex() throws InvalidityException{
-		throw new InvalidityException("This node can not become generic!");
-	}
-	
-	@Override
 	public PrimitiveNode makePrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
 	}
@@ -522,7 +506,7 @@ public class XmlElementImpl extends ComplexNodeImpl implements XmlElement {
 	@Override
 	public void checkPrimitive() throws InvalidityException{
 		throw new InvalidityException("This node can not become generic!");
-	}	
+	}
 	
 	/**
 	 * <!-- begin-user-doc -->
