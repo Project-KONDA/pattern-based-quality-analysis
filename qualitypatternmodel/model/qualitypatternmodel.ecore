@@ -1161,11 +1161,11 @@
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="adaptionNeo4J" nsURI="adaptionNeo4J" nsPrefix="adaptionNeo4J">
-    <eClassifiers xsi:type="ecore:EClass" name="AbstractNeoNode" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractNeoNode" abstract="true" interface="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="NeoNode" eSuperTypes="#//adaptionNeo4J/AbstractNeoNode #//graphstructure/ComplexNode"/>
     <eClassifiers xsi:type="ecore:EClass" name="NeoEdge" eSuperTypes="#//graphstructure/Relation">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neopath" eType="#//adaptionNeo4J/NeoPath"
-          eOpposite="#//adaptionNeo4J/NeoPath/neoedge"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="neopath" eType="#//adaptionNeo4J/Neo4PathParam"
+          eOpposite="#//adaptionNeo4J/Neo4PathParam/neoedge"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SequenceEdge" eSuperTypes="#//adaptionNeo4J/NeoPath">
       <eStructuralFeatures xsi:type="ecore:EReference" name="neopath" lowerBound="2"
@@ -1174,22 +1174,21 @@
     <eClassifiers xsi:type="ecore:EClass" name="SimpleEdge" eSuperTypes="#//adaptionNeo4J/NeoPath">
       <eStructuralFeatures xsi:type="ecore:EReference" name="PatternParams" eType="#//adaptionNeo4J/PatternParams"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoPath" abstract="true" eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neoedge" eType="#//adaptionNeo4J/NeoEdge"
-          eOpposite="#//adaptionNeo4J/NeoEdge/neopath"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoPath" abstract="true" eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable"/>
     <eClassifiers xsi:type="ecore:EClass" name="PatternParams">
       <eOperations name="hasEdgeRestrictions"/>
-      <eOperations name="hasEndNode"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartNode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ConnectingEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndNode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoUnion" eSuperTypes="#//adaptionNeo4J/NeoPath">
       <eStructuralFeatures xsi:type="ecore:EReference" name="neopath" lowerBound="2"
           upperBound="-1" eType="#//adaptionNeo4J/NeoPath" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoAttributenode" eSuperTypes="#//graphstructure/PrimitiveNode"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NeoAttributeNode" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionNeo4J/AbstractNeoNode"/>
     <eClassifiers xsi:type="ecore:EEnum" name="NeoQuantifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Neo4PathParam" eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="neoedge" eType="#//adaptionNeo4J/NeoEdge"
+          eOpposite="#//adaptionNeo4J/NeoEdge/neopath"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="neopath" eType="#//adaptionNeo4J/NeoPath"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
