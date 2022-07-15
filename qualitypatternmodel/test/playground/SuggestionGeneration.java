@@ -6,6 +6,7 @@ import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_SCHEMA_N
 import static qualitypatternmodel.xmltestutility.DatabaseConstants.DEMO_SCHEMA_PATH;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
@@ -13,6 +14,7 @@ import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.util.Diagnostic;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -21,8 +23,10 @@ import qualitypatternmodel.execution.LocalXmlDataDatabase;
 import qualitypatternmodel.execution.LocalXmlSchemaDatabase;
 import qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl;
 import qualitypatternmodel.execution.impl.LocalXmlSchemaDatabaseImpl;
+import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
@@ -32,20 +36,22 @@ import qualitypatternmodel.xmltranslationtests.Test00;
 public class SuggestionGeneration {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
-		CompletePattern completePattern = Test00.getBasePatternCondConcrete("*");
-		((XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0)).getOption().getOptions().add(XmlPropertyKind.TAG);
-		((XmlProperty) completePattern.getGraph().getNodes().get(0).getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
-        
+		CompletePattern completePattern = Test00.getBasePatternCond("*");
+
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		TextLiteralParam p0 = ((TextLiteralParam) params.get(0));
+		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
+		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
+		XmlPathParamImpl p3 = ((XmlPathParamImpl) params.get(3));
+		XmlPathParamImpl p4 = ((XmlPathParamImpl) params.get(4));
+		
+		p0.setValue("test");
+		
 		try {
 			completePattern.isValid(AbstractionLevel.CONCRETE);
-		} catch (InvalidityException | OperatorCycleException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (MissingPatternContainerException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		
         LocalXmlDataDatabase db = new LocalXmlDataDatabaseImpl(DEMO_DATABASE_NAME, DEMO_DATA_PATH);        
         LocalXmlSchemaDatabase schema = new LocalXmlSchemaDatabaseImpl(DEMO_SCHEMA_NAME, DEMO_SCHEMA_PATH);
@@ -54,17 +60,7 @@ public class SuggestionGeneration {
         
         try {
 			db.init();
-		} catch (BaseXException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (QueryIOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (QueryException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
         completePattern.setDatabase(db);
@@ -74,14 +70,5 @@ public class SuggestionGeneration {
         for(String s : text.inferElementTagSuggestions()) {
         	System.out.println(s);
         }
-        
-//        for(String s : db.getElementNames().keySet()) {
-//        	System.out.println(s);
-//        }
-
-        
-        
-	}
-	
-
+    }
 }

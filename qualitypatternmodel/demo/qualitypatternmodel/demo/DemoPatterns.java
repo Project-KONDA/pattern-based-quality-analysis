@@ -3,22 +3,13 @@ package qualitypatternmodel.demo;
 import static qualitypatternmodel.xmltestutility.DatabaseConstants.*;
 
 import java.io.IOException;
-import org.basex.core.BaseXException;
 import org.basex.query.QueryException;
-import org.basex.query.QueryIOException;
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
-import qualitypatternmodel.adaptionrdf.RdfPathPart;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlAxisPair;
-import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlNavigation;
-import qualitypatternmodel.adaptionxml.XmlNode;
-import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -32,23 +23,17 @@ import qualitypatternmodel.execution.impl.LocalXmlDataDatabaseImpl;
 import qualitypatternmodel.execution.impl.LocalXmlSchemaDatabaseImpl;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
-import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.operators.OperatorsFactory;
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.DateParam;
-import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.NumberParam;
-import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.TimeParam;
-import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
@@ -57,9 +42,8 @@ import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
-import qualitypatternmodel.textrepresentation.ParameterFragment;
-import qualitypatternmodel.textrepresentation.TextrepresentationFactory;
 import qualitypatternmodel.utility.EMFModelSave;
+import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class DemoPatterns {
 
@@ -258,7 +242,7 @@ public class DemoPatterns {
 	
 	// ---------- COMP pattern ----------
 	
-	public static CompletePattern getGenericCompPattern() {
+	public static CompletePattern getGenericCompPattern() throws InvalidityException {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setName("comparison_generic");
@@ -266,32 +250,24 @@ public class DemoPatterns {
 		completePattern.setDescription("Allows detecting illegal values, i.e. allows detecting elements with a specific property which are related to other elements with two specific properties");
 		
 		// Context graph of pattern:
-		Node element0 = completePattern.getGraph().getNodes().get(0);
+		Node element0 = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
 		element0.setName("Element0");
+		element0.addOutgoing().getTarget().addPrimitiveComparison();
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(quantifiedCondition);
 		
 		// Graph of quantified condition:		
-		Node element0Copy = quantifiedCondition.getGraph().getNodes().get(0);
+		Node element0Copy = quantifiedCondition.getGraph().getReturnNodes().get(0);
+		element0Copy.addOutgoing().getTarget().addPrimitiveComparison();
 		
-		Node element1 = GraphstructureFactory.eINSTANCE.createNode();
+		Node element1 = element0Copy.addOutgoing().getTarget();
 		element1.setName("Element1");
-		element1.setGraph(quantifiedCondition.getGraph());		
-		
-		Relation relation = GraphstructureFactory.eINSTANCE.createRelation();
-		relation.setGraph(quantifiedCondition.getGraph());		
-		relation.setSource(element0Copy);
-		relation.setTarget(element1);
-		
-		try {
-			element1.addPrimitiveComparison();
-		} catch (InvalidityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		element1.setGraph(quantifiedCondition.getGraph());
+
+		element1.addOutgoing().getTarget().addPrimitiveComparison();
+				
 		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
 		comp2.getOption().getOptions().add(ComparisonOperator.GREATER);
 		comp2.getOption().getOptions().add(ComparisonOperator.LESS);
@@ -425,7 +401,7 @@ public class DemoPatterns {
 	
 	// ---------- CARD pattern ----------
 	
-	public static CompletePattern getGenericCardPattern() {
+	public static CompletePattern getGenericCardPattern() throws InvalidityException {
 		
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setName("cardinality_generic");
@@ -433,8 +409,9 @@ public class DemoPatterns {
 		completePattern.setDescription("Allows detecting violated cardinality constraints, i.e. allows detecting elements with a specific property which are related to a specific number of elements with a specific property");
 		
 		// Context graph of pattern:
-		Node element0 = completePattern.getGraph().getNodes().get(0);
+		Node element0 = completePattern.getGraph().getReturnNodes().get(0);
 		element0.setName("Element0");
+		element0.addOutgoing().getTarget().addPrimitiveComparison();
 		
 		// First-order logic condition of pattern:
 		CountCondition countCondition = PatternstructureFactory.eINSTANCE.createCountCondition();
@@ -462,15 +439,10 @@ public class DemoPatterns {
 		// Graph of inner pattern:
 		Node element0Copy = countPattern.getGraph().getNodes().get(0);
 		
-		Node element1 = GraphstructureFactory.eINSTANCE.createNode();
+		Node element1 = element0Copy.addOutgoing().getTarget().makeComplex();
 		element1.setName("Element1");
 		element1.setGraph(countPattern.getGraph());		
-		
-		Relation relation = GraphstructureFactory.eINSTANCE.createRelation();
-		relation.setGraph(countPattern.getGraph());		
-		relation.setSource(element0Copy);
-		relation.setTarget(element1);
-		
+		element1.addOutgoing().getTarget().addPrimitiveComparison();
 		return completePattern;
 	}
 	
@@ -552,9 +524,10 @@ public class DemoPatterns {
 	}
 	
 	public static CompletePattern getConcreteFinalizedCardPatternFromConcrete(Database db, CompletePattern completePattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		completePattern = Test00.replace(completePattern);
 		completePattern.setName("cardinality_concrete_finalized");
-		completePattern.isValid(AbstractionLevel.CONCRETE);
-		completePattern.generateXQuery();
+//		completePattern.isValid(AbstractionLevel.CONCRETE);
+//		completePattern.generateXQuery();
 		return completePattern;
 	}
 	
@@ -569,8 +542,9 @@ public class DemoPatterns {
 		completePattern.setDescription("Allows detecting a violated functional dependency, i.e. allows detecting two elements that are each related to two further elements where two of these have an equal property but the other two have a different property");
 		
 		// Context graph of pattern:
-		Node element0 = completePattern.getGraph().getNodes().get(0);
+		Node element0 = completePattern.getGraph().getNodes().get(0).makeComplex();
 		element0.setName("Element0");
+		element0.addOutgoing().getTarget().addPrimitiveComparison();
 		
 		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
@@ -579,77 +553,31 @@ public class DemoPatterns {
 		// Graph of quantified condition:		
 		Node element0Copy = quantifiedCondition.getGraph().getNodes().get(0);
 		
-		Node element0A = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
+		Node element0A = element0Copy.addOutgoing().getTarget().makeComplex();
 		element0A.setName("Element0A");
-		element0A.setGraph(quantifiedCondition.getGraph());	
-//		PrimitiveNode property0A = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
-//		element0A.addOutgoing(property0A);
+		element0A.addOutgoing().getTarget().addPrimitiveComparison();
 		
-		Relation relation0A = GraphstructureFactory.eINSTANCE.createRelation();
-		relation0A.setGraph(quantifiedCondition.getGraph());		
-		relation0A.setSource(element0Copy);
-		relation0A.setTarget(element0A);
-		
-		Node newElement0Copy = relation0A.getSource();
-		
-		Node element0B = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
+		Node element0B = element0Copy.addOutgoing().getTarget().makeComplex();
 		element0B.setName("Element0B");
-		element0B.setGraph(quantifiedCondition.getGraph());
-//		PrimitiveNode property0B = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
-//		element0B.addOutgoing(property0B);
+		element0B.addOutgoing().getTarget().addPrimitiveComparison();
 		
-		Relation relation0B = GraphstructureFactory.eINSTANCE.createRelation();
-		relation0B.setGraph(quantifiedCondition.getGraph());		
-		relation0B.setSource(newElement0Copy);
-		relation0B.setTarget(element0B);
-		
-		Node element1 = GraphstructureFactory.eINSTANCE.createNode();
+		Node element1 = GraphstructureFactory.eINSTANCE.createComplexNode();
 		element1.setName("Element1");
 		element1.setGraph(quantifiedCondition.getGraph());	
+		element1.addOutgoing().getTarget().addPrimitiveComparison();
 		
-//		Node element1A = GraphstructureFactory.eINSTANCE.createNode();
-//		element1A.setName("Element1A");
-//		element1A.setGraph(quantifiedCondition.getGraph());	
-//		PrimitiveNode property1A = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
-//		element1A.addOutgoing(property0B);
+		element1.addOutgoing(element0A);
 		
-		Relation relation1A = GraphstructureFactory.eINSTANCE.createRelation();
-		relation1A.setGraph(quantifiedCondition.getGraph());		
-		relation1A.setSource(element1);
-		relation1A.setTarget(element0A);
-		
-		Node newElement1 = relation1A.getSource();
-		
-		Node element1B = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
+		Node element1B = element1.addOutgoing().getTarget().makeComplex();
 		element1B.setName("Element1B");
-		element1B.setGraph(quantifiedCondition.getGraph());	
-//		PrimitiveNode property1B = GraphstructureFactory.eINSTANCE.createPrimitiveNode();
-//		element1B.addOutgoing(property1B);
+		element1B.addOutgoing().getTarget().addPrimitiveComparison();
 		
-		Relation relation1B = GraphstructureFactory.eINSTANCE.createRelation();
-		relation1B.setGraph(quantifiedCondition.getGraph());		
-		relation1B.setSource(newElement1);
-		relation1B.setTarget(element1B);
-		
-//		Comparison compA = OperatorsFactory.eINSTANCE.createComparison();
-//		quantifiedCondition.getGraph().getOperatorList().getOperators().add(compA);
-//		compA.setArgument1(property0A);
-//		compA.setArgument2(property1A);
-//		compA.getOption().setValue(ComparisonOperator.EQUAL);
-//		compA.getOption().setPredefined(true);
-		
-		Comparison compB = OperatorsFactory.eINSTANCE.createComparison();
+		Comparison compB = element0B.addOutgoing().getTarget().makePrimitive().addComparison(element1B.addOutgoing().getTarget().makePrimitive());
 		quantifiedCondition.getGraph().getOperatorList().getOperators().add(compB);
-		compB.setArgument1(element0B);
-		compB.setArgument2(element1B);
 		compB.getOption().setValue(ComparisonOperator.NOTEQUAL);
 		compB.getOption().setPredefined(true);
 		compB.getTypeOption().setValue(ReturnType.STRING);
-		
-		// Condition of quantified condition:
-		TrueElement trueElement = PatternstructureFactory.eINSTANCE.createTrueElement();
-		quantifiedCondition.setCondition(trueElement);
-		
+				
 		return completePattern;			
 	}
 	

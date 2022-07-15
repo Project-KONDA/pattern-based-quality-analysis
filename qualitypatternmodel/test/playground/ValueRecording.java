@@ -13,7 +13,7 @@ import qualitypatternmodel.xmltranslationtests.Test00;
 public class ValueRecording {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 
-		CompletePattern completePattern = Test00.getBasePatternCondConcrete("test");
+		CompletePattern completePattern = Test00.getBasePatternCond("test");
                 
         try {
 			completePattern.isValid(AbstractionLevel.CONCRETE);
