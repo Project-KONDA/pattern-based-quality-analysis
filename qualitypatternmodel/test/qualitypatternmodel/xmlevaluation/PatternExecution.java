@@ -74,7 +74,7 @@ public class PatternExecution {
 		execute(EvalMatch.getMatchLidoEarliestDate(), databaseNameLido); // 4.7.2 Imprecise Numerical Values
 		execute(EvalCompval.getCompvalLidoObjectWorkTypeObjekt(), databaseNameLido); // 4.7.3 Abstract Terms
 		execute(EvalCompval.getCompvalLidoObjectWorkTypeSchloss(), databaseNameLido); // 4.7.4 Ambiguous Values
-		execute(EvalMatch.getMatchLidoNameActorSetAbbreviation(), databaseNameLido); // 4.7.5 Abbreviations
+//		execute(EvalMatch.getMatchLidoNameActorSetAbbreviation(), databaseNameLido); // 4.7.5 Abbreviations
 		execute(EvalMatch.getMatchLidoMeasurementUnit(), databaseNameLido); // 4.8.1 Misfielded Values
 		execute(EvalMatch.getMatchLidoNamePlaceSet(), databaseNameLido); // 4.8.2 Extraneous Data
 		execute(EvalExdupl.getExactDuplicatesLido(), databaseNameLido); // 4.9.1 Exact Duplicate Records

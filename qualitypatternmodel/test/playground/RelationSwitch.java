@@ -1,26 +1,20 @@
 package playground;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.OperatorsFactory;
-import qualitypatternmodel.operators.OperatorsPackage;
+import qualitypatternmodel.parameters.ComparisonOptionParam;
+import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlElement;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlProperty;
-import qualitypatternmodel.adaptionxml.XmlReference;
+import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -33,16 +27,15 @@ import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.xmltranslationtests.Test00;
 import qualitypatternmodel.xmltranslationtests.Test03Quantor;
-import qualitypatternmodel.xmltranslationtests.Test06NotElement;
 
 public class RelationSwitch {
-	public static void main(String[] args) throws OperatorCycleException, MissingPatternContainerException {
-		try {
-			System.out.println(getRefintRunningExample().generateXQuery());
-		} catch (InvalidityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getRefintAbstractRunningExample());
+		completePatterns.add(getRefintRunningExample());
+		Test00.getQueries(completePatterns);
+//		Test00.test(completePatterns);
 	}
 	
 
@@ -64,38 +57,21 @@ public class RelationSwitch {
 		qc2.setCondition(t);
 		
 		Node e1g0 = completePattern.getGraph().getNodes().get(0);
-		e1g0.addPrimitiveComparison();
+		e1g0.addOutgoing().getTarget().addPrimitiveComparison();
 		
 		Node e1g1 = qc1.getGraph().getNodes().get(0);	
 		
 		Node e2g1 = qc1.getGraph().getNodes().get(1);	
-		e2g1.addPrimitiveComparison();
-		
-		Relation relation = graphFactory.createRelation();
-		relation.setGraph(qc1.getGraph());
-		relation.setSource(e1g1);
-		relation.setTarget(e2g1);
+		e2g1.addOutgoing().getTarget().addPrimitiveComparison();
 		
 		Node e2g2 = qc2.getGraph().getNodes().get(1);
-		
-		Node e3g2 = graphFactory.createNode();
-		e3g2.setGraph(qc2.getGraph());
-		e3g2.addPrimitiveComparison();		
-		
-		Relation referenceg2 = graphFactory.createRelation();
-		referenceg2.setGraph(qc2.getGraph());
-		referenceg2.setSource(e2g2);
-		referenceg2.setTarget(e3g2);
+		Relation referenceg2 = e2g2.addOutgoing(); 
+		Node e3g2 = referenceg2.getTarget().makeComplex();
+		e3g2.addOutgoing().getTarget().addPrimitiveComparison();		
 		
 		completePattern.createXmlAdaption();
-		relation.adaptAsXmlElementNavigation();
-		XmlReference xmlReference = referenceg2.adaptAsXmlReference();
-		xmlReference.setType(ReturnType.STRING);
-		
-		Relation nav = xmlReference.adaptAsXmlElementNavigation();
-		nav.adaptAsXmlReference();
-		
-		completePattern.finalizeXMLAdaption();	
+
+		((XmlPathParamImpl) completePattern.getParameterList().getParameters().get(13)).basicGetXmlNavigation().adaptAsXmlReference();
 		
 		return completePattern; 
 	}
@@ -105,34 +81,43 @@ public class RelationSwitch {
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = getRefintAbstractRunningExample();
-		
-		XmlElement returnInReturnGraph = (XmlElement) completePattern.getGraph().getNodes().get(0);
-		TextLiteralParam concreteInputValue = parametersFactory.createTextLiteralParam();
-		concreteInputValue.setValue("building");
-		((UntypedParameterValue) ((Comparison) returnInReturnGraph.getPredicates().get(0)).getArgument2()).replace(concreteInputValue);
-		((XmlProperty) returnInReturnGraph.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
-		
-		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
-		Node element1 = graph1.getNodes().get(1);
-		TextLiteralParam concreteInputValue2 = parametersFactory.createTextLiteralParam();
-		concreteInputValue2.setValue("creator");
-		((UntypedParameterValue) ((Comparison) element1.getPredicates().get(0)).getArgument2()).replace(concreteInputValue2);
-		((XmlProperty) element1.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
-		
-		Graph graph2 = ((QuantifiedCondition) ((NotCondition) ((QuantifiedCondition) completePattern.getCondition()).getCondition()).getCondition()).getGraph();
-		Node element1InGraph2 = graph2.getNodes().get(1);
-		Node element2 = graph2.getNodes().get(2);
-		TextLiteralParam concreteInputValue3 = parametersFactory.createTextLiteralParam();
-		concreteInputValue3.setValue("artist");
-		((UntypedParameterValue) ((Comparison) element2.getPredicates().get(0)).getArgument2()).replace(concreteInputValue3);
-		((XmlProperty) element2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.TAG);
-		
-		((XmlProperty) element2.getProperties().get(1)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
-		((XmlProperty) element2.getProperties().get(1)).getAttributeName().setValue("id");
-		
-		((XmlProperty) element1InGraph2.getProperties().get(0)).getOption().setValue(XmlPropertyKind.ATTRIBUTE);
-		((XmlProperty) element1InGraph2.getProperties().get(0)).getAttributeName().setValue("ref");
 				
+		
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		
+		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
+		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
+		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
+		UntypedParameterValue p3 = ((UntypedParameterValue) params.get(3));
+		ComparisonOptionParam p4 = ((ComparisonOptionParam) params.get(4));
+		TypeOptionParam p5 = ((TypeOptionParam) params.get(5));
+		UntypedParameterValue p6 = ((UntypedParameterValue) params.get(6));
+		ComparisonOptionParam p7 = ((ComparisonOptionParam) params.get(7));
+		TypeOptionParam p8 = ((TypeOptionParam) params.get(8));
+		XmlPathParamImpl p9 = ((XmlPathParamImpl) params.get(9));
+		XmlPathParamImpl p10 = ((XmlPathParamImpl) params.get(10));
+		XmlPathParamImpl p11 = ((XmlPathParamImpl) params.get(11));
+		XmlPathParamImpl p12 = ((XmlPathParamImpl) params.get(12));
+		XmlPathParamImpl p13 = ((XmlPathParamImpl) params.get(13));
+		XmlPathParamImpl p14 = ((XmlPathParamImpl) params.get(14));
+		XmlPathParamImpl p15 = ((XmlPathParamImpl) params.get(15));
+		XmlPathParamImpl p16 = ((XmlPathParamImpl) params.get(16));
+
+		p0.setValue("building");
+		p3.setValue("creator");
+		p6.setValue("artist");
+		
+		p9.getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
+		p10.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD});
+		p11.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD});
+		p12.getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
+		p13.getXmlPropertyOptionParam().setValue(XmlPropertyKind.TAG);
+		p14.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
+		p14.getXmlPropertyOptionParam().getAttributeName().setValue("ref");
+		p15.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
+		p15.getXmlPropertyOptionParam().getAttributeName().setValue("id");
+		p16.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD});
+		
 		return completePattern;		
 	}
 }

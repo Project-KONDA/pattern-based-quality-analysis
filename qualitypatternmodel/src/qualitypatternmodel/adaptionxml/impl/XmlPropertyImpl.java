@@ -243,21 +243,6 @@ public class XmlPropertyImpl extends PrimitiveNodeImpl implements XmlProperty {
 		throw new InvalidityException("This node can not become generic!");
 	}
 
-	@Override
-	public PrimitiveNode makePrimitive() throws InvalidityException {
-		throw new InvalidityException("This node can not become generic!");
-	}
-
-	@Override
-	public PrimitiveNode makePrimitiveRecursive() throws InvalidityException {
-		throw new InvalidityException("This node can not become generic!");
-	}
-
-	@Override
-	public void checkPrimitive() throws InvalidityException {
-		throw new InvalidityException("This node can not become generic!");
-	}
-
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

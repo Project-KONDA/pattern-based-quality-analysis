@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.graphstructure.ComplexNode;
+import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -37,7 +39,37 @@ public class RdfLiteralNodeImpl extends PrimitiveNodeImpl implements RdfLiteralN
 	public PatternElement createRdfAdaption() throws InvalidityException {
 		return this;
 	}
-	
+
+	@Override
+	public Node makeGeneric() throws InvalidityException {
+		throw new InvalidityException("This node can not become generic!");
+	}
+
+	@Override
+	public Node makeGenericRecursive() throws InvalidityException {
+		throw new InvalidityException("This node can not become generic!");
+	}
+
+	@Override
+	public void checkGeneric() throws InvalidityException {
+		throw new InvalidityException("This node can not become generic!");
+	}
+
+	@Override
+
+	public ComplexNode makeComplex() throws InvalidityException {
+		throw new InvalidityException("This node can not become generic!");
+	}
+
+	@Override
+	public ComplexNode makeComplexRecursive() throws InvalidityException {
+		throw new InvalidityException("This node can not become generic!");
+	}
+
+	@Override
+	public void checkComplex() throws InvalidityException {
+		throw new InvalidityException("This node can not become generic!");
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
