@@ -9,7 +9,10 @@ Bundle-ClassPath: .,
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: qualitypatternmodel.adaptionrdf,
+Export-Package: qualitypatternmodel.adaptionNeo4J,
+ qualitypatternmodel.adaptionNeo4J.impl,
+ qualitypatternmodel.adaptionNeo4J.util,
+ qualitypatternmodel.adaptionrdf,
  qualitypatternmodel.adaptionrdf.impl,
  qualitypatternmodel.adaptionrdf.util,
  qualitypatternmodel.adaptionxml,

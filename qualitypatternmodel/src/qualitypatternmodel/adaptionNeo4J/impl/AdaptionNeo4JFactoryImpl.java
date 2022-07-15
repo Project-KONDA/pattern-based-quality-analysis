@@ -1,0 +1,232 @@
+/**
+ */
+package qualitypatternmodel.adaptionNeo4J.impl;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import qualitypatternmodel.adaptionNeo4J.*;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model <b>Factory</b>.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNeo4JFactory {
+	/**
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static AdaptionNeo4JFactory init() {
+		try {
+			AdaptionNeo4JFactory theAdaptionNeo4JFactory = (AdaptionNeo4JFactory)EPackage.Registry.INSTANCE.getEFactory(AdaptionNeo4JPackage.eNS_URI);
+			if (theAdaptionNeo4JFactory != null) {
+				return theAdaptionNeo4JFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new AdaptionNeo4JFactoryImpl();
+	}
+
+	/**
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AdaptionNeo4JFactoryImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EObject create(EClass eClass) {
+		switch (eClass.getClassifierID()) {
+			case AdaptionNeo4JPackage.NEO_NODE: return createNeoNode();
+			case AdaptionNeo4JPackage.NEO_EDGE: return createNeoEdge();
+			case AdaptionNeo4JPackage.SEQUENCE_EDGE: return createSequenceEdge();
+			case AdaptionNeo4JPackage.SIMPLE_EDGE: return createSimpleEdge();
+			case AdaptionNeo4JPackage.PATTERN_PARAMS: return createPatternParams();
+			case AdaptionNeo4JPackage.NEO_UNION: return createNeoUnion();
+			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_NODE: return createNeoAttributeNode();
+			case AdaptionNeo4JPackage.NEO4_PATH_PARAM: return createNeo4PathParam();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case AdaptionNeo4JPackage.NEO_QUANTIFIER:
+				return createNeoQuantifierFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case AdaptionNeo4JPackage.NEO_QUANTIFIER:
+				return convertNeoQuantifierToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NeoNode createNeoNode() {
+		NeoNodeImpl neoNode = new NeoNodeImpl();
+		return neoNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NeoEdge createNeoEdge() {
+		NeoEdgeImpl neoEdge = new NeoEdgeImpl();
+		return neoEdge;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SequenceEdge createSequenceEdge() {
+		SequenceEdgeImpl sequenceEdge = new SequenceEdgeImpl();
+		return sequenceEdge;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SimpleEdge createSimpleEdge() {
+		SimpleEdgeImpl simpleEdge = new SimpleEdgeImpl();
+		return simpleEdge;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PatternParams createPatternParams() {
+		PatternParamsImpl patternParams = new PatternParamsImpl();
+		return patternParams;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NeoUnion createNeoUnion() {
+		NeoUnionImpl neoUnion = new NeoUnionImpl();
+		return neoUnion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NeoAttributeNode createNeoAttributeNode() {
+		NeoAttributeNodeImpl neoAttributeNode = new NeoAttributeNodeImpl();
+		return neoAttributeNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Neo4PathParam createNeo4PathParam() {
+		Neo4PathParamImpl neo4PathParam = new Neo4PathParamImpl();
+		return neo4PathParam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NeoQuantifier createNeoQuantifierFromString(EDataType eDataType, String initialValue) {
+		NeoQuantifier result = NeoQuantifier.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertNeoQuantifierToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AdaptionNeo4JPackage getAdaptionNeo4JPackage() {
+		return (AdaptionNeo4JPackage)getEPackage();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @deprecated
+	 * @generated
+	 */
+	@Deprecated
+	public static AdaptionNeo4JPackage getPackage() {
+		return AdaptionNeo4JPackage.eINSTANCE;
+	}
+
+} //AdaptionNeo4JFactoryImpl

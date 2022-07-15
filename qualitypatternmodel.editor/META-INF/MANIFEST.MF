@@ -9,7 +9,8 @@ Bundle-Activator: qualitypatternmodel.parameters.presentation.Qualitypatternmode
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: qualitypatternmodel.adaptionrdf.presentation,
+Export-Package: qualitypatternmodel.adaptionNeo4J.presentation,
+ qualitypatternmodel.adaptionrdf.presentation,
  qualitypatternmodel.adaptionxml.presentation,
  qualitypatternmodel.execution.presentation,
  qualitypatternmodel.graphstructure.presentation,

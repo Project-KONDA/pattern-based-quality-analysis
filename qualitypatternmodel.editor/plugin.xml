@@ -230,4 +230,32 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated qualitypatternmodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="qualitypatternmodel.adaptionNeo4J.presentation.AdaptionNeo4JModelWizardID"
+            name="%_UI_AdaptionNeo4JModelWizard_label"
+            class="qualitypatternmodel.adaptionNeo4J.presentation.AdaptionNeo4JModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AdaptionNeo4JModelFile.gif">
+         <description>%_UI_AdaptionNeo4JModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated qualitypatternmodel -->
+      <editor
+            id="qualitypatternmodel.adaptionNeo4J.presentation.AdaptionNeo4JEditorID"
+            name="%_UI_AdaptionNeo4JEditor_label"
+            icon="icons/full/obj16/AdaptionNeo4JModelFile.gif"
+            extensions="adaptionneo4j"
+            class="qualitypatternmodel.adaptionNeo4J.presentation.AdaptionNeo4JEditor"
+            contributorClass="qualitypatternmodel.adaptionNeo4J.presentation.AdaptionNeo4JActionBarContributor">
+      </editor>
+   </extension>
+
 </plugin>

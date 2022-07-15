@@ -69,4 +69,12 @@
             class="qualitypatternmodel.adaptionrdf.AdaptionrdfPackage"
             genModel="model/qualitypatternmodel.genmodel"/>
    </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated qualitypatternmodel -->
+      <package
+            uri="adaptionNeo4J"
+            class="qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage"
+            genModel="model/qualitypatternmodel.genmodel"/>
+   </extension>
 </plugin>
