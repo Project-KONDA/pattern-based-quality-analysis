@@ -114,9 +114,9 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected IriParamImpl() {
+	public IriParamImpl() {
 		super();
 	}
 	
