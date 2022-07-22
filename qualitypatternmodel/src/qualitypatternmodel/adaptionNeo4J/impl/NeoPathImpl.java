@@ -11,10 +11,8 @@ import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoPath;
 
-import qualitypatternmodel.graphstructure.Adaptable;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
-
-import qualitypatternmodel.parameters.impl.ParameterImpl;
+import qualitypatternmodel.adaptionNeo4J.SimpleEdge;
+import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +21,7 @@ import qualitypatternmodel.parameters.impl.ParameterImpl;
  *
  * @generated
  */
-public abstract class NeoPathImpl extends ParameterImpl implements NeoPath {
+public abstract class NeoPathImpl extends PatternElementImpl implements NeoPath {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,39 +47,10 @@ public abstract class NeoPathImpl extends ParameterImpl implements NeoPath {
 	 * @generated
 	 */
 	@Override
-	public void createParameters() {
+	public EList<SimpleEdge> getSimpleEdges() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void removeParametersFromParameterList() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == Adaptable.class) {
-			switch (baseOperationID) {
-				case GraphstructurePackage.ADAPTABLE___CREATE_PARAMETERS: return AdaptionNeo4JPackage.NEO_PATH___CREATE_PARAMETERS;
-				case GraphstructurePackage.ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST: return AdaptionNeo4JPackage.NEO_PATH___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
 
 	/**
@@ -92,12 +61,8 @@ public abstract class NeoPathImpl extends ParameterImpl implements NeoPath {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionNeo4JPackage.NEO_PATH___CREATE_PARAMETERS:
-				createParameters();
-				return null;
-			case AdaptionNeo4JPackage.NEO_PATH___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
-				removeParametersFromParameterList();
-				return null;
+			case AdaptionNeo4JPackage.NEO_PATH___GET_SIMPLE_EDGES:
+				return getSimpleEdges();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

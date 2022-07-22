@@ -85,8 +85,8 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 			case AdaptionNeo4JPackage.NEO_NODE: {
 				NeoNode neoNode = (NeoNode)theEObject;
 				T result = caseNeoNode(neoNode);
-				if (result == null) result = caseAbstractNeoNode(neoNode);
 				if (result == null) result = caseComplexNode(neoNode);
+				if (result == null) result = caseAbstractNeoNode(neoNode);
 				if (result == null) result = caseNode(neoNode);
 				if (result == null) result = caseComparable(neoNode);
 				if (result == null) result = caseAdaptable(neoNode);
@@ -107,8 +107,6 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 				SequenceEdge sequenceEdge = (SequenceEdge)theEObject;
 				T result = caseSequenceEdge(sequenceEdge);
 				if (result == null) result = caseNeoPath(sequenceEdge);
-				if (result == null) result = caseParameter(sequenceEdge);
-				if (result == null) result = caseAdaptable(sequenceEdge);
 				if (result == null) result = casePatternElement(sequenceEdge);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -117,8 +115,6 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 				SimpleEdge simpleEdge = (SimpleEdge)theEObject;
 				T result = caseSimpleEdge(simpleEdge);
 				if (result == null) result = caseNeoPath(simpleEdge);
-				if (result == null) result = caseParameter(simpleEdge);
-				if (result == null) result = caseAdaptable(simpleEdge);
 				if (result == null) result = casePatternElement(simpleEdge);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -126,8 +122,6 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 			case AdaptionNeo4JPackage.NEO_PATH: {
 				NeoPath neoPath = (NeoPath)theEObject;
 				T result = caseNeoPath(neoPath);
-				if (result == null) result = caseParameter(neoPath);
-				if (result == null) result = caseAdaptable(neoPath);
 				if (result == null) result = casePatternElement(neoPath);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -142,8 +136,6 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 				NeoUnion neoUnion = (NeoUnion)theEObject;
 				T result = caseNeoUnion(neoUnion);
 				if (result == null) result = caseNeoPath(neoUnion);
-				if (result == null) result = caseParameter(neoUnion);
-				if (result == null) result = caseAdaptable(neoUnion);
 				if (result == null) result = casePatternElement(neoUnion);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -160,12 +152,12 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AdaptionNeo4JPackage.NEO4_PATH_PARAM: {
-				Neo4PathParam neo4PathParam = (Neo4PathParam)theEObject;
-				T result = caseNeo4PathParam(neo4PathParam);
-				if (result == null) result = caseParameter(neo4PathParam);
-				if (result == null) result = caseAdaptable(neo4PathParam);
-				if (result == null) result = casePatternElement(neo4PathParam);
+			case AdaptionNeo4JPackage.NEO4_JPATH_PARAM: {
+				Neo4JPathParam neo4JPathParam = (Neo4JPathParam)theEObject;
+				T result = caseNeo4JPathParam(neo4JPathParam);
+				if (result == null) result = caseParameter(neo4JPathParam);
+				if (result == null) result = caseAdaptable(neo4JPathParam);
+				if (result == null) result = casePatternElement(neo4JPathParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -309,17 +301,17 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Neo4 Path Param</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Neo4 JPath Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Neo4 Path Param</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Neo4 JPath Param</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNeo4PathParam(Neo4PathParam object) {
+	public T caseNeo4JPathParam(Neo4JPathParam object) {
 		return null;
 	}
 

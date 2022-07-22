@@ -2,9 +2,8 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
-import qualitypatternmodel.graphstructure.Adaptable;
-
-import qualitypatternmodel.parameters.Parameter;
+import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,5 +15,13 @@ import qualitypatternmodel.parameters.Parameter;
  * @model abstract="true"
  * @generated
  */
-public interface NeoPath extends Parameter, Adaptable {
+public interface NeoPath extends PatternElement {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	EList<SimpleEdge> getSimpleEdges();
 } // NeoPath

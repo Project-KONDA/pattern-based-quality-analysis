@@ -85,13 +85,13 @@ public interface AdaptionNeo4JFactory extends EFactory {
 	NeoAttributeNode createNeoAttributeNode();
 
 	/**
-	 * Returns a new object of class '<em>Neo4 Path Param</em>'.
+	 * Returns a new object of class '<em>Neo4 JPath Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Neo4 Path Param</em>'.
+	 * @return a new object of class '<em>Neo4 JPath Param</em>'.
 	 * @generated
 	 */
-	Neo4PathParam createNeo4PathParam();
+	Neo4JPathParam createNeo4JPathParam();
 
 	/**
 	 * Returns the package supported by this factory.

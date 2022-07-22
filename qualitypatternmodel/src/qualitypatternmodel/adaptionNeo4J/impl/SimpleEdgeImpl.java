@@ -3,7 +3,8 @@
 package qualitypatternmodel.adaptionNeo4J.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -12,6 +13,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.PatternParams;
 import qualitypatternmodel.adaptionNeo4J.SimpleEdge;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,10 +45,17 @@ public class SimpleEdgeImpl extends NeoPathImpl implements SimpleEdge {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated 
 	 */
 	protected SimpleEdgeImpl() {
 		super();
+	} 
+	
+	@Override
+	public String generateCypher() throws InvalidityException {
+		String cypher = "";
+		
+		return cypher;
 	}
 
 	/**
@@ -61,7 +73,7 @@ public class SimpleEdgeImpl extends NeoPathImpl implements SimpleEdge {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	@Override //Equalvalant to getIriParam() --> Look why it is diffrent
 	public PatternParams getPatternParams() {
 		if (patternParams != null && patternParams.eIsProxy()) {
 			InternalEObject oldPatternParams = (InternalEObject)patternParams;
@@ -95,6 +107,14 @@ public class SimpleEdgeImpl extends NeoPathImpl implements SimpleEdge {
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.SIMPLE_EDGE__PATTERN_PARAMS, oldPatternParams, patternParams));
 	}
+	
+	//Inserted Method
+	@Override 
+	public EList<SimpleEdge> getSimpleEdges() {
+		EList<SimpleEdge> l = new BasicEList<SimpleEdge>();
+		//TODO
+		return  l;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -110,7 +130,7 @@ public class SimpleEdgeImpl extends NeoPathImpl implements SimpleEdge {
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,17 +175,12 @@ public class SimpleEdgeImpl extends NeoPathImpl implements SimpleEdge {
 		return super.eIsSet(featureID);
 	}
 
-	@Override
-	public boolean inputIsValid() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public String generateDescription() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	Also not done in RdfSinglePredicateImpl.class
+//	@Override
+//	public String generateDescription() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	@Override
 	public String myToString() {
@@ -173,4 +188,9 @@ public class SimpleEdgeImpl extends NeoPathImpl implements SimpleEdge {
 		return null;
 	}
 
+	@Override 
+	public void isValidLocal(AbstractionLevel abstractionLevel) 
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException{
+		//TODO
+	}
 } //SimpleEdgeImpl

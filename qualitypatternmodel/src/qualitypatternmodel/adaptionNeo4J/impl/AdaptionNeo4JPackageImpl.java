@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import qualitypatternmodel.adaptionNeo4J.AbstractNeoNode;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.Neo4PathParam;
+import qualitypatternmodel.adaptionNeo4J.Neo4JPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoAttributeNode;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
@@ -132,7 +132,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass neo4PathParamEClass = null;
+	private EClass neo4JPathParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -272,7 +272,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EReference getNeoEdge_Neopath() {
+	public EReference getNeoEdge_NeoPathParam() {
 		return (EReference)neoEdgeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -324,6 +324,16 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	@Override
 	public EClass getNeoPath() {
 		return neoPathEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getNeoPath__GetSimpleEdges() {
+		return neoPathEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -392,8 +402,8 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EClass getNeo4PathParam() {
-		return neo4PathParamEClass;
+	public EClass getNeo4JPathParam() {
+		return neo4JPathParamEClass;
 	}
 
 	/**
@@ -402,8 +412,8 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EReference getNeo4PathParam_Neoedge() {
-		return (EReference)neo4PathParamEClass.getEStructuralFeatures().get(0);
+	public EReference getNeo4JPathParam_Neoedge() {
+		return (EReference)neo4JPathParamEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -412,8 +422,8 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public EReference getNeo4PathParam_Neopath() {
-		return (EReference)neo4PathParamEClass.getEStructuralFeatures().get(1);
+	public EReference getNeo4JPathParam_Neopath() {
+		return (EReference)neo4JPathParamEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -460,7 +470,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		neoNodeEClass = createEClass(NEO_NODE);
 
 		neoEdgeEClass = createEClass(NEO_EDGE);
-		createEReference(neoEdgeEClass, NEO_EDGE__NEOPATH);
+		createEReference(neoEdgeEClass, NEO_EDGE__NEO_PATH_PARAM);
 
 		sequenceEdgeEClass = createEClass(SEQUENCE_EDGE);
 		createEReference(sequenceEdgeEClass, SEQUENCE_EDGE__NEOPATH);
@@ -469,6 +479,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		createEReference(simpleEdgeEClass, SIMPLE_EDGE__PATTERN_PARAMS);
 
 		neoPathEClass = createEClass(NEO_PATH);
+		createEOperation(neoPathEClass, NEO_PATH___GET_SIMPLE_EDGES);
 
 		patternParamsEClass = createEClass(PATTERN_PARAMS);
 		createEAttribute(patternParamsEClass, PATTERN_PARAMS__CONNECTING_EDGE);
@@ -479,9 +490,9 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 
 		neoAttributeNodeEClass = createEClass(NEO_ATTRIBUTE_NODE);
 
-		neo4PathParamEClass = createEClass(NEO4_PATH_PARAM);
-		createEReference(neo4PathParamEClass, NEO4_PATH_PARAM__NEOEDGE);
-		createEReference(neo4PathParamEClass, NEO4_PATH_PARAM__NEOPATH);
+		neo4JPathParamEClass = createEClass(NEO4_JPATH_PARAM);
+		createEReference(neo4JPathParamEClass, NEO4_JPATH_PARAM__NEOEDGE);
+		createEReference(neo4JPathParamEClass, NEO4_JPATH_PARAM__NEOPATH);
 
 		// Create enums
 		neoQuantifierEEnum = createEEnum(NEO_QUANTIFIER);
@@ -512,6 +523,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 
 		// Obtain other dependent packages
 		GraphstructurePackage theGraphstructurePackage = (GraphstructurePackage)EPackage.Registry.INSTANCE.getEPackage(GraphstructurePackage.eNS_URI);
+		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
 
 		// Create type parameters
@@ -519,18 +531,17 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		neoNodeEClass.getESuperTypes().add(this.getAbstractNeoNode());
 		neoNodeEClass.getESuperTypes().add(theGraphstructurePackage.getComplexNode());
+		neoNodeEClass.getESuperTypes().add(this.getAbstractNeoNode());
 		neoEdgeEClass.getESuperTypes().add(theGraphstructurePackage.getRelation());
 		sequenceEdgeEClass.getESuperTypes().add(this.getNeoPath());
 		simpleEdgeEClass.getESuperTypes().add(this.getNeoPath());
-		neoPathEClass.getESuperTypes().add(theParametersPackage.getParameter());
-		neoPathEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
+		neoPathEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
 		neoUnionEClass.getESuperTypes().add(this.getNeoPath());
 		neoAttributeNodeEClass.getESuperTypes().add(theGraphstructurePackage.getPrimitiveNode());
 		neoAttributeNodeEClass.getESuperTypes().add(this.getAbstractNeoNode());
-		neo4PathParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
-		neo4PathParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
+		neo4JPathParamEClass.getESuperTypes().add(theParametersPackage.getParameter());
+		neo4JPathParamEClass.getESuperTypes().add(theGraphstructurePackage.getAdaptable());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(abstractNeoNodeEClass, AbstractNeoNode.class, "AbstractNeoNode", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -538,7 +549,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		initEClass(neoNodeEClass, NeoNode.class, "NeoNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(neoEdgeEClass, NeoEdge.class, "NeoEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNeoEdge_Neopath(), this.getNeo4PathParam(), this.getNeo4PathParam_Neoedge(), "neopath", null, 0, 1, NeoEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNeoEdge_NeoPathParam(), this.getNeo4JPathParam(), this.getNeo4JPathParam_Neoedge(), "neoPathParam", null, 0, 1, NeoEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sequenceEdgeEClass, SequenceEdge.class, "SequenceEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSequenceEdge_Neopath(), this.getNeoPath(), null, "neopath", null, 2, -1, SequenceEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -547,6 +558,8 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		initEReference(getSimpleEdge_PatternParams(), this.getPatternParams(), null, "PatternParams", null, 0, 1, SimpleEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(neoPathEClass, NeoPath.class, "NeoPath", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getNeoPath__GetSimpleEdges(), this.getSimpleEdge(), "getSimpleEdges", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(patternParamsEClass, PatternParams.class, "PatternParams", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPatternParams_ConnectingEdge(), ecorePackage.getEString(), "ConnectingEdge", null, 0, 1, PatternParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -558,9 +571,9 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 
 		initEClass(neoAttributeNodeEClass, NeoAttributeNode.class, "NeoAttributeNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(neo4PathParamEClass, Neo4PathParam.class, "Neo4PathParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNeo4PathParam_Neoedge(), this.getNeoEdge(), this.getNeoEdge_Neopath(), "neoedge", null, 0, 1, Neo4PathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNeo4PathParam_Neopath(), this.getNeoPath(), null, "neopath", null, 0, 1, Neo4PathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(neo4JPathParamEClass, Neo4JPathParam.class, "Neo4JPathParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNeo4JPathParam_Neoedge(), this.getNeoEdge(), this.getNeoEdge_NeoPathParam(), "neoedge", null, 0, 1, Neo4JPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNeo4JPathParam_Neopath(), this.getNeoPath(), null, "neopath", null, 0, 1, Neo4JPathParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(neoQuantifierEEnum, NeoQuantifier.class, "NeoQuantifier");

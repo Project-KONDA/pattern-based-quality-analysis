@@ -14,5 +14,5 @@ import qualitypatternmodel.graphstructure.ComplexNode;
  * @model
  * @generated
  */
-public interface NeoNode extends AbstractNeoNode, ComplexNode {
+public interface NeoNode extends ComplexNode, AbstractNeoNode {
 } // NeoNode

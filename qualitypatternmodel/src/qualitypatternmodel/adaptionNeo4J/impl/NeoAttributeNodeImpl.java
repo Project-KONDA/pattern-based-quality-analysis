@@ -6,8 +6,13 @@ import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAttributeNode;
-
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
+import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +30,49 @@ public class NeoAttributeNodeImpl extends PrimitiveNodeImpl implements NeoAttrib
 	protected NeoAttributeNodeImpl() {
 		super();
 	}
+	
+	@Override 
+	public String generateCypher() {
+		String cypher = null;
+		
+		return cypher;
+	}
+	
+	@Override
+	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return this;
+	}
+	
+	@Override
+	public Node makeGeneric() throws InvalidityException{
+		throw new InvalidityException("This node can not become generic!");
+	}
+	
+	@Override
+	public Node makeGenericRecursive() throws InvalidityException{
+		throw new InvalidityException("This node can not become generic!");
+	}
+	
+	@Override
+	public void checkGeneric() throws InvalidityException{
+		throw new InvalidityException("This node can not become generic!");
+	}
+	
+	@Override
+	public PrimitiveNode makePrimitive() throws InvalidityException{
+		throw new InvalidityException("This node can not become generic!");
+	}
+	
+	@Override
+	public PrimitiveNode makePrimitiveRecursive() throws InvalidityException{
+		throw new InvalidityException("This node can not become generic!");
+	}
+	
+	@Override
+	public void checkPrimitive() throws InvalidityException{
+		throw new InvalidityException("This node can not become generic!");
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
