@@ -119,6 +119,15 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 	public IriParamImpl() {
 		super();
 	}
+
+	public IriParamImpl(String value) {
+		super();
+		try {
+			setValueFromString(value);
+		} catch (InvalidityException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	@Override
 	public void isValid (AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -244,6 +253,27 @@ public class IriParamImpl extends ParameterValueImpl implements IriParam {
 		uri = newUri;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionrdfPackage.IRI_PARAM__URI, oldUri, uri));
+	}
+	
+
+	@Override
+	public void setValueFromString(String value) throws InvalidityException {
+		if (value.matches("[a-z]+:[a-zA-Z0-9]+")) {
+			String[] parts = value.split(":");
+			if (parts.length == 2) {
+				setPrefix(parts[0]);
+				setSuffix(parts[1]);
+				return;
+			}
+		}
+		else if (value.matches("<[a-zA-A0-9]+>")) {
+			String uri = value.substring(1, value.length()-2);
+			if (value.length()-2 == uri.length()) {
+				setUri(uri);
+				return;
+			}
+		}
+		throw new InvalidityException("Value not valid for IriParam");
 	}
 
 	/**
