@@ -657,6 +657,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___ADD_INCOMMING__COMPLEXNODE = GraphstructurePackage.COMPLEX_NODE___ADD_INCOMMING__COMPLEXNODE;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADD_COMPARISON__NODE = GraphstructurePackage.COMPLEX_NODE___ADD_COMPARISON__NODE;
+
+	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -709,6 +718,42 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ELEMENT___ADD_PRIMITIVE_MATCH__STRING = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH__STRING;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADD_PRIMITIVE_CONTAINS = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADD_PRIMITIVE_CONTAINS__STRING = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS__STRING;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Check Generic</em>' operation.
@@ -792,24 +837,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___MAKE_PRIMITIVE_RECURSIVE = GraphstructurePackage.COMPLEX_NODE___MAKE_PRIMITIVE_RECURSIVE;
 
 	/**
-	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY;
-
-	/**
-	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
-
-	/**
 	 * The operation id for the '<em>Adapt As Xml Element</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -844,15 +871,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ELEMENT___ADAPT_AS_RDF_LITERAL_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_RDF_LITERAL_NODE;
-
-	/**
-	 * The operation id for the '<em>Add Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ELEMENT___ADD_COMPARISON__NODE = GraphstructurePackage.COMPLEX_NODE___ADD_COMPARISON__NODE;
 
 	/**
 	 * The operation id for the '<em>Translate Predicates</em>' operation.
@@ -2376,6 +2394,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY__MATCH = GraphstructurePackage.PRIMITIVE_NODE__MATCH;
 
 	/**
+	 * The feature id for the '<em><b>Contains</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY__CONTAINS = GraphstructurePackage.PRIMITIVE_NODE__CONTAINS;
+
+	/**
 	 * The feature id for the '<em><b>Variables</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2745,6 +2772,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___ADD_INCOMMING__COMPLEXNODE = GraphstructurePackage.PRIMITIVE_NODE___ADD_INCOMMING__COMPLEXNODE;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADD_COMPARISON__NODE = GraphstructurePackage.PRIMITIVE_NODE___ADD_COMPARISON__NODE;
+
+	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2797,6 +2833,42 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___ADD_PRIMITIVE_MATCH__STRING = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_MATCH__STRING;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADD_PRIMITIVE_CONTAINS = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_CONTAINS;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADD_PRIMITIVE_CONTAINS__STRING = GraphstructurePackage.PRIMITIVE_NODE___ADD_PRIMITIVE_CONTAINS__STRING;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Check Generic</em>' operation.
@@ -2880,24 +2952,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___MAKE_PRIMITIVE_RECURSIVE = GraphstructurePackage.PRIMITIVE_NODE___MAKE_PRIMITIVE_RECURSIVE;
 
 	/**
-	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY;
-
-	/**
-	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
-
-	/**
 	 * The operation id for the '<em>Adapt As Xml Element</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2932,15 +2986,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY___ADAPT_AS_RDF_LITERAL_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_RDF_LITERAL_NODE;
-
-	/**
-	 * The operation id for the '<em>Add Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_PROPERTY___ADD_COMPARISON__NODE = GraphstructurePackage.PRIMITIVE_NODE___ADD_COMPARISON__NODE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3474,6 +3519,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___ADD_INCOMMING__COMPLEXNODE = GraphstructurePackage.COMPLEX_NODE___ADD_INCOMMING__COMPLEXNODE;
 
 	/**
+	 * The operation id for the '<em>Add Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADD_COMPARISON__NODE = GraphstructurePackage.COMPLEX_NODE___ADD_COMPARISON__NODE;
+
+	/**
 	 * The operation id for the '<em>Add Primitive Comparison</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3526,6 +3580,42 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___ADD_PRIMITIVE_MATCH__STRING = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_MATCH__STRING;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADD_PRIMITIVE_CONTAINS = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS;
+
+	/**
+	 * The operation id for the '<em>Add Primitive Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADD_PRIMITIVE_CONTAINS__STRING = GraphstructurePackage.COMPLEX_NODE___ADD_PRIMITIVE_CONTAINS__STRING;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
 
 	/**
 	 * The operation id for the '<em>Check Generic</em>' operation.
@@ -3609,24 +3699,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___MAKE_PRIMITIVE_RECURSIVE = GraphstructurePackage.COMPLEX_NODE___MAKE_PRIMITIVE_RECURSIVE;
 
 	/**
-	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___CHECK_COMPARISON_CONSISTENCY = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY;
-
-	/**
-	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___CHECK_COMPARISON_CONSISTENCY__COMPARISON = GraphstructurePackage.COMPLEX_NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON;
-
-	/**
 	 * The operation id for the '<em>Adapt As Xml Element</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3661,15 +3733,6 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_ROOT___ADAPT_AS_RDF_LITERAL_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_RDF_LITERAL_NODE;
-
-	/**
-	 * The operation id for the '<em>Add Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int XML_ROOT___ADD_COMPARISON__NODE = GraphstructurePackage.COMPLEX_NODE___ADD_COMPARISON__NODE;
 
 	/**
 	 * The number of operations of the '<em>Xml Root</em>' class.

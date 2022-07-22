@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.BooleanParam;
@@ -36,6 +37,7 @@ import qualitypatternmodel.parameters.ParameterList;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.impl.BooleanParamImpl#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.BooleanParamImpl#getMatches <em>Matches</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.BooleanParamImpl#getContains <em>Contains</em>}</li>
  * </ul>
  *
  * @generated
@@ -72,6 +74,16 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	 * @ordered
 	 */
 	protected EList<Match> matches;
+
+	/**
+	 * The cached value of the '{@link #getContains() <em>Contains</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContains()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Contains> contains;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -188,6 +200,19 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Contains> getContains() {
+		if (contains == null) {
+			contains = new EObjectWithInverseResolvingEList<Contains>(Contains.class, this, ParametersPackage.BOOLEAN_PARAM__CONTAINS, OperatorsPackage.CONTAINS__OPTION);
+		}
+		return contains;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -218,6 +243,8 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 		switch (featureID) {
 			case ParametersPackage.BOOLEAN_PARAM__MATCHES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMatches()).basicAdd(otherEnd, msgs);
+			case ParametersPackage.BOOLEAN_PARAM__CONTAINS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContains()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -232,6 +259,8 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 		switch (featureID) {
 			case ParametersPackage.BOOLEAN_PARAM__MATCHES:
 				return ((InternalEList<?>)getMatches()).basicRemove(otherEnd, msgs);
+			case ParametersPackage.BOOLEAN_PARAM__CONTAINS:
+				return ((InternalEList<?>)getContains()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -248,6 +277,8 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 				return getValue();
 			case ParametersPackage.BOOLEAN_PARAM__MATCHES:
 				return getMatches();
+			case ParametersPackage.BOOLEAN_PARAM__CONTAINS:
+				return getContains();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -268,6 +299,10 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 				getMatches().clear();
 				getMatches().addAll((Collection<? extends Match>)newValue);
 				return;
+			case ParametersPackage.BOOLEAN_PARAM__CONTAINS:
+				getContains().clear();
+				getContains().addAll((Collection<? extends Contains>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -286,6 +321,9 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 			case ParametersPackage.BOOLEAN_PARAM__MATCHES:
 				getMatches().clear();
 				return;
+			case ParametersPackage.BOOLEAN_PARAM__CONTAINS:
+				getContains().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -302,6 +340,8 @@ public class BooleanParamImpl extends ParameterValueImpl implements BooleanParam
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 			case ParametersPackage.BOOLEAN_PARAM__MATCHES:
 				return matches != null && !matches.isEmpty();
+			case ParametersPackage.BOOLEAN_PARAM__CONTAINS:
+				return contains != null && !contains.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

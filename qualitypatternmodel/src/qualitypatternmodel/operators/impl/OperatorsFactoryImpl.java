@@ -62,6 +62,7 @@ public class OperatorsFactoryImpl extends EFactoryImpl implements OperatorsFacto
 			case OperatorsPackage.MATCH: return createMatch();
 			case OperatorsPackage.COMPARISON: return createComparison();
 			case OperatorsPackage.OPERATOR_LIST: return createOperatorList();
+			case OperatorsPackage.CONTAINS: return createContains();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -132,6 +133,17 @@ public class OperatorsFactoryImpl extends EFactoryImpl implements OperatorsFacto
 	public OperatorList createOperatorList() {
 		OperatorListImpl operatorList = new OperatorListImpl();
 		return operatorList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Contains createContains() {
+		ContainsImpl contains = new ContainsImpl();
+		return contains;
 	}
 
 	/**

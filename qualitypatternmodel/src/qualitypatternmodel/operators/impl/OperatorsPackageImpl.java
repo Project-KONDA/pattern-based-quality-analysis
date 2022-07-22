@@ -28,6 +28,7 @@ import qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.NumberOperator;
 import qualitypatternmodel.operators.Operator;
@@ -94,6 +95,13 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	private EClass operatorListEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass containsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -526,6 +534,56 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getContains() {
+		return containsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getContains_PrimitiveNode() {
+		return (EReference)containsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getContains_Option() {
+		return (EReference)containsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getContains_Content() {
+		return (EReference)containsEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getContains__GetElement() {
+		return containsEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getComparisonOperator() {
 		return comparisonOperatorEEnum;
 	}
@@ -606,6 +664,12 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		createEReference(operatorListEClass, OPERATOR_LIST__OPERATORS);
 		createEOperation(operatorListEClass, OPERATOR_LIST___ADD__OPERATOR);
 
+		containsEClass = createEClass(CONTAINS);
+		createEReference(containsEClass, CONTAINS__PRIMITIVE_NODE);
+		createEReference(containsEClass, CONTAINS__OPTION);
+		createEReference(containsEClass, CONTAINS__CONTENT);
+		createEOperation(containsEClass, CONTAINS___GET_ELEMENT);
+
 		// Create enums
 		comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
 
@@ -653,6 +717,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		matchEClass.getESuperTypes().add(this.getBooleanOperator());
 		comparisonEClass.getESuperTypes().add(this.getBooleanOperator());
 		operatorListEClass.getESuperTypes().add(thePatternstructurePackage.getPatternElement());
+		containsEClass.getESuperTypes().add(this.getBooleanOperator());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(booleanOperatorEClass, BooleanOperator.class, "BooleanOperator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -718,6 +783,13 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 
 		op = initEOperation(getOperatorList__Add__Operator(), null, "add", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getOperator(), "Operator", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(containsEClass, Contains.class, "Contains", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getContains_PrimitiveNode(), theGraphstructurePackage.getPrimitiveNode(), theGraphstructurePackage.getPrimitiveNode_Contains(), "primitiveNode", null, 0, 1, Contains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContains_Option(), theParametersPackage.getBooleanParam(), theParametersPackage.getBooleanParam_Contains(), "option", null, 1, 1, Contains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContains_Content(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_Contains(), "content", null, 1, 1, Contains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getContains__GetElement(), theGraphstructurePackage.getNode(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(comparisonOperatorEEnum, ComparisonOperator.class, "ComparisonOperator");

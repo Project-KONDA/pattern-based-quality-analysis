@@ -565,6 +565,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EReference getBooleanParam_Contains() {
+		return (EReference)booleanParamEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getBooleanParam__SetValueIfValid__Boolean() {
 		return booleanParamEClass.getEOperations().get(0);
 	}
@@ -667,6 +677,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	@Override
 	public EReference getTextLiteralParam_XmlAxisPair() {
 		return (EReference)textLiteralParamEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTextLiteralParam_Contains() {
+		return (EReference)textLiteralParamEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1081,6 +1101,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		booleanParamEClass = createEClass(BOOLEAN_PARAM);
 		createEAttribute(booleanParamEClass, BOOLEAN_PARAM__VALUE);
 		createEReference(booleanParamEClass, BOOLEAN_PARAM__MATCHES);
+		createEReference(booleanParamEClass, BOOLEAN_PARAM__CONTAINS);
 		createEOperation(booleanParamEClass, BOOLEAN_PARAM___SET_VALUE_IF_VALID__BOOLEAN);
 
 		textListParamEClass = createEClass(TEXT_LIST_PARAM);
@@ -1094,6 +1115,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__MATCHES);
 		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM);
 		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__XML_AXIS_PAIR);
+		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__CONTAINS);
 		createEOperation(textLiteralParamEClass, TEXT_LITERAL_PARAM___SET_VALUE_IF_VALID__STRING);
 
 		numberParamEClass = createEClass(NUMBER_PARAM);
@@ -1256,6 +1278,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEClass(booleanParamEClass, BooleanParam.class, "BooleanParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBooleanParam_Value(), ecorePackage.getEBooleanObject(), "value", "true", 1, 1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBooleanParam_Matches(), theOperatorsPackage.getMatch(), theOperatorsPackage.getMatch_Option(), "matches", null, 0, -1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBooleanParam_Contains(), theOperatorsPackage.getContains(), theOperatorsPackage.getContains_Option(), "contains", null, 0, -1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getBooleanParam__SetValueIfValid__Boolean(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBooleanObject(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1277,6 +1300,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEReference(getTextLiteralParam_Matches(), theOperatorsPackage.getMatch(), theOperatorsPackage.getMatch_RegularExpression(), "matches", null, 0, -1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTextLiteralParam_XmlPropertyOptionParam(), theAdaptionxmlPackage.getXmlPropertyOptionParam(), theAdaptionxmlPackage.getXmlPropertyOptionParam_AttributeName(), "xmlPropertyOptionParam", null, 0, 1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTextLiteralParam_XmlAxisPair(), theAdaptionxmlPackage.getXmlAxisPair(), theAdaptionxmlPackage.getXmlAxisPair_TextLiteralParam(), "xmlAxisPair", null, 0, 1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTextLiteralParam_Contains(), theOperatorsPackage.getContains(), theOperatorsPackage.getContains_Content(), "contains", null, 0, -1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getTextLiteralParam__SetValueIfValid__String(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);

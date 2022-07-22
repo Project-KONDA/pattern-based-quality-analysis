@@ -260,6 +260,22 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	TextLiteralParam addPrimitiveContains();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	TextLiteralParam addPrimitiveContains(String content);
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Creates a <code>Property</code> and
 	 * a <code>Comparison</code> that compares the new <code>Property</code>
 	 * with a newly created <code>TextLiteralParam</code> based on <code>value</code>.

@@ -5,6 +5,7 @@ package qualitypatternmodel.graphstructure;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.parameters.ParameterValue;
 
@@ -19,6 +20,7 @@ import qualitypatternmodel.parameters.ParameterValue;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#getMatch <em>Match</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.PrimitiveNode#getContains <em>Contains</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getPrimitiveNode()
@@ -48,5 +50,19 @@ public interface PrimitiveNode extends Node {
 	 * @generated
 	 */
 	EList<Match> getMatch();
+
+	/**
+	 * Returns the value of the '<em><b>Contains</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.operators.Contains}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.Contains#getPrimitiveNode <em>Primitive Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contains</em>' reference list.
+	 * @see qualitypatternmodel.graphstructure.GraphstructurePackage#getPrimitiveNode_Contains()
+	 * @see qualitypatternmodel.operators.Contains#getPrimitiveNode
+	 * @model opposite="primitiveNode"
+	 * @generated
+	 */
+	EList<Contains> getContains();
 
 } // Property

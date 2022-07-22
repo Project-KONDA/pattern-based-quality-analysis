@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.adaptionxml.XmlAxisPair;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
 
 
@@ -23,6 +24,7 @@ import qualitypatternmodel.operators.Match;
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getMatches <em>Matches</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlPropertyOptionParam <em>Xml Property Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getXmlAxisPair <em>Xml Axis Pair</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.TextLiteralParam#getContains <em>Contains</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam()
@@ -114,6 +116,20 @@ public interface TextLiteralParam extends ParameterValue {
 	 * @generated
 	 */
 	void setXmlAxisPair(XmlAxisPair value);
+
+	/**
+	 * Returns the value of the '<em><b>Contains</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.operators.Contains}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.Contains#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contains</em>' reference list.
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getTextLiteralParam_Contains()
+	 * @see qualitypatternmodel.operators.Contains#getContent
+	 * @model opposite="content"
+	 * @generated
+	 */
+	EList<Contains> getContains();
 
 	/**
 	 * <!-- begin-user-doc -->

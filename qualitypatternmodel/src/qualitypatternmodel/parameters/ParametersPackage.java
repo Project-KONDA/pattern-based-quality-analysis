@@ -1785,13 +1785,22 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM__MATCHES = PARAMETER_VALUE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Contains</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_PARAM__CONTAINS = PARAMETER_VALUE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Boolean Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 2;
+	int BOOLEAN_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -2930,13 +2939,22 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM__XML_AXIS_PAIR = PARAMETER_VALUE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Contains</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_LITERAL_PARAM__CONTAINS = PARAMETER_VALUE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Text Literal Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 4;
+	int TEXT_LITERAL_PARAM_FEATURE_COUNT = PARAMETER_VALUE_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -6858,6 +6876,17 @@ public interface ParametersPackage extends EPackage {
 	EReference getBooleanParam_Matches();
 
 	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.BooleanParam#getContains <em>Contains</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Contains</em>'.
+	 * @see qualitypatternmodel.parameters.BooleanParam#getContains()
+	 * @see #getBooleanParam()
+	 * @generated
+	 */
+	EReference getBooleanParam_Contains();
+
+	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.BooleanParam#setValueIfValid(java.lang.Boolean) <em>Set Value If Valid</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6971,6 +7000,17 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTextLiteralParam_XmlAxisPair();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.parameters.TextLiteralParam#getContains <em>Contains</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Contains</em>'.
+	 * @see qualitypatternmodel.parameters.TextLiteralParam#getContains()
+	 * @see #getTextLiteralParam()
+	 * @generated
+	 */
+	EReference getTextLiteralParam_Contains();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.TextLiteralParam#setValueIfValid(java.lang.String) <em>Set Value If Valid</em>}' operation.
@@ -7604,6 +7644,14 @@ public interface ParametersPackage extends EPackage {
 		EReference BOOLEAN_PARAM__MATCHES = eINSTANCE.getBooleanParam_Matches();
 
 		/**
+		 * The meta object literal for the '<em><b>Contains</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOLEAN_PARAM__CONTAINS = eINSTANCE.getBooleanParam_Contains();
+
+		/**
 		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7694,6 +7742,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TEXT_LITERAL_PARAM__XML_AXIS_PAIR = eINSTANCE.getTextLiteralParam_XmlAxisPair();
+
+		/**
+		 * The meta object literal for the '<em><b>Contains</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEXT_LITERAL_PARAM__CONTAINS = eINSTANCE.getTextLiteralParam_Contains();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Value If Valid</b></em>' operation.

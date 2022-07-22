@@ -2355,6 +2355,439 @@ public interface OperatorsPackage extends EPackage {
 	int OPERATOR_LIST_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.operators.impl.ContainsImpl <em>Contains</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.operators.impl.ContainsImpl
+	 * @see qualitypatternmodel.operators.impl.OperatorsPackageImpl#getContains()
+	 * @generated
+	 */
+	int CONTAINS = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS__ID = BOOLEAN_OPERATOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS__INTERNAL_ID = BOOLEAN_OPERATOR__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS__COMPARISON1 = BOOLEAN_OPERATOR__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS__COMPARISON2 = BOOLEAN_OPERATOR__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Operator List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS__OPERATOR_LIST = BOOLEAN_OPERATOR__OPERATOR_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Nodes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS__NODES = BOOLEAN_OPERATOR__NODES;
+
+	/**
+	 * The feature id for the '<em><b>Primitive Node</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS__PRIMITIVE_NODE = BOOLEAN_OPERATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Option</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS__OPTION = BOOLEAN_OPERATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS__CONTENT = BOOLEAN_OPERATOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Contains</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS_FEATURE_COUNT = BOOLEAN_OPERATOR_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___IS_VALID__ABSTRACTIONLEVEL = BOOLEAN_OPERATOR___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___IS_VALID_LOCAL__ABSTRACTIONLEVEL = BOOLEAN_OPERATOR___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___MY_TO_STRING = BOOLEAN_OPERATOR___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GENERATE_CYPHER = BOOLEAN_OPERATOR___GENERATE_CYPHER;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GENERATE_XQUERY = BOOLEAN_OPERATOR___GENERATE_XQUERY;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GENERATE_SPARQL = BOOLEAN_OPERATOR___GENERATE_SPARQL;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GET_CONTAINER = BOOLEAN_OPERATOR___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GET_ANCESTOR__CLASS = BOOLEAN_OPERATOR___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___INITIALIZE_TRANSLATION = BOOLEAN_OPERATOR___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___PREPARE_TRANSLATION = BOOLEAN_OPERATOR___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GET_OPERATOR_LIST = BOOLEAN_OPERATOR___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GET_PARAMETER_LIST = BOOLEAN_OPERATOR___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GET_ALL_PARAMETERS = BOOLEAN_OPERATOR___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___PREPARE_PARAMETER_UPDATES = BOOLEAN_OPERATOR___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = BOOLEAN_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___UPDATE_PARAMETERS__PARAMETERLIST = BOOLEAN_OPERATOR___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = BOOLEAN_OPERATOR___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___RECORD_VALUES__XMLDATADATABASE = BOOLEAN_OPERATOR___RECORD_VALUES__XMLDATADATABASE;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___RELATIONS_XML_ADAPTED = BOOLEAN_OPERATOR___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___CREATE_XML_ADAPTION = BOOLEAN_OPERATOR___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___CREATE_RDF_ADAPTION = BOOLEAN_OPERATOR___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___CREATE_NEO4J_ADAPTION = BOOLEAN_OPERATOR___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GET_RETURN_TYPE = BOOLEAN_OPERATOR___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___IS_TRANSLATABLE = BOOLEAN_OPERATOR___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GET_ALL_ARGUMENT_ELEMENTS = BOOLEAN_OPERATOR___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___IS_OPERATOR_ARGUMENT = BOOLEAN_OPERATOR___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___VALIDATE__DIAGNOSTICCHAIN_MAP = BOOLEAN_OPERATOR___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get All Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GET_ALL_OPERATORS = BOOLEAN_OPERATOR___GET_ALL_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Get Arguments</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GET_ARGUMENTS = BOOLEAN_OPERATOR___GET_ARGUMENTS;
+
+	/**
+	 * The operation id for the '<em>Get Root Boolean Operators</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GET_ROOT_BOOLEAN_OPERATORS = BOOLEAN_OPERATOR___GET_ROOT_BOOLEAN_OPERATORS;
+
+	/**
+	 * The operation id for the '<em>Is Cycle Free</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___IS_CYCLE_FREE = BOOLEAN_OPERATOR___IS_CYCLE_FREE;
+
+	/**
+	 * The operation id for the '<em>Is Cycle Free</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___IS_CYCLE_FREE__ELIST = BOOLEAN_OPERATOR___IS_CYCLE_FREE__ELIST;
+
+	/**
+	 * The operation id for the '<em>Create Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___CREATE_PARAMETERS = BOOLEAN_OPERATOR___CREATE_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Add Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___ADD_ELEMENT__NODE = BOOLEAN_OPERATOR___ADD_ELEMENT__NODE;
+
+	/**
+	 * The operation id for the '<em>Remove Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___REMOVE_ELEMENT__NODE = BOOLEAN_OPERATOR___REMOVE_ELEMENT__NODE;
+
+	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS___GET_ELEMENT = BOOLEAN_OPERATOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Contains</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTAINS_OPERATION_COUNT = BOOLEAN_OPERATOR_OPERATION_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2362,7 +2795,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @see qualitypatternmodel.operators.impl.OperatorsPackageImpl#getComparisonOperator()
 	 * @generated
 	 */
-	int COMPARISON_OPERATOR = 6;
+	int COMPARISON_OPERATOR = 7;
 
 	/**
 	 * The meta object id for the '<em>Operator Cycle Exception Wrapper</em>' data type.
@@ -2372,7 +2805,7 @@ public interface OperatorsPackage extends EPackage {
 	 * @see qualitypatternmodel.operators.impl.OperatorsPackageImpl#getOperatorCycleExceptionWrapper()
 	 * @generated
 	 */
-	int OPERATOR_CYCLE_EXCEPTION_WRAPPER = 7;
+	int OPERATOR_CYCLE_EXCEPTION_WRAPPER = 8;
 
 
 	/**
@@ -2697,6 +3130,59 @@ public interface OperatorsPackage extends EPackage {
 	EOperation getOperatorList__Add__Operator();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.operators.Contains <em>Contains</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Contains</em>'.
+	 * @see qualitypatternmodel.operators.Contains
+	 * @generated
+	 */
+	EClass getContains();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.operators.Contains#getPrimitiveNode <em>Primitive Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Primitive Node</em>'.
+	 * @see qualitypatternmodel.operators.Contains#getPrimitiveNode()
+	 * @see #getContains()
+	 * @generated
+	 */
+	EReference getContains_PrimitiveNode();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.operators.Contains#getOption <em>Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Option</em>'.
+	 * @see qualitypatternmodel.operators.Contains#getOption()
+	 * @see #getContains()
+	 * @generated
+	 */
+	EReference getContains_Option();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.operators.Contains#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Content</em>'.
+	 * @see qualitypatternmodel.operators.Contains#getContent()
+	 * @see #getContains()
+	 * @generated
+	 */
+	EReference getContains_Content();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.operators.Contains#getElement() <em>Get Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Element</em>' operation.
+	 * @see qualitypatternmodel.operators.Contains#getElement()
+	 * @generated
+	 */
+	EOperation getContains__GetElement();
+
+	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2999,6 +3485,48 @@ public interface OperatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation OPERATOR_LIST___ADD__OPERATOR = eINSTANCE.getOperatorList__Add__Operator();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.operators.impl.ContainsImpl <em>Contains</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.operators.impl.ContainsImpl
+		 * @see qualitypatternmodel.operators.impl.OperatorsPackageImpl#getContains()
+		 * @generated
+		 */
+		EClass CONTAINS = eINSTANCE.getContains();
+
+		/**
+		 * The meta object literal for the '<em><b>Primitive Node</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTAINS__PRIMITIVE_NODE = eINSTANCE.getContains_PrimitiveNode();
+
+		/**
+		 * The meta object literal for the '<em><b>Option</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTAINS__OPTION = eINSTANCE.getContains_Option();
+
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTAINS__CONTENT = eINSTANCE.getContains_Content();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CONTAINS___GET_ELEMENT = eINSTANCE.getContains__GetElement();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.operators.ComparisonOperator <em>Comparison Operator</em>}' enum.

@@ -34,6 +34,7 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParameterValue;
@@ -57,6 +58,7 @@ import static qualitypatternmodel.operators.ComparisonOperator.*;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl#getMatch <em>Match</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl#getContains <em>Contains</em>}</li>
  * </ul>
  *
  * @generated
@@ -72,6 +74,16 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	 * @ordered
 	 */
 	protected EList<Match> match;
+
+	/**
+	 * The cached value of the '{@link #getContains() <em>Contains</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContains()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Contains> contains;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -550,6 +562,20 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Contains> getContains() {
+		if (contains == null) {
+			contains = new EObjectWithInverseResolvingEList<Contains>(Contains.class, this, GraphstructurePackage.PRIMITIVE_NODE__CONTAINS, OperatorsPackage.CONTAINS__PRIMITIVE_NODE);
+		}
+		return contains;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -594,6 +620,8 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		switch (featureID) {
 			case GraphstructurePackage.PRIMITIVE_NODE__MATCH:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMatch()).basicAdd(otherEnd, msgs);
+			case GraphstructurePackage.PRIMITIVE_NODE__CONTAINS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContains()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -608,6 +636,8 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		switch (featureID) {
 			case GraphstructurePackage.PRIMITIVE_NODE__MATCH:
 				return ((InternalEList<?>)getMatch()).basicRemove(otherEnd, msgs);
+			case GraphstructurePackage.PRIMITIVE_NODE__CONTAINS:
+				return ((InternalEList<?>)getContains()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -621,6 +651,8 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		switch (featureID) {
 			case GraphstructurePackage.PRIMITIVE_NODE__MATCH:
 				return getMatch();
+			case GraphstructurePackage.PRIMITIVE_NODE__CONTAINS:
+				return getContains();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -637,6 +669,10 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 				getMatch().clear();
 				getMatch().addAll((Collection<? extends Match>)newValue);
 				return;
+			case GraphstructurePackage.PRIMITIVE_NODE__CONTAINS:
+				getContains().clear();
+				getContains().addAll((Collection<? extends Contains>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -651,6 +687,9 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 			case GraphstructurePackage.PRIMITIVE_NODE__MATCH:
 				getMatch().clear();
 				return;
+			case GraphstructurePackage.PRIMITIVE_NODE__CONTAINS:
+				getContains().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -664,6 +703,8 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		switch (featureID) {
 			case GraphstructurePackage.PRIMITIVE_NODE__MATCH:
 				return match != null && !match.isEmpty();
+			case GraphstructurePackage.PRIMITIVE_NODE__CONTAINS:
+				return contains != null && !contains.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

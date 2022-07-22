@@ -37,11 +37,13 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.impl.ComparisonImpl;
+import qualitypatternmodel.operators.impl.ContainsImpl;
 import qualitypatternmodel.operators.impl.MatchImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -1905,6 +1907,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				}
 			case GraphstructurePackage.NODE___ADD_INCOMMING__COMPLEXNODE:
 				return addIncomming((ComplexNode)arguments.get(0));
+			case GraphstructurePackage.NODE___ADD_COMPARISON__NODE:
+				return addComparison((Node)arguments.get(0));
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON:
 				try {
 					return addPrimitiveComparison();
@@ -1943,6 +1947,26 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_MATCH__STRING:
 				try {
 					return addPrimitiveMatch((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_CONTAINS:
+				return addPrimitiveContains();
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_CONTAINS__STRING:
+				return addPrimitiveContains((String)arguments.get(0));
+			case GraphstructurePackage.NODE___CHECK_COMPARISON_CONSISTENCY:
+				try {
+					checkComparisonConsistency();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON:
+				try {
+					checkComparisonConsistency((Comparison)arguments.get(0));
+					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -2013,22 +2037,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___CHECK_COMPARISON_CONSISTENCY:
-				try {
-					checkComparisonConsistency();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON:
-				try {
-					checkComparisonConsistency((Comparison)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case GraphstructurePackage.NODE___ADAPT_AS_XML_ELEMENT:
 				try {
 					return adaptAsXmlElement();
@@ -2057,8 +2065,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___ADD_COMPARISON__NODE:
-				return addComparison((Node)arguments.get(0));
 			case GraphstructurePackage.NODE___CREATE_PARAMETERS:
 				createParameters();
 				return null;
@@ -2268,6 +2274,49 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		}
 
 	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public TextLiteralParam addPrimitiveContains() {
+		return addPrimitiveContains(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public TextLiteralParam addPrimitiveContains(String content) {
+		Contains contains = new ContainsImpl();
+		try {			
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+
+			oplist.add(contains);	
+			contains.createParameters();
+			PrimitiveNode p = null;
+			if(this instanceof PrimitiveNode) {
+				p = (PrimitiveNode) this;
+			} else {
+				p = makePrimitive();
+			}
+			contains.setPrimitiveNode(p);
+								
+			if(content != null) {
+				contains.getContent().setValue(content);
+			}
+			return contains.getContent();
+		} catch (Exception e) {
+			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
