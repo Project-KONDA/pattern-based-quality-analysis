@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.execution.impl;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
@@ -242,11 +244,21 @@ public class XmlSchemaDatabaseImpl extends XmlDatabaseImpl implements XmlSchemaD
 	}
 	
 	private static String readFile(String path, Charset encoding) throws IOException {		
-		path = "../" + path;		
-		URL fileURL = XmlSchemaDatabaseImpl.class.getClassLoader().getResource(path);		
-		Scanner scanner = new Scanner(fileURL.openStream(), "UTF-8");
-		String out = scanner.useDelimiter("\\A").next();
-		scanner.close();
+//		path = "../" + path;
+		String out = "";
+		
+		try(BufferedReader br = new BufferedReader(new FileReader(path))) {
+		    StringBuilder sb = new StringBuilder();
+		    String line = br.readLine();
+
+		    while (line != null) {
+		        sb.append(line);
+		        sb.append(System.lineSeparator());
+		        line = br.readLine();
+		    }
+		    out = sb.toString();
+		}
+		
 		return out;
 	}
 	

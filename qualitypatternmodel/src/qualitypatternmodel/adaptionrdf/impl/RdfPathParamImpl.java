@@ -82,11 +82,11 @@ public class RdfPathParamImpl extends ParameterImpl implements RdfPathParam {
 	public String generateSparql() throws InvalidityException {
 		String sparql = getRdfPathPart().generateSparql();
 		if (sparql == null) {
-			try {
-				sparql = super.generateSparql(); 
-			} catch (InvalidityException e) {
-				throw new InvalidityException("RdfPathParam not (fully) concretized or no ParameterReference defined");
-			}
+			sparql = super.generateSparql(); 
+//			try {
+//			} catch (InvalidityException e) {
+//				throw new InvalidityException("RdfPathParam not (fully) concretized or no ParameterReference defined :" + e.getMessage());
+//			}
 		}
 		return sparql;
 	}

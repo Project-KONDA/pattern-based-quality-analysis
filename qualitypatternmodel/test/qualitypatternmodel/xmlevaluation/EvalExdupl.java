@@ -52,8 +52,8 @@ public class EvalExdupl {
 		Test00.getQueries(completePatterns);
 //		Test00.test(completePatterns);	
 	}
-	
-	public static CompletePattern getExactDuplicatesAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+
+	public static CompletePattern getExactDuplicatesGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
@@ -97,10 +97,13 @@ public class EvalExdupl {
 		Comparison c = returnInCPattern.addComparison(otherRecord);
 		c.getTypeOption().setValue(ReturnType.ELEMENT);
 		
-		completePattern.createXmlAdaption();
-		
 		return completePattern;
+	}
 		
+	public static CompletePattern getExactDuplicatesAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getExactDuplicatesGeneric();
+		completePattern.createXmlAdaption();
+		return completePattern;
 	}
 	
 //	public static CompletePattern getExactDuplicatesTwoElementsAbstract() {	
