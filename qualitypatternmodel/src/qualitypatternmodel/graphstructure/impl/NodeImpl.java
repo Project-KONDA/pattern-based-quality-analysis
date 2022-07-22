@@ -1265,10 +1265,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			xmlProperty.createParameters();
 			
 			setReturnNode(false);
-			
+
 			if(this instanceof PrimitiveNode) {
 				xmlProperty.getMatch().addAll(((PrimitiveNode) this).getMatch());
 				((PrimitiveNode) this).getMatch().clear();		
+				xmlProperty.getContains().addAll(((PrimitiveNode) this).getContains());
+				((PrimitiveNode) this).getContains().clear();		
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
