@@ -359,6 +359,11 @@
       <eOperations name="addComparison" eType="#//operators/Comparison">
         <eParameters name="node" eType="#//graphstructure/Node"/>
       </eOperations>
+      <eOperations name="adaptAsNeoNode" eType="#//adaptionNeo4J/NeoNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="adaptAsNeoNodeRecursive" eType="#//adaptionNeo4J/NeoNode"/>
+      <eOperations name="adaptAsNeoAttributeNode" eType="#//adaptionNeo4J/NeoAttributeNode"
+          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="adaptAsNeoAttributeRecursive" eType="#//adaptionNeo4J/NeoAttributeNode"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
           eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/ElementMapping"

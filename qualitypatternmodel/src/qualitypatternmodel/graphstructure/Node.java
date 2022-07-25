@@ -4,6 +4,8 @@ package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.adaptionNeo4J.NeoAttributeNode;
+import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionrdf.RdfIriNode;
 import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
 import qualitypatternmodel.adaptionxml.XmlElement;
@@ -508,6 +510,38 @@ public interface Node extends qualitypatternmodel.graphstructure.Comparable, Pat
 	 * @generated
 	 */
 	Comparison addComparison(Node node);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	NeoNode adaptAsNeoNode() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	NeoNode adaptAsNeoNodeRecursive();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	NeoAttributeNode adaptAsNeoAttributeNode() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	NeoAttributeNode adaptAsNeoAttributeRecursive();
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -13,6 +13,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,9 +34,10 @@ public class NeoAttributeNodeImpl extends PrimitiveNodeImpl implements NeoAttrib
 	
 	@Override 
 	public String generateCypher() {
-		String cypher = null;
-		
-		return cypher;
+		StringBuilder cypher = new StringBuilder();
+		cypher.append(CypherSpecificConstants.VARIABLE_NODE);
+		cypher.append(getOriginalID());
+		return cypher.toString();
 	}
 	
 	@Override

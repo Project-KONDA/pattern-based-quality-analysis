@@ -321,6 +321,10 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/addComparison">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//graphstructure/Node/addComparison/node"/>
         </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsNeoNode"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsNeoNodeRecursive"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsNeoAttributeNode"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//graphstructure/Node/adaptAsNeoAttributeRecursive"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//graphstructure/Graph">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//graphstructure/Graph/nodes"/>

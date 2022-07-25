@@ -13,6 +13,7 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.ComplexNodeImpl;
 import qualitypatternmodel.patternstructure.PatternElement;
+import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,15 +34,15 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 
 	@Override
 	public String generateCypher() {
-		String cypher = "";
-		
-		return cypher;
+		StringBuilder cypher = new StringBuilder();
+		cypher.append(CypherSpecificConstants.VARIABLE_NODE);
+		cypher.append(getOriginalID());
+		return cypher.toString();
 	}
 	
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-			
-		return null;
+		return this;
 	}
 	
 	/*

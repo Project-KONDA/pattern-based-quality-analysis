@@ -14,6 +14,7 @@ import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
+import qualitypatternmodel.graphstructure.NeoQuantifier;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
@@ -83,6 +84,8 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 		switch (eDataType.getClassifierID()) {
 			case GraphstructurePackage.RETURN_TYPE:
 				return createReturnTypeFromString(eDataType, initialValue);
+			case GraphstructurePackage.NEO_QUANTIFIER:
+				return createNeoQuantifierFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -98,6 +101,8 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 		switch (eDataType.getClassifierID()) {
 			case GraphstructurePackage.RETURN_TYPE:
 				return convertReturnTypeToString(eDataType, instanceValue);
+			case GraphstructurePackage.NEO_QUANTIFIER:
+				return convertNeoQuantifierToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -175,6 +180,26 @@ public class GraphstructureFactoryImpl extends EFactoryImpl implements Graphstru
 	 * @generated
 	 */
 	public String convertReturnTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NeoQuantifier createNeoQuantifierFromString(EDataType eDataType, String initialValue) {
+		NeoQuantifier result = NeoQuantifier.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertNeoQuantifierToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import qualitypatternmodel.adaptionNeo4J.NeoAttributeNode;
+import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionrdf.RdfIriNode;
 import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
 import qualitypatternmodel.adaptionrdf.impl.RdfIriNodeImpl;
@@ -316,7 +318,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		throw new UnsupportedOperationException();
+		return null;//adaptAsNeoNode();
 	}
 	
 	@Override
@@ -1459,6 +1461,54 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		return null;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NeoNode adaptAsNeoNode() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NeoNode adaptAsNeoNodeRecursive() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NeoAttributeNode adaptAsNeoAttributeNode() throws InvalidityException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NeoAttributeNode adaptAsNeoAttributeRecursive() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 	private RdfLiteralNode adaptAsRdfLiteralNodeRecursive() throws InvalidityException {		
 		if (!(this instanceof RdfLiteralNode)) {
 			RdfLiteralNodeImpl rdfLiteral = new RdfLiteralNodeImpl();	
@@ -2059,6 +2109,24 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				}
 			case GraphstructurePackage.NODE___ADD_COMPARISON__NODE:
 				return addComparison((Node)arguments.get(0));
+			case GraphstructurePackage.NODE___ADAPT_AS_NEO_NODE:
+				try {
+					return adaptAsNeoNode();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___ADAPT_AS_NEO_NODE_RECURSIVE:
+				return adaptAsNeoNodeRecursive();
+			case GraphstructurePackage.NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE:
+				try {
+					return adaptAsNeoAttributeNode();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___ADAPT_AS_NEO_ATTRIBUTE_RECURSIVE:
+				return adaptAsNeoAttributeRecursive();
 			case GraphstructurePackage.NODE___CREATE_PARAMETERS:
 				createParameters();
 				return null;
