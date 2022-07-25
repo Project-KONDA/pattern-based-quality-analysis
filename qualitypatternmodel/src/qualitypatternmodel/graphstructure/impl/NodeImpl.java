@@ -962,6 +962,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			throw new InvalidityException("PrimitiveNode with match can not be turned into generic Node");
 		}		
 		
+		if(this instanceof PrimitiveNode && !((PrimitiveNode) this).getContains().isEmpty()) {
+			throw new InvalidityException("PrimitiveNode with contains can not be turned into generic Node");
+		}		
+		
 		for(Comparison comp : getComparison1()) {
 			if(comp.getArgument2() instanceof ParameterValue) {
 				throw new InvalidityException("Node with primitive comparison can not be turned into generic Node");	
@@ -1486,7 +1490,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			if(this instanceof PrimitiveNode) {
 				rdfLiteral.getMatch().addAll(((PrimitiveNode) this).getMatch());
-				((PrimitiveNode) this).getMatch().clear();		
+				((PrimitiveNode) this).getMatch().clear();
+				rdfLiteral.getContains().addAll(((PrimitiveNode) this).getContains());
+				((PrimitiveNode) this).getContains().clear();		
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();

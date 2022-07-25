@@ -116,8 +116,13 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 	@Override
 	public String generateSparql() throws InvalidityException {
 		if(option!=null && content != null && content.getValue() != null && primitiveNode != null) {
-			if (option.getValue()){			
-				return "\nFILTER (contains(" + primitiveNode.generateSparql() + ", " + content.generateSparql() + "))";
+			if (option.getValue()){
+				String result = "\nFILTER (contains(";
+				result += primitiveNode.generateSparql();
+				result += ", ";
+				result += content.generateSparql();
+				result += "))";
+				return result;
 			} else {
 				return "\nFILTER (!contains(" + primitiveNode.generateSparql() + ", " + content.generateSparql() + "))";
 			}	
