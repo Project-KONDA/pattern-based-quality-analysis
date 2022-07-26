@@ -74,6 +74,21 @@ public class Test00 {
 		completePattern.createXmlAdaption();
 		return completePattern;
 	}
+
+	public static CompletePattern getBasePattern() {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		// PATTERN
+		CompletePattern completePattern = factory.createCompletePattern();
+		completePattern.setName("MyPattern");
+				
+//		// FIRST CONDITION
+//		Condition truecondition = factory.createTrueElement();
+//		completePattern.setCondition(truecondition);
+		
+		return completePattern;
+	}
 	
 	public static CompletePattern getBasePatternCond(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
