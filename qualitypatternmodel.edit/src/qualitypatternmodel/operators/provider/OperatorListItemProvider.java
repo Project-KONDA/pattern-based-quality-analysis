@@ -146,6 +146,11 @@ public class OperatorListItemProvider extends PatternElementItemProvider {
 			(createChildParameter
 				(OperatorsPackage.Literals.OPERATOR_LIST__OPERATORS,
 				 OperatorsFactory.eINSTANCE.createComparison()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(OperatorsPackage.Literals.OPERATOR_LIST__OPERATORS,
+				 OperatorsFactory.eINSTANCE.createContains()));
 	}
 
 	/**

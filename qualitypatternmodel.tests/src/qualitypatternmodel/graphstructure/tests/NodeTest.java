@@ -25,12 +25,17 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addOutgoing() <em>Add Outgoing</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addOutgoing(qualitypatternmodel.graphstructure.Node) <em>Add Outgoing</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addIncomming(qualitypatternmodel.graphstructure.ComplexNode) <em>Add Incomming</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addComparison(qualitypatternmodel.graphstructure.Node) <em>Add Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveComparison() <em>Add Primitive Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveComparison(java.lang.String) <em>Add Primitive Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveComparison(qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveComparison(qualitypatternmodel.operators.ComparisonOperator, qualitypatternmodel.parameters.ParameterValue) <em>Add Primitive Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveMatch() <em>Add Primitive Match</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveMatch(java.lang.String) <em>Add Primitive Match</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveContains() <em>Add Primitive Contains</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#addPrimitiveContains(java.lang.String) <em>Add Primitive Contains</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency(qualitypatternmodel.operators.Comparison) <em>Check Comparison Consistency</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#checkGeneric() <em>Check Generic</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#makeGeneric() <em>Make Generic</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#makeGenericRecursive() <em>Make Generic Recursive</em>}</li>
@@ -40,13 +45,10 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Node#checkPrimitive() <em>Check Primitive</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#makePrimitive() <em>Make Primitive</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#makePrimitiveRecursive() <em>Make Primitive Recursive</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency() <em>Check Comparison Consistency</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency(qualitypatternmodel.operators.Comparison) <em>Check Comparison Consistency</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#adaptAsXmlElement() <em>Adapt As Xml Element</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#adaptAsXmlProperty() <em>Adapt As Xml Property</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#adaptAsRdfIriNode() <em>Adapt As Rdf Iri Node</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Node#adaptAsRdfLiteralNode() <em>Adapt As Rdf Literal Node</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Node#addComparison(qualitypatternmodel.graphstructure.Node) <em>Add Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
@@ -132,6 +134,32 @@ public class NodeTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testAddPrimitiveMatch__String() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveContains() <em>Add Primitive Contains</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveContains()
+	 * @generated
+	 */
+	public void testAddPrimitiveContains() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Node#addPrimitiveContains(java.lang.String) <em>Add Primitive Contains</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Node#addPrimitiveContains(java.lang.String)
+	 * @generated
+	 */
+	public void testAddPrimitiveContains__String() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

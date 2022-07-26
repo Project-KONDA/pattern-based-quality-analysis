@@ -4,6 +4,7 @@ package qualitypatternmodel.adaptionxml.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -153,6 +154,13 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	private EEnum xmlAxisKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType xmlAxisKindArrayEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -571,6 +579,26 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EOperation getXmlPathParam__SetXmlAxis__XmlAxisKind() {
+		return xmlPathParamEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getXmlPathParam__SetXmlAxis__XmlAxisKind_String_1() {
+		return xmlPathParamEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getXmlAxisPair() {
 		return xmlAxisPairEClass;
 	}
@@ -781,6 +809,16 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 	 * @generated
 	 */
 	@Override
+	public EDataType getXmlAxisKindArray() {
+		return xmlAxisKindArrayEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public AdaptionxmlFactory getAdaptionxmlFactory() {
 		return (AdaptionxmlFactory)getEFactoryInstance();
 	}
@@ -844,6 +882,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		createEReference(xmlPathParamEClass, XML_PATH_PARAM__XML_NAVIGATION);
 		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND_STRING);
 		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___ADD_XML_AXIS__XMLAXISKIND_STRING);
+		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND);
+		createEOperation(xmlPathParamEClass, XML_PATH_PARAM___SET_XML_AXIS__XMLAXISKIND_STRING_1);
 
 		xmlAxisPairEClass = createEClass(XML_AXIS_PAIR);
 		createEReference(xmlAxisPairEClass, XML_AXIS_PAIR__TEXT_LITERAL_PARAM);
@@ -870,6 +910,9 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		// Create enums
 		xmlPropertyKindEEnum = createEEnum(XML_PROPERTY_KIND);
 		xmlAxisKindEEnum = createEEnum(XML_AXIS_KIND);
+
+		// Create data types
+		xmlAxisKindArrayEDataType = createEDataType(XML_AXIS_KIND_ARRAY);
 	}
 
 	/**
@@ -982,6 +1025,13 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		addEParameter(op, this.getXmlAxisKind(), "axis", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "tag", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getXmlPathParam__SetXmlAxis__XmlAxisKind(), null, "setXmlAxis", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getXmlAxisKindArray(), "axis", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getXmlPathParam__SetXmlAxis__XmlAxisKind_String_1(), null, "setXmlAxis", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getXmlAxisKindArray(), "axis", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "tag", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(xmlAxisPairEClass, XmlAxisPair.class, "XmlAxisPair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getXmlAxisPair_TextLiteralParam(), theParametersPackage.getTextLiteralParam(), theParametersPackage.getTextLiteralParam_XmlAxisPair(), "textLiteralParam", null, 1, 1, XmlAxisPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getXmlAxisPair_XmlAxisOptionParam(), this.getXmlAxisOptionParam(), this.getXmlAxisOptionParam_XmlAxisPair(), "xmlAxisOptionParam", null, 1, 1, XmlAxisPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1033,6 +1083,9 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		addEEnumLiteral(xmlAxisKindEEnum, XmlAxisKind.ANCESTOR_OR_SELF);
 		addEEnumLiteral(xmlAxisKindEEnum, XmlAxisKind.DESCENDANT_OR_SELF);
 		addEEnumLiteral(xmlAxisKindEEnum, XmlAxisKind.SELF);
+
+		// Initialize data types
+		initEDataType(xmlAxisKindArrayEDataType, XmlAxisKind[].class, "XmlAxisKindArray", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -11,7 +11,6 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
-import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.patternstructure.PatternElement;

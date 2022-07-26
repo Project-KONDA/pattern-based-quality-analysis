@@ -104,4 +104,20 @@ public interface XmlPathParam extends Adaptable, Parameter {
 	 */
 	void addXmlAxis(XmlAxisKind axis, String tag);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model axisDataType="qualitypatternmodel.adaptionxml.XmlAxisKindArray"
+	 * @generated
+	 */
+	void setXmlAxis(XmlAxisKind[] axis);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model axisDataType="qualitypatternmodel.adaptionxml.XmlAxisKindArray"
+	 * @generated
+	 */
+	void setXmlAxis(XmlAxisKind[] axis, String tag);
+
 } // PathParam

@@ -141,6 +141,29 @@ public class OperatorsItemProviderAdapterFactory extends OperatorsAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.operators.Contains} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ContainsItemProvider containsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.operators.Contains}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createContainsAdapter() {
+		if (containsItemProvider == null) {
+			containsItemProvider = new ContainsItemProvider(this);
+		}
+
+		return containsItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -248,6 +271,7 @@ public class OperatorsItemProviderAdapterFactory extends OperatorsAdapterFactory
 		if (matchItemProvider != null) matchItemProvider.dispose();
 		if (comparisonItemProvider != null) comparisonItemProvider.dispose();
 		if (operatorListItemProvider != null) operatorListItemProvider.dispose();
+		if (containsItemProvider != null) containsItemProvider.dispose();
 	}
 
 }

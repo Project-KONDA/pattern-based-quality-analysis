@@ -451,6 +451,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 		addXmlAxis(axis, tag);
 	}
 
+	@Override
 	public void setXmlAxis(XmlAxisKind[] axis) {
 		getXmlAxisPairs().clear();
 		for (XmlAxisKind a: axis) {
@@ -458,6 +459,7 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 		}		
 	}
 
+	@Override
 	public void setXmlAxis(XmlAxisKind[] axis, String tag) {
 		getXmlAxisPairs().clear();
 		for (int i = 0; i<axis.length; i++) {

@@ -590,6 +590,7 @@
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/XmlAxisKind/DESCENDANT_OR_SELF"/>
         <genEnumLiterals ecoreEnumLiteral="qualitypatternmodel.ecore#//adaptionxml/XmlAxisKind/SELF"/>
       </genEnums>
+      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//adaptionxml/XmlAxisKindArray"/>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//adaptionxml/XmlElement/xQueryDeepEqual"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlElement/getTagFromComparisons"/>
@@ -639,6 +640,13 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/addXmlAxis">
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/addXmlAxis/axis"/>
           <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/addXmlAxis/tag"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/setXmlAxis.1">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/setXmlAxis.1/axis"/>
+        </genOperations>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/setXmlAxis.2">
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/setXmlAxis.2/axis"/>
+          <genParameters ecoreParameter="qualitypatternmodel.ecore#//adaptionxml/XmlPathParam/setXmlAxis.2/tag"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionxml/XmlAxisPair">
