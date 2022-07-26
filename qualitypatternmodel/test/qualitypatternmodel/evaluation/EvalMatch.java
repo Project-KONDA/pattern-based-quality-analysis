@@ -6,11 +6,23 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
+
+import java.util.ArrayList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 
 public class EvalMatch {
+
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getMatchGeneric());
+		completePatterns.add(getMatchCondGeneric());
+		completePatterns.add(getMatch3CondGeneric());
+		for (CompletePattern cp: completePatterns)
+			System.out.println(cp.myToString());
+	}
 	
 	public static CompletePattern getMatchGeneric() throws InvalidityException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();

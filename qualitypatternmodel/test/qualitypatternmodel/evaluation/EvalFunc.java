@@ -13,13 +13,24 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+
+import java.util.ArrayList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 
 public class EvalFunc {
 
-	public static CompletePattern getFuncGenericComp() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getFuncCondGeneric());
+		completePatterns.add(getFuncLidoGeneric());
+		for (CompletePattern cp: completePatterns)
+			System.out.println(cp.myToString());
+	}
+
+	public static CompletePattern getFuncCondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();

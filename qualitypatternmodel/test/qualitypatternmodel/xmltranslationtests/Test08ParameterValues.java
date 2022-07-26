@@ -42,7 +42,7 @@ public class Test08ParameterValues {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		completePattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveComparison(ComparisonOperator.EQUAL, parameterValue);
 //		completePattern.getGraph().getElements().get(0).addPrimitiveComparison(ComparisonOperator.NOTEQUAL, parameter);
 		

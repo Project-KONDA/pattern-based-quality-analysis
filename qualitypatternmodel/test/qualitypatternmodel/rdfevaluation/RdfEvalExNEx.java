@@ -28,7 +28,7 @@ public class RdfEvalExNEx {
 	}
 
 	private static CompletePattern getExNexAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalExNEx.getExNexGeneric();
+		CompletePattern completePattern = EvalExNEx.getExNExGeneric();
 		completePattern.createRdfAdaption();
 		return completePattern;		
 	}

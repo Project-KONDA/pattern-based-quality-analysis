@@ -1,5 +1,7 @@
 package qualitypatternmodel.evaluation;
 
+import java.util.ArrayList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -14,8 +16,16 @@ import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class EvalMandatt {
+
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getMandattCondGeneric());
+		completePatterns.add(getMandatt3CondGeneric());
+		for (CompletePattern cp: completePatterns)
+			System.out.println(cp.myToString());
+	}
 	
-	public static CompletePattern getMandattGenericCond() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getMandattCondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		
@@ -48,7 +58,7 @@ public class EvalMandatt {
 		return completePattern;		
 	}
 	
-	public static CompletePattern getMandatt3GenericCond() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getMandatt3CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		

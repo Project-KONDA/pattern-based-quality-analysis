@@ -8,11 +8,23 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+
+import java.util.ArrayList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 
 public class EvalCompval {
+
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getCompvalGeneric());
+		completePatterns.add(getCompvalCondGeneric());
+		completePatterns.add(getCompval3CondGeneric());
+		for (CompletePattern cp: completePatterns)
+			System.out.println(cp.myToString());
+	}
 	
 	public static CompletePattern getCompvalGeneric() throws InvalidityException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();

@@ -24,7 +24,7 @@ public class Test11Contains {
 
 	
 	public static CompletePattern getPatternContains(Boolean invert, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = Test00.getBasePattern();
+		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		pattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveContains(str);
 		Contains contains = ((Contains) pattern.getGraph().getOperatorList().getOperators().get(0));
 		contains.getOption().setValue(invert);

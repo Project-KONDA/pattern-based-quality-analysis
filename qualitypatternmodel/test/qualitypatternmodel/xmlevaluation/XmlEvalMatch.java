@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.evaluation.EvalMatch;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -63,8 +63,8 @@ public class XmlEvalMatch {
 		
 //		BooleanParam p0 = ((BooleanParam) params.get(0));
 		TextLiteralParam p1 = ((TextLiteralParam) params.get(1));
-		XmlPathParamImpl p2 = ((XmlPathParamImpl) params.get(2));
-		XmlPathParamImpl p3 = ((XmlPathParamImpl) params.get(3));
+		XmlPathParam p2 = ((XmlPathParam) params.get(2));
+		XmlPathParam p3 = ((XmlPathParam) params.get(3));
 		
 		p1.setValue(regex);
 		p2.setXmlAxis(returnElementAxis, returnElementType);
@@ -88,11 +88,11 @@ public class XmlEvalMatch {
 //		TypeOptionParam p5 = ((TypeOptionParam) params.get(5));
 		BooleanParam p6 = ((BooleanParam) params.get(6));
 		TextLiteralParam p7 = ((TextLiteralParam) params.get(7));
-		XmlPathParamImpl p8 = ((XmlPathParamImpl) params.get(8));
-		XmlPathParamImpl p9 = ((XmlPathParamImpl) params.get(9));
-		XmlPathParamImpl p10 = ((XmlPathParamImpl) params.get(10));
-		XmlPathParamImpl p11 = ((XmlPathParamImpl) params.get(11));
-		XmlPathParamImpl p12 = ((XmlPathParamImpl) params.get(12));
+		XmlPathParam p8 = ((XmlPathParam) params.get(8));
+		XmlPathParam p9 = ((XmlPathParam) params.get(9));
+		XmlPathParam p10 = ((XmlPathParam) params.get(10));
+		XmlPathParam p11 = ((XmlPathParam) params.get(11));
+		XmlPathParam p12 = ((XmlPathParam) params.get(12));
 
 		p0.setValue(returnElementType);
 		p3.setValue(element2Type);
@@ -135,13 +135,13 @@ public class XmlEvalMatch {
 //		TypeOptionParam p8 = ((TypeOptionParam) params.get(8));
 		BooleanParam p9 = ((BooleanParam) params.get(9));
 		TextLiteralParam p10 = ((TextLiteralParam) params.get(10));
-		XmlPathParamImpl p11 = ((XmlPathParamImpl) params.get(11));
-		XmlPathParamImpl p12 = ((XmlPathParamImpl) params.get(12));
-		XmlPathParamImpl p13 = ((XmlPathParamImpl) params.get(13));
-		XmlPathParamImpl p14 = ((XmlPathParamImpl) params.get(14));
-		XmlPathParamImpl p15 = ((XmlPathParamImpl) params.get(15));
-		XmlPathParamImpl p16 = ((XmlPathParamImpl) params.get(16));
-		XmlPathParamImpl p17 = ((XmlPathParamImpl) params.get(17));
+		XmlPathParam p11 = ((XmlPathParam) params.get(11));
+		XmlPathParam p12 = ((XmlPathParam) params.get(12));
+		XmlPathParam p13 = ((XmlPathParam) params.get(13));
+		XmlPathParam p14 = ((XmlPathParam) params.get(14));
+		XmlPathParam p15 = ((XmlPathParam) params.get(15));
+		XmlPathParam p16 = ((XmlPathParam) params.get(16));
+		XmlPathParam p17 = ((XmlPathParam) params.get(17));
 		
 		p0.setValue(returnElementType);
 		p3.setValue(element2Type);

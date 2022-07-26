@@ -1,5 +1,7 @@
 package qualitypatternmodel.evaluation;
 
+import java.util.ArrayList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -24,6 +26,13 @@ import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class EvalExDup {
 
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getExactDuplicatesGeneric());
+		for (CompletePattern cp: completePatterns)
+			System.out.println(cp.myToString());
+	}
+
 	public static CompletePattern getExactDuplicatesGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
@@ -32,7 +41,7 @@ public class EvalExDup {
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		completePattern.getGraph().getReturnNodes().get(0).addOutgoing().getTarget().addPrimitiveComparison();
 		
 		CountCondition countCondition = factory.createCountCondition();

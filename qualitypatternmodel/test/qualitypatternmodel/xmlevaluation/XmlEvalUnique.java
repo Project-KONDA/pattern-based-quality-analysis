@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -40,8 +40,7 @@ public class XmlEvalUnique {
 		completePatterns.add(getUniqueComplexLidoNameActorSet());
 		
 		Test00.getQueries(completePatterns);
-//		Test00.test(completePatterns);	
-		
+//		Test00.test(completePatterns);
 	}
 
 	private static CompletePattern getUniqueAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -133,16 +132,16 @@ public class XmlEvalUnique {
 //		TypeOptionParam p13 = ((TypeOptionParam) params.get(13));
 //		ComparisonOptionParam p14 = ((ComparisonOptionParam) params.get(14));
 //		TypeOptionParam p15 = ((TypeOptionParam) params.get(15));
-		XmlPathParamImpl p16 = ((XmlPathParamImpl) params.get(16));
-		XmlPathParamImpl p17 = ((XmlPathParamImpl) params.get(17));
-		XmlPathParamImpl p18 = ((XmlPathParamImpl) params.get(18));
-		XmlPathParamImpl p19 = ((XmlPathParamImpl) params.get(19));
-		XmlPathParamImpl p20 = ((XmlPathParamImpl) params.get(20));
-		XmlPathParamImpl p21 = ((XmlPathParamImpl) params.get(21));
-		XmlPathParamImpl p22 = ((XmlPathParamImpl) params.get(22));
-		XmlPathParamImpl p23 = ((XmlPathParamImpl) params.get(23));
-		XmlPathParamImpl p24 = ((XmlPathParamImpl) params.get(24));
-		XmlPathParamImpl p25 = ((XmlPathParamImpl) params.get(25));
+		XmlPathParam p16 = ((XmlPathParam) params.get(16));
+		XmlPathParam p17 = ((XmlPathParam) params.get(17));
+		XmlPathParam p18 = ((XmlPathParam) params.get(18));
+		XmlPathParam p19 = ((XmlPathParam) params.get(19));
+		XmlPathParam p20 = ((XmlPathParam) params.get(20));
+		XmlPathParam p21 = ((XmlPathParam) params.get(21));
+		XmlPathParam p22 = ((XmlPathParam) params.get(22));
+		XmlPathParam p23 = ((XmlPathParam) params.get(23));
+		XmlPathParam p24 = ((XmlPathParam) params.get(24));
+		XmlPathParam p25 = ((XmlPathParam) params.get(25));
 		
 		p2.setValue(elementname);
 		p5.setValue(elementfield);
@@ -287,24 +286,24 @@ public class XmlEvalUnique {
 //		TypeOptionParam p25 = ((TypeOptionParam) params.get(25));
 //		ComparisonOptionParam p26 = ((ComparisonOptionParam) params.get(26));
 //		TypeOptionParam p27 = ((TypeOptionParam) params.get(27));
-		XmlPathParamImpl p28 = ((XmlPathParamImpl) params.get(28));
-		XmlPathParamImpl p29 = ((XmlPathParamImpl) params.get(29));
-		XmlPathParamImpl p30 = ((XmlPathParamImpl) params.get(30));
-		XmlPathParamImpl p31 = ((XmlPathParamImpl) params.get(31));
-		XmlPathParamImpl p32 = ((XmlPathParamImpl) params.get(32));
-		XmlPathParamImpl p33 = ((XmlPathParamImpl) params.get(33));
-		XmlPathParamImpl p34 = ((XmlPathParamImpl) params.get(34));
-		XmlPathParamImpl p35 = ((XmlPathParamImpl) params.get(35));
-		XmlPathParamImpl p36 = ((XmlPathParamImpl) params.get(36));
-		XmlPathParamImpl p37 = ((XmlPathParamImpl) params.get(37));
-		XmlPathParamImpl p38 = ((XmlPathParamImpl) params.get(38));
-		XmlPathParamImpl p39 = ((XmlPathParamImpl) params.get(39));
-		XmlPathParamImpl p40 = ((XmlPathParamImpl) params.get(40));
-		XmlPathParamImpl p41 = ((XmlPathParamImpl) params.get(41));
-		XmlPathParamImpl p42 = ((XmlPathParamImpl) params.get(42));
-		XmlPathParamImpl p43 = ((XmlPathParamImpl) params.get(43));
-		XmlPathParamImpl p44 = ((XmlPathParamImpl) params.get(44));
-		XmlPathParamImpl p45 = ((XmlPathParamImpl) params.get(45));
+		XmlPathParam p28 = ((XmlPathParam) params.get(28));
+		XmlPathParam p29 = ((XmlPathParam) params.get(29));
+		XmlPathParam p30 = ((XmlPathParam) params.get(30));
+		XmlPathParam p31 = ((XmlPathParam) params.get(31));
+		XmlPathParam p32 = ((XmlPathParam) params.get(32));
+		XmlPathParam p33 = ((XmlPathParam) params.get(33));
+		XmlPathParam p34 = ((XmlPathParam) params.get(34));
+		XmlPathParam p35 = ((XmlPathParam) params.get(35));
+		XmlPathParam p36 = ((XmlPathParam) params.get(36));
+		XmlPathParam p37 = ((XmlPathParam) params.get(37));
+		XmlPathParam p38 = ((XmlPathParam) params.get(38));
+		XmlPathParam p39 = ((XmlPathParam) params.get(39));
+		XmlPathParam p40 = ((XmlPathParam) params.get(40));
+		XmlPathParam p41 = ((XmlPathParam) params.get(41));
+		XmlPathParam p42 = ((XmlPathParam) params.get(42));
+		XmlPathParam p43 = ((XmlPathParam) params.get(43));
+		XmlPathParam p44 = ((XmlPathParam) params.get(44));
+		XmlPathParam p45 = ((XmlPathParam) params.get(45));
 		
 		p2.setValue(e0Name);
 		p5.setValue(e1Name);

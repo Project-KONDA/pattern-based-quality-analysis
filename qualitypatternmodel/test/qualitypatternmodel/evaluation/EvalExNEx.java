@@ -1,5 +1,7 @@
 package qualitypatternmodel.evaluation;
 
+import java.util.ArrayList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -12,7 +14,15 @@ import qualitypatternmodel.xmltranslationtests.Test06NotElement;
 
 public class EvalExNEx {
 
-	public static CompletePattern getExNexGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getExNExGeneric());
+		completePatterns.add(getExNExCondGeneric());
+		for (CompletePattern cp: completePatterns)
+			System.out.println(cp.myToString());
+	}
+
+	public static CompletePattern getExNExGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 
 		NotCondition not = PatternstructureFactory.eINSTANCE.createNotCondition();
@@ -28,7 +38,7 @@ public class EvalExNEx {
 		return completePattern;
 	}
 	
-	public static CompletePattern getExNExGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getExNExCondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
 		CompletePattern completePattern = Test06NotElement.getPatternExistsNotExistsAbstract();
 		

@@ -10,11 +10,28 @@ import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+
+import java.util.ArrayList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 
 public class EvalComp {
+
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getCompGeneric());
+		completePatterns.add(getCompCondGeneric());
+		for (CompletePattern cp: completePatterns) {
+			System.out.println(cp.myToString());
+			System.out.println();
+			cp.createXmlAdaption();
+			Test00.replace(cp);
+			System.out.println(cp.generateXQuery());
+			System.out.println();
+		}
+	}
 	
 	public static CompletePattern getCompGeneric() throws InvalidityException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
@@ -51,11 +68,11 @@ public class EvalComp {
 		return completePattern;	
 	}
 	
-	public static CompletePattern getCompGenericCond() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getCompCondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory patternStructureFactory = PatternstructureFactory.eINSTANCE;
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = factory.createCompletePattern();
 		
 		Graph g1 = completePattern.getGraph();
 
@@ -63,7 +80,7 @@ public class EvalComp {
 		Node g1n2 = g1n1.addOutgoing().getTarget().makePrimitive();
 		g1n2.addPrimitiveComparison();
 		
-		QuantifiedCondition q1 = patternStructureFactory.createQuantifiedCondition();
+		QuantifiedCondition q1 = factory.createQuantifiedCondition();
 		completePattern.setCondition(q1);	
 		Graph g2 = q1.getGraph();
 		Node g2n1 = g2.getReturnNodes().get(0);
@@ -71,7 +88,7 @@ public class EvalComp {
 		Node g2n4 = g2n3.addOutgoing().getTarget().makePrimitive();
 		g2n4.addPrimitiveComparison();
 
-		QuantifiedCondition q2 = patternStructureFactory.createQuantifiedCondition();
+		QuantifiedCondition q2 = factory.createQuantifiedCondition();
 		q1.setCondition(q2);	
 		Graph g3 = q2.getGraph();
 		Node g3n1 = g3.getReturnNodes().get(0);

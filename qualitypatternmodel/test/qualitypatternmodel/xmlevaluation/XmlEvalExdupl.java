@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.evaluation.EvalExDup;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -49,10 +49,10 @@ public class XmlEvalExdupl {
 //		TypeOptionParam p7 = ((TypeOptionParam) params.get(7));
 //		ComparisonOptionParam p8 = ((ComparisonOptionParam) params.get(8));
 //		TypeOptionParam p9 = ((TypeOptionParam) params.get(9));
-		XmlPathParamImpl p10 = ((XmlPathParamImpl) params.get(10));
-		XmlPathParamImpl p11 = ((XmlPathParamImpl) params.get(11));
-		XmlPathParamImpl p12 = ((XmlPathParamImpl) params.get(12));
-		XmlPathParamImpl p13 = ((XmlPathParamImpl) params.get(13));
+		XmlPathParam p10 = ((XmlPathParam) params.get(10));
+		XmlPathParam p11 = ((XmlPathParam) params.get(11));
+		XmlPathParam p12 = ((XmlPathParam) params.get(12));
+		XmlPathParam p13 = ((XmlPathParam) params.get(13));
 		
 		p0.setValue("wer");
 		p4.setValue(1.0);
@@ -84,10 +84,10 @@ public class XmlEvalExdupl {
 //		TypeOptionParam p7 = ((TypeOptionParam) params.get(7));
 //		ComparisonOptionParam p8 = ((ComparisonOptionParam) params.get(8));
 //		TypeOptionParam p9 = ((TypeOptionParam) params.get(9));
-		XmlPathParamImpl p10 = ((XmlPathParamImpl) params.get(10));
-		XmlPathParamImpl p11 = ((XmlPathParamImpl) params.get(11));
-		XmlPathParamImpl p12 = ((XmlPathParamImpl) params.get(12));
-		XmlPathParamImpl p13 = ((XmlPathParamImpl) params.get(13));
+		XmlPathParam p10 = ((XmlPathParam) params.get(10));
+		XmlPathParam p11 = ((XmlPathParam) params.get(11));
+		XmlPathParam p12 = ((XmlPathParam) params.get(12));
+		XmlPathParam p13 = ((XmlPathParam) params.get(13));
 
 		p0.setValue("lido:lido");
 		p4.setValue(1.0);

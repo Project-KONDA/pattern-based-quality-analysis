@@ -29,7 +29,7 @@ public class Test11Match {
 
 	
 	public static CompletePattern getPatternMatch(Boolean invert, String str) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = Test00.getBasePattern();
+		CompletePattern pattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		pattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveMatch(str);
 		Match match = ((Match) pattern.getGraph().getOperatorList().getOperators().get(0));
 		match.getOption().setValue(invert);

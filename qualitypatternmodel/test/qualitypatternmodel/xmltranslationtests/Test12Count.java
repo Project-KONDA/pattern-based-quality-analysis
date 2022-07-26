@@ -3,28 +3,19 @@ package qualitypatternmodel.xmltranslationtests;
 import java.util.ArrayList;
 import java.util.List;
 
-import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.parameters.NumberParam;
-import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.Formula;
@@ -73,11 +64,9 @@ public class Test12Count {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;		
 		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;		
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
+		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		completePattern.getGraph().getReturnNodes().get(0).addOutgoing().getTarget().addPrimitiveComparison();
 		
 		CountCondition countCondition = factory.createCountCondition();
@@ -106,10 +95,6 @@ public class Test12Count {
 	public static CompletePattern getPatternCountInExists() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
 		
 		CompletePattern completePattern = Test03Quantor.getPatternExists();
 		completePattern.getGraph().getNodes().get(0).addOutgoing().getTarget().addPrimitiveComparison();
@@ -181,10 +166,8 @@ public class Test12Count {
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
 		
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		
 		NotCondition n = factory.createNotCondition();
 		completePattern.setCondition(n);
@@ -224,10 +207,7 @@ public class Test12Count {
 		
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphstructureFactory = GraphstructureFactory.eINSTANCE;
-		
+				
 		CompletePattern completePattern = factory.createCompletePattern();
 		completePattern.getGraph().getReturnNodes().get(0).addOutgoing().getTarget().addPrimitiveComparison();
 		Formula formula = factory.createFormula();

@@ -29,7 +29,7 @@ public class Test06NotElement {
 	public static CompletePattern getPatternNotTrue() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		
 		NotCondition n = factory.createNotCondition();
 		completePattern.setCondition(n);
@@ -42,7 +42,7 @@ public class Test06NotElement {
 	public static CompletePattern getPatternNotNotTrue() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		
 		NotCondition n = factory.createNotCondition();
 		completePattern.setCondition(n);
@@ -56,10 +56,8 @@ public class Test06NotElement {
 	public static CompletePattern getPatternNotExistsAbstract() throws InvalidityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		
 		NotCondition n = factory.createNotCondition();
 		completePattern.setCondition(n);

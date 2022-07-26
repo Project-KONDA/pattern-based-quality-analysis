@@ -6,7 +6,7 @@ import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.evaluation.EvalExNEx;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -33,7 +33,7 @@ public class XmlEvalExNEx {
 	}
 		
 	public static CompletePattern getExNExAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalExNEx.getExNExGeneric();
+		CompletePattern completePattern = EvalExNEx.getExNExCondGeneric();
 		completePattern.createXmlAdaption();
 		return completePattern;		
 	}
@@ -68,11 +68,11 @@ public class XmlEvalExNEx {
 		UntypedParameterValue p3 = ((UntypedParameterValue) params.get(3));
 		ComparisonOptionParam p4 = ((ComparisonOptionParam) params.get(4));
 //		TypeOptionParam p5 = ((TypeOptionParam) params.get(5));
-		XmlPathParamImpl p6 = ((XmlPathParamImpl) params.get(6));
-		XmlPathParamImpl p7 = ((XmlPathParamImpl) params.get(7));
-		XmlPathParamImpl p8 = ((XmlPathParamImpl) params.get(8));
-		XmlPathParamImpl p9 = ((XmlPathParamImpl) params.get(9));
-		XmlPathParamImpl p10 = ((XmlPathParamImpl) params.get(10));
+		XmlPathParam p6 = ((XmlPathParam) params.get(6));
+		XmlPathParam p7 = ((XmlPathParam) params.get(7));
+		XmlPathParam p8 = ((XmlPathParam) params.get(8));
+		XmlPathParam p9 = ((XmlPathParam) params.get(9));
+		XmlPathParam p10 = ((XmlPathParam) params.get(10));
 				
 		p0.setValue("obj");
 		p1.setValue(ComparisonOperator.EQUAL);
@@ -102,12 +102,12 @@ public class XmlEvalExNEx {
 		UntypedParameterValue p6 = ((UntypedParameterValue) params.get(6));
 		ComparisonOptionParam p7 = ((ComparisonOptionParam) params.get(7));
 //		TypeOptionParam p8 = ((TypeOptionParam) params.get(8));
-		XmlPathParamImpl p9 = ((XmlPathParamImpl) params.get(9));
-		XmlPathParamImpl p10 = ((XmlPathParamImpl) params.get(10));
-		XmlPathParamImpl p11 = ((XmlPathParamImpl) params.get(11));
-		XmlPathParamImpl p12 = ((XmlPathParamImpl) params.get(12));
-		XmlPathParamImpl p13 = ((XmlPathParamImpl) params.get(13));
-		XmlPathParamImpl p14 = ((XmlPathParamImpl) params.get(14));
+		XmlPathParam p9 = ((XmlPathParam) params.get(9));
+		XmlPathParam p10 = ((XmlPathParam) params.get(10));
+		XmlPathParam p11 = ((XmlPathParam) params.get(11));
+		XmlPathParam p12 = ((XmlPathParam) params.get(12));
+		XmlPathParam p13 = ((XmlPathParam) params.get(13));
+		XmlPathParam p14 = ((XmlPathParam) params.get(14));
 
 		p0.setValue("lido:lido");
 		p1.setValue(ComparisonOperator.EQUAL);

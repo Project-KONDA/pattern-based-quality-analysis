@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.evaluation.EvalMandstruc;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -26,7 +26,7 @@ public class XmlEvalMandstruc {
 	}
 	
 	public static CompletePattern getMandstruc3Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalMandstruc.getMandstruc3GenericCond();
+		CompletePattern completePattern = EvalMandstruc.getMandstruc3CondGeneric();
 		completePattern.createXmlAdaption();
 		return completePattern;
 	}
@@ -44,12 +44,12 @@ public class XmlEvalMandstruc {
 		UntypedParameterValue p6 = ((UntypedParameterValue) params.get(6));
 //		ComparisonOptionParam p7 = ((ComparisonOptionParam) params.get(7));
 //		TypeOptionParam p8 = ((TypeOptionParam) params.get(8));
-		XmlPathParamImpl p9 = ((XmlPathParamImpl) params.get(9));
-		XmlPathParamImpl p10 = ((XmlPathParamImpl) params.get(10));
-		XmlPathParamImpl p11 = ((XmlPathParamImpl) params.get(11));
-		XmlPathParamImpl p12 = ((XmlPathParamImpl) params.get(12));
-		XmlPathParamImpl p13 = ((XmlPathParamImpl) params.get(13));
-		XmlPathParamImpl p14 = ((XmlPathParamImpl) params.get(14));
+		XmlPathParam p9 = ((XmlPathParam) params.get(9));
+		XmlPathParam p10 = ((XmlPathParam) params.get(10));
+		XmlPathParam p11 = ((XmlPathParam) params.get(11));
+		XmlPathParam p12 = ((XmlPathParam) params.get(12));
+		XmlPathParam p13 = ((XmlPathParam) params.get(13));
+		XmlPathParam p14 = ((XmlPathParam) params.get(14));
 		
 		p0.setValue("obj");
 		p3.setValue("ob30");

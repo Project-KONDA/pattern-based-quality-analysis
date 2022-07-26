@@ -17,11 +17,23 @@ import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
+
+import java.util.ArrayList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 
 public class EvalCard {
+
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getCardGeneric());
+		completePatterns.add(getCard3Generic());
+		completePatterns.add(getCardGenericMidas());
+		for (CompletePattern cp: completePatterns)
+			System.out.println(cp.myToString());
+	}
 	
 	public static CompletePattern getCardGeneric() throws InvalidityException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
@@ -46,14 +58,14 @@ public class EvalCard {
 		return completePattern;	
 	}
 	
-	public static CompletePattern getCardGenericThreeElements() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+	public static CompletePattern getCard3Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory patternStructureFactory = PatternstructureFactory.eINSTANCE;
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		// base pattern
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		
 		// add primitive condition to return
 		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);

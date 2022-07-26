@@ -17,6 +17,9 @@ import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+
+import java.util.ArrayList;
+
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -26,6 +29,15 @@ import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class EvalAppdup {
+
+	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		completePatterns.add(getAppDup2Generic());
+		completePatterns.add(getAppDup3Generic());
+		completePatterns.add(getAppDup3CondGeneric());
+		for (CompletePattern cp: completePatterns)
+			System.out.println(cp.myToString());
+	}
 
 	public static CompletePattern getAppDup2Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
@@ -91,13 +103,13 @@ public class EvalAppdup {
 		return completePattern;
 	}
 
-	public static CompletePattern getAppDup3GenericComps() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getAppDup3CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		ParametersPackage.eINSTANCE.eClass();
 		ParametersFactory paramFactory = ParametersFactory.eINSTANCE;
 		
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		
 		CountCondition cc = factory.createCountCondition();
 		completePattern.setCondition(cc);
@@ -155,7 +167,6 @@ public class EvalAppdup {
 				PrimitiveNode value4 = rel3.getTarget().makePrimitive();
 				
 				value3.addComparison(value4).getTypeOption().setValue(ReturnType.STRING);
-				
 			}			
 		}
 		return completePattern;	

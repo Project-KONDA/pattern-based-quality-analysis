@@ -7,16 +7,16 @@ import org.eclipse.emf.common.util.EList;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
-import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.evaluation.EvalAppdup;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.impl.NumberParamImpl;
-import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
+import qualitypatternmodel.parameters.NumberParam;
+import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.xmltranslationtests.Test00;
 
@@ -29,7 +29,7 @@ public class XmlEvalAppdupl {
 	}
 	
 	static CompletePattern getAppdup3Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalAppdup.getAppDup3GenericComps();
+		CompletePattern completePattern = EvalAppdup.getAppDup3CondGeneric();
 		completePattern.createXmlAdaption();
 		return completePattern;		
 	}
@@ -38,57 +38,57 @@ public class XmlEvalAppdupl {
 		CompletePattern completePattern = getAppdup3Abstract();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 		
-//		ComparisonOptionParamImpl p0 = ((ComparisonOptionParamImpl) params.get(0));
-		NumberParamImpl p1 = ((NumberParamImpl) params.get(1));
-		TextLiteralParamImpl p2 = ((TextLiteralParamImpl) params.get(2));
-//		ComparisonOptionParamImpl p3 = ((ComparisonOptionParamImpl) params.get(3));
-		TypeOptionParamImpl p4 = ((TypeOptionParamImpl) params.get(4));
-		TextLiteralParamImpl p5 = ((TextLiteralParamImpl) params.get(5));
-//		ComparisonOptionParamImpl p6 = ((ComparisonOptionParamImpl) params.get(6));
-		TypeOptionParamImpl p7 = ((TypeOptionParamImpl) params.get(7));
-		TextLiteralParamImpl p8 = ((TextLiteralParamImpl) params.get(8));
-//		ComparisonOptionParamImpl p9 = ((ComparisonOptionParamImpl) params.get(9));
-		TypeOptionParamImpl p10 = ((TypeOptionParamImpl) params.get(10));
-//		ComparisonOptionParamImpl p11 = ((ComparisonOptionParamImpl) params.get(11));
-		TypeOptionParamImpl p12 = ((TypeOptionParamImpl) params.get(12));
-//		ComparisonOptionParamImpl p13 = ((ComparisonOptionParamImpl) params.get(13));
-		TypeOptionParamImpl p14 = ((TypeOptionParamImpl) params.get(14));
-		TextLiteralParamImpl p15 = ((TextLiteralParamImpl) params.get(15));
-//		ComparisonOptionParamImpl p16 = ((ComparisonOptionParamImpl) params.get(16));
-		TypeOptionParamImpl p17 = ((TypeOptionParamImpl) params.get(17));
-//		ComparisonOptionParamImpl p18 = ((ComparisonOptionParamImpl) params.get(18));
-		TypeOptionParamImpl p19 = ((TypeOptionParamImpl) params.get(19));
-//		ComparisonOptionParamImpl p20 = ((ComparisonOptionParamImpl) params.get(20));
-		TypeOptionParamImpl p21 = ((TypeOptionParamImpl) params.get(21));
-		TextLiteralParamImpl p22 = ((TextLiteralParamImpl) params.get(22));
-//		ComparisonOptionParamImpl p23 = ((ComparisonOptionParamImpl) params.get(23));
-		TypeOptionParamImpl p24 = ((TypeOptionParamImpl) params.get(24));
-//		ComparisonOptionParamImpl p25 = ((ComparisonOptionParamImpl) params.get(25));
-		TypeOptionParamImpl p26 = ((TypeOptionParamImpl) params.get(26));
-//		ComparisonOptionParamImpl p27 = ((ComparisonOptionParamImpl) params.get(27));
-		TypeOptionParamImpl p28 = ((TypeOptionParamImpl) params.get(28));
-		XmlPathParamImpl p29 = ((XmlPathParamImpl) params.get(29));
-		XmlPathParamImpl p30 = ((XmlPathParamImpl) params.get(30));
-		XmlPathParamImpl p31 = ((XmlPathParamImpl) params.get(31));
-		XmlPathParamImpl p32 = ((XmlPathParamImpl) params.get(32));
-//		XmlPathParamImpl p33 = ((XmlPathParamImpl) params.get(33));
-//		XmlPathParamImpl p34 = ((XmlPathParamImpl) params.get(34));
-		XmlPathParamImpl p35 = ((XmlPathParamImpl) params.get(35));
-		XmlPathParamImpl p36 = ((XmlPathParamImpl) params.get(36));
-		XmlPathParamImpl p37 = ((XmlPathParamImpl) params.get(37));
-		XmlPathParamImpl p38 = ((XmlPathParamImpl) params.get(38));
-//		XmlPathParamImpl p39 = ((XmlPathParamImpl) params.get(39));
-//		XmlPathParamImpl p40 = ((XmlPathParamImpl) params.get(40));
-		XmlPathParamImpl p41 = ((XmlPathParamImpl) params.get(41));
-		XmlPathParamImpl p42 = ((XmlPathParamImpl) params.get(42));
-		XmlPathParamImpl p43 = ((XmlPathParamImpl) params.get(43));
-		XmlPathParamImpl p44 = ((XmlPathParamImpl) params.get(44));
-//		XmlPathParamImpl p45 = ((XmlPathParamImpl) params.get(45));
-//		XmlPathParamImpl p46 = ((XmlPathParamImpl) params.get(46));
-		XmlPathParamImpl p47 = ((XmlPathParamImpl) params.get(47));
-		XmlPathParamImpl p48 = ((XmlPathParamImpl) params.get(48));
-		XmlPathParamImpl p49 = ((XmlPathParamImpl) params.get(49));
-		XmlPathParamImpl p50 = ((XmlPathParamImpl) params.get(50));
+//		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
+		NumberParam p1 = ((NumberParam) params.get(1));
+		TextLiteralParam p2 = ((TextLiteralParam) params.get(2));
+//		ComparisonOptionParam p3 = ((ComparisonOptionParam) params.get(3));
+		TypeOptionParam p4 = ((TypeOptionParam) params.get(4));
+		TextLiteralParam p5 = ((TextLiteralParam) params.get(5));
+//		ComparisonOptionParam p6 = ((ComparisonOptionParam) params.get(6));
+		TypeOptionParam p7 = ((TypeOptionParam) params.get(7));
+		TextLiteralParam p8 = ((TextLiteralParam) params.get(8));
+//		ComparisonOptionParam p9 = ((ComparisonOptionParam) params.get(9));
+		TypeOptionParam p10 = ((TypeOptionParam) params.get(10));
+//		ComparisonOptionParam p11 = ((ComparisonOptionParam) params.get(11));
+		TypeOptionParam p12 = ((TypeOptionParam) params.get(12));
+//		ComparisonOptionParam p13 = ((ComparisonOptionParam) params.get(13));
+		TypeOptionParam p14 = ((TypeOptionParam) params.get(14));
+		TextLiteralParam p15 = ((TextLiteralParam) params.get(15));
+//		ComparisonOptionParam p16 = ((ComparisonOptionParam) params.get(16));
+		TypeOptionParam p17 = ((TypeOptionParam) params.get(17));
+//		ComparisonOptionParam p18 = ((ComparisonOptionParam) params.get(18));
+		TypeOptionParam p19 = ((TypeOptionParam) params.get(19));
+//		ComparisonOptionParam p20 = ((ComparisonOptionParam) params.get(20));
+		TypeOptionParam p21 = ((TypeOptionParam) params.get(21));
+		TextLiteralParam p22 = ((TextLiteralParam) params.get(22));
+//		ComparisonOptionParam p23 = ((ComparisonOptionParam) params.get(23));
+		TypeOptionParam p24 = ((TypeOptionParam) params.get(24));
+//		ComparisonOptionParam p25 = ((ComparisonOptionParam) params.get(25));
+		TypeOptionParam p26 = ((TypeOptionParam) params.get(26));
+//		ComparisonOptionParam p27 = ((ComparisonOptionParam) params.get(27));
+		TypeOptionParam p28 = ((TypeOptionParam) params.get(28));
+		XmlPathParam p29 = ((XmlPathParam) params.get(29));
+		XmlPathParam p30 = ((XmlPathParam) params.get(30));
+		XmlPathParam p31 = ((XmlPathParam) params.get(31));
+		XmlPathParam p32 = ((XmlPathParam) params.get(32));
+//		XmlPathParam p33 = ((XmlPathParam) params.get(33));
+//		XmlPathParam p34 = ((XmlPathParam) params.get(34));
+		XmlPathParam p35 = ((XmlPathParam) params.get(35));
+		XmlPathParam p36 = ((XmlPathParam) params.get(36));
+		XmlPathParam p37 = ((XmlPathParam) params.get(37));
+		XmlPathParam p38 = ((XmlPathParam) params.get(38));
+//		XmlPathParam p39 = ((XmlPathParam) params.get(39));
+//		XmlPathParam p40 = ((XmlPathParam) params.get(40));
+		XmlPathParam p41 = ((XmlPathParam) params.get(41));
+		XmlPathParam p42 = ((XmlPathParam) params.get(42));
+		XmlPathParam p43 = ((XmlPathParam) params.get(43));
+		XmlPathParam p44 = ((XmlPathParam) params.get(44));
+//		XmlPathParam p45 = ((XmlPathParam) params.get(45));
+//		XmlPathParam p46 = ((XmlPathParam) params.get(46));
+		XmlPathParam p47 = ((XmlPathParam) params.get(47));
+		XmlPathParam p48 = ((XmlPathParam) params.get(48));
+		XmlPathParam p49 = ((XmlPathParam) params.get(49));
+		XmlPathParam p50 = ((XmlPathParam) params.get(50));
 		
 		p1.setValue(1.);
 		p2.setValue("wer");
@@ -111,15 +111,15 @@ public class XmlEvalAppdupl {
 		p30.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD});
 		p32.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD});
 			
-		XmlPathParamImpl[] paths = new XmlPathParamImpl[] {p29, p31, p35, p36, p41, p42, p47, p48};
-		for (XmlPathParamImpl p : paths) {
+		XmlPathParam[] paths = new XmlPathParam[] {p29, p31, p35, p36, p41, p42, p47, p48};
+		for (XmlPathParam p : paths) {
 			XmlPropertyOptionParam pop = p.getXmlPropertyOptionParam();
 			pop.setValue(XmlPropertyKind.ATTRIBUTE);
 			pop.getAttributeName().setValue("Type");			
 		}
 		
-		XmlPathParamImpl[] paths2 = new XmlPathParamImpl[] {p37, p38, p43, p44, p49, p50};
-		for (XmlPathParamImpl p : paths2) {
+		XmlPathParam[] paths2 = new XmlPathParam[] {p37, p38, p43, p44, p49, p50};
+		for (XmlPathParam p : paths2) {
 			XmlPropertyOptionParam pop = p.getXmlPropertyOptionParam();
 			pop.setValue(XmlPropertyKind.ATTRIBUTE);
 			pop.getAttributeName().setValue("Value");			

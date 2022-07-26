@@ -30,7 +30,7 @@ public class Test02Return {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 			
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		
 		Graph graph = completePattern.getGraph();
 		Node element1 = completePattern.getGraph().getNodes().get(0);
@@ -46,7 +46,7 @@ public class Test02Return {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		
 		Graph graph = completePattern.getGraph();
 		Node element1 = completePattern.getGraph().getNodes().get(0);

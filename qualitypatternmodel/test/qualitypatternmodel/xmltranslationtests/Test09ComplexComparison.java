@@ -37,7 +37,7 @@ public class Test09ComplexComparison {
 		OperatorsPackage.eINSTANCE.eClass();
 		OperatorsFactory operatorFactory = OperatorsFactory.eINSTANCE;
 
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		Node ret = completePattern.getGraph().getNodes().get(0).makeComplex();
 		
 		PrimitiveNode p1 = graphFactory.createPrimitiveNode();
@@ -63,12 +63,10 @@ public class Test09ComplexComparison {
 	}
 
 	public static CompletePattern getPatternTwoProperties() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		GraphstructurePackage.eINSTANCE.eClass();
-//		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		OperatorsPackage.eINSTANCE.eClass();
 		OperatorsFactory operatorsFactory = OperatorsFactory.eINSTANCE;
 
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		Node ret = completePattern.getGraph().getNodes().get(0);
 
 		Relation r1 = ret.addOutgoing();
@@ -106,7 +104,7 @@ public class Test09ComplexComparison {
 		OperatorsPackage.eINSTANCE.eClass();
 		OperatorsFactory functionFactory = OperatorsFactory.eINSTANCE;
 
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		Node ret = completePattern.getGraph().getNodes().get(0).makeComplex();
 		
 		Relation r1 = ret.addOutgoing();
@@ -137,7 +135,7 @@ public class Test09ComplexComparison {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		ParameterList varlist = completePattern.getParameterList();
 		OperatorList oplist = completePattern.getGraph().getOperatorList();
 		Node se = completePattern.getGraph().getNodes().get(0);

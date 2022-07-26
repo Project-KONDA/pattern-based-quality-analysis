@@ -28,7 +28,7 @@ public class XmlEvalComp {
 	}
 		
 	public static CompletePattern getCompAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalComp.getCompGenericCond();
+		CompletePattern completePattern = EvalComp.getCompCondGeneric();
 		completePattern.createXmlAdaption();
 		return completePattern;		
 	}

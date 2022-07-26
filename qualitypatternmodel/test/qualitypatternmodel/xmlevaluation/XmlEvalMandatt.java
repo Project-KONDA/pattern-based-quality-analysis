@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.evaluation.EvalMandatt;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -34,13 +34,13 @@ public class XmlEvalMandatt {
 	}
 		
 	public static CompletePattern getMandattAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalMandatt.getMandattGenericCond();
+		CompletePattern completePattern = EvalMandatt.getMandattCondGeneric();
 		completePattern.createXmlAdaption();
 		return completePattern;
 	}
 	
 	public static CompletePattern getMandatt3Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
-		CompletePattern completePattern = EvalMandatt.getMandatt3GenericCond();
+		CompletePattern completePattern = EvalMandatt.getMandatt3CondGeneric();
 		completePattern.createXmlAdaption();
 		return completePattern;		
 	}
@@ -61,13 +61,13 @@ public class XmlEvalMandatt {
 		UntypedParameterValue p9 = ((UntypedParameterValue) params.get(9));
 //		ComparisonOptionParam p10 = ((ComparisonOptionParam) params.get(10));
 //		TypeOptionParam p11 = ((TypeOptionParam) params.get(11));
-		XmlPathParamImpl p12 = ((XmlPathParamImpl) params.get(12));
-		XmlPathParamImpl p13 = ((XmlPathParamImpl) params.get(13));
-		XmlPathParamImpl p14 = ((XmlPathParamImpl) params.get(14));
-		XmlPathParamImpl p15 = ((XmlPathParamImpl) params.get(15));
-		XmlPathParamImpl p16 = ((XmlPathParamImpl) params.get(16));
-		XmlPathParamImpl p17 = ((XmlPathParamImpl) params.get(17));
-		XmlPathParamImpl p18 = ((XmlPathParamImpl) params.get(18));
+		XmlPathParam p12 = ((XmlPathParam) params.get(12));
+		XmlPathParam p13 = ((XmlPathParam) params.get(13));
+		XmlPathParam p14 = ((XmlPathParam) params.get(14));
+		XmlPathParam p15 = ((XmlPathParam) params.get(15));
+		XmlPathParam p16 = ((XmlPathParam) params.get(16));
+		XmlPathParam p17 = ((XmlPathParam) params.get(17));
+		XmlPathParam p18 = ((XmlPathParam) params.get(18));
 
 		p0.setValue("kue");
 		p3.setValue("3162");
@@ -106,13 +106,13 @@ public class XmlEvalMandatt {
 		UntypedParameterValue p9 = ((UntypedParameterValue) params.get(9));
 //		ComparisonOptionParam p10 = ((ComparisonOptionParam) params.get(10));
 //		TypeOptionParam p11 = ((TypeOptionParam) params.get(11));
-		XmlPathParamImpl p12 = ((XmlPathParamImpl) params.get(12));
-		XmlPathParamImpl p13 = ((XmlPathParamImpl) params.get(13));
-		XmlPathParamImpl p14 = ((XmlPathParamImpl) params.get(14));
-		XmlPathParamImpl p15 = ((XmlPathParamImpl) params.get(15));
-		XmlPathParamImpl p16 = ((XmlPathParamImpl) params.get(16));
-		XmlPathParamImpl p17 = ((XmlPathParamImpl) params.get(17));
-		XmlPathParamImpl p18 = ((XmlPathParamImpl) params.get(18));
+		XmlPathParam p12 = ((XmlPathParam) params.get(12));
+		XmlPathParam p13 = ((XmlPathParam) params.get(13));
+		XmlPathParam p14 = ((XmlPathParam) params.get(14));
+		XmlPathParam p15 = ((XmlPathParam) params.get(15));
+		XmlPathParam p16 = ((XmlPathParam) params.get(16));
+		XmlPathParam p17 = ((XmlPathParam) params.get(17));
+		XmlPathParam p18 = ((XmlPathParam) params.get(18));
 
 		p0.setValue("lido:lido");
 		p3.setValue("lido:appellationValue");
@@ -163,19 +163,19 @@ public class XmlEvalMandatt {
 		UntypedParameterValue p18 = ((UntypedParameterValue) params.get(18));
 //		ComparisonOptionParam p19 = ((ComparisonOptionParam) params.get(19));
 //		TypeOptionParam p20 = ((TypeOptionParam) params.get(20));
-		XmlPathParamImpl p21 = ((XmlPathParamImpl) params.get(21));
-		XmlPathParamImpl p22 = ((XmlPathParamImpl) params.get(22));
-		XmlPathParamImpl p23 = ((XmlPathParamImpl) params.get(23));
-		XmlPathParamImpl p24 = ((XmlPathParamImpl) params.get(24));
-		XmlPathParamImpl p25 = ((XmlPathParamImpl) params.get(25));
-		XmlPathParamImpl p26 = ((XmlPathParamImpl) params.get(26));
-		XmlPathParamImpl p27 = ((XmlPathParamImpl) params.get(27));
-		XmlPathParamImpl p28 = ((XmlPathParamImpl) params.get(28));
-		XmlPathParamImpl p29 = ((XmlPathParamImpl) params.get(29));
-		XmlPathParamImpl p30 = ((XmlPathParamImpl) params.get(30));
-		XmlPathParamImpl p31 = ((XmlPathParamImpl) params.get(31));
-		XmlPathParamImpl p32 = ((XmlPathParamImpl) params.get(32));
-		XmlPathParamImpl p33 = ((XmlPathParamImpl) params.get(33));
+		XmlPathParam p21 = ((XmlPathParam) params.get(21));
+		XmlPathParam p22 = ((XmlPathParam) params.get(22));
+		XmlPathParam p23 = ((XmlPathParam) params.get(23));
+		XmlPathParam p24 = ((XmlPathParam) params.get(24));
+		XmlPathParam p25 = ((XmlPathParam) params.get(25));
+		XmlPathParam p26 = ((XmlPathParam) params.get(26));
+		XmlPathParam p27 = ((XmlPathParam) params.get(27));
+		XmlPathParam p28 = ((XmlPathParam) params.get(28));
+		XmlPathParam p29 = ((XmlPathParam) params.get(29));
+		XmlPathParam p30 = ((XmlPathParam) params.get(30));
+		XmlPathParam p31 = ((XmlPathParam) params.get(31));
+		XmlPathParam p32 = ((XmlPathParam) params.get(32));
+		XmlPathParam p33 = ((XmlPathParam) params.get(33));
 		
 		p0.setValue("lido:lido");
 		p3.setValue("lido:actor");
