@@ -1,7 +1,4 @@
-package qualitypatternmodel.rdfevaluation;
-
-import java.util.ArrayList;
-import java.util.List;
+package qualitypatternmodel.evaluation;
 
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.CountCondition;
@@ -21,30 +18,14 @@ import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
-import qualitypatternmodel.parameters.NumberParam;
-import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TypeOptionParam;
-import qualitypatternmodel.rdftranslationtests.RdfTest00;
 
 public class EvalDup {
-	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getExactDuplicatesRdfAbstract());
-		completePatterns.add(getExactDuplicatesRdfWiki());
-		RdfTest00.test(completePatterns);
-	}
-
 
 	public static CompletePattern getExactDuplicatesGeneric2() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
 		Node main = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
@@ -84,8 +65,6 @@ public class EvalDup {
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = factory.createCompletePattern();
 		Node main = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
@@ -102,9 +81,7 @@ public class EvalDup {
 		completePattern.setCondition(qc);
 		qc.setQuantifier(Quantifier.FORALL);
 		Node n1 = qc.getGraph().getNodes().get(0);
-		Node n2 = qc.getGraph().getNodes().get(1);
-		
-		Node n3 = n1.addOutgoing().getTarget().makePrimitive();
+		n1.addOutgoing().getTarget().makePrimitive();
 		
 		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
 		qc.setCondition(qc2);
@@ -115,19 +92,6 @@ public class EvalDup {
 		
 		no2.addOutgoing(no3);
 		
-		return completePattern;
-	}
-	
-	public static CompletePattern getExactDuplicatesRdfAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getExactDuplicatesGeneric();	
-		completePattern.createRdfAdaption();
-		System.out.println(completePattern.myToString());
-		return completePattern;		
-	}
-	
-	public static CompletePattern getExactDuplicatesRdfWiki() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getExactDuplicatesRdfAbstract();
-				
 		return completePattern;
 	}
 }

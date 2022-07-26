@@ -5,38 +5,19 @@ import java.util.List;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
+import qualitypatternmodel.evaluation.EvalMandatt;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.GraphstructureFactory;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.parameters.impl.TextListParamImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Formula;
-import qualitypatternmodel.patternstructure.LogicalOperator;
-import qualitypatternmodel.patternstructure.NotCondition;
-import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.xmltranslationtests.Test00;
 
-public class EvalMandatt {
+public class XmlEvalMandatt {
 	
 	// also called MAND
 	
@@ -51,119 +32,35 @@ public class EvalMandatt {
 		Test00.getQueries(completePatterns);
 //		Test00.test(completePatterns);		
 	}
-	
-	private static CompletePattern getMandattAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
-		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.getGraph().getReturnNodes().get(0).addOutgoing().getTarget().addPrimitiveComparison();
-		
-		Formula form = factory.createFormula();
-		completePattern.setCondition(form);
-		form.setOperator(LogicalOperator.OR);
-		
-		NotCondition notC = factory.createNotCondition();
-		QuantifiedCondition qcN = factory.createQuantifiedCondition();
-		form.setCondition1(notC);
-		notC.setCondition(qcN);	
-		
-		Graph graph1 = qcN.getGraph();
-		Node returnInGraph1 = graph1.getReturnNodes().get(0);
-		Node element2 = returnInGraph1.addOutgoing().getTarget().makeComplex();
-		element2.addOutgoing().getTarget().addPrimitiveComparison();
-		
-		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
-		form.setCondition2(qc1);
-		
-		Graph graph2 = qc1.getGraph();
-		Node returnInGraph2 = graph2.getReturnNodes().get(0);
-		
-		Node element3 = returnInGraph2.addOutgoing().getTarget().makeComplex();
-		element3.addOutgoing().getTarget().addPrimitiveComparison();
-		element3.addOutgoing().getTarget().addPrimitiveComparison();	
-		
+	public static CompletePattern getMandattAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = EvalMandatt.getMandattGenericCond();
 		completePattern.createXmlAdaption();
-		
-		return completePattern;		
+		return completePattern;
 	}
 	
-	private static CompletePattern getMandattAbstractThreeElements() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		
-		CompletePattern completePattern = factory.createCompletePattern();
-		completePattern.getGraph().getReturnNodes().get(0).addOutgoing().getTarget().addPrimitiveComparison();		
-		
-		QuantifiedCondition qc0 = factory.createQuantifiedCondition();
-		completePattern.setCondition(qc0);
-		
-		Graph graph0 = qc0.getGraph();
-		Node returnInGraph0 = graph0.getReturnNodes().get(0);
-		Node element0 = returnInGraph0.addOutgoing().getTarget().makeComplex();
-		element0.addOutgoing().getTarget().addPrimitiveComparison();		
-		
-		Formula form = factory.createFormula();
-		qc0.setCondition(form);
-		form.setOperator(LogicalOperator.OR);		
-		
-		NotCondition notC = factory.createNotCondition();		
-		QuantifiedCondition qcN = factory.createQuantifiedCondition();
-		form.setCondition1(notC);
-		notC.setCondition(qcN);			
-	
-		Graph graph1 = qcN.getGraph();
-		
-		Node returnInGraph1 = graph1.getReturnNodes().get(0);
-		Node e0InGraph1 = graph1.getNodes().get(2);
-		Node element2 = e0InGraph1.addOutgoing().getTarget().makeComplex();
-		element2.addOutgoing().getTarget().addPrimitiveComparison();
-		
-		Node element5 = element2.addOutgoing().getTarget().makeComplex();
-		element5.addOutgoing().getTarget().addPrimitiveComparison();
-		
-		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
-		form.setCondition2(qc1);
-				
-		Graph graph2 = qc1.getGraph();
-		Node returnInGraph2 = graph2.getReturnNodes().get(0);
-		Node e0InGraph2 = graph2.getNodes().get(2);
-		Node element3 = e0InGraph2.addOutgoing().getTarget().makeComplex();
-		element3.addOutgoing().getTarget().addPrimitiveComparison();	
-		
-		Node element4 = element3.addOutgoing().getTarget().makeComplex();
-		element4.addOutgoing().getTarget().addPrimitiveComparison();
-		element4.addOutgoing().getTarget().addPrimitiveComparison();	
-		
+	public static CompletePattern getMandatt3Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+		CompletePattern completePattern = EvalMandatt.getMandatt3GenericCond();
 		completePattern.createXmlAdaption();
-		
 		return completePattern;		
 	}
-	
 	
 	static CompletePattern getMandattMidas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
 		CompletePattern completePattern = getMandattAbstract();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
 		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
-		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
-		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
+//		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
+//		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
 		UntypedParameterValue p3 = ((UntypedParameterValue) params.get(3));
-		ComparisonOptionParam p4 = ((ComparisonOptionParam) params.get(4));
-		TypeOptionParam p5 = ((TypeOptionParam) params.get(5));
+//		ComparisonOptionParam p4 = ((ComparisonOptionParam) params.get(4));
+//		TypeOptionParam p5 = ((TypeOptionParam) params.get(5));
 		UntypedParameterValue p6 = ((UntypedParameterValue) params.get(6));
-		ComparisonOptionParam p7 = ((ComparisonOptionParam) params.get(7));
-		TypeOptionParam p8 = ((TypeOptionParam) params.get(8));
+//		ComparisonOptionParam p7 = ((ComparisonOptionParam) params.get(7));
+//		TypeOptionParam p8 = ((TypeOptionParam) params.get(8));
 		UntypedParameterValue p9 = ((UntypedParameterValue) params.get(9));
-		ComparisonOptionParam p10 = ((ComparisonOptionParam) params.get(10));
-		TypeOptionParam p11 = ((TypeOptionParam) params.get(11));
+//		ComparisonOptionParam p10 = ((ComparisonOptionParam) params.get(10));
+//		TypeOptionParam p11 = ((TypeOptionParam) params.get(11));
 		XmlPathParamImpl p12 = ((XmlPathParamImpl) params.get(12));
 		XmlPathParamImpl p13 = ((XmlPathParamImpl) params.get(13));
 		XmlPathParamImpl p14 = ((XmlPathParamImpl) params.get(14));
@@ -194,24 +91,21 @@ public class EvalMandatt {
 	}
 	
 	private static CompletePattern getMandattLido() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-		
 		CompletePattern completePattern = getMandattAbstract();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
 		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
-		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
-		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
+//		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
+//		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
 		UntypedParameterValue p3 = ((UntypedParameterValue) params.get(3));
-		ComparisonOptionParam p4 = ((ComparisonOptionParam) params.get(4));
-		TypeOptionParam p5 = ((TypeOptionParam) params.get(5));
+//		ComparisonOptionParam p4 = ((ComparisonOptionParam) params.get(4));
+//		TypeOptionParam p5 = ((TypeOptionParam) params.get(5));
 		UntypedParameterValue p6 = ((UntypedParameterValue) params.get(6));
-		ComparisonOptionParam p7 = ((ComparisonOptionParam) params.get(7));
-		TypeOptionParam p8 = ((TypeOptionParam) params.get(8));
+//		ComparisonOptionParam p7 = ((ComparisonOptionParam) params.get(7));
+//		TypeOptionParam p8 = ((TypeOptionParam) params.get(8));
 		UntypedParameterValue p9 = ((UntypedParameterValue) params.get(9));
-		ComparisonOptionParam p10 = ((ComparisonOptionParam) params.get(10));
-		TypeOptionParam p11 = ((TypeOptionParam) params.get(11));
+//		ComparisonOptionParam p10 = ((ComparisonOptionParam) params.get(10));
+//		TypeOptionParam p11 = ((TypeOptionParam) params.get(11));
 		XmlPathParamImpl p12 = ((XmlPathParamImpl) params.get(12));
 		XmlPathParamImpl p13 = ((XmlPathParamImpl) params.get(13));
 		XmlPathParamImpl p14 = ((XmlPathParamImpl) params.get(14));
@@ -245,30 +139,30 @@ public class EvalMandatt {
 	
 	static CompletePattern getMandattThreeElementsLido() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
-		CompletePattern completePattern = getMandattAbstractThreeElements();
+		CompletePattern completePattern = getMandatt3Abstract();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
 		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
-		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
-		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
+//		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
+//		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
 		UntypedParameterValue p3 = ((UntypedParameterValue) params.get(3));
-		ComparisonOptionParam p4 = ((ComparisonOptionParam) params.get(4));
-		TypeOptionParam p5 = ((TypeOptionParam) params.get(5));
+//		ComparisonOptionParam p4 = ((ComparisonOptionParam) params.get(4));
+//		TypeOptionParam p5 = ((TypeOptionParam) params.get(5));
 		UntypedParameterValue p6 = ((UntypedParameterValue) params.get(6));
-		ComparisonOptionParam p7 = ((ComparisonOptionParam) params.get(7));
-		TypeOptionParam p8 = ((TypeOptionParam) params.get(8));
+//		ComparisonOptionParam p7 = ((ComparisonOptionParam) params.get(7));
+//		TypeOptionParam p8 = ((TypeOptionParam) params.get(8));
 		UntypedParameterValue p9 = ((UntypedParameterValue) params.get(9));
-		ComparisonOptionParam p10 = ((ComparisonOptionParam) params.get(10));
-		TypeOptionParam p11 = ((TypeOptionParam) params.get(11));
+//		ComparisonOptionParam p10 = ((ComparisonOptionParam) params.get(10));
+//		TypeOptionParam p11 = ((TypeOptionParam) params.get(11));
 		UntypedParameterValue p12 = ((UntypedParameterValue) params.get(12));
-		ComparisonOptionParam p13 = ((ComparisonOptionParam) params.get(13));
-		TypeOptionParam p14 = ((TypeOptionParam) params.get(14));
+//		ComparisonOptionParam p13 = ((ComparisonOptionParam) params.get(13));
+//		TypeOptionParam p14 = ((TypeOptionParam) params.get(14));
 		UntypedParameterValue p15 = ((UntypedParameterValue) params.get(15));
-		ComparisonOptionParam p16 = ((ComparisonOptionParam) params.get(16));
-		TypeOptionParam p17 = ((TypeOptionParam) params.get(17));
+//		ComparisonOptionParam p16 = ((ComparisonOptionParam) params.get(16));
+//		TypeOptionParam p17 = ((TypeOptionParam) params.get(17));
 		UntypedParameterValue p18 = ((UntypedParameterValue) params.get(18));
-		ComparisonOptionParam p19 = ((ComparisonOptionParam) params.get(19));
-		TypeOptionParam p20 = ((TypeOptionParam) params.get(20));
+//		ComparisonOptionParam p19 = ((ComparisonOptionParam) params.get(19));
+//		TypeOptionParam p20 = ((TypeOptionParam) params.get(20));
 		XmlPathParamImpl p21 = ((XmlPathParamImpl) params.get(21));
 		XmlPathParamImpl p22 = ((XmlPathParamImpl) params.get(22));
 		XmlPathParamImpl p23 = ((XmlPathParamImpl) params.get(23));

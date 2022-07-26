@@ -4,46 +4,28 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
-import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlProperty;
+import qualitypatternmodel.evaluation.EvalCompval;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.GraphstructureFactory;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.Relation;
-import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParameterList;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextListParam;
-import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.UntypedParameterValue;
-import qualitypatternmodel.parameters.impl.ComparisonOptionParamImpl;
 import qualitypatternmodel.parameters.impl.ParameterValueImpl;
 import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
-import qualitypatternmodel.parameters.impl.TypeOptionParamImpl;
 import qualitypatternmodel.parameters.impl.UntypedParameterValueImpl;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.NotCondition;
-import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.xmltranslationtests.Test00;
-import qualitypatternmodel.xmltranslationtests.Test03Quantor;
 
-public class EvalCompval {
+public class XmlEvalCompval {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getCompvalAbstract());
+		completePatterns.add(getCompvalCondAbstract());
 		completePatterns.add(getCompvalMidas5230Objekt());
 		completePatterns.add(getCompvalMidas5230Objekt());
 		completePatterns.add(getCompvalMidas5230Schloss());
@@ -54,7 +36,7 @@ public class EvalCompval {
 		completePatterns.add(getCompsetMIDAS3140());
 		completePatterns.add(getCompsetLidoGenderActor());
 		
-		completePatterns.add(getCompvalThreeElementsAbstract()); 
+		completePatterns.add(getCompval3Abstract()); 
 		completePatterns.add(getCompvalLidoObjectWorkTypeObjekt());
 		completePatterns.add(getCompvalLidoObjectWorkTypeSchloss());
 		completePatterns.add(getCompvalLidoObjectWorkTypePrint());
@@ -63,44 +45,16 @@ public class EvalCompval {
 //		Test00.getQueries(completePatterns);
 		Test00.test(completePatterns);		
 	}
-
-	public static CompletePattern getCompvalAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
-		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelation();
-		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
-		returnElementInReturnGraph.addOutgoing().getTarget().addPrimitiveComparison();
-
-		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
-
-		Node next1 = graph1.getNodes().get(0).makeComplex();
-		next1.addOutgoing().getTarget().addPrimitiveComparison();
-		next1.addOutgoing().getTarget().addPrimitiveComparison();
-
+		
+	public static CompletePattern getCompvalCondAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = EvalCompval.getCompvalCondGeneric();
 		completePattern.createXmlAdaption();
-
 		return completePattern;
 	}
 
-	public static CompletePattern getCompvalThreeElementsAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-
-		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelation();
-		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
-		returnElementInReturnGraph.addOutgoing().getTarget().addPrimitiveComparison();
-
-		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
-
-		Node element1 = graph1.getNodes().get(0).makeComplex();
-		element1.addOutgoing().getTarget().addPrimitiveComparison();
-		
-		Node element2 = element1.addOutgoing().getTarget().makeComplex();
-		element2.addOutgoing().getTarget().addPrimitiveComparison();
-		element2.addOutgoing().getTarget().addPrimitiveComparison();
-		
+	public static CompletePattern getCompval3Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = EvalCompval.getCompval3CondGeneric();
 		completePattern.createXmlAdaption();
-
 		return completePattern;
 	}
 	
@@ -113,22 +67,22 @@ public class EvalCompval {
 			XmlPropertyKind attribute3Kind, String attribute3Name, String attribute3Value,
 			XmlPropertyKind attribute4Kind, String attribute4Name, String attribute4Value
 			) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCompvalThreeElementsAbstract();
+		CompletePattern completePattern = getCompval3Abstract();
 
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 
 		UntypedParameterValueImpl p0 = ((UntypedParameterValueImpl) params.get(0));
-		ComparisonOptionParamImpl p1 = ((ComparisonOptionParamImpl) params.get(1));
-		TypeOptionParamImpl p2 = ((TypeOptionParamImpl) params.get(2));
+//		ComparisonOptionParamImpl p1 = ((ComparisonOptionParamImpl) params.get(1));
+//		TypeOptionParamImpl p2 = ((TypeOptionParamImpl) params.get(2));
 		UntypedParameterValueImpl p3 = ((UntypedParameterValueImpl) params.get(3));
-		ComparisonOptionParamImpl p4 = ((ComparisonOptionParamImpl) params.get(4));
-		TypeOptionParamImpl p5 = ((TypeOptionParamImpl) params.get(5));
+//		ComparisonOptionParamImpl p4 = ((ComparisonOptionParamImpl) params.get(4));
+//		TypeOptionParamImpl p5 = ((TypeOptionParamImpl) params.get(5));
 		UntypedParameterValueImpl p6 = ((UntypedParameterValueImpl) params.get(6));
-		ComparisonOptionParamImpl p7 = ((ComparisonOptionParamImpl) params.get(7));
-		TypeOptionParamImpl p8 = ((TypeOptionParamImpl) params.get(8));
+//		ComparisonOptionParamImpl p7 = ((ComparisonOptionParamImpl) params.get(7));
+//		TypeOptionParamImpl p8 = ((TypeOptionParamImpl) params.get(8));
 		UntypedParameterValueImpl p9 = ((UntypedParameterValueImpl) params.get(9));
-		ComparisonOptionParamImpl p10 = ((ComparisonOptionParamImpl) params.get(10));
-		TypeOptionParamImpl p11 = ((TypeOptionParamImpl) params.get(11));
+//		ComparisonOptionParamImpl p10 = ((ComparisonOptionParamImpl) params.get(10));
+//		TypeOptionParamImpl p11 = ((TypeOptionParamImpl) params.get(11));
 		
 		XmlPathParamImpl p12 = ((XmlPathParamImpl) params.get(12));
 		XmlPathParamImpl p13 = ((XmlPathParamImpl) params.get(13));
@@ -175,10 +129,8 @@ public class EvalCompval {
 			String attribute1Name, XmlPropertyKind attribute1Kind, String element2Type, XmlAxisKind[] element2Axis,
 			String attribute2Name, XmlPropertyKind attribute2Kind, String attribute3Name, XmlPropertyKind attribute3Kind,
 			String value) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 
-		CompletePattern completePattern = getCompvalAbstract();
+		CompletePattern completePattern = getCompvalCondAbstract();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
 		UntypedParameterValueImpl p0 = ((UntypedParameterValueImpl) params.get(0));
@@ -240,28 +192,28 @@ public class EvalCompval {
 	}
 
 	public static CompletePattern getCompvalMidas5230Objekt() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getCompvalConcrete("obj", 
-				new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, 
-				"Type", XmlPropertyKind.ATTRIBUTE, "5230",
-				new XmlAxisKind[] {XmlAxisKind.CHILD},  "Type",  XmlPropertyKind.ATTRIBUTE,  "Value", 
-				XmlPropertyKind.ATTRIBUTE,  "Objekt");
+		return getCompvalConcrete("obj", new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE, 
+				"5230", new XmlAxisKind[] {XmlAxisKind.CHILD}, "Type",  XmlPropertyKind.ATTRIBUTE,  
+				"Value", XmlPropertyKind.ATTRIBUTE,  "Objekt");
 	}
 
 	public static CompletePattern getCompvalMidas5230Schloss() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getCompvalConcrete("obj",
-				new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE, "5230",
-				new XmlAxisKind[] {XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE, "Value", XmlPropertyKind.ATTRIBUTE, "Schloss");
+		return getCompvalConcrete("obj", new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE, 
+				"5230", new XmlAxisKind[] {XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE, 
+				"Value", XmlPropertyKind.ATTRIBUTE, "Schloss");
 	}
 
 	public static CompletePattern getCompvalMidas5230Print() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return getCompvalConcrete("obj", new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE, "5230",
-				new XmlAxisKind[] {XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE, "Value", XmlPropertyKind.ATTRIBUTE, "Print");
+		return getCompvalConcrete("obj", new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE, 
+				"5230", new XmlAxisKind[] {XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE, 
+				"Value", XmlPropertyKind.ATTRIBUTE, "Print");
 	}
 
 	public static CompletePattern getCompvalSetMidas3270() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		List<String> values = Arrays.asList("unbekannt", "x", "y", "?");
-		return getCompvalSetConcrete("kue", new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE, "3270",
-				new XmlAxisKind[] {XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE, "Value", XmlPropertyKind.ATTRIBUTE, values);
+		return getCompvalSetConcrete("kue", new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE, 
+				"3270", new XmlAxisKind[] {XmlAxisKind.CHILD}, "Type", XmlPropertyKind.ATTRIBUTE, 
+				"Value", XmlPropertyKind.ATTRIBUTE, values);
 	}
 
 	public static CompletePattern getCompvalLidoEventPlace() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

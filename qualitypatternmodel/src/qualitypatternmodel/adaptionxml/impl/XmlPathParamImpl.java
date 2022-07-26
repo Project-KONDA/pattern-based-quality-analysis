@@ -457,6 +457,16 @@ public class XmlPathParamImpl extends ParameterImpl implements XmlPathParam {
 			addXmlAxis(a, null);
 		}		
 	}
+
+	public void setXmlAxis(XmlAxisKind[] axis, String tag) {
+		getXmlAxisPairs().clear();
+		for (int i = 0; i<axis.length; i++) {
+			if (i == axis.length-1)
+				addXmlAxis(axis[i], tag);
+			else 
+				addXmlAxis(axis[i], null);
+		}
+	}
 	
 	/**
 	 * <!-- begin-user-doc -->

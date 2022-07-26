@@ -6,8 +6,6 @@ import java.util.List;
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
-import qualitypatternmodel.adaptionxml.XmlElementNavigation;
-import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -16,33 +14,22 @@ import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.operators.OperatorsFactory;
-import qualitypatternmodel.operators.OperatorsPackage;
-import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParametersFactory;
-import qualitypatternmodel.parameters.ParametersPackage;
-import qualitypatternmodel.parameters.TextLiteralParam;
-import qualitypatternmodel.parameters.TypeOptionParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.Condition;
 import qualitypatternmodel.patternstructure.CountCondition;
 import qualitypatternmodel.patternstructure.CountPattern;
-import qualitypatternmodel.patternstructure.Morphism;
 import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
-import qualitypatternmodel.patternstructure.TrueElement;
 import qualitypatternmodel.xmltranslationtests.Test00;
 
-public class EvalUnique {
+public class XmlEvalUnique {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getUniqueAbstract());
@@ -60,8 +47,6 @@ public class EvalUnique {
 	private static CompletePattern getUniqueAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
@@ -132,22 +117,22 @@ public class EvalUnique {
 		CompletePattern completePattern = getUniqueAbstract();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
-		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
-		NumberParam p1 = ((NumberParam) params.get(1));
+//		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
+//		NumberParam p1 = ((NumberParam) params.get(1));
 		UntypedParameterValue p2 = ((UntypedParameterValue) params.get(2));
-		ComparisonOptionParam p3 = ((ComparisonOptionParam) params.get(3));
-		TypeOptionParam p4 = ((TypeOptionParam) params.get(4));
+//		ComparisonOptionParam p3 = ((ComparisonOptionParam) params.get(3));
+//		TypeOptionParam p4 = ((TypeOptionParam) params.get(4));
 		UntypedParameterValue p5 = ((UntypedParameterValue) params.get(5));
-		ComparisonOptionParam p6 = ((ComparisonOptionParam) params.get(6));
-		TypeOptionParam p7 = ((TypeOptionParam) params.get(7));
+//		ComparisonOptionParam p6 = ((ComparisonOptionParam) params.get(6));
+//		TypeOptionParam p7 = ((TypeOptionParam) params.get(7));
 		UntypedParameterValue p8 = ((UntypedParameterValue) params.get(8));
-		ComparisonOptionParam p9 = ((ComparisonOptionParam) params.get(9));
-		TypeOptionParam p10 = ((TypeOptionParam) params.get(10));
+//		ComparisonOptionParam p9 = ((ComparisonOptionParam) params.get(9));
+//		TypeOptionParam p10 = ((TypeOptionParam) params.get(10));
 		UntypedParameterValue p11 = ((UntypedParameterValue) params.get(11));
-		ComparisonOptionParam p12 = ((ComparisonOptionParam) params.get(12));
-		TypeOptionParam p13 = ((TypeOptionParam) params.get(13));
-		ComparisonOptionParam p14 = ((ComparisonOptionParam) params.get(14));
-		TypeOptionParam p15 = ((TypeOptionParam) params.get(15));
+//		ComparisonOptionParam p12 = ((ComparisonOptionParam) params.get(12));
+//		TypeOptionParam p13 = ((TypeOptionParam) params.get(13));
+//		ComparisonOptionParam p14 = ((ComparisonOptionParam) params.get(14));
+//		TypeOptionParam p15 = ((TypeOptionParam) params.get(15));
 		XmlPathParamImpl p16 = ((XmlPathParamImpl) params.get(16));
 		XmlPathParamImpl p17 = ((XmlPathParamImpl) params.get(17));
 		XmlPathParamImpl p18 = ((XmlPathParamImpl) params.get(18));
@@ -192,8 +177,6 @@ public class EvalUnique {
 	private static CompletePattern getUniqueComplexAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
@@ -222,7 +205,7 @@ public class EvalUnique {
 		Graph g0 = completePattern.getGraph();
 		Graph g1 = quantifiedCondition.getGraph();
 		Graph g2 = countPattern.getGraph();
-		Graph g3 = quantifiedCondition2.getGraph();
+//		Graph g3 = quantifiedCondition2.getGraph();
 		
 		Node g0e0 = g0.getReturnNodes().get(0).makeComplex();
 		g0e0.addOutgoing().getTarget().addPrimitiveComparison();
@@ -271,41 +254,39 @@ public class EvalUnique {
 	private static CompletePattern getUniqueComplexLidoConcrete(XmlAxisKind[] e0rel, String e0Name, XmlAxisKind[] e0e1rel, String e1Name, XmlAxisKind[] e1e2rel, String e2Name, XmlAxisKind[] e2e3rel, String e3Name, XmlPropertyKind fieldtype, String fieldtypename,
 			XmlPropertyKind fieldvalue, String fieldvaluename) 
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		ParametersPackage.eINSTANCE.eClass();
-		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
 		
 		CompletePattern completePattern = getUniqueComplexAbstract();
 		
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
-		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
-		NumberParam p1 = ((NumberParam) params.get(1));
+//		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
+//		NumberParam p1 = ((NumberParam) params.get(1));
 		UntypedParameterValue p2 = ((UntypedParameterValue) params.get(2));
-		ComparisonOptionParam p3 = ((ComparisonOptionParam) params.get(3));
-		TypeOptionParam p4 = ((TypeOptionParam) params.get(4));
+//		ComparisonOptionParam p3 = ((ComparisonOptionParam) params.get(3));
+//		TypeOptionParam p4 = ((TypeOptionParam) params.get(4));
 		UntypedParameterValue p5 = ((UntypedParameterValue) params.get(5));
-		ComparisonOptionParam p6 = ((ComparisonOptionParam) params.get(6));
-		TypeOptionParam p7 = ((TypeOptionParam) params.get(7));
+//		ComparisonOptionParam p6 = ((ComparisonOptionParam) params.get(6));
+//		TypeOptionParam p7 = ((TypeOptionParam) params.get(7));
 		UntypedParameterValue p8 = ((UntypedParameterValue) params.get(8));
-		ComparisonOptionParam p9 = ((ComparisonOptionParam) params.get(9));
-		TypeOptionParam p10 = ((TypeOptionParam) params.get(10));
+//		ComparisonOptionParam p9 = ((ComparisonOptionParam) params.get(9));
+//		TypeOptionParam p10 = ((TypeOptionParam) params.get(10));
 		UntypedParameterValue p11 = ((UntypedParameterValue) params.get(11));
-		ComparisonOptionParam p12 = ((ComparisonOptionParam) params.get(12));
-		TypeOptionParam p13 = ((TypeOptionParam) params.get(13));
+//		ComparisonOptionParam p12 = ((ComparisonOptionParam) params.get(12));
+//		TypeOptionParam p13 = ((TypeOptionParam) params.get(13));
 		UntypedParameterValue p14 = ((UntypedParameterValue) params.get(14));
-		ComparisonOptionParam p15 = ((ComparisonOptionParam) params.get(15));
-		TypeOptionParam p16 = ((TypeOptionParam) params.get(16));
+//		ComparisonOptionParam p15 = ((ComparisonOptionParam) params.get(15));
+//		TypeOptionParam p16 = ((TypeOptionParam) params.get(16));
 		UntypedParameterValue p17 = ((UntypedParameterValue) params.get(17));
-		ComparisonOptionParam p18 = ((ComparisonOptionParam) params.get(18));
-		TypeOptionParam p19 = ((TypeOptionParam) params.get(19));
+//		ComparisonOptionParam p18 = ((ComparisonOptionParam) params.get(18));
+//		TypeOptionParam p19 = ((TypeOptionParam) params.get(19));
 		UntypedParameterValue p20 = ((UntypedParameterValue) params.get(20));
-		ComparisonOptionParam p21 = ((ComparisonOptionParam) params.get(21));
-		TypeOptionParam p22 = ((TypeOptionParam) params.get(22));
+//		ComparisonOptionParam p21 = ((ComparisonOptionParam) params.get(21));
+//		TypeOptionParam p22 = ((TypeOptionParam) params.get(22));
 		UntypedParameterValue p23 = ((UntypedParameterValue) params.get(23));
-		ComparisonOptionParam p24 = ((ComparisonOptionParam) params.get(24));
-		TypeOptionParam p25 = ((TypeOptionParam) params.get(25));
-		ComparisonOptionParam p26 = ((ComparisonOptionParam) params.get(26));
-		TypeOptionParam p27 = ((TypeOptionParam) params.get(27));
+//		ComparisonOptionParam p24 = ((ComparisonOptionParam) params.get(24));
+//		TypeOptionParam p25 = ((TypeOptionParam) params.get(25));
+//		ComparisonOptionParam p26 = ((ComparisonOptionParam) params.get(26));
+//		TypeOptionParam p27 = ((TypeOptionParam) params.get(27));
 		XmlPathParamImpl p28 = ((XmlPathParamImpl) params.get(28));
 		XmlPathParamImpl p29 = ((XmlPathParamImpl) params.get(29));
 		XmlPathParamImpl p30 = ((XmlPathParamImpl) params.get(30));
