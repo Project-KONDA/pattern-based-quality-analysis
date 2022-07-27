@@ -3123,13 +3123,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int IRI_PARAM___GET_SUGGESTIONS = ParametersPackage.PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
-	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * The operation id for the '<em>Infer Suggestions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = ParametersPackage.PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+	int IRI_PARAM___INFER_SUGGESTIONS = ParametersPackage.PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Get Standard Iri</em>' operation.
@@ -4251,13 +4251,13 @@ public interface AdaptionrdfPackage extends EPackage {
 	int IRI_LIST_PARAM___GET_SUGGESTIONS = ParametersPackage.PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
-	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * The operation id for the '<em>Infer Suggestions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IRI_LIST_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = ParametersPackage.PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+	int IRI_LIST_PARAM___INFER_SUGGESTIONS = ParametersPackage.PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The number of operations of the '<em>Iri List Param</em>' class.

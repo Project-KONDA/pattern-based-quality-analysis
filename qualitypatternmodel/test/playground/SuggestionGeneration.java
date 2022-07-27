@@ -70,8 +70,9 @@ public class SuggestionGeneration {
         completePattern.setDatabase(db);
         
         System.out.println("> Element Tag Suggestions:\n");
-        TextLiteralParam text = (TextLiteralParam) completePattern.getParameterList().getParameters().get(0);
-        for(String s : text.inferElementTagSuggestions()) {
+//        TextLiteralParam text = (TextLiteralParam) completePattern.getParameterList().getParameters().get(0);
+        TextLiteralParam text = p4.getXmlAxisPairs().get(0).getTextLiteralParam();
+        for(String s : text.inferSuggestions()) {
         	System.out.println(s);
         }
     }

@@ -175,9 +175,10 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	}
 	
 	@Override
-	public EList<String> inferElementTagSuggestions() {
-		EList<String> suggestions = super.inferElementTagSuggestions();
-		EList<String> suggestionsFromPath = getXmlAxisPair().inferElementTagSuggestions();
+	public EList<String> inferSuggestions() {
+		EList<String> suggestions = super.inferSuggestions();
+		XmlAxisPair pair = getXmlAxisPair();
+		EList<String> suggestionsFromPath = pair.inferElementTagSuggestions();
 
 		if(suggestions.isEmpty() || suggestionsFromPath.isEmpty()) {
 			suggestions.addAll(suggestionsFromPath);

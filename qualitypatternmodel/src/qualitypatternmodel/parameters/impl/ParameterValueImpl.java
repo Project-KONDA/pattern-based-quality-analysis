@@ -256,15 +256,11 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 							}
 						}
 					}
-				}				
+				}
+				
 			}
 		}
-		if(this instanceof TextLiteralParam) {
-			TextLiteralParam text = (TextLiteralParam) this;
-			if(text.getXmlAxisPair() != null) {
-				xmlPropertyKinds.add(XmlPropertyKind.TAG);
-			}
-		}
+		// TextLiteralParam overrides: if in XmlAxisParam it adds TAG
 		return xmlPropertyKinds;
 	}
 
@@ -537,8 +533,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				return isInAttributeComparison();
 			case ParametersPackage.PARAMETER_VALUE___GET_SUGGESTIONS:
 				return getSuggestions();
-			case ParametersPackage.PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS:
-				return inferElementTagSuggestions();
+			case ParametersPackage.PARAMETER_VALUE___INFER_SUGGESTIONS:
+				return inferSuggestions();
 			case ParametersPackage.PARAMETER_VALUE___GET_RETURN_TYPE:
 				return getReturnType();
 			case ParametersPackage.PARAMETER_VALUE___IS_TRANSLATABLE:
@@ -798,7 +794,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 * @generated NOT
 	 */
 	@Override
-	public EList<String> inferElementTagSuggestions() {
+	public EList<String> inferSuggestions() {
 		EList<String> suggestions = new BasicEList<String>();
 		
 		EList<Comparison> comparisons = getComparison1();
@@ -829,7 +825,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 										XmlPathParam previousPathParam = previousNav.getXmlPathParam();
 										TextLiteralParam text = previousPathParam.getXmlAxisPairs().get(previousPathParam.getXmlAxisPairs().size()-1).getTextLiteralParam();
 										if(text != null) {
-											EList<String> newSuggestions = text.inferElementTagSuggestions();
+											EList<String> newSuggestions = text.inferSuggestions();
 											if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
 												suggestions.addAll(newSuggestions);
 											} else {
@@ -842,7 +838,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 							} else {
 								TextLiteralParam text = xmlPathParam.getXmlAxisPairs().get(xmlPathParam.getXmlAxisPairs().size()-1).getTextLiteralParam();
 								if(text != null) {
-									EList<String> newSuggestions = text.inferElementTagSuggestions();
+									EList<String> newSuggestions = text.inferSuggestions();
 									if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
 										suggestions.addAll(newSuggestions);
 									} else {

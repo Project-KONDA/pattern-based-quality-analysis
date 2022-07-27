@@ -172,5 +172,5 @@ public interface ParameterValue extends Parameter, qualitypatternmodel.graphstru
 	 * @model
 	 * @generated
 	 */
-	EList<String> inferElementTagSuggestions();
+	EList<String> inferSuggestions();
 } // XSType

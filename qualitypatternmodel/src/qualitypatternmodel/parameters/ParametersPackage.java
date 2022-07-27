@@ -1658,13 +1658,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_VALUE___GET_SUGGESTIONS = PARAMETER_OPERATION_COUNT + 14;
 
 	/**
-	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * The operation id for the '<em>Infer Suggestions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_OPERATION_COUNT + 15;
+	int PARAMETER_VALUE___INFER_SUGGESTIONS = PARAMETER_OPERATION_COUNT + 15;
 
 	/**
 	 * The number of operations of the '<em>Parameter Value</em>' class.
@@ -2217,13 +2217,13 @@ public interface ParametersPackage extends EPackage {
 	int BOOLEAN_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
-	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * The operation id for the '<em>Infer Suggestions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+	int BOOLEAN_PARAM___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -2767,13 +2767,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LIST_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
-	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * The operation id for the '<em>Infer Suggestions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LIST_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+	int TEXT_LIST_PARAM___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -3371,13 +3371,13 @@ public interface ParametersPackage extends EPackage {
 	int TEXT_LITERAL_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
-	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * The operation id for the '<em>Infer Suggestions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_LITERAL_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+	int TEXT_LITERAL_PARAM___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -3930,13 +3930,13 @@ public interface ParametersPackage extends EPackage {
 	int NUMBER_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
-	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * The operation id for the '<em>Infer Suggestions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+	int NUMBER_PARAM___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -4480,13 +4480,13 @@ public interface ParametersPackage extends EPackage {
 	int DATE_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
-	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * The operation id for the '<em>Infer Suggestions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+	int DATE_PARAM___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -5030,13 +5030,13 @@ public interface ParametersPackage extends EPackage {
 	int TIME_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
-	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * The operation id for the '<em>Infer Suggestions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+	int TIME_PARAM___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -5571,13 +5571,13 @@ public interface ParametersPackage extends EPackage {
 	int UNTYPED_PARAMETER_VALUE___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
-	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * The operation id for the '<em>Infer Suggestions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNTYPED_PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+	int UNTYPED_PARAMETER_VALUE___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value</em>' operation.
@@ -6121,13 +6121,13 @@ public interface ParametersPackage extends EPackage {
 	int DATE_TIME_PARAM___GET_SUGGESTIONS = PARAMETER_VALUE___GET_SUGGESTIONS;
 
 	/**
-	 * The operation id for the '<em>Infer Element Tag Suggestions</em>' operation.
+	 * The operation id for the '<em>Infer Suggestions</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_TIME_PARAM___INFER_ELEMENT_TAG_SUGGESTIONS = PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS;
+	int DATE_TIME_PARAM___INFER_SUGGESTIONS = PARAMETER_VALUE___INFER_SUGGESTIONS;
 
 	/**
 	 * The operation id for the '<em>Set Value If Valid</em>' operation.
@@ -7116,16 +7116,6 @@ public interface ParametersPackage extends EPackage {
 	EOperation getParameterValue__IsInDataComparison();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Infer Element Tag Suggestions</em>' operation.
-	 * @see qualitypatternmodel.parameters.ParameterValue#inferElementTagSuggestions()
-	 * @generated
-	 */
-	EOperation getParameterValue__InferElementTagSuggestions();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#getElementTags() <em>Get Element Tags</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7174,6 +7164,16 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getParameterValue__GetSuggestions();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#inferSuggestions() <em>Infer Suggestions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Infer Suggestions</em>' operation.
+	 * @see qualitypatternmodel.parameters.ParameterValue#inferSuggestions()
+	 * @generated
+	 */
+	EOperation getParameterValue__InferSuggestions();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.ParameterValue#replace(qualitypatternmodel.parameters.ParameterValue) <em>Replace</em>}' operation.
@@ -7836,14 +7836,6 @@ public interface ParametersPackage extends EPackage {
 		EOperation PARAMETER_VALUE___IS_IN_DATA_COMPARISON = eINSTANCE.getParameterValue__IsInDataComparison();
 
 		/**
-		 * The meta object literal for the '<em><b>Infer Element Tag Suggestions</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS = eINSTANCE.getParameterValue__InferElementTagSuggestions();
-
-		/**
 		 * The meta object literal for the '<em><b>Get Element Tags</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7882,6 +7874,14 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PARAMETER_VALUE___GET_SUGGESTIONS = eINSTANCE.getParameterValue__GetSuggestions();
+
+		/**
+		 * The meta object literal for the '<em><b>Infer Suggestions</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMETER_VALUE___INFER_SUGGESTIONS = eINSTANCE.getParameterValue__InferSuggestions();
 
 		/**
 		 * The meta object literal for the '<em><b>Replace</b></em>' operation.

@@ -795,16 +795,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameterValue__InferElementTagSuggestions() {
-		return parameterValueEClass.getEOperations().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getParameterValue__GetElementTags() {
 		return parameterValueEClass.getEOperations().get(2);
 	}
@@ -847,6 +837,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	@Override
 	public EOperation getParameterValue__GetSuggestions() {
 		return parameterValueEClass.getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterValue__InferSuggestions() {
+		return parameterValueEClass.getEOperations().get(10);
 	}
 
 	/**
@@ -1135,7 +1135,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_ATTRIBUTE_VALUES);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_SUGGESTIONS);
-		createEOperation(parameterValueEClass, PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___INFER_SUGGESTIONS);
 
 		dateParamEClass = createEClass(DATE_PARAM);
 		createEAttribute(dateParamEClass, DATE_PARAM__VALUE);
@@ -1365,7 +1365,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEOperation(getParameterValue__GetSuggestions(), ecorePackage.getEString(), "getSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getParameterValue__InferElementTagSuggestions(), ecorePackage.getEString(), "inferElementTagSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getParameterValue__InferSuggestions(), ecorePackage.getEString(), "inferSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dateParamEClass, DateParam.class, "DateParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
