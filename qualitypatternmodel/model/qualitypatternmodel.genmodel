@@ -114,7 +114,7 @@
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/getAttributeValues"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/isInAttributeComparison"/>
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/getSuggestions"/>
-        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/inferElementTagSuggestions"/>
+        <genOperations ecoreOperation="qualitypatternmodel.ecore#//parameters/ParameterValue/inferSuggestions"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//parameters/DateParam">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/DateParam/value"/>
