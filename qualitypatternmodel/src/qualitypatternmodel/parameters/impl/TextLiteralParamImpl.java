@@ -185,7 +185,19 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			suggestions.retainAll(suggestionsFromPath);
 		}
 				
-		return suggestions;			
+		return suggestions;
+	}
+	
+	@Override
+	protected EList<XmlPropertyKind> getPrimitiveComparisonPropertyKinds() {
+		EList<XmlPropertyKind> list = super.getPrimitiveComparisonPropertyKinds();
+		if(this instanceof TextLiteralParam) {
+			TextLiteralParam text = (TextLiteralParam) this;
+			if(text.getXmlAxisPair() != null) {
+				list.add(XmlPropertyKind.TAG);
+			}
+		}
+		return list;
 	}
 
 	

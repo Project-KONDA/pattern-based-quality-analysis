@@ -14,7 +14,8 @@ import org.basex.query.QueryIOException;
 import org.eclipse.emf.common.util.Diagnostic;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
-import qualitypatternmodel.adaptionxml.impl.XmlPathParamImpl;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
+import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlProperty;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -42,13 +43,16 @@ public class SuggestionGeneration {
 		TextLiteralParam p0 = ((TextLiteralParam) params.get(0));
 		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
 		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
-		XmlPathParamImpl p3 = ((XmlPathParamImpl) params.get(3));
-		XmlPathParamImpl p4 = ((XmlPathParamImpl) params.get(4));
+		XmlPathParam p3 = ((XmlPathParam) params.get(3));
+		XmlPathParam p4 = ((XmlPathParam) params.get(4));
 		
-		p0.setValue("test");
+//		p0.setValue("demo:name");
+		p4.setXmlAxis(XmlAxisKind.DESCENDANT, "demo:name");
+		
+		System.out.println(completePattern.myToString());
 		
 		try {
-			completePattern.isValid(AbstractionLevel.CONCRETE);
+			completePattern.isValid(AbstractionLevel.ABSTRACT);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

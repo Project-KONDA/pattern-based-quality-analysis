@@ -295,7 +295,7 @@ public class XmlAxisPairImpl extends PatternElementImpl implements XmlAxisPair {
 	@Override
 	public EList<XmlAxisPair> getNextXmlAxisPairs() {
 		int index = getXmlPathParam().getXmlAxisPairs().indexOf(this);
-		EList<XmlAxisPair> xmlAxisPairs = new BasicEList<XmlAxisPair>();		
+		EList<XmlAxisPair> xmlAxisPairs = new BasicEList<XmlAxisPair>();
 		if(index < getXmlPathParam().getXmlAxisPairs().size()-1) {
 			xmlAxisPairs.add(getXmlPathParam().getXmlAxisPairs().get(index+1));
 		} else if(getXmlPathParam().getXmlPropertyOptionParam() == null && getXmlPathParam().getXmlNavigation() instanceof XmlElementNavigation) {
@@ -307,7 +307,9 @@ public class XmlAxisPairImpl extends PatternElementImpl implements XmlAxisPair {
 				}
 				if(r instanceof XmlPropertyNavigation) {
 					XmlPropertyNavigation nav = (XmlPropertyNavigation) r;
-					xmlAxisPairs.add(nav.getXmlPathParam().getXmlAxisPairs().get(0));
+					EList<XmlAxisPair> pairs = nav.getXmlPathParam().getXmlAxisPairs();
+					if (pairs.size() > 0)
+						xmlAxisPairs.add(pairs.get(0));
 				}
 			}
 		}
@@ -403,12 +405,10 @@ public class XmlAxisPairImpl extends PatternElementImpl implements XmlAxisPair {
 								suggestions.retainAll(nextSuggestions);						
 							}
 						}
-						
 					} catch (MissingPatternContainerException | QueryException | IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();				
 					}
-					
 				}
 			}		
 		}
@@ -440,7 +440,6 @@ public class XmlAxisPairImpl extends PatternElementImpl implements XmlAxisPair {
 				// TODO Auto-generated catch block
 				e.printStackTrace();					
 			}
-			
 			
 		} else {
 			EList<String> suggestions = new BasicEList<String>();

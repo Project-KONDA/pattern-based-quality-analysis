@@ -213,14 +213,16 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		return getPrimitiveComparisonPropertyKinds().contains(XmlPropertyKind.TAG);
 	}
 
-	private EList<XmlPropertyKind> getPrimitiveComparisonPropertyKinds() {
+	protected EList<XmlPropertyKind> getPrimitiveComparisonPropertyKinds() {
 		EList<XmlPropertyKind> xmlPropertyKinds = new BasicEList<XmlPropertyKind>();
 		EList<Comparison> comparisons = new BasicEList<Comparison>();
 		comparisons.addAll(getComparison1());
 		comparisons.addAll(getComparison2());
+		
 		for(Comparison comparison : comparisons) {
 			if(comparison.isPrimitive()) {
-				if(comparison.getArgument1() instanceof XmlProperty) {
+				
+				if(comparison.getArgument1() instanceof XmlProperty && comparison.getArgument2() == this) {
 					XmlProperty property = (XmlProperty) comparison.getArgument1();
 					for(Relation r : property.getIncoming()) {
 						if (r instanceof XmlElementNavigation) {
@@ -236,9 +238,9 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 							}
 						}
 					}
-					
 				}
-				if(comparison.getArgument2() instanceof XmlProperty) {
+				
+				if(comparison.getArgument1() == this && comparison.getArgument2() instanceof XmlProperty) {
 					XmlProperty property = (XmlProperty) comparison.getArgument2();
 					for(Relation r : property.getIncoming()) {
 						if (r instanceof XmlElementNavigation) {
