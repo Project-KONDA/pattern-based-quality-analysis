@@ -21,33 +21,23 @@ public class EvalComp {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		
 		completePatterns.add(getCompGeneric());
 		completePatterns.add(getCompCondGeneric());
-		for (CompletePattern cp: completePatterns) {
-			System.out.println(cp.myToString());
-			System.out.println();
-			cp.createXmlAdaption();
-			Test00.replace(cp);
-			System.out.println(cp.generateXQuery());
-			System.out.println();
-		}
+		
+		for (CompletePattern cp: completePatterns) 
+			Test00.printGenericPatternExampleXQuery(cp);
+//			System.out.println(cp.myToString());
 	}
 	
 	public static CompletePattern getCompGeneric() throws InvalidityException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
-		completePattern.setName("comparison_generic");
-		completePattern.setAbstractName("comparison_generic");
-		completePattern.setDescription("Allows detecting illegal values, i.e. allows detecting elements with a specific property which are related to other elements with two specific properties");
+
+		completePattern.getGraph().getReturnNodes().get(0).makeComplex();
 		
-		// Context graph of pattern:
-		Node element0 = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
-		element0.setName("Element0");
-		
-		// First-order logic condition of pattern:
 		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
 		completePattern.setCondition(quantifiedCondition);
 		
-		// Graph of quantified condition:		
 		Node element0Copy = quantifiedCondition.getGraph().getReturnNodes().get(0);
 		
 		Node element1 = element0Copy.addOutgoing().getTarget().makePrimitive();
@@ -57,7 +47,6 @@ public class EvalComp {
 		element2.setGraph(quantifiedCondition.getGraph());
 		
 		element1.addComparison(element2);
-//		element1.addOutgoing().getTarget().addPrimitiveComparison();
 				
 		Comparison comp2 = (Comparison) quantifiedCondition.getGraph().getOperatorList().getOperators().get(0);
 		comp2.getOption().getOptions().add(ComparisonOperator.GREATER);
