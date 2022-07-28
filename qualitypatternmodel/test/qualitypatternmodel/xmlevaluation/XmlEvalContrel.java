@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.evaluation.EvalContrel;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.xmltranslationtests.Test00;
@@ -20,19 +22,26 @@ public class XmlEvalContrel {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 //		completePatterns.add(getContrelAbstract());
 		completePatterns.add(getContrelMidas());
+		completePatterns.add(getContrelMidasAps());
 		
 		Test00.getQueries(completePatterns);
 //		Test00.test(completePatterns);	
 	}
-	
-	public static CompletePattern getContrelAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+
+	public static CompletePattern getContrelCondAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		CompletePattern completePattern = EvalContrel.getContrelCondGeneric();
 		completePattern.createXmlAdaption();
 		return completePattern;
 	}
 	
+	public static CompletePattern getContrelAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+		CompletePattern completePattern = EvalContrel.getContrelGeneric();
+		completePattern.createXmlAdaption();
+		return completePattern;
+	}
+	
 	public static CompletePattern getContrelMidas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
-		CompletePattern completePattern = getContrelAbstract();
+		CompletePattern completePattern = getContrelCondAbstract();
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
 		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
@@ -61,12 +70,12 @@ public class XmlEvalContrel {
 //		TypeOptionParam p23 = ((TypeOptionParam) params.get(23));
 //		ComparisonOptionParam p24 = ((ComparisonOptionParam) params.get(24));
 //		TypeOptionParam p25 = ((TypeOptionParam) params.get(25));
-//		ComparisonOptionParam p26 = ((ComparisonOptionParam) params.get(26));
+		ComparisonOptionParam p26 = ((ComparisonOptionParam) params.get(26));
 //		TypeOptionParam p27 = ((TypeOptionParam) params.get(27));
 //		ComparisonOptionParam p28 = ((ComparisonOptionParam) params.get(28));
 //		TypeOptionParam p29 = ((TypeOptionParam) params.get(29));
 		XmlPathParam p30 = ((XmlPathParam) params.get(30));
-//		XmlPathParam p31 = ((XmlPathParam) params.get(31));
+		XmlPathParam p31 = ((XmlPathParam) params.get(31));
 		XmlPathParam p32 = ((XmlPathParam) params.get(32));
 //		XmlPathParam p33 = ((XmlPathParam) params.get(33));
 		XmlPathParam p34 = ((XmlPathParam) params.get(34));
@@ -86,7 +95,7 @@ public class XmlEvalContrel {
 		XmlPathParam p48 = ((XmlPathParam) params.get(48));
 		XmlPathParam p49 = ((XmlPathParam) params.get(49));
 		XmlPathParam p50 = ((XmlPathParam) params.get(50));
-//		XmlPathParam p51 = ((XmlPathParam) params.get(51));
+		XmlPathParam p51 = ((XmlPathParam) params.get(51));
 
 		p0.setValue("kue");
 		p3.setValue("wer");
@@ -97,6 +106,10 @@ public class XmlEvalContrel {
 		p18.setValue("3600");
 		p21.setValue("3100");
 		
+		p31.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD});
+		p51.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD});
+		
+		p26.setValue(ComparisonOperator.NOTEQUAL);
 		
 		p30.getXmlPropertyOptionParam().setValue(XmlPropertyKind.ATTRIBUTE);
 		p30.getXmlPropertyOptionParam().getAttributeName().setValue("Type");
@@ -129,4 +142,45 @@ public class XmlEvalContrel {
 						
 		return completePattern;
 	}
+
+	
+	private static CompletePattern getContrelMidasAps() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getContrelAbstract();
+		List<Parameter> params = completePattern.getParameterList().getParameters();
+		
+		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
+//		TypeOptionParam p1 = ((TypeOptionParam) params.get(1));
+//		ComparisonOptionParam p2 = ((ComparisonOptionParam) params.get(2));
+//		TypeOptionParam p3 = ((TypeOptionParam) params.get(3));
+//		ComparisonOptionParam p4 = ((ComparisonOptionParam) params.get(4));
+//		TypeOptionParam p5 = ((TypeOptionParam) params.get(5));
+		XmlPathParam p6 = ((XmlPathParam) params.get(6));
+		XmlPathParam p7 = ((XmlPathParam) params.get(7));
+		XmlPathParam p8 = ((XmlPathParam) params.get(8));
+		XmlPathParam p9 = ((XmlPathParam) params.get(9));
+		XmlPathParam p10 = ((XmlPathParam) params.get(10));
+		XmlPathParam p11 = ((XmlPathParam) params.get(11));
+		XmlPathParam p12 = ((XmlPathParam) params.get(12));
+		XmlPathParam p13 = ((XmlPathParam) params.get(13));
+		XmlPathParam p14 = ((XmlPathParam) params.get(14));
+		XmlPathParam p15 = ((XmlPathParam) params.get(15));
+
+
+		p0.setValue(ComparisonOperator.NOTEQUAL);
+
+		p6.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD}, "kue");
+		p15.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD}, "wer");
+
+		p7.setXmlAxis(XmlAxisKind.CHILD, "aku35");
+		p8.setXmlAxis(XmlAxisKind.CHILD, "awe30");
+		p9.setXmlAxis(XmlAxisKind.CHILD, "a3100");
+		p10.setXmlAxis(XmlAxisKind.CHILD, "a3600");
+		p11.setXmlAxis(XmlAxisKind.CHILD, "concept");
+		p12.setXmlAxis(XmlAxisKind.CHILD, "concept");
+		p13.setXmlAxis(XmlAxisKind.CHILD, "a3600");
+		p14.setXmlAxis(XmlAxisKind.CHILD, "a3100");
+		
+		return completePattern;
+	}
+	
 }
