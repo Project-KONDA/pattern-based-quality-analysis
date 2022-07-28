@@ -28,7 +28,7 @@ public class RdfEvalCard {
 	}
 	
 	public static CompletePattern getCardRdfAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalCard.getCardGeneric();	
+		CompletePattern completePattern = EvalCard.getCard2Generic();	
 		completePattern.createRdfAdaption();
 		return completePattern;		
 	}
