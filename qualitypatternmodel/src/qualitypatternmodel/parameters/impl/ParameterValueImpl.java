@@ -49,6 +49,7 @@ import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersFactory;
+import qualitypatternmodel.graphstructure.Comparable;
 
 /**
  * <!-- begin-user-doc -->
@@ -451,7 +452,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == qualitypatternmodel.graphstructure.Comparable.class) {
+		if (baseClass == Comparable.class) {
 			switch (derivedFeatureID) {
 				case ParametersPackage.PARAMETER_VALUE__COMPARISON1: return GraphstructurePackage.COMPARABLE__COMPARISON1;
 				case ParametersPackage.PARAMETER_VALUE__COMPARISON2: return GraphstructurePackage.COMPARABLE__COMPARISON2;
@@ -468,7 +469,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == qualitypatternmodel.graphstructure.Comparable.class) {
+		if (baseClass == Comparable.class) {
 			switch (baseFeatureID) {
 				case GraphstructurePackage.COMPARABLE__COMPARISON1: return ParametersPackage.PARAMETER_VALUE__COMPARISON1;
 				case GraphstructurePackage.COMPARABLE__COMPARISON2: return ParametersPackage.PARAMETER_VALUE__COMPARISON2;
@@ -485,7 +486,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 */
 	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == qualitypatternmodel.graphstructure.Comparable.class) {
+		if (baseClass == Comparable.class) {
 			switch (baseOperationID) {
 				case GraphstructurePackage.COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP: return ParametersPackage.PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 				case GraphstructurePackage.COMPARABLE___GET_RETURN_TYPE: return ParametersPackage.PARAMETER_VALUE___GET_RETURN_TYPE;
@@ -709,7 +710,6 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			}
 			
 			concreteValue.setTypeModifiable(true);
-
 		}
 	}
 
@@ -796,64 +796,64 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	@Override
 	public EList<String> inferSuggestions() {
 		EList<String> suggestions = new BasicEList<String>();
+
+		EList<Comparable> comps = new BasicEList<Comparable>();
+
+		for(Comparison c: getComparison1())
+			if (c.getOption().getValue() == ComparisonOperator.EQUAL)
+				comps.add(c.getArgument2());
 		
-		EList<Comparison> comparisons = getComparison1();
-		comparisons.addAll(getComparison2());
-		for (Comparison comp : comparisons) {
-			if(comp.getOption().getValue() == ComparisonOperator.EQUAL) {				
-				XmlProperty tagNode = null;
-				if(comp.getArgument1().equals(this)) {
-					if(comp.getArgument2() instanceof XmlProperty) {
-						tagNode = (XmlProperty) comp.getArgument2();
-					}
-				}
-				if(comp.getArgument2().equals(this)) {
-					if(comp.getArgument1() instanceof XmlProperty) {
-						tagNode = (XmlProperty) comp.getArgument1();			
-					}
-				}
-				if(tagNode != null) {
-					for (Relation r : tagNode.getIncoming()) {
-						XmlPathParam xmlPathParam = null;					
-						if(r instanceof XmlElementNavigation) {
-							XmlElementNavigation nav = (XmlElementNavigation) r;
-							xmlPathParam = nav.getXmlPathParam();
-							if(xmlPathParam.getXmlAxisPairs().isEmpty()) {
-								for (Relation previousRelation : nav.getSource().getIncoming()) {
-									if(previousRelation instanceof XmlElementNavigation) {
-										XmlElementNavigation previousNav = (XmlElementNavigation) previousRelation;
-										XmlPathParam previousPathParam = previousNav.getXmlPathParam();
-										TextLiteralParam text = previousPathParam.getXmlAxisPairs().get(previousPathParam.getXmlAxisPairs().size()-1).getTextLiteralParam();
-										if(text != null) {
-											EList<String> newSuggestions = text.inferSuggestions();
-											if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
-												suggestions.addAll(newSuggestions);
-											} else {
-												suggestions.retainAll(newSuggestions);
-											}
-										}
-									}
-								}
-								
-							} else {
-								TextLiteralParam text = xmlPathParam.getXmlAxisPairs().get(xmlPathParam.getXmlAxisPairs().size()-1).getTextLiteralParam();
-								if(text != null) {
-									EList<String> newSuggestions = text.inferSuggestions();
-									if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
-										suggestions.addAll(newSuggestions);
-									} else {
-										suggestions.retainAll(newSuggestions);
-									}
+
+		for(Comparison c: getComparison2())
+			if (c.getOption().getValue() == ComparisonOperator.EQUAL)
+				comps.add(c.getArgument1());
+		
+		for (Comparable comp: comps) {
+			if (comp instanceof XmlProperty)
+				suggestions.addAll(inferSuggestions2(((XmlProperty) comp)));
+		}	
+		return suggestions;
+	}
+	
+	private EList<String> inferSuggestions2(XmlProperty tagNode) {
+		System.out.println("inferSuggestions2 HERE");
+		EList<String> suggestions = new BasicEList<String>();
+		for (Relation r : tagNode.getIncoming()) {
+			XmlPathParam xmlPathParam = null;					
+			if(r instanceof XmlElementNavigation) {
+				XmlElementNavigation nav = (XmlElementNavigation) r;
+				xmlPathParam = nav.getXmlPathParam();
+				if(xmlPathParam.getXmlAxisPairs().isEmpty()) {
+					for (Relation previousRelation : nav.getSource().getIncoming()) {
+						if(previousRelation instanceof XmlElementNavigation) {
+							XmlElementNavigation previousNav = (XmlElementNavigation) previousRelation;
+							XmlPathParam previousPathParam = previousNav.getXmlPathParam();
+							TextLiteralParam text = previousPathParam.getXmlAxisPairs().get(previousPathParam.getXmlAxisPairs().size()-1).getTextLiteralParam();
+							if(text != null) {
+								EList<String> newSuggestions = text.inferSuggestions();
+								if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
+									suggestions.addAll(newSuggestions);
+								} else {
+									suggestions.retainAll(newSuggestions);
 								}
 							}
-							
 						}
 					}
-				}			
+					
+				} else {
+					TextLiteralParam text = xmlPathParam.getXmlAxisPairs().get(xmlPathParam.getXmlAxisPairs().size()-1).getTextLiteralParam();
+					if(text != null) {
+						EList<String> newSuggestions = text.inferSuggestions();
+						if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
+							suggestions.addAll(newSuggestions);
+						} else {
+							suggestions.retainAll(newSuggestions);
+						}
+					}
+				}
 				
 			}
 		}
-		
 		return suggestions;
 	}
 
