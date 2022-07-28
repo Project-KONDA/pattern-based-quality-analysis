@@ -155,4 +155,11 @@ public class Test00 {
 		}
 		return pattern;
 	}
+
+	public static void printGenericPatternExampleXQuery(CompletePattern pattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		pattern.createXmlAdaption();
+		replace(pattern);
+		System.out.println(pattern.generateXQuery());
+		
+	}
 }
