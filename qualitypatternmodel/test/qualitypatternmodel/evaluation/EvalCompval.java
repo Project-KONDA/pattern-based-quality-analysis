@@ -3,6 +3,7 @@ package qualitypatternmodel.evaluation;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.xmltranslationtests.Test00;
 import qualitypatternmodel.xmltranslationtests.Test03Quantor;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.Node;
@@ -19,14 +20,18 @@ public class EvalCompval {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getCompvalGeneric());
-		completePatterns.add(getCompvalCondGeneric());
+
+		completePatterns.add(getCompval2Generic());
+		completePatterns.add(getCompval3Generic());
+		completePatterns.add(getCompval2CondGeneric());
 		completePatterns.add(getCompval3CondGeneric());
+		
 		for (CompletePattern cp: completePatterns)
-			System.out.println(cp.myToString());
+			Test00.printGenericPatternExampleXQuery(cp);
+//			System.out.println(cp.myToString());
 	}
 	
-	public static CompletePattern getCompvalGeneric() throws InvalidityException {
+	public static CompletePattern getCompval2Generic() throws InvalidityException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.setName("comparison_generic");
 		completePattern.setAbstractName("comparison_generic");
@@ -57,7 +62,7 @@ public class EvalCompval {
 		return completePattern;	
 	}
 	
-	public static CompletePattern getCompvalCondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public static CompletePattern getCompval2CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelation();
 		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
 		returnElementInReturnGraph.addOutgoing().getTarget().addPrimitiveComparison();
@@ -70,7 +75,23 @@ public class EvalCompval {
 
 		return completePattern;
 	}
-	
+
+	public static CompletePattern getCompval3Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
+		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);
+
+		QuantifiedCondition quantifiedCondition = PatternstructureFactory.eINSTANCE.createQuantifiedCondition();
+		completePattern.setCondition(quantifiedCondition);
+
+		Node element1 = quantifiedCondition.getGraph().getNodes().get(0).makeComplex();
+//		element1.addOutgoing().getTarget();
+
+		Node element2 = element1.addOutgoing().getTarget().makeComplex();
+		Node element3 = element2.addOutgoing().getTarget();
+		element3.addPrimitiveComparison();
+		return completePattern;
+	}
+
 	public static CompletePattern getCompval3CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelation();
 		Node returnElementInReturnGraph = completePattern.getGraph().getNodes().get(0);

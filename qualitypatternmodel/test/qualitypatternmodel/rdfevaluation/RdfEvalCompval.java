@@ -23,20 +23,20 @@ import qualitypatternmodel.rdftranslationtests.RdfTest00;
 public class RdfEvalCompval {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getCompvalRdfAbstract());
+		completePatterns.add(getCompval2RdfAbstract());
 		completePatterns.add(getCompvalWiki());
 		RdfTest00.test(completePatterns);
 		
 	}
 	
-	public static CompletePattern getCompvalRdfAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalCompval.getCompvalGeneric();	
+	public static CompletePattern getCompval2RdfAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = EvalCompval.getCompval2Generic();	
 		completePattern.createRdfAdaption();
 		return completePattern;		
 	}
 	
 	public static CompletePattern getCompvalWiki() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getCompvalRdfAbstract();
+		CompletePattern completePattern = getCompval2RdfAbstract();
 				
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
