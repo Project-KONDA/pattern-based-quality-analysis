@@ -4,7 +4,9 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.xmltranslationtests.Test00;
 import qualitypatternmodel.xmltranslationtests.Test03Quantor;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
@@ -24,10 +26,47 @@ public class EvalFunc {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getFuncCondGeneric());
+
+//		completePatterns.add(getFuncGeneric());
+//		completePatterns.add(getFuncCondGeneric());
 		completePatterns.add(getFuncLidoGeneric());
+		
 		for (CompletePattern cp: completePatterns)
-			System.out.println(cp.myToString());
+			Test00.printGenericPatternExampleXQuery(cp);
+//			System.out.println(cp.myToString());
+	}
+	
+	public static CompletePattern getFuncGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		GraphstructurePackage.eINSTANCE.eClass();
+		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+				
+		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelation();
+		
+		ComplexNode return0 = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+		
+		QuantifiedCondition qcon = factory.createQuantifiedCondition();
+		completePattern.setCondition(qcon);
+		
+		ComplexNode return1 = (ComplexNode) return0.getOutgoingMappings().get(0).getTarget();
+		ComplexNode below = return1.addOutgoing().getTarget().makeComplex();
+		
+		ComplexNode other = graphFactory.createComplexNode();
+		other.setGraph(qcon.getGraph());
+		
+		PrimitiveNode fieldA1 = below.addOutgoing().getTarget().makePrimitive();
+		PrimitiveNode fieldA2 = below.addOutgoing().getTarget().makePrimitive();
+		PrimitiveNode fieldB1 = other.addOutgoing().getTarget().makePrimitive();
+		PrimitiveNode fieldB2 = other.addOutgoing().getTarget().makePrimitive();
+		
+		Comparison c1 = fieldA1.addComparison(fieldB1);
+		c1.getTypeOption().setValue(ReturnType.STRING);
+
+		Comparison c2 = fieldA2.addComparison(fieldB2);
+		c2.getTypeOption().setValue(ReturnType.STRING);
+		c2.getOption().setValue(ComparisonOperator.NOTEQUAL);
+		return completePattern;
 	}
 
 	public static CompletePattern getFuncCondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -85,45 +124,47 @@ public class EvalFunc {
 	}
 	
 	public static CompletePattern getFuncLidoGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 				
 		CompletePattern completePattern = Test03Quantor.getPatternExistsWithRelation();
 		
-		Node returnElementInReturnGraph = completePattern.getGraph().getReturnNodes().get(0);				
-		returnElementInReturnGraph.addOutgoing().getTarget().addPrimitiveComparison(); 
+		ComplexNode return0 = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+		return0.addOutgoing().getTarget().addPrimitiveComparison();
 		
-		Graph graph1 = ((QuantifiedCondition) completePattern.getCondition()).getGraph();
-		Node below = graph1.getNodes().get(1).makeComplex();	
+		QuantifiedCondition qcon = factory.createQuantifiedCondition();
+		completePattern.setCondition(qcon);
+		
+		ComplexNode return1 = (ComplexNode) return0.getOutgoingMappings().get(0).getTarget();
+		ComplexNode below = return1.addOutgoing().getTarget().makeComplex();
 		below.addOutgoing().getTarget().addPrimitiveComparison();
 		
-		Node fieldAReturn = below.addOutgoing().getTarget().makeComplex();
-		Node fieldBReturn = below.addOutgoing().getTarget().makeComplex();
+		ComplexNode other = graphFactory.createComplexNode();
+		other.setGraph(qcon.getGraph());
+		other.addOutgoing().getTarget().addPrimitiveComparison();
 		
-		Node otherRecord = graphFactory.createComplexNode();
-		otherRecord.setGraph(graph1);
-		otherRecord.addOutgoing().getTarget().addPrimitiveComparison();
+		ComplexNode fieldA1 = below.addOutgoing().getTarget().makeComplex();
+		ComplexNode fieldA2 = below.addOutgoing().getTarget().makeComplex();
+		ComplexNode fieldB1 = other.addOutgoing().getTarget().makeComplex();
+		ComplexNode fieldB2 = other.addOutgoing().getTarget().makeComplex();
 		
-		Node fieldAOtherRecord = otherRecord.addOutgoing().getTarget().makeComplex();
-		Node fieldBOtherRecord = otherRecord.addOutgoing().getTarget().makeComplex();
+		fieldA1.addOutgoing().getTarget().addPrimitiveComparison();
+		fieldA2.addOutgoing().getTarget().addPrimitiveComparison();
+		fieldB1.addOutgoing().getTarget().addPrimitiveComparison();
+		fieldB2.addOutgoing().getTarget().addPrimitiveComparison();
 		
-		fieldAReturn.addOutgoing().getTarget().addPrimitiveComparison(); 	
-		fieldBReturn.addOutgoing().getTarget().addPrimitiveComparison(); 
-		fieldAOtherRecord.addOutgoing().getTarget().addPrimitiveComparison(); 
-		fieldBOtherRecord.addOutgoing().getTarget().addPrimitiveComparison(); 
+		PrimitiveNode propertyA1 = fieldA1.addOutgoing().getTarget().makePrimitive();
+		PrimitiveNode propertyB1 = fieldB1.addOutgoing().getTarget().makePrimitive();
+		Comparison c1 = propertyA1.addComparison(propertyB1);
+		c1.getTypeOption().setValue(ReturnType.STRING);
 
-		PrimitiveNode propertyAReturn = fieldAReturn.addOutgoing().getTarget().makePrimitive();
-		PrimitiveNode propertyAOtherRecord = fieldAOtherRecord.addOutgoing().getTarget().makePrimitive();
-		Comparison c3 = propertyAReturn.addComparison(propertyAOtherRecord);
-		c3.getTypeOption().setValue(ReturnType.STRING);
-		
-
-		PrimitiveNode propertyBReturn = fieldBReturn.addOutgoing().getTarget().makePrimitive();
-		PrimitiveNode propertyBOtherRecord = fieldBOtherRecord.addOutgoing().getTarget().makePrimitive();
-		Comparison cx = propertyBReturn.addComparison(propertyBOtherRecord);
-		cx.getTypeOption().setValue(ReturnType.STRING);
-		cx.getOption().setValue(ComparisonOperator.NOTEQUAL);
-		
+		PrimitiveNode propertyA2 = fieldA2.addOutgoing().getTarget().makePrimitive();
+		PrimitiveNode propertyB2 = fieldB2.addOutgoing().getTarget().makePrimitive();
+		Comparison c2 = propertyA2.addComparison(propertyB2);
+		c2.getTypeOption().setValue(ReturnType.STRING);
+		c2.getOption().setValue(ComparisonOperator.NOTEQUAL);
 		return completePattern;
 	}
 }
