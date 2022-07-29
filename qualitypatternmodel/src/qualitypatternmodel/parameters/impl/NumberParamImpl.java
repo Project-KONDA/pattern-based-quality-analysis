@@ -83,6 +83,8 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 	
 	@Override
 	public String getValueAsString() {
+		if (getValue() == null) 
+			return "null";
 		return Double.toString(getValue());
 	}
 	

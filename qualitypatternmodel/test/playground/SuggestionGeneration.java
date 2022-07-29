@@ -28,6 +28,7 @@ import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.TypeOptionParam;
+import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.utility.EMFModelLoad;
@@ -40,7 +41,8 @@ public class SuggestionGeneration {
 		CompletePattern completePattern = Test00.getBasePatternCond("*");
 
 		List<Parameter> params = completePattern.getParameterList().getParameters();
-		TextLiteralParam p0 = ((TextLiteralParam) params.get(0));
+		
+		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
 		ComparisonOptionParam p1 = ((ComparisonOptionParam) params.get(1));
 		TypeOptionParam p2 = ((TypeOptionParam) params.get(2));
 		XmlPathParam p3 = ((XmlPathParam) params.get(3));
@@ -69,7 +71,12 @@ public class SuggestionGeneration {
 		}
         completePattern.setDatabase(db);
         
-        System.out.println("> Element Tag Suggestions:\n");
+        System.out.println("> P0 Element Tag Suggestions:\n");
+        for(String s : p0.inferSuggestions()) {
+        	System.out.println(s);
+        }
+
+        System.out.println("> P4 Element Tag Suggestions:\n");
 //        TextLiteralParam text = (TextLiteralParam) completePattern.getParameterList().getParameters().get(0);
         TextLiteralParam text = p4.getXmlAxisPairs().get(0).getTextLiteralParam();
         for(String s : text.inferSuggestions()) {

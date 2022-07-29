@@ -452,7 +452,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == Comparable.class) {
+		if (baseClass == qualitypatternmodel.graphstructure.Comparable.class) {
 			switch (derivedFeatureID) {
 				case ParametersPackage.PARAMETER_VALUE__COMPARISON1: return GraphstructurePackage.COMPARABLE__COMPARISON1;
 				case ParametersPackage.PARAMETER_VALUE__COMPARISON2: return GraphstructurePackage.COMPARABLE__COMPARISON2;
@@ -469,7 +469,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == Comparable.class) {
+		if (baseClass == qualitypatternmodel.graphstructure.Comparable.class) {
 			switch (baseFeatureID) {
 				case GraphstructurePackage.COMPARABLE__COMPARISON1: return ParametersPackage.PARAMETER_VALUE__COMPARISON1;
 				case GraphstructurePackage.COMPARABLE__COMPARISON2: return ParametersPackage.PARAMETER_VALUE__COMPARISON2;
@@ -486,7 +486,7 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 */
 	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == Comparable.class) {
+		if (baseClass == qualitypatternmodel.graphstructure.Comparable.class) {
 			switch (baseOperationID) {
 				case GraphstructurePackage.COMPARABLE___VALIDATE__DIAGNOSTICCHAIN_MAP: return ParametersPackage.PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
 				case GraphstructurePackage.COMPARABLE___GET_RETURN_TYPE: return ParametersPackage.PARAMETER_VALUE___GET_RETURN_TYPE;

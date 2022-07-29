@@ -29,12 +29,12 @@ public class PatternExecution {
 		String databaseNameMidas = "MIDAS";		
 		
 		execute(XmlEvalMatch.getMatchMidasOb30Child(), databaseNameMidas); // 4.1.1 Wrong Datatype
-		execute(XmlEvalCompval.getCompsetMIDAS3140(), databaseNameMidas); // 4.1.2 Domain Violation
-		execute(XmlEvalMandatt.getMandattMidas(), databaseNameMidas); // 4.2.1 Missing Values
-		execute(XmlEvalMandstruc.getMandstruc3Midas(), databaseNameMidas); // 4.2.2 Missing References
+		execute(XmlEvalCompset.getCompsetMIDAS3140(), databaseNameMidas); // 4.1.2 Domain Violation
+		execute(XmlEvalMandAtt.getMandattMidas(), databaseNameMidas); // 4.2.1 Missing Values
+		execute(XmlEvalMandStruc.getMandstruc3Midas(), databaseNameMidas); // 4.2.2 Missing References
 		// 4.2.3 Missing Records (not covered)
-		execute(XmlEvalCompval.getCompvalSetMidas3270(), databaseNameMidas); // 4.2.4 Dummy Values
-		execute(XmlEvalRefint.getRefintMidasWer(), databaseNameMidas); // 4.3 Referential Integrity Violation
+		execute(XmlEvalCompset.getCompsetMidas3270(), databaseNameMidas); // 4.2.4 Dummy Values
+		execute(XmlEvalRefInt.getRefintMidasWer(), databaseNameMidas); // 4.3 Referential Integrity Violation
 		execute(XmlEvalUnique.getUniqueMidas(), databaseNameMidas); // 4.4 Unique Value Violation
 		execute(XmlEvalFunc.getFuncMidas(), databaseNameMidas); // 4.5 Violation of a Functional Dependency
 		execute(XmlEvalContrel.getContrelMidas(), databaseNameMidas); // 4.6 Contradictory Relationships
@@ -46,7 +46,7 @@ public class PatternExecution {
 		execute(XmlEvalMatch.getMatchMidas5060(), databaseNameMidas); // 4.8.1 Misfielded Values
 		execute(XmlEvalMatch.getMatchMidas5064(), databaseNameMidas); // 4.8.2 Extraneous Data
 		execute(XmlEvalExdupl.getExactDuplicatesMidasWer(), databaseNameMidas); // 4.9.1 Exact Duplicate Records
-		execute(XmlEvalAppdupl.getAppdup3Midas(), databaseNameMidas); // 4.9.2 Approximate Duplicate Records
+		execute(XmlEvalAppDup.getAppdup3Midas(), databaseNameMidas); // 4.9.2 Approximate Duplicate Records
 		execute(XmlEvalComp.getCompMidas(), databaseNameMidas); // 4.9.3 Information Placed in Multiple Locations
 		execute(XmlEvalMatch.getMatchMidas5360(), databaseNameMidas); // 4.10.1 Heterogeneous Measure Units
 		execute(XmlEvalCompval.getCompvalMidas5230Print(), databaseNameMidas); // 4.10.2 Heterogeneous Value Representations
@@ -61,11 +61,11 @@ public class PatternExecution {
 		String databaseNameLido = "LIDO";	
 		
 		execute(XmlEvalMatch.getMatchLidoMeasurementValue(), databaseNameLido); // 4.1.1 Wrong Datatype
-		execute(XmlEvalCompval.getCompsetLidoGenderActor(), databaseNameLido); // 4.1.2 Domain Violation
-		execute(XmlEvalMandatt.getMandattThreeElementsLido(), databaseNameLido); // 4.2.1 Missing Values
+		execute(XmlEvalCompset.getCompsetLidoGenderActor(), databaseNameLido); // 4.1.2 Domain Violation
+		execute(XmlEvalMandAtt.getMandattThreeElementsLido(), databaseNameLido); // 4.2.1 Missing Values
 		execute(XmlEvalExNEx.getExNExLidoRoleActor(), databaseNameLido); // 4.2.2 Missing References
 		// 4.2.3 Missing Records (not covered)
-		execute(XmlEvalCompval.getCompvalSetLidoAppellationValue(), databaseNameLido); // 4.2.4 Dummy Values
+		execute(XmlEvalCompset.getCompsetLidoAppellationValue(), databaseNameLido); // 4.2.4 Dummy Values
 		// 4.3 Referential Integity Violation (not applicable to LIDO)
 		execute(XmlEvalUnique.getUniqueLidoLidoRecId(), databaseNameLido); // 4.4 Unique Value Violation
 		execute(XmlEvalFunc.getFuncLido(), databaseNameLido); // 4.5 Violation of Functional Dependency
