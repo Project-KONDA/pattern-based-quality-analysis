@@ -27,6 +27,7 @@ public class XmlEvalMatch {
 		completePatterns.add(getMatchMidas3270Imprecise());
 		completePatterns.add(getMatchMidas3100Abbreviation());
 		completePatterns.add(getMatchMidas5060());
+		
 		completePatterns.add(getMatchLidoMeasurementValue());
 		completePatterns.add(getMatchLidoMeasurementUnit());
 		completePatterns.add(getMatchLidoEarliestDate());
