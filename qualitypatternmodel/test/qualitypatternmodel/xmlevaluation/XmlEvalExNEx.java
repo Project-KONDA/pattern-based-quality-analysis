@@ -11,16 +11,12 @@ import qualitypatternmodel.evaluation.EvalExNEx;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.NotCondition;
-import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.xmltranslationtests.Test00;
-import qualitypatternmodel.xmltranslationtests.Test06NotElement;
 
 public class XmlEvalExNEx {
 	// also called MANDSTRUC2
@@ -31,35 +27,27 @@ public class XmlEvalExNEx {
 		completePatterns.add(getExNExLidoRoleActor());
 		Test00.test(completePatterns);
 	}
-		
-	public static CompletePattern getExNExAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	
+//	public static CompletePattern getExNExAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+//		CompletePattern completePattern = EvalExNEx.getExNExGeneric();
+//		completePattern.createXmlAdaption();
+//		return completePattern;		
+//	}
+	
+	public static CompletePattern getExNExCondAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = EvalExNEx.getExNExCondGeneric();
 		completePattern.createXmlAdaption();
 		return completePattern;		
 	}
 	
-	private static CompletePattern getExNExAbstractWithComp() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = Test06NotElement.getPatternExistsNotExistsAbstract();
-		
-		QuantifiedCondition qc1 = ((QuantifiedCondition) completePattern.getCondition());
-		QuantifiedCondition qc2 = ((QuantifiedCondition)((NotCondition) qc1.getCondition()).getCondition());
-
-		Graph g0 = completePattern.getGraph();
-		g0.getNodes().get(0).addOutgoing().getTarget().addPrimitiveComparison();
-		
-		Graph g1 = qc1.getGraph();
-		g1.getNodes().get(1).addOutgoing().getTarget().addPrimitiveComparison();
-		
-		Graph g2 = qc2.getGraph();
-		g2.getNodes().get(2).addOutgoing().getTarget().addPrimitiveComparison();
-		
+	private static CompletePattern getExNExCond2Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = EvalExNEx.getExNExCond2Generic();
 		completePattern.createXmlAdaption();
-		
 		return completePattern;		
 	}
 	
 	static CompletePattern getExNExMidas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getExNExAbstract();
+		CompletePattern completePattern = getExNExCondAbstract();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 		
 		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
@@ -90,7 +78,7 @@ public class XmlEvalExNEx {
 	}
 	
 	static CompletePattern getExNExLidoRoleActor() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getExNExAbstractWithComp();
+		CompletePattern completePattern = getExNExCond2Abstract();
 		EList<Parameter> params = completePattern.getParameterList().getParameters();
 		
 		UntypedParameterValue p0 = ((UntypedParameterValue) params.get(0));
