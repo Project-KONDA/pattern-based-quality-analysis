@@ -5,7 +5,7 @@ import java.util.List;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
-import qualitypatternmodel.evaluation.EvalMandstruc;
+import qualitypatternmodel.evaluation.EvalMandStruc;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -15,7 +15,7 @@ import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.xmltranslationtests.Test00;
 
-public class XmlEvalMandstruc {
+public class XmlEvalMandStruc {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getMandstruc3Abstract());
@@ -26,7 +26,7 @@ public class XmlEvalMandstruc {
 	}
 	
 	public static CompletePattern getMandstruc3Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalMandstruc.getMandstruc3CondGeneric();
+		CompletePattern completePattern = EvalMandStruc.getMandstruc3CondGeneric();
 		completePattern.createXmlAdaption();
 		return completePattern;
 	}

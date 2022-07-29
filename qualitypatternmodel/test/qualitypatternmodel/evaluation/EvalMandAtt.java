@@ -14,15 +14,19 @@ import qualitypatternmodel.patternstructure.NotCondition;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.xmltranslationtests.Test00;
 
-public class EvalMandatt {
+public class EvalMandAtt {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		
 		completePatterns.add(getMandattCondGeneric());
 		completePatterns.add(getMandatt3CondGeneric());
+		
 		for (CompletePattern cp: completePatterns)
-			System.out.println(cp.myToString());
+			Test00.printGenericPatternExampleXQuery(cp);
+//			System.out.println(cp.myToString());
 	}
 	
 	public static CompletePattern getMandattCondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
