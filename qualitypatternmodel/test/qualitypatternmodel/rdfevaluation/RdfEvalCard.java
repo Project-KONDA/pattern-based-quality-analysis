@@ -20,11 +20,12 @@ import qualitypatternmodel.rdftranslationtests.RdfTest00;
 public class RdfEvalCard {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		
 		completePatterns.add(getCardRdfAbstract());
 		completePatterns.add(getCardWikiFather());
 		completePatterns.add(getCardWikiMother());
-		RdfTest00.test(completePatterns);
 		
+		RdfTest00.test(completePatterns);
 	}
 	
 	public static CompletePattern getCardRdfAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {

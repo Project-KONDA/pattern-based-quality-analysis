@@ -81,12 +81,11 @@ public class EvalCard {
 		countCondition.setCountPattern(countPattern);
 
 		NumberElement numberElement = patternStructureFactory.createNumberElement();
-		NumberParam numberParam = parametersFactory.createNumberParam();
-		numberParam.setValue(1.0);
-		numberElement.setNumberParam(numberParam);
+		countCondition.setArgument2(numberElement);
+//		NumberParam numberParam = parametersFactory.createNumberParam();
+		numberElement.getNumberParam().setValue(1.0);
 		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
 		countCondition.getOption().setValue(ComparisonOperator.GREATER);		
-		countCondition.setArgument2(numberElement);
 		
 		Graph graph2 = countPattern.getGraph();
 		
@@ -96,7 +95,6 @@ public class EvalCard {
 		e2g2.setReturnNode(true);
 //		e2g2.addOutgoing().getTarget().addPrimitiveComparison();
 		
-
 		QuantifiedCondition quantifiedCondition2 = patternStructureFactory.createQuantifiedCondition();
 		countPattern.setCondition(quantifiedCondition2);
 		Node e2g3 = e2g2.getOutgoingMappings().get(0).getTarget();
@@ -218,12 +216,10 @@ public class EvalCard {
 		countCondition.setCountPattern(countPattern);
 
 		NumberElement numberElement = patternStructureFactory.createNumberElement();
-		NumberParam numberParam = parametersFactory.createNumberParam();
-		numberParam.setValue(1.0);
-		numberElement.setNumberParam(numberParam);
+		countCondition.setArgument2(numberElement);
+		numberElement.getNumberParam().setValue(1.0);
 		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
 		countCondition.getOption().setValue(ComparisonOperator.GREATER);		
-		countCondition.setArgument2(numberElement);
 		
 		Graph graph2 = countPattern.getGraph();
 		

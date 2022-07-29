@@ -3,8 +3,6 @@ package qualitypatternmodel.xmlevaluation;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.emf.common.util.EList;
-
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
@@ -15,7 +13,6 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.xmltranslationtests.Test00;
@@ -56,12 +53,12 @@ public class XmlEvalCard {
 		List<Parameter> params = completePattern.getParameterList().getParameters();
 		
 //		ComparisonOptionParam p0 = ((ComparisonOptionParam) params.get(0));
-		NumberParam p1 = ((NumberParam) params.get(1));
+//		NumberParam p1 = ((NumberParam) params.get(1));
 		XmlPathParam p2 = ((XmlPathParam) params.get(2));
 		XmlPathParam p3 = ((XmlPathParam) params.get(3));
 		XmlPathParam p4 = ((XmlPathParam) params.get(4));
 		
-		p1.setValue(1.0);
+//		p1.setValue(1.0);
 		
 		for (int i = 0; i<5; i++)
 			p2.addXmlAxis(XmlAxisKind.CHILD, null);
