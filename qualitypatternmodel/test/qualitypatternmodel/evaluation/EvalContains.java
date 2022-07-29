@@ -3,6 +3,7 @@ package qualitypatternmodel.evaluation;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.xmltranslationtests.Test00;
 import qualitypatternmodel.graphstructure.Node;
 
 import java.util.ArrayList;
@@ -15,12 +16,15 @@ public class EvalContains {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getMatchGeneric());
+		
+		completePatterns.add(getContainsGeneric());
+		
 		for (CompletePattern cp: completePatterns)
-			System.out.println(cp.myToString());
+			Test00.printGenericPatternExampleXQuery(cp);
+//			System.out.println(cp.myToString());
 	}
 	
-	public static CompletePattern getMatchGeneric() throws InvalidityException {
+	public static CompletePattern getContainsGeneric() throws InvalidityException {
 		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		
 		// Context graph of pattern:

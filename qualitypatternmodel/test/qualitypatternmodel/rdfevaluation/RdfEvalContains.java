@@ -25,7 +25,7 @@ public class RdfEvalContains {
 	}
 	
 	public static CompletePattern getMatchRdfAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalContains.getMatchGeneric();	
+		CompletePattern completePattern = EvalContains.getContainsGeneric();	
 		completePattern.createRdfAdaption();
 		return completePattern;		
 	}
