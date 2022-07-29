@@ -4,34 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qualitypatternmodel.adaptionxml.XmlPropertyKind;
+import qualitypatternmodel.evaluation.EvalUnique;
 import qualitypatternmodel.adaptionxml.XmlPathParam;
 import qualitypatternmodel.adaptionxml.XmlAxisKind;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
-import qualitypatternmodel.graphstructure.Node;
-import qualitypatternmodel.graphstructure.Graph;
-import qualitypatternmodel.graphstructure.GraphstructureFactory;
-import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.PrimitiveNode;
-import qualitypatternmodel.graphstructure.ReturnType;
-import qualitypatternmodel.operators.Comparison;
-import qualitypatternmodel.operators.ComparisonOperator;
-import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.UntypedParameterValue;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.patternstructure.CountCondition;
-import qualitypatternmodel.patternstructure.CountPattern;
-import qualitypatternmodel.patternstructure.NumberElement;
-import qualitypatternmodel.patternstructure.PatternstructureFactory;
-import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.patternstructure.QuantifiedCondition;
 import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class XmlEvalUnique {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
+		
 		completePatterns.add(getUniqueAbstract());
 		completePatterns.add(getUniqueMidas());
 		completePatterns.add(getUniqueLidoLidoRecId());
@@ -44,65 +31,14 @@ public class XmlEvalUnique {
 	}
 
 	private static CompletePattern getUniqueAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		
-		CompletePattern completePattern = factory.createCompletePattern();	
-		
-		QuantifiedCondition quantifiedCondition = factory.createQuantifiedCondition();
-		completePattern.setCondition(quantifiedCondition);
-		
-		CountCondition countCondition = factory.createCountCondition();
-		quantifiedCondition.setCondition(countCondition);
-		CountPattern countPattern = factory.createCountPattern();
-		countCondition.setCountPattern(countPattern);
-
-		NumberElement numberElement = factory.createNumberElement();
-		countCondition.setArgument2(numberElement);
-		
-		NumberParam numberParam = numberElement.getNumberParam();
-		
-		numberParam.setValue(1.0);
-		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
-		countCondition.getOption().setValue(ComparisonOperator.GREATER);	
-		
-		QuantifiedCondition quantifiedCondition2 = factory.createQuantifiedCondition();
-		countPattern.setCondition(quantifiedCondition2);
-		
-		Graph g0 = completePattern.getGraph();
-		Graph g1 = quantifiedCondition.getGraph();
-		Graph g2 = countPattern.getGraph();
-		Graph g3 = quantifiedCondition2.getGraph();
-		
-		Node g0return = g0.getReturnNodes().get(0).makeComplex();
-		g0return.addOutgoing().getTarget().addPrimitiveComparison();
-		
-		Node g1return = g1.getReturnNodes().get(0);
-		Node g1e1 = g1return.addOutgoing().getTarget().makeComplex();
-		g1e1.addOutgoing().getTarget().addPrimitiveComparison();
-		
-		g2.getReturnNodes().get(0).setReturnNode(false);
-		
-		Node g2return = graphFactory.createComplexNode();
-		g2return.setGraph(g2);
-		g2return.setReturnNode(true);
-		g2return.addOutgoing().getTarget().addPrimitiveComparison();
-		Node g2e1 = g1e1.getOutgoingMappings().get(0).getTarget();
-		
-		Node g3return = g3.getReturnNodes().get(0);
-		Node g3e2 = g3return.addOutgoing().getTarget().makeComplex();
-		g3e2.addOutgoing().getTarget().addPrimitiveComparison();
-		Node g3e1 = g2e1.getOutgoingMappings().get(0).getTarget();
-		
-		PrimitiveNode g3e1p = g3e1.addOutgoing().getTarget().makePrimitive();
-		PrimitiveNode g3e2p = g3e2.addOutgoing().getTarget().makePrimitive();
-		Comparison c = g3e1p.addComparison(g3e2p);
-		c.getTypeOption().setValue(ReturnType.STRING);
-
+		CompletePattern completePattern = EvalUnique.getUniqueCondGeneric();
 		completePattern.createXmlAdaption();
-		
+		return completePattern;
+	}
+	
+	private static CompletePattern getUniqueComplexAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = EvalUnique.getUniqueCondComplexGeneric();
+		completePattern.createXmlAdaption();
 		return completePattern;
 	}
 	
@@ -161,8 +97,8 @@ public class XmlEvalUnique {
 		p24.getXmlPropertyOptionParam().setValue(fieldvalue);
 		p25.getXmlPropertyOptionParam().setValue(fieldvalue);
 		if (fieldvalue == XmlPropertyKind.ATTRIBUTE) {
-		p24.getXmlPropertyOptionParam().getAttributeName().setValue(fieldvaluename);
-		p25.getXmlPropertyOptionParam().getAttributeName().setValue(fieldvaluename);
+			p24.getXmlPropertyOptionParam().getAttributeName().setValue(fieldvaluename);
+			p25.getXmlPropertyOptionParam().getAttributeName().setValue(fieldvaluename);
 		}
 		
 		p17.setXmlAxis(elementaxis);
@@ -171,83 +107,6 @@ public class XmlEvalUnique {
 		p22.setXmlAxis(elementfieldaxis);
 		
 		return completePattern;
-	}
-	
-	private static CompletePattern getUniqueComplexAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		PatternstructurePackage.eINSTANCE.eClass();
-		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
-		GraphstructurePackage.eINSTANCE.eClass();
-		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
-		
-		CompletePattern completePattern = factory.createCompletePattern();	
-		
-		QuantifiedCondition quantifiedCondition = factory.createQuantifiedCondition();
-		completePattern.setCondition(quantifiedCondition);
-		
-		CountCondition countCondition = factory.createCountCondition();
-		quantifiedCondition.setCondition(countCondition);
-		CountPattern countPattern = factory.createCountPattern();
-		countCondition.setCountPattern(countPattern);
-
-		NumberElement numberElement = factory.createNumberElement();
-		countCondition.setArgument2(numberElement);
-		
-		NumberParam numberParam = numberElement.getNumberParam();
-		
-		numberParam.setValue(1.0);
-		countCondition.getOption().getOptions().add(ComparisonOperator.GREATER);
-		countCondition.getOption().setValue(ComparisonOperator.GREATER);	
-		
-		QuantifiedCondition quantifiedCondition2 = factory.createQuantifiedCondition();
-		countPattern.setCondition(quantifiedCondition2);
-		
-		Graph g0 = completePattern.getGraph();
-		Graph g1 = quantifiedCondition.getGraph();
-		Graph g2 = countPattern.getGraph();
-//		Graph g3 = quantifiedCondition2.getGraph();
-		
-		Node g0e0 = g0.getReturnNodes().get(0).makeComplex();
-		g0e0.addOutgoing().getTarget().addPrimitiveComparison();
-		
-		Node g1e0 = g1.getReturnNodes().get(0);
-		Node g1e2 = g1e0.addOutgoing().getTarget().makeComplex();
-		Node g1e4 = g1e2.addOutgoing().getTarget().makeComplex();
-		Node g1e6 = g1e4.addOutgoing().getTarget().makeComplex();
-		g1e2.addOutgoing().getTarget().addPrimitiveComparison();
-		g1e4.addOutgoing().getTarget().addPrimitiveComparison();
-		g1e6.addOutgoing().getTarget().addPrimitiveComparison();
-		
-		g2.getReturnNodes().get(0).setReturnNode(false);
-		Node g2e1 = graphFactory.createComplexNode();
-		g2e1.setGraph(g2);
-		g2e1.setReturnNode(true);
-		g2e1.addOutgoing().getTarget().addPrimitiveComparison();
-		Node g2e6 = g1e6.getOutgoingMappings().get(0).getTarget();
-		
-		Node g3e1 = g2e1.getOutgoingMappings().get(0).getTarget();
-		Node g3e3 = g3e1.addOutgoing().getTarget().makeComplex();
-		Node g3e5 = g3e3.addOutgoing().getTarget().makeComplex();
-		Node g3e7 = g3e5.addOutgoing().getTarget().makeComplex();
-		g3e3.addOutgoing().getTarget().addPrimitiveComparison();
-		g3e5.addOutgoing().getTarget().addPrimitiveComparison();
-		g3e7.addOutgoing().getTarget().addPrimitiveComparison();
-		
-		Node g3e6 = g2e6.getOutgoingMappings().get(0).getTarget();
-		
-		PrimitiveNode g3e6p = g3e6.addOutgoing().getTarget().makePrimitive();
-		PrimitiveNode g3e7p = g3e7.addOutgoing().getTarget().makePrimitive();
-		
-		Comparison c = g3e6p.addComparison(g3e7p);
-		c.getTypeOption().setValue(ReturnType.STRING);
-
-		completePattern.createXmlAdaption();
-		
-		return completePattern;
-	}
-	
-	static CompletePattern getUniqueMidas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return concretizeUniqueAbstract("wer", new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD},
-				"3600", new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.ATTRIBUTE, "Type", XmlPropertyKind.ATTRIBUTE, "Value");
 	}
 	
 	private static CompletePattern getUniqueComplexLidoConcrete(XmlAxisKind[] e0rel, String e0Name, XmlAxisKind[] e0e1rel, String e1Name, XmlAxisKind[] e1e2rel, String e2Name, XmlAxisKind[] e2e3rel, String e3Name, XmlPropertyKind fieldtype, String fieldtypename,
@@ -349,6 +208,11 @@ public class XmlEvalUnique {
 		p40.setXmlAxis(e2e3rel);
 		
 		return completePattern;
+	}
+	
+	static CompletePattern getUniqueMidas() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return concretizeUniqueAbstract("wer", new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD},
+				"3600", new XmlAxisKind[] {XmlAxisKind.CHILD}, XmlPropertyKind.ATTRIBUTE, "Type", XmlPropertyKind.ATTRIBUTE, "Value");
 	}
 	
 	private static CompletePattern getUniqueLidoConcrete(XmlAxisKind[] returnRel, String returnElementName, String elementName) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
