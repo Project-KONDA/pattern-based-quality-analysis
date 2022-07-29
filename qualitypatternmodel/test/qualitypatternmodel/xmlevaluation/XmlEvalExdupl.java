@@ -28,7 +28,7 @@ public class XmlEvalExdupl {
 	}
 	
 	public static CompletePattern getExactDuplicatesAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalExDup.getExactDuplicatesGeneric();
+		CompletePattern completePattern = EvalExDup.getExDupCondGeneric();
 		completePattern.createXmlAdaption();
 		return completePattern;
 	}

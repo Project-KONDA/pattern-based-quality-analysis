@@ -6,6 +6,7 @@ import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.ComplexNode;
+import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
@@ -22,18 +23,60 @@ import qualitypatternmodel.patternstructure.CountPattern;
 import qualitypatternmodel.patternstructure.NumberElement;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
+import qualitypatternmodel.patternstructure.QuantifiedCondition;
+import qualitypatternmodel.patternstructure.Quantifier;
 import qualitypatternmodel.xmltranslationtests.Test00;
 
 public class EvalExDup {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		completePatterns.add(getExactDuplicatesGeneric());
+
+		completePatterns.add(getExDupGeneric());
+		completePatterns.add(getExDupCondGeneric());
+
 		for (CompletePattern cp: completePatterns)
-			System.out.println(cp.myToString());
+			Test00.printGenericPatternExampleXQuery(cp);
+//			System.out.println(cp.myToString());
+	}
+	
+	public static CompletePattern getExDupGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+		GraphstructurePackage.eINSTANCE.eClass();
+		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = factory.createCompletePattern();
+		Node main = completePattern.getGraph().getReturnNodes().get(0).makeComplex();
+		main.setName("main");
+		
+		ComplexNode other = graphFactory.createComplexNode();
+		other.setGraph(completePattern.getGraph());
+		other.setName("other");
+		other.setReturnNode(true);;
+		
+		Comparison c = main.addComparison(other);
+		c.getOption().setValue(ComparisonOperator.NOTEQUAL);
+		
+		QuantifiedCondition qc = factory.createQuantifiedCondition();
+		completePattern.setCondition(qc);
+		qc.setQuantifier(Quantifier.FORALL);
+		Node n1 = qc.getGraph().getNodes().get(0);
+		n1.addOutgoing().getTarget().makePrimitive();
+		
+		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
+		qc.setCondition(qc2);
+		qc2.setQuantifier(Quantifier.EXISTS);
+
+		Node no2 = qc2.getGraph().getNodes().get(1);
+		Node no3 = qc2.getGraph().getNodes().get(2);
+		
+		no2.addOutgoing(no3);
+		
+		return completePattern;
 	}
 
-	public static CompletePattern getExactDuplicatesGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
+	public static CompletePattern getExDupCondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {	
 		GraphstructurePackage.eINSTANCE.eClass();
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		PatternstructurePackage.eINSTANCE.eClass();
@@ -51,12 +94,10 @@ public class EvalExDup {
 		
 		CountPattern countPattern = factory.createCountPattern();
 
-		NumberParam numberParam = parametersFactory.createNumberParam();
-		numberParam.setValue(1.0);
 		NumberElement numberElement = factory.createNumberElement();
-		numberElement.setNumberParam(numberParam);
-		countCondition.setCountPattern(countPattern);
 		countCondition.setArgument2(numberElement);
+		NumberParam numberParam = numberElement.getNumberParam();
+		countCondition.setCountPattern(countPattern);
 		
 		Node returnInCPattern = countPattern.getGraph().getNodes().get(0);
 		
@@ -71,7 +112,8 @@ public class EvalExDup {
 		
 		Comparison c = returnInCPattern.addComparison(otherRecord);
 		c.getTypeOption().setValue(ReturnType.ELEMENT);
-		
+		numberParam.setValue(1.0);
+		completePattern.myToString();
 		return completePattern;
 	}
 }

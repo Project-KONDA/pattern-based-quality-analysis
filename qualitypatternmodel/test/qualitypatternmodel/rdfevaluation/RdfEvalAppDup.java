@@ -12,9 +12,9 @@ import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.rdftranslationtests.RdfTest00;
-import qualitypatternmodel.evaluation.EvalAppdup;
+import qualitypatternmodel.evaluation.EvalAppDup;
 
-public class RdfEvalAppdup {
+public class RdfEvalAppDup {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getAppDup2Abstract());
@@ -25,7 +25,7 @@ public class RdfEvalAppdup {
 	}
 
 	public static CompletePattern getAppDup2Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalAppdup.getAppDup2Generic();	
+		CompletePattern completePattern = EvalAppDup.getAppDup2Generic();	
 		completePattern.createRdfAdaption();
 		return completePattern;		
 	}
@@ -51,7 +51,7 @@ public class RdfEvalAppdup {
 	}
 	
 	public static CompletePattern getAppDup3Abstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = EvalAppdup.getAppDup3Generic();
+		CompletePattern completePattern = EvalAppDup.getAppDup3Generic();
 		completePattern.createRdfAdaption();
 		return completePattern;
 	}
@@ -71,10 +71,13 @@ public class RdfEvalAppdup {
 		
 		((RdfSinglePredicate) p2.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P2561"));
 		((RdfSinglePredicate) p3.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P2561"));
+		// = offizieller Name
 		((RdfSinglePredicate) p4.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P31"));
 		((RdfSinglePredicate) p5.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P31"));
+		// = Name
 		((RdfSinglePredicate) p6.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P1448"));
 		((RdfSinglePredicate) p7.getRdfPathPart()).setIriParam(new IriParamImpl("wdt:P1448"));
+		// = Typ von
 		
 		
 		return completePattern;
