@@ -475,13 +475,22 @@ public interface GraphstructurePackage extends EPackage {
 	int RELATION___ADAPT_AS_RDF_PREDICATE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 10;
 
 	/**
+	 * The operation id for the '<em>Adapt As Neo Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATION___ADAPT_AS_NEO_EDGE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 11;
+
+	/**
 	 * The number of operations of the '<em>Relation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 11;
+	int RELATION_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 12;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.Comparable <em>Comparable</em>}' class.
@@ -1485,31 +1494,13 @@ public interface GraphstructurePackage extends EPackage {
 	int NODE___ADAPT_AS_NEO_NODE = COMPARABLE_OPERATION_COUNT + 33;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Node Recursive</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE___ADAPT_AS_NEO_NODE_RECURSIVE = COMPARABLE_OPERATION_COUNT + 34;
-
-	/**
 	 * The operation id for the '<em>Adapt As Neo Attribute Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = COMPARABLE_OPERATION_COUNT + 35;
-
-	/**
-	 * The operation id for the '<em>Adapt As Neo Attribute Recursive</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NODE___ADAPT_AS_NEO_ATTRIBUTE_RECURSIVE = COMPARABLE_OPERATION_COUNT + 36;
+	int NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = COMPARABLE_OPERATION_COUNT + 34;
 
 	/**
 	 * The number of operations of the '<em>Node</em>' class.
@@ -1518,7 +1509,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 37;
+	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 35;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.
@@ -2224,15 +2215,6 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___ADAPT_AS_NEO_NODE = NODE___ADAPT_AS_NEO_NODE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Node Recursive</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_NODE___ADAPT_AS_NEO_NODE_RECURSIVE = NODE___ADAPT_AS_NEO_NODE_RECURSIVE;
-
-	/**
 	 * The operation id for the '<em>Adapt As Neo Attribute Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2240,15 +2222,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMITIVE_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE;
-
-	/**
-	 * The operation id for the '<em>Adapt As Neo Attribute Recursive</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_NODE___ADAPT_AS_NEO_ATTRIBUTE_RECURSIVE = NODE___ADAPT_AS_NEO_ATTRIBUTE_RECURSIVE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
@@ -3631,15 +3604,6 @@ public interface GraphstructurePackage extends EPackage {
 	int COMPLEX_NODE___ADAPT_AS_NEO_NODE = NODE___ADAPT_AS_NEO_NODE;
 
 	/**
-	 * The operation id for the '<em>Adapt As Neo Node Recursive</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_NODE___ADAPT_AS_NEO_NODE_RECURSIVE = NODE___ADAPT_AS_NEO_NODE_RECURSIVE;
-
-	/**
 	 * The operation id for the '<em>Adapt As Neo Attribute Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3647,15 +3611,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPLEX_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE;
-
-	/**
-	 * The operation id for the '<em>Adapt As Neo Attribute Recursive</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_NODE___ADAPT_AS_NEO_ATTRIBUTE_RECURSIVE = NODE___ADAPT_AS_NEO_ATTRIBUTE_RECURSIVE;
 
 	/**
 	 * The number of operations of the '<em>Complex Node</em>' class.
@@ -3675,17 +3630,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	int RETURN_TYPE = 7;
-
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.NeoQuantifier <em>Neo Quantifier</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.NeoQuantifier
-	 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getNeoQuantifier()
-	 * @generated
-	 */
-	int NEO_QUANTIFIER = 8;
 
 
 	/**
@@ -3845,6 +3789,16 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getRelation__AdaptAsRdfPredicate();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsNeoEdge() <em>Adapt As Neo Edge</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Adapt As Neo Edge</em>' operation.
+	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsNeoEdge()
+	 * @generated
+	 */
+	EOperation getRelation__AdaptAsNeoEdge();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Relation#setGraphSimple(qualitypatternmodel.graphstructure.Graph) <em>Set Graph Simple</em>}' operation.
@@ -4328,16 +4282,6 @@ public interface GraphstructurePackage extends EPackage {
 	EOperation getNode__AdaptAsNeoNode();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#adaptAsNeoNodeRecursive() <em>Adapt As Neo Node Recursive</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Adapt As Neo Node Recursive</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Node#adaptAsNeoNodeRecursive()
-	 * @generated
-	 */
-	EOperation getNode__AdaptAsNeoNodeRecursive();
-
-	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#adaptAsNeoAttributeNode() <em>Adapt As Neo Attribute Node</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4346,16 +4290,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNode__AdaptAsNeoAttributeNode();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#adaptAsNeoAttributeRecursive() <em>Adapt As Neo Attribute Recursive</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Adapt As Neo Attribute Recursive</em>' operation.
-	 * @see qualitypatternmodel.graphstructure.Node#adaptAsNeoAttributeRecursive()
-	 * @generated
-	 */
-	EOperation getNode__AdaptAsNeoAttributeRecursive();
 
 	/**
 	 * Returns the meta object for the '{@link qualitypatternmodel.graphstructure.Node#checkComparisonConsistency() <em>Check Comparison Consistency</em>}' operation.
@@ -4688,16 +4622,6 @@ public interface GraphstructurePackage extends EPackage {
 	EEnum getReturnType();
 
 	/**
-	 * Returns the meta object for enum '{@link qualitypatternmodel.graphstructure.NeoQuantifier <em>Neo Quantifier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Neo Quantifier</em>'.
-	 * @see qualitypatternmodel.graphstructure.NeoQuantifier
-	 * @generated
-	 */
-	EEnum getNeoQuantifier();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4833,6 +4757,14 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RELATION___ADAPT_AS_RDF_PREDICATE = eINSTANCE.getRelation__AdaptAsRdfPredicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Adapt As Neo Edge</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RELATION___ADAPT_AS_NEO_EDGE = eINSTANCE.getRelation__AdaptAsNeoEdge();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Graph Simple</b></em>' operation.
@@ -5223,28 +5155,12 @@ public interface GraphstructurePackage extends EPackage {
 		EOperation NODE___ADAPT_AS_NEO_NODE = eINSTANCE.getNode__AdaptAsNeoNode();
 
 		/**
-		 * The meta object literal for the '<em><b>Adapt As Neo Node Recursive</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NODE___ADAPT_AS_NEO_NODE_RECURSIVE = eINSTANCE.getNode__AdaptAsNeoNodeRecursive();
-
-		/**
 		 * The meta object literal for the '<em><b>Adapt As Neo Attribute Node</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = eINSTANCE.getNode__AdaptAsNeoAttributeNode();
-
-		/**
-		 * The meta object literal for the '<em><b>Adapt As Neo Attribute Recursive</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation NODE___ADAPT_AS_NEO_ATTRIBUTE_RECURSIVE = eINSTANCE.getNode__AdaptAsNeoAttributeRecursive();
 
 		/**
 		 * The meta object literal for the '<em><b>Check Comparison Consistency</b></em>' operation.
@@ -5511,16 +5427,6 @@ public interface GraphstructurePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum RETURN_TYPE = eINSTANCE.getReturnType();
-
-		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.graphstructure.NeoQuantifier <em>Neo Quantifier</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.graphstructure.NeoQuantifier
-		 * @see qualitypatternmodel.graphstructure.impl.GraphstructurePackageImpl#getNeoQuantifier()
-		 * @generated
-		 */
-		EEnum NEO_QUANTIFIER = eINSTANCE.getNeoQuantifier();
 
 	}
 

@@ -274,6 +274,7 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsRdfPredicate" eType="#//adaptionrdf/RdfPredicate"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="adaptAsNeoEdge" eType="#//adaptionNeo4J/NeoEdge" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/RelationMapping"
           eOpposite="#//patternstructure/RelationMapping/target"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
@@ -360,10 +361,8 @@
         <eParameters name="node" eType="#//graphstructure/Node"/>
       </eOperations>
       <eOperations name="adaptAsNeoNode" eType="#//adaptionNeo4J/NeoNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="adaptAsNeoNodeRecursive" eType="#//adaptionNeo4J/NeoNode"/>
       <eOperations name="adaptAsNeoAttributeNode" eType="#//adaptionNeo4J/NeoAttributeNode"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="adaptAsNeoAttributeRecursive" eType="#//adaptionNeo4J/NeoAttributeNode"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
           eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/source"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/ElementMapping"
@@ -451,7 +450,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoing" upperBound="-1"
           eType="#//graphstructure/Relation" eOpposite="#//graphstructure/Relation/source"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="NeoQuantifier"/>
   </eSubpackages>
   <eSubpackages name="patternstructure" nsURI="patternstructure" nsPrefix="patternstructure">
     <eClassifiers xsi:type="ecore:EClass" name="RelationMapping" eSuperTypes="#//patternstructure/Mapping">

@@ -16,6 +16,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import qualitypatternmodel.adaptionNeo4J.NeoEdge;
+import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoEdgeImpl;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.impl.RdfPredicateImpl;
 import qualitypatternmodel.adaptionxml.XmlElement;
@@ -866,7 +869,8 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		throw new UnsupportedOperationException();
+		//TODO check if it is needed to return a diffrent PatternElement for the structure 
+		return adaptAsNeoEdge();
 	}
 	
 	/**
@@ -1123,6 +1127,81 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 		return (RdfPredicate) this;
 	}
 	
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public NeoEdge adaptAsNeoEdge() throws InvalidityException {
+		Graph graph = getGraph();
+		NeoEdge navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsNeoEdgeRecursive();
+		//getting the target?
+		//That seems like that a Relation goes direct without a node to an other relation??? How is the node between it?
+		
+		for(Relation r: graph.getRelations()) {
+			if(r instanceof NeoEdge) {
+				NeoEdge nav = (NeoEdge) r;
+				Relation next = r;
+				while(next != null) {
+					if(!next.equals(navOriginal)) {
+						if(next.getIncomingMapping() == null) {
+							next = null;
+						} else {
+							next = next.getIncomingMapping().getSource();
+						}
+					} else {
+						return nav;
+					}
+				}
+			}
+		}
+		throw new InvalidityException("correspondent relation not found");
+	}
+	
+	private NeoEdge adaptAsNeoEdgeRecursive() throws InvalidityException {
+		if (!(this instanceof NeoEdge)) {
+			NeoEdge edge = (NeoEdge) AdaptionNeo4JFactoryImpl.init().createNeoEdge();
+
+			edge.setName(getName());
+			edge.setGraphSimple(getGraph());
+			
+			if (getIncomingMapping() == null) {
+				edge.createParameters(); //for what are die params? from param package
+			} 
+			
+			edge.setSource(getSource());
+			edge.setTarget(getTarget());
+		
+			edge.getOutgoingMappings().addAll(getOutgoingMappings());
+			edge.setIncomingMapping(getIncomingMapping());
+			
+			getOutgoingMappings().clear();
+			setSource(null);
+			setTarget(null);			
+			setIncomingMapping(null);
+			setGraph(null);
+			
+			for (RelationMapping mapping : edge.getOutgoingMappings()) {
+				((RelationImpl) mapping.getTarget()).adaptAsRdfPredicateRecursive();
+			}
+			
+			if(edge.getTarget() instanceof ComplexNode) {
+				edge.getTarget().adaptAsNeoNode();
+			} else if(edge.getTarget() instanceof PrimitiveNode) {
+				edge.getTarget().adaptAsNeoAttributeNode();
+			} //else if(edge.getTarget() instanceof Node) {
+				//edge.getTarget().adaptAsRdfIriNode();
+			//}
+			
+			return edge;
+		}
+		for (RelationMapping mapping : getOutgoingMappings()) {
+			((RelationImpl) mapping.getTarget()).adaptAsRdfPredicateRecursive();
+		}
+		return (NeoEdge) this;
+	}
 
 	@Override
 	public void removeMappingsToNext() {
@@ -1404,6 +1483,13 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 			case GraphstructurePackage.RELATION___ADAPT_AS_RDF_PREDICATE:
 				try {
 					return adaptAsRdfPredicate();
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.RELATION___ADAPT_AS_NEO_EDGE:
+				try {
+					return adaptAsNeoEdge();
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

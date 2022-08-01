@@ -13,7 +13,6 @@ import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.NeoQuantifier;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
@@ -125,8 +124,6 @@ public class GraphstructureValidator extends EObjectValidator {
 				return validateComplexNode((ComplexNode)value, diagnostics, context);
 			case GraphstructurePackage.RETURN_TYPE:
 				return validateReturnType((ReturnType)value, diagnostics, context);
-			case GraphstructurePackage.NEO_QUANTIFIER:
-				return validateNeoQuantifier((NeoQuantifier)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -281,15 +278,6 @@ public class GraphstructureValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateReturnType(ReturnType returnType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return true;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateNeoQuantifier(NeoQuantifier neoQuantifier, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

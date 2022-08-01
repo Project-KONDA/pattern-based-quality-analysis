@@ -16,6 +16,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionNeo4J.NeoAttributeNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
+import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoAttributeNodeImpl;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl;
 import qualitypatternmodel.adaptionrdf.RdfIriNode;
 import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
 import qualitypatternmodel.adaptionrdf.impl.RdfIriNodeImpl;
@@ -318,7 +321,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		return null;//adaptAsNeoNode();
+		return adaptAsNeoNode();
 	}
 	
 	@Override
@@ -1461,54 +1464,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		return null;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NeoNode adaptAsNeoNode() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NeoNode adaptAsNeoNodeRecursive() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NeoAttributeNode adaptAsNeoAttributeNode() throws InvalidityException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NeoAttributeNode adaptAsNeoAttributeRecursive() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
 	private RdfLiteralNode adaptAsRdfLiteralNodeRecursive() throws InvalidityException {		
 		if (!(this instanceof RdfLiteralNode)) {
 			RdfLiteralNodeImpl rdfLiteral = new RdfLiteralNodeImpl();	
@@ -1566,6 +1521,187 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			return (RdfLiteralNode) this;
 		}
 	}
+	
+	//BEGIN - Adapt for Neo4J/Cypher
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public NeoNode adaptAsNeoNode() throws InvalidityException {
+		Graph graph = getGraph();
+		NeoNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsNeoNodeRecursive();
+		
+		for (Node n : graph.getNodes()) {
+			if(n instanceof NeoNode) {
+				NeoNode element = (NeoNode) n;
+				Node next = n;
+				while(next != null) {
+					if(!next.equals(elementOriginal)) { //Why does equals not work here
+						if(next.getIncomingMapping() == null) {
+							next = null;
+						} else {
+							next.getIncomingMapping().getSource();
+						}
+					} else {
+						return element;						
+					}
+				}
+			}
+		}
+		throw new InvalidityException("correspondet node not found");
+	}
+
+	
+	private NeoNode adaptAsNeoNodeRecursive() throws InvalidityException {
+		if (!(this instanceof RdfIriNode)) {	
+			NeoNodeImpl neoNode = (NeoNodeImpl) AdaptionNeo4JFactoryImpl.init().createNeoNode();
+			neoNode.typeModifiable = true;
+			neoNode.setGraphSimple(getGraph());				
+					
+			neoNode.setReturnNode(isReturnNode());
+			
+			neoNode.getPredicates().addAll(getPredicates());
+			getPredicates().clear();
+			
+			neoNode.getOutgoingMappings().addAll(getOutgoingMappings());
+			getOutgoingMappings().clear();
+			neoNode.setIncomingMapping(getIncomingMapping());
+			setIncomingMapping(null);
+			
+			neoNode.setName(getName());
+			setReturnNode(false);
+			
+			EList<Relation> outgoingCopy = new BasicEList<Relation>();
+			if (this instanceof ComplexNode)
+				outgoingCopy.addAll(((ComplexNode) this).getOutgoing());
+			for(Relation relation : outgoingCopy) {
+				relation.setSource(neoNode);
+			}
+			
+			EList<Relation> incomingCopy = new BasicEList<Relation>();
+			incomingCopy.addAll(getIncoming());
+			for(Relation relation : incomingCopy) {
+				relation.setTarget(neoNode);
+			}
+			
+			neoNode.getComparison1().addAll(getComparison1());
+			getComparison1().clear();
+			neoNode.getComparison2().addAll(getComparison2());
+			getComparison2().clear();	
+			
+			
+			setGraph(null);
+			
+			for (ElementMapping map: neoNode.getOutgoingMappings()) {
+				((NodeImpl) map.getTarget()).adaptAsNeoNodeRecursive();
+			}			
+			
+			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
+			incomingCopy2.addAll(neoNode.getIncoming());
+			for(Relation relation : incomingCopy2) {
+				relation.adaptAsNeoEdge();
+			}
+			
+			return neoNode;			
+		} else {
+			for (ElementMapping map: getOutgoingMappings()) {
+				((NodeImpl) map.getTarget()).adaptAsRdfIriNodeRecursive();
+			}
+			return (NeoNode) this;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public NeoAttributeNode adaptAsNeoAttributeNode() throws InvalidityException {
+		Graph graph = getGraph();
+		NeoAttributeNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsNeoAttributeRecursive();
+		
+		for(Node n: graph.getNodes()) {
+			if(n instanceof NeoAttributeNode) {
+				NeoAttributeNode element = (NeoAttributeNode) n;
+				Node next = n;
+				while(next != null) {
+					if(!next.equals(elementOriginal)) {
+						if(next.getIncomingMapping() == null) {
+							next = null;
+						} else {
+							next = next.getIncomingMapping().getSource();
+						}
+					} else {
+						return element;
+					}
+				}
+			}
+		}
+		throw new InvalidityException("corresponding node not found");
+	}
+
+	private NeoAttributeNode adaptAsNeoAttributeRecursive() throws InvalidityException {
+		if (!(this instanceof NeoAttributeNode)) {
+			NeoAttributeNodeImpl neoAttribute = (NeoAttributeNodeImpl) AdaptionNeo4JFactoryImpl.init().createNeoAttributeNode();;	
+			neoAttribute.typeModifiable = true;
+			neoAttribute.setGraphSimple(getGraph());			
+			
+			neoAttribute.setReturnNode(isReturnNode());
+			
+			neoAttribute.getPredicates().addAll(getPredicates());
+			getPredicates().clear();
+			
+			neoAttribute.getOutgoingMappings().addAll(getOutgoingMappings());
+			getOutgoingMappings().clear();
+			neoAttribute.setIncomingMapping(getIncomingMapping());
+			setIncomingMapping(null);
+			
+			neoAttribute.setName(getName());			
+			neoAttribute.createParameters();
+			
+			setReturnNode(false);
+			
+			if(this instanceof PrimitiveNode) {
+				neoAttribute.getMatch().addAll(((PrimitiveNode) this).getMatch());
+				((PrimitiveNode) this).getMatch().clear();		
+			}
+			
+			EList<Relation> incomingCopy = new BasicEList<Relation>();
+			incomingCopy.addAll(getIncoming());
+			for(Relation relation : incomingCopy) {
+				relation.setTarget(neoAttribute);
+			}
+			
+			neoAttribute.getComparison1().addAll(getComparison1());
+			getComparison1().clear();
+			neoAttribute.getComparison2().addAll(getComparison2());
+			getComparison2().clear();
+	
+			setGraph(null);
+			
+			for (ElementMapping map: neoAttribute.getOutgoingMappings()) {
+				((NodeImpl) map.getTarget()).adaptAsNeoAttributeRecursive();
+			}
+
+			EList<Relation> incomingCopy2 = new BasicEList<Relation>();
+			incomingCopy2.addAll(neoAttribute.getIncoming());
+			for(Relation relation : incomingCopy2) {
+				relation.adaptAsNeoEdge();
+			}
+			
+			return neoAttribute;
+		} else {
+			for (ElementMapping map: getOutgoingMappings()) {
+				((NodeImpl) map.getTarget()).adaptAsNeoAttributeNode();
+			}
+			return (NeoAttributeNode) this;
+		}
+	}
+	
+	//END - Adapte for Neo4J/Cypher
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2116,8 +2252,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___ADAPT_AS_NEO_NODE_RECURSIVE:
-				return adaptAsNeoNodeRecursive();
 			case GraphstructurePackage.NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE:
 				try {
 					return adaptAsNeoAttributeNode();
@@ -2125,8 +2259,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___ADAPT_AS_NEO_ATTRIBUTE_RECURSIVE:
-				return adaptAsNeoAttributeRecursive();
 			case GraphstructurePackage.NODE___CREATE_PARAMETERS:
 				createParameters();
 				return null;

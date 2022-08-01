@@ -450,7 +450,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public String generateCypher() throws InvalidityException {
-		// TODO: implement this method --> has been implemented
 		throw new UnsupportedOperationException();
 	}
 

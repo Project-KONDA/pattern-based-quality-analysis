@@ -3,6 +3,7 @@
 package qualitypatternmodel.graphstructure;
 
 import org.eclipse.emf.common.util.EList;
+import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionxml.XmlElementNavigation;
 import qualitypatternmodel.adaptionxml.XmlPropertyNavigation;
@@ -272,6 +273,14 @@ public interface Relation extends PatternElement, Adaptable {
 	 * @generated
 	 */
 	RdfPredicate adaptAsRdfPredicate() throws InvalidityException;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="qualitypatternmodel.patternstructure.InvalidityExceptionWrapper"
+	 * @generated
+	 */
+	NeoEdge adaptAsNeoEdge() throws InvalidityException;
 
 	/**
 	 * <!-- begin-user-doc -->

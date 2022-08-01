@@ -25,7 +25,6 @@ import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructureFactory;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
-import qualitypatternmodel.graphstructure.NeoQuantifier;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.ReturnType;
@@ -103,13 +102,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	private EEnum returnTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum neoQuantifierEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -364,6 +356,16 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	@Override
 	public EOperation getRelation__AdaptAsRdfPredicate() {
 		return relationEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getRelation__AdaptAsNeoEdge() {
+		return relationEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -842,28 +844,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EOperation getNode__AdaptAsNeoNodeRecursive() {
-		return nodeEClass.getEOperations().get(32);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getNode__AdaptAsNeoAttributeNode() {
-		return nodeEClass.getEOperations().get(33);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getNode__AdaptAsNeoAttributeRecursive() {
-		return nodeEClass.getEOperations().get(34);
+		return nodeEClass.getEOperations().get(32);
 	}
 
 	/**
@@ -1192,16 +1174,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 * @generated
 	 */
 	@Override
-	public EEnum getNeoQuantifier() {
-		return neoQuantifierEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public GraphstructureFactory getGraphstructureFactory() {
 		return (GraphstructureFactory)getEFactoryInstance();
 	}
@@ -1243,6 +1215,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_PROPERTY_NAVIGATION);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_XML_REFERENCE);
 		createEOperation(relationEClass, RELATION___ADAPT_AS_RDF_PREDICATE);
+		createEOperation(relationEClass, RELATION___ADAPT_AS_NEO_EDGE);
 
 		primitiveNodeEClass = createEClass(PRIMITIVE_NODE);
 		createEReference(primitiveNodeEClass, PRIMITIVE_NODE__MATCH);
@@ -1291,9 +1264,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(nodeEClass, NODE___ADAPT_AS_RDF_LITERAL_NODE);
 		createEOperation(nodeEClass, NODE___ADD_COMPARISON__NODE);
 		createEOperation(nodeEClass, NODE___ADAPT_AS_NEO_NODE);
-		createEOperation(nodeEClass, NODE___ADAPT_AS_NEO_NODE_RECURSIVE);
 		createEOperation(nodeEClass, NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE);
-		createEOperation(nodeEClass, NODE___ADAPT_AS_NEO_ATTRIBUTE_RECURSIVE);
 
 		graphEClass = createEClass(GRAPH);
 		createEReference(graphEClass, GRAPH__NODES);
@@ -1330,7 +1301,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 
 		// Create enums
 		returnTypeEEnum = createEEnum(RETURN_TYPE);
-		neoQuantifierEEnum = createEEnum(NEO_QUANTIFIER);
 	}
 
 	/**
@@ -1360,9 +1330,9 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		PatternstructurePackage thePatternstructurePackage = (PatternstructurePackage)EPackage.Registry.INSTANCE.getEPackage(PatternstructurePackage.eNS_URI);
 		AdaptionxmlPackage theAdaptionxmlPackage = (AdaptionxmlPackage)EPackage.Registry.INSTANCE.getEPackage(AdaptionxmlPackage.eNS_URI);
 		AdaptionrdfPackage theAdaptionrdfPackage = (AdaptionrdfPackage)EPackage.Registry.INSTANCE.getEPackage(AdaptionrdfPackage.eNS_URI);
+		AdaptionNeo4JPackage theAdaptionNeo4JPackage = (AdaptionNeo4JPackage)EPackage.Registry.INSTANCE.getEPackage(AdaptionNeo4JPackage.eNS_URI);
 		OperatorsPackage theOperatorsPackage = (OperatorsPackage)EPackage.Registry.INSTANCE.getEPackage(OperatorsPackage.eNS_URI);
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
-		AdaptionNeo4JPackage theAdaptionNeo4JPackage = (AdaptionNeo4JPackage)EPackage.Registry.INSTANCE.getEPackage(AdaptionNeo4JPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1412,6 +1382,9 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		op = initEOperation(getRelation__AdaptAsRdfPredicate(), theAdaptionrdfPackage.getRdfPredicate(), "adaptAsRdfPredicate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
+
+		op = initEOperation(getRelation__AdaptAsNeoEdge(), theAdaptionNeo4JPackage.getNeoEdge(), "adaptAsNeoEdge", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(primitiveNodeEClass, PrimitiveNode.class, "PrimitiveNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1532,12 +1505,8 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getNode__AdaptAsNeoNode(), theAdaptionNeo4JPackage.getNeoNode(), "adaptAsNeoNode", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		initEOperation(getNode__AdaptAsNeoNodeRecursive(), theAdaptionNeo4JPackage.getNeoNode(), "adaptAsNeoNodeRecursive", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		op = initEOperation(getNode__AdaptAsNeoAttributeNode(), theAdaptionNeo4JPackage.getNeoAttributeNode(), "adaptAsNeoAttributeNode", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
-
-		initEOperation(getNode__AdaptAsNeoAttributeRecursive(), theAdaptionNeo4JPackage.getNeoAttributeNode(), "adaptAsNeoAttributeRecursive", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(graphEClass, Graph.class, "Graph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGraph_Nodes(), this.getNode(), this.getNode_Graph(), "nodes", null, 1, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1608,8 +1577,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		addEEnumLiteral(returnTypeEEnum, ReturnType.TIME);
 		addEEnumLiteral(returnTypeEEnum, ReturnType.NUMBER);
 		addEEnumLiteral(returnTypeEEnum, ReturnType.DATETIME);
-
-		initEEnum(neoQuantifierEEnum, NeoQuantifier.class, "NeoQuantifier");
 
 		// Create resource
 		createResource(eNS_URI);
