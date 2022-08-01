@@ -71,6 +71,8 @@
           defaultValueLiteral="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="matches" upperBound="-1"
           eType="#//operators/Match" eOpposite="#//operators/Match/option"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
+          eType="#//operators/Contains" eOpposite="#//operators/Contains/option"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TextListParam" eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
@@ -94,6 +96,8 @@
           eType="#//adaptionxml/XmlPropertyOptionParam" eOpposite="#//adaptionxml/XmlPropertyOptionParam/attributeName"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisPair" eType="#//adaptionxml/XmlAxisPair"
           eOpposite="#//adaptionxml/XmlAxisPair/textLiteralParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
+          eType="#//operators/Contains" eOpposite="#//operators/Contains/content"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumberParam" eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="setValueIfValid" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
@@ -139,7 +143,7 @@
       </eOperations>
       <eOperations name="isInAttributeComparison" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eOperations name="getSuggestions" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eOperations name="inferElementTagSuggestions" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eOperations name="inferSuggestions" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeModifiable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DateParam" eSuperTypes="#//parameters/ParameterValue">
@@ -256,6 +260,15 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="OperatorCycleExceptionWrapper"
         instanceClassName="qualitypatternmodel.exceptions.OperatorCycleException"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Contains" eSuperTypes="#//operators/BooleanOperator">
+      <eOperations name="getElement" eType="#//graphstructure/Node"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveNode" eType="#//graphstructure/PrimitiveNode"
+          eOpposite="#//graphstructure/PrimitiveNode/contains"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="option" lowerBound="1"
+          eType="#//parameters/BooleanParam" eOpposite="#//parameters/BooleanParam/contains"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="content" lowerBound="1"
+          eType="#//parameters/TextLiteralParam" eOpposite="#//parameters/TextLiteralParam/contains"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="graphstructure" nsURI="graphstructure" nsPrefix="graphstructure">
     <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//patternstructure/PatternElement #//graphstructure/Adaptable">
@@ -274,7 +287,6 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsRdfPredicate" eType="#//adaptionrdf/RdfPredicate"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="adaptAsNeoEdge" eType="#//adaptionNeo4J/NeoEdge" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="incomingMapping" eType="#//patternstructure/RelationMapping"
           eOpposite="#//patternstructure/RelationMapping/target"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
@@ -297,6 +309,8 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="match" upperBound="-1"
           eType="#//operators/Match" eOpposite="#//operators/Match/primitiveNode"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
+          eType="#//operators/Contains" eOpposite="#//operators/Contains/primitiveNode"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//graphstructure/Comparable #//patternstructure/PatternElement #//graphstructure/Adaptable">
       <eOperations name="getOriginalID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -315,6 +329,9 @@
       </eOperations>
       <eOperations name="addIncomming" eType="#//graphstructure/Relation">
         <eParameters name="node" eType="#//graphstructure/ComplexNode"/>
+      </eOperations>
+      <eOperations name="addComparison" eType="#//operators/Comparison">
+        <eParameters name="node" eType="#//graphstructure/Node"/>
       </eOperations>
       <eOperations name="addPrimitiveComparison" eType="#//parameters/UntypedParameterValue"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
@@ -337,6 +354,14 @@
           eExceptions="#//patternstructure/InvalidityExceptionWrapper">
         <eParameters name="regex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
+      <eOperations name="addPrimitiveContains" eType="#//parameters/TextLiteralParam"/>
+      <eOperations name="addPrimitiveContains" eType="#//parameters/TextLiteralParam">
+        <eParameters name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
+      <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
+        <eParameters name="comp" eType="#//operators/Comparison"/>
+      </eOperations>
       <eOperations name="checkGeneric" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="makeGeneric" eType="#//graphstructure/Node" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="makeGenericRecursive" eType="#//graphstructure/Node" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
@@ -348,20 +373,10 @@
       <eOperations name="makePrimitive" eType="#//graphstructure/PrimitiveNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="makePrimitiveRecursive" eType="#//graphstructure/PrimitiveNode"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="checkComparisonConsistency" eExceptions="#//patternstructure/InvalidityExceptionWrapper">
-        <eParameters name="comp" eType="#//operators/Comparison"/>
-      </eOperations>
       <eOperations name="adaptAsXmlElement" eType="#//adaptionxml/XmlElement" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsXmlProperty" eType="#//adaptionxml/XmlProperty" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsRdfIriNode" eType="#//adaptionrdf/RdfIriNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eOperations name="adaptAsRdfLiteralNode" eType="#//adaptionrdf/RdfLiteralNode"
-          eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="addComparison" eType="#//operators/Comparison">
-        <eParameters name="node" eType="#//graphstructure/Node"/>
-      </eOperations>
-      <eOperations name="adaptAsNeoNode" eType="#//adaptionNeo4J/NeoNode" eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
-      <eOperations name="adaptAsNeoAttributeNode" eType="#//adaptionNeo4J/NeoAttributeNode"
           eExceptions="#//patternstructure/InvalidityExceptionWrapper"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingMappings" upperBound="-1"
           eType="#//patternstructure/ElementMapping" eOpposite="#//patternstructure/ElementMapping/source"/>
@@ -760,6 +775,13 @@
         <eParameters name="axis" eType="#//adaptionxml/XmlAxisKind"/>
         <eParameters name="tag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eOperations>
+      <eOperations name="setXmlAxis">
+        <eParameters name="axis" eType="#//adaptionxml/XmlAxisKindArray"/>
+      </eOperations>
+      <eOperations name="setXmlAxis">
+        <eParameters name="axis" eType="#//adaptionxml/XmlAxisKindArray"/>
+        <eParameters name="tag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlPropertyOptionParam"
           eType="#//adaptionxml/XmlPropertyOptionParam" containment="true" eOpposite="#//adaptionxml/XmlPropertyOptionParam/xmlPathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xmlAxisPairs" upperBound="-1"
@@ -800,6 +822,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="variables" upperBound="-1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="XmlAxisKindArray" instanceClassName="qualitypatternmodel.adaptionxml.XmlAxisKind[]"/>
   </eSubpackages>
   <eSubpackages name="execution" nsURI="execution" nsPrefix="execution">
     <eClassifiers xsi:type="ecore:EClass" name="Result" abstract="true">
@@ -1161,39 +1184,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPredicate" eType="#//adaptionrdf/RdfPredicate"
           eOpposite="#//adaptionrdf/RdfPredicate/rdfPathParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rdfPathPart" eType="#//adaptionrdf/RdfPathPart"/>
-    </eClassifiers>
-  </eSubpackages>
-  <eSubpackages name="adaptionNeo4J" nsURI="adaptionNeo4J" nsPrefix="adaptionNeo4J">
-    <eClassifiers xsi:type="ecore:EClass" name="AbstractNeoNode" abstract="true" interface="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoNode" eSuperTypes="#//graphstructure/ComplexNode #//adaptionNeo4J/AbstractNeoNode"/>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoEdge" eSuperTypes="#//graphstructure/Relation">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neoPathParam" eType="#//adaptionNeo4J/Neo4JPathParam"
-          eOpposite="#//adaptionNeo4J/Neo4JPathParam/neoedge"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SequenceEdge" eSuperTypes="#//adaptionNeo4J/NeoPath">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neopath" lowerBound="2"
-          upperBound="-1" eType="#//adaptionNeo4J/NeoPath" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SimpleEdge" eSuperTypes="#//adaptionNeo4J/NeoPath">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="PatternParams" eType="#//adaptionNeo4J/PatternParams"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoPath" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
-      <eOperations name="getSimpleEdges" upperBound="-1" eType="#//adaptionNeo4J/SimpleEdge"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PatternParams">
-      <eOperations name="hasEdgeRestrictions"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ConnectingEdge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoUnion" eSuperTypes="#//adaptionNeo4J/NeoPath">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neopath" lowerBound="2"
-          upperBound="-1" eType="#//adaptionNeo4J/NeoPath" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NeoAttributeNode" eSuperTypes="#//graphstructure/PrimitiveNode #//adaptionNeo4J/AbstractNeoNode"/>
-    <eClassifiers xsi:type="ecore:EEnum" name="NeoQuantifier"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Neo4JPathParam" eSuperTypes="#//parameters/Parameter #//graphstructure/Adaptable">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neoedge" eType="#//adaptionNeo4J/NeoEdge"
-          eOpposite="#//adaptionNeo4J/NeoEdge/neoPathParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="neopath" eType="#//adaptionNeo4J/NeoPath"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
