@@ -49,6 +49,15 @@ public interface OperatorsFactory extends EFactory {
 	OperatorList createOperatorList();
 
 	/**
+	 * Returns a new object of class '<em>Contains</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Contains</em>'.
+	 * @generated
+	 */
+	Contains createContains();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

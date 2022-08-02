@@ -49,6 +49,7 @@ import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.parameters.ParametersFactory;
+import qualitypatternmodel.graphstructure.Comparable;
 
 /**
  * <!-- begin-user-doc -->
@@ -213,14 +214,16 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 		return getPrimitiveComparisonPropertyKinds().contains(XmlPropertyKind.TAG);
 	}
 
-	private EList<XmlPropertyKind> getPrimitiveComparisonPropertyKinds() {
+	protected EList<XmlPropertyKind> getPrimitiveComparisonPropertyKinds() {
 		EList<XmlPropertyKind> xmlPropertyKinds = new BasicEList<XmlPropertyKind>();
 		EList<Comparison> comparisons = new BasicEList<Comparison>();
 		comparisons.addAll(getComparison1());
 		comparisons.addAll(getComparison2());
+		
 		for(Comparison comparison : comparisons) {
 			if(comparison.isPrimitive()) {
-				if(comparison.getArgument1() instanceof XmlProperty) {
+				
+				if(comparison.getArgument1() instanceof XmlProperty && comparison.getArgument2() == this) {
 					XmlProperty property = (XmlProperty) comparison.getArgument1();
 					for(Relation r : property.getIncoming()) {
 						if (r instanceof XmlElementNavigation) {
@@ -236,9 +239,9 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 							}
 						}
 					}
-					
 				}
-				if(comparison.getArgument2() instanceof XmlProperty) {
+				
+				if(comparison.getArgument1() == this && comparison.getArgument2() instanceof XmlProperty) {
 					XmlProperty property = (XmlProperty) comparison.getArgument2();
 					for(Relation r : property.getIncoming()) {
 						if (r instanceof XmlElementNavigation) {
@@ -254,15 +257,11 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 							}
 						}
 					}
-				}				
+				}
+				
 			}
 		}
-		if(this instanceof TextLiteralParam) {
-			TextLiteralParam text = (TextLiteralParam) this;
-			if(text.getXmlAxisPair() != null) {
-				xmlPropertyKinds.add(XmlPropertyKind.TAG);
-			}
-		}
+		// TextLiteralParam overrides: if in XmlAxisParam it adds TAG
 		return xmlPropertyKinds;
 	}
 
@@ -535,8 +534,8 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 				return isInAttributeComparison();
 			case ParametersPackage.PARAMETER_VALUE___GET_SUGGESTIONS:
 				return getSuggestions();
-			case ParametersPackage.PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS:
-				return inferElementTagSuggestions();
+			case ParametersPackage.PARAMETER_VALUE___INFER_SUGGESTIONS:
+				return inferSuggestions();
 			case ParametersPackage.PARAMETER_VALUE___GET_RETURN_TYPE:
 				return getReturnType();
 			case ParametersPackage.PARAMETER_VALUE___IS_TRANSLATABLE:
@@ -711,7 +710,6 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 			}
 			
 			concreteValue.setTypeModifiable(true);
-
 		}
 	}
 
@@ -796,66 +794,66 @@ public abstract class ParameterValueImpl extends ParameterImpl implements Parame
 	 * @generated NOT
 	 */
 	@Override
-	public EList<String> inferElementTagSuggestions() {
+	public EList<String> inferSuggestions() {
 		EList<String> suggestions = new BasicEList<String>();
+
+		EList<Comparable> comps = new BasicEList<Comparable>();
+
+		for(Comparison c: getComparison1())
+			if (c.getOption().getValue() == ComparisonOperator.EQUAL)
+				comps.add(c.getArgument2());
 		
-		EList<Comparison> comparisons = getComparison1();
-		comparisons.addAll(getComparison2());
-		for (Comparison comp : comparisons) {
-			if(comp.getOption().getValue() == ComparisonOperator.EQUAL) {				
-				XmlProperty tagNode = null;
-				if(comp.getArgument1().equals(this)) {
-					if(comp.getArgument2() instanceof XmlProperty) {
-						tagNode = (XmlProperty) comp.getArgument2();
-					}
-				}
-				if(comp.getArgument2().equals(this)) {
-					if(comp.getArgument1() instanceof XmlProperty) {
-						tagNode = (XmlProperty) comp.getArgument1();			
-					}
-				}
-				if(tagNode != null) {
-					for (Relation r : tagNode.getIncoming()) {
-						XmlPathParam xmlPathParam = null;					
-						if(r instanceof XmlElementNavigation) {
-							XmlElementNavigation nav = (XmlElementNavigation) r;
-							xmlPathParam = nav.getXmlPathParam();
-							if(xmlPathParam.getXmlAxisPairs().isEmpty()) {
-								for (Relation previousRelation : nav.getSource().getIncoming()) {
-									if(previousRelation instanceof XmlElementNavigation) {
-										XmlElementNavigation previousNav = (XmlElementNavigation) previousRelation;
-										XmlPathParam previousPathParam = previousNav.getXmlPathParam();
-										TextLiteralParam text = previousPathParam.getXmlAxisPairs().get(previousPathParam.getXmlAxisPairs().size()-1).getTextLiteralParam();
-										if(text != null) {
-											EList<String> newSuggestions = text.inferElementTagSuggestions();
-											if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
-												suggestions.addAll(newSuggestions);
-											} else {
-												suggestions.retainAll(newSuggestions);
-											}
-										}
-									}
-								}
-								
-							} else {
-								TextLiteralParam text = xmlPathParam.getXmlAxisPairs().get(xmlPathParam.getXmlAxisPairs().size()-1).getTextLiteralParam();
-								if(text != null) {
-									EList<String> newSuggestions = text.inferElementTagSuggestions();
-									if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
-										suggestions.addAll(newSuggestions);
-									} else {
-										suggestions.retainAll(newSuggestions);
-									}
+
+		for(Comparison c: getComparison2())
+			if (c.getOption().getValue() == ComparisonOperator.EQUAL)
+				comps.add(c.getArgument1());
+		
+		for (Comparable comp: comps) {
+			if (comp instanceof XmlProperty)
+				suggestions.addAll(inferSuggestions2(((XmlProperty) comp)));
+		}	
+		return suggestions;
+	}
+	
+	private EList<String> inferSuggestions2(XmlProperty tagNode) {
+		System.out.println("inferSuggestions2 HERE");
+		EList<String> suggestions = new BasicEList<String>();
+		for (Relation r : tagNode.getIncoming()) {
+			XmlPathParam xmlPathParam = null;					
+			if(r instanceof XmlElementNavigation) {
+				XmlElementNavigation nav = (XmlElementNavigation) r;
+				xmlPathParam = nav.getXmlPathParam();
+				if(xmlPathParam.getXmlAxisPairs().isEmpty()) {
+					for (Relation previousRelation : nav.getSource().getIncoming()) {
+						if(previousRelation instanceof XmlElementNavigation) {
+							XmlElementNavigation previousNav = (XmlElementNavigation) previousRelation;
+							XmlPathParam previousPathParam = previousNav.getXmlPathParam();
+							TextLiteralParam text = previousPathParam.getXmlAxisPairs().get(previousPathParam.getXmlAxisPairs().size()-1).getTextLiteralParam();
+							if(text != null) {
+								EList<String> newSuggestions = text.inferSuggestions();
+								if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
+									suggestions.addAll(newSuggestions);
+								} else {
+									suggestions.retainAll(newSuggestions);
 								}
 							}
-							
 						}
 					}
-				}			
+					
+				} else {
+					TextLiteralParam text = xmlPathParam.getXmlAxisPairs().get(xmlPathParam.getXmlAxisPairs().size()-1).getTextLiteralParam();
+					if(text != null) {
+						EList<String> newSuggestions = text.inferSuggestions();
+						if(suggestions.isEmpty() || newSuggestions.isEmpty()) {
+							suggestions.addAll(newSuggestions);
+						} else {
+							suggestions.retainAll(newSuggestions);
+						}
+					}
+				}
 				
 			}
 		}
-		
 		return suggestions;
 	}
 

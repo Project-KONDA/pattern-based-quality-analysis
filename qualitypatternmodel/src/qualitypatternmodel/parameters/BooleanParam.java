@@ -5,6 +5,7 @@ package qualitypatternmodel.parameters;
 import org.eclipse.emf.common.util.EList;
 
 import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
 
 
@@ -20,6 +21,7 @@ import qualitypatternmodel.operators.Match;
  * <ul>
  *   <li>{@link qualitypatternmodel.parameters.BooleanParam#getValue <em>Value</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.BooleanParam#getMatches <em>Matches</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.BooleanParam#getContains <em>Contains</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.parameters.ParametersPackage#getBooleanParam()
@@ -63,6 +65,20 @@ public interface BooleanParam extends ParameterValue {
 	 * @generated
 	 */
 	EList<Match> getMatches();
+
+	/**
+	 * Returns the value of the '<em><b>Contains</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.operators.Contains}.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.operators.Contains#getOption <em>Option</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contains</em>' reference list.
+	 * @see qualitypatternmodel.parameters.ParametersPackage#getBooleanParam_Contains()
+	 * @see qualitypatternmodel.operators.Contains#getOption
+	 * @model opposite="option"
+	 * @generated
+	 */
+	EList<Contains> getContains();
 
 	/**
 	 * <!-- begin-user-doc -->

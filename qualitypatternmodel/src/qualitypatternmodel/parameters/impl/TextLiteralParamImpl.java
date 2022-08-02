@@ -22,6 +22,7 @@ import qualitypatternmodel.adaptionxml.XmlPropertyKind;
 import qualitypatternmodel.adaptionxml.XmlPropertyOptionParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ReturnType;
+import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -44,6 +45,7 @@ import qualitypatternmodel.utility.Constants;
  *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getMatches <em>Matches</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getXmlPropertyOptionParam <em>Xml Property Option Param</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getXmlAxisPair <em>Xml Axis Pair</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.TextLiteralParamImpl#getContains <em>Contains</em>}</li>
  * </ul>
  *
  * @generated
@@ -80,6 +82,16 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	 * @ordered
 	 */
 	protected EList<Match> matches;
+
+	/**
+	 * The cached value of the '{@link #getContains() <em>Contains</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContains()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Contains> contains;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -163,9 +175,10 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	}
 	
 	@Override
-	public EList<String> inferElementTagSuggestions() {
-		EList<String> suggestions = super.inferElementTagSuggestions();
-		EList<String> suggestionsFromPath = getXmlAxisPair().inferElementTagSuggestions();
+	public EList<String> inferSuggestions() {
+		EList<String> suggestions = super.inferSuggestions();
+		XmlAxisPair pair = getXmlAxisPair();
+		EList<String> suggestionsFromPath = pair.inferElementTagSuggestions();
 
 		if(suggestions.isEmpty() || suggestionsFromPath.isEmpty()) {
 			suggestions.addAll(suggestionsFromPath);
@@ -173,7 +186,19 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			suggestions.retainAll(suggestionsFromPath);
 		}
 				
-		return suggestions;			
+		return suggestions;
+	}
+	
+	@Override
+	protected EList<XmlPropertyKind> getPrimitiveComparisonPropertyKinds() {
+		EList<XmlPropertyKind> list = super.getPrimitiveComparisonPropertyKinds();
+		if(this instanceof TextLiteralParam) {
+			TextLiteralParam text = (TextLiteralParam) this;
+			if(text.getXmlAxisPair() != null) {
+				list.add(XmlPropertyKind.TAG);
+			}
+		}
+		return list;
 	}
 
 	
@@ -326,6 +351,19 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<Contains> getContains() {
+		if (contains == null) {
+			contains = new EObjectWithInverseResolvingEList<Contains>(Contains.class, this, ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS, OperatorsPackage.CONTAINS__CONTENT);
+		}
+		return contains;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -359,6 +397,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetXmlAxisPair((XmlAxisPair)otherEnd, msgs);
+			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContains()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -377,6 +417,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return basicSetXmlPropertyOptionParam(null, msgs);
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				return basicSetXmlAxisPair(null, msgs);
+			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
+				return ((InternalEList<?>)getContains()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -413,6 +455,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return getXmlPropertyOptionParam();
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				return getXmlAxisPair();
+			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
+				return getContains();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -439,6 +483,10 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				setXmlAxisPair((XmlAxisPair)newValue);
 				return;
+			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
+				getContains().clear();
+				getContains().addAll((Collection<? extends Contains>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -463,6 +511,9 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				setXmlAxisPair((XmlAxisPair)null);
 				return;
+			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
+				getContains().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -483,6 +534,8 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 				return getXmlPropertyOptionParam() != null;
 			case ParametersPackage.TEXT_LITERAL_PARAM__XML_AXIS_PAIR:
 				return getXmlAxisPair() != null;
+			case ParametersPackage.TEXT_LITERAL_PARAM__CONTAINS:
+				return contains != null && !contains.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

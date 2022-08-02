@@ -84,6 +84,8 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 				return createXmlPropertyKindFromString(eDataType, initialValue);
 			case AdaptionxmlPackage.XML_AXIS_KIND:
 				return createXmlAxisKindFromString(eDataType, initialValue);
+			case AdaptionxmlPackage.XML_AXIS_KIND_ARRAY:
+				return createXmlAxisKindArrayFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -101,6 +103,8 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 				return convertXmlPropertyKindToString(eDataType, instanceValue);
 			case AdaptionxmlPackage.XML_AXIS_KIND:
 				return convertXmlAxisKindToString(eDataType, instanceValue);
+			case AdaptionxmlPackage.XML_AXIS_KIND_ARRAY:
+				return convertXmlAxisKindArrayToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -254,6 +258,24 @@ public class AdaptionxmlFactoryImpl extends EFactoryImpl implements AdaptionxmlF
 	 */
 	public String convertXmlAxisKindToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public XmlAxisKind[] createXmlAxisKindArrayFromString(EDataType eDataType, String initialValue) {
+		return (XmlAxisKind[])super.createFromString(initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertXmlAxisKindArrayToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(instanceValue);
 	}
 
 	/**

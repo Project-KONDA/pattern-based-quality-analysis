@@ -565,6 +565,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EReference getBooleanParam_Contains() {
+		return (EReference)booleanParamEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getBooleanParam__SetValueIfValid__Boolean() {
 		return booleanParamEClass.getEOperations().get(0);
 	}
@@ -675,6 +685,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EReference getTextLiteralParam_Contains() {
+		return (EReference)textLiteralParamEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getTextLiteralParam__SetValueIfValid__String() {
 		return textLiteralParamEClass.getEOperations().get(0);
 	}
@@ -775,16 +795,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getParameterValue__InferElementTagSuggestions() {
-		return parameterValueEClass.getEOperations().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getParameterValue__GetElementTags() {
 		return parameterValueEClass.getEOperations().get(2);
 	}
@@ -827,6 +837,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	@Override
 	public EOperation getParameterValue__GetSuggestions() {
 		return parameterValueEClass.getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getParameterValue__InferSuggestions() {
+		return parameterValueEClass.getEOperations().get(10);
 	}
 
 	/**
@@ -1081,6 +1101,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		booleanParamEClass = createEClass(BOOLEAN_PARAM);
 		createEAttribute(booleanParamEClass, BOOLEAN_PARAM__VALUE);
 		createEReference(booleanParamEClass, BOOLEAN_PARAM__MATCHES);
+		createEReference(booleanParamEClass, BOOLEAN_PARAM__CONTAINS);
 		createEOperation(booleanParamEClass, BOOLEAN_PARAM___SET_VALUE_IF_VALID__BOOLEAN);
 
 		textListParamEClass = createEClass(TEXT_LIST_PARAM);
@@ -1094,6 +1115,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__MATCHES);
 		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__XML_PROPERTY_OPTION_PARAM);
 		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__XML_AXIS_PAIR);
+		createEReference(textLiteralParamEClass, TEXT_LITERAL_PARAM__CONTAINS);
 		createEOperation(textLiteralParamEClass, TEXT_LITERAL_PARAM___SET_VALUE_IF_VALID__STRING);
 
 		numberParamEClass = createEClass(NUMBER_PARAM);
@@ -1113,7 +1135,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_ATTRIBUTE_VALUES);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON);
 		createEOperation(parameterValueEClass, PARAMETER_VALUE___GET_SUGGESTIONS);
-		createEOperation(parameterValueEClass, PARAMETER_VALUE___INFER_ELEMENT_TAG_SUGGESTIONS);
+		createEOperation(parameterValueEClass, PARAMETER_VALUE___INFER_SUGGESTIONS);
 
 		dateParamEClass = createEClass(DATE_PARAM);
 		createEAttribute(dateParamEClass, DATE_PARAM__VALUE);
@@ -1256,6 +1278,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEClass(booleanParamEClass, BooleanParam.class, "BooleanParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBooleanParam_Value(), ecorePackage.getEBooleanObject(), "value", "true", 1, 1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBooleanParam_Matches(), theOperatorsPackage.getMatch(), theOperatorsPackage.getMatch_Option(), "matches", null, 0, -1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBooleanParam_Contains(), theOperatorsPackage.getContains(), theOperatorsPackage.getContains_Option(), "contains", null, 0, -1, BooleanParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getBooleanParam__SetValueIfValid__Boolean(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBooleanObject(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1277,6 +1300,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEReference(getTextLiteralParam_Matches(), theOperatorsPackage.getMatch(), theOperatorsPackage.getMatch_RegularExpression(), "matches", null, 0, -1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTextLiteralParam_XmlPropertyOptionParam(), theAdaptionxmlPackage.getXmlPropertyOptionParam(), theAdaptionxmlPackage.getXmlPropertyOptionParam_AttributeName(), "xmlPropertyOptionParam", null, 0, 1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTextLiteralParam_XmlAxisPair(), theAdaptionxmlPackage.getXmlAxisPair(), theAdaptionxmlPackage.getXmlAxisPair_TextLiteralParam(), "xmlAxisPair", null, 0, 1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTextLiteralParam_Contains(), theOperatorsPackage.getContains(), theOperatorsPackage.getContains_Content(), "contains", null, 0, -1, TextLiteralParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getTextLiteralParam__SetValueIfValid__String(), null, "setValueIfValid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "newValue", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1341,7 +1365,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		initEOperation(getParameterValue__GetSuggestions(), ecorePackage.getEString(), "getSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getParameterValue__InferElementTagSuggestions(), ecorePackage.getEString(), "inferElementTagSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getParameterValue__InferSuggestions(), ecorePackage.getEString(), "inferSuggestions", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dateParamEClass, DateParam.class, "DateParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDateParam_Value(), ecorePackage.getEString(), "value", "", 0, 1, DateParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

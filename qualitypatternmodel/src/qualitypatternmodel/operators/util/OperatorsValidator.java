@@ -129,6 +129,8 @@ public class OperatorsValidator extends EObjectValidator {
 				return validateComparison((Comparison)value, diagnostics, context);
 			case OperatorsPackage.OPERATOR_LIST:
 				return validateOperatorList((OperatorList)value, diagnostics, context);
+			case OperatorsPackage.CONTAINS:
+				return validateContains((Contains)value, diagnostics, context);
 			case OperatorsPackage.COMPARISON_OPERATOR:
 				return validateComparisonOperator((ComparisonOperator)value, diagnostics, context);
 			case OperatorsPackage.OPERATOR_CYCLE_EXCEPTION_WRAPPER:
@@ -259,6 +261,25 @@ public class OperatorsValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(operatorList, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(operatorList, diagnostics, context);
 		if (result || diagnostics != null) result &= patternstructureValidator.validatePatternElement_validate(operatorList, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateContains(Contains contains, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(contains, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(contains, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(contains, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(contains, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(contains, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(contains, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(contains, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(contains, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(contains, diagnostics, context);
+		if (result || diagnostics != null) result &= validateOperator_validate(contains, diagnostics, context);
 		return result;
 	}
 

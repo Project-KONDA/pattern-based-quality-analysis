@@ -42,11 +42,13 @@ import qualitypatternmodel.graphstructure.ReturnType;
 import qualitypatternmodel.operators.BooleanOperator;
 import qualitypatternmodel.operators.Comparison;
 import qualitypatternmodel.operators.ComparisonOperator;
+import qualitypatternmodel.operators.Contains;
 import qualitypatternmodel.operators.Match;
 import qualitypatternmodel.operators.Operator;
 import qualitypatternmodel.operators.OperatorList;
 import qualitypatternmodel.operators.OperatorsPackage;
 import qualitypatternmodel.operators.impl.ComparisonImpl;
+import qualitypatternmodel.operators.impl.ContainsImpl;
 import qualitypatternmodel.operators.impl.MatchImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.parameters.ParameterList;
@@ -965,6 +967,10 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			throw new InvalidityException("PrimitiveNode with match can not be turned into generic Node");
 		}		
 		
+		if(this instanceof PrimitiveNode && !((PrimitiveNode) this).getContains().isEmpty()) {
+			throw new InvalidityException("PrimitiveNode with contains can not be turned into generic Node");
+		}		
+		
 		for(Comparison comp : getComparison1()) {
 			if(comp.getArgument2() instanceof ParameterValue) {
 				throw new InvalidityException("Node with primitive comparison can not be turned into generic Node");	
@@ -1268,10 +1274,12 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			xmlProperty.createParameters();
 			
 			setReturnNode(false);
-			
+
 			if(this instanceof PrimitiveNode) {
 				xmlProperty.getMatch().addAll(((PrimitiveNode) this).getMatch());
 				((PrimitiveNode) this).getMatch().clear();		
+				xmlProperty.getContains().addAll(((PrimitiveNode) this).getContains());
+				((PrimitiveNode) this).getContains().clear();		
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
@@ -1487,7 +1495,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			
 			if(this instanceof PrimitiveNode) {
 				rdfLiteral.getMatch().addAll(((PrimitiveNode) this).getMatch());
-				((PrimitiveNode) this).getMatch().clear();		
+				((PrimitiveNode) this).getMatch().clear();
+				rdfLiteral.getContains().addAll(((PrimitiveNode) this).getContains());
+				((PrimitiveNode) this).getContains().clear();		
 			}
 			
 			EList<Relation> incomingCopy = new BasicEList<Relation>();
@@ -2091,6 +2101,8 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				}
 			case GraphstructurePackage.NODE___ADD_INCOMMING__COMPLEXNODE:
 				return addIncomming((ComplexNode)arguments.get(0));
+			case GraphstructurePackage.NODE___ADD_COMPARISON__NODE:
+				return addComparison((Node)arguments.get(0));
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_COMPARISON:
 				try {
 					return addPrimitiveComparison();
@@ -2129,6 +2141,26 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			case GraphstructurePackage.NODE___ADD_PRIMITIVE_MATCH__STRING:
 				try {
 					return addPrimitiveMatch((String)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_CONTAINS:
+				return addPrimitiveContains();
+			case GraphstructurePackage.NODE___ADD_PRIMITIVE_CONTAINS__STRING:
+				return addPrimitiveContains((String)arguments.get(0));
+			case GraphstructurePackage.NODE___CHECK_COMPARISON_CONSISTENCY:
+				try {
+					checkComparisonConsistency();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case GraphstructurePackage.NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON:
+				try {
+					checkComparisonConsistency((Comparison)arguments.get(0));
+					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
@@ -2199,22 +2231,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case GraphstructurePackage.NODE___CHECK_COMPARISON_CONSISTENCY:
-				try {
-					checkComparisonConsistency();
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case GraphstructurePackage.NODE___CHECK_COMPARISON_CONSISTENCY__COMPARISON:
-				try {
-					checkComparisonConsistency((Comparison)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case GraphstructurePackage.NODE___ADAPT_AS_XML_ELEMENT:
 				try {
 					return adaptAsXmlElement();
@@ -2243,6 +2259,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			//I have keeped this since it makes just sence
 			case GraphstructurePackage.NODE___ADD_COMPARISON__NODE:
 				return addComparison((Node)arguments.get(0));
 			case GraphstructurePackage.NODE___ADAPT_AS_NEO_NODE:
@@ -2259,6 +2276,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			//I have keeped this since it makes just sence
 			case GraphstructurePackage.NODE___CREATE_PARAMETERS:
 				createParameters();
 				return null;
@@ -2468,6 +2486,49 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		}
 
 	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public TextLiteralParam addPrimitiveContains() {
+		return addPrimitiveContains(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public TextLiteralParam addPrimitiveContains(String content) {
+		Contains contains = new ContainsImpl();
+		try {			
+			Graph graph = (Graph) getAncestor(Graph.class);
+			OperatorList oplist = graph.getOperatorList();
+
+			oplist.add(contains);	
+			contains.createParameters();
+			PrimitiveNode p = null;
+			if(this instanceof PrimitiveNode) {
+				p = (PrimitiveNode) this;
+			} else {
+				p = makePrimitive();
+			}
+			contains.setPrimitiveNode(p);
+								
+			if(content != null) {
+				contains.getContent().setValue(content);
+			}
+			return contains.getContent();
+		} catch (Exception e) {
+			System.out.println("ADDING CONDITION FAILED: " + e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

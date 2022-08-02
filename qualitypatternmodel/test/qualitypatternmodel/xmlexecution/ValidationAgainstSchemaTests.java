@@ -18,7 +18,7 @@ import qualitypatternmodel.execution.ServerXmlDataDatabase;
 import qualitypatternmodel.execution.impl.ServerXmlDataDatabaseImpl;
 import qualitypatternmodel.parameters.Parameter;
 import qualitypatternmodel.patternstructure.CompletePattern;
-import qualitypatternmodel.xmlevaluation.EvalMatch;
+import qualitypatternmodel.xmlevaluation.XmlEvalMatch;
 
 public class ValidationAgainstSchemaTests {
 
@@ -36,7 +36,7 @@ public class ValidationAgainstSchemaTests {
 	
 	@Test
 	public void validateAgainstSchemaValidTest() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern pattern = EvalMatch.getMatchLidoMeasurementUnit();
+		CompletePattern pattern = XmlEvalMatch.getMatchLidoMeasurementUnit();
 		pattern.setDatabase(db);
 		EList<Parameter> invalidParams = pattern.validateAgainstSchema();
 		assertTrue(invalidParams.isEmpty());
@@ -44,7 +44,7 @@ public class ValidationAgainstSchemaTests {
 	
 	@Test
 	public void validateAgainstSchemaInvalidTest() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {		
-		CompletePattern pattern = EvalMatch.getMatchMidas5064();
+		CompletePattern pattern = XmlEvalMatch.getMatchMidas5064();
 		pattern.setDatabase(db);
 		EList<Parameter> invalidParams = pattern.validateAgainstSchema();
 		assertFalse(invalidParams.isEmpty());

@@ -5,11 +5,14 @@ package qualitypatternmodel.adaptionrdf.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
+import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
+import qualitypatternmodel.operators.Comparison;
+import qualitypatternmodel.operators.ComparisonOperator;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -31,6 +34,15 @@ public class RdfLiteralNodeImpl extends PrimitiveNodeImpl implements RdfLiteralN
 	
 	@Override
 	public String generateSparql() {
+		if (getPredicates().size() == 1 && getPredicates().get(0) != null && getPredicates().get(0) instanceof Comparison) {
+			Comparison p = (Comparison) getPredicates().get(0);
+			if (p.getArgument2() instanceof IriParam && p.getOption().getValue() == ComparisonOperator.EQUAL) {
+				try {
+					return p.getArgument2().generateSparql();
+				} catch (InvalidityException e) {
+				}
+			}
+		}
 		return "?var" + getOriginalID();
 	}
 	

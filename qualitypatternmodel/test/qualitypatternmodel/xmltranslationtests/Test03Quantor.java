@@ -67,7 +67,7 @@ public class Test03Quantor {
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		// Pattern Structure
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		QuantifiedCondition cond = factory.createQuantifiedCondition();
 		completePattern.setCondition(cond);
 				
@@ -84,7 +84,7 @@ public class Test03Quantor {
 		GraphstructureFactory graphFactory = GraphstructureFactory.eINSTANCE;
 		
 		// Pattern Structure
-		CompletePattern completePattern = Test00.getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		QuantifiedCondition cond = factory.createQuantifiedCondition();
 		completePattern.setCondition(cond);
 				

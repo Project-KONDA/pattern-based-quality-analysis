@@ -70,7 +70,7 @@ public class Test00 {
 	}
 
 	public static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		completePattern.createXmlAdaption();
 		return completePattern;
 	}
@@ -91,7 +91,7 @@ public class Test00 {
 	}
 	
 	public static CompletePattern getBasePatternCond(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		Node se = completePattern.getGraph().getReturnNodes().get(0);
 		se.addOutgoing().getTarget().addPrimitiveComparison(comp);
 		completePattern.createXmlAdaption();
@@ -99,7 +99,7 @@ public class Test00 {
 	}
 	
 	public static CompletePattern getBasePatternMatch(String regex) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = getBasePattern();
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
 		Node se = completePattern.getGraph().getReturnNodes().get(0);
 		se.addOutgoing().getTarget().addPrimitiveMatch(regex);
 		completePattern.createXmlAdaption();
@@ -154,5 +154,12 @@ public class Test00 {
 			}
 		}
 		return pattern;
+	}
+
+	public static void printGenericPatternExampleXQuery(CompletePattern pattern) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		pattern.createXmlAdaption();
+		replace(pattern);
+		System.out.println(pattern.generateXQuery());
+		
 	}
 }

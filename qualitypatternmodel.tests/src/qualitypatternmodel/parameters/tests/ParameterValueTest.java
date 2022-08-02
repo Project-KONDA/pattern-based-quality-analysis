@@ -21,7 +21,7 @@ import qualitypatternmodel.parameters.ParameterValue;
  *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getAttributeValues() <em>Get Attribute Values</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ParameterValue#isInAttributeComparison() <em>Is In Attribute Comparison</em>}</li>
  *   <li>{@link qualitypatternmodel.parameters.ParameterValue#getSuggestions() <em>Get Suggestions</em>}</li>
- *   <li>{@link qualitypatternmodel.parameters.ParameterValue#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.ParameterValue#inferSuggestions() <em>Infer Suggestions</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getReturnType() <em>Get Return Type</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#isTranslatable() <em>Is Translatable</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Comparable#getAllArgumentElements() <em>Get All Argument Elements</em>}</li>
@@ -93,19 +93,6 @@ public abstract class ParameterValueTest extends ParameterTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#inferElementTagSuggestions() <em>Infer Element Tag Suggestions</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.parameters.ParameterValue#inferElementTagSuggestions()
-	 * @generated
-	 */
-	public void testInferElementTagSuggestions() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
 	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#getElementTags() <em>Get Element Tags</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -165,6 +152,19 @@ public abstract class ParameterValueTest extends ParameterTest {
 	 * @generated
 	 */
 	public void testGetSuggestions() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.parameters.ParameterValue#inferSuggestions() <em>Infer Suggestions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.ParameterValue#inferSuggestions()
+	 * @generated
+	 */
+	public void testInferSuggestions() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
