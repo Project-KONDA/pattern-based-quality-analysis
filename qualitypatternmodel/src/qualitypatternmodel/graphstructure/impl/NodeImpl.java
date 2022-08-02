@@ -2259,9 +2259,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			//I have keeped this since it makes just sence
-			case GraphstructurePackage.NODE___ADD_COMPARISON__NODE:
-				return addComparison((Node)arguments.get(0));
 			case GraphstructurePackage.NODE___ADAPT_AS_NEO_NODE:
 				try {
 					return adaptAsNeoNode();
@@ -2276,7 +2273,6 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			//I have keeped this since it makes just sence
 			case GraphstructurePackage.NODE___CREATE_PARAMETERS:
 				createParameters();
 				return null;

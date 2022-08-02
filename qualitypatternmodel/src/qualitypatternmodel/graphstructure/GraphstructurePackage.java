@@ -2251,16 +2251,6 @@ public interface GraphstructurePackage extends EPackage {
 	int PRIMITIVE_NODE___ADAPT_AS_RDF_LITERAL_NODE = NODE___ADAPT_AS_RDF_LITERAL_NODE;
 
 	/**
-<<<<<<< HEAD
-	 * The operation id for the '<em>Add Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_NODE___ADD_COMPARISON__NODE = NODE___ADD_COMPARISON__NODE;
-
-	/**
 	 * The operation id for the '<em>Adapt As Neo Node</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2278,9 +2268,8 @@ public interface GraphstructurePackage extends EPackage {
 	 */
 	int PRIMITIVE_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE;
 
+	
 	/**
-=======
->>>>>>> generic_nodes_experiment
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3668,15 +3657,6 @@ public interface GraphstructurePackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPLEX_NODE___ADAPT_AS_RDF_LITERAL_NODE = NODE___ADAPT_AS_RDF_LITERAL_NODE;
-
-	/**
-	 * The operation id for the '<em>Add Comparison</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_NODE___ADD_COMPARISON__NODE = NODE___ADD_COMPARISON__NODE;
 
 	/**
 	 * The operation id for the '<em>Adapt As Neo Node</em>' operation.
