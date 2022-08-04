@@ -1,4 +1,4 @@
-package qualitypatternmodel.translationtestsCypher;
+package qualitypatternmodel.cyphertranslationtests;
 
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;

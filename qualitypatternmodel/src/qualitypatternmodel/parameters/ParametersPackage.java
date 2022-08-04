@@ -6545,6 +6545,448 @@ public interface ParametersPackage extends EPackage {
 	int TYPE_OPTION_PARAM_OPERATION_COUNT = PARAMETER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.parameters.impl.KeyValueParamImpl <em>Key Value Param</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.parameters.impl.KeyValueParamImpl
+	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getKeyValueParam()
+	 * @generated
+	 */
+	int KEY_VALUE_PARAM = 13;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM__ID = COMPARISON_OPTION_PARAM__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM__INTERNAL_ID = COMPARISON_OPTION_PARAM__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM__PARAMETER_LIST = COMPARISON_OPTION_PARAM__PARAMETER_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM__PREDEFINED = COMPARISON_OPTION_PARAM__PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM__PARAMETER_REFERENCES = COMPARISON_OPTION_PARAM__PARAMETER_REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM__DESCRIPTION = COMPARISON_OPTION_PARAM__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Options</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM__OPTIONS = COMPARISON_OPTION_PARAM__OPTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM__VALUE = COMPARISON_OPTION_PARAM__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Comparisons</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM__COMPARISONS = COMPARISON_OPTION_PARAM__COMPARISONS;
+
+	/**
+	 * The feature id for the '<em><b>Count Conditions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM__COUNT_CONDITIONS = COMPARISON_OPTION_PARAM__COUNT_CONDITIONS;
+
+	/**
+	 * The feature id for the '<em><b>Key Value Pair</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM__KEY_VALUE_PAIR = COMPARISON_OPTION_PARAM_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Key Value Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM_FEATURE_COUNT = COMPARISON_OPTION_PARAM_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___IS_VALID__ABSTRACTIONLEVEL = COMPARISON_OPTION_PARAM___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL = COMPARISON_OPTION_PARAM___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___MY_TO_STRING = COMPARISON_OPTION_PARAM___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___GENERATE_CYPHER = COMPARISON_OPTION_PARAM___GENERATE_CYPHER;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___GENERATE_XQUERY = COMPARISON_OPTION_PARAM___GENERATE_XQUERY;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___GENERATE_SPARQL = COMPARISON_OPTION_PARAM___GENERATE_SPARQL;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___GET_CONTAINER = COMPARISON_OPTION_PARAM___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___GET_ANCESTOR__CLASS = COMPARISON_OPTION_PARAM___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___INITIALIZE_TRANSLATION = COMPARISON_OPTION_PARAM___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___PREPARE_TRANSLATION = COMPARISON_OPTION_PARAM___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___GET_OPERATOR_LIST = COMPARISON_OPTION_PARAM___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___GET_PARAMETER_LIST = COMPARISON_OPTION_PARAM___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___GET_ALL_PARAMETERS = COMPARISON_OPTION_PARAM___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___PREPARE_PARAMETER_UPDATES = COMPARISON_OPTION_PARAM___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = COMPARISON_OPTION_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___UPDATE_PARAMETERS__PARAMETERLIST = COMPARISON_OPTION_PARAM___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = COMPARISON_OPTION_PARAM___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___RECORD_VALUES__XMLDATADATABASE = COMPARISON_OPTION_PARAM___RECORD_VALUES__XMLDATADATABASE;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___RELATIONS_XML_ADAPTED = COMPARISON_OPTION_PARAM___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___CREATE_XML_ADAPTION = COMPARISON_OPTION_PARAM___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___CREATE_RDF_ADAPTION = COMPARISON_OPTION_PARAM___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___CREATE_NEO4J_ADAPTION = COMPARISON_OPTION_PARAM___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP = COMPARISON_OPTION_PARAM___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___VALIDATE_AGAINST_SCHEMA = COMPARISON_OPTION_PARAM___VALIDATE_AGAINST_SCHEMA;
+
+	/**
+	 * The operation id for the '<em>Validate Example Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___VALIDATE_EXAMPLE_VALUE__STRING = COMPARISON_OPTION_PARAM___VALIDATE_EXAMPLE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___INPUT_IS_VALID = COMPARISON_OPTION_PARAM___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___IS_USED = COMPARISON_OPTION_PARAM___IS_USED;
+
+	/**
+	 * The operation id for the '<em>Set Value From String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___SET_VALUE_FROM_STRING__STRING = COMPARISON_OPTION_PARAM___SET_VALUE_FROM_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___GET_VALUE_AS_STRING = COMPARISON_OPTION_PARAM___GET_VALUE_AS_STRING;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___CHECK_COMPARISON_CONSISTENCY = COMPARISON_OPTION_PARAM___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___GET_OPTIONS_AS_STRING_LIST = COMPARISON_OPTION_PARAM___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___GENERATE_DESCRIPTION = COMPARISON_OPTION_PARAM___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Set Value If Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___SET_VALUE_IF_VALID__COMPARISONOPERATOR = COMPARISON_OPTION_PARAM___SET_VALUE_IF_VALID__COMPARISONOPERATOR;
+
+	/**
+	 * The operation id for the '<em>Add Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___ADD_VALUE__STRING_STRING = COMPARISON_OPTION_PARAM_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Set New Map</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM___SET_NEW_MAP__MAP = COMPARISON_OPTION_PARAM_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Key Value Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PARAM_OPERATION_COUNT = COMPARISON_OPTION_PARAM_OPERATION_COUNT + 2;
+
+	/**
 	 * The meta object id for the '<em>String To Int EMap</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6552,7 +6994,7 @@ public interface ParametersPackage extends EPackage {
 	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getStringToIntEMap()
 	 * @generated
 	 */
-	int STRING_TO_INT_EMAP = 13;
+	int STRING_TO_INT_EMAP = 14;
 
 	/**
 	 * The meta object id for the '<em>String Array</em>' data type.
@@ -6561,7 +7003,7 @@ public interface ParametersPackage extends EPackage {
 	 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 14;
+	int STRING_ARRAY = 15;
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.Parameter <em>Parameter</em>}'.
@@ -7352,6 +7794,47 @@ public interface ParametersPackage extends EPackage {
 	EReference getTypeOptionParam_TypeComparisons();
 
 	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.parameters.KeyValueParam <em>Key Value Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Key Value Param</em>'.
+	 * @see qualitypatternmodel.parameters.KeyValueParam
+	 * @generated
+	 */
+	EClass getKeyValueParam();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.parameters.KeyValueParam#getKeyValuePair <em>Key Value Pair</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Value Pair</em>'.
+	 * @see qualitypatternmodel.parameters.KeyValueParam#getKeyValuePair()
+	 * @see #getKeyValueParam()
+	 * @generated
+	 */
+	EAttribute getKeyValueParam_KeyValuePair();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.KeyValueParam#addValue(java.lang.String, java.lang.String) <em>Add Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Value</em>' operation.
+	 * @see qualitypatternmodel.parameters.KeyValueParam#addValue(java.lang.String, java.lang.String)
+	 * @generated
+	 */
+	EOperation getKeyValueParam__AddValue__String_String();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.parameters.KeyValueParam#setNewMap(java.util.Map) <em>Set New Map</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set New Map</em>' operation.
+	 * @see qualitypatternmodel.parameters.KeyValueParam#setNewMap(java.util.Map)
+	 * @generated
+	 */
+	EOperation getKeyValueParam__SetNewMap__Map();
+
+	/**
 	 * Returns the meta object for data type '{@link org.eclipse.emf.common.util.EMap <em>String To Int EMap</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8028,6 +8511,40 @@ public interface ParametersPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TYPE_OPTION_PARAM__TYPE_COMPARISONS = eINSTANCE.getTypeOptionParam_TypeComparisons();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.parameters.impl.KeyValueParamImpl <em>Key Value Param</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.parameters.impl.KeyValueParamImpl
+		 * @see qualitypatternmodel.parameters.impl.ParametersPackageImpl#getKeyValueParam()
+		 * @generated
+		 */
+		EClass KEY_VALUE_PARAM = eINSTANCE.getKeyValueParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Value Pair</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute KEY_VALUE_PARAM__KEY_VALUE_PAIR = eINSTANCE.getKeyValueParam_KeyValuePair();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation KEY_VALUE_PARAM___ADD_VALUE__STRING_STRING = eINSTANCE.getKeyValueParam__AddValue__String_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Set New Map</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation KEY_VALUE_PARAM___SET_NEW_MAP__MAP = eINSTANCE.getKeyValueParam__SetNewMap__Map();
 
 		/**
 		 * The meta object literal for the '<em>String To Int EMap</em>' data type.

@@ -1,6 +1,6 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.provider;
+package qualitypatternmodel.parameters.provider;
 
 
 import java.util.Collection;
@@ -9,31 +9,28 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.Neo4JPathParam;
-
-import qualitypatternmodel.parameters.provider.ParameterItemProvider;
-import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
+import qualitypatternmodel.parameters.KeyValueParam;
+import qualitypatternmodel.parameters.ParametersPackage;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.parameters.KeyValueParam} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class Neo4JPathParamItemProvider extends ParameterItemProvider {
+public class KeyValueParamItemProvider extends ComparisonOptionParamItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Neo4JPathParamItemProvider(AdapterFactory adapterFactory) {
+	public KeyValueParamItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -48,65 +45,42 @@ public class Neo4JPathParamItemProvider extends ParameterItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNeoEdgePropertyDescriptor(object);
-			addNeoPathPropertyDescriptor(object);
+			addKeyValuePairPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Neo Edge feature.
+	 * This adds a property descriptor for the Key Value Pair feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNeoEdgePropertyDescriptor(Object object) {
+	protected void addKeyValuePairPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Neo4JPathParam_neoEdge_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Neo4JPathParam_neoEdge_feature", "_UI_Neo4JPathParam_type"),
-				 AdaptionNeo4JPackage.Literals.NEO4_JPATH_PARAM__NEO_EDGE,
+				 getString("_UI_KeyValueParam_keyValuePair_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_KeyValueParam_keyValuePair_feature", "_UI_KeyValueParam_type"),
+				 ParametersPackage.Literals.KEY_VALUE_PARAM__KEY_VALUE_PAIR,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Neo Path feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNeoPathPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Neo4JPathParam_neoPath_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Neo4JPathParam_neoPath_feature", "_UI_Neo4JPathParam_type"),
-				 AdaptionNeo4JPackage.Literals.NEO4_JPATH_PARAM__NEO_PATH,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Neo4JPathParam.gif.
+	 * This returns KeyValueParam.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Neo4JPathParam"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/KeyValueParam"));
 	}
 
 	/**
@@ -117,10 +91,10 @@ public class Neo4JPathParamItemProvider extends ParameterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Neo4JPathParam)object).getId();
+		String label = ((KeyValueParam)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Neo4JPathParam_type") :
-			getString("_UI_Neo4JPathParam_type") + " " + label;
+			getString("_UI_KeyValueParam_type") :
+			getString("_UI_KeyValueParam_type") + " " + label;
 	}
 
 
@@ -134,6 +108,12 @@ public class Neo4JPathParamItemProvider extends ParameterItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(KeyValueParam.class)) {
+			case ParametersPackage.KEY_VALUE_PARAM__KEY_VALUE_PAIR:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -147,17 +127,6 @@ public class Neo4JPathParamItemProvider extends ParameterItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return QualitypatternmodelEditPlugin.INSTANCE;
 	}
 
 }

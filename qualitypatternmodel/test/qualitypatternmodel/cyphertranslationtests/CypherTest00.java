@@ -1,4 +1,4 @@
-package qualitypatternmodel.translationtestsCypher;
+package qualitypatternmodel.cyphertranslationtests;
 
 import static qualitypatternmodel.xmltranslationtests.Test00.replace;
 

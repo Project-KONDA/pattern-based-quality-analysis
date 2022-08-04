@@ -118,72 +118,49 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionNeo4J.SequenceEdge} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SequenceEdgeItemProvider sequenceEdgeItemProvider;
+	protected NeoComplexEdgeItemProvider neoComplexEdgeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionNeo4J.SequenceEdge}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSequenceEdgeAdapter() {
-		if (sequenceEdgeItemProvider == null) {
-			sequenceEdgeItemProvider = new SequenceEdgeItemProvider(this);
+	public Adapter createNeoComplexEdgeAdapter() {
+		if (neoComplexEdgeItemProvider == null) {
+			neoComplexEdgeItemProvider = new NeoComplexEdgeItemProvider(this);
 		}
 
-		return sequenceEdgeItemProvider;
+		return neoComplexEdgeItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionNeo4J.SimpleEdge} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SimpleEdgeItemProvider simpleEdgeItemProvider;
+	protected NeoSimpleEdgeItemProvider neoSimpleEdgeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionNeo4J.SimpleEdge}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSimpleEdgeAdapter() {
-		if (simpleEdgeItemProvider == null) {
-			simpleEdgeItemProvider = new SimpleEdgeItemProvider(this);
+	public Adapter createNeoSimpleEdgeAdapter() {
+		if (neoSimpleEdgeItemProvider == null) {
+			neoSimpleEdgeItemProvider = new NeoSimpleEdgeItemProvider(this);
 		}
 
-		return simpleEdgeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionNeo4J.PatternParams} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PatternParamsItemProvider patternParamsItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionNeo4J.PatternParams}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPatternParamsAdapter() {
-		if (patternParamsItemProvider == null) {
-			patternParamsItemProvider = new PatternParamsItemProvider(this);
-		}
-
-		return patternParamsItemProvider;
+		return neoSimpleEdgeItemProvider;
 	}
 
 	/**
@@ -362,9 +339,8 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	public void dispose() {
 		if (neoNodeItemProvider != null) neoNodeItemProvider.dispose();
 		if (neoEdgeItemProvider != null) neoEdgeItemProvider.dispose();
-		if (sequenceEdgeItemProvider != null) sequenceEdgeItemProvider.dispose();
-		if (simpleEdgeItemProvider != null) simpleEdgeItemProvider.dispose();
-		if (patternParamsItemProvider != null) patternParamsItemProvider.dispose();
+		if (neoComplexEdgeItemProvider != null) neoComplexEdgeItemProvider.dispose();
+		if (neoSimpleEdgeItemProvider != null) neoSimpleEdgeItemProvider.dispose();
 		if (neoUnionItemProvider != null) neoUnionItemProvider.dispose();
 		if (neoAttributeNodeItemProvider != null) neoAttributeNodeItemProvider.dispose();
 		if (neo4JPathParamItemProvider != null) neo4JPathParamItemProvider.dispose();

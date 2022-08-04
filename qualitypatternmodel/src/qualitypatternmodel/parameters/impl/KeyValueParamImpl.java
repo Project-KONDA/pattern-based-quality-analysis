@@ -1,9 +1,10 @@
 /**
  */
-package qualitypatternmodel.adaptionNeo4J.impl;
+package qualitypatternmodel.parameters.impl;
 
 import java.lang.reflect.InvocationTargetException;
 
+import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
@@ -11,51 +12,40 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.PatternParams;
+import qualitypatternmodel.parameters.KeyValueParam;
+import qualitypatternmodel.parameters.ParametersPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Pattern Params</b></em>'.
+ * An implementation of the model object '<em><b>Key Value Param</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.PatternParamsImpl#getConnectingEdge <em>Connecting Edge</em>}</li>
+ *   <li>{@link qualitypatternmodel.parameters.impl.KeyValueParamImpl#getKeyValuePair <em>Key Value Pair</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PatternParamsImpl extends MinimalEObjectImpl.Container implements PatternParams {
+public class KeyValueParamImpl extends ComparisonOptionParamImpl implements KeyValueParam {
 	/**
-	 * The default value of the '{@link #getConnectingEdge() <em>Connecting Edge</em>}' attribute.
+	 * The cached value of the '{@link #getKeyValuePair() <em>Key Value Pair</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConnectingEdge()
+	 * @see #getKeyValuePair()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CONNECTING_EDGE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getConnectingEdge() <em>Connecting Edge</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConnectingEdge()
-	 * @generated
-	 * @ordered
-	 */
-	protected String connectingEdge = CONNECTING_EDGE_EDEFAULT;
+	protected Map keyValuePair;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PatternParamsImpl() {
+	protected KeyValueParamImpl() {
 		super();
 	}
 
@@ -66,7 +56,7 @@ public class PatternParamsImpl extends MinimalEObjectImpl.Container implements P
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AdaptionNeo4JPackage.Literals.PATTERN_PARAMS;
+		return ParametersPackage.Literals.KEY_VALUE_PARAM;
 	}
 
 	/**
@@ -75,8 +65,8 @@ public class PatternParamsImpl extends MinimalEObjectImpl.Container implements P
 	 * @generated
 	 */
 	@Override
-	public String getConnectingEdge() {
-		return connectingEdge;
+	public Map getKeyValuePair() {
+		return keyValuePair;
 	}
 
 	/**
@@ -85,11 +75,11 @@ public class PatternParamsImpl extends MinimalEObjectImpl.Container implements P
 	 * @generated
 	 */
 	@Override
-	public void setConnectingEdge(String newConnectingEdge) {
-		String oldConnectingEdge = connectingEdge;
-		connectingEdge = newConnectingEdge;
+	public void setKeyValuePair(Map newKeyValuePair) {
+		Map oldKeyValuePair = keyValuePair;
+		keyValuePair = newKeyValuePair;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.PATTERN_PARAMS__CONNECTING_EDGE, oldConnectingEdge, connectingEdge));
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.KEY_VALUE_PARAM__KEY_VALUE_PAIR, oldKeyValuePair, keyValuePair));
 	}
 
 	/**
@@ -98,7 +88,19 @@ public class PatternParamsImpl extends MinimalEObjectImpl.Container implements P
 	 * @generated
 	 */
 	@Override
-	public void hasEdgeRestrictions() {
+	public void addValue(String key, String value) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNewMap(Map newKeyValueMap) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -112,8 +114,8 @@ public class PatternParamsImpl extends MinimalEObjectImpl.Container implements P
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.PATTERN_PARAMS__CONNECTING_EDGE:
-				return getConnectingEdge();
+			case ParametersPackage.KEY_VALUE_PARAM__KEY_VALUE_PAIR:
+				return getKeyValuePair();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -126,8 +128,8 @@ public class PatternParamsImpl extends MinimalEObjectImpl.Container implements P
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.PATTERN_PARAMS__CONNECTING_EDGE:
-				setConnectingEdge((String)newValue);
+			case ParametersPackage.KEY_VALUE_PARAM__KEY_VALUE_PAIR:
+				setKeyValuePair((Map)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -141,8 +143,8 @@ public class PatternParamsImpl extends MinimalEObjectImpl.Container implements P
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.PATTERN_PARAMS__CONNECTING_EDGE:
-				setConnectingEdge(CONNECTING_EDGE_EDEFAULT);
+			case ParametersPackage.KEY_VALUE_PARAM__KEY_VALUE_PAIR:
+				setKeyValuePair((Map)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -156,8 +158,8 @@ public class PatternParamsImpl extends MinimalEObjectImpl.Container implements P
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.PATTERN_PARAMS__CONNECTING_EDGE:
-				return CONNECTING_EDGE_EDEFAULT == null ? connectingEdge != null : !CONNECTING_EDGE_EDEFAULT.equals(connectingEdge);
+			case ParametersPackage.KEY_VALUE_PARAM__KEY_VALUE_PAIR:
+				return keyValuePair != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -170,8 +172,11 @@ public class PatternParamsImpl extends MinimalEObjectImpl.Container implements P
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionNeo4JPackage.PATTERN_PARAMS___HAS_EDGE_RESTRICTIONS:
-				hasEdgeRestrictions();
+			case ParametersPackage.KEY_VALUE_PARAM___ADD_VALUE__STRING_STRING:
+				addValue((String)arguments.get(0), (String)arguments.get(1));
+				return null;
+			case ParametersPackage.KEY_VALUE_PARAM___SET_NEW_MAP__MAP:
+				setNewMap((Map)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
@@ -187,10 +192,10 @@ public class PatternParamsImpl extends MinimalEObjectImpl.Container implements P
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (ConnectingEdge: ");
-		result.append(connectingEdge);
+		result.append(" (keyValuePair: ");
+		result.append(keyValuePair);
 		result.append(')');
 		return result.toString();
 	}
 
-} //PatternParamsImpl
+} //KeyValueParamImpl

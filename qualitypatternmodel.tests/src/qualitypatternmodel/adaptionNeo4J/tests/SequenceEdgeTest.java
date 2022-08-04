@@ -5,7 +5,7 @@ package qualitypatternmodel.adaptionNeo4J.tests;
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.SequenceEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,8 +41,8 @@ public class SequenceEdgeTest extends NeoPathTest {
 	 * @generated
 	 */
 	@Override
-	protected SequenceEdge getFixture() {
-		return (SequenceEdge)fixture;
+	protected NeoComplexEdge getFixture() {
+		return (NeoComplexEdge)fixture;
 	}
 
 	/**

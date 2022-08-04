@@ -120,6 +120,10 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 				return createTypeOptionParamAdapter();
 			}
 			@Override
+			public Adapter caseKeyValueParam(KeyValueParam object) {
+				return createKeyValueParamAdapter();
+			}
+			@Override
 			public Adapter casePatternElement(PatternElement object) {
 				return createPatternElementAdapter();
 			}
@@ -326,6 +330,20 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTypeOptionParamAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.KeyValueParam <em>Key Value Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.parameters.KeyValueParam
+	 * @generated
+	 */
+	public Adapter createKeyValueParamAdapter() {
 		return null;
 	}
 

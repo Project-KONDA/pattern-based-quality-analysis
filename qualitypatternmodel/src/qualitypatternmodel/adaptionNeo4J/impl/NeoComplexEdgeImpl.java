@@ -16,7 +16,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoPath;
-import qualitypatternmodel.adaptionNeo4J.SequenceEdge;
+import qualitypatternmodel.exceptions.InvalidityException;
+import qualitypatternmodel.exceptions.MissingPatternContainerException;
+import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
+import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,28 +30,28 @@ import qualitypatternmodel.adaptionNeo4J.SequenceEdge;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.SequenceEdgeImpl#getNeopath <em>Neopath</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl#getNeoPath <em>Neo Path</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SequenceEdgeImpl extends NeoPathImpl implements SequenceEdge {
+public class NeoComplexEdgeImpl extends NeoPathImpl implements NeoComplexEdge {
 	/**
-	 * The cached value of the '{@link #getNeopath() <em>Neopath</em>}' containment reference list.
+	 * The cached value of the '{@link #getNeoPath() <em>Neo Path</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNeopath()
+	 * @see #getNeoPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<NeoPath> neopath;
+	protected EList<NeoPath> neoPath;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SequenceEdgeImpl() {
+	protected NeoComplexEdgeImpl() {
 		super();
 	}
 
@@ -58,7 +62,7 @@ public class SequenceEdgeImpl extends NeoPathImpl implements SequenceEdge {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AdaptionNeo4JPackage.Literals.SEQUENCE_EDGE;
+		return AdaptionNeo4JPackage.Literals.NEO_COMPLEX_EDGE;
 	}
 
 	/**
@@ -67,11 +71,11 @@ public class SequenceEdgeImpl extends NeoPathImpl implements SequenceEdge {
 	 * @generated
 	 */
 	@Override
-	public EList<NeoPath> getNeopath() {
-		if (neopath == null) {
-			neopath = new EObjectContainmentEList<NeoPath>(NeoPath.class, this, AdaptionNeo4JPackage.SEQUENCE_EDGE__NEOPATH);
+	public EList<NeoPath> getNeoPath() {
+		if (neoPath == null) {
+			neoPath = new EObjectContainmentEList<NeoPath>(NeoPath.class, this, AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH);
 		}
-		return neopath;
+		return neoPath;
 	}
 
 	/**
@@ -82,8 +86,8 @@ public class SequenceEdgeImpl extends NeoPathImpl implements SequenceEdge {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.SEQUENCE_EDGE__NEOPATH:
-				return ((InternalEList<?>)getNeopath()).basicRemove(otherEnd, msgs);
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
+				return ((InternalEList<?>)getNeoPath()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -96,8 +100,8 @@ public class SequenceEdgeImpl extends NeoPathImpl implements SequenceEdge {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.SEQUENCE_EDGE__NEOPATH:
-				return getNeopath();
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
+				return getNeoPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -111,9 +115,9 @@ public class SequenceEdgeImpl extends NeoPathImpl implements SequenceEdge {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.SEQUENCE_EDGE__NEOPATH:
-				getNeopath().clear();
-				getNeopath().addAll((Collection<? extends NeoPath>)newValue);
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
+				getNeoPath().clear();
+				getNeoPath().addAll((Collection<? extends NeoPath>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -127,8 +131,8 @@ public class SequenceEdgeImpl extends NeoPathImpl implements SequenceEdge {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.SEQUENCE_EDGE__NEOPATH:
-				getNeopath().clear();
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
+				getNeoPath().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -142,28 +146,23 @@ public class SequenceEdgeImpl extends NeoPathImpl implements SequenceEdge {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.SEQUENCE_EDGE__NEOPATH:
-				return neopath != null && !neopath.isEmpty();
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
+				return neoPath != null && !neoPath.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	@Override
-	public boolean inputIsValid() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public String generateDescription() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
 	public String myToString() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void isValidLocal(AbstractionLevel abstractionLevel)
+			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		// TODO Auto-generated method stub
+		
 	}
 
 } //SequenceEdgeImpl

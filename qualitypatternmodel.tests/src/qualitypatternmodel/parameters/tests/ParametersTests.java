@@ -42,6 +42,7 @@ public class ParametersTests extends TestSuite {
 		suite.addTestSuite(UntypedParameterValueTest.class);
 		suite.addTestSuite(DateTimeParamTest.class);
 		suite.addTestSuite(TypeOptionParamTest.class);
+		suite.addTestSuite(KeyValueParamTest.class);
 		return suite;
 	}
 

@@ -40,31 +40,22 @@ public interface AdaptionNeo4JFactory extends EFactory {
 	NeoEdge createNeoEdge();
 
 	/**
-	 * Returns a new object of class '<em>Sequence Edge</em>'.
+	 * Returns a new object of class '<em>Neo Complex Edge</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sequence Edge</em>'.
+	 * @return a new object of class '<em>Neo Complex Edge</em>'.
 	 * @generated
 	 */
-	SequenceEdge createSequenceEdge();
+	NeoComplexEdge createNeoComplexEdge();
 
 	/**
-	 * Returns a new object of class '<em>Simple Edge</em>'.
+	 * Returns a new object of class '<em>Neo Simple Edge</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Simple Edge</em>'.
+	 * @return a new object of class '<em>Neo Simple Edge</em>'.
 	 * @generated
 	 */
-	SimpleEdge createSimpleEdge();
-
-	/**
-	 * Returns a new object of class '<em>Pattern Params</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Pattern Params</em>'.
-	 * @generated
-	 */
-	PatternParams createPatternParams();
+	NeoSimpleEdge createNeoSimpleEdge();
 
 	/**
 	 * Returns a new object of class '<em>Neo Union</em>'.

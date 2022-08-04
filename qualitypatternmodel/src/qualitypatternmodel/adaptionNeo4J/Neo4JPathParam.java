@@ -15,8 +15,8 @@ import qualitypatternmodel.parameters.Parameter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoedge <em>Neoedge</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeopath <em>Neopath</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoEdge <em>Neo Edge</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoPath <em>Neo Path</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeo4JPathParam()
@@ -25,49 +25,49 @@ import qualitypatternmodel.parameters.Parameter;
  */
 public interface Neo4JPathParam extends Parameter, Adaptable {
 	/**
-	 * Returns the value of the '<em><b>Neoedge</b></em>' reference.
+	 * Returns the value of the '<em><b>Neo Edge</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoEdge#getNeoPathParam <em>Neo Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neoedge</em>' reference.
-	 * @see #setNeoedge(NeoEdge)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeo4JPathParam_Neoedge()
+	 * @return the value of the '<em>Neo Edge</em>' reference.
+	 * @see #setNeoEdge(NeoEdge)
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeo4JPathParam_NeoEdge()
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoEdge#getNeoPathParam
 	 * @model opposite="neoPathParam"
 	 * @generated
 	 */
-	NeoEdge getNeoedge();
+	NeoEdge getNeoEdge();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoedge <em>Neoedge</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoEdge <em>Neo Edge</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Neoedge</em>' reference.
-	 * @see #getNeoedge()
+	 * @param value the new value of the '<em>Neo Edge</em>' reference.
+	 * @see #getNeoEdge()
 	 * @generated
 	 */
-	void setNeoedge(NeoEdge value);
+	void setNeoEdge(NeoEdge value);
 
 	/**
-	 * Returns the value of the '<em><b>Neopath</b></em>' reference.
+	 * Returns the value of the '<em><b>Neo Path</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neopath</em>' reference.
-	 * @see #setNeopath(NeoPath)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeo4JPathParam_Neopath()
+	 * @return the value of the '<em>Neo Path</em>' reference.
+	 * @see #setNeoPath(NeoPath)
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeo4JPathParam_NeoPath()
 	 * @model
 	 * @generated
 	 */
-	NeoPath getNeopath();
+	NeoPath getNeoPath();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeopath <em>Neopath</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoPath <em>Neo Path</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Neopath</em>' reference.
-	 * @see #getNeopath()
+	 * @param value the new value of the '<em>Neo Path</em>' reference.
+	 * @see #getNeoPath()
 	 * @generated
 	 */
-	void setNeopath(NeoPath value);
+	void setNeoPath(NeoPath value);
 
 } // Neo4JPathParam

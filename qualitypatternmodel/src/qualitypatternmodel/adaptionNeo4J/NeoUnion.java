@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoUnion#getNeopath <em>Neopath</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoUnion#getNeoPath <em>Neo Path</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoUnion()
@@ -22,15 +22,15 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface NeoUnion extends NeoPath {
 	/**
-	 * Returns the value of the '<em><b>Neopath</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Neo Path</b></em>' containment reference list.
 	 * The list contents are of type {@link qualitypatternmodel.adaptionNeo4J.NeoPath}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neopath</em>' containment reference list.
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoUnion_Neopath()
+	 * @return the value of the '<em>Neo Path</em>' containment reference list.
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoUnion_NeoPath()
 	 * @model containment="true" lower="2"
 	 * @generated
 	 */
-	EList<NeoPath> getNeopath();
+	EList<NeoPath> getNeoPath();
 
 } // NeoUnion

@@ -23,14 +23,14 @@ import qualitypatternmodel.graphstructure.Relation;
 public interface NeoEdge extends Relation {
 	/**
 	 * Returns the value of the '<em><b>Neo Path Param</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoedge <em>Neoedge</em>}'.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoEdge <em>Neo Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Path Param</em>' reference.
 	 * @see #setNeoPathParam(Neo4JPathParam)
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoEdge_NeoPathParam()
-	 * @see qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoedge
-	 * @model opposite="neoedge"
+	 * @see qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoEdge
+	 * @model opposite="neoEdge"
 	 * @generated
 	 */
 	Neo4JPathParam getNeoPathParam();

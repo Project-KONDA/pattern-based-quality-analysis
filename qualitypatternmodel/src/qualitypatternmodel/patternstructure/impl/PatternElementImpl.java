@@ -152,9 +152,6 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	}
 
 
-
-	
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,8 +227,7 @@ public abstract class PatternElementImpl extends MinimalEObjectImpl.Container im
 	 */
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		throw new UnsupportedOperationException();
-		//return this;
+		return this;
 	}
 
 	/**

@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoPath;
 
-import qualitypatternmodel.adaptionNeo4J.SimpleEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
 
 /**
@@ -47,7 +47,7 @@ public abstract class NeoPathImpl extends PatternElementImpl implements NeoPath 
 	 * @generated
 	 */
 	@Override
-	public EList<SimpleEdge> getSimpleEdges() {
+	public EList<NeoSimpleEdge> getSimpleEdges() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

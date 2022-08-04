@@ -103,19 +103,19 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AdaptionNeo4JPackage.SEQUENCE_EDGE: {
-				SequenceEdge sequenceEdge = (SequenceEdge)theEObject;
-				T result = caseSequenceEdge(sequenceEdge);
-				if (result == null) result = caseNeoPath(sequenceEdge);
-				if (result == null) result = casePatternElement(sequenceEdge);
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE: {
+				NeoComplexEdge neoComplexEdge = (NeoComplexEdge)theEObject;
+				T result = caseNeoComplexEdge(neoComplexEdge);
+				if (result == null) result = caseNeoPath(neoComplexEdge);
+				if (result == null) result = casePatternElement(neoComplexEdge);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AdaptionNeo4JPackage.SIMPLE_EDGE: {
-				SimpleEdge simpleEdge = (SimpleEdge)theEObject;
-				T result = caseSimpleEdge(simpleEdge);
-				if (result == null) result = caseNeoPath(simpleEdge);
-				if (result == null) result = casePatternElement(simpleEdge);
+			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE: {
+				NeoSimpleEdge neoSimpleEdge = (NeoSimpleEdge)theEObject;
+				T result = caseNeoSimpleEdge(neoSimpleEdge);
+				if (result == null) result = caseNeoPath(neoSimpleEdge);
+				if (result == null) result = casePatternElement(neoSimpleEdge);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -123,12 +123,6 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 				NeoPath neoPath = (NeoPath)theEObject;
 				T result = caseNeoPath(neoPath);
 				if (result == null) result = casePatternElement(neoPath);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case AdaptionNeo4JPackage.PATTERN_PARAMS: {
-				PatternParams patternParams = (PatternParams)theEObject;
-				T result = casePatternParams(patternParams);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -211,32 +205,32 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Sequence Edge</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Neo Complex Edge</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Sequence Edge</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Neo Complex Edge</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSequenceEdge(SequenceEdge object) {
+	public T caseNeoComplexEdge(NeoComplexEdge object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Simple Edge</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Neo Simple Edge</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Simple Edge</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Neo Simple Edge</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSimpleEdge(SimpleEdge object) {
+	public T caseNeoSimpleEdge(NeoSimpleEdge object) {
 		return null;
 	}
 
@@ -252,21 +246,6 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNeoPath(NeoPath object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Pattern Params</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Pattern Params</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePatternParams(PatternParams object) {
 		return null;
 	}
 

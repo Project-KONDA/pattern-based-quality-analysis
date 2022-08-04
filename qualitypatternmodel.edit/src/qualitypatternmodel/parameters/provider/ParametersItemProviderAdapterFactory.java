@@ -324,6 +324,29 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.KeyValueParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected KeyValueParamItemProvider keyValueParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.parameters.KeyValueParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createKeyValueParamAdapter() {
+		if (keyValueParamItemProvider == null) {
+			keyValueParamItemProvider = new KeyValueParamItemProvider(this);
+		}
+
+		return keyValueParamItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -439,6 +462,7 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 		if (untypedParameterValueItemProvider != null) untypedParameterValueItemProvider.dispose();
 		if (dateTimeParamItemProvider != null) dateTimeParamItemProvider.dispose();
 		if (typeOptionParamItemProvider != null) typeOptionParamItemProvider.dispose();
+		if (keyValueParamItemProvider != null) keyValueParamItemProvider.dispose();
 	}
 
 }

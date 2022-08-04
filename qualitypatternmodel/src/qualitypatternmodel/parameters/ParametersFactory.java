@@ -121,6 +121,15 @@ public interface ParametersFactory extends EFactory {
 	TypeOptionParam createTypeOptionParam();
 
 	/**
+	 * Returns a new object of class '<em>Key Value Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Key Value Param</em>'.
+	 * @generated
+	 */
+	KeyValueParam createKeyValueParam();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -59,9 +59,8 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 		switch (eClass.getClassifierID()) {
 			case AdaptionNeo4JPackage.NEO_NODE: return createNeoNode();
 			case AdaptionNeo4JPackage.NEO_EDGE: return createNeoEdge();
-			case AdaptionNeo4JPackage.SEQUENCE_EDGE: return createSequenceEdge();
-			case AdaptionNeo4JPackage.SIMPLE_EDGE: return createSimpleEdge();
-			case AdaptionNeo4JPackage.PATTERN_PARAMS: return createPatternParams();
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE: return createNeoComplexEdge();
+			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE: return createNeoSimpleEdge();
 			case AdaptionNeo4JPackage.NEO_UNION: return createNeoUnion();
 			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_NODE: return createNeoAttributeNode();
 			case AdaptionNeo4JPackage.NEO4_JPATH_PARAM: return createNeo4JPathParam();
@@ -80,6 +79,8 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 		switch (eDataType.getClassifierID()) {
 			case AdaptionNeo4JPackage.NEO_QUANTIFIER:
 				return createNeoQuantifierFromString(eDataType, initialValue);
+			case AdaptionNeo4JPackage.NEO_DIRECTION:
+				return createNeoDirectionFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -95,6 +96,8 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 		switch (eDataType.getClassifierID()) {
 			case AdaptionNeo4JPackage.NEO_QUANTIFIER:
 				return convertNeoQuantifierToString(eDataType, instanceValue);
+			case AdaptionNeo4JPackage.NEO_DIRECTION:
+				return convertNeoDirectionToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -128,9 +131,9 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public SequenceEdge createSequenceEdge() {
-		SequenceEdgeImpl sequenceEdge = new SequenceEdgeImpl();
-		return sequenceEdge;
+	public NeoComplexEdge createNeoComplexEdge() {
+		NeoComplexEdgeImpl neoComplexEdge = new NeoComplexEdgeImpl();
+		return neoComplexEdge;
 	}
 
 	/**
@@ -139,20 +142,9 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public SimpleEdge createSimpleEdge() {
-		SimpleEdgeImpl simpleEdge = new SimpleEdgeImpl();
-		return simpleEdge;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public PatternParams createPatternParams() {
-		PatternParamsImpl patternParams = new PatternParamsImpl();
-		return patternParams;
+	public NeoSimpleEdge createNeoSimpleEdge() {
+		NeoSimpleEdgeImpl neoSimpleEdge = new NeoSimpleEdgeImpl();
+		return neoSimpleEdge;
 	}
 
 	/**
@@ -205,6 +197,26 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	 * @generated
 	 */
 	public String convertNeoQuantifierToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NeoDirection createNeoDirectionFromString(EDataType eDataType, String initialValue) {
+		NeoDirection result = NeoDirection.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertNeoDirectionToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

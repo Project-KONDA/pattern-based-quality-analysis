@@ -16,10 +16,10 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.SequenceEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.SequenceEdge} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -99,7 +99,7 @@ public class SequenceEdgeItemProvider extends NeoPathItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SequenceEdge)object).getId();
+		String label = ((NeoComplexEdge)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_SequenceEdge_type") :
 			getString("_UI_SequenceEdge_type") + " " + label;
@@ -117,7 +117,7 @@ public class SequenceEdgeItemProvider extends NeoPathItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SequenceEdge.class)) {
+		switch (notification.getFeatureID(NeoComplexEdge.class)) {
 			case AdaptionNeo4JPackage.SEQUENCE_EDGE__NEOPATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

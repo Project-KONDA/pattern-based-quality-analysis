@@ -30,6 +30,7 @@ import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.DateTimeParam;
+import qualitypatternmodel.parameters.KeyValueParam;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -145,6 +146,13 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	private EClass typeOptionParamEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass keyValueParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1031,6 +1039,46 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EClass getKeyValueParam() {
+		return keyValueParamEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getKeyValueParam_KeyValuePair() {
+		return (EAttribute)keyValueParamEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getKeyValueParam__AddValue__String_String() {
+		return keyValueParamEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getKeyValueParam__SetNewMap__Map() {
+		return keyValueParamEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getStringToIntEMap() {
 		return stringToIntEMapEDataType;
 	}
@@ -1163,6 +1211,11 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEAttribute(typeOptionParamEClass, TYPE_OPTION_PARAM__VALUE);
 		createEReference(typeOptionParamEClass, TYPE_OPTION_PARAM__TYPE_COMPARISONS);
 
+		keyValueParamEClass = createEClass(KEY_VALUE_PARAM);
+		createEAttribute(keyValueParamEClass, KEY_VALUE_PARAM__KEY_VALUE_PAIR);
+		createEOperation(keyValueParamEClass, KEY_VALUE_PARAM___ADD_VALUE__STRING_STRING);
+		createEOperation(keyValueParamEClass, KEY_VALUE_PARAM___SET_NEW_MAP__MAP);
+
 		// Create data types
 		stringToIntEMapEDataType = createEDataType(STRING_TO_INT_EMAP);
 		stringArrayEDataType = createEDataType(STRING_ARRAY);
@@ -1219,6 +1272,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		untypedParameterValueEClass.getESuperTypes().add(this.getParameterValue());
 		dateTimeParamEClass.getESuperTypes().add(this.getParameterValue());
 		typeOptionParamEClass.getESuperTypes().add(this.getParameter());
+		keyValueParamEClass.getESuperTypes().add(this.getComparisonOptionParam());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(parameterEClass, Parameter.class, "Parameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1403,6 +1457,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEAttribute(getTypeOptionParam_Options(), theGraphstructurePackage.getReturnType(), "options", null, 0, -1, TypeOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTypeOptionParam_Value(), theGraphstructurePackage.getReturnType(), "value", null, 1, 1, TypeOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypeOptionParam_TypeComparisons(), theOperatorsPackage.getComparison(), theOperatorsPackage.getComparison_TypeOption(), "typeComparisons", null, 0, -1, TypeOptionParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(keyValueParamEClass, KeyValueParam.class, "KeyValueParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getKeyValueParam_KeyValuePair(), ecorePackage.getEMap(), "keyValuePair", null, 0, 1, KeyValueParam.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getKeyValueParam__AddValue__String_String(), null, "addValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getKeyValueParam__SetNewMap__Map(), null, "setNewMap", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEMap(), "newKeyValueMap", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(stringToIntEMapEDataType, EMap.class, "StringToIntEMap", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

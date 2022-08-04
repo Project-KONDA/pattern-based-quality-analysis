@@ -33,9 +33,8 @@ public class AdaptionNeo4JTests extends TestSuite {
 		TestSuite suite = new AdaptionNeo4JTests("adaptionNeo4J Tests");
 		suite.addTestSuite(NeoNodeTest.class);
 		suite.addTestSuite(NeoEdgeTest.class);
-		suite.addTestSuite(SequenceEdgeTest.class);
-		suite.addTestSuite(SimpleEdgeTest.class);
-		suite.addTestSuite(PatternParamsTest.class);
+		suite.addTestSuite(NeoComplexEdgeTest.class);
+		suite.addTestSuite(NeoSimpleEdgeTest.class);
 		suite.addTestSuite(NeoUnionTest.class);
 		suite.addTestSuite(NeoAttributeNodeTest.class);
 		suite.addTestSuite(Neo4JPathParamTest.class);

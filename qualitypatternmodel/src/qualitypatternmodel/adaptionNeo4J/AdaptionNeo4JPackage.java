@@ -2,7 +2,6 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
@@ -237,13 +236,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_NODE__OUTGOING = GraphstructurePackage.COMPLEX_NODE__OUTGOING;
 
 	/**
+	 * The feature id for the '<em><b>Node Labels</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE__NODE_LABELS = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Neo Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
+	int NEO_NODE_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1535,14 +1543,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.SequenceEdgeImpl <em>Sequence Edge</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl <em>Neo Complex Edge</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.impl.SequenceEdgeImpl
-	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getSequenceEdge()
+	 * @see qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl
+	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoComplexEdge()
 	 * @generated
 	 */
-	int SEQUENCE_EDGE = 3;
+	int NEO_COMPLEX_EDGE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1551,7 +1559,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE__ID = NEO_PATH__ID;
+	int NEO_COMPLEX_EDGE__ID = NEO_PATH__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -1560,25 +1568,25 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE__INTERNAL_ID = NEO_PATH__INTERNAL_ID;
+	int NEO_COMPLEX_EDGE__INTERNAL_ID = NEO_PATH__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Neopath</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Neo Path</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE__NEOPATH = NEO_PATH_FEATURE_COUNT + 0;
+	int NEO_COMPLEX_EDGE__NEO_PATH = NEO_PATH_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Sequence Edge</em>' class.
+	 * The number of structural features of the '<em>Neo Complex Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE_FEATURE_COUNT = NEO_PATH_FEATURE_COUNT + 1;
+	int NEO_COMPLEX_EDGE_FEATURE_COUNT = NEO_PATH_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1587,7 +1595,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___VALIDATE__DIAGNOSTICCHAIN_MAP = NEO_PATH___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int NEO_COMPLEX_EDGE___VALIDATE__DIAGNOSTICCHAIN_MAP = NEO_PATH___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1596,7 +1604,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___IS_VALID__ABSTRACTIONLEVEL = NEO_PATH___IS_VALID__ABSTRACTIONLEVEL;
+	int NEO_COMPLEX_EDGE___IS_VALID__ABSTRACTIONLEVEL = NEO_PATH___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1605,7 +1613,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NEO_PATH___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int NEO_COMPLEX_EDGE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NEO_PATH___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -1614,7 +1622,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___MY_TO_STRING = NEO_PATH___MY_TO_STRING;
+	int NEO_COMPLEX_EDGE___MY_TO_STRING = NEO_PATH___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher</em>' operation.
@@ -1623,7 +1631,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___GENERATE_CYPHER = NEO_PATH___GENERATE_CYPHER;
+	int NEO_COMPLEX_EDGE___GENERATE_CYPHER = NEO_PATH___GENERATE_CYPHER;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -1632,7 +1640,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___GENERATE_XQUERY = NEO_PATH___GENERATE_XQUERY;
+	int NEO_COMPLEX_EDGE___GENERATE_XQUERY = NEO_PATH___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -1641,7 +1649,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___GENERATE_SPARQL = NEO_PATH___GENERATE_SPARQL;
+	int NEO_COMPLEX_EDGE___GENERATE_SPARQL = NEO_PATH___GENERATE_SPARQL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1650,7 +1658,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___GET_CONTAINER = NEO_PATH___GET_CONTAINER;
+	int NEO_COMPLEX_EDGE___GET_CONTAINER = NEO_PATH___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1659,7 +1667,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___GET_ANCESTOR__CLASS = NEO_PATH___GET_ANCESTOR__CLASS;
+	int NEO_COMPLEX_EDGE___GET_ANCESTOR__CLASS = NEO_PATH___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -1668,7 +1676,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___INITIALIZE_TRANSLATION = NEO_PATH___INITIALIZE_TRANSLATION;
+	int NEO_COMPLEX_EDGE___INITIALIZE_TRANSLATION = NEO_PATH___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1677,7 +1685,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___PREPARE_TRANSLATION = NEO_PATH___PREPARE_TRANSLATION;
+	int NEO_COMPLEX_EDGE___PREPARE_TRANSLATION = NEO_PATH___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -1686,7 +1694,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___GET_OPERATOR_LIST = NEO_PATH___GET_OPERATOR_LIST;
+	int NEO_COMPLEX_EDGE___GET_OPERATOR_LIST = NEO_PATH___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -1695,7 +1703,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___GET_PARAMETER_LIST = NEO_PATH___GET_PARAMETER_LIST;
+	int NEO_COMPLEX_EDGE___GET_PARAMETER_LIST = NEO_PATH___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -1704,7 +1712,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___GET_ALL_PARAMETERS = NEO_PATH___GET_ALL_PARAMETERS;
+	int NEO_COMPLEX_EDGE___GET_ALL_PARAMETERS = NEO_PATH___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -1713,7 +1721,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___PREPARE_PARAMETER_UPDATES = NEO_PATH___PREPARE_PARAMETER_UPDATES;
+	int NEO_COMPLEX_EDGE___PREPARE_PARAMETER_UPDATES = NEO_PATH___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -1722,7 +1730,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = NEO_PATH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int NEO_COMPLEX_EDGE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = NEO_PATH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -1731,7 +1739,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___UPDATE_PARAMETERS__PARAMETERLIST = NEO_PATH___UPDATE_PARAMETERS__PARAMETERLIST;
+	int NEO_COMPLEX_EDGE___UPDATE_PARAMETERS__PARAMETERLIST = NEO_PATH___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -1740,7 +1748,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NEO_PATH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int NEO_COMPLEX_EDGE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NEO_PATH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -1749,7 +1757,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___RECORD_VALUES__XMLDATADATABASE = NEO_PATH___RECORD_VALUES__XMLDATADATABASE;
+	int NEO_COMPLEX_EDGE___RECORD_VALUES__XMLDATADATABASE = NEO_PATH___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -1758,7 +1766,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___RELATIONS_XML_ADAPTED = NEO_PATH___RELATIONS_XML_ADAPTED;
+	int NEO_COMPLEX_EDGE___RELATIONS_XML_ADAPTED = NEO_PATH___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
@@ -1767,7 +1775,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___CREATE_XML_ADAPTION = NEO_PATH___CREATE_XML_ADAPTION;
+	int NEO_COMPLEX_EDGE___CREATE_XML_ADAPTION = NEO_PATH___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
@@ -1776,7 +1784,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___CREATE_RDF_ADAPTION = NEO_PATH___CREATE_RDF_ADAPTION;
+	int NEO_COMPLEX_EDGE___CREATE_RDF_ADAPTION = NEO_PATH___CREATE_RDF_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
@@ -1785,7 +1793,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___CREATE_NEO4J_ADAPTION = NEO_PATH___CREATE_NEO4J_ADAPTION;
+	int NEO_COMPLEX_EDGE___CREATE_NEO4J_ADAPTION = NEO_PATH___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Get Simple Edges</em>' operation.
@@ -1794,26 +1802,26 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE___GET_SIMPLE_EDGES = NEO_PATH___GET_SIMPLE_EDGES;
+	int NEO_COMPLEX_EDGE___GET_SIMPLE_EDGES = NEO_PATH___GET_SIMPLE_EDGES;
 
 	/**
-	 * The number of operations of the '<em>Sequence Edge</em>' class.
+	 * The number of operations of the '<em>Neo Complex Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_EDGE_OPERATION_COUNT = NEO_PATH_OPERATION_COUNT + 0;
+	int NEO_COMPLEX_EDGE_OPERATION_COUNT = NEO_PATH_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.SimpleEdgeImpl <em>Simple Edge</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl <em>Neo Simple Edge</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.impl.SimpleEdgeImpl
-	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getSimpleEdge()
+	 * @see qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl
+	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoSimpleEdge()
 	 * @generated
 	 */
-	int SIMPLE_EDGE = 4;
+	int NEO_SIMPLE_EDGE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1822,7 +1830,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE__ID = NEO_PATH__ID;
+	int NEO_SIMPLE_EDGE__ID = NEO_PATH__ID;
 
 	/**
 	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
@@ -1831,25 +1839,52 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE__INTERNAL_ID = NEO_PATH__INTERNAL_ID;
+	int NEO_SIMPLE_EDGE__INTERNAL_ID = NEO_PATH__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Pattern Params</b></em>' reference.
+	 * The feature id for the '<em><b>Label</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE__PATTERN_PARAMS = NEO_PATH_FEATURE_COUNT + 0;
+	int NEO_SIMPLE_EDGE__LABEL = NEO_PATH_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Simple Edge</em>' class.
+	 * The feature id for the '<em><b>Keyvalueparam</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE_FEATURE_COUNT = NEO_PATH_FEATURE_COUNT + 1;
+	int NEO_SIMPLE_EDGE__KEYVALUEPARAM = NEO_PATH_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Target Node Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE__TARGET_NODE_TYPE = NEO_PATH_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Direction</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE__DIRECTION = NEO_PATH_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Neo Simple Edge</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE_FEATURE_COUNT = NEO_PATH_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Validate</em>' operation.
@@ -1858,7 +1893,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___VALIDATE__DIAGNOSTICCHAIN_MAP = NEO_PATH___VALIDATE__DIAGNOSTICCHAIN_MAP;
+	int NEO_SIMPLE_EDGE___VALIDATE__DIAGNOSTICCHAIN_MAP = NEO_PATH___VALIDATE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -1867,7 +1902,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___IS_VALID__ABSTRACTIONLEVEL = NEO_PATH___IS_VALID__ABSTRACTIONLEVEL;
+	int NEO_SIMPLE_EDGE___IS_VALID__ABSTRACTIONLEVEL = NEO_PATH___IS_VALID__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>Is Valid Local</em>' operation.
@@ -1876,7 +1911,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NEO_PATH___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+	int NEO_SIMPLE_EDGE___IS_VALID_LOCAL__ABSTRACTIONLEVEL = NEO_PATH___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
 
 	/**
 	 * The operation id for the '<em>My To String</em>' operation.
@@ -1885,7 +1920,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___MY_TO_STRING = NEO_PATH___MY_TO_STRING;
+	int NEO_SIMPLE_EDGE___MY_TO_STRING = NEO_PATH___MY_TO_STRING;
 
 	/**
 	 * The operation id for the '<em>Generate Cypher</em>' operation.
@@ -1894,7 +1929,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___GENERATE_CYPHER = NEO_PATH___GENERATE_CYPHER;
+	int NEO_SIMPLE_EDGE___GENERATE_CYPHER = NEO_PATH___GENERATE_CYPHER;
 
 	/**
 	 * The operation id for the '<em>Generate XQuery</em>' operation.
@@ -1903,7 +1938,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___GENERATE_XQUERY = NEO_PATH___GENERATE_XQUERY;
+	int NEO_SIMPLE_EDGE___GENERATE_XQUERY = NEO_PATH___GENERATE_XQUERY;
 
 	/**
 	 * The operation id for the '<em>Generate Sparql</em>' operation.
@@ -1912,7 +1947,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___GENERATE_SPARQL = NEO_PATH___GENERATE_SPARQL;
+	int NEO_SIMPLE_EDGE___GENERATE_SPARQL = NEO_PATH___GENERATE_SPARQL;
 
 	/**
 	 * The operation id for the '<em>Get Container</em>' operation.
@@ -1921,7 +1956,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___GET_CONTAINER = NEO_PATH___GET_CONTAINER;
+	int NEO_SIMPLE_EDGE___GET_CONTAINER = NEO_PATH___GET_CONTAINER;
 
 	/**
 	 * The operation id for the '<em>Get Ancestor</em>' operation.
@@ -1930,7 +1965,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___GET_ANCESTOR__CLASS = NEO_PATH___GET_ANCESTOR__CLASS;
+	int NEO_SIMPLE_EDGE___GET_ANCESTOR__CLASS = NEO_PATH___GET_ANCESTOR__CLASS;
 
 	/**
 	 * The operation id for the '<em>Initialize Translation</em>' operation.
@@ -1939,7 +1974,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___INITIALIZE_TRANSLATION = NEO_PATH___INITIALIZE_TRANSLATION;
+	int NEO_SIMPLE_EDGE___INITIALIZE_TRANSLATION = NEO_PATH___INITIALIZE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Prepare Translation</em>' operation.
@@ -1948,7 +1983,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___PREPARE_TRANSLATION = NEO_PATH___PREPARE_TRANSLATION;
+	int NEO_SIMPLE_EDGE___PREPARE_TRANSLATION = NEO_PATH___PREPARE_TRANSLATION;
 
 	/**
 	 * The operation id for the '<em>Get Operator List</em>' operation.
@@ -1957,7 +1992,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___GET_OPERATOR_LIST = NEO_PATH___GET_OPERATOR_LIST;
+	int NEO_SIMPLE_EDGE___GET_OPERATOR_LIST = NEO_PATH___GET_OPERATOR_LIST;
 
 	/**
 	 * The operation id for the '<em>Get Parameter List</em>' operation.
@@ -1966,7 +2001,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___GET_PARAMETER_LIST = NEO_PATH___GET_PARAMETER_LIST;
+	int NEO_SIMPLE_EDGE___GET_PARAMETER_LIST = NEO_PATH___GET_PARAMETER_LIST;
 
 	/**
 	 * The operation id for the '<em>Get All Parameters</em>' operation.
@@ -1975,7 +2010,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___GET_ALL_PARAMETERS = NEO_PATH___GET_ALL_PARAMETERS;
+	int NEO_SIMPLE_EDGE___GET_ALL_PARAMETERS = NEO_PATH___GET_ALL_PARAMETERS;
 
 	/**
 	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
@@ -1984,7 +2019,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___PREPARE_PARAMETER_UPDATES = NEO_PATH___PREPARE_PARAMETER_UPDATES;
+	int NEO_SIMPLE_EDGE___PREPARE_PARAMETER_UPDATES = NEO_PATH___PREPARE_PARAMETER_UPDATES;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -1993,7 +2028,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = NEO_PATH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+	int NEO_SIMPLE_EDGE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = NEO_PATH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
 
 	/**
 	 * The operation id for the '<em>Update Parameters</em>' operation.
@@ -2002,7 +2037,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___UPDATE_PARAMETERS__PARAMETERLIST = NEO_PATH___UPDATE_PARAMETERS__PARAMETERLIST;
+	int NEO_SIMPLE_EDGE___UPDATE_PARAMETERS__PARAMETERLIST = NEO_PATH___UPDATE_PARAMETERS__PARAMETERLIST;
 
 	/**
 	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
@@ -2011,7 +2046,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NEO_PATH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+	int NEO_SIMPLE_EDGE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = NEO_PATH___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
 
 	/**
 	 * The operation id for the '<em>Record Values</em>' operation.
@@ -2020,7 +2055,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___RECORD_VALUES__XMLDATADATABASE = NEO_PATH___RECORD_VALUES__XMLDATADATABASE;
+	int NEO_SIMPLE_EDGE___RECORD_VALUES__XMLDATADATABASE = NEO_PATH___RECORD_VALUES__XMLDATADATABASE;
 
 	/**
 	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
@@ -2029,7 +2064,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___RELATIONS_XML_ADAPTED = NEO_PATH___RELATIONS_XML_ADAPTED;
+	int NEO_SIMPLE_EDGE___RELATIONS_XML_ADAPTED = NEO_PATH___RELATIONS_XML_ADAPTED;
 
 	/**
 	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
@@ -2038,7 +2073,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___CREATE_XML_ADAPTION = NEO_PATH___CREATE_XML_ADAPTION;
+	int NEO_SIMPLE_EDGE___CREATE_XML_ADAPTION = NEO_PATH___CREATE_XML_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
@@ -2047,7 +2082,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___CREATE_RDF_ADAPTION = NEO_PATH___CREATE_RDF_ADAPTION;
+	int NEO_SIMPLE_EDGE___CREATE_RDF_ADAPTION = NEO_PATH___CREATE_RDF_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
@@ -2056,7 +2091,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___CREATE_NEO4J_ADAPTION = NEO_PATH___CREATE_NEO4J_ADAPTION;
+	int NEO_SIMPLE_EDGE___CREATE_NEO4J_ADAPTION = NEO_PATH___CREATE_NEO4J_ADAPTION;
 
 	/**
 	 * The operation id for the '<em>Get Simple Edges</em>' operation.
@@ -2065,62 +2100,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE___GET_SIMPLE_EDGES = NEO_PATH___GET_SIMPLE_EDGES;
+	int NEO_SIMPLE_EDGE___GET_SIMPLE_EDGES = NEO_PATH___GET_SIMPLE_EDGES;
 
 	/**
-	 * The number of operations of the '<em>Simple Edge</em>' class.
+	 * The number of operations of the '<em>Neo Simple Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_EDGE_OPERATION_COUNT = NEO_PATH_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.PatternParamsImpl <em>Pattern Params</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.impl.PatternParamsImpl
-	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getPatternParams()
-	 * @generated
-	 */
-	int PATTERN_PARAMS = 6;
-
-	/**
-	 * The feature id for the '<em><b>Connecting Edge</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_PARAMS__CONNECTING_EDGE = 0;
-
-	/**
-	 * The number of structural features of the '<em>Pattern Params</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_PARAMS_FEATURE_COUNT = 1;
-
-	/**
-	 * The operation id for the '<em>Has Edge Restrictions</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_PARAMS___HAS_EDGE_RESTRICTIONS = 0;
-
-	/**
-	 * The number of operations of the '<em>Pattern Params</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PATTERN_PARAMS_OPERATION_COUNT = 1;
+	int NEO_SIMPLE_EDGE_OPERATION_COUNT = NEO_PATH_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoUnionImpl <em>Neo Union</em>}' class.
@@ -2130,7 +2119,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoUnion()
 	 * @generated
 	 */
-	int NEO_UNION = 7;
+	int NEO_UNION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2151,13 +2140,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_UNION__INTERNAL_ID = NEO_PATH__INTERNAL_ID;
 
 	/**
-	 * The feature id for the '<em><b>Neopath</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Neo Path</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_UNION__NEOPATH = NEO_PATH_FEATURE_COUNT + 0;
+	int NEO_UNION__NEO_PATH = NEO_PATH_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Neo Union</em>' class.
@@ -2401,7 +2390,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoAttributeNode()
 	 * @generated
 	 */
-	int NEO_ATTRIBUTE_NODE = 8;
+	int NEO_ATTRIBUTE_NODE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2548,13 +2537,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ATTRIBUTE_NODE__CONTAINS = GraphstructurePackage.PRIMITIVE_NODE__CONTAINS;
 
 	/**
+	 * The feature id for the '<em><b>Neo Node Labels</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ATTRIBUTE_NODE__NEO_NODE_LABELS = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Neo Attribute Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ATTRIBUTE_NODE_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
+	int NEO_ATTRIBUTE_NODE_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -3158,7 +3156,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeo4JPathParam()
 	 * @generated
 	 */
-	int NEO4_JPATH_PARAM = 9;
+	int NEO4_JPATH_PARAM = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3215,22 +3213,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO4_JPATH_PARAM__DESCRIPTION = ParametersPackage.PARAMETER__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Neoedge</b></em>' reference.
+	 * The feature id for the '<em><b>Neo Edge</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO4_JPATH_PARAM__NEOEDGE = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
+	int NEO4_JPATH_PARAM__NEO_EDGE = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Neopath</b></em>' reference.
+	 * The feature id for the '<em><b>Neo Path</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO4_JPATH_PARAM__NEOPATH = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
+	int NEO4_JPATH_PARAM__NEO_PATH = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Neo4 JPath Param</em>' class.
@@ -3564,7 +3562,18 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoQuantifier()
 	 * @generated
 	 */
-	int NEO_QUANTIFIER = 10;
+	int NEO_QUANTIFIER = 9;
+
+
+	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoDirection
+	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoDirection()
+	 * @generated
+	 */
+	int NEO_DIRECTION = 10;
 
 
 	/**
@@ -3588,6 +3597,17 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoNode();
 
 	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionNeo4J.NeoNode#getNodeLabels <em>Node Labels</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Node Labels</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoNode#getNodeLabels()
+	 * @see #getNeoNode()
+	 * @generated
+	 */
+	EReference getNeoNode_NodeLabels();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoEdge <em>Neo Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3609,46 +3629,79 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EReference getNeoEdge_NeoPathParam();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.SequenceEdge <em>Sequence Edge</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge <em>Neo Complex Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Sequence Edge</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.SequenceEdge
+	 * @return the meta object for class '<em>Neo Complex Edge</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoComplexEdge
 	 * @generated
 	 */
-	EClass getSequenceEdge();
+	EClass getNeoComplexEdge();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionNeo4J.SequenceEdge#getNeopath <em>Neopath</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPath <em>Neo Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Neopath</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.SequenceEdge#getNeopath()
-	 * @see #getSequenceEdge()
+	 * @return the meta object for the containment reference list '<em>Neo Path</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#getNeoPath()
+	 * @see #getNeoComplexEdge()
 	 * @generated
 	 */
-	EReference getSequenceEdge_Neopath();
+	EReference getNeoComplexEdge_NeoPath();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.SimpleEdge <em>Simple Edge</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge <em>Neo Simple Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Simple Edge</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.SimpleEdge
+	 * @return the meta object for class '<em>Neo Simple Edge</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge
 	 * @generated
 	 */
-	EClass getSimpleEdge();
+	EClass getNeoSimpleEdge();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.SimpleEdge#getPatternParams <em>Pattern Params</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getLabel <em>Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Pattern Params</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.SimpleEdge#getPatternParams()
-	 * @see #getSimpleEdge()
+	 * @return the meta object for the reference '<em>Label</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getLabel()
+	 * @see #getNeoSimpleEdge()
 	 * @generated
 	 */
-	EReference getSimpleEdge_PatternParams();
+	EReference getNeoSimpleEdge_Label();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getKeyvalueparam <em>Keyvalueparam</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Keyvalueparam</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getKeyvalueparam()
+	 * @see #getNeoSimpleEdge()
+	 * @generated
+	 */
+	EReference getNeoSimpleEdge_Keyvalueparam();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getTargetNodeType <em>Target Node Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target Node Type</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getTargetNodeType()
+	 * @see #getNeoSimpleEdge()
+	 * @generated
+	 */
+	EReference getNeoSimpleEdge_TargetNodeType();
+
+	/**
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getDirection <em>Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Direction</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getDirection()
+	 * @see #getNeoSimpleEdge()
+	 * @generated
+	 */
+	EReference getNeoSimpleEdge_Direction();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPath <em>Neo Path</em>}'.
@@ -3671,37 +3724,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoPath__GetSimpleEdges();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.PatternParams <em>Pattern Params</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Pattern Params</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.PatternParams
-	 * @generated
-	 */
-	EClass getPatternParams();
-
-	/**
-	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.PatternParams#getConnectingEdge <em>Connecting Edge</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Connecting Edge</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.PatternParams#getConnectingEdge()
-	 * @see #getPatternParams()
-	 * @generated
-	 */
-	EAttribute getPatternParams_ConnectingEdge();
-
-	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.PatternParams#hasEdgeRestrictions() <em>Has Edge Restrictions</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Has Edge Restrictions</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.PatternParams#hasEdgeRestrictions()
-	 * @generated
-	 */
-	EOperation getPatternParams__HasEdgeRestrictions();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoUnion <em>Neo Union</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3712,15 +3734,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoUnion();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionNeo4J.NeoUnion#getNeopath <em>Neopath</em>}'.
+	 * Returns the meta object for the containment reference list '{@link qualitypatternmodel.adaptionNeo4J.NeoUnion#getNeoPath <em>Neo Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Neopath</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoUnion#getNeopath()
+	 * @return the meta object for the containment reference list '<em>Neo Path</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoUnion#getNeoPath()
 	 * @see #getNeoUnion()
 	 * @generated
 	 */
-	EReference getNeoUnion_Neopath();
+	EReference getNeoUnion_NeoPath();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoAttributeNode <em>Neo Attribute Node</em>}'.
@@ -3733,6 +3755,17 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoAttributeNode();
 
 	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionNeo4J.NeoAttributeNode#getNeoNodeLabels <em>Neo Node Labels</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Neo Node Labels</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAttributeNode#getNeoNodeLabels()
+	 * @see #getNeoAttributeNode()
+	 * @generated
+	 */
+	EReference getNeoAttributeNode_NeoNodeLabels();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam <em>Neo4 JPath Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3743,26 +3776,26 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeo4JPathParam();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoedge <em>Neoedge</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoEdge <em>Neo Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Neoedge</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoedge()
+	 * @return the meta object for the reference '<em>Neo Edge</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoEdge()
 	 * @see #getNeo4JPathParam()
 	 * @generated
 	 */
-	EReference getNeo4JPathParam_Neoedge();
+	EReference getNeo4JPathParam_NeoEdge();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeopath <em>Neopath</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoPath <em>Neo Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Neopath</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeopath()
+	 * @return the meta object for the reference '<em>Neo Path</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoPath()
 	 * @see #getNeo4JPathParam()
 	 * @generated
 	 */
-	EReference getNeo4JPathParam_Neopath();
+	EReference getNeo4JPathParam_NeoPath();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionNeo4J.NeoQuantifier <em>Neo Quantifier</em>}'.
@@ -3773,6 +3806,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getNeoQuantifier();
+
+	/**
+	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Neo Direction</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoDirection
+	 * @generated
+	 */
+	EEnum getNeoDirection();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3818,6 +3861,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_NODE = eINSTANCE.getNeoNode();
 
 		/**
+		 * The meta object literal for the '<em><b>Node Labels</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NEO_NODE__NODE_LABELS = eINSTANCE.getNeoNode_NodeLabels();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoEdgeImpl <em>Neo Edge</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3836,40 +3887,64 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EReference NEO_EDGE__NEO_PATH_PARAM = eINSTANCE.getNeoEdge_NeoPathParam();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.SequenceEdgeImpl <em>Sequence Edge</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl <em>Neo Complex Edge</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionNeo4J.impl.SequenceEdgeImpl
-		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getSequenceEdge()
+		 * @see qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl
+		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoComplexEdge()
 		 * @generated
 		 */
-		EClass SEQUENCE_EDGE = eINSTANCE.getSequenceEdge();
+		EClass NEO_COMPLEX_EDGE = eINSTANCE.getNeoComplexEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Neopath</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Neo Path</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SEQUENCE_EDGE__NEOPATH = eINSTANCE.getSequenceEdge_Neopath();
+		EReference NEO_COMPLEX_EDGE__NEO_PATH = eINSTANCE.getNeoComplexEdge_NeoPath();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.SimpleEdgeImpl <em>Simple Edge</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl <em>Neo Simple Edge</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionNeo4J.impl.SimpleEdgeImpl
-		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getSimpleEdge()
+		 * @see qualitypatternmodel.adaptionNeo4J.impl.NeoSimpleEdgeImpl
+		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoSimpleEdge()
 		 * @generated
 		 */
-		EClass SIMPLE_EDGE = eINSTANCE.getSimpleEdge();
+		EClass NEO_SIMPLE_EDGE = eINSTANCE.getNeoSimpleEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Pattern Params</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Label</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SIMPLE_EDGE__PATTERN_PARAMS = eINSTANCE.getSimpleEdge_PatternParams();
+		EReference NEO_SIMPLE_EDGE__LABEL = eINSTANCE.getNeoSimpleEdge_Label();
+
+		/**
+		 * The meta object literal for the '<em><b>Keyvalueparam</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NEO_SIMPLE_EDGE__KEYVALUEPARAM = eINSTANCE.getNeoSimpleEdge_Keyvalueparam();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Node Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NEO_SIMPLE_EDGE__TARGET_NODE_TYPE = eINSTANCE.getNeoSimpleEdge_TargetNodeType();
+
+		/**
+		 * The meta object literal for the '<em><b>Direction</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NEO_SIMPLE_EDGE__DIRECTION = eINSTANCE.getNeoSimpleEdge_Direction();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathImpl <em>Neo Path</em>}' class.
@@ -3890,32 +3965,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EOperation NEO_PATH___GET_SIMPLE_EDGES = eINSTANCE.getNeoPath__GetSimpleEdges();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.PatternParamsImpl <em>Pattern Params</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionNeo4J.impl.PatternParamsImpl
-		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getPatternParams()
-		 * @generated
-		 */
-		EClass PATTERN_PARAMS = eINSTANCE.getPatternParams();
-
-		/**
-		 * The meta object literal for the '<em><b>Connecting Edge</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PATTERN_PARAMS__CONNECTING_EDGE = eINSTANCE.getPatternParams_ConnectingEdge();
-
-		/**
-		 * The meta object literal for the '<em><b>Has Edge Restrictions</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PATTERN_PARAMS___HAS_EDGE_RESTRICTIONS = eINSTANCE.getPatternParams__HasEdgeRestrictions();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoUnionImpl <em>Neo Union</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3926,12 +3975,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_UNION = eINSTANCE.getNeoUnion();
 
 		/**
-		 * The meta object literal for the '<em><b>Neopath</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Neo Path</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NEO_UNION__NEOPATH = eINSTANCE.getNeoUnion_Neopath();
+		EReference NEO_UNION__NEO_PATH = eINSTANCE.getNeoUnion_NeoPath();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoAttributeNodeImpl <em>Neo Attribute Node</em>}' class.
@@ -3944,6 +3993,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_ATTRIBUTE_NODE = eINSTANCE.getNeoAttributeNode();
 
 		/**
+		 * The meta object literal for the '<em><b>Neo Node Labels</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NEO_ATTRIBUTE_NODE__NEO_NODE_LABELS = eINSTANCE.getNeoAttributeNode_NeoNodeLabels();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.Neo4JPathParamImpl <em>Neo4 JPath Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3954,20 +4011,20 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO4_JPATH_PARAM = eINSTANCE.getNeo4JPathParam();
 
 		/**
-		 * The meta object literal for the '<em><b>Neoedge</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Neo Edge</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NEO4_JPATH_PARAM__NEOEDGE = eINSTANCE.getNeo4JPathParam_Neoedge();
+		EReference NEO4_JPATH_PARAM__NEO_EDGE = eINSTANCE.getNeo4JPathParam_NeoEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Neopath</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Neo Path</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NEO4_JPATH_PARAM__NEOPATH = eINSTANCE.getNeo4JPathParam_Neopath();
+		EReference NEO4_JPATH_PARAM__NEO_PATH = eINSTANCE.getNeo4JPathParam_NeoPath();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoQuantifier <em>Neo Quantifier</em>}' enum.
@@ -3978,6 +4035,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum NEO_QUANTIFIER = eINSTANCE.getNeoQuantifier();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionNeo4J.NeoDirection
+		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoDirection()
+		 * @generated
+		 */
+		EEnum NEO_DIRECTION = eINSTANCE.getNeoDirection();
 
 	}
 

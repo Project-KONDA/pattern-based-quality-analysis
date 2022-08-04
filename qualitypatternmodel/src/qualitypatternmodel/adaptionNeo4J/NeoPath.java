@@ -23,5 +23,5 @@ public interface NeoPath extends PatternElement {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<SimpleEdge> getSimpleEdges();
+	EList<NeoSimpleEdge> getSimpleEdges();
 } // NeoPath

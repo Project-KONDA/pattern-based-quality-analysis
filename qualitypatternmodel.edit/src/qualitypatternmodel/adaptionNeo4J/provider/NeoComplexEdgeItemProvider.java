@@ -16,22 +16,22 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoUnion;
+import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoUnion} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NeoUnionItemProvider extends NeoPathItemProvider {
+public class NeoComplexEdgeItemProvider extends NeoPathItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NeoUnionItemProvider(AdapterFactory adapterFactory) {
+	public NeoComplexEdgeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,7 +62,7 @@ public class NeoUnionItemProvider extends NeoPathItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AdaptionNeo4JPackage.Literals.NEO_UNION__NEO_PATH);
+			childrenFeatures.add(AdaptionNeo4JPackage.Literals.NEO_COMPLEX_EDGE__NEO_PATH);
 		}
 		return childrenFeatures;
 	}
@@ -81,14 +81,14 @@ public class NeoUnionItemProvider extends NeoPathItemProvider {
 	}
 
 	/**
-	 * This returns NeoUnion.gif.
+	 * This returns NeoComplexEdge.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NeoUnion"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NeoComplexEdge"));
 	}
 
 	/**
@@ -99,10 +99,10 @@ public class NeoUnionItemProvider extends NeoPathItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NeoUnion)object).getId();
+		String label = ((NeoComplexEdge)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_NeoUnion_type") :
-			getString("_UI_NeoUnion_type") + " " + label;
+			getString("_UI_NeoComplexEdge_type") :
+			getString("_UI_NeoComplexEdge_type") + " " + label;
 	}
 
 
@@ -117,8 +117,8 @@ public class NeoUnionItemProvider extends NeoPathItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(NeoUnion.class)) {
-			case AdaptionNeo4JPackage.NEO_UNION__NEO_PATH:
+		switch (notification.getFeatureID(NeoComplexEdge.class)) {
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -138,17 +138,17 @@ public class NeoUnionItemProvider extends NeoPathItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionNeo4JPackage.Literals.NEO_UNION__NEO_PATH,
+				(AdaptionNeo4JPackage.Literals.NEO_COMPLEX_EDGE__NEO_PATH,
 				 AdaptionNeo4JFactory.eINSTANCE.createNeoComplexEdge()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionNeo4JPackage.Literals.NEO_UNION__NEO_PATH,
+				(AdaptionNeo4JPackage.Literals.NEO_COMPLEX_EDGE__NEO_PATH,
 				 AdaptionNeo4JFactory.eINSTANCE.createNeoSimpleEdge()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AdaptionNeo4JPackage.Literals.NEO_UNION__NEO_PATH,
+				(AdaptionNeo4JPackage.Literals.NEO_COMPLEX_EDGE__NEO_PATH,
 				 AdaptionNeo4JFactory.eINSTANCE.createNeoUnion()));
 	}
 

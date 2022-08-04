@@ -68,6 +68,7 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 			case ParametersPackage.UNTYPED_PARAMETER_VALUE: return createUntypedParameterValue();
 			case ParametersPackage.DATE_TIME_PARAM: return createDateTimeParam();
 			case ParametersPackage.TYPE_OPTION_PARAM: return createTypeOptionParam();
+			case ParametersPackage.KEY_VALUE_PARAM: return createKeyValueParam();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -226,6 +227,17 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 	public TypeOptionParam createTypeOptionParam() {
 		TypeOptionParamImpl typeOptionParam = new TypeOptionParamImpl();
 		return typeOptionParam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public KeyValueParam createKeyValueParam() {
+		KeyValueParamImpl keyValueParam = new KeyValueParamImpl();
+		return keyValueParam;
 	}
 
 	/**

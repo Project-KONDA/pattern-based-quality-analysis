@@ -5,15 +5,15 @@ package qualitypatternmodel.adaptionNeo4J.tests;
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Simple Edge</b></em>'.
+ * A test case for the model object '<em><b>Neo Complex Edge</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class SimpleEdgeTest extends NeoPathTest {
+public class NeoComplexEdgeTest extends NeoPathTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class SimpleEdgeTest extends NeoPathTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(SimpleEdgeTest.class);
+		TestRunner.run(NeoComplexEdgeTest.class);
 	}
 
 	/**
-	 * Constructs a new Simple Edge test case with the given name.
+	 * Constructs a new Neo Complex Edge test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SimpleEdgeTest(String name) {
+	public NeoComplexEdgeTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Simple Edge test case.
+	 * Returns the fixture for this Neo Complex Edge test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected NeoSimpleEdge getFixture() {
-		return (NeoSimpleEdge)fixture;
+	protected NeoComplexEdge getFixture() {
+		return (NeoComplexEdge)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class SimpleEdgeTest extends NeoPathTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptionNeo4JFactory.eINSTANCE.createSimpleEdge());
+		setFixture(AdaptionNeo4JFactory.eINSTANCE.createNeoComplexEdge());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class SimpleEdgeTest extends NeoPathTest {
 		setFixture(null);
 	}
 
-} //SimpleEdgeTest
+} //NeoComplexEdgeTest

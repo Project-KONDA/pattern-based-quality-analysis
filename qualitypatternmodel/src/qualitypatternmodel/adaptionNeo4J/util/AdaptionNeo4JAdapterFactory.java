@@ -90,20 +90,16 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 				return createNeoEdgeAdapter();
 			}
 			@Override
-			public Adapter caseSequenceEdge(SequenceEdge object) {
-				return createSequenceEdgeAdapter();
+			public Adapter caseNeoComplexEdge(NeoComplexEdge object) {
+				return createNeoComplexEdgeAdapter();
 			}
 			@Override
-			public Adapter caseSimpleEdge(SimpleEdge object) {
-				return createSimpleEdgeAdapter();
+			public Adapter caseNeoSimpleEdge(NeoSimpleEdge object) {
+				return createNeoSimpleEdgeAdapter();
 			}
 			@Override
 			public Adapter caseNeoPath(NeoPath object) {
 				return createNeoPathAdapter();
-			}
-			@Override
-			public Adapter casePatternParams(PatternParams object) {
-				return createPatternParamsAdapter();
 			}
 			@Override
 			public Adapter caseNeoUnion(NeoUnion object) {
@@ -212,30 +208,30 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.SequenceEdge <em>Sequence Edge</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge <em>Neo Complex Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionNeo4J.SequenceEdge
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoComplexEdge
 	 * @generated
 	 */
-	public Adapter createSequenceEdgeAdapter() {
+	public Adapter createNeoComplexEdgeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.SimpleEdge <em>Simple Edge</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge <em>Neo Simple Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionNeo4J.SimpleEdge
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge
 	 * @generated
 	 */
-	public Adapter createSimpleEdgeAdapter() {
+	public Adapter createNeoSimpleEdgeAdapter() {
 		return null;
 	}
 
@@ -250,20 +246,6 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNeoPathAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.PatternParams <em>Pattern Params</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionNeo4J.PatternParams
-	 * @generated
-	 */
-	public Adapter createPatternParamsAdapter() {
 		return null;
 	}
 

@@ -13,10 +13,10 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.SimpleEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.SimpleEdge} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -89,7 +89,7 @@ public class SimpleEdgeItemProvider extends NeoPathItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SimpleEdge)object).getId();
+		String label = ((NeoSimpleEdge)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_SimpleEdge_type") :
 			getString("_UI_SimpleEdge_type") + " " + label;

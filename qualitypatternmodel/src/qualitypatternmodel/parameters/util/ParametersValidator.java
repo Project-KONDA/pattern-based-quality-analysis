@@ -3,7 +3,6 @@
 package qualitypatternmodel.parameters.util;
 
 import java.util.Map;
-
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -139,6 +138,8 @@ public class ParametersValidator extends EObjectValidator {
 				return validateDateTimeParam((DateTimeParam)value, diagnostics, context);
 			case ParametersPackage.TYPE_OPTION_PARAM:
 				return validateTypeOptionParam((TypeOptionParam)value, diagnostics, context);
+			case ParametersPackage.KEY_VALUE_PARAM:
+				return validateKeyValueParam((KeyValueParam)value, diagnostics, context);
 			case ParametersPackage.STRING_TO_INT_EMAP:
 				return validateStringToIntEMap((EMap<?, ?>)value, diagnostics, context);
 			case ParametersPackage.STRING_ARRAY:
@@ -402,6 +403,25 @@ public class ParametersValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(typeOptionParam, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(typeOptionParam, diagnostics, context);
 		if (result || diagnostics != null) result &= validateParameter_validate(typeOptionParam, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateKeyValueParam(KeyValueParam keyValueParam, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(keyValueParam, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(keyValueParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(keyValueParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(keyValueParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(keyValueParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(keyValueParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(keyValueParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(keyValueParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(keyValueParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(keyValueParam, diagnostics, context);
 		return result;
 	}
 
