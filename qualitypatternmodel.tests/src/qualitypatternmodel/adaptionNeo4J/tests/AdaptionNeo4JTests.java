@@ -38,7 +38,7 @@ public class AdaptionNeo4JTests extends TestSuite {
 		suite.addTestSuite(PatternParamsTest.class);
 		suite.addTestSuite(NeoUnionTest.class);
 		suite.addTestSuite(NeoAttributeNodeTest.class);
-		suite.addTestSuite(Neo4PathParamTest.class);
+		suite.addTestSuite(Neo4JPathParamTest.class);
 		return suite;
 	}
 

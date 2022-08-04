@@ -3,8 +3,7 @@
 package qualitypatternmodel.adaptionNeo4J.tests;
 
 import qualitypatternmodel.adaptionNeo4J.NeoPath;
-
-import qualitypatternmodel.parameters.tests.ParameterTest;
+import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,13 +12,12 @@ import qualitypatternmodel.parameters.tests.ParameterTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
- *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPath#getSimpleEdges() <em>Get Simple Edges</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public abstract class NeoPathTest extends ParameterTest {
+public abstract class NeoPathTest extends PatternElementTest {
 
 	/**
 	 * Constructs a new Neo Path test case with the given name.
@@ -43,26 +41,13 @@ public abstract class NeoPathTest extends ParameterTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPath#getSimpleEdges() <em>Get Simple Edges</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Adaptable#createParameters()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPath#getSimpleEdges()
 	 * @generated
 	 */
-	public void testCreateParameters() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList()
-	 * @generated
-	 */
-	public void testRemoveParametersFromParameterList() {
+	public void testGetSimpleEdges() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

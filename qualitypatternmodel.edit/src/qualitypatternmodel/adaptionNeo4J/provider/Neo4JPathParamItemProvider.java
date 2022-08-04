@@ -10,26 +10,30 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.graphstructure.provider.ComplexNodeItemProvider;
+
+import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
+import qualitypatternmodel.adaptionNeo4J.Neo4JPathParam;
+
+import qualitypatternmodel.parameters.provider.ParameterItemProvider;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoNode} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NeoNodeItemProvider 
-	extends ComplexNodeItemProvider {
+public class Neo4JPathParamItemProvider extends ParameterItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NeoNodeItemProvider(AdapterFactory adapterFactory) {
+	public Neo4JPathParamItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,19 +48,65 @@ public class NeoNodeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNeoedgePropertyDescriptor(object);
+			addNeopathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This returns NeoNode.gif.
+	 * This adds a property descriptor for the Neoedge feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNeoedgePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Neo4JPathParam_neoedge_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Neo4JPathParam_neoedge_feature", "_UI_Neo4JPathParam_type"),
+				 AdaptionNeo4JPackage.Literals.NEO4_JPATH_PARAM__NEOEDGE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Neopath feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNeopathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Neo4JPathParam_neopath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Neo4JPathParam_neopath_feature", "_UI_Neo4JPathParam_type"),
+				 AdaptionNeo4JPackage.Literals.NEO4_JPATH_PARAM__NEOPATH,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns Neo4JPathParam.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NeoNode"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Neo4JPathParam"));
 	}
 
 	/**
@@ -67,10 +117,10 @@ public class NeoNodeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NeoNode)object).getName();
+		String label = ((Neo4JPathParam)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_NeoNode_type") :
-			getString("_UI_NeoNode_type") + " " + label;
+			getString("_UI_Neo4JPathParam_type") :
+			getString("_UI_Neo4JPathParam_type") + " " + label;
 	}
 
 

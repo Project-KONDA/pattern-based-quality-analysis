@@ -49,25 +49,25 @@ public class NeoEdgeItemProvider extends RelationItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNeopathPropertyDescriptor(object);
+			addNeoPathParamPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Neopath feature.
+	 * This adds a property descriptor for the Neo Path Param feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNeopathPropertyDescriptor(Object object) {
+	protected void addNeoPathParamPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NeoEdge_neopath_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NeoEdge_neopath_feature", "_UI_NeoEdge_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_EDGE__NEOPATH,
+				 getString("_UI_NeoEdge_neoPathParam_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoEdge_neoPathParam_feature", "_UI_NeoEdge_type"),
+				 AdaptionNeo4JPackage.Literals.NEO_EDGE__NEO_PATH_PARAM,
 				 true,
 				 false,
 				 true,

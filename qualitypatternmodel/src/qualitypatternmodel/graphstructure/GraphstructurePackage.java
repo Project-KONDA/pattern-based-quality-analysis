@@ -1509,7 +1509,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADAPT_AS_NEO_NODE = COMPARABLE_OPERATION_COUNT + 33;
+	int NODE___ADAPT_AS_NEO_NODE = COMPARABLE_OPERATION_COUNT + 35;
 
 	/**
 	 * The operation id for the '<em>Adapt As Neo Attribute Node</em>' operation.
@@ -1518,7 +1518,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = COMPARABLE_OPERATION_COUNT + 34;
+	int NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = COMPARABLE_OPERATION_COUNT + 36;
 
 	/**
 	 * The number of operations of the '<em>Node</em>' class.
@@ -1527,7 +1527,7 @@ public interface GraphstructurePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 35;
+	int NODE_OPERATION_COUNT = COMPARABLE_OPERATION_COUNT + 37;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl <em>Primitive Node</em>}' class.

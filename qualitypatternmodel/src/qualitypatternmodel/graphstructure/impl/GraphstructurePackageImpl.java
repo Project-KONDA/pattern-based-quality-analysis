@@ -865,7 +865,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getNode__AdaptAsNeoNode() {
-		return nodeEClass.getEOperations().get(31);
+		return nodeEClass.getEOperations().get(33);
 	}
 
 	/**
@@ -875,7 +875,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 	 */
 	@Override
 	public EOperation getNode__AdaptAsNeoAttributeNode() {
-		return nodeEClass.getEOperations().get(32);
+		return nodeEClass.getEOperations().get(34);
 	}
 
 	/**
@@ -1298,7 +1298,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		createEOperation(nodeEClass, NODE___ADAPT_AS_RDF_LITERAL_NODE);
 		createEOperation(nodeEClass, NODE___ADAPT_AS_NEO_NODE);
 		createEOperation(nodeEClass, NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE);
-		
+
 		graphEClass = createEClass(GRAPH);
 		createEReference(graphEClass, GRAPH__NODES);
 		createEReference(graphEClass, GRAPH__OPERATOR_LIST);
@@ -1547,7 +1547,6 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getNode__AdaptAsNeoAttributeNode(), theAdaptionNeo4JPackage.getNeoAttributeNode(), "adaptAsNeoAttributeNode", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		
 		initEClass(graphEClass, Graph.class, "Graph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGraph_Nodes(), this.getNode(), this.getNode_Graph(), "nodes", null, 1, -1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGraph_OperatorList(), theOperatorsPackage.getOperatorList(), theOperatorsPackage.getOperatorList_Graph(), "operatorList", null, 1, 1, Graph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -874,6 +874,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT___ADAPT_AS_RDF_LITERAL_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_RDF_LITERAL_NODE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Neo Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADAPT_AS_NEO_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_NODE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Neo Attribute Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT___ADAPT_AS_NEO_ATTRIBUTE_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE;
+
+	/**
 	 * The operation id for the '<em>Translate Predicates</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1351,6 +1369,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_NAVIGATION___ADAPT_AS_RDF_PREDICATE = GraphstructurePackage.RELATION___ADAPT_AS_RDF_PREDICATE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Neo Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_NAVIGATION___ADAPT_AS_NEO_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_NEO_EDGE;
+
+	/**
 	 * The number of operations of the '<em>Xml Navigation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1792,6 +1819,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ELEMENT_NAVIGATION___ADAPT_AS_RDF_PREDICATE = XML_NAVIGATION___ADAPT_AS_RDF_PREDICATE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Neo Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ELEMENT_NAVIGATION___ADAPT_AS_NEO_EDGE = XML_NAVIGATION___ADAPT_AS_NEO_EDGE;
+
+	/**
 	 * The number of operations of the '<em>Xml Element Navigation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2222,6 +2258,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_REFERENCE___ADAPT_AS_RDF_PREDICATE = GraphstructurePackage.RELATION___ADAPT_AS_RDF_PREDICATE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Neo Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_REFERENCE___ADAPT_AS_NEO_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_NEO_EDGE;
 
 	/**
 	 * The operation id for the '<em>Is Translatable</em>' operation.
@@ -2989,6 +3034,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_PROPERTY___ADAPT_AS_RDF_LITERAL_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_RDF_LITERAL_NODE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Neo Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADAPT_AS_NEO_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_NODE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Neo Attribute Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY___ADAPT_AS_NEO_ATTRIBUTE_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE;
+
+	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3736,6 +3799,24 @@ public interface AdaptionxmlPackage extends EPackage {
 	int XML_ROOT___ADAPT_AS_RDF_LITERAL_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_RDF_LITERAL_NODE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Neo Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADAPT_AS_NEO_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_NODE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Neo Attribute Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_ROOT___ADAPT_AS_NEO_ATTRIBUTE_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE;
+
+	/**
 	 * The number of operations of the '<em>Xml Root</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4175,6 +4256,15 @@ public interface AdaptionxmlPackage extends EPackage {
 	 * @ordered
 	 */
 	int XML_PROPERTY_NAVIGATION___ADAPT_AS_RDF_PREDICATE = XML_NAVIGATION___ADAPT_AS_RDF_PREDICATE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Neo Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XML_PROPERTY_NAVIGATION___ADAPT_AS_NEO_EDGE = XML_NAVIGATION___ADAPT_AS_NEO_EDGE;
 
 	/**
 	 * The number of operations of the '<em>Xml Property Navigation</em>' class.

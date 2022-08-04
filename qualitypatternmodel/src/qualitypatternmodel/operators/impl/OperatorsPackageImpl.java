@@ -13,6 +13,8 @@ import org.eclipse.emf.ecore.EValidator;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
+import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlPackage;
@@ -179,6 +181,8 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		TextrepresentationPackageImpl theTextrepresentationPackage = (TextrepresentationPackageImpl)(registeredPackage instanceof TextrepresentationPackageImpl ? registeredPackage : TextrepresentationPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdaptionrdfPackage.eNS_URI);
 		AdaptionrdfPackageImpl theAdaptionrdfPackage = (AdaptionrdfPackageImpl)(registeredPackage instanceof AdaptionrdfPackageImpl ? registeredPackage : AdaptionrdfPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdaptionNeo4JPackage.eNS_URI);
+		AdaptionNeo4JPackageImpl theAdaptionNeo4JPackage = (AdaptionNeo4JPackageImpl)(registeredPackage instanceof AdaptionNeo4JPackageImpl ? registeredPackage : AdaptionNeo4JPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theOperatorsPackage.createPackageContents();
@@ -189,6 +193,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		theExecutionPackage.createPackageContents();
 		theTextrepresentationPackage.createPackageContents();
 		theAdaptionrdfPackage.createPackageContents();
+		theAdaptionNeo4JPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theOperatorsPackage.initializePackageContents();
@@ -199,6 +204,7 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		theExecutionPackage.initializePackageContents();
 		theTextrepresentationPackage.initializePackageContents();
 		theAdaptionrdfPackage.initializePackageContents();
+		theAdaptionNeo4JPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put

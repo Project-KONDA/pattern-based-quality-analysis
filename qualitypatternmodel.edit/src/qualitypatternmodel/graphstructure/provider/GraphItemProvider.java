@@ -16,6 +16,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
 import qualitypatternmodel.graphstructure.Graph;
@@ -235,6 +236,16 @@ public class GraphItemProvider extends PatternElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__NODES,
+				 AdaptionNeo4JFactory.eINSTANCE.createNeoNode()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__NODES,
+				 AdaptionNeo4JFactory.eINSTANCE.createNeoAttributeNode()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__OPERATOR_LIST,
 				 OperatorsFactory.eINSTANCE.createOperatorList()));
 
@@ -262,6 +273,11 @@ public class GraphItemProvider extends PatternElementItemProvider {
 			(createChildParameter
 				(GraphstructurePackage.Literals.GRAPH__RELATIONS,
 				 AdaptionrdfFactory.eINSTANCE.createRdfPredicate()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GraphstructurePackage.Literals.GRAPH__RELATIONS,
+				 AdaptionNeo4JFactory.eINSTANCE.createNeoEdge()));
 	}
 
 	/**

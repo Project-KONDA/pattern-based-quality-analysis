@@ -15,7 +15,7 @@ import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.QuantifiedCondition;
 
 public class Test13Cycle {
-public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+    public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getPatternCycle());

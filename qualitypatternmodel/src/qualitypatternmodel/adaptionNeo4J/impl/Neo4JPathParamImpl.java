@@ -66,7 +66,6 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 	 */
 	protected Neo4JPathParamImpl() {
 		super();
-		//has to be changed! 
 	}
 
 	/**

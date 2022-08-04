@@ -25,6 +25,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsXmlPropertyNavigation() <em>Adapt As Xml Property Navigation</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsXmlReference() <em>Adapt As Xml Reference</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsRdfPredicate() <em>Adapt As Rdf Predicate</em>}</li>
+ *   <li>{@link qualitypatternmodel.graphstructure.Relation#adaptAsNeoEdge() <em>Adapt As Neo Edge</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  * </ul>
@@ -158,6 +159,19 @@ public class RelationTest extends PatternElementTest {
 	 * @generated
 	 */
 	public void testAdaptAsRdfPredicate() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.graphstructure.Relation#adaptAsNeoEdge() <em>Adapt As Neo Edge</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.graphstructure.Relation#adaptAsNeoEdge()
+	 * @generated
+	 */
+	public void testAdaptAsNeoEdge() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

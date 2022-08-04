@@ -45,7 +45,7 @@ public class SimpleEdgeImpl extends NeoPathImpl implements SimpleEdge {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated 
+	 * @generated
 	 */
 	protected SimpleEdgeImpl() {
 		super();

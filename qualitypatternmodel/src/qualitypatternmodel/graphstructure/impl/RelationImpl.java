@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoEdgeImpl;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
 import qualitypatternmodel.adaptionrdf.impl.RdfPredicateImpl;
 import qualitypatternmodel.adaptionxml.XmlElement;

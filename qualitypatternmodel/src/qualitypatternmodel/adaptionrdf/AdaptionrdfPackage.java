@@ -488,6 +488,15 @@ public interface AdaptionrdfPackage extends EPackage {
 	int RDF_PREDICATE___ADAPT_AS_RDF_PREDICATE = GraphstructurePackage.RELATION___ADAPT_AS_RDF_PREDICATE;
 
 	/**
+	 * The operation id for the '<em>Adapt As Neo Edge</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_PREDICATE___ADAPT_AS_NEO_EDGE = GraphstructurePackage.RELATION___ADAPT_AS_NEO_EDGE;
+
+	/**
 	 * The number of operations of the '<em>Rdf Predicate</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1207,6 +1216,24 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_IRI_NODE___ADAPT_AS_RDF_LITERAL_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_RDF_LITERAL_NODE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Neo Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_IRI_NODE___ADAPT_AS_NEO_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_NODE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Neo Attribute Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_IRI_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE;
 
 	/**
 	 * The number of operations of the '<em>Rdf Iri Node</em>' class.
@@ -2544,6 +2571,24 @@ public interface AdaptionrdfPackage extends EPackage {
 	 * @ordered
 	 */
 	int RDF_LITERAL_NODE___ADAPT_AS_RDF_LITERAL_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_RDF_LITERAL_NODE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Neo Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_LITERAL_NODE___ADAPT_AS_NEO_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_NODE;
+
+	/**
+	 * The operation id for the '<em>Adapt As Neo Attribute Node</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RDF_LITERAL_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = GraphstructurePackage.PRIMITIVE_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE;
 
 	/**
 	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.

@@ -217,9 +217,10 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		getGraph().createNeo4jAdaption();
-		getCondition().createNeo4jAdaption();
-		return this;
+//		getGraph().createNeo4jAdaption();
+//		getCondition().createNeo4jAdaption();
+//		return this;
+		throw new UnsupportedOperationException();
 	}
 	
 	@Override

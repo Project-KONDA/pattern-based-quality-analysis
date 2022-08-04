@@ -12,6 +12,8 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
+import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfPackage;
 import qualitypatternmodel.adaptionrdf.impl.AdaptionrdfPackageImpl;
 import qualitypatternmodel.adaptionxml.AdaptionxmlFactory;
@@ -224,6 +226,8 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		TextrepresentationPackageImpl theTextrepresentationPackage = (TextrepresentationPackageImpl)(registeredPackage instanceof TextrepresentationPackageImpl ? registeredPackage : TextrepresentationPackage.eINSTANCE);
 		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdaptionrdfPackage.eNS_URI);
 		AdaptionrdfPackageImpl theAdaptionrdfPackage = (AdaptionrdfPackageImpl)(registeredPackage instanceof AdaptionrdfPackageImpl ? registeredPackage : AdaptionrdfPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(AdaptionNeo4JPackage.eNS_URI);
+		AdaptionNeo4JPackageImpl theAdaptionNeo4JPackage = (AdaptionNeo4JPackageImpl)(registeredPackage instanceof AdaptionNeo4JPackageImpl ? registeredPackage : AdaptionNeo4JPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theAdaptionxmlPackage.createPackageContents();
@@ -234,6 +238,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		theExecutionPackage.createPackageContents();
 		theTextrepresentationPackage.createPackageContents();
 		theAdaptionrdfPackage.createPackageContents();
+		theAdaptionNeo4JPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAdaptionxmlPackage.initializePackageContents();
@@ -244,6 +249,7 @@ public class AdaptionxmlPackageImpl extends EPackageImpl implements AdaptionxmlP
 		theExecutionPackage.initializePackageContents();
 		theTextrepresentationPackage.initializePackageContents();
 		theAdaptionrdfPackage.initializePackageContents();
+		theAdaptionNeo4JPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAdaptionxmlPackage.freeze();

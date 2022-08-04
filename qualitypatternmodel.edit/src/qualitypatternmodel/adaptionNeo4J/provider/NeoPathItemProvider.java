@@ -14,9 +14,8 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.adaptionNeo4J.NeoPath;
-
-import qualitypatternmodel.parameters.provider.ParameterItemProvider;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
+import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
  * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoPath} object.
@@ -24,7 +23,7 @@ import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NeoPathItemProvider extends ParameterItemProvider {
+public class NeoPathItemProvider extends PatternElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

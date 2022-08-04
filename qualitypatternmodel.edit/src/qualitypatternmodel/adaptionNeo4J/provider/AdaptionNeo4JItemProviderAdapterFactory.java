@@ -233,26 +233,26 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionNeo4J.Neo4PathParam} instances.
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Neo4PathParamItemProvider neo4PathParamItemProvider;
+	protected Neo4JPathParamItemProvider neo4JPathParamItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link qualitypatternmodel.adaptionNeo4J.Neo4PathParam}.
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createNeo4PathParamAdapter() {
-		if (neo4PathParamItemProvider == null) {
-			neo4PathParamItemProvider = new Neo4PathParamItemProvider(this);
+	public Adapter createNeo4JPathParamAdapter() {
+		if (neo4JPathParamItemProvider == null) {
+			neo4JPathParamItemProvider = new Neo4JPathParamItemProvider(this);
 		}
 
-		return neo4PathParamItemProvider;
+		return neo4JPathParamItemProvider;
 	}
 
 	/**
@@ -367,7 +367,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 		if (patternParamsItemProvider != null) patternParamsItemProvider.dispose();
 		if (neoUnionItemProvider != null) neoUnionItemProvider.dispose();
 		if (neoAttributeNodeItemProvider != null) neoAttributeNodeItemProvider.dispose();
-		if (neo4PathParamItemProvider != null) neo4PathParamItemProvider.dispose();
+		if (neo4JPathParamItemProvider != null) neo4JPathParamItemProvider.dispose();
 	}
 
 }
