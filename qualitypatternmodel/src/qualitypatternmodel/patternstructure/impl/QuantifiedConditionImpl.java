@@ -124,6 +124,7 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 		return result;
 
 	}
+	
 	@Override
 	public String generateSparql() throws InvalidityException {
 		String query = "\n";
@@ -160,6 +161,13 @@ public class QuantifiedConditionImpl extends ConditionImpl implements Quantified
 			throw new InvalidityException("invalid quantifier");
 		}
 		return query;
+	}
+	
+	@Override
+	public String generateCypher() throws InvalidityException {
+		String query = "";
+		// TODO -- Implement this function for Cypher -- 
+		return query; 		
 	}
 	
 	@Override

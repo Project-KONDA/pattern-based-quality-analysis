@@ -13,7 +13,6 @@
         <genTypeParameters ecoreTypeParameter="qualitypatternmodel.ecore#//parameters/StringToIntEMap/V"/>
       </genDataTypes>
       <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//parameters/StringArray"/>
-      <genDataTypes ecoreDataType="qualitypatternmodel.ecore#//parameters/Map"/>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//parameters/Parameter">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//parameters/Parameter/parameterList"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute qualitypatternmodel.ecore#//parameters/Parameter/predefined"/>

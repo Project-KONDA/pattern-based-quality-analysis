@@ -1281,10 +1281,10 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_EDGE_OPERATION_COUNT = GraphstructurePackage.RELATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathImpl <em>Neo Path</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl <em>Neo Path</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.impl.NeoPathImpl
+	 * @see qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl
 	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoPath()
 	 * @generated
 	 */
@@ -3704,21 +3704,21 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EReference getNeoSimpleEdge_Direction();
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPath <em>Neo Path</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart <em>Neo Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Neo Path</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPath
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart
 	 * @generated
 	 */
 	EClass getNeoPath();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPath#getSimpleEdges() <em>Get Simple Edges</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getSimpleEdges() <em>Get Simple Edges</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Simple Edges</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPath#getSimpleEdges()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getSimpleEdges()
 	 * @generated
 	 */
 	EOperation getNeoPath__GetSimpleEdges();
@@ -3947,10 +3947,10 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EReference NEO_SIMPLE_EDGE__DIRECTION = eINSTANCE.getNeoSimpleEdge_Direction();
 
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathImpl <em>Neo Path</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl <em>Neo Path</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionNeo4J.impl.NeoPathImpl
+		 * @see qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl
 		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoPath()
 		 * @generated
 		 */

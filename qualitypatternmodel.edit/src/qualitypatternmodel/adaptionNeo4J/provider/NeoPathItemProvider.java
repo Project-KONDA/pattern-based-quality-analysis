@@ -13,12 +13,12 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
-import qualitypatternmodel.adaptionNeo4J.NeoPath;
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 import qualitypatternmodel.patternstructure.provider.PatternElementItemProvider;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoPath} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoPathPart} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -57,7 +57,7 @@ public class NeoPathItemProvider extends PatternElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NeoPath)object).getId();
+		String label = ((NeoPathPart)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_NeoPath_type") :
 			getString("_UI_NeoPath_type") + " " + label;

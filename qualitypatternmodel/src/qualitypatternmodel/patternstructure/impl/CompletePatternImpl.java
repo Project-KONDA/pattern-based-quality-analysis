@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPathPart;
 import qualitypatternmodel.adaptionrdf.RdfSinglePredicate;
@@ -27,6 +29,7 @@ import qualitypatternmodel.execution.XmlDataDatabase;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 import qualitypatternmodel.operators.impl.OperatorImpl;
@@ -365,6 +368,48 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		
 		return query;
 	}
+	
+	@Override
+	public String generateCypher() throws InvalidityException {		
+		initializeTranslation();
+		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
+			throw new InvalidityException("return element(s) missing");
+		}
+		
+		EList<String> prefixes = new BasicEList<String>();		
+		for(Parameter p : getParameterList().getParameters()) {
+			if(p instanceof NeoPathPartImpl) {
+				NeoPathPart neoPathPart = (NeoPathPart) p;
+				
+				//This has to be adapted and can not just be copied
+			}
+		}
+		
+		
+		EList<Node> nodes = graph.getReturnNodes();
+		EList<Relation> edges = graph.getRelations();
+		
+		StringBuilder query = new StringBuilder();
+
+		query.append("\nMATCH");
+		StringBuilder graphPattern = new StringBuilder();
+		for (Node n : nodes) {
+			
+			
+			if (graphPattern.length() > 0) graphPattern.append("-[]-");
+			graphPattern.append(n.generateCypher());
+			edges.get(1).getTarget();
+		}
+		query.append("\nWHERE ");
+		query.append(super.generateCypher()); //.replace("\n", "\n  ")
+		query.append("\n");
+		query.append(graphPattern + "\n");
+		
+		
+		return query.toString();
+	}
+	
+	
 	
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

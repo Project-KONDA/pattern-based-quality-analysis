@@ -69,6 +69,12 @@ public class ComplexNodeImpl extends NodeImpl implements ComplexNode {
 		return adaptAsRdfIriNode();
 	}
 	
+	@Override 
+	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		return adaptAsNeoNode();
+	}
+	
+	
 	@Override
 	public XmlProperty adaptAsXmlProperty() throws InvalidityException {
 		if(isTypeModifiable()) {

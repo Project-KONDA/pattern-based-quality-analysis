@@ -26,7 +26,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * @model
  * @generated
  */
-public interface NeoSimpleEdge extends NeoPath {
+public interface NeoSimpleEdge extends NeoPathPart {
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' reference.
 	 * <!-- begin-user-doc -->

@@ -1136,8 +1136,6 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 	public NeoEdge adaptAsNeoEdge() throws InvalidityException {
 		Graph graph = getGraph();
 		NeoEdge navOriginal = ((RelationImpl) getOriginalRelation()).adaptAsNeoEdgeRecursive();
-		//getting the target?
-		//That seems like that a Relation goes direct without a node to an other relation??? How is the node between it?
 		
 		for(Relation r: graph.getRelations()) {
 			if(r instanceof NeoEdge) {
@@ -1190,9 +1188,9 @@ public class RelationImpl extends PatternElementImpl implements Relation {
 				edge.getTarget().adaptAsNeoNode();
 			} else if(edge.getTarget() instanceof PrimitiveNode) {
 				edge.getTarget().adaptAsNeoAttributeNode();
-			} //else if(edge.getTarget() instanceof Node) {
-				//edge.getTarget().adaptAsRdfIriNode();
-			//}
+			} else if(edge.getTarget() instanceof Node) {
+				edge.getTarget().adaptAsNeoNode();
+			}
 			
 			return edge;
 		}

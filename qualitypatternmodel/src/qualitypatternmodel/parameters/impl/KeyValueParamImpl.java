@@ -3,8 +3,9 @@
 package qualitypatternmodel.parameters.impl;
 
 import java.lang.reflect.InvocationTargetException;
-
+import java.util.HashMap;
 import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
@@ -35,10 +36,10 @@ public class KeyValueParamImpl extends ComparisonOptionParamImpl implements KeyV
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getKeyValuePair()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected Map keyValuePair;
+	protected Map<String, String> keyValuePair = new HashMap<>();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,21 +63,21 @@ public class KeyValueParamImpl extends ComparisonOptionParamImpl implements KeyV
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public Map getKeyValuePair() {
+	public Map<String, String> getKeyValuePair() {
 		return keyValuePair;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public void setKeyValuePair(Map newKeyValuePair) {
-		Map oldKeyValuePair = keyValuePair;
+	public void setKeyValuePair(Map<String, String> newKeyValuePair) {
+		Map<String, String> oldKeyValuePair = keyValuePair;
 		keyValuePair = newKeyValuePair;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.KEY_VALUE_PARAM__KEY_VALUE_PAIR, oldKeyValuePair, keyValuePair));
@@ -85,25 +86,31 @@ public class KeyValueParamImpl extends ComparisonOptionParamImpl implements KeyV
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void addValue(String key, String value) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (!(this.keyValuePair.containsKey(key) && this.keyValuePair.containsValue(value))) {
+			this.keyValuePair.put(key, value);
+		}		
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
-	public void setNewMap(Map newKeyValueMap) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void setNewMap(Map<String, String> newKeyValueMap) {
+		try {
+			if (newKeyValueMap != null) {
+				this.keyValuePair = newKeyValueMap;
+			} else {
+				this.keyValuePair = new HashMap<>();
+			}
+		} catch (Exception e) {
+			throw new RuntimeException("Your Map is incorrect", e);
+		}
 	}
 
 	/**
@@ -123,13 +130,14 @@ public class KeyValueParamImpl extends ComparisonOptionParamImpl implements KeyV
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ParametersPackage.KEY_VALUE_PARAM__KEY_VALUE_PAIR:
-				setKeyValuePair((Map)newValue);
+				setKeyValuePair((Map<String, String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -138,13 +146,13 @@ public class KeyValueParamImpl extends ComparisonOptionParamImpl implements KeyV
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ParametersPackage.KEY_VALUE_PARAM__KEY_VALUE_PAIR:
-				setKeyValuePair((Map)null);
+				setKeyValuePair((Map<String, String>)null);
 				return;
 		}
 		super.eUnset(featureID);

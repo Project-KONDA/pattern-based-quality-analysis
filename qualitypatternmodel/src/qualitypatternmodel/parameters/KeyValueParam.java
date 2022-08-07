@@ -31,7 +31,7 @@ public interface KeyValueParam extends ComparisonOptionParam {
 	 * @model transient="true"
 	 * @generated
 	 */
-	Map getKeyValuePair();
+	Map<String, String> getKeyValuePair();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.parameters.KeyValueParam#getKeyValuePair <em>Key Value Pair</em>}' attribute.
@@ -41,7 +41,7 @@ public interface KeyValueParam extends ComparisonOptionParam {
 	 * @see #getKeyValuePair()
 	 * @generated
 	 */
-	void setKeyValuePair(Map value);
+	void setKeyValuePair(Map<String, String> value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -57,6 +57,6 @@ public interface KeyValueParam extends ComparisonOptionParam {
 	 * @model
 	 * @generated
 	 */
-	void setNewMap(Map newKeyValueMap);
+	void setNewMap(Map<String, String> newKeyValueMap);
 
 } // KeyValueParam

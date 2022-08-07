@@ -20,10 +20,10 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface NeoComplexEdge extends NeoPath {
+public interface NeoComplexEdge extends NeoPathPart {
 	/**
 	 * Returns the value of the '<em><b>Neo Path</b></em>' containment reference list.
-	 * The list contents are of type {@link qualitypatternmodel.adaptionNeo4J.NeoPath}.
+	 * The list contents are of type {@link qualitypatternmodel.adaptionNeo4J.NeoPathPart}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Path</em>' containment reference list.
@@ -31,6 +31,6 @@ public interface NeoComplexEdge extends NeoPath {
 	 * @model containment="true" lower="2"
 	 * @generated
 	 */
-	EList<NeoPath> getNeoPath();
+	EList<NeoPathPart> getNeoPath();
 
 } // SequenceEdge

@@ -169,6 +169,14 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 	}
 	
 	@Override
+	public String generateCypher() throws InvalidityException {
+		StringBuilder sb = new StringBuilder();
+		
+		
+		return sb.toString();
+	}
+	
+	@Override
 	public void initializeTranslation() {
 		for(Node node : getNodes()) {	
 			node.initializeTranslation();
@@ -297,7 +305,18 @@ public class GraphImpl extends PatternElementImpl implements Graph {
 
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		throw new UnsupportedOperationException();
+		EList<Node> elementsCopy = new BasicEList<Node>();
+		elementsCopy.addAll(getNodes());
+		for(Node node : elementsCopy) {
+			node.createNeo4jAdaption();
+		}	
+		EList<Relation> relationsCopy = new BasicEList<Relation>();
+		relationsCopy.addAll(getRelations());
+		for(Relation relation : relationsCopy) {
+			relation.createNeo4jAdaption();
+		}
+		
+		return this;
 	}
 	
 	private void createXmlRoot() {

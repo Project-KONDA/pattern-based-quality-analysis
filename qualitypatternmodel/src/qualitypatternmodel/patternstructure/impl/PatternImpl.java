@@ -197,6 +197,18 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	}
 	
 	@Override
+	public String generateCypher() throws InvalidityException {
+		if (graph.getReturnNodes() == null || graph.getReturnNodes().isEmpty()) {
+			throw new InvalidityException("return elements missing");
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append(graph.generateCypher());
+		sb.append(condition.generateCypher());
+		return sb.toString();
+	}
+	
+	@Override
 	public boolean relationsXmlAdapted() {
 		return getGraph().relationsXmlAdapted() && getCondition().relationsXmlAdapted();
 	}
@@ -217,10 +229,9 @@ public abstract class PatternImpl extends PatternElementImpl implements Pattern 
 	
 	@Override
 	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		getGraph().createNeo4jAdaption();
-//		getCondition().createNeo4jAdaption();
-//		return this;
-		throw new UnsupportedOperationException();
+		getGraph().createNeo4jAdaption();
+		getCondition().createNeo4jAdaption();
+		return this;
 	}
 	
 	@Override

@@ -130,6 +130,13 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	}
 	
 	@Override
+	public String generateCypher() throws InvalidityException {
+		
+		
+		throw new InvalidityException("invalid parameter value in [" + getInternalId() + "]");
+	}
+	
+	@Override
 	public EList<Parameter> getAllParameters() throws InvalidityException {
 		EList<Parameter> res = new BasicEList<Parameter>();
 		res.add(this);

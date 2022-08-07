@@ -1,11 +1,12 @@
 package qualitypatternmodel.cyphertranslationtests;
 
-import static qualitypatternmodel.xmltranslationtests.Test00.replace;
-
 import java.util.ArrayList;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.adaptionNeo4J.NeoEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoEdgeImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
@@ -23,10 +24,11 @@ import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
 import qualitypatternmodel.patternstructure.PatternstructurePackage;
-import qualitypatternmodel.rdftranslationtests.RdfTest00;
+import static qualitypatternmodel.xmltranslationtests.Test00.*;
 
 public class CypherTest00 {
 	public static void test(ArrayList<CompletePattern> completePatterns) {
@@ -37,7 +39,7 @@ public class CypherTest00 {
 				System.out.println("\n\n___PATTERN_(VALID)___");
 				System.out.println(completePattern.myToString());
 				System.out.print("\n___TRANSLATION___");
-				System.out.println(completePattern.generateSparql());
+				System.out.println(completePattern.generateCypher());
 			} catch (Exception e) {
 				e.printStackTrace();
 				try {
@@ -52,10 +54,10 @@ public class CypherTest00 {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getBasePatternFinal());
-		//completePatterns.add(getBasePatternCondConcrete("2022-12-31")); --> adapte
-		//completePatterns.add(getBasePatternMatchConcrete("^2022")); --> adapte
-		//completePatterns.add(getBasePatternMatchNotConcrete("^2022")); --> adapte
-		RdfTest00.test(completePatterns);
+		//completePatterns.add(getBasePatternCondConcrete("2022-12-31")); //--> adapte
+		//completePatterns.add(getBasePatternMatchConcrete("^2022")); //--> adapte
+		//completePatterns.add(getBasePatternMatchNotConcrete("^2022")); //--> adapte
+		CypherTest00.test(completePatterns);
 	}
 	
 	public static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -64,6 +66,23 @@ public class CypherTest00 {
 		return completePattern;
 	}
 	
+	public static CompletePattern getBasePattern() throws InvalidityException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = factory.createCompletePattern();
+		completePattern.setName("MyPattern");
+		
+		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
+		Node node2 = completePattern.getGraph().addNode();
+		completePattern.getGraph().addRelation(complexNode1, node2);
+		
+		return completePattern;
+	}	
+	
+	
+	
+	/*
 	public static CompletePattern getBasePattern() throws InvalidityException {
 		PatternstructurePackage.eINSTANCE.eClass();
 		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
@@ -90,18 +109,14 @@ public class CypherTest00 {
 	
 	//More adaption needed
 	public static CompletePattern getBasePatternCondConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		
 		CompletePattern completePattern = getBasePatternCond(comp);
-		
-		//Complete part has to be restructured to methods to create the Neo4J structure !!! 
-		//RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
+		NeoEdge relation = (NeoEdge) completePattern.getGraph().getRelations().get(0);
 		//IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-		//((RdfSinglePredicate) relation.getRdfPathParam()).setIriParam(iriParam);
-		//iriParam.setPrefix("wdt");
-		//iriParam.setSuffix("P569");
-		//The following is for the Xml adaptation
-		//XmlNavigation xmlNavigation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-		//xmlNavigation.getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");		
-		
+		//((NeoEdge) relation.getNeoPathParam().
+				//getRdfPathParam().getRdfPathPart()).setIriParam(iriParam);
+//		iriParam.setPrefix("wdt");
+//		iriParam.setSuffix("P569");
 		return completePattern;		
 	}
 	
@@ -116,46 +131,24 @@ public class CypherTest00 {
 	public static CompletePattern getBasePatternMatchConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePatternMatch(comp);
 		
-//		Has to be adapted
-//		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
-//		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-//		((RdfSinglePredicate) relation.getRdfPathParam()).setIriParam(iriParam);
-//		iriParam.setPrefix("wdt");
-//		iriParam.setSuffix("P569");
-//		XML
-//		XmlNavigation xmlNavigation = (XmlNavigation) completePattern.getGraph().getRelations().get(0);
-//		xmlNavigation.getXmlPathParam().setXmlAxis(XmlAxisKind.DESCENDANT, "");
-		
+		NeoEdge relation = (NeoEdge) completePattern.getGraph().getRelations().get(0);
+		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
+		//((NeoSimpleEdge) relation.getNeoPathParam());
+		//iriParam.setPrefix("wdt");
+		//iriParam.setSuffix("P569");
+	
+		return completePattern;		
+	}	
+	
+	public static CompletePattern getBasePatternMatchNotConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		CompletePattern completePattern = getBasePatternMatch(comp);
+		((Match) completePattern.getGraph().getOperatorList().getOperators().get(0)).getOption().setValue(false);
+		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
+		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
+		((RdfSinglePredicate) relation.getRdfPathParam().getRdfPathPart()).setIriParam(iriParam);
+		iriParam.setPrefix("wdt");
+		iriParam.setSuffix("P569");
 		return completePattern;		
 	}
-
-//	The following Methods has been specificlly for the adaptions
-//	public static CompletePattern getBasePatternMatchNotConcrete(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-//		CompletePattern completePattern = getBasePatternMatch(comp);
-//		((Match) completePattern.getGraph().getOperatorList().getOperators().get(0)).getOption().setValue(false);
-//		RdfPredicate relation = (RdfPredicate) completePattern.getGraph().getRelations().get(0);
-//		IriParam iriParam = AdaptionrdfFactory.eINSTANCE.createIriParam();
-//		((RdfSinglePredicate) relation.getRdfPathParam()).setIriParam(iriParam);
-//		iriParam.setPrefix("wdt");
-//		iriParam.setSuffix("P569");
-//		return completePattern;		
-//	}
-//	
-//	//From XMLAdaption
-//	public static CompletePattern replace(CompletePattern pattern) {
-//		ParametersPackage.eINSTANCE.eClass();
-//		ParametersFactory parametersFactory = ParametersFactory.eINSTANCE;
-//		
-//		EList<Parameter> params = pattern.getParameterList().getParameters();
-//		for (int i = params.size()-1; i > -1; i--) {
-//			Parameter param = pattern.getParameterList().getParameters().get(i);
-//			if (param instanceof UntypedParameterValue) {
-//				TextLiteralParam text = parametersFactory.createTextLiteralParam();
-//				text.setValue("unknown");
-//				((UntypedParameterValue) param).replace(text);
-//			}
-//		}
-//		return pattern;
-//	}
-	
+	*/
 }

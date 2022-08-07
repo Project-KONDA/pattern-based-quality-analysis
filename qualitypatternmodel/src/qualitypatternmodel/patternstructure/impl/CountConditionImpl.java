@@ -137,6 +137,13 @@ public class CountConditionImpl extends ConditionImpl implements CountCondition 
 		
 	}
 	
+	@Override 
+	public String generateCypher() throws InvalidityException {
+		StringBuilder sb = new StringBuilder();
+		// TODO
+		return sb.toString();
+	}
+	
 	@Override
 	public void initializeTranslation() {
 		if(getCountPattern() != null) {

@@ -103,6 +103,17 @@ public class NotConditionImpl extends ConditionImpl implements NotCondition {
 	}
 	
 	@Override
+	public String generateCypher() throws InvalidityException {
+		// TODO - However in every case there is no condition a exception will be thrown
+		if (condition != null) {
+			String result = "";
+			// TODO -- How to specifiy not for one or multiple properties in Neo4J
+			return result;			
+		}
+		throw new InvalidityException("invalid condition");
+	}
+	
+	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);
 		

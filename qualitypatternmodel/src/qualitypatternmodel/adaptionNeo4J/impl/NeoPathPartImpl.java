@@ -9,7 +9,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoPath;
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
@@ -21,13 +21,13 @@ import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
  *
  * @generated
  */
-public abstract class NeoPathImpl extends PatternElementImpl implements NeoPath {
+public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoPathPart {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NeoPathImpl() {
+	protected NeoPathPartImpl() {
 		super();
 	}
 

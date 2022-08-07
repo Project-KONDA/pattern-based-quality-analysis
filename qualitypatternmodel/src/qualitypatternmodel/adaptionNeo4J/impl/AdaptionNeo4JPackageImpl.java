@@ -17,7 +17,7 @@ import qualitypatternmodel.adaptionNeo4J.Neo4JPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoAttributeNode;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
-import qualitypatternmodel.adaptionNeo4J.NeoPath;
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoQuantifier;
 import qualitypatternmodel.adaptionNeo4J.NeoUnion;
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
@@ -592,7 +592,7 @@ public class AdaptionNeo4JPackageImpl extends EPackageImpl implements AdaptionNe
 		initEReference(getNeoSimpleEdge_TargetNodeType(), theParametersPackage.getTextLiteralParam(), null, "targetNodeType", null, 0, 1, NeoSimpleEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNeoSimpleEdge_Direction(), theParametersPackage.getBooleanParam(), null, "direction", null, 0, 1, NeoSimpleEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(neoPathEClass, NeoPath.class, "NeoPath", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(neoPathEClass, NeoPathPart.class, "NeoPath", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getNeoPath__GetSimpleEdges(), this.getNeoSimpleEdge(), "getSimpleEdges", 0, -1, IS_UNIQUE, IS_ORDERED);
 

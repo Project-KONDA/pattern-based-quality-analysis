@@ -15,7 +15,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @model abstract="true"
  * @generated
  */
-public interface NeoPath extends PatternElement {
+public interface NeoPathPart extends PatternElement {
 
 	/**
 	 * <!-- begin-user-doc -->

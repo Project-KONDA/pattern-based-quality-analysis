@@ -41,6 +41,11 @@ public class TrueElementImpl extends ConditionImpl implements TrueElement {
 		return "";
 	}
 	
+	@Override 
+	public String generateCypher() throws InvalidityException {
+		return ""; 
+	}
+	
 	@Override
 	public void isValidLocal(AbstractionLevel abstractionLevel) {}
 

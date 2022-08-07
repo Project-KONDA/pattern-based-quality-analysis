@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoPath;
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -35,7 +35,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
  *
  * @generated
  */
-public class NeoComplexEdgeImpl extends NeoPathImpl implements NeoComplexEdge {
+public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdge {
 	/**
 	 * The cached value of the '{@link #getNeoPath() <em>Neo Path</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -44,7 +44,7 @@ public class NeoComplexEdgeImpl extends NeoPathImpl implements NeoComplexEdge {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<NeoPath> neoPath;
+	protected EList<NeoPathPart> neoPath;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -71,9 +71,9 @@ public class NeoComplexEdgeImpl extends NeoPathImpl implements NeoComplexEdge {
 	 * @generated
 	 */
 	@Override
-	public EList<NeoPath> getNeoPath() {
+	public EList<NeoPathPart> getNeoPath() {
 		if (neoPath == null) {
-			neoPath = new EObjectContainmentEList<NeoPath>(NeoPath.class, this, AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH);
+			neoPath = new EObjectContainmentEList<NeoPathPart>(NeoPathPart.class, this, AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH);
 		}
 		return neoPath;
 	}
@@ -117,7 +117,7 @@ public class NeoComplexEdgeImpl extends NeoPathImpl implements NeoComplexEdge {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
 				getNeoPath().clear();
-				getNeoPath().addAll((Collection<? extends NeoPath>)newValue);
+				getNeoPath().addAll((Collection<? extends NeoPathPart>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

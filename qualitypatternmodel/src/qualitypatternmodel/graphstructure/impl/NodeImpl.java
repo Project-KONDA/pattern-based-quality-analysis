@@ -1548,7 +1548,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 				NeoNode element = (NeoNode) n;
 				Node next = n;
 				while(next != null) {
-					if(!next.equals(elementOriginal)) { //Why does equals not work here
+					if(!next.equals(elementOriginal)) {
 						if(next.getIncomingMapping() == null) {
 							next = null;
 						} else {

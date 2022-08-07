@@ -120,7 +120,7 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 				return result;
 			}
 			case AdaptionNeo4JPackage.NEO_PATH: {
-				NeoPath neoPath = (NeoPath)theEObject;
+				NeoPathPart neoPath = (NeoPathPart)theEObject;
 				T result = caseNeoPath(neoPath);
 				if (result == null) result = casePatternElement(neoPath);
 				if (result == null) result = defaultCase(theEObject);
@@ -245,7 +245,7 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNeoPath(NeoPath object) {
+	public T caseNeoPath(NeoPathPart object) {
 		return null;
 	}
 

@@ -114,6 +114,11 @@ public class PrimitiveNodeImpl extends NodeImpl implements PrimitiveNode {
 		return adaptAsRdfLiteralNode();
 	}
 	
+	@Override 
+	public PatternElement createNeo4jAdaption() throws InvalidityException {
+		return adaptAsNeoAttributeNode();
+	}
+	
 	@Override
 	public XmlElement adaptAsXmlElement() throws InvalidityException {
 		if(isTypeModifiable()) {

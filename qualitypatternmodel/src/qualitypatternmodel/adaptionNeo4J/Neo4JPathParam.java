@@ -53,12 +53,12 @@ public interface Neo4JPathParam extends Parameter, Adaptable {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Path</em>' reference.
-	 * @see #setNeoPath(NeoPath)
+	 * @see #setNeoPath(NeoPathPart)
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeo4JPathParam_NeoPath()
 	 * @model
 	 * @generated
 	 */
-	NeoPath getNeoPath();
+	NeoPathPart getNeoPath();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoPath <em>Neo Path</em>}' reference.
@@ -68,6 +68,6 @@ public interface Neo4JPathParam extends Parameter, Adaptable {
 	 * @see #getNeoPath()
 	 * @generated
 	 */
-	void setNeoPath(NeoPath value);
+	void setNeoPath(NeoPathPart value);
 
 } // Neo4JPathParam

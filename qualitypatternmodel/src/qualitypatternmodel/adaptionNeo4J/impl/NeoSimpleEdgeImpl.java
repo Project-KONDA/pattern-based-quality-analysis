@@ -36,7 +36,7 @@ import qualitypatternmodel.patternstructure.AbstractionLevel;
  *
  * @generated
  */
-public class NeoSimpleEdgeImpl extends NeoPathImpl implements NeoSimpleEdge {
+public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge {
 	/**
 	 * The cached value of the '{@link #getLabel() <em>Label</em>}' reference.
 	 * <!-- begin-user-doc -->

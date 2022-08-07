@@ -2,7 +2,7 @@
  */
 package qualitypatternmodel.adaptionNeo4J.tests;
 
-import qualitypatternmodel.adaptionNeo4J.NeoPath;
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.patternstructure.tests.PatternElementTest;
 
 /**
@@ -12,7 +12,7 @@ import qualitypatternmodel.patternstructure.tests.PatternElementTest;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPath#getSimpleEdges() <em>Get Simple Edges</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getSimpleEdges() <em>Get Simple Edges</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -36,15 +36,15 @@ public abstract class NeoPathTest extends PatternElementTest {
 	 * @generated
 	 */
 	@Override
-	protected NeoPath getFixture() {
-		return (NeoPath)fixture;
+	protected NeoPathPart getFixture() {
+		return (NeoPathPart)fixture;
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPath#getSimpleEdges() <em>Get Simple Edges</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getSimpleEdges() <em>Get Simple Edges</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPath#getSimpleEdges()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getSimpleEdges()
 	 * @generated
 	 */
 	public void testGetSimpleEdges() {
