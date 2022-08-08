@@ -29,7 +29,7 @@ public interface KeyValueParam extends ComparisonOptionParam {
 	 * @see #setKeyValuePair(Map)
 	 * @see qualitypatternmodel.parameters.ParametersPackage#getKeyValueParam_KeyValuePair()
 	 * @model transient="true"
-	 * @generated
+	 * @generated NOT
 	 */
 	Map<String, String> getKeyValuePair();
 
@@ -39,7 +39,7 @@ public interface KeyValueParam extends ComparisonOptionParam {
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Key Value Pair</em>' attribute.
 	 * @see #getKeyValuePair()
-	 * @generated
+	 * @generated NOT
 	 */
 	void setKeyValuePair(Map<String, String> value);
 
@@ -55,7 +55,7 @@ public interface KeyValueParam extends ComparisonOptionParam {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
-	 * @generated
+	 * @generated NOT
 	 */
 	void setNewMap(Map<String, String> newKeyValueMap);
 

@@ -185,7 +185,7 @@
           eType="#//operators/Comparison" eOpposite="#//operators/Comparison/typeOption"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="StringArray" instanceClassName="java.lang.String[]"/>
-    <eClassifiers xsi:type="ecore:EClass" name="KeyValueParam" eSuperTypes="#//parameters/ComparisonOptionParam">
+    <eClassifiers xsi:type="ecore:EClass" name="KeyValueParam" eSuperTypes="#//parameters/ParameterValue">
       <eOperations name="addValue">
         <eParameters name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -196,6 +196,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyValuePair" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"
           transient="true"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LabelLiteralParam" eSuperTypes="#//parameters/TextLiteralParam"/>
   </eSubpackages>
   <eSubpackages name="operators" nsURI="operators" nsPrefix="operators">
     <eClassifiers xsi:type="ecore:EClass" name="BooleanOperator" abstract="true" eSuperTypes="#//operators/Operator">
@@ -1216,10 +1217,10 @@
           upperBound="-1" eType="#//adaptionNeo4J/NeoPathPart" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoSimpleEdge" eSuperTypes="#//adaptionNeo4J/NeoPathPart">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="label" eType="#//parameters/TextLiteralParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="keyvalueparam" eType="#//parameters/KeyValueParam"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="targetNodeType" eType="#//parameters/TextLiteralParam"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="direction" eType="#//parameters/BooleanParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="label" eType="#//parameters/LabelLiteralParam"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetNodeType" eType="#//parameters/LabelLiteralParam"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NeoPathPart" abstract="true" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="getSimpleEdges" upperBound="-1" eType="#//adaptionNeo4J/NeoSimpleEdge"/>

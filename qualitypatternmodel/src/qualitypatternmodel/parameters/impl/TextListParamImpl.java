@@ -90,6 +90,25 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 			return regex;
 		}
 	}
+	
+	@Override 
+	public String generateCypher() throws InvalidityException {
+		if(getValues().isEmpty()) {
+			return super.generateCypher();
+		} 
+		// I do not use an else Statement since either the if is correct and the methods end or the methods goes on
+		//Do to this if or without the else the semantics stays the same --> Compare it to .generateSparql()
+		StringBuilder sbRegex = new StringBuilder();
+		int i = 0;
+		for(String s : getValues()) {
+			if (i > 0) {
+				sbRegex.append("insert the correct cypher syntax");
+			}
+			sbRegex.append(s); 
+			i++;
+		}
+		return sbRegex.toString();
+	}
 
 	@Override
 	public boolean inputIsValid() {

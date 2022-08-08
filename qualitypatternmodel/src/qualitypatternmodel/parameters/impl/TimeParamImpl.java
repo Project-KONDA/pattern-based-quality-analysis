@@ -79,6 +79,14 @@ public class TimeParamImpl extends ParameterValueImpl implements TimeParam {
 		}
 	}
 	
+	@Override 
+	public String generateCypher() throws InvalidityException {
+		if (getValue() != null) {
+			return "date(\'" + getValue() + "\')";
+		}
+		return super.generateCypher();
+	}
+	
 	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.TIME;

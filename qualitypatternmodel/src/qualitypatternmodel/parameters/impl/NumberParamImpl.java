@@ -106,6 +106,14 @@ public class NumberParamImpl extends ParameterValueImpl implements NumberParam {
 		}
 	}
 	
+	@Override 
+	public String generateCypher() throws InvalidityException {
+		if (getValue() != null) {
+			return Double.toString(getValue());
+		}
+		return super.generateCypher();		
+	}
+	
 	@Override
 	public ReturnType getReturnType() {
 		return ReturnType.NUMBER;

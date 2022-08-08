@@ -131,7 +131,10 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	
 	@Override
 	public String generateCypher() throws InvalidityException {
-		
+		if (!getParameterReferences().isEmpty()) {
+			//TODO
+			return "";
+		}
 		
 		throw new InvalidityException("invalid parameter value in [" + getInternalId() + "]");
 	}

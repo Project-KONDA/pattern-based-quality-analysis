@@ -150,6 +150,15 @@ public class TextLiteralParamImpl extends ParameterValueImpl implements TextLite
 		}
 	}
 	
+	@Override 
+	public String generateCypher() throws InvalidityException {
+		if(inputIsValid()) {
+			return "\"" + getValue() + "\"";
+		} else {
+			return super.generateCypher();
+		}
+	}
+		
 	@Override
 	public boolean inputIsValid() {
 		return getValue() != null;
