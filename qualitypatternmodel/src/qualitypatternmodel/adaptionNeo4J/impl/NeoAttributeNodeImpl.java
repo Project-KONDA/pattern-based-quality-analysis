@@ -62,7 +62,7 @@ public class NeoAttributeNodeImpl extends PrimitiveNodeImpl implements NeoAttrib
 	}
 	
 	@Override
-	public PatternElement createNeo4jAdaption() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+	public PatternElement createNeo4jAdaption() throws InvalidityException {
 		return this;
 	}
 	

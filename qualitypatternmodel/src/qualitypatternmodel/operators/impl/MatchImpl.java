@@ -115,6 +115,17 @@ public class MatchImpl extends BooleanOperatorImpl implements Match {
 		}
 	}
 	
+	@Override 
+	public String generateCypher() throws InvalidityException {
+		if(option!=null && regularExpression != null && regularExpression.getValue() != null && primitiveNode != null) {
+			if (option.getValue()) {
+				return primitiveNode.generateCypher() + " =~ " + regularExpression.generateCypher();
+			} 
+			return "NOT (" + primitiveNode.generateCypher() + " =~ " + regularExpression.generateCypher() + ")";
+		}
+		throw new InvalidityException("invalid option");
+	}
+	
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);

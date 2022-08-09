@@ -131,6 +131,17 @@ public class ContainsImpl extends BooleanOperatorImpl implements Contains {
 		}
 	}
 	
+	@Override 
+	public String generateCypher() throws InvalidityException {
+		if(option!=null && content != null && content.getValue() != null && primitiveNode != null) {
+			if (option.getValue()) {
+				return primitiveNode.generateCypher() + " CONTAINS(" +  content.getValue() + ")";
+			} 
+			return "NOT(" + primitiveNode.generateCypher() + " CONTAINS(" +  content.getValue() + "))";		
+		}
+		throw new InvalidityException("invalid option");
+	}
+	
 	@Override
 	public void isValid(AbstractionLevel abstractionLevel) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		super.isValid(abstractionLevel);

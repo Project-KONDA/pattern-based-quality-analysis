@@ -260,6 +260,8 @@
       <eLiterals name="GREATEROREQUAL" value="3" literal=">="/>
       <eLiterals name="LESSOREQUAL" value="4" literal="&lt;="/>
       <eLiterals name="NOTEQUAL" value="5" literal="!="/>
+      <eLiterals name="ISNULL" value="6" literal="IS NULL"/>
+      <eLiterals name="ISNOTNULL" value="7" literal="IS NOT NULL"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OperatorList" eSuperTypes="#//patternstructure/PatternElement">
       <eOperations name="add">

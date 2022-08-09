@@ -275,6 +275,42 @@ public class ComparisonImpl extends BooleanOperatorImpl implements Comparison {
 		}
 	}
 
+	
+	@Override 
+	public String generateCypher() throws InvalidityException {
+		//TODO
+		
+		String result = null;
+		String argument1Translation = getArgument1().generateCypher();
+		String argument2Translation = getArgument2().generateCypher(); 
+		
+		
+		switch(option.getValue()) {
+		case EQUAL:
+			result = "";
+			break;
+		case NOTEQUAL:
+			result = "";
+			break;
+		case GREATER:
+			result = "";
+			break;
+		case LESS:
+			result = "";
+			break;
+		case GREATEROREQUAL:
+			result = "";
+			break;
+		case LESSOREQUAL:
+			result = "";
+			break;
+		default:
+			throw new InvalidityException();
+		}
+		
+		return result; 
+	}
+	
 	/**
 	 * <!-- begin-user-doc --> 
 	 * Validation of <code>this</code>. 

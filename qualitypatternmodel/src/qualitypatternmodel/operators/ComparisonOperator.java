@@ -158,7 +158,7 @@ public enum ComparisonOperator implements Enumerator {
 			LESS,
 			GREATEROREQUAL,
 			LESSOREQUAL,
-			NOTEQUAL,
+			NOTEQUAL,			
 		};
 
 	/**
