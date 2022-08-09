@@ -24,7 +24,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoUnion;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NeoUnionItemProvider extends NeoPathItemProvider {
+public class NeoUnionItemProvider extends NeoPathPartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

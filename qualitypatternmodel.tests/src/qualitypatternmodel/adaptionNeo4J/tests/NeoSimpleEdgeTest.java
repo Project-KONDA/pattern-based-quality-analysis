@@ -13,7 +13,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NeoSimpleEdgeTest extends NeoPathTest {
+public class NeoSimpleEdgeTest extends NeoPathPartTest {
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -30,7 +30,7 @@ import qualitypatternmodel.parameters.ParametersPackage;
  *
  * @generated
  */
-public class KeyValueParamImpl extends ComparisonOptionParamImpl implements KeyValueParam {
+public class KeyValueParamImpl extends ParameterValueImpl implements KeyValueParam {
 	/**
 	 * The cached value of the '{@link #getKeyValuePair() <em>Key Value Pair</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -204,6 +204,18 @@ public class KeyValueParamImpl extends ComparisonOptionParamImpl implements KeyV
 		result.append(keyValuePair);
 		result.append(')');
 		return result.toString();
+	}
+
+	@Override
+	public String generateDescription() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String myToString() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 } //KeyValueParamImpl

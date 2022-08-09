@@ -132,7 +132,7 @@ public abstract class ParameterImpl extends PatternElementImpl implements Parame
 	@Override
 	public String generateCypher() throws InvalidityException {
 		if (!getParameterReferences().isEmpty()) {
-			//TODO
+			//TODO -- If the Webinterfaces has to be implemented.
 			return "";
 		}
 		

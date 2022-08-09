@@ -347,6 +347,29 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.parameters.LabelLiteralParam} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LabelLiteralParamItemProvider labelLiteralParamItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.parameters.LabelLiteralParam}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLabelLiteralParamAdapter() {
+		if (labelLiteralParamItemProvider == null) {
+			labelLiteralParamItemProvider = new LabelLiteralParamItemProvider(this);
+		}
+
+		return labelLiteralParamItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -463,6 +486,7 @@ public class ParametersItemProviderAdapterFactory extends ParametersAdapterFacto
 		if (dateTimeParamItemProvider != null) dateTimeParamItemProvider.dispose();
 		if (typeOptionParamItemProvider != null) typeOptionParamItemProvider.dispose();
 		if (keyValueParamItemProvider != null) keyValueParamItemProvider.dispose();
+		if (labelLiteralParamItemProvider != null) labelLiteralParamItemProvider.dispose();
 	}
 
 }

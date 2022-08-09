@@ -38,7 +38,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AdaptionNeo4JPackage.Literals.NEO_PATH;
+		return AdaptionNeo4JPackage.Literals.NEO_PATH_PART;
 	}
 
 	/**
@@ -61,7 +61,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionNeo4JPackage.NEO_PATH___GET_SIMPLE_EDGES:
+			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_SIMPLE_EDGES:
 				return getSimpleEdges();
 		}
 		return super.eInvoke(operationID, arguments);

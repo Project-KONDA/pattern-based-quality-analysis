@@ -13,7 +13,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoUnion;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NeoUnionTest extends NeoPathTest {
+public class NeoUnionTest extends NeoPathPartTest {
 
 	/**
 	 * <!-- begin-user-doc -->

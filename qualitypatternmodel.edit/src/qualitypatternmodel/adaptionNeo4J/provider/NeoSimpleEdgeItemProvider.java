@@ -21,7 +21,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NeoSimpleEdgeItemProvider extends NeoPathItemProvider {
+public class NeoSimpleEdgeItemProvider extends NeoPathPartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -43,10 +43,10 @@ public class NeoSimpleEdgeItemProvider extends NeoPathItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLabelPropertyDescriptor(object);
 			addKeyvalueparamPropertyDescriptor(object);
-			addTargetNodeTypePropertyDescriptor(object);
 			addDirectionPropertyDescriptor(object);
+			addLabelPropertyDescriptor(object);
+			addTargetNodeTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

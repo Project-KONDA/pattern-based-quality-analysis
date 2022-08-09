@@ -20,7 +20,7 @@ import qualitypatternmodel.parameters.ParametersFactory;
  * </p>
  * @generated
  */
-public class KeyValueParamTest extends ComparisonOptionParamTest {
+public class KeyValueParamTest extends ParameterValueTest {
 
 	/**
 	 * <!-- begin-user-doc -->

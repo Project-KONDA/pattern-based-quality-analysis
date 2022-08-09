@@ -188,9 +188,21 @@ public class ParametersSwitch<T> extends Switch<T> {
 			case ParametersPackage.KEY_VALUE_PARAM: {
 				KeyValueParam keyValueParam = (KeyValueParam)theEObject;
 				T result = caseKeyValueParam(keyValueParam);
-				if (result == null) result = caseComparisonOptionParam(keyValueParam);
+				if (result == null) result = caseParameterValue(keyValueParam);
 				if (result == null) result = caseParameter(keyValueParam);
+				if (result == null) result = caseComparable(keyValueParam);
 				if (result == null) result = casePatternElement(keyValueParam);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ParametersPackage.LABEL_LITERAL_PARAM: {
+				LabelLiteralParam labelLiteralParam = (LabelLiteralParam)theEObject;
+				T result = caseLabelLiteralParam(labelLiteralParam);
+				if (result == null) result = caseTextLiteralParam(labelLiteralParam);
+				if (result == null) result = caseParameterValue(labelLiteralParam);
+				if (result == null) result = caseParameter(labelLiteralParam);
+				if (result == null) result = caseComparable(labelLiteralParam);
+				if (result == null) result = casePatternElement(labelLiteralParam);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -405,6 +417,21 @@ public class ParametersSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseKeyValueParam(KeyValueParam object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Label Literal Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Label Literal Param</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLabelLiteralParam(LabelLiteralParam object) {
 		return null;
 	}
 

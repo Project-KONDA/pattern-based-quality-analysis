@@ -4,7 +4,7 @@ package qualitypatternmodel.adaptionNeo4J;
 
 import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.KeyValueParam;
-import qualitypatternmodel.parameters.TextLiteralParam;
+import qualitypatternmodel.parameters.LabelLiteralParam;
 
 
 /**
@@ -16,10 +16,10 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getLabel <em>Label</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getKeyvalueparam <em>Keyvalueparam</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getTargetNodeType <em>Target Node Type</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getDirection <em>Direction</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getLabel <em>Label</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getTargetNodeType <em>Target Node Type</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoSimpleEdge()
@@ -32,12 +32,12 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Label</em>' reference.
-	 * @see #setLabel(TextLiteralParam)
+	 * @see #setLabel(LabelLiteralParam)
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoSimpleEdge_Label()
 	 * @model
 	 * @generated
 	 */
-	TextLiteralParam getLabel();
+	LabelLiteralParam getLabel();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getLabel <em>Label</em>}' reference.
@@ -47,7 +47,7 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * @see #getLabel()
 	 * @generated
 	 */
-	void setLabel(TextLiteralParam value);
+	void setLabel(LabelLiteralParam value);
 
 	/**
 	 * Returns the value of the '<em><b>Keyvalueparam</b></em>' reference.
@@ -76,12 +76,12 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target Node Type</em>' reference.
-	 * @see #setTargetNodeType(TextLiteralParam)
+	 * @see #setTargetNodeType(LabelLiteralParam)
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoSimpleEdge_TargetNodeType()
 	 * @model
 	 * @generated
 	 */
-	TextLiteralParam getTargetNodeType();
+	LabelLiteralParam getTargetNodeType();
 
 	/**
 	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getTargetNodeType <em>Target Node Type</em>}' reference.
@@ -91,7 +91,7 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	 * @see #getTargetNodeType()
 	 * @generated
 	 */
-	void setTargetNodeType(TextLiteralParam value);
+	void setTargetNodeType(LabelLiteralParam value);
 
 	/**
 	 * Returns the value of the '<em><b>Direction</b></em>' reference.

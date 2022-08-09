@@ -20,7 +20,7 @@ import java.util.Map;
  * @model
  * @generated
  */
-public interface KeyValueParam extends ComparisonOptionParam {
+public interface KeyValueParam extends ParameterValue {
 	/**
 	 * Returns the value of the '<em><b>Key Value Pair</b></em>' attribute.
 	 * <!-- begin-user-doc -->

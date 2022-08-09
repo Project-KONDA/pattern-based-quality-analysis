@@ -24,7 +24,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NeoComplexEdgeItemProvider extends NeoPathItemProvider {
+public class NeoComplexEdgeItemProvider extends NeoPathPartItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

@@ -140,6 +140,8 @@ public class ParametersValidator extends EObjectValidator {
 				return validateTypeOptionParam((TypeOptionParam)value, diagnostics, context);
 			case ParametersPackage.KEY_VALUE_PARAM:
 				return validateKeyValueParam((KeyValueParam)value, diagnostics, context);
+			case ParametersPackage.LABEL_LITERAL_PARAM:
+				return validateLabelLiteralParam((LabelLiteralParam)value, diagnostics, context);
 			case ParametersPackage.STRING_TO_INT_EMAP:
 				return validateStringToIntEMap((EMap<?, ?>)value, diagnostics, context);
 			case ParametersPackage.STRING_ARRAY:
@@ -422,6 +424,25 @@ public class ParametersValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(keyValueParam, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(keyValueParam, diagnostics, context);
 		if (result || diagnostics != null) result &= validateParameter_validate(keyValueParam, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateLabelLiteralParam(LabelLiteralParam labelLiteralParam, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(labelLiteralParam, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(labelLiteralParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(labelLiteralParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(labelLiteralParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(labelLiteralParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(labelLiteralParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(labelLiteralParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(labelLiteralParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(labelLiteralParam, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParameter_validate(labelLiteralParam, diagnostics, context);
 		return result;
 	}
 

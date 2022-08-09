@@ -100,13 +100,15 @@ public class TextListParamImpl extends ParameterValueImpl implements TextListPar
 		//Do to this if or without the else the semantics stays the same --> Compare it to .generateSparql()
 		StringBuilder sbRegex = new StringBuilder();
 		int i = 0;
+		sbRegex.append("[");
 		for(String s : getValues()) {
 			if (i > 0) {
-				sbRegex.append("insert the correct cypher syntax");
+				sbRegex.append(",");
 			}
 			sbRegex.append(s); 
 			i++;
 		}
+		sbRegex.append("]");
 		return sbRegex.toString();
 	}
 

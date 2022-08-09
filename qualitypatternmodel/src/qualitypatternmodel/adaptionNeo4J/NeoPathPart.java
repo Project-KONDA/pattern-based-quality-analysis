@@ -11,7 +11,7 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * <!-- end-user-doc -->
  *
  *
- * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPath()
+ * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathPart()
  * @model abstract="true"
  * @generated
  */

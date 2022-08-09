@@ -31,6 +31,7 @@ import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.KeyValueParam;
+import qualitypatternmodel.parameters.LabelLiteralParam;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -153,6 +154,13 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	private EClass keyValueParamEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass labelLiteralParamEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1079,6 +1087,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
+	public EClass getLabelLiteralParam() {
+		return labelLiteralParamEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getStringToIntEMap() {
 		return stringToIntEMapEDataType;
 	}
@@ -1216,6 +1234,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(keyValueParamEClass, KEY_VALUE_PARAM___ADD_VALUE__STRING_STRING);
 		createEOperation(keyValueParamEClass, KEY_VALUE_PARAM___SET_NEW_MAP__MAP);
 
+		labelLiteralParamEClass = createEClass(LABEL_LITERAL_PARAM);
+
 		// Create data types
 		stringToIntEMapEDataType = createEDataType(STRING_TO_INT_EMAP);
 		stringArrayEDataType = createEDataType(STRING_ARRAY);
@@ -1272,7 +1292,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		untypedParameterValueEClass.getESuperTypes().add(this.getParameterValue());
 		dateTimeParamEClass.getESuperTypes().add(this.getParameterValue());
 		typeOptionParamEClass.getESuperTypes().add(this.getParameter());
-		keyValueParamEClass.getESuperTypes().add(this.getComparisonOptionParam());
+		keyValueParamEClass.getESuperTypes().add(this.getParameterValue());
+		labelLiteralParamEClass.getESuperTypes().add(this.getTextLiteralParam());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(parameterEClass, Parameter.class, "Parameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1467,6 +1488,8 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		op = initEOperation(getKeyValueParam__SetNewMap__Map(), null, "setNewMap", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEMap(), "newKeyValueMap", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(labelLiteralParamEClass, LabelLiteralParam.class, "LabelLiteralParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize data types
 		initEDataType(stringToIntEMapEDataType, EMap.class, "StringToIntEMap", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
