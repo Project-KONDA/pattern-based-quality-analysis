@@ -389,24 +389,44 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		EList<Node> nodes = graph.getReturnNodes();
 		EList<Relation> edges = graph.getRelations();
 		
-		StringBuilder query = new StringBuilder();
+		StringBuilder cypherQuery = new StringBuilder();
+		StringBuilder graphPatternMatch = new StringBuilder();
+		StringBuilder graphPatternReturn = new StringBuilder();
 
-		query.append("\nMATCH");
-		StringBuilder graphPattern = new StringBuilder();
+		//Building the MATHC
+		cypherQuery.append("\nMATCH ");
 		for (Node n : nodes) {
 			
 			
-			if (graphPattern.length() > 0) graphPattern.append("-[]-");
-			graphPattern.append(n.generateCypher());
-			edges.get(1).getTarget();
+			if (graphPatternMatch.length() > 0) graphPatternMatch.append("-[]-");
+			graphPatternMatch.append("(" + n.generateCypher() + ")");
+			if (edges.size() != 0 && edges.get(1) != null) {
+				graphPatternMatch.append("-[" + edges.get(1).getTarget() + "]-");
+			}
 		}
-		query.append("\nWHERE ");
-		query.append(super.generateCypher()); //.replace("\n", "\n  ")
-		query.append("\n");
-		query.append(graphPattern + "\n");
+		cypherQuery.append(graphPatternMatch);		
 		
+		//BUILDING THE WHERE
+		//This just shall be introduct if there is a condition
+		if (false) {
+			cypherQuery.append("\nWHERE ");
+			cypherQuery.append("Some Condition");
+			cypherQuery.append(super.generateCypher()); //.replace("\n", "\n  ")
+		}
 		
-		return query.toString();
+		//BUILDING THE RETURN
+		for (Node n : nodes) {
+			if (graphPatternReturn.length() > 0) graphPatternReturn.append("-[]-");
+			graphPatternReturn.append("(" + n.generateCypher() + ")");
+			if (edges.size() != 0 && edges.get(1) != null) {
+				graphPatternReturn.append("-[" + edges.get(1).getTarget() + "]-");
+			}
+		}
+		cypherQuery.append("\nRETURN " + graphPatternReturn);
+		
+		return cypherQuery.toString();
+		//BUILDING THE WITH ???
+		//BUILDING THE UNION ??? 
 	}
 	
 	

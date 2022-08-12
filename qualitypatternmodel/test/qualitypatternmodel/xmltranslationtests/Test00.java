@@ -51,7 +51,7 @@ public class Test00 {
 			try {
 				completePattern.isValid(AbstractionLevel.CONCRETE);
 //				System.out.println("\n\n___PATTERN_(VALID)___");
-				System.out.println(completePattern.generateCypher());
+				System.out.println(completePattern.generateXQuery());
 			} catch (Exception e) {
 				System.out.println("\n\n___PATTERN_(InVALID)___");
 				e.printStackTrace();
@@ -70,7 +70,7 @@ public class Test00 {
 	}
 
 	public static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();;
+		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.createXmlAdaption();
 		return completePattern;
 	}

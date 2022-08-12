@@ -51,9 +51,9 @@ public class RdfTest00 {
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
 		completePatterns.add(getBasePatternFinal());
-		//completePatterns.add(getBasePatternCondConcrete("2022-12-31"));
-		//completePatterns.add(getBasePatternMatchConcrete("^2022"));
-		//completePatterns.add(getBasePatternMatchNotConcrete("^2022"));
+		completePatterns.add(getBasePatternCondConcrete("2022-12-31"));
+		completePatterns.add(getBasePatternMatchConcrete("^2022"));
+		completePatterns.add(getBasePatternMatchNotConcrete("^2022"));
 		RdfTest00.test(completePatterns);
 	}
 
@@ -76,18 +76,6 @@ public class RdfTest00 {
 		
 		return completePattern;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	public static CompletePattern getBasePatternCond(String comp) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		CompletePattern completePattern = getBasePattern();
