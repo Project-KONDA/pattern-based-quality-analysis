@@ -18,12 +18,55 @@ public class EvalMandStruc {
 
 	public static void main(String[] args) throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		ArrayList<CompletePattern> completePatterns = new ArrayList<CompletePattern>();
-		
+
+		completePatterns.add(getMandstrucGeneric());
+		completePatterns.add(getMandstruc3Generic());
 		completePatterns.add(getMandstruc3CondGeneric());
 		
 		for (CompletePattern cp: completePatterns)
 			Test00.printGenericPatternExampleXQuery(cp);
 //			System.out.println(cp.myToString());
+	}
+	
+	public static CompletePattern getMandstrucGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = factory.createCompletePattern();
+		
+		Graph g0 = completePattern.getGraph();
+		g0.getReturnNodes().get(0).makeComplex();
+		
+		NotCondition not = factory.createNotCondition();
+		completePattern.setCondition(not);
+		QuantifiedCondition qc = factory.createQuantifiedCondition();
+		not.setCondition(qc);
+		Graph g1 = qc.getGraph();
+		
+		Node return1 = g1.getReturnNodes().get(0).makeComplex();
+		return1.addOutgoing().getTarget().makeComplex();
+		return completePattern;
+	}
+	
+	public static CompletePattern getMandstruc3Generic() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
+		PatternstructurePackage.eINSTANCE.eClass();
+		PatternstructureFactory factory = PatternstructureFactory.eINSTANCE;
+		
+		CompletePattern completePattern = factory.createCompletePattern();
+		
+		Graph g0 = completePattern.getGraph();
+		g0.getReturnNodes().get(0).makeComplex();
+		
+		NotCondition not = factory.createNotCondition();
+		completePattern.setCondition(not);
+		QuantifiedCondition qc = factory.createQuantifiedCondition();
+		not.setCondition(qc);
+		Graph g1 = qc.getGraph();
+		
+		Node return1 = g1.getReturnNodes().get(0).makeComplex();
+		Node node1 = return1.addOutgoing().getTarget().makeComplex();
+		node1.addOutgoing().getTarget().makeComplex();
+		return completePattern;
 	}
 	
 	public static CompletePattern getMandstruc3CondGeneric() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
