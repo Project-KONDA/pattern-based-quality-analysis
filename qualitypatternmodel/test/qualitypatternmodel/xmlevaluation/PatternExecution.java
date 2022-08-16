@@ -30,8 +30,8 @@ public class PatternExecution {
 		
 		execute(XmlEvalMatch.getMatchMidasOb30Child(), databaseNameMidas); // 4.1.1 Wrong Datatype
 		execute(XmlEvalCompset.getCompsetMIDAS3140(), databaseNameMidas); // 4.1.2 Domain Violation
-		execute(XmlEvalMandAtt.getMandattMidas(), databaseNameMidas); // 4.2.1 Missing Values
 		execute(XmlEvalMandStruc.getMandstruc3Midas(), databaseNameMidas); // 4.2.2 Missing References
+		execute(XmlEvalMandAtt.getMandattMidasHida(), databaseNameMidas); // 4.2.1 Missing Values
 		// 4.2.3 Missing Records (not covered)
 		execute(XmlEvalCompset.getCompsetMidas3270(), databaseNameMidas); // 4.2.4 Dummy Values
 		execute(XmlEvalRefInt.getRefintMidasWer(), databaseNameMidas); // 4.3 Referential Integrity Violation
@@ -62,7 +62,7 @@ public class PatternExecution {
 		
 		execute(XmlEvalMatch.getMatchLidoMeasurementValue(), databaseNameLido); // 4.1.1 Wrong Datatype
 		execute(XmlEvalCompset.getCompsetLidoGenderActor(), databaseNameLido); // 4.1.2 Domain Violation
-		execute(XmlEvalMandAtt.getMandattThreeElementsLido(), databaseNameLido); // 4.2.1 Missing Values
+		execute(XmlEvalMandAtt.getMandatt3Lido(), databaseNameLido); // 4.2.1 Missing Values
 		execute(XmlEvalExNEx.getExNExLidoRoleActor(), databaseNameLido); // 4.2.2 Missing References
 		// 4.2.3 Missing Records (not covered)
 		execute(XmlEvalCompset.getCompsetLidoAppellationValue(), databaseNameLido); // 4.2.4 Dummy Values
