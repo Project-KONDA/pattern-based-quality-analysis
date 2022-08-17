@@ -26,7 +26,7 @@ public class XmlEvalMandStruc {
 		completePatterns.add(getMandstruc3MidasHida());
 		
 		Test00.getQueries(completePatterns);
-//		Test00.test(completePatterns);		
+//		Test00.test(completePatterns);
 	}
 	
 	public static CompletePattern getMandstrucAbstract() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
@@ -48,9 +48,12 @@ public class XmlEvalMandStruc {
 		XmlPathParam p0 = ((XmlPathParam) params.get(0));
 		XmlPathParam p1 = ((XmlPathParam) params.get(1));
 		
+//		p0.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, "obj");
+//		p1.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, "aob30");
+//		p1.addXmlAxis(XmlAxisKind.CHILD, "a3100");
 		p0.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, "obj");
-		p1.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, "ob30");
-		p1.addXmlAxis(XmlAxisKind.CHILD, "a3100");
+		p0.addXmlAxis(XmlAxisKind.CHILD, "aob30");
+		p1.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, "a3100");
 
 		return completePattern;
 	}
@@ -70,7 +73,7 @@ public class XmlEvalMandStruc {
 		XmlPathParam p2 = ((XmlPathParam) params.get(2));
 		
 		p0.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD, XmlAxisKind.CHILD, XmlAxisKind.CHILD}, "obj");
-		p1.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, "ob30");
+		p1.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, "aob30");
 		p2.setXmlAxis(new XmlAxisKind[] {XmlAxisKind.CHILD}, "a3100");
 
 		return completePattern;

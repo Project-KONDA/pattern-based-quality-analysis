@@ -55,17 +55,21 @@ public class EvalMandStruc {
 		CompletePattern completePattern = factory.createCompletePattern();
 		
 		Graph g0 = completePattern.getGraph();
-		g0.getReturnNodes().get(0).makeComplex();
+		Node n0 = g0.getReturnNodes().get(0).makeComplex();
+
+		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
+		completePattern.setCondition(qc1);
+		
+		Node n0g1 = n0.getOutgoingMappings().get(0).getTarget();
+		Node n1g1 = n0g1.addOutgoing().getTarget().makeComplex();
 		
 		NotCondition not = factory.createNotCondition();
-		completePattern.setCondition(not);
-		QuantifiedCondition qc = factory.createQuantifiedCondition();
-		not.setCondition(qc);
-		Graph g1 = qc.getGraph();
+		qc1.setCondition(not);
+		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
+		not.setCondition(qc2);
 		
-		Node return1 = g1.getReturnNodes().get(0).makeComplex();
-		Node node1 = return1.addOutgoing().getTarget().makeComplex();
-		node1.addOutgoing().getTarget().makeComplex();
+		Node n1g2 = n1g1.getOutgoingMappings().get(0).getTarget(); 
+		n1g2.addOutgoing().getTarget().makeComplex();
 		return completePattern;
 	}
 	
@@ -76,20 +80,24 @@ public class EvalMandStruc {
 		CompletePattern completePattern = factory.createCompletePattern();
 		
 		Graph g0 = completePattern.getGraph();
-		Node return0 = g0.getReturnNodes().get(0).makeComplex();
-		return0.addOutgoing().getTarget().addPrimitiveComparison();
+		Node n0 = g0.getReturnNodes().get(0).makeComplex();
+		n0.addOutgoing().getTarget().addPrimitiveComparison();
+
+		QuantifiedCondition qc1 = factory.createQuantifiedCondition();
+		completePattern.setCondition(qc1);
+		
+		Node n0g1 = n0.getOutgoingMappings().get(0).getTarget();
+		Node n1g1 = n0g1.addOutgoing().getTarget().makeComplex();
+		n1g1.addOutgoing().getTarget().addPrimitiveComparison();
 		
 		NotCondition not = factory.createNotCondition();
-		completePattern.setCondition(not);
-		QuantifiedCondition qc = factory.createQuantifiedCondition();
-		not.setCondition(qc);
-		Graph g1 = qc.getGraph();
+		qc1.setCondition(not);
+		QuantifiedCondition qc2 = factory.createQuantifiedCondition();
+		not.setCondition(qc2);
 		
-		Node return1 = g1.getReturnNodes().get(0).makeComplex();
-		Node node1 = return1.addOutgoing().getTarget().makeComplex();
-		node1.addOutgoing().getTarget().addPrimitiveComparison();
-		Node node2 = node1.addOutgoing().getTarget().makeComplex();
-		node2.addOutgoing().getTarget().addPrimitiveComparison();
+		Node n1g2 = n1g1.getOutgoingMappings().get(0).getTarget(); 
+		Node n2g2 = n1g2.addOutgoing().getTarget().makeComplex();
+		n2g2.addOutgoing().getTarget().addPrimitiveComparison();
 		return completePattern;
 	}
 }
