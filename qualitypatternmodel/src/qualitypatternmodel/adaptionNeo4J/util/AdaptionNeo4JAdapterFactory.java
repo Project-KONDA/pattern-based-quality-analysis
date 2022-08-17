@@ -19,6 +19,7 @@ import qualitypatternmodel.graphstructure.Relation;
 
 import qualitypatternmodel.parameters.Parameter;
 
+import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -114,6 +115,10 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 				return createNeo4JPathParamAdapter();
 			}
 			@Override
+			public Adapter caseNeoLabel(NeoLabel object) {
+				return createNeoLabelAdapter();
+			}
+			@Override
 			public Adapter casePatternElement(PatternElement object) {
 				return createPatternElementAdapter();
 			}
@@ -144,6 +149,10 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseParameter(Parameter object) {
 				return createParameterAdapter();
+			}
+			@Override
+			public Adapter caseParameterValue(ParameterValue object) {
+				return createParameterValueAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -292,6 +301,20 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoLabel <em>Neo Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoLabel
+	 * @generated
+	 */
+	public Adapter createNeoLabelAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.patternstructure.PatternElement <em>Pattern Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -386,6 +409,20 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.ParameterValue <em>Parameter Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.parameters.ParameterValue
+	 * @generated
+	 */
+	public Adapter createParameterValueAdapter() {
 		return null;
 	}
 

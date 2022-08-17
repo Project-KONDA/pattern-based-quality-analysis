@@ -2,6 +2,7 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
@@ -82,13 +83,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int ABSTRACT_NEO_NODE_FEATURE_COUNT = 0;
 
 	/**
+	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_NEO_NODE___GET_CYPHER_VARIABLE = 0;
+
+	/**
 	 * The number of operations of the '<em>Abstract Neo Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_NEO_NODE_OPERATION_COUNT = 0;
+	int ABSTRACT_NEO_NODE_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl <em>Neo Node</em>}' class.
@@ -245,13 +255,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_NODE__NODE_LABELS = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Neo Neo Labels</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE__NEO_NEO_LABELS = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Neo Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 1;
+	int NEO_NODE_FEATURE_COUNT = GraphstructurePackage.COMPLEX_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -830,13 +849,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE = GraphstructurePackage.COMPLEX_NODE___ADAPT_AS_NEO_ATTRIBUTE_NODE;
 
 	/**
+	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_NODE___GET_CYPHER_VARIABLE = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Neo Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_NODE_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 0;
+	int NEO_NODE_OPERATION_COUNT = GraphstructurePackage.COMPLEX_NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoEdgeImpl <em>Neo Edge</em>}' class.
@@ -1534,13 +1562,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_PART___GET_SIMPLE_EDGES = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PART___GET_CYPHER_VARIABLE = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Neo Path Part</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PART_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 1;
+	int NEO_PATH_PART_OPERATION_COUNT = PatternstructurePackage.PATTERN_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl <em>Neo Complex Edge</em>}' class.
@@ -1805,6 +1842,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_COMPLEX_EDGE___GET_SIMPLE_EDGES = NEO_PATH_PART___GET_SIMPLE_EDGES;
 
 	/**
+	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_COMPLEX_EDGE___GET_CYPHER_VARIABLE = NEO_PATH_PART___GET_CYPHER_VARIABLE;
+
+	/**
 	 * The number of operations of the '<em>Neo Complex Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1851,31 +1897,31 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE__KEYVALUEPARAM = NEO_PATH_PART_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Direction</b></em>' reference.
+	 * The feature id for the '<em><b>Neo Edge Label</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE__DIRECTION = NEO_PATH_PART_FEATURE_COUNT + 1;
+	int NEO_SIMPLE_EDGE__NEO_EDGE_LABEL = NEO_PATH_PART_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' reference.
+	 * The feature id for the '<em><b>Neo Direction</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE__LABEL = NEO_PATH_PART_FEATURE_COUNT + 2;
+	int NEO_SIMPLE_EDGE__NEO_DIRECTION = NEO_PATH_PART_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Target Node Type</b></em>' reference.
+	 * The feature id for the '<em><b>Edge Number</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE__TARGET_NODE_TYPE = NEO_PATH_PART_FEATURE_COUNT + 3;
+	int NEO_SIMPLE_EDGE__EDGE_NUMBER = NEO_PATH_PART_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Neo Simple Edge</em>' class.
@@ -2103,13 +2149,31 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___GET_SIMPLE_EDGES = NEO_PATH_PART___GET_SIMPLE_EDGES;
 
 	/**
+	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___GET_CYPHER_VARIABLE = NEO_PATH_PART___GET_CYPHER_VARIABLE;
+
+	/**
+	 * The operation id for the '<em>Set Neo Direction</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION = NEO_PATH_PART_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Neo Simple Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE_OPERATION_COUNT = NEO_PATH_PART_OPERATION_COUNT + 0;
+	int NEO_SIMPLE_EDGE_OPERATION_COUNT = NEO_PATH_PART_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoUnionImpl <em>Neo Union</em>}' class.
@@ -2374,6 +2438,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_UNION___GET_SIMPLE_EDGES = NEO_PATH_PART___GET_SIMPLE_EDGES;
 
 	/**
+	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_UNION___GET_CYPHER_VARIABLE = NEO_PATH_PART___GET_CYPHER_VARIABLE;
+
+	/**
 	 * The number of operations of the '<em>Neo Union</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2537,22 +2610,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ATTRIBUTE_NODE__CONTAINS = GraphstructurePackage.PRIMITIVE_NODE__CONTAINS;
 
 	/**
-	 * The feature id for the '<em><b>Neo Node Labels</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEO_ATTRIBUTE_NODE__NEO_NODE_LABELS = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Neo Attribute Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ATTRIBUTE_NODE_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 1;
+	int NEO_ATTRIBUTE_NODE_FEATURE_COUNT = GraphstructurePackage.PRIMITIVE_NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Valid</em>' operation.
@@ -3140,13 +3204,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ATTRIBUTE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE = GraphstructurePackage.PRIMITIVE_NODE___CHECK_COMPARISON_CONSISTENCY__PARAMETERVALUE;
 
 	/**
+	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ATTRIBUTE_NODE___GET_CYPHER_VARIABLE = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Neo Attribute Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_ATTRIBUTE_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 0;
+	int NEO_ATTRIBUTE_NODE_OPERATION_COUNT = GraphstructurePackage.PRIMITIVE_NODE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.Neo4JPathParamImpl <em>Neo4 JPath Param</em>}' class.
@@ -3555,6 +3628,547 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO4_JPATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoLabelImpl <em>Neo Label</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.impl.NeoLabelImpl
+	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoLabel()
+	 * @generated
+	 */
+	int NEO_LABEL = 9;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL__ID = ParametersPackage.PARAMETER_VALUE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Internal Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL__INTERNAL_ID = ParametersPackage.PARAMETER_VALUE__INTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Parameter List</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL__PARAMETER_LIST = ParametersPackage.PARAMETER_VALUE__PARAMETER_LIST;
+
+	/**
+	 * The feature id for the '<em><b>Predefined</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL__PREDEFINED = ParametersPackage.PARAMETER_VALUE__PREDEFINED;
+
+	/**
+	 * The feature id for the '<em><b>Parameter References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL__PARAMETER_REFERENCES = ParametersPackage.PARAMETER_VALUE__PARAMETER_REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL__DESCRIPTION = ParametersPackage.PARAMETER_VALUE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Comparison1</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL__COMPARISON1 = ParametersPackage.PARAMETER_VALUE__COMPARISON1;
+
+	/**
+	 * The feature id for the '<em><b>Comparison2</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL__COMPARISON2 = ParametersPackage.PARAMETER_VALUE__COMPARISON2;
+
+	/**
+	 * The feature id for the '<em><b>Type Modifiable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL__TYPE_MODIFIABLE = ParametersPackage.PARAMETER_VALUE__TYPE_MODIFIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Neo Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL__NEO_LABEL = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Neo Label</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL_FEATURE_COUNT = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___IS_VALID__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER_VALUE___IS_VALID__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>Is Valid Local</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___IS_VALID_LOCAL__ABSTRACTIONLEVEL = ParametersPackage.PARAMETER_VALUE___IS_VALID_LOCAL__ABSTRACTIONLEVEL;
+
+	/**
+	 * The operation id for the '<em>My To String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___MY_TO_STRING = ParametersPackage.PARAMETER_VALUE___MY_TO_STRING;
+
+	/**
+	 * The operation id for the '<em>Generate Cypher</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GENERATE_CYPHER = ParametersPackage.PARAMETER_VALUE___GENERATE_CYPHER;
+
+	/**
+	 * The operation id for the '<em>Generate XQuery</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GENERATE_XQUERY = ParametersPackage.PARAMETER_VALUE___GENERATE_XQUERY;
+
+	/**
+	 * The operation id for the '<em>Generate Sparql</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GENERATE_SPARQL = ParametersPackage.PARAMETER_VALUE___GENERATE_SPARQL;
+
+	/**
+	 * The operation id for the '<em>Get Container</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GET_CONTAINER = ParametersPackage.PARAMETER_VALUE___GET_CONTAINER;
+
+	/**
+	 * The operation id for the '<em>Get Ancestor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GET_ANCESTOR__CLASS = ParametersPackage.PARAMETER_VALUE___GET_ANCESTOR__CLASS;
+
+	/**
+	 * The operation id for the '<em>Initialize Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___INITIALIZE_TRANSLATION = ParametersPackage.PARAMETER_VALUE___INITIALIZE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Prepare Translation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___PREPARE_TRANSLATION = ParametersPackage.PARAMETER_VALUE___PREPARE_TRANSLATION;
+
+	/**
+	 * The operation id for the '<em>Get Operator List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GET_OPERATOR_LIST = ParametersPackage.PARAMETER_VALUE___GET_OPERATOR_LIST;
+
+	/**
+	 * The operation id for the '<em>Get Parameter List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GET_PARAMETER_LIST = ParametersPackage.PARAMETER_VALUE___GET_PARAMETER_LIST;
+
+	/**
+	 * The operation id for the '<em>Get All Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GET_ALL_PARAMETERS = ParametersPackage.PARAMETER_VALUE___GET_ALL_PARAMETERS;
+
+	/**
+	 * The operation id for the '<em>Prepare Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___PREPARE_PARAMETER_UPDATES = ParametersPackage.PARAMETER_VALUE___PREPARE_PARAMETER_UPDATES;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST = ParametersPackage.PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT_ELIST;
+
+	/**
+	 * The operation id for the '<em>Update Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___UPDATE_PARAMETERS__PARAMETERLIST = ParametersPackage.PARAMETER_VALUE___UPDATE_PARAMETERS__PARAMETERLIST;
+
+	/**
+	 * The operation id for the '<em>Trigger Parameter Updates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT = ParametersPackage.PARAMETER_VALUE___TRIGGER_PARAMETER_UPDATES__PATTERNELEMENT;
+
+	/**
+	 * The operation id for the '<em>Record Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___RECORD_VALUES__XMLDATADATABASE = ParametersPackage.PARAMETER_VALUE___RECORD_VALUES__XMLDATADATABASE;
+
+	/**
+	 * The operation id for the '<em>Relations Xml Adapted</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___RELATIONS_XML_ADAPTED = ParametersPackage.PARAMETER_VALUE___RELATIONS_XML_ADAPTED;
+
+	/**
+	 * The operation id for the '<em>Create Xml Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___CREATE_XML_ADAPTION = ParametersPackage.PARAMETER_VALUE___CREATE_XML_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Rdf Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___CREATE_RDF_ADAPTION = ParametersPackage.PARAMETER_VALUE___CREATE_RDF_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Create Neo4j Adaption</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___CREATE_NEO4J_ADAPTION = ParametersPackage.PARAMETER_VALUE___CREATE_NEO4J_ADAPTION;
+
+	/**
+	 * The operation id for the '<em>Validate Against Schema</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___VALIDATE_AGAINST_SCHEMA = ParametersPackage.PARAMETER_VALUE___VALIDATE_AGAINST_SCHEMA;
+
+	/**
+	 * The operation id for the '<em>Validate Example Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___VALIDATE_EXAMPLE_VALUE__STRING = ParametersPackage.PARAMETER_VALUE___VALIDATE_EXAMPLE_VALUE__STRING;
+
+	/**
+	 * The operation id for the '<em>Input Is Valid</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___INPUT_IS_VALID = ParametersPackage.PARAMETER_VALUE___INPUT_IS_VALID;
+
+	/**
+	 * The operation id for the '<em>Is Used</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___IS_USED = ParametersPackage.PARAMETER_VALUE___IS_USED;
+
+	/**
+	 * The operation id for the '<em>Set Value From String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___SET_VALUE_FROM_STRING__STRING = ParametersPackage.PARAMETER_VALUE___SET_VALUE_FROM_STRING__STRING;
+
+	/**
+	 * The operation id for the '<em>Get Value As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GET_VALUE_AS_STRING = ParametersPackage.PARAMETER_VALUE___GET_VALUE_AS_STRING;
+
+	/**
+	 * The operation id for the '<em>Check Comparison Consistency</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___CHECK_COMPARISON_CONSISTENCY = ParametersPackage.PARAMETER_VALUE___CHECK_COMPARISON_CONSISTENCY;
+
+	/**
+	 * The operation id for the '<em>Get Options As String List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GET_OPTIONS_AS_STRING_LIST = ParametersPackage.PARAMETER_VALUE___GET_OPTIONS_AS_STRING_LIST;
+
+	/**
+	 * The operation id for the '<em>Generate Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GENERATE_DESCRIPTION = ParametersPackage.PARAMETER_VALUE___GENERATE_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Validate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___VALIDATE__DIAGNOSTICCHAIN_MAP = ParametersPackage.PARAMETER_VALUE___VALIDATE__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Get Return Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GET_RETURN_TYPE = ParametersPackage.PARAMETER_VALUE___GET_RETURN_TYPE;
+
+	/**
+	 * The operation id for the '<em>Is Translatable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___IS_TRANSLATABLE = ParametersPackage.PARAMETER_VALUE___IS_TRANSLATABLE;
+
+	/**
+	 * The operation id for the '<em>Get All Argument Elements</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GET_ALL_ARGUMENT_ELEMENTS = ParametersPackage.PARAMETER_VALUE___GET_ALL_ARGUMENT_ELEMENTS;
+
+	/**
+	 * The operation id for the '<em>Is Operator Argument</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___IS_OPERATOR_ARGUMENT = ParametersPackage.PARAMETER_VALUE___IS_OPERATOR_ARGUMENT;
+
+	/**
+	 * The operation id for the '<em>Replace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___REPLACE__PARAMETERVALUE = ParametersPackage.PARAMETER_VALUE___REPLACE__PARAMETERVALUE;
+
+	/**
+	 * The operation id for the '<em>Replace Via Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___REPLACE_VIA_VALUE__STRING_STRING = ParametersPackage.PARAMETER_VALUE___REPLACE_VIA_VALUE__STRING_STRING;
+
+	/**
+	 * The operation id for the '<em>Get Element Tags</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GET_ELEMENT_TAGS = ParametersPackage.PARAMETER_VALUE___GET_ELEMENT_TAGS;
+
+	/**
+	 * The operation id for the '<em>Get Data Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GET_DATA_VALUES = ParametersPackage.PARAMETER_VALUE___GET_DATA_VALUES;
+
+	/**
+	 * The operation id for the '<em>Is In Data Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___IS_IN_DATA_COMPARISON = ParametersPackage.PARAMETER_VALUE___IS_IN_DATA_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Is In Tag Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___IS_IN_TAG_COMPARISON = ParametersPackage.PARAMETER_VALUE___IS_IN_TAG_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Names</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GET_ATTRIBUTE_NAMES = ParametersPackage.PARAMETER_VALUE___GET_ATTRIBUTE_NAMES;
+
+	/**
+	 * The operation id for the '<em>Get Attribute Values</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GET_ATTRIBUTE_VALUES = ParametersPackage.PARAMETER_VALUE___GET_ATTRIBUTE_VALUES;
+
+	/**
+	 * The operation id for the '<em>Is In Attribute Comparison</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___IS_IN_ATTRIBUTE_COMPARISON = ParametersPackage.PARAMETER_VALUE___IS_IN_ATTRIBUTE_COMPARISON;
+
+	/**
+	 * The operation id for the '<em>Get Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___GET_SUGGESTIONS = ParametersPackage.PARAMETER_VALUE___GET_SUGGESTIONS;
+
+	/**
+	 * The operation id for the '<em>Infer Suggestions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL___INFER_SUGGESTIONS = ParametersPackage.PARAMETER_VALUE___INFER_SUGGESTIONS;
+
+	/**
+	 * The number of operations of the '<em>Neo Label</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_LABEL_OPERATION_COUNT = ParametersPackage.PARAMETER_VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.NeoQuantifier <em>Neo Quantifier</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3562,7 +4176,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoQuantifier()
 	 * @generated
 	 */
-	int NEO_QUANTIFIER = 9;
+	int NEO_QUANTIFIER = 10;
 
 
 	/**
@@ -3573,7 +4187,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoDirection()
 	 * @generated
 	 */
-	int NEO_DIRECTION = 10;
+	int NEO_DIRECTION = 11;
 
 
 	/**
@@ -3585,6 +4199,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAbstractNeoNode();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.AbstractNeoNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Cypher Variable</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.AbstractNeoNode#getCypherVariable()
+	 * @generated
+	 */
+	EOperation getAbstractNeoNode__GetCypherVariable();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoNode <em>Neo Node</em>}'.
@@ -3606,6 +4230,17 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNeoNode_NodeLabels();
+
+	/**
+	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionNeo4J.NeoNode#getNeoNeoLabels <em>Neo Neo Labels</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Neo Neo Labels</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoNode#getNeoNeoLabels()
+	 * @see #getNeoNode()
+	 * @generated
+	 */
+	EReference getNeoNode_NeoNeoLabels();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoEdge <em>Neo Edge</em>}'.
@@ -3660,17 +4295,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoSimpleEdge();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getLabel <em>Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Label</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getLabel()
-	 * @see #getNeoSimpleEdge()
-	 * @generated
-	 */
-	EReference getNeoSimpleEdge_Label();
-
-	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getKeyvalueparam <em>Keyvalueparam</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3682,15 +4306,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EReference getNeoSimpleEdge_Keyvalueparam();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getTargetNodeType <em>Target Node Type</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoEdgeLabel <em>Neo Edge Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target Node Type</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getTargetNodeType()
+	 * @return the meta object for the reference '<em>Neo Edge Label</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoEdgeLabel()
 	 * @see #getNeoSimpleEdge()
 	 * @generated
 	 */
-	EReference getNeoSimpleEdge_TargetNodeType();
+	EReference getNeoSimpleEdge_NeoEdgeLabel();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart <em>Neo Path Part</em>}'.
@@ -3713,15 +4337,46 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoPathPart__GetSimpleEdges();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getDirection <em>Direction</em>}'.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Direction</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getDirection()
+	 * @return the meta object for the '<em>Get Cypher Variable</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPathPart#getCypherVariable()
+	 * @generated
+	 */
+	EOperation getNeoPathPart__GetCypherVariable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoDirection <em>Neo Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Neo Direction</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoDirection()
 	 * @see #getNeoSimpleEdge()
 	 * @generated
 	 */
-	EReference getNeoSimpleEdge_Direction();
+	EAttribute getNeoSimpleEdge_NeoDirection();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getEdgeNumber <em>Edge Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Edge Number</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getEdgeNumber()
+	 * @see #getNeoSimpleEdge()
+	 * @generated
+	 */
+	EAttribute getNeoSimpleEdge_EdgeNumber();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionNeo4J.NeoDirection) <em>Set Neo Direction</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Neo Direction</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionNeo4J.NeoDirection)
+	 * @generated
+	 */
+	EOperation getNeoSimpleEdge__SetNeoDirection__NeoDirection();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoUnion <em>Neo Union</em>}'.
@@ -3755,17 +4410,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoAttributeNode();
 
 	/**
-	 * Returns the meta object for the reference list '{@link qualitypatternmodel.adaptionNeo4J.NeoAttributeNode#getNeoNodeLabels <em>Neo Node Labels</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Neo Node Labels</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAttributeNode#getNeoNodeLabels()
-	 * @see #getNeoAttributeNode()
-	 * @generated
-	 */
-	EReference getNeoAttributeNode_NeoNodeLabels();
-
-	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam <em>Neo4 JPath Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3796,6 +4440,27 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNeo4JPathParam_NeoPath();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoLabel <em>Neo Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Neo Label</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoLabel
+	 * @generated
+	 */
+	EClass getNeoLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link qualitypatternmodel.adaptionNeo4J.NeoLabel#getNeoLabel <em>Neo Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Neo Label</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoLabel#getNeoLabel()
+	 * @see #getNeoLabel()
+	 * @generated
+	 */
+	EAttribute getNeoLabel_NeoLabel();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionNeo4J.NeoQuantifier <em>Neo Quantifier</em>}'.
@@ -3851,6 +4516,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass ABSTRACT_NEO_NODE = eINSTANCE.getAbstractNeoNode();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Cypher Variable</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ABSTRACT_NEO_NODE___GET_CYPHER_VARIABLE = eINSTANCE.getAbstractNeoNode__GetCypherVariable();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl <em>Neo Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3867,6 +4540,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NEO_NODE__NODE_LABELS = eINSTANCE.getNeoNode_NodeLabels();
+
+		/**
+		 * The meta object literal for the '<em><b>Neo Neo Labels</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NEO_NODE__NEO_NEO_LABELS = eINSTANCE.getNeoNode_NeoNeoLabels();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoEdgeImpl <em>Neo Edge</em>}' class.
@@ -3915,14 +4596,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_SIMPLE_EDGE = eINSTANCE.getNeoSimpleEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Label</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NEO_SIMPLE_EDGE__LABEL = eINSTANCE.getNeoSimpleEdge_Label();
-
-		/**
 		 * The meta object literal for the '<em><b>Keyvalueparam</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3931,12 +4604,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EReference NEO_SIMPLE_EDGE__KEYVALUEPARAM = eINSTANCE.getNeoSimpleEdge_Keyvalueparam();
 
 		/**
-		 * The meta object literal for the '<em><b>Target Node Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Neo Edge Label</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NEO_SIMPLE_EDGE__TARGET_NODE_TYPE = eINSTANCE.getNeoSimpleEdge_TargetNodeType();
+		EReference NEO_SIMPLE_EDGE__NEO_EDGE_LABEL = eINSTANCE.getNeoSimpleEdge_NeoEdgeLabel();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl <em>Neo Path Part</em>}' class.
@@ -3957,12 +4630,36 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EOperation NEO_PATH_PART___GET_SIMPLE_EDGES = eINSTANCE.getNeoPathPart__GetSimpleEdges();
 
 		/**
-		 * The meta object literal for the '<em><b>Direction</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Get Cypher Variable</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NEO_SIMPLE_EDGE__DIRECTION = eINSTANCE.getNeoSimpleEdge_Direction();
+		EOperation NEO_PATH_PART___GET_CYPHER_VARIABLE = eINSTANCE.getNeoPathPart__GetCypherVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Neo Direction</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NEO_SIMPLE_EDGE__NEO_DIRECTION = eINSTANCE.getNeoSimpleEdge_NeoDirection();
+
+		/**
+		 * The meta object literal for the '<em><b>Edge Number</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NEO_SIMPLE_EDGE__EDGE_NUMBER = eINSTANCE.getNeoSimpleEdge_EdgeNumber();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Neo Direction</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION = eINSTANCE.getNeoSimpleEdge__SetNeoDirection__NeoDirection();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoUnionImpl <em>Neo Union</em>}' class.
@@ -3993,14 +4690,6 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_ATTRIBUTE_NODE = eINSTANCE.getNeoAttributeNode();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Node Labels</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NEO_ATTRIBUTE_NODE__NEO_NODE_LABELS = eINSTANCE.getNeoAttributeNode_NeoNodeLabels();
-
-		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.Neo4JPathParamImpl <em>Neo4 JPath Param</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4025,6 +4714,24 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NEO4_JPATH_PARAM__NEO_PATH = eINSTANCE.getNeo4JPathParam_NeoPath();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoLabelImpl <em>Neo Label</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionNeo4J.impl.NeoLabelImpl
+		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoLabel()
+		 * @generated
+		 */
+		EClass NEO_LABEL = eINSTANCE.getNeoLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Neo Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NEO_LABEL__NEO_LABEL = eINSTANCE.getNeoLabel_NeoLabel();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoQuantifier <em>Neo Quantifier</em>}' enum.

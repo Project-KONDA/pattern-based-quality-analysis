@@ -15,7 +15,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import qualitypatternmodel.adaptionNeo4J.NeoAttributeNode;
+import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPathPart;
@@ -26,9 +29,11 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.execution.Database;
 import qualitypatternmodel.execution.ExecutionPackage;
 import qualitypatternmodel.execution.XmlDataDatabase;
+import qualitypatternmodel.graphstructure.ComplexNode;
 import qualitypatternmodel.graphstructure.Graph;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 import qualitypatternmodel.graphstructure.Node;
+import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 import qualitypatternmodel.graphstructure.impl.GraphImpl;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
@@ -376,6 +381,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			throw new InvalidityException("return element(s) missing");
 		}
 		
+		// -- NEED ADAPTATION
 		EList<String> prefixes = new BasicEList<String>();		
 		for(Parameter p : getParameterList().getParameters()) {
 			if(p instanceof NeoPathPartImpl) {
@@ -393,20 +399,20 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		StringBuilder graphPatternMatch = new StringBuilder();
 		StringBuilder graphPatternReturn = new StringBuilder();
 
-		//Building the MATHC
+		//Building the MATCH -- NEED ADAPTATION
 		cypherQuery.append("\nMATCH ");
 		for (Node n : nodes) {
-			
-			
-			if (graphPatternMatch.length() > 0) graphPatternMatch.append("-[]-");
-			graphPatternMatch.append("(" + n.generateCypher() + ")");
-			if (edges.size() != 0 && edges.get(1) != null) {
-				graphPatternMatch.append("-[" + edges.get(1).getTarget() + "]-");
+			if (n instanceof ComplexNode && n instanceof NeoNodeImpl) {
+				graphPatternMatch.append(n.generateCypher());
+				//For getting the edges between the complexNodes
+//				if (edges.size() != 0 && edges.get(1) != null) {
+//					graphPatternMatch.append("-[" + edges.get(1).getTarget() + "]-");
+//				}
 			}
 		}
 		cypherQuery.append(graphPatternMatch);		
 		
-		//BUILDING THE WHERE
+		//BUILDING THE WHERE -- NEED ADAPTATION
 		//This just shall be introduct if there is a condition
 		if (false) {
 			cypherQuery.append("\nWHERE ");
@@ -414,15 +420,32 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 			cypherQuery.append(super.generateCypher()); //.replace("\n", "\n  ")
 		}
 		
-		//BUILDING THE RETURN
+		//BUILDING THE RETURN -- NEED ADAPTATION
+		NeoNode neoNode;
 		for (Node n : nodes) {
-			if (graphPatternReturn.length() > 0) graphPatternReturn.append("-[]-");
-			graphPatternReturn.append("(" + n.generateCypher() + ")");
-			if (edges.size() != 0 && edges.get(1) != null) {
-				graphPatternReturn.append("-[" + edges.get(1).getTarget() + "]-");
+			if (n instanceof ComplexNode && n instanceof NeoNodeImpl) {
+				if (graphPatternReturn.length() != 0) graphPatternReturn.append(",");
+				neoNode = (NeoNode) n;
+				graphPatternReturn.append(neoNode.getCypherVariable());
+			}
+		}
+		
+		//This has to be possible -- has to be modified
+		NeoAttributeNode neoAttributeNode;
+		for (Node n : nodes) {
+			if (n instanceof PrimitiveNode && n instanceof NeoAttributeNode) {
+				if (graphPatternReturn.length() != 0) graphPatternReturn.append(",");
+				neoAttributeNode = (NeoAttributeNode) n;
+				graphPatternReturn.append(neoAttributeNode.generateCypher());
 			}
 		}
 		cypherQuery.append("\nRETURN " + graphPatternReturn);
+		
+		//This should return the edges -- has to be modified
+//		for (Relation egde : edges) {
+//			if (graphPatternReturn.length() != 0) graphPatternReturn.append(",");
+//			graphPatternReturn.append(egde.generateCypher());
+//		}
 		
 		return cypherQuery.toString();
 		//BUILDING THE WITH ???

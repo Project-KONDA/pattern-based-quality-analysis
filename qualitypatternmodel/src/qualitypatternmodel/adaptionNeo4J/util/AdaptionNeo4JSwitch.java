@@ -17,6 +17,7 @@ import qualitypatternmodel.graphstructure.Relation;
 
 import qualitypatternmodel.parameters.Parameter;
 
+import qualitypatternmodel.parameters.ParameterValue;
 import qualitypatternmodel.patternstructure.PatternElement;
 
 /**
@@ -152,6 +153,16 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 				if (result == null) result = caseParameter(neo4JPathParam);
 				if (result == null) result = caseAdaptable(neo4JPathParam);
 				if (result == null) result = casePatternElement(neo4JPathParam);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AdaptionNeo4JPackage.NEO_LABEL: {
+				NeoLabel neoLabel = (NeoLabel)theEObject;
+				T result = caseNeoLabel(neoLabel);
+				if (result == null) result = caseParameterValue(neoLabel);
+				if (result == null) result = caseParameter(neoLabel);
+				if (result == null) result = caseComparable(neoLabel);
+				if (result == null) result = casePatternElement(neoLabel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -295,6 +306,21 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Neo Label</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Neo Label</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNeoLabel(NeoLabel object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Pattern Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -396,6 +422,21 @@ public class AdaptionNeo4JSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseParameter(Parameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterValue(ParameterValue object) {
 		return null;
 	}
 

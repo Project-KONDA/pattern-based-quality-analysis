@@ -1,12 +1,15 @@
 package qualitypatternmodel.cyphertranslationtests;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import org.eclipse.emf.common.util.EList;
 
+import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoEdgeImpl;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl;
 import qualitypatternmodel.adaptionrdf.AdaptionrdfFactory;
 import qualitypatternmodel.adaptionrdf.IriParam;
 import qualitypatternmodel.adaptionrdf.RdfPredicate;
@@ -24,6 +27,7 @@ import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.parameters.UntypedParameterValue;
+import qualitypatternmodel.parameters.impl.TextLiteralParamImpl;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.patternstructure.CompletePattern;
 import qualitypatternmodel.patternstructure.PatternstructureFactory;
@@ -61,7 +65,7 @@ public class CypherTest00 {
 	}
 	
 	public static CompletePattern getBasePatternFinal() throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
-		CompletePattern completePattern = PatternstructureFactory.eINSTANCE.createCompletePattern(); //getBasePattern();
+		CompletePattern completePattern = getBasePattern(); //PatternstructureFactory.eINSTANCE.createCompletePattern();
 		completePattern.createNeo4jAdaption();
 		return completePattern;
 	}
@@ -76,8 +80,15 @@ public class CypherTest00 {
 		ComplexNode complexNode1 = completePattern.getGraph().getNodes().get(0).makeComplex();
 		Node node2 = completePattern.getGraph().addNode();
 		completePattern.getGraph().addRelation(complexNode1, node2);
-		
+	
 		return completePattern;
+		
+//		LinkedList<TextLiteralParamImpl> labelList = new LinkedList<TextLiteralParamImpl>();
+//		TextLiteralParamImpl t = new TextLiteralParamImpl();
+//		t.setValue("Regesta");
+//		labelList.add(t);
+//		((NeoNodeImpl) complexNode1).setLabel(labelList);
+		
 	}	
 	
 	

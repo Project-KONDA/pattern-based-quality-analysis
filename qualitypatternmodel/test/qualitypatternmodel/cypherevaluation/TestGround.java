@@ -2,13 +2,6 @@ package qualitypatternmodel.cypherevaluation;
 
 public class TestGround {
 	public static void main(String[] args) {
-//		StringBuilder sb = new StringBuilder();
-//		sb.append("Hello\n");
-//		sb.append("Lukas");
-//		System.out.println(sb.toString());
-		
-		String s = "\\hello";
-		s.replace("\\", "\\\\");
-		System.out.println(s);		
+		System.out.println("Hello World");
 	}
 }

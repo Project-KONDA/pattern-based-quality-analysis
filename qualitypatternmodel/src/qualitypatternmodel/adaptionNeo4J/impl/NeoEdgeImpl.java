@@ -47,6 +47,7 @@ public class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 	 */
 	protected NeoEdgeImpl() {
 		super();
+		
 	}
 
 	/**

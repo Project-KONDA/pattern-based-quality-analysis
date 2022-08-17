@@ -233,6 +233,29 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link qualitypatternmodel.adaptionNeo4J.NeoLabel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NeoLabelItemProvider neoLabelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoLabel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNeoLabelAdapter() {
+		if (neoLabelItemProvider == null) {
+			neoLabelItemProvider = new NeoLabelItemProvider(this);
+		}
+
+		return neoLabelItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -344,6 +367,7 @@ public class AdaptionNeo4JItemProviderAdapterFactory extends AdaptionNeo4JAdapte
 		if (neoUnionItemProvider != null) neoUnionItemProvider.dispose();
 		if (neoAttributeNodeItemProvider != null) neoAttributeNodeItemProvider.dispose();
 		if (neo4JPathParamItemProvider != null) neo4JPathParamItemProvider.dispose();
+		if (neoLabelItemProvider != null) neoLabelItemProvider.dispose();
 	}
 
 }

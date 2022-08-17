@@ -31,7 +31,6 @@ import qualitypatternmodel.parameters.ComparisonOptionParam;
 import qualitypatternmodel.parameters.DateParam;
 import qualitypatternmodel.parameters.DateTimeParam;
 import qualitypatternmodel.parameters.KeyValueParam;
-import qualitypatternmodel.parameters.LabelLiteralParam;
 import qualitypatternmodel.parameters.NumberParam;
 import qualitypatternmodel.parameters.ParametersFactory;
 import qualitypatternmodel.parameters.ParametersPackage;
@@ -1488,8 +1487,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		op = initEOperation(getKeyValueParam__SetNewMap__Map(), null, "setNewMap", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEMap(), "newKeyValueMap", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(labelLiteralParamEClass, LabelLiteralParam.class, "LabelLiteralParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize data types
 		initEDataType(stringToIntEMapEDataType, EMap.class, "StringToIntEMap", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

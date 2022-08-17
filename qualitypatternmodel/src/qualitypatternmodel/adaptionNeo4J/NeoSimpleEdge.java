@@ -2,9 +2,7 @@
  */
 package qualitypatternmodel.adaptionNeo4J;
 
-import qualitypatternmodel.parameters.BooleanParam;
 import qualitypatternmodel.parameters.KeyValueParam;
-import qualitypatternmodel.parameters.LabelLiteralParam;
 
 
 /**
@@ -17,9 +15,9 @@ import qualitypatternmodel.parameters.LabelLiteralParam;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getKeyvalueparam <em>Keyvalueparam</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getDirection <em>Direction</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getLabel <em>Label</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getTargetNodeType <em>Target Node Type</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoEdgeLabel <em>Neo Edge Label</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoDirection <em>Neo Direction</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getEdgeNumber <em>Edge Number</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoSimpleEdge()
@@ -27,28 +25,6 @@ import qualitypatternmodel.parameters.LabelLiteralParam;
  * @generated
  */
 public interface NeoSimpleEdge extends NeoPathPart {
-	/**
-	 * Returns the value of the '<em><b>Label</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Label</em>' reference.
-	 * @see #setLabel(LabelLiteralParam)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoSimpleEdge_Label()
-	 * @model
-	 * @generated
-	 */
-	LabelLiteralParam getLabel();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getLabel <em>Label</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Label</em>' reference.
-	 * @see #getLabel()
-	 * @generated
-	 */
-	void setLabel(LabelLiteralParam value);
-
 	/**
 	 * Returns the value of the '<em><b>Keyvalueparam</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -72,47 +48,95 @@ public interface NeoSimpleEdge extends NeoPathPart {
 	void setKeyvalueparam(KeyValueParam value);
 
 	/**
-	 * Returns the value of the '<em><b>Target Node Type</b></em>' reference.
+	 * Returns the value of the '<em><b>Neo Edge Label</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Target Node Type</em>' reference.
-	 * @see #setTargetNodeType(LabelLiteralParam)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoSimpleEdge_TargetNodeType()
+	 * @return the value of the '<em>Neo Edge Label</em>' reference.
+	 * @see #setNeoEdgeLabel(NeoLabel)
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoSimpleEdge_NeoEdgeLabel()
 	 * @model
 	 * @generated
 	 */
-	LabelLiteralParam getTargetNodeType();
+	NeoLabel getNeoEdgeLabel();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getTargetNodeType <em>Target Node Type</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getNeoEdgeLabel <em>Neo Edge Label</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target Node Type</em>' reference.
-	 * @see #getTargetNodeType()
+	 * @param value the new value of the '<em>Neo Edge Label</em>' reference.
+	 * @see #getNeoEdgeLabel()
 	 * @generated
 	 */
-	void setTargetNodeType(LabelLiteralParam value);
+	void setNeoEdgeLabel(NeoLabel value);
 
 	/**
-	 * Returns the value of the '<em><b>Direction</b></em>' reference.
+	 * Returns the value of the '<em><b>Neo Direction</b></em>' attribute.
+	 * The literals are from the enumeration {@link qualitypatternmodel.adaptionNeo4J.NeoDirection}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Direction</em>' reference.
-	 * @see #setDirection(BooleanParam)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoSimpleEdge_Direction()
+	 * @return the value of the '<em>Neo Direction</em>' attribute.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoDirection
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoSimpleEdge_NeoDirection()
+	 * @model unique="false" changeable="false"
+	 * @generated
+	 */
+	NeoDirection getNeoDirection();
+
+	/**
+	 * Returns the value of the '<em><b>Edge Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Edge Number</em>' attribute.
+	 * @see #isSetEdgeNumber()
+	 * @see #unsetEdgeNumber()
+	 * @see #setEdgeNumber(int)
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoSimpleEdge_EdgeNumber()
+	 * @model unsettable="true"
+	 * @generated
+	 */
+	int getEdgeNumber();
+
+	/**
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getEdgeNumber <em>Edge Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Edge Number</em>' attribute.
+	 * @see #isSetEdgeNumber()
+	 * @see #unsetEdgeNumber()
+	 * @see #getEdgeNumber()
+	 * @generated
+	 */
+	void setEdgeNumber(int value);
+
+	/**
+	 * Unsets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getEdgeNumber <em>Edge Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetEdgeNumber()
+	 * @see #getEdgeNumber()
+	 * @see #setEdgeNumber(int)
+	 * @generated
+	 */
+	void unsetEdgeNumber();
+
+	/**
+	 * Returns whether the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getEdgeNumber <em>Edge Number</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Edge Number</em>' attribute is set.
+	 * @see #unsetEdgeNumber()
+	 * @see #getEdgeNumber()
+	 * @see #setEdgeNumber(int)
+	 * @generated
+	 */
+	boolean isSetEdgeNumber();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	BooleanParam getDirection();
-
-	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#getDirection <em>Direction</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Direction</em>' reference.
-	 * @see #getDirection()
-	 * @generated
-	 */
-	void setDirection(BooleanParam value);
+	void setNeoDirection(NeoDirection neoDirection);
 
 } // SimpleEdge

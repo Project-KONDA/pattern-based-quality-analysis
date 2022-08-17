@@ -2,20 +2,16 @@
  */
 package qualitypatternmodel.adaptionNeo4J.impl;
 
-import java.util.Collection;
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import qualitypatternmodel.adaptionNeo4J.AbstractNeoNode;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAttributeNode;
 import qualitypatternmodel.exceptions.InvalidityException;
-import qualitypatternmodel.exceptions.MissingPatternContainerException;
-import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
-import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.PatternElement;
 import qualitypatternmodel.utility.CypherSpecificConstants;
 
@@ -23,27 +19,10 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Neo Attribute Node</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoAttributeNodeImpl#getNeoNodeLabels <em>Neo Node Labels</em>}</li>
- * </ul>
  *
  * @generated
  */
 public class NeoAttributeNodeImpl extends PrimitiveNodeImpl implements NeoAttributeNode {
-	/**
-	 * The cached value of the '{@link #getNeoNodeLabels() <em>Neo Node Labels</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNeoNodeLabels()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TextLiteralParam> neoNodeLabels;
-
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -59,6 +38,17 @@ public class NeoAttributeNodeImpl extends PrimitiveNodeImpl implements NeoAttrib
 		cypher.append(CypherSpecificConstants.VARIABLE_NODE);
 		cypher.append(getOriginalID());
 		return cypher.toString();
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public String getCypherVariable() {
+		//In this case the method is the same to generateCypher()
+		return this.generateCypher();
 	}
 	
 	@Override
@@ -107,17 +97,22 @@ public class NeoAttributeNodeImpl extends PrimitiveNodeImpl implements NeoAttrib
 		return AdaptionNeo4JPackage.Literals.NEO_ATTRIBUTE_NODE;
 	}
 
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public EList<TextLiteralParam> getNeoNodeLabels() {
-		if (neoNodeLabels == null) {
-			neoNodeLabels = new EObjectResolvingEList<TextLiteralParam>(TextLiteralParam.class, this, AdaptionNeo4JPackage.NEO_ATTRIBUTE_NODE__NEO_NODE_LABELS);
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == AbstractNeoNode.class) {
+			switch (baseOperationID) {
+				case AdaptionNeo4JPackage.ABSTRACT_NEO_NODE___GET_CYPHER_VARIABLE: return AdaptionNeo4JPackage.NEO_ATTRIBUTE_NODE___GET_CYPHER_VARIABLE;
+				default: return -1;
+			}
 		}
-		return neoNodeLabels;
+		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
 
 	/**
@@ -126,58 +121,12 @@ public class NeoAttributeNodeImpl extends PrimitiveNodeImpl implements NeoAttrib
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_NODE__NEO_NODE_LABELS:
-				return getNeoNodeLabels();
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_NODE___GET_CYPHER_VARIABLE:
+				return getCypherVariable();
 		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_NODE__NEO_NODE_LABELS:
-				getNeoNodeLabels().clear();
-				getNeoNodeLabels().addAll((Collection<? extends TextLiteralParam>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_NODE__NEO_NODE_LABELS:
-				getNeoNodeLabels().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_NODE__NEO_NODE_LABELS:
-				return neoNodeLabels != null && !neoNodeLabels.isEmpty();
-		}
-		return super.eIsSet(featureID);
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //NeoAttributeNodeImpl

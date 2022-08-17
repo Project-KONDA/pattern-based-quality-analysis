@@ -16,6 +16,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoNode#getNodeLabels <em>Node Labels</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoNode#getNeoNeoLabels <em>Neo Neo Labels</em>}</li>
  * </ul>
  *
  * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoNode()
@@ -35,4 +36,16 @@ public interface NeoNode extends ComplexNode, AbstractNeoNode {
 	 * @generated
 	 */
 	EList<TextLiteralParam> getNodeLabels();
+
+	/**
+	 * Returns the value of the '<em><b>Neo Neo Labels</b></em>' reference list.
+	 * The list contents are of type {@link qualitypatternmodel.adaptionNeo4J.NeoLabel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Neo Neo Labels</em>' reference list.
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoNode_NeoNeoLabels()
+	 * @model
+	 * @generated
+	 */
+	EList<NeoLabel> getNeoNeoLabels();
 } // NeoNode

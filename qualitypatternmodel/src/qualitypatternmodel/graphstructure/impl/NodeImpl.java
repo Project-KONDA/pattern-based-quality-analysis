@@ -1565,7 +1565,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 
 	
 	private NeoNode adaptAsNeoNodeRecursive() throws InvalidityException {
-		if (!(this instanceof RdfIriNode)) {	
+		if (!(this instanceof NeoNode)) {	
 			NeoNodeImpl neoNode = (NeoNodeImpl) AdaptionNeo4JFactoryImpl.init().createNeoNode();
 			neoNode.typeModifiable = true;
 			neoNode.setGraphSimple(getGraph());				

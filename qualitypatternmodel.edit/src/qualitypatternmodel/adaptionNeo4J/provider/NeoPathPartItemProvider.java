@@ -10,9 +10,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;

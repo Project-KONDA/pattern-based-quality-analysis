@@ -64,6 +64,7 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 			case AdaptionNeo4JPackage.NEO_UNION: return createNeoUnion();
 			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_NODE: return createNeoAttributeNode();
 			case AdaptionNeo4JPackage.NEO4_JPATH_PARAM: return createNeo4JPathParam();
+			case AdaptionNeo4JPackage.NEO_LABEL: return createNeoLabel();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -178,6 +179,17 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	public Neo4JPathParam createNeo4JPathParam() {
 		Neo4JPathParamImpl neo4JPathParam = new Neo4JPathParamImpl();
 		return neo4JPathParam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NeoLabel createNeoLabel() {
+		NeoLabelImpl neoLabel = new NeoLabelImpl();
+		return neoLabel;
 	}
 
 	/**

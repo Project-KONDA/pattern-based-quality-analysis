@@ -124,10 +124,6 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 				return createKeyValueParamAdapter();
 			}
 			@Override
-			public Adapter caseLabelLiteralParam(LabelLiteralParam object) {
-				return createLabelLiteralParamAdapter();
-			}
-			@Override
 			public Adapter casePatternElement(PatternElement object) {
 				return createPatternElementAdapter();
 			}

@@ -11,6 +11,12 @@ import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Neo Simple Edge</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionNeo4J.NeoDirection) <em>Set Neo Direction</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class NeoSimpleEdgeTest extends NeoPathPartTest {
@@ -65,6 +71,19 @@ public class NeoSimpleEdgeTest extends NeoPathPartTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionNeo4J.NeoDirection) <em>Set Neo Direction</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#setNeoDirection(qualitypatternmodel.adaptionNeo4J.NeoDirection)
+	 * @generated
+	 */
+	public void testSetNeoDirection__NeoDirection() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //NeoSimpleEdgeTest

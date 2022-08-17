@@ -47,6 +47,7 @@ public class NeoNodeItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNodeLabelsPropertyDescriptor(object);
+			addNeoNeoLabelsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -65,6 +66,28 @@ public class NeoNodeItemProvider
 				 getString("_UI_NeoNode_nodeLabels_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_NeoNode_nodeLabels_feature", "_UI_NeoNode_type"),
 				 AdaptionNeo4JPackage.Literals.NEO_NODE__NODE_LABELS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Neo Neo Labels feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNeoNeoLabelsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NeoNode_neoNeoLabels_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoNode_neoNeoLabels_feature", "_UI_NeoNode_type"),
+				 AdaptionNeo4JPackage.Literals.NEO_NODE__NEO_NEO_LABELS,
 				 true,
 				 false,
 				 true,

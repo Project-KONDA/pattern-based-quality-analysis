@@ -16,7 +16,6 @@ import qualitypatternmodel.patternstructure.PatternElement;
  * @generated
  */
 public interface NeoPathPart extends PatternElement {
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -24,4 +23,12 @@ public interface NeoPathPart extends PatternElement {
 	 * @generated
 	 */
 	EList<NeoSimpleEdge> getSimpleEdges();
-} // NeoPath
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getCypherVariable();
+} // NeoPathPart

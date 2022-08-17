@@ -10,6 +10,12 @@ import qualitypatternmodel.adaptionNeo4J.AbstractNeoNode;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Abstract Neo Node</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.AbstractNeoNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class AbstractNeoNodeTest extends TestCase {
@@ -50,6 +56,19 @@ public abstract class AbstractNeoNodeTest extends TestCase {
 	 */
 	protected AbstractNeoNode getFixture() {
 		return fixture;
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.AbstractNeoNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.AbstractNeoNode#getCypherVariable()
+	 * @generated
+	 */
+	public void testGetCypherVariable() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //AbstractNeoNodeTest

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
@@ -163,6 +164,12 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			throws InvalidityException, OperatorCycleException, MissingPatternContainerException {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public EList<NeoSimpleEdge> getSimpleEdges() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 } //SequenceEdgeImpl
