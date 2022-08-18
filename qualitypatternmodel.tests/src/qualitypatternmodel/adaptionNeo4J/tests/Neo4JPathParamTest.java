@@ -5,7 +5,7 @@ package qualitypatternmodel.adaptionNeo4J.tests;
 import junit.textui.TestRunner;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JFactory;
-import qualitypatternmodel.adaptionNeo4J.Neo4JPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 
 import qualitypatternmodel.parameters.tests.ParameterTest;
 
@@ -50,8 +50,8 @@ public class Neo4JPathParamTest extends ParameterTest {
 	 * @generated
 	 */
 	@Override
-	protected Neo4JPathParam getFixture() {
-		return (Neo4JPathParam)fixture;
+	protected NeoPathParam getFixture() {
+		return (NeoPathParam)fixture;
 	}
 
 	/**

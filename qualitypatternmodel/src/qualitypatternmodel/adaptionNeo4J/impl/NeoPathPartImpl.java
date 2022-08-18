@@ -3,19 +3,16 @@
 package qualitypatternmodel.adaptionNeo4J.impl;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
+import qualitypatternmodel.adaptionNeo4J.NeoInEdgeTargedNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 
 import qualitypatternmodel.patternstructure.impl.PatternElementImpl;
-import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,8 +54,34 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 * @generated
 	 */
 	@Override
+	public EList<NeoSimpleEdge> getSimpleEdges() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String getCypherVariable() {
-		return CypherSpecificConstants.VARIABLE_EGDE;
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<NeoInEdgeTargedNode> getNeoInEdgeTargedNode() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -73,13 +96,11 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 				return getSimpleEdges();
 			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
+			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_NEO_IN_EDGE_TARGED_NODE:
+				return getNeoInEdgeTargedNode();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
-	
-	
-	
-	
 	
 	
 	
@@ -98,7 +119,7 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	
 	protected void increaseClassCounter() {
 		if (NeoPathPartImpl.COUNTER == Integer.MAX_VALUE) {
-			System.out.println("No new NeoEdges can be created. First delete some of your existing eges!");;
+			System.out.println("No new NeoEdges can be created. First delete some of your existing eges!");
 			return;
 		}
 		NeoPathPartImpl.COUNTER++;

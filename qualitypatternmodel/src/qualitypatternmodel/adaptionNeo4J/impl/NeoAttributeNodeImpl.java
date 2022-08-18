@@ -34,6 +34,9 @@ public class NeoAttributeNodeImpl extends PrimitiveNodeImpl implements NeoAttrib
 	
 	@Override 
 	public String generateCypher() {
+		//Im Match von Cypher ein genauen Wert zuordnen) 
+		//Umsetzung schauen 
+		
 		StringBuilder cypher = new StringBuilder();
 		cypher.append(CypherSpecificConstants.VARIABLE_NODE);
 		cypher.append(getOriginalID());

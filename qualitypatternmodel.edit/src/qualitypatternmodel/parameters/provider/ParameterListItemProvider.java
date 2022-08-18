@@ -197,11 +197,6 @@ public class ParameterListItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 ParametersFactory.eINSTANCE.createLabelLiteralParam()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
 				 AdaptionxmlFactory.eINSTANCE.createXmlAxisOptionParam()));
 
 		newChildDescriptors.add
@@ -232,7 +227,17 @@ public class ParameterListItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 AdaptionNeo4JFactory.eINSTANCE.createNeo4JPathParam()));
+				 AdaptionNeo4JFactory.eINSTANCE.createNeoPathParam()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
+				 AdaptionNeo4JFactory.eINSTANCE.createNeoLabel()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
+				 AdaptionNeo4JFactory.eINSTANCE.createNeoAttributePathParam()));
 	}
 
 	/**

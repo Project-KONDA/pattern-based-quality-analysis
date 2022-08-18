@@ -805,6 +805,8 @@ public class OperatorsPackageImpl extends EPackageImpl implements OperatorsPacka
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.GREATEROREQUAL);
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.LESSOREQUAL);
 		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.NOTEQUAL);
+		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.ISNULL);
+		addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.ISNOTNULL);
 
 		// Initialize data types
 		initEDataType(operatorCycleExceptionWrapperEDataType, OperatorCycleException.class, "OperatorCycleExceptionWrapper", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

@@ -15,13 +15,13 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.Neo4JPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 
 import qualitypatternmodel.parameters.provider.ParameterItemProvider;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoPathParam} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -117,7 +117,7 @@ public class Neo4JPathParamItemProvider extends ParameterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Neo4JPathParam)object).getId();
+		String label = ((NeoPathParam)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Neo4JPathParam_type") :
 			getString("_UI_Neo4JPathParam_type") + " " + label;

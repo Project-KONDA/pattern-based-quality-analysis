@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.Neo4JPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -23,6 +23,7 @@ import qualitypatternmodel.graphstructure.Adaptable;
 import qualitypatternmodel.graphstructure.GraphstructurePackage;
 
 import qualitypatternmodel.parameters.impl.ParameterImpl;
+import qualitypatternmodel.patternstructure.AbstractionLevel;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,13 +33,13 @@ import qualitypatternmodel.parameters.impl.ParameterImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.Neo4JPathParamImpl#getNeoEdge <em>Neo Edge</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.Neo4JPathParamImpl#getNeoPath <em>Neo Path</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl#getNeoEdge <em>Neo Edge</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathParamImpl#getNeoPath <em>Neo Path</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam {
+public class NeoPathParamImpl extends ParameterImpl implements NeoPathParam {
 	/**
 	 * The cached value of the '{@link #getNeoEdge() <em>Neo Edge</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -64,7 +65,7 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Neo4JPathParamImpl() {
+	protected NeoPathParamImpl() {
 		super();
 	}
 
@@ -75,7 +76,7 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AdaptionNeo4JPackage.Literals.NEO4_JPATH_PARAM;
+		return AdaptionNeo4JPackage.Literals.NEO_PATH_PARAM;
 	}
 
 	/**
@@ -90,7 +91,7 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 			neoEdge = (NeoEdge)eResolveProxy(oldNeoEdge);
 			if (neoEdge != oldNeoEdge) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_EDGE, oldNeoEdge, neoEdge));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE, oldNeoEdge, neoEdge));
 			}
 		}
 		return neoEdge;
@@ -108,13 +109,14 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT 
 	 */
 	public NotificationChain basicSetNeoEdge(NeoEdge newNeoEdge, NotificationChain msgs) {
+		triggerParameterUpdates(newNeoEdge);
 		NeoEdge oldNeoEdge = neoEdge;
 		neoEdge = newNeoEdge;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_EDGE, oldNeoEdge, newNeoEdge);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE, oldNeoEdge, newNeoEdge);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -137,7 +139,7 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_EDGE, newNeoEdge, newNeoEdge));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE, newNeoEdge, newNeoEdge));
 	}
 
 	/**
@@ -152,7 +154,7 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 			neoPath = (NeoPathPart)eResolveProxy(oldNeoPath);
 			if (neoPath != oldNeoPath) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_PATH, oldNeoPath, neoPath));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH, oldNeoPath, neoPath));
 			}
 		}
 		return neoPath;
@@ -177,13 +179,15 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 		NeoPathPart oldNeoPath = neoPath;
 		neoPath = newNeoPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_PATH, oldNeoPath, neoPath));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH, oldNeoPath, neoPath));
 	}
 
 	@Override
 	public String generateCypher() throws InvalidityException {
-		String cypher = ""; //Add here the code
-		
+		String cypher = getNeoPath().generateCypher();
+		if (cypher == null) {
+			cypher = super.generateCypher();
+		}
 		return cypher;
 	}
 	
@@ -191,13 +195,12 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void createParameters() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		NeoSimpleEdgeImpl nse = new NeoSimpleEdgeImpl();
+		setNeoPath(nse);
 	}
 
 	/**
@@ -220,7 +223,7 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_EDGE:
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE:
 				if (neoEdge != null)
 					msgs = ((InternalEObject)neoEdge).eInverseRemove(this, AdaptionNeo4JPackage.NEO_EDGE__NEO_PATH_PARAM, NeoEdge.class, msgs);
 				return basicSetNeoEdge((NeoEdge)otherEnd, msgs);
@@ -236,7 +239,7 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_EDGE:
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE:
 				return basicSetNeoEdge(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -250,10 +253,10 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_EDGE:
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE:
 				if (resolve) return getNeoEdge();
 				return basicGetNeoEdge();
-			case AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_PATH:
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH:
 				if (resolve) return getNeoPath();
 				return basicGetNeoPath();
 		}
@@ -268,10 +271,10 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_EDGE:
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE:
 				setNeoEdge((NeoEdge)newValue);
 				return;
-			case AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_PATH:
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH:
 				setNeoPath((NeoPathPart)newValue);
 				return;
 		}
@@ -286,10 +289,10 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_EDGE:
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE:
 				setNeoEdge((NeoEdge)null);
 				return;
-			case AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_PATH:
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH:
 				setNeoPath((NeoPathPart)null);
 				return;
 		}
@@ -304,9 +307,9 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_EDGE:
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE:
 				return neoEdge != null;
-			case AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_PATH:
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH:
 				return neoPath != null;
 		}
 		return super.eIsSet(featureID);
@@ -321,8 +324,8 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == Adaptable.class) {
 			switch (baseOperationID) {
-				case GraphstructurePackage.ADAPTABLE___CREATE_PARAMETERS: return AdaptionNeo4JPackage.NEO4_JPATH_PARAM___CREATE_PARAMETERS;
-				case GraphstructurePackage.ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST: return AdaptionNeo4JPackage.NEO4_JPATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
+				case GraphstructurePackage.ADAPTABLE___CREATE_PARAMETERS: return AdaptionNeo4JPackage.NEO_PATH_PARAM___CREATE_PARAMETERS;
+				case GraphstructurePackage.ADAPTABLE___REMOVE_PARAMETERS_FROM_PARAMETER_LIST: return AdaptionNeo4JPackage.NEO_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST;
 				default: return -1;
 			}
 		}
@@ -337,10 +340,10 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionNeo4JPackage.NEO4_JPATH_PARAM___CREATE_PARAMETERS:
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM___CREATE_PARAMETERS:
 				createParameters();
 				return null;
-			case AdaptionNeo4JPackage.NEO4_JPATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST:
 				removeParametersFromParameterList();
 				return null;
 		}
@@ -349,8 +352,8 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 	
 	@Override
 	public boolean inputIsValid() {
-		//TODO
 		try {
+			getNeoPath().isValid(AbstractionLevel.CONCRETE);
 			return true; 
 		} catch (Exception e) {
 			return false;
@@ -362,12 +365,13 @@ public class Neo4JPathParamImpl extends ParameterImpl implements Neo4JPathParam 
 		// TODO Auto-generated method stub
 		return null;
 	}
-		
 	
 	@Override
 	public String myToString() {
-		String result = "";
-		
+		String result = "neopath [" + getInternalId() + "] ";
+		try {
+			result += " " + generateCypher();
+		} catch (InvalidityException e) {}
 		return result;
 	}
 } //Neo4JPathParamImpl

@@ -190,7 +190,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 * @ordered
 	 */
-		protected Integer counter = COUNTER_EDEFAULT;
+	protected Integer counter = COUNTER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getElementCounter() <em>Element Counter</em>}' attribute.
@@ -211,7 +211,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 * @ordered
 	 */
-		protected Integer elementCounter = ELEMENT_COUNTER_EDEFAULT;
+	protected Integer elementCounter = ELEMENT_COUNTER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getRelationCounter() <em>Relation Counter</em>}' attribute.
@@ -232,7 +232,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 * @ordered
 	 */
-		protected Integer relationCounter = RELATION_COUNTER_EDEFAULT;
+	protected Integer relationCounter = RELATION_COUNTER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getOperatorCounter() <em>Operator Counter</em>}' attribute.
@@ -242,7 +242,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 * @ordered
 	 */
-		protected static final Integer OPERATOR_COUNTER_EDEFAULT = new Integer(1);
+	protected static final Integer OPERATOR_COUNTER_EDEFAULT = new Integer(1);
 
 	/**
 	 * The cached value of the '{@link #getOperatorCounter() <em>Operator Counter</em>}' attribute.
@@ -253,7 +253,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 * @ordered
 	 */
-		protected Integer operatorCounter = OPERATOR_COUNTER_EDEFAULT;
+	protected Integer operatorCounter = OPERATOR_COUNTER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getParameterCounter() <em>Parameter Counter</em>}' attribute.
@@ -263,7 +263,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 * @ordered
 	 */
-		protected static final Integer PARAMETER_COUNTER_EDEFAULT = new Integer(1);
+	protected static final Integer PARAMETER_COUNTER_EDEFAULT = new Integer(1);
 
 	/**
 	 * The cached value of the '{@link #getParameterCounter() <em>Parameter Counter</em>}' attribute.
@@ -274,7 +274,7 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 	 * @generated
 	 * @ordered
 	 */
-		protected Integer parameterCounter = PARAMETER_COUNTER_EDEFAULT;
+	protected Integer parameterCounter = PARAMETER_COUNTER_EDEFAULT;
 
 	//	protected int[] elementCounter = {1,1,1,1,1,1};
 

@@ -159,13 +159,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass labelLiteralParamEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EDataType stringToIntEMapEDataType = null;
 
 	/**
@@ -1086,16 +1079,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * @generated
 	 */
 	@Override
-	public EClass getLabelLiteralParam() {
-		return labelLiteralParamEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EDataType getStringToIntEMap() {
 		return stringToIntEMapEDataType;
 	}
@@ -1233,8 +1216,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		createEOperation(keyValueParamEClass, KEY_VALUE_PARAM___ADD_VALUE__STRING_STRING);
 		createEOperation(keyValueParamEClass, KEY_VALUE_PARAM___SET_NEW_MAP__MAP);
 
-		labelLiteralParamEClass = createEClass(LABEL_LITERAL_PARAM);
-
 		// Create data types
 		stringToIntEMapEDataType = createEDataType(STRING_TO_INT_EMAP);
 		stringArrayEDataType = createEDataType(STRING_ARRAY);
@@ -1292,7 +1273,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		dateTimeParamEClass.getESuperTypes().add(this.getParameterValue());
 		typeOptionParamEClass.getESuperTypes().add(this.getParameter());
 		keyValueParamEClass.getESuperTypes().add(this.getParameterValue());
-		labelLiteralParamEClass.getESuperTypes().add(this.getTextLiteralParam());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(parameterEClass, Parameter.class, "Parameter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

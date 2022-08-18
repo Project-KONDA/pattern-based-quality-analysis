@@ -37,6 +37,15 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  */
 public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	/**
+	 * The cached value of the '{@link #getNodeLabels() <em>Node Labels</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNodeLabels()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TextLiteralParam> nodeLabels;
+	/**
 	 * The cached value of the '{@link #getNeoNeoLabels() <em>Neo Neo Labels</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -61,7 +70,10 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		cypher.append("(");
 		cypher.append(CypherSpecificConstants.VARIABLE_NODE);
 		cypher.append(getOriginalID());
-		for (NeoLabel l : getNeoNeoLabels()) cypher.append(l.generateCypher());
+		EList<NeoLabel> labels = getNeoNeoLabels();
+		for (int i = 0; i < labels.size(); i++) {
+			cypher.append(labels.get(i).generateCypher());
+		}
 		cypher.append(")");
 		return cypher.toString();
 	}
@@ -200,6 +212,8 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case AdaptionNeo4JPackage.NEO_NODE__NODE_LABELS:
+				return nodeLabels != null && !nodeLabels.isEmpty();
 			case AdaptionNeo4JPackage.NEO_NODE__NEO_NEO_LABELS:
 				return neoNeoLabels != null && !neoNeoLabels.isEmpty();
 		}

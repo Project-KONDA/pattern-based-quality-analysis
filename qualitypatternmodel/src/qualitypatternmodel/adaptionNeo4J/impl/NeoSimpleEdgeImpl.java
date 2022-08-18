@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
+import qualitypatternmodel.adaptionNeo4J.NeoInEdgeTargedNode;
 import qualitypatternmodel.adaptionNeo4J.NeoLabel;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
@@ -143,8 +144,13 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		cypher.append("[");
 		cypher.append(CypherSpecificConstants.VARIABLE_EGDE);
 		cypher.append(getEdgeNumber());
-		cypher.append(getNeoEdgeLabel().generateCypher());
+		if (getNeoEdgeLabel() != null) cypher.append(getNeoEdgeLabel().generateCypher());
 		cypher.append("]");
+	}
+	
+	@Override
+	public EList<NeoInEdgeTargedNode> getNeoInEdgeTargedNode() {
+		return null;
 	}
 	
 	@Override
@@ -305,20 +311,20 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void setNeoDirection(NeoDirection neoDirection) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if (neoDirection == null)
+			return;
+		this.neoDirection = neoDirection;
 	}
 
 	//Inserted Method
 	@Override 
 	public EList<NeoSimpleEdge> getSimpleEdges() {
 		EList<NeoSimpleEdge> l = new BasicEList<NeoSimpleEdge>();
-		//TODO
+		l.add(this);
 		return  l;
 	}
 

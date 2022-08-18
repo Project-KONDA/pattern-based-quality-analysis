@@ -15,15 +15,15 @@ import qualitypatternmodel.parameters.Parameter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoEdge <em>Neo Edge</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoPath <em>Neo Path</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoEdge <em>Neo Edge</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoPath <em>Neo Path</em>}</li>
  * </ul>
  *
- * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeo4JPathParam()
+ * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathParam()
  * @model
  * @generated
  */
-public interface Neo4JPathParam extends Parameter, Adaptable {
+public interface NeoPathParam extends Parameter, Adaptable {
 	/**
 	 * Returns the value of the '<em><b>Neo Edge</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoEdge#getNeoPathParam <em>Neo Path Param</em>}'.
@@ -31,7 +31,7 @@ public interface Neo4JPathParam extends Parameter, Adaptable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Edge</em>' reference.
 	 * @see #setNeoEdge(NeoEdge)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeo4JPathParam_NeoEdge()
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathParam_NeoEdge()
 	 * @see qualitypatternmodel.adaptionNeo4J.NeoEdge#getNeoPathParam
 	 * @model opposite="neoPathParam"
 	 * @generated
@@ -39,7 +39,7 @@ public interface Neo4JPathParam extends Parameter, Adaptable {
 	NeoEdge getNeoEdge();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoEdge <em>Neo Edge</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoEdge <em>Neo Edge</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Neo Edge</em>' reference.
@@ -54,14 +54,14 @@ public interface Neo4JPathParam extends Parameter, Adaptable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Neo Path</em>' reference.
 	 * @see #setNeoPath(NeoPathPart)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeo4JPathParam_NeoPath()
-	 * @model
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathParam_NeoPath()
+	 * @model required="true"
 	 * @generated
 	 */
 	NeoPathPart getNeoPath();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.Neo4JPathParam#getNeoPath <em>Neo Path</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPathParam#getNeoPath <em>Neo Path</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Neo Path</em>' reference.

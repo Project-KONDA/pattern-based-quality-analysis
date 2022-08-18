@@ -58,15 +58,6 @@ public interface AdaptionNeo4JFactory extends EFactory {
 	NeoSimpleEdge createNeoSimpleEdge();
 
 	/**
-	 * Returns a new object of class '<em>Neo Union</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Neo Union</em>'.
-	 * @generated
-	 */
-	NeoUnion createNeoUnion();
-
-	/**
 	 * Returns a new object of class '<em>Neo Attribute Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,13 +67,13 @@ public interface AdaptionNeo4JFactory extends EFactory {
 	NeoAttributeNode createNeoAttributeNode();
 
 	/**
-	 * Returns a new object of class '<em>Neo4 JPath Param</em>'.
+	 * Returns a new object of class '<em>Neo Path Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Neo4 JPath Param</em>'.
+	 * @return a new object of class '<em>Neo Path Param</em>'.
 	 * @generated
 	 */
-	Neo4JPathParam createNeo4JPathParam();
+	NeoPathParam createNeoPathParam();
 
 	/**
 	 * Returns a new object of class '<em>Neo Label</em>'.
@@ -92,6 +83,33 @@ public interface AdaptionNeo4JFactory extends EFactory {
 	 * @generated
 	 */
 	NeoLabel createNeoLabel();
+
+	/**
+	 * Returns a new object of class '<em>Neo Attribute Path Param</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Neo Attribute Path Param</em>'.
+	 * @generated
+	 */
+	NeoAttributePathParam createNeoAttributePathParam();
+
+	/**
+	 * Returns a new object of class '<em>Neo Attribute Edge</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Neo Attribute Edge</em>'.
+	 * @generated
+	 */
+	NeoAttributeEdge createNeoAttributeEdge();
+
+	/**
+	 * Returns a new object of class '<em>Neo In Edge Targed Node</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Neo In Edge Targed Node</em>'.
+	 * @generated
+	 */
+	NeoInEdgeTargedNode createNeoInEdgeTargedNode();
 
 	/**
 	 * Returns the package supported by this factory.

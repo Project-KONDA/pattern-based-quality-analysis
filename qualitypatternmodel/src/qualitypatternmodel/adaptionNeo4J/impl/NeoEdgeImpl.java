@@ -2,6 +2,8 @@
  */
 package qualitypatternmodel.adaptionNeo4J.impl;
 
+import java.util.List;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -11,9 +13,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.Neo4JPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
+import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
-
+import qualitypatternmodel.adaptionNeo4J.NeoInEdgeTargedNode;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 
 /**
@@ -38,7 +42,7 @@ public class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 	 * @generated
 	 * @ordered
 	 */
-	protected Neo4JPathParam neoPathParam;
+	protected NeoPathParam neoPathParam;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -47,7 +51,6 @@ public class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 	 */
 	protected NeoEdgeImpl() {
 		super();
-		
 	}
 
 	/**
@@ -60,16 +63,49 @@ public class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 		return AdaptionNeo4JPackage.Literals.NEO_EDGE;
 	}
 
+	//Translates just the Edge
+	@Override
+	public String generateCypher() throws InvalidityException {
+		StringBuilder cypher = new StringBuilder("");
+		if(!translated) {
+			translated = true;
+			NeoPathParam neoPathParam = getNeoPathParam();
+			NeoPathPart neoPartPath = neoPathParam.getNeoPath();
+			List<NeoInEdgeTargedNode> neoInEdgeTargedNodes	= neoPartPath.getNeoInEdgeTargedNode();
+			NeoPathPart previewesPart = null;
+			NeoInEdgeTargedNode node = null;
+			int edgeCounter = 1;
+			int edges = neoPartPath.getSimpleEdges().size();
+			
+			for(NeoPathPart part : neoPartPath.getSimpleEdges()) {
+				if(previewesPart != null && edgeCounter != edges) {
+					node = null;
+					for(NeoInEdgeTargedNode inEdgeTargedNode : neoInEdgeTargedNodes) 
+						if(inEdgeTargedNode.getNeoSimpleEdgeSource() == previewesPart) node = inEdgeTargedNode;
+					if (node != null) cypher.append(node.generateCypher());
+					else cypher.append("()");
+					
+				}
+				cypher.append(part.generateCypher());
+				previewesPart = part;
+				edgeCounter++;
+			}
+			previewesPart = null;
+		}
+		return cypher.toString();		
+	}
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Neo4JPathParam getNeoPathParam() {
+	public NeoPathParam getNeoPathParam() {
 		if (neoPathParam != null && neoPathParam.eIsProxy()) {
 			InternalEObject oldNeoPathParam = (InternalEObject)neoPathParam;
-			neoPathParam = (Neo4JPathParam)eResolveProxy(oldNeoPathParam);
+			neoPathParam = (NeoPathParam)eResolveProxy(oldNeoPathParam);
 			if (neoPathParam != oldNeoPathParam) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO_EDGE__NEO_PATH_PARAM, oldNeoPathParam, neoPathParam));
@@ -83,7 +119,7 @@ public class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Neo4JPathParam basicGetNeoPathParam() {
+	public NeoPathParam basicGetNeoPathParam() {
 		return neoPathParam;
 	}
 
@@ -92,8 +128,8 @@ public class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNeoPathParam(Neo4JPathParam newNeoPathParam, NotificationChain msgs) {
-		Neo4JPathParam oldNeoPathParam = neoPathParam;
+	public NotificationChain basicSetNeoPathParam(NeoPathParam newNeoPathParam, NotificationChain msgs) {
+		NeoPathParam oldNeoPathParam = neoPathParam;
 		neoPathParam = newNeoPathParam;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_EDGE__NEO_PATH_PARAM, oldNeoPathParam, newNeoPathParam);
@@ -108,13 +144,13 @@ public class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 	 * @generated
 	 */
 	@Override
-	public void setNeoPathParam(Neo4JPathParam newNeoPathParam) {
+	public void setNeoPathParam(NeoPathParam newNeoPathParam) {
 		if (newNeoPathParam != neoPathParam) {
 			NotificationChain msgs = null;
 			if (neoPathParam != null)
-				msgs = ((InternalEObject)neoPathParam).eInverseRemove(this, AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_EDGE, Neo4JPathParam.class, msgs);
+				msgs = ((InternalEObject)neoPathParam).eInverseRemove(this, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE, NeoPathParam.class, msgs);
 			if (newNeoPathParam != null)
-				msgs = ((InternalEObject)newNeoPathParam).eInverseAdd(this, AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_EDGE, Neo4JPathParam.class, msgs);
+				msgs = ((InternalEObject)newNeoPathParam).eInverseAdd(this, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE, NeoPathParam.class, msgs);
 			msgs = basicSetNeoPathParam(newNeoPathParam, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -132,8 +168,8 @@ public class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_EDGE__NEO_PATH_PARAM:
 				if (neoPathParam != null)
-					msgs = ((InternalEObject)neoPathParam).eInverseRemove(this, AdaptionNeo4JPackage.NEO4_JPATH_PARAM__NEO_EDGE, Neo4JPathParam.class, msgs);
-				return basicSetNeoPathParam((Neo4JPathParam)otherEnd, msgs);
+					msgs = ((InternalEObject)neoPathParam).eInverseRemove(this, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_EDGE, NeoPathParam.class, msgs);
+				return basicSetNeoPathParam((NeoPathParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -176,7 +212,7 @@ public class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_EDGE__NEO_PATH_PARAM:
-				setNeoPathParam((Neo4JPathParam)newValue);
+				setNeoPathParam((NeoPathParam)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -191,7 +227,7 @@ public class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_EDGE__NEO_PATH_PARAM:
-				setNeoPathParam((Neo4JPathParam)null);
+				setNeoPathParam((NeoPathParam)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -211,4 +247,11 @@ public class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 		return super.eIsSet(featureID);
 	}
 
+	@Override
+	public String myToString() {
+		String result = super.myToString();
+		if (getNeoPathParam() != null) 
+			result += " " + getNeoPathParam().myToString() ; 
+		return result;
+	}
 } //NeoEdgeImpl
