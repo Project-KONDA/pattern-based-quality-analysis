@@ -15,14 +15,14 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoAttributeEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 
 import qualitypatternmodel.graphstructure.provider.RelationItemProvider;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoAttributeEdge} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -95,7 +95,7 @@ public class NeoAttributeEdgeItemProvider extends RelationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NeoAttributeEdge)object).getName();
+		String label = ((NeoPropertyEdge)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_NeoAttributeEdge_type") :
 			getString("_UI_NeoAttributeEdge_type") + " " + label;

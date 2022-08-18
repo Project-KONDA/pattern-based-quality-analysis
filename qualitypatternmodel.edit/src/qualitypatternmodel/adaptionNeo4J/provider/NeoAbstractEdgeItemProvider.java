@@ -10,27 +10,38 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 
-import qualitypatternmodel.graphstructure.provider.PrimitiveNodeItemProvider;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NeoAttributeNodeItemProvider extends PrimitiveNodeItemProvider {
+public class NeoAbstractEdgeItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NeoAttributeNodeItemProvider(AdapterFactory adapterFactory) {
+	public NeoAbstractEdgeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -50,17 +61,6 @@ public class NeoAttributeNodeItemProvider extends PrimitiveNodeItemProvider {
 	}
 
 	/**
-	 * This returns NeoAttributeNode.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NeoAttributeNode"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,10 +68,7 @@ public class NeoAttributeNodeItemProvider extends PrimitiveNodeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NeoPropertyNode)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_NeoAttributeNode_type") :
-			getString("_UI_NeoAttributeNode_type") + " " + label;
+		return getString("_UI_NeoAbstractEdge_type");
 	}
 
 

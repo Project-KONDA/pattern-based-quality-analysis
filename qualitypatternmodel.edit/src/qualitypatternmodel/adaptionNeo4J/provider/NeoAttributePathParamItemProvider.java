@@ -17,13 +17,13 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoAttributePathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 
 import qualitypatternmodel.parameters.provider.ParameterItemProvider;
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoAttributePathParam} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -142,7 +142,7 @@ public class NeoAttributePathParamItemProvider extends ParameterItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NeoAttributePathParam)object).getId();
+		String label = ((NeoPropertyPathParam)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_NeoAttributePathParam_type") :
 			getString("_UI_NeoAttributePathParam_type") + " " + label;
@@ -160,7 +160,7 @@ public class NeoAttributePathParamItemProvider extends ParameterItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(NeoAttributePathParam.class)) {
+		switch (notification.getFeatureID(NeoPropertyPathParam.class)) {
 			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_PATH_PARAM__NEO_PROPERTY_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

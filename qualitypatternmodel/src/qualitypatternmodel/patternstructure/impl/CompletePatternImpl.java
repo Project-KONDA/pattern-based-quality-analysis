@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import qualitypatternmodel.adaptionNeo4J.NeoAttributeNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl;
@@ -431,11 +431,11 @@ public class CompletePatternImpl extends PatternImpl implements CompletePattern 
 		}
 		
 		//This has to be possible -- has to be modified
-		NeoAttributeNode neoAttributeNode;
+		NeoPropertyNode neoAttributeNode;
 		for (Node n : nodes) {
-			if (n instanceof PrimitiveNode && n instanceof NeoAttributeNode) {
+			if (n instanceof PrimitiveNode && n instanceof NeoPropertyNode) {
 				if (graphPatternReturn.length() != 0) graphPatternReturn.append(",");
-				neoAttributeNode = (NeoAttributeNode) n;
+				neoAttributeNode = (NeoPropertyNode) n;
 				graphPatternReturn.append(neoAttributeNode.generateCypher());
 			}
 		}

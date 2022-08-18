@@ -10,9 +10,9 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
  * <!-- end-user-doc -->
  *
  *
- * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoAttributeNode()
+ * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPropertyNode()
  * @model
  * @generated
  */
-public interface NeoAttributeNode extends PrimitiveNode, AbstractNeoNode {
+public interface NeoPropertyNode extends PrimitiveNode, AbstractNeoNode {
 } // NeoAttributeNode

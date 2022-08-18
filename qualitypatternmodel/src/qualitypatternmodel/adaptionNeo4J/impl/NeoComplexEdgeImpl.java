@@ -4,8 +4,6 @@ package qualitypatternmodel.adaptionNeo4J.impl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-import java.util.List;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -14,15 +12,16 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
 import qualitypatternmodel.exceptions.OperatorCycleException;
+import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoInEdgeTargedNode;
@@ -36,7 +35,6 @@ import qualitypatternmodel.adaptionNeo4J.NeoInEdgeTargedNode;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl#getNeoPath <em>Neo Path</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl#getNeoTargedEdge <em>Neo Targed Edge</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,16 +49,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 * @ordered
 	 */
 	protected EList<NeoPathPart> neoPath;
-
-	/**
-	 * The cached value of the '{@link #getNeoTargedEdge() <em>Neo Targed Edge</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNeoTargedEdge()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<NeoInEdgeTargedNode> neoTargedEdge;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -99,6 +87,16 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 
 		return cypher.toString();
 	}
+	
+	@Override
+	public String getCypherVariable() {
+		StringBuilder variables = new StringBuilder();
+		EList<NeoPathPart> neoPath = this.getNeoPath();
+		EList<NeoInEdgeTargedNode> neoTargedEdge = this.getNeoInEdgeTargedNode();
+		for(NeoPathPart path : neoPath) variables.append(path.getCypherVariable());
+		for(NeoInEdgeTargedNode innerNode: neoTargedEdge) variables.append(innerNode.getCypherVariable());
+		return variables.toString();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,19 +127,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 * @generated
 	 */
 	@Override
-	public EList<NeoInEdgeTargedNode> getNeoTargedEdge() {
-		if (neoTargedEdge == null) {
-			neoTargedEdge = new EObjectResolvingEList<NeoInEdgeTargedNode>(NeoInEdgeTargedNode.class, this, AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_TARGED_EDGE);
-		}
-		return neoTargedEdge;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
@@ -160,8 +145,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
 				return getNeoPath();
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_TARGED_EDGE:
-				return getNeoTargedEdge();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -179,10 +162,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 				getNeoPath().clear();
 				getNeoPath().addAll((Collection<? extends NeoPathPart>)newValue);
 				return;
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_TARGED_EDGE:
-				getNeoTargedEdge().clear();
-				getNeoTargedEdge().addAll((Collection<? extends NeoInEdgeTargedNode>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -198,9 +177,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
 				getNeoPath().clear();
 				return;
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_TARGED_EDGE:
-				getNeoTargedEdge().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -215,8 +191,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		switch (featureID) {
 			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_PATH:
 				return neoPath != null && !neoPath.isEmpty();
-			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE__NEO_TARGED_EDGE:
-				return neoTargedEdge != null && !neoTargedEdge.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -228,10 +202,29 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	 * @generated
 	 */
 	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == NeoAbstractEdge.class) {
+			switch (baseOperationID) {
+				case AdaptionNeo4JPackage.NEO_ABSTRACT_EDGE___SET_TARGET_NODE_LABEL__TEXTLITERALPARAM: return AdaptionNeo4JPackage.NEO_COMPLEX_EDGE___SET_TARGET_NODE_LABEL__TEXTLITERALPARAM;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE___VALIDATE_COMPLEX_EDGE:
 				return validateComplexEdge();
+			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE___SET_TARGET_NODE_LABEL__TEXTLITERALPARAM:
+				setTargetNodeLabel((TextLiteralParam)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -277,6 +270,18 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	public boolean validateComplexEdge() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTargetNodeLabel(TextLiteralParam targetNodeLabel) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 } //SequenceEdgeImpl

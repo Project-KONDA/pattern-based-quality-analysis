@@ -10,7 +10,9 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 
 import qualitypatternmodel.graphstructure.provider.PrimitiveNodeItemProvider;
@@ -23,14 +25,14 @@ import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class NeoAttributeNodeItemProvider extends PrimitiveNodeItemProvider {
+public class NeoPropertyNodeItemProvider extends PrimitiveNodeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NeoAttributeNodeItemProvider(AdapterFactory adapterFactory) {
+	public NeoPropertyNodeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -50,14 +52,14 @@ public class NeoAttributeNodeItemProvider extends PrimitiveNodeItemProvider {
 	}
 
 	/**
-	 * This returns NeoAttributeNode.gif.
+	 * This returns NeoPropertyNode.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NeoAttributeNode"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NeoPropertyNode"));
 	}
 
 	/**
@@ -70,8 +72,8 @@ public class NeoAttributeNodeItemProvider extends PrimitiveNodeItemProvider {
 	public String getText(Object object) {
 		String label = ((NeoPropertyNode)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_NeoAttributeNode_type") :
-			getString("_UI_NeoAttributeNode_type") + " " + label;
+			getString("_UI_NeoPropertyNode_type") :
+			getString("_UI_NeoPropertyNode_type") + " " + label;
 	}
 
 

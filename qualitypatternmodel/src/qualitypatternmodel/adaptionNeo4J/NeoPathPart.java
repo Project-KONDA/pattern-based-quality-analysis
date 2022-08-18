@@ -31,12 +31,4 @@ public interface NeoPathPart extends PatternElement {
 	 * @generated
 	 */
 	String getCypherVariable();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	EList<NeoInEdgeTargedNode> getNeoInEdgeTargedNode();
 } // NeoPathPart

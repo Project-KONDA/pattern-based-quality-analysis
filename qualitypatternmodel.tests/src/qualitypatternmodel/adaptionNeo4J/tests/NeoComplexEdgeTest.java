@@ -15,6 +15,7 @@ import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoComplexEdge#validateComplexEdge() <em>Validate Complex Edge</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Target Node Label</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -81,6 +82,19 @@ public class NeoComplexEdgeTest extends NeoPathPartTest {
 	 * @generated
 	 */
 	public void testValidateComplexEdge() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Target Node Label</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge#setTargetNodeLabel(qualitypatternmodel.parameters.TextLiteralParam)
+	 * @generated
+	 */
+	public void testSetTargetNodeLabel__TextLiteralParam() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

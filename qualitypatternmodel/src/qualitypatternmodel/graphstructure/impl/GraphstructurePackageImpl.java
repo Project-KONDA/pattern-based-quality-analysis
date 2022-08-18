@@ -1544,7 +1544,7 @@ public class GraphstructurePackageImpl extends EPackageImpl implements Graphstru
 		op = initEOperation(getNode__AdaptAsNeoNode(), theAdaptionNeo4JPackage.getNeoNode(), "adaptAsNeoNode", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
-		op = initEOperation(getNode__AdaptAsNeoAttributeNode(), theAdaptionNeo4JPackage.getNeoAttributeNode(), "adaptAsNeoAttributeNode", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNode__AdaptAsNeoAttributeNode(), theAdaptionNeo4JPackage.getNeoPropertyNode(), "adaptAsNeoAttributeNode", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, thePatternstructurePackage.getInvalidityExceptionWrapper());
 
 		initEClass(graphEClass, Graph.class, "Graph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

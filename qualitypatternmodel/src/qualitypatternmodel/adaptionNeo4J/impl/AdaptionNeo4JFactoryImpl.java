@@ -61,12 +61,10 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 			case AdaptionNeo4JPackage.NEO_EDGE: return createNeoEdge();
 			case AdaptionNeo4JPackage.NEO_COMPLEX_EDGE: return createNeoComplexEdge();
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE: return createNeoSimpleEdge();
-			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_NODE: return createNeoAttributeNode();
+			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE: return createNeoPropertyNode();
 			case AdaptionNeo4JPackage.NEO_PATH_PARAM: return createNeoPathParam();
-			case AdaptionNeo4JPackage.NEO_LABEL: return createNeoLabel();
-			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_PATH_PARAM: return createNeoAttributePathParam();
-			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_EDGE: return createNeoAttributeEdge();
-			case AdaptionNeo4JPackage.NEO_IN_EDGE_TARGED_NODE: return createNeoInEdgeTargedNode();
+			case AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM: return createNeoPropertyPathParam();
+			case AdaptionNeo4JPackage.NEO_PROPERTY_EDGE: return createNeoPropertyEdge();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -156,9 +154,9 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public NeoAttributeNode createNeoAttributeNode() {
-		NeoAttributeNodeImpl neoAttributeNode = new NeoAttributeNodeImpl();
-		return neoAttributeNode;
+	public NeoPropertyNode createNeoPropertyNode() {
+		NeoPropertyNodeImpl neoPropertyNode = new NeoPropertyNodeImpl();
+		return neoPropertyNode;
 	}
 
 	/**
@@ -178,9 +176,9 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public NeoLabel createNeoLabel() {
-		NeoLabelImpl neoLabel = new NeoLabelImpl();
-		return neoLabel;
+	public NeoPropertyPathParam createNeoPropertyPathParam() {
+		NeoPropertyPathParamImpl neoPropertyPathParam = new NeoPropertyPathParamImpl();
+		return neoPropertyPathParam;
 	}
 
 	/**
@@ -189,31 +187,9 @@ public class AdaptionNeo4JFactoryImpl extends EFactoryImpl implements AdaptionNe
 	 * @generated
 	 */
 	@Override
-	public NeoAttributePathParam createNeoAttributePathParam() {
-		NeoAttributePathParamImpl neoAttributePathParam = new NeoAttributePathParamImpl();
-		return neoAttributePathParam;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NeoAttributeEdge createNeoAttributeEdge() {
-		NeoAttributeEdgeImpl neoAttributeEdge = new NeoAttributeEdgeImpl();
-		return neoAttributeEdge;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NeoInEdgeTargedNode createNeoInEdgeTargedNode() {
-		NeoInEdgeTargedNodeImpl neoInEdgeTargedNode = new NeoInEdgeTargedNodeImpl();
-		return neoInEdgeTargedNode;
+	public NeoPropertyEdge createNeoPropertyEdge() {
+		NeoPropertyEdgeImpl neoPropertyEdge = new NeoPropertyEdgeImpl();
+		return neoPropertyEdge;
 	}
 
 	/**

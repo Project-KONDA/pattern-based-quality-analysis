@@ -18,7 +18,6 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.Relation;
 
 import qualitypatternmodel.parameters.Parameter;
-import qualitypatternmodel.parameters.ParameterValue;
 
 import qualitypatternmodel.patternstructure.PatternElement;
 
@@ -103,28 +102,24 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 				return createNeoPathPartAdapter();
 			}
 			@Override
-			public Adapter caseNeoAttributeNode(NeoAttributeNode object) {
-				return createNeoAttributeNodeAdapter();
+			public Adapter caseNeoPropertyNode(NeoPropertyNode object) {
+				return createNeoPropertyNodeAdapter();
 			}
 			@Override
 			public Adapter caseNeoPathParam(NeoPathParam object) {
 				return createNeoPathParamAdapter();
 			}
 			@Override
-			public Adapter caseNeoLabel(NeoLabel object) {
-				return createNeoLabelAdapter();
+			public Adapter caseNeoPropertyPathParam(NeoPropertyPathParam object) {
+				return createNeoPropertyPathParamAdapter();
 			}
 			@Override
-			public Adapter caseNeoAttributePathParam(NeoAttributePathParam object) {
-				return createNeoAttributePathParamAdapter();
+			public Adapter caseNeoPropertyEdge(NeoPropertyEdge object) {
+				return createNeoPropertyEdgeAdapter();
 			}
 			@Override
-			public Adapter caseNeoAttributeEdge(NeoAttributeEdge object) {
-				return createNeoAttributeEdgeAdapter();
-			}
-			@Override
-			public Adapter caseNeoInEdgeTargedNode(NeoInEdgeTargedNode object) {
-				return createNeoInEdgeTargedNodeAdapter();
+			public Adapter caseNeoAbstractEdge(NeoAbstractEdge object) {
+				return createNeoAbstractEdgeAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -157,10 +152,6 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseParameter(Parameter object) {
 				return createParameterAdapter();
-			}
-			@Override
-			public Adapter caseParameterValue(ParameterValue object) {
-				return createParameterValueAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -267,16 +258,16 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoAttributeNode <em>Neo Attribute Node</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode <em>Neo Property Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAttributeNode
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyNode
 	 * @generated
 	 */
-	public Adapter createNeoAttributeNodeAdapter() {
+	public Adapter createNeoPropertyNodeAdapter() {
 		return null;
 	}
 
@@ -295,58 +286,44 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoLabel <em>Neo Label</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam <em>Neo Property Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoLabel
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam
 	 * @generated
 	 */
-	public Adapter createNeoLabelAdapter() {
+	public Adapter createNeoPropertyPathParamAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoAttributePathParam <em>Neo Attribute Path Param</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge <em>Neo Property Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAttributePathParam
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge
 	 * @generated
 	 */
-	public Adapter createNeoAttributePathParamAdapter() {
+	public Adapter createNeoPropertyEdgeAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoAttributeEdge <em>Neo Attribute Edge</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge <em>Neo Abstract Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoAttributeEdge
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge
 	 * @generated
 	 */
-	public Adapter createNeoAttributeEdgeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoInEdgeTargedNode <em>Neo In Edge Targed Node</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoInEdgeTargedNode
-	 * @generated
-	 */
-	public Adapter createNeoInEdgeTargedNodeAdapter() {
+	public Adapter createNeoAbstractEdgeAdapter() {
 		return null;
 	}
 
@@ -459,20 +436,6 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.parameters.ParameterValue <em>Parameter Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see qualitypatternmodel.parameters.ParameterValue
-	 * @generated
-	 */
-	public Adapter createParameterValueAdapter() {
 		return null;
 	}
 

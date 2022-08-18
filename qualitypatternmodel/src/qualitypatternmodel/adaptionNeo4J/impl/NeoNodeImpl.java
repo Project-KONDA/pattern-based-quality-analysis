@@ -29,32 +29,21 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl#getNodeLabels <em>Node Labels</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl#getNeoNeoLabels <em>Neo Neo Labels</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl#getNeoNodeLabels <em>Neo Node Labels</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	/**
-	 * The cached value of the '{@link #getNodeLabels() <em>Node Labels</em>}' reference list.
+	 * The cached value of the '{@link #getNeoNodeLabels() <em>Neo Node Labels</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNodeLabels()
+	 * @see #getNeoNodeLabels()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TextLiteralParam> nodeLabels;
-	/**
-	 * The cached value of the '{@link #getNeoNeoLabels() <em>Neo Neo Labels</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNeoNeoLabels()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<NeoLabel> neoNeoLabels;
-
+	protected EList<TextLiteralParam> neoNodeLabels;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -142,11 +131,23 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 * @generated
 	 */
 	@Override
-	public EList<NeoLabel> getNeoNeoLabels() {
-		if (neoNeoLabels == null) {
-			neoNeoLabels = new EObjectResolvingEList<NeoLabel>(NeoLabel.class, this, AdaptionNeo4JPackage.NEO_NODE__NEO_NEO_LABELS);
+	public EList<TextLiteralParam> getNeoNodeLabels() {
+		if (neoNodeLabels == null) {
+			neoNodeLabels = new EObjectResolvingEList<TextLiteralParam>(TextLiteralParam.class, this, AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS);
 		}
-		return neoNeoLabels;
+		return neoNodeLabels;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNeoNodeLabel(TextLiteralParam neoNodeLabel) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -157,10 +158,8 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_NODE__NODE_LABELS:
-				return getNodeLabels();
-			case AdaptionNeo4JPackage.NEO_NODE__NEO_NEO_LABELS:
-				return getNeoNeoLabels();
+			case AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS:
+				return getNeoNodeLabels();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -174,13 +173,9 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_NODE__NODE_LABELS:
-				getNodeLabels().clear();
-				getNodeLabels().addAll((Collection<? extends TextLiteralParam>)newValue);
-				return;
-			case AdaptionNeo4JPackage.NEO_NODE__NEO_NEO_LABELS:
-				getNeoNeoLabels().clear();
-				getNeoNeoLabels().addAll((Collection<? extends NeoLabel>)newValue);
+			case AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS:
+				getNeoNodeLabels().clear();
+				getNeoNodeLabels().addAll((Collection<? extends TextLiteralParam>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -194,11 +189,8 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_NODE__NODE_LABELS:
-				getNodeLabels().clear();
-				return;
-			case AdaptionNeo4JPackage.NEO_NODE__NEO_NEO_LABELS:
-				getNeoNeoLabels().clear();
+			case AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS:
+				getNeoNodeLabels().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -212,10 +204,8 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_NODE__NODE_LABELS:
-				return nodeLabels != null && !nodeLabels.isEmpty();
-			case AdaptionNeo4JPackage.NEO_NODE__NEO_NEO_LABELS:
-				return neoNeoLabels != null && !neoNeoLabels.isEmpty();
+			case AdaptionNeo4JPackage.NEO_NODE__NEO_NODE_LABELS:
+				return neoNodeLabels != null && !neoNodeLabels.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -244,6 +234,9 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case AdaptionNeo4JPackage.NEO_NODE___SET_NEO_NODE_LABEL__TEXTLITERALPARAM:
+				setNeoNodeLabel((TextLiteralParam)arguments.get(0));
+				return null;
 			case AdaptionNeo4JPackage.NEO_NODE___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
 		}

@@ -11,7 +11,7 @@ import qualitypatternmodel.parameters.tests.ParameterTest;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Neo Attribute Path Param</b></em>'.
+ * A test case for the model object '<em><b>Neo Property Path Param</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -22,7 +22,7 @@ import qualitypatternmodel.parameters.tests.ParameterTest;
  * </p>
  * @generated
  */
-public class NeoAttributePathParamTest extends ParameterTest {
+public class NeoPropertyPathParamTest extends ParameterTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -30,21 +30,21 @@ public class NeoAttributePathParamTest extends ParameterTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(NeoAttributePathParamTest.class);
+		TestRunner.run(NeoPropertyPathParamTest.class);
 	}
 
 	/**
-	 * Constructs a new Neo Attribute Path Param test case with the given name.
+	 * Constructs a new Neo Property Path Param test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NeoAttributePathParamTest(String name) {
+	public NeoPropertyPathParamTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Neo Attribute Path Param test case.
+	 * Returns the fixture for this Neo Property Path Param test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -62,7 +62,7 @@ public class NeoAttributePathParamTest extends ParameterTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptionNeo4JFactory.eINSTANCE.createNeoAttributePathParam());
+		setFixture(AdaptionNeo4JFactory.eINSTANCE.createNeoPropertyPathParam());
 	}
 
 	/**
@@ -102,4 +102,4 @@ public class NeoAttributePathParamTest extends ParameterTest {
 		fail();
 	}
 
-} //NeoAttributePathParamTest
+} //NeoPropertyPathParamTest

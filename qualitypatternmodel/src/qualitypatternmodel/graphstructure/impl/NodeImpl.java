@@ -14,10 +14,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
-import qualitypatternmodel.adaptionNeo4J.NeoAttributeNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoAttributeNodeImpl;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl;
 import qualitypatternmodel.adaptionrdf.RdfIriNode;
 import qualitypatternmodel.adaptionrdf.RdfLiteralNode;
@@ -1629,13 +1629,13 @@ public class NodeImpl extends PatternElementImpl implements Node {
 	 * @generated NOT
 	 */
 	@Override
-	public NeoAttributeNode adaptAsNeoAttributeNode() throws InvalidityException {
+	public NeoPropertyNode adaptAsNeoAttributeNode() throws InvalidityException {
 		Graph graph = getGraph();
-		NeoAttributeNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsNeoAttributeRecursive();
+		NeoPropertyNode elementOriginal = ((NodeImpl) getOriginalNode()).adaptAsNeoAttributeRecursive();
 		
 		for(Node n: graph.getNodes()) {
-			if(n instanceof NeoAttributeNode) {
-				NeoAttributeNode element = (NeoAttributeNode) n;
+			if(n instanceof NeoPropertyNode) {
+				NeoPropertyNode element = (NeoPropertyNode) n;
 				Node next = n;
 				while(next != null) {
 					if(!next.equals(elementOriginal)) {
@@ -1653,9 +1653,9 @@ public class NodeImpl extends PatternElementImpl implements Node {
 		throw new InvalidityException("corresponding node not found");
 	}
 
-	private NeoAttributeNode adaptAsNeoAttributeRecursive() throws InvalidityException {
-		if (!(this instanceof NeoAttributeNode)) {
-			NeoAttributeNodeImpl neoAttribute = (NeoAttributeNodeImpl) AdaptionNeo4JFactoryImpl.init().createNeoAttributeNode();;	
+	private NeoPropertyNode adaptAsNeoAttributeRecursive() throws InvalidityException {
+		if (!(this instanceof NeoPropertyNode)) {
+			NeoPropertyNodeImpl neoAttribute = (NeoPropertyNodeImpl) AdaptionNeo4JFactoryImpl.init().createNeoAttributeNode();;	
 			neoAttribute.typeModifiable = true;
 			neoAttribute.setGraphSimple(getGraph());			
 			
@@ -1707,7 +1707,7 @@ public class NodeImpl extends PatternElementImpl implements Node {
 			for (ElementMapping map: getOutgoingMappings()) {
 				((NodeImpl) map.getTarget()).adaptAsNeoAttributeNode();
 			}
-			return (NeoAttributeNode) this;
+			return (NeoPropertyNode) this;
 		}
 	}
 	

@@ -11,7 +11,7 @@ import qualitypatternmodel.graphstructure.tests.PrimitiveNodeTest;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Neo Attribute Node</b></em>'.
+ * A test case for the model object '<em><b>Neo Property Node</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following operations are tested:
@@ -21,7 +21,7 @@ import qualitypatternmodel.graphstructure.tests.PrimitiveNodeTest;
  * </p>
  * @generated
  */
-public class NeoAttributeNodeTest extends PrimitiveNodeTest {
+public class NeoPropertyNodeTest extends PrimitiveNodeTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -29,21 +29,21 @@ public class NeoAttributeNodeTest extends PrimitiveNodeTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(NeoAttributeNodeTest.class);
+		TestRunner.run(NeoPropertyNodeTest.class);
 	}
 
 	/**
-	 * Constructs a new Neo Attribute Node test case with the given name.
+	 * Constructs a new Neo Property Node test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NeoAttributeNodeTest(String name) {
+	public NeoPropertyNodeTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Neo Attribute Node test case.
+	 * Returns the fixture for this Neo Property Node test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -61,7 +61,7 @@ public class NeoAttributeNodeTest extends PrimitiveNodeTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptionNeo4JFactory.eINSTANCE.createNeoAttributeNode());
+		setFixture(AdaptionNeo4JFactory.eINSTANCE.createNeoPropertyNode());
 	}
 
 	/**
@@ -88,4 +88,4 @@ public class NeoAttributeNodeTest extends PrimitiveNodeTest {
 		fail();
 	}
 
-} //NeoAttributeNodeTest
+} //NeoPropertyNodeTest

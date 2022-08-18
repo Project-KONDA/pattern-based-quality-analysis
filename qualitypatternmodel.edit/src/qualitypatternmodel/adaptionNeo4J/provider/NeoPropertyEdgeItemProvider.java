@@ -10,27 +10,31 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 
-import qualitypatternmodel.graphstructure.provider.PrimitiveNodeItemProvider;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+
+import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
+
+import qualitypatternmodel.graphstructure.provider.RelationItemProvider;
 
 import qualitypatternmodel.parameters.provider.QualitypatternmodelEditPlugin;
 
 /**
- * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoPropertyNode} object.
+ * This is the item provider adapter for a {@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NeoAttributeNodeItemProvider extends PrimitiveNodeItemProvider {
+public class NeoPropertyEdgeItemProvider extends RelationItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NeoAttributeNodeItemProvider(AdapterFactory adapterFactory) {
+	public NeoPropertyEdgeItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,19 +49,42 @@ public class NeoAttributeNodeItemProvider extends PrimitiveNodeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNeoAttributePathParamPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This returns NeoAttributeNode.gif.
+	 * This adds a property descriptor for the Neo Attribute Path Param feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNeoAttributePathParamPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NeoPropertyEdge_neoAttributePathParam_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoPropertyEdge_neoAttributePathParam_feature", "_UI_NeoPropertyEdge_type"),
+				 AdaptionNeo4JPackage.Literals.NEO_PROPERTY_EDGE__NEO_ATTRIBUTE_PATH_PARAM,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns NeoPropertyEdge.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NeoAttributeNode"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NeoPropertyEdge"));
 	}
 
 	/**
@@ -68,10 +95,10 @@ public class NeoAttributeNodeItemProvider extends PrimitiveNodeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((NeoPropertyNode)object).getName();
+		String label = ((NeoPropertyEdge)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_NeoAttributeNode_type") :
-			getString("_UI_NeoAttributeNode_type") + " " + label;
+			getString("_UI_NeoPropertyEdge_type") :
+			getString("_UI_NeoPropertyEdge_type") + " " + label;
 	}
 
 

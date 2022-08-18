@@ -58,13 +58,13 @@ public interface AdaptionNeo4JFactory extends EFactory {
 	NeoSimpleEdge createNeoSimpleEdge();
 
 	/**
-	 * Returns a new object of class '<em>Neo Attribute Node</em>'.
+	 * Returns a new object of class '<em>Neo Property Node</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Neo Attribute Node</em>'.
+	 * @return a new object of class '<em>Neo Property Node</em>'.
 	 * @generated
 	 */
-	NeoAttributeNode createNeoAttributeNode();
+	NeoPropertyNode createNeoPropertyNode();
 
 	/**
 	 * Returns a new object of class '<em>Neo Path Param</em>'.
@@ -76,40 +76,22 @@ public interface AdaptionNeo4JFactory extends EFactory {
 	NeoPathParam createNeoPathParam();
 
 	/**
-	 * Returns a new object of class '<em>Neo Label</em>'.
+	 * Returns a new object of class '<em>Neo Property Path Param</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Neo Label</em>'.
+	 * @return a new object of class '<em>Neo Property Path Param</em>'.
 	 * @generated
 	 */
-	NeoLabel createNeoLabel();
+	NeoPropertyPathParam createNeoPropertyPathParam();
 
 	/**
-	 * Returns a new object of class '<em>Neo Attribute Path Param</em>'.
+	 * Returns a new object of class '<em>Neo Property Edge</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Neo Attribute Path Param</em>'.
+	 * @return a new object of class '<em>Neo Property Edge</em>'.
 	 * @generated
 	 */
-	NeoAttributePathParam createNeoAttributePathParam();
-
-	/**
-	 * Returns a new object of class '<em>Neo Attribute Edge</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Neo Attribute Edge</em>'.
-	 * @generated
-	 */
-	NeoAttributeEdge createNeoAttributeEdge();
-
-	/**
-	 * Returns a new object of class '<em>Neo In Edge Targed Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Neo In Edge Targed Node</em>'.
-	 * @generated
-	 */
-	NeoInEdgeTargedNode createNeoInEdgeTargedNode();
+	NeoPropertyEdge createNeoPropertyEdge();
 
 	/**
 	 * Returns the package supported by this factory.

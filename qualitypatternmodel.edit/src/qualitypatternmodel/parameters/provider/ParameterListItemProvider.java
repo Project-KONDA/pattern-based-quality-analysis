@@ -232,12 +232,7 @@ public class ParameterListItemProvider extends PatternElementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 AdaptionNeo4JFactory.eINSTANCE.createNeoLabel()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ParametersPackage.Literals.PARAMETER_LIST__PARAMETERS,
-				 AdaptionNeo4JFactory.eINSTANCE.createNeoAttributePathParam()));
+				 AdaptionNeo4JFactory.eINSTANCE.createNeoPropertyPathParam()));
 	}
 
 	/**

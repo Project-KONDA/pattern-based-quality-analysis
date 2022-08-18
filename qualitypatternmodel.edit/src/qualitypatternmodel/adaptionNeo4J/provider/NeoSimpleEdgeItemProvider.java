@@ -45,9 +45,10 @@ public class NeoSimpleEdgeItemProvider extends NeoPathPartItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addKeyvalueparamPropertyDescriptor(object);
-			addNeoEdgeLabelPropertyDescriptor(object);
 			addNeoDirectionPropertyDescriptor(object);
 			addEdgeNumberPropertyDescriptor(object);
+			addNeoTargetNodeLabelsPropertyDescriptor(object);
+			addNeoEdgeLabelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -136,6 +137,28 @@ public class NeoSimpleEdgeItemProvider extends NeoPathPartItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Neo Target Node Labels feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNeoTargetNodeLabelsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NeoSimpleEdge_neoTargetNodeLabels_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoSimpleEdge_neoTargetNodeLabels_feature", "_UI_NeoSimpleEdge_type"),
+				 AdaptionNeo4JPackage.Literals.NEO_SIMPLE_EDGE__NEO_TARGET_NODE_LABELS,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

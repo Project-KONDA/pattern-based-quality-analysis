@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoAttributeEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoAttributePathParam;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 
@@ -24,12 +24,12 @@ import qualitypatternmodel.graphstructure.impl.RelationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoAttributeEdgeImpl#getNeoAttributePathParam <em>Neo Attribute Path Param</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyEdgeImpl#getNeoAttributePathParam <em>Neo Attribute Path Param</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class NeoAttributeEdgeImpl extends RelationImpl implements NeoAttributeEdge {
+public class NeoPropertyEdgeImpl extends RelationImpl implements NeoPropertyEdge {
 	/**
 	 * The cached value of the '{@link #getNeoAttributePathParam() <em>Neo Attribute Path Param</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -38,13 +38,13 @@ public class NeoAttributeEdgeImpl extends RelationImpl implements NeoAttributeEd
 	 * @generated
 	 * @ordered
 	 */
-	protected NeoAttributePathParam neoAttributePathParam;
+	protected NeoPropertyPathParam neoAttributePathParam;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NeoAttributeEdgeImpl() {
+	protected NeoPropertyEdgeImpl() {
 		super();
 	}
 
@@ -55,7 +55,7 @@ public class NeoAttributeEdgeImpl extends RelationImpl implements NeoAttributeEd
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AdaptionNeo4JPackage.Literals.NEO_ATTRIBUTE_EDGE;
+		return AdaptionNeo4JPackage.Literals.NEO_PROPERTY_EDGE;
 	}
 
 	/**
@@ -64,13 +64,13 @@ public class NeoAttributeEdgeImpl extends RelationImpl implements NeoAttributeEd
 	 * @generated
 	 */
 	@Override
-	public NeoAttributePathParam getNeoAttributePathParam() {
+	public NeoPropertyPathParam getNeoAttributePathParam() {
 		if (neoAttributePathParam != null && neoAttributePathParam.eIsProxy()) {
 			InternalEObject oldNeoAttributePathParam = (InternalEObject)neoAttributePathParam;
-			neoAttributePathParam = (NeoAttributePathParam)eResolveProxy(oldNeoAttributePathParam);
+			neoAttributePathParam = (NeoPropertyPathParam)eResolveProxy(oldNeoAttributePathParam);
 			if (neoAttributePathParam != oldNeoAttributePathParam) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO_ATTRIBUTE_EDGE__NEO_ATTRIBUTE_PATH_PARAM, oldNeoAttributePathParam, neoAttributePathParam));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AdaptionNeo4JPackage.NEO_PROPERTY_EDGE__NEO_ATTRIBUTE_PATH_PARAM, oldNeoAttributePathParam, neoAttributePathParam));
 			}
 		}
 		return neoAttributePathParam;
@@ -81,7 +81,7 @@ public class NeoAttributeEdgeImpl extends RelationImpl implements NeoAttributeEd
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NeoAttributePathParam basicGetNeoAttributePathParam() {
+	public NeoPropertyPathParam basicGetNeoAttributePathParam() {
 		return neoAttributePathParam;
 	}
 
@@ -90,11 +90,11 @@ public class NeoAttributeEdgeImpl extends RelationImpl implements NeoAttributeEd
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNeoAttributePathParam(NeoAttributePathParam newNeoAttributePathParam, NotificationChain msgs) {
-		NeoAttributePathParam oldNeoAttributePathParam = neoAttributePathParam;
+	public NotificationChain basicSetNeoAttributePathParam(NeoPropertyPathParam newNeoAttributePathParam, NotificationChain msgs) {
+		NeoPropertyPathParam oldNeoAttributePathParam = neoAttributePathParam;
 		neoAttributePathParam = newNeoAttributePathParam;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_ATTRIBUTE_EDGE__NEO_ATTRIBUTE_PATH_PARAM, oldNeoAttributePathParam, newNeoAttributePathParam);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PROPERTY_EDGE__NEO_ATTRIBUTE_PATH_PARAM, oldNeoAttributePathParam, newNeoAttributePathParam);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -106,18 +106,18 @@ public class NeoAttributeEdgeImpl extends RelationImpl implements NeoAttributeEd
 	 * @generated
 	 */
 	@Override
-	public void setNeoAttributePathParam(NeoAttributePathParam newNeoAttributePathParam) {
+	public void setNeoAttributePathParam(NeoPropertyPathParam newNeoAttributePathParam) {
 		if (newNeoAttributePathParam != neoAttributePathParam) {
 			NotificationChain msgs = null;
 			if (neoAttributePathParam != null)
-				msgs = ((InternalEObject)neoAttributePathParam).eInverseRemove(this, AdaptionNeo4JPackage.NEO_ATTRIBUTE_PATH_PARAM__NEO_ATTRIBUTE_EDGE, NeoAttributePathParam.class, msgs);
+				msgs = ((InternalEObject)neoAttributePathParam).eInverseRemove(this, AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_ATTRIBUTE_EDGE, NeoPropertyPathParam.class, msgs);
 			if (newNeoAttributePathParam != null)
-				msgs = ((InternalEObject)newNeoAttributePathParam).eInverseAdd(this, AdaptionNeo4JPackage.NEO_ATTRIBUTE_PATH_PARAM__NEO_ATTRIBUTE_EDGE, NeoAttributePathParam.class, msgs);
+				msgs = ((InternalEObject)newNeoAttributePathParam).eInverseAdd(this, AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_ATTRIBUTE_EDGE, NeoPropertyPathParam.class, msgs);
 			msgs = basicSetNeoAttributePathParam(newNeoAttributePathParam, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_ATTRIBUTE_EDGE__NEO_ATTRIBUTE_PATH_PARAM, newNeoAttributePathParam, newNeoAttributePathParam));
+			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PROPERTY_EDGE__NEO_ATTRIBUTE_PATH_PARAM, newNeoAttributePathParam, newNeoAttributePathParam));
 	}
 
 	@Override
@@ -135,10 +135,10 @@ public class NeoAttributeEdgeImpl extends RelationImpl implements NeoAttributeEd
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_EDGE__NEO_ATTRIBUTE_PATH_PARAM:
+			case AdaptionNeo4JPackage.NEO_PROPERTY_EDGE__NEO_ATTRIBUTE_PATH_PARAM:
 				if (neoAttributePathParam != null)
-					msgs = ((InternalEObject)neoAttributePathParam).eInverseRemove(this, AdaptionNeo4JPackage.NEO_ATTRIBUTE_PATH_PARAM__NEO_ATTRIBUTE_EDGE, NeoAttributePathParam.class, msgs);
-				return basicSetNeoAttributePathParam((NeoAttributePathParam)otherEnd, msgs);
+					msgs = ((InternalEObject)neoAttributePathParam).eInverseRemove(this, AdaptionNeo4JPackage.NEO_PROPERTY_PATH_PARAM__NEO_ATTRIBUTE_EDGE, NeoPropertyPathParam.class, msgs);
+				return basicSetNeoAttributePathParam((NeoPropertyPathParam)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -151,7 +151,7 @@ public class NeoAttributeEdgeImpl extends RelationImpl implements NeoAttributeEd
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_EDGE__NEO_ATTRIBUTE_PATH_PARAM:
+			case AdaptionNeo4JPackage.NEO_PROPERTY_EDGE__NEO_ATTRIBUTE_PATH_PARAM:
 				return basicSetNeoAttributePathParam(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -165,7 +165,7 @@ public class NeoAttributeEdgeImpl extends RelationImpl implements NeoAttributeEd
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_EDGE__NEO_ATTRIBUTE_PATH_PARAM:
+			case AdaptionNeo4JPackage.NEO_PROPERTY_EDGE__NEO_ATTRIBUTE_PATH_PARAM:
 				if (resolve) return getNeoAttributePathParam();
 				return basicGetNeoAttributePathParam();
 		}
@@ -180,8 +180,8 @@ public class NeoAttributeEdgeImpl extends RelationImpl implements NeoAttributeEd
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_EDGE__NEO_ATTRIBUTE_PATH_PARAM:
-				setNeoAttributePathParam((NeoAttributePathParam)newValue);
+			case AdaptionNeo4JPackage.NEO_PROPERTY_EDGE__NEO_ATTRIBUTE_PATH_PARAM:
+				setNeoAttributePathParam((NeoPropertyPathParam)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -195,8 +195,8 @@ public class NeoAttributeEdgeImpl extends RelationImpl implements NeoAttributeEd
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_EDGE__NEO_ATTRIBUTE_PATH_PARAM:
-				setNeoAttributePathParam((NeoAttributePathParam)null);
+			case AdaptionNeo4JPackage.NEO_PROPERTY_EDGE__NEO_ATTRIBUTE_PATH_PARAM:
+				setNeoAttributePathParam((NeoPropertyPathParam)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -210,7 +210,7 @@ public class NeoAttributeEdgeImpl extends RelationImpl implements NeoAttributeEd
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_EDGE__NEO_ATTRIBUTE_PATH_PARAM:
+			case AdaptionNeo4JPackage.NEO_PROPERTY_EDGE__NEO_ATTRIBUTE_PATH_PARAM:
 				return neoAttributePathParam != null;
 		}
 		return super.eIsSet(featureID);

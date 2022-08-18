@@ -7,8 +7,8 @@ import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
 import qualitypatternmodel.adaptionNeo4J.NeoLabel;
 import qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JFactoryImpl;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoAttributeEdgeImpl;
-import qualitypatternmodel.adaptionNeo4J.impl.NeoAttributePathParamImpl;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyEdgeImpl;
+import qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyPathParamImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoComplexEdgeImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoInEdgeTargedNodeImpl;
 import qualitypatternmodel.adaptionNeo4J.impl.NeoLabelImpl;
@@ -94,8 +94,8 @@ public class EdgeTest {
 	
 	public static void generateSimpleAttributeEdge() {
 		AdaptionNeo4JFactoryImpl factory = new AdaptionNeo4JFactoryImpl();
-		NeoAttributeEdgeImpl nan = (NeoAttributeEdgeImpl) factory.createNeoAttributeEdge();
-		NeoAttributePathParamImpl napp = (NeoAttributePathParamImpl) factory.createNeoAttributePathParam();
+		NeoPropertyEdgeImpl nan = (NeoPropertyEdgeImpl) factory.createNeoAttributeEdge();
+		NeoPropertyPathParamImpl napp = (NeoPropertyPathParamImpl) factory.createNeoAttributePathParam();
 		nan.setNeoAttributePathParam(napp);
 		try {
 			System.out.println("NeoAttributeEdgeTest -- Test without NeoAttributePathImpl");
@@ -108,8 +108,8 @@ public class EdgeTest {
 	
 	public static void generateAttributeEdgeWithSimpleNeoPath() {
 		AdaptionNeo4JFactoryImpl factory = new AdaptionNeo4JFactoryImpl();
-		NeoAttributeEdgeImpl nan = (NeoAttributeEdgeImpl) factory.createNeoAttributeEdge();
-		NeoAttributePathParamImpl napp = (NeoAttributePathParamImpl) factory.createNeoAttributePathParam();
+		NeoPropertyEdgeImpl nan = (NeoPropertyEdgeImpl) factory.createNeoAttributeEdge();
+		NeoPropertyPathParamImpl napp = (NeoPropertyPathParamImpl) factory.createNeoAttributePathParam();
 		napp.setNeoPath(factory.createNeoSimpleEdge());
 		nan.setNeoAttributePathParam(napp);
 	
@@ -122,8 +122,8 @@ public class EdgeTest {
 	
 	public static void generateAttributeEdgeWithComplexEdgeNeoPath() {
 		AdaptionNeo4JFactoryImpl factory = new AdaptionNeo4JFactoryImpl();
-		NeoAttributeEdgeImpl nan = (NeoAttributeEdgeImpl) factory.createNeoAttributeEdge();
-		NeoAttributePathParamImpl napp = (NeoAttributePathParamImpl) factory.createNeoAttributePathParam();
+		NeoPropertyEdgeImpl nan = (NeoPropertyEdgeImpl) factory.createNeoAttributeEdge();
+		NeoPropertyPathParamImpl napp = (NeoPropertyPathParamImpl) factory.createNeoAttributePathParam();
 		NeoComplexEdgeImpl nce = (NeoComplexEdgeImpl) factory.createNeoComplexEdge();
 		List<NeoSimpleEdgeImpl> s = new LinkedList<NeoSimpleEdgeImpl>();
 		s.add((NeoSimpleEdgeImpl) factory.createNeoSimpleEdge());
@@ -144,8 +144,8 @@ public class EdgeTest {
 	
 	public static void generateAttributeEdgeWithComplexEdgeNeoPathComplexNodesLabels() {
 		AdaptionNeo4JFactoryImpl factory = new AdaptionNeo4JFactoryImpl();
-		NeoAttributeEdgeImpl nan = (NeoAttributeEdgeImpl) factory.createNeoAttributeEdge();
-		NeoAttributePathParamImpl napp = (NeoAttributePathParamImpl) factory.createNeoAttributePathParam();
+		NeoPropertyEdgeImpl nan = (NeoPropertyEdgeImpl) factory.createNeoAttributeEdge();
+		NeoPropertyPathParamImpl napp = (NeoPropertyPathParamImpl) factory.createNeoAttributePathParam();
 		NeoComplexEdgeImpl nce = (NeoComplexEdgeImpl) factory.createNeoComplexEdge();
 		List<NeoSimpleEdgeImpl> s = new LinkedList<NeoSimpleEdgeImpl>();
 		s.add((NeoSimpleEdgeImpl) factory.createNeoSimpleEdge());

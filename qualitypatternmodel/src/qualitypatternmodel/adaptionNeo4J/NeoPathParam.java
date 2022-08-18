@@ -55,7 +55,7 @@ public interface NeoPathParam extends Parameter, Adaptable {
 	 * @return the value of the '<em>Neo Path</em>' reference.
 	 * @see #setNeoPath(NeoPathPart)
 	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPathParam_NeoPath()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	NeoPathPart getNeoPath();

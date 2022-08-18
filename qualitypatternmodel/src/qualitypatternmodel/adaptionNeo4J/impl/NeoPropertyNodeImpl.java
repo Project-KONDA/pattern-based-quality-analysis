@@ -7,13 +7,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import qualitypatternmodel.adaptionNeo4J.AbstractNeoNode;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoAttributeNode;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.graphstructure.Node;
 import qualitypatternmodel.graphstructure.PrimitiveNode;
 import qualitypatternmodel.graphstructure.impl.PrimitiveNodeImpl;
 import qualitypatternmodel.patternstructure.PatternElement;
-import qualitypatternmodel.utility.CypherSpecificConstants;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,24 +22,40 @@ import qualitypatternmodel.utility.CypherSpecificConstants;
  *
  * @generated
  */
-public class NeoAttributeNodeImpl extends PrimitiveNodeImpl implements NeoAttributeNode {
+public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropertyNode {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NeoAttributeNodeImpl() {
+	protected NeoPropertyNodeImpl() {
 		super();
 	}
 	
 	@Override 
-	public String generateCypher() {
+	public String generateCypher() throws InvalidityException {
 		//Im Match von Cypher ein genauen Wert zuordnen) 
 		//Umsetzung schauen 
+		//The thing with the params
+		
+		 
+		if (!(getIncoming().get(0) instanceof NeoPropertyEdge)) 
+			throw new InvalidityException("incoming relation is no NeoAttributeEdge");
+		NeoPropertyEdgeImpl nae = (NeoPropertyEdgeImpl) getIncoming().get(0);
+		String attributeName = nae.getNeoAttributePathParam().getNeoPropertyName();
 		
 		StringBuilder cypher = new StringBuilder();
-		cypher.append(CypherSpecificConstants.VARIABLE_NODE);
-		cypher.append(getOriginalID());
+		try {
+				//In the case there is no NeoPath for further specification
+				if (nae.basicGetNeoAttributePathParam().getNeoPath() == null) {
+					NeoNodeImpl nni = (NeoNodeImpl) getOriginalNode();
+					cypher.append(nni.getCypherVariable());
+				} else {
+					//TODO
+					System.out.println("ToDo");
+				}
+		} catch (Exception e) {System.out.println(e);}
+		cypher.append("." + attributeName);
 		return cypher.toString();
 	}
 	
@@ -50,8 +66,13 @@ public class NeoAttributeNodeImpl extends PrimitiveNodeImpl implements NeoAttrib
 	 */
 	@Override
 	public String getCypherVariable() {
-		//In this case the method is the same to generateCypher()
-		return this.generateCypher();
+		try {
+			return this.generateCypher();
+		} catch (InvalidityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "";
 	}
 	
 	@Override
@@ -97,7 +118,7 @@ public class NeoAttributeNodeImpl extends PrimitiveNodeImpl implements NeoAttrib
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return AdaptionNeo4JPackage.Literals.NEO_ATTRIBUTE_NODE;
+		return AdaptionNeo4JPackage.Literals.NEO_PROPERTY_NODE;
 	}
 
 
@@ -111,7 +132,7 @@ public class NeoAttributeNodeImpl extends PrimitiveNodeImpl implements NeoAttrib
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == AbstractNeoNode.class) {
 			switch (baseOperationID) {
-				case AdaptionNeo4JPackage.ABSTRACT_NEO_NODE___GET_CYPHER_VARIABLE: return AdaptionNeo4JPackage.NEO_ATTRIBUTE_NODE___GET_CYPHER_VARIABLE;
+				case AdaptionNeo4JPackage.ABSTRACT_NEO_NODE___GET_CYPHER_VARIABLE: return AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE;
 				default: return -1;
 			}
 		}
@@ -126,7 +147,7 @@ public class NeoAttributeNodeImpl extends PrimitiveNodeImpl implements NeoAttrib
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case AdaptionNeo4JPackage.NEO_ATTRIBUTE_NODE___GET_CYPHER_VARIABLE:
+			case AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
 		}
 		return super.eInvoke(operationID, arguments);

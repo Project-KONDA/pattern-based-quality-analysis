@@ -8,7 +8,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoInEdgeTargedNode;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 
@@ -78,26 +77,12 @@ public abstract class NeoPathPartImpl extends PatternElementImpl implements NeoP
 	 * @generated
 	 */
 	@Override
-	public EList<NeoInEdgeTargedNode> getNeoInEdgeTargedNode() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_SIMPLE_EDGES:
 				return getSimpleEdges();
 			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_CYPHER_VARIABLE:
 				return getCypherVariable();
-			case AdaptionNeo4JPackage.NEO_PATH_PART___GET_NEO_IN_EDGE_TARGED_NODE:
-				return getNeoInEdgeTargedNode();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
