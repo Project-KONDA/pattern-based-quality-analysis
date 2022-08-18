@@ -16,6 +16,7 @@ import qualitypatternmodel.parameters.tests.ParameterTest;
  * <p>
  * The following operations are tested:
  * <ul>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getLastRelations() <em>Get Last Relations</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#createParameters() <em>Create Parameters</em>}</li>
  *   <li>{@link qualitypatternmodel.graphstructure.Adaptable#removeParametersFromParameterList() <em>Remove Parameters From Parameter List</em>}</li>
  * </ul>
@@ -74,6 +75,19 @@ public class NeoPathParamTest extends ParameterTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getLastRelations() <em>Get Last Relations</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getLastRelations()
+	 * @generated
+	 */
+	public void testGetLastRelations() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**

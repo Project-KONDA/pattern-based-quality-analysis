@@ -5,7 +5,7 @@ package qualitypatternmodel.adaptionNeo4J.impl;
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import qualitypatternmodel.adaptionNeo4J.AbstractNeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPropertyNode;
@@ -42,12 +42,12 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 		if (!(getIncoming().get(0) instanceof NeoPropertyEdge)) 
 			throw new InvalidityException("incoming relation is no NeoAttributeEdge");
 		NeoPropertyEdgeImpl nae = (NeoPropertyEdgeImpl) getIncoming().get(0);
-		String attributeName = nae.getNeoAttributePathParam().getNeoPropertyName();
+		String attributeName = nae.getNeoPropertyPathParam().getNeoPropertyName().getValue();
 		
 		StringBuilder cypher = new StringBuilder();
 		try {
 				//In the case there is no NeoPath for further specification
-				if (nae.basicGetNeoAttributePathParam().getNeoPath() == null) {
+				if (nae.basicGetNeoPropertyPathParam().getNeoPath() == null) {
 					NeoNodeImpl nni = (NeoNodeImpl) getOriginalNode();
 					cypher.append(nni.getCypherVariable());
 				} else {
@@ -130,9 +130,9 @@ public class NeoPropertyNodeImpl extends PrimitiveNodeImpl implements NeoPropert
 	 */
 	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == AbstractNeoNode.class) {
+		if (baseClass == NeoAbstractNode.class) {
 			switch (baseOperationID) {
-				case AdaptionNeo4JPackage.ABSTRACT_NEO_NODE___GET_CYPHER_VARIABLE: return AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE;
+				case AdaptionNeo4JPackage.NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE: return AdaptionNeo4JPackage.NEO_PROPERTY_NODE___GET_CYPHER_VARIABLE;
 				default: return -1;
 			}
 		}

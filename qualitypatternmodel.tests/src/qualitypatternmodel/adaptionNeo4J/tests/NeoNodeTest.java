@@ -16,7 +16,7 @@ import qualitypatternmodel.graphstructure.tests.ComplexNodeTest;
  * The following operations are tested:
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoNode#setNeoNodeLabel(qualitypatternmodel.parameters.TextLiteralParam) <em>Set Neo Node Label</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.AbstractNeoNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable() <em>Get Cypher Variable</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -89,10 +89,10 @@ public class NeoNodeTest extends ComplexNodeTest {
 	}
 
 	/**
-	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.AbstractNeoNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
+	 * Tests the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.AbstractNeoNode#getCypherVariable()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable()
 	 * @generated
 	 */
 	public void testGetCypherVariable() {

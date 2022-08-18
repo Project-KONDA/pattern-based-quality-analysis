@@ -49,25 +49,25 @@ public class NeoPropertyEdgeItemProvider extends RelationItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNeoAttributePathParamPropertyDescriptor(object);
+			addNeoPropertyPathParamPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Neo Attribute Path Param feature.
+	 * This adds a property descriptor for the Neo Property Path Param feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNeoAttributePathParamPropertyDescriptor(Object object) {
+	protected void addNeoPropertyPathParamPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NeoPropertyEdge_neoAttributePathParam_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NeoPropertyEdge_neoAttributePathParam_feature", "_UI_NeoPropertyEdge_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_PROPERTY_EDGE__NEO_ATTRIBUTE_PATH_PARAM,
+				 getString("_UI_NeoPropertyEdge_neoPropertyPathParam_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoPropertyEdge_neoPropertyPathParam_feature", "_UI_NeoPropertyEdge_type"),
+				 AdaptionNeo4JPackage.Literals.NEO_PROPERTY_EDGE__NEO_PROPERTY_PATH_PARAM,
 				 true,
 				 false,
 				 true,

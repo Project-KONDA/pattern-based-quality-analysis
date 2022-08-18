@@ -14,5 +14,5 @@ import qualitypatternmodel.graphstructure.PrimitiveNode;
  * @model
  * @generated
  */
-public interface NeoPropertyNode extends PrimitiveNode, AbstractNeoNode {
+public interface NeoPropertyNode extends PrimitiveNode, NeoAbstractNode {
 } // NeoAttributeNode

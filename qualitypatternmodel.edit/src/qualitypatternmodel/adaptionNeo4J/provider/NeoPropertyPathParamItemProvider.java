@@ -49,7 +49,7 @@ public class NeoPropertyPathParamItemProvider extends ParameterItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addNeoPathPropertyDescriptor(object);
-			addNeoAttributeEdgePropertyDescriptor(object);
+			addNeoPropertyEdgePropertyDescriptor(object);
 			addNeoPropertyNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -78,19 +78,19 @@ public class NeoPropertyPathParamItemProvider extends ParameterItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Neo Attribute Edge feature.
+	 * This adds a property descriptor for the Neo Property Edge feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNeoAttributeEdgePropertyDescriptor(Object object) {
+	protected void addNeoPropertyEdgePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NeoPropertyPathParam_neoAttributeEdge_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NeoPropertyPathParam_neoAttributeEdge_feature", "_UI_NeoPropertyPathParam_type"),
-				 AdaptionNeo4JPackage.Literals.NEO_PROPERTY_PATH_PARAM__NEO_ATTRIBUTE_EDGE,
+				 getString("_UI_NeoPropertyPathParam_neoPropertyEdge_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeoPropertyPathParam_neoPropertyEdge_feature", "_UI_NeoPropertyPathParam_type"),
+				 AdaptionNeo4JPackage.Literals.NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE,
 				 true,
 				 false,
 				 true,

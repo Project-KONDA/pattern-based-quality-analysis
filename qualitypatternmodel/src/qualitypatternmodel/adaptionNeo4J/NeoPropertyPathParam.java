@@ -17,7 +17,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * </p>
  * <ul>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPath <em>Neo Path</em>}</li>
- *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoAttributeEdge <em>Neo Attribute Edge</em>}</li>
+ *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPropertyEdge <em>Neo Property Edge</em>}</li>
  *   <li>{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPropertyName <em>Neo Property Name</em>}</li>
  * </ul>
  *
@@ -25,7 +25,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * @model
  * @generated
  */
-public interface NeoPropertyPathParam extends Parameter, Adaptable {
+public interface NeoPropertyPathParam extends Parameter, Adaptable, NeoAbstractPathParam {
 	/**
 	 * Returns the value of the '<em><b>Neo Path</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -49,28 +49,28 @@ public interface NeoPropertyPathParam extends Parameter, Adaptable {
 	void setNeoPath(NeoPathPart value);
 
 	/**
-	 * Returns the value of the '<em><b>Neo Attribute Edge</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#getNeoAttributePathParam <em>Neo Attribute Path Param</em>}'.
+	 * Returns the value of the '<em><b>Neo Property Edge</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#getNeoPropertyPathParam <em>Neo Property Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Neo Attribute Edge</em>' reference.
-	 * @see #setNeoAttributeEdge(NeoPropertyEdge)
-	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPropertyPathParam_NeoAttributeEdge()
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#getNeoAttributePathParam
-	 * @model opposite="neoAttributePathParam"
+	 * @return the value of the '<em>Neo Property Edge</em>' reference.
+	 * @see #setNeoPropertyEdge(NeoPropertyEdge)
+	 * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoPropertyPathParam_NeoPropertyEdge()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#getNeoPropertyPathParam
+	 * @model opposite="neoPropertyPathParam"
 	 * @generated
 	 */
-	NeoPropertyEdge getNeoAttributeEdge();
+	NeoPropertyEdge getNeoPropertyEdge();
 
 	/**
-	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoAttributeEdge <em>Neo Attribute Edge</em>}' reference.
+	 * Sets the value of the '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPropertyEdge <em>Neo Property Edge</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Neo Attribute Edge</em>' reference.
-	 * @see #getNeoAttributeEdge()
+	 * @param value the new value of the '<em>Neo Property Edge</em>' reference.
+	 * @see #getNeoPropertyEdge()
 	 * @generated
 	 */
-	void setNeoAttributeEdge(NeoPropertyEdge value);
+	void setNeoPropertyEdge(NeoPropertyEdge value);
 
 	/**
 	 * Returns the value of the '<em><b>Neo Property Name</b></em>' reference.

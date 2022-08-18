@@ -1051,13 +1051,13 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyPathParam/neoPath"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyPathParam/neoAttributeEdge"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyPathParam/neoPropertyEdge"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyPathParam/neoPropertyName"/>
       </genClasses>
       <genClasses ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyEdge">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyEdge/neoAttributePathParam"/>
+            ecoreFeature="ecore:EReference qualitypatternmodel.ecore#//adaptionNeo4J/NeoPropertyEdge/neoPropertyPathParam"/>
       </genClasses>
       <genClasses image="false" ecoreClass="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractEdge">
         <genOperations ecoreOperation="qualitypatternmodel.ecore#//adaptionNeo4J/NeoAbstractEdge/setTargetNodeLabel">

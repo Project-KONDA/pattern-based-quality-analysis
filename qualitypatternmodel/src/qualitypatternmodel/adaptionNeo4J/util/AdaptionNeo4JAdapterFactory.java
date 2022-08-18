@@ -78,8 +78,8 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 	protected AdaptionNeo4JSwitch<Adapter> modelSwitch =
 		new AdaptionNeo4JSwitch<Adapter>() {
 			@Override
-			public Adapter caseAbstractNeoNode(AbstractNeoNode object) {
-				return createAbstractNeoNodeAdapter();
+			public Adapter caseNeoAbstractNode(NeoAbstractNode object) {
+				return createNeoAbstractNodeAdapter();
 			}
 			@Override
 			public Adapter caseNeoNode(NeoNode object) {
@@ -120,6 +120,10 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseNeoAbstractEdge(NeoAbstractEdge object) {
 				return createNeoAbstractEdgeAdapter();
+			}
+			@Override
+			public Adapter caseNeoAbstractPathParam(NeoAbstractPathParam object) {
+				return createNeoAbstractPathParamAdapter();
 			}
 			@Override
 			public Adapter casePatternElement(PatternElement object) {
@@ -174,16 +178,16 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.AbstractNeoNode <em>Abstract Neo Node</em>}'.
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode <em>Neo Abstract Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see qualitypatternmodel.adaptionNeo4J.AbstractNeoNode
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode
 	 * @generated
 	 */
-	public Adapter createAbstractNeoNodeAdapter() {
+	public Adapter createNeoAbstractNodeAdapter() {
 		return null;
 	}
 
@@ -324,6 +328,20 @@ public class AdaptionNeo4JAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNeoAbstractEdgeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam <em>Neo Abstract Path Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam
+	 * @generated
+	 */
+	public Adapter createNeoAbstractPathParamAdapter() {
 		return null;
 	}
 

@@ -65,23 +65,23 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	AdaptionNeo4JPackage eINSTANCE = qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.AbstractNeoNode <em>Abstract Neo Node</em>}' class.
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode <em>Neo Abstract Node</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see qualitypatternmodel.adaptionNeo4J.AbstractNeoNode
-	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getAbstractNeoNode()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode
+	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoAbstractNode()
 	 * @generated
 	 */
-	int ABSTRACT_NEO_NODE = 0;
+	int NEO_ABSTRACT_NODE = 0;
 
 	/**
-	 * The number of structural features of the '<em>Abstract Neo Node</em>' class.
+	 * The number of structural features of the '<em>Neo Abstract Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_NEO_NODE_FEATURE_COUNT = 0;
+	int NEO_ABSTRACT_NODE_FEATURE_COUNT = 0;
 
 	/**
 	 * The operation id for the '<em>Get Cypher Variable</em>' operation.
@@ -90,16 +90,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_NEO_NODE___GET_CYPHER_VARIABLE = 0;
+	int NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE = 0;
 
 	/**
-	 * The number of operations of the '<em>Abstract Neo Node</em>' class.
+	 * The number of operations of the '<em>Neo Abstract Node</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_NEO_NODE_OPERATION_COUNT = 1;
+	int NEO_ABSTRACT_NODE_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl <em>Neo Node</em>}' class.
@@ -2204,13 +2204,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION = NEO_PATH_PART_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Is Last Relation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_SIMPLE_EDGE___IS_LAST_RELATION = NEO_PATH_PART_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Neo Simple Edge</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_SIMPLE_EDGE_OPERATION_COUNT = NEO_PATH_PART_OPERATION_COUNT + 2;
+	int NEO_SIMPLE_EDGE_OPERATION_COUNT = NEO_PATH_PART_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyNodeImpl <em>Neo Property Node</em>}' class.
@@ -3376,13 +3385,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = ParametersPackage.PARAMETER_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get Last Relations</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PATH_PARAM___GET_LAST_RELATIONS = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Neo Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
+	int NEO_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyPathParamImpl <em>Neo Property Path Param</em>}' class.
@@ -3458,13 +3476,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_PATH_PARAM__NEO_PATH = ParametersPackage.PARAMETER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Neo Attribute Edge</b></em>' reference.
+	 * The feature id for the '<em><b>Neo Property Edge</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM__NEO_ATTRIBUTE_EDGE = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
+	int NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE = ParametersPackage.PARAMETER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Neo Property Name</b></em>' reference.
@@ -3791,13 +3809,22 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_PATH_PARAM___REMOVE_PARAMETERS_FROM_PARAMETER_LIST = ParametersPackage.PARAMETER_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get Last Relations</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_PROPERTY_PATH_PARAM___GET_LAST_RELATIONS = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Neo Property Path Param</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 2;
+	int NEO_PROPERTY_PATH_PARAM_OPERATION_COUNT = ParametersPackage.PARAMETER_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPropertyEdgeImpl <em>Neo Property Edge</em>}' class.
@@ -3900,13 +3927,13 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_PROPERTY_EDGE__PREDICATES_ARE_BEING_TRANSLATED = GraphstructurePackage.RELATION__PREDICATES_ARE_BEING_TRANSLATED;
 
 	/**
-	 * The feature id for the '<em><b>Neo Attribute Path Param</b></em>' reference.
+	 * The feature id for the '<em><b>Neo Property Path Param</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEO_PROPERTY_EDGE__NEO_ATTRIBUTE_PATH_PARAM = GraphstructurePackage.RELATION_FEATURE_COUNT + 0;
+	int NEO_PROPERTY_EDGE__NEO_PROPERTY_PATH_PARAM = GraphstructurePackage.RELATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Neo Property Edge</em>' class.
@@ -4279,6 +4306,43 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	int NEO_ABSTRACT_EDGE_OPERATION_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam <em>Neo Abstract Path Param</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam
+	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoAbstractPathParam()
+	 * @generated
+	 */
+	int NEO_ABSTRACT_PATH_PARAM = 11;
+
+	/**
+	 * The number of structural features of the '<em>Neo Abstract Path Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ABSTRACT_PATH_PARAM_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Get Last Relations</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS = 0;
+
+	/**
+	 * The number of operations of the '<em>Neo Abstract Path Param</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEO_ABSTRACT_PATH_PARAM_OPERATION_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.NeoQuantifier <em>Neo Quantifier</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4286,7 +4350,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoQuantifier()
 	 * @generated
 	 */
-	int NEO_QUANTIFIER = 11;
+	int NEO_QUANTIFIER = 12;
 
 	/**
 	 * The meta object id for the '{@link qualitypatternmodel.adaptionNeo4J.NeoDirection <em>Neo Direction</em>}' enum.
@@ -4296,28 +4360,28 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoDirection()
 	 * @generated
 	 */
-	int NEO_DIRECTION = 12;
+	int NEO_DIRECTION = 13;
 
 
 	/**
-	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.AbstractNeoNode <em>Abstract Neo Node</em>}'.
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode <em>Neo Abstract Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Abstract Neo Node</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.AbstractNeoNode
+	 * @return the meta object for class '<em>Neo Abstract Node</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode
 	 * @generated
 	 */
-	EClass getAbstractNeoNode();
+	EClass getNeoAbstractNode();
 
 	/**
-	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.AbstractNeoNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable() <em>Get Cypher Variable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Cypher Variable</em>' operation.
-	 * @see qualitypatternmodel.adaptionNeo4J.AbstractNeoNode#getCypherVariable()
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode#getCypherVariable()
 	 * @generated
 	 */
-	EOperation getAbstractNeoNode__GetCypherVariable();
+	EOperation getNeoAbstractNode__GetCypherVariable();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoNode <em>Neo Node</em>}'.
@@ -4478,6 +4542,16 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EOperation getNeoSimpleEdge__SetNeoDirection__NeoDirection();
 
 	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastRelation() <em>Is Last Relation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Last Relation</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge#isLastRelation()
+	 * @generated
+	 */
+	EOperation getNeoSimpleEdge__IsLastRelation();
+
+	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoPathPart <em>Neo Path Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4571,15 +4645,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EReference getNeoPropertyPathParam_NeoPath();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoAttributeEdge <em>Neo Attribute Edge</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPropertyEdge <em>Neo Property Edge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Neo Attribute Edge</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoAttributeEdge()
+	 * @return the meta object for the reference '<em>Neo Property Edge</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPropertyEdge()
 	 * @see #getNeoPropertyPathParam()
 	 * @generated
 	 */
-	EReference getNeoPropertyPathParam_NeoAttributeEdge();
+	EReference getNeoPropertyPathParam_NeoPropertyEdge();
 
 	/**
 	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyPathParam#getNeoPropertyName <em>Neo Property Name</em>}'.
@@ -4603,15 +4677,15 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	EClass getNeoPropertyEdge();
 
 	/**
-	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#getNeoAttributePathParam <em>Neo Attribute Path Param</em>}'.
+	 * Returns the meta object for the reference '{@link qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#getNeoPropertyPathParam <em>Neo Property Path Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Neo Attribute Path Param</em>'.
-	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#getNeoAttributePathParam()
+	 * @return the meta object for the reference '<em>Neo Property Path Param</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoPropertyEdge#getNeoPropertyPathParam()
 	 * @see #getNeoPropertyEdge()
 	 * @generated
 	 */
-	EReference getNeoPropertyEdge_NeoAttributePathParam();
+	EReference getNeoPropertyEdge_NeoPropertyPathParam();
 
 	/**
 	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge <em>Neo Abstract Edge</em>}'.
@@ -4632,6 +4706,26 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getNeoAbstractEdge__SetTargetNodeLabel__TextLiteralParam();
+
+	/**
+	 * Returns the meta object for class '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam <em>Neo Abstract Path Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Neo Abstract Path Param</em>'.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam
+	 * @generated
+	 */
+	EClass getNeoAbstractPathParam();
+
+	/**
+	 * Returns the meta object for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getLastRelations() <em>Get Last Relations</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Last Relations</em>' operation.
+	 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam#getLastRelations()
+	 * @generated
+	 */
+	EOperation getNeoAbstractPathParam__GetLastRelations();
 
 	/**
 	 * Returns the meta object for enum '{@link qualitypatternmodel.adaptionNeo4J.NeoQuantifier <em>Neo Quantifier</em>}'.
@@ -4677,14 +4771,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.AbstractNeoNode <em>Abstract Neo Node</em>}' class.
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractNode <em>Neo Abstract Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see qualitypatternmodel.adaptionNeo4J.AbstractNeoNode
-		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getAbstractNeoNode()
+		 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractNode
+		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoAbstractNode()
 		 * @generated
 		 */
-		EClass ABSTRACT_NEO_NODE = eINSTANCE.getAbstractNeoNode();
+		EClass NEO_ABSTRACT_NODE = eINSTANCE.getNeoAbstractNode();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Cypher Variable</b></em>' operation.
@@ -4692,7 +4786,7 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ABSTRACT_NEO_NODE___GET_CYPHER_VARIABLE = eINSTANCE.getAbstractNeoNode__GetCypherVariable();
+		EOperation NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE = eINSTANCE.getNeoAbstractNode__GetCypherVariable();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoNodeImpl <em>Neo Node</em>}' class.
@@ -4823,6 +4917,14 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EOperation NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION = eINSTANCE.getNeoSimpleEdge__SetNeoDirection__NeoDirection();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Last Relation</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_SIMPLE_EDGE___IS_LAST_RELATION = eINSTANCE.getNeoSimpleEdge__IsLastRelation();
+
+		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoPathPartImpl <em>Neo Path Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4903,12 +5005,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EReference NEO_PROPERTY_PATH_PARAM__NEO_PATH = eINSTANCE.getNeoPropertyPathParam_NeoPath();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Attribute Edge</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Neo Property Edge</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NEO_PROPERTY_PATH_PARAM__NEO_ATTRIBUTE_EDGE = eINSTANCE.getNeoPropertyPathParam_NeoAttributeEdge();
+		EReference NEO_PROPERTY_PATH_PARAM__NEO_PROPERTY_EDGE = eINSTANCE.getNeoPropertyPathParam_NeoPropertyEdge();
 
 		/**
 		 * The meta object literal for the '<em><b>Neo Property Name</b></em>' reference feature.
@@ -4929,12 +5031,12 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		EClass NEO_PROPERTY_EDGE = eINSTANCE.getNeoPropertyEdge();
 
 		/**
-		 * The meta object literal for the '<em><b>Neo Attribute Path Param</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Neo Property Path Param</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NEO_PROPERTY_EDGE__NEO_ATTRIBUTE_PATH_PARAM = eINSTANCE.getNeoPropertyEdge_NeoAttributePathParam();
+		EReference NEO_PROPERTY_EDGE__NEO_PROPERTY_PATH_PARAM = eINSTANCE.getNeoPropertyEdge_NeoPropertyPathParam();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.impl.NeoAbstractEdgeImpl <em>Neo Abstract Edge</em>}' class.
@@ -4953,6 +5055,24 @@ public interface AdaptionNeo4JPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation NEO_ABSTRACT_EDGE___SET_TARGET_NODE_LABEL__TEXTLITERALPARAM = eINSTANCE.getNeoAbstractEdge__SetTargetNodeLabel__TextLiteralParam();
+
+		/**
+		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam <em>Neo Abstract Path Param</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam
+		 * @see qualitypatternmodel.adaptionNeo4J.impl.AdaptionNeo4JPackageImpl#getNeoAbstractPathParam()
+		 * @generated
+		 */
+		EClass NEO_ABSTRACT_PATH_PARAM = eINSTANCE.getNeoAbstractPathParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Last Relations</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS = eINSTANCE.getNeoAbstractPathParam__GetLastRelations();
 
 		/**
 		 * The meta object literal for the '{@link qualitypatternmodel.adaptionNeo4J.NeoQuantifier <em>Neo Quantifier</em>}' enum.

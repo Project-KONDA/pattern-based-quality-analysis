@@ -10,11 +10,11 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getAbstractNeoNode()
+ * @see qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage#getNeoAbstractNode()
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface AbstractNeoNode extends EObject {
+public interface NeoAbstractNode extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->

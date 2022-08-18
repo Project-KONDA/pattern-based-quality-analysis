@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoDirection;
-import qualitypatternmodel.adaptionNeo4J.NeoInEdgeTargedNode;
 import qualitypatternmodel.adaptionNeo4J.NeoSimpleEdge;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -150,6 +149,16 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		default:
 			throw new InvalidityException("Something went wronge in the SimpleNeoEdge - direction has not been set correctly");
 		}
+		if (getNeoTargetNodeLabels().size() != 0) {
+			cypher.append("(");
+			EList<TextLiteralParam> labels = getNeoTargetNodeLabels();
+			for (TextLiteralParam label : labels) {
+				if (label.getValue() != "") {
+					cypher.append(":" + label.getValue());
+				}
+			}
+			cypher.append(")");
+		}
 		return cypher.toString();
 	}
 	
@@ -161,11 +170,6 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 		cypher.append(getEdgeNumber());
 		if (getNeoEdgeLabel() != null) cypher.append(getNeoEdgeLabel().generateCypher());
 		cypher.append("]");
-	}
-	
-	@Override
-	public EList<NeoInEdgeTargedNode> getNeoInEdgeTargedNode() {
-		return null;
 	}
 	
 	@Override
@@ -354,6 +358,18 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 	 * @generated
 	 */
 	@Override
+	public boolean isLastRelation() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public void setTargetNodeLabel(TextLiteralParam targetNodeLabel) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -491,6 +507,8 @@ public class NeoSimpleEdgeImpl extends NeoPathPartImpl implements NeoSimpleEdge 
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___SET_NEO_DIRECTION__NEODIRECTION:
 				setNeoDirection((NeoDirection)arguments.get(0));
 				return null;
+			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___IS_LAST_RELATION:
+				return isLastRelation();
 			case AdaptionNeo4JPackage.NEO_SIMPLE_EDGE___SET_TARGET_NODE_LABEL__TEXTLITERALPARAM:
 				setTargetNodeLabel((TextLiteralParam)arguments.get(0));
 				return null;

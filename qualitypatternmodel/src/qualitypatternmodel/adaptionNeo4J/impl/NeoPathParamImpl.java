@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractEdge;
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
 import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
@@ -182,13 +184,23 @@ public class NeoPathParamImpl extends ParameterImpl implements NeoPathParam {
 			eNotify(new ENotificationImpl(this, Notification.SET, AdaptionNeo4JPackage.NEO_PATH_PARAM__NEO_PATH, oldNeoPath, neoPath));
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<NeoAbstractEdge> getLastRelations() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 	@Override
 	public String generateCypher() throws InvalidityException {
-		String cypher = getNeoPath().generateCypher();
-		if (cypher == null) {
-			cypher = super.generateCypher();
-		}
-		return cypher;
+		StringBuilder cypher = new StringBuilder();
+		
+		return cypher.toString();
 	}
 	
 	
@@ -329,6 +341,12 @@ public class NeoPathParamImpl extends ParameterImpl implements NeoPathParam {
 				default: return -1;
 			}
 		}
+		if (baseClass == NeoAbstractPathParam.class) {
+			switch (baseOperationID) {
+				case AdaptionNeo4JPackage.NEO_ABSTRACT_PATH_PARAM___GET_LAST_RELATIONS: return AdaptionNeo4JPackage.NEO_PATH_PARAM___GET_LAST_RELATIONS;
+				default: return -1;
+			}
+		}
 		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
 
@@ -340,6 +358,8 @@ public class NeoPathParamImpl extends ParameterImpl implements NeoPathParam {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case AdaptionNeo4JPackage.NEO_PATH_PARAM___GET_LAST_RELATIONS:
+				return getLastRelations();
 			case AdaptionNeo4JPackage.NEO_PATH_PARAM___CREATE_PARAMETERS:
 				createParameters();
 				return null;

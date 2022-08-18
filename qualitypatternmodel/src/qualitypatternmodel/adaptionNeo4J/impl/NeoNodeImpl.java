@@ -7,9 +7,8 @@ import java.util.Collection;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import qualitypatternmodel.adaptionNeo4J.AbstractNeoNode;
+import qualitypatternmodel.adaptionNeo4J.NeoAbstractNode;
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
-import qualitypatternmodel.adaptionNeo4J.NeoLabel;
 import qualitypatternmodel.adaptionNeo4J.NeoNode;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.exceptions.MissingPatternContainerException;
@@ -59,9 +58,9 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		cypher.append("(");
 		cypher.append(CypherSpecificConstants.VARIABLE_NODE);
 		cypher.append(getOriginalID());
-		EList<NeoLabel> labels = getNeoNeoLabels();
+		EList<TextLiteralParam> labels = this.getNeoNodeLabels();
 		for (int i = 0; i < labels.size(); i++) {
-			cypher.append(labels.get(i).generateCypher());
+			cypher.append(labels.get(i).getValue());
 		}
 		cypher.append(")");
 		return cypher.toString();
@@ -217,9 +216,9 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 	 */
 	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == AbstractNeoNode.class) {
+		if (baseClass == NeoAbstractNode.class) {
 			switch (baseOperationID) {
-				case AdaptionNeo4JPackage.ABSTRACT_NEO_NODE___GET_CYPHER_VARIABLE: return AdaptionNeo4JPackage.NEO_NODE___GET_CYPHER_VARIABLE;
+				case AdaptionNeo4JPackage.NEO_ABSTRACT_NODE___GET_CYPHER_VARIABLE: return AdaptionNeo4JPackage.NEO_NODE___GET_CYPHER_VARIABLE;
 				default: return -1;
 			}
 		}
@@ -242,11 +241,4 @@ public class NeoNodeImpl extends ComplexNodeImpl implements NeoNode {
 		}
 		return super.eInvoke(operationID, arguments);
 	}
-
-	@Override
-	public EList<TextLiteralParam> getNodeLabels() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 } //NeoNodeImpl

@@ -24,7 +24,6 @@ import qualitypatternmodel.exceptions.OperatorCycleException;
 import qualitypatternmodel.parameters.TextLiteralParam;
 import qualitypatternmodel.patternstructure.AbstractionLevel;
 import qualitypatternmodel.adaptionNeo4J.NeoComplexEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoInEdgeTargedNode;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,27 +63,9 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		if (getNeoPath().size() < 2) 
 			return null;
 		
-		StringBuilder cypher = new StringBuilder();
-		NeoPathPart previewesPart = null;
-		NeoInEdgeTargedNode node = null;
-		int edgeCounter = 1;
-		int edges = getSimpleEdges().size();
+		StringBuilder cypher = new StringBuilder();		
+		for(NeoPathPart part : getSimpleEdges()) cypher.append(part.generateCypher());
 		
-		for(NeoPathPart part : getSimpleEdges()) {
-			if(previewesPart != null && edgeCounter <= edges) {
-				node = null; 
-				for(NeoInEdgeTargedNode inEdgeTargedNode : getNeoInEdgeTargedNode()) 
-					if(inEdgeTargedNode.getNeoSimpleEdgeSource() == previewesPart) node = inEdgeTargedNode;
-				if (node != null) cypher.append(node.generateCypher());
-				else cypher.append("()");
-				
-			}
-			cypher.append(part.generateCypher());
-			previewesPart = part;
-			edgeCounter++;
-		}
-		previewesPart = null;
-
 		return cypher.toString();
 	}
 	
@@ -92,9 +73,7 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	public String getCypherVariable() {
 		StringBuilder variables = new StringBuilder();
 		EList<NeoPathPart> neoPath = this.getNeoPath();
-		EList<NeoInEdgeTargedNode> neoTargedEdge = this.getNeoInEdgeTargedNode();
 		for(NeoPathPart path : neoPath) variables.append(path.getCypherVariable());
-		for(NeoInEdgeTargedNode innerNode: neoTargedEdge) variables.append(innerNode.getCypherVariable());
 		return variables.toString();
 	}
 
@@ -246,15 +225,6 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 	}
 	
 	@Override
-	public EList<NeoInEdgeTargedNode> getNeoInEdgeTargedNode() {
-		EList<NeoInEdgeTargedNode> list = new BasicEList<NeoInEdgeTargedNode>();
-		for(NeoInEdgeTargedNode node : getNeoTargedEdge()) {
-			list.add(node);
-		}
-		return list;
-	}
-	
-	@Override
 	public String myToString() {
 		String result = "NeoComplexEdge [" + getId() + "] (";
 		int i = 0;
@@ -272,15 +242,9 @@ public class NeoComplexEdgeImpl extends NeoPathPartImpl implements NeoComplexEdg
 		return false;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public void setTargetNodeLabel(TextLiteralParam targetNodeLabel) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
+		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException();
 	}
 

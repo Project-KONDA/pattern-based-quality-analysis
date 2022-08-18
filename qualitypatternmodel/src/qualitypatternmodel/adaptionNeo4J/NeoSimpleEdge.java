@@ -154,4 +154,12 @@ public interface NeoSimpleEdge extends NeoPathPart, NeoAbstractEdge {
 	 */
 	void setNeoDirection(NeoDirection neoDirection);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isLastRelation();
+
 } // SimpleEdge

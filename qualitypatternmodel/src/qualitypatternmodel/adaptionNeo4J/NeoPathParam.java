@@ -23,7 +23,7 @@ import qualitypatternmodel.parameters.Parameter;
  * @model
  * @generated
  */
-public interface NeoPathParam extends Parameter, Adaptable {
+public interface NeoPathParam extends Parameter, Adaptable, NeoAbstractPathParam {
 	/**
 	 * Returns the value of the '<em><b>Neo Edge</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link qualitypatternmodel.adaptionNeo4J.NeoEdge#getNeoPathParam <em>Neo Path Param</em>}'.

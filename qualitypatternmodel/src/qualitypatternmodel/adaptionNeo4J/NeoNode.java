@@ -22,7 +22,7 @@ import qualitypatternmodel.parameters.TextLiteralParam;
  * @model
  * @generated
  */
-public interface NeoNode extends ComplexNode, AbstractNeoNode {
+public interface NeoNode extends ComplexNode, NeoAbstractNode {
 
 	/**
 	 * Returns the value of the '<em><b>Neo Node Labels</b></em>' reference list.

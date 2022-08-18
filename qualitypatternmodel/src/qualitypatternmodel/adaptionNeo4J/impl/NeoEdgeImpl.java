@@ -2,8 +2,6 @@
  */
 package qualitypatternmodel.adaptionNeo4J.impl;
 
-import java.util.List;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,10 +12,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import qualitypatternmodel.adaptionNeo4J.AdaptionNeo4JPackage;
 import qualitypatternmodel.adaptionNeo4J.NeoPathParam;
-import qualitypatternmodel.adaptionNeo4J.NeoPathPart;
 import qualitypatternmodel.exceptions.InvalidityException;
 import qualitypatternmodel.adaptionNeo4J.NeoEdge;
-import qualitypatternmodel.adaptionNeo4J.NeoInEdgeTargedNode;
 import qualitypatternmodel.graphstructure.impl.RelationImpl;
 
 /**
@@ -68,29 +64,7 @@ public class NeoEdgeImpl extends RelationImpl implements NeoEdge {
 	public String generateCypher() throws InvalidityException {
 		StringBuilder cypher = new StringBuilder("");
 		if(!translated) {
-			translated = true;
-			NeoPathParam neoPathParam = getNeoPathParam();
-			NeoPathPart neoPartPath = neoPathParam.getNeoPath();
-			List<NeoInEdgeTargedNode> neoInEdgeTargedNodes	= neoPartPath.getNeoInEdgeTargedNode();
-			NeoPathPart previewesPart = null;
-			NeoInEdgeTargedNode node = null;
-			int edgeCounter = 1;
-			int edges = neoPartPath.getSimpleEdges().size();
-			
-			for(NeoPathPart part : neoPartPath.getSimpleEdges()) {
-				if(previewesPart != null && edgeCounter != edges) {
-					node = null;
-					for(NeoInEdgeTargedNode inEdgeTargedNode : neoInEdgeTargedNodes) 
-						if(inEdgeTargedNode.getNeoSimpleEdgeSource() == previewesPart) node = inEdgeTargedNode;
-					if (node != null) cypher.append(node.generateCypher());
-					else cypher.append("()");
-					
-				}
-				cypher.append(part.generateCypher());
-				previewesPart = part;
-				edgeCounter++;
-			}
-			previewesPart = null;
+			//TODO
 		}
 		return cypher.toString();		
 	}
